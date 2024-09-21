@@ -31,7 +31,7 @@ function FullscreenButtonViewModel(fullscreenElement, container) {
   const ownerDocument = container.ownerDocument;
 
   /**
-   * Gets whether or not fullscreen mode is active.  This property is observable.
+   * Gets whether or not fullscreen mode is active.  这个属性是可观察的。
    *
    * @type {boolean}
    */
@@ -43,7 +43,7 @@ function FullscreenButtonViewModel(fullscreenElement, container) {
   });
 
   /**
-   * Gets or sets whether or not fullscreen functionality should be enabled.  This property is observable.
+   * Gets or sets whether or not fullscreen functionality should be enabled.  这个属性是可观察的。
    *
    * @type {boolean}
    * @see Fullscreen.enabled
@@ -59,7 +59,7 @@ function FullscreenButtonViewModel(fullscreenElement, container) {
   });
 
   /**
-   * Gets the tooltip.  This property is observable.
+   * Gets the tooltip.  这个属性是可观察的。
    *
    * @type {string}
    */
@@ -128,7 +128,7 @@ Object.defineProperties(FullscreenButtonViewModel.prototype, {
 });
 
 /**
- * @returns {boolean} true if the object has been destroyed, false otherwise.
+ * @returns {boolean} 如果对象已被销毁，则为true，否则为false。
  */
 FullscreenButtonViewModel.prototype.isDestroyed = function () {
   return false;

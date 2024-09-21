@@ -13,7 +13,7 @@ import { DeveloperError } from "@cesium/engine";
  */
 function Command() {
   /**
-   * Gets whether this command can currently be executed.  This property is observable.
+   * Gets whether this command can currently be executed.  这个属性是可观察的。
    * @type {boolean}
    * @default undefined
    */

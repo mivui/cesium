@@ -8,7 +8,7 @@ import createCommand from "../createCommand.js";
  */
 function NavigationHelpButtonViewModel() {
   /**
-   * Gets or sets whether the instructions are currently shown.  This property is observable.
+   * Gets or sets whether the instructions are currently shown.  这个属性是可观察的。
    * @type {boolean}
    * @default false
    */
@@ -28,7 +28,7 @@ function NavigationHelpButtonViewModel() {
   this._touch = false;
 
   /**
-   * Gets or sets the tooltip.  This property is observable.
+   * Gets or sets the tooltip.  这个属性是可观察的。
    *
    * @type {string}
    */

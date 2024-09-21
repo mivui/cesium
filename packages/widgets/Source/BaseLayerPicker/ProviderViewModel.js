@@ -44,19 +44,19 @@ function ProviderViewModel(options) {
   this._creationCommand = creationCommand;
 
   /**
-   * Gets the display name.  This property is observable.
+   * Gets the display name.  这个属性是可观察的。
    * @type {string}
    */
   this.name = options.name;
 
   /**
-   * Gets the tooltip.  This property is observable.
+   * Gets the tooltip.  这个属性是可观察的。
    * @type {string}
    */
   this.tooltip = options.tooltip;
 
   /**
-   * Gets the icon.  This property is observable.
+   * Gets the icon.  这个属性是可观察的。
    * @type {string}
    */
   this.iconUrl = options.iconUrl;

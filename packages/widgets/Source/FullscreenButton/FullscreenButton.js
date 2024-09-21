@@ -62,7 +62,7 @@ cesiumSvgPath: { path: isFullscreen ? _exitFullScreenPath : _enterFullScreenPath
 
 Object.defineProperties(FullscreenButton.prototype, {
   /**
-   * Gets the parent container.
+   * 获取父容器。
    * @memberof FullscreenButton.prototype
    *
    * @type {Element}
@@ -74,7 +74,7 @@ Object.defineProperties(FullscreenButton.prototype, {
   },
 
   /**
-   * Gets the view model.
+   * 获取视图模型。
    * @memberof FullscreenButton.prototype
    *
    * @type {FullscreenButtonViewModel}
@@ -87,15 +87,15 @@ Object.defineProperties(FullscreenButton.prototype, {
 });
 
 /**
- * @returns {boolean} true if the object has been destroyed, false otherwise.
+ * @returns {boolean} 如果对象已被销毁，则为true，否则为false。
  */
 FullscreenButton.prototype.isDestroyed = function () {
   return false;
 };
 
 /**
- * Destroys the widget.  Should be called if permanently
- * removing the widget from layout.
+ * 销毁小部件。应该叫它永久的吗
+ * 从布局中删除小部件。
  */
 FullscreenButton.prototype.destroy = function () {
   this._viewModel.destroy();

@@ -182,7 +182,7 @@ function GeocoderViewModel(options) {
     GeocoderViewModel._updateSearchSuggestions(that);
   });
   /**
-   * Gets a value indicating whether a search is currently in progress.  This property is observable.
+   * Gets a value indicating whether a search is currently in progress.  这个属性是可观察的。
    *
    * @type {boolean}
    */
@@ -306,8 +306,8 @@ Object.defineProperties(GeocoderViewModel.prototype, {
 });
 
 /**
- * Destroys the widget.  Should be called if permanently
- * removing the widget from layout.
+ * 销毁小部件。应该叫它永久的吗
+ * 从布局中删除小部件。
  */
 GeocoderViewModel.prototype.destroy = function () {
   this._suggestionSubscription.dispose();
@@ -600,15 +600,15 @@ GeocoderViewModel._updateSearchSuggestions = updateSearchSuggestions;
 GeocoderViewModel._adjustSuggestionsScroll = adjustSuggestionsScroll;
 
 /**
- * @returns {boolean} true if the object has been destroyed, false otherwise.
+ * @returns {boolean} 如果对象已被销毁，则为true，否则为false。
  */
 GeocoderViewModel.prototype.isDestroyed = function () {
   return false;
 };
 
 /**
- * Destroys the widget.  Should be called if permanently
- * removing the widget from layout.
+ * 销毁小部件。应该叫它永久的吗
+ * 从布局中删除小部件。
  */
 GeocoderViewModel.prototype.destroy = function () {
   clearCredits(this);

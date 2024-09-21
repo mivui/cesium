@@ -16,7 +16,7 @@ function InfoBoxViewModel() {
   this._closeClicked = new Event();
 
   /**
-   * Gets or sets the maximum height of the info box in pixels.  This property is observable.
+   * Gets or sets the maximum height of the info box in pixels.  这个属性是可观察的。
    * @type {number}
    */
   this.maxHeight = 500;

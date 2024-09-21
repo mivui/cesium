@@ -10,16 +10,16 @@ import knockout from "../ThirdParty/knockout.js";
 import createCommand from "../createCommand.js";
 
 /**
- * The view model for {@link BaseLayerPicker}.
+ * {@link BaseLayerPicker} 的视图模型.
  * @alias BaseLayerPickerViewModel
  * @constructor
  *
  * @param {object} options 对象，具有以下属性:
- * @param {Globe} options.globe The Globe to use.
- * @param {ProviderViewModel[]} [options.imageryProviderViewModels=[]] The array of ProviderViewModel instances to use for imagery.
- * @param {ProviderViewModel} [options.selectedImageryProviderViewModel] The view model for the current base imagery layer, if not supplied the first available imagery layer is used.
- * @param {ProviderViewModel[]} [options.terrainProviderViewModels=[]] The array of ProviderViewModel instances to use for terrain.
- * @param {ProviderViewModel} [options.selectedTerrainProviderViewModel] The view model for the current base terrain layer, if not supplied the first available terrain layer is used.
+ * @param {Globe} options.globe Globe 去使用.
+ * @param {ProviderViewModel[]} [options.imageryProviderViewModels=[]] 用于图像的ProviderViewModel实例数组。
+ * @param {ProviderViewModel} [options.selectedImageryProviderViewModel] 当前基本图像层的视图模型，如果没有提供，则使用第一个可用的图像层。
+ * @param {ProviderViewModel[]} [options.terrainProviderViewModels=[]] 用于地形的ProviderViewModel实例数组。
+ * @param {ProviderViewModel} [options.selectedTerrainProviderViewModel] 当前基本地形层的视图模型，如果没有提供，则使用第一个可用的地形层。
  *
  * @exception {DeveloperError} imageryProviderViewModels must be an array.
  * @exception {DeveloperError} terrainProviderViewModels must be an array.
@@ -46,21 +46,21 @@ function BaseLayerPickerViewModel(options) {
   this._globe = globe;
 
   /**
-   * Gets or sets an array of ProviderViewModel instances available for imagery selection.
-   * This property is observable.
+   * 获取或设置可用于图像选择的ProviderViewModel实例数组。
+   * 这个属性是可观察的。
    * @type {ProviderViewModel[]}
    */
   this.imageryProviderViewModels = imageryProviderViewModels.slice(0);
 
   /**
-   * Gets or sets an array of ProviderViewModel instances available for terrain selection.
-   * This property is observable.
+   * 获取或设置可用于地形选择的ProviderViewModel实例数组。
+   * 这个属性是可观察的。
    * @type {ProviderViewModel[]}
    */
   this.terrainProviderViewModels = terrainProviderViewModels.slice(0);
 
   /**
-   * Gets or sets whether the imagery selection drop-down is currently visible.
+   * 获取或设置图像选择下拉框当前是否可见。
    * @type {boolean}
    * @default false
    */
@@ -135,7 +135,7 @@ function BaseLayerPickerViewModel(options) {
   this._terrainProviders = terrainProviders;
 
   /**
-   * Gets the button tooltip.  This property is observable.
+   * 获取按钮工具提示。  这个属性是可观察的。
    * @type {string}
    */
   this.buttonTooltip = undefined;
@@ -159,7 +159,7 @@ function BaseLayerPickerViewModel(options) {
   });
 
   /**
-   * Gets the button background image.  This property is observable.
+   * 获取按钮背景图像。  这个属性是可观察的。
    * @type {string}
    */
   this.buttonImageUrl = undefined;
@@ -171,7 +171,7 @@ function BaseLayerPickerViewModel(options) {
   });
 
   /**
-   * Gets or sets the currently selected imagery.  This property is observable.
+   * 获取或设置当前选定的图像。  这个属性是可观察的。
    * @type {ProviderViewModel}
    * @default undefined
    */
@@ -238,7 +238,7 @@ function BaseLayerPickerViewModel(options) {
   });
 
   /**
-   * Gets or sets the currently selected terrain.  This property is observable.
+   * 获取或设置当前选定的地形。  这个属性是可观察的。
    * @type {ProviderViewModel}
    * @default undefined
    */
@@ -312,7 +312,7 @@ function BaseLayerPickerViewModel(options) {
 
 Object.defineProperties(BaseLayerPickerViewModel.prototype, {
   /**
-   * Gets the command to toggle the visibility of the drop down.
+   * 获取切换下拉列表可见性的命令。
    * @memberof BaseLayerPickerViewModel.prototype
    *
    * @type {Command}
@@ -324,7 +324,7 @@ Object.defineProperties(BaseLayerPickerViewModel.prototype, {
   },
 
   /**
-   * Gets the globe.
+   * 获取 globe.
    * @memberof BaseLayerPickerViewModel.prototype
    *
    * @type {Globe}

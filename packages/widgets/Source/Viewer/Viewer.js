@@ -962,7 +962,7 @@ Either specify options.terrainProvider instead or set options.baseLayerPicker to
 
 Object.defineProperties(Viewer.prototype, {
   /**
-   * Gets the parent container.
+   * 获取父容器。
    * @memberof Viewer.prototype
    * @type {Element}
    * @readonly
@@ -1729,15 +1729,15 @@ Viewer.prototype.render = function () {
 };
 
 /**
- * @returns {boolean} true if the object has been destroyed, false otherwise.
+ * @returns {boolean} 如果对象已被销毁，则为true，否则为false。
  */
 Viewer.prototype.isDestroyed = function () {
   return false;
 };
 
 /**
- * Destroys the widget.  Should be called if permanently
- * removing the widget from layout.
+ * 销毁小部件。应该叫它永久的吗
+ * 从布局中删除小部件。
  */
 Viewer.prototype.destroy = function () {
   let i;

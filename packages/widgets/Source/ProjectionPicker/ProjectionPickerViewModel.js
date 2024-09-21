@@ -28,34 +28,34 @@ function ProjectionPickerViewModel(scene) {
   this._flightInProgress = false;
 
   /**
-   * Gets or sets whether the button drop-down is currently visible.  This property is observable.
+   * Gets or sets whether the button drop-down is currently visible.  这个属性是可观察的。
    * @type {boolean}
    * @default false
    */
   this.dropDownVisible = false;
 
   /**
-   * Gets or sets the perspective projection tooltip.  This property is observable.
+   * Gets or sets the perspective projection tooltip.  这个属性是可观察的。
    * @type {string}
    * @default 'Perspective Projection'
    */
   this.tooltipPerspective = "Perspective Projection";
 
   /**
-   * Gets or sets the orthographic projection tooltip.  This property is observable.
+   * Gets or sets the orthographic projection tooltip.  这个属性是可观察的。
    * @type {string}
    * @default 'Orthographic Projection'
    */
   this.tooltipOrthographic = "Orthographic Projection";
 
   /**
-   * Gets the currently active tooltip.  This property is observable.
+   * Gets the currently active tooltip.  这个属性是可观察的。
    * @type {string}
    */
   this.selectedTooltip = undefined;
 
   /**
-   * Gets or sets the current SceneMode.  This property is observable.
+   * Gets or sets the current SceneMode.  这个属性是可观察的。
    * @type {SceneMode}
    */
   this.sceneMode = scene.mode;
@@ -187,7 +187,7 @@ Object.defineProperties(ProjectionPickerViewModel.prototype, {
 });
 
 /**
- * @returns {boolean} true if the object has been destroyed, false otherwise.
+ * @returns {boolean} 如果对象已被销毁，则为true，否则为false。
  */
 ProjectionPickerViewModel.prototype.isDestroyed = function () {
   return false;

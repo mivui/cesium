@@ -23,14 +23,14 @@ function ToggleButtonViewModel(command, options) {
   options = defaultValue(options, defaultValue.EMPTY_OBJECT);
 
   /**
-   * Gets or sets whether the button is currently toggled.  This property is observable.
+   * Gets or sets whether the button is currently toggled.  这个属性是可观察的。
    * @type {boolean}
    * @default false
    */
   this.toggled = defaultValue(options.toggled, false);
 
   /**
-   * Gets or sets the button's tooltip.  This property is observable.
+   * Gets or sets the button's tooltip.  这个属性是可观察的。
    * @type {string}
    * @default ''
    */

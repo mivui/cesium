@@ -115,7 +115,7 @@ function Timeline(container, clock) {
   const ownerDocument = container.ownerDocument;
 
   /**
-   * Gets the parent container.
+   * 获取父容器。
    * @type {Element}
    */
   this.container = container;
@@ -204,15 +204,15 @@ Timeline.prototype.removeEventListener = function (type, listener, useCapture) {
 };
 
 /**
- * @returns {boolean} true if the object has been destroyed, false otherwise.
+ * @returns {boolean} 如果对象已被销毁，则为true，否则为false。
  */
 Timeline.prototype.isDestroyed = function () {
   return false;
 };
 
 /**
- * Destroys the widget.  Should be called if permanently
- * removing the widget from layout.
+ * 销毁小部件。应该叫它永久的吗
+ * 从布局中删除小部件。
  */
 Timeline.prototype.destroy = function () {
   this._clock.onTick.removeEventListener(this.updateFromClock, this);

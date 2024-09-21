@@ -14,26 +14,26 @@ import BaseLayerPickerViewModel from "./BaseLayerPickerViewModel.js";
  * <br />BaseLayerPicker with its drop-panel open.
  * </span>
  * <br /><br />
- * The BaseLayerPicker is a single button widget that displays a panel of available imagery and
- * terrain providers.  When imagery is selected, the corresponding imagery layer is created and inserted
- * as the base layer of the imagery collection; removing the existing base.  When terrain is selected,
- * it replaces the current terrain provider.  Each item in the available providers list contains a name,
- * a representative icon, and a tooltip to display more information when hovered. The list is initially
- * empty, and must be configured before use, as illustrated in the below example.
+ * BaseLayerPicker是一个单按钮小部件，它显示可用图像和
+ * 地形提供者。当选择图像时，将创建并插入相应的图像层
+ * 作为图像集合的基础层;移除现有底座。地形选定后，
+ * 替换当前的地形提供程序。可用提供商列表中的每个项都包含一个名称，
+ * 一个代表性的图标，和一个工具提示显示更多的信息时，悬停。这个列表最初是
+ * 为空，必须在使用前配置，示例如下。
  * <br /><br />
- * By default, the BaseLayerPicker uses a default list of example providers for demonstration purposes.
- * Notably some of these providers, such as <a href="https://developers.arcgis.com" target="_blank">Esri ArcGIS</a> and <a href="https://docs.stadiamaps.com/ target="_blank">Stadia Maps</a>, have seperate terms of service and require authentication for production use.
+ * 默认情况下，BaseLayerPicker使用默认的示例提供程序列表进行演示。
+ * 值得注意的是其中一些提供程序，例如 <a href="https://developers.arcgis.com" target="_blank">Esri ArcGIS</a> and <a href="https://docs.stadiamaps.com/ target="_blank">Stadia Maps</a>, 有单独的服务条款并且需要认证才能用于生产。
  *
  * @alias BaseLayerPicker
  * @constructor
  *
- * @param {Element|string} container The parent HTML container node or ID for this widget.
+ * @param {Element|string} container 此小部件的父HTML容器节点或ID。
  * @param {object} options 对象，具有以下属性:
- * @param {Globe} options.globe The Globe to use.
- * @param {ProviderViewModel[]} [options.imageryProviderViewModels=[]] The array of ProviderViewModel instances to use for imagery.
- * @param {ProviderViewModel} [options.selectedImageryProviderViewModel] The view model for the current base imagery layer, if not supplied the first available imagery layer is used.
- * @param {ProviderViewModel[]} [options.terrainProviderViewModels=[]] The array of ProviderViewModel instances to use for terrain.
- * @param {ProviderViewModel} [options.selectedTerrainProviderViewModel] The view model for the current base terrain layer, if not supplied the first available terrain layer is used.
+ * @param {Globe} options.globe  Globe 去使用 
+ * @param {ProviderViewModel[]} [options.imageryProviderViewModels=[]] 用于图像的ProviderViewModel实例数组。
+ * @param {ProviderViewModel} [options.selectedImageryProviderViewModel] 当前基本图像层的视图模型，如果没有提供，则使用第一个可用的图像层。
+ * @param {ProviderViewModel[]} [options.terrainProviderViewModels=[]] 用于地形的ProviderViewModel实例数组。
+ * @param {ProviderViewModel} [options.selectedTerrainProviderViewModel] 当前基本地形层的视图模型，如果没有提供，则使用第一个可用的地形层。
  *
  * @exception {DeveloperError} Element with id "container" does not exist in the document.
  *
@@ -260,7 +260,7 @@ click: function($data) { $parents[1].selectedTerrain = $data; }'
 
 Object.defineProperties(BaseLayerPicker.prototype, {
   /**
-   * Gets the parent container.
+   * 获取父容器。
    * @memberof BaseLayerPicker.prototype
    *
    * @type {Element}
@@ -272,7 +272,7 @@ Object.defineProperties(BaseLayerPicker.prototype, {
   },
 
   /**
-   * Gets the view model.
+   * 获取视图模型。
    * @memberof BaseLayerPicker.prototype
    *
    * @type {BaseLayerPickerViewModel}
@@ -285,15 +285,15 @@ Object.defineProperties(BaseLayerPicker.prototype, {
 });
 
 /**
- * @returns {boolean} true if the object has been destroyed, false otherwise.
+ * @returns {boolean} 如果对象已被销毁，则为true，否则为false。
  */
 BaseLayerPicker.prototype.isDestroyed = function () {
   return false;
 };
 
 /**
- * Destroys the widget.  Should be called if permanently
- * removing the widget from layout.
+ * 销毁小部件。应该叫它永久的吗
+ * 从布局中删除小部件。
  */
 BaseLayerPicker.prototype.destroy = function () {
   if (FeatureDetection.supportsPointerEvents()) {

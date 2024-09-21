@@ -39,34 +39,34 @@ function SceneModePickerViewModel(scene, duration) {
   this._duration = defaultValue(duration, 2.0);
 
   /**
-   * Gets or sets the current SceneMode.  This property is observable.
+   * Gets or sets the current SceneMode.  这个属性是可观察的。
    * @type {SceneMode}
    */
   this.sceneMode = scene.mode;
 
   /**
-   * Gets or sets whether the button drop-down is currently visible.  This property is observable.
+   * Gets or sets whether the button drop-down is currently visible.  这个属性是可观察的。
    * @type {boolean}
    * @default false
    */
   this.dropDownVisible = false;
 
   /**
-   * Gets or sets the 2D tooltip.  This property is observable.
+   * Gets or sets the 2D tooltip.  这个属性是可观察的。
    * @type {string}
    * @default '2D'
    */
   this.tooltip2D = "2D";
 
   /**
-   * Gets or sets the 3D tooltip.  This property is observable.
+   * Gets or sets the 3D tooltip.  这个属性是可观察的。
    * @type {string}
    * @default '3D'
    */
   this.tooltip3D = "3D";
 
   /**
-   * Gets or sets the Columbus View tooltip.  This property is observable.
+   * Gets or sets the Columbus View tooltip.  这个属性是可观察的。
    * @type {string}
    * @default 'Columbus View'
    */
@@ -81,7 +81,7 @@ function SceneModePickerViewModel(scene, duration) {
   ]);
 
   /**
-   * Gets the currently active tooltip.  This property is observable.
+   * Gets the currently active tooltip.  这个属性是可观察的。
    * @type {string}
    */
   this.selectedTooltip = undefined;
@@ -199,7 +199,7 @@ Object.defineProperties(SceneModePickerViewModel.prototype, {
 });
 
 /**
- * @returns {boolean} true if the object has been destroyed, false otherwise.
+ * @returns {boolean} 如果对象已被销毁，则为true，否则为false。
  */
 SceneModePickerViewModel.prototype.isDestroyed = function () {
   return false;

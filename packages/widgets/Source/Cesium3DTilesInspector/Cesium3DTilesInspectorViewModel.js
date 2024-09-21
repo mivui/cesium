@@ -190,7 +190,7 @@ function Cesium3DTilesInspectorViewModel(scene, performanceContainer) {
   this._editorError = "";
 
   /**
-   * Gets or sets the flag to enable performance display.  This property is observable.
+   * Gets or sets the flag to enable performance display.  这个属性是可观察的。
    *
    * @type {boolean}
    * @default false
@@ -198,7 +198,7 @@ function Cesium3DTilesInspectorViewModel(scene, performanceContainer) {
   this.performance = false;
 
   /**
-   * Gets or sets the flag to show statistics.  This property is observable.
+   * Gets or sets the flag to show statistics.  这个属性是可观察的。
    *
    * @type {boolean}
    * @default true
@@ -206,7 +206,7 @@ function Cesium3DTilesInspectorViewModel(scene, performanceContainer) {
   this.showStatistics = true;
 
   /**
-   * Gets or sets the flag to show pick statistics.  This property is observable.
+   * Gets or sets the flag to show pick statistics.  这个属性是可观察的。
    *
    * @type {boolean}
    * @default true
@@ -223,7 +223,7 @@ function Cesium3DTilesInspectorViewModel(scene, performanceContainer) {
   this.showResourceCacheStatistics = false;
 
   /**
-   * Gets or sets the flag to show the inspector.  This property is observable.
+   * Gets or sets the flag to show the inspector.  这个属性是可观察的。
    *
    * @type {boolean}
    * @default true
@@ -231,7 +231,7 @@ function Cesium3DTilesInspectorViewModel(scene, performanceContainer) {
   this.inspectorVisible = true;
 
   /**
-   * Gets or sets the flag to show the tileset section.  This property is observable.
+   * Gets or sets the flag to show the tileset section.  这个属性是可观察的。
    *
    * @type {boolean}
    * @default false
@@ -239,7 +239,7 @@ function Cesium3DTilesInspectorViewModel(scene, performanceContainer) {
   this.tilesetVisible = false;
 
   /**
-   * Gets or sets the flag to show the display section.  This property is observable.
+   * Gets or sets the flag to show the display section.  这个属性是可观察的。
    *
    * @type {boolean}
    * @default false
@@ -247,7 +247,7 @@ function Cesium3DTilesInspectorViewModel(scene, performanceContainer) {
   this.displayVisible = false;
 
   /**
-   * Gets or sets the flag to show the update section.  This property is observable.
+   * Gets or sets the flag to show the update section.  这个属性是可观察的。
    *
    * @type {boolean}
    * @default false
@@ -255,7 +255,7 @@ function Cesium3DTilesInspectorViewModel(scene, performanceContainer) {
   this.updateVisible = false;
 
   /**
-   * Gets or sets the flag to show the logging section.  This property is observable.
+   * Gets or sets the flag to show the logging section.  这个属性是可观察的。
    *
    * @type {boolean}
    * @default false
@@ -263,7 +263,7 @@ function Cesium3DTilesInspectorViewModel(scene, performanceContainer) {
   this.loggingVisible = false;
 
   /**
-   * Gets or sets the flag to show the style section.  This property is observable.
+   * Gets or sets the flag to show the style section.  这个属性是可观察的。
    *
    * @type {boolean}
    * @default false
@@ -271,7 +271,7 @@ function Cesium3DTilesInspectorViewModel(scene, performanceContainer) {
   this.styleVisible = false;
 
   /**
-   * Gets or sets the flag to show the tile info section.  This property is observable.
+   * Gets or sets the flag to show the tile info section.  这个属性是可观察的。
    *
    * @type {boolean}
    * @default false
@@ -279,7 +279,7 @@ function Cesium3DTilesInspectorViewModel(scene, performanceContainer) {
   this.tileDebugLabelsVisible = false;
 
   /**
-   * Gets or sets the flag to show the optimization info section. This property is observable.
+   * Gets or sets the flag to show the optimization info section. 这个属性是可观察的。
    *
    * @type {boolean}
    * @default false;
@@ -287,7 +287,7 @@ function Cesium3DTilesInspectorViewModel(scene, performanceContainer) {
   this.optimizationVisible = false;
 
   /**
-   * Gets or sets the JSON for the tileset style.  This property is observable.
+   * Gets or sets the JSON for the tileset style.  这个属性是可观察的。
    *
    * @type {string}
    * @default '{}'
@@ -295,7 +295,7 @@ function Cesium3DTilesInspectorViewModel(scene, performanceContainer) {
   this.styleString = "{}";
 
   /**
-   * Gets or sets the JSON for the tileset enableDebugWireframe attribute.  This property is observable.
+   * Gets or sets the JSON for the tileset enableDebugWireframe attribute.  这个属性是可观察的。
    *
    * @type {boolean}
    * @default false
@@ -332,7 +332,7 @@ function Cesium3DTilesInspectorViewModel(scene, performanceContainer) {
 
   this._properties = knockout.observable({});
   /**
-   * Gets the names of the properties in the tileset.  This property is observable.
+   * Gets the names of the properties in the tileset.  这个属性是可观察的。
    * @type {string[]}
    * @readonly
    */
@@ -361,7 +361,7 @@ function Cesium3DTilesInspectorViewModel(scene, performanceContainer) {
     },
   });
   /**
-   * Gets or sets the flag to enable dynamic screen space error.  This property is observable.
+   * Gets or sets the flag to enable dynamic screen space error.  这个属性是可观察的。
    *
    * @type {boolean}
    * @default false
@@ -382,7 +382,7 @@ function Cesium3DTilesInspectorViewModel(scene, performanceContainer) {
     },
   });
   /**
-   * Gets or sets the color blend mode.  This property is observable.
+   * Gets or sets the color blend mode.  这个属性是可观察的。
    *
    * @type {Cesium3DTileColorBlendMode}
    * @default Cesium3DTileColorBlendMode.HIGHLIGHT
@@ -442,7 +442,7 @@ function Cesium3DTilesInspectorViewModel(scene, performanceContainer) {
     },
   });
   /**
-   * Gets or sets the flag to enable picking.  This property is observable.
+   * Gets or sets the flag to enable picking.  这个属性是可观察的。
    *
    * @type {boolean}
    * @default true
@@ -463,7 +463,7 @@ function Cesium3DTilesInspectorViewModel(scene, performanceContainer) {
     },
   });
   /**
-   * Gets or sets the flag to colorize tiles.  This property is observable.
+   * Gets or sets the flag to colorize tiles.  这个属性是可观察的。
    *
    * @type {boolean}
    * @default false
@@ -484,7 +484,7 @@ function Cesium3DTilesInspectorViewModel(scene, performanceContainer) {
     },
   });
   /**
-   * Gets or sets the flag to draw with wireframe.  This property is observable.
+   * Gets or sets the flag to draw with wireframe.  这个属性是可观察的。
    *
    * @type {boolean}
    * @default false
@@ -505,7 +505,7 @@ function Cesium3DTilesInspectorViewModel(scene, performanceContainer) {
     },
   });
   /**
-   * Gets or sets the flag to show bounding volumes.  This property is observable.
+   * Gets or sets the flag to show bounding volumes.  这个属性是可观察的。
    *
    * @type {boolean}
    * @default false
@@ -526,7 +526,7 @@ function Cesium3DTilesInspectorViewModel(scene, performanceContainer) {
     },
   });
   /**
-   * Gets or sets the flag to show content volumes.  This property is observable.
+   * Gets or sets the flag to show content volumes.  这个属性是可观察的。
    *
    * @type {boolean}
    * @default false
@@ -547,7 +547,7 @@ function Cesium3DTilesInspectorViewModel(scene, performanceContainer) {
     },
   });
   /**
-   * Gets or sets the flag to show request volumes.  This property is observable.
+   * Gets or sets the flag to show request volumes.  这个属性是可观察的。
    *
    * @type {boolean}
    * @default false
@@ -569,7 +569,7 @@ function Cesium3DTilesInspectorViewModel(scene, performanceContainer) {
     },
   });
   /**
-   * Gets or sets the flag to suspend updates.  This property is observable.
+   * Gets or sets the flag to suspend updates.  这个属性是可观察的。
    *
    * @type {boolean}
    * @default false
@@ -589,7 +589,7 @@ function Cesium3DTilesInspectorViewModel(scene, performanceContainer) {
     },
   });
   /**
-   * Gets or sets the flag to show debug labels only for the currently picked tile.  This property is observable.
+   * Gets or sets the flag to show debug labels only for the currently picked tile.  这个属性是可观察的。
    *
    * @type {boolean}
    * @default false
@@ -610,7 +610,7 @@ function Cesium3DTilesInspectorViewModel(scene, performanceContainer) {
     },
   });
   /**
-   * Gets or sets the flag to show tile geometric error.  This property is observable.
+   * Gets or sets the flag to show tile geometric error.  这个属性是可观察的。
    *
    * @type {boolean}
    * @default false
@@ -631,7 +631,7 @@ function Cesium3DTilesInspectorViewModel(scene, performanceContainer) {
     },
   });
   /**
-   * Displays the number of commands, points, triangles and features used per tile.  This property is observable.
+   * Displays the number of commands, points, triangles and features used per tile.  这个属性是可观察的。
    *
    * @type {boolean}
    * @default false
@@ -652,7 +652,7 @@ function Cesium3DTilesInspectorViewModel(scene, performanceContainer) {
     },
   });
   /**
-   * Displays the memory used per tile.  This property is observable.
+   * Displays the memory used per tile.  这个属性是可观察的。
    *
    * @type {boolean}
    * @default false
@@ -673,7 +673,7 @@ function Cesium3DTilesInspectorViewModel(scene, performanceContainer) {
     },
   });
   /**
-   * Gets or sets the flag to show the tile url.  This property is observable.
+   * Gets or sets the flag to show the tile url.  这个属性是可观察的。
    *
    * @type {boolean}
    * @default false
@@ -696,7 +696,7 @@ function Cesium3DTilesInspectorViewModel(scene, performanceContainer) {
     },
   });
   /**
-   * Gets or sets the maximum screen space error.  This property is observable.
+   * Gets or sets the maximum screen space error.  这个属性是可观察的。
    *
    * @type {number}
    * @default 16
@@ -719,7 +719,7 @@ function Cesium3DTilesInspectorViewModel(scene, performanceContainer) {
     },
   });
   /**
-   * Gets or sets the dynamic screen space error density.  This property is observable.
+   * Gets or sets the dynamic screen space error density.  这个属性是可观察的。
    *
    * @type {number}
    * @default 2.0e-4
@@ -729,7 +729,7 @@ function Cesium3DTilesInspectorViewModel(scene, performanceContainer) {
   /**
    * Gets or sets the dynamic screen space error density slider value.
    * This allows the slider to be exponential because values tend to be closer to 0 than 1.
-   * This property is observable.
+   * 这个属性是可观察的。
    *
    * @type {number}
    * @default 2.0e-4
@@ -764,7 +764,7 @@ function Cesium3DTilesInspectorViewModel(scene, performanceContainer) {
     },
   });
   /**
-   * Gets or sets the dynamic screen space error factor.  This property is observable.
+   * Gets or sets the dynamic screen space error factor.  这个属性是可观察的。
    *
    * @type {number}
    * @default 24.0
@@ -803,7 +803,7 @@ function Cesium3DTilesInspectorViewModel(scene, performanceContainer) {
     },
   });
   /**
-   * Gets or sets the flag to enable point cloud shading. This property is observable.
+   * Gets or sets the flag to enable point cloud shading. 这个属性是可观察的。
    *
    * @type {boolean}
    * @default false
@@ -826,7 +826,7 @@ function Cesium3DTilesInspectorViewModel(scene, performanceContainer) {
     },
   });
   /**
-   * Gets or sets the geometric error scale.  This property is observable.
+   * Gets or sets the geometric error scale.  这个属性是可观察的。
    *
    * @type {number}
    * @default 1.0
@@ -850,7 +850,7 @@ function Cesium3DTilesInspectorViewModel(scene, performanceContainer) {
     },
   });
   /**
-   * Gets or sets the maximum attenuation.  This property is observable.
+   * Gets or sets the maximum attenuation.  这个属性是可观察的。
    *
    * @type {number}
    * @default 0
@@ -874,7 +874,7 @@ function Cesium3DTilesInspectorViewModel(scene, performanceContainer) {
     },
   });
   /**
-   * Gets or sets the base resolution.  This property is observable.
+   * Gets or sets the base resolution.  这个属性是可观察的。
    *
    * @type {number}
    * @default 0
@@ -894,7 +894,7 @@ function Cesium3DTilesInspectorViewModel(scene, performanceContainer) {
     },
   });
   /**
-   * Gets or sets the flag to enable eye dome lighting. This property is observable.
+   * Gets or sets the flag to enable eye dome lighting. 这个属性是可观察的。
    *
    * @type {boolean}
    * @default false
@@ -917,7 +917,7 @@ function Cesium3DTilesInspectorViewModel(scene, performanceContainer) {
     },
   });
   /**
-   * Gets or sets the eye dome lighting strength.  This property is observable.
+   * Gets or sets the eye dome lighting strength.  这个属性是可观察的。
    *
    * @type {number}
    * @default 1.0
@@ -940,7 +940,7 @@ function Cesium3DTilesInspectorViewModel(scene, performanceContainer) {
     },
   });
   /**
-   * Gets or sets the eye dome lighting radius.  This property is observable.
+   * Gets or sets the eye dome lighting radius.  这个属性是可观察的。
    *
    * @type {number}
    * @default 1.0
@@ -969,7 +969,7 @@ function Cesium3DTilesInspectorViewModel(scene, performanceContainer) {
   });
   /**
    * Gets or sets the flag to determine if level of detail skipping should be applied during the traversal.
-   * This property is observable.
+   * 这个属性是可观察的。
    * @type {boolean}
    * @default true
    */
@@ -991,7 +991,7 @@ function Cesium3DTilesInspectorViewModel(scene, performanceContainer) {
     },
   });
   /**
-   * Gets or sets the multiplier defining the minimum screen space error to skip. This property is observable.
+   * Gets or sets the multiplier defining the minimum screen space error to skip. 这个属性是可观察的。
    * @type {number}
    * @default 16
    */
@@ -1013,7 +1013,7 @@ function Cesium3DTilesInspectorViewModel(scene, performanceContainer) {
     },
   });
   /**
-   * Gets or sets the screen space error that must be reached before skipping levels of detail. This property is observable.
+   * Gets or sets the screen space error that must be reached before skipping levels of detail. 这个属性是可观察的。
    * @type {number}
    * @default 1024
    */
@@ -1035,7 +1035,7 @@ function Cesium3DTilesInspectorViewModel(scene, performanceContainer) {
     },
   });
   /**
-   * Gets or sets the constant defining the minimum number of levels to skip when loading tiles. This property is observable.
+   * Gets or sets the constant defining the minimum number of levels to skip when loading tiles. 这个属性是可观察的。
    * @type {number}
    * @default 1
    */
@@ -1055,7 +1055,7 @@ function Cesium3DTilesInspectorViewModel(scene, performanceContainer) {
   });
   /**
    * Gets or sets the flag which, when true, only tiles that meet the maximum screen space error will ever be downloaded.
-   * This property is observable.
+   * 这个属性是可观察的。
    * @type {boolean}
    * @default false
    */
@@ -1152,7 +1152,7 @@ Object.defineProperties(Cesium3DTilesInspectorViewModel.prototype, {
   },
 
   /**
-   * Gets the statistics text.  This property is observable.
+   * Gets the statistics text.  这个属性是可观察的。
    * @memberof Cesium3DTilesInspectorViewModel.prototype
    * @type {string}
    * @readonly
@@ -1163,7 +1163,7 @@ Object.defineProperties(Cesium3DTilesInspectorViewModel.prototype, {
     },
   },
   /**
-   * Gets the pick statistics text.  This property is observable.
+   * Gets the pick statistics text.  这个属性是可观察的。
    * @memberof Cesium3DTilesInspectorViewModel.prototype
    * @type {string}
    * @readonly
@@ -1175,7 +1175,7 @@ Object.defineProperties(Cesium3DTilesInspectorViewModel.prototype, {
   },
 
   /**
-   * Gets the resource cache statistics text. This property is observable.
+   * Gets the resource cache statistics text. 这个属性是可观察的。
    * @memberof Cesium3DTilesInspectorViewModel.prototype
    * @type {string}
    * @readonly
@@ -1568,15 +1568,15 @@ Cesium3DTilesInspectorViewModel.prototype._update = function () {
 };
 
 /**
- * @returns {boolean} true if the object has been destroyed, false otherwise.
+ * @returns {boolean} 如果对象已被销毁，则为true，否则为false。
  */
 Cesium3DTilesInspectorViewModel.prototype.isDestroyed = function () {
   return false;
 };
 
 /**
- * Destroys the widget.  Should be called if permanently
- * removing the widget from layout.
+ * 销毁小部件。应该叫它永久的吗
+ * 从布局中删除小部件。
  */
 Cesium3DTilesInspectorViewModel.prototype.destroy = function () {
   this._eventHandler.destroy();

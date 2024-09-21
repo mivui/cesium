@@ -27,7 +27,7 @@ function ClockViewModel(clock) {
 
   /**
    * Gets the current system time.
-   * This property is observable.
+   * 这个属性是可观察的。
    * @type {JulianDate}
    */
   this.systemTime = knockout.observable(JulianDate.now());
@@ -36,7 +36,7 @@ function ClockViewModel(clock) {
   /**
    * Gets or sets the start time of the clock.
    * See {@link Clock#startTime}.
-   * This property is observable.
+   * 这个属性是可观察的。
    * @type {JulianDate}
    */
   this.startTime = knockout.observable(clock.startTime);
@@ -49,7 +49,7 @@ function ClockViewModel(clock) {
   /**
    * Gets or sets the stop time of the clock.
    * See {@link Clock#stopTime}.
-   * This property is observable.
+   * 这个属性是可观察的。
    * @type {JulianDate}
    */
   this.stopTime = knockout.observable(clock.stopTime);
@@ -62,7 +62,7 @@ function ClockViewModel(clock) {
   /**
    * Gets or sets the current time.
    * See {@link Clock#currentTime}.
-   * This property is observable.
+   * 这个属性是可观察的。
    * @type {JulianDate}
    */
   this.currentTime = knockout.observable(clock.currentTime);
@@ -75,7 +75,7 @@ function ClockViewModel(clock) {
   /**
    * Gets or sets the clock multiplier.
    * See {@link Clock#multiplier}.
-   * This property is observable.
+   * 这个属性是可观察的。
    * @type {number}
    */
   this.multiplier = knockout.observable(clock.multiplier);
@@ -87,7 +87,7 @@ function ClockViewModel(clock) {
   /**
    * Gets or sets the clock step setting.
    * See {@link Clock#clockStep}.
-   * This property is observable.
+   * 这个属性是可观察的。
    * @type {ClockStep}
    */
   this.clockStep = knockout.observable(clock.clockStep);
@@ -99,7 +99,7 @@ function ClockViewModel(clock) {
   /**
    * Gets or sets the clock range setting.
    * See {@link Clock#clockRange}.
-   * This property is observable.
+   * 这个属性是可观察的。
    * @type {ClockRange}
    */
   this.clockRange = knockout.observable(clock.clockRange);
@@ -111,7 +111,7 @@ function ClockViewModel(clock) {
   /**
    * Gets or sets whether the clock can animate.
    * See {@link Clock#canAnimate}.
-   * This property is observable.
+   * 这个属性是可观察的。
    * @type {boolean}
    */
   this.canAnimate = knockout.observable(clock.canAnimate);
@@ -123,7 +123,7 @@ function ClockViewModel(clock) {
   /**
    * Gets or sets whether the clock should animate.
    * See {@link Clock#shouldAnimate}.
-   * This property is observable.
+   * 这个属性是可观察的。
    * @type {boolean}
    */
   this.shouldAnimate = knockout.observable(clock.shouldAnimate);
@@ -178,7 +178,7 @@ ClockViewModel.prototype.synchronize = function () {
 };
 
 /**
- * @returns {boolean} true if the object has been destroyed, false otherwise.
+ * @returns {boolean} 如果对象已被销毁，则为true，否则为false。
  */
 ClockViewModel.prototype.isDestroyed = function () {
   return false;

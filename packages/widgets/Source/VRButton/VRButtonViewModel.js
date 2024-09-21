@@ -120,7 +120,7 @@ function VRButtonViewModel(scene, vrElement) {
   });
 
   /**
-   * Gets the tooltip.  This property is observable.
+   * Gets the tooltip.  这个属性是可观察的。
    *
    * @type {string}
    */
@@ -207,7 +207,7 @@ Object.defineProperties(VRButtonViewModel.prototype, {
 });
 
 /**
- * @returns {boolean} true if the object has been destroyed, false otherwise.
+ * @returns {boolean} 如果对象已被销毁，则为true，否则为false。
  */
 VRButtonViewModel.prototype.isDestroyed = function () {
   return false;

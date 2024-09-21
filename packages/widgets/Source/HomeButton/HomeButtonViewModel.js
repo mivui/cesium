@@ -26,7 +26,7 @@ function HomeButtonViewModel(scene, duration) {
   });
 
   /**
-   * Gets or sets the tooltip.  This property is observable.
+   * Gets or sets the tooltip.  这个属性是可观察的。
    *
    * @type {string}
    */

@@ -335,7 +335,7 @@ function Cesium3DTilesInspector(container, scene) {
 
 Object.defineProperties(Cesium3DTilesInspector.prototype, {
   /**
-   * Gets the parent container.
+   * 获取父容器。
    * @memberof Cesium3DTilesInspector.prototype
    *
    * @type {Element}
@@ -347,7 +347,7 @@ Object.defineProperties(Cesium3DTilesInspector.prototype, {
   },
 
   /**
-   * Gets the view model.
+   * 获取视图模型。
    * @memberof Cesium3DTilesInspector.prototype
    *
    * @type {Cesium3DTilesInspectorViewModel}
@@ -360,15 +360,15 @@ Object.defineProperties(Cesium3DTilesInspector.prototype, {
 });
 
 /**
- * @returns {boolean} true if the object has been destroyed, false otherwise.
+ * @returns {boolean} 如果对象已被销毁，则为true，否则为false。
  */
 Cesium3DTilesInspector.prototype.isDestroyed = function () {
   return false;
 };
 
 /**
- * Destroys the widget.  Should be called if permanently
- * removing the widget from layout.
+ * 销毁小部件。应该叫它永久的吗
+ * 从布局中删除小部件。
  */
 Cesium3DTilesInspector.prototype.destroy = function () {
   knockout.cleanNode(this._element);
