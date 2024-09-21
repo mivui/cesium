@@ -352,7 +352,7 @@ function enableVRUI(viewer, enabled) {
  * @alias Viewer
  * @constructor
  *
- * @param {Element|string} container The DOM element or ID that will contain the widget.
+ * @param {Element|string} container 将包含小部件的DOM元素或ID。
  * @param {Viewer.ConstructorOptions} [options] Object describing initialization options
  *
  * @exception {DeveloperError} Element with id "container" does not exist in the document.
@@ -1336,7 +1336,7 @@ Object.defineProperties(Viewer.prototype, {
   },
 
   /**
-   * Gets the clock view model.
+   * 获取时钟视图模型。
    * @memberof Viewer.prototype
    * @type {ClockViewModel}
    * @readonly
@@ -2121,7 +2121,7 @@ Viewer.prototype.zoomTo = function (target, offset) {
  * determined from the offset, the heading will be north.</p>
  *
  * @param {Entity|Entity[]|EntityCollection|DataSource|ImageryLayer|Cesium3DTileset|TimeDynamicPointCloud|Promise<Entity|Entity[]|EntityCollection|DataSource|ImageryLayer|Cesium3DTileset|TimeDynamicPointCloud|VoxelPrimitive>} target The entity, array of entities, entity collection, data source, Cesium3DTileset, point cloud, or imagery layer to view. You can also pass a promise that resolves to one of the previously mentioned types.
- * @param {object} [options] Object with the following properties:
+ * @param {object} [options] 对象，具有以下属性:
  * @param {number} [options.duration=3.0] The duration of the flight in seconds.
  * @param {number} [options.maximumHeight] The maximum height at the peak of the flight.
  * @param {HeadingPitchRange} [options.offset] The offset from the target in the local east-north-up reference frame centered at the target.

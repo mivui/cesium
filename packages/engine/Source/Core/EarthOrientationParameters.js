@@ -20,7 +20,7 @@ import TimeStandard from "./TimeStandard.js";
  * @alias EarthOrientationParameters
  * @constructor
  *
- * @param {object} [options] Object with the following properties:
+ * @param {object} [options] 对象，具有以下属性:
  * @param {object} [options.data] The actual EOP data.  If neither this
  *                 parameter nor options.data is specified, all EOP values are assumed
  *                 to be 0.0.
@@ -79,7 +79,7 @@ function EarthOrientationParameters(options) {
  *                 parameter nor options.data is specified, all EOP values are assumed
  *                 to be 0.0.  If options.data is specified, this parameter is
  *                 ignored.
- * @param {object} [options] Object with the following properties:
+ * @param {object} [options] 对象，具有以下属性:
  * @param {boolean} [options.addNewLeapSeconds=true] True if leap seconds that
  *                  are specified in the EOP data but not in {@link JulianDate.leapSeconds}
  *                  should be added to {@link JulianDate.leapSeconds}.  False if

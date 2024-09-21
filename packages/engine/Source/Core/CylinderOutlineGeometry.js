@@ -22,7 +22,7 @@ const radiusScratch = new Cartesian2();
  * @alias CylinderOutlineGeometry
  * @constructor
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {number} options.length The length of the cylinder.
  * @param {number} options.topRadius The radius of the top of the cylinder.
  * @param {number} options.bottomRadius The radius of the bottom of the cylinder.

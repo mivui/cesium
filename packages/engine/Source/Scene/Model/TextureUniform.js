@@ -11,7 +11,7 @@ import TextureWrap from "../../Renderer/TextureWrap.js";
  * A simple struct that serves as a value of a <code>sampler2D</code>-valued
  * uniform. This is used with {@link CustomShader} and {@link TextureManager}
  *
- * @param {object} options An object with the following properties:
+ * @param {object} options An 对象，具有以下属性:
  * @param {Uint8Array} [options.typedArray] A typed array storing the contents of a texture. Values are stored in row-major order. Since WebGL uses a y-up convention for textures, rows are listed from bottom to top.
  * @param {number} [options.width] The width of the image. Required when options.typedArray is present
  * @param {number} [options.height] The height of the image. Required when options.typedArray is present.

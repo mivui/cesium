@@ -6,14 +6,14 @@ import BlendingState from "./BlendingState.js";
 import CullFace from "./CullFace.js";
 
 /**
- * An appearance defines the full GLSL vertex and fragment shaders and the
- * render state used to draw a {@link Primitive}.  All appearances implement
- * this base <code>Appearance</code> interface.
+ * 外观定义了完整的GLSL顶点和片段着色器
+ * 用于绘制的渲染状态 {@link Primitive}.  所有外观实现
+ * 基本这个<code>Appearance</code>接口。
  *
  * @alias Appearance
  * @constructor
  *
- * @param {object} [options] Object with the following properties:
+ * @param {object} [options] 对象，具有以下属性:
  * @param {boolean} [options.translucent=true] When <code>true</code>, the geometry is expected to appear translucent so {@link Appearance#renderState} has alpha blending enabled.
  * @param {boolean} [options.closed=false] When <code>true</code>, the geometry is expected to be closed so {@link Appearance#renderState} has backface culling enabled.
  * @param {Material} [options.material=Material.ColorType] The material used to determine the fragment color.

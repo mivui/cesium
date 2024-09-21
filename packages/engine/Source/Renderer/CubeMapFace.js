@@ -54,7 +54,7 @@ Object.defineProperties(CubeMapFace.prototype, {
 
 /**
  * Copies texels from the source to the cubemap's face.
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {object} options.source The source {@link ImageData}, {@link HTMLImageElement}, {@link HTMLCanvasElement}, {@link HTMLVideoElement},
  *                              or an object with a width, height, and arrayBufferView properties.
  * @param {number} [options.xOffset=0] An offset in the x direction in the cubemap where copying begins.

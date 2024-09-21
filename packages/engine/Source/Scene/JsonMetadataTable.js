@@ -7,7 +7,7 @@ import MetadataEntity from "./MetadataEntity.js";
 /**
  * A table for storing free-form JSON metadata, as in the 3D Tiles batch table.
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {number} options.count The number of entities in the table.
  * @param {Object<string, Array>} options.properties The JSON representation of the metadata table. All the arrays must have exactly options.count elements.
  *

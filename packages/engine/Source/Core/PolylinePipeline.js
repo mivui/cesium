@@ -307,7 +307,7 @@ PolylinePipeline.wrapLongitude = function (positions, modelMatrix) {
 
 /**
  * Subdivides polyline and raises all points to the specified height.  Returns an array of numbers to represent the positions.
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {Cartesian3[]} options.positions The array of type {Cartesian3} representing positions.
  * @param {number|number[]} [options.height=0.0] A number or array of numbers representing the heights of each position.
  * @param {number} [options.granularity = CesiumMath.RADIANS_PER_DEGREE] The distance, in radians, between each latitude and longitude. Determines the number of positions in the buffer.
@@ -414,7 +414,7 @@ const scratchCartographic1 = new Cartographic();
 
 /**
  * Subdivides polyline and raises all points to the specified height using Rhumb lines.  Returns an array of numbers to represent the positions.
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {Cartesian3[]} options.positions The array of type {Cartesian3} representing positions.
  * @param {number|number[]} [options.height=0.0] A number or array of numbers representing the heights of each position.
  * @param {number} [options.granularity = CesiumMath.RADIANS_PER_DEGREE] The distance, in radians, between each latitude and longitude. Determines the number of positions in the buffer.
@@ -520,7 +520,7 @@ PolylinePipeline.generateRhumbArc = function (options) {
 
 /**
  * Subdivides polyline and raises all points to the specified height. Returns an array of new {Cartesian3} positions.
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {Cartesian3[]} options.positions The array of type {Cartesian3} representing positions.
  * @param {number|number[]} [options.height=0.0] A number or array of numbers representing the heights of each position.
  * @param {number} [options.granularity = CesiumMath.RADIANS_PER_DEGREE] The distance, in radians, between each latitude and longitude. Determines the number of positions in the buffer.
@@ -550,7 +550,7 @@ PolylinePipeline.generateCartesianArc = function (options) {
 
 /**
  * Subdivides polyline and raises all points to the specified height using Rhumb Lines. Returns an array of new {Cartesian3} positions.
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {Cartesian3[]} options.positions The array of type {Cartesian3} representing positions.
  * @param {number|number[]} [options.height=0.0] A number or array of numbers representing the heights of each position.
  * @param {number} [options.granularity = CesiumMath.RADIANS_PER_DEGREE] The distance, in radians, between each latitude and longitude. Determines the number of positions in the buffer.

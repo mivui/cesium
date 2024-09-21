@@ -13,7 +13,7 @@ import Event from "../Core/Event.js";
  * @alias PrimitiveCollection
  * @constructor
  *
- * @param {object} [options] Object with the following properties:
+ * @param {object} [options] 对象，具有以下属性:
  * @param {boolean} [options.show=true] Determines if the primitives in the collection will be shown.
  * @param {boolean} [options.destroyPrimitives=true] Determines if primitives in the collection are destroyed when they are removed.
  *

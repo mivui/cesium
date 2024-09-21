@@ -20,7 +20,7 @@ const diffScratch = new Cartesian3();
  * @alias BoxGeometry
  * @constructor
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {Cartesian3} options.minimum The minimum x, y, and z coordinates of the box.
  * @param {Cartesian3} options.maximum The maximum x, y, and z coordinates of the box.
  * @param {VertexFormat} [options.vertexFormat=VertexFormat.DEFAULT] The vertex attributes to be computed.
@@ -70,7 +70,7 @@ function BoxGeometry(options) {
 /**
  * Creates a cube centered at the origin given its dimensions.
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {Cartesian3} options.dimensions The width, depth, and height of the box stored in the x, y, and z coordinates of the <code>Cartesian3</code>, respectively.
  * @param {VertexFormat} [options.vertexFormat=VertexFormat.DEFAULT] The vertex attributes to be computed.
  * @returns {BoxGeometry}

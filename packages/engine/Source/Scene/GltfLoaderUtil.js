@@ -25,7 +25,7 @@ const GltfLoaderUtil = {};
  * WebP images the WebP image ID is returned.
  * </p>
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {object} options.gltf The glTF JSON.
  * @param {number} options.textureId The texture ID.
  * @param {SupportedImageFormats} options.supportedImageFormats The supported image formats.
@@ -61,7 +61,7 @@ GltfLoaderUtil.getImageIdFromTexture = function (options) {
 /**
  * Create a sampler for a texture.
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {object} options.gltf The glTF JSON.
  * @param {object} options.textureInfo The texture info object.
  * @param {boolean} [options.compressedTextureNoMipmap=false] True when the texture is compressed and does not have an embedded mipmap.
@@ -124,7 +124,7 @@ const defaultScale = new Cartesian2(1.0, 1.0);
 /**
  * Create a model texture reader.
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {object} options.textureInfo The texture info JSON.
  * @param {string} [options.channels] The texture channels to read from.
  * @param {Texture} [options.texture] The texture object.

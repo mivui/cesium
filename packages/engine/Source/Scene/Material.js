@@ -232,7 +232,7 @@ import WaterMaterial from "../Shaders/Materials/Water.js";
  * @alias Material
  * @constructor
  *
- * @param {object} [options] Object with the following properties:
+ * @param {object} [options] 对象，具有以下属性:
  * @param {boolean} [options.strict=false] Throws errors for issues that would normally be ignored, including unused uniforms or materials.
  * @param {boolean|Function} [options.translucent=true] When <code>true</code> or a function that returns <code>true</code>, the geometry
  *                           with this material is expected to appear translucent.

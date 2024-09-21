@@ -22,7 +22,7 @@ import TerrainMesh from "./TerrainMesh.js";
  * @alias GoogleEarthEnterpriseTerrainData
  * @constructor
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {ArrayBuffer} options.buffer The buffer containing terrain data.
  * @param {number} options.negativeAltitudeExponentBias Multiplier for negative terrain heights that are encoded as very small positive values.
  * @param {number} options.negativeElevationThreshold Threshold for negative values
@@ -132,7 +132,7 @@ const rectangleScratch = new Rectangle();
  *
  * @private
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {TilingScheme} options.tilingScheme The tiling scheme to which this tile belongs.
  * @param {number} options.x The X coordinate of the tile for which to create the terrain data.
  * @param {number} options.y The Y coordinate of the tile for which to create the terrain data.

@@ -53,7 +53,7 @@ const Instances = ModelComponents.Instances;
  * @augments ResourceLoader
  * @private
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {Resource} options.i3dmResource The {@link Resource} containing the i3dm.
  * @param {ArrayBuffer} options.arrayBuffer The array buffer of the i3dm contents.
  * @param {number} [options.byteOffset=0] The byte offset to the beginning of the i3dm contents in the array buffer.

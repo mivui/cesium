@@ -10,7 +10,7 @@ import Spline from "./Spline.js";
  * @alias LinearSpline
  * @constructor
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {number[]} options.times An array of strictly increasing, unit-less, floating-point times at each point.
  *                The values are in no way connected to the clock time. They are the parameterization for the curve.
  * @param {number[]|Cartesian3[]} options.points The array of control points.

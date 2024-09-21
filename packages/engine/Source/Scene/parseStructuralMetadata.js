@@ -11,7 +11,7 @@ import MetadataTable from "./MetadataTable.js";
  * Parse the <code>EXT_structural_metadata</code> glTF extension to create a
  * structural metadata object.
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {object} options.extension The extension JSON object.
  * @param {MetadataSchema} options.schema The parsed schema.
  * @param {Object<string, Uint8Array>} [options.bufferViews] An object mapping bufferView IDs to Uint8Array objects.

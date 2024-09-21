@@ -11,7 +11,7 @@ import VertexFormat from "./VertexFormat.js";
  * @alias SphereGeometry
  * @constructor
  *
- * @param {object} [options] Object with the following properties:
+ * @param {object} [options] 对象，具有以下属性:
  * @param {number} [options.radius=1.0] The radius of the sphere.
  * @param {number} [options.stackPartitions=64] The number of times to partition the ellipsoid into stacks.
  * @param {number} [options.slicePartitions=64] The number of times to partition the ellipsoid into radial slices.

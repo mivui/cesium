@@ -17,7 +17,7 @@ const defaultLineThickness = new Cartesian2(1, 1);
  * A {@link MaterialProperty} that maps to grid {@link Material} uniforms.
  * @alias GridMaterialProperty
  *
- * @param {object} [options] Object with the following properties:
+ * @param {object} [options] 对象，具有以下属性:
  * @param {Property|Color} [options.color=Color.WHITE] A Property specifying the grid {@link Color}.
  * @param {Property|number} [options.cellAlpha=0.1] A numeric Property specifying cell alpha values.
  * @param {Property|Cartesian2} [options.lineCount=new Cartesian2(8, 8)] A {@link Cartesian2} Property specifying the number of grid lines along each axis.

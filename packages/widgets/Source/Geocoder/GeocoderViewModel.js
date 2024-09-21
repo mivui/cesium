@@ -25,7 +25,7 @@ const DEFAULT_HEIGHT = 1000;
  * @alias GeocoderViewModel
  * @constructor
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {Scene} options.scene The Scene instance to use.
  * @param {GeocoderService[]} [options.geocoderServices] Geocoder services to use for geocoding queries.
  *        If more than one are supplied, suggestions will be gathered for the geocoders that support it,

@@ -31,7 +31,7 @@ const defaultClassificationType = new ConstantProperty(ClassificationType.BOTH);
  * @alias GeometryUpdater
  * @constructor
  *
- * @param {object} options An object with the following properties:
+ * @param {object} options An 对象，具有以下属性:
  * @param {Entity} options.entity The entity containing the geometry to be visualized.
  * @param {Scene} options.scene The scene where visualization is taking place.
  * @param {object} options.geometryOptions Options for the geometry

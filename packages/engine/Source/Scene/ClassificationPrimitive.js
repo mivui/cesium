@@ -49,7 +49,7 @@ import StencilOperation from "./StencilOperation.js";
  * @alias ClassificationPrimitive
  * @constructor
  *
- * @param {object} [options] Object with the following properties:
+ * @param {object} [options] 对象，具有以下属性:
  * @param {Array|GeometryInstance} [options.geometryInstances] The geometry instances to render. This can either be a single instance or an array of length one.
  * @param {Appearance} [options.appearance] The appearance used to render the primitive. Defaults to PerInstanceColorAppearance when GeometryInstances have a color attribute.
  * @param {boolean} [options.show=true] Determines if this primitive will be shown.

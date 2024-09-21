@@ -67,7 +67,7 @@ function interpolateColors(p0, p1, color0, color1, numPoints) {
  * @alias PolylineGeometry
  * @constructor
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {Cartesian3[]} options.positions An array of {@link Cartesian3} defining the positions in the polyline as a line strip.
  * @param {number} [options.width=1.0] The width in pixels.
  * @param {Color[]} [options.colors] An Array of {@link Color} defining the per vertex or per segment colors.

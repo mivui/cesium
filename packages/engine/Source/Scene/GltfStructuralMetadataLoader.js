@@ -18,7 +18,7 @@ import ResourceLoaderState from "./ResourceLoaderState.js";
  * @constructor
  * @augments ResourceLoader
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {object} options.gltf The glTF JSON.
  * @param {string} [options.extension] The <code>EXT_structural_metadata</code> extension object. If this is undefined, then extensionLegacy must be defined.
  * @param {string} [options.extensionLegacy] The legacy <code>EXT_feature_metadata</code> extension for backwards compatibility.

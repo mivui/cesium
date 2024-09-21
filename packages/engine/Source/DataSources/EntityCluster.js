@@ -18,7 +18,7 @@ import KDBush from "kdbush";
 /**
  * Defines how screen space objects (billboards, points, labels) are clustered.
  *
- * @param {object} [options] An object with the following properties:
+ * @param {object} [options] An 对象，具有以下属性:
  * @param {boolean} [options.enabled=false] Whether or not to enable clustering.
  * @param {number} [options.pixelRange=80] The pixel range to extend the screen space bounding box.
  * @param {number} [options.minimumClusterSize=2] The minimum number of screen space objects that can be clustered.

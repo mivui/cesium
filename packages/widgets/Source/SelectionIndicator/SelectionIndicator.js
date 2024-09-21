@@ -13,7 +13,7 @@ import SelectionIndicatorViewModel from "./SelectionIndicatorViewModel.js";
  * @alias SelectionIndicator
  * @constructor
  *
- * @param {Element|string} container The DOM element or ID that will contain the widget.
+ * @param {Element|string} container 将包含小部件的DOM元素或ID。
  * @param {Scene} scene The Scene instance to use.
  *
  * @exception {DeveloperError} Element with id "container" does not exist in the document.

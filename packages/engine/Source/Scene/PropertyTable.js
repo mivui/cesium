@@ -21,7 +21,7 @@ import JsonMetadataTable from "./JsonMetadataTable.js";
  * previous {@link https://github.com/CesiumGS/glTF/tree/3d-tiles-next/extensions/2.0/Vendor/EXT_feature_metadata|EXT_feature_metadata Extension} for glTF.
  * </p>
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {string} [options.name] Human-readable name to describe the table
  * @param {string|number} [options.id] A unique id to identify the property table, useful for debugging. For <code>EXT_structural_metadata</code>, this is the array index in the property tables array, for <code>EXT_feature_metadata</code> this is the dictionary key in the property tables dictionary.
  * @param {number} options.count The number of features in the table.

@@ -13,7 +13,7 @@ import MetadataComponentType from "./MetadataComponentType.js";
  * previous {@link https://github.com/CesiumGS/glTF/tree/3d-tiles-next/extensions/2.0/Vendor/EXT_feature_metadata|EXT_feature_metadata Extension} for glTF.
  * </p>
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {object} options.property The property JSON object.
  * @param {MetadataClassProperty} options.classProperty The class property.
  * @param {Object<number, Texture>} options.textures An object mapping texture IDs to {@link Texture} objects.

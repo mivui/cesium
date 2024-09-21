@@ -15,7 +15,7 @@ import TimeConstants from "../Core/TimeConstants.js";
  * @alias FrameRateMonitor
  * @constructor
  *
- * @param {object} [options] Object with the following properties:
+ * @param {object} [options] 对象，具有以下属性:
  * @param {Scene} options.scene The Scene instance for which to monitor performance.
  * @param {number} [options.samplingWindow=5.0] The length of the sliding window over which to compute the average frame rate, in seconds.
  * @param {number} [options.quietPeriod=2.0] The length of time to wait at startup and each time the page becomes visible (i.e. when the user

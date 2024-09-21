@@ -46,7 +46,7 @@ const maximumScratch = new Cartesian3();
 /**
  * Fills an array of vertices from a heightmap image.
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {Int8Array|Uint8Array|Int16Array|Uint16Array|Int32Array|Uint32Array|Float32Array|Float64Array} options.heightmap The heightmap to tessellate.
  * @param {number} options.width The width of the heightmap, in height samples.
  * @param {number} options.height The height of the heightmap, in height samples.

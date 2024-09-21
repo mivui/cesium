@@ -14,7 +14,7 @@ import Appearance from "./Appearance.js";
  * @alias DebugAppearance
  * @constructor
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {string} options.attributeName The name of the attribute to visualize.
  * @param {boolean} [options.perInstanceAttribute=false] Boolean that determines whether this attribute is a per-instance geometry attribute.
  * @param {string} [options.glslDatatype='vec3'] The GLSL datatype of the attribute.  Supported datatypes are <code>float</code>, <code>vec2</code>, <code>vec3</code>, and <code>vec4</code>.

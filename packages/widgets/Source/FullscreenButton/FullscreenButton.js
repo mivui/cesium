@@ -18,7 +18,7 @@ const exitFullScreenPath =
  * @alias FullscreenButton
  * @constructor
  *
- * @param {Element|string} container The DOM element or ID that will contain the widget.
+ * @param {Element|string} container 将包含小部件的DOM元素或ID。
  * @param {Element|string} [fullscreenElement=document.body] The element or id to be placed into fullscreen mode.
  *
  * @exception {DeveloperError} Element with id "container" does not exist in the document.

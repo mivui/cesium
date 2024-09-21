@@ -15,7 +15,7 @@ import createCommand from "../createCommand.js";
  * @constructor
  *
  * @param {Element|string} [fullscreenElement=document.body] The element or id to be placed into fullscreen mode.
- * @param {Element|string} [container] The DOM element or ID that will contain the widget.
+ * @param {Element|string} [container] 将包含小部件的DOM元素或ID。
  */
 function FullscreenButtonViewModel(fullscreenElement, container) {
   if (!defined(container)) {

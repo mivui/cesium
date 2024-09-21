@@ -13,7 +13,7 @@ import PixelFormat from "../Core/PixelFormat.js";
 /**
  * Creates a wrapper object around a framebuffer and its resources.
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {number} [options.numSamples=1] The multisampling rate of the render targets. Requires a WebGL2 context.
  * @param {number} [options.colorAttachmentsLength=1] The number of color attachments this FramebufferManager will create.
  * @param {boolean} [options.color=true] Whether the FramebufferManager will use color attachments.

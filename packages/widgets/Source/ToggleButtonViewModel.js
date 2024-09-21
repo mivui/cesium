@@ -7,7 +7,7 @@ import knockout from "./ThirdParty/knockout.js";
  * @constructor
  *
  * @param {Command} command The command which will be executed when the button is toggled.
- * @param {object} [options] Object with the following properties:
+ * @param {object} [options] 对象，具有以下属性:
  * @param {boolean} [options.toggled=false] A boolean indicating whether the button should be initially toggled.
  * @param {string} [options.tooltip=''] A string containing the button's tooltip.
  */

@@ -23,7 +23,7 @@ import Primitive from "./Primitive.js";
  * @alias DebugCameraPrimitive
  * @constructor
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {Camera} options.camera The camera.
  * @param {number[]} [options.frustumSplits] Distances to the near and far planes of the camera frustums. This overrides the camera's frustum near and far values.
  * @param {Color} [options.color=Color.CYAN] The color of the debug outline.

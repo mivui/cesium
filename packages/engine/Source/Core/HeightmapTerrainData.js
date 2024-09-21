@@ -23,7 +23,7 @@ import TerrainProvider from "./TerrainProvider.js";
  * @alias HeightmapTerrainData
  * @constructor
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {Int8Array|Uint8Array|Int16Array|Uint16Array|Int32Array|Uint32Array|Float32Array|Float64Array} options.buffer The buffer containing height data.
  * @param {number} options.width The width (longitude direction) of the heightmap, in samples.
  * @param {number} options.height The height (latitude direction) of the heightmap, in samples.
@@ -195,7 +195,7 @@ const createMeshTaskProcessorThrottle = new TaskProcessor(
  *
  * @private
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {TilingScheme} options.tilingScheme The tiling scheme to which this tile belongs.
  * @param {number} options.x The X coordinate of the tile for which to create the terrain data.
  * @param {number} options.y The Y coordinate of the tile for which to create the terrain data.
@@ -316,7 +316,7 @@ HeightmapTerrainData.prototype.createMesh = function (options) {
 };
 
 /**
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {TilingScheme} options.tilingScheme The tiling scheme to which this tile belongs.
  * @param {number} options.x The X coordinate of the tile for which to create the terrain data.
  * @param {number} options.y The Y coordinate of the tile for which to create the terrain data.

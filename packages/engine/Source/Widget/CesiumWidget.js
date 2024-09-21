@@ -115,8 +115,8 @@ function configureCameraFrustum(widget) {
  * @alias CesiumWidget
  * @constructor
  *
- * @param {Element|string} container The DOM element or ID that will contain the widget.
- * @param {object} [options] Object with the following properties:
+ * @param {Element|string} container 将包含小部件的DOM元素或ID。
+ * @param {object} [options] 对象，具有以下属性:
  * @param {Clock} [options.clock=new Clock()] The clock to use to control current time.
  * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] The default ellipsoid.
  * @param {ImageryLayer|false} [options.baseLayer=ImageryLayer.fromWorldImagery()] The bottommost imagery layer applied to the globe. If set to <code>false</code>, no imagery provider will be added.

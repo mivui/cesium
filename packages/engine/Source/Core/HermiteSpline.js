@@ -119,7 +119,7 @@ function generateNatural(points) {
  * @alias HermiteSpline
  * @constructor
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {number[]} options.times An array of strictly increasing, unit-less, floating-point times at each point.
  *                The values are in no way connected to the clock time. They are the parameterization for the curve.
  * @param {Cartesian3[]} options.points The array of control points.
@@ -285,7 +285,7 @@ Object.defineProperties(HermiteSpline.prototype, {
  * Creates a spline where the tangents at each control point are the same.
  * The curves are guaranteed to be at least in the class C<sup>1</sup>.
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {number[]} options.times The array of control point times.
  * @param {Cartesian3[]} options.points The array of control points.
  * @param {Cartesian3[]} options.tangents The array of tangents at the control points.
@@ -357,7 +357,7 @@ HermiteSpline.createC1 = function (options) {
  * Creates a natural cubic spline. The tangents at the control points are generated
  * to create a curve in the class C<sup>2</sup>.
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {number[]} options.times The array of control point times.
  * @param {Cartesian3[]} options.points The array of control points.
  * @returns {HermiteSpline|LinearSpline} A hermite spline, or a linear spline if less than 3 control points were given.
@@ -422,7 +422,7 @@ HermiteSpline.createNaturalCubic = function (options) {
  * Creates a clamped cubic spline. The tangents at the interior control points are generated
  * to create a curve in the class C<sup>2</sup>.
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {number[]} options.times The array of control point times.
  * @param {number[]|Cartesian3[]} options.points The array of control points.
  * @param {Cartesian3} options.firstTangent The outgoing tangent of the first control point.

@@ -228,7 +228,7 @@ Color.fromHsl = function (hue, saturation, lightness, alpha, result) {
  * Creates a random color using the provided options. For reproducible random colors, you should
  * call {@link CesiumMath#setRandomNumberSeed} once at the beginning of your application.
  *
- * @param {object} [options] Object with the following properties:
+ * @param {object} [options] 对象，具有以下属性:
  * @param {number} [options.red] If specified, the red component to use instead of a randomized value.
  * @param {number} [options.minimumRed=0.0] The maximum red value to generate if none was specified.
  * @param {number} [options.maximumRed=1.0] The minimum red value to generate if none was specified.

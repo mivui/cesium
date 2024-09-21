@@ -227,7 +227,7 @@ function createGeometryFromPolygon(
  * @alias CoplanarPolygonGeometry
  * @constructor
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {PolygonHierarchy} options.polygonHierarchy A polygon hierarchy that can include holes.
  * @param {number} [options.stRotation=0.0] The rotation of the texture coordinates, in radians. A positive rotation is counter-clockwise.
  * @param {VertexFormat} [options.vertexFormat=VertexFormat.DEFAULT] The vertex attributes to be computed.
@@ -287,7 +287,7 @@ function CoplanarPolygonGeometry(options) {
 /**
  * A description of a coplanar polygon from an array of positions.
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {Cartesian3[]} options.positions An array of positions that defined the corner points of the polygon.
  * @param {VertexFormat} [options.vertexFormat=VertexFormat.DEFAULT] The vertex attributes to be computed.
  * @param {number} [options.stRotation=0.0] The rotation of the texture coordinates, in radians. A positive rotation is counter-clockwise.

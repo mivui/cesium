@@ -16,7 +16,7 @@ const defaultRepeat = new Cartesian2(2.0, 2.0);
  * @alias CheckerboardMaterialProperty
  * @constructor
  *
- * @param {object} [options] Object with the following properties:
+ * @param {object} [options] 对象，具有以下属性:
  * @param {Property|Color} [options.evenColor=Color.WHITE] A Property specifying the first {@link Color}.
  * @param {Property|Color} [options.oddColor=Color.BLACK] A Property specifying the second {@link Color}.
  * @param {Property|Cartesian2} [options.repeat=new Cartesian2(2.0, 2.0)] A {@link Cartesian2} Property specifying how many times the tiles repeat in each direction.

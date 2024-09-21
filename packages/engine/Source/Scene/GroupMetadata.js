@@ -9,7 +9,7 @@ import MetadataEntity from "./MetadataEntity.js";
  * See the {@link https://github.com/CesiumGS/3d-tiles/tree/main/extensions/3DTILES_metadata|3DTILES_metadata Extension} for 3D Tiles
  * </p>
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {string} options.id The ID of the group.
  * @param {object} options.group The group JSON object.
  * @param {MetadataClass} options.class The class that group metadata conforms to.

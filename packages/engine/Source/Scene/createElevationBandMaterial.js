@@ -430,7 +430,7 @@ function createLayeredEntries(layers) {
  *
  * @function createElevationBandMaterial
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {Scene} options.scene The scene where the visualization is taking place.
  * @param {createElevationBandMaterialBand[]} options.layers A list of bands ordered from lowest to highest precedence.
  * @returns {Material} A new {@link Material} instance.

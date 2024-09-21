@@ -16,7 +16,7 @@ import Texture from "../Renderer/Texture.js";
  * An object that manages color, show/hide and picking textures for a batch
  * table or feature table.
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {number} featuresLength The number of features in the batch table or feature table
  * @param {Cesium3DTileContent|ModelFeatureTable} owner The owner of this batch texture. For 3D Tiles, this will be a {@link Cesium3DTileContent}. For glTF models, this will be a {@link ModelFeatureTable}.
  * @param {object} [statistics] The statistics object to update with information about the batch texture.

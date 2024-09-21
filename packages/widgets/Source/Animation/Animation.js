@@ -390,27 +390,27 @@ SvgButton.prototype.setTooltip = function (tooltip) {
  * <br />Animation widget
  * </span>
  * <br /><br />
- * The Animation widget provides buttons for play, pause, and reverse, along with the
- * current time and date, surrounded by a "shuttle ring" for controlling the speed of animation.
+ * Animation小部件提供播放、暂停和反转按钮，以及
+ * 当前的时间和日期，由一个“穿梭环”包围，以控制动画的速度。
  * <br /><br />
- * The "shuttle ring" concept is borrowed from video editing, where typically a
- * "jog wheel" can be rotated to move past individual animation frames very slowly, and
- * a surrounding shuttle ring can be twisted to control direction and speed of fast playback.
- * Cesium typically treats time as continuous (not broken into pre-defined animation frames),
- * so this widget offers no jog wheel.  Instead, the shuttle ring is capable of both fast and
- * very slow playback.  Click and drag the shuttle ring pointer itself (shown above in green),
- * or click in the rest of the ring area to nudge the pointer to the next preset speed in that direction.
+ * "shuttle ring"的概念是从视频编辑中借鉴来的
+ * "jog wheel"可以旋转移动过去的个别动画帧非常缓慢，和
+ * 周围的穿梭环可以扭曲，以控制方向和速度的快速播放。
+ * 铯通常将时间视为连续的(不分解为预定义的动画帧)，
+ * 所以这个小部件不提供慢跑轮。相反，穿梭环既能快速又能
+ * 播放非常慢。点击并拖动穿梭环指针本身(上面的绿色部分)，
+ * 或单击环区域的其余部分，将指针轻推到该方向的下一个预设速度。
  * <br /><br />
- * The Animation widget also provides a "realtime" button (in the upper-left) that keeps
- * animation time in sync with the end user's system clock, typically displaying
- * "today" or "right now."  This mode is not available in {@link ClockRange.CLAMPED} or
- * {@link ClockRange.LOOP_STOP} mode if the current time is outside of {@link Clock}'s startTime and endTime.
+ * 动画小部件还提供了一个“实时”按钮(在左上角)
+ * 动画时间与最终用户的系统时钟同步，通常显示
+ * “今天”或“现在”。  此模式在 {@link ClockRange.CLAMPED} 或
+ * {@link ClockRange.LOOP_STOP} 如果当前时间在 {@link Clock}的 startTime和endTime.
  *
  * @alias Animation
  * @constructor
  *
- * @param {Element|string} container The DOM element or ID that will contain the widget.
- * @param {AnimationViewModel} viewModel The view model used by this widget.
+ * @param {Element|string} container 将包含小部件的DOM元素或ID。
+ * @param {AnimationViewModel} viewModel 此小部件使用的视图模型。
  *
  * @exception {DeveloperError} Element with id "container" does not exist in the document.
  *
@@ -857,7 +857,7 @@ Animation.prototype.resize = function () {
 };
 
 /**
- * Updates the widget to reflect any modified CSS rules for theming.
+ * 更新小部件以反映任何修改的CSS主题规则。
  *
  * @example
  * //Switch to the cesium-lighter theme.

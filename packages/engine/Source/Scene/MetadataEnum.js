@@ -10,7 +10,7 @@ import MetadataComponentType from "./MetadataComponentType.js";
  * See the {@link https://github.com/CesiumGS/3d-tiles/tree/main/specification/Metadata|3D Metadata Specification} for 3D Tiles
  * </p>
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {string} options.id The ID of the enum.
  * @param {MetadataEnumValue[]} options.values The enum values.
  * @param {MetadataComponentType} [options.valueType=MetadataComponentType.UINT16] The enum value type.
@@ -62,7 +62,7 @@ function MetadataEnum(options) {
 /**
  * Creates a {@link MetadataEnum} from either 3D Tiles 1.1, 3DTILES_metadata, EXT_structural_metadata, or EXT_feature_metadata.
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {string} options.id The ID of the enum.
  * @param {object} options.enum The enum JSON object.
  *

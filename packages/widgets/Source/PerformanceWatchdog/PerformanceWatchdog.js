@@ -13,8 +13,8 @@ import PerformanceWatchdogViewModel from "./PerformanceWatchdogViewModel.js";
  * @alias PerformanceWatchdog
  * @constructor
  *
- * @param {object} [options] Object with the following properties:
- * @param {Element|string} options.container The DOM element or ID that will contain the widget.
+ * @param {object} [options] 对象，具有以下属性:
+ * @param {Element|string} options.container 将包含小部件的DOM元素或ID。
  * @param {Scene} options.scene The {@link Scene} for which to monitor performance.
  * @param {string} [options.lowFrameRateMessage='This application appears to be performing poorly on your system.  Please try using a different web browser or updating your video drivers.'] The
  *        message to display when a low frame rate is detected.  The message is interpeted as HTML, so make sure

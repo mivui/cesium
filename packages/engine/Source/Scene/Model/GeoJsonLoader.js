@@ -37,7 +37,7 @@ import BufferUsage from "../../Renderer/BufferUsage.js";
  * @augments ResourceLoader
  * @private
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {object} options.geoJson The GeoJson object.
  */
 function GeoJsonLoader(options) {

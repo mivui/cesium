@@ -9,7 +9,7 @@ import defined from "../Core/defined.js";
  * See the {@link https://github.com/CesiumGS/glTF/tree/3d-tiles-next/extensions/2.0/Vendor/EXT_structural_metadata|EXT_structural_metadata Extension}
  * </p>
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {object} options.property The property JSON object.
  * @param {MetadataClassProperty} options.classProperty The class property.
  *

@@ -102,7 +102,7 @@ let imageSmoothingEnabledName;
  * If text is blank, returns undefined.
  *
  * @param {string} text The text to write.
- * @param {object} [options] Object with the following properties:
+ * @param {object} [options] 对象，具有以下属性:
  * @param {string} [options.font='10px sans-serif'] The CSS font to use.
  * @param {string} [options.textBaseline='bottom'] The baseline of the text.
  * @param {boolean} [options.fill=true] Whether to fill the text.

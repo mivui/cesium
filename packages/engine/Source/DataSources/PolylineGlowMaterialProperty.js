@@ -15,7 +15,7 @@ const defaultTaperPower = 1.0;
  * @alias PolylineGlowMaterialProperty
  * @constructor
  *
- * @param {object} [options] Object with the following properties:
+ * @param {object} [options] 对象，具有以下属性:
  * @param {Property|Color} [options.color=Color.WHITE] A Property specifying the {@link Color} of the line.
  * @param {Property|number} [options.glowPower=0.25] A numeric Property specifying the strength of the glow, as a percentage of the total line width.
  * @param {Property|number} [options.taperPower=1.0] A numeric Property specifying the strength of the tapering effect, as a percentage of the total line length.  If 1.0 or higher, no taper effect is used.

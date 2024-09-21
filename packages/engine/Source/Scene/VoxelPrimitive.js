@@ -32,7 +32,7 @@ import VerticalExaggeration from "../Core/VerticalExaggeration.js";
  * @alias VoxelPrimitive
  * @constructor
  *
- * @param {object} [options] Object with the following properties:
+ * @param {object} [options] 对象，具有以下属性:
  * @param {VoxelProvider} [options.provider] The voxel provider that supplies the primitive with tile data.
  * @param {Matrix4} [options.modelMatrix=Matrix4.IDENTITY] The model matrix used to transform the primitive.
  * @param {CustomShader} [options.customShader] The custom shader used to style the primitive.

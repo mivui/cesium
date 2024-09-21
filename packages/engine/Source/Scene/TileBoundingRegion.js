@@ -23,7 +23,7 @@ import SceneMode from "./SceneMode.js";
  * @alias TileBoundingRegion
  * @constructor
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {Rectangle} options.rectangle The rectangle specifying the longitude and latitude range of the region.
  * @param {number} [options.minimumHeight=0.0] The minimum height of the region.
  * @param {number} [options.maximumHeight=0.0] The maximum height of the region.

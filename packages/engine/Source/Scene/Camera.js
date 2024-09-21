@@ -1435,7 +1435,7 @@ const scratchHpr = new HeadingPitchRoll();
 /**
  * Sets the camera position, orientation and transform.
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {Cartesian3|Rectangle} [options.destination] The final position of the camera in world coordinates or a rectangle that would be visible from a top-down view.
  * @param {HeadingPitchRollValues|DirectionUp} [options.orientation] An object that contains either direction and up properties or heading, pitch and roll properties. By default, the direction will point
  * towards the center of the frame in 3D and in the negative z direction in Columbus view. The up direction will point towards local north in 3D and in the positive
@@ -3318,7 +3318,7 @@ Camera.prototype.completeFlight = function () {
 /**
  * Flies the camera from its current position to a new position.
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {Cartesian3|Rectangle} options.destination The final position of the camera in world coordinates or a rectangle that would be visible from a top-down view.
  * @param {object} [options.orientation] An object that contains either direction and up properties or heading, pitch and roll properties. By default, the direction will point
  * towards the center of the frame in 3D and in the negative z direction in Columbus view. The up direction will point towards local north in 3D and in the positive
@@ -3591,7 +3591,7 @@ const scratchFlyToBoundingSphereMatrix3 = new Matrix3();
  * target will be the range. The heading will be aligned to local north.</p>
  *
  * @param {BoundingSphere} boundingSphere The bounding sphere to view, in world coordinates.
- * @param {object} [options] Object with the following properties:
+ * @param {object} [options] 对象，具有以下属性:
  * @param {number} [options.duration] The duration of the flight in seconds. If omitted, Cesium attempts to calculate an ideal duration based on the distance to be traveled by the flight.
  * @param {HeadingPitchRange} [options.offset] The offset from the target in the local east-north-up reference frame centered at the target.
  * @param {Camera.FlightCompleteCallback} [options.complete] The function to execute when the flight is complete.

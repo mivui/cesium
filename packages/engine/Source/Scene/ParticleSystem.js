@@ -21,7 +21,7 @@ const defaultImageSize = new Cartesian2(1.0, 1.0);
  * @alias ParticleSystem
  * @constructor
  *
- * @param {object} [options] Object with the following properties:
+ * @param {object} [options] 对象，具有以下属性:
  * @param {boolean} [options.show=true] Whether to display the particle system.
  * @param {ParticleSystem.updateCallback} [options.updateCallback] The callback function to be called each frame to update a particle.
  * @param {ParticleEmitter} [options.emitter=new CircleEmitter(0.5)] The particle emitter for this system.

@@ -1501,7 +1501,7 @@ function decodeDataUri(dataUriRegexResult, responseType) {
  * the server must have Cross-Origin Resource Sharing (CORS) headers enabled. It's recommended that you use
  * the more specific functions eg. fetchJson, fetchBlob, etc.
  *
- * @param {object} [options] Object with the following properties:
+ * @param {object} [options] 对象，具有以下属性:
  * @param {string} [options.responseType] The type of response.  This controls the type of item returned.
  * @param {object} [options.headers] Additional HTTP headers to send with the request, if any.
  * @param {string} [options.overrideMimeType] Overrides the MIME type returned by the server.
@@ -1557,7 +1557,7 @@ Resource.fetch = function (options) {
  * using XMLHttpRequest, which means that in order to make requests to another origin,
  * the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
  *
- * @param {object} [options] Object with the following properties:
+ * @param {object} [options] 对象，具有以下属性:
  * @param {string} [options.responseType] The type of response.  This controls the type of item returned.
  * @param {object} [options.headers] Additional HTTP headers to send with the request, if any.
  * @param {string} [options.overrideMimeType] Overrides the MIME type returned by the server.
@@ -1615,7 +1615,7 @@ Resource.delete = function (options) {
  * using XMLHttpRequest, which means that in order to make requests to another origin,
  * the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
  *
- * @param {object} [options] Object with the following properties:
+ * @param {object} [options] 对象，具有以下属性:
  * @param {string} [options.responseType] The type of response.  This controls the type of item returned.
  * @param {object} [options.headers] Additional HTTP headers to send with the request, if any.
  * @param {string} [options.overrideMimeType] Overrides the MIME type returned by the server.
@@ -1671,7 +1671,7 @@ Resource.head = function (options) {
  * using XMLHttpRequest, which means that in order to make requests to another origin,
  * the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
  *
- * @param {object} [options] Object with the following properties:
+ * @param {object} [options] 对象，具有以下属性:
  * @param {string} [options.responseType] The type of response.  This controls the type of item returned.
  * @param {object} [options.headers] Additional HTTP headers to send with the request, if any.
  * @param {string} [options.overrideMimeType] Overrides the MIME type returned by the server.
@@ -1728,7 +1728,7 @@ Resource.options = function (options) {
  * the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
  *
  * @param {object} data Data that is posted with the resource.
- * @param {object} [options] Object with the following properties:
+ * @param {object} [options] 对象，具有以下属性:
  * @param {object} [options.data] Data that is posted with the resource.
  * @param {string} [options.responseType] The type of response.  This controls the type of item returned.
  * @param {object} [options.headers] Additional HTTP headers to send with the request, if any.
@@ -1790,7 +1790,7 @@ Resource.post = function (options) {
  * the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
  *
  * @param {object} data Data that is posted with the resource.
- * @param {object} [options] Object with the following properties:
+ * @param {object} [options] 对象，具有以下属性:
  * @param {string} [options.responseType] The type of response.  This controls the type of item returned.
  * @param {object} [options.headers] Additional HTTP headers to send with the request, if any.
  * @param {string} [options.overrideMimeType] Overrides the MIME type returned by the server.
@@ -1851,7 +1851,7 @@ Resource.put = function (options) {
  * the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
  *
  * @param {object} data Data that is posted with the resource.
- * @param {object} [options] Object with the following properties:
+ * @param {object} [options] 对象，具有以下属性:
  * @param {string} [options.responseType] The type of response.  This controls the type of item returned.
  * @param {object} [options.headers] Additional HTTP headers to send with the request, if any.
  * @param {string} [options.overrideMimeType] Overrides the MIME type returned by the server.

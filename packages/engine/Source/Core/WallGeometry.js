@@ -29,7 +29,7 @@ const scratchNormal = new Cartesian3();
  * @alias WallGeometry
  * @constructor
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {Cartesian3[]} options.positions An array of Cartesian objects, which are the points of the wall.
  * @param {number} [options.granularity=CesiumMath.RADIANS_PER_DEGREE] The distance, in radians, between each latitude and longitude. Determines the number of positions in the buffer.
  * @param {number[]} [options.maximumHeights] An array parallel to <code>positions</code> that give the maximum height of the
@@ -274,7 +274,7 @@ WallGeometry.unpack = function (array, startingIndex, result) {
  * A description of a wall, which is similar to a KML line string. A wall is defined by a series of points,
  * which extrude down to the ground. Optionally, they can extrude downwards to a specified height.
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {Cartesian3[]} options.positions An array of Cartesian objects, which are the points of the wall.
  * @param {number} [options.maximumHeight] A constant that defines the maximum height of the
  *        wall at <code>positions</code>. If undefined, the height of each position in used.

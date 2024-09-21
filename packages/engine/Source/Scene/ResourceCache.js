@@ -135,7 +135,7 @@ ResourceCache.unload = function (resourceLoader) {
 /**
  * Gets an existing schema loader from the cache, or creates a new loader if one does not already exist.
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {object} [options.schema] An object that explicitly defines a schema JSON. Mutually exclusive with options.resource.
  * @param {Resource} [options.resource] The {@link Resource} pointing to the schema JSON. Mutually exclusive with options.schema.
  *
@@ -178,7 +178,7 @@ ResourceCache.getSchemaLoader = function (options) {
 /**
  * Gets an existing embedded buffer loader from the cache, or creates a new loader if one does not already exist.
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {Resource} options.parentResource The {@link Resource} containing the embedded buffer.
  * @param {number} options.bufferId A unique identifier of the embedded buffer within the parent resource.
  * @param {Uint8Array} [options.typedArray] The typed array containing the embedded buffer contents.
@@ -220,7 +220,7 @@ ResourceCache.getEmbeddedBufferLoader = function (options) {
 /**
  * Gets an existing external buffer from loader the cache, or creates a new loader if one does not already exist.
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {Resource} options.resource The {@link Resource} pointing to the external buffer.
  *
  * @returns {BufferLoader} The cached buffer loader.
@@ -254,7 +254,7 @@ ResourceCache.getExternalBufferLoader = function (options) {
 /**
  * Gets an existing glTF JSON loader from the cache, or creates a new loader if one does not already exist.
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {Resource} options.gltfResource The {@link Resource} containing the glTF.
  * @param {Resource} options.baseResource The {@link Resource} that paths in the glTF JSON are relative to.
  * @param {Uint8Array} [options.typedArray] The typed array containing the glTF contents.
@@ -296,7 +296,7 @@ ResourceCache.getGltfJsonLoader = function (options) {
 /**
  * Gets an existing glTF buffer view from the cache, or creates a new loader if one does not already exist.
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {object} options.gltf The glTF JSON.
  * @param {number} options.bufferViewId The bufferView ID.
  * @param {Resource} options.gltfResource The {@link Resource} containing the glTF.
@@ -343,7 +343,7 @@ ResourceCache.getBufferViewLoader = function (options) {
 /**
  * Gets an existing Draco data from the cache, or creates a new loader if one does not already exist.
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {object} options.gltf The glTF JSON.
  * @param {object} options.draco The Draco extension object.
  * @param {Resource} options.gltfResource The {@link Resource} containing the glTF.
@@ -390,7 +390,7 @@ ResourceCache.getDracoLoader = function (options) {
 /**
  * Gets an existing glTF vertex buffer from the cache, or creates a new loader if one does not already exist.
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {object} options.gltf The glTF JSON.
  * @param {Resource} options.gltfResource The {@link Resource} containing the glTF.
  * @param {Resource} options.baseResource The {@link Resource} that paths in the glTF JSON are relative to.
@@ -516,7 +516,7 @@ function hasDracoCompression(draco, semantic) {
 /**
  * Gets an existing glTF index buffer from the cache, or creates a new loader if one does not already exist.
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {object} options.gltf The glTF JSON.
  * @param {number} options.accessorId The accessor ID corresponding to the index buffer.
  * @param {Resource} options.gltfResource The {@link Resource} containing the glTF.
@@ -591,7 +591,7 @@ ResourceCache.getIndexBufferLoader = function (options) {
 /**
  * Gets an existing glTF image from the cache, or creates a new loader if one does not already exist.
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {object} options.gltf The glTF JSON.
  * @param {number} options.imageId The image ID.
  * @param {Resource} options.gltfResource The {@link Resource} containing the glTF.
@@ -638,7 +638,7 @@ ResourceCache.getImageLoader = function (options) {
 /**
  * Gets an existing glTF texture from the cache, or creates a new loader if one does not already exist.
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {object} options.gltf The glTF JSON.
  * @param {object} options.textureInfo The texture info object.
  * @param {Resource} options.gltfResource The {@link Resource} containing the glTF.

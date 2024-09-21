@@ -7,7 +7,7 @@ import DeveloperError from "../Core/DeveloperError.js";
 /**
  * A light that gets emitted in a single direction from infinitely far away.
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {Cartesian3} options.direction The direction in which light gets emitted.
  * @param {Color} [options.color=Color.WHITE] The color of the light.
  * @param {number} [options.intensity=1.0] The intensity of the light.

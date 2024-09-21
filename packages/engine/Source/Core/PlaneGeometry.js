@@ -16,7 +16,7 @@ import VertexFormat from "./VertexFormat.js";
  * @alias PlaneGeometry
  * @constructor
  *
- * @param {object} [options] Object with the following properties:
+ * @param {object} [options] 对象，具有以下属性:
  * @param {VertexFormat} [options.vertexFormat=VertexFormat.DEFAULT] The vertex attributes to be computed.
  *
  * @example

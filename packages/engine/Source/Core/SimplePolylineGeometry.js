@@ -62,7 +62,7 @@ function interpolateColors(p0, p1, color0, color1, minDistance, array, offset) {
  * @alias SimplePolylineGeometry
  * @constructor
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {Cartesian3[]} options.positions An array of {@link Cartesian3} defining the positions in the polyline as a line strip.
  * @param {Color[]} [options.colors] An Array of {@link Color} defining the per vertex or per segment colors.
  * @param {boolean} [options.colorsPerVertex=false] A boolean that determines whether the colors will be flat across each segment of the line or interpolated across the vertices.

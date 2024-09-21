@@ -888,7 +888,7 @@ function computeRectangle(
  * @alias EllipseGeometry
  * @constructor
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {Cartesian3} options.center The ellipse's center point in the fixed frame.
  * @param {number} options.semiMajorAxis The length of the ellipse's semi-major axis in meters.
  * @param {number} options.semiMinorAxis The length of the ellipse's semi-minor axis in meters.
@@ -1105,7 +1105,7 @@ EllipseGeometry.unpack = function (array, startingIndex, result) {
 /**
  * Computes the bounding rectangle based on the provided options
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {Cartesian3} options.center The ellipse's center point in the fixed frame.
  * @param {number} options.semiMajorAxis The length of the ellipse's semi-major axis in meters.
  * @param {number} options.semiMinorAxis The length of the ellipse's semi-minor axis in meters.

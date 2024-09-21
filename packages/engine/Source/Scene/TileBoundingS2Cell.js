@@ -23,7 +23,7 @@ let centerCartographicScratch = new Cartographic();
  * @alias TileBoundingS2Cell
  * @constructor
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {string} options.token The token of the S2 cell.
  * @param {number} [options.minimumHeight=0.0] The minimum height of the bounding volume.
  * @param {number} [options.maximumHeight=0.0] The maximum height of the bounding volume.

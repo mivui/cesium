@@ -27,7 +27,7 @@ const positionScratch = new Cartesian3();
  * @alias CylinderGeometry
  * @constructor
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {number} options.length The length of the cylinder.
  * @param {number} options.topRadius The radius of the top of the cylinder.
  * @param {number} options.bottomRadius The radius of the bottom of the cylinder.

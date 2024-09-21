@@ -496,7 +496,7 @@ Texture.create = function (options) {
  * Creates a texture, and copies a subimage of the framebuffer to it.  When called without arguments,
  * the texture is the same width and height as the framebuffer and contains its contents.
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {Context} options.context The context in which the Texture gets created.
  * @param {PixelFormat} [options.pixelFormat=PixelFormat.RGB] The texture's internal pixel format.
  * @param {number} [options.framebufferXOffset=0] An offset in the x direction in the framebuffer where copying begins from.
@@ -741,7 +741,7 @@ function setupSampler(texture, sampler) {
 /**
  * Copy new image data into this texture, from a source {@link ImageData}, {@link HTMLImageElement}, {@link HTMLCanvasElement}, or {@link HTMLVideoElement}.
  * or an object with width, height, and arrayBufferView properties.
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {object} options.source The source {@link ImageData}, {@link HTMLImageElement}, {@link HTMLCanvasElement}, or {@link HTMLVideoElement},
  *                        or an object with width, height, and arrayBufferView properties.
  * @param {number} [options.xOffset=0] The offset in the x direction within the texture to copy into.

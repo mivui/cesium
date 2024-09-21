@@ -32,7 +32,7 @@ const MAX_GLTF_UINT8_INDEX = 255;
  * @alias PrimitiveOutlineGenerator
  * @constructor
  *
- * @param {number} options Object with the following properties:
+ * @param {number} options 对象，具有以下属性:
  * @param {Uint8Array|Uint16Array|Uint32Array} options.triangleIndices The original triangle indices of the primitive. The constructor takes ownership of this typed array as it will be modified internally. Use the updatedTriangleIndices getter to get the final result.
  * @param {number[]} options.outlineIndices The indices of edges in the triangle from the CESIUM_primitive_outline extension
  * @param {number} options.originalVertexCount The original number of vertices in the primitive

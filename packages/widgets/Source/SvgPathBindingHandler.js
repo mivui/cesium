@@ -6,7 +6,7 @@ const svgClassName = "cesium-svgPath-svg";
  * This binding handler will be registered as cesiumSvgPath.
  *
  * <p>
- * The parameter to this binding is an object with the following properties:
+ * The parameter to this binding is an 对象，具有以下属性:
  * </p>
  *
  * <ul>

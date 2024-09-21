@@ -13,7 +13,7 @@ import TimeStandard from "./TimeStandard.js";
  * @alias Iau2006XysData
  * @constructor
  *
- * @param {object} [options] Object with the following properties:
+ * @param {object} [options] 对象，具有以下属性:
  * @param {Resource|string} [options.xysFileUrlTemplate='Assets/IAU2006_XYS/IAU2006_XYS_{0}.json'] A template URL for obtaining the XYS data.  In the template,
  *                 `{0}` will be replaced with the file index.
  * @param {number} [options.interpolationOrder=9] The order of interpolation to perform on the XYS data.

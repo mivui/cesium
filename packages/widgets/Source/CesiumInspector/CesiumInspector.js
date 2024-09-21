@@ -14,7 +14,7 @@ import CesiumInspectorViewModel from "./CesiumInspectorViewModel.js";
  * @alias CesiumInspector
  * @constructor
  *
- * @param {Element|string} container The DOM element or ID that will contain the widget.
+ * @param {Element|string} container 将包含小部件的DOM元素或ID。
  * @param {Scene} scene The Scene instance to use.
  *
  * @demo {@link https://sandcastle.cesium.com/index.html?src=Cesium%20Inspector.html|Cesium Sandcastle Cesium Inspector Demo}

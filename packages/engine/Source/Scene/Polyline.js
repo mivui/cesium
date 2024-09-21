@@ -21,7 +21,7 @@ import Material from "./Material.js";
  * @internalConstructor
  * @class
  *
- * @privateParam {object} options Object with the following properties:
+ * @privateParam {object} options 对象，具有以下属性:
  * @privateParam {boolean} [options.show=true] <code>true</code> if this polyline will be shown; otherwise, <code>false</code>.
  * @privateParam {number} [options.width=1.0] The width of the polyline in pixels.
  * @privateParam {boolean} [options.loop=false] Whether a line segment will be added between the last and first line positions to make this line a loop.

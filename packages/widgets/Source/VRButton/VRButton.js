@@ -18,7 +18,7 @@ const exitVRPath =
  * @alias VRButton
  * @constructor
  *
- * @param {Element|string} container The DOM element or ID that will contain the widget.
+ * @param {Element|string} container 将包含小部件的DOM元素或ID。
  * @param {Scene} scene The scene.
  * @param {Element|string} [vrElement=document.body] The element or id to be placed into vr mode.
  *

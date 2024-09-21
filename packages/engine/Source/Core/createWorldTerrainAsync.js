@@ -7,7 +7,7 @@ import Ellipsoid from "./Ellipsoid.js";
  *
  * @function
  *
- * @param {Object} [options] Object with the following properties:
+ * @param {Object} [options] 对象，具有以下属性:
  * @param {Boolean} [options.requestVertexNormals=false] Flag that indicates if the client should request additional lighting information from the server if available.
  * @param {Boolean} [options.requestWaterMask=false] Flag that indicates if the client should request per tile water masks from the server if available.
  * @returns {Promise<CesiumTerrainProvider>} A promise that resolves to the created CesiumTerrainProvider

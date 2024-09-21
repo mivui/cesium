@@ -358,7 +358,7 @@ function computePositionsExtruded(params) {
  * @alias CorridorOutlineGeometry
  * @constructor
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {Cartesian3[]} options.positions An array of positions that define the center of the corridor outline.
  * @param {number} options.width The distance between the edges of the corridor outline.
  * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] The ellipsoid to be used as a reference.

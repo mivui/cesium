@@ -269,7 +269,7 @@ TimeIntervalCollection.prototype.indexOf = function (date) {
  * Returns the first interval in the collection that matches the specified parameters.
  * All parameters are optional and <code>undefined</code> parameters are treated as a don't care condition.
  *
- * @param {object} [options] Object with the following properties:
+ * @param {object} [options] 对象，具有以下属性:
  * @param {JulianDate} [options.start] The start time of the interval.
  * @param {JulianDate} [options.stop] The stop time of the interval.
  * @param {boolean} [options.isStartIncluded] <code>true</code> if <code>options.start</code> is included in the interval, <code>false</code> otherwise.
@@ -731,7 +731,7 @@ TimeIntervalCollection.prototype.intersect = function (
 /**
  * Creates a new instance from a JulianDate array.
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {JulianDate[]} options.julianDates An array of ISO 8601 dates.
  * @param {boolean} [options.isStartIncluded=true] <code>true</code> if start time is included in the interval, <code>false</code> otherwise.
  * @param {boolean} [options.isStopIncluded=true] <code>true</code> if stop time is included in the interval, <code>false</code> otherwise.
@@ -981,7 +981,7 @@ const scratchDuration = new GregorianDate();
 /**
  * Creates a new instance from an {@link http://en.wikipedia.org/wiki/ISO_8601|ISO 8601} time interval (start/end/duration).
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {string} options.iso8601 An ISO 8601 interval.
  * @param {boolean} [options.isStartIncluded=true] <code>true</code> if start time is included in the interval, <code>false</code> otherwise.
  * @param {boolean} [options.isStopIncluded=true] <code>true</code> if stop time is included in the interval, <code>false</code> otherwise.
@@ -1038,7 +1038,7 @@ TimeIntervalCollection.fromIso8601 = function (options, result) {
 /**
  * Creates a new instance from a {@link http://en.wikipedia.org/wiki/ISO_8601|ISO 8601} date array.
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {string[]} options.iso8601Dates An array of ISO 8601 dates.
  * @param {boolean} [options.isStartIncluded=true] <code>true</code> if start time is included in the interval, <code>false</code> otherwise.
  * @param {boolean} [options.isStopIncluded=true] <code>true</code> if stop time is included in the interval, <code>false</code> otherwise.
@@ -1076,7 +1076,7 @@ TimeIntervalCollection.fromIso8601DateArray = function (options, result) {
 /**
  * Creates a new instance from a {@link http://en.wikipedia.org/wiki/ISO_8601|ISO 8601} duration array.
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {JulianDate} options.epoch An date that the durations are relative to.
  * @param {string} options.iso8601Durations An array of ISO 8601 durations.
  * @param {boolean} [options.relativeToPrevious=false] <code>true</code> if durations are relative to previous date, <code>false</code> if always relative to the epoch.

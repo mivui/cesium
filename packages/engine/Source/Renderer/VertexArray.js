@@ -178,7 +178,7 @@ function bind(gl, attributes, indexBuffer) {
  * Creates a vertex array, which defines the attributes making up a vertex, and contains an optional index buffer
  * to select vertices for rendering.  Attributes are defined using object literals as shown in Example 1 below.
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {Context} options.context The context in which the VertexArray gets created.
  * @param {Object[]} options.attributes An array of attributes.
  * @param {IndexBuffer} [options.indexBuffer] An optional index buffer.

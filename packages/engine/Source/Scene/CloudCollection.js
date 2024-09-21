@@ -76,7 +76,7 @@ const COLOR_INDEX = CumulusCloud.COLOR_INDEX;
  * @alias CloudCollection
  * @constructor
  *
- * @param {object} [options] Object with the following properties:
+ * @param {object} [options] 对象，具有以下属性:
  * @param {boolean} [options.show=true] Whether to display the clouds.
  * @param {number} [options.noiseDetail=16.0] Desired amount of detail in the noise texture.
  * @param {number} [options.noiseOffset=Cartesian3.ZERO] Desired translation of data in noise texture.

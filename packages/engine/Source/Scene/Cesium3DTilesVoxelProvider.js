@@ -35,7 +35,7 @@ import VoxelShapeType from "./VoxelShapeType.js";
  * @constructor
  * @augments VoxelProvider
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  *
  * @see Cesium3DTilesVoxelProvider.fromUrl
  * @see VoxelProvider

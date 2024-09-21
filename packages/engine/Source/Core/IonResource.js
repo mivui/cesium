@@ -81,7 +81,7 @@ if (defined(Object.create)) {
  * Asynchronously creates an instance.
  *
  * @param {number} assetId The Cesium ion asset id.
- * @param {object} [options] An object with the following properties:
+ * @param {object} [options] An 对象，具有以下属性:
  * @param {string} [options.accessToken=Ion.defaultAccessToken] The access token to use.
  * @param {string|Resource} [options.server=Ion.defaultServer] The resource to the Cesium ion API server.
  * @returns {Promise<IonResource>} A Promise to am instance representing the Cesium ion Asset.

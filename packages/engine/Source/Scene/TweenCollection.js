@@ -198,7 +198,7 @@ Object.defineProperties(TweenCollection.prototype, {
  * Creates a tween for animating between two sets of properties.  The tween starts animating at the next call to {@link TweenCollection#update}, which
  * is implicit when {@link Viewer} or {@link CesiumWidget} render the scene.
  *
- * @param {object} [options] Object with the following properties:
+ * @param {object} [options] 对象，具有以下属性:
  * @param {object} options.startObject An object with properties for initial values of the tween.  The properties of this object are changed during the tween's animation.
  * @param {object} options.stopObject An object with properties for the final values of the tween.
  * @param {number} options.duration The duration, in seconds, for the tween.  The tween is automatically removed from the collection when it stops.
@@ -276,7 +276,7 @@ TweenCollection.prototype.add = function (options) {
  * Creates a tween for animating a scalar property on the given object.  The tween starts animating at the next call to {@link TweenCollection#update}, which
  * is implicit when {@link Viewer} or {@link CesiumWidget} render the scene.
  *
- * @param {object} [options] Object with the following properties:
+ * @param {object} [options] 对象，具有以下属性:
  * @param {object} options.object The object containing the property to animate.
  * @param {string} options.property The name of the property to animate.
  * @param {number} options.startValue The initial value.
@@ -343,7 +343,7 @@ TweenCollection.prototype.addProperty = function (options) {
  * Creates a tween for animating the alpha of all color uniforms on a {@link Material}.  The tween starts animating at the next call to {@link TweenCollection#update}, which
  * is implicit when {@link Viewer} or {@link CesiumWidget} render the scene.
  *
- * @param {object} [options] Object with the following properties:
+ * @param {object} [options] 对象，具有以下属性:
  * @param {Material} options.material The material to animate.
  * @param {number} [options.startValue=0.0] The initial alpha value.
  * @param {number} [options.stopValue=1.0] The final alpha value.
@@ -416,7 +416,7 @@ TweenCollection.prototype.addAlpha = function (options) {
  * Creates a tween for animating the offset uniform of a {@link Material}.  The tween starts animating at the next call to {@link TweenCollection#update}, which
  * is implicit when {@link Viewer} or {@link CesiumWidget} render the scene.
  *
- * @param {object} [options] Object with the following properties:
+ * @param {object} [options] 对象，具有以下属性:
  * @param {Material} options.material The material to animate.
  * @param {number} options.startValue The initial alpha value.
  * @param {number} options.stopValue The final alpha value.

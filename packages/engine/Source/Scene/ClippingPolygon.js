@@ -13,7 +13,7 @@ import Rectangle from "../Core/Rectangle.js";
  * @alias ClippingPolygon
  * @constructor
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {Cartesian3[]} options.positions A list of three or more Cartesian coordinates defining the outer ring of the clipping polygon.
  * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default]
  *

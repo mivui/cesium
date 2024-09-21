@@ -10,7 +10,7 @@ import PropertyAttributeProperty from "./PropertyAttributeProperty.js";
  * See the {@link https://github.com/CesiumGS/glTF/tree/3d-tiles-next/extensions/2.0/Vendor/EXT_structural_metadata|EXT_structural_metadata Extension}
  * </p>
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {string} [options.name] Optional human-readable name to describe the attribute
  * @param {number} [options.id] A unique id to identify the property attribute, useful for debugging. This is the array index in the property attributes array
  * @param {object} options.propertyAttribute The property attribute JSON, following the EXT_structural_metadata schema.

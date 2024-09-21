@@ -218,7 +218,7 @@ Object.defineProperties(VoxelProvider.prototype, {
  * This function should not be called before {@link VoxelProvider#ready} returns true.
  * @function
  *
- * @param {object} [options] Object with the following properties:
+ * @param {object} [options] 对象，具有以下属性:
  * @param {number} [options.tileLevel=0] The tile's level.
  * @param {number} [options.tileX=0] The tile's X coordinate.
  * @param {number} [options.tileY=0] The tile's Y coordinate.

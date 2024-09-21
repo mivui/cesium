@@ -93,11 +93,11 @@ function multiplierToAngle(multiplier, shuttleRingTicks, clockViewModel) {
 }
 
 /**
- * The view model for the {@link Animation} widget.
+ * {@link Animation} 小部件的视图模型。
  * @alias AnimationViewModel
  * @constructor
  *
- * @param {ClockViewModel} clockViewModel The ClockViewModel instance to use.
+ * @param {ClockViewModel} clockViewModel 要使用的ClockViewModel实例。
  *
  * @see Animation
  */
@@ -115,16 +115,16 @@ function AnimationViewModel(clockViewModel) {
   this._timeFormatter = AnimationViewModel.defaultTimeFormatter;
 
   /**
-   * Gets or sets whether the shuttle ring is currently being dragged.  This property is observable.
+   * 获取或设置当前是否正在拖动穿梭环。这个属性是可观察的。
    * @type {boolean}
    * @default false
    */
   this.shuttleRingDragging = false;
 
   /**
-   * Gets or sets whether dragging the shuttle ring should cause the multiplier
-   * to snap to the defined tick values rather than interpolating between them.
-   * This property is observable.
+   * 获取或设置拖曳梭子环是否会产生乘数
+   * 捕捉到定义的刻度值，而不是在它们之间插入。
+   * 这个属性是可观察的。
    * @type {boolean}
    * @default false
    */
@@ -143,7 +143,7 @@ function AnimationViewModel(clockViewModel) {
   this.setShuttleRingTicks(AnimationViewModel.defaultTicks);
 
   /**
-   * Gets the string representation of the current time.  This property is observable.
+   * 获取当前时间的字符串表示形式。这个属性是可观察的。
    * @type {string}
    */
   this.timeLabel = undefined;
@@ -152,7 +152,7 @@ function AnimationViewModel(clockViewModel) {
   });
 
   /**
-   * Gets the string representation of the current date.  This property is observable.
+   * 获取当前日期的字符串表示形式。这个属性是可观察的。
    * @type {string}
    */
   this.dateLabel = undefined;
@@ -161,7 +161,7 @@ function AnimationViewModel(clockViewModel) {
   });
 
   /**
-   * Gets the string representation of the current multiplier.  This property is observable.
+   * 获取当前乘数的字符串表示形式。这个属性是可观察的。
    * @type {string}
    */
   this.multiplierLabel = undefined;
@@ -183,7 +183,7 @@ function AnimationViewModel(clockViewModel) {
   });
 
   /**
-   * Gets or sets the current shuttle ring angle.  This property is observable.
+   * 获取或设置当前梭子环角度。这个属性是可观察的。
    * @type {number}
    */
   this.shuttleRingAngle = undefined;
@@ -379,7 +379,7 @@ function AnimationViewModel(clockViewModel) {
 }
 
 /**
- * Gets or sets the default date formatter used by new instances.
+ * 获取或设置新实例使用的默认日期格式化程序。
  *
  * @member
  * @type {AnimationViewModel.DateFormatter}
@@ -392,7 +392,7 @@ AnimationViewModel.defaultDateFormatter = function (date, viewModel) {
 };
 
 /**
- * Gets or sets the default array of known clock multipliers associated with new instances of the shuttle ring.
+ * 获取或设置与穿梭环的新实例关联的已知时钟乘法器的默认数组。
  * @type {number[]}
  */
 AnimationViewModel.defaultTicks = [
@@ -430,7 +430,7 @@ AnimationViewModel.defaultTicks = [
 ];
 
 /**
- * Gets or sets the default time formatter used by new instances.
+ * 获取或设置新实例使用的默认时间格式化程序。
  *
  * @member
  * @type {AnimationViewModel.TimeFormatter}
@@ -455,22 +455,22 @@ AnimationViewModel.defaultTimeFormatter = function (date, viewModel) {
 };
 
 /**
- * Gets a copy of the array of positive known clock multipliers to associate with the shuttle ring.
+ * 获取要与穿梭环关联的已知正时钟乘法器数组的副本。
  *
- * @returns {number[]} The array of known clock multipliers associated with the shuttle ring.
+ * @returns {number[]} 与穿梭环相关的已知时钟倍增器阵列。
  */
 AnimationViewModel.prototype.getShuttleRingTicks = function () {
   return this._sortedFilteredPositiveTicks.slice(0);
 };
 
 /**
- * Sets the array of positive known clock multipliers to associate with the shuttle ring.
- * These values will have negative equivalents created for them and sets both the minimum
- * and maximum range of values for the shuttle ring as well as the values that are snapped
- * to when a single click is made.  The values need not be in order, as they will be sorted
- * automatically, and duplicate values will be removed.
+ * 设置与穿梭环相关联的已知正时钟乘法器数组。
+ * 这些值将为它们创建负等价物并设置最小值
+ * 和最大范围的值为穿梭环，以及值的抓拍
+ * 当一个单一的点击。这些值不需要按顺序排列，因为它们将被排序
+ * 自动删除，重复的值将被删除。
  *
- * @param {number[]} positiveTicks The list of known positive clock multipliers to associate with the shuttle ring.
+ * @param {number[]} positiveTicks 与穿梭环相关的已知正时钟倍增器列表。
  */
 AnimationViewModel.prototype.setShuttleRingTicks = function (positiveTicks) {
   //>>includeStart('debug', pragmas.debug);
@@ -510,7 +510,7 @@ AnimationViewModel.prototype.setShuttleRingTicks = function (positiveTicks) {
 
 Object.defineProperties(AnimationViewModel.prototype, {
   /**
-   * Gets a command that decreases the speed of animation.
+   * 获取降低动画速度的命令。
    * @memberof AnimationViewModel.prototype
    * @type {Command}
    */
@@ -521,7 +521,7 @@ Object.defineProperties(AnimationViewModel.prototype, {
   },
 
   /**
-   * Gets a command that increases the speed of animation.
+   * 获取可提高动画速度的命令。
    * @memberof AnimationViewModel.prototype
    * @type {Command}
    */
@@ -532,7 +532,7 @@ Object.defineProperties(AnimationViewModel.prototype, {
   },
 
   /**
-   * Gets the clock view model.
+   * 获取时钟视图模型。
    * @memberof AnimationViewModel.prototype
    *
    * @type {ClockViewModel}
@@ -544,7 +544,7 @@ Object.defineProperties(AnimationViewModel.prototype, {
   },
 
   /**
-   * Gets the pause toggle button view model.
+   * 获取暂停切换按钮视图模型。
    * @memberof AnimationViewModel.prototype
    *
    * @type {ToggleButtonViewModel}
@@ -556,7 +556,7 @@ Object.defineProperties(AnimationViewModel.prototype, {
   },
 
   /**
-   * Gets the reverse toggle button view model.
+   * 获取反向切换按钮视图模型。
    * @memberof AnimationViewModel.prototype
    *
    * @type {ToggleButtonViewModel}
@@ -568,7 +568,7 @@ Object.defineProperties(AnimationViewModel.prototype, {
   },
 
   /**
-   * Gets the play toggle button view model.
+   * 获取播放切换按钮视图模型。
    * @memberof AnimationViewModel.prototype
    *
    * @type {ToggleButtonViewModel}
@@ -580,7 +580,7 @@ Object.defineProperties(AnimationViewModel.prototype, {
   },
 
   /**
-   * Gets the realtime toggle button view model.
+   * 获取实时切换按钮视图模型。
    * @memberof AnimationViewModel.prototype
    *
    * @type {ToggleButtonViewModel}
@@ -592,7 +592,7 @@ Object.defineProperties(AnimationViewModel.prototype, {
   },
 
   /**
-   * Gets or sets the function which formats a date for display.
+   * 获取或设置格式化要显示的日期的函数。
    * @memberof AnimationViewModel.prototype
    *
    * @type {AnimationViewModel.DateFormatter}
@@ -615,7 +615,7 @@ Object.defineProperties(AnimationViewModel.prototype, {
   },
 
   /**
-   * Gets or sets the function which formats a time for display.
+   * 获取或设置格式化显示时间的函数。
    * @memberof AnimationViewModel.prototype
    *
    * @type {AnimationViewModel.TimeFormatter}
@@ -643,20 +643,20 @@ AnimationViewModel._maxShuttleRingAngle = maxShuttleRingAngle;
 AnimationViewModel._realtimeShuttleRingAngle = realtimeShuttleRingAngle;
 
 /**
- * A function that formats a date for display.
+ * 格式化日期以供显示的函数。
  * @callback AnimationViewModel.DateFormatter
  *
- * @param {JulianDate} date The date to be formatted
- * @param {AnimationViewModel} viewModel The AnimationViewModel instance requesting formatting.
- * @returns {string} The string representation of the calendar date portion of the provided date.
+ * @param {JulianDate} 要格式化的日期
+ * @param {AnimationViewModel} viewModel 请求格式化的AnimationViewModel实例。
+ * @returns {string} 所提供日期的日历日期部分的字符串表示形式。
  */
 
 /**
- * A function that formats a time for display.
+ * 格式化时间以供显示的函数。
  * @callback AnimationViewModel.TimeFormatter
  *
- * @param {JulianDate} date The date to be formatted
- * @param {AnimationViewModel} viewModel The AnimationViewModel instance requesting formatting.
- * @returns {string} The string representation of the time portion of the provided date.
+ * @param {JulianDate} date 要格式化的日期
+ * @param {AnimationViewModel} viewModel 请求格式化的AnimationViewModel实例。
+ * @returns {string} 所提供日期的时间部分的字符串表示形式。
  */
 export default AnimationViewModel;

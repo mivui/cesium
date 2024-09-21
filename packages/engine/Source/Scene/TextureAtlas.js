@@ -38,7 +38,7 @@ const defaultInitialSize = new Cartesian2(16.0, 16.0);
  * @alias TextureAtlas
  * @constructor
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {Scene} options.context The context in which the texture gets created.
  * @param {PixelFormat} [options.pixelFormat=PixelFormat.RGBA] The pixel format of the texture.
  * @param {number} [options.borderWidthInPixels=1] The amount of spacing between adjacent images in pixels.

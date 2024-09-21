@@ -38,7 +38,7 @@ const FeatureIdAttribute = ModelComponents.FeatureIdAttribute;
  * @augments ResourceLoader
  * @private
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {Resource} options.b3dmResource The {@link Resource} containing the b3dm.
  * @param {ArrayBuffer} options.arrayBuffer The array buffer of the b3dm contents.
  * @param {number} [options.byteOffset] The byte offset to the beginning of the b3dm contents in the array buffer.

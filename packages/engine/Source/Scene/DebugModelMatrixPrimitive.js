@@ -24,7 +24,7 @@ import Primitive from "./Primitive.js";
  * @alias DebugModelMatrixPrimitive
  * @constructor
  *
- * @param {object} [options] Object with the following properties:
+ * @param {object} [options] 对象，具有以下属性:
  * @param {number} [options.length=10000000.0] The length of the axes in meters.
  * @param {number} [options.width=2.0] The width of the axes in pixels.
  * @param {Matrix4} [options.modelMatrix=Matrix4.IDENTITY] The 4x4 matrix that defines the reference frame, i.e., origin plus axes, to visualize.

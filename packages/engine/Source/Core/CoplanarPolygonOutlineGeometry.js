@@ -54,7 +54,7 @@ function createGeometryFromPositions(positions) {
  * @alias CoplanarPolygonOutlineGeometry
  * @constructor
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {PolygonHierarchy} options.polygonHierarchy A polygon hierarchy that can include holes.
  *
  * @see CoplanarPolygonOutlineGeometry.createGeometry
@@ -94,7 +94,7 @@ function CoplanarPolygonOutlineGeometry(options) {
 /**
  * A description of a coplanar polygon outline from an array of positions.
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {Cartesian3[]} options.positions An array of positions that defined the corner points of the polygon.
  * @returns {CoplanarPolygonOutlineGeometry}
  */

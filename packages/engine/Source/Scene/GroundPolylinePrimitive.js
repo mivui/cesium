@@ -36,7 +36,7 @@ import StencilOperation from "./StencilOperation.js";
  * @alias GroundPolylinePrimitive
  * @constructor
  *
- * @param {object} [options] Object with the following properties:
+ * @param {object} [options] 对象，具有以下属性:
  * @param {Array|GeometryInstance} [options.geometryInstances] GeometryInstances containing GroundPolylineGeometry
  * @param {Appearance} [options.appearance] The Appearance used to render the polyline. Defaults to a white color {@link Material} on a {@link PolylineMaterialAppearance}.
  * @param {boolean} [options.show=true] Determines if this primitive will be shown.

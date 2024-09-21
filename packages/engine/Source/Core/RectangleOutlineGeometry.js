@@ -245,7 +245,7 @@ function constructExtrudedRectangle(rectangleGeometry, computedOptions) {
  * @alias RectangleOutlineGeometry
  * @constructor
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {Rectangle} options.rectangle A cartographic rectangle with north, south, east and west properties in radians.
  * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] The ellipsoid on which the rectangle lies.
  * @param {number} [options.granularity=CesiumMath.RADIANS_PER_DEGREE] The distance, in radians, between each latitude and longitude. Determines the number of positions in the buffer.

@@ -20,8 +20,8 @@ const stopSearchPath =
  * @alias Geocoder
  * @constructor
  *
- * @param {object} options Object with the following properties:
- * @param {Element|string} options.container The DOM element or ID that will contain the widget.
+ * @param {object} options 对象，具有以下属性:
+ * @param {Element|string} options.container 将包含小部件的DOM元素或ID。
  * @param {Scene} options.scene The Scene instance to use.
  * @param {GeocoderService[]} [options.geocoderServices] The geocoder services to be used
  * @param {boolean} [options.autoComplete = true] True if the geocoder should query as the user types to autocomplete

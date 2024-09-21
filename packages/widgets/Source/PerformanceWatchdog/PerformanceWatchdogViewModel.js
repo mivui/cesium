@@ -14,7 +14,7 @@ import createCommand from "../createCommand.js";
  * @alias PerformanceWatchdogViewModel
  * @constructor
  *
- * @param {object} [options] Object with the following properties:
+ * @param {object} [options] 对象，具有以下属性:
  * @param {Scene} options.scene The Scene instance for which to monitor performance.
  * @param {string} [options.lowFrameRateMessage='This application appears to be performing poorly on your system.  Please try using a different web browser or updating your video drivers.'] The
  *        message to display when a low frame rate is detected.  The message is interpeted as HTML, so make sure

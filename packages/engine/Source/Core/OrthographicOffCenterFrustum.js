@@ -16,7 +16,7 @@ import Matrix4 from "./Matrix4.js";
  * @alias OrthographicOffCenterFrustum
  * @constructor
  *
- * @param {object} [options] An object with the following properties:
+ * @param {object} [options] An 对象，具有以下属性:
  * @param {number} [options.left] The left clipping plane distance.
  * @param {number} [options.right] The right clipping plane distance.
  * @param {number} [options.top] The top clipping plane distance.

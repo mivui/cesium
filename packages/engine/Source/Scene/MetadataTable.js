@@ -13,7 +13,7 @@ import MetadataTableProperty from "./MetadataTableProperty.js";
  * For 3D Tiles Next details, see the {@link https://github.com/CesiumGS/3d-tiles/tree/main/extensions/3DTILES_metadata|3DTILES_metadata Extension} for 3D Tiles, as well as the {@link https://github.com/CesiumGS/glTF/tree/3d-tiles-next/extensions/2.0/Vendor/EXT_feature_metadata|EXT_feature_metadata Extension} for glTF.
  * </p>
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {number} options.count The number of entities in the table.
  * @param {object} [options.properties] A dictionary containing properties.
  * @param {MetadataClass} options.class The class that properties conform to.

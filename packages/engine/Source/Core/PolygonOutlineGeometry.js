@@ -268,7 +268,7 @@ function createGeometryFromPositionsExtruded(
  * @alias PolygonOutlineGeometry
  * @constructor
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {PolygonHierarchy} options.polygonHierarchy A polygon hierarchy that can include holes.
  * @param {number} [options.height=0.0] The distance in meters between the polygon and the ellipsoid surface.
  * @param {number} [options.extrudedHeight] The distance in meters between the polygon's extruded face and the ellipsoid surface.
@@ -514,7 +514,7 @@ PolygonOutlineGeometry.unpack = function (array, startingIndex, result) {
 /**
  * A description of a polygon outline from an array of positions.
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {Cartesian3[]} options.positions An array of positions that defined the corner points of the polygon.
  * @param {number} [options.height=0.0] The height of the polygon.
  * @param {number} [options.extrudedHeight] The height of the polygon extrusion.

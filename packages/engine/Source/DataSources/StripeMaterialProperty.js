@@ -18,7 +18,7 @@ const defaultRepeat = 1;
  * @alias StripeMaterialProperty
  * @constructor
  *
- * @param {object} [options] Object with the following properties:
+ * @param {object} [options] 对象，具有以下属性:
  * @param {Property|StripeOrientation} [options.orientation=StripeOrientation.HORIZONTAL] A Property specifying the {@link StripeOrientation}.
  * @param {Property|Color} [options.evenColor=Color.WHITE] A Property specifying the first {@link Color}.
  * @param {Property|Color} [options.oddColor=Color.BLACK] A Property specifying the second {@link Color}.

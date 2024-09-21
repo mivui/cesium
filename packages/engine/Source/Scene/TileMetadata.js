@@ -9,7 +9,7 @@ import MetadataEntity from "./MetadataEntity.js";
  * See the {@link https://github.com/CesiumGS/3d-tiles/tree/main/extensions/3DTILES_metadata|3DTILES_metadata Extension} for 3D Tiles
  * </p>
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {object} options.tile Either the tile metadata JSON (3D Tiles 1.1), or the extension JSON attached to the tile.
  * @param {MetadataClass} options.class The class that the tile metadata conforms to.
  *

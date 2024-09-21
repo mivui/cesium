@@ -10,7 +10,7 @@ import EllipsoidOutlineGeometry from "./EllipsoidOutlineGeometry.js";
  * @alias SphereOutlineGeometry
  * @constructor
  *
- * @param {object} [options] Object with the following properties:
+ * @param {object} [options] 对象，具有以下属性:
  * @param {number} [options.radius=1.0] The radius of the sphere.
  * @param {number} [options.stackPartitions=10] The count of stacks for the sphere (1 greater than the number of parallel lines).
  * @param {number} [options.slicePartitions=8] The count of slices for the sphere (Equal to the number of radial lines).

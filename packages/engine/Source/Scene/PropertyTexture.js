@@ -10,7 +10,7 @@ import PropertyTextureProperty from "./PropertyTextureProperty.js";
  * previous {@link https://github.com/CesiumGS/glTF/tree/3d-tiles-next/extensions/2.0/Vendor/EXT_feature_metadata|EXT_feature_metadata Extension} for glTF.
  * </p>
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {string} [options.name] Optional human-readable name to describe the texture
  * @param {string|number} [options.id] A unique id to identify the property texture, useful for debugging. For <code>EXT_structural_metadata</code>, this is the array index in the property textures array, for <code>EXT_feature_metadata</code> this is the dictionary key in the property textures dictionary.
  * @param {object} options.propertyTexture The property texture JSON, following the EXT_structural_metadata schema.

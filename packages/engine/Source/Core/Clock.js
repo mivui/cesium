@@ -13,7 +13,7 @@ import JulianDate from "./JulianDate.js";
  * @alias Clock
  * @constructor
  *
- * @param {object} [options] Object with the following properties:
+ * @param {object} [options] 对象，具有以下属性:
  * @param {JulianDate} [options.startTime] The start time of the clock.
  * @param {JulianDate} [options.stopTime] The stop time of the clock.
  * @param {JulianDate} [options.currentTime] The current time.

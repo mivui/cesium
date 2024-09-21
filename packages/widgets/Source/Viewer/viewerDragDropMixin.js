@@ -17,7 +17,7 @@ import {
  * @function viewerDragDropMixin
 
  * @param {Viewer} viewer The viewer instance.
- * @param {object} [options] Object with the following properties:
+ * @param {object} [options] 对象，具有以下属性:
  * @param {Element|string} [options.dropTarget=viewer.container] The DOM element which will serve as the drop target.
  * @param {boolean} [options.clearOnDrop=true] When true, dropping files will clear all existing data sources first, when false, new data sources will be loaded after the existing ones.
  * @param {boolean} [options.flyToOnDrop=true] When true, dropping files will fly to the data source once it is loaded.

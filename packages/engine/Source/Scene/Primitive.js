@@ -63,7 +63,7 @@ import ShadowMode from "./ShadowMode.js";
  * @alias Primitive
  * @constructor
  *
- * @param {object} [options] Object with the following properties:
+ * @param {object} [options] 对象，具有以下属性:
  * @param {GeometryInstance[]|GeometryInstance} [options.geometryInstances] The geometry instances - or a single geometry instance - to render.
  * @param {Appearance} [options.appearance] The appearance used to render the primitive.
  * @param {Appearance} [options.depthFailAppearance] The appearance used to shade this primitive when it fails the depth test.

@@ -26,7 +26,7 @@ import Transforms from "./Transforms.js";
  * @alias Geometry
  * @constructor
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {GeometryAttributes} options.attributes Attributes, which make up the geometry's vertices.
  * @param {PrimitiveType} [options.primitiveType=PrimitiveType.TRIANGLES] The type of primitives in the geometry.
  * @param {Uint16Array|Uint32Array} [options.indices] Optional index data that determines the primitives in the geometry.

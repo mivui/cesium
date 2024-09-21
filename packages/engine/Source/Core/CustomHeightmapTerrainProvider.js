@@ -28,7 +28,7 @@ import TerrainProvider from "./TerrainProvider.js";
  * @alias CustomHeightmapTerrainProvider
  * @constructor
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {CustomHeightmapTerrainProvider.GeometryCallback} options.callback The callback function for requesting tile geometry.
  * @param {number} options.width The number of columns per heightmap tile.
  * @param {number} options.height The number of rows per heightmap tile.

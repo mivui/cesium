@@ -27,7 +27,7 @@ import ShadowMode from "./ShadowMode.js";
  * @alias TimeDynamicPointCloud
  * @constructor
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {Clock} options.clock A {@link Clock} instance that is used when determining the value for the time dimension.
  * @param {TimeIntervalCollection} options.intervals A {@link TimeIntervalCollection} with its data property being an object containing a <code>uri</code> to a 3D Tiles Point Cloud tile and an optional <code>transform</code>.
  * @param {boolean} [options.show=true] Determines if the point cloud will be shown.

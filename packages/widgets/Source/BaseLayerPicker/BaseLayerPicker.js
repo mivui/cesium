@@ -28,7 +28,7 @@ import BaseLayerPickerViewModel from "./BaseLayerPickerViewModel.js";
  * @constructor
  *
  * @param {Element|string} container The parent HTML container node or ID for this widget.
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {Globe} options.globe The Globe to use.
  * @param {ProviderViewModel[]} [options.imageryProviderViewModels=[]] The array of ProviderViewModel instances to use for imagery.
  * @param {ProviderViewModel} [options.selectedImageryProviderViewModel] The view model for the current base imagery layer, if not supplied the first available imagery layer is used.

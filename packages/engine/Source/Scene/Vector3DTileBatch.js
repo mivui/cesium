@@ -4,7 +4,7 @@
  * @alias Vector3DTileBatch
  * @constructor
  *
- * @param {object} options An object with the following properties:
+ * @param {object} options An 对象，具有以下属性:
  * @param {number} options.offset The offset of the batch into the indices buffer.
  * @param {number} options.count The number of indices in the batch.
  * @param {Color} options.color The color of the geometry in the batch.

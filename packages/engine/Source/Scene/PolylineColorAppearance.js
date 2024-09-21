@@ -22,7 +22,7 @@ if (!FeatureDetection.isInternetExplorer()) {
  * @alias PolylineColorAppearance
  * @constructor
  *
- * @param {object} [options] Object with the following properties:
+ * @param {object} [options] 对象，具有以下属性:
  * @param {boolean} [options.translucent=true] When <code>true</code>, the geometry is expected to appear translucent so {@link PolylineColorAppearance#renderState} has alpha blending enabled.
  * @param {string} [options.vertexShaderSource] Optional GLSL vertex shader source to override the default vertex shader.
  * @param {string} [options.fragmentShaderSource] Optional GLSL fragment shader source to override the default fragment shader.

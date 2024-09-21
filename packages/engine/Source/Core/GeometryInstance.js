@@ -12,7 +12,7 @@ import Matrix4 from "./Matrix4.js";
  * @alias GeometryInstance
  * @constructor
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {Geometry|GeometryFactory} options.geometry The geometry to instance.
  * @param {Matrix4} [options.modelMatrix=Matrix4.IDENTITY] The model matrix that transforms to transform the geometry from model to world coordinates.
  * @param {object} [options.id] A user-defined object to return when the instance is picked with {@link Scene#pick} or get/set per-instance attributes with {@link Primitive#getGeometryInstanceAttributes}.

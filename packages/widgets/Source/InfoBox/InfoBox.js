@@ -16,7 +16,7 @@ import InfoBoxViewModel from "./InfoBoxViewModel.js";
  * @alias InfoBox
  * @constructor
  *
- * @param {Element|string} container The DOM element or ID that will contain the widget.
+ * @param {Element|string} container 将包含小部件的DOM元素或ID。
  *
  * @exception {DeveloperError} Element with id "container" does not exist in the document.
  */

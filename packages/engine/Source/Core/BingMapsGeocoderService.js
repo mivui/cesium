@@ -13,7 +13,7 @@ const url = "https://dev.virtualearth.net/REST/v1/Locations";
  * @alias BingMapsGeocoderService
  * @constructor
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {string} options.key A key to use with the Bing Maps geocoding service
  * @param {string} [options.culture] A Bing Maps {@link https://docs.microsoft.com/en-us/bingmaps/rest-services/common-parameters-and-types/supported-culture-codes|Culture Code} to return results in a specific culture and language.
  */

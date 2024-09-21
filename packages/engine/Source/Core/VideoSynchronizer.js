@@ -10,7 +10,7 @@ import JulianDate from "./JulianDate.js";
  * @alias VideoSynchronizer
  * @constructor
  *
- * @param {object} [options] Object with the following properties:
+ * @param {object} [options] 对象，具有以下属性:
  * @param {Clock} [options.clock] The clock instance used to drive the video.
  * @param {HTMLVideoElement} [options.element] The video element to be synchronized.
  * @param {JulianDate} [options.epoch=Iso8601.MINIMUM_VALUE] The simulation time that marks the start of the video.

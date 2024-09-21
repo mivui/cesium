@@ -32,7 +32,7 @@ import SceneMode from "./SceneMode.js";
  * @alias SkyBox
  * @constructor
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {object} [options.sources] The source URL or <code>Image</code> object for each of the six cube map faces.  See the example below.
  * @param {boolean} [options.show=true] Determines if this primitive will be shown.
  *

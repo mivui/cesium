@@ -7,7 +7,7 @@ import IonWorldImageryStyle from "./IonWorldImageryStyle.js";
  *
  * @function
  *
- * @param {Object} [options] Object with the following properties:
+ * @param {Object} [options] 对象，具有以下属性:
  * @param {IonWorldImageryStyle} [options.style=IonWorldImageryStyle] The style of base imagery, only AERIAL, AERIAL_WITH_LABELS, and ROAD are currently supported.
  * @returns {Promise<IonImageryProvider>}
  *

@@ -16,7 +16,7 @@ const defaultDashPattern = 255.0;
  * @alias PolylineDashMaterialProperty
  * @constructor
  *
- * @param {object} [options] Object with the following properties:
+ * @param {object} [options] 对象，具有以下属性:
  * @param {Property|Color} [options.color=Color.WHITE] A Property specifying the {@link Color} of the line.
  * @param {Property|Color} [options.gapColor=Color.TRANSPARENT] A Property specifying the {@link Color} of the gaps in the line.
  * @param {Property|number} [options.dashLength=16.0] A numeric Property specifying the length of the dash pattern in pixels.

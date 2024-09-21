@@ -21,7 +21,7 @@ const Tipsify = {};
 /**
  * Calculates the average cache miss ratio (ACMR) for a given set of indices.
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {number[]} options.indices Lists triads of numbers corresponding to the indices of the vertices
  *                        in the vertex buffer that define the geometry's triangles.
  * @param {number} [options.maximumIndex] The maximum value of the elements in <code>args.indices</code>.
@@ -99,7 +99,7 @@ Tipsify.calculateACMR = function (options) {
 /**
  * Optimizes triangles for the post-vertex shader cache.
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {number[]} options.indices Lists triads of numbers corresponding to the indices of the vertices
  *                        in the vertex buffer that define the geometry's triangles.
  * @param {number} [options.maximumIndex] The maximum value of the elements in <code>args.indices</code>.

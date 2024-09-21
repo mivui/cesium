@@ -17,8 +17,8 @@ import NavigationHelpButtonViewModel from "./NavigationHelpButtonViewModel.js";
  * @alias NavigationHelpButton
  * @constructor
  *
- * @param {object} options Object with the following properties:
- * @param {Element|string} options.container The DOM element or ID that will contain the widget.
+ * @param {object} options 对象，具有以下属性:
+ * @param {Element|string} options.container 将包含小部件的DOM元素或ID。
  * @param {boolean} [options.instructionsInitiallyVisible=false] True if the navigation instructions should initially be visible; otherwise, false.
  *
  * @exception {DeveloperError} Element with id "container" does not exist in the document.

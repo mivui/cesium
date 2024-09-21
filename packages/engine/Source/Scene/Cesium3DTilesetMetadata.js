@@ -14,7 +14,7 @@ import TilesetMetadata from "./TilesetMetadata.js";
  * the schema ({@link MetadataSchema}), tileset metadata ({@link TilesetMetadata}), group metadata (dictionary of {@link GroupMetadata}), and metadata statistics (dictionary)
  * </p>
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {object} options.metadataJson Either the tileset JSON (3D Tiles 1.1) or the <code>3DTILES_metadata</code> extension object that contains the tileset metadata.
  * @param {MetadataSchema} options.schema The parsed schema.
  *

@@ -14,7 +14,7 @@ import OrthographicOffCenterFrustum from "./OrthographicOffCenterFrustum.js";
  * @alias OrthographicFrustum
  * @constructor
  *
- * @param {object} [options] An object with the following properties:
+ * @param {object} [options] An 对象，具有以下属性:
  * @param {number} [options.width] The width of the frustum in meters.
  * @param {number} [options.aspectRatio] The aspect ratio of the frustum's width to it's height.
  * @param {number} [options.near=1.0] The distance of the near plane.

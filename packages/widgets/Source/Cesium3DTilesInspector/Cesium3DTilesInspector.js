@@ -9,7 +9,7 @@ import Cesium3DTilesInspectorViewModel from "./Cesium3DTilesInspectorViewModel.j
  * @alias Cesium3DTilesInspector
  * @constructor
  *
- * @param {Element|string} container The DOM element or ID that will contain the widget.
+ * @param {Element|string} container 将包含小部件的DOM元素或ID。
  * @param {Scene} scene the Scene instance to use.
  */
 function Cesium3DTilesInspector(container, scene) {

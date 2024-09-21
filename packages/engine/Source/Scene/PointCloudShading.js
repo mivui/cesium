@@ -5,7 +5,7 @@ import PointCloudEyeDomeLighting from "./PointCloudEyeDomeLighting.js";
  * Options for performing point attenuation based on geometric error when rendering
  * point clouds using 3D Tiles.
  *
- * @param {object} [options] Object with the following properties:
+ * @param {object} [options] 对象，具有以下属性:
  * @param {boolean} [options.attenuation=false] Perform point attenuation based on geometric error.
  * @param {number} [options.geometricErrorScale=1.0] Scale to be applied to each tile's geometric error.
  * @param {number} [options.maximumAttenuation] Maximum attenuation in pixels. Defaults to the Cesium3DTileset's maximumScreenSpaceError.

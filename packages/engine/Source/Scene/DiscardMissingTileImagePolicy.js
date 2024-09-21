@@ -11,7 +11,7 @@ import Resource from "../Core/Resource.js";
  * @alias DiscardMissingTileImagePolicy
  * @constructor
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {Resource|string} options.missingImageUrl The URL of the known missing image.
  * @param {Cartesian2[]} options.pixelsToCheck An array of {@link Cartesian2} pixel positions to
  *        compare against the missing image.

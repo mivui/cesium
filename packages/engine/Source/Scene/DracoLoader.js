@@ -70,7 +70,7 @@ DracoLoader.decodePointCloud = function (parameters) {
 /**
  * Decodes a buffer view. Returns undefined if the task cannot be scheduled.
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {Uint8Array} options.array The typed array containing the buffer view data.
  * @param {object} options.bufferView The glTF buffer view object.
  * @param {Object<string, number>} options.compressedAttributes The compressed attributes.

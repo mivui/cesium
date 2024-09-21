@@ -12,7 +12,7 @@ import WebMercatorProjection from "./WebMercatorProjection.js";
  * @alias WebMercatorTilingScheme
  * @constructor
  *
- * @param {object} [options] Object with the following properties:
+ * @param {object} [options] 对象，具有以下属性:
  * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] The ellipsoid whose surface is being tiled. Defaults to
  * the default ellipsoid.
  * @param {number} [options.numberOfLevelZeroTilesX=1] The number of tiles in the X direction at level zero of

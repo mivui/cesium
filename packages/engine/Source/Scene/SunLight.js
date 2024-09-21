@@ -4,7 +4,7 @@ import defaultValue from "../Core/defaultValue.js";
 /**
  * A directional light source that originates from the Sun.
  *
- * @param {object} [options] Object with the following properties:
+ * @param {object} [options] 对象，具有以下属性:
  * @param {Color} [options.color=Color.WHITE] The light's color.
  * @param {number} [options.intensity=2.0] The light's intensity.
  *

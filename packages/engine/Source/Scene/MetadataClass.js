@@ -11,7 +11,7 @@ import MetadataClassProperty from "./MetadataClassProperty.js";
  * See the {@link https://github.com/CesiumGS/3d-tiles/tree/main/specification/Metadata|3D Metadata Specification} for 3D Tiles
  * </p>
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {string} options.id The ID of the class.
  * @param {string} [options.name] The name of the class.
  * @param {string} [options.description] The description of the class.
@@ -54,7 +54,7 @@ function MetadataClass(options) {
 /**
  * Creates a {@link MetadataClass} from either 3D Tiles 1.1, 3DTILES_metadata, EXT_structural_metadata, or EXT_feature_metadata.
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {string} options.id The ID of the class.
  * @param {object} options.class The class JSON object.
  * @param {Object<string, MetadataEnum>} [options.enums] A dictionary of enums.

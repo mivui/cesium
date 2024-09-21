@@ -1449,7 +1449,7 @@ Context.prototype.endFrame = function () {
 
 /**
  * @private
- * @param {object} readState An object with the following properties:
+ * @param {object} readState An 对象，具有以下属性:
  * @param {number} [readState.x=0] The x offset of the rectangle to read from.
  * @param {number} [readState.y=0] The y offset of the rectangle to read from.
  * @param {number} [readState.width=gl.drawingBufferWidth] The width of the rectangle to read from.

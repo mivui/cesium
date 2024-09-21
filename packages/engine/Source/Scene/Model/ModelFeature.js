@@ -16,7 +16,7 @@ import defined from "../../Core/defined.js";
  * @alias ModelFeature
  * @constructor
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {Model} options.model The model the feature belongs to.
  * @param {number} options.featureId The unique integral identifier for this feature.
  *

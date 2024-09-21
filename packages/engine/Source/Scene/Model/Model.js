@@ -118,7 +118,7 @@ import pickModel from "./pickModel.js";
  *
  * @privateParam {ResourceLoader} options.loader The loader used to load resources for this model.
  * @privateParam {ModelType} options.type Type of this model, to distinguish individual glTF files from 3D Tiles internally.
- * @privateParam {object} options Object with the following properties:
+ * @privateParam {object} options 对象，具有以下属性:
  * @privateParam {Resource} options.resource The Resource to the 3D model.
  * @privateParam {boolean} [options.show=true] Whether or not to render the model.
  * @privateParam {Matrix4} [options.modelMatrix=Matrix4.IDENTITY]  The 4x4 transformation matrix that transforms the model from model to world coordinates.
@@ -2791,7 +2791,7 @@ Model.prototype.destroyModelResources = function () {
  * <p>
  * The model can be a traditional glTF asset with a .gltf extension or a Binary glTF using the .glb extension.
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {string|Resource} options.url The url to the .gltf or .glb file.
  * @param {string|Resource} [options.basePath=''] The base path that paths in the glTF JSON are relative to.
  * @param {boolean} [options.show=true] Whether or not to render the model.

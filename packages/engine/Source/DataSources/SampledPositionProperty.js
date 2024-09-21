@@ -229,7 +229,7 @@ SampledPositionProperty.prototype.getValueInReferenceFrame = function (
 /**
  * Sets the algorithm and degree to use when interpolating a position.
  *
- * @param {object} [options] Object with the following properties:
+ * @param {object} [options] 对象，具有以下属性:
  * @param {InterpolationAlgorithm} [options.interpolationAlgorithm] The new interpolation algorithm.  If undefined, the existing property will be unchanged.
  * @param {number} [options.interpolationDegree] The new interpolation degree.  If undefined, the existing property will be unchanged.
  */

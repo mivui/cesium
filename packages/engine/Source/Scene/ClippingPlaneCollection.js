@@ -33,7 +33,7 @@ import ClippingPlane from "./ClippingPlane.js";
  * @alias ClippingPlaneCollection
  * @constructor
  *
- * @param {object} [options] Object with the following properties:
+ * @param {object} [options] 对象，具有以下属性:
  * @param {ClippingPlane[]} [options.planes=[]] An array of {@link ClippingPlane} objects used to selectively disable rendering on the outside of each plane.
  * @param {boolean} [options.enabled=true] Determines whether the clipping planes are active.
  * @param {Matrix4} [options.modelMatrix=Matrix4.IDENTITY] The 4x4 transformation matrix specifying an additional transform relative to the clipping planes original coordinate system.

@@ -11,7 +11,7 @@ import JulianDate from "./JulianDate.js";
  * @alias TimeInterval
  * @constructor
  *
- * @param {object} [options] Object with the following properties:
+ * @param {object} [options] 对象，具有以下属性:
  * @param {JulianDate} [options.start=new JulianDate()] The start time of the interval.
  * @param {JulianDate} [options.stop=new JulianDate()] The stop time of the interval.
  * @param {boolean} [options.isStartIncluded=true] <code>true</code> if <code>options.start</code> is included in the interval, <code>false</code> otherwise.
@@ -128,7 +128,7 @@ const scratchInterval = {
  *
  * @throws DeveloperError if options.iso8601 does not match proper formatting.
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {string} options.iso8601 An ISO 8601 interval.
  * @param {boolean} [options.isStartIncluded=true] <code>true</code> if <code>options.start</code> is included in the interval, <code>false</code> otherwise.
  * @param {boolean} [options.isStopIncluded=true] <code>true</code> if <code>options.stop</code> is included in the interval, <code>false</code> otherwise.

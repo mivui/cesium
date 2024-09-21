@@ -22,7 +22,7 @@ const ORTHOGRAPHIC = 1;
  * @alias FrustumOutlineGeometry
  * @constructor
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {PerspectiveFrustum|OrthographicFrustum} options.frustum The frustum.
  * @param {Cartesian3} options.origin The origin of the frustum.
  * @param {Quaternion} options.orientation The orientation of the frustum.

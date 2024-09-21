@@ -111,7 +111,7 @@ function getSamplerCacheKey(gltf, textureInfo) {
 /**
  * Gets the schema cache key.
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {object} [options.schema] An object that explicitly defines a schema JSON. Mutually exclusive with options.resource.
  * @param {Resource} [options.resource] The {@link Resource} pointing to the schema JSON. Mutually exclusive with options.schema.
  *
@@ -141,7 +141,7 @@ ResourceCacheKey.getSchemaCacheKey = function (options) {
 /**
  * Gets the external buffer cache key.
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {Resource} options.resource The {@link Resource} pointing to the external buffer.
  *
  * @returns {string} The external buffer cache key.
@@ -161,7 +161,7 @@ ResourceCacheKey.getExternalBufferCacheKey = function (options) {
 /**
  * Gets the embedded buffer cache key.
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {Resource} options.parentResource The {@link Resource} containing the embedded buffer.
  * @param {number} options.bufferId A unique identifier of the embedded buffer within the parent resource.
  *
@@ -186,7 +186,7 @@ ResourceCacheKey.getEmbeddedBufferCacheKey = function (options) {
 /**
  * Gets the glTF cache key.
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {Resource} options.gltfResource The {@link Resource} containing the glTF.
  *
  * @returns {string} The glTF cache key.
@@ -206,7 +206,7 @@ ResourceCacheKey.getGltfCacheKey = function (options) {
 /**
  * Gets the buffer view cache key.
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {object} options.gltf The glTF JSON.
  * @param {number} options.bufferViewId The bufferView ID.
  * @param {Resource} options.gltfResource The {@link Resource} containing the glTF.
@@ -249,7 +249,7 @@ ResourceCacheKey.getBufferViewCacheKey = function (options) {
 /**
  * Gets the Draco cache key.
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {object} options.gltf The glTF JSON.
  * @param {object} options.draco The Draco extension object.
  * @param {Resource} options.gltfResource The {@link Resource} containing the glTF.
@@ -275,7 +275,7 @@ ResourceCacheKey.getDracoCacheKey = function (options) {
 /**
  * Gets the vertex buffer cache key.
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {object} options.gltf The glTF JSON.
  * @param {Resource} options.gltfResource The {@link Resource} containing the glTF.
  * @param {Resource} options.baseResource The {@link Resource} that paths in the glTF JSON are relative to.
@@ -392,7 +392,7 @@ function hasDracoCompression(draco, semantic) {
 /**
  * Gets the index buffer cache key.
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {object} options.gltf The glTF JSON.
  * @param {number} options.accessorId The accessor ID corresponding to the index buffer.
  * @param {Resource} options.gltfResource The {@link Resource} containing the glTF.
@@ -473,7 +473,7 @@ ResourceCacheKey.getIndexBufferCacheKey = function (options) {
 /**
  * Gets the image cache key.
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {object} options.gltf The glTF JSON.
  * @param {number} options.imageId The image ID.
  * @param {Resource} options.gltfResource The {@link Resource} containing the glTF.
@@ -506,7 +506,7 @@ ResourceCacheKey.getImageCacheKey = function (options) {
 /**
  * Gets the texture cache key.
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {object} options.gltf The glTF JSON.
  * @param {object} options.textureInfo The texture info object.
  * @param {Resource} options.gltfResource The {@link Resource} containing the glTF.

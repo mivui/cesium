@@ -604,7 +604,7 @@ function addPropertyMetadataStatistics(shaderBuilder, propertyInfo) {
 
 /**
  * Construct GLSL assignment statements to set metadata spec values in a struct
- * @param {Object[]} fieldNames An object with the following properties:
+ * @param {Object[]} fieldNames An 对象，具有以下属性:
  * @param {string} fieldNames[].specName The name of the property in the spec
  * @param {string} fieldNames[].shaderName The name of the property in the shader
  * @param {object} values A source of property values, keyed on fieldNames[].specName
@@ -629,7 +629,7 @@ function getStructAssignments(fieldNames, values, struct, type) {
  * Handle offset/scale transform for a property value
  * This wraps the GLSL value expression with a czm_valueTransform() call
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {string} options.valueExpression The GLSL value expression without the transform
  * @param {string} options.metadataVariable The name of the GLSL variable that will contain the property value
  * @param {string} options.glslType The GLSL type of the variable

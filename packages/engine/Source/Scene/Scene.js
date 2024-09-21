@@ -93,7 +93,7 @@ const requestRenderAfterFrame = function (scene) {
  * @alias Scene
  * @constructor
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options 对象，具有以下属性:
  * @param {HTMLCanvasElement} options.canvas The HTML canvas element to create the scene for.
  * @param {ContextOptions} [options.contextOptions] Context and WebGL creation properties.
  * @param {Element} [options.creditContainer] The HTML element in which the credits will be displayed.

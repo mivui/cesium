@@ -304,7 +304,7 @@ function combineShader(shaderSource, isFragmentShader, context) {
 /**
  * An object containing various inputs that will be combined to form a final GLSL shader string.
  *
- * @param {object} [options] Object with the following properties:
+ * @param {object} [options] 对象，具有以下属性:
  * @param {string[]} [options.sources] An array of strings to combine containing GLSL code for the shader.
  * @param {string[]} [options.defines] An array of strings containing GLSL identifiers to <code>#define</code>.
  * @param {string} [options.pickColorQualifier] The GLSL qualifier, <code>uniform</code> or <code>in</code>, for the input <code>czm_pickColor</code>.  When defined, a pick fragment shader is generated.

@@ -559,7 +559,7 @@ function destroyLabel(labelCollection, label) {
  * @alias LabelCollection
  * @constructor
  *
- * @param {object} [options] Object with the following properties:
+ * @param {object} [options] 对象，具有以下属性:
  * @param {Matrix4} [options.modelMatrix=Matrix4.IDENTITY] The 4x4 transformation matrix that transforms each label from model to world coordinates.
  * @param {boolean} [options.debugShowBoundingVolume=false] For debugging only. Determines if this primitive's commands' bounding spheres are shown.
  * @param {Scene} [options.scene] Must be passed in for labels that use the height reference property or will be depth tested against the globe.

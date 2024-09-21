@@ -13,7 +13,7 @@ import HomeButtonViewModel from "./HomeButtonViewModel.js";
  * @alias HomeButton
  * @constructor
  *
- * @param {Element|string} container The DOM element or ID that will contain the widget.
+ * @param {Element|string} container 将包含小部件的DOM元素或ID。
  * @param {Scene} scene The Scene instance to use.
  * @param {number} [duration] The time, in seconds, it takes to complete the camera flight home.
  */

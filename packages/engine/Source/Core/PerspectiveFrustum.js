@@ -14,7 +14,7 @@ import PerspectiveOffCenterFrustum from "./PerspectiveOffCenterFrustum.js";
  * @alias PerspectiveFrustum
  * @constructor
  *
- * @param {object} [options] An object with the following properties:
+ * @param {object} [options] An 对象，具有以下属性:
  * @param {number} [options.fov] The angle of the field of view (FOV), in radians.
  * @param {number} [options.aspectRatio] The aspect ratio of the frustum's width to it's height.
  * @param {number} [options.near=1.0] The distance of the near plane.
