@@ -126,11 +126,11 @@ Object.defineProperties(TimeIntervalCollection.prototype, {
 
 /**
  * Compares this instance against the provided instance componentwise and returns
- * <code>true</code> if they are equal, <code>false</code> otherwise.
+ * <code>为true</code>，否则为false</code>。
  *
- * @param {TimeIntervalCollection} [right] The right hand side collection.
+ * @param {TimeIntervalCollection} [right] 右边 collection.
  * @param {TimeInterval.DataComparer} [dataComparer] A function which compares the data of the two intervals.  If omitted, reference equality is used.
- * @returns {boolean} <code>true</code> if they are equal, <code>false</code> otherwise.
+ * @returns {boolean} <code>为true</code>，否则为false</code>。
  */
 TimeIntervalCollection.prototype.equals = function (right, dataComparer) {
   if (this === right) {

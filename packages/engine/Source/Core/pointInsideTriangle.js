@@ -9,7 +9,7 @@ const scratchBarycentricCoords = new Cartesian3();
  *
  * @function pointInsideTriangle
  *
- * @param {Cartesian2|Cartesian3} point The point to test.
+ * @param {Cartesian2|Cartesian3} point 要测试的点。
  * @param {Cartesian2|Cartesian3} p0 The first point of the triangle.
  * @param {Cartesian2|Cartesian3} p1 The second point of the triangle.
  * @param {Cartesian2|Cartesian3} p2 The third point of the triangle.

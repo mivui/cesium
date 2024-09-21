@@ -344,9 +344,9 @@ Object.defineProperties(BillboardGraphics.prototype, {
 });
 
 /**
- * Duplicates this instance.
+ * 复制instance.
  *
- * @param {BillboardGraphics} [result] The object onto which to store the result.
+ * @param {BillboardGraphics} [result] 要在其上存储结果的对象。
  * @returns {BillboardGraphics} The modified result parameter or a new instance if one was not provided.
  */
 BillboardGraphics.prototype.clone = function (result) {

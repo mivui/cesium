@@ -833,7 +833,7 @@ VoxelEllipsoidShape.prototype.computeOrientedBoundingBoxForSample = function (
  * @param {Ellipsoid} ellipsoid The ellipsoid.
  * @param {Cartesian3} translation The translation applied to the shape
  * @param {Matrix3} rotation The rotation applied to the shape
- * @param {OrientedBoundingBox} result The object onto which to store the result.
+ * @param {OrientedBoundingBox} result 要在其上存储结果的对象。
  * @returns {OrientedBoundingBox} The oriented bounding box that contains this subregion.
  *
  * @private

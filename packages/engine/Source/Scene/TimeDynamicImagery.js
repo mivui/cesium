@@ -109,7 +109,7 @@ Object.defineProperties(TimeDynamicImagery.prototype, {
  * @param {number} x The tile X coordinate.
  * @param {number} y The tile Y coordinate.
  * @param {number} level The tile level.
- * @param {Request} [request] The request object. Intended for internal use only.
+ * @param {Request} [request] 请求对象。仅供内部使用。
  *
  * @returns {Promise<HTMLImageElement>|undefined} A promise for the image that will resolve when the image is available, or
  *          undefined if the tile is not in the cache.
@@ -138,7 +138,7 @@ TimeDynamicImagery.prototype.getFromCache = function (x, y, level, request) {
  * @param {number} x The tile X coordinate.
  * @param {number} y The tile Y coordinate.
  * @param {number} level The tile level.
- * @param {Request} [request] The request object. Intended for internal use only.
+ * @param {Request} [request] 请求对象。仅供内部使用。
  */
 TimeDynamicImagery.prototype.checkApproachingInterval = function (
   x,

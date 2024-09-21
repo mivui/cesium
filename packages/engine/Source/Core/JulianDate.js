@@ -878,10 +878,10 @@ JulianDate.compare = function (left, right) {
 };
 
 /**
- * Compares two instances and returns <code>true</code> if they are equal, <code>false</code> otherwise.
+ * Compares two instances and returns <code>为true</code>，否则为false</code>。
  *
- * @param {JulianDate} [left] The first instance.
- * @param {JulianDate} [right] The second instance.
+ * @param {JulianDate} [left] 第一个instance.
+ * @param {JulianDate} [right] 第二个 instance.
  * @returns {boolean} <code>true</code> if the dates are equal; otherwise, <code>false</code>.
  */
 JulianDate.equals = function (left, right) {
@@ -900,8 +900,8 @@ JulianDate.equals = function (left, right) {
  * this function to return <code>true</code>), the absolute value of the difference between them, in
  * seconds, must be less than <code>epsilon</code>.
  *
- * @param {JulianDate} [left] The first instance.
- * @param {JulianDate} [right] The second instance.
+ * @param {JulianDate} [left] 第一个instance.
+ * @param {JulianDate} [right] 第二个 instance.
  * @param {number} [epsilon=0] The maximum number of seconds that should separate the two instances.
  * @returns {boolean} <code>true</code> if the two dates are within <code>epsilon</code> seconds of each other; otherwise <code>false</code>.
  */
@@ -1153,7 +1153,7 @@ JulianDate.greaterThanOrEquals = function (left, right) {
 };
 
 /**
- * Duplicates this instance.
+ * 复制instance.
  *
  * @param {JulianDate} [result] An existing instance to use for the result.
  * @returns {JulianDate} The modified result parameter or a new instance if none was provided.
@@ -1163,9 +1163,9 @@ JulianDate.prototype.clone = function (result) {
 };
 
 /**
- * Compares this and the provided instance and returns <code>true</code> if they are equal, <code>false</code> otherwise.
+ * Compares this and the provided instance and returns <code>为true</code>，否则为false</code>。
  *
- * @param {JulianDate} [right] The second instance.
+ * @param {JulianDate} [right] 第二个 instance.
  * @returns {boolean} <code>true</code> if the dates are equal; otherwise, <code>false</code>.
  */
 JulianDate.prototype.equals = function (right) {
@@ -1178,7 +1178,7 @@ JulianDate.prototype.equals = function (right) {
  * this function to return <code>true</code>), the absolute value of the difference between them, in
  * seconds, must be less than <code>epsilon</code>.
  *
- * @param {JulianDate} [right] The second instance.
+ * @param {JulianDate} [right] 第二个 instance.
  * @param {number} [epsilon=0] The maximum number of seconds that should separate the two instances.
  * @returns {boolean} <code>true</code> if the two dates are within <code>epsilon</code> seconds of each other; otherwise <code>false</code>.
  */

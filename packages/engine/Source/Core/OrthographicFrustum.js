@@ -228,7 +228,7 @@ OrthographicFrustum.prototype.computeCullingVolume = function (
  * @param {number} drawingBufferHeight The height of the drawing buffer.
  * @param {number} distance The distance to the near plane in meters.
  * @param {number} pixelRatio The scaling factor from pixel space to coordinate space.
- * @param {Cartesian2} result The object onto which to store the result.
+ * @param {Cartesian2} result 要在其上存储结果的对象。
  * @returns {Cartesian2} The modified result parameter or a new instance of {@link Cartesian2} with the pixel's width and height in the x and y properties, respectively.
  *
  * @exception {DeveloperError} drawingBufferWidth must be greater than zero.
@@ -260,7 +260,7 @@ OrthographicFrustum.prototype.getPixelDimensions = function (
 /**
  * Returns a duplicate of a OrthographicFrustum instance.
  *
- * @param {OrthographicFrustum} [result] The object onto which to store the result.
+ * @param {OrthographicFrustum} [result] 要在其上存储结果的对象。
  * @returns {OrthographicFrustum} The modified result parameter or a new OrthographicFrustum instance if one was not provided.
  */
 OrthographicFrustum.prototype.clone = function (result) {
@@ -286,10 +286,10 @@ OrthographicFrustum.prototype.clone = function (result) {
 
 /**
  * Compares the provided OrthographicFrustum componentwise and returns
- * <code>true</code> if they are equal, <code>false</code> otherwise.
+ * <code>为true</code>，否则为false</code>。
  *
- * @param {OrthographicFrustum} [other] The right hand side OrthographicFrustum.
- * @returns {boolean} <code>true</code> if they are equal, <code>false</code> otherwise.
+ * @param {OrthographicFrustum} [other] 右边 OrthographicFrustum.
+ * @returns {boolean} <code>为true</code>，否则为false</code>。
  */
 OrthographicFrustum.prototype.equals = function (other) {
   if (!defined(other) || !(other instanceof OrthographicFrustum)) {
@@ -311,7 +311,7 @@ OrthographicFrustum.prototype.equals = function (other) {
  * <code>true</code> if they pass an absolute or relative tolerance test,
  * <code>false</code> otherwise.
  *
- * @param {OrthographicFrustum} other The right hand side OrthographicFrustum.
+ * @param {OrthographicFrustum} other 右边 OrthographicFrustum.
  * @param {number} relativeEpsilon The relative epsilon tolerance to use for equality testing.
  * @param {number} [absoluteEpsilon=relativeEpsilon] The absolute epsilon tolerance to use for equality testing.
  * @returns {boolean} <code>true</code> if this and other are within the provided epsilon, <code>false</code> otherwise.

@@ -112,7 +112,7 @@ BoundingRectangle.unpack = function (array, startingIndex, result) {
  * The rectangle is oriented with the corner at the bottom left.
  *
  * @param {Cartesian2[]} positions List of points that the bounding rectangle will enclose.  Each point must have <code>x</code> and <code>y</code> properties.
- * @param {BoundingRectangle} [result] The object onto which to store the result.
+ * @param {BoundingRectangle} [result] 要在其上存储结果的对象。
  * @returns {BoundingRectangle} The modified result parameter or a new BoundingRectangle instance if one was not provided.
  */
 BoundingRectangle.fromPoints = function (positions, result) {
@@ -162,7 +162,7 @@ const fromRectangleUpperRight = new Cartographic();
  *
  * @param {Rectangle} rectangle The valid rectangle used to create a bounding rectangle.
  * @param {object} [projection=GeographicProjection] The projection used to project the rectangle into 2D.
- * @param {BoundingRectangle} [result] The object onto which to store the result.
+ * @param {BoundingRectangle} [result] 要在其上存储结果的对象。
  * @returns {BoundingRectangle} The modified result parameter or a new BoundingRectangle instance if one was not provided.
  */
 BoundingRectangle.fromRectangle = function (rectangle, projection, result) {
@@ -201,7 +201,7 @@ BoundingRectangle.fromRectangle = function (rectangle, projection, result) {
  * Duplicates a BoundingRectangle instance.
  *
  * @param {BoundingRectangle} rectangle The bounding rectangle to duplicate.
- * @param {BoundingRectangle} [result] The object onto which to store the result.
+ * @param {BoundingRectangle} [result] 要在其上存储结果的对象。
  * @returns {BoundingRectangle} The modified result parameter or a new BoundingRectangle instance if one was not provided. (Returns undefined if rectangle is undefined)
  */
 BoundingRectangle.clone = function (rectangle, result) {
@@ -230,7 +230,7 @@ BoundingRectangle.clone = function (rectangle, result) {
  *
  * @param {BoundingRectangle} left A rectangle to enclose in bounding rectangle.
  * @param {BoundingRectangle} right A rectangle to enclose in a bounding rectangle.
- * @param {BoundingRectangle} [result] The object onto which to store the result.
+ * @param {BoundingRectangle} [result] 要在其上存储结果的对象。
  * @returns {BoundingRectangle} The modified result parameter or a new BoundingRectangle instance if one was not provided.
  */
 BoundingRectangle.union = function (left, right, result) {
@@ -260,7 +260,7 @@ BoundingRectangle.union = function (left, right, result) {
  *
  * @param {BoundingRectangle} rectangle A rectangle to expand.
  * @param {Cartesian2} point A point to enclose in a bounding rectangle.
- * @param {BoundingRectangle} [result] The object onto which to store the result.
+ * @param {BoundingRectangle} [result] 要在其上存储结果的对象。
  * @returns {BoundingRectangle} The modified result parameter or a new BoundingRectangle instance if one was not provided.
  */
 BoundingRectangle.expand = function (rectangle, point, result) {
@@ -324,11 +324,11 @@ BoundingRectangle.intersect = function (left, right) {
 
 /**
  * Compares the provided BoundingRectangles componentwise and returns
- * <code>true</code> if they are equal, <code>false</code> otherwise.
+ * <code>为true</code>，否则为false</code>。
  *
- * @param {BoundingRectangle} [left] The first BoundingRectangle.
- * @param {BoundingRectangle} [right] The second BoundingRectangle.
- * @returns {boolean} <code>true</code> if left and right are equal, <code>false</code> otherwise.
+ * @param {BoundingRectangle} [left] 第一个BoundingRectangle.
+ * @param {BoundingRectangle} [right] 第二个 BoundingRectangle.
+ * @returns {boolean} <code>true</code>如果左和右相等，否则<code>false</code>。
  */
 BoundingRectangle.equals = function (left, right) {
   return (
@@ -343,9 +343,9 @@ BoundingRectangle.equals = function (left, right) {
 };
 
 /**
- * Duplicates this BoundingRectangle instance.
+ * 复制BoundingRectangle instance.
  *
- * @param {BoundingRectangle} [result] The object onto which to store the result.
+ * @param {BoundingRectangle} [result] 要在其上存储结果的对象。
  * @returns {BoundingRectangle} The modified result parameter or a new BoundingRectangle instance if one was not provided.
  */
 BoundingRectangle.prototype.clone = function (result) {
@@ -364,10 +364,10 @@ BoundingRectangle.prototype.intersect = function (right) {
 
 /**
  * Compares this BoundingRectangle against the provided BoundingRectangle componentwise and returns
- * <code>true</code> if they are equal, <code>false</code> otherwise.
+ * <code>为true</code>，否则为false</code>。
  *
- * @param {BoundingRectangle} [right] The right hand side BoundingRectangle.
- * @returns {boolean} <code>true</code> if they are equal, <code>false</code> otherwise.
+ * @param {BoundingRectangle} [right] 右边 BoundingRectangle.
+ * @returns {boolean} <code>为true</code>，否则为false</code>。
  */
 BoundingRectangle.prototype.equals = function (right) {
   return BoundingRectangle.equals(this, right);

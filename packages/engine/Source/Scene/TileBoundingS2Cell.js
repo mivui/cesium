@@ -585,10 +585,10 @@ function closestPointPolygon(p, vertices, plane, edgeNormals) {
 /**
  * Determines which side of a plane this volume is located.
  *
- * @param {Plane} plane The plane to test against.
+ * @param {Plane} plane 要测试的飞机。
  * @returns {Intersect} {@link Intersect.INSIDE} if the entire volume is on the side of the plane
  *                      the normal is pointing, {@link Intersect.OUTSIDE} if the entire volume is
- *                      on the opposite side, and {@link Intersect.INTERSECTING} if the volume
+ *                      on the opposite side, 和 {@link Intersect.INTERSECTING} if the volume
  *                      intersects the plane.
  */
 TileBoundingS2Cell.prototype.intersectPlane = function (plane) {

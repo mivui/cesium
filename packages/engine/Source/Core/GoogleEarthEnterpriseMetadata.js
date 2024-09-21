@@ -295,7 +295,7 @@ const taskProcessor = new TaskProcessor("decodeGoogleEarthEnterprisePacket");
  *
  * @param {string} [quadKey=''] The quadkey to retrieve the packet for.
  * @param {number} [version=1] The cnode version to be used in the request.
- * @param {Request} [request] The request object. Intended for internal use only.
+ * @param {Request} [request] 请求对象。仅供内部使用。
  *
  * @private
  */
@@ -375,7 +375,7 @@ GoogleEarthEnterpriseMetadata.prototype.getQuadTreePacket = function (
  * @param {number} x The tile X coordinate.
  * @param {number} y The tile Y coordinate.
  * @param {number} level The tile level.
- * @param {Request} [request] The request object. Intended for internal use only.
+ * @param {Request} [request] 请求对象。仅供内部使用。
  *
  * @returns {Promise<GoogleEarthEnterpriseTileInformation>} A promise that resolves to the tile info for the requested quad key
  *

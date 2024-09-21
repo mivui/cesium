@@ -35,7 +35,7 @@ function Ray(origin, direction) {
  * Duplicates a Ray instance.
  *
  * @param {Ray} ray The ray to duplicate.
- * @param {Ray} [result] The object onto which to store the result.
+ * @param {Ray} [result] 要在其上存储结果的对象。
  * @returns {Ray} The modified result parameter or a new Ray instance if one was not provided. (Returns undefined if ray is undefined)
  */
 Ray.clone = function (ray, result) {

@@ -1449,7 +1449,7 @@ const scratchPixelOffset = new Cartesian2(0.0, 0.0);
  * left to right, and <code>y</code> increases from top to bottom.
  *
  * @param {Scene} scene The scene.
- * @param {Cartesian2} [result] The object onto which to store the result.
+ * @param {Cartesian2} [result] 要在其上存储结果的对象。
  * @returns {Cartesian2} The screen-space position of the billboard.
  *
  * @exception {DeveloperError} Billboard must be in a collection.
@@ -1510,7 +1510,7 @@ Billboard.prototype.computeScreenSpacePosition = function (scene, result) {
  * Gets a billboard's screen space bounding box centered around screenSpacePosition.
  * @param {Billboard} billboard The billboard to get the screen space bounding box for.
  * @param {Cartesian2} screenSpacePosition The screen space center of the label.
- * @param {BoundingRectangle} [result] The object onto which to store the result.
+ * @param {BoundingRectangle} [result] 要在其上存储结果的对象。
  * @returns {BoundingRectangle} The screen space bounding box.
  *
  * @private

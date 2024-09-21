@@ -70,7 +70,7 @@ Spline.getPointType = function (point) {
  * @function
  *
  * @param {number} time The time at which to evaluate the curve.
- * @param {Cartesian3|Quaternion|number[]} [result] The object onto which to store the result.
+ * @param {Cartesian3|Quaternion|number[]} [result] 要在其上存储结果的对象。
  * @returns {Cartesian3|Quaternion|number[]} The modified result parameter or a new instance of the point on the curve at the given time.
  *
  * @exception {DeveloperError} time must be in the range <code>[t<sub>0</sub>, t<sub>n</sub>]</code>, where <code>t<sub>0</sub></code>

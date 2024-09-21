@@ -459,8 +459,8 @@ Rectangle.clone = function (rectangle, result) {
  * <code>true</code> if they pass an absolute or relative tolerance test,
  * <code>false</code> otherwise.
  *
- * @param {Rectangle} [left] The first Rectangle.
- * @param {Rectangle} [right] The second Rectangle.
+ * @param {Rectangle} [left] 第一个Rectangle.
+ * @param {Rectangle} [right] 第二个 Rectangle.
  * @param {number} [absoluteEpsilon=0] The absolute epsilon tolerance to use for equality testing.
  * @returns {boolean} <code>true</code> if left and right are within the provided epsilon, <code>false</code> otherwise.
  */
@@ -479,9 +479,9 @@ Rectangle.equalsEpsilon = function (left, right, absoluteEpsilon) {
 };
 
 /**
- * Duplicates this Rectangle.
+ * 复制Rectangle.
  *
- * @param {Rectangle} [result] The object onto which to store the result.
+ * @param {Rectangle} [result] 要在其上存储结果的对象。
  * @returns {Rectangle} The modified result parameter or a new Rectangle instance if none was provided.
  */
 Rectangle.prototype.clone = function (result) {
@@ -490,7 +490,7 @@ Rectangle.prototype.clone = function (result) {
 
 /**
  * Compares the provided Rectangle with this Rectangle componentwise and returns
- * <code>true</code> if they are equal, <code>false</code> otherwise.
+ * <code>为true</code>，否则为false</code>。
  *
  * @param {Rectangle} [other] The Rectangle to compare.
  * @returns {boolean} <code>true</code> if the Rectangles are equal, <code>false</code> otherwise.
@@ -503,8 +503,8 @@ Rectangle.prototype.equals = function (other) {
  * Compares the provided rectangles and returns <code>true</code> if they are equal,
  * <code>false</code> otherwise.
  *
- * @param {Rectangle} [left] The first Rectangle.
- * @param {Rectangle} [right] The second Rectangle.
+ * @param {Rectangle} [left] 第一个Rectangle.
+ * @param {Rectangle} [right] 第二个 Rectangle.
  * @returns {boolean} <code>true</code> if left and right are equal; otherwise <code>false</code>.
  */
 Rectangle.equals = function (left, right) {
@@ -576,7 +576,7 @@ Rectangle.validate = function (rectangle) {
  * Computes the southwest corner of a rectangle.
  *
  * @param {Rectangle} rectangle The rectangle for which to find the corner
- * @param {Cartographic} [result] The object onto which to store the result.
+ * @param {Cartographic} [result] 要在其上存储结果的对象。
  * @returns {Cartographic} The modified result parameter or a new Cartographic instance if none was provided.
  */
 Rectangle.southwest = function (rectangle, result) {
@@ -597,7 +597,7 @@ Rectangle.southwest = function (rectangle, result) {
  * Computes the northwest corner of a rectangle.
  *
  * @param {Rectangle} rectangle The rectangle for which to find the corner
- * @param {Cartographic} [result] The object onto which to store the result.
+ * @param {Cartographic} [result] 要在其上存储结果的对象。
  * @returns {Cartographic} The modified result parameter or a new Cartographic instance if none was provided.
  */
 Rectangle.northwest = function (rectangle, result) {
@@ -618,7 +618,7 @@ Rectangle.northwest = function (rectangle, result) {
  * Computes the northeast corner of a rectangle.
  *
  * @param {Rectangle} rectangle The rectangle for which to find the corner
- * @param {Cartographic} [result] The object onto which to store the result.
+ * @param {Cartographic} [result] 要在其上存储结果的对象。
  * @returns {Cartographic} The modified result parameter or a new Cartographic instance if none was provided.
  */
 Rectangle.northeast = function (rectangle, result) {
@@ -639,7 +639,7 @@ Rectangle.northeast = function (rectangle, result) {
  * Computes the southeast corner of a rectangle.
  *
  * @param {Rectangle} rectangle The rectangle for which to find the corner
- * @param {Cartographic} [result] The object onto which to store the result.
+ * @param {Cartographic} [result] 要在其上存储结果的对象。
  * @returns {Cartographic} The modified result parameter or a new Cartographic instance if none was provided.
  */
 Rectangle.southeast = function (rectangle, result) {
@@ -660,7 +660,7 @@ Rectangle.southeast = function (rectangle, result) {
  * Computes the center of a rectangle.
  *
  * @param {Rectangle} rectangle The rectangle for which to find the center
- * @param {Cartographic} [result] The object onto which to store the result.
+ * @param {Cartographic} [result] 要在其上存储结果的对象。
  * @returns {Cartographic} The modified result parameter or a new Cartographic instance if none was provided.
  */
 Rectangle.center = function (rectangle, result) {
@@ -697,7 +697,7 @@ Rectangle.center = function (rectangle, result) {
  *
  * @param {Rectangle} rectangle On rectangle to find an intersection
  * @param {Rectangle} otherRectangle Another rectangle to find an intersection
- * @param {Rectangle} [result] The object onto which to store the result.
+ * @param {Rectangle} [result] 要在其上存储结果的对象。
  * @returns {Rectangle|undefined} The modified result parameter, a new Rectangle instance if none was provided or undefined if there is no intersection.
  */
 Rectangle.intersection = function (rectangle, otherRectangle, result) {
@@ -764,7 +764,7 @@ Rectangle.intersection = function (rectangle, otherRectangle, result) {
  *
  * @param {Rectangle} rectangle On rectangle to find an intersection
  * @param {Rectangle} otherRectangle Another rectangle to find an intersection
- * @param {Rectangle} [result] The object onto which to store the result.
+ * @param {Rectangle} [result] 要在其上存储结果的对象。
  * @returns {Rectangle|undefined} The modified result parameter, a new Rectangle instance if none was provided or undefined if there is no intersection.
  */
 Rectangle.simpleIntersection = function (rectangle, otherRectangle, result) {
@@ -798,7 +798,7 @@ Rectangle.simpleIntersection = function (rectangle, otherRectangle, result) {
  *
  * @param {Rectangle} rectangle A rectangle to enclose in rectangle.
  * @param {Rectangle} otherRectangle A rectangle to enclose in a rectangle.
- * @param {Rectangle} [result] The object onto which to store the result.
+ * @param {Rectangle} [result] 要在其上存储结果的对象。
  * @returns {Rectangle} The modified result parameter or a new Rectangle instance if none was provided.
  */
 Rectangle.union = function (rectangle, otherRectangle, result) {
@@ -849,7 +849,7 @@ Rectangle.union = function (rectangle, otherRectangle, result) {
  *
  * @param {Rectangle} rectangle A rectangle to expand.
  * @param {Cartographic} cartographic A cartographic to enclose in a rectangle.
- * @param {Rectangle} [result] The object onto which to store the result.
+ * @param {Rectangle} [result] 要在其上存储结果的对象。
  * @returns {Rectangle} The modified result parameter or a new Rectangle instance if one was not provided.
  */
 Rectangle.expand = function (rectangle, cartographic, result) {
@@ -991,7 +991,7 @@ Rectangle.subsample = function (rectangle, ellipsoid, surfaceHeight, result) {
  * @param {number} southLerp The south interpolation factor in the range [0.0, 1.0]. Must be less than or equal to northLerp.
  * @param {number} eastLerp The east interpolation factor in the range [0.0, 1.0]. Must be greater than or equal to westLerp.
  * @param {number} northLerp The north interpolation factor in the range [0.0, 1.0]. Must be greater than or equal to southLerp.
- * @param {Rectangle} [result] The object onto which to store the result.
+ * @param {Rectangle} [result] 要在其上存储结果的对象。
  * @returns {Rectangle} The modified result parameter or a new Rectangle instance if none was provided.
  */
 Rectangle.subsection = function (

@@ -352,7 +352,7 @@ Ellipsoid.unpack = function (array, startingIndex, result) {
  * @function
  *
  * @param {Cartesian3} cartesian The Cartesian for which to to determine the geocentric normal.
- * @param {Cartesian3} [result] The object onto which to store the result.
+ * @param {Cartesian3} [result] 要在其上存储结果的对象。
  * @returns {Cartesian3} The modified result parameter or a new Cartesian3 instance if none was provided.
  */
 Ellipsoid.prototype.geocentricSurfaceNormal = Cartesian3.normalize;
@@ -361,7 +361,7 @@ Ellipsoid.prototype.geocentricSurfaceNormal = Cartesian3.normalize;
  * Computes the normal of the plane tangent to the surface of the ellipsoid at the provided position.
  *
  * @param {Cartographic} cartographic The cartographic position for which to to determine the geodetic normal.
- * @param {Cartesian3} [result] The object onto which to store the result.
+ * @param {Cartesian3} [result] 要在其上存储结果的对象。
  * @returns {Cartesian3} The modified result parameter or a new Cartesian3 instance if none was provided.
  */
 Ellipsoid.prototype.geodeticSurfaceNormalCartographic = function (
@@ -393,7 +393,7 @@ Ellipsoid.prototype.geodeticSurfaceNormalCartographic = function (
  * Computes the normal of the plane tangent to the surface of the ellipsoid at the provided position.
  *
  * @param {Cartesian3} cartesian The Cartesian position for which to to determine the surface normal.
- * @param {Cartesian3} [result] The object onto which to store the result.
+ * @param {Cartesian3} [result] 要在其上存储结果的对象。
  * @returns {Cartesian3} The modified result parameter or a new Cartesian3 instance if none was provided, or undefined if a normal cannot be found.
  */
 Ellipsoid.prototype.geodeticSurfaceNormal = function (cartesian, result) {
@@ -426,7 +426,7 @@ const cartographicToCartesianK = new Cartesian3();
  * Converts the provided cartographic to Cartesian representation.
  *
  * @param {Cartographic} cartographic The cartographic position.
- * @param {Cartesian3} [result] The object onto which to store the result.
+ * @param {Cartesian3} [result] 要在其上存储结果的对象。
  * @returns {Cartesian3} The modified result parameter or a new Cartesian3 instance if none was provided.
  *
  * @example
@@ -454,7 +454,7 @@ Ellipsoid.prototype.cartographicToCartesian = function (cartographic, result) {
  * Converts the provided array of cartographics to an array of Cartesians.
  *
  * @param {Cartographic[]} cartographics An array of cartographic positions.
- * @param {Cartesian3[]} [result] The object onto which to store the result.
+ * @param {Cartesian3[]} [result] 要在其上存储结果的对象。
  * @returns {Cartesian3[]} The modified result parameter or a new Array instance if none was provided.
  *
  * @example
@@ -493,7 +493,7 @@ const cartesianToCartographicH = new Cartesian3();
  * The cartesian is undefined at the center of the ellipsoid.
  *
  * @param {Cartesian3} cartesian The Cartesian position to convert to cartographic representation.
- * @param {Cartographic} [result] The object onto which to store the result.
+ * @param {Cartographic} [result] 要在其上存储结果的对象。
  * @returns {Cartographic} The modified result parameter, new Cartographic instance if none was provided, or undefined if the cartesian is at the center of the ellipsoid.
  *
  * @example
@@ -530,7 +530,7 @@ Ellipsoid.prototype.cartesianToCartographic = function (cartesian, result) {
  * Converts the provided array of cartesians to an array of cartographics.
  *
  * @param {Cartesian3[]} cartesians An array of Cartesian positions.
- * @param {Cartographic[]} [result] The object onto which to store the result.
+ * @param {Cartographic[]} [result] 要在其上存储结果的对象。
  * @returns {Cartographic[]} The modified result parameter or a new Array instance if none was provided.
  *
  * @example
@@ -566,7 +566,7 @@ Ellipsoid.prototype.cartesianArrayToCartographicArray = function (
  * at the center of the ellipsoid, this function returns undefined.
  *
  * @param {Cartesian3} cartesian The Cartesian position to scale.
- * @param {Cartesian3} [result] The object onto which to store the result.
+ * @param {Cartesian3} [result] 要在其上存储结果的对象。
  * @returns {Cartesian3} The modified result parameter, a new Cartesian3 instance if none was provided, or undefined if the position is at the center.
  */
 Ellipsoid.prototype.scaleToGeodeticSurface = function (cartesian, result) {
@@ -584,7 +584,7 @@ Ellipsoid.prototype.scaleToGeodeticSurface = function (cartesian, result) {
  * so that it is on the surface of this ellipsoid.
  *
  * @param {Cartesian3} cartesian The Cartesian position to scale.
- * @param {Cartesian3} [result] The object onto which to store the result.
+ * @param {Cartesian3} [result] 要在其上存储结果的对象。
  * @returns {Cartesian3} The modified result parameter or a new Cartesian3 instance if none was provided.
  */
 Ellipsoid.prototype.scaleToGeocentricSurface = function (cartesian, result) {
@@ -656,10 +656,10 @@ Ellipsoid.prototype.transformPositionFromScaledSpace = function (
 
 /**
  * Compares this Ellipsoid against the provided Ellipsoid componentwise and returns
- * <code>true</code> if they are equal, <code>false</code> otherwise.
+ * <code>为true</code>，否则为false</code>。
  *
  * @param {Ellipsoid} [right] The other Ellipsoid.
- * @returns {boolean} <code>true</code> if they are equal, <code>false</code> otherwise.
+ * @returns {boolean} <code>为true</code>，否则为false</code>。
  */
 Ellipsoid.prototype.equals = function (right) {
   return (

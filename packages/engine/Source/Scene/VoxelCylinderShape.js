@@ -749,7 +749,7 @@ function computeLooseOrientedBoundingBox(matrix, result) {
  * @param {number} angleStart The angleStart.
  * @param {number} angleEnd The angleEnd.
  * @param {Matrix4} matrix The matrix to transform the points.
- * @param {OrientedBoundingBox} result The object onto which to store the result.
+ * @param {OrientedBoundingBox} result 要在其上存储结果的对象。
  * @returns {OrientedBoundingBox} The oriented bounding box that contains this subregion.
  *
  * @private

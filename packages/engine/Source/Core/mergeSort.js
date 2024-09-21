@@ -96,8 +96,8 @@ function mergeSort(array, comparator, userDefinedObject) {
  * A function used to compare two items while performing a merge sort.
  * @callback mergeSortComparator
  *
- * @param {*} a An item in the array.
- * @param {*} b An item in the array.
+ * @param {*} a 数组中的一项。
+ * @param {*} b 数组中的一项。
  * @param {*} [userDefinedObject] An object that was passed to {@link mergeSort}.
  * @returns {number} Returns a negative value if <code>a</code> is less than <code>b</code>,
  *          a positive value if <code>a</code> is greater than <code>b</code>, or

@@ -130,7 +130,7 @@ MorphWeightSpline.prototype.clampTime = Spline.prototype.clampTime;
  * Evaluates the curve at a given time.
  *
  * @param {number} time The time at which to evaluate the curve.
- * @param {number[]} [result] The object onto which to store the result.
+ * @param {number[]} [result] 要在其上存储结果的对象。
  * @returns {number[]} The modified result parameter or a new instance of the point on the curve at the given time.
  *
  * @exception {DeveloperError} time must be in the range <code>[t<sub>0</sub>, t<sub>n</sub>]</code>, where <code>t<sub>0</sub></code>

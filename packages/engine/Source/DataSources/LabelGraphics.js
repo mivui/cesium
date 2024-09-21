@@ -326,9 +326,9 @@ Object.defineProperties(LabelGraphics.prototype, {
 });
 
 /**
- * Duplicates this instance.
+ * 复制instance.
  *
- * @param {LabelGraphics} [result] The object onto which to store the result.
+ * @param {LabelGraphics} [result] 要在其上存储结果的对象。
  * @returns {LabelGraphics} The modified result parameter or a new instance if one was not provided.
  */
 LabelGraphics.prototype.clone = function (result) {

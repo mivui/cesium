@@ -98,7 +98,7 @@ ConstantSpline.prototype.clampTime = function (time) {
  * @function
  *
  * @param {number} time The time at which to evaluate the curve.
- * @param {Cartesian3|Quaternion} [result] The object onto which to store the result.
+ * @param {Cartesian3|Quaternion} [result] 要在其上存储结果的对象。
  * @returns {number|Cartesian3|Quaternion} The modified result parameter or the value that the constant spline represents.
  */
 ConstantSpline.prototype.evaluate = function (time, result) {

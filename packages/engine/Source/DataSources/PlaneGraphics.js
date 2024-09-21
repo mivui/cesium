@@ -158,9 +158,9 @@ Object.defineProperties(PlaneGraphics.prototype, {
 });
 
 /**
- * Duplicates this instance.
+ * 复制instance.
  *
- * @param {PlaneGraphics} [result] The object onto which to store the result.
+ * @param {PlaneGraphics} [result] 要在其上存储结果的对象。
  * @returns {PlaneGraphics} The modified result parameter or a new instance if one was not provided.
  */
 PlaneGraphics.prototype.clone = function (result) {

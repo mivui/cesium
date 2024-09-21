@@ -55,7 +55,7 @@ function Cartesian4(x, y, z, w) {
  * @param {number} y The y coordinate.
  * @param {number} z The z coordinate.
  * @param {number} w The w coordinate.
- * @param {Cartesian4} [result] The object onto which to store the result.
+ * @param {Cartesian4} [result] 要在其上存储结果的对象。
  * @returns {Cartesian4} The modified result parameter or a new Cartesian4 instance if one was not provided.
  */
 Cartesian4.fromElements = function (x, y, z, w, result) {
@@ -75,7 +75,7 @@ Cartesian4.fromElements = function (x, y, z, w, result) {
  * and <code>alpha</code> map to <code>x</code>, <code>y</code>, <code>z</code>, and <code>w</code>, respectively.
  *
  * @param {Color} color The source color.
- * @param {Cartesian4} [result] The object onto which to store the result.
+ * @param {Cartesian4} [result] 要在其上存储结果的对象。
  * @returns {Cartesian4} The modified result parameter or a new Cartesian4 instance if one was not provided.
  */
 Cartesian4.fromColor = function (color, result) {
@@ -97,7 +97,7 @@ Cartesian4.fromColor = function (color, result) {
  * Duplicates a Cartesian4 instance.
  *
  * @param {Cartesian4} cartesian The Cartesian to duplicate.
- * @param {Cartesian4} [result] The object onto which to store the result.
+ * @param {Cartesian4} [result] 要在其上存储结果的对象。
  * @returns {Cartesian4} The modified result parameter or a new Cartesian4 instance if one was not provided. (Returns undefined if cartesian is undefined)
  */
 Cartesian4.clone = function (cartesian, result) {
@@ -240,7 +240,7 @@ Cartesian4.unpackArray = function (array, result) {
  *
  * @param {number[]} array The array whose four consecutive elements correspond to the x, y, z, and w components, respectively.
  * @param {number} [startingIndex=0] The offset into the array of the first element, which corresponds to the x component.
- * @param {Cartesian4} [result] The object onto which to store the result.
+ * @param {Cartesian4} [result] 要在其上存储结果的对象。
  * @returns {Cartesian4}  The modified result parameter or a new Cartesian4 instance if one was not provided.
  *
  * @example
@@ -440,7 +440,7 @@ Cartesian4.distanceSquared = function (left, right) {
  * Computes the normalized form of the supplied Cartesian.
  *
  * @param {Cartesian4} cartesian The Cartesian to be normalized.
- * @param {Cartesian4} result The object onto which to store the result.
+ * @param {Cartesian4} result 要在其上存储结果的对象。
  * @returns {Cartesian4} The modified result parameter.
  */
 Cartesian4.normalize = function (cartesian, result) {
@@ -493,7 +493,7 @@ Cartesian4.dot = function (left, right) {
  *
  * @param {Cartesian4} left The first Cartesian.
  * @param {Cartesian4} right The second Cartesian.
- * @param {Cartesian4} result The object onto which to store the result.
+ * @param {Cartesian4} result 要在其上存储结果的对象。
  * @returns {Cartesian4} The modified result parameter.
  */
 Cartesian4.multiplyComponents = function (left, right, result) {
@@ -515,7 +515,7 @@ Cartesian4.multiplyComponents = function (left, right, result) {
  *
  * @param {Cartesian4} left The first Cartesian.
  * @param {Cartesian4} right The second Cartesian.
- * @param {Cartesian4} result The object onto which to store the result.
+ * @param {Cartesian4} result 要在其上存储结果的对象。
  * @returns {Cartesian4} The modified result parameter.
  */
 Cartesian4.divideComponents = function (left, right, result) {
@@ -537,7 +537,7 @@ Cartesian4.divideComponents = function (left, right, result) {
  *
  * @param {Cartesian4} left The first Cartesian.
  * @param {Cartesian4} right The second Cartesian.
- * @param {Cartesian4} result The object onto which to store the result.
+ * @param {Cartesian4} result 要在其上存储结果的对象。
  * @returns {Cartesian4} The modified result parameter.
  */
 Cartesian4.add = function (left, right, result) {
@@ -559,7 +559,7 @@ Cartesian4.add = function (left, right, result) {
  *
  * @param {Cartesian4} left The first Cartesian.
  * @param {Cartesian4} right The second Cartesian.
- * @param {Cartesian4} result The object onto which to store the result.
+ * @param {Cartesian4} result 要在其上存储结果的对象。
  * @returns {Cartesian4} The modified result parameter.
  */
 Cartesian4.subtract = function (left, right, result) {
@@ -581,7 +581,7 @@ Cartesian4.subtract = function (left, right, result) {
  *
  * @param {Cartesian4} cartesian The Cartesian to be scaled.
  * @param {number} scalar The scalar to multiply with.
- * @param {Cartesian4} result The object onto which to store the result.
+ * @param {Cartesian4} result 要在其上存储结果的对象。
  * @returns {Cartesian4} The modified result parameter.
  */
 Cartesian4.multiplyByScalar = function (cartesian, scalar, result) {
@@ -603,7 +603,7 @@ Cartesian4.multiplyByScalar = function (cartesian, scalar, result) {
  *
  * @param {Cartesian4} cartesian The Cartesian to be divided.
  * @param {number} scalar The scalar to divide by.
- * @param {Cartesian4} result The object onto which to store the result.
+ * @param {Cartesian4} result 要在其上存储结果的对象。
  * @returns {Cartesian4} The modified result parameter.
  */
 Cartesian4.divideByScalar = function (cartesian, scalar, result) {
@@ -624,7 +624,7 @@ Cartesian4.divideByScalar = function (cartesian, scalar, result) {
  * Negates the provided Cartesian.
  *
  * @param {Cartesian4} cartesian The Cartesian to be negated.
- * @param {Cartesian4} result The object onto which to store the result.
+ * @param {Cartesian4} result 要在其上存储结果的对象。
  * @returns {Cartesian4} The modified result parameter.
  */
 Cartesian4.negate = function (cartesian, result) {
@@ -644,7 +644,7 @@ Cartesian4.negate = function (cartesian, result) {
  * Computes the absolute value of the provided Cartesian.
  *
  * @param {Cartesian4} cartesian The Cartesian whose absolute value is to be computed.
- * @param {Cartesian4} result The object onto which to store the result.
+ * @param {Cartesian4} result 要在其上存储结果的对象。
  * @returns {Cartesian4} The modified result parameter.
  */
 Cartesian4.abs = function (cartesian, result) {
@@ -667,7 +667,7 @@ const lerpScratch = new Cartesian4();
  * @param {Cartesian4} start The value corresponding to t at 0.0.
  * @param {Cartesian4}end The value corresponding to t at 1.0.
  * @param {number} t The point along t at which to interpolate.
- * @param {Cartesian4} result The object onto which to store the result.
+ * @param {Cartesian4} result 要在其上存储结果的对象。
  * @returns {Cartesian4} The modified result parameter.
  */
 Cartesian4.lerp = function (start, end, t, result) {
@@ -688,7 +688,7 @@ const mostOrthogonalAxisScratch = new Cartesian4();
  * Returns the axis that is most orthogonal to the provided Cartesian.
  *
  * @param {Cartesian4} cartesian The Cartesian on which to find the most orthogonal axis.
- * @param {Cartesian4} result The object onto which to store the result.
+ * @param {Cartesian4} result 要在其上存储结果的对象。
  * @returns {Cartesian4} The most orthogonal axis.
  */
 Cartesian4.mostOrthogonalAxis = function (cartesian, result) {
@@ -729,11 +729,11 @@ Cartesian4.mostOrthogonalAxis = function (cartesian, result) {
 
 /**
  * Compares the provided Cartesians componentwise and returns
- * <code>true</code> if they are equal, <code>false</code> otherwise.
+ * <code>为true</code>，否则为false</code>。
  *
- * @param {Cartesian4} [left] The first Cartesian.
- * @param {Cartesian4} [right] The second Cartesian.
- * @returns {boolean} <code>true</code> if left and right are equal, <code>false</code> otherwise.
+ * @param {Cartesian4} [left] 第一个Cartesian.
+ * @param {Cartesian4} [right] 第二个 Cartesian.
+ * @returns {boolean} <code>true</code>如果左和右相等，否则<code>false</code>。
  */
 Cartesian4.equals = function (left, right) {
   return (
@@ -764,8 +764,8 @@ Cartesian4.equalsArray = function (cartesian, array, offset) {
  * <code>true</code> if they pass an absolute or relative tolerance test,
  * <code>false</code> otherwise.
  *
- * @param {Cartesian4} [left] The first Cartesian.
- * @param {Cartesian4} [right] The second Cartesian.
+ * @param {Cartesian4} [left] 第一个Cartesian.
+ * @param {Cartesian4} [right] 第二个 Cartesian.
  * @param {number} [relativeEpsilon=0] The relative epsilon tolerance to use for equality testing.
  * @param {number} [absoluteEpsilon=relativeEpsilon] The absolute epsilon tolerance to use for equality testing.
  * @returns {boolean} <code>true</code> if left and right are within the provided epsilon, <code>false</code> otherwise.
@@ -856,9 +856,9 @@ Cartesian4.UNIT_Z = Object.freeze(new Cartesian4(0.0, 0.0, 1.0, 0.0));
 Cartesian4.UNIT_W = Object.freeze(new Cartesian4(0.0, 0.0, 0.0, 1.0));
 
 /**
- * Duplicates this Cartesian4 instance.
+ * 复制Cartesian4 instance.
  *
- * @param {Cartesian4} [result] The object onto which to store the result.
+ * @param {Cartesian4} [result] 要在其上存储结果的对象。
  * @returns {Cartesian4} The modified result parameter or a new Cartesian4 instance if one was not provided.
  */
 Cartesian4.prototype.clone = function (result) {
@@ -867,10 +867,10 @@ Cartesian4.prototype.clone = function (result) {
 
 /**
  * Compares this Cartesian against the provided Cartesian componentwise and returns
- * <code>true</code> if they are equal, <code>false</code> otherwise.
+ * <code>为true</code>，否则为false</code>。
  *
- * @param {Cartesian4} [right] The right hand side Cartesian.
- * @returns {boolean} <code>true</code> if they are equal, <code>false</code> otherwise.
+ * @param {Cartesian4} [right] 右边 Cartesian.
+ * @returns {boolean} <code>为true</code>，否则为false</code>。
  */
 Cartesian4.prototype.equals = function (right) {
   return Cartesian4.equals(this, right);
@@ -881,7 +881,7 @@ Cartesian4.prototype.equals = function (right) {
  * <code>true</code> if they pass an absolute or relative tolerance test,
  * <code>false</code> otherwise.
  *
- * @param {Cartesian4} [right] The right hand side Cartesian.
+ * @param {Cartesian4} [right] 右边 Cartesian.
  * @param {number} [relativeEpsilon=0] The relative epsilon tolerance to use for equality testing.
  * @param {number} [absoluteEpsilon=relativeEpsilon] The absolute epsilon tolerance to use for equality testing.
  * @returns {boolean} <code>true</code> if they are within the provided epsilon, <code>false</code> otherwise.

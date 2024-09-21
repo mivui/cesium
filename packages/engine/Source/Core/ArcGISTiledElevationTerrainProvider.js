@@ -24,21 +24,21 @@ const ALL_CHILDREN = 15;
 /**
  * @typedef {Object} ArcGISTiledElevationTerrainProvider.ConstructorOptions
  *
- * Initialization options for the ArcGISTiledElevationTerrainProvider constructor
+ * ArcGISTiledElevationTerrainProvider构造函数的初始化选项
  *
- * @property {string} [token] The authorization token to use to connect to the service.
- * @property {Ellipsoid} [ellipsoid=Ellipsoid.default] The ellipsoid.  If the tilingScheme is specified,
- *                    this parameter is ignored and the tiling scheme's ellipsoid is used instead.
- *                    If neither parameter is specified, the default ellipsoid is used.
+ * @property {string} [token] 用于连接到服务的授权令牌。
+ * @property {Ellipsoid} [Ellipsoid=Ellipsoid.default] 椭球体。如果指定了tilingScheme，
+ * 此参数被忽略，而使用平铺方案的椭球体。
+ * 如果不指定任何参数，则使用默认的椭球体。
  */
 
 /**
- * Used to track creation details while fetching initial metadata
+ * 用于在获取初始元数据时跟踪创建细节
  *
  * @constructor
  * @private
  *
- * @param {ArcGISTiledElevationTerrainProvider.ConstructorOptions} [options] An 描述初始化选项的对象.
+ * @param {ArcGISTiledElevationTerrainProvider.ConstructorOptions} [options] 描述初始化选项的对象.
  */
 function TerrainProviderBuilder(options) {
   this.ellipsoid = defaultValue(options.ellipsoid, Ellipsoid.default);
@@ -57,7 +57,7 @@ function TerrainProviderBuilder(options) {
 }
 
 /**
- * Complete ArcGISTiledElevationTerrainProvider creation based on builder values.
+ * 根据builder的值完成ArcGISTiledElevationTerrainProvider的创建。
  *
  * @private
  *
@@ -212,16 +212,16 @@ async function requestMetadata(
 
 /**
  * <div class="notice">
- * To construct a CesiumTerrainProvider, call {@link ArcGISTiledElevationTerrainProvider.fromUrl}. Do not call the constructor directly.
+ * 要构造一个CesiumTerrainProvider，调用 {@link ArcGISTiledElevationTerrainProvider.fromUrl} 。不要直接调用构造函数。
  * </div>
  *
- * A {@link TerrainProvider} that produces terrain geometry by tessellating height maps
- * retrieved from Elevation Tiles of an an ArcGIS ImageService.
+ * 一个 {@link TerrainProvider} ，通过细分高度图来生成地形几何
+ * 从一个ArcGIS ImageService的Elevation Tiles中检索。
  *
  * @alias ArcGISTiledElevationTerrainProvider
  * @constructor
  *
- * @param {CesiumTerrainProvider.ConstructorOptions} [options] A url or an 描述初始化选项的对象
+ * @param {CesiumTerrainProvider.ConstructorOptions} [options]  url 或 描述初始化选项的对象
  *
  * @example
  * const terrainProvider = await Cesium.ArcGISTiledElevationTerrainProvider.fromUrl("https://elevation3d.arcgis.com/arcgis/rest/services/WorldElevation3D/Terrain3D/ImageServer", {
@@ -255,9 +255,9 @@ function ArcGISTiledElevationTerrainProvider(options) {
 
 Object.defineProperties(ArcGISTiledElevationTerrainProvider.prototype, {
   /**
-   * Gets an event that is raised when the terrain provider encounters an asynchronous error.  By subscribing
-   * to the event, you will be notified of the error and can potentially recover from it.  Event listeners
-   * are passed an instance of {@link TileProviderError}.
+   * 获取地形提供程序遇到异步错误时引发的事件。通过订阅
+   * 到事件，您将收到错误通知，并可能从中恢复。事件监听器
+   * 传递一个 {@link TileProviderError} 的实例。
    * @memberof ArcGISTiledElevationTerrainProvider.prototype
    * @type {Event}
    * @readonly
@@ -269,8 +269,8 @@ Object.defineProperties(ArcGISTiledElevationTerrainProvider.prototype, {
   },
 
   /**
-   * Gets the credit to display when this terrain provider is active.  Typically this is used to credit
-   * the source of the terrain.
+   * 获取此地形提供程序处于活动状态时要显示的信用值。这通常用于信贷
+   * 地形的来源。
    * @memberof ArcGISTiledElevationTerrainProvider.prototype
    * @type {Credit}
    * @readonly
@@ -282,7 +282,7 @@ Object.defineProperties(ArcGISTiledElevationTerrainProvider.prototype, {
   },
 
   /**
-   * Gets the tiling scheme used by this provider.
+   * 获取此提供程序使用的平铺模式。
    * @memberof ArcGISTiledElevationTerrainProvider.prototype
    * @type {GeographicTilingScheme}
    * @readonly
@@ -294,9 +294,9 @@ Object.defineProperties(ArcGISTiledElevationTerrainProvider.prototype, {
   },
 
   /**
-   * Gets a value indicating whether or not the provider includes a water mask.  The water mask
-   * indicates which areas of the globe are water rather than land, so they can be rendered
-   * as a reflective surface with animated waves.
+   * 获取一个值，该值指示提供程序是否包含水掩码。水面罩
+   * 表示地球上哪些区域是水而不是陆地，因此它们可以被渲染
+   * 作为具有动画波的反射表面。
    * @memberof ArcGISTiledElevationTerrainProvider.prototype
    * @type {boolean}
    * @readonly
@@ -308,7 +308,7 @@ Object.defineProperties(ArcGISTiledElevationTerrainProvider.prototype, {
   },
 
   /**
-   * Gets a value indicating whether or not the requested tiles include vertex normals.
+   * 获取一个值，该值指示请求的贴图是否包含顶点法线。
    * @memberof ArcGISTiledElevationTerrainProvider.prototype
    * @type {boolean}
    * @readonly
@@ -319,9 +319,9 @@ Object.defineProperties(ArcGISTiledElevationTerrainProvider.prototype, {
     },
   },
   /**
-   * Gets an object that can be used to determine availability of terrain from this provider, such as
-   * at points and in rectangles. This property may be undefined if availability
-   * information is not available.
+   * 获取一个对象，该对象可用于从此提供程序确定地形的可用性，例如
+   * 在点和矩形中。如果可用，此属性可能未定义
+   * 信息不可用。
    * @memberof ArcGISTiledElevationTerrainProvider.prototype
    * @type {TileAvailability}
    * @readonly
@@ -334,11 +334,11 @@ Object.defineProperties(ArcGISTiledElevationTerrainProvider.prototype, {
 });
 
 /**
- * Creates a {@link TerrainProvider} that produces terrain geometry by tessellating height maps
- * retrieved from Elevation Tiles of an an ArcGIS ImageService.
+ * 创建一个 {@link TerrainProvider} ，通过镶嵌高度图来生成地形几何
+ * 从一个ArcGIS ImageService的Elevation Tiles中检索。
  *
- * @param {Resource|String|Promise<Resource>|Promise<String>} url The URL of the ArcGIS ImageServer service.
- * @param {ArcGISTiledElevationTerrainProvider.ConstructorOptions} [options] A url or an 描述初始化选项的对象.
+ * @param {Resource|String|Promise<Resource>|Promise<String>} url ArcGIS ImageServer服务的URL。
+ * @param {ArcGISTiledElevationTerrainProvider.ConstructorOptions} [options] url或描述初始化选项的对象。
  * @returns {Promise<ArcGISTiledElevationTerrainProvider>}
  *
  * @example
@@ -385,16 +385,16 @@ ArcGISTiledElevationTerrainProvider.fromUrl = async function (url, options) {
 };
 
 /**
- * Requests the geometry for a given tile. The result includes terrain
- * data and indicates that all child tiles are available.
+ * 请求给定贴图的几何图形。结果包括地形
+ * 数据，并指示所有子磁贴都可用。
  *
- * @param {number} x The X coordinate of the tile for which to request geometry.
- * @param {number} y The Y coordinate of the tile for which to request geometry.
- * @param {number} level The level of the tile for which to request geometry.
- * @param {Request} [request] The request object. Intended for internal use only.
- * @returns {Promise<TerrainData>|undefined} A promise for the requested geometry.  If this method
- *          returns undefined instead of a promise, it is an indication that too many requests are already
- *          pending and the request will be retried later.
+ * @param {number} x 要为其请求几何图形的贴图的X坐标。
+ * @param {number} y 要为其请求几何图形的贴图的Y坐标。
+ * @param {number} level 要为其请求几何图形的贴图的级别。
+ * @param {Request} [request] 请求对象。仅供内部使用。
+ * @returns {Promise<TerrainData>|undefined} 对所请求几何图形的承诺。如果这种方法
+ *         返回未定义而不是承诺，这表明已经有太多请求
+ *         等待中，请求将稍后重试。
  */
 ArcGISTiledElevationTerrainProvider.prototype.requestTileGeometry = function (
   x,
@@ -494,10 +494,10 @@ function isTileAvailable(that, level, x, y) {
 }
 
 /**
- * Gets the maximum geometric error allowed in a tile at a given level.
+ *获取给定级别的贴图中允许的最大几何误差。
  *
- * @param {number} level The tile level for which to get the maximum geometric error.
- * @returns {number} The maximum geometric error.
+ * @param {number} level 要获得最大几何误差的瓦片水平。
+ * @returns {number} 最大几何误差。
  */
 ArcGISTiledElevationTerrainProvider.prototype.getLevelMaximumGeometricError = function (
   level
@@ -506,12 +506,12 @@ ArcGISTiledElevationTerrainProvider.prototype.getLevelMaximumGeometricError = fu
 };
 
 /**
- * Determines whether data for a tile is available to be loaded.
+ * 确定是否可以加载磁贴的数据。
  *
- * @param {number} x The X coordinate of the tile for which to request geometry.
- * @param {number} y The Y coordinate of the tile for which to request geometry.
- * @param {number} level The level of the tile for which to request geometry.
- * @returns {boolean|undefined} Undefined if not supported, otherwise true or false.
+ * @param {number} x 要为其请求几何图形的贴图的X坐标。
+ * @param {number} y 要为其请求几何图形的贴图的Y坐标。
+ * @param {number} level 要为其请求几何图形的贴图的级别。
+ * @returns {boolean|undefined} 如果不支持则未定义，否则为true或false。
  */
 ArcGISTiledElevationTerrainProvider.prototype.getTileDataAvailable = function (
   x,
@@ -533,12 +533,12 @@ ArcGISTiledElevationTerrainProvider.prototype.getTileDataAvailable = function (
 };
 
 /**
- * Makes sure we load availability data for a tile
+ * 确保我们为tile加载了可用性数据
  *
- * @param {number} x The X coordinate of the tile for which to request geometry.
- * @param {number} y The Y coordinate of the tile for which to request geometry.
- * @param {number} level The level of the tile for which to request geometry.
- * @returns {undefined} This provider does not support loading availability.
+ * @param {number} x 要为其请求几何图形的贴图的X坐标。
+ * @param {number} y 要为其请求几何图形的贴图的Y坐标。
+ * @param {number} level 要为其请求几何图形的贴图的级别。
+ * @returns {undefined} 此提供程序不支持加载可用性。
  */
 ArcGISTiledElevationTerrainProvider.prototype.loadTileDataAvailability = function (
   x,

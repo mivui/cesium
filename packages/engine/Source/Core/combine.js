@@ -25,8 +25,8 @@ import defined from "./defined.js";
  * //     }
  * // }
  *
- * @param {object} [object1] The first object to merge.
- * @param {object} [object2] The second object to merge.
+ * @param {object} [object1] 第一个object to merge.
+ * @param {object} [object2] 第二个 object to merge.
  * @param {boolean} [deep=false] Perform a recursive merge.
  * @returns {object} The combined object containing all properties from both objects.
  *

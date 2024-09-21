@@ -739,7 +739,7 @@ const scratchRectangleIntersection = new Rectangle();
  * @param {object} tileBoundingVolume The volume to determine the intersection with the polygons.
  * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] The ellipsoid on which the bounding volumes are defined.
  * @returns {Intersect} The intersection type: {@link Intersect.OUTSIDE} if the entire volume is not clipped, {@link Intersect.INSIDE}
- *                      if the entire volume should be clipped, and {@link Intersect.INTERSECTING} if the volume intersects the polygons and will partially clipped.
+ *                      if the entire volume should be clipped, 和 {@link Intersect.INTERSECTING} if the volume intersects the polygons and will partially clipped.
  */
 ClippingPolygonCollection.prototype.computeIntersectionWithBoundingVolume = function (
   tileBoundingVolume,

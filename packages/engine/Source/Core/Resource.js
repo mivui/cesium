@@ -728,7 +728,7 @@ Resource.prototype.retryOnError = function (error) {
 /**
  * Duplicates a Resource instance.
  *
- * @param {Resource} [result] The object onto which to store the result.
+ * @param {Resource} [result] 要在其上存储结果的对象。
  *
  * @returns {Resource} The modified result parameter or a new Resource instance if one was not provided.
  */

@@ -126,7 +126,7 @@ const scratchProjectPointOntoPlaneCartesian3 = new Cartesian3();
  * Computes the projection of the provided 3D position onto the 2D polar plane, radially outward from the provided origin.
  *
  * @param {Cartesian3} cartesian The point to project.
- * @param {Stereographic} [result] The object onto which to store the result.
+ * @param {Stereographic} [result] 要在其上存储结果的对象。
  * @returns {Sterographic} The modified result parameter or a new Sterographic instance if none was provided.
  */
 Stereographic.fromCartesian = function (cartesian, result) {
@@ -176,7 +176,7 @@ Stereographic.fromCartesian = function (cartesian, result) {
  * Computes the projection of the provided 3D positions onto the 2D polar plane, radially outward from the provided origin.
  *
  * @param {Cartesian3[]} cartesians The points to project.
- * @param {Stereographic[]} [result] The object onto which to store the result.
+ * @param {Stereographic[]} [result] 要在其上存储结果的对象。
  * @returns {Sterographic[]} The modified result parameter or a new Sterographic instance if none was provided.
  */
 Stereographic.fromCartesianArray = function (cartesians, result) {
@@ -200,7 +200,7 @@ Stereographic.fromCartesianArray = function (cartesians, result) {
  * Duplicates a Stereographic instance.
  *
  * @param {Stereographic} stereographic The Stereographic to duplicate.
- * @param {Stereographic} [result] The object onto which to store the result.
+ * @param {Stereographic} [result] 要在其上存储结果的对象。
  * @returns {Stereographic} The modified result parameter or a new Stereographic instance if one was not provided. (Returns undefined if stereographic is undefined)
  */
 Stereographic.clone = function (stereographic, result) {

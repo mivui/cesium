@@ -306,9 +306,9 @@ Object.defineProperties(PolygonGraphics.prototype, {
 });
 
 /**
- * Duplicates this instance.
+ * 复制instance.
  *
- * @param {PolygonGraphics} [result] The object onto which to store the result.
+ * @param {PolygonGraphics} [result] 要在其上存储结果的对象。
  * @returns {PolygonGraphics} The modified result parameter or a new instance if one was not provided.
  */
 PolygonGraphics.prototype.clone = function (result) {

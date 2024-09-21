@@ -117,9 +117,9 @@ Object.defineProperties(PathGraphics.prototype, {
 });
 
 /**
- * Duplicates this instance.
+ * 复制instance.
  *
- * @param {PathGraphics} [result] The object onto which to store the result.
+ * @param {PathGraphics} [result] 要在其上存储结果的对象。
  * @returns {PathGraphics} The modified result parameter or a new instance if one was not provided.
  */
 PathGraphics.prototype.clone = function (result) {

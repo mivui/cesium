@@ -42,7 +42,7 @@ function EncodedCartesian3() {
  * </p>
  *
  * @param {number} value The floating-point value to encode.
- * @param {object} [result] The object onto which to store the result.
+ * @param {object} [result] 要在其上存储结果的对象。
  * @returns {object} The modified result parameter or a new instance if one was not provided.
  *
  * @example
@@ -88,7 +88,7 @@ const scratchEncode = {
  * </p>
  *
  * @param {Cartesian3} cartesian The cartesian to encode.
- * @param {EncodedCartesian3} [result] The object onto which to store the result.
+ * @param {EncodedCartesian3} [result] 要在其上存储结果的对象。
  * @returns {EncodedCartesian3} The modified result parameter or a new EncodedCartesian3 instance if one was not provided.
  *
  * @example

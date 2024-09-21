@@ -212,10 +212,10 @@ TimeInterval.clone = function (timeInterval, result) {
 };
 
 /**
- * Compares two instances and returns <code>true</code> if they are equal, <code>false</code> otherwise.
+ * Compares two instances and returns <code>为true</code>，否则为false</code>。
  *
- * @param {TimeInterval} [left] The first instance.
- * @param {TimeInterval} [right] The second instance.
+ * @param {TimeInterval} [left] 第一个instance.
+ * @param {TimeInterval} [right] 第二个 instance.
  * @param {TimeInterval.DataComparer} [dataComparer] A function which compares the data of the two intervals.  If omitted, reference equality is used.
  * @returns {boolean} <code>true</code> if the dates are equal; otherwise, <code>false</code>.
  */
@@ -240,8 +240,8 @@ TimeInterval.equals = function (left, right, dataComparer) {
  * this function to return <code>true</code>), the absolute value of the difference between them, in
  * seconds, must be less than <code>epsilon</code>.
  *
- * @param {TimeInterval} [left] The first instance.
- * @param {TimeInterval} [right] The second instance.
+ * @param {TimeInterval} [left] 第一个instance.
+ * @param {TimeInterval} [right] 第二个 instance.
  * @param {number} [epsilon=0] The maximum number of seconds that should separate the two instances.
  * @param {TimeInterval.DataComparer} [dataComparer] A function which compares the data of the two intervals.  If omitted, reference equality is used.
  * @returns {boolean} <code>true</code> if the two dates are within <code>epsilon</code> seconds of each other; otherwise <code>false</code>.
@@ -267,7 +267,7 @@ TimeInterval.equalsEpsilon = function (left, right, epsilon, dataComparer) {
  * Computes the intersection of two intervals, optionally merging their data.
  *
  * @param {TimeInterval} left The first interval.
- * @param {TimeInterval} [right] The second interval.
+ * @param {TimeInterval} [right] 第二个 interval.
  * @param {TimeInterval} [result] An existing instance to use for the result.
  * @param {TimeInterval.MergeCallback} [mergeCallback] A function which merges the data of the two intervals. If omitted, the data from the left interval will be used.
  * @returns {TimeInterval} The modified result parameter.
@@ -360,7 +360,7 @@ TimeInterval.contains = function (timeInterval, julianDate) {
 };
 
 /**
- * Duplicates this instance.
+ * 复制instance.
  *
  * @param {TimeInterval} [result] An existing instance to use for the result.
  * @returns {TimeInterval} The modified result parameter or a new instance if none was provided.
@@ -371,11 +371,11 @@ TimeInterval.prototype.clone = function (result) {
 
 /**
  * Compares this instance against the provided instance componentwise and returns
- * <code>true</code> if they are equal, <code>false</code> otherwise.
+ * <code>为true</code>，否则为false</code>。
  *
- * @param {TimeInterval} [right] The right hand side interval.
+ * @param {TimeInterval} [right] 右边 interval.
  * @param {TimeInterval.DataComparer} [dataComparer] A function which compares the data of the two intervals.  If omitted, reference equality is used.
- * @returns {boolean} <code>true</code> if they are equal, <code>false</code> otherwise.
+ * @returns {boolean} <code>为true</code>，否则为false</code>。
  */
 TimeInterval.prototype.equals = function (right, dataComparer) {
   return TimeInterval.equals(this, right, dataComparer);
@@ -386,7 +386,7 @@ TimeInterval.prototype.equals = function (right, dataComparer) {
  * <code>true</code> if they are within the provided epsilon,
  * <code>false</code> otherwise.
  *
- * @param {TimeInterval} [right] The right hand side interval.
+ * @param {TimeInterval} [right] 右边 interval.
  * @param {number} [epsilon=0] The epsilon to use for equality testing.
  * @param {TimeInterval.DataComparer} [dataComparer] A function which compares the data of the two intervals.  If omitted, reference equality is used.
  * @returns {boolean} <code>true</code> if they are within the provided epsilon, <code>false</code> otherwise.

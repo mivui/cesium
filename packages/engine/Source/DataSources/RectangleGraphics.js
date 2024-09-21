@@ -249,9 +249,9 @@ Object.defineProperties(RectangleGraphics.prototype, {
 });
 
 /**
- * Duplicates this instance.
+ * 复制instance.
  *
- * @param {RectangleGraphics} [result] The object onto which to store the result.
+ * @param {RectangleGraphics} [result] 要在其上存储结果的对象。
  * @returns {RectangleGraphics} The modified result parameter or a new instance if one was not provided.
  */
 RectangleGraphics.prototype.clone = function (result) {

@@ -140,7 +140,7 @@ Object.defineProperties(Occluder.prototype, {
  *
  * @param {BoundingSphere} occluderBoundingSphere The bounding sphere surrounding the occluder.
  * @param {Cartesian3} cameraPosition The coordinate of the viewer/camera.
- * @param {Occluder} [result] The object onto which to store the result.
+ * @param {Occluder} [result] 要在其上存储结果的对象。
  * @returns {Occluder} The occluder derived from an object's position and radius, as well as the camera position.
  */
 Occluder.fromBoundingSphere = function (

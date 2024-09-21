@@ -162,11 +162,11 @@ ColorGeometryInstanceAttribute.toValue = function (color, result) {
 
 /**
  * Compares the provided ColorGeometryInstanceAttributes and returns
- * <code>true</code> if they are equal, <code>false</code> otherwise.
+ * <code>为true</code>，否则为false</code>。
  *
- * @param {ColorGeometryInstanceAttribute} [left] The first ColorGeometryInstanceAttribute.
- * @param {ColorGeometryInstanceAttribute} [right] The second ColorGeometryInstanceAttribute.
- * @returns {boolean} <code>true</code> if left and right are equal, <code>false</code> otherwise.
+ * @param {ColorGeometryInstanceAttribute} [left] 第一个ColorGeometryInstanceAttribute.
+ * @param {ColorGeometryInstanceAttribute} [right] 第二个 ColorGeometryInstanceAttribute.
+ * @returns {boolean} <code>true</code>如果左和右相等，否则<code>false</code>。
  */
 ColorGeometryInstanceAttribute.equals = function (left, right) {
   return (

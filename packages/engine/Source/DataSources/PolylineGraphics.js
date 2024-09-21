@@ -186,9 +186,9 @@ Object.defineProperties(PolylineGraphics.prototype, {
 });
 
 /**
- * Duplicates this instance.
+ * 复制instance.
  *
- * @param {PolylineGraphics} [result] The object onto which to store the result.
+ * @param {PolylineGraphics} [result] 要在其上存储结果的对象。
  * @returns {PolylineGraphics} The modified result parameter or a new instance if one was not provided.
  */
 PolylineGraphics.prototype.clone = function (result) {

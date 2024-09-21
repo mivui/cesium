@@ -36,7 +36,7 @@ const scratchCartographic = new Cartographic();
  * @param {Ellipsoid} ellipsoid The ellipsoid.
  * @param {number} verticalExaggeration A scalar used to exaggerate the terrain. If the value is 1.0 there will be no effect.
  * @param {number} verticalExaggerationRelativeHeight The height relative to which terrain is exaggerated. If the value is 0.0 terrain will be exaggerated relative to the ellipsoid surface.
- * @param {Cartesian3} [result] The object onto which to store the result.
+ * @param {Cartesian3} [result] 要在其上存储结果的对象。
  */
 VerticalExaggeration.getPosition = function (
   position,

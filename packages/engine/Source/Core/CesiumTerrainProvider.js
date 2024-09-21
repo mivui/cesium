@@ -842,14 +842,14 @@ function createQuantizedMeshTerrainData(provider, buffer, level, x, y, layer) {
  * Requests the geometry for a given tile. The result must include terrain data and
  * may optionally include a water mask and an indication of which child tiles are available.
  *
- * @param {number} x The X coordinate of the tile for which to request geometry.
- * @param {number} y The Y coordinate of the tile for which to request geometry.
- * @param {number} level The level of the tile for which to request geometry.
- * @param {Request} [request] The request object. Intended for internal use only.
+ * @param {number} x 要为其请求几何图形的贴图的X坐标。
+ * @param {number} y 要为其请求几何图形的贴图的Y坐标。
+ * @param {number} level 要为其请求几何图形的贴图的级别。
+ * @param {Request} [request] 请求对象。仅供内部使用。
  *
- * @returns {Promise<TerrainData>|undefined} A promise for the requested geometry.  If this method
- *          returns undefined instead of a promise, it is an indication that too many requests are already
- *          pending and the request will be retried later.
+ * @returns {Promise<TerrainData>|undefined} 对所请求几何图形的承诺。如果这种方法
+ *         返回未定义而不是承诺，这表明已经有太多请求
+ *         等待中，请求将稍后重试。
  *
  */
 CesiumTerrainProvider.prototype.requestTileGeometry = function (
@@ -1144,10 +1144,10 @@ Object.defineProperties(CesiumTerrainProvider.prototype, {
 });
 
 /**
- * Gets the maximum geometric error allowed in a tile at a given level.
+ *获取给定级别的贴图中允许的最大几何误差。
  *
- * @param {number} level The tile level for which to get the maximum geometric error.
- * @returns {number} The maximum geometric error.
+ * @param {number} level 要获得最大几何误差的瓦片水平。
+ * @returns {number} 最大几何误差。
  */
 CesiumTerrainProvider.prototype.getLevelMaximumGeometricError = function (
   level
@@ -1253,11 +1253,11 @@ CesiumTerrainProvider.fromUrl = async function (url, options) {
 };
 
 /**
- * Determines whether data for a tile is available to be loaded.
+ * 确定是否可以加载磁贴的数据。
  *
- * @param {number} x The X coordinate of the tile for which to request geometry.
- * @param {number} y The Y coordinate of the tile for which to request geometry.
- * @param {number} level The level of the tile for which to request geometry.
+ * @param {number} x 要为其请求几何图形的贴图的X坐标。
+ * @param {number} y 要为其请求几何图形的贴图的Y坐标。
+ * @param {number} level 要为其请求几何图形的贴图的级别。
  * @returns {boolean|undefined} Undefined if not supported or availability is unknown, otherwise true or false.
  */
 CesiumTerrainProvider.prototype.getTileDataAvailable = function (x, y, level) {
@@ -1291,11 +1291,11 @@ CesiumTerrainProvider.prototype.getTileDataAvailable = function (x, y, level) {
 };
 
 /**
- * Makes sure we load availability data for a tile
+ * 确保我们为tile加载了可用性数据
  *
- * @param {number} x The X coordinate of the tile for which to request geometry.
- * @param {number} y The Y coordinate of the tile for which to request geometry.
- * @param {number} level The level of the tile for which to request geometry.
+ * @param {number} x 要为其请求几何图形的贴图的X坐标。
+ * @param {number} y 要为其请求几何图形的贴图的Y坐标。
+ * @param {number} level 要为其请求几何图形的贴图的级别。
  * @returns {undefined|Promise<void>} Undefined if nothing need to be loaded or a Promise that resolves when all required tiles are loaded
  */
 CesiumTerrainProvider.prototype.loadTileDataAvailability = function (

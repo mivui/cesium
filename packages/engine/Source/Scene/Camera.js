@@ -1602,7 +1602,7 @@ Camera.prototype.flyHome = function (duration) {
  * Transform a vector or point from world coordinates to the camera's reference frame.
  *
  * @param {Cartesian4} cartesian The vector or point to transform.
- * @param {Cartesian4} [result] The object onto which to store the result.
+ * @param {Cartesian4} [result] 要在其上存储结果的对象。
  * @returns {Cartesian4} The transformed vector or point.
  */
 Camera.prototype.worldToCameraCoordinates = function (cartesian, result) {
@@ -1623,7 +1623,7 @@ Camera.prototype.worldToCameraCoordinates = function (cartesian, result) {
  * Transform a point from world coordinates to the camera's reference frame.
  *
  * @param {Cartesian3} cartesian The point to transform.
- * @param {Cartesian3} [result] The object onto which to store the result.
+ * @param {Cartesian3} [result] 要在其上存储结果的对象。
  * @returns {Cartesian3} The transformed point.
  */
 Camera.prototype.worldToCameraCoordinatesPoint = function (cartesian, result) {
@@ -1644,7 +1644,7 @@ Camera.prototype.worldToCameraCoordinatesPoint = function (cartesian, result) {
  * Transform a vector from world coordinates to the camera's reference frame.
  *
  * @param {Cartesian3} cartesian The vector to transform.
- * @param {Cartesian3} [result] The object onto which to store the result.
+ * @param {Cartesian3} [result] 要在其上存储结果的对象。
  * @returns {Cartesian3} The transformed vector.
  */
 Camera.prototype.worldToCameraCoordinatesVector = function (cartesian, result) {
@@ -1669,7 +1669,7 @@ Camera.prototype.worldToCameraCoordinatesVector = function (cartesian, result) {
  * Transform a vector or point from the camera's reference frame to world coordinates.
  *
  * @param {Cartesian4} cartesian The vector or point to transform.
- * @param {Cartesian4} [result] The object onto which to store the result.
+ * @param {Cartesian4} [result] 要在其上存储结果的对象。
  * @returns {Cartesian4} The transformed vector or point.
  */
 Camera.prototype.cameraToWorldCoordinates = function (cartesian, result) {
@@ -1690,7 +1690,7 @@ Camera.prototype.cameraToWorldCoordinates = function (cartesian, result) {
  * Transform a point from the camera's reference frame to world coordinates.
  *
  * @param {Cartesian3} cartesian The point to transform.
- * @param {Cartesian3} [result] The object onto which to store the result.
+ * @param {Cartesian3} [result] 要在其上存储结果的对象。
  * @returns {Cartesian3} The transformed point.
  */
 Camera.prototype.cameraToWorldCoordinatesPoint = function (cartesian, result) {
@@ -1711,7 +1711,7 @@ Camera.prototype.cameraToWorldCoordinatesPoint = function (cartesian, result) {
  * Transform a vector from the camera's reference frame to world coordinates.
  *
  * @param {Cartesian3} cartesian The vector to transform.
- * @param {Cartesian3} [result] The object onto which to store the result.
+ * @param {Cartesian3} [result] 要在其上存储结果的对象。
  * @returns {Cartesian3} The transformed vector.
  */
 Camera.prototype.cameraToWorldCoordinatesVector = function (cartesian, result) {
@@ -2897,7 +2897,7 @@ function pickMapColumbusView(camera, windowPosition, projection, result) {
  *
  * @param {Cartesian2} windowPosition The x and y coordinates of a pixel.
  * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] The ellipsoid to pick.
- * @param {Cartesian3} [result] The object onto which to store the result.
+ * @param {Cartesian3} [result] 要在其上存储结果的对象。
  * @returns {Cartesian3 | undefined} If the ellipsoid or map was picked,
  * returns the point on the surface of the ellipsoid or map in world
  * coordinates. If the ellipsoid or map was not picked, returns undefined.
@@ -3033,7 +3033,7 @@ function getPickRayOrthographic(camera, windowPosition, result) {
  * in world coordinates.
  *
  * @param {Cartesian2} windowPosition The x and y coordinates of a pixel.
- * @param {Ray} [result] The object onto which to store the result.
+ * @param {Ray} [result] 要在其上存储结果的对象。
  * @returns {Ray|undefined} Returns the {@link Cartesian3} position and direction of the ray, or undefined if the pick ray cannot be determined.
  */
 Camera.prototype.getPickRay = function (windowPosition, result) {

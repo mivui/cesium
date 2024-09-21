@@ -60,7 +60,7 @@ const volumeConstant = (4.0 / 3.0) * CesiumMath.PI;
  * Ritter's algorithm. The smaller of the two spheres is used to ensure a tight fit.
  *
  * @param {Cartesian3[]} [positions] An array of points that the bounding sphere will enclose.  Each point must have <code>x</code>, <code>y</code>, and <code>z</code> properties.
- * @param {BoundingSphere} [result] The object onto which to store the result.
+ * @param {BoundingSphere} [result] 要在其上存储结果的对象。
  * @returns {BoundingSphere} The modified result parameter or a new BoundingSphere instance if one was not provided.
  *
  * @see {@link http://help.agi.com/AGIComponents/html/BlogBoundingSphere.htm|Bounding Sphere computation article}
@@ -234,7 +234,7 @@ const fromRectangle2DNortheast = new Cartographic();
  *
  * @param {Rectangle} [rectangle] The rectangle around which to create a bounding sphere.
  * @param {object} [projection=GeographicProjection] The projection used to project the rectangle into 2D.
- * @param {BoundingSphere} [result] The object onto which to store the result.
+ * @param {BoundingSphere} [result] 要在其上存储结果的对象。
  * @returns {BoundingSphere} The modified result parameter or a new BoundingSphere instance if none was provided.
  */
 BoundingSphere.fromRectangle2D = function (rectangle, projection, result) {
@@ -255,7 +255,7 @@ BoundingSphere.fromRectangle2D = function (rectangle, projection, result) {
  * @param {object} [projection=GeographicProjection] The projection used to project the rectangle into 2D.
  * @param {number} [minimumHeight=0.0] The minimum height over the rectangle.
  * @param {number} [maximumHeight=0.0] The maximum height over the rectangle.
- * @param {BoundingSphere} [result] The object onto which to store the result.
+ * @param {BoundingSphere} [result] 要在其上存储结果的对象。
  * @returns {BoundingSphere} The modified result parameter or a new BoundingSphere instance if none was provided.
  */
 BoundingSphere.fromRectangleWithHeights2D = function (
@@ -314,7 +314,7 @@ const fromRectangle3DScratch = [];
  * @param {Rectangle} [rectangle] The valid rectangle used to create a bounding sphere.
  * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] The ellipsoid used to determine positions of the rectangle.
  * @param {number} [surfaceHeight=0.0] The height above the surface of the ellipsoid.
- * @param {BoundingSphere} [result] The object onto which to store the result.
+ * @param {BoundingSphere} [result] 要在其上存储结果的对象。
  * @returns {BoundingSphere} The modified result parameter or a new BoundingSphere instance if none was provided.
  */
 BoundingSphere.fromRectangle3D = function (
@@ -362,7 +362,7 @@ BoundingSphere.fromRectangle3D = function (
  *        2.  When stride is 3, the X coordinate of the next position then begins at array index 3.  If
  *        the stride is 5, however, two array elements are skipped and the next position begins at array
  *        index 5.
- * @param {BoundingSphere} [result] The object onto which to store the result.
+ * @param {BoundingSphere} [result] 要在其上存储结果的对象。
  * @returns {BoundingSphere} The modified result parameter or a new BoundingSphere instance if one was not provided.
  *
  * @example
@@ -560,7 +560,7 @@ BoundingSphere.fromVertices = function (positions, center, stride, result) {
  *        is formed from three elements in the array in the order X, Y, Z.
  * @param {number[]} [positionsLow] An array of low bits of the encoded cartesians that the bounding sphere will enclose.  Each point
  *        is formed from three elements in the array in the order X, Y, Z.
- * @param {BoundingSphere} [result] The object onto which to store the result.
+ * @param {BoundingSphere} [result] 要在其上存储结果的对象。
  * @returns {BoundingSphere} The modified result parameter or a new BoundingSphere instance if one was not provided.
  *
  * @see {@link http://blogs.agi.com/insight3d/index.php/2008/02/04/a-bounding/|Bounding Sphere computation article}
@@ -745,7 +745,7 @@ BoundingSphere.fromEncodedCartesianVertices = function (
  *
  * @param {Cartesian3} [corner] The minimum height over the rectangle.
  * @param {Cartesian3} [oppositeCorner] The maximum height over the rectangle.
- * @param {BoundingSphere} [result] The object onto which to store the result.
+ * @param {BoundingSphere} [result] 要在其上存储结果的对象。
  * @returns {BoundingSphere} The modified result parameter or a new BoundingSphere instance if none was provided.
  *
  * @example
@@ -771,7 +771,7 @@ BoundingSphere.fromCornerPoints = function (corner, oppositeCorner, result) {
  * Creates a bounding sphere encompassing an ellipsoid.
  *
  * @param {Ellipsoid} ellipsoid The ellipsoid around which to create a bounding sphere.
- * @param {BoundingSphere} [result] The object onto which to store the result.
+ * @param {BoundingSphere} [result] 要在其上存储结果的对象。
  * @returns {BoundingSphere} The modified result parameter or a new BoundingSphere instance if none was provided.
  *
  * @example
@@ -797,7 +797,7 @@ const fromBoundingSpheresScratch = new Cartesian3();
  * Computes a tight-fitting bounding sphere enclosing the provided array of bounding spheres.
  *
  * @param {BoundingSphere[]} [boundingSpheres] The array of bounding spheres.
- * @param {BoundingSphere} [result] The object onto which to store the result.
+ * @param {BoundingSphere} [result] 要在其上存储结果的对象。
  * @returns {BoundingSphere} The modified result parameter or a new BoundingSphere instance if none was provided.
  */
 BoundingSphere.fromBoundingSpheres = function (boundingSpheres, result) {
@@ -851,7 +851,7 @@ const fromOrientedBoundingBoxScratchW = new Cartesian3();
  * Computes a tight-fitting bounding sphere enclosing the provided oriented bounding box.
  *
  * @param {OrientedBoundingBox} orientedBoundingBox The oriented bounding box.
- * @param {BoundingSphere} [result] The object onto which to store the result.
+ * @param {BoundingSphere} [result] 要在其上存储结果的对象。
  * @returns {BoundingSphere} The modified result parameter or a new BoundingSphere instance if none was provided.
  */
 BoundingSphere.fromOrientedBoundingBox = function (
@@ -887,7 +887,7 @@ const scratchFromTransformationScale = new Cartesian3();
  * Computes a tight-fitting bounding sphere enclosing the provided affine transformation.
  *
  * @param {Matrix4} transformation The affine transformation.
- * @param {BoundingSphere} [result] The object onto which to store the result.
+ * @param {BoundingSphere} [result] 要在其上存储结果的对象。
  * @returns {BoundingSphere} The modified result parameter or a new BoundingSphere instance if none was provided.
  */
 BoundingSphere.fromTransformation = function (transformation, result) {
@@ -918,7 +918,7 @@ BoundingSphere.fromTransformation = function (transformation, result) {
  * Duplicates a BoundingSphere instance.
  *
  * @param {BoundingSphere} sphere The bounding sphere to duplicate.
- * @param {BoundingSphere} [result] The object onto which to store the result.
+ * @param {BoundingSphere} [result] 要在其上存储结果的对象。
  * @returns {BoundingSphere} The modified result parameter or a new BoundingSphere instance if none was provided. (Returns undefined if sphere is undefined)
  */
 BoundingSphere.clone = function (sphere, result) {
@@ -1001,7 +1001,7 @@ const unionScratchCenter = new Cartesian3();
  *
  * @param {BoundingSphere} left A sphere to enclose in a bounding sphere.
  * @param {BoundingSphere} right A sphere to enclose in a bounding sphere.
- * @param {BoundingSphere} [result] The object onto which to store the result.
+ * @param {BoundingSphere} [result] 要在其上存储结果的对象。
  * @returns {BoundingSphere} The modified result parameter or a new BoundingSphere instance if none was provided.
  */
 BoundingSphere.union = function (left, right, result) {
@@ -1061,7 +1061,7 @@ const expandScratch = new Cartesian3();
  *
  * @param {BoundingSphere} sphere A sphere to expand.
  * @param {Cartesian3} point A point to enclose in a bounding sphere.
- * @param {BoundingSphere} [result] The object onto which to store the result.
+ * @param {BoundingSphere} [result] 要在其上存储结果的对象。
  * @returns {BoundingSphere} The modified result parameter or a new BoundingSphere instance if none was provided.
  */
 BoundingSphere.expand = function (sphere, point, result) {
@@ -1086,10 +1086,10 @@ BoundingSphere.expand = function (sphere, point, result) {
  * Determines which side of a plane a sphere is located.
  *
  * @param {BoundingSphere} sphere The bounding sphere to test.
- * @param {Plane} plane The plane to test against.
+ * @param {Plane} plane 要测试的飞机。
  * @returns {Intersect} {@link Intersect.INSIDE} if the entire sphere is on the side of the plane
  *                      the normal is pointing, {@link Intersect.OUTSIDE} if the entire sphere is
- *                      on the opposite side, and {@link Intersect.INTERSECTING} if the sphere
+ *                      on the opposite side, 和 {@link Intersect.INTERSECTING} if the sphere
  *                      intersects the plane.
  */
 BoundingSphere.intersectPlane = function (sphere, plane) {
@@ -1118,7 +1118,7 @@ BoundingSphere.intersectPlane = function (sphere, plane) {
  *
  * @param {BoundingSphere} sphere The bounding sphere to apply the transformation to.
  * @param {Matrix4} transform The transformation matrix to apply to the bounding sphere.
- * @param {BoundingSphere} [result] The object onto which to store the result.
+ * @param {BoundingSphere} [result] 要在其上存储结果的对象。
  * @returns {BoundingSphere} The modified result parameter or a new BoundingSphere instance if none was provided.
  */
 BoundingSphere.transform = function (sphere, transform, result) {
@@ -1183,7 +1183,7 @@ BoundingSphere.distanceSquaredTo = function (sphere, cartesian) {
  *
  * @param {BoundingSphere} sphere The bounding sphere to apply the transformation to.
  * @param {Matrix4} transform The transformation matrix to apply to the bounding sphere.
- * @param {BoundingSphere} [result] The object onto which to store the result.
+ * @param {BoundingSphere} [result] 要在其上存储结果的对象。
  * @returns {BoundingSphere} The modified result parameter or a new BoundingSphere instance if none was provided.
  *
  * @example
@@ -1270,7 +1270,7 @@ const projectTo2DProjection = new GeographicProjection();
  *
  * @param {BoundingSphere} sphere The bounding sphere to transform to 2D.
  * @param {object} [projection=GeographicProjection] The projection to 2D.
- * @param {BoundingSphere} [result] The object onto which to store the result.
+ * @param {BoundingSphere} [result] 要在其上存储结果的对象。
  * @returns {BoundingSphere} The modified result parameter or a new BoundingSphere instance if none was provided.
  */
 BoundingSphere.projectTo2D = function (sphere, projection, result) {
@@ -1395,11 +1395,11 @@ BoundingSphere.isOccluded = function (sphere, occluder) {
 
 /**
  * Compares the provided BoundingSphere componentwise and returns
- * <code>true</code> if they are equal, <code>false</code> otherwise.
+ * <code>为true</code>，否则为false</code>。
  *
- * @param {BoundingSphere} [left] The first BoundingSphere.
- * @param {BoundingSphere} [right] The second BoundingSphere.
- * @returns {boolean} <code>true</code> if left and right are equal, <code>false</code> otherwise.
+ * @param {BoundingSphere} [left] 第一个BoundingSphere.
+ * @param {BoundingSphere} [right] 第二个 BoundingSphere.
+ * @returns {boolean} <code>true</code>如果左和右相等，否则<code>false</code>。
  */
 BoundingSphere.equals = function (left, right) {
   return (
@@ -1414,10 +1414,10 @@ BoundingSphere.equals = function (left, right) {
 /**
  * Determines which side of a plane the sphere is located.
  *
- * @param {Plane} plane The plane to test against.
+ * @param {Plane} plane 要测试的飞机。
  * @returns {Intersect} {@link Intersect.INSIDE} if the entire sphere is on the side of the plane
  *                      the normal is pointing, {@link Intersect.OUTSIDE} if the entire sphere is
- *                      on the opposite side, and {@link Intersect.INTERSECTING} if the sphere
+ *                      on the opposite side, 和 {@link Intersect.INTERSECTING} if the sphere
  *                      intersects the plane.
  */
 BoundingSphere.prototype.intersectPlane = function (plane) {
@@ -1477,19 +1477,19 @@ BoundingSphere.prototype.isOccluded = function (occluder) {
 
 /**
  * Compares this BoundingSphere against the provided BoundingSphere componentwise and returns
- * <code>true</code> if they are equal, <code>false</code> otherwise.
+ * <code>为true</code>，否则为false</code>。
  *
- * @param {BoundingSphere} [right] The right hand side BoundingSphere.
- * @returns {boolean} <code>true</code> if they are equal, <code>false</code> otherwise.
+ * @param {BoundingSphere} [right] 右边 BoundingSphere.
+ * @returns {boolean} <code>为true</code>，否则为false</code>。
  */
 BoundingSphere.prototype.equals = function (right) {
   return BoundingSphere.equals(this, right);
 };
 
 /**
- * Duplicates this BoundingSphere instance.
+ * 复制BoundingSphere instance.
  *
- * @param {BoundingSphere} [result] The object onto which to store the result.
+ * @param {BoundingSphere} [result] 要在其上存储结果的对象。
  * @returns {BoundingSphere} The modified result parameter or a new BoundingSphere instance if none was provided.
  */
 BoundingSphere.prototype.clone = function (result) {

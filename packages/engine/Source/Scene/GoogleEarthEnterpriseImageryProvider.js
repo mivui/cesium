@@ -345,7 +345,7 @@ GoogleEarthEnterpriseImageryProvider.prototype.getTileCredits = function (
  * @param {number} x The tile X coordinate.
  * @param {number} y The tile Y coordinate.
  * @param {number} level The tile level.
- * @param {Request} [request] The request object. Intended for internal use only.
+ * @param {Request} [request] 请求对象。仅供内部使用。
  * @returns {Promise<ImageryTypes>|undefined} A promise for the image that will resolve when the image is available, or
  *          undefined if there are too many active requests to the server, and the request should be retried later.
  */

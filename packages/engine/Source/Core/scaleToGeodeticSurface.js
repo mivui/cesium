@@ -15,7 +15,7 @@ const scaleToGeodeticSurfaceGradient = new Cartesian3();
  * @param {Cartesian3} oneOverRadii One over radii of the ellipsoid.
  * @param {Cartesian3} oneOverRadiiSquared One over radii squared of the ellipsoid.
  * @param {number} centerToleranceSquared Tolerance for closeness to the center.
- * @param {Cartesian3} [result] The object onto which to store the result.
+ * @param {Cartesian3} [result] 要在其上存储结果的对象。
  * @returns {Cartesian3} The modified result parameter, a new Cartesian3 instance if none was provided, or undefined if the position is at the center.
  *
  * @function scaleToGeodeticSurface

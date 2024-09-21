@@ -68,7 +68,7 @@ function Color(red, green, blue, alpha) {
  * and <code>w</code> map to <code>red</code>, <code>green</code>, <code>blue</code>, and <code>alpha</code>, respectively.
  *
  * @param {Cartesian4} cartesian The source cartesian.
- * @param {Color} [result] The object onto which to store the result.
+ * @param {Color} [result] 要在其上存储结果的对象。
  * @returns {Color} The modified result parameter or a new Color instance if one was not provided.
  */
 Color.fromCartesian4 = function (cartesian, result) {
@@ -95,7 +95,7 @@ Color.fromCartesian4 = function (cartesian, result) {
  * @param {number} [green=255] The green component.
  * @param {number} [blue=255] The blue component.
  * @param {number} [alpha=255] The alpha component.
- * @param {Color} [result] The object onto which to store the result.
+ * @param {Color} [result] 要在其上存储结果的对象。
  * @returns {Color} The modified result parameter or a new Color instance if one was not provided.
  */
 Color.fromBytes = function (red, green, blue, alpha, result) {
@@ -121,7 +121,7 @@ Color.fromBytes = function (red, green, blue, alpha, result) {
  *
  * @param {Color} color The base color
  * @param {number} alpha The new alpha component.
- * @param {Color} [result] The object onto which to store the result.
+ * @param {Color} [result] 要在其上存储结果的对象。
  * @returns {Color} The modified result parameter or a new Color instance if one was not provided.
  *
  * @example const translucentRed = Cesium.Color.fromAlpha(Cesium.Color.RED, 0.9);
@@ -701,7 +701,7 @@ Color.prototype.toRgba = function () {
  * Brightens this color by the provided magnitude.
  *
  * @param {number} magnitude A positive number indicating the amount to brighten.
- * @param {Color} result The object onto which to store the result.
+ * @param {Color} result 要在其上存储结果的对象。
  * @returns {Color} The modified result parameter.
  *
  * @example
@@ -726,7 +726,7 @@ Color.prototype.brighten = function (magnitude, result) {
  * Darkens this color by the provided magnitude.
  *
  * @param {number} magnitude A positive number indicating the amount to darken.
- * @param {Color} result The object onto which to store the result.
+ * @param {Color} result 要在其上存储结果的对象。
  * @returns {Color} The modified result parameter.
  *
  * @example
@@ -752,7 +752,7 @@ Color.prototype.darken = function (magnitude, result) {
  * as this Color, but with the specified alpha value.
  *
  * @param {number} alpha The new alpha component.
- * @param {Color} [result] The object onto which to store the result.
+ * @param {Color} [result] 要在其上存储结果的对象。
  * @returns {Color} The modified result parameter or a new Color instance if one was not provided.
  *
  * @example const translucentRed = Cesium.Color.RED.withAlpha(0.9);
@@ -766,7 +766,7 @@ Color.prototype.withAlpha = function (alpha, result) {
  *
  * @param {Color} left The first Color.
  * @param {Color} right The second Color.
- * @param {Color} result The object onto which to store the result.
+ * @param {Color} result 要在其上存储结果的对象。
  * @returns {Color} The modified result parameter.
  */
 Color.add = function (left, right, result) {
@@ -788,7 +788,7 @@ Color.add = function (left, right, result) {
  *
  * @param {Color} left The first Color.
  * @param {Color} right The second Color.
- * @param {Color} result The object onto which to store the result.
+ * @param {Color} result 要在其上存储结果的对象。
  * @returns {Color} The modified result parameter.
  */
 Color.subtract = function (left, right, result) {
@@ -810,7 +810,7 @@ Color.subtract = function (left, right, result) {
  *
  * @param {Color} left The first Color.
  * @param {Color} right The second Color.
- * @param {Color} result The object onto which to store the result.
+ * @param {Color} result 要在其上存储结果的对象。
  * @returns {Color} The modified result parameter.
  */
 Color.multiply = function (left, right, result) {
@@ -832,7 +832,7 @@ Color.multiply = function (left, right, result) {
  *
  * @param {Color} left The first Color.
  * @param {Color} right The second Color.
- * @param {Color} result The object onto which to store the result.
+ * @param {Color} result 要在其上存储结果的对象。
  * @returns {Color} The modified result parameter.
  */
 Color.divide = function (left, right, result) {
@@ -854,7 +854,7 @@ Color.divide = function (left, right, result) {
  *
  * @param {Color} left The first Color.
  * @param {Color} right The second Color.
- * @param {Color} result The object onto which to store the result.
+ * @param {Color} result 要在其上存储结果的对象。
  * @returns {Color} The modified result parameter.
  */
 Color.mod = function (left, right, result) {
@@ -877,7 +877,7 @@ Color.mod = function (left, right, result) {
  * @param {Color} start The color corresponding to t at 0.0.
  * @param {Color} end The color corresponding to t at 1.0.
  * @param {number} t The point along t at which to interpolate.
- * @param {Color} result The object onto which to store the result.
+ * @param {Color} result 要在其上存储结果的对象。
  * @returns {Color} The modified result parameter.
  */
 Color.lerp = function (start, end, t, result) {
@@ -900,7 +900,7 @@ Color.lerp = function (start, end, t, result) {
  *
  * @param {Color} color The Color to be scaled.
  * @param {number} scalar The scalar to multiply with.
- * @param {Color} result The object onto which to store the result.
+ * @param {Color} result 要在其上存储结果的对象。
  * @returns {Color} The modified result parameter.
  */
 Color.multiplyByScalar = function (color, scalar, result) {
@@ -922,7 +922,7 @@ Color.multiplyByScalar = function (color, scalar, result) {
  *
  * @param {Color} color The Color to be divided.
  * @param {number} scalar The scalar to divide with.
- * @param {Color} result The object onto which to store the result.
+ * @param {Color} result 要在其上存储结果的对象。
  * @returns {Color} The modified result parameter.
  */
 Color.divideByScalar = function (color, scalar, result) {

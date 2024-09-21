@@ -145,13 +145,13 @@ TileOrientedBoundingBox.prototype.distanceToCamera = function (frameState) {
 };
 
 /**
- * Determines which side of a plane this box is located.
+ * 确定此框位于平面的哪一侧。
  *
- * @param {Plane} plane The plane to test against.
- * @returns {Intersect} {@link Intersect.INSIDE} if the entire box is on the side of the plane
- *                      the normal is pointing, {@link Intersect.OUTSIDE} if the entire box is
- *                      on the opposite side, and {@link Intersect.INTERSECTING} if the box
- *                      intersects the plane.
+ * @param {Plane} plane 要测试的飞机。
+ * @returns {Intersect} {@link Intersect.INSIDE} 如果整个盒子都在飞机的一侧
+ *                      法线指向 {@link Intersect.OUTSIDE} 如果整个盒子
+ *                      在反面， 和 {@link Intersect.INTERSECTING}  如果盒子
+ *                      与平面相交。
  */
 TileOrientedBoundingBox.prototype.intersectPlane = function (plane) {
   //>>includeStart('debug', pragmas.debug);

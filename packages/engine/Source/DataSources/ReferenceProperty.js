@@ -306,10 +306,10 @@ ReferenceProperty.prototype.getType = function (time) {
 
 /**
  * Compares this property to the provided property and returns
- * <code>true</code> if they are equal, <code>false</code> otherwise.
+ * <code>为true</code>，否则为false</code>。
  *
  * @param {Property} [other] The other property.
- * @returns {boolean} <code>true</code> if left and right are equal, <code>false</code> otherwise.
+ * @returns {boolean} <code>true</code>如果左和右相等，否则<code>false</code>。
  */
 ReferenceProperty.prototype.equals = function (other) {
   if (this === other) {

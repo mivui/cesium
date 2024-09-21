@@ -147,7 +147,7 @@ Request.prototype.cancel = function () {
 /**
  * Duplicates a Request instance.
  *
- * @param {Request} [result] The object onto which to store the result.
+ * @param {Request} [result] 要在其上存储结果的对象。
  *
  * @returns {Request} The modified result parameter or a new Resource instance if one was not provided.
  */

@@ -22,7 +22,7 @@ const IntersectionTests = {};
  *
  * @param {Ray} ray The ray.
  * @param {Plane} plane The plane.
- * @param {Cartesian3} [result] The object onto which to store the result.
+ * @param {Cartesian3} [result] 要在其上存储结果的对象。
  * @returns {Cartesian3} The intersection point or undefined if there is no intersections.
  */
 IntersectionTests.rayPlane = function (ray, plane, result) {
@@ -801,7 +801,7 @@ const lineSegmentPlaneDifference = new Cartesian3();
  * @param {Cartesian3} endPoint0 An end point of the line segment.
  * @param {Cartesian3} endPoint1 The other end point of the line segment.
  * @param {Plane} plane The plane.
- * @param {Cartesian3} [result] The object onto which to store the result.
+ * @param {Cartesian3} [result] 要在其上存储结果的对象。
  * @returns {Cartesian3} The intersection point or undefined if there is no intersection.
  *
  * @example

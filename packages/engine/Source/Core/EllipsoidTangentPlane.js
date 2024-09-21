@@ -155,7 +155,7 @@ const scratchProjectPointOntoPlaneCartesian3 = new Cartesian3();
  * Computes the projection of the provided 3D position onto the 2D plane, radially outward from the {@link EllipsoidTangentPlane.ellipsoid} coordinate system origin.
  *
  * @param {Cartesian3} cartesian The point to project.
- * @param {Cartesian2} [result] The object onto which to store the result.
+ * @param {Cartesian2} [result] 要在其上存储结果的对象。
  * @returns {Cartesian2} The modified result parameter or a new Cartesian2 instance if none was provided. Undefined if there is no intersection point
  */
 EllipsoidTangentPlane.prototype.projectPointOntoPlane = function (
@@ -242,7 +242,7 @@ EllipsoidTangentPlane.prototype.projectPointsOntoPlane = function (
  * Computes the projection of the provided 3D position onto the 2D plane, along the plane normal.
  *
  * @param {Cartesian3} cartesian The point to project.
- * @param {Cartesian2} [result] The object onto which to store the result.
+ * @param {Cartesian2} [result] 要在其上存储结果的对象。
  * @returns {Cartesian2} The modified result parameter or a new Cartesian2 instance if none was provided.
  */
 EllipsoidTangentPlane.prototype.projectPointToNearestOnPlane = function (

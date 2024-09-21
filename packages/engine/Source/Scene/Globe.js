@@ -696,7 +696,7 @@ const scratchSphereIntersectionResult = {
  * @param {Ray} ray The ray to test for intersection.
  * @param {Scene} scene The scene.
  * @param {boolean} [cullBackFaces=true] Set to true to not pick back faces.
- * @param {Cartesian3} [result] The object onto which to store the result.
+ * @param {Cartesian3} [result] 要在其上存储结果的对象。
  * @returns {Cartesian3|undefined} The intersection or <code>undefined</code> if none was found.  The returned position is in projected coordinates for 2D and Columbus View.
  *
  * @private
@@ -799,7 +799,7 @@ const cartoScratch = new Cartographic();
  *
  * @param {Ray} ray The ray to test for intersection.
  * @param {Scene} scene The scene.
- * @param {Cartesian3} [result] The object onto which to store the result.
+ * @param {Cartesian3} [result] 要在其上存储结果的对象。
  * @returns {Cartesian3|undefined} The intersection or <code>undefined</code> if none was found.
  *
  * @example

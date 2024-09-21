@@ -1,11 +1,11 @@
 /**
- * ArcType defines the path that should be taken connecting vertices.
+ * ArcType定义了连接顶点的路径。
  *
  * @enum {number}
  */
 const ArcType = {
   /**
-   * Straight line that does not conform to the surface of the ellipsoid.
+   * 不符合椭球表面的直线。
    *
    * @type {number}
    * @constant
@@ -13,7 +13,7 @@ const ArcType = {
   NONE: 0,
 
   /**
-   * Follow geodesic path.
+   * 遵循测地线路径。
    *
    * @type {number}
    * @constant
@@ -21,7 +21,7 @@ const ArcType = {
   GEODESIC: 1,
 
   /**
-   * Follow rhumb or loxodrome path.
+   * 沿着弯道或斜路走。
    *
    * @type {number}
    * @constant

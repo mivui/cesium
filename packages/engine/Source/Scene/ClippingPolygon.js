@@ -115,11 +115,11 @@ ClippingPolygon.clone = function (polygon, result) {
 
 /**
  * Compares the provided ClippingPolygons and returns
- * <code>true</code> if they are equal, <code>false</code> otherwise.
+ * <code>为true</code>，否则为false</code>。
  *
  * @param {Plane} left The first polygon.
  * @param {Plane} right The second polygon.
- * @returns {boolean} <code>true</code> if left and right are equal, <code>false</code> otherwise.
+ * @returns {boolean} <code>true</code>如果左和右相等，否则<code>false</code>。
  */
 ClippingPolygon.equals = function (left, right) {
   //>>includeStart('debug', pragmas.debug);

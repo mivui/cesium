@@ -11,7 +11,7 @@ const RIGHT_SHIFT = 1.0 / 256.0;
 const LEFT_SHIFT = 256.0;
 
 /**
- * Attribute compression and decompression functions.
+ * 属性压缩和解压缩功能。
  *
  * @namespace AttributeCompression
  *
@@ -20,16 +20,16 @@ const LEFT_SHIFT = 256.0;
 const AttributeCompression = {};
 
 /**
- * Encodes a normalized vector into 2 SNORM values in the range of [0-rangeMax] following the 'oct' encoding.
+ * 将一个归一化向量按照'oct'编码方式编码为[0-rangeMax]范围内的2个SNORM值。
  *
- * Oct encoding is a compact representation of unit length vectors.
- * The 'oct' encoding is described in "A Survey of Efficient Representations of Independent Unit Vectors",
- * Cigolle et al 2014: {@link http://jcgt.org/published/0003/02/01/}
+ * Oct编码是单位长度向量的紧凑表示。
+ * 'oct'编码见'独立单位向量的有效表示概览'。
+ * Cigolle等人2014:{@link http://jcgt.org/published/0003/02/01/}
  *
- * @param {Cartesian3} vector The normalized vector to be compressed into 2 component 'oct' encoding.
- * @param {Cartesian2} result The 2 component oct-encoded unit length vector.
- * @param {number} rangeMax The maximum value of the SNORM range. The encoded vector is stored in log2(rangeMax+1) bits.
- * @returns {Cartesian2} The 2 component oct-encoded unit length vector.
+ * @param {Cartesian3} vector 归一化的向量被压缩成2分量的“oct”编码。
+ * @param {Cartesian2} result 2分量的八进制编码单位长度向量。
+ * @param {number} rangeMax SNORM范围的最大值。编码的向量以log2(rangeMax+1)位存储。
+ * @returns {Cartesian2} 2分量的八进制编码单位长度向量。
  *
  * @exception {DeveloperError} vector must be normalized.
  *
@@ -63,11 +63,11 @@ AttributeCompression.octEncodeInRange = function (vector, rangeMax, result) {
 };
 
 /**
- * Encodes a normalized vector into 2 SNORM values in the range of [0-255] following the 'oct' encoding.
+ * 将一个归一化向量按照'oct'编码方式编码为2个范围为[0-255]的SNORM值。
  *
- * @param {Cartesian3} vector The normalized vector to be compressed into 2 byte 'oct' encoding.
- * @param {Cartesian2} result The 2 byte oct-encoded unit length vector.
- * @returns {Cartesian2} The 2 byte oct-encoded unit length vector.
+ * @param {Cartesian3} vector 被压缩成2字节'oct'编码的归一化向量。
+ * @param {Cartesian2} result 2字节的八进制编码的单位长度向量。
+ * @returns {Cartesian2} 2字节的八进制编码的单位长度向量。
  *
  * @exception {DeveloperError} vector must be normalized.
  *
@@ -85,9 +85,9 @@ function forceUint8(value) {
   return uint8ForceArray[0];
 }
 /**
- * @param {Cartesian3} vector The normalized vector to be compressed into 4 byte 'oct' encoding.
- * @param {Cartesian4} result The 4 byte oct-encoded unit length vector.
- * @returns {Cartesian4} The 4 byte oct-encoded unit length vector.
+ * @param {Cartesian3} vector 被压缩成4字节'oct'编码的归一化向量。
+ * @param {Cartesian4} result 被压缩成4字节'oct'编码的归一化向量。
+ * @returns {Cartesian4} 被压缩成4字节'oct'编码的归一化向量。
  *
  * @exception {DeveloperError} vector must be normalized.
  *
@@ -104,15 +104,15 @@ AttributeCompression.octEncodeToCartesian4 = function (vector, result) {
 };
 
 /**
- * Decodes a unit-length vector in 'oct' encoding to a normalized 3-component vector.
+ * 将'oct'编码的单位长度向量解码为标准化的三分量向量。
  *
- * @param {number} x The x component of the oct-encoded unit length vector.
- * @param {number} y The y component of the oct-encoded unit length vector.
- * @param {number} rangeMax The maximum value of the SNORM range. The encoded vector is stored in log2(rangeMax+1) bits.
- * @param {Cartesian3} result The decoded and normalized vector
- * @returns {Cartesian3} The decoded and normalized vector.
+ * @param {number} x 八进制编码的单位长度向量的x分量。
+ * @param {number} y 八进制编码的单位长度向量的y分量。
+ * @param {number} rangeMax SNORM范围的最大值。编码的向量以log2(rangeMax+1)位存储。
+ * @param {Cartesian3} result 解码和归一化的向量
+ * @returns {Cartesian3} 解码和归一化的向量.
  *
- * @exception {DeveloperError} x and y must be unsigned normalized integers between 0 and rangeMax.
+ * @exception {DeveloperError} 解码和归一化的向量
  *
  * @see AttributeCompression.octEncodeInRange
  */
@@ -140,12 +140,12 @@ AttributeCompression.octDecodeInRange = function (x, y, rangeMax, result) {
 };
 
 /**
- * Decodes a unit-length vector in 2 byte 'oct' encoding to a normalized 3-component vector.
+ * 将2字节'oct'编码的单位长度向量解码为标准化的三分量向量。
  *
- * @param {number} x The x component of the oct-encoded unit length vector.
- * @param {number} y The y component of the oct-encoded unit length vector.
- * @param {Cartesian3} result The decoded and normalized vector.
- * @returns {Cartesian3} The decoded and normalized vector.
+ * @param {number} x 八进制编码的单位长度向量的x分量。
+ * @param {number} y 八进制编码的单位长度向量的y分量。
+ * @param {Cartesian3} result 解码和归一化的向量.
+ * @returns {Cartesian3} 解码和归一化的向量.
  *
  * @exception {DeveloperError} x and y must be an unsigned normalized integer between 0 and 255.
  *
@@ -156,11 +156,11 @@ AttributeCompression.octDecode = function (x, y, result) {
 };
 
 /**
- * Decodes a unit-length vector in 4 byte 'oct' encoding to a normalized 3-component vector.
+ * 将4字节'oct'编码的单位长度向量解码为标准化的三分量向量。
  *
- * @param {Cartesian4} encoded The oct-encoded unit length vector.
- * @param {Cartesian3} result The decoded and normalized vector.
- * @returns {Cartesian3} The decoded and normalized vector.
+ * @param {Cartesian4} encoded 八进制编码的单位长度向量。
+ * @param {Cartesian3} result 解码和归一化的向量.
+ * @returns {Cartesian3} 解码和归一化的向量.
  *
  * @exception {DeveloperError} x, y, z, and w must be unsigned normalized integers between 0 and 255.
  *
@@ -199,10 +199,10 @@ AttributeCompression.octDecodeFromCartesian4 = function (encoded, result) {
 };
 
 /**
- * Packs an oct encoded vector into a single floating-point number.
+ * 将oct编码的向量打包成单个浮点数。
  *
- * @param {Cartesian2} encoded The oct encoded vector.
- * @returns {number} The oct encoded vector packed into a single float.
+ * @param {Cartesian2} encoded oct编码向量。
+ * @returns {number} 将oct编码的向量打包成单个浮点数。
  *
  */
 AttributeCompression.octPackFloat = function (encoded) {
@@ -215,11 +215,11 @@ AttributeCompression.octPackFloat = function (encoded) {
 const scratchEncodeCart2 = new Cartesian2();
 
 /**
- * Encodes a normalized vector into 2 SNORM values in the range of [0-255] following the 'oct' encoding and
- * stores those values in a single float-point number.
+ * 将一个归一化向量编码为2个范围为[0-255]的SNORM值，后面跟着'oct'编码和
+ * 将这些值存储在单个浮点数中。
  *
- * @param {Cartesian3} vector The normalized vector to be compressed into 2 byte 'oct' encoding.
- * @returns {number} The 2 byte oct-encoded unit length vector.
+ * @param {Cartesian3} vector 被压缩成2字节'oct'编码的归一化向量。
+ * @returns {number} 2字节的八进制编码的单位长度向量。
  *
  * @exception {DeveloperError} vector must be normalized.
  */
@@ -229,11 +229,11 @@ AttributeCompression.octEncodeFloat = function (vector) {
 };
 
 /**
- * Decodes a unit-length vector in 'oct' encoding packed in a floating-point number to a normalized 3-component vector.
+ * 将以浮点数封装的'oct'编码的单位长度向量解码为标准化的三分量向量。
  *
- * @param {number} value The oct-encoded unit length vector stored as a single floating-point number.
- * @param {Cartesian3} result The decoded and normalized vector
- * @returns {Cartesian3} The decoded and normalized vector.
+ * @param {number} value 该字节编码的单元长度向量作为一个浮点数存储。
+ * @param {Cartesian3} result 解码和归一化的向量
+ * @returns {Cartesian3} 解码和归一化的向量.
  *
  */
 AttributeCompression.octDecodeFloat = function (value, result) {
@@ -249,14 +249,14 @@ AttributeCompression.octDecodeFloat = function (value, result) {
 };
 
 /**
- * Encodes three normalized vectors into 6 SNORM values in the range of [0-255] following the 'oct' encoding and
- * packs those into two floating-point numbers.
+ * 将三个规范化向量编码为6个SNORM值，范围为[0-255]，后面跟着'oct'编码和
+ * 将它们打包成两个浮点数。
  *
- * @param {Cartesian3} v1 A normalized vector to be compressed.
- * @param {Cartesian3} v2 A normalized vector to be compressed.
- * @param {Cartesian3} v3 A normalized vector to be compressed.
- * @param {Cartesian2} result The 'oct' encoded vectors packed into two floating-point numbers.
- * @returns {Cartesian2} The 'oct' encoded vectors packed into two floating-point numbers.
+ * @param {Cartesian3} v1 要压缩的归一化向量。
+ * @param {Cartesian3} v2 要压缩的归一化向量。
+ * @param {Cartesian3} v3 要压缩的归一化向量。
+ * @param {Cartesian2} result 'oct'编码的向量被打包成两个浮点数。
+ * @returns {Cartesian2} 'oct'编码的向量被打包成两个浮点数。
  *
  */
 AttributeCompression.octPack = function (v1, v2, v3, result) {
@@ -277,12 +277,12 @@ AttributeCompression.octPack = function (v1, v2, v3, result) {
 };
 
 /**
- * Decodes three unit-length vectors in 'oct' encoding packed into a floating-point number to a normalized 3-component vector.
+ * 将'oct'编码中的三个单位长度向量解码成一个浮点数，以标准化的三分量向量。
  *
- * @param {Cartesian2} packed The three oct-encoded unit length vectors stored as two floating-point number.
- * @param {Cartesian3} v1 One decoded and normalized vector.
- * @param {Cartesian3} v2 One decoded and normalized vector.
- * @param {Cartesian3} v3 One decoded and normalized vector.
+ * @param {Cartesian2} packed 将三个八进制编码的单位长度向量存储为两个浮点数。
+ * @param {Cartesian3} v1 一个解码和标准化的向量。
+ * @param {Cartesian3} v2 一个解码和标准化的向量。
+ * @param {Cartesian3} v3 一个解码和标准化的向量。
  */
 AttributeCompression.octUnpack = function (packed, v1, v2, v3) {
   //>>includeStart('debug', pragmas.debug);
@@ -306,11 +306,10 @@ AttributeCompression.octUnpack = function (packed, v1, v2, v3) {
 };
 
 /**
- * Pack texture coordinates into a single float. The texture coordinates will only preserve 12 bits of precision.
+ * 将纹理坐标打包到单个浮动中。纹理坐标将只保留12位精度。
  *
- * @param {Cartesian2} textureCoordinates The texture coordinates to compress.  Both coordinates must be in the range 0.0-1.0.
- * @returns {number} The packed texture coordinates.
- *
+ * @param {Cartesian2} textureCoordinates 要压缩的纹理坐标。两个坐标都必须在0.0-1.0的范围内。
+ * @returns {number} 填充的纹理坐标。
  */
 AttributeCompression.compressTextureCoordinates = function (
   textureCoordinates
@@ -326,11 +325,11 @@ AttributeCompression.compressTextureCoordinates = function (
 };
 
 /**
- * Decompresses texture coordinates that were packed into a single float.
+ * 解压打包到单个float中的纹理坐标。
  *
- * @param {number} compressed The compressed texture coordinates.
- * @param {Cartesian2} result The decompressed texture coordinates.
- * @returns {Cartesian2} The modified result parameter.
+ * @param {number} compressed 压缩的纹理坐标。
+ * @param {Cartesian2} result 解压后的纹理坐标。
+ * @returns {Cartesian2} 修改后的结果参数。
  *
  */
 AttributeCompression.decompressTextureCoordinates = function (
@@ -354,11 +353,11 @@ function zigZagDecode(value) {
 }
 
 /**
- * Decodes delta and ZigZag encoded vertices. This modifies the buffers in place.
+ * 解码三角和之字形编码顶点。这将修改现有的缓冲区。
  *
- * @param {Uint16Array} uBuffer The buffer view of u values.
- * @param {Uint16Array} vBuffer The buffer view of v values.
- * @param {Uint16Array} [heightBuffer] The buffer view of height values.
+ * @param {Uint16Array} uBuffer u值的缓冲区视图。
+ * @param {Uint16Array} vBuffer v值的缓冲区视图。
+ * @param {Uint16Array} [heightBuffer] 高度值的缓冲视图。
  *
  * @see {@link https://github.com/CesiumGS/quantized-mesh|quantized-mesh-1.0 terrain format}
  */
@@ -407,16 +406,16 @@ AttributeCompression.zigZagDeltaDecode = function (
 };
 
 /**
- * Dequantizes a quantized typed array into a floating point typed array.
+ * 将量子化类型数组解量化为浮点类型数组。
  *
  * @see {@link https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_mesh_quantization#encoding-quantized-data}
  *
- * @param {Int8Array|Uint8Array|Int16Array|Uint16Array|Int32Array|Uint32Array} typedArray The typed array for the quantized data.
- * @param {ComponentDatatype} componentDatatype The component datatype of the quantized data.
- * @param {AttributeType} type The attribute type of the quantized data.
- * @param {number} count The number of attributes referenced in the dequantized array.
+ * @param {Int8Array|Uint8Array|Int16Array|Uint16Array|Int32Array|Uint32Array} typedArray 量化数据的类型化数组。
+ * @param {ComponentDatatype} componentDatatype 量化数据的成分数据类型。
+ * @param {AttributeType} type 量化数据的属性类型。
+ * @param {number} count 去量化数组中引用的属性数。
  *
- * @returns {Float32Array} The dequantized array.
+ * @returns {Float32Array} 去量子化阵列。
  */
 AttributeCompression.dequantize = function (
   typedArray,
@@ -479,11 +478,11 @@ AttributeCompression.dequantize = function (
 };
 
 /**
- * Decode RGB565-encoded colors into a floating point typed array containing
- * normalized RGB values.
+ * 将rgb565编码的颜色解码为浮点类型数组，其中包含
+ * 标准化的RGB值。
  *
- * @param {Uint16Array} typedArray Array of RGB565 values
- * @param {Float32Array} [result] Array to store the normalized VEC3 result
+ * @param {Uint16Array} typedArray RGB565值的数组
+ * @param {Float32Array} [result] 数组来存储规范化的VEC3结果
  */
 AttributeCompression.decodeRGB565 = function (typedArray, result) {
   //>>includeStart('debug', pragmas.debug);

@@ -5,27 +5,27 @@ import defined from "./defined.js";
 import Intersect from "./Intersect.js";
 
 /**
- * Creates an instance of an AxisAlignedBoundingBox from the minimum and maximum points along the x, y, and z axes.
+ * 从沿x、y和z轴的最小点和最大值创建axisalignedbboundingbox实例。
  * @alias AxisAlignedBoundingBox
  * @constructor
  *
- * @param {Cartesian3} [minimum=Cartesian3.ZERO] The minimum point along the x, y, and z axes.
- * @param {Cartesian3} [maximum=Cartesian3.ZERO] The maximum point along the x, y, and z axes.
- * @param {Cartesian3} [center] The center of the box; automatically computed if not supplied.
+ * @param {Cartesian3} [minimum=Cartesian3.ZERO] 沿着x, y, z轴的最小值点。
+ * @param {Cartesian3} [maximum=Cartesian3.ZERO] x, y, z轴上的最大值。
+ * @param {Cartesian3} [center] 盒子的中心;如果没有提供，自动计算。
  *
  * @see BoundingSphere
  * @see BoundingRectangle
  */
 function AxisAlignedBoundingBox(minimum, maximum, center) {
   /**
-   * The minimum point defining the bounding box.
+   * 定义边界框的最小点。
    * @type {Cartesian3}
    * @default {@link Cartesian3.ZERO}
    */
   this.minimum = Cartesian3.clone(defaultValue(minimum, Cartesian3.ZERO));
 
   /**
-   * The maximum point defining the bounding box.
+   * 定义边界框的最大值。
    * @type {Cartesian3}
    * @default {@link Cartesian3.ZERO}
    */
@@ -39,19 +39,19 @@ function AxisAlignedBoundingBox(minimum, maximum, center) {
   }
 
   /**
-   * The center point of the bounding box.
+   * 篮板的中心点。
    * @type {Cartesian3}
    */
   this.center = center;
 }
 
 /**
- * Creates an instance of an AxisAlignedBoundingBox from its corners.
+ * 从其角创建AxisAlignedBoundingBox的实例。
  *
- * @param {Cartesian3} minimum The minimum point along the x, y, and z axes.
- * @param {Cartesian3} maximum The maximum point along the x, y, and z axes.
- * @param {AxisAlignedBoundingBox} [result] The object onto which to store the result.
- * @returns {AxisAlignedBoundingBox} The modified result parameter or a new AxisAlignedBoundingBox instance if one was not provided.
+ * @param {Cartesian3} minimum 沿着x, y, z轴的最小值点。
+ * @param {Cartesian3} maximum x, y, z轴上的最大值。
+ * @param {AxisAlignedBoundingBox} [result] 要在其上存储结果的对象。
+ * @returns {AxisAlignedBoundingBox} 修改后的结果参数或新的AxisAlignedBoundingBox实例(如果没有提供)。
  *
  * @example
  * // Compute an axis aligned bounding box from the two corners.
@@ -75,12 +75,12 @@ AxisAlignedBoundingBox.fromCorners = function (minimum, maximum, result) {
 };
 
 /**
- * Computes an instance of an AxisAlignedBoundingBox. The box is determined by
- * finding the points spaced the farthest apart on the x, y, and z axes.
+ * 计算AxisAlignedBoundingBox的实例。盒子是由
+ * 找出x, y, z轴上距离最远的点。
  *
- * @param {Cartesian3[]} positions List of points that the bounding box will enclose.  Each point must have a <code>x</code>, <code>y</code>, and <code>z</code> properties.
- * @param {AxisAlignedBoundingBox} [result] The object onto which to store the result.
- * @returns {AxisAlignedBoundingBox} The modified result parameter or a new AxisAlignedBoundingBox instance if one was not provided.
+ * @param {Cartesian3[]} positions 边界框将包围的点列表。每个点必须有一个<code>x</code>、<code>y</code>和<code>z</code>属性。
+ * @param {AxisAlignedBoundingBox} [result] 要在其上存储结果的对象。
+ * @returns {AxisAlignedBoundingBox} 修改后的结果参数或新的AxisAlignedBoundingBox实例(如果没有提供)。
  *
  * @example
  * // Compute an axis aligned bounding box enclosing two points.
@@ -137,11 +137,11 @@ AxisAlignedBoundingBox.fromPoints = function (positions, result) {
 };
 
 /**
- * Duplicates a AxisAlignedBoundingBox instance.
+ *  复制AxisAlignedBoundingBox实例。
  *
  * @param {AxisAlignedBoundingBox} box The bounding box to duplicate.
- * @param {AxisAlignedBoundingBox} [result] The object onto which to store the result.
- * @returns {AxisAlignedBoundingBox} The modified result parameter or a new AxisAlignedBoundingBox instance if none was provided. (Returns undefined if box is undefined)
+ * @param {AxisAlignedBoundingBox} [result] 要在其上存储结果的对象。
+ * @returns {AxisAlignedBoundingBox} 修改后的结果参数，如果没有提供，则为新的AxisAlignedBoundingBox实例。(如果box未定义则返回未定义)
  */
 AxisAlignedBoundingBox.clone = function (box, result) {
   if (!defined(box)) {
@@ -159,12 +159,12 @@ AxisAlignedBoundingBox.clone = function (box, result) {
 };
 
 /**
- * Compares the provided AxisAlignedBoundingBox componentwise and returns
- * <code>true</code> if they are equal, <code>false</code> otherwise.
+ * 比较提供的AxisAlignedBoundingBox组件和返回
+ * <code>为true</code>，否则为false</code>。
  *
- * @param {AxisAlignedBoundingBox} [left] The first AxisAlignedBoundingBox.
- * @param {AxisAlignedBoundingBox} [right] The second AxisAlignedBoundingBox.
- * @returns {boolean} <code>true</code> if left and right are equal, <code>false</code> otherwise.
+ * @param {AxisAlignedBoundingBox} [left] 第一个AxisAlignedBoundingBox.
+ * @param {AxisAlignedBoundingBox} [right] 第二个 AxisAlignedBoundingBox.
+ * @returns {boolean} <code>true</code>如果左和右相等，否则<code>false</code>。
  */
 AxisAlignedBoundingBox.equals = function (left, right) {
   return (
@@ -179,14 +179,14 @@ AxisAlignedBoundingBox.equals = function (left, right) {
 
 let intersectScratch = new Cartesian3();
 /**
- * Determines which side of a plane a box is located.
+ * 确定盒子位于平面的哪一侧。
  *
- * @param {AxisAlignedBoundingBox} box The bounding box to test.
- * @param {Plane} plane The plane to test against.
- * @returns {Intersect} {@link Intersect.INSIDE} if the entire box is on the side of the plane
- *                      the normal is pointing, {@link Intersect.OUTSIDE} if the entire box is
- *                      on the opposite side, and {@link Intersect.INTERSECTING} if the box
- *                      intersects the plane.
+ * @param {AxisAlignedBoundingBox} box 要测试的边界框。
+ * @param {Plane} plane 要测试的飞机。
+ * @returns {Intersect} {@link Intersect.INSIDE} 如果整个盒子都在飞机的一侧
+ *                      法线指向， {@link Intersect.OUTSIDE} 如果整个盒子
+ *                      在反面， 和 {@link Intersect.INTERSECTING} 如果盒子
+ *                      与平面相交
  */
 AxisAlignedBoundingBox.intersectPlane = function (box, plane) {
   //>>includeStart('debug', pragmas.debug);
@@ -224,34 +224,34 @@ AxisAlignedBoundingBox.intersectPlane = function (box, plane) {
 };
 
 /**
- * Duplicates this AxisAlignedBoundingBox instance.
+ * 复制AxisAlignedBoundingBox instance.
  *
- * @param {AxisAlignedBoundingBox} [result] The object onto which to store the result.
- * @returns {AxisAlignedBoundingBox} The modified result parameter or a new AxisAlignedBoundingBox instance if one was not provided.
+ * @param {AxisAlignedBoundingBox} [result] 要在其上存储结果的对象。
+ * @returns {AxisAlignedBoundingBox} 修改后的结果参数或新的AxisAlignedBoundingBox实例(如果没有提供)。
  */
 AxisAlignedBoundingBox.prototype.clone = function (result) {
   return AxisAlignedBoundingBox.clone(this, result);
 };
 
 /**
- * Determines which side of a plane this box is located.
+ * 确定此框位于平面的哪一侧。
  *
- * @param {Plane} plane The plane to test against.
- * @returns {Intersect} {@link Intersect.INSIDE} if the entire box is on the side of the plane
- *                      the normal is pointing, {@link Intersect.OUTSIDE} if the entire box is
- *                      on the opposite side, and {@link Intersect.INTERSECTING} if the box
- *                      intersects the plane.
+ * @param {Plane} plane 要测试的飞机。
+ * @returns {Intersect} {@link Intersect.INSIDE}如果整个盒子都在飞机的一侧
+ *                      法线指向， {@link Intersect.OUTSIDE} 如果整个盒子
+ *                      在反面， 和 {@link Intersect.INTERSECTING} 如果盒子
+ *                      与平面相交。
  */
 AxisAlignedBoundingBox.prototype.intersectPlane = function (plane) {
   return AxisAlignedBoundingBox.intersectPlane(this, plane);
 };
 
 /**
- * Compares this AxisAlignedBoundingBox against the provided AxisAlignedBoundingBox componentwise and returns
- * <code>true</code> if they are equal, <code>false</code> otherwise.
+ * 将此AxisAlignedBoundingBox与提供的AxisAlignedBoundingBox组件进行比较并返回
+ * <code>为true</code>，否则为false</code>。
  *
- * @param {AxisAlignedBoundingBox} [right] The right hand side AxisAlignedBoundingBox.
- * @returns {boolean} <code>true</code> if they are equal, <code>false</code> otherwise.
+ * @param {AxisAlignedBoundingBox} [right] 右边 AxisAlignedBoundingBox.
+ * @returns {boolean} <code>为true</code>，否则为false</code>。
  */
 AxisAlignedBoundingBox.prototype.equals = function (right) {
   return AxisAlignedBoundingBox.equals(this, right);

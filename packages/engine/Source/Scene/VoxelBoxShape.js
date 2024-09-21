@@ -457,7 +457,7 @@ VoxelBoxShape.DefaultMaxBounds = Object.freeze(
  * @param {Cartesian3} minimumBounds The minimum bounds, in the local coordinates of the shape.
  * @param {Cartesian3} maximumBounds The maximum bounds, in the local coordinates of the shape.
  * @param {Matrix4} matrix The matrix to transform the points.
- * @param {OrientedBoundingBox} result The object onto which to store the result.
+ * @param {OrientedBoundingBox} result 要在其上存储结果的对象。
  * @returns {OrientedBoundingBox} The oriented bounding box that contains this subregion.
  *
  * @private

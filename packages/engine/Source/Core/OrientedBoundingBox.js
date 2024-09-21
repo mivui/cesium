@@ -131,7 +131,7 @@ const scratchEigenResult = {
  * Reference: http://gamma.cs.unc.edu/users/gottschalk/main.pdf
  *
  * @param {Cartesian3[]} [positions] List of {@link Cartesian3} points that the bounding box will enclose.
- * @param {OrientedBoundingBox} [result] The object onto which to store the result.
+ * @param {OrientedBoundingBox} [result] 要在其上存储结果的对象。
  * @returns {OrientedBoundingBox} The modified result parameter or a new OrientedBoundingBox instance if one was not provided.
  *
  * @example
@@ -333,7 +333,7 @@ const scratchPlane = new Plane(Cartesian3.UNIT_X, 0.0);
  * @param {number} [minimumHeight=0.0] The minimum height (elevation) within the tile.
  * @param {number} [maximumHeight=0.0] The maximum height (elevation) within the tile.
  * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] The ellipsoid on which the rectangle is defined.
- * @param {OrientedBoundingBox} [result] The object onto which to store the result.
+ * @param {OrientedBoundingBox} [result] 要在其上存储结果的对象。
  * @returns {OrientedBoundingBox} The modified result parameter or a new OrientedBoundingBox instance if none was provided.
  *
  * @exception {DeveloperError} rectangle.width must be between 0 and 2 * pi.
@@ -614,7 +614,7 @@ OrientedBoundingBox.fromRectangle = function (
  * Computes an OrientedBoundingBox that bounds an affine transformation.
  *
  * @param {Matrix4} transformation The affine transformation.
- * @param {OrientedBoundingBox} [result] The object onto which to store the result.
+ * @param {OrientedBoundingBox} [result] 要在其上存储结果的对象。
  * @returns {OrientedBoundingBox} The modified result parameter or a new OrientedBoundingBox instance if none was provided.
  */
 OrientedBoundingBox.fromTransformation = function (transformation, result) {
@@ -640,7 +640,7 @@ OrientedBoundingBox.fromTransformation = function (transformation, result) {
  * Duplicates a OrientedBoundingBox instance.
  *
  * @param {OrientedBoundingBox} box The bounding box to duplicate.
- * @param {OrientedBoundingBox} [result] The object onto which to store the result.
+ * @param {OrientedBoundingBox} [result] 要在其上存储结果的对象。
  * @returns {OrientedBoundingBox} The modified result parameter or a new OrientedBoundingBox instance if none was provided. (Returns undefined if box is undefined)
  */
 OrientedBoundingBox.clone = function (box, result) {
@@ -662,11 +662,11 @@ OrientedBoundingBox.clone = function (box, result) {
  * Determines which side of a plane the oriented bounding box is located.
  *
  * @param {OrientedBoundingBox} box The oriented bounding box to test.
- * @param {Plane} plane The plane to test against.
- * @returns {Intersect} {@link Intersect.INSIDE} if the entire box is on the side of the plane
- *                      the normal is pointing, {@link Intersect.OUTSIDE} if the entire box is
- *                      on the opposite side, and {@link Intersect.INTERSECTING} if the box
- *                      intersects the plane.
+ * @param {Plane} plane 要测试的飞机。
+ * @returns {Intersect} {@link Intersect.INSIDE} 如果整个盒子都在飞机的一侧
+ *                      法线指向 {@link Intersect.OUTSIDE} 如果整个盒子
+ *                      在反面， 和 {@link Intersect.INTERSECTING}  如果盒子
+ *                      与平面相交。
  */
 OrientedBoundingBox.intersectPlane = function (box, plane) {
   //>>includeStart('debug', pragmas.debug);
@@ -1100,7 +1100,7 @@ const scratchRotationScale = new Matrix3();
  * Computes a transformation matrix from an oriented bounding box.
  *
  * @param {OrientedBoundingBox} box The oriented bounding box.
- * @param {Matrix4} result The object onto which to store the result.
+ * @param {Matrix4} result 要在其上存储结果的对象。
  * @returns {Matrix4} The modified result parameter or a new {@link Matrix4} instance if none was provided.
  */
 OrientedBoundingBox.computeTransformation = function (box, result) {
@@ -1151,11 +1151,11 @@ OrientedBoundingBox.isOccluded = function (box, occluder) {
 /**
  * Determines which side of a plane the oriented bounding box is located.
  *
- * @param {Plane} plane The plane to test against.
- * @returns {Intersect} {@link Intersect.INSIDE} if the entire box is on the side of the plane
- *                      the normal is pointing, {@link Intersect.OUTSIDE} if the entire box is
- *                      on the opposite side, and {@link Intersect.INTERSECTING} if the box
- *                      intersects the plane.
+ * @param {Plane} plane 要测试的飞机。
+ * @returns {Intersect} {@link Intersect.INSIDE} 如果整个盒子都在飞机的一侧
+ *                      法线指向 {@link Intersect.OUTSIDE} 如果整个盒子
+ *                      在反面， 和 {@link Intersect.INTERSECTING}  如果盒子
+ *                      与平面相交。
  */
 OrientedBoundingBox.prototype.intersectPlane = function (plane) {
   return OrientedBoundingBox.intersectPlane(this, plane);
@@ -1214,7 +1214,7 @@ OrientedBoundingBox.prototype.computeCorners = function (result) {
 /**
  * Computes a transformation matrix from an oriented bounding box.
  *
- * @param {Matrix4} result The object onto which to store the result.
+ * @param {Matrix4} result 要在其上存储结果的对象。
  * @returns {Matrix4} The modified result parameter or a new {@link Matrix4} instance if none was provided.
  */
 OrientedBoundingBox.prototype.computeTransformation = function (result) {
@@ -1233,11 +1233,11 @@ OrientedBoundingBox.prototype.isOccluded = function (occluder) {
 
 /**
  * Compares the provided OrientedBoundingBox componentwise and returns
- * <code>true</code> if they are equal, <code>false</code> otherwise.
+ * <code>为true</code>，否则为false</code>。
  *
  * @param {OrientedBoundingBox} left The first OrientedBoundingBox.
  * @param {OrientedBoundingBox} right The second OrientedBoundingBox.
- * @returns {boolean} <code>true</code> if left and right are equal, <code>false</code> otherwise.
+ * @returns {boolean} <code>true</code>如果左和右相等，否则<code>false</code>。
  */
 OrientedBoundingBox.equals = function (left, right) {
   return (
@@ -1250,9 +1250,9 @@ OrientedBoundingBox.equals = function (left, right) {
 };
 
 /**
- * Duplicates this OrientedBoundingBox instance.
+ * 复制OrientedBoundingBox instance.
  *
- * @param {OrientedBoundingBox} [result] The object onto which to store the result.
+ * @param {OrientedBoundingBox} [result] 要在其上存储结果的对象。
  * @returns {OrientedBoundingBox} The modified result parameter or a new OrientedBoundingBox instance if one was not provided.
  */
 OrientedBoundingBox.prototype.clone = function (result) {
@@ -1261,10 +1261,10 @@ OrientedBoundingBox.prototype.clone = function (result) {
 
 /**
  * Compares this OrientedBoundingBox against the provided OrientedBoundingBox componentwise and returns
- * <code>true</code> if they are equal, <code>false</code> otherwise.
+ * <code>为true</code>，否则为false</code>。
  *
- * @param {OrientedBoundingBox} [right] The right hand side OrientedBoundingBox.
- * @returns {boolean} <code>true</code> if they are equal, <code>false</code> otherwise.
+ * @param {OrientedBoundingBox} [right] 右边 OrientedBoundingBox.
+ * @returns {boolean} <code>为true</code>，否则为false</code>。
  */
 OrientedBoundingBox.prototype.equals = function (right) {
   return OrientedBoundingBox.equals(this, right);

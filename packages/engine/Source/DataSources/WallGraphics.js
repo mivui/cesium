@@ -182,9 +182,9 @@ Object.defineProperties(WallGraphics.prototype, {
 });
 
 /**
- * Duplicates this instance.
+ * 复制instance.
  *
- * @param {WallGraphics} [result] The object onto which to store the result.
+ * @param {WallGraphics} [result] 要在其上存储结果的对象。
  * @returns {WallGraphics} The modified result parameter or a new instance if one was not provided.
  */
 WallGraphics.prototype.clone = function (result) {

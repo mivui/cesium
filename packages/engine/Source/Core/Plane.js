@@ -70,7 +70,7 @@ function Plane(normal, distance) {
  *
  * @param {Cartesian3} point The point on the plane.
  * @param {Cartesian3} normal The plane's normal (normalized).
- * @param {Plane} [result] The object onto which to store the result.
+ * @param {Plane} [result] 要在其上存储结果的对象。
  * @returns {Plane} A new plane instance or the modified result parameter.
  *
  * @example
@@ -111,7 +111,7 @@ const scratchNormal = new Cartesian3();
  * Creates a plane from the general equation
  *
  * @param {Cartesian4} coefficients The plane's normal (normalized).
- * @param {Plane} [result] The object onto which to store the result.
+ * @param {Plane} [result] 要在其上存储结果的对象。
  * @returns {Plane} A new plane instance or the modified result parameter.
  *
  * @exception {DeveloperError} Normal must be normalized
@@ -248,7 +248,7 @@ Plane.transform = function (plane, transform, result) {
  * Duplicates a Plane instance.
  *
  * @param {Plane} plane The plane to duplicate.
- * @param {Plane} [result] The object onto which to store the result.
+ * @param {Plane} [result] 要在其上存储结果的对象。
  * @returns {Plane} The modified result parameter or a new Plane instance if one was not provided.
  */
 Plane.clone = function (plane, result) {
@@ -268,11 +268,11 @@ Plane.clone = function (plane, result) {
 
 /**
  * Compares the provided Planes by normal and distance and returns
- * <code>true</code> if they are equal, <code>false</code> otherwise.
+ * <code>为true</code>，否则为false</code>。
  *
  * @param {Plane} left The first plane.
  * @param {Plane} right The second plane.
- * @returns {boolean} <code>true</code> if left and right are equal, <code>false</code> otherwise.
+ * @returns {boolean} <code>true</code>如果左和右相等，否则<code>false</code>。
  */
 Plane.equals = function (left, right) {
   //>>includeStart('debug', pragmas.debug);

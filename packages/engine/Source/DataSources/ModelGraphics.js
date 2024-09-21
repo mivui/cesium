@@ -336,9 +336,9 @@ Object.defineProperties(ModelGraphics.prototype, {
 });
 
 /**
- * Duplicates this instance.
+ * 复制instance.
  *
- * @param {ModelGraphics} [result] The object onto which to store the result.
+ * @param {ModelGraphics} [result] 要在其上存储结果的对象。
  * @returns {ModelGraphics} The modified result parameter or a new instance if one was not provided.
  */
 ModelGraphics.prototype.clone = function (result) {

@@ -216,7 +216,7 @@ TileCoordinatesImageryProvider.prototype.getTileCredits = function (
  * @param {number} x The tile X coordinate.
  * @param {number} y The tile Y coordinate.
  * @param {number} level The tile level.
- * @param {Request} [request] The request object. Intended for internal use only.
+ * @param {Request} [request] 请求对象。仅供内部使用。
  * @returns {Promise<HTMLCanvasElement>} The resolved image as a Canvas DOM object.
  */
 TileCoordinatesImageryProvider.prototype.requestImage = function (

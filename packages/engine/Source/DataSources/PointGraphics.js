@@ -168,9 +168,9 @@ Object.defineProperties(PointGraphics.prototype, {
 });
 
 /**
- * Duplicates this instance.
+ * 复制instance.
  *
- * @param {PointGraphics} [result] The object onto which to store the result.
+ * @param {PointGraphics} [result] 要在其上存储结果的对象。
  * @returns {PointGraphics} The modified result parameter or a new instance if one was not provided.
  */
 PointGraphics.prototype.clone = function (result) {

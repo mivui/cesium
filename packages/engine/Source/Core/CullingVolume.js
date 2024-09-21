@@ -39,7 +39,7 @@ const scratchPlane = new Plane(new Cartesian3(1.0, 0.0, 0.0), 0.0);
  * The planes are aligned to the x, y, and z axes in world coordinates.
  *
  * @param {BoundingSphere} boundingSphere The bounding sphere used to create the culling volume.
- * @param {CullingVolume} [result] The object onto which to store the result.
+ * @param {CullingVolume} [result] 要在其上存储结果的对象。
  * @returns {CullingVolume} The culling volume created from the bounding sphere.
  */
 CullingVolume.fromBoundingSphere = function (boundingSphere, result) {

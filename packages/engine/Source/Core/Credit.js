@@ -117,7 +117,7 @@ Object.defineProperties(Credit.prototype, {
  *
  * @param {Credit} left The first credit
  * @param {Credit} right The second credit
- * @returns {boolean} <code>true</code> if left and right are equal, <code>false</code> otherwise.
+ * @returns {boolean} <code>true</code>如果左和右相等，否则<code>false</code>。
  */
 Credit.equals = function (left, right) {
   return (
@@ -133,7 +133,7 @@ Credit.equals = function (left, right) {
  * Returns true if the credits are equal
  *
  * @param {Credit} credit The credit to compare to.
- * @returns {boolean} <code>true</code> if left and right are equal, <code>false</code> otherwise.
+ * @returns {boolean} <code>true</code>如果左和右相等，否则<code>false</code>。
  */
 Credit.prototype.equals = function (credit) {
   return Credit.equals(this, credit);

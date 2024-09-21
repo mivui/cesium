@@ -158,9 +158,9 @@ Object.defineProperties(BoxGraphics.prototype, {
 });
 
 /**
- * Duplicates this instance.
+ * 复制instance.
  *
- * @param {BoxGraphics} [result] The object onto which to store the result.
+ * @param {BoxGraphics} [result] 要在其上存储结果的对象。
  * @returns {BoxGraphics} The modified result parameter or a new instance if one was not provided.
  */
 BoxGraphics.prototype.clone = function (result) {

@@ -114,7 +114,7 @@ Transforms.localFrameToFixedFrameGenerator = function (firstAxis, secondAxis) {
    * @callback Transforms.LocalFrameToFixedFrame
    * @param {Cartesian3} origin The center point of the local reference frame.
    * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] The ellipsoid whose fixed frame is used in the transformation.
-   * @param {Matrix4} [result] The object onto which to store the result.
+   * @param {Matrix4} [result] 要在其上存储结果的对象。
    * @returns {Matrix4} The modified result parameter or a new Matrix4 instance if none was provided.
    */
   let resultat;
@@ -266,7 +266,7 @@ Transforms.localFrameToFixedFrameGenerator = function (firstAxis, secondAxis) {
  * @function
  * @param {Cartesian3} origin The center point of the local reference frame.
  * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] The ellipsoid whose fixed frame is used in the transformation.
- * @param {Matrix4} [result] The object onto which to store the result.
+ * @param {Matrix4} [result] 要在其上存储结果的对象。
  * @returns {Matrix4} The modified result parameter or a new Matrix4 instance if none was provided.
  *
  * @example
@@ -292,7 +292,7 @@ Transforms.eastNorthUpToFixedFrame = Transforms.localFrameToFixedFrameGenerator(
  * @function
  * @param {Cartesian3} origin The center point of the local reference frame.
  * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] The ellipsoid whose fixed frame is used in the transformation.
- * @param {Matrix4} [result] The object onto which to store the result.
+ * @param {Matrix4} [result] 要在其上存储结果的对象。
  * @returns {Matrix4} The modified result parameter or a new Matrix4 instance if none was provided.
  *
  * @example
@@ -318,7 +318,7 @@ Transforms.northEastDownToFixedFrame = Transforms.localFrameToFixedFrameGenerato
  * @function
  * @param {Cartesian3} origin The center point of the local reference frame.
  * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] The ellipsoid whose fixed frame is used in the transformation.
- * @param {Matrix4} [result] The object onto which to store the result.
+ * @param {Matrix4} [result] 要在其上存储结果的对象。
  * @returns {Matrix4} The modified result parameter or a new Matrix4 instance if none was provided.
  *
  * @example
@@ -344,7 +344,7 @@ Transforms.northUpEastToFixedFrame = Transforms.localFrameToFixedFrameGenerator(
  * @function
  * @param {Cartesian3} origin The center point of the local reference frame.
  * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] The ellipsoid whose fixed frame is used in the transformation.
- * @param {Matrix4} [result] The object onto which to store the result.
+ * @param {Matrix4} [result] 要在其上存储结果的对象。
  * @returns {Matrix4} The modified result parameter or a new Matrix4 instance if none was provided.
  *
  * @example
@@ -372,7 +372,7 @@ const scratchHPRMatrix4 = new Matrix4();
  * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] The ellipsoid whose fixed frame is used in the transformation.
  * @param {Transforms.LocalFrameToFixedFrame} [fixedFrameTransform=Transforms.eastNorthUpToFixedFrame] A 4x4 transformation
  *  matrix from a reference frame to the provided ellipsoid's fixed reference frame
- * @param {Matrix4} [result] The object onto which to store the result.
+ * @param {Matrix4} [result] 要在其上存储结果的对象。
  * @returns {Matrix4} The modified result parameter or a new Matrix4 instance if none was provided.
  *
  * @example
@@ -427,7 +427,7 @@ const scratchHPRMatrix3 = new Matrix3();
  * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] The ellipsoid whose fixed frame is used in the transformation.
  * @param {Transforms.LocalFrameToFixedFrame} [fixedFrameTransform=Transforms.eastNorthUpToFixedFrame] A 4x4 transformation
  *  matrix from a reference frame to the provided ellipsoid's fixed reference frame
- * @param {Quaternion} [result] The object onto which to store the result.
+ * @param {Quaternion} [result] 要在其上存储结果的对象。
  * @returns {Quaternion} The modified result parameter or a new Quaternion instance if none was provided.
  *
  * @example
@@ -476,7 +476,7 @@ const hprQuaternionScratch = new Quaternion();
  * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] The ellipsoid whose fixed frame is used in the transformation.
  * @param {Transforms.LocalFrameToFixedFrame} [fixedFrameTransform=Transforms.eastNorthUpToFixedFrame] A 4x4 transformation
  *  matrix from a reference frame to the provided ellipsoid's fixed reference frame
- * @param {HeadingPitchRoll} [result] The object onto which to store the result.
+ * @param {HeadingPitchRoll} [result] 要在其上存储结果的对象。
  * @returns {HeadingPitchRoll} The modified result parameter or a new HeadingPitchRoll instance if none was provided.
  */
 Transforms.fixedFrameToHeadingPitchRoll = function (
@@ -545,7 +545,7 @@ let dateInUtc = new JulianDate();
  * the data necessary to do the transformation is not yet loaded.
  *
  * @param {JulianDate} date The time at which to compute the rotation matrix.
- * @param {Matrix3} [result] The object onto which to store the result.  If this parameter is
+ * @param {Matrix3} [result] 要在其上存储结果的对象。  If this parameter is
  *                  not specified, a new instance is created and returned.
  * @returns {Matrix3|undefined} The rotation matrix, or undefined if the data necessary to do the
  *                   transformation is not yet loaded.
@@ -572,7 +572,7 @@ Transforms.computeIcrfToCentralBodyFixedMatrix = function (date, result) {
  * pseudo-fixed axes at a given time.  This method treats the UT1 time standard as equivalent to UTC.
  *
  * @param {JulianDate} date The time at which to compute the rotation matrix.
- * @param {Matrix3} [result] The object onto which to store the result.
+ * @param {Matrix3} [result] 要在其上存储结果的对象。
  * @returns {Matrix3} The modified result parameter or a new Matrix3 instance if none was provided.
  *
  * @example
@@ -718,7 +718,7 @@ Transforms.preloadIcrfFixed = function (timeInterval) {
  * do the transformation is not yet loaded.
  *
  * @param {JulianDate} date The time at which to compute the rotation matrix.
- * @param {Matrix3} [result] The object onto which to store the result.  If this parameter is
+ * @param {Matrix3} [result] 要在其上存储结果的对象。  If this parameter is
  *                  not specified, a new instance is created and returned.
  * @returns {Matrix3|undefined} The rotation matrix, or undefined if the data necessary to do the
  *                   transformation is not yet loaded.
@@ -767,7 +767,7 @@ const dateScratch = new JulianDate();
  * at a given time.
  *
  * @param {JulianDate} date The time at which to compute the rotation matrix.
- * @param {Matrix3} [result] The object onto which to store the result.  If this parameter is
+ * @param {Matrix3} [result] 要在其上存储结果的对象。  If this parameter is
  *                  not specified, a new instance is created and returned.
  * @returns {Matrix3} The rotation matrix.
  *
@@ -835,7 +835,7 @@ Transforms.computeMoonFixedToIcrfMatrix = function (date, result) {
  * at a given time.
  *
  * @param {JulianDate} date The time at which to compute the rotation matrix.
- * @param {Matrix3} [result] The object onto which to store the result.  If this parameter is
+ * @param {Matrix3} [result] 要在其上存储结果的对象。  If this parameter is
  *                  not specified, a new instance is created and returned.
  * @returns {Matrix3} The rotation matrix.
  *
@@ -880,7 +880,7 @@ const rotation2Scratch = new Matrix3();
  * do the transformation is not yet loaded.
  *
  * @param {JulianDate} date The time at which to compute the rotation matrix.
- * @param {Matrix3} [result] The object onto which to store the result.  If this parameter is
+ * @param {Matrix3} [result] 要在其上存储结果的对象。  If this parameter is
  *                  not specified, a new instance is created and returned.
  * @returns {Matrix3|undefined} The rotation matrix, or undefined if the data necessary to do the
  *                   transformation is not yet loaded.
@@ -1018,7 +1018,7 @@ const pointToWindowCoordinatesTemp = new Cartesian4();
  * @param {Matrix4} modelViewProjectionMatrix The 4x4 model-view-projection matrix.
  * @param {Matrix4} viewportTransformation The 4x4 viewport transformation.
  * @param {Cartesian3} point The point to transform.
- * @param {Cartesian2} [result] The object onto which to store the result.
+ * @param {Cartesian2} [result] 要在其上存储结果的对象。
  * @returns {Cartesian2} The modified result parameter or a new Cartesian2 instance if none was provided.
  */
 Transforms.pointToWindowCoordinates = function (
@@ -1086,7 +1086,7 @@ const upScratch = new Cartesian3();
  * @param {Cartesian3} position The position to transform.
  * @param {Cartesian3} velocity The velocity vector to transform.
  * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] The ellipsoid whose fixed frame is used in the transformation.
- * @param {Matrix3} [result] The object onto which to store the result.
+ * @param {Matrix3} [result] 要在其上存储结果的对象。
  * @returns {Matrix3} The modified result parameter or a new Matrix3 instance if none was provided.
  */
 Transforms.rotationMatrixFromPositionVelocity = function (

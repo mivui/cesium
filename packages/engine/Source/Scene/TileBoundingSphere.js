@@ -105,10 +105,10 @@ TileBoundingSphere.prototype.distanceToCamera = function (frameState) {
 /**
  * Determines which side of a plane this sphere is located.
  *
- * @param {Plane} plane The plane to test against.
+ * @param {Plane} plane 要测试的飞机。
  * @returns {Intersect} {@link Intersect.INSIDE} if the entire sphere is on the side of the plane
  *                      the normal is pointing, {@link Intersect.OUTSIDE} if the entire sphere is
- *                      on the opposite side, and {@link Intersect.INTERSECTING} if the sphere
+ *                      on the opposite side, 和 {@link Intersect.INTERSECTING} if the sphere
  *                      intersects the plane.
  */
 TileBoundingSphere.prototype.intersectPlane = function (plane) {

@@ -1,6 +1,6 @@
 /**
- * An enum describing the type of motion that is defined by an articulation stage
- * in the AGI_articulations extension.
+ * 描述由关节阶段定义的运动类型的枚举
+ * 在agi_artications扩展。
  *
  * @alias {ArticulationStageType}
  * @enum {string}

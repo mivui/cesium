@@ -661,7 +661,7 @@ const orientationScratch = new Quaternion();
  * Computes the model matrix for the entity's transform at specified time. Returns undefined if position is undefined
  *
  * @param {JulianDate} time The time to retrieve model matrix for.
- * @param {Matrix4} [result] The object onto which to store the result.
+ * @param {Matrix4} [result] 要在其上存储结果的对象。
  *
  * @returns {Matrix4} The modified result parameter or a new Matrix4 instance if one was not provided. Result is undefined if position is undefined.
  */

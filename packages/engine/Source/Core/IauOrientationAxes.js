@@ -69,7 +69,7 @@ const quatScratch = new Quaternion();
  * Computes a rotation from ICRF to a Globe's Fixed axes.
  *
  * @param {JulianDate} date The date to evaluate the matrix.
- * @param {Matrix3} result The object onto which to store the result.
+ * @param {Matrix3} result 要在其上存储结果的对象。
  * @returns {Matrix3} The modified result parameter or a new instance of the rotation from ICRF to Fixed.
  */
 IauOrientationAxes.prototype.evaluate = function (date, result) {

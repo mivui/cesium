@@ -37,7 +37,7 @@ let dateTT = new JulianDate();
  * Compute the orientation parameters for the Moon.
  *
  * @param {JulianDate} [date=JulianDate.now()] The date to evaluate the parameters.
- * @param {IauOrientationParameters} [result] The object onto which to store the result.
+ * @param {IauOrientationParameters} [result] 要在其上存储结果的对象。
  * @returns {IauOrientationParameters} The modified result parameter or a new instance representing the orientation of the Earth's Moon.
  * @private
  */

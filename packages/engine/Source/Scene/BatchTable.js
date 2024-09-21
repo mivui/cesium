@@ -249,7 +249,7 @@ const scratchGetAttributeCartesian4 = new Cartesian4();
  *
  * @param {number} instanceIndex The index of the instance.
  * @param {number} attributeIndex The index of the attribute.
- * @param {undefined|Cartesian2|Cartesian3|Cartesian4} [result] The object onto which to store the result. The type is dependent on the attribute's number of components.
+ * @param {undefined|Cartesian2|Cartesian3|Cartesian4} [result] 要在其上存储结果的对象。 The type is dependent on the attribute's number of components.
  * @returns {number|Cartesian2|Cartesian3|Cartesian4} The attribute value stored for the instance.
  *
  * @exception {DeveloperError} instanceIndex is out of range.

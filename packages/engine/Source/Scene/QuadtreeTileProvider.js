@@ -109,7 +109,7 @@ QuadtreeTileProvider.prototype.endUpdate =
  * @memberof QuadtreeTileProvider
  * @function
  *
- * @param {number} level The tile level for which to get the maximum geometric error.
+ * @param {number} level 要获得最大几何误差的瓦片水平。
  * @returns {number} The maximum geometric error in meters.
  */
 QuadtreeTileProvider.prototype.getLevelMaximumGeometricError =

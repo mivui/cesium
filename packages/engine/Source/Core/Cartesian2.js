@@ -37,7 +37,7 @@ function Cartesian2(x, y) {
  *
  * @param {number} x The x coordinate.
  * @param {number} y The y coordinate.
- * @param {Cartesian2} [result] The object onto which to store the result.
+ * @param {Cartesian2} [result] 要在其上存储结果的对象。
  * @returns {Cartesian2} The modified result parameter or a new Cartesian2 instance if one was not provided.
  */
 Cartesian2.fromElements = function (x, y, result) {
@@ -54,7 +54,7 @@ Cartesian2.fromElements = function (x, y, result) {
  * Duplicates a Cartesian2 instance.
  *
  * @param {Cartesian2} cartesian The Cartesian to duplicate.
- * @param {Cartesian2} [result] The object onto which to store the result.
+ * @param {Cartesian2} [result] 要在其上存储结果的对象。
  * @returns {Cartesian2} The modified result parameter or a new Cartesian2 instance if one was not provided. (Returns undefined if cartesian is undefined)
  */
 Cartesian2.clone = function (cartesian, result) {
@@ -76,7 +76,7 @@ Cartesian2.clone = function (cartesian, result) {
  * @function
  *
  * @param {Cartesian3} cartesian The Cartesian3 instance to create a Cartesian2 instance from.
- * @param {Cartesian2} [result] The object onto which to store the result.
+ * @param {Cartesian2} [result] 要在其上存储结果的对象。
  * @returns {Cartesian2} The modified result parameter or a new Cartesian2 instance if one was not provided.
  */
 Cartesian2.fromCartesian3 = Cartesian2.clone;
@@ -87,7 +87,7 @@ Cartesian2.fromCartesian3 = Cartesian2.clone;
  * @function
  *
  * @param {Cartesian4} cartesian The Cartesian4 instance to create a Cartesian2 instance from.
- * @param {Cartesian2} [result] The object onto which to store the result.
+ * @param {Cartesian2} [result] 要在其上存储结果的对象。
  * @returns {Cartesian2} The modified result parameter or a new Cartesian2 instance if one was not provided.
  */
 Cartesian2.fromCartesian4 = Cartesian2.clone;
@@ -212,7 +212,7 @@ Cartesian2.unpackArray = function (array, result) {
  *
  * @param {number[]} array The array whose two consecutive elements correspond to the x and y components, respectively.
  * @param {number} [startingIndex=0] The offset into the array of the first element, which corresponds to the x component.
- * @param {Cartesian2} [result] The object onto which to store the result.
+ * @param {Cartesian2} [result] 要在其上存储结果的对象。
  * @returns {Cartesian2} The modified result parameter or a new Cartesian2 instance if one was not provided.
  *
  * @example
@@ -394,7 +394,7 @@ Cartesian2.distanceSquared = function (left, right) {
  * Computes the normalized form of the supplied Cartesian.
  *
  * @param {Cartesian2} cartesian The Cartesian to be normalized.
- * @param {Cartesian2} result The object onto which to store the result.
+ * @param {Cartesian2} result 要在其上存储结果的对象。
  * @returns {Cartesian2} The modified result parameter.
  */
 Cartesian2.normalize = function (cartesian, result) {
@@ -454,7 +454,7 @@ Cartesian2.cross = function (left, right) {
  *
  * @param {Cartesian2} left The first Cartesian.
  * @param {Cartesian2} right The second Cartesian.
- * @param {Cartesian2} result The object onto which to store the result.
+ * @param {Cartesian2} result 要在其上存储结果的对象。
  * @returns {Cartesian2} The modified result parameter.
  */
 Cartesian2.multiplyComponents = function (left, right, result) {
@@ -474,7 +474,7 @@ Cartesian2.multiplyComponents = function (left, right, result) {
  *
  * @param {Cartesian2} left The first Cartesian.
  * @param {Cartesian2} right The second Cartesian.
- * @param {Cartesian2} result The object onto which to store the result.
+ * @param {Cartesian2} result 要在其上存储结果的对象。
  * @returns {Cartesian2} The modified result parameter.
  */
 Cartesian2.divideComponents = function (left, right, result) {
@@ -494,7 +494,7 @@ Cartesian2.divideComponents = function (left, right, result) {
  *
  * @param {Cartesian2} left The first Cartesian.
  * @param {Cartesian2} right The second Cartesian.
- * @param {Cartesian2} result The object onto which to store the result.
+ * @param {Cartesian2} result 要在其上存储结果的对象。
  * @returns {Cartesian2} The modified result parameter.
  */
 Cartesian2.add = function (left, right, result) {
@@ -514,7 +514,7 @@ Cartesian2.add = function (left, right, result) {
  *
  * @param {Cartesian2} left The first Cartesian.
  * @param {Cartesian2} right The second Cartesian.
- * @param {Cartesian2} result The object onto which to store the result.
+ * @param {Cartesian2} result 要在其上存储结果的对象。
  * @returns {Cartesian2} The modified result parameter.
  */
 Cartesian2.subtract = function (left, right, result) {
@@ -534,7 +534,7 @@ Cartesian2.subtract = function (left, right, result) {
  *
  * @param {Cartesian2} cartesian The Cartesian to be scaled.
  * @param {number} scalar The scalar to multiply with.
- * @param {Cartesian2} result The object onto which to store the result.
+ * @param {Cartesian2} result 要在其上存储结果的对象。
  * @returns {Cartesian2} The modified result parameter.
  */
 Cartesian2.multiplyByScalar = function (cartesian, scalar, result) {
@@ -554,7 +554,7 @@ Cartesian2.multiplyByScalar = function (cartesian, scalar, result) {
  *
  * @param {Cartesian2} cartesian The Cartesian to be divided.
  * @param {number} scalar The scalar to divide by.
- * @param {Cartesian2} result The object onto which to store the result.
+ * @param {Cartesian2} result 要在其上存储结果的对象。
  * @returns {Cartesian2} The modified result parameter.
  */
 Cartesian2.divideByScalar = function (cartesian, scalar, result) {
@@ -573,7 +573,7 @@ Cartesian2.divideByScalar = function (cartesian, scalar, result) {
  * Negates the provided Cartesian.
  *
  * @param {Cartesian2} cartesian The Cartesian to be negated.
- * @param {Cartesian2} result The object onto which to store the result.
+ * @param {Cartesian2} result 要在其上存储结果的对象。
  * @returns {Cartesian2} The modified result parameter.
  */
 Cartesian2.negate = function (cartesian, result) {
@@ -591,7 +591,7 @@ Cartesian2.negate = function (cartesian, result) {
  * Computes the absolute value of the provided Cartesian.
  *
  * @param {Cartesian2} cartesian The Cartesian whose absolute value is to be computed.
- * @param {Cartesian2} result The object onto which to store the result.
+ * @param {Cartesian2} result 要在其上存储结果的对象。
  * @returns {Cartesian2} The modified result parameter.
  */
 Cartesian2.abs = function (cartesian, result) {
@@ -612,7 +612,7 @@ const lerpScratch = new Cartesian2();
  * @param {Cartesian2} start The value corresponding to t at 0.0.
  * @param {Cartesian2} end The value corresponding to t at 1.0.
  * @param {number} t The point along t at which to interpolate.
- * @param {Cartesian2} result The object onto which to store the result.
+ * @param {Cartesian2} result 要在其上存储结果的对象。
  * @returns {Cartesian2} The modified result parameter.
  */
 Cartesian2.lerp = function (start, end, t, result) {
@@ -655,7 +655,7 @@ const mostOrthogonalAxisScratch = new Cartesian2();
  * Returns the axis that is most orthogonal to the provided Cartesian.
  *
  * @param {Cartesian2} cartesian The Cartesian on which to find the most orthogonal axis.
- * @param {Cartesian2} result The object onto which to store the result.
+ * @param {Cartesian2} result 要在其上存储结果的对象。
  * @returns {Cartesian2} The most orthogonal axis.
  */
 Cartesian2.mostOrthogonalAxis = function (cartesian, result) {
@@ -678,11 +678,11 @@ Cartesian2.mostOrthogonalAxis = function (cartesian, result) {
 
 /**
  * Compares the provided Cartesians componentwise and returns
- * <code>true</code> if they are equal, <code>false</code> otherwise.
+ * <code>为true</code>，否则为false</code>。
  *
- * @param {Cartesian2} [left] The first Cartesian.
- * @param {Cartesian2} [right] The second Cartesian.
- * @returns {boolean} <code>true</code> if left and right are equal, <code>false</code> otherwise.
+ * @param {Cartesian2} [left] 第一个Cartesian.
+ * @param {Cartesian2} [right] 第二个 Cartesian.
+ * @returns {boolean} <code>true</code>如果左和右相等，否则<code>false</code>。
  */
 Cartesian2.equals = function (left, right) {
   return (
@@ -706,8 +706,8 @@ Cartesian2.equalsArray = function (cartesian, array, offset) {
  * <code>true</code> if they pass an absolute or relative tolerance test,
  * <code>false</code> otherwise.
  *
- * @param {Cartesian2} [left] The first Cartesian.
- * @param {Cartesian2} [right] The second Cartesian.
+ * @param {Cartesian2} [left] 第一个Cartesian.
+ * @param {Cartesian2} [right] 第二个 Cartesian.
  * @param {number} [relativeEpsilon=0] The relative epsilon tolerance to use for equality testing.
  * @param {number} [absoluteEpsilon=relativeEpsilon] The absolute epsilon tolerance to use for equality testing.
  * @returns {boolean} <code>true</code> if left and right are within the provided epsilon, <code>false</code> otherwise.
@@ -770,9 +770,9 @@ Cartesian2.UNIT_X = Object.freeze(new Cartesian2(1.0, 0.0));
 Cartesian2.UNIT_Y = Object.freeze(new Cartesian2(0.0, 1.0));
 
 /**
- * Duplicates this Cartesian2 instance.
+ * 复制Cartesian2 instance.
  *
- * @param {Cartesian2} [result] The object onto which to store the result.
+ * @param {Cartesian2} [result] 要在其上存储结果的对象。
  * @returns {Cartesian2} The modified result parameter or a new Cartesian2 instance if one was not provided.
  */
 Cartesian2.prototype.clone = function (result) {
@@ -781,10 +781,10 @@ Cartesian2.prototype.clone = function (result) {
 
 /**
  * Compares this Cartesian against the provided Cartesian componentwise and returns
- * <code>true</code> if they are equal, <code>false</code> otherwise.
+ * <code>为true</code>，否则为false</code>。
  *
- * @param {Cartesian2} [right] The right hand side Cartesian.
- * @returns {boolean} <code>true</code> if they are equal, <code>false</code> otherwise.
+ * @param {Cartesian2} [right] 右边 Cartesian.
+ * @returns {boolean} <code>为true</code>，否则为false</code>。
  */
 Cartesian2.prototype.equals = function (right) {
   return Cartesian2.equals(this, right);
@@ -795,7 +795,7 @@ Cartesian2.prototype.equals = function (right) {
  * <code>true</code> if they pass an absolute or relative tolerance test,
  * <code>false</code> otherwise.
  *
- * @param {Cartesian2} [right] The right hand side Cartesian.
+ * @param {Cartesian2} [right] 右边 Cartesian.
  * @param {number} [relativeEpsilon=0] The relative epsilon tolerance to use for equality testing.
  * @param {number} [absoluteEpsilon=relativeEpsilon] The absolute epsilon tolerance to use for equality testing.
  * @returns {boolean} <code>true</code> if they are within the provided epsilon, <code>false</code> otherwise.

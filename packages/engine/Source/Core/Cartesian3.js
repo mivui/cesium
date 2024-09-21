@@ -44,7 +44,7 @@ function Cartesian3(x, y, z) {
  * Converts the provided Spherical into Cartesian3 coordinates.
  *
  * @param {Spherical} spherical The Spherical to be converted to Cartesian3.
- * @param {Cartesian3} [result] The object onto which to store the result.
+ * @param {Cartesian3} [result] 要在其上存储结果的对象。
  * @returns {Cartesian3} The modified result parameter or a new Cartesian3 instance if one was not provided.
  */
 Cartesian3.fromSpherical = function (spherical, result) {
@@ -72,7 +72,7 @@ Cartesian3.fromSpherical = function (spherical, result) {
  * @param {number} x The x coordinate.
  * @param {number} y The y coordinate.
  * @param {number} z The z coordinate.
- * @param {Cartesian3} [result] The object onto which to store the result.
+ * @param {Cartesian3} [result] 要在其上存储结果的对象。
  * @returns {Cartesian3} The modified result parameter or a new Cartesian3 instance if one was not provided.
  */
 Cartesian3.fromElements = function (x, y, z, result) {
@@ -90,7 +90,7 @@ Cartesian3.fromElements = function (x, y, z, result) {
  * Duplicates a Cartesian3 instance.
  *
  * @param {Cartesian3} cartesian The Cartesian to duplicate.
- * @param {Cartesian3} [result] The object onto which to store the result.
+ * @param {Cartesian3} [result] 要在其上存储结果的对象。
  * @returns {Cartesian3} The modified result parameter or a new Cartesian3 instance if one was not provided. (Returns undefined if cartesian is undefined)
  */
 Cartesian3.clone = function (cartesian, result) {
@@ -113,7 +113,7 @@ Cartesian3.clone = function (cartesian, result) {
  * @function
  *
  * @param {Cartesian4} cartesian The Cartesian4 instance to create a Cartesian3 instance from.
- * @param {Cartesian3} [result] The object onto which to store the result.
+ * @param {Cartesian3} [result] 要在其上存储结果的对象。
  * @returns {Cartesian3} The modified result parameter or a new Cartesian3 instance if one was not provided.
  */
 Cartesian3.fromCartesian4 = Cartesian3.clone;
@@ -240,7 +240,7 @@ Cartesian3.unpackArray = function (array, result) {
  *
  * @param {number[]} array The array whose three consecutive elements correspond to the x, y, and z components, respectively.
  * @param {number} [startingIndex=0] The offset into the array of the first element, which corresponds to the x component.
- * @param {Cartesian3} [result] The object onto which to store the result.
+ * @param {Cartesian3} [result] 要在其上存储结果的对象。
  * @returns {Cartesian3} The modified result parameter or a new Cartesian3 instance if one was not provided.
  *
  * @example
@@ -430,7 +430,7 @@ Cartesian3.distanceSquared = function (left, right) {
  * Computes the normalized form of the supplied Cartesian.
  *
  * @param {Cartesian3} cartesian The Cartesian to be normalized.
- * @param {Cartesian3} result The object onto which to store the result.
+ * @param {Cartesian3} result 要在其上存储结果的对象。
  * @returns {Cartesian3} The modified result parameter.
  */
 Cartesian3.normalize = function (cartesian, result) {
@@ -475,7 +475,7 @@ Cartesian3.dot = function (left, right) {
  *
  * @param {Cartesian3} left The first Cartesian.
  * @param {Cartesian3} right The second Cartesian.
- * @param {Cartesian3} result The object onto which to store the result.
+ * @param {Cartesian3} result 要在其上存储结果的对象。
  * @returns {Cartesian3} The modified result parameter.
  */
 Cartesian3.multiplyComponents = function (left, right, result) {
@@ -496,7 +496,7 @@ Cartesian3.multiplyComponents = function (left, right, result) {
  *
  * @param {Cartesian3} left The first Cartesian.
  * @param {Cartesian3} right The second Cartesian.
- * @param {Cartesian3} result The object onto which to store the result.
+ * @param {Cartesian3} result 要在其上存储结果的对象。
  * @returns {Cartesian3} The modified result parameter.
  */
 Cartesian3.divideComponents = function (left, right, result) {
@@ -517,7 +517,7 @@ Cartesian3.divideComponents = function (left, right, result) {
  *
  * @param {Cartesian3} left The first Cartesian.
  * @param {Cartesian3} right The second Cartesian.
- * @param {Cartesian3} result The object onto which to store the result.
+ * @param {Cartesian3} result 要在其上存储结果的对象。
  * @returns {Cartesian3} The modified result parameter.
  */
 Cartesian3.add = function (left, right, result) {
@@ -538,7 +538,7 @@ Cartesian3.add = function (left, right, result) {
  *
  * @param {Cartesian3} left The first Cartesian.
  * @param {Cartesian3} right The second Cartesian.
- * @param {Cartesian3} result The object onto which to store the result.
+ * @param {Cartesian3} result 要在其上存储结果的对象。
  * @returns {Cartesian3} The modified result parameter.
  */
 Cartesian3.subtract = function (left, right, result) {
@@ -559,7 +559,7 @@ Cartesian3.subtract = function (left, right, result) {
  *
  * @param {Cartesian3} cartesian The Cartesian to be scaled.
  * @param {number} scalar The scalar to multiply with.
- * @param {Cartesian3} result The object onto which to store the result.
+ * @param {Cartesian3} result 要在其上存储结果的对象。
  * @returns {Cartesian3} The modified result parameter.
  */
 Cartesian3.multiplyByScalar = function (cartesian, scalar, result) {
@@ -580,7 +580,7 @@ Cartesian3.multiplyByScalar = function (cartesian, scalar, result) {
  *
  * @param {Cartesian3} cartesian The Cartesian to be divided.
  * @param {number} scalar The scalar to divide by.
- * @param {Cartesian3} result The object onto which to store the result.
+ * @param {Cartesian3} result 要在其上存储结果的对象。
  * @returns {Cartesian3} The modified result parameter.
  */
 Cartesian3.divideByScalar = function (cartesian, scalar, result) {
@@ -600,7 +600,7 @@ Cartesian3.divideByScalar = function (cartesian, scalar, result) {
  * Negates the provided Cartesian.
  *
  * @param {Cartesian3} cartesian The Cartesian to be negated.
- * @param {Cartesian3} result The object onto which to store the result.
+ * @param {Cartesian3} result 要在其上存储结果的对象。
  * @returns {Cartesian3} The modified result parameter.
  */
 Cartesian3.negate = function (cartesian, result) {
@@ -619,7 +619,7 @@ Cartesian3.negate = function (cartesian, result) {
  * Computes the absolute value of the provided Cartesian.
  *
  * @param {Cartesian3} cartesian The Cartesian whose absolute value is to be computed.
- * @param {Cartesian3} result The object onto which to store the result.
+ * @param {Cartesian3} result 要在其上存储结果的对象。
  * @returns {Cartesian3} The modified result parameter.
  */
 Cartesian3.abs = function (cartesian, result) {
@@ -641,7 +641,7 @@ const lerpScratch = new Cartesian3();
  * @param {Cartesian3} start The value corresponding to t at 0.0.
  * @param {Cartesian3} end The value corresponding to t at 1.0.
  * @param {number} t The point along t at which to interpolate.
- * @param {Cartesian3} result The object onto which to store the result.
+ * @param {Cartesian3} result 要在其上存储结果的对象。
  * @returns {Cartesian3} The modified result parameter.
  */
 Cartesian3.lerp = function (start, end, t, result) {
@@ -690,7 +690,7 @@ const mostOrthogonalAxisScratch = new Cartesian3();
  * Returns the axis that is most orthogonal to the provided Cartesian.
  *
  * @param {Cartesian3} cartesian The Cartesian on which to find the most orthogonal axis.
- * @param {Cartesian3} result The object onto which to store the result.
+ * @param {Cartesian3} result 要在其上存储结果的对象。
  * @returns {Cartesian3} The most orthogonal axis.
  */
 Cartesian3.mostOrthogonalAxis = function (cartesian, result) {
@@ -737,11 +737,11 @@ Cartesian3.projectVector = function (a, b, result) {
 
 /**
  * Compares the provided Cartesians componentwise and returns
- * <code>true</code> if they are equal, <code>false</code> otherwise.
+ * <code>为true</code>，否则为false</code>。
  *
- * @param {Cartesian3} [left] The first Cartesian.
- * @param {Cartesian3} [right] The second Cartesian.
- * @returns {boolean} <code>true</code> if left and right are equal, <code>false</code> otherwise.
+ * @param {Cartesian3} [left] 第一个Cartesian.
+ * @param {Cartesian3} [right] 第二个 Cartesian.
+ * @returns {boolean} <code>true</code>如果左和右相等，否则<code>false</code>。
  */
 Cartesian3.equals = function (left, right) {
   return (
@@ -770,8 +770,8 @@ Cartesian3.equalsArray = function (cartesian, array, offset) {
  * <code>true</code> if they pass an absolute or relative tolerance test,
  * <code>false</code> otherwise.
  *
- * @param {Cartesian3} [left] The first Cartesian.
- * @param {Cartesian3} [right] The second Cartesian.
+ * @param {Cartesian3} [left] 第一个Cartesian.
+ * @param {Cartesian3} [right] 第二个 Cartesian.
  * @param {number} [relativeEpsilon=0] The relative epsilon tolerance to use for equality testing.
  * @param {number} [absoluteEpsilon=relativeEpsilon] The absolute epsilon tolerance to use for equality testing.
  * @returns {boolean} <code>true</code> if left and right are within the provided epsilon, <code>false</code> otherwise.
@@ -812,7 +812,7 @@ Cartesian3.equalsEpsilon = function (
  *
  * @param {Cartesian3} left The first Cartesian.
  * @param {Cartesian3} right The second Cartesian.
- * @param {Cartesian3} result The object onto which to store the result.
+ * @param {Cartesian3} result 要在其上存储结果的对象。
  * @returns {Cartesian3} The cross product.
  */
 Cartesian3.cross = function (left, right, result) {
@@ -843,7 +843,7 @@ Cartesian3.cross = function (left, right, result) {
  * Computes the midpoint between the right and left Cartesian.
  * @param {Cartesian3} left The first Cartesian.
  * @param {Cartesian3} right The second Cartesian.
- * @param {Cartesian3} result The object onto which to store the result.
+ * @param {Cartesian3} result 要在其上存储结果的对象。
  * @returns {Cartesian3} The midpoint.
  */
 Cartesian3.midpoint = function (left, right, result) {
@@ -867,7 +867,7 @@ Cartesian3.midpoint = function (left, right, result) {
  * @param {number} latitude The latitude, in degrees
  * @param {number} [height=0.0] The height, in meters, above the ellipsoid.
  * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] The ellipsoid on which the position lies.
- * @param {Cartesian3} [result] The object onto which to store the result.
+ * @param {Cartesian3} [result] 要在其上存储结果的对象。
  * @returns {Cartesian3} The position
  *
  * @example
@@ -907,7 +907,7 @@ Cartesian3._ellipsoidRadiiSquared = new Cartesian3(
  * @param {number} latitude The latitude, in radians
  * @param {number} [height=0.0] The height, in meters, above the ellipsoid.
  * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] The ellipsoid on which the position lies.
- * @param {Cartesian3} [result] The object onto which to store the result.
+ * @param {Cartesian3} [result] 要在其上存储结果的对象。
  * @returns {Cartesian3} The position
  *
  * @example
@@ -1167,9 +1167,9 @@ Cartesian3.UNIT_Y = Object.freeze(new Cartesian3(0.0, 1.0, 0.0));
 Cartesian3.UNIT_Z = Object.freeze(new Cartesian3(0.0, 0.0, 1.0));
 
 /**
- * Duplicates this Cartesian3 instance.
+ * 复制Cartesian3 instance.
  *
- * @param {Cartesian3} [result] The object onto which to store the result.
+ * @param {Cartesian3} [result] 要在其上存储结果的对象。
  * @returns {Cartesian3} The modified result parameter or a new Cartesian3 instance if one was not provided.
  */
 Cartesian3.prototype.clone = function (result) {
@@ -1178,10 +1178,10 @@ Cartesian3.prototype.clone = function (result) {
 
 /**
  * Compares this Cartesian against the provided Cartesian componentwise and returns
- * <code>true</code> if they are equal, <code>false</code> otherwise.
+ * <code>为true</code>，否则为false</code>。
  *
- * @param {Cartesian3} [right] The right hand side Cartesian.
- * @returns {boolean} <code>true</code> if they are equal, <code>false</code> otherwise.
+ * @param {Cartesian3} [right] 右边 Cartesian.
+ * @returns {boolean} <code>为true</code>，否则为false</code>。
  */
 Cartesian3.prototype.equals = function (right) {
   return Cartesian3.equals(this, right);
@@ -1192,7 +1192,7 @@ Cartesian3.prototype.equals = function (right) {
  * <code>true</code> if they pass an absolute or relative tolerance test,
  * <code>false</code> otherwise.
  *
- * @param {Cartesian3} [right] The right hand side Cartesian.
+ * @param {Cartesian3} [right] 右边 Cartesian.
  * @param {number} [relativeEpsilon=0] The relative epsilon tolerance to use for equality testing.
  * @param {number} [absoluteEpsilon=relativeEpsilon] The absolute epsilon tolerance to use for equality testing.
  * @returns {boolean} <code>true</code> if they are within the provided epsilon, <code>false</code> otherwise.

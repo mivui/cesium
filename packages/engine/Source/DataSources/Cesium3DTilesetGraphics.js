@@ -73,9 +73,9 @@ Object.defineProperties(Cesium3DTilesetGraphics.prototype, {
 });
 
 /**
- * Duplicates this instance.
+ * 复制instance.
  *
- * @param {Cesium3DTilesetGraphics} [result] The object onto which to store the result.
+ * @param {Cesium3DTilesetGraphics} [result] 要在其上存储结果的对象。
  * @returns {Cesium3DTilesetGraphics} The modified result parameter or a new instance if one was not provided.
  */
 Cesium3DTilesetGraphics.prototype.clone = function (result) {

@@ -91,7 +91,7 @@ function setRuntime(expression, defines) {
  * a {@link Color}, the {@link Cartesian4} value is converted to a {@link Color} and then returned.
  *
  * @param {Cesium3DTileFeature} feature The feature whose properties may be used as variables in the expression.
- * @param {object} [result] The object onto which to store the result.
+ * @param {object} [result] 要在其上存储结果的对象。
  * @returns {boolean|number|string|RegExp|Cartesian2|Cartesian3|Cartesian4|Color} The result of evaluating the expression.
  */
 ConditionsExpression.prototype.evaluate = function (feature, result) {

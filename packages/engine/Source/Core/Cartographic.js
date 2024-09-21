@@ -46,7 +46,7 @@ function Cartographic(longitude, latitude, height) {
  * @param {number} longitude The longitude, in radians.
  * @param {number} latitude The latitude, in radians.
  * @param {number} [height=0.0] The height, in meters, above the ellipsoid.
- * @param {Cartographic} [result] The object onto which to store the result.
+ * @param {Cartographic} [result] 要在其上存储结果的对象。
  * @returns {Cartographic} The modified result parameter or a new Cartographic instance if one was not provided.
  */
 Cartographic.fromRadians = function (longitude, latitude, height, result) {
@@ -75,7 +75,7 @@ Cartographic.fromRadians = function (longitude, latitude, height, result) {
  * @param {number} longitude The longitude, in degrees.
  * @param {number} latitude The latitude, in degrees.
  * @param {number} [height=0.0] The height, in meters, above the ellipsoid.
- * @param {Cartographic} [result] The object onto which to store the result.
+ * @param {Cartographic} [result] 要在其上存储结果的对象。
  * @returns {Cartographic} The modified result parameter or a new Cartographic instance if one was not provided.
  */
 Cartographic.fromDegrees = function (longitude, latitude, height, result) {
@@ -113,7 +113,7 @@ Cartographic._ellipsoidCenterToleranceSquared = CesiumMath.EPSILON1;
  *
  * @param {Cartesian3} cartesian The Cartesian position to convert to cartographic representation.
  * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] The ellipsoid on which the position lies.
- * @param {Cartographic} [result] The object onto which to store the result.
+ * @param {Cartographic} [result] 要在其上存储结果的对象。
  * @returns {Cartographic} The modified result parameter, new Cartographic instance if none was provided, or undefined if the cartesian is at the center of the ellipsoid.
  */
 Cartographic.fromCartesian = function (cartesian, ellipsoid, result) {
@@ -169,7 +169,7 @@ Cartographic.fromCartesian = function (cartesian, ellipsoid, result) {
  *
  * @param {Cartographic} cartographic Input to be converted into a Cartesian3 output.
  * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] The ellipsoid on which the position lies.
- * @param {Cartesian3} [result] The object onto which to store the result.
+ * @param {Cartesian3} [result] 要在其上存储结果的对象。
  * @returns {Cartesian3} The position
  */
 Cartographic.toCartesian = function (cartographic, ellipsoid, result) {
@@ -190,7 +190,7 @@ Cartographic.toCartesian = function (cartographic, ellipsoid, result) {
  * Duplicates a Cartographic instance.
  *
  * @param {Cartographic} cartographic The cartographic to duplicate.
- * @param {Cartographic} [result] The object onto which to store the result.
+ * @param {Cartographic} [result] 要在其上存储结果的对象。
  * @returns {Cartographic} The modified result parameter or a new Cartographic instance if one was not provided. (Returns undefined if cartographic is undefined)
  */
 Cartographic.clone = function (cartographic, result) {
@@ -212,11 +212,11 @@ Cartographic.clone = function (cartographic, result) {
 
 /**
  * Compares the provided cartographics componentwise and returns
- * <code>true</code> if they are equal, <code>false</code> otherwise.
+ * <code>为true</code>，否则为false</code>。
  *
- * @param {Cartographic} [left] The first cartographic.
- * @param {Cartographic} [right] The second cartographic.
- * @returns {boolean} <code>true</code> if left and right are equal, <code>false</code> otherwise.
+ * @param {Cartographic} [left] 第一个cartographic.
+ * @param {Cartographic} [right] 第二个 cartographic.
+ * @returns {boolean} <code>true</code>如果左和右相等，否则<code>false</code>。
  */
 Cartographic.equals = function (left, right) {
   return (
@@ -234,8 +234,8 @@ Cartographic.equals = function (left, right) {
  * <code>true</code> if they are within the provided epsilon,
  * <code>false</code> otherwise.
  *
- * @param {Cartographic} [left] The first cartographic.
- * @param {Cartographic} [right] The second cartographic.
+ * @param {Cartographic} [left] 第一个cartographic.
+ * @param {Cartographic} [right] 第二个 cartographic.
  * @param {number} [epsilon=0] The epsilon to use for equality testing.
  * @returns {boolean} <code>true</code> if left and right are within the provided epsilon, <code>false</code> otherwise.
  */
@@ -261,9 +261,9 @@ Cartographic.equalsEpsilon = function (left, right, epsilon) {
 Cartographic.ZERO = Object.freeze(new Cartographic(0.0, 0.0, 0.0));
 
 /**
- * Duplicates this instance.
+ * 复制instance.
  *
- * @param {Cartographic} [result] The object onto which to store the result.
+ * @param {Cartographic} [result] 要在其上存储结果的对象。
  * @returns {Cartographic} The modified result parameter or a new Cartographic instance if one was not provided.
  */
 Cartographic.prototype.clone = function (result) {
@@ -272,10 +272,10 @@ Cartographic.prototype.clone = function (result) {
 
 /**
  * Compares the provided against this cartographic componentwise and returns
- * <code>true</code> if they are equal, <code>false</code> otherwise.
+ * <code>为true</code>，否则为false</code>。
  *
- * @param {Cartographic} [right] The second cartographic.
- * @returns {boolean} <code>true</code> if left and right are equal, <code>false</code> otherwise.
+ * @param {Cartographic} [right] 第二个 cartographic.
+ * @returns {boolean} <code>true</code>如果左和右相等，否则<code>false</code>。
  */
 Cartographic.prototype.equals = function (right) {
   return Cartographic.equals(this, right);
@@ -286,7 +286,7 @@ Cartographic.prototype.equals = function (right) {
  * <code>true</code> if they are within the provided epsilon,
  * <code>false</code> otherwise.
  *
- * @param {Cartographic} [right] The second cartographic.
+ * @param {Cartographic} [right] 第二个 cartographic.
  * @param {number} [epsilon=0] The epsilon to use for equality testing.
  * @returns {boolean} <code>true</code> if left and right are within the provided epsilon, <code>false</code> otherwise.
  */

@@ -1803,7 +1803,7 @@ function createSphere(sphere, transform, result) {
  *
  * @param {object} boundingVolumeHeader The tile's bounding volume header.
  * @param {Matrix4} transform The transform to apply to the bounding volume.
- * @param {TileBoundingVolume} [result] The object onto which to store the result.
+ * @param {TileBoundingVolume} [result] 要在其上存储结果的对象。
  *
  * @returns {TileBoundingVolume} The modified result parameter or a new TileBoundingVolume instance if none was provided.
  *

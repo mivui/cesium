@@ -343,7 +343,7 @@ PerspectiveOffCenterFrustum.prototype.computeCullingVolume = function (
  * @param {number} drawingBufferHeight The height of the drawing buffer.
  * @param {number} distance The distance to the near plane in meters.
  * @param {number} pixelRatio The scaling factor from pixel space to coordinate space.
- * @param {Cartesian2} result The object onto which to store the result.
+ * @param {Cartesian2} result 要在其上存储结果的对象。
  * @returns {Cartesian2} The modified result parameter or a new instance of {@link Cartesian2} with the pixel's width and height in the x and y properties, respectively.
  *
  * @exception {DeveloperError} drawingBufferWidth must be greater than zero.
@@ -417,7 +417,7 @@ PerspectiveOffCenterFrustum.prototype.getPixelDimensions = function (
 /**
  * Returns a duplicate of a PerspectiveOffCenterFrustum instance.
  *
- * @param {PerspectiveOffCenterFrustum} [result] The object onto which to store the result.
+ * @param {PerspectiveOffCenterFrustum} [result] 要在其上存储结果的对象。
  * @returns {PerspectiveOffCenterFrustum} The modified result parameter or a new PerspectiveFrustum instance if one was not provided.
  */
 PerspectiveOffCenterFrustum.prototype.clone = function (result) {
@@ -445,10 +445,10 @@ PerspectiveOffCenterFrustum.prototype.clone = function (result) {
 
 /**
  * Compares the provided PerspectiveOffCenterFrustum componentwise and returns
- * <code>true</code> if they are equal, <code>false</code> otherwise.
+ * <code>为true</code>，否则为false</code>。
  *
- * @param {PerspectiveOffCenterFrustum} [other] The right hand side PerspectiveOffCenterFrustum.
- * @returns {boolean} <code>true</code> if they are equal, <code>false</code> otherwise.
+ * @param {PerspectiveOffCenterFrustum} [other] 右边 PerspectiveOffCenterFrustum.
+ * @returns {boolean} <code>为true</code>，否则为false</code>。
  */
 PerspectiveOffCenterFrustum.prototype.equals = function (other) {
   return (
@@ -468,7 +468,7 @@ PerspectiveOffCenterFrustum.prototype.equals = function (other) {
  * <code>true</code> if they pass an absolute or relative tolerance test,
  * <code>false</code> otherwise.
  *
- * @param {PerspectiveOffCenterFrustum} other The right hand side PerspectiveOffCenterFrustum.
+ * @param {PerspectiveOffCenterFrustum} other 右边 PerspectiveOffCenterFrustum.
  * @param {number} relativeEpsilon The relative epsilon tolerance to use for equality testing.
  * @param {number} [absoluteEpsilon=relativeEpsilon] The absolute epsilon tolerance to use for equality testing.
  * @returns {boolean} <code>true</code> if this and other are within the provided epsilon, <code>false</code> otherwise.

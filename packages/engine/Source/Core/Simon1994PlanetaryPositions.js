@@ -632,7 +632,7 @@ let translation = new Cartesian3();
  * Computes the position of the Sun in the Earth-centered inertial frame
  *
  * @param {JulianDate} [julianDate] The time at which to compute the Sun's position, if not provided the current system time is used.
- * @param {Cartesian3} [result] The object onto which to store the result.
+ * @param {Cartesian3} [result] 要在其上存储结果的对象。
  * @returns {Cartesian3} Calculated sun position
  */
 Simon1994PlanetaryPositions.computeSunPositionInEarthInertialFrame = function (
@@ -664,7 +664,7 @@ Simon1994PlanetaryPositions.computeSunPositionInEarthInertialFrame = function (
  * Computes the position of the Moon in the Earth-centered inertial frame
  *
  * @param {JulianDate} [julianDate] The time at which to compute the Moon's position, if not provided the current system time is used.
- * @param {Cartesian3} [result] The object onto which to store the result.
+ * @param {Cartesian3} [result] 要在其上存储结果的对象。
  * @returns {Cartesian3} Calculated moon position
  */
 Simon1994PlanetaryPositions.computeMoonPositionInEarthInertialFrame = function (

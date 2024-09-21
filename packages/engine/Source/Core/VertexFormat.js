@@ -289,7 +289,7 @@ VertexFormat.unpack = function (array, startingIndex, result) {
  * Duplicates a VertexFormat instance.
  *
  * @param {VertexFormat} vertexFormat The vertex format to duplicate.
- * @param {VertexFormat} [result] The object onto which to store the result.
+ * @param {VertexFormat} [result] 要在其上存储结果的对象。
  * @returns {VertexFormat} The modified result parameter or a new VertexFormat instance if one was not provided. (Returns undefined if vertexFormat is undefined)
  */
 VertexFormat.clone = function (vertexFormat, result) {

@@ -112,8 +112,8 @@ Queue.prototype.sort = function (compareFunction) {
  * A function used to compare two items while sorting a queue.
  * @callback Queue.Comparator
  *
- * @param {*} a An item in the array.
- * @param {*} b An item in the array.
+ * @param {*} a 数组中的一项。
+ * @param {*} b 数组中的一项。
  * @returns {number} Returns a negative value if <code>a</code> is less than <code>b</code>,
  *          a positive value if <code>a</code> is greater than <code>b</code>, or
  *          0 if <code>a</code> is equal to <code>b</code>.

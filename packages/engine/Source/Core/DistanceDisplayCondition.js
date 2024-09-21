@@ -151,7 +151,7 @@ DistanceDisplayCondition.clone = function (value, result) {
 };
 
 /**
- * Duplicates this instance.
+ * 复制instance.
  *
  * @param {DistanceDisplayCondition} [result] The result onto which to store the result.
  * @return {DistanceDisplayCondition} The duplicated instance.
