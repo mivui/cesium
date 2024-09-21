@@ -152,7 +152,7 @@ DistanceDisplayConditionGeometryInstanceAttribute.fromDistanceDisplayCondition =
  *
  * @param {DistanceDisplayCondition} distanceDisplayCondition The distance display condition value.
  * @param {Float32Array} [result] The array to store the result in, if undefined a new instance will be created.
- * @returns {Float32Array} The modified result parameter or a new instance if result was undefined.
+ * @returns {Float32Array} 修改后的结果参数 or a new instance if result was undefined.
  *
  * @example
  * const attributes = primitive.getGeometryInstanceAttributes('an id');

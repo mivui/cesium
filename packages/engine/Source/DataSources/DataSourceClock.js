@@ -90,7 +90,7 @@ Object.defineProperties(DataSourceClock.prototype, {
  * 复制DataSourceClock instance.
  *
  * @param {DataSourceClock} [result] 要在其上存储结果的对象。
- * @returns {DataSourceClock} The modified result parameter or a new instance if one was not provided.
+ * @returns {DataSourceClock} 修改后的结果参数 or a new instance if one was not provided.
  */
 DataSourceClock.prototype.clone = function (result) {
   if (!defined(result)) {
@@ -148,7 +148,7 @@ DataSourceClock.prototype.merge = function (source) {
 /**
  * Gets the value of this clock instance as a {@link Clock} object.
  *
- * @returns {Clock} The modified result parameter or a new instance if one was not provided.
+ * @returns {Clock} 修改后的结果参数 or a new instance if one was not provided.
  */
 DataSourceClock.prototype.getValue = function (result) {
   if (!defined(result)) {

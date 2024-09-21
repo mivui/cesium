@@ -4514,7 +4514,7 @@ Scene.prototype.sampleHeight = function (position, objectsToExclude, width) {
  * @param {Object[]} [objectsToExclude] A list of primitives, entities, or 3D Tiles features to not clamp to.
  * @param {number} [width=0.1] Width of the intersection volume in meters.
  * @param {Cartesian3} [result] An optional object to return the clamped position.
- * @returns {Cartesian3} The modified result parameter or a new Cartesian3 instance if one was not provided. This may be <code>undefined</code> if there was no scene geometry to clamp to.
+ * @returns {Cartesian3} 修改后的结果参数 or a new Cartesian3 instance if one was not provided. This may be <code>undefined</code> if there was no scene geometry to clamp to.
  *
  * @example
  * // Clamp an entity to the underlying scene geometry
@@ -4630,7 +4630,7 @@ Scene.prototype.clampToHeightMostDetailed = function (
  *
  * @param {Cartesian3} position The position in cartesian coordinates.
  * @param {Cartesian2} [result] An optional object to return the input position transformed to canvas coordinates.
- * @returns {Cartesian2} The modified result parameter or a new Cartesian2 instance if one was not provided.  This may be <code>undefined</code> if the input position is near the center of the ellipsoid.
+ * @returns {Cartesian2} 如果没有提供新的Cartesian2实例，则使用修改后的结果参数。  This may be <code>undefined</code> if the input position is near the center of the ellipsoid.
  *
  * @example
  * // Output the canvas position of longitude/latitude (0, 0) every time the mouse moves.

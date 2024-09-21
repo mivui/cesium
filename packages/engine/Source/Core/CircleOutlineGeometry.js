@@ -57,7 +57,7 @@ function CircleOutlineGeometry(options) {
 }
 
 /**
- * The number of elements used to pack the object into an array.
+ * 用于将对象打包到数组中的元素数量。
  * @type {number}
  */
 CircleOutlineGeometry.packedLength = EllipseOutlineGeometry.packedLength;
@@ -105,7 +105,7 @@ const scratchOptions = {
  * @param {number[]} array 打包数组。
  * @param {number} [startingIndex=0] 要解压缩的元素的起始索引。
  * @param {CircleOutlineGeometry} [result] 要在其中存储结果的对象。
- * @returns {CircleOutlineGeometry} The modified result parameter or a new CircleOutlineGeometry instance if one was not provided.
+ * @returns {CircleOutlineGeometry} 修改后的结果参数 or a new CircleOutlineGeometry instance if one was not provided.
  */
 CircleOutlineGeometry.unpack = function (array, startingIndex, result) {
   const ellipseGeometry = EllipseOutlineGeometry.unpack(
@@ -141,7 +141,7 @@ CircleOutlineGeometry.unpack = function (array, startingIndex, result) {
  * Computes the geometric representation of an outline of a circle on an ellipsoid, including its vertices, indices, and a bounding sphere.
  *
  * @param {CircleOutlineGeometry} circleGeometry A description of the circle.
- * @returns {Geometry|undefined} The computed vertices and indices.
+ * @returns {Geometry|undefined} 计算的顶点和索引。
  */
 CircleOutlineGeometry.createGeometry = function (circleGeometry) {
   return EllipseOutlineGeometry.createGeometry(circleGeometry._ellipseGeometry);

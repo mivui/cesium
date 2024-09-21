@@ -663,7 +663,7 @@ const orientationScratch = new Quaternion();
  * @param {JulianDate} time The time to retrieve model matrix for.
  * @param {Matrix4} [result] 要在其上存储结果的对象。
  *
- * @returns {Matrix4} The modified result parameter or a new Matrix4 instance if one was not provided. Result is undefined if position is undefined.
+ * @returns {Matrix4} 修改后的结果参数 or a new Matrix4 instance if one was not provided. Result is undefined if position is undefined.
  */
 Entity.prototype.computeModelMatrix = function (time, result) {
   //>>includeStart('debug', pragmas.debug);

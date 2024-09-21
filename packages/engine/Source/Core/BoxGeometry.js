@@ -15,15 +15,15 @@ import VertexFormat from "./VertexFormat.js";
 const diffScratch = new Cartesian3();
 
 /**
- * Describes a cube centered at the origin.
+ * 描述以原点为中心的立方体。
  *
  * @alias BoxGeometry
  * @constructor
  *
  * @param {object} options 对象，具有以下属性:
- * @param {Cartesian3} options.minimum The minimum x, y, and z coordinates of the box.
- * @param {Cartesian3} options.maximum The maximum x, y, and z coordinates of the box.
- * @param {VertexFormat} [options.vertexFormat=VertexFormat.DEFAULT] The vertex attributes to be computed.
+ * @param {Cartesian3} options.minimum 最小x, y, z坐标来自 box.
+ * @param {Cartesian3} options.maximum 最大x, y, z坐标来自 box.
+ * @param {VertexFormat} [options.vertexFormat=VertexFormat.DEFAULT] 要计算的顶点属性。
  *
  * @see BoxGeometry.fromDimensions
  * @see BoxGeometry.createGeometry
@@ -68,11 +68,11 @@ function BoxGeometry(options) {
 }
 
 /**
- * Creates a cube centered at the origin given its dimensions.
+ * 创建以给定尺寸的原点为中心的立方体。
  *
  * @param {object} options 对象，具有以下属性:
- * @param {Cartesian3} options.dimensions The width, depth, and height of the box stored in the x, y, and z coordinates of the <code>Cartesian3</code>, respectively.
- * @param {VertexFormat} [options.vertexFormat=VertexFormat.DEFAULT] The vertex attributes to be computed.
+ * @param {Cartesian3} options.dimensions 盒子的宽度、深度和高度分别存储在<code>Cartesian3</code>的x、y和z坐标中。
+ * @param {VertexFormat} [options.vertexFormat=VertexFormat.DEFAULT] 要计算的顶点属性。
  * @returns {BoxGeometry}
  *
  * @exception {DeveloperError} All dimensions components must be greater than or equal to zero.
@@ -109,7 +109,7 @@ BoxGeometry.fromDimensions = function (options) {
 };
 
 /**
- * Creates a cube from the dimensions of an AxisAlignedBoundingBox.
+ * 从AxisAlignedBoundingBox的维度创建一个多维数据集。
  *
  * @param {AxisAlignedBoundingBox} boundingBox A description of the AxisAlignedBoundingBox.
  * @returns {BoxGeometry}
@@ -140,7 +140,7 @@ BoxGeometry.fromAxisAlignedBoundingBox = function (boundingBox) {
 };
 
 /**
- * The number of elements used to pack the object into an array.
+ * 用于将对象打包到数组中的元素数量。
  * @type {number}
  */
 BoxGeometry.packedLength =
@@ -197,7 +197,7 @@ const scratchOptions = {
  * @param {number[]} array 打包数组。
  * @param {number} [startingIndex=0] 要解压缩的元素的起始索引。
  * @param {BoxGeometry} [result] 要在其中存储结果的对象。
- * @returns {BoxGeometry} The modified result parameter or a new BoxGeometry instance if one was not provided.
+ * @returns {BoxGeometry} 修改后的结果参数或新的BoxGeometry实例(如果没有提供)。
  */
 BoxGeometry.unpack = function (array, startingIndex, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -238,10 +238,10 @@ BoxGeometry.unpack = function (array, startingIndex, result) {
 };
 
 /**
- * Computes the geometric representation of a box, including its vertices, indices, and a bounding sphere.
+ * 计算框的几何表示，包括其顶点、索引和边界球。
  *
- * @param {BoxGeometry} boxGeometry A description of the box.
- * @returns {Geometry|undefined} The computed vertices and indices.
+ * @param {BoxGeometry} boxGeometry 盒子的描述。
+ * @returns {Geometry|undefined} 计算的顶点和索引。
  */
 BoxGeometry.createGeometry = function (boxGeometry) {
   const min = boxGeometry._minimum;
@@ -874,8 +874,8 @@ BoxGeometry.createGeometry = function (boxGeometry) {
 let unitBoxGeometry;
 
 /**
- * Returns the geometric representation of a unit box, including its vertices, indices, and a bounding sphere.
- * @returns {Geometry} The computed vertices and indices.
+ * 返回单位框的几何表示形式，包括其顶点、索引和边界球。
+ * @returns {Geometry} 计算的顶点和索引。
  *
  * @private
  */

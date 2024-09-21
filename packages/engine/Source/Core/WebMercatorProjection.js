@@ -92,7 +92,7 @@ WebMercatorProjection.MaximumLatitude = WebMercatorProjection.mercatorAngleToGeo
 /**
  * Converts geodetic ellipsoid coordinates, in radians, to the equivalent Web Mercator
  * X, Y, Z coordinates expressed in meters and returned in a {@link Cartesian3}.  The height
- * is copied unmodified to the Z coordinate.
+ * is copied unmodified to z坐标。
  *
  * @param {Cartographic} cartographic The cartographic coordinates in radians.
  * @param {Cartesian3} [result] The instance to which to copy the result, or undefined if a

@@ -83,7 +83,7 @@ function CylinderOutlineGeometry(options) {
 }
 
 /**
- * The number of elements used to pack the object into an array.
+ * 用于将对象打包到数组中的元素数量。
  * @type {number}
  */
 CylinderOutlineGeometry.packedLength = 6;
@@ -130,7 +130,7 @@ const scratchOptions = {
  * @param {number[]} array 打包数组。
  * @param {number} [startingIndex=0] 要解压缩的元素的起始索引。
  * @param {CylinderOutlineGeometry} [result] 要在其中存储结果的对象。
- * @returns {CylinderOutlineGeometry} The modified result parameter or a new CylinderOutlineGeometry instance if one was not provided.
+ * @returns {CylinderOutlineGeometry} 修改后的结果参数 or a new CylinderOutlineGeometry instance if one was not provided.
  */
 CylinderOutlineGeometry.unpack = function (array, startingIndex, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -172,7 +172,7 @@ CylinderOutlineGeometry.unpack = function (array, startingIndex, result) {
  * Computes the geometric representation of an outline of a cylinder, including its vertices, indices, and a bounding sphere.
  *
  * @param {CylinderOutlineGeometry} cylinderGeometry A description of the cylinder outline.
- * @returns {Geometry|undefined} The computed vertices and indices.
+ * @returns {Geometry|undefined} 计算的顶点和索引。
  */
 CylinderOutlineGeometry.createGeometry = function (cylinderGeometry) {
   let length = cylinderGeometry._length;

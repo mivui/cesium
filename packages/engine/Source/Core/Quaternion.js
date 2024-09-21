@@ -11,37 +11,37 @@ import Matrix3 from "./Matrix3.js";
  * @alias Quaternion
  * @constructor
  *
- * @param {number} [x=0.0] The X component.
- * @param {number} [y=0.0] The Y component.
- * @param {number} [z=0.0] The Z component.
- * @param {number} [w=0.0] The W component.
+ * @param {number} [x=0.0] X分量。
+ * @param {number} [y=0.0] Y分量。
+ * @param {number} [z=0.0] Z分量。
+ * @param {number} [w=0.0] W分量。
  *
  * @see PackableForInterpolation
  */
 function Quaternion(x, y, z, w) {
   /**
-   * The X component.
+   * X分量。
    * @type {number}
    * @default 0.0
    */
   this.x = defaultValue(x, 0.0);
 
   /**
-   * The Y component.
+   * Y分量。
    * @type {number}
    * @default 0.0
    */
   this.y = defaultValue(y, 0.0);
 
   /**
-   * The Z component.
+   * Z分量。
    * @type {number}
    * @default 0.0
    */
   this.z = defaultValue(z, 0.0);
 
   /**
-   * The W component.
+   * W分量。
    * @type {number}
    * @default 0.0
    */
@@ -56,7 +56,7 @@ let fromAxisAngleScratch = new Cartesian3();
  * @param {Cartesian3} axis The axis of rotation.
  * @param {number} angle The angle in radians to rotate around the axis.
  * @param {Quaternion} [result] 要在其上存储结果的对象。
- * @returns {Quaternion} The modified result parameter or a new Quaternion instance if one was not provided.
+ * @returns {Quaternion} 修改后的结果参数 or a new Quaternion instance if one was not provided.
  */
 Quaternion.fromAxisAngle = function (axis, angle, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -89,7 +89,7 @@ const fromRotationMatrixQuat = new Array(3);
  *
  * @param {Matrix3} matrix The rotation matrix.
  * @param {Quaternion} [result] 要在其上存储结果的对象。
- * @returns {Quaternion} The modified result parameter or a new Quaternion instance if one was not provided.
+ * @returns {Quaternion} 修改后的结果参数 or a new Quaternion instance if one was not provided.
  *
  * @see Matrix3.fromQuaternion
  */
@@ -182,7 +182,7 @@ let scratchRollQuaternion = new Quaternion();
  *
  * @param {HeadingPitchRoll} headingPitchRoll The rotation expressed as a heading, pitch and roll.
  * @param {Quaternion} [result] 要在其上存储结果的对象。
- * @returns {Quaternion} The modified result parameter or a new Quaternion instance if none was provided.
+ * @returns {Quaternion} 修改后的结果参数 or a new Quaternion instance if none was provided.
  */
 Quaternion.fromHeadingPitchRoll = function (headingPitchRoll, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -219,7 +219,7 @@ const sampledQuaternionQuaternion0 = new Quaternion();
 const sampledQuaternionQuaternion0Conjugate = new Quaternion();
 
 /**
- * The number of elements used to pack the object into an array.
+ * 用于将对象打包到数组中的元素数量。
  * @type {number}
  */
 Quaternion.packedLength = 4;
@@ -255,7 +255,7 @@ Quaternion.pack = function (value, array, startingIndex) {
  * @param {number[]} array 打包数组。
  * @param {number} [startingIndex=0] 要解压缩的元素的起始索引。
  * @param {Quaternion} [result] 要在其中存储结果的对象。
- * @returns {Quaternion} The modified result parameter or a new Quaternion instance if one was not provided.
+ * @returns {Quaternion} 修改后的结果参数 or a new Quaternion instance if one was not provided.
  */
 Quaternion.unpack = function (array, startingIndex, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -347,7 +347,7 @@ Quaternion.convertPackedArrayForInterpolation = function (
  * @param {number} [firstIndex=0] The firstIndex used to convert the array.
  * @param {number} [lastIndex=packedArray.length] The lastIndex used to convert the array.
  * @param {Quaternion} [result] 要在其中存储结果的对象。
- * @returns {Quaternion} The modified result parameter or a new Quaternion instance if one was not provided.
+ * @returns {Quaternion} 修改后的结果参数 or a new Quaternion instance if one was not provided.
  */
 Quaternion.unpackInterpolationResult = function (
   array,
@@ -386,7 +386,7 @@ Quaternion.unpackInterpolationResult = function (
  *
  * @param {Quaternion} quaternion The quaternion to duplicate.
  * @param {Quaternion} [result] 要在其上存储结果的对象。
- * @returns {Quaternion} The modified result parameter or a new Quaternion instance if one was not provided. (Returns undefined if quaternion is undefined)
+ * @returns {Quaternion} 修改后的结果参数 or a new Quaternion instance if one was not provided. (Returns undefined if quaternion is undefined)
  */
 Quaternion.clone = function (quaternion, result) {
   if (!defined(quaternion)) {
@@ -414,7 +414,7 @@ Quaternion.clone = function (quaternion, result) {
  *
  * @param {Quaternion} quaternion The quaternion to conjugate.
  * @param {Quaternion} result 要在其上存储结果的对象。
- * @returns {Quaternion} The modified result parameter.
+ * @returns {Quaternion} 修改后的结果参数。
  */
 Quaternion.conjugate = function (quaternion, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -452,7 +452,7 @@ Quaternion.magnitudeSquared = function (quaternion) {
  * Computes magnitude for the provided quaternion.
  *
  * @param {Quaternion} quaternion The quaternion to conjugate.
- * @returns {number} The magnitude.
+ * @returns {number} 的大小。
  */
 Quaternion.magnitude = function (quaternion) {
   return Math.sqrt(Quaternion.magnitudeSquared(quaternion));
@@ -463,7 +463,7 @@ Quaternion.magnitude = function (quaternion) {
  *
  * @param {Quaternion} quaternion The quaternion to normalize.
  * @param {Quaternion} result 要在其上存储结果的对象。
- * @returns {Quaternion} The modified result parameter.
+ * @returns {Quaternion} 修改后的结果参数。
  */
 Quaternion.normalize = function (quaternion, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -488,7 +488,7 @@ Quaternion.normalize = function (quaternion, result) {
  *
  * @param {Quaternion} quaternion The quaternion to normalize.
  * @param {Quaternion} result 要在其上存储结果的对象。
- * @returns {Quaternion} The modified result parameter.
+ * @returns {Quaternion} 修改后的结果参数。
  */
 Quaternion.inverse = function (quaternion, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -506,7 +506,7 @@ Quaternion.inverse = function (quaternion, result) {
  * @param {Quaternion} left The first quaternion.
  * @param {Quaternion} right The second quaternion.
  * @param {Quaternion} result 要在其上存储结果的对象。
- * @returns {Quaternion} The modified result parameter.
+ * @returns {Quaternion} 修改后的结果参数。
  */
 Quaternion.add = function (left, right, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -528,7 +528,7 @@ Quaternion.add = function (left, right, result) {
  * @param {Quaternion} left The first quaternion.
  * @param {Quaternion} right The second quaternion.
  * @param {Quaternion} result 要在其上存储结果的对象。
- * @returns {Quaternion} The modified result parameter.
+ * @returns {Quaternion} 修改后的结果参数。
  */
 Quaternion.subtract = function (left, right, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -549,7 +549,7 @@ Quaternion.subtract = function (left, right, result) {
  *
  * @param {Quaternion} quaternion The quaternion to be negated.
  * @param {Quaternion} result 要在其上存储结果的对象。
- * @returns {Quaternion} The modified result parameter.
+ * @returns {Quaternion} 修改后的结果参数。
  */
 Quaternion.negate = function (quaternion, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -569,7 +569,7 @@ Quaternion.negate = function (quaternion, result) {
  *
  * @param {Quaternion} left The first quaternion.
  * @param {Quaternion} right The second quaternion.
- * @returns {number} The dot product.
+ * @returns {number} 点积。
  */
 Quaternion.dot = function (left, right) {
   //>>includeStart('debug', pragmas.debug);
@@ -588,7 +588,7 @@ Quaternion.dot = function (left, right) {
  * @param {Quaternion} left The first quaternion.
  * @param {Quaternion} right The second quaternion.
  * @param {Quaternion} result 要在其上存储结果的对象。
- * @returns {Quaternion} The modified result parameter.
+ * @returns {Quaternion} 修改后的结果参数。
  */
 Quaternion.multiply = function (left, right, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -623,9 +623,9 @@ Quaternion.multiply = function (left, right, result) {
  * Multiplies the provided quaternion componentwise by the provided scalar.
  *
  * @param {Quaternion} quaternion The quaternion to be scaled.
- * @param {number} scalar The scalar to multiply with.
+ * @param {number} scalar 与之相乘的标量。
  * @param {Quaternion} result 要在其上存储结果的对象。
- * @returns {Quaternion} The modified result parameter.
+ * @returns {Quaternion} 修改后的结果参数。
  */
 Quaternion.multiplyByScalar = function (quaternion, scalar, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -645,9 +645,9 @@ Quaternion.multiplyByScalar = function (quaternion, scalar, result) {
  * Divides the provided quaternion componentwise by the provided scalar.
  *
  * @param {Quaternion} quaternion The quaternion to be divided.
- * @param {number} scalar The scalar to divide by.
+ * @param {number} scalar 要除以的标量。
  * @param {Quaternion} result 要在其上存储结果的对象。
- * @returns {Quaternion} The modified result parameter.
+ * @returns {Quaternion} 修改后的结果参数。
  */
 Quaternion.divideByScalar = function (quaternion, scalar, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -668,7 +668,7 @@ Quaternion.divideByScalar = function (quaternion, scalar, result) {
  *
  * @param {Quaternion} quaternion The quaternion to use.
  * @param {Cartesian3} result 要在其上存储结果的对象。
- * @returns {Cartesian3} The modified result parameter.
+ * @returns {Cartesian3} 修改后的结果参数。
  */
 Quaternion.computeAxis = function (quaternion, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -715,11 +715,11 @@ let lerpScratch = new Quaternion();
 /**
  * Computes the linear interpolation or extrapolation at t using the provided quaternions.
  *
- * @param {Quaternion} start The value corresponding to t at 0.0.
- * @param {Quaternion} end The value corresponding to t at 1.0.
- * @param {number} t The point along t at which to interpolate.
+ * @param {Quaternion} start 对应于t在0.0处的值。
+ * @param {Quaternion} end 对应于1.0时t的值。
+ * @param {number} t 沿着t进行插值的点。
  * @param {Quaternion} result 要在其上存储结果的对象。
- * @returns {Quaternion} The modified result parameter.
+ * @returns {Quaternion} 修改后的结果参数。
  */
 Quaternion.lerp = function (start, end, t, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -740,11 +740,11 @@ let slerpScaledR = new Quaternion();
 /**
  * Computes the spherical linear interpolation or extrapolation at t using the provided quaternions.
  *
- * @param {Quaternion} start The value corresponding to t at 0.0.
- * @param {Quaternion} end The value corresponding to t at 1.0.
- * @param {number} t The point along t at which to interpolate.
+ * @param {Quaternion} start 对应于t在0.0处的值。
+ * @param {Quaternion} end 对应于1.0时t的值。
+ * @param {number} t 沿着t进行插值的点。
  * @param {Quaternion} result 要在其上存储结果的对象。
- * @returns {Quaternion} The modified result parameter.
+ * @returns {Quaternion} 修改后的结果参数。
  *
  * @see Quaternion#fastSlerp
  */
@@ -792,7 +792,7 @@ Quaternion.slerp = function (start, end, t, result) {
  *
  * @param {Quaternion} quaternion The unit quaternion.
  * @param {Cartesian3} result 要在其上存储结果的对象。
- * @returns {Cartesian3} The modified result parameter.
+ * @returns {Cartesian3} 修改后的结果参数。
  */
 Quaternion.log = function (quaternion, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -815,7 +815,7 @@ Quaternion.log = function (quaternion, result) {
  *
  * @param {Cartesian3} cartesian The cartesian.
  * @param {Quaternion} result 要在其上存储结果的对象。
- * @returns {Quaternion} The modified result parameter.
+ * @returns {Quaternion} 修改后的结果参数。
  */
 Quaternion.exp = function (cartesian, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -851,7 +851,7 @@ const squadScratchQuaternion1 = new Quaternion();
  * @param {Quaternion} q1 The second quaternion.
  * @param {Quaternion} q2 The third quaternion.
  * @param {Quaternion} result 要在其上存储结果的对象。
- * @returns {Quaternion} The modified result parameter.
+ * @returns {Quaternion} 修改后的结果参数。
  *
  * @see Quaternion#squad
  */
@@ -887,7 +887,7 @@ Quaternion.computeInnerQuadrangle = function (q0, q1, q2, result) {
  * @param {Quaternion} s1 The second inner quadrangle.
  * @param {number} t The time in [0,1] used to interpolate.
  * @param {Quaternion} result 要在其上存储结果的对象。
- * @returns {Quaternion} The modified result parameter.
+ * @returns {Quaternion} 修改后的结果参数。
  *
  *
  * @example
@@ -939,11 +939,11 @@ v[7] = (opmu * 8.0) / 17.0;
  * Computes the spherical linear interpolation or extrapolation at t using the provided quaternions.
  * This implementation is faster than {@link Quaternion#slerp}, but is only accurate up to 10<sup>-6</sup>.
  *
- * @param {Quaternion} start The value corresponding to t at 0.0.
- * @param {Quaternion} end The value corresponding to t at 1.0.
- * @param {number} t The point along t at which to interpolate.
+ * @param {Quaternion} start 对应于t在0.0处的值。
+ * @param {Quaternion} end 对应于1.0时t的值。
+ * @param {number} t 沿着t进行插值的点。
  * @param {Quaternion} result 要在其上存储结果的对象。
- * @returns {Quaternion} The modified result parameter.
+ * @returns {Quaternion} 修改后的结果参数。
  *
  * @see Quaternion#slerp
  */
@@ -1022,7 +1022,7 @@ Quaternion.fastSlerp = function (start, end, t, result) {
  * @param {Quaternion} s1 The second inner quadrangle.
  * @param {number} t The time in [0,1] used to interpolate.
  * @param {Quaternion} result 要在其上存储结果的对象。
- * @returns {Quaternion} The modified result parameter or a new instance if none was provided.
+ * @returns {Quaternion} 修改后的结果参数 or a new instance if none was provided.
  *
  * @see Quaternion#squad
  */
@@ -1069,7 +1069,7 @@ Quaternion.equals = function (left, right) {
  * @param {Quaternion} [left] 第一个quaternion.
  * @param {Quaternion} [right] 第二个 quaternion.
  * @param {number} [epsilon=0] The epsilon to use for equality testing.
- * @returns {boolean} <code>true</code> if left and right are within the provided epsilon, <code>false</code> 否则。
+ * @returns {boolean} <code>true</code>如果左和右在提供的epsilon内，<code>false</code>否则。
  */
 Quaternion.equalsEpsilon = function (left, right, epsilon) {
   epsilon = defaultValue(epsilon, 0);
@@ -1105,7 +1105,7 @@ Quaternion.IDENTITY = Object.freeze(new Quaternion(0.0, 0.0, 0.0, 1.0));
  * 复制Quaternion instance.
  *
  * @param {Quaternion} [result] 要在其上存储结果的对象。
- * @returns {Quaternion} The modified result parameter or a new Quaternion instance if one was not provided.
+ * @returns {Quaternion} 修改后的结果参数 or a new Quaternion instance if one was not provided.
  */
 Quaternion.prototype.clone = function (result) {
   return Quaternion.clone(this, result);
@@ -1129,7 +1129,7 @@ Quaternion.prototype.equals = function (right) {
  *
  * @param {Quaternion} [right] 右边 quaternion.
  * @param {number} [epsilon=0] The epsilon to use for equality testing.
- * @returns {boolean} <code>true</code> if left and right are within the provided epsilon, <code>false</code> 否则。
+ * @returns {boolean} <code>true</code>如果左和右在提供的epsilon内，<code>false</code>否则。
  */
 Quaternion.prototype.equalsEpsilon = function (right, epsilon) {
   return Quaternion.equalsEpsilon(this, right, epsilon);

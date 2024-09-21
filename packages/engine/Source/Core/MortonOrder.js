@@ -136,7 +136,7 @@ MortonOrder.encode2D = function (x, y) {
  * The input must be a 32-bit unsigned integer (resulting in 16 bits per coordinate) due to 32-bit bitwise operator limitation in JavaScript.
  *
  * @param {number} mortonIndex The Morton index in the range [0, (2^32)-1].
- * @param {number[]} [result] The array onto which to store the result.
+ * @param {number[]} [result] 要在其中存储结果的数组。
  * @returns {number[]} An array containing the 2D coordinates correspoding to the Morton index.
  * @private
  */
@@ -189,7 +189,7 @@ MortonOrder.encode3D = function (x, y, z) {
  * The input must be a 30-bit unsigned integer (resulting in 10 bits per coordinate) due to 32-bit bitwise operator limitation in JavaScript.
  *
  * @param {number} mortonIndex The Morton index in the range [0, (2^30)-1].
- * @param {number[]} [result] The array onto which to store the result.
+ * @param {number[]} [result] 要在其中存储结果的数组。
  * @returns {number[]} An array containing the 3D coordinates corresponding to the Morton index.
  * @private
  */

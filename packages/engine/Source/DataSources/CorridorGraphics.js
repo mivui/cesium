@@ -251,7 +251,7 @@ Object.defineProperties(CorridorGraphics.prototype, {
  * 复制instance.
  *
  * @param {CorridorGraphics} [result] 要在其上存储结果的对象。
- * @returns {CorridorGraphics} The modified result parameter or a new instance if one was not provided.
+ * @returns {CorridorGraphics} 修改后的结果参数 or a new instance if one was not provided.
  */
 CorridorGraphics.prototype.clone = function (result) {
   if (!defined(result)) {

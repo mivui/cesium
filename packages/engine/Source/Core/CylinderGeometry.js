@@ -32,7 +32,7 @@ const positionScratch = new Cartesian3();
  * @param {number} options.topRadius The radius of the top of the cylinder.
  * @param {number} options.bottomRadius The radius of the bottom of the cylinder.
  * @param {number} [options.slices=128] The number of edges around the perimeter of the cylinder.
- * @param {VertexFormat} [options.vertexFormat=VertexFormat.DEFAULT] The vertex attributes to be computed.
+ * @param {VertexFormat} [options.vertexFormat=VertexFormat.DEFAULT] 要计算的顶点属性。
  *
  * @exception {DeveloperError} options.slices must be greater than or equal to 3.
  *
@@ -91,7 +91,7 @@ function CylinderGeometry(options) {
 }
 
 /**
- * The number of elements used to pack the object into an array.
+ * 用于将对象打包到数组中的元素数量。
  * @type {number}
  */
 CylinderGeometry.packedLength = VertexFormat.packedLength + 5;
@@ -145,7 +145,7 @@ const scratchOptions = {
  * @param {number[]} array 打包数组。
  * @param {number} [startingIndex=0] 要解压缩的元素的起始索引。
  * @param {CylinderGeometry} [result] 要在其中存储结果的对象。
- * @returns {CylinderGeometry} The modified result parameter or a new CylinderGeometry instance if one was not provided.
+ * @returns {CylinderGeometry} 修改后的结果参数 or a new CylinderGeometry instance if one was not provided.
  */
 CylinderGeometry.unpack = function (array, startingIndex, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -194,7 +194,7 @@ CylinderGeometry.unpack = function (array, startingIndex, result) {
  * Computes the geometric representation of a cylinder, including its vertices, indices, and a bounding sphere.
  *
  * @param {CylinderGeometry} cylinderGeometry A description of the cylinder.
- * @returns {Geometry|undefined} The computed vertices and indices.
+ * @returns {Geometry|undefined} 计算的顶点和索引。
  */
 CylinderGeometry.createGeometry = function (cylinderGeometry) {
   let length = cylinderGeometry._length;
@@ -459,7 +459,7 @@ let unitCylinderGeometry;
 
 /**
  * Returns the geometric representation of a unit cylinder, including its vertices, indices, and a bounding sphere.
- * @returns {Geometry} The computed vertices and indices.
+ * @returns {Geometry} 计算的顶点和索引。
  *
  * @private
  */

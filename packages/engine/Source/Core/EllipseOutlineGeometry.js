@@ -262,7 +262,7 @@ function EllipseOutlineGeometry(options) {
 }
 
 /**
- * The number of elements used to pack the object into an array.
+ * 用于将对象打包到数组中的元素数量。
  * @type {number}
  */
 EllipseOutlineGeometry.packedLength =
@@ -328,7 +328,7 @@ const scratchOptions = {
  * @param {number[]} array 打包数组。
  * @param {number} [startingIndex=0] 要解压缩的元素的起始索引。
  * @param {EllipseOutlineGeometry} [result] 要在其中存储结果的对象。
- * @returns {EllipseOutlineGeometry} The modified result parameter or a new EllipseOutlineGeometry instance if one was not provided.
+ * @returns {EllipseOutlineGeometry} 修改后的结果参数 or a new EllipseOutlineGeometry instance if one was not provided.
  */
 EllipseOutlineGeometry.unpack = function (array, startingIndex, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -387,7 +387,7 @@ EllipseOutlineGeometry.unpack = function (array, startingIndex, result) {
  * Computes the geometric representation of an outline of an ellipse on an ellipsoid, including its vertices, indices, and a bounding sphere.
  *
  * @param {EllipseOutlineGeometry} ellipseGeometry A description of the ellipse.
- * @returns {Geometry|undefined} The computed vertices and indices.
+ * @returns {Geometry|undefined} 计算的顶点和索引。
  */
 EllipseOutlineGeometry.createGeometry = function (ellipseGeometry) {
   if (

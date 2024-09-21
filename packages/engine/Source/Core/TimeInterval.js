@@ -134,7 +134,7 @@ const scratchInterval = {
  * @param {boolean} [options.isStopIncluded=true] <code>true</code> if <code>options.stop</code> is included in the interval, <code>false</code> 否则。
  * @param {object} [options.data] Arbitrary data associated with this interval.
  * @param {TimeInterval} [result] An existing instance to use for the result.
- * @returns {TimeInterval} The modified result parameter or a new instance if none was provided.
+ * @returns {TimeInterval} 修改后的结果参数 or a new instance if none was provided.
  */
 TimeInterval.fromIso8601 = function (options, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -194,7 +194,7 @@ TimeInterval.toIso8601 = function (timeInterval, precision) {
  *
  * @param {TimeInterval} [timeInterval] The instance to clone.
  * @param {TimeInterval} [result] An existing instance to use for the result.
- * @returns {TimeInterval} The modified result parameter or a new instance if none was provided.
+ * @returns {TimeInterval} 修改后的结果参数 or a new instance if none was provided.
  */
 TimeInterval.clone = function (timeInterval, result) {
   if (!defined(timeInterval)) {
@@ -270,7 +270,7 @@ TimeInterval.equalsEpsilon = function (left, right, epsilon, dataComparer) {
  * @param {TimeInterval} [right] 第二个 interval.
  * @param {TimeInterval} [result] An existing instance to use for the result.
  * @param {TimeInterval.MergeCallback} [mergeCallback] A function which merges the data of the two intervals. If omitted, the data from the left interval will be used.
- * @returns {TimeInterval} The modified result parameter.
+ * @returns {TimeInterval} 修改后的结果参数。
  */
 TimeInterval.intersect = function (left, right, result, mergeCallback) {
   //>>includeStart('debug', pragmas.debug);
@@ -363,7 +363,7 @@ TimeInterval.contains = function (timeInterval, julianDate) {
  * 复制instance.
  *
  * @param {TimeInterval} [result] An existing instance to use for the result.
- * @returns {TimeInterval} The modified result parameter or a new instance if none was provided.
+ * @returns {TimeInterval} 修改后的结果参数 or a new instance if none was provided.
  */
 TimeInterval.prototype.clone = function (result) {
   return TimeInterval.clone(this, result);
@@ -389,7 +389,7 @@ TimeInterval.prototype.equals = function (right, dataComparer) {
  * @param {TimeInterval} [right] 右边 interval.
  * @param {number} [epsilon=0] The epsilon to use for equality testing.
  * @param {TimeInterval.DataComparer} [dataComparer] A function which compares the data of the two intervals.  If omitted, reference equality is used.
- * @returns {boolean} <code>true</code> if they are within the provided epsilon, <code>false</code> 否则。
+ * @returns {boolean} <code>true</code>如果它们在提供的epsilon内，<code>false</code>否则。
  */
 TimeInterval.prototype.equalsEpsilon = function (right, epsilon, dataComparer) {
   return TimeInterval.equalsEpsilon(this, right, epsilon, dataComparer);

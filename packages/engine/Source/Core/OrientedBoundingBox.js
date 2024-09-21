@@ -56,7 +56,7 @@ function OrientedBoundingBox(center, halfAxes) {
 }
 
 /**
- * The number of elements used to pack the object into an array.
+ * 用于将对象打包到数组中的元素数量。
  * @type {number}
  */
 OrientedBoundingBox.packedLength =
@@ -91,7 +91,7 @@ OrientedBoundingBox.pack = function (value, array, startingIndex) {
  * @param {number[]} array 打包数组。
  * @param {number} [startingIndex=0] 要解压缩的元素的起始索引。
  * @param {OrientedBoundingBox} [result] 要在其中存储结果的对象。
- * @returns {OrientedBoundingBox} The modified result parameter or a new OrientedBoundingBox instance if one was not provided.
+ * @returns {OrientedBoundingBox} 修改后的结果参数 or a new OrientedBoundingBox instance if one was not provided.
  */
 OrientedBoundingBox.unpack = function (array, startingIndex, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -132,7 +132,7 @@ const scratchEigenResult = {
  *
  * @param {Cartesian3[]} [positions] List of {@link Cartesian3} points that the bounding box will enclose.
  * @param {OrientedBoundingBox} [result] 要在其上存储结果的对象。
- * @returns {OrientedBoundingBox} The modified result parameter or a new OrientedBoundingBox instance if one was not provided.
+ * @returns {OrientedBoundingBox} 修改后的结果参数 or a new OrientedBoundingBox instance if one was not provided.
  *
  * @example
  * // Compute an object oriented bounding box enclosing two points.
@@ -334,7 +334,7 @@ const scratchPlane = new Plane(Cartesian3.UNIT_X, 0.0);
  * @param {number} [maximumHeight=0.0] The maximum height (elevation) within the tile.
  * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] The ellipsoid on which the rectangle is defined.
  * @param {OrientedBoundingBox} [result] 要在其上存储结果的对象。
- * @returns {OrientedBoundingBox} The modified result parameter or a new OrientedBoundingBox instance if none was provided.
+ * @returns {OrientedBoundingBox} 修改后的结果参数 or a new OrientedBoundingBox instance if none was provided.
  *
  * @exception {DeveloperError} rectangle.width must be between 0 and 2 * pi.
  * @exception {DeveloperError} rectangle.height must be between 0 and pi.
@@ -615,7 +615,7 @@ OrientedBoundingBox.fromRectangle = function (
  *
  * @param {Matrix4} transformation The affine transformation.
  * @param {OrientedBoundingBox} [result] 要在其上存储结果的对象。
- * @returns {OrientedBoundingBox} The modified result parameter or a new OrientedBoundingBox instance if none was provided.
+ * @returns {OrientedBoundingBox} 修改后的结果参数 or a new OrientedBoundingBox instance if none was provided.
  */
 OrientedBoundingBox.fromTransformation = function (transformation, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -641,7 +641,7 @@ OrientedBoundingBox.fromTransformation = function (transformation, result) {
  *
  * @param {OrientedBoundingBox} box The bounding box to duplicate.
  * @param {OrientedBoundingBox} [result] 要在其上存储结果的对象。
- * @returns {OrientedBoundingBox} The modified result parameter or a new OrientedBoundingBox instance if none was provided. (Returns undefined if box is undefined)
+ * @returns {OrientedBoundingBox} 修改后的结果参数 or a new OrientedBoundingBox instance if none was provided. (Returns undefined if box is undefined)
  */
 OrientedBoundingBox.clone = function (box, result) {
   if (!defined(box)) {
@@ -1025,7 +1025,7 @@ const scratchZAxis = new Cartesian3();
  *
  * @param {OrientedBoundingBox} box The oriented bounding box.
  * @param {Cartesian3[]} [result] An array of eight {@link Cartesian3} instances onto which to store the corners.
- * @returns {Cartesian3[]} The modified result parameter or a new array if none was provided.
+ * @returns {Cartesian3[]} 修改后的结果参数 or a new array if none was provided.
  */
 OrientedBoundingBox.computeCorners = function (box, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -1101,7 +1101,7 @@ const scratchRotationScale = new Matrix3();
  *
  * @param {OrientedBoundingBox} box The oriented bounding box.
  * @param {Matrix4} result 要在其上存储结果的对象。
- * @returns {Matrix4} The modified result parameter or a new {@link Matrix4} instance if none was provided.
+ * @returns {Matrix4} 修改后的结果参数 or a new {@link Matrix4} instance if none was provided.
  */
 OrientedBoundingBox.computeTransformation = function (box, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -1205,7 +1205,7 @@ OrientedBoundingBox.prototype.computePlaneDistances = function (
  * Computes the eight corners of an oriented bounding box. The corners are ordered by (-X, -Y, -Z), (-X, -Y, +Z), (-X, +Y, -Z), (-X, +Y, +Z), (+X, -Y, -Z), (+X, -Y, +Z), (+X, +Y, -Z), (+X, +Y, +Z).
  *
  * @param {Cartesian3[]} [result] An array of eight {@link Cartesian3} instances onto which to store the corners.
- * @returns {Cartesian3[]} The modified result parameter or a new array if none was provided.
+ * @returns {Cartesian3[]} 修改后的结果参数 or a new array if none was provided.
  */
 OrientedBoundingBox.prototype.computeCorners = function (result) {
   return OrientedBoundingBox.computeCorners(this, result);
@@ -1215,7 +1215,7 @@ OrientedBoundingBox.prototype.computeCorners = function (result) {
  * Computes a transformation matrix from an oriented bounding box.
  *
  * @param {Matrix4} result 要在其上存储结果的对象。
- * @returns {Matrix4} The modified result parameter or a new {@link Matrix4} instance if none was provided.
+ * @returns {Matrix4} 修改后的结果参数 or a new {@link Matrix4} instance if none was provided.
  */
 OrientedBoundingBox.prototype.computeTransformation = function (result) {
   return OrientedBoundingBox.computeTransformation(this, result);
@@ -1253,7 +1253,7 @@ OrientedBoundingBox.equals = function (left, right) {
  * 复制OrientedBoundingBox instance.
  *
  * @param {OrientedBoundingBox} [result] 要在其上存储结果的对象。
- * @returns {OrientedBoundingBox} The modified result parameter or a new OrientedBoundingBox instance if one was not provided.
+ * @returns {OrientedBoundingBox} 修改后的结果参数 or a new OrientedBoundingBox instance if one was not provided.
  */
 OrientedBoundingBox.prototype.clone = function (result) {
   return OrientedBoundingBox.clone(this, result);

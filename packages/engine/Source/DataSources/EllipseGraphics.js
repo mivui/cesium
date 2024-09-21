@@ -273,7 +273,7 @@ Object.defineProperties(EllipseGraphics.prototype, {
  * 复制instance.
  *
  * @param {EllipseGraphics} [result] 要在其上存储结果的对象。
- * @returns {EllipseGraphics} The modified result parameter or a new instance if one was not provided.
+ * @returns {EllipseGraphics} 修改后的结果参数 or a new instance if one was not provided.
  */
 EllipseGraphics.prototype.clone = function (result) {
   if (!defined(result)) {

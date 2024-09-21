@@ -16,7 +16,7 @@ function GeometryFactory() {
  * Returns a geometry.
  *
  * @param {GeometryFactory} geometryFactory A description of the circle.
- * @returns {Geometry|undefined} The computed vertices and indices.
+ * @returns {Geometry|undefined} 计算的顶点和索引。
  */
 GeometryFactory.createGeometry = function (geometryFactory) {
   DeveloperError.throwInstantiationError();

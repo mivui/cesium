@@ -74,7 +74,7 @@ function interpolateColors(p0, p1, color0, color1, numPoints) {
  * @param {boolean} [options.colorsPerVertex=false] A boolean that determines whether the colors will be flat across each segment of the line or interpolated across the vertices.
  * @param {ArcType} [options.arcType=ArcType.GEODESIC] The type of line the polyline segments must follow.
  * @param {number} [options.granularity=CesiumMath.RADIANS_PER_DEGREE] The distance, in radians, between each latitude and longitude if options.arcType is not ArcType.NONE. Determines the number of positions in the buffer.
- * @param {VertexFormat} [options.vertexFormat=VertexFormat.DEFAULT] The vertex attributes to be computed.
+ * @param {VertexFormat} [options.vertexFormat=VertexFormat.DEFAULT] 要计算的顶点属性。
  * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] The ellipsoid to be used as a reference.
  *
  * @exception {DeveloperError} At least two positions are required.
@@ -142,7 +142,7 @@ function PolylineGeometry(options) {
   numComponents += defined(colors) ? 1 + colors.length * Color.packedLength : 1;
 
   /**
-   * The number of elements used to pack the object into an array.
+   * 用于将对象打包到数组中的元素数量。
    * @type {number}
    */
   this.packedLength =
@@ -221,7 +221,7 @@ const scratchOptions = {
  * @param {number[]} array 打包数组。
  * @param {number} [startingIndex=0] 要解压缩的元素的起始索引。
  * @param {PolylineGeometry} [result] 要在其中存储结果的对象。
- * @returns {PolylineGeometry} The modified result parameter or a new PolylineGeometry instance if one was not provided.
+ * @returns {PolylineGeometry} 修改后的结果参数 or a new PolylineGeometry instance if one was not provided.
  */
 PolylineGeometry.unpack = function (array, startingIndex, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -294,7 +294,7 @@ const scratchNextPosition = new Cartesian3();
  * Computes the geometric representation of a polyline, including its vertices, indices, and a bounding sphere.
  *
  * @param {PolylineGeometry} polylineGeometry A description of the polyline.
- * @returns {Geometry|undefined} The computed vertices and indices.
+ * @returns {Geometry|undefined} 计算的顶点和索引。
  */
 PolylineGeometry.createGeometry = function (polylineGeometry) {
   const width = polylineGeometry._width;

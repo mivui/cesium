@@ -3440,7 +3440,7 @@ describe(
         expect(rgba[3]).withContext("mix yellow .a").toEqual(255);
       });
 
-      // Set colorBlendAmount to 0.25. Expect color to be closer to the source color.
+      // Set colorBlendAmount to 0.25. Expect color to be closer to 源颜色。
       tileset.colorBlendAmount = 0.25;
       expect(renderOptions).toRenderAndCall(function (rgba) {
         expect(rgba[0])

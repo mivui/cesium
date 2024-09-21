@@ -23,7 +23,7 @@ const BlendFunction = {
   ONE: WebGLConstants.ONE,
 
   /**
-   * The blend factor is the source color.
+   * The blend factor is 源颜色。
    *
    * @type {number}
    * @constant
@@ -31,7 +31,7 @@ const BlendFunction = {
   SOURCE_COLOR: WebGLConstants.SRC_COLOR,
 
   /**
-   * The blend factor is one minus the source color.
+   * The blend factor is one minus 源颜色。
    *
    * @type {number}
    * @constant

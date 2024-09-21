@@ -18,7 +18,7 @@ import VertexFormat from "./VertexFormat.js";
  * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] The ellipsoid the circle will be on.
  * @param {number} [options.height=0.0] The distance in meters between the circle and the ellipsoid surface.
  * @param {number} [options.granularity=0.02] The angular distance between points on the circle in radians.
- * @param {VertexFormat} [options.vertexFormat=VertexFormat.DEFAULT] The vertex attributes to be computed.
+ * @param {VertexFormat} [options.vertexFormat=VertexFormat.DEFAULT] 要计算的顶点属性。
  * @param {number} [options.extrudedHeight=0.0] The distance in meters between the circle's extruded face and the ellipsoid surface.
  * @param {number} [options.stRotation=0.0] The rotation of the texture coordinates, in radians. A positive rotation is counter-clockwise.
  *
@@ -61,7 +61,7 @@ function CircleGeometry(options) {
 }
 
 /**
- * The number of elements used to pack the object into an array.
+ * 用于将对象打包到数组中的元素数量。
  * @type {number}
  */
 CircleGeometry.packedLength = EllipseGeometry.packedLength;
@@ -107,7 +107,7 @@ const scratchOptions = {
  * @param {number[]} array 打包数组。
  * @param {number} [startingIndex=0] 要解压缩的元素的起始索引。
  * @param {CircleGeometry} [result] 要在其中存储结果的对象。
- * @returns {CircleGeometry} The modified result parameter or a new CircleGeometry instance if one was not provided.
+ * @returns {CircleGeometry} 修改后的结果参数 or a new CircleGeometry instance if one was not provided.
  */
 CircleGeometry.unpack = function (array, startingIndex, result) {
   const ellipseGeometry = EllipseGeometry.unpack(
@@ -152,7 +152,7 @@ CircleGeometry.unpack = function (array, startingIndex, result) {
  * Computes the geometric representation of a circle on an ellipsoid, including its vertices, indices, and a bounding sphere.
  *
  * @param {CircleGeometry} circleGeometry A description of the circle.
- * @returns {Geometry|undefined} The computed vertices and indices.
+ * @returns {Geometry|undefined} 计算的顶点和索引。
  */
 CircleGeometry.createGeometry = function (circleGeometry) {
   return EllipseGeometry.createGeometry(circleGeometry._ellipseGeometry);

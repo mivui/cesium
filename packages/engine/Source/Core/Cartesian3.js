@@ -5,13 +5,13 @@ import DeveloperError from "./DeveloperError.js";
 import CesiumMath from "./Math.js";
 
 /**
- * A 3D Cartesian point.
+ * 一个三维笛卡尔点。
  * @alias Cartesian3
  * @constructor
  *
- * @param {number} [x=0.0] The X component.
- * @param {number} [y=0.0] The Y component.
- * @param {number} [z=0.0] The Z component.
+ * @param {number} [x=0.0] X分量。
+ * @param {number} [y=0.0] Y分量。
+ * @param {number} [z=0.0] Z分量。
  *
  * @see Cartesian2
  * @see Cartesian4
@@ -19,21 +19,21 @@ import CesiumMath from "./Math.js";
  */
 function Cartesian3(x, y, z) {
   /**
-   * The X component.
+   * X分量。
    * @type {number}
    * @default 0.0
    */
   this.x = defaultValue(x, 0.0);
 
   /**
-   * The Y component.
+   * Y分量。
    * @type {number}
    * @default 0.0
    */
   this.y = defaultValue(y, 0.0);
 
   /**
-   * The Z component.
+   * Z分量。
    * @type {number}
    * @default 0.0
    */
@@ -41,11 +41,11 @@ function Cartesian3(x, y, z) {
 }
 
 /**
- * Converts the provided Spherical into Cartesian3 coordinates.
+ * 将提供的球面转换为笛卡尔坐标。
  *
- * @param {Spherical} spherical The Spherical to be converted to Cartesian3.
+ * @param {Spherical} spherical 将球面转换为Cartesian3坐标系。
  * @param {Cartesian3} [result] 要在其上存储结果的对象。
- * @returns {Cartesian3} The modified result parameter or a new Cartesian3 instance if one was not provided.
+ * @returns {Cartesian3} 如果没有提供新的Cartesian3实例，则使用修改后的结果参数。
  */
 Cartesian3.fromSpherical = function (spherical, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -67,13 +67,13 @@ Cartesian3.fromSpherical = function (spherical, result) {
 };
 
 /**
- * Creates a Cartesian3 instance from x, y and z coordinates.
+ * 从x, y和z坐标创建一个Cartesian3实例。
  *
- * @param {number} x The x coordinate.
- * @param {number} y The y coordinate.
- * @param {number} z The z coordinate.
+ * @param {number} x x坐标。
+ * @param {number} y y坐标。
+ * @param {number} z z坐标。
  * @param {Cartesian3} [result] 要在其上存储结果的对象。
- * @returns {Cartesian3} The modified result parameter or a new Cartesian3 instance if one was not provided.
+ * @returns {Cartesian3} 如果没有提供新的Cartesian3实例，则使用修改后的结果参数。
  */
 Cartesian3.fromElements = function (x, y, z, result) {
   if (!defined(result)) {
@@ -89,9 +89,9 @@ Cartesian3.fromElements = function (x, y, z, result) {
 /**
  * 复制Cartesian3 instance.
  *
- * @param {Cartesian3} cartesian The Cartesian to duplicate.
+ * @param {Cartesian3} cartesian 复制的笛卡尔坐标。
  * @param {Cartesian3} [result] 要在其上存储结果的对象。
- * @returns {Cartesian3} The modified result parameter or a new Cartesian3 instance if one was not provided. (Returns undefined if cartesian is undefined)
+ * @returns {Cartesian3} 如果没有提供新的Cartesian3实例，则使用修改后的结果参数。 (如果cartesian未定义则返回未定义)
  */
 Cartesian3.clone = function (cartesian, result) {
   if (!defined(cartesian)) {
@@ -108,18 +108,18 @@ Cartesian3.clone = function (cartesian, result) {
 };
 
 /**
- * Creates a Cartesian3 instance from an existing Cartesian4.  This simply takes the
- * x, y, and z properties of the Cartesian4 and drops w.
+ * 从现有的Cartesian4创建Cartesian3实例。这只需要
+ * x, y, z的Cartesian4坐标的性质。
  * @function
  *
- * @param {Cartesian4} cartesian The Cartesian4 instance to create a Cartesian3 instance from.
+ * @param {Cartesian4} cartesian 创建Cartesian3实例的Cartesian4实例。
  * @param {Cartesian3} [result] 要在其上存储结果的对象。
- * @returns {Cartesian3} The modified result parameter or a new Cartesian3 instance if one was not provided.
+ * @returns {Cartesian3} 如果没有提供新的Cartesian3实例，则使用修改后的结果参数。
  */
 Cartesian3.fromCartesian4 = Cartesian3.clone;
 
 /**
- * The number of elements used to pack the object into an array.
+ * 用于将对象打包到数组中的元素数量。
  * @type {number}
  */
 Cartesian3.packedLength = 3;
@@ -154,7 +154,7 @@ Cartesian3.pack = function (value, array, startingIndex) {
  * @param {number[]} array 打包数组。
  * @param {number} [startingIndex=0] 要解压缩的元素的起始索引。
  * @param {Cartesian3} [result] 要在其中存储结果的对象。
- * @returns {Cartesian3} The modified result parameter or a new Cartesian3 instance if one was not provided.
+ * @returns {Cartesian3} 如果没有提供新的Cartesian3实例，则使用修改后的结果参数。
  */
 Cartesian3.unpack = function (array, startingIndex, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -173,10 +173,11 @@ Cartesian3.unpack = function (array, startingIndex, result) {
 };
 
 /**
- * Flattens an array of Cartesian3s into an array of components.
+ * 将笛Cartesian3的数组平展为一个分量数组。
  *
- * @param {Cartesian3[]} array The array of cartesians to pack.
- * @param {number[]} [result] The array onto which to store the result. If this is a typed array, it must have array.length * 3 components, else a {@link DeveloperError} will be thrown. If it is a regular array, it will be resized to have (array.length * 3) elements.
+ * @param {Cartesian3[]} array 要打包的笛卡儿数组。
+ * @param {number[]} [result] 要在其中存储结果的数组。 如果这是一个类型化数组，它必须有array。 array.length * 3个组件，否则将抛出{@link DeveloperError}。如果它是一个常规数组，它的大小将被调整为(array.length * 3)元素。
+ *
  * @returns {number[]} 打包数组。
  */
 Cartesian3.packArray = function (array, result) {
@@ -205,11 +206,11 @@ Cartesian3.packArray = function (array, result) {
 };
 
 /**
- * Unpacks an array of cartesian components into an array of Cartesian3s.
+ * 将一个笛卡尔分量数组解包为一个Cartesian3数组。
  *
- * @param {number[]} array The array of components to unpack.
- * @param {Cartesian3[]} [result] The array onto which to store the result.
- * @returns {Cartesian3[]} The unpacked array.
+ * @param {number[]} array 要解包的组件数组。
+ * @param {Cartesian3[]} [result] 要在其中存储结果的数组。
+ * @returns {Cartesian3[]} 未打包的数组。
  */
 Cartesian3.unpackArray = function (array, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -235,13 +236,13 @@ Cartesian3.unpackArray = function (array, result) {
 };
 
 /**
- * Creates a Cartesian3 from three consecutive elements in an array.
+ * 从数组中三个连续的元素创建一个Cartesian3坐标系。
  * @function
  *
- * @param {number[]} array The array whose three consecutive elements correspond to the x, y, and z components, respectively.
- * @param {number} [startingIndex=0] The offset into the array of the first element, which corresponds to the x component.
+ * @param {number[]} array 数组，其三个连续的元素分别对应x、y和z分量。
+ * @param {number} [startingIndex=0] 第一个元素在数组中的偏移量，对应于X分量。
  * @param {Cartesian3} [result] 要在其上存储结果的对象。
- * @returns {Cartesian3} The modified result parameter or a new Cartesian3 instance if one was not provided.
+ * @returns {Cartesian3} 如果没有提供新的Cartesian3实例，则使用修改后的结果参数。
  *
  * @example
  * // Create a Cartesian3 with (1.0, 2.0, 3.0)
@@ -255,10 +256,10 @@ Cartesian3.unpackArray = function (array, result) {
 Cartesian3.fromArray = Cartesian3.unpack;
 
 /**
- * Computes the value of the maximum component for the supplied Cartesian.
+ * 计算所提供的笛卡尔坐标的最大分量的值。
  *
- * @param {Cartesian3} cartesian The cartesian to use.
- * @returns {number} The value of the maximum component.
+ * @param {Cartesian3} cartesian 用笛卡尔坐标。
+ * @returns {number} 最大分量的值。
  */
 Cartesian3.maximumComponent = function (cartesian) {
   //>>includeStart('debug', pragmas.debug);
@@ -269,10 +270,10 @@ Cartesian3.maximumComponent = function (cartesian) {
 };
 
 /**
- * Computes the value of the minimum component for the supplied Cartesian.
+ * 为所提供的笛卡尔坐标计算最小分量的值。
  *
- * @param {Cartesian3} cartesian The cartesian to use.
- * @returns {number} The value of the minimum component.
+ * @param {Cartesian3} cartesian 用笛卡尔坐标。
+ * @returns {number} 最小分量的值。
  */
 Cartesian3.minimumComponent = function (cartesian) {
   //>>includeStart('debug', pragmas.debug);
@@ -283,12 +284,12 @@ Cartesian3.minimumComponent = function (cartesian) {
 };
 
 /**
- * Compares two Cartesians and computes a Cartesian which contains the minimum components of the supplied Cartesians.
+ * 比较两个笛卡尔坐标并计算一个包含所提供笛卡尔坐标的最小分量的笛卡尔坐标。
  *
- * @param {Cartesian3} first A cartesian to compare.
- * @param {Cartesian3} second A cartesian to compare.
+ * @param {Cartesian3} first 用笛卡尔坐标来比较。
+ * @param {Cartesian3} second 用笛卡尔坐标来比较。
  * @param {Cartesian3} result 要在其中存储结果的对象。
- * @returns {Cartesian3} A cartesian with the minimum components.
+ * @returns {Cartesian3} 具有最小分量的笛卡尔曲线。
  */
 Cartesian3.minimumByComponent = function (first, second, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -305,10 +306,10 @@ Cartesian3.minimumByComponent = function (first, second, result) {
 };
 
 /**
- * Compares two Cartesians and computes a Cartesian which contains the maximum components of the supplied Cartesians.
+ * 比较两个笛卡尔坐标并计算一个包含所提供笛卡尔坐标的最大分量的笛卡尔坐标。
  *
- * @param {Cartesian3} first A cartesian to compare.
- * @param {Cartesian3} second A cartesian to compare.
+ * @param {Cartesian3} first 用笛卡尔坐标来比较。
+ * @param {Cartesian3} second 用笛卡尔坐标来比较。
  * @param {Cartesian3} result 要在其中存储结果的对象。
  * @returns {Cartesian3} A cartesian with the maximum components.
  */
@@ -326,13 +327,13 @@ Cartesian3.maximumByComponent = function (first, second, result) {
 };
 
 /**
- * Constrain a value to lie between two values.
+ * 将一个值约束在两个值之间。
  *
- * @param {Cartesian3} cartesian The value to clamp.
- * @param {Cartesian3} min The minimum bound.
- * @param {Cartesian3} max The maximum bound.
+ * @param {Cartesian3} cartesian 夹位的值。
+ * @param {Cartesian3} min 最小值。
+ * @param {Cartesian3} max 最大值。
  * @param {Cartesian3} result 要在其中存储结果的对象。
- * @returns {Cartesian3} The clamped value such that min <= value <= max.
+ * @returns {Cartesian3} 使min <= value <= max的固定值。
  */
 Cartesian3.clamp = function (value, min, max, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -354,10 +355,10 @@ Cartesian3.clamp = function (value, min, max, result) {
 };
 
 /**
- * Computes the provided Cartesian's squared magnitude.
+ * 计算给定的笛卡尔坐标的平方幅度。
  *
- * @param {Cartesian3} cartesian The Cartesian instance whose squared magnitude is to be computed.
- * @returns {number} The squared magnitude.
+ * @param {Cartesian3} cartesian 要计算其模的平方的笛卡尔实例。
+ * @returns {number} 大小的平方。
  */
 Cartesian3.magnitudeSquared = function (cartesian) {
   //>>includeStart('debug', pragmas.debug);
@@ -372,10 +373,10 @@ Cartesian3.magnitudeSquared = function (cartesian) {
 };
 
 /**
- * Computes the Cartesian's magnitude (length).
+ * 计算笛卡尔的大小(长度)。
  *
- * @param {Cartesian3} cartesian The Cartesian instance whose magnitude is to be computed.
- * @returns {number} The magnitude.
+ * @param {Cartesian3} cartesian 要计算其大小的笛卡尔实例。
+ * @returns {number} 的大小。
  */
 Cartesian3.magnitude = function (cartesian) {
   return Math.sqrt(Cartesian3.magnitudeSquared(cartesian));
@@ -384,11 +385,11 @@ Cartesian3.magnitude = function (cartesian) {
 const distanceScratch = new Cartesian3();
 
 /**
- * Computes the distance between two points.
+ * 计算两点之间的距离。
  *
- * @param {Cartesian3} left The first point to compute the distance from.
- * @param {Cartesian3} right The second point to compute the distance to.
- * @returns {number} The distance between two points.
+ * @param {Cartesian3} left 第一个计算距离的点。
+ * @param {Cartesian3} right 计算距离的第二个点。
+ * @returns {number} 两点之间的距离
  *
  * @example
  * // Returns 1.0
@@ -405,12 +406,12 @@ Cartesian3.distance = function (left, right) {
 };
 
 /**
- * Computes the squared distance between two points.  Comparing squared distances
- * using this function is more efficient than comparing distances using {@link Cartesian3#distance}.
+ * 计算两点之间距离的平方。比较平方距离
+ * 使用此函数比使用 {@link Cartesian3#distance}.
  *
- * @param {Cartesian3} left The first point to compute the distance from.
- * @param {Cartesian3} right The second point to compute the distance to.
- * @returns {number} The distance between two points.
+ * @param {Cartesian3} left 第一个计算距离的点。
+ * @param {Cartesian3} right 计算距离的第二个点。
+ * @returns {number} 两点之间的距离
  *
  * @example
  * // Returns 4.0, not 2.0
@@ -427,11 +428,11 @@ Cartesian3.distanceSquared = function (left, right) {
 };
 
 /**
- * Computes the normalized form of the supplied Cartesian.
+ * 计算提供的笛卡尔坐标的规范化形式。
  *
- * @param {Cartesian3} cartesian The Cartesian to be normalized.
+ * @param {Cartesian3} cartesian 笛卡尔坐标被归一化。
  * @param {Cartesian3} result 要在其上存储结果的对象。
- * @returns {Cartesian3} The modified result parameter.
+ * @returns {Cartesian3} 修改后的结果参数。
  */
 Cartesian3.normalize = function (cartesian, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -455,11 +456,11 @@ Cartesian3.normalize = function (cartesian, result) {
 };
 
 /**
- * Computes the dot (scalar) product of two Cartesians.
+ * 计算两个笛卡尔坐标的点(标量)积。
  *
- * @param {Cartesian3} left The first Cartesian.
- * @param {Cartesian3} right The second Cartesian.
- * @returns {number} The dot product.
+ * @param {Cartesian3} left 第一个笛卡尔坐标系。
+ * @param {Cartesian3} right 第二个笛卡尔坐标系。
+ * @returns {number} 点积。
  */
 Cartesian3.dot = function (left, right) {
   //>>includeStart('debug', pragmas.debug);
@@ -471,12 +472,12 @@ Cartesian3.dot = function (left, right) {
 };
 
 /**
- * Computes the componentwise product of two Cartesians.
+ * 计算两个笛卡尔坐标的分量积。
  *
- * @param {Cartesian3} left The first Cartesian.
- * @param {Cartesian3} right The second Cartesian.
+ * @param {Cartesian3} left 第一个笛卡尔坐标系。
+ * @param {Cartesian3} right 第二个笛卡尔坐标系。
  * @param {Cartesian3} result 要在其上存储结果的对象。
- * @returns {Cartesian3} The modified result parameter.
+ * @returns {Cartesian3} 修改后的结果参数。
  */
 Cartesian3.multiplyComponents = function (left, right, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -492,12 +493,12 @@ Cartesian3.multiplyComponents = function (left, right, result) {
 };
 
 /**
- * Computes the componentwise quotient of two Cartesians.
+ * 计算两个笛卡尔的分量商。
  *
- * @param {Cartesian3} left The first Cartesian.
- * @param {Cartesian3} right The second Cartesian.
+ * @param {Cartesian3} left 第一个笛卡尔坐标系。
+ * @param {Cartesian3} right 第二个笛卡尔坐标系。
  * @param {Cartesian3} result 要在其上存储结果的对象。
- * @returns {Cartesian3} The modified result parameter.
+ * @returns {Cartesian3} 修改后的结果参数。
  */
 Cartesian3.divideComponents = function (left, right, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -513,12 +514,12 @@ Cartesian3.divideComponents = function (left, right, result) {
 };
 
 /**
- * Computes the componentwise sum of two Cartesians.
+ * 计算两个笛卡尔坐标的分量和。
  *
- * @param {Cartesian3} left The first Cartesian.
- * @param {Cartesian3} right The second Cartesian.
+ * @param {Cartesian3} left 第一个笛卡尔坐标系。
+ * @param {Cartesian3} right 第二个笛卡尔坐标系。
  * @param {Cartesian3} result 要在其上存储结果的对象。
- * @returns {Cartesian3} The modified result parameter.
+ * @returns {Cartesian3} 修改后的结果参数。
  */
 Cartesian3.add = function (left, right, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -534,12 +535,12 @@ Cartesian3.add = function (left, right, result) {
 };
 
 /**
- * Computes the componentwise difference of two Cartesians.
+ * 计算两个笛卡尔坐标的分量差。
  *
- * @param {Cartesian3} left The first Cartesian.
- * @param {Cartesian3} right The second Cartesian.
+ * @param {Cartesian3} left 第一个笛卡尔坐标系。
+ * @param {Cartesian3} right 第二个笛卡尔坐标系。
  * @param {Cartesian3} result 要在其上存储结果的对象。
- * @returns {Cartesian3} The modified result parameter.
+ * @returns {Cartesian3} 修改后的结果参数。
  */
 Cartesian3.subtract = function (left, right, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -555,12 +556,12 @@ Cartesian3.subtract = function (left, right, result) {
 };
 
 /**
- * Multiplies the provided Cartesian componentwise by the provided scalar.
+ * 将所提供的笛卡尔分量与所提供的标量相乘。
  *
- * @param {Cartesian3} cartesian The Cartesian to be scaled.
- * @param {number} scalar The scalar to multiply with.
+ * @param {Cartesian3} cartesian 要缩放的笛卡尔坐标。
+ * @param {number} scalar 与之相乘的标量。
  * @param {Cartesian3} result 要在其上存储结果的对象。
- * @returns {Cartesian3} The modified result parameter.
+ * @returns {Cartesian3} 修改后的结果参数。
  */
 Cartesian3.multiplyByScalar = function (cartesian, scalar, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -576,12 +577,12 @@ Cartesian3.multiplyByScalar = function (cartesian, scalar, result) {
 };
 
 /**
- * Divides the provided Cartesian componentwise by the provided scalar.
+ * 将给定的笛卡尔分量除以给定的标量。
  *
- * @param {Cartesian3} cartesian The Cartesian to be divided.
- * @param {number} scalar The scalar to divide by.
+ * @param {Cartesian3} cartesian 要划分的笛卡尔坐标。
+ * @param {number} scalar 要除以的标量。
  * @param {Cartesian3} result 要在其上存储结果的对象。
- * @returns {Cartesian3} The modified result parameter.
+ * @returns {Cartesian3} 修改后的结果参数。
  */
 Cartesian3.divideByScalar = function (cartesian, scalar, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -597,11 +598,11 @@ Cartesian3.divideByScalar = function (cartesian, scalar, result) {
 };
 
 /**
- * Negates the provided Cartesian.
+ * 否定提供的笛卡尔坐标。
  *
- * @param {Cartesian3} cartesian The Cartesian to be negated.
+ * @param {Cartesian3} cartesian 笛卡尔坐标被否定了。
  * @param {Cartesian3} result 要在其上存储结果的对象。
- * @returns {Cartesian3} The modified result parameter.
+ * @returns {Cartesian3} 修改后的结果参数。
  */
 Cartesian3.negate = function (cartesian, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -616,11 +617,11 @@ Cartesian3.negate = function (cartesian, result) {
 };
 
 /**
- * Computes the absolute value of the provided Cartesian.
+ * 计算所提供的笛卡尔坐标的绝对值。
  *
- * @param {Cartesian3} cartesian The Cartesian whose absolute value is to be computed.
+ * @param {Cartesian3} cartesian 要计算其绝对值的笛卡尔坐标系。
  * @param {Cartesian3} result 要在其上存储结果的对象。
- * @returns {Cartesian3} The modified result parameter.
+ * @returns {Cartesian3} 修改后的结果参数。
  */
 Cartesian3.abs = function (cartesian, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -636,13 +637,13 @@ Cartesian3.abs = function (cartesian, result) {
 
 const lerpScratch = new Cartesian3();
 /**
- * Computes the linear interpolation or extrapolation at t using the provided cartesians.
+ * 使用提供的笛卡儿计算t处的线性插值或外推。
  *
- * @param {Cartesian3} start The value corresponding to t at 0.0.
- * @param {Cartesian3} end The value corresponding to t at 1.0.
- * @param {number} t The point along t at which to interpolate.
+ * @param {Cartesian3} start 对应于t在0.0处的值。
+ * @param {Cartesian3} end 对应于1.0时t的值。
+ * @param {number} t 沿着t进行插值的点。
  * @param {Cartesian3} result 要在其上存储结果的对象。
- * @returns {Cartesian3} The modified result parameter.
+ * @returns {Cartesian3} 修改后的结果参数。
  */
 Cartesian3.lerp = function (start, end, t, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -660,11 +661,11 @@ Cartesian3.lerp = function (start, end, t, result) {
 const angleBetweenScratch = new Cartesian3();
 const angleBetweenScratch2 = new Cartesian3();
 /**
- * Returns the angle, in radians, between the provided Cartesians.
+ * 返回所提供的笛卡尔之间的角度，以弧度为单位。
  *
- * @param {Cartesian3} left The first Cartesian.
- * @param {Cartesian3} right The second Cartesian.
- * @returns {number} The angle between the Cartesians.
+ * @param {Cartesian3} left 第一个笛卡尔坐标系。
+ * @param {Cartesian3} right 第二个笛卡尔坐标系。
+ * @returns {number} 笛卡尔角之间的夹角。
  */
 Cartesian3.angleBetween = function (left, right) {
   //>>includeStart('debug', pragmas.debug);
@@ -687,11 +688,11 @@ Cartesian3.angleBetween = function (left, right) {
 
 const mostOrthogonalAxisScratch = new Cartesian3();
 /**
- * Returns the axis that is most orthogonal to the provided Cartesian.
+ * 返回与所提供的笛卡尔坐标最正交的轴。
  *
- * @param {Cartesian3} cartesian The Cartesian on which to find the most orthogonal axis.
+ * @param {Cartesian3} cartesian 在笛卡尔坐标系上找到最正交的轴。
  * @param {Cartesian3} result 要在其上存储结果的对象。
- * @returns {Cartesian3} The most orthogonal axis.
+ * @returns {Cartesian3} 最正交的轴。
  */
 Cartesian3.mostOrthogonalAxis = function (cartesian, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -718,11 +719,11 @@ Cartesian3.mostOrthogonalAxis = function (cartesian, result) {
 };
 
 /**
- * Projects vector a onto vector b
- * @param {Cartesian3} a The vector that needs projecting
- * @param {Cartesian3} b The vector to project onto
- * @param {Cartesian3} result The result cartesian
- * @returns {Cartesian3} The modified result parameter
+ * 将向量a投影到向量b上
+ * @param {Cartesian3} a 需要投影的向量
+ * @param {Cartesian3} b 要投影到的向量
+ * @param {Cartesian3} result cartesian结果
+ * @returns {Cartesian3} 修改后的结果参数
  */
 Cartesian3.projectVector = function (a, b, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -736,7 +737,7 @@ Cartesian3.projectVector = function (a, b, result) {
 };
 
 /**
- * Compares the provided Cartesians componentwise and returns
+ * 比较所提供的笛卡尔分量并返回
  * <code>true</code>，否则为<code>false</code>。
  *
  * @param {Cartesian3} [left] 第一个Cartesian.
@@ -766,15 +767,15 @@ Cartesian3.equalsArray = function (cartesian, array, offset) {
 };
 
 /**
- * Compares the provided Cartesians componentwise and returns
- * <code>true</code> if they pass an absolute or relative tolerance test,
+ * 比较所提供的笛卡尔分量并返回
+ * <code>true</code> 如果它们通过了绝对或相对耐受性测试，
  * <code>false</code> 否则。
  *
  * @param {Cartesian3} [left] 第一个Cartesian.
  * @param {Cartesian3} [right] 第二个 Cartesian.
- * @param {number} [relativeEpsilon=0] The relative epsilon tolerance to use for equality testing.
- * @param {number} [absoluteEpsilon=relativeEpsilon] The absolute epsilon tolerance to use for equality testing.
- * @returns {boolean} <code>true</code> if left and right are within the provided epsilon, <code>false</code> 否则。
+ * @param {number} [relativeEpsilon=0] 用于相等性检验的相对容差。
+ * @param {number} [absoluteEpsilon=relativeEpsilon] 用于相等性检验的绝对公差。
+ * @returns {boolean} <code>true</code>如果左和右在提供的epsilon内，<code>false</code>否则。
  */
 Cartesian3.equalsEpsilon = function (
   left,
@@ -808,12 +809,12 @@ Cartesian3.equalsEpsilon = function (
 };
 
 /**
- * Computes the cross (outer) product of two Cartesians.
+ * 计算两个笛卡尔的叉乘(外)积。
  *
- * @param {Cartesian3} left The first Cartesian.
- * @param {Cartesian3} right The second Cartesian.
+ * @param {Cartesian3} left 第一个笛卡尔坐标系。
+ * @param {Cartesian3} right 第二个笛卡尔坐标系。
  * @param {Cartesian3} result 要在其上存储结果的对象。
- * @returns {Cartesian3} The cross product.
+ * @returns {Cartesian3} 叉乘
  */
 Cartesian3.cross = function (left, right, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -840,9 +841,9 @@ Cartesian3.cross = function (left, right, result) {
 };
 
 /**
- * Computes the midpoint between the right and left Cartesian.
- * @param {Cartesian3} left The first Cartesian.
- * @param {Cartesian3} right The second Cartesian.
+ * 计算左右笛卡尔坐标之间的中点。
+ * @param {Cartesian3} left 第一个笛卡尔坐标系。
+ * @param {Cartesian3} right 第二个笛卡尔坐标系。
  * @param {Cartesian3} result 要在其上存储结果的对象。
  * @returns {Cartesian3} The midpoint.
  */
@@ -861,14 +862,14 @@ Cartesian3.midpoint = function (left, right, result) {
 };
 
 /**
- * Returns a Cartesian3 position from longitude and latitude values given in degrees.
+ * 从以度表示的经度和纬度值返回笛卡尔位置。
  *
- * @param {number} longitude The longitude, in degrees
- * @param {number} latitude The latitude, in degrees
- * @param {number} [height=0.0] The height, in meters, above the ellipsoid.
- * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] The ellipsoid on which the position lies.
+ * @param {number} longitude 经度，以度为单位
+ * @param {number} latitude 纬度，以度为单位
+ * @param {number} [height=0.0] 椭球体上方的高度，单位为米。
+ * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] 位置所在的椭球体。
  * @param {Cartesian3} [result] 要在其上存储结果的对象。
- * @returns {Cartesian3} The position
+ * @returns {Cartesian3}  position
  *
  * @example
  * const position = Cesium.Cartesian3.fromDegrees(-115.0, 37.0);
@@ -901,14 +902,14 @@ Cartesian3._ellipsoidRadiiSquared = new Cartesian3(
 );
 
 /**
- * Returns a Cartesian3 position from longitude and latitude values given in radians.
+ * 从以弧度为单位给出的经度和纬度值返回Cartesian3位置。
  *
- * @param {number} longitude The longitude, in radians
- * @param {number} latitude The latitude, in radians
- * @param {number} [height=0.0] The height, in meters, above the ellipsoid.
- * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] The ellipsoid on which the position lies.
+ * @param {number} longitude 经度，以弧度为单位
+ * @param {number} latitude 纬度，以弧度为单位
+ * @param {number} [height=0.0] 椭球体上方的高度，单位为米。
+ * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] 位置所在的椭球体。
  * @param {Cartesian3} [result] 要在其上存储结果的对象。
- * @returns {Cartesian3} The position
+ * @returns {Cartesian3} 位置
  *
  * @example
  * const position = Cesium.Cartesian3.fromRadians(-2.007, 0.645);
@@ -949,12 +950,12 @@ Cartesian3.fromRadians = function (
 };
 
 /**
- * Returns an array of Cartesian3 positions given an array of longitude and latitude values given in degrees.
+ * 返回Cartesian3位置数组，给定经度和纬度值数组，以度表示。
  *
- * @param {number[]} coordinates A list of longitude and latitude values. Values alternate [longitude, latitude, longitude, latitude...].
- * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] The ellipsoid on which the coordinates lie.
- * @param {Cartesian3[]} [result] An array of Cartesian3 objects to store the result.
- * @returns {Cartesian3[]} The array of positions.
+ * @param {number[]} coordinates 经度和纬度值的列表。值替代 [longitude, latitude, longitude, latitude...].
+ * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] 坐标所在的椭球体。
+ * @param {Cartesian3[]} [result] 存储结果的笛卡尔对象数组。
+ * @returns {Cartesian3[]} 位置数组。
  *
  * @example
  * const positions = Cesium.Cartesian3.fromDegreesArray([-115.0, 37.0, -107.0, 33.0]);
@@ -993,12 +994,12 @@ Cartesian3.fromDegreesArray = function (coordinates, ellipsoid, result) {
 };
 
 /**
- * Returns an array of Cartesian3 positions given an array of longitude and latitude values given in radians.
+ * 返回一个笛卡尔位置数组，给定以弧度表示的经度和纬度值数组。
  *
- * @param {number[]} coordinates A list of longitude and latitude values. Values alternate [longitude, latitude, longitude, latitude...].
- * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] The ellipsoid on which the coordinates lie.
- * @param {Cartesian3[]} [result] An array of Cartesian3 objects to store the result.
- * @returns {Cartesian3[]} The array of positions.
+ * @param {number[]} coordinates 经度和纬度值的列表。值替代 [longitude, latitude, longitude, latitude...].
+ * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] 坐标所在的椭球体。
+ * @param {Cartesian3[]} [result] 存储结果的笛卡尔对象数组。
+ * @returns {Cartesian3[]} 位置数组。
  *
  * @example
  * const positions = Cesium.Cartesian3.fromRadiansArray([-2.007, 0.645, -1.867, .575]);
@@ -1037,12 +1038,12 @@ Cartesian3.fromRadiansArray = function (coordinates, ellipsoid, result) {
 };
 
 /**
- * Returns an array of Cartesian3 positions given an array of longitude, latitude and height values where longitude and latitude are given in degrees.
+ * 返回一个Cartesian3位置数组，给定经度、纬度和高度值数组，其中经度和纬度以度数表示。
  *
- * @param {number[]} coordinates A list of longitude, latitude and height values. Values alternate [longitude, latitude, height, longitude, latitude, height...].
- * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] The ellipsoid on which the position lies.
- * @param {Cartesian3[]} [result] An array of Cartesian3 objects to store the result.
- * @returns {Cartesian3[]} The array of positions.
+ * @param {number[]} coordinates 经度、纬度和高度值的列表。值替代 [longitude, latitude, height, longitude, latitude, height...].
+ * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] 位置所在的椭球体。
+ * @param {Cartesian3[]} [result] 存储结果的笛卡尔对象数组。
+ * @returns {Cartesian3[]} 位置数组。
  *
  * @example
  * const positions = Cesium.Cartesian3.fromDegreesArrayHeights([-115.0, 37.0, 100000.0, -107.0, 33.0, 150000.0]);
@@ -1082,12 +1083,12 @@ Cartesian3.fromDegreesArrayHeights = function (coordinates, ellipsoid, result) {
 };
 
 /**
- * Returns an array of Cartesian3 positions given an array of longitude, latitude and height values where longitude and latitude are given in radians.
+ * 返回一个Cartesian3位置数组，给定经度、纬度和高度值数组，其中经度和纬度以弧度表示。
  *
- * @param {number[]} coordinates A list of longitude, latitude and height values. Values alternate [longitude, latitude, height, longitude, latitude, height...].
- * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] The ellipsoid on which the position lies.
- * @param {Cartesian3[]} [result] An array of Cartesian3 objects to store the result.
- * @returns {Cartesian3[]} The array of positions.
+ * @param {number[]} coordinates 经度、纬度和高度值的列表。值替代 [longitude, latitude, height, longitude, latitude, height...].
+ * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] 位置所在的椭球体。
+ * @param {Cartesian3[]} [result] 存储结果的笛卡尔对象数组。
+ * @returns {Cartesian3[]} 位置数组。
  *
  * @example
  * const positions = Cesium.Cartesian3.fromRadiansArrayHeights([-2.007, 0.645, 100000.0, -1.867, .575, 150000.0]);
@@ -1127,7 +1128,7 @@ Cartesian3.fromRadiansArrayHeights = function (coordinates, ellipsoid, result) {
 };
 
 /**
- * An immutable Cartesian3 instance initialized to (0.0, 0.0, 0.0).
+ * 初始化为的不可变的Cartesian3实例 (0.0, 0.0, 0.0).
  *
  * @type {Cartesian3}
  * @constant
@@ -1135,7 +1136,7 @@ Cartesian3.fromRadiansArrayHeights = function (coordinates, ellipsoid, result) {
 Cartesian3.ZERO = Object.freeze(new Cartesian3(0.0, 0.0, 0.0));
 
 /**
- * An immutable Cartesian3 instance initialized to (1.0, 1.0, 1.0).
+ * 初始化为的不可变的Cartesian3实例 (1.0, 1.0, 1.0).
  *
  * @type {Cartesian3}
  * @constant
@@ -1143,7 +1144,7 @@ Cartesian3.ZERO = Object.freeze(new Cartesian3(0.0, 0.0, 0.0));
 Cartesian3.ONE = Object.freeze(new Cartesian3(1.0, 1.0, 1.0));
 
 /**
- * An immutable Cartesian3 instance initialized to (1.0, 0.0, 0.0).
+ * 初始化为的不可变的Cartesian3实例 (1.0, 0.0, 0.0).
  *
  * @type {Cartesian3}
  * @constant
@@ -1151,7 +1152,7 @@ Cartesian3.ONE = Object.freeze(new Cartesian3(1.0, 1.0, 1.0));
 Cartesian3.UNIT_X = Object.freeze(new Cartesian3(1.0, 0.0, 0.0));
 
 /**
- * An immutable Cartesian3 instance initialized to (0.0, 1.0, 0.0).
+ * 初始化为的不可变的Cartesian3实例 (0.0, 1.0, 0.0).
  *
  * @type {Cartesian3}
  * @constant
@@ -1159,7 +1160,7 @@ Cartesian3.UNIT_X = Object.freeze(new Cartesian3(1.0, 0.0, 0.0));
 Cartesian3.UNIT_Y = Object.freeze(new Cartesian3(0.0, 1.0, 0.0));
 
 /**
- * An immutable Cartesian3 instance initialized to (0.0, 0.0, 1.0).
+ * 初始化为的不可变的Cartesian3实例 (0.0, 0.0, 1.0).
  *
  * @type {Cartesian3}
  * @constant
@@ -1170,14 +1171,14 @@ Cartesian3.UNIT_Z = Object.freeze(new Cartesian3(0.0, 0.0, 1.0));
  * 复制Cartesian3 instance.
  *
  * @param {Cartesian3} [result] 要在其上存储结果的对象。
- * @returns {Cartesian3} The modified result parameter or a new Cartesian3 instance if one was not provided.
+ * @returns {Cartesian3} 如果没有提供新的Cartesian3实例，则使用修改后的结果参数。
  */
 Cartesian3.prototype.clone = function (result) {
   return Cartesian3.clone(this, result);
 };
 
 /**
- * Compares this Cartesian against the provided Cartesian componentwise and returns
+ * 将此笛卡尔与提供的笛卡尔分量进行比较并返回
  * <code>true</code>，否则为<code>false</code>。
  *
  * @param {Cartesian3} [right] 右边 Cartesian.
@@ -1188,14 +1189,14 @@ Cartesian3.prototype.equals = function (right) {
 };
 
 /**
- * Compares this Cartesian against the provided Cartesian componentwise and returns
- * <code>true</code> if they pass an absolute or relative tolerance test,
+ * 将此笛卡尔与提供的笛卡尔分量进行比较并返回
+ * <code>true</code> 如果它们通过了绝对或相对耐受性测试，
  * <code>false</code> 否则。
  *
  * @param {Cartesian3} [right] 右边 Cartesian.
- * @param {number} [relativeEpsilon=0] The relative epsilon tolerance to use for equality testing.
- * @param {number} [absoluteEpsilon=relativeEpsilon] The absolute epsilon tolerance to use for equality testing.
- * @returns {boolean} <code>true</code> if they are within the provided epsilon, <code>false</code> 否则。
+ * @param {number} [relativeEpsilon=0] 用于相等性检验的相对容差。
+ * @param {number} [absoluteEpsilon=relativeEpsilon] 用于相等性检验的绝对公差。
+ * @returns {boolean} <code>true</code>如果它们在提供的epsilon内，<code>false</code>否则。
  */
 Cartesian3.prototype.equalsEpsilon = function (
   right,
@@ -1211,9 +1212,9 @@ Cartesian3.prototype.equalsEpsilon = function (
 };
 
 /**
- * Creates a string representing this Cartesian in the format '(x, y, z)'.
+ * 以'(x, y, z)'的格式创建一个表示此笛卡尔坐标的字符串。
  *
- * @returns {string} A string representing this Cartesian in the format '(x, y, z)'.
+ * @returns {string} 以'(x, y, z)'格式表示此笛卡尔坐标的字符串。
  */
 Cartesian3.prototype.toString = function () {
   return `(${this.x}, ${this.y}, ${this.z})`;

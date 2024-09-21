@@ -238,7 +238,7 @@ function JulianDate(julianDayNumber, secondsOfDay, timeStandard) {
  *
  * @param {GregorianDate} date A GregorianDate.
  * @param {JulianDate} [result] An existing instance to use for the result.
- * @returns {JulianDate} The modified result parameter or a new instance if none was provided.
+ * @returns {JulianDate} 修改后的结果参数 or a new instance if none was provided.
  *
  * @exception {DeveloperError} date must be a valid GregorianDate.
  */
@@ -271,7 +271,7 @@ JulianDate.fromGregorianDate = function (date, result) {
  *
  * @param {Date} date A JavaScript Date.
  * @param {JulianDate} [result] An existing instance to use for the result.
- * @returns {JulianDate} The modified result parameter or a new instance if none was provided.
+ * @returns {JulianDate} 修改后的结果参数 or a new instance if none was provided.
  *
  * @exception {DeveloperError} date must be a valid JavaScript Date.
  */
@@ -306,7 +306,7 @@ JulianDate.fromDate = function (date, result) {
  *
  * @param {string} iso8601String An ISO 8601 date.
  * @param {JulianDate} [result] An existing instance to use for the result.
- * @returns {JulianDate} The modified result parameter or a new instance if none was provided.
+ * @returns {JulianDate} 修改后的结果参数 or a new instance if none was provided.
  *
  * @exception {DeveloperError} Invalid ISO 8601 date.
  */
@@ -610,7 +610,7 @@ JulianDate.fromIso8601 = function (iso8601String, result) {
  * This is equivalent to calling <code>JulianDate.fromDate(new Date());</code>.
  *
  * @param {JulianDate} [result] An existing instance to use for the result.
- * @returns {JulianDate} The modified result parameter or a new instance if none was provided.
+ * @returns {JulianDate} 修改后的结果参数 or a new instance if none was provided.
  */
 JulianDate.now = function (result) {
   return JulianDate.fromDate(new Date(), result);
@@ -623,7 +623,7 @@ const toGregorianDateScratch = new JulianDate(0, 0, TimeStandard.TAI);
  *
  * @param {JulianDate} julianDate The date to be converted.
  * @param {GregorianDate} [result] An existing instance to use for the result.
- * @returns {GregorianDate} The modified result parameter or a new instance if none was provided.
+ * @returns {GregorianDate} 修改后的结果参数 or a new instance if none was provided.
  */
 JulianDate.toGregorianDate = function (julianDate, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -835,7 +835,7 @@ JulianDate.toIso8601 = function (julianDate, precision) {
  *
  * @param {JulianDate} julianDate The date to duplicate.
  * @param {JulianDate} [result] An existing instance to use for the result.
- * @returns {JulianDate} The modified result parameter or a new instance if none was provided. Returns undefined if julianDate is undefined.
+ * @returns {JulianDate} 修改后的结果参数 or a new instance if none was provided. Returns undefined if julianDate is undefined.
  */
 JulianDate.clone = function (julianDate, result) {
   if (!defined(julianDate)) {
@@ -1009,7 +1009,7 @@ JulianDate.computeTaiMinusUtc = function (julianDate) {
  * @param {JulianDate} julianDate The date.
  * @param {number} seconds The number of seconds to add or subtract.
  * @param {JulianDate} result An existing instance to use for the result.
- * @returns {JulianDate} The modified result parameter.
+ * @returns {JulianDate} 修改后的结果参数。
  */
 JulianDate.addSeconds = function (julianDate, seconds, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -1037,7 +1037,7 @@ JulianDate.addSeconds = function (julianDate, seconds, result) {
  * @param {JulianDate} julianDate The date.
  * @param {number} minutes The number of minutes to add or subtract.
  * @param {JulianDate} result An existing instance to use for the result.
- * @returns {JulianDate} The modified result parameter.
+ * @returns {JulianDate} 修改后的结果参数。
  */
 JulianDate.addMinutes = function (julianDate, minutes, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -1063,7 +1063,7 @@ JulianDate.addMinutes = function (julianDate, minutes, result) {
  * @param {JulianDate} julianDate The date.
  * @param {number} hours The number of hours to add or subtract.
  * @param {JulianDate} result An existing instance to use for the result.
- * @returns {JulianDate} The modified result parameter.
+ * @returns {JulianDate} 修改后的结果参数。
  */
 JulianDate.addHours = function (julianDate, hours, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -1089,7 +1089,7 @@ JulianDate.addHours = function (julianDate, hours, result) {
  * @param {JulianDate} julianDate The date.
  * @param {number} days The number of days to add or subtract.
  * @param {JulianDate} result An existing instance to use for the result.
- * @returns {JulianDate} The modified result parameter.
+ * @returns {JulianDate} 修改后的结果参数。
  */
 JulianDate.addDays = function (julianDate, days, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -1156,7 +1156,7 @@ JulianDate.greaterThanOrEquals = function (left, right) {
  * 复制instance.
  *
  * @param {JulianDate} [result] An existing instance to use for the result.
- * @returns {JulianDate} The modified result parameter or a new instance if none was provided.
+ * @returns {JulianDate} 修改后的结果参数 or a new instance if none was provided.
  */
 JulianDate.prototype.clone = function (result) {
   return JulianDate.clone(this, result);

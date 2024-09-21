@@ -103,7 +103,7 @@ function WallOutlineGeometry(options) {
   }
 
   /**
-   * The number of elements used to pack the object into an array.
+   * 用于将对象打包到数组中的元素数量。
    * @type {number}
    */
   this.packedLength = numComponents + Ellipsoid.packedLength + 1;
@@ -183,7 +183,7 @@ const scratchOptions = {
  * @param {number[]} array 打包数组。
  * @param {number} [startingIndex=0] 要解压缩的元素的起始索引。
  * @param {WallOutlineGeometry} [result] 要在其中存储结果的对象。
- * @returns {WallOutlineGeometry} The modified result parameter or a new WallOutlineGeometry instance if one was not provided.
+ * @returns {WallOutlineGeometry} 修改后的结果参数 or a new WallOutlineGeometry instance if one was not provided.
  */
 WallOutlineGeometry.unpack = function (array, startingIndex, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -323,7 +323,7 @@ WallOutlineGeometry.fromConstantHeights = function (options) {
  * Computes the geometric representation of a wall outline, including its vertices, indices, and a bounding sphere.
  *
  * @param {WallOutlineGeometry} wallGeometry A description of the wall outline.
- * @returns {Geometry|undefined} The computed vertices and indices.
+ * @returns {Geometry|undefined} 计算的顶点和索引。
  */
 WallOutlineGeometry.createGeometry = function (wallGeometry) {
   const wallPositions = wallGeometry._positions;

@@ -898,7 +898,7 @@ function computeRectangle(
  * @param {number} [options.rotation=0.0] The angle of rotation counter-clockwise from north.
  * @param {number} [options.stRotation=0.0] The rotation of the texture coordinates counter-clockwise from north.
  * @param {number} [options.granularity=CesiumMath.RADIANS_PER_DEGREE] The angular distance between points on the ellipse in radians.
- * @param {VertexFormat} [options.vertexFormat=VertexFormat.DEFAULT] The vertex attributes to be computed.
+ * @param {VertexFormat} [options.vertexFormat=VertexFormat.DEFAULT] 要计算的顶点属性。
  *
  * @exception {DeveloperError} semiMajorAxis and semiMinorAxis must be greater than zero.
  * @exception {DeveloperError} semiMajorAxis must be greater than or equal to the semiMinorAxis.
@@ -966,7 +966,7 @@ function EllipseGeometry(options) {
 }
 
 /**
- * The number of elements used to pack the object into an array.
+ * 用于将对象打包到数组中的元素数量。
  * @type {number}
  */
 EllipseGeometry.packedLength =
@@ -1038,7 +1038,7 @@ const scratchOptions = {
  * @param {number[]} array 打包数组。
  * @param {number} [startingIndex=0] 要解压缩的元素的起始索引。
  * @param {EllipseGeometry} [result] 要在其中存储结果的对象。
- * @returns {EllipseGeometry} The modified result parameter or a new EllipseGeometry instance if one was not provided.
+ * @returns {EllipseGeometry} 修改后的结果参数 or a new EllipseGeometry instance if one was not provided.
  */
 EllipseGeometry.unpack = function (array, startingIndex, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -1158,7 +1158,7 @@ EllipseGeometry.computeRectangle = function (options, result) {
  * Computes the geometric representation of a ellipse on an ellipsoid, including its vertices, indices, and a bounding sphere.
  *
  * @param {EllipseGeometry} ellipseGeometry A description of the ellipse.
- * @returns {Geometry|undefined} The computed vertices and indices.
+ * @returns {Geometry|undefined} 计算的顶点和索引。
  */
 EllipseGeometry.createGeometry = function (ellipseGeometry) {
   if (

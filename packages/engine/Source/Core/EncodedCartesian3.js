@@ -43,7 +43,7 @@ function EncodedCartesian3() {
  *
  * @param {number} value The floating-point value to encode.
  * @param {object} [result] 要在其上存储结果的对象。
- * @returns {object} The modified result parameter or a new instance if one was not provided.
+ * @returns {object} 修改后的结果参数 or a new instance if one was not provided.
  *
  * @example
  * const value = 1234567.1234567;
@@ -89,7 +89,7 @@ const scratchEncode = {
  *
  * @param {Cartesian3} cartesian The cartesian to encode.
  * @param {EncodedCartesian3} [result] 要在其上存储结果的对象。
- * @returns {EncodedCartesian3} The modified result parameter or a new EncodedCartesian3 instance if one was not provided.
+ * @returns {EncodedCartesian3} 修改后的结果参数 or a new EncodedCartesian3 instance if one was not provided.
  *
  * @example
  * const cart = new Cesium.Cartesian3(-10000000.0, 0.0, 10000000.0);

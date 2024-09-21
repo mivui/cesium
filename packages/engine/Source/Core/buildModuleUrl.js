@@ -91,11 +91,11 @@ function buildModuleUrlFromBaseUrl(moduleID) {
 let implementation;
 
 /**
- * Given a relative URL under the Cesium base URL, returns an absolute URL.
+ * 给定Cesium基础URL下的相对URL，返回绝对URL。
  * @function
  *
- * @param {string} relativeUrl The relative path.
- * @returns {string} The absolutely URL representation of the provided path.
+ * @param {string} relativeUrl 相对路径。
+ * @returns {string} 所提供路径的绝对URL表示形式。
  *
  * @example
  * const viewer = new Cesium.Viewer("cesiumContainer", {
@@ -133,8 +133,8 @@ buildModuleUrl._clearBaseResource = function () {
 };
 
 /**
- * Sets the base URL for resolving modules.
- * @param {string} value The new base URL.
+ * 设置解析模块的基URL。
+ * @param {string} value 新的基URL。
  */
 buildModuleUrl.setBaseUrl = function (value) {
   baseResource = Resource.DEFAULT.getDerivedResource({
@@ -143,10 +143,10 @@ buildModuleUrl.setBaseUrl = function (value) {
 };
 
 /**
- * Gets the base URL for resolving modules.
+ * 获取解析模块的基URL。
  *
  * @function
- * @returns {string} The configured base URL
+ * @returns {string} 配置的基础URL
  */
 buildModuleUrl.getCesiumBaseUrl = getCesiumBaseUrl;
 

@@ -5,14 +5,14 @@ import DeveloperError from "./DeveloperError.js";
 import CesiumMath from "./Math.js";
 
 /**
- * A 4D Cartesian point.
+ * 一个四维笛卡尔点。
  * @alias Cartesian4
  * @constructor
  *
- * @param {number} [x=0.0] The X component.
- * @param {number} [y=0.0] The Y component.
- * @param {number} [z=0.0] The Z component.
- * @param {number} [w=0.0] The W component.
+ * @param {number} [x=0.0] X分量。
+ * @param {number} [y=0.0] Y分量。
+ * @param {number} [z=0.0] Z分量。
+ * @param {number} [w=0.0] W分量。
  *
  * @see Cartesian2
  * @see Cartesian3
@@ -20,28 +20,28 @@ import CesiumMath from "./Math.js";
  */
 function Cartesian4(x, y, z, w) {
   /**
-   * The X component.
+   * X分量。
    * @type {number}
    * @default 0.0
    */
   this.x = defaultValue(x, 0.0);
 
   /**
-   * The Y component.
+   * Y分量。
    * @type {number}
    * @default 0.0
    */
   this.y = defaultValue(y, 0.0);
 
   /**
-   * The Z component.
+   * Z分量。
    * @type {number}
    * @default 0.0
    */
   this.z = defaultValue(z, 0.0);
 
   /**
-   * The W component.
+   * W分量。
    * @type {number}
    * @default 0.0
    */
@@ -49,14 +49,14 @@ function Cartesian4(x, y, z, w) {
 }
 
 /**
- * Creates a Cartesian4 instance from x, y, z and w coordinates.
+ * 从x、y、z和w坐标创建一个笛卡尔实例。
  *
- * @param {number} x The x coordinate.
- * @param {number} y The y coordinate.
- * @param {number} z The z coordinate.
- * @param {number} w The w coordinate.
+ * @param {number} x x坐标。
+ * @param {number} y y坐标。
+ * @param {number} z z坐标。
+ * @param {number} w Tw坐标。
  * @param {Cartesian4} [result] 要在其上存储结果的对象。
- * @returns {Cartesian4} The modified result parameter or a new Cartesian4 instance if one was not provided.
+ * @returns {Cartesian4} 修改后的结果参数 或者一个新的笛卡尔实例，如果没有提供的话。
  */
 Cartesian4.fromElements = function (x, y, z, w, result) {
   if (!defined(result)) {
@@ -71,12 +71,12 @@ Cartesian4.fromElements = function (x, y, z, w, result) {
 };
 
 /**
- * Creates a Cartesian4 instance from a {@link Color}. <code>red</code>, <code>green</code>, <code>blue</code>,
- * and <code>alpha</code> map to <code>x</code>, <code>y</code>, <code>z</code>, and <code>w</code>, respectively.
+ * 从{@link Color}创建一个Cartesian4实例。<code>red</code>, <code>green</code>, <code>blue</code>,
+ * 和 <code>alpha</code> 分别映射到 <code>x</code>, <code>y</code>, <code>z</code>, and <code>w</code>.
  *
- * @param {Color} color The source color.
+ * @param {Color} color 源颜色。
  * @param {Cartesian4} [result] 要在其上存储结果的对象。
- * @returns {Cartesian4} The modified result parameter or a new Cartesian4 instance if one was not provided.
+ * @returns {Cartesian4} 修改后的结果参数 或者一个新的笛卡尔实例，如果没有提供的话。
  */
 Cartesian4.fromColor = function (color, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -96,9 +96,9 @@ Cartesian4.fromColor = function (color, result) {
 /**
  * 复制Cartesian4 instance.
  *
- * @param {Cartesian4} cartesian The Cartesian to duplicate.
+ * @param {Cartesian4} cartesian 复制的笛卡尔坐标。
  * @param {Cartesian4} [result] 要在其上存储结果的对象。
- * @returns {Cartesian4} The modified result parameter or a new Cartesian4 instance if one was not provided. (Returns undefined if cartesian is undefined)
+ * @returns {Cartesian4} 修改后的结果参数 或者一个新的笛卡尔实例，如果没有提供的话。 (如果cartesian未定义则返回未定义)
  */
 Cartesian4.clone = function (cartesian, result) {
   if (!defined(cartesian)) {
@@ -117,7 +117,7 @@ Cartesian4.clone = function (cartesian, result) {
 };
 
 /**
- * The number of elements used to pack the object into an array.
+ * 用于将对象打包到数组中的元素数量。
  * @type {number}
  */
 Cartesian4.packedLength = 4;
@@ -153,7 +153,7 @@ Cartesian4.pack = function (value, array, startingIndex) {
  * @param {number[]} array 打包数组。
  * @param {number} [startingIndex=0] 要解压缩的元素的起始索引。
  * @param {Cartesian4} [result] 要在其中存储结果的对象。
- * @returns {Cartesian4}  The modified result parameter or a new Cartesian4 instance if one was not provided.
+ * @returns {Cartesian4}  The modified result parameter 或者一个新的笛卡尔实例，如果没有提供的话。
  */
 Cartesian4.unpack = function (array, startingIndex, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -173,10 +173,10 @@ Cartesian4.unpack = function (array, startingIndex, result) {
 };
 
 /**
- * Flattens an array of Cartesian4s into an array of components.
+ * 将笛Cartesian4的数组平展为一个分量数组。
  *
- * @param {Cartesian4[]} array The array of cartesians to pack.
- * @param {number[]} [result] The array onto which to store the result. If this is a typed array, it must have array.length * 4 components, else a {@link DeveloperError} will be thrown. If it is a regular array, it will be resized to have (array.length * 4) elements.
+ * @param {Cartesian4[]} array 要打包的笛卡儿数组。
+ * @param {number[]} [result] 要在其中存储结果的数组。 如果这是一个类型化数组，它必须有array。array.length * 4个组件，否则将抛出{@link DeveloperError}。如果它是一个常规数组，它的大小将被调整为(array.length * 4)元素。
  * @returns {number[]} 打包数组。
  */
 Cartesian4.packArray = function (array, result) {
@@ -205,11 +205,11 @@ Cartesian4.packArray = function (array, result) {
 };
 
 /**
- * Unpacks an array of cartesian components into an array of Cartesian4s.
+ * 将笛卡尔分量的数组解包为笛卡尔分量的数组。
  *
- * @param {number[]} array The array of components to unpack.
- * @param {Cartesian4[]} [result] The array onto which to store the result.
- * @returns {Cartesian4[]} The unpacked array.
+ * @param {number[]} array 要解包的组件数组。
+ * @param {Cartesian4[]} [result] 要在其中存储结果的数组。
+ * @returns {Cartesian4[]} 未打包的数组。
  */
 Cartesian4.unpackArray = function (array, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -235,13 +235,13 @@ Cartesian4.unpackArray = function (array, result) {
 };
 
 /**
- * Creates a Cartesian4 from four consecutive elements in an array.
+ * 从数组中的四个连续元素创建一个笛卡尔坐标系。
  * @function
  *
- * @param {number[]} array The array whose four consecutive elements correspond to the x, y, z, and w components, respectively.
- * @param {number} [startingIndex=0] The offset into the array of the first element, which corresponds to the x component.
+ * @param {number[]} array 数组，其四个连续元素分别对应x、y、z和w个分量。
+ * @param {number} [startingIndex=0] 第一个元素在数组中的偏移量，对应于X分量。
  * @param {Cartesian4} [result] 要在其上存储结果的对象。
- * @returns {Cartesian4}  The modified result parameter or a new Cartesian4 instance if one was not provided.
+ * @returns {Cartesian4}  修改后的结果参数或者一个新的笛卡尔实例,如果没有提供的话。
  *
  * @example
  * // Create a Cartesian4 with (1.0, 2.0, 3.0, 4.0)
@@ -255,10 +255,10 @@ Cartesian4.unpackArray = function (array, result) {
 Cartesian4.fromArray = Cartesian4.unpack;
 
 /**
- * Computes the value of the maximum component for the supplied Cartesian.
+ * 计算所提供的笛卡尔坐标的最大分量的值。
  *
- * @param {Cartesian4} cartesian The cartesian to use.
- * @returns {number} The value of the maximum component.
+ * @param {Cartesian4} cartesian 用笛卡尔坐标。
+ * @returns {number} 最大分量的值。
  */
 Cartesian4.maximumComponent = function (cartesian) {
   //>>includeStart('debug', pragmas.debug);
@@ -269,10 +269,10 @@ Cartesian4.maximumComponent = function (cartesian) {
 };
 
 /**
- * Computes the value of the minimum component for the supplied Cartesian.
+ * 为所提供的笛卡尔坐标计算最小分量的值。
  *
- * @param {Cartesian4} cartesian The cartesian to use.
- * @returns {number} The value of the minimum component.
+ * @param {Cartesian4} cartesian 用笛卡尔坐标。
+ * @returns {number} 最小分量的值。
  */
 Cartesian4.minimumComponent = function (cartesian) {
   //>>includeStart('debug', pragmas.debug);
@@ -283,12 +283,12 @@ Cartesian4.minimumComponent = function (cartesian) {
 };
 
 /**
- * Compares two Cartesians and computes a Cartesian which contains the minimum components of the supplied Cartesians.
+ * 比较两个笛卡尔坐标并计算一个包含所提供笛卡尔坐标的最小分量的笛卡尔坐标。
  *
- * @param {Cartesian4} first A cartesian to compare.
- * @param {Cartesian4} second A cartesian to compare.
+ * @param {Cartesian4} first 用笛卡尔坐标来比较。
+ * @param {Cartesian4} second 用笛卡尔坐标来比较。
  * @param {Cartesian4} result 要在其中存储结果的对象。
- * @returns {Cartesian4} A cartesian with the minimum components.
+ * @returns {Cartesian4} 具有最小分量的笛卡尔曲线。
  */
 Cartesian4.minimumByComponent = function (first, second, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -306,10 +306,10 @@ Cartesian4.minimumByComponent = function (first, second, result) {
 };
 
 /**
- * Compares two Cartesians and computes a Cartesian which contains the maximum components of the supplied Cartesians.
+ * 比较两个笛卡尔坐标并计算一个包含所提供笛卡尔坐标的最大分量的笛卡尔坐标。
  *
- * @param {Cartesian4} first A cartesian to compare.
- * @param {Cartesian4} second A cartesian to compare.
+ * @param {Cartesian4} first 用笛卡尔坐标来比较。
+ * @param {Cartesian4} second 用笛卡尔坐标来比较。
  * @param {Cartesian4} result 要在其中存储结果的对象。
  * @returns {Cartesian4} A cartesian with the maximum components.
  */
@@ -329,13 +329,13 @@ Cartesian4.maximumByComponent = function (first, second, result) {
 };
 
 /**
- * Constrain a value to lie between two values.
+ * 将一个值约束在两个值之间。
  *
- * @param {Cartesian4} value The value to clamp.
- * @param {Cartesian4} min The minimum bound.
- * @param {Cartesian4} max The maximum bound.
+ * @param {Cartesian4} value 夹位的值。
+ * @param {Cartesian4} min 最小值。
+ * @param {Cartesian4} max 最大值。
  * @param {Cartesian4} result 要在其中存储结果的对象。
- * @returns {Cartesian4} The clamped value such that min <= result <= max.
+ * @returns {Cartesian4} 使min <= result <= max的固定值。
  */
 Cartesian4.clamp = function (value, min, max, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -359,10 +359,10 @@ Cartesian4.clamp = function (value, min, max, result) {
 };
 
 /**
- * Computes the provided Cartesian's squared magnitude.
+ * 计算给定的笛卡尔坐标的平方幅度。
  *
- * @param {Cartesian4} cartesian The Cartesian instance whose squared magnitude is to be computed.
- * @returns {number} The squared magnitude.
+ * @param {Cartesian4} cartesian 要计算其模的平方的笛卡尔实例。
+ * @returns {number} 大小的平方。
  */
 Cartesian4.magnitudeSquared = function (cartesian) {
   //>>includeStart('debug', pragmas.debug);
@@ -378,10 +378,10 @@ Cartesian4.magnitudeSquared = function (cartesian) {
 };
 
 /**
- * Computes the Cartesian's magnitude (length).
+ * 计算笛卡尔的大小(长度)。
  *
- * @param {Cartesian4} cartesian The Cartesian instance whose magnitude is to be computed.
- * @returns {number} The magnitude.
+ * @param {Cartesian4} cartesian 要计算其大小的笛卡尔实例。
+ * @returns {number} 的大小。
  */
 Cartesian4.magnitude = function (cartesian) {
   return Math.sqrt(Cartesian4.magnitudeSquared(cartesian));
@@ -392,9 +392,9 @@ const distanceScratch = new Cartesian4();
 /**
  * Computes the 4-space distance between two points.
  *
- * @param {Cartesian4} left The first point to compute the distance from.
- * @param {Cartesian4} right The second point to compute the distance to.
- * @returns {number} The distance between two points.
+ * @param {Cartesian4} left 第一个计算距离的点。
+ * @param {Cartesian4} right 计算距离的第二个点。
+ * @returns {number} 两点之间的距离
  *
  * @example
  * // Returns 1.0
@@ -413,12 +413,12 @@ Cartesian4.distance = function (left, right) {
 };
 
 /**
- * Computes the squared distance between two points.  Comparing squared distances
- * using this function is more efficient than comparing distances using {@link Cartesian4#distance}.
+ * 计算两点之间距离的平方。比较平方距离
+ * 使用此函数比使用 {@link Cartesian4#distance}.
  *
- * @param {Cartesian4} left The first point to compute the distance from.
- * @param {Cartesian4} right The second point to compute the distance to.
- * @returns {number} The distance between two points.
+ * @param {Cartesian4} left 第一个计算距离的点。
+ * @param {Cartesian4} right 计算距离的第二个点。
+ * @returns {number} 两点之间的距离
  *
  * @example
  * // Returns 4.0, not 2.0
@@ -437,11 +437,11 @@ Cartesian4.distanceSquared = function (left, right) {
 };
 
 /**
- * Computes the normalized form of the supplied Cartesian.
+ * 计算提供的笛卡尔坐标的规范化形式。
  *
- * @param {Cartesian4} cartesian The Cartesian to be normalized.
+ * @param {Cartesian4} cartesian 笛卡尔坐标被归一化。
  * @param {Cartesian4} result 要在其上存储结果的对象。
- * @returns {Cartesian4} The modified result parameter.
+ * @returns {Cartesian4} 修改后的结果参数。
  */
 Cartesian4.normalize = function (cartesian, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -471,11 +471,11 @@ Cartesian4.normalize = function (cartesian, result) {
 };
 
 /**
- * Computes the dot (scalar) product of two Cartesians.
+ * 计算两个笛卡尔坐标的点(标量)积。
  *
- * @param {Cartesian4} left The first Cartesian.
- * @param {Cartesian4} right The second Cartesian.
- * @returns {number} The dot product.
+ * @param {Cartesian4} left 第一个笛卡尔坐标系。
+ * @param {Cartesian4} right 第二个笛卡尔坐标系。
+ * @returns {number} 点积。
  */
 Cartesian4.dot = function (left, right) {
   //>>includeStart('debug', pragmas.debug);
@@ -489,12 +489,12 @@ Cartesian4.dot = function (left, right) {
 };
 
 /**
- * Computes the componentwise product of two Cartesians.
+ * 计算两个笛卡尔坐标的分量积。
  *
- * @param {Cartesian4} left The first Cartesian.
- * @param {Cartesian4} right The second Cartesian.
+ * @param {Cartesian4} left 第一个笛卡尔坐标系。
+ * @param {Cartesian4} right 第二个笛卡尔坐标系。
  * @param {Cartesian4} result 要在其上存储结果的对象。
- * @returns {Cartesian4} The modified result parameter.
+ * @returns {Cartesian4} 修改后的结果参数。
  */
 Cartesian4.multiplyComponents = function (left, right, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -511,12 +511,12 @@ Cartesian4.multiplyComponents = function (left, right, result) {
 };
 
 /**
- * Computes the componentwise quotient of two Cartesians.
+ * 计算两个笛卡尔的分量商。
  *
- * @param {Cartesian4} left The first Cartesian.
- * @param {Cartesian4} right The second Cartesian.
+ * @param {Cartesian4} left 第一个笛卡尔坐标系。
+ * @param {Cartesian4} right 第二个笛卡尔坐标系。
  * @param {Cartesian4} result 要在其上存储结果的对象。
- * @returns {Cartesian4} The modified result parameter.
+ * @returns {Cartesian4} 修改后的结果参数。
  */
 Cartesian4.divideComponents = function (left, right, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -533,12 +533,12 @@ Cartesian4.divideComponents = function (left, right, result) {
 };
 
 /**
- * Computes the componentwise sum of two Cartesians.
+ * 计算两个笛卡尔坐标的分量和。
  *
- * @param {Cartesian4} left The first Cartesian.
- * @param {Cartesian4} right The second Cartesian.
+ * @param {Cartesian4} left 第一个笛卡尔坐标系。
+ * @param {Cartesian4} right 第二个笛卡尔坐标系。
  * @param {Cartesian4} result 要在其上存储结果的对象。
- * @returns {Cartesian4} The modified result parameter.
+ * @returns {Cartesian4} 修改后的结果参数。
  */
 Cartesian4.add = function (left, right, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -555,12 +555,12 @@ Cartesian4.add = function (left, right, result) {
 };
 
 /**
- * Computes the componentwise difference of two Cartesians.
+ * 计算两个笛卡尔坐标的分量差。
  *
- * @param {Cartesian4} left The first Cartesian.
- * @param {Cartesian4} right The second Cartesian.
+ * @param {Cartesian4} left 第一个笛卡尔坐标系。
+ * @param {Cartesian4} right 第二个笛卡尔坐标系。
  * @param {Cartesian4} result 要在其上存储结果的对象。
- * @returns {Cartesian4} The modified result parameter.
+ * @returns {Cartesian4} 修改后的结果参数。
  */
 Cartesian4.subtract = function (left, right, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -577,12 +577,12 @@ Cartesian4.subtract = function (left, right, result) {
 };
 
 /**
- * Multiplies the provided Cartesian componentwise by the provided scalar.
+ * 将所提供的笛卡尔分量与所提供的标量相乘。
  *
- * @param {Cartesian4} cartesian The Cartesian to be scaled.
- * @param {number} scalar The scalar to multiply with.
+ * @param {Cartesian4} cartesian 要缩放的笛卡尔坐标。
+ * @param {number} scalar 与之相乘的标量。
  * @param {Cartesian4} result 要在其上存储结果的对象。
- * @returns {Cartesian4} The modified result parameter.
+ * @returns {Cartesian4} 修改后的结果参数。
  */
 Cartesian4.multiplyByScalar = function (cartesian, scalar, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -599,12 +599,12 @@ Cartesian4.multiplyByScalar = function (cartesian, scalar, result) {
 };
 
 /**
- * Divides the provided Cartesian componentwise by the provided scalar.
+ * 将给定的笛卡尔分量除以给定的标量。
  *
- * @param {Cartesian4} cartesian The Cartesian to be divided.
- * @param {number} scalar The scalar to divide by.
+ * @param {Cartesian4} cartesian 要划分的笛卡尔坐标。
+ * @param {number} scalar 要除以的标量。
  * @param {Cartesian4} result 要在其上存储结果的对象。
- * @returns {Cartesian4} The modified result parameter.
+ * @returns {Cartesian4} 修改后的结果参数。
  */
 Cartesian4.divideByScalar = function (cartesian, scalar, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -621,11 +621,11 @@ Cartesian4.divideByScalar = function (cartesian, scalar, result) {
 };
 
 /**
- * Negates the provided Cartesian.
+ * 否定提供的笛卡尔坐标。
  *
- * @param {Cartesian4} cartesian The Cartesian to be negated.
+ * @param {Cartesian4} cartesian 笛卡尔坐标被否定了。
  * @param {Cartesian4} result 要在其上存储结果的对象。
- * @returns {Cartesian4} The modified result parameter.
+ * @returns {Cartesian4} 修改后的结果参数。
  */
 Cartesian4.negate = function (cartesian, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -641,11 +641,11 @@ Cartesian4.negate = function (cartesian, result) {
 };
 
 /**
- * Computes the absolute value of the provided Cartesian.
+ * 计算所提供的笛卡尔坐标的绝对值。
  *
- * @param {Cartesian4} cartesian The Cartesian whose absolute value is to be computed.
+ * @param {Cartesian4} cartesian 要计算其绝对值的笛卡尔坐标系。
  * @param {Cartesian4} result 要在其上存储结果的对象。
- * @returns {Cartesian4} The modified result parameter.
+ * @returns {Cartesian4} 修改后的结果参数。
  */
 Cartesian4.abs = function (cartesian, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -662,13 +662,13 @@ Cartesian4.abs = function (cartesian, result) {
 
 const lerpScratch = new Cartesian4();
 /**
- * Computes the linear interpolation or extrapolation at t using the provided cartesians.
+ * 使用提供的笛卡儿计算t处的线性插值或外推。
  *
- * @param {Cartesian4} start The value corresponding to t at 0.0.
- * @param {Cartesian4}end The value corresponding to t at 1.0.
- * @param {number} t The point along t at which to interpolate.
+ * @param {Cartesian4} start 对应于t在0.0处的值。
+ * @param {Cartesian4}end 对应于1.0时t的值。
+ * @param {number} t 沿着t进行插值的点。
  * @param {Cartesian4} result 要在其上存储结果的对象。
- * @returns {Cartesian4} The modified result parameter.
+ * @returns {Cartesian4} 修改后的结果参数。
  */
 Cartesian4.lerp = function (start, end, t, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -685,11 +685,11 @@ Cartesian4.lerp = function (start, end, t, result) {
 
 const mostOrthogonalAxisScratch = new Cartesian4();
 /**
- * Returns the axis that is most orthogonal to the provided Cartesian.
+ * 返回与所提供的笛卡尔坐标最正交的轴。
  *
- * @param {Cartesian4} cartesian The Cartesian on which to find the most orthogonal axis.
+ * @param {Cartesian4} cartesian 在笛卡尔坐标系上找到最正交的轴。
  * @param {Cartesian4} result 要在其上存储结果的对象。
- * @returns {Cartesian4} The most orthogonal axis.
+ * @returns {Cartesian4} 最正交的轴。
  */
 Cartesian4.mostOrthogonalAxis = function (cartesian, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -728,7 +728,7 @@ Cartesian4.mostOrthogonalAxis = function (cartesian, result) {
 };
 
 /**
- * Compares the provided Cartesians componentwise and returns
+ * 比较所提供的笛卡尔分量并返回
  * <code>true</code>，否则为<code>false</code>。
  *
  * @param {Cartesian4} [left] 第一个Cartesian.
@@ -760,15 +760,15 @@ Cartesian4.equalsArray = function (cartesian, array, offset) {
 };
 
 /**
- * Compares the provided Cartesians componentwise and returns
- * <code>true</code> if they pass an absolute or relative tolerance test,
+ * 比较所提供的笛卡尔分量并返回
+ * <code>true</code> 如果它们通过了绝对或相对耐受性测试，
  * <code>false</code> 否则。
  *
  * @param {Cartesian4} [left] 第一个Cartesian.
  * @param {Cartesian4} [right] 第二个 Cartesian.
- * @param {number} [relativeEpsilon=0] The relative epsilon tolerance to use for equality testing.
- * @param {number} [absoluteEpsilon=relativeEpsilon] The absolute epsilon tolerance to use for equality testing.
- * @returns {boolean} <code>true</code> if left and right are within the provided epsilon, <code>false</code> 否则。
+ * @param {number} [relativeEpsilon=0] 用于相等性检验的相对容差。
+ * @param {number} [absoluteEpsilon=relativeEpsilon] 用于相等性检验的绝对公差。
+ * @returns {boolean} <code>true</code>如果左和右在提供的epsilon内，<code>false</code>否则。
  */
 Cartesian4.equalsEpsilon = function (
   left,
@@ -808,7 +808,7 @@ Cartesian4.equalsEpsilon = function (
 };
 
 /**
- * An immutable Cartesian4 instance initialized to (0.0, 0.0, 0.0, 0.0).
+ * 初始化为的不可变Cartesian4实例 (0.0, 0.0, 0.0, 0.0).
  *
  * @type {Cartesian4}
  * @constant
@@ -816,7 +816,7 @@ Cartesian4.equalsEpsilon = function (
 Cartesian4.ZERO = Object.freeze(new Cartesian4(0.0, 0.0, 0.0, 0.0));
 
 /**
- * An immutable Cartesian4 instance initialized to (1.0, 1.0, 1.0, 1.0).
+ * 初始化为的不可变Cartesian4实例 (1.0, 1.0, 1.0, 1.0).
  *
  * @type {Cartesian4}
  * @constant
@@ -824,7 +824,7 @@ Cartesian4.ZERO = Object.freeze(new Cartesian4(0.0, 0.0, 0.0, 0.0));
 Cartesian4.ONE = Object.freeze(new Cartesian4(1.0, 1.0, 1.0, 1.0));
 
 /**
- * An immutable Cartesian4 instance initialized to (1.0, 0.0, 0.0, 0.0).
+ * 初始化为的不可变Cartesian4实例 (1.0, 0.0, 0.0, 0.0).
  *
  * @type {Cartesian4}
  * @constant
@@ -832,7 +832,7 @@ Cartesian4.ONE = Object.freeze(new Cartesian4(1.0, 1.0, 1.0, 1.0));
 Cartesian4.UNIT_X = Object.freeze(new Cartesian4(1.0, 0.0, 0.0, 0.0));
 
 /**
- * An immutable Cartesian4 instance initialized to (0.0, 1.0, 0.0, 0.0).
+ * 初始化为的不可变Cartesian4实例 (0.0, 1.0, 0.0, 0.0).
  *
  * @type {Cartesian4}
  * @constant
@@ -840,7 +840,7 @@ Cartesian4.UNIT_X = Object.freeze(new Cartesian4(1.0, 0.0, 0.0, 0.0));
 Cartesian4.UNIT_Y = Object.freeze(new Cartesian4(0.0, 1.0, 0.0, 0.0));
 
 /**
- * An immutable Cartesian4 instance initialized to (0.0, 0.0, 1.0, 0.0).
+ * 初始化为的不可变Cartesian4实例 (0.0, 0.0, 1.0, 0.0).
  *
  * @type {Cartesian4}
  * @constant
@@ -848,7 +848,7 @@ Cartesian4.UNIT_Y = Object.freeze(new Cartesian4(0.0, 1.0, 0.0, 0.0));
 Cartesian4.UNIT_Z = Object.freeze(new Cartesian4(0.0, 0.0, 1.0, 0.0));
 
 /**
- * An immutable Cartesian4 instance initialized to (0.0, 0.0, 0.0, 1.0).
+ * 初始化为的不可变Cartesian4实例 (0.0, 0.0, 0.0, 1.0).
  *
  * @type {Cartesian4}
  * @constant
@@ -859,14 +859,14 @@ Cartesian4.UNIT_W = Object.freeze(new Cartesian4(0.0, 0.0, 0.0, 1.0));
  * 复制Cartesian4 instance.
  *
  * @param {Cartesian4} [result] 要在其上存储结果的对象。
- * @returns {Cartesian4} The modified result parameter or a new Cartesian4 instance if one was not provided.
+ * @returns {Cartesian4} 修改后的结果参数 或者一个新的笛卡尔实例，如果没有提供的话。
  */
 Cartesian4.prototype.clone = function (result) {
   return Cartesian4.clone(this, result);
 };
 
 /**
- * Compares this Cartesian against the provided Cartesian componentwise and returns
+ * 将此笛卡尔与提供的笛卡尔分量进行比较并返回
  * <code>true</code>，否则为<code>false</code>。
  *
  * @param {Cartesian4} [right] 右边 Cartesian.
@@ -877,14 +877,14 @@ Cartesian4.prototype.equals = function (right) {
 };
 
 /**
- * Compares this Cartesian against the provided Cartesian componentwise and returns
- * <code>true</code> if they pass an absolute or relative tolerance test,
+ * 将此笛卡尔与提供的笛卡尔分量进行比较并返回
+ * <code>true</code> 如果它们通过了绝对或相对耐受性测试，
  * <code>false</code> 否则。
  *
  * @param {Cartesian4} [right] 右边 Cartesian.
- * @param {number} [relativeEpsilon=0] The relative epsilon tolerance to use for equality testing.
- * @param {number} [absoluteEpsilon=relativeEpsilon] The absolute epsilon tolerance to use for equality testing.
- * @returns {boolean} <code>true</code> if they are within the provided epsilon, <code>false</code> 否则。
+ * @param {number} [relativeEpsilon=0] 用于相等性检验的相对容差。
+ * @param {number} [absoluteEpsilon=relativeEpsilon] 用于相等性检验的绝对公差。
+ * @returns {boolean} <code>true</code>如果它们在提供的epsilon内，<code>false</code>否则。
  */
 Cartesian4.prototype.equalsEpsilon = function (
   right,
@@ -900,9 +900,9 @@ Cartesian4.prototype.equalsEpsilon = function (
 };
 
 /**
- * Creates a string representing this Cartesian in the format '(x, y, z, w)'.
+ * 以'(x, y, z, w)'的格式创建一个表示此笛卡尔坐标的字符串。
  *
- * @returns {string} A string representing the provided Cartesian in the format '(x, y, z, w)'.
+ * @returns {string} 以'(x, y, z, w)'格式表示所提供的笛卡尔坐标的字符串。
  */
 Cartesian4.prototype.toString = function () {
   return `(${this.x}, ${this.y}, ${this.z}, ${this.w})`;
@@ -917,11 +917,11 @@ const testU8 = new Uint8Array(testU32.buffer);
 const littleEndian = testU8[0] === 0x44;
 
 /**
- * Packs an arbitrary floating point value to 4 values representable using uint8.
+ * 将任意浮点值打包为4个可使用uint8表示的值。
  *
- * @param {number} value A floating point number.
- * @param {Cartesian4} [result] The Cartesian4 that will contain the packed float.
- * @returns {Cartesian4} A Cartesian4 representing the float packed to values in x, y, z, and w.
+ * @param {number} value 浮点数。
+ * @param {Cartesian4} [result] 将包含打包浮子的Cartesian4。
+ * @returns {Cartesian4} 一个笛卡尔坐标系4，表示浮点数被打包成x、y、z和w的值。
  */
 Cartesian4.packFloat = function (value, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -951,10 +951,10 @@ Cartesian4.packFloat = function (value, result) {
 };
 
 /**
- * Unpacks a float packed using Cartesian4.packFloat.
+ * 解包使用Cartesian4.packFloat打包的float。
  *
- * @param {Cartesian4} packedFloat A Cartesian4 containing a float packed to 4 values representable using uint8.
- * @returns {number} The unpacked float.
+ * @param {Cartesian4} packedFloat 一个笛卡尔坐标系，包含一个浮点数，可以用uint8表示4个值。
+ * @returns {number} 拆包的浮点数
  * @private
  */
 Cartesian4.unpackFloat = function (packedFloat) {

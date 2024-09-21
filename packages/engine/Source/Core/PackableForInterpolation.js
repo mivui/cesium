@@ -36,7 +36,7 @@ const PackableForInterpolation = {
    * @param {number} [startingIndex=0] The startingIndex used to convert the array.
    * @param {number} [lastIndex=packedArray.length] The lastIndex used to convert the array.
    * @param {object} [result] 要在其中存储结果的对象。
-   * @returns {object} The modified result parameter or a new Object instance if one was not provided.
+   * @returns {object} 修改后的结果参数 or a new Object instance if one was not provided.
    */
   unpackInterpolationResult: DeveloperError.throwInstantiationError,
 };

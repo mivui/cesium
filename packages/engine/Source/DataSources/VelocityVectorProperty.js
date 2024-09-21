@@ -126,7 +126,7 @@ const step = 1.0 / 60.0;
  *
  * @param {JulianDate} [time=JulianDate.now()] The time for which to retrieve the value. If omitted, the current system time is used.
  * @param {Cartesian3} [result] The object to store the value into, if omitted, a new instance is created and returned.
- * @returns {Cartesian3} The modified result parameter or a new instance if the result parameter was not supplied.
+ * @returns {Cartesian3} 修改后的结果参数 or a new instance if the result parameter was not supplied.
  */
 VelocityVectorProperty.prototype.getValue = function (time, result) {
   return this._getValue(time, result);

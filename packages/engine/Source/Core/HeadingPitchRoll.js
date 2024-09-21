@@ -40,7 +40,7 @@ function HeadingPitchRoll(heading, pitch, roll) {
  *
  * @param {Quaternion} quaternion The quaternion from which to retrieve heading, pitch, and roll, all expressed in radians.
  * @param {HeadingPitchRoll} [result] The object in which to store the result. If not provided, a new instance is created and returned.
- * @returns {HeadingPitchRoll} The modified result parameter or a new HeadingPitchRoll instance if one was not provided.
+ * @returns {HeadingPitchRoll} 修改后的结果参数 or a new HeadingPitchRoll instance if one was not provided.
  */
 HeadingPitchRoll.fromQuaternion = function (quaternion, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -101,7 +101,7 @@ HeadingPitchRoll.fromDegrees = function (heading, pitch, roll, result) {
  *
  * @param {HeadingPitchRoll} headingPitchRoll The HeadingPitchRoll to duplicate.
  * @param {HeadingPitchRoll} [result] 要在其上存储结果的对象。
- * @returns {HeadingPitchRoll} The modified result parameter or a new HeadingPitchRoll instance if one was not provided. (Returns undefined if headingPitchRoll is undefined)
+ * @returns {HeadingPitchRoll} 修改后的结果参数 or a new HeadingPitchRoll instance if one was not provided. (Returns undefined if headingPitchRoll is undefined)
  */
 HeadingPitchRoll.clone = function (headingPitchRoll, result) {
   if (!defined(headingPitchRoll)) {
@@ -141,14 +141,14 @@ HeadingPitchRoll.equals = function (left, right) {
 
 /**
  * Compares the provided HeadingPitchRolls componentwise and returns
- * <code>true</code> if they pass an absolute or relative tolerance test,
+ * <code>true</code> 如果它们通过了绝对或相对耐受性测试，
  * <code>false</code> 否则。
  *
  * @param {HeadingPitchRoll} [left] 第一个HeadingPitchRoll.
  * @param {HeadingPitchRoll} [right] 第二个 HeadingPitchRoll.
- * @param {number} [relativeEpsilon=0] The relative epsilon tolerance to use for equality testing.
- * @param {number} [absoluteEpsilon=relativeEpsilon] The absolute epsilon tolerance to use for equality testing.
- * @returns {boolean} <code>true</code> if left and right are within the provided epsilon, <code>false</code> 否则。
+ * @param {number} [relativeEpsilon=0] 用于相等性检验的相对容差。
+ * @param {number} [absoluteEpsilon=relativeEpsilon] 用于相等性检验的绝对公差。
+ * @returns {boolean} <code>true</code>如果左和右在提供的epsilon内，<code>false</code>否则。
  */
 HeadingPitchRoll.equalsEpsilon = function (
   left,
@@ -185,7 +185,7 @@ HeadingPitchRoll.equalsEpsilon = function (
  * 复制HeadingPitchRoll instance.
  *
  * @param {HeadingPitchRoll} [result] 要在其上存储结果的对象。
- * @returns {HeadingPitchRoll} The modified result parameter or a new HeadingPitchRoll instance if one was not provided.
+ * @returns {HeadingPitchRoll} 修改后的结果参数 or a new HeadingPitchRoll instance if one was not provided.
  */
 HeadingPitchRoll.prototype.clone = function (result) {
   return HeadingPitchRoll.clone(this, result);
@@ -204,13 +204,13 @@ HeadingPitchRoll.prototype.equals = function (right) {
 
 /**
  * Compares this HeadingPitchRoll against the provided HeadingPitchRoll componentwise and returns
- * <code>true</code> if they pass an absolute or relative tolerance test,
+ * <code>true</code> 如果它们通过了绝对或相对耐受性测试，
  * <code>false</code> 否则。
  *
  * @param {HeadingPitchRoll} [right] 右边 HeadingPitchRoll.
- * @param {number} [relativeEpsilon=0] The relative epsilon tolerance to use for equality testing.
- * @param {number} [absoluteEpsilon=relativeEpsilon] The absolute epsilon tolerance to use for equality testing.
- * @returns {boolean} <code>true</code> if they are within the provided epsilon, <code>false</code> 否则。
+ * @param {number} [relativeEpsilon=0] 用于相等性检验的相对容差。
+ * @param {number} [absoluteEpsilon=relativeEpsilon] 用于相等性检验的绝对公差。
+ * @returns {boolean} <code>true</code>如果它们在提供的epsilon内，<code>false</code>否则。
  */
 HeadingPitchRoll.prototype.equalsEpsilon = function (
   right,

@@ -69,7 +69,7 @@ function Color(red, green, blue, alpha) {
  *
  * @param {Cartesian4} cartesian The source cartesian.
  * @param {Color} [result] 要在其上存储结果的对象。
- * @returns {Color} The modified result parameter or a new Color instance if one was not provided.
+ * @returns {Color} 修改后的结果参数 or a new Color instance if one was not provided.
  */
 Color.fromCartesian4 = function (cartesian, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -96,7 +96,7 @@ Color.fromCartesian4 = function (cartesian, result) {
  * @param {number} [blue=255] The blue component.
  * @param {number} [alpha=255] The alpha component.
  * @param {Color} [result] 要在其上存储结果的对象。
- * @returns {Color} The modified result parameter or a new Color instance if one was not provided.
+ * @returns {Color} 修改后的结果参数 or a new Color instance if one was not provided.
  */
 Color.fromBytes = function (red, green, blue, alpha, result) {
   red = Color.byteToFloat(defaultValue(red, 255.0));
@@ -122,7 +122,7 @@ Color.fromBytes = function (red, green, blue, alpha, result) {
  * @param {Color} color The base color
  * @param {number} alpha The new alpha component.
  * @param {Color} [result] 要在其上存储结果的对象。
- * @returns {Color} The modified result parameter or a new Color instance if one was not provided.
+ * @returns {Color} 修改后的结果参数 or a new Color instance if one was not provided.
  *
  * @example const translucentRed = Cesium.Color.fromAlpha(Cesium.Color.RED, 0.9);
  */
@@ -242,7 +242,7 @@ Color.fromHsl = function (hue, saturation, lightness, alpha, result) {
  * @param {number} [options.minimumAlpha=0.0] The maximum alpha value to generate if none was specified.
  * @param {number} [options.maximumAlpha=1.0] The minimum alpha value to generate if none was specified.
  * @param {Color} [result] The object to store the result in, if undefined a new instance will be created.
- * @returns {Color} The modified result parameter or a new instance if result was undefined.
+ * @returns {Color} 修改后的结果参数 or a new instance if result was undefined.
  *
  * @exception {DeveloperError} minimumRed must be less than or equal to maximumRed.
  * @exception {DeveloperError} minimumGreen must be less than or equal to maximumGreen.
@@ -434,7 +434,7 @@ Color.fromCssColorString = function (color, result) {
 };
 
 /**
- * The number of elements used to pack the object into an array.
+ * 用于将对象打包到数组中的元素数量。
  * @type {number}
  */
 Color.packedLength = 4;
@@ -469,7 +469,7 @@ Color.pack = function (value, array, startingIndex) {
  * @param {number[]} array 打包数组。
  * @param {number} [startingIndex=0] 要解压缩的元素的起始索引。
  * @param {Color} [result] 要在其中存储结果的对象。
- * @returns {Color} The modified result parameter or a new Color instance if one was not provided.
+ * @returns {Color} 修改后的结果参数 or a new Color instance if one was not provided.
  */
 Color.unpack = function (array, startingIndex, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -514,7 +514,7 @@ Color.floatToByte = function (number) {
  *
  * @param {Color} color The Color to duplicate.
  * @param {Color} [result] The object to store the result in, if undefined a new instance will be created.
- * @returns {Color} The modified result parameter or a new instance if result was undefined. (Returns undefined if color is undefined)
+ * @returns {Color} 修改后的结果参数 or a new instance if result was undefined. (Returns undefined if color is undefined)
  */
 Color.clone = function (color, result) {
   if (!defined(color)) {
@@ -565,7 +565,7 @@ Color.equalsArray = function (color, array, offset) {
  * Returns a duplicate of a Color instance.
  *
  * @param {Color} [result] The object to store the result in, if undefined a new instance will be created.
- * @returns {Color} The modified result parameter or a new instance if result was undefined.
+ * @returns {Color} 修改后的结果参数 or a new instance if result was undefined.
  */
 Color.prototype.clone = function (result) {
   return Color.clone(this, result);
@@ -658,7 +658,7 @@ Color.prototype.toCssHexString = function () {
  * that are in the range of 0 to 255.
  *
  * @param {number[]} [result] The array to store the result in, if undefined a new instance will be created.
- * @returns {number[]} The modified result parameter or a new instance if result was undefined.
+ * @returns {number[]} 修改后的结果参数 or a new instance if result was undefined.
  */
 Color.prototype.toBytes = function (result) {
   const red = Color.floatToByte(this.red);
@@ -702,7 +702,7 @@ Color.prototype.toRgba = function () {
  *
  * @param {number} magnitude A positive number indicating the amount to brighten.
  * @param {Color} result 要在其上存储结果的对象。
- * @returns {Color} The modified result parameter.
+ * @returns {Color} 修改后的结果参数。
  *
  * @example
  * const brightBlue = Cesium.Color.BLUE.brighten(0.5, new Cesium.Color());
@@ -727,7 +727,7 @@ Color.prototype.brighten = function (magnitude, result) {
  *
  * @param {number} magnitude A positive number indicating the amount to darken.
  * @param {Color} result 要在其上存储结果的对象。
- * @returns {Color} The modified result parameter.
+ * @returns {Color} 修改后的结果参数。
  *
  * @example
  * const darkBlue = Cesium.Color.BLUE.darken(0.5, new Cesium.Color());
@@ -753,7 +753,7 @@ Color.prototype.darken = function (magnitude, result) {
  *
  * @param {number} alpha The new alpha component.
  * @param {Color} [result] 要在其上存储结果的对象。
- * @returns {Color} The modified result parameter or a new Color instance if one was not provided.
+ * @returns {Color} 修改后的结果参数 or a new Color instance if one was not provided.
  *
  * @example const translucentRed = Cesium.Color.RED.withAlpha(0.9);
  */
@@ -767,7 +767,7 @@ Color.prototype.withAlpha = function (alpha, result) {
  * @param {Color} left The first Color.
  * @param {Color} right The second Color.
  * @param {Color} result 要在其上存储结果的对象。
- * @returns {Color} The modified result parameter.
+ * @returns {Color} 修改后的结果参数。
  */
 Color.add = function (left, right, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -789,7 +789,7 @@ Color.add = function (left, right, result) {
  * @param {Color} left The first Color.
  * @param {Color} right The second Color.
  * @param {Color} result 要在其上存储结果的对象。
- * @returns {Color} The modified result parameter.
+ * @returns {Color} 修改后的结果参数。
  */
 Color.subtract = function (left, right, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -811,7 +811,7 @@ Color.subtract = function (left, right, result) {
  * @param {Color} left The first Color.
  * @param {Color} right The second Color.
  * @param {Color} result 要在其上存储结果的对象。
- * @returns {Color} The modified result parameter.
+ * @returns {Color} 修改后的结果参数。
  */
 Color.multiply = function (left, right, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -833,7 +833,7 @@ Color.multiply = function (left, right, result) {
  * @param {Color} left The first Color.
  * @param {Color} right The second Color.
  * @param {Color} result 要在其上存储结果的对象。
- * @returns {Color} The modified result parameter.
+ * @returns {Color} 修改后的结果参数。
  */
 Color.divide = function (left, right, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -855,7 +855,7 @@ Color.divide = function (left, right, result) {
  * @param {Color} left The first Color.
  * @param {Color} right The second Color.
  * @param {Color} result 要在其上存储结果的对象。
- * @returns {Color} The modified result parameter.
+ * @returns {Color} 修改后的结果参数。
  */
 Color.mod = function (left, right, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -876,9 +876,9 @@ Color.mod = function (left, right, result) {
  *
  * @param {Color} start The color corresponding to t at 0.0.
  * @param {Color} end The color corresponding to t at 1.0.
- * @param {number} t The point along t at which to interpolate.
+ * @param {number} t 沿着t进行插值的点。
  * @param {Color} result 要在其上存储结果的对象。
- * @returns {Color} The modified result parameter.
+ * @returns {Color} 修改后的结果参数。
  */
 Color.lerp = function (start, end, t, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -899,9 +899,9 @@ Color.lerp = function (start, end, t, result) {
  * Multiplies the provided Color componentwise by the provided scalar.
  *
  * @param {Color} color The Color to be scaled.
- * @param {number} scalar The scalar to multiply with.
+ * @param {number} scalar 与之相乘的标量。
  * @param {Color} result 要在其上存储结果的对象。
- * @returns {Color} The modified result parameter.
+ * @returns {Color} 修改后的结果参数。
  */
 Color.multiplyByScalar = function (color, scalar, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -923,7 +923,7 @@ Color.multiplyByScalar = function (color, scalar, result) {
  * @param {Color} color The Color to be divided.
  * @param {number} scalar The scalar to divide with.
  * @param {Color} result 要在其上存储结果的对象。
- * @returns {Color} The modified result parameter.
+ * @returns {Color} 修改后的结果参数。
  */
 Color.divideByScalar = function (color, scalar, result) {
   //>>includeStart('debug', pragmas.debug);

@@ -156,7 +156,7 @@ const scratchProjectPointOntoPlaneCartesian3 = new Cartesian3();
  *
  * @param {Cartesian3} cartesian The point to project.
  * @param {Cartesian2} [result] 要在其上存储结果的对象。
- * @returns {Cartesian2} The modified result parameter or a new Cartesian2 instance if none was provided. Undefined if there is no intersection point
+ * @returns {Cartesian2} 修改后的结果参数 or a new Cartesian2 instance if none was provided. Undefined if there is no intersection point
  */
 EllipsoidTangentPlane.prototype.projectPointOntoPlane = function (
   cartesian,
@@ -211,7 +211,7 @@ EllipsoidTangentPlane.prototype.projectPointOntoPlane = function (
  *
  * @param {Cartesian3[]} cartesians The array of points to project.
  * @param {Cartesian2[]} [result] The array of Cartesian2 instances onto which to store results.
- * @returns {Cartesian2[]} The modified result parameter or a new array of Cartesian2 instances if none was provided.
+ * @returns {Cartesian2[]} 修改后的结果参数 or a new array of Cartesian2 instances if none was provided.
  */
 EllipsoidTangentPlane.prototype.projectPointsOntoPlane = function (
   cartesians,
@@ -243,7 +243,7 @@ EllipsoidTangentPlane.prototype.projectPointsOntoPlane = function (
  *
  * @param {Cartesian3} cartesian The point to project.
  * @param {Cartesian2} [result] 要在其上存储结果的对象。
- * @returns {Cartesian2} The modified result parameter or a new Cartesian2 instance if none was provided.
+ * @returns {Cartesian2} 修改后的结果参数 or a new Cartesian2 instance if none was provided.
  */
 EllipsoidTangentPlane.prototype.projectPointToNearestOnPlane = function (
   cartesian,
@@ -295,7 +295,7 @@ EllipsoidTangentPlane.prototype.projectPointToNearestOnPlane = function (
  *
  * @param {Cartesian3[]} cartesians The array of points to project.
  * @param {Cartesian2[]} [result] The array of Cartesian2 instances onto which to store results.
- * @returns {Cartesian2[]} The modified result parameter or a new array of Cartesian2 instances if none was provided. This will have the same length as <code>cartesians</code>.
+ * @returns {Cartesian2[]} 修改后的结果参数 or a new array of Cartesian2 instances if none was provided. This will have the same length as <code>cartesians</code>.
  */
 EllipsoidTangentPlane.prototype.projectPointsToNearestOnPlane = function (
   cartesians,
@@ -323,7 +323,7 @@ const projectPointsOntoEllipsoidScratch = new Cartesian3();
  *
  * @param {Cartesian2} cartesian The points to project.
  * @param {Cartesian3} [result] The Cartesian3 instance to store result.
- * @returns {Cartesian3} The modified result parameter or a new Cartesian3 instance if none was provided.
+ * @returns {Cartesian3} 修改后的结果参数 or a new Cartesian3 instance if none was provided.
  */
 EllipsoidTangentPlane.prototype.projectPointOntoEllipsoid = function (
   cartesian,
@@ -357,7 +357,7 @@ EllipsoidTangentPlane.prototype.projectPointOntoEllipsoid = function (
  *
  * @param {Cartesian2[]} cartesians The array of points to project.
  * @param {Cartesian3[]} [result] The array of Cartesian3 instances onto which to store results.
- * @returns {Cartesian3[]} The modified result parameter or a new array of Cartesian3 instances if none was provided.
+ * @returns {Cartesian3[]} 修改后的结果参数 or a new array of Cartesian3 instances if none was provided.
  */
 EllipsoidTangentPlane.prototype.projectPointsOntoEllipsoid = function (
   cartesians,

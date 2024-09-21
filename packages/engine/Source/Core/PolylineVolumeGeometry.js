@@ -180,7 +180,7 @@ function computeAttributes(
  * @param {Cartesian2[]} options.shapePositions An array of {@link Cartesian2} positions that define the shape to be extruded along the polyline
  * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] The ellipsoid to be used as a reference.
  * @param {number} [options.granularity=CesiumMath.RADIANS_PER_DEGREE] The distance, in radians, between each latitude and longitude. Determines the number of positions in the buffer.
- * @param {VertexFormat} [options.vertexFormat=VertexFormat.DEFAULT] The vertex attributes to be computed.
+ * @param {VertexFormat} [options.vertexFormat=VertexFormat.DEFAULT] 要计算的顶点属性。
  * @param {CornerType} [options.cornerType=CornerType.ROUNDED] Determines the style of the corners.
  *
  * @see PolylineVolumeGeometry#createGeometry
@@ -239,7 +239,7 @@ function PolylineVolumeGeometry(options) {
   numComponents += 1 + shape.length * Cartesian2.packedLength;
 
   /**
-   * The number of elements used to pack the object into an array.
+   * 用于将对象打包到数组中的元素数量。
    * @type {number}
    */
   this.packedLength =
@@ -314,7 +314,7 @@ const scratchOptions = {
  * @param {number[]} array 打包数组。
  * @param {number} [startingIndex=0] 要解压缩的元素的起始索引。
  * @param {PolylineVolumeGeometry} [result] 要在其中存储结果的对象。
- * @returns {PolylineVolumeGeometry} The modified result parameter or a new PolylineVolumeGeometry instance if one was not provided.
+ * @returns {PolylineVolumeGeometry} 修改后的结果参数 or a new PolylineVolumeGeometry instance if one was not provided.
  */
 PolylineVolumeGeometry.unpack = function (array, startingIndex, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -378,7 +378,7 @@ const brScratch = new BoundingRectangle();
  * Computes the geometric representation of a polyline with a volume, including its vertices, indices, and a bounding sphere.
  *
  * @param {PolylineVolumeGeometry} polylineVolumeGeometry A description of the polyline volume.
- * @returns {Geometry|undefined} The computed vertices and indices.
+ * @returns {Geometry|undefined} 计算的顶点和索引。
  */
 PolylineVolumeGeometry.createGeometry = function (polylineVolumeGeometry) {
   const positions = polylineVolumeGeometry._positions;

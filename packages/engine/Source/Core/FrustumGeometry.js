@@ -29,7 +29,7 @@ const ORTHOGRAPHIC = 1;
  * @param {PerspectiveFrustum|OrthographicFrustum} options.frustum The frustum.
  * @param {Cartesian3} options.origin The origin of the frustum.
  * @param {Quaternion} options.orientation The orientation of the frustum.
- * @param {VertexFormat} [options.vertexFormat=VertexFormat.DEFAULT] The vertex attributes to be computed.
+ * @param {VertexFormat} [options.vertexFormat=VertexFormat.DEFAULT] 要计算的顶点属性。
  */
 function FrustumGeometry(options) {
   //>>includeStart('debug', pragmas.debug);
@@ -68,7 +68,7 @@ function FrustumGeometry(options) {
   this._workerName = "createFrustumGeometry";
 
   /**
-   * The number of elements used to pack the object into an array.
+   * 用于将对象打包到数组中的元素数量。
    * @type {number}
    */
   this.packedLength =
@@ -379,7 +379,7 @@ FrustumGeometry._computeNearFarPlanes = function (
  * Computes the geometric representation of a frustum, including its vertices, indices, and a bounding sphere.
  *
  * @param {FrustumGeometry} frustumGeometry A description of the frustum.
- * @returns {Geometry|undefined} The computed vertices and indices.
+ * @returns {Geometry|undefined} 计算的顶点和索引。
  */
 FrustumGeometry.createGeometry = function (frustumGeometry) {
   const frustumType = frustumGeometry._frustumType;

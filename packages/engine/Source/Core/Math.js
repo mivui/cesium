@@ -894,10 +894,10 @@ CesiumMath.previousPowerOfTwo = function (n) {
 /**
  * Constraint a value to lie between two values.
  *
- * @param {number} value The value to clamp.
+ * @param {number} value 夹位的值。
  * @param {number} min The minimum value.
  * @param {number} max The maximum value.
- * @returns {number} The clamped value such that min <= result <= max.
+ * @returns {number} 使min <= result <= max的固定值。
  */
 CesiumMath.clamp = function (value, min, max) {
   //>>includeStart('debug', pragmas.debug);

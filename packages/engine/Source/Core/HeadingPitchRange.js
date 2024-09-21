@@ -42,7 +42,7 @@ function HeadingPitchRange(heading, pitch, range) {
  *
  * @param {HeadingPitchRange} hpr The HeadingPitchRange to duplicate.
  * @param {HeadingPitchRange} [result] 要在其上存储结果的对象。
- * @returns {HeadingPitchRange} The modified result parameter or a new HeadingPitchRange instance if one was not provided. (Returns undefined if hpr is undefined)
+ * @returns {HeadingPitchRange} 修改后的结果参数 or a new HeadingPitchRange instance if one was not provided. (Returns undefined if hpr is undefined)
  */
 HeadingPitchRange.clone = function (hpr, result) {
   if (!defined(hpr)) {

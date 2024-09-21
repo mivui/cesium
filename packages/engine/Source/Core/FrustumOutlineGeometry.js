@@ -62,7 +62,7 @@ function FrustumOutlineGeometry(options) {
   this._workerName = "createFrustumOutlineGeometry";
 
   /**
-   * The number of elements used to pack the object into an array.
+   * 用于将对象打包到数组中的元素数量。
    * @type {number}
    */
   this.packedLength =
@@ -181,7 +181,7 @@ FrustumOutlineGeometry.unpack = function (array, startingIndex, result) {
  * Computes the geometric representation of a frustum outline, including its vertices, indices, and a bounding sphere.
  *
  * @param {FrustumOutlineGeometry} frustumGeometry A description of the frustum.
- * @returns {Geometry|undefined} The computed vertices and indices.
+ * @returns {Geometry|undefined} 计算的顶点和索引。
  */
 FrustumOutlineGeometry.createGeometry = function (frustumGeometry) {
   const frustumType = frustumGeometry._frustumType;

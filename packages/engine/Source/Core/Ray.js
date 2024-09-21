@@ -36,7 +36,7 @@ function Ray(origin, direction) {
  *
  * @param {Ray} ray The ray to duplicate.
  * @param {Ray} [result] 要在其上存储结果的对象。
- * @returns {Ray} The modified result parameter or a new Ray instance if one was not provided. (Returns undefined if ray is undefined)
+ * @returns {Ray} 修改后的结果参数 or a new Ray instance if one was not provided. (Returns undefined if ray is undefined)
  */
 Ray.clone = function (ray, result) {
   if (!defined(ray)) {
@@ -57,7 +57,7 @@ Ray.clone = function (ray, result) {
  * @param {Ray} ray The ray.
  * @param {number} t A scalar value.
  * @param {Cartesian3} [result] The object in which the result will be stored.
- * @returns {Cartesian3} The modified result parameter, or a new instance if none was provided.
+ * @returns {Cartesian3} 修改后的结果参数, or a new instance if none was provided.
  *
  * @example
  * //Get the first intersection point of a ray and an ellipsoid.

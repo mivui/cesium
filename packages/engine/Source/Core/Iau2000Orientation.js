@@ -38,7 +38,7 @@ let dateTT = new JulianDate();
  *
  * @param {JulianDate} [date=JulianDate.now()] The date to evaluate the parameters.
  * @param {IauOrientationParameters} [result] 要在其上存储结果的对象。
- * @returns {IauOrientationParameters} The modified result parameter or a new instance representing the orientation of the Earth's Moon.
+ * @returns {IauOrientationParameters} 修改后的结果参数 or a new instance representing the orientation of the Earth's Moon.
  * @private
  */
 Iau2000Orientation.ComputeMoon = function (date, result) {

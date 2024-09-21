@@ -52,7 +52,7 @@ Object.defineProperties(ConstantProperty.prototype, {
  *
  * @param {JulianDate} [time] The time for which to retrieve the value.  This parameter is unused since the value does not change with respect to time.
  * @param {object} [result] The object to store the value into, if omitted, a new instance is created and returned.
- * @returns {object} The modified result parameter or a new instance if the result parameter was not supplied.
+ * @returns {object} 修改后的结果参数 or a new instance if the result parameter was not supplied.
  */
 ConstantProperty.prototype.getValue = function (time, result) {
   return this._hasClone ? this._value.clone(result) : this._value;

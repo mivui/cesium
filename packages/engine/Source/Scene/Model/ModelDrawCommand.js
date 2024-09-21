@@ -498,7 +498,7 @@ function updateDebugShowBoundingVolume(drawCommand) {
  * @param {FrameState} frameState The frame state.
  * @param {DrawCommand[]} result The array to push the draw commands to.
  *
- * @returns {DrawCommand[]} The modified result parameter.
+ * @returns {DrawCommand[]} 修改后的结果参数。
  *
  * @private
  */
@@ -572,7 +572,7 @@ ModelDrawCommand.prototype.pushCommands = function (frameState, result) {
  * @param {FrameState} frameState The frame state.
  * @param {DrawCommand[]} result The array to push the silhouette commands to.
  *
- * @returns {DrawCommand[]} The modified result parameter.
+ * @returns {DrawCommand[]} 修改后的结果参数。
  *
  * @private
  */

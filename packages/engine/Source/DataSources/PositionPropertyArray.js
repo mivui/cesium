@@ -84,7 +84,7 @@ const timeScratch = new JulianDate();
  *
  * @param {JulianDate} [time=JulianDate.now()] The time for which to retrieve the value. If omitted, the current system time is used.
  * @param {Cartesian3[]} [result] The object to store the value into, if omitted, a new instance is created and returned.
- * @returns {Cartesian3[]} The modified result parameter or a new instance if the result parameter was not supplied.
+ * @returns {Cartesian3[]} 修改后的结果参数 or a new instance if the result parameter was not supplied.
  */
 PositionPropertyArray.prototype.getValue = function (time, result) {
   if (!defined(time)) {
@@ -99,7 +99,7 @@ PositionPropertyArray.prototype.getValue = function (time, result) {
  * @param {JulianDate} time The time for which to retrieve the value.
  * @param {ReferenceFrame} referenceFrame The desired referenceFrame of the result.
  * @param {Cartesian3[]} [result] The object to store the value into, if omitted, a new instance is created and returned.
- * @returns {Cartesian3[]} The modified result parameter or a new instance if the result parameter was not supplied.
+ * @returns {Cartesian3[]} 修改后的结果参数 or a new instance if the result parameter was not supplied.
  */
 PositionPropertyArray.prototype.getValueInReferenceFrame = function (
   time,

@@ -15,7 +15,7 @@ import VertexFormat from "./VertexFormat.js";
  * @param {number} [options.radius=1.0] The radius of the sphere.
  * @param {number} [options.stackPartitions=64] The number of times to partition the ellipsoid into stacks.
  * @param {number} [options.slicePartitions=64] The number of times to partition the ellipsoid into radial slices.
- * @param {VertexFormat} [options.vertexFormat=VertexFormat.DEFAULT] The vertex attributes to be computed.
+ * @param {VertexFormat} [options.vertexFormat=VertexFormat.DEFAULT] 要计算的顶点属性。
  *
  * @exception {DeveloperError} options.slicePartitions cannot be less than three.
  * @exception {DeveloperError} options.stackPartitions cannot be less than three.
@@ -44,7 +44,7 @@ function SphereGeometry(options) {
 }
 
 /**
- * The number of elements used to pack the object into an array.
+ * 用于将对象打包到数组中的元素数量。
  * @type {number}
  */
 SphereGeometry.packedLength = EllipsoidGeometry.packedLength;
@@ -81,7 +81,7 @@ const scratchOptions = {
  * @param {number[]} array 打包数组。
  * @param {number} [startingIndex=0] 要解压缩的元素的起始索引。
  * @param {SphereGeometry} [result] 要在其中存储结果的对象。
- * @returns {SphereGeometry} The modified result parameter or a new SphereGeometry instance if one was not provided.
+ * @returns {SphereGeometry} 修改后的结果参数 or a new SphereGeometry instance if one was not provided.
  */
 SphereGeometry.unpack = function (array, startingIndex, result) {
   const ellipsoidGeometry = EllipsoidGeometry.unpack(
@@ -110,7 +110,7 @@ SphereGeometry.unpack = function (array, startingIndex, result) {
  * Computes the geometric representation of a sphere, including its vertices, indices, and a bounding sphere.
  *
  * @param {SphereGeometry} sphereGeometry A description of the sphere.
- * @returns {Geometry|undefined} The computed vertices and indices.
+ * @returns {Geometry|undefined} 计算的顶点和索引。
  */
 SphereGeometry.createGeometry = function (sphereGeometry) {
   return EllipsoidGeometry.createGeometry(sphereGeometry._ellipsoidGeometry);

@@ -219,7 +219,7 @@ VertexFormat.ALL = Object.freeze(
 VertexFormat.DEFAULT = VertexFormat.POSITION_NORMAL_AND_ST;
 
 /**
- * The number of elements used to pack the object into an array.
+ * 用于将对象打包到数组中的元素数量。
  * @type {number}
  */
 VertexFormat.packedLength = 6;
@@ -261,7 +261,7 @@ VertexFormat.pack = function (value, array, startingIndex) {
  * @param {number[]} array 打包数组。
  * @param {number} [startingIndex=0] 要解压缩的元素的起始索引。
  * @param {VertexFormat} [result] 要在其中存储结果的对象。
- * @returns {VertexFormat} The modified result parameter or a new VertexFormat instance if one was not provided.
+ * @returns {VertexFormat} 修改后的结果参数 or a new VertexFormat instance if one was not provided.
  */
 VertexFormat.unpack = function (array, startingIndex, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -290,7 +290,7 @@ VertexFormat.unpack = function (array, startingIndex, result) {
  *
  * @param {VertexFormat} vertexFormat The vertex format to duplicate.
  * @param {VertexFormat} [result] 要在其上存储结果的对象。
- * @returns {VertexFormat} The modified result parameter or a new VertexFormat instance if one was not provided. (Returns undefined if vertexFormat is undefined)
+ * @returns {VertexFormat} 修改后的结果参数 or a new VertexFormat instance if one was not provided. (Returns undefined if vertexFormat is undefined)
  */
 VertexFormat.clone = function (vertexFormat, result) {
   if (!defined(vertexFormat)) {

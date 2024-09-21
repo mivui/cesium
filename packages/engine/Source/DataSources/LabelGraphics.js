@@ -329,7 +329,7 @@ Object.defineProperties(LabelGraphics.prototype, {
  * 复制instance.
  *
  * @param {LabelGraphics} [result] 要在其上存储结果的对象。
- * @returns {LabelGraphics} The modified result parameter or a new instance if one was not provided.
+ * @returns {LabelGraphics} 修改后的结果参数 or a new instance if one was not provided.
  */
 LabelGraphics.prototype.clone = function (result) {
   if (!defined(result)) {

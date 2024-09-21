@@ -127,7 +127,7 @@ const scratchProjectPointOntoPlaneCartesian3 = new Cartesian3();
  *
  * @param {Cartesian3} cartesian The point to project.
  * @param {Stereographic} [result] 要在其上存储结果的对象。
- * @returns {Sterographic} The modified result parameter or a new Sterographic instance if none was provided.
+ * @returns {Sterographic} 修改后的结果参数 or a new Sterographic instance if none was provided.
  */
 Stereographic.fromCartesian = function (cartesian, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -177,7 +177,7 @@ Stereographic.fromCartesian = function (cartesian, result) {
  *
  * @param {Cartesian3[]} cartesians The points to project.
  * @param {Stereographic[]} [result] 要在其上存储结果的对象。
- * @returns {Sterographic[]} The modified result parameter or a new Sterographic instance if none was provided.
+ * @returns {Sterographic[]} 修改后的结果参数 or a new Sterographic instance if none was provided.
  */
 Stereographic.fromCartesianArray = function (cartesians, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -201,7 +201,7 @@ Stereographic.fromCartesianArray = function (cartesians, result) {
  *
  * @param {Stereographic} stereographic The Stereographic to duplicate.
  * @param {Stereographic} [result] 要在其上存储结果的对象。
- * @returns {Stereographic} The modified result parameter or a new Stereographic instance if one was not provided. (Returns undefined if stereographic is undefined)
+ * @returns {Stereographic} 修改后的结果参数 or a new Stereographic instance if one was not provided. (Returns undefined if stereographic is undefined)
  */
 Stereographic.clone = function (stereographic, result) {
   if (!defined(stereographic)) {

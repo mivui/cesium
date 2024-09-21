@@ -298,7 +298,7 @@ OrthographicOffCenterFrustum.prototype.computeCullingVolume = function (
  * @param {number} distance The distance to the near plane in meters.
  * @param {number} pixelRatio The scaling factor from pixel space to coordinate space.
  * @param {Cartesian2} result 要在其上存储结果的对象。
- * @returns {Cartesian2} The modified result parameter or a new instance of {@link Cartesian2} with the pixel's width and height in the x and y properties, respectively.
+ * @returns {Cartesian2} 修改后的结果参数 or a new instance of {@link Cartesian2} with the pixel's width and height in the x and y properties, respectively.
  *
  * @exception {DeveloperError} drawingBufferWidth must be greater than zero.
  * @exception {DeveloperError} drawingBufferHeight must be greater than zero.
@@ -358,7 +358,7 @@ OrthographicOffCenterFrustum.prototype.getPixelDimensions = function (
  * Returns a duplicate of a OrthographicOffCenterFrustum instance.
  *
  * @param {OrthographicOffCenterFrustum} [result] 要在其上存储结果的对象。
- * @returns {OrthographicOffCenterFrustum} The modified result parameter or a new OrthographicOffCenterFrustum instance if one was not provided.
+ * @returns {OrthographicOffCenterFrustum} 修改后的结果参数 or a new OrthographicOffCenterFrustum instance if one was not provided.
  */
 OrthographicOffCenterFrustum.prototype.clone = function (result) {
   if (!defined(result)) {
@@ -405,12 +405,12 @@ OrthographicOffCenterFrustum.prototype.equals = function (other) {
 
 /**
  * Compares the provided OrthographicOffCenterFrustum componentwise and returns
- * <code>true</code> if they pass an absolute or relative tolerance test,
+ * <code>true</code> 如果它们通过了绝对或相对耐受性测试，
  * <code>false</code> 否则。
  *
  * @param {OrthographicOffCenterFrustum} other 右边 OrthographicOffCenterFrustum.
- * @param {number} relativeEpsilon The relative epsilon tolerance to use for equality testing.
- * @param {number} [absoluteEpsilon=relativeEpsilon] The absolute epsilon tolerance to use for equality testing.
+ * @param {number} relativeEpsilon 用于相等性检验的相对容差。
+ * @param {number} [absoluteEpsilon=relativeEpsilon] 用于相等性检验的绝对公差。
  * @returns {boolean} <code>true</code> if this and other are within the provided epsilon, <code>false</code> 否则。
  */
 OrthographicOffCenterFrustum.prototype.equalsEpsilon = function (

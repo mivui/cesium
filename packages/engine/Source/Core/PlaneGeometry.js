@@ -17,7 +17,7 @@ import VertexFormat from "./VertexFormat.js";
  * @constructor
  *
  * @param {object} [options] 对象，具有以下属性:
- * @param {VertexFormat} [options.vertexFormat=VertexFormat.DEFAULT] The vertex attributes to be computed.
+ * @param {VertexFormat} [options.vertexFormat=VertexFormat.DEFAULT] 要计算的顶点属性。
  *
  * @example
  * const planeGeometry = new Cesium.PlaneGeometry({
@@ -34,7 +34,7 @@ function PlaneGeometry(options) {
 }
 
 /**
- * The number of elements used to pack the object into an array.
+ * 用于将对象打包到数组中的元素数量。
  * @type {number}
  */
 PlaneGeometry.packedLength = VertexFormat.packedLength;
@@ -72,7 +72,7 @@ const scratchOptions = {
  * @param {number[]} array 打包数组。
  * @param {number} [startingIndex=0] 要解压缩的元素的起始索引。
  * @param {PlaneGeometry} [result] 要在其中存储结果的对象。
- * @returns {PlaneGeometry} The modified result parameter or a new PlaneGeometry instance if one was not provided.
+ * @returns {PlaneGeometry} 修改后的结果参数 or a new PlaneGeometry instance if one was not provided.
  */
 PlaneGeometry.unpack = function (array, startingIndex, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -103,7 +103,7 @@ const max = new Cartesian3(0.5, 0.5, 0.0);
  * Computes the geometric representation of a plane, including its vertices, indices, and a bounding sphere.
  *
  * @param {PlaneGeometry} planeGeometry A description of the plane.
- * @returns {Geometry|undefined} The computed vertices and indices.
+ * @returns {Geometry|undefined} 计算的顶点和索引。
  */
 PlaneGeometry.createGeometry = function (planeGeometry) {
   const vertexFormat = planeGeometry._vertexFormat;

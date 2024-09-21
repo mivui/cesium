@@ -90,7 +90,7 @@ function Matrix4(
 }
 
 /**
- * The number of elements used to pack the object into an array.
+ * 用于将对象打包到数组中的元素数量。
  * @type {number}
  */
 Matrix4.packedLength = 16;
@@ -138,7 +138,7 @@ Matrix4.pack = function (value, array, startingIndex) {
  * @param {number[]} array 打包数组。
  * @param {number} [startingIndex=0] 要解压缩的元素的起始索引。
  * @param {Matrix4} [result] 要在其中存储结果的对象。
- * @returns {Matrix4} The modified result parameter or a new Matrix4 instance if one was not provided.
+ * @returns {Matrix4} 修改后的结果参数 or a new Matrix4 instance if one was not provided.
  */
 Matrix4.unpack = function (array, startingIndex, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -175,7 +175,7 @@ Matrix4.unpack = function (array, startingIndex, result) {
  * are stored in column-major order.
  *
  * @param {Matrix4[]} array The array of matrices to pack.
- * @param {number[]} [result] The array onto which to store the result. If this is a typed array, it must have array.length * 16 components, else a {@link DeveloperError} will be thrown. If it is a regular array, it will be resized to have (array.length * 16) elements.
+ * @param {number[]} [result] 要在其中存储结果的数组。 If this is a typed array, it must have array.length * 16 components, else a {@link DeveloperError} will be thrown. If it is a regular array, it will be resized to have (array.length * 16) elements.
  * @returns {number[]} 打包数组。
  */
 Matrix4.packArray = function (array, result) {
@@ -206,9 +206,9 @@ Matrix4.packArray = function (array, result) {
 /**
  * Unpacks an array of column-major matrix components into an array of Matrix4s.
  *
- * @param {number[]} array The array of components to unpack.
- * @param {Matrix4[]} [result] The array onto which to store the result.
- * @returns {Matrix4[]} The unpacked array.
+ * @param {number[]} array 要解包的组件数组。
+ * @param {Matrix4[]} [result] 要在其中存储结果的数组。
+ * @returns {Matrix4[]} 未打包的数组。
  */
 Matrix4.unpackArray = function (array, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -238,7 +238,7 @@ Matrix4.unpackArray = function (array, result) {
  *
  * @param {Matrix4} matrix The matrix to duplicate.
  * @param {Matrix4} [result] 要在其上存储结果的对象。
- * @returns {Matrix4} The modified result parameter or a new Matrix4 instance if one was not provided. (Returns undefined if matrix is undefined)
+ * @returns {Matrix4} 修改后的结果参数 or a new Matrix4 instance if one was not provided. (Returns undefined if matrix is undefined)
  */
 Matrix4.clone = function (matrix, result) {
   if (!defined(matrix)) {
@@ -290,7 +290,7 @@ Matrix4.clone = function (matrix, result) {
  * @param {number[]} array The array whose 16 consecutive elements correspond to the positions of the matrix.  Assumes column-major order.
  * @param {number} [startingIndex=0] The offset into the array of the first element, which corresponds to first column first row position in the matrix.
  * @param {Matrix4} [result] 要在其上存储结果的对象。
- * @returns {Matrix4} The modified result parameter or a new Matrix4 instance if one was not provided.
+ * @returns {Matrix4} 修改后的结果参数 or a new Matrix4 instance if one was not provided.
  *
  * @example
  * // Create the Matrix4:
@@ -313,7 +313,7 @@ Matrix4.fromArray = Matrix4.unpack;
  *
  * @param {number[]} values The column-major order array.
  * @param {Matrix4} [result] The object in which the result will be stored, if undefined a new instance will be created.
- * @returns {Matrix4} The modified result parameter, or a new Matrix4 instance if one was not provided.
+ * @returns {Matrix4} 修改后的结果参数, or a new Matrix4 instance if one was not provided.
  */
 Matrix4.fromColumnMajorArray = function (values, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -329,7 +329,7 @@ Matrix4.fromColumnMajorArray = function (values, result) {
  *
  * @param {number[]} values The row-major order array.
  * @param {Matrix4} [result] The object in which the result will be stored, if undefined a new instance will be created.
- * @returns {Matrix4} The modified result parameter, or a new Matrix4 instance if one was not provided.
+ * @returns {Matrix4} 修改后的结果参数, or a new Matrix4 instance if one was not provided.
  */
 Matrix4.fromRowMajorArray = function (values, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -382,7 +382,7 @@ Matrix4.fromRowMajorArray = function (values, result) {
  * @param {Matrix3} rotation The upper left portion of the matrix representing the rotation.
  * @param {Cartesian3} [translation=Cartesian3.ZERO] The upper right portion of the matrix representing the translation.
  * @param {Matrix4} [result] The object in which the result will be stored, if undefined a new instance will be created.
- * @returns {Matrix4} The modified result parameter, or a new Matrix4 instance if one was not provided.
+ * @returns {Matrix4} 修改后的结果参数, or a new Matrix4 instance if one was not provided.
  */
 Matrix4.fromRotationTranslation = function (rotation, translation, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -439,7 +439,7 @@ Matrix4.fromRotationTranslation = function (rotation, translation, result) {
  * @param {Quaternion} rotation The rotation transformation.
  * @param {Cartesian3} scale The non-uniform scale transformation.
  * @param {Matrix4} [result] The object in which the result will be stored, if undefined a new instance will be created.
- * @returns {Matrix4} The modified result parameter, or a new Matrix4 instance if one was not provided.
+ * @returns {Matrix4} 修改后的结果参数, or a new Matrix4 instance if one was not provided.
  *
  * @example
  * const result = Cesium.Matrix4.fromTranslationQuaternionRotationScale(
@@ -516,7 +516,7 @@ Matrix4.fromTranslationQuaternionRotationScale = function (
  *
  * @param {TranslationRotationScale} translationRotationScale The instance.
  * @param {Matrix4} [result] The object in which the result will be stored, if undefined a new instance will be created.
- * @returns {Matrix4} The modified result parameter, or a new Matrix4 instance if one was not provided.
+ * @returns {Matrix4} 修改后的结果参数, or a new Matrix4 instance if one was not provided.
  */
 Matrix4.fromTranslationRotationScale = function (
   translationRotationScale,
@@ -539,7 +539,7 @@ Matrix4.fromTranslationRotationScale = function (
  *
  * @param {Cartesian3} translation The upper right portion of the matrix representing the translation.
  * @param {Matrix4} [result] The object in which the result will be stored, if undefined a new instance will be created.
- * @returns {Matrix4} The modified result parameter, or a new Matrix4 instance if one was not provided.
+ * @returns {Matrix4} 修改后的结果参数, or a new Matrix4 instance if one was not provided.
  *
  * @see Matrix4.multiplyByTranslation
  */
@@ -556,7 +556,7 @@ Matrix4.fromTranslation = function (translation, result) {
  *
  * @param {Cartesian3} scale The x, y, and z scale factors.
  * @param {Matrix4} [result] The object in which the result will be stored, if undefined a new instance will be created.
- * @returns {Matrix4} The modified result parameter, or a new Matrix4 instance if one was not provided.
+ * @returns {Matrix4} 修改后的结果参数, or a new Matrix4 instance if one was not provided.
  *
  * @example
  * // Creates
@@ -616,7 +616,7 @@ Matrix4.fromScale = function (scale, result) {
  *
  * @param {number} scale The uniform scale factor.
  * @param {Matrix4} [result] The object in which the result will be stored, if undefined a new instance will be created.
- * @returns {Matrix4} The modified result parameter, or a new Matrix4 instance if one was not provided.
+ * @returns {Matrix4} 修改后的结果参数, or a new Matrix4 instance if one was not provided.
  *
  * @example
  * // Creates
@@ -676,7 +676,7 @@ Matrix4.fromUniformScale = function (scale, result) {
  *
  * @param {Matrix3} rotation The rotation matrix.
  * @param {Matrix4} [result] The object in which the result will be stored, if undefined a new instance will be created.
- * @returns {Matrix4} The modified result parameter, or a new Matrix4 instance if one was not provided.
+ * @returns {Matrix4} 修改后的结果参数, or a new Matrix4 instance if one was not provided.
  */
 Matrix4.fromRotation = function (rotation, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -718,7 +718,7 @@ const fromCameraU = new Cartesian3();
  *
  * @param {Camera} camera The camera to use.
  * @param {Matrix4} [result] The object in which the result will be stored, if undefined a new instance will be created.
- * @returns {Matrix4} The modified result parameter, or a new Matrix4 instance if one was not provided.
+ * @returns {Matrix4} 修改后的结果参数, or a new Matrix4 instance if one was not provided.
  */
 Matrix4.fromCamera = function (camera, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -823,7 +823,7 @@ Matrix4.fromCamera = function (camera, result) {
  * @param {number} near The distance to the near plane in meters.
  * @param {number} far The distance to the far plane in meters.
  * @param {Matrix4} result The object in which the result will be stored.
- * @returns {Matrix4} The modified result parameter.
+ * @returns {Matrix4} 修改后的结果参数。
  *
  * @exception {DeveloperError} fovY must be in (0, PI].
  * @exception {DeveloperError} aspectRatio must be greater than zero.
@@ -881,7 +881,7 @@ Matrix4.computePerspectiveFieldOfView = function (
  * @param {number} near The distance to the near plane in meters.
  * @param {number} far The distance to the far plane in meters.
  * @param {Matrix4} result The object in which the result will be stored.
- * @returns {Matrix4} The modified result parameter.
+ * @returns {Matrix4} 修改后的结果参数。
  */
 Matrix4.computeOrthographicOffCenter = function (
   left,
@@ -942,7 +942,7 @@ Matrix4.computeOrthographicOffCenter = function (
  * @param {number} near The distance to the near plane in meters.
  * @param {number} far The distance to the far plane in meters.
  * @param {Matrix4} result The object in which the result will be stored.
- * @returns {Matrix4} The modified result parameter.
+ * @returns {Matrix4} 修改后的结果参数。
  */
 Matrix4.computePerspectiveOffCenter = function (
   left,
@@ -999,7 +999,7 @@ Matrix4.computePerspectiveOffCenter = function (
  * @param {number} top The number of meters above of the camera that will be in view.
  * @param {number} near The distance to the near plane in meters.
  * @param {Matrix4} result The object in which the result will be stored.
- * @returns {Matrix4} The modified result parameter.
+ * @returns {Matrix4} 修改后的结果参数。
  */
 Matrix4.computeInfinitePerspectiveOffCenter = function (
   left,
@@ -1052,7 +1052,7 @@ Matrix4.computeInfinitePerspectiveOffCenter = function (
  * @param {number} [nearDepthRange=0.0] The near plane distance in window coordinates.
  * @param {number} [farDepthRange=1.0] The far plane distance in window coordinates.
  * @param {Matrix4} [result] The object in which the result will be stored.
- * @returns {Matrix4} The modified result parameter.
+ * @returns {Matrix4} 修改后的结果参数。
  *
  * @example
  * // Create viewport transformation using an explicit viewport and depth range.
@@ -1121,7 +1121,7 @@ Matrix4.computeViewportTransformation = function (
  * @param {Cartesian3} up The up direction.
  * @param {Cartesian3} right The right direction.
  * @param {Matrix4} result The object in which the result will be stored.
- * @returns {Matrix4} The modified result parameter.
+ * @returns {Matrix4} 修改后的结果参数。
  */
 Matrix4.computeView = function (position, direction, up, right, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -1156,7 +1156,7 @@ Matrix4.computeView = function (position, direction, up, right, result) {
  * The array will be in column-major order.
  *
  * @param {Matrix4} matrix The matrix to use..
- * @param {number[]} [result] The Array onto which to store the result.
+ * @param {number[]} [result] 要在其中存储结果的数组。
  * @returns {number[]} The modified Array parameter or a new Array instance if one was not provided.
  *
  * @example
@@ -1248,7 +1248,7 @@ Matrix4.getElementIndex = function (column, row) {
  * @param {Matrix4} matrix The matrix to use.
  * @param {number} index The zero-based index of the column to retrieve.
  * @param {Cartesian4} result 要在其上存储结果的对象。
- * @returns {Cartesian4} The modified result parameter.
+ * @returns {Cartesian4} 修改后的结果参数。
  *
  * @exception {DeveloperError} index must be 0, 1, 2, or 3.
  *
@@ -1299,7 +1299,7 @@ Matrix4.getColumn = function (matrix, index, result) {
  * @param {number} index The zero-based index of the column to set.
  * @param {Cartesian4} cartesian The Cartesian whose values will be assigned to the specified column.
  * @param {Matrix4} result 要在其上存储结果的对象。
- * @returns {Matrix4} The modified result parameter.
+ * @returns {Matrix4} 修改后的结果参数。
  *
  * @exception {DeveloperError} index must be 0, 1, 2, or 3.
  *
@@ -1344,7 +1344,7 @@ Matrix4.setColumn = function (matrix, index, cartesian, result) {
  * @param {Matrix4} matrix The matrix to use.
  * @param {number} index The zero-based index of the row to retrieve.
  * @param {Cartesian4} result 要在其上存储结果的对象。
- * @returns {Cartesian4} The modified result parameter.
+ * @returns {Cartesian4} 修改后的结果参数。
  *
  * @exception {DeveloperError} index must be 0, 1, 2, or 3.
  *
@@ -1394,7 +1394,7 @@ Matrix4.getRow = function (matrix, index, result) {
  * @param {number} index The zero-based index of the row to set.
  * @param {Cartesian4} cartesian The Cartesian whose values will be assigned to the specified row.
  * @param {Matrix4} result 要在其上存储结果的对象。
- * @returns {Matrix4} The modified result parameter.
+ * @returns {Matrix4} 修改后的结果参数。
  *
  * @exception {DeveloperError} index must be 0, 1, 2, or 3.
  *
@@ -1439,7 +1439,7 @@ Matrix4.setRow = function (matrix, index, cartesian, result) {
  * @param {Matrix4} matrix The matrix to use.
  * @param {Cartesian3} translation The translation that replaces the translation of the provided matrix.
  * @param {Matrix4} result 要在其上存储结果的对象。
- * @returns {Matrix4} The modified result parameter.
+ * @returns {Matrix4} 修改后的结果参数。
  */
 Matrix4.setTranslation = function (matrix, translation, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -1480,7 +1480,7 @@ const scaleScratch1 = new Cartesian3();
  * @param {Matrix4} matrix The matrix to use.
  * @param {Cartesian3} scale The scale that replaces the scale of the provided matrix.
  * @param {Matrix4} result 要在其上存储结果的对象。
- * @returns {Matrix4} The modified result parameter.
+ * @returns {Matrix4} 修改后的结果参数。
  *
  * @see Matrix4.setUniformScale
  * @see Matrix4.fromScale
@@ -1533,7 +1533,7 @@ const scaleScratch2 = new Cartesian3();
  * @param {Matrix4} matrix The matrix to use.
  * @param {number} scale The uniform scale that replaces the scale of the provided matrix.
  * @param {Matrix4} result 要在其上存储结果的对象。
- * @returns {Matrix4} The modified result parameter.
+ * @returns {Matrix4} 修改后的结果参数。
  *
  * @see Matrix4.setScale
  * @see Matrix4.fromScale
@@ -1584,7 +1584,7 @@ const scratchColumn = new Cartesian3();
  *
  * @param {Matrix4} matrix The matrix.
  * @param {Cartesian3} result 要在其上存储结果的对象。
- * @returns {Cartesian3} The modified result parameter
+ * @returns {Cartesian3} 修改后的结果参数
  *
  * @see Matrix4.multiplyByScale
  * @see Matrix4.multiplyByUniformScale
@@ -1634,7 +1634,7 @@ const scaleScratch4 = new Cartesian3();
  * @param {Matrix4} matrix The matrix.
  * @param {Matrix3} rotation The rotation matrix.
  * @param {Matrix4} result 要在其上存储结果的对象。
- * @returns {Matrix4} The modified result parameter.
+ * @returns {Matrix4} 修改后的结果参数。
  *
  * @see Matrix4.fromRotation
  * @see Matrix4.getRotation
@@ -1677,7 +1677,7 @@ const scaleScratch5 = new Cartesian3();
  *
  * @param {Matrix4} matrix The matrix.
  * @param {Matrix3} result 要在其上存储结果的对象。
- * @returns {Matrix3} The modified result parameter.
+ * @returns {Matrix3} 修改后的结果参数。
  *
  * @see Matrix4.setRotation
  * @see Matrix4.fromRotation
@@ -1711,7 +1711,7 @@ Matrix4.getRotation = function (matrix, result) {
  * @param {Matrix4} left The first matrix.
  * @param {Matrix4} right The second matrix.
  * @param {Matrix4} result 要在其上存储结果的对象。
- * @returns {Matrix4} The modified result parameter.
+ * @returns {Matrix4} 修改后的结果参数。
  */
 Matrix4.multiply = function (left, right, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -1815,7 +1815,7 @@ Matrix4.multiply = function (left, right, result) {
  * @param {Matrix4} left The first matrix.
  * @param {Matrix4} right The second matrix.
  * @param {Matrix4} result 要在其上存储结果的对象。
- * @returns {Matrix4} The modified result parameter.
+ * @returns {Matrix4} 修改后的结果参数。
  */
 Matrix4.add = function (left, right, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -1849,7 +1849,7 @@ Matrix4.add = function (left, right, result) {
  * @param {Matrix4} left The first matrix.
  * @param {Matrix4} right The second matrix.
  * @param {Matrix4} result 要在其上存储结果的对象。
- * @returns {Matrix4} The modified result parameter.
+ * @returns {Matrix4} 修改后的结果参数。
  */
 Matrix4.subtract = function (left, right, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -1889,7 +1889,7 @@ Matrix4.subtract = function (left, right, result) {
  * @param {Matrix4} left The first matrix.
  * @param {Matrix4} right The second matrix.
  * @param {Matrix4} result 要在其上存储结果的对象。
- * @returns {Matrix4} The modified result parameter.
+ * @returns {Matrix4} 修改后的结果参数。
  *
  * @example
  * const m1 = new Cesium.Matrix4(1.0, 6.0, 7.0, 0.0, 2.0, 5.0, 8.0, 0.0, 3.0, 4.0, 9.0, 0.0, 0.0, 0.0, 0.0, 1.0);
@@ -1975,7 +1975,7 @@ Matrix4.multiplyTransformation = function (left, right, result) {
  * @param {Matrix4} matrix The matrix on the left-hand side.
  * @param {Matrix3} rotation The 3x3 rotation matrix on the right-hand side.
  * @param {Matrix4} result 要在其上存储结果的对象。
- * @returns {Matrix4} The modified result parameter.
+ * @returns {Matrix4} 修改后的结果参数。
  *
  * @example
  * // Instead of Cesium.Matrix4.multiply(m, Cesium.Matrix4.fromRotationTranslation(rotation), m);
@@ -2047,7 +2047,7 @@ Matrix4.multiplyByMatrix3 = function (matrix, rotation, result) {
  * @param {Matrix4} matrix The matrix on the left-hand side.
  * @param {Cartesian3} translation The translation on the right-hand side.
  * @param {Matrix4} result 要在其上存储结果的对象。
- * @returns {Matrix4} The modified result parameter.
+ * @returns {Matrix4} 修改后的结果参数。
  *
  * @example
  * // Instead of Cesium.Matrix4.multiply(m, Cesium.Matrix4.fromTranslation(position), m);
@@ -2097,7 +2097,7 @@ Matrix4.multiplyByTranslation = function (matrix, translation, result) {
  * @param {Matrix4} matrix The affine matrix on the left-hand side.
  * @param {Cartesian3} scale The non-uniform scale on the right-hand side.
  * @param {Matrix4} result 要在其上存储结果的对象。
- * @returns {Matrix4} The modified result parameter.
+ * @returns {Matrix4} 修改后的结果参数。
  *
  *
  * @example
@@ -2156,7 +2156,7 @@ Matrix4.multiplyByScale = function (matrix, scale, result) {
  * @param {Matrix4} matrix The matrix on the left-hand side.
  * @param {number} scale The uniform scale on the right-hand side.
  * @param {Matrix4} result 要在其上存储结果的对象。
- * @returns {Matrix4} The modified result parameter.
+ * @returns {Matrix4} 修改后的结果参数。
  *
  * @example
  * // Instead of Cesium.Matrix4.multiply(m, Cesium.Matrix4.fromUniformScale(scale), m);
@@ -2205,7 +2205,7 @@ Matrix4.multiplyByUniformScale = function (matrix, scale, result) {
  * @param {Matrix4} matrix The matrix.
  * @param {Cartesian4} cartesian The vector.
  * @param {Cartesian4} result 要在其上存储结果的对象。
- * @returns {Cartesian4} The modified result parameter.
+ * @returns {Cartesian4} 修改后的结果参数。
  */
 Matrix4.multiplyByVector = function (matrix, cartesian, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -2238,7 +2238,7 @@ Matrix4.multiplyByVector = function (matrix, cartesian, result) {
  * @param {Matrix4} matrix The matrix.
  * @param {Cartesian3} cartesian The point.
  * @param {Cartesian3} result 要在其上存储结果的对象。
- * @returns {Cartesian3} The modified result parameter.
+ * @returns {Cartesian3} 修改后的结果参数。
  *
  * @example
  * const p = new Cesium.Cartesian3(1.0, 2.0, 3.0);
@@ -2275,7 +2275,7 @@ Matrix4.multiplyByPointAsVector = function (matrix, cartesian, result) {
  * @param {Matrix4} matrix The matrix.
  * @param {Cartesian3} cartesian The point.
  * @param {Cartesian3} result 要在其上存储结果的对象。
- * @returns {Cartesian3} The modified result parameter.
+ * @returns {Cartesian3} 修改后的结果参数。
  *
  * @example
  * const p = new Cesium.Cartesian3(1.0, 2.0, 3.0);
@@ -2308,7 +2308,7 @@ Matrix4.multiplyByPoint = function (matrix, cartesian, result) {
  * @param {Matrix4} matrix The matrix.
  * @param {number} scalar The number to multiply by.
  * @param {Matrix4} result 要在其上存储结果的对象。
- * @returns {Matrix4} The modified result parameter.
+ * @returns {Matrix4} 修改后的结果参数。
  *
  * @example
  * //create a Matrix4 instance which is a scaled version of the supplied Matrix4
@@ -2356,7 +2356,7 @@ Matrix4.multiplyByScalar = function (matrix, scalar, result) {
  *
  * @param {Matrix4} matrix The matrix to negate.
  * @param {Matrix4} result 要在其上存储结果的对象。
- * @returns {Matrix4} The modified result parameter.
+ * @returns {Matrix4} 修改后的结果参数。
  *
  * @example
  * //create a new Matrix4 instance which is a negation of a Matrix4
@@ -2403,7 +2403,7 @@ Matrix4.negate = function (matrix, result) {
  *
  * @param {Matrix4} matrix The matrix to transpose.
  * @param {Matrix4} result 要在其上存储结果的对象。
- * @returns {Matrix4} The modified result parameter.
+ * @returns {Matrix4} 修改后的结果参数。
  *
  * @example
  * //returns transpose of a Matrix4
@@ -2457,7 +2457,7 @@ Matrix4.transpose = function (matrix, result) {
  *
  * @param {Matrix4} matrix The matrix with signed elements.
  * @param {Matrix4} result 要在其上存储结果的对象。
- * @returns {Matrix4} The modified result parameter.
+ * @returns {Matrix4} 修改后的结果参数。
  */
 Matrix4.abs = function (matrix, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -2553,7 +2553,7 @@ Matrix4.equals = function (left, right) {
  * @param {Matrix4} [left] 第一个matrix.
  * @param {Matrix4} [right] 第二个 matrix.
  * @param {number} [epsilon=0] The epsilon to use for equality testing.
- * @returns {boolean} <code>true</code> if left and right are within the provided epsilon, <code>false</code> 否则。
+ * @returns {boolean} <code>true</code>如果左和右在提供的epsilon内，<code>false</code>否则。
  *
  * @example
  * //compares two Matrix4 instances
@@ -2607,7 +2607,7 @@ Matrix4.equalsEpsilon = function (left, right, epsilon) {
  *
  * @param {Matrix4} matrix The matrix to use.
  * @param {Cartesian3} result 要在其上存储结果的对象。
- * @returns {Cartesian3} The modified result parameter.
+ * @returns {Cartesian3} 修改后的结果参数。
  */
 Matrix4.getTranslation = function (matrix, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -2626,7 +2626,7 @@ Matrix4.getTranslation = function (matrix, result) {
  *
  * @param {Matrix4} matrix The matrix to use.
  * @param {Matrix3} result 要在其上存储结果的对象。
- * @returns {Matrix3} The modified result parameter.
+ * @returns {Matrix3} 修改后的结果参数。
  *
  * @example
  * // returns a Matrix3 instance from a Matrix4 instance
@@ -2674,7 +2674,7 @@ const scratchExpectedBottomRow = new Cartesian4(0.0, 0.0, 0.0, 1.0);
  *
  * @param {Matrix4} matrix The matrix to invert.
  * @param {Matrix4} result 要在其上存储结果的对象。
- * @returns {Matrix4} The modified result parameter.
+ * @returns {Matrix4} 修改后的结果参数。
  *
  * @exception {RuntimeError} matrix is not invertible because its determinate is zero.
  */
@@ -2890,7 +2890,7 @@ Matrix4.inverse = function (matrix, result) {
  *
  * @param {Matrix4} matrix The matrix to invert.
  * @param {Matrix4} result 要在其上存储结果的对象。
- * @returns {Matrix4} The modified result parameter.
+ * @returns {Matrix4} 修改后的结果参数。
  */
 Matrix4.inverseTransformation = function (matrix, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -2948,7 +2948,7 @@ const scratchTransposeMatrix = new Matrix4();
  *
  * @param {Matrix4} matrix The matrix to transpose and invert.
  * @param {Matrix4} result 要在其上存储结果的对象。
- * @returns {Matrix4} The modified result parameter.
+ * @returns {Matrix4} 修改后的结果参数。
  */
 Matrix4.inverseTranspose = function (matrix, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -3162,7 +3162,7 @@ Object.defineProperties(Matrix4.prototype, {
  * Duplicates the provided Matrix4 instance.
  *
  * @param {Matrix4} [result] 要在其上存储结果的对象。
- * @returns {Matrix4} The modified result parameter or a new Matrix4 instance if one was not provided.
+ * @returns {Matrix4} 修改后的结果参数 or a new Matrix4 instance if one was not provided.
  */
 Matrix4.prototype.clone = function (result) {
   return Matrix4.clone(this, result);
@@ -3210,7 +3210,7 @@ Matrix4.equalsArray = function (matrix, array, offset) {
  *
  * @param {Matrix4} [right] 右边 matrix.
  * @param {number} [epsilon=0] The epsilon to use for equality testing.
- * @returns {boolean} <code>true</code> if they are within the provided epsilon, <code>false</code> 否则。
+ * @returns {boolean} <code>true</code>如果它们在提供的epsilon内，<code>false</code>否则。
  */
 Matrix4.prototype.equalsEpsilon = function (right, epsilon) {
   return Matrix4.equalsEpsilon(this, right, epsilon);

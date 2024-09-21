@@ -120,7 +120,7 @@ Object.defineProperties(PathGraphics.prototype, {
  * 复制instance.
  *
  * @param {PathGraphics} [result] 要在其上存储结果的对象。
- * @returns {PathGraphics} The modified result parameter or a new instance if one was not provided.
+ * @returns {PathGraphics} 修改后的结果参数 or a new instance if one was not provided.
  */
 PathGraphics.prototype.clone = function (result) {
   if (!defined(result)) {

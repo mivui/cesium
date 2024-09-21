@@ -55,7 +55,7 @@ Object.defineProperties(DistanceDisplayCondition.prototype, {
 });
 
 /**
- * The number of elements used to pack the object into an array.
+ * 用于将对象打包到数组中的元素数量。
  * @type {number}
  */
 DistanceDisplayCondition.packedLength = 2;
@@ -93,7 +93,7 @@ DistanceDisplayCondition.pack = function (value, array, startingIndex) {
  * @param {number[]} array 打包数组。
  * @param {number} [startingIndex=0] 要解压缩的元素的起始索引。
  * @param {DistanceDisplayCondition} [result] 要在其中存储结果的对象。
- * @returns {DistanceDisplayCondition} The modified result parameter or a new DistanceDisplayCondition instance if one was not provided.
+ * @returns {DistanceDisplayCondition} 修改后的结果参数 or a new DistanceDisplayCondition instance if one was not provided.
  */
 DistanceDisplayCondition.unpack = function (array, startingIndex, result) {
   //>>includeStart('debug', pragmas.debug);

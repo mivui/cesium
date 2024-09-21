@@ -167,7 +167,7 @@ const timeScratch = new JulianDate();
  * @param {JulianDate} [time=JulianDate.now()] The time for which to retrieve the value. If omitted, the current system time is used.
  * @param {object} [result] The object to store the value into, if omitted, a new instance is created and returned.
  * Note that any properties in result which are not part of this PropertyBag will be left as-is.
- * @returns {object} The modified result parameter or a new instance if the result parameter was not supplied.
+ * @returns {object} 修改后的结果参数 or a new instance if the result parameter was not supplied.
  */
 PropertyBag.prototype.getValue = function (time, result) {
   if (!defined(time)) {

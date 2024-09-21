@@ -272,7 +272,7 @@ function createGeometryFromPositionsExtruded(
  * @param {PolygonHierarchy} options.polygonHierarchy A polygon hierarchy that can include holes.
  * @param {number} [options.height=0.0] The distance in meters between the polygon and the ellipsoid surface.
  * @param {number} [options.extrudedHeight] The distance in meters between the polygon's extruded face and the ellipsoid surface.
- * @param {VertexFormat} [options.vertexFormat=VertexFormat.DEFAULT] The vertex attributes to be computed.
+ * @param {VertexFormat} [options.vertexFormat=VertexFormat.DEFAULT] 要计算的顶点属性。
  * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] The ellipsoid to be used as a reference.
  * @param {number} [options.granularity=CesiumMath.RADIANS_PER_DEGREE] The distance, in radians, between each latitude and longitude. Determines the number of positions in the buffer.
  * @param {boolean} [options.perPositionHeight=false] Use the height of options.positions for each position instead of using options.height to determine the height.
@@ -401,7 +401,7 @@ function PolygonOutlineGeometry(options) {
   this._workerName = "createPolygonOutlineGeometry";
 
   /**
-   * The number of elements used to pack the object into an array.
+   * 用于将对象打包到数组中的元素数量。
    * @type {number}
    */
   this.packedLength =
@@ -463,7 +463,7 @@ const dummyOptions = {
  * @param {number[]} array 打包数组。
  * @param {number} [startingIndex=0] 要解压缩的元素的起始索引。
  * @param {PolygonOutlineGeometry} [result] 要在其中存储结果的对象。
- * @returns {PolygonOutlineGeometry} The modified result parameter or a new PolygonOutlineGeometry instance if one was not provided.
+ * @returns {PolygonOutlineGeometry} 修改后的结果参数 or a new PolygonOutlineGeometry instance if one was not provided.
  */
 PolygonOutlineGeometry.unpack = function (array, startingIndex, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -566,7 +566,7 @@ PolygonOutlineGeometry.fromPositions = function (options) {
  * Computes the geometric representation of a polygon outline, including its vertices, indices, and a bounding sphere.
  *
  * @param {PolygonOutlineGeometry} polygonGeometry A description of the polygon outline.
- * @returns {Geometry|undefined} The computed vertices and indices.
+ * @returns {Geometry|undefined} 计算的顶点和索引。
  */
 PolygonOutlineGeometry.createGeometry = function (polygonGeometry) {
   const ellipsoid = polygonGeometry._ellipsoid;

@@ -404,7 +404,7 @@ function CorridorOutlineGeometry(options) {
   this._workerName = "createCorridorOutlineGeometry";
 
   /**
-   * The number of elements used to pack the object into an array.
+   * 用于将对象打包到数组中的元素数量。
    * @type {number}
    */
   this.packedLength =
@@ -467,7 +467,7 @@ const scratchOptions = {
  * @param {number[]} array 打包数组。
  * @param {number} [startingIndex=0] 要解压缩的元素的起始索引。
  * @param {CorridorOutlineGeometry} [result] 要在其中存储结果的对象。
- * @returns {CorridorOutlineGeometry} The modified result parameter or a new CorridorOutlineGeometry instance if one was not provided.
+ * @returns {CorridorOutlineGeometry} 修改后的结果参数 or a new CorridorOutlineGeometry instance if one was not provided.
  */
 CorridorOutlineGeometry.unpack = function (array, startingIndex, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -522,7 +522,7 @@ CorridorOutlineGeometry.unpack = function (array, startingIndex, result) {
  * Computes the geometric representation of a corridor, including its vertices, indices, and a bounding sphere.
  *
  * @param {CorridorOutlineGeometry} corridorOutlineGeometry A description of the corridor.
- * @returns {Geometry|undefined} The computed vertices and indices.
+ * @returns {Geometry|undefined} 计算的顶点和索引。
  */
 CorridorOutlineGeometry.createGeometry = function (corridorOutlineGeometry) {
   let positions = corridorOutlineGeometry._positions;

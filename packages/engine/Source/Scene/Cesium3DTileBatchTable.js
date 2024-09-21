@@ -651,7 +651,7 @@ function modifyDiffuse(source, diffuseAttributeOrUniformName, applyHighlight) {
   source = ShaderSource.replaceMain(source, "tile_main");
   source = source.replace(declaration, ""); // Remove uniform declaration for now so the replace below doesn't affect it
 
-  // If the tile color is white, use the source color. This implies the feature has not been styled.
+  // If the tile color is white, use 源颜色。 This implies the feature has not been styled.
   // Highlight: tile_colorBlend is 0.0 and the source color is used
   // Replace: tile_colorBlend is 1.0 and the tile color is used
   // Mix: tile_colorBlend is between 0.0 and 1.0, causing the source color and tile color to mix

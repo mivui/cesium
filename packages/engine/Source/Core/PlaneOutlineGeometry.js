@@ -20,7 +20,7 @@ function PlaneOutlineGeometry() {
 }
 
 /**
- * The number of elements used to pack the object into an array.
+ * 用于将对象打包到数组中的元素数量。
  * @type {number}
  */
 PlaneOutlineGeometry.packedLength = 0;
@@ -48,7 +48,7 @@ PlaneOutlineGeometry.pack = function (value, array) {
  * @param {number[]} array 打包数组。
  * @param {number} [startingIndex=0] 要解压缩的元素的起始索引。
  * @param {PlaneOutlineGeometry} [result] 要在其中存储结果的对象。
- * @returns {PlaneOutlineGeometry} The modified result parameter or a new PlaneOutlineGeometry instance if one was not provided.
+ * @returns {PlaneOutlineGeometry} 修改后的结果参数 or a new PlaneOutlineGeometry instance if one was not provided.
  */
 PlaneOutlineGeometry.unpack = function (array, startingIndex, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -68,7 +68,7 @@ const max = new Cartesian3(0.5, 0.5, 0.0);
 /**
  * Computes the geometric representation of an outline of a plane, including its vertices, indices, and a bounding sphere.
  *
- * @returns {Geometry|undefined} The computed vertices and indices.
+ * @returns {Geometry|undefined} 计算的顶点和索引。
  */
 PlaneOutlineGeometry.createGeometry = function () {
   const attributes = new GeometryAttributes();

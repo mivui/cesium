@@ -103,7 +103,7 @@ OffsetGeometryInstanceAttribute.fromCartesian3 = function (offset) {
  *
  * @param {Cartesian3} offset The cartesian offset
  * @param {Float32Array} [result] The array to store the result in, if undefined a new instance will be created.
- * @returns {Float32Array} The modified result parameter or a new instance if result was undefined.
+ * @returns {Float32Array} 修改后的结果参数 or a new instance if result was undefined.
  *
  * @example
  * const attributes = primitive.getGeometryInstanceAttributes('an id');

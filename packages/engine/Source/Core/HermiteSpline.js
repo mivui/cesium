@@ -558,7 +558,7 @@ HermiteSpline.prototype.clampTime = Spline.prototype.clampTime;
  *
  * @param {number} time The time at which to evaluate the curve.
  * @param {Cartesian3} [result] 要在其上存储结果的对象。
- * @returns {Cartesian3} The modified result parameter or a new instance of the point on the curve at the given time.
+ * @returns {Cartesian3} 修改后的结果参数 or a new instance of the point on the curve at the given time.
  *
  * @exception {DeveloperError} time must be in the range <code>[t<sub>0</sub>, t<sub>n</sub>]</code>, where <code>t<sub>0</sub></code>
  *                             is the first element in the array <code>times</code> and <code>t<sub>n</sub></code> is the last element

@@ -37,7 +37,7 @@ const scratchNormal = new Cartesian3();
  * @param {number[]} [options.minimumHeights] An array parallel to <code>positions</code> that give the minimum height of the
  *        wall at <code>positions</code>. If undefined, the height at each position is 0.0.
  * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] The ellipsoid for coordinate manipulation
- * @param {VertexFormat} [options.vertexFormat=VertexFormat.DEFAULT] The vertex attributes to be computed.
+ * @param {VertexFormat} [options.vertexFormat=VertexFormat.DEFAULT] 要计算的顶点属性。
  *
  * @exception {DeveloperError} positions length must be greater than or equal to 2.
  * @exception {DeveloperError} positions and maximumHeights must have the same length.
@@ -114,7 +114,7 @@ function WallGeometry(options) {
   }
 
   /**
-   * The number of elements used to pack the object into an array.
+   * 用于将对象打包到数组中的元素数量。
    * @type {number}
    */
   this.packedLength =
@@ -200,7 +200,7 @@ const scratchOptions = {
  * @param {number[]} array 打包数组。
  * @param {number} [startingIndex=0] 要解压缩的元素的起始索引。
  * @param {WallGeometry} [result] 要在其中存储结果的对象。
- * @returns {WallGeometry} The modified result parameter or a new WallGeometry instance if one was not provided.
+ * @returns {WallGeometry} 修改后的结果参数 or a new WallGeometry instance if one was not provided.
  */
 WallGeometry.unpack = function (array, startingIndex, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -281,7 +281,7 @@ WallGeometry.unpack = function (array, startingIndex, result) {
  * @param {number} [options.minimumHeight] A constant that defines the minimum height of the
  *        wall at <code>positions</code>. If undefined, the height at each position is 0.0.
  * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] The ellipsoid for coordinate manipulation
- * @param {VertexFormat} [options.vertexFormat=VertexFormat.DEFAULT] The vertex attributes to be computed.
+ * @param {VertexFormat} [options.vertexFormat=VertexFormat.DEFAULT] 要计算的顶点属性。
  * @returns {WallGeometry}
  *
  *
@@ -350,7 +350,7 @@ WallGeometry.fromConstantHeights = function (options) {
  * Computes the geometric representation of a wall, including its vertices, indices, and a bounding sphere.
  *
  * @param {WallGeometry} wallGeometry A description of the wall.
- * @returns {Geometry|undefined} The computed vertices and indices.
+ * @returns {Geometry|undefined} 计算的顶点和索引。
  */
 WallGeometry.createGeometry = function (wallGeometry) {
   const wallPositions = wallGeometry._positions;

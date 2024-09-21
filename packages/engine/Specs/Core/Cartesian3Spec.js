@@ -1712,7 +1712,7 @@ describe("Core/Cartesian3", function () {
     }).toThrowDeveloperError();
   });
 
-  it("projects vector a onto vector b", function () {
+  it("将向量a投影到向量b上", function () {
     let a = new Cartesian3(0.0, 1.0, 0.0);
     let b = new Cartesian3(1.0, 0.0, 0.0);
     let result = Cartesian3.projectVector(a, b, new Cartesian3());

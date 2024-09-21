@@ -46,7 +46,7 @@ function NearFarScalar(near, nearValue, far, farValue) {
  *
  * @param {NearFarScalar} nearFarScalar The NearFarScalar to duplicate.
  * @param {NearFarScalar} [result] 要在其上存储结果的对象。
- * @returns {NearFarScalar} The modified result parameter or a new NearFarScalar instance if one was not provided. (Returns undefined if nearFarScalar is undefined)
+ * @returns {NearFarScalar} 修改后的结果参数 or a new NearFarScalar instance if one was not provided. (Returns undefined if nearFarScalar is undefined)
  */
 NearFarScalar.clone = function (nearFarScalar, result) {
   if (!defined(nearFarScalar)) {
@@ -70,7 +70,7 @@ NearFarScalar.clone = function (nearFarScalar, result) {
 };
 
 /**
- * The number of elements used to pack the object into an array.
+ * 用于将对象打包到数组中的元素数量。
  * @type {number}
  */
 NearFarScalar.packedLength = 4;
@@ -110,7 +110,7 @@ NearFarScalar.pack = function (value, array, startingIndex) {
  * @param {number[]} array 打包数组。
  * @param {number} [startingIndex=0] 要解压缩的元素的起始索引。
  * @param {NearFarScalar} [result] 要在其中存储结果的对象。
- * @returns {NearFarScalar} The modified result parameter or a new NearFarScalar instance if one was not provided.
+ * @returns {NearFarScalar} 修改后的结果参数 or a new NearFarScalar instance if one was not provided.
  */
 NearFarScalar.unpack = function (array, startingIndex, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -155,7 +155,7 @@ NearFarScalar.equals = function (left, right) {
  * 复制instance.
  *
  * @param {NearFarScalar} [result] 要在其上存储结果的对象。
- * @returns {NearFarScalar} The modified result parameter or a new NearFarScalar instance if one was not provided.
+ * @returns {NearFarScalar} 修改后的结果参数 or a new NearFarScalar instance if one was not provided.
  */
 NearFarScalar.prototype.clone = function (result) {
   return NearFarScalar.clone(this, result);

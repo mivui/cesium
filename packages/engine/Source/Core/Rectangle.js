@@ -82,7 +82,7 @@ Object.defineProperties(Rectangle.prototype, {
 });
 
 /**
- * The number of elements used to pack the object into an array.
+ * 用于将对象打包到数组中的元素数量。
  * @type {number}
  */
 Rectangle.packedLength = 4;
@@ -118,7 +118,7 @@ Rectangle.pack = function (value, array, startingIndex) {
  * @param {number[]} array 打包数组。
  * @param {number} [startingIndex=0] 要解压缩的元素的起始索引。
  * @param {Rectangle} [result] 要在其中存储结果的对象。
- * @returns {Rectangle} The modified result parameter or a new Rectangle instance if one was not provided.
+ * @returns {Rectangle} 修改后的结果参数 or a new Rectangle instance if one was not provided.
  */
 Rectangle.unpack = function (array, startingIndex, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -175,7 +175,7 @@ Rectangle.computeHeight = function (rectangle) {
  * @param {number} [east=0.0] The easternmost longitude in degrees in the range [-180.0, 180.0].
  * @param {number} [north=0.0] The northernmost latitude in degrees in the range [-90.0, 90.0].
  * @param {Rectangle} [result] The object onto which to store the result, or undefined if a new instance should be created.
- * @returns {Rectangle} The modified result parameter or a new Rectangle instance if none was provided.
+ * @returns {Rectangle} 修改后的结果参数 or a new Rectangle instance if none was provided.
  *
  * @example
  * const rectangle = Cesium.Rectangle.fromDegrees(0.0, 20.0, 10.0, 30.0);
@@ -206,7 +206,7 @@ Rectangle.fromDegrees = function (west, south, east, north, result) {
  * @param {number} [east=0.0] The easternmost longitude in radians in the range [-Math.PI, Math.PI].
  * @param {number} [north=0.0] The northernmost latitude in radians in the range [-Math.PI/2, Math.PI/2].
  * @param {Rectangle} [result] The object onto which to store the result, or undefined if a new instance should be created.
- * @returns {Rectangle} The modified result parameter or a new Rectangle instance if none was provided.
+ * @returns {Rectangle} 修改后的结果参数 or a new Rectangle instance if none was provided.
  *
  * @example
  * const rectangle = Cesium.Rectangle.fromRadians(0.0, Math.PI/4, Math.PI/8, 3*Math.PI/4);
@@ -229,7 +229,7 @@ Rectangle.fromRadians = function (west, south, east, north, result) {
  *
  * @param {Cartographic[]} cartographics The list of Cartographic instances.
  * @param {Rectangle} [result] The object onto which to store the result, or undefined if a new instance should be created.
- * @returns {Rectangle} The modified result parameter or a new Rectangle instance if none was provided.
+ * @returns {Rectangle} 修改后的结果参数 or a new Rectangle instance if none was provided.
  */
 Rectangle.fromCartographicArray = function (cartographics, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -287,7 +287,7 @@ Rectangle.fromCartographicArray = function (cartographics, result) {
  * @param {Cartesian3[]} cartesians The list of Cartesian instances.
  * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] The ellipsoid the cartesians are on.
  * @param {Rectangle} [result] The object onto which to store the result, or undefined if a new instance should be created.
- * @returns {Rectangle} The modified result parameter or a new Rectangle instance if none was provided.
+ * @returns {Rectangle} 修改后的结果参数 or a new Rectangle instance if none was provided.
  */
 Rectangle.fromCartesianArray = function (cartesians, ellipsoid, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -356,7 +356,7 @@ for (let n = 0; n < fromBoundingSpherePositionsScratch.length; ++n) {
  * @param {BoundingSphere} boundingSphere The bounding sphere.
  * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] The ellipsoid.
  * @param {Rectangle} [result] The object onto which to store the result, or undefined if a new instance should be created.
- * @returns {Rectangle} The modified result parameter or a new Rectangle instance if none was provided.
+ * @returns {Rectangle} 修改后的结果参数 or a new Rectangle instance if none was provided.
  */
 Rectangle.fromBoundingSphere = function (boundingSphere, ellipsoid, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -431,7 +431,7 @@ Rectangle.fromBoundingSphere = function (boundingSphere, ellipsoid, result) {
  *
  * @param {Rectangle} rectangle The rectangle to clone.
  * @param {Rectangle} [result] The object onto which to store the result, or undefined if a new instance should be created.
- * @returns {Rectangle} The modified result parameter or a new Rectangle instance if none was provided. (Returns undefined if rectangle is undefined)
+ * @returns {Rectangle} 修改后的结果参数 or a new Rectangle instance if none was provided. (Returns undefined if rectangle is undefined)
  */
 Rectangle.clone = function (rectangle, result) {
   if (!defined(rectangle)) {
@@ -456,13 +456,13 @@ Rectangle.clone = function (rectangle, result) {
 
 /**
  * Compares the provided Rectangles componentwise and returns
- * <code>true</code> if they pass an absolute or relative tolerance test,
+ * <code>true</code> 如果它们通过了绝对或相对耐受性测试，
  * <code>false</code> 否则。
  *
  * @param {Rectangle} [left] 第一个Rectangle.
  * @param {Rectangle} [right] 第二个 Rectangle.
- * @param {number} [absoluteEpsilon=0] The absolute epsilon tolerance to use for equality testing.
- * @returns {boolean} <code>true</code> if left and right are within the provided epsilon, <code>false</code> 否则。
+ * @param {number} [absoluteEpsilon=0] 用于相等性检验的绝对公差。
+ * @returns {boolean} <code>true</code>如果左和右在提供的epsilon内，<code>false</code>否则。
  */
 Rectangle.equalsEpsilon = function (left, right, absoluteEpsilon) {
   absoluteEpsilon = defaultValue(absoluteEpsilon, 0);
@@ -482,7 +482,7 @@ Rectangle.equalsEpsilon = function (left, right, absoluteEpsilon) {
  * 复制Rectangle.
  *
  * @param {Rectangle} [result] 要在其上存储结果的对象。
- * @returns {Rectangle} The modified result parameter or a new Rectangle instance if none was provided.
+ * @returns {Rectangle} 修改后的结果参数 or a new Rectangle instance if none was provided.
  */
 Rectangle.prototype.clone = function (result) {
   return Rectangle.clone(this, result);
@@ -577,7 +577,7 @@ Rectangle.validate = function (rectangle) {
  *
  * @param {Rectangle} rectangle The rectangle for which to find the corner
  * @param {Cartographic} [result] 要在其上存储结果的对象。
- * @returns {Cartographic} The modified result parameter or a new Cartographic instance if none was provided.
+ * @returns {Cartographic} 修改后的结果参数 or a new Cartographic instance if none was provided.
  */
 Rectangle.southwest = function (rectangle, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -598,7 +598,7 @@ Rectangle.southwest = function (rectangle, result) {
  *
  * @param {Rectangle} rectangle The rectangle for which to find the corner
  * @param {Cartographic} [result] 要在其上存储结果的对象。
- * @returns {Cartographic} The modified result parameter or a new Cartographic instance if none was provided.
+ * @returns {Cartographic} 修改后的结果参数 or a new Cartographic instance if none was provided.
  */
 Rectangle.northwest = function (rectangle, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -619,7 +619,7 @@ Rectangle.northwest = function (rectangle, result) {
  *
  * @param {Rectangle} rectangle The rectangle for which to find the corner
  * @param {Cartographic} [result] 要在其上存储结果的对象。
- * @returns {Cartographic} The modified result parameter or a new Cartographic instance if none was provided.
+ * @returns {Cartographic} 修改后的结果参数 or a new Cartographic instance if none was provided.
  */
 Rectangle.northeast = function (rectangle, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -640,7 +640,7 @@ Rectangle.northeast = function (rectangle, result) {
  *
  * @param {Rectangle} rectangle The rectangle for which to find the corner
  * @param {Cartographic} [result] 要在其上存储结果的对象。
- * @returns {Cartographic} The modified result parameter or a new Cartographic instance if none was provided.
+ * @returns {Cartographic} 修改后的结果参数 or a new Cartographic instance if none was provided.
  */
 Rectangle.southeast = function (rectangle, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -661,7 +661,7 @@ Rectangle.southeast = function (rectangle, result) {
  *
  * @param {Rectangle} rectangle The rectangle for which to find the center
  * @param {Cartographic} [result] 要在其上存储结果的对象。
- * @returns {Cartographic} The modified result parameter or a new Cartographic instance if none was provided.
+ * @returns {Cartographic} 修改后的结果参数 or a new Cartographic instance if none was provided.
  */
 Rectangle.center = function (rectangle, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -698,7 +698,7 @@ Rectangle.center = function (rectangle, result) {
  * @param {Rectangle} rectangle On rectangle to find an intersection
  * @param {Rectangle} otherRectangle Another rectangle to find an intersection
  * @param {Rectangle} [result] 要在其上存储结果的对象。
- * @returns {Rectangle|undefined} The modified result parameter, a new Rectangle instance if none was provided or undefined if there is no intersection.
+ * @returns {Rectangle|undefined} 修改后的结果参数, a new Rectangle instance if none was provided or undefined if there is no intersection.
  */
 Rectangle.intersection = function (rectangle, otherRectangle, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -765,7 +765,7 @@ Rectangle.intersection = function (rectangle, otherRectangle, result) {
  * @param {Rectangle} rectangle On rectangle to find an intersection
  * @param {Rectangle} otherRectangle Another rectangle to find an intersection
  * @param {Rectangle} [result] 要在其上存储结果的对象。
- * @returns {Rectangle|undefined} The modified result parameter, a new Rectangle instance if none was provided or undefined if there is no intersection.
+ * @returns {Rectangle|undefined} 修改后的结果参数, a new Rectangle instance if none was provided or undefined if there is no intersection.
  */
 Rectangle.simpleIntersection = function (rectangle, otherRectangle, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -799,7 +799,7 @@ Rectangle.simpleIntersection = function (rectangle, otherRectangle, result) {
  * @param {Rectangle} rectangle A rectangle to enclose in rectangle.
  * @param {Rectangle} otherRectangle A rectangle to enclose in a rectangle.
  * @param {Rectangle} [result] 要在其上存储结果的对象。
- * @returns {Rectangle} The modified result parameter or a new Rectangle instance if none was provided.
+ * @returns {Rectangle} 修改后的结果参数 or a new Rectangle instance if none was provided.
  */
 Rectangle.union = function (rectangle, otherRectangle, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -850,7 +850,7 @@ Rectangle.union = function (rectangle, otherRectangle, result) {
  * @param {Rectangle} rectangle A rectangle to expand.
  * @param {Cartographic} cartographic A cartographic to enclose in a rectangle.
  * @param {Rectangle} [result] 要在其上存储结果的对象。
- * @returns {Rectangle} The modified result parameter or a new Rectangle instance if one was not provided.
+ * @returns {Rectangle} 修改后的结果参数 or a new Rectangle instance if one was not provided.
  */
 Rectangle.expand = function (rectangle, cartographic, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -915,7 +915,7 @@ const subsampleLlaScratch = new Cartographic();
  * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] The ellipsoid to use.
  * @param {number} [surfaceHeight=0.0] 高度 rectangle above the ellipsoid.
  * @param {Cartesian3[]} [result] The array of Cartesians onto which to store the result.
- * @returns {Cartesian3[]} The modified result parameter or a new Array of Cartesians instances if none was provided.
+ * @returns {Cartesian3[]} 修改后的结果参数 or a new Array of Cartesians instances if none was provided.
  */
 Rectangle.subsample = function (rectangle, ellipsoid, surfaceHeight, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -992,7 +992,7 @@ Rectangle.subsample = function (rectangle, ellipsoid, surfaceHeight, result) {
  * @param {number} eastLerp The east interpolation factor in the range [0.0, 1.0]. Must be greater than or equal to westLerp.
  * @param {number} northLerp The north interpolation factor in the range [0.0, 1.0]. Must be greater than or equal to southLerp.
  * @param {Rectangle} [result] 要在其上存储结果的对象。
- * @returns {Rectangle} The modified result parameter or a new Rectangle instance if none was provided.
+ * @returns {Rectangle} 修改后的结果参数 or a new Rectangle instance if none was provided.
  */
 Rectangle.subsection = function (
   rectangle,

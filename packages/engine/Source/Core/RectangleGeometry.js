@@ -977,7 +977,7 @@ function computeRectangle(rectangle, granularity, rotation, ellipsoid, result) {
  *
  * @param {object} options 对象，具有以下属性:
  * @param {Rectangle} options.rectangle A cartographic rectangle with north, south, east and west properties in radians.
- * @param {VertexFormat} [options.vertexFormat=VertexFormat.DEFAULT] The vertex attributes to be computed.
+ * @param {VertexFormat} [options.vertexFormat=VertexFormat.DEFAULT] 要计算的顶点属性。
  * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] The ellipsoid on which the rectangle lies.
  * @param {number} [options.granularity=CesiumMath.RADIANS_PER_DEGREE] The distance, in radians, between each latitude and longitude. Determines the number of positions in the buffer.
  * @param {number} [options.height=0.0] The distance in meters between the rectangle and the ellipsoid surface.
@@ -1055,7 +1055,7 @@ function RectangleGeometry(options) {
 }
 
 /**
- * The number of elements used to pack the object into an array.
+ * 用于将对象打包到数组中的元素数量。
  * @type {number}
  */
 RectangleGeometry.packedLength =
@@ -1122,7 +1122,7 @@ const scratchOptions = {
  * @param {number[]} array 打包数组。
  * @param {number} [startingIndex=0] 要解压缩的元素的起始索引。
  * @param {RectangleGeometry} [result] 要在其中存储结果的对象。
- * @returns {RectangleGeometry} The modified result parameter or a new RectangleGeometry instance if one was not provided.
+ * @returns {RectangleGeometry} 修改后的结果参数 or a new RectangleGeometry instance if one was not provided.
  */
 RectangleGeometry.unpack = function (array, startingIndex, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -1224,7 +1224,7 @@ const centerScratch = new Cartographic();
  * Computes the geometric representation of a rectangle, including its vertices, indices, and a bounding sphere.
  *
  * @param {RectangleGeometry} rectangleGeometry A description of the rectangle.
- * @returns {Geometry|undefined} The computed vertices and indices.
+ * @returns {Geometry|undefined} 计算的顶点和索引。
  *
  * @exception {DeveloperError} Rotated rectangle is invalid.
  */

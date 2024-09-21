@@ -158,7 +158,7 @@ Expression.prototype.evaluate = function (feature, result) {
  *
  * @param {Cesium3DTileFeature} feature The feature whose properties may be used as variables in the expression.
  * @param {Color} [result] The object in which to store the result
- * @returns {Color} The modified result parameter or a new Color instance if one was not provided.
+ * @returns {Color} 修改后的结果参数 or a new Color instance if one was not provided.
  */
 Expression.prototype.evaluateColor = function (feature, result) {
   scratchStorage.reset();

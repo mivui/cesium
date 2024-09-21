@@ -730,7 +730,7 @@ Resource.prototype.retryOnError = function (error) {
  *
  * @param {Resource} [result] 要在其上存储结果的对象。
  *
- * @returns {Resource} The modified result parameter or a new Resource instance if one was not provided.
+ * @returns {Resource} 修改后的结果参数 or a new Resource instance if one was not provided.
  */
 Resource.prototype.clone = function (result) {
   if (!defined(result)) {

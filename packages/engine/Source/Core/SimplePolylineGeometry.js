@@ -121,7 +121,7 @@ function SimplePolylineGeometry(options) {
   numComponents += defined(colors) ? 1 + colors.length * Color.packedLength : 1;
 
   /**
-   * The number of elements used to pack the object into an array.
+   * 用于将对象打包到数组中的元素数量。
    * @type {number}
    */
   this.packedLength = numComponents + Ellipsoid.packedLength + 3;
@@ -182,7 +182,7 @@ SimplePolylineGeometry.pack = function (value, array, startingIndex) {
  * @param {number[]} array 打包数组。
  * @param {number} [startingIndex=0] 要解压缩的元素的起始索引。
  * @param {SimplePolylineGeometry} [result] 要在其中存储结果的对象。
- * @returns {SimplePolylineGeometry} The modified result parameter or a new SimplePolylineGeometry instance if one was not provided.
+ * @returns {SimplePolylineGeometry} 修改后的结果参数 or a new SimplePolylineGeometry instance if one was not provided.
  */
 SimplePolylineGeometry.unpack = function (array, startingIndex, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -251,7 +251,7 @@ const generateArcOptionsScratch = {
  * Computes the geometric representation of a simple polyline, including its vertices, indices, and a bounding sphere.
  *
  * @param {SimplePolylineGeometry} simplePolylineGeometry A description of the polyline.
- * @returns {Geometry|undefined} The computed vertices and indices.
+ * @returns {Geometry|undefined} 计算的顶点和索引。
  */
 SimplePolylineGeometry.createGeometry = function (simplePolylineGeometry) {
   const positions = simplePolylineGeometry._positions;

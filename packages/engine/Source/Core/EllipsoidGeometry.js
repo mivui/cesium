@@ -40,7 +40,7 @@ const sin = Math.sin;
  * @param {number} [options.maximumCone=PI] The maximum angle measured from the positive z-axis and toward the negative z-axis.
  * @param {number} [options.stackPartitions=64] The number of times to partition the ellipsoid into stacks.
  * @param {number} [options.slicePartitions=64] The number of times to partition the ellipsoid into radial slices.
- * @param {VertexFormat} [options.vertexFormat=VertexFormat.DEFAULT] The vertex attributes to be computed.
+ * @param {VertexFormat} [options.vertexFormat=VertexFormat.DEFAULT] 要计算的顶点属性。
  *
  * @exception {DeveloperError} options.slicePartitions cannot be less than three.
  * @exception {DeveloperError} options.stackPartitions cannot be less than three.
@@ -94,7 +94,7 @@ function EllipsoidGeometry(options) {
 }
 
 /**
- * The number of elements used to pack the object into an array.
+ * 用于将对象打包到数组中的元素数量。
  * @type {number}
  */
 EllipsoidGeometry.packedLength =
@@ -163,7 +163,7 @@ const scratchOptions = {
  * @param {number[]} array 打包数组。
  * @param {number} [startingIndex=0] 要解压缩的元素的起始索引。
  * @param {EllipsoidGeometry} [result] 要在其中存储结果的对象。
- * @returns {EllipsoidGeometry} The modified result parameter or a new EllipsoidGeometry instance if one was not provided.
+ * @returns {EllipsoidGeometry} 修改后的结果参数 or a new EllipsoidGeometry instance if one was not provided.
  */
 EllipsoidGeometry.unpack = function (array, startingIndex, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -226,7 +226,7 @@ EllipsoidGeometry.unpack = function (array, startingIndex, result) {
  * Computes the geometric representation of an ellipsoid, including its vertices, indices, and a bounding sphere.
  *
  * @param {EllipsoidGeometry} ellipsoidGeometry A description of the ellipsoid.
- * @returns {Geometry|undefined} The computed vertices and indices.
+ * @returns {Geometry|undefined} 计算的顶点和索引。
  */
 EllipsoidGeometry.createGeometry = function (ellipsoidGeometry) {
   const radii = ellipsoidGeometry._radii;
@@ -631,7 +631,7 @@ let unitEllipsoidGeometry;
 
 /**
  * Returns the geometric representation of a unit ellipsoid, including its vertices, indices, and a bounding sphere.
- * @returns {Geometry} The computed vertices and indices.
+ * @returns {Geometry} 计算的顶点和索引。
  *
  * @private
  */

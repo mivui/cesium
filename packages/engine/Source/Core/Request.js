@@ -149,7 +149,7 @@ Request.prototype.cancel = function () {
  *
  * @param {Request} [result] 要在其上存储结果的对象。
  *
- * @returns {Request} The modified result parameter or a new Resource instance if one was not provided.
+ * @returns {Request} 修改后的结果参数 or a new Resource instance if one was not provided.
  */
 Request.prototype.clone = function (result) {
   if (!defined(result)) {

@@ -33,7 +33,7 @@ const scratchWindowCoord1 = new Cartesian2();
  * @param {Scene} scene The scene.
  * @param {Cartesian3} position The position in world (WGS84 or alternative ellipsoid) coordinates.
  * @param {Cartesian2} [result] An optional object to return the input position transformed to window coordinates.
- * @returns {Cartesian2|undefined} The modified result parameter or a new Cartesian2 instance if one was not provided.  This may be <code>undefined</code> if the input position is near the center of the ellipsoid.
+ * @returns {Cartesian2|undefined} 如果没有提供新的Cartesian2实例，则使用修改后的结果参数。  This may be <code>undefined</code> if the input position is near the center of the ellipsoid.
  *
  * @example
  * // Output the window position of longitude/latitude (0, 0) every time the mouse moves.
@@ -269,7 +269,7 @@ SceneTransforms.worldWithEyeOffsetToWindowCoordinates = function (
  * @param {Scene} scene The scene.
  * @param {Cartesian3} position The position in world (WGS84 or alternative ellipsoid) coordinates.
  * @param {Cartesian2} [result] An optional object to return the input position transformed to window coordinates.
- * @returns {Cartesian2|undefined} The modified result parameter or a new Cartesian2 instance if one was not provided.  This may be <code>undefined</code> if the input position is near the center of the ellipsoid.
+ * @returns {Cartesian2|undefined} 如果没有提供新的Cartesian2实例，则使用修改后的结果参数。  This may be <code>undefined</code> if the input position is near the center of the ellipsoid.
  *
  * @example
  * // Output the window position of longitude/latitude (0, 0) every time the mouse moves.

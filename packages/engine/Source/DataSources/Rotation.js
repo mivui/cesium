@@ -31,7 +31,7 @@ import CesiumMath from "../Core/Math.js";
  */
 const Rotation = {
   /**
-   * The number of elements used to pack the object into an array.
+   * 用于将对象打包到数组中的元素数量。
    * @type {number}
    */
   packedLength: 1,
@@ -68,7 +68,7 @@ const Rotation = {
    * @param {number[]} array 打包数组。
    * @param {number} [startingIndex=0] 要解压缩的元素的起始索引。
    * @param {Rotation} [result] 要在其中存储结果的对象。
-   * @returns {Rotation} The modified result parameter or a new Rotation instance if one was not provided.
+   * @returns {Rotation} 修改后的结果参数 or a new Rotation instance if one was not provided.
    */
   unpack: function (array, startingIndex, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -128,7 +128,7 @@ const Rotation = {
    * @param {number} [firstIndex=0] The firstIndex used to convert the array.
    * @param {number} [lastIndex=packedArray.length] The lastIndex used to convert the array.
    * @param {Rotation} [result] 要在其中存储结果的对象。
-   * @returns {Rotation} The modified result parameter or a new Rotation instance if one was not provided.
+   * @returns {Rotation} 修改后的结果参数 or a new Rotation instance if one was not provided.
    */
   unpackInterpolationResult: function (
     array,

@@ -739,7 +739,7 @@ TimeIntervalCollection.prototype.intersect = function (
  * @param {boolean} [options.trailingInterval=false] <code>true</code> if you want to add a interval from stop time to Iso8601.MAXIMUM_VALUE,  <code>false</code> 否则。
  * @param {Function} [options.dataCallback] A function that will be return the data that is called with each interval before it is added to the collection. If unspecified, the data will be the index in the collection.
  * @param {TimeIntervalCollection} [result] An existing instance to use for the result.
- * @returns {TimeIntervalCollection} The modified result parameter or a new instance if none was provided.
+ * @returns {TimeIntervalCollection} 修改后的结果参数 or a new instance if none was provided.
  */
 TimeIntervalCollection.fromJulianDateArray = function (options, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -824,7 +824,7 @@ const monthLengths = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
  * @param {JulianDate} julianDate The date.
  * @param {GregorianDate} duration An duration represented as a GregorianDate.
  * @param {JulianDate} result An existing instance to use for the result.
- * @returns {JulianDate} The modified result parameter.
+ * @returns {JulianDate} 修改后的结果参数。
  *
  * @private
  */
@@ -989,7 +989,7 @@ const scratchDuration = new GregorianDate();
  * @param {boolean} [options.trailingInterval=false] <code>true</code> if you want to add a interval from stop time to Iso8601.MAXIMUM_VALUE,  <code>false</code> 否则。
  * @param {Function} [options.dataCallback] A function that will be return the data that is called with each interval before it is added to the collection. If unspecified, the data will be the index in the collection.
  * @param {TimeIntervalCollection} [result] An existing instance to use for the result.
- * @returns {TimeIntervalCollection} The modified result parameter or a new instance if none was provided.
+ * @returns {TimeIntervalCollection} 修改后的结果参数 or a new instance if none was provided.
  */
 TimeIntervalCollection.fromIso8601 = function (options, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -1046,7 +1046,7 @@ TimeIntervalCollection.fromIso8601 = function (options, result) {
  * @param {boolean} [options.trailingInterval=false] <code>true</code> if you want to add a interval from stop time to Iso8601.MAXIMUM_VALUE,  <code>false</code> 否则。
  * @param {Function} [options.dataCallback] A function that will be return the data that is called with each interval before it is added to the collection. If unspecified, the data will be the index in the collection.
  * @param {TimeIntervalCollection} [result] An existing instance to use for the result.
- * @returns {TimeIntervalCollection} The modified result parameter or a new instance if none was provided.
+ * @returns {TimeIntervalCollection} 修改后的结果参数 or a new instance if none was provided.
  */
 TimeIntervalCollection.fromIso8601DateArray = function (options, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -1086,7 +1086,7 @@ TimeIntervalCollection.fromIso8601DateArray = function (options, result) {
  * @param {boolean} [options.trailingInterval=false] <code>true</code> if you want to add a interval from stop time to Iso8601.MAXIMUM_VALUE,  <code>false</code> 否则。
  * @param {Function} [options.dataCallback] A function that will be return the data that is called with each interval before it is added to the collection. If unspecified, the data will be the index in the collection.
  * @param {TimeIntervalCollection} [result] An existing instance to use for the result.
- * @returns {TimeIntervalCollection} The modified result parameter or a new instance if none was provided.
+ * @returns {TimeIntervalCollection} 修改后的结果参数 or a new instance if none was provided.
  */
 TimeIntervalCollection.fromIso8601DurationArray = function (options, result) {
   //>>includeStart('debug', pragmas.debug);

@@ -184,7 +184,7 @@ Object.defineProperties(PolylineVolumeGraphics.prototype, {
  * 复制instance.
  *
  * @param {PolylineVolumeGraphics} [result] 要在其上存储结果的对象。
- * @returns {PolylineVolumeGraphics} The modified result parameter or a new instance if one was not provided.
+ * @returns {PolylineVolumeGraphics} 修改后的结果参数 or a new instance if one was not provided.
  */
 PolylineVolumeGraphics.prototype.clone = function (result) {
   if (!defined(result)) {

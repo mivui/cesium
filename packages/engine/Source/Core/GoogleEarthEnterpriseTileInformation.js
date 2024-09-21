@@ -43,7 +43,7 @@ function GoogleEarthEnterpriseTileInformation(
  *
  * @param {object} info Object to be cloned
  * @param {GoogleEarthEnterpriseTileInformation} [result] 要在其上存储结果的对象。
- * @returns {GoogleEarthEnterpriseTileInformation} The modified result parameter or a new GoogleEarthEnterpriseTileInformation instance if none was provided.
+ * @returns {GoogleEarthEnterpriseTileInformation} 修改后的结果参数 or a new GoogleEarthEnterpriseTileInformation instance if none was provided.
  */
 GoogleEarthEnterpriseTileInformation.clone = function (info, result) {
   if (!defined(result)) {

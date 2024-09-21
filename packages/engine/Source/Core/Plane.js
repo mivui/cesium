@@ -71,7 +71,7 @@ function Plane(normal, distance) {
  * @param {Cartesian3} point The point on the plane.
  * @param {Cartesian3} normal The plane's normal (normalized).
  * @param {Plane} [result] 要在其上存储结果的对象。
- * @returns {Plane} A new plane instance or the modified result parameter.
+ * @returns {Plane} A new plane instance or 修改后的结果参数。
  *
  * @example
  * const point = Cesium.Cartesian3.fromDegrees(-72.0, 40.0);
@@ -112,7 +112,7 @@ const scratchNormal = new Cartesian3();
  *
  * @param {Cartesian4} coefficients The plane's normal (normalized).
  * @param {Plane} [result] 要在其上存储结果的对象。
- * @returns {Plane} A new plane instance or the modified result parameter.
+ * @returns {Plane} A new plane instance or 修改后的结果参数。
  *
  * @exception {DeveloperError} Normal must be normalized
  */
@@ -170,7 +170,7 @@ const scratchCartesian = new Cartesian3();
  * @param {Plane} plane The plane to project the point onto
  * @param {Cartesian3} point The point to project onto the plane
  * @param {Cartesian3} [result] The result point.  If undefined, a new Cartesian3 will be created.
- * @returns {Cartesian3} The modified result parameter or a new Cartesian3 instance if one was not provided.
+ * @returns {Cartesian3} 修改后的结果参数 or a new Cartesian3 instance if one was not provided.
  */
 Plane.projectPointOntoPlane = function (plane, point, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -249,7 +249,7 @@ Plane.transform = function (plane, transform, result) {
  *
  * @param {Plane} plane The plane to duplicate.
  * @param {Plane} [result] 要在其上存储结果的对象。
- * @returns {Plane} The modified result parameter or a new Plane instance if one was not provided.
+ * @returns {Plane} 修改后的结果参数 or a new Plane instance if one was not provided.
  */
 Plane.clone = function (plane, result) {
   //>>includeStart('debug', pragmas.debug);

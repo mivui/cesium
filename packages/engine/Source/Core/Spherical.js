@@ -38,7 +38,7 @@ function Spherical(clock, cone, magnitude) {
  *
  * @param {Cartesian3} cartesian3 The Cartesian3 to be converted to Spherical.
  * @param {Spherical} [result] The object in which the result will be stored, if undefined a new instance will be created.
- * @returns {Spherical} The modified result parameter, or a new instance if one was not provided.
+ * @returns {Spherical} 修改后的结果参数, or a new instance if one was not provided.
  */
 Spherical.fromCartesian3 = function (cartesian3, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -65,7 +65,7 @@ Spherical.fromCartesian3 = function (cartesian3, result) {
  *
  * @param {Spherical} spherical The spherical to clone.
  * @param {Spherical} [result] The object to store the result into, if undefined a new instance will be created.
- * @returns {Spherical} The modified result parameter or a new instance if result was undefined. (Returns undefined if spherical is undefined)
+ * @returns {Spherical} 修改后的结果参数 or a new instance if result was undefined. (Returns undefined if spherical is undefined)
  */
 Spherical.clone = function (spherical, result) {
   if (!defined(spherical)) {
@@ -87,7 +87,7 @@ Spherical.clone = function (spherical, result) {
  *
  * @param {Spherical} spherical The spherical to be normalized.
  * @param {Spherical} [result] The object to store the result into, if undefined a new instance will be created.
- * @returns {Spherical} The modified result parameter or a new instance if result was undefined.
+ * @returns {Spherical} 修改后的结果参数 or a new instance if result was undefined.
  */
 Spherical.normalize = function (spherical, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -156,7 +156,7 @@ Spherical.prototype.equals = function (other) {
  * Creates a duplicate of this Spherical.
  *
  * @param {Spherical} [result] The object to store the result into, if undefined a new instance will be created.
- * @returns {Spherical} The modified result parameter or a new instance if result was undefined.
+ * @returns {Spherical} 修改后的结果参数 or a new instance if result was undefined.
  */
 Spherical.prototype.clone = function (result) {
   return Spherical.clone(this, result);
