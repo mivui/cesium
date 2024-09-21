@@ -16,9 +16,9 @@ const offScreen = "-1000px";
  * @alias SelectionIndicatorViewModel
  * @constructor
  *
- * @param {Scene} scene 要使用的场景实例。 for screen-space coordinate conversion.
- * @param {Element} selectionIndicatorElement The element containing all elements that make up the selection indicator.
- * @param {Element} container The DOM element that contains the widget.
+ * @param {Scene} scene 要使用的场景实例。用于屏幕空间坐标转换。
+ * @param {Element} selectionIndicatorElement 包含构成选择指示符的所有元素的元素。
+ * @param {Element} container 包含小部件的DOM元素。
  */
 function SelectionIndicatorViewModel(
   scene,
@@ -48,13 +48,13 @@ function SelectionIndicatorViewModel(
   this._scale = 1;
 
   /**
-   * 获取或设置world position of the object for which to display the selection indicator.
+   * 获取或设置要显示选择指示符的对象的世界位置。
    * @type {Cartesian3}
    */
   this.position = undefined;
 
   /**
-   * 获取或设置visibility of the selection indicator.
+   * 获取或设置选择指标的可见性。
    * @type {boolean}
    */
   this.showSelection = false;
@@ -68,8 +68,8 @@ function SelectionIndicatorViewModel(
   ]);
 
   /**
-   * Gets the visibility of the position indicator.  This can be false even if an
-   * object is selected, when the selected object has no position.
+   * 获取位置指示器的可见性。这可能是假的，即使
+   * 对象，当所选对象没有位置时。
    * @type {boolean}
    */
   this.isVisible = undefined;
@@ -86,7 +86,7 @@ function SelectionIndicatorViewModel(
   });
 
   /**
-   * 获取或设置function for converting the world position of the object to the screen space position.
+   * 获取或设置将对象的世界位置转换为屏幕空间位置的函数。
    *
    * @member
    * @type {SelectionIndicatorViewModel.ComputeScreenSpacePosition}
@@ -103,8 +103,8 @@ function SelectionIndicatorViewModel(
 }
 
 /**
- * Updates the view of the selection indicator to match the position and content properties of 视图模型。
- * This function should be called as part of the render loop.
+ * 更新选择指示器的视图，以匹配视图模型的位置和内容属性。
+ * 这个函数应该作为渲染循环的一部分来调用。
  */
 SelectionIndicatorViewModel.prototype.update = function () {
   if (this.showSelection && defined(this.position)) {
@@ -140,7 +140,7 @@ SelectionIndicatorViewModel.prototype.update = function () {
 };
 
 /**
- * Animate the indicator to draw attention to the selection.
+ * 使指示符动画化以吸引对所选内容的注意。
  */
 SelectionIndicatorViewModel.prototype.animateAppear = function () {
   this._tweens.addProperty({
@@ -154,7 +154,7 @@ SelectionIndicatorViewModel.prototype.animateAppear = function () {
 };
 
 /**
- * Animate the indicator to release the selection.
+ * 使指示器动画化以释放所选内容。
  */
 SelectionIndicatorViewModel.prototype.animateDepart = function () {
   this._tweens.addProperty({
@@ -169,7 +169,7 @@ SelectionIndicatorViewModel.prototype.animateDepart = function () {
 
 Object.defineProperties(SelectionIndicatorViewModel.prototype, {
   /**
-   * Gets the HTML element containing the selection indicator.
+   * 获取包含选择指示符的HTML元素。
    * @memberof SelectionIndicatorViewModel.prototype
    *
    * @type {Element}
@@ -181,7 +181,7 @@ Object.defineProperties(SelectionIndicatorViewModel.prototype, {
   },
 
   /**
-   * Gets the HTML element that holds the selection indicator.
+   * 获取包含选择指示符的HTML元素。
    * @memberof SelectionIndicatorViewModel.prototype
    *
    * @type {Element}
@@ -193,7 +193,7 @@ Object.defineProperties(SelectionIndicatorViewModel.prototype, {
   },
 
   /**
-   * 得到场景 being used.
+   * 正在使用得到场景。
    * @memberof SelectionIndicatorViewModel.prototype
    *
    * @type {Scene}
@@ -206,10 +206,10 @@ Object.defineProperties(SelectionIndicatorViewModel.prototype, {
 });
 
 /**
- * A function that converts the world position of an object to a screen space position.
+ * 将对象的世界位置转换为屏幕空间位置的函数。
  * @callback SelectionIndicatorViewModel.ComputeScreenSpacePosition
- * @param {Cartesian3} position The position in WGS84 (world) coordinates.
- * @param {Cartesian2} result An object to return the input position transformed to window coordinates.
- * @returns {Cartesian2} The modified result parameter.
+ * @param {Cartesian3} position WGS84(世界)坐标中的位置。
+ * @param {Cartesian2} result 一个对象，用于返回转换为窗口坐标的输入位置。
+ * @returns {Cartesian2} 修改后的结果参数。
  */
 export default SelectionIndicatorViewModel;

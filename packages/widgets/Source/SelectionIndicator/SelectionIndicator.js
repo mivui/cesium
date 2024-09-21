@@ -8,7 +8,7 @@ import knockout from "../ThirdParty/knockout.js";
 import SelectionIndicatorViewModel from "./SelectionIndicatorViewModel.js";
 
 /**
- * A widget for displaying an indicator on a selected object.
+ * 用于在选定对象上显示指示器的小部件。
  *
  * @alias SelectionIndicator
  * @constructor
