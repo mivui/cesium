@@ -14,8 +14,8 @@ import createCommand from "../createCommand.js";
  * @alias SceneModePickerViewModel
  * @constructor
  *
- * @param {Scene} scene The Scene to morph
- * @param {number} [duration=2.0] The duration of scene morph animations, in seconds
+ * @param {Scene} scene 场景变形
+ * @param {number} [duration=2.0] 场景变形动画的持续时间，以秒为单位
  */
 function SceneModePickerViewModel(scene, duration) {
   //>>includeStart('debug', pragmas.debug);
@@ -39,34 +39,34 @@ function SceneModePickerViewModel(scene, duration) {
   this._duration = defaultValue(duration, 2.0);
 
   /**
-   * 获取或设置current SceneMode.  这个属性是可观察的。
+   * 获取或设置当前 SceneMode.  这个属性是可观察的。
    * @type {SceneMode}
    */
   this.sceneMode = scene.mode;
 
   /**
-   * Gets or sets whether the button drop-down is currently visible.  这个属性是可观察的。
+   * 获取或设置按钮下拉是否当前可见  这个属性是可观察的。
    * @type {boolean}
    * @default false
    */
   this.dropDownVisible = false;
 
   /**
-   * 获取或设置2D tooltip.  这个属性是可观察的。
+   * 获取或设置2D 工具提示。 这个属性是可观察的。
    * @type {string}
    * @default '2D'
    */
   this.tooltip2D = "2D";
 
   /**
-   * 获取或设置3D tooltip.  这个属性是可观察的。
+   * 获取或设置3D工具提示。  这个属性是可观察的。
    * @type {string}
    * @default '3D'
    */
   this.tooltip3D = "3D";
 
   /**
-   * 获取或设置Columbus View tooltip.  这个属性是可观察的。
+   * 获取或设置哥伦布视图工具提示。  这个属性是可观察的。
    * @type {string}
    * @default 'Columbus View'
    */
@@ -81,7 +81,7 @@ function SceneModePickerViewModel(scene, duration) {
   ]);
 
   /**
-   * Gets the currently active tooltip.  这个属性是可观察的。
+   * 获取当前活动的工具提示。 这个属性是可观察的。
    * @type {string}
    */
   this.selectedTooltip = undefined;
@@ -129,8 +129,8 @@ Object.defineProperties(SceneModePickerViewModel.prototype, {
   },
 
   /**
-   * 获取或设置the duration of scene mode transition animations in seconds.
-   * A value of zero causes the scene to instantly change modes.
+   * 获取或设置场景模式转换动画的持续时间，以秒为单位。
+   * 值为零会导致场景立即改变模式。
    * @memberof SceneModePickerViewModel.prototype
    * @type {number}
    */
@@ -150,7 +150,7 @@ Object.defineProperties(SceneModePickerViewModel.prototype, {
   },
 
   /**
-   * 获取要切换的命令 the drop down box.
+   * 获取要切换的命令下拉框。
    * @memberof SceneModePickerViewModel.prototype
    *
    * @type {Command}
@@ -162,7 +162,7 @@ Object.defineProperties(SceneModePickerViewModel.prototype, {
   },
 
   /**
-   * Gets the command to morph to 2D.
+   * 获取要转换为2D的命令。
    * @memberof SceneModePickerViewModel.prototype
    *
    * @type {Command}
@@ -174,7 +174,7 @@ Object.defineProperties(SceneModePickerViewModel.prototype, {
   },
 
   /**
-   * Gets the command to morph to 3D.
+   * 获取变形为3D的命令。
    * @memberof SceneModePickerViewModel.prototype
    *
    * @type {Command}
@@ -186,7 +186,7 @@ Object.defineProperties(SceneModePickerViewModel.prototype, {
   },
 
   /**
-   * Gets the command to morph to Columbus View.
+   * 获取转换为Columbus视图的命令。
    * @memberof SceneModePickerViewModel.prototype
    *
    * @type {Command}
