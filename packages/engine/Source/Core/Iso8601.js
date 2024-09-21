@@ -15,7 +15,7 @@ const MAXIMUM_INTERVAL = Object.freeze(
 );
 
 /**
- * Constants related to ISO8601 support.
+ * 与 ISO8601 支持相关的常量。
  *
  * @namespace
  *
@@ -25,8 +25,8 @@ const MAXIMUM_INTERVAL = Object.freeze(
  */
 const Iso8601 = {
   /**
-   * A {@link JulianDate} representing the earliest time representable by an ISO8601 date.
-   * This is equivalent to the date string '0000-01-01T00:00:00Z'
+   * {@link JulianDate} 表示可由 ISO8601 日期表示的最早时间。
+   * 这相当于日期字符串 '0000-01-01T00：00：00Z'
    *
    * @type {JulianDate}
    * @constant
@@ -34,8 +34,8 @@ const Iso8601 = {
   MINIMUM_VALUE: MINIMUM_VALUE,
 
   /**
-   * A {@link JulianDate} representing the latest time representable by an ISO8601 date.
-   * This is equivalent to the date string '9999-12-31T24:00:00Z'
+   *  {@link JulianDate} 表示可由 ISO8601 日期表示的最新时间。
+   * 这相当于日期字符串 '9999-12-31T24：00：00Z'
    *
    * @type {JulianDate}
    * @constant
@@ -43,8 +43,8 @@ const Iso8601 = {
   MAXIMUM_VALUE: MAXIMUM_VALUE,
 
   /**
-   * A {@link TimeInterval} representing the largest interval representable by an ISO8601 interval.
-   * This is equivalent to the interval string '0000-01-01T00:00:00Z/9999-12-31T24:00:00Z'
+   * {@link TimeInterval} 表示 ISO8601 间隔可表示的最大间隔。
+   * 这相当于间隔字符串 '0000-01-01T00：00：00Z/9999-12-31T24：00：00Z'
    *
    * @type {TimeInterval}
    * @constant

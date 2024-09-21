@@ -3,7 +3,7 @@ import defined from "./defined.js";
 let a;
 
 /**
- * Given a URL, determine whether that URL is considered cross-origin to the current page.
+ * 给定一个 URL，确定该 URL 是否被视为当前页面的跨源。
  *
  * @private
  */

@@ -191,27 +191,27 @@ const matchHoursMinutesSeconds =
 const iso8601ErrorMessage = "Invalid ISO 8601 date.";
 
 /**
- * Represents an astronomical Julian date, which is the number of days since noon on January 1, -4712 (4713 BC).
- * For increased precision, this class stores the whole number part of the date and the seconds
- * part of the date in separate components.  In order to be safe for arithmetic and represent
- * leap seconds, the date is always stored in the International Atomic Time standard
- * {@link TimeStandard.TAI}.
+ * 表示天文儒略日期，即自 -4712 年 1 月 1 日（公元前 4713 年）中午以来的天数。
+ * 为了提高精度，此类存储日期和秒的整数部分
+ * 部分日期在单独的组件中。 为了安全地进行算术和表示
+ * 闰秒，日期始终以国际原子时标准存储
+ * {@link TimeStandard.TAI} 的
  * @alias JulianDate
  * @constructor
  *
- * @param {number} [julianDayNumber=0.0] The Julian Day Number representing the number of whole days.  Fractional days will also be handled correctly.
- * @param {number} [secondsOfDay=0.0] The number of seconds into the current Julian Day Number.  Fractional seconds, negative seconds and seconds greater than a day will be handled correctly.
- * @param {TimeStandard} [timeStandard=TimeStandard.UTC] The time standard in which the first two parameters are defined.
+ * @param {number} [julianDayNumber=0.0] 儒略日数，表示整天数。 小数天数也将得到正确处理。
+ * @param {number} [secondsOfDay=0.0] 当前儒略日数的秒数。 秒数的小数部分、负秒数和大于一天的秒数将被正确处理。
+ * @param {TimeStandard} [timeStandard=TimeStandard.UTC] 定义前两个参数的时间标准。
  */
 function JulianDate(julianDayNumber, secondsOfDay, timeStandard) {
   /**
-   * 获取或设置number of whole days.
+   * 获取或设置整天数。
    * @type {number}
    */
   this.dayNumber = undefined;
 
   /**
-   * 获取或设置number of seconds into the current day.
+   * 获取或设置进入当天的秒数。
    * @type {number}
    */
   this.secondsOfDay = undefined;
@@ -234,11 +234,11 @@ function JulianDate(julianDayNumber, secondsOfDay, timeStandard) {
 }
 
 /**
- * Creates a new instance from a GregorianDate.
+ * 从 GregorianDate 创建新实例。
  *
- * @param {GregorianDate} date A GregorianDate.
- * @param {JulianDate} [result] An existing instance to use for the result.
- * @returns {JulianDate} 修改后的结果参数 or a new instance if none was provided.
+ * @param {GregorianDate} 日期 一个 GregorianDate。
+ * @param {JulianDate} [result] 用于结果的现有实例。
+ * @returns {JulianDate} 修改后的结果参数 或者如果未提供任何实例，则为新实例。
  *
  * @exception {DeveloperError} date must be a valid GregorianDate.
  */
@@ -267,11 +267,11 @@ JulianDate.fromGregorianDate = function (date, result) {
 };
 
 /**
- * Creates a new instance from a JavaScript Date.
+ * 从 JavaScript 日期创建新实例。
  *
- * @param {Date} date A JavaScript Date.
- * @param {JulianDate} [result] An existing instance to use for the result.
- * @returns {JulianDate} 修改后的结果参数 or a new instance if none was provided.
+ * @param {Date} date 一个 JavaScript 日期。
+ * @param {JulianDate} [result] 用于结果的现有实例。
+ * @returns {JulianDate} 修改后的结果参数 或者如果未提供任何实例，则为新实例。
  *
  * @exception {DeveloperError} date must be a valid JavaScript Date.
  */
@@ -300,13 +300,13 @@ JulianDate.fromDate = function (date, result) {
 };
 
 /**
- * Creates a new instance from a from an {@link http://en.wikipedia.org/wiki/ISO_8601|ISO 8601} date.
- * This method is superior to <code>Date.parse</code> because it will handle all valid formats defined by the ISO 8601
- * specification, including leap seconds and sub-millisecond times, which discarded by most JavaScript implementations.
+ * 从 {@link http://en.wikipedia.org/wiki/ISO_8601|ISO 8601} 日期。
+ * 此方法优于 <code>Date.parse</code>，因为它将处理 ISO 8601 定义的所有有效格式
+ * 规范，包括闰秒和亚毫秒时间，大多数 JavaScript 实现都丢弃了这些时间。
  *
- * @param {string} iso8601String An ISO 8601 date.
- * @param {JulianDate} [result] An existing instance to use for the result.
- * @returns {JulianDate} 修改后的结果参数 or a new instance if none was provided.
+ * @param {string} iso8601String ISO 8601 日期。
+ * @param {JulianDate} [result] 用于结果的现有实例。
+ * @returns {JulianDate} 修改后的结果参数 或者如果未提供任何实例，则为新实例。
  *
  * @exception {DeveloperError} Invalid ISO 8601 date.
  */
@@ -606,11 +606,11 @@ JulianDate.fromIso8601 = function (iso8601String, result) {
 };
 
 /**
- * Creates a new instance that represents the current system time.
- * This is equivalent to calling <code>JulianDate.fromDate(new Date());</code>.
+ * 创建表示当前系统时间的新实例。
+ * 这相当于调用 <code>JulianDate.fromDate(new Date());</code>。
  *
- * @param {JulianDate} [result] An existing instance to use for the result.
- * @returns {JulianDate} 修改后的结果参数 or a new instance if none was provided.
+ * @param {JulianDate} [result] 用于结果的现有实例。
+ * @returns {JulianDate} 修改后的结果参数 或者如果未提供任何实例，则为新实例。
  */
 JulianDate.now = function (result) {
   return JulianDate.fromDate(new Date(), result);
@@ -619,11 +619,11 @@ JulianDate.now = function (result) {
 const toGregorianDateScratch = new JulianDate(0, 0, TimeStandard.TAI);
 
 /**
- * Creates a {@link GregorianDate} from the provided instance.
+ * 从提供的实例创建 {@link GregorianDate}。
  *
- * @param {JulianDate} julianDate The date to be converted.
- * @param {GregorianDate} [result] An existing instance to use for the result.
- * @returns {GregorianDate} 修改后的结果参数 or a new instance if none was provided.
+ * @param {JulianDate} julianDate 要转换的日期。
+ * @param {GregorianDate} [result] 用于结果的现有实例。
+ * @returns {GregorianDate} 修改后的结果参数 或者如果未提供任何实例，则为新实例。
  */
 JulianDate.toGregorianDate = function (julianDate, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -708,13 +708,13 @@ JulianDate.toGregorianDate = function (julianDate, result) {
 };
 
 /**
- * Creates a JavaScript Date from the provided instance.
- * Since JavaScript dates are only accurate to the nearest millisecond and
- * cannot represent a leap second, consider using {@link JulianDate.toGregorianDate} instead.
- * If the provided JulianDate is during a leap second, the previous second is used.
+ * 从提供的实例创建 JavaScript Date。
+ * 由于 JavaScript 日期仅精确到最接近的毫秒，并且
+ * 不能表示闰秒，请考虑使用 {@link JulianDate.toGregorianDate} 代替。
+ * 如果提供的 JulianDate 在闰秒期间，则使用前一秒。
  *
- * @param {JulianDate} julianDate The date to be converted.
- * @returns {Date} A new instance representing the provided date.
+ * @param {JulianDate} julianDate 要转换的日期。
+ * @returns {Date} 表示提供的日期的新实例。
  */
 JulianDate.toDate = function (julianDate) {
   //>>includeStart('debug', pragmas.debug);
@@ -742,11 +742,11 @@ JulianDate.toDate = function (julianDate) {
 };
 
 /**
- * Creates an ISO8601 representation of the provided date.
+ * 创建所提供日期的ISO8601表示形式。
  *
- * @param {JulianDate} julianDate The date to be converted.
- * @param {number} [precision] The number of fractional digits used to represent the seconds component.  By default, the most precise representation is used.
- * @returns {string} The ISO8601 representation of the provided date.
+ * @param {JulianDate} julianDate 要转换的日期。
+ * @param {number} [precision] 用于表示秒部分的小数位数。 默认情况下，使用最精确的表示。
+ * @returns {string} 所提供日期的ISO8601表示形式。
  */
 JulianDate.toIso8601 = function (julianDate, precision) {
   //>>includeStart('debug', pragmas.debug);
@@ -831,11 +831,11 @@ JulianDate.toIso8601 = function (julianDate, precision) {
 };
 
 /**
- * 复制JulianDate instance.
+ * 复制JulianDate 实例。
  *
- * @param {JulianDate} julianDate The date to duplicate.
- * @param {JulianDate} [result] An existing instance to use for the result.
- * @returns {JulianDate} 修改后的结果参数 or a new instance if none was provided. Returns undefined if julianDate is undefined.
+ * @param {JulianDate} julianDate 要复制的日期。
+ * @param {JulianDate} [result] 用于结果的现有实例。
+ * @returns {JulianDate} 修改后的结果参数 或者如果未提供任何实例，则为新实例。 Returns undefined if julianDate is undefined.
  */
 JulianDate.clone = function (julianDate, result) {
   if (!defined(julianDate)) {
@@ -854,11 +854,11 @@ JulianDate.clone = function (julianDate, result) {
 };
 
 /**
- * Compares two instances.
+ * 比较两个实例。
  *
- * @param {JulianDate} left The first instance.
- * @param {JulianDate} right The second instance.
- * @returns {number} A negative value if left is less than right, a positive value if left is greater than right, or zero if left and right are equal.
+ * @param {JulianDate} left 第一个实例。
+ * @param {JulianDate} right 第二个实例。
+ * @returns {number} 如果 left 小于 right，则为负值，如果 left 大于 right，则为正值，如果 left 和 right 相等，则为零。
  */
 JulianDate.compare = function (left, right) {
   //>>includeStart('debug', pragmas.debug);
@@ -878,11 +878,11 @@ JulianDate.compare = function (left, right) {
 };
 
 /**
- * Compares two instances and returns <code>true</code>，否则为<code>false</code>。
+ * 比较两个实例并返回 <code>true</code>，否则为<code>false</code>。
  *
  * @param {JulianDate} [left] 第一个instance.
  * @param {JulianDate} [right] 第二个 instance.
- * @returns {boolean} <code>true</code> if the dates are equal; otherwise, <code>false</code>.
+ * @returns {boolean} <code>true</code> 如果日期相等;否则为 <code>false</code>.
  */
 JulianDate.equals = function (left, right) {
   return (
@@ -895,15 +895,15 @@ JulianDate.equals = function (left, right) {
 };
 
 /**
- * Compares two instances and returns <code>true</code> if they are within <code>epsilon</code> seconds of
- * each other.  That is, in order for the dates to be considered equal (and for
- * this function to return <code>true</code>), the absolute value of the difference between them, in
- * seconds, must be less than <code>epsilon</code>.
+ * 比较两个实例并返回 <code>true</code> 如果他们在 <code>epsilon</code> 秒
+ * 彼此。  也就是说，为了将日期视为相等（并且
+ * 此函数返回 <code>true</code>), 它们之间差值的绝对值，在
+ * 秒，必须小于 <code>epsilon</code>.
  *
  * @param {JulianDate} [left] 第一个instance.
  * @param {JulianDate} [right] 第二个 instance.
- * @param {number} [epsilon=0] The maximum number of seconds that should separate the two instances.
- * @returns {boolean} <code>true</code> if the two dates are within <code>epsilon</code> seconds of each other; otherwise <code>false</code>.
+ * @param {number} [epsilon=0] 两个实例之间应分隔的最大秒数。
+ * @returns {boolean} <code>true</code> 如果日期相等;否则为 <code>false</code>
  */
 JulianDate.equalsEpsilon = function (left, right, epsilon) {
   epsilon = defaultValue(epsilon, 0);
@@ -917,10 +917,10 @@ JulianDate.equalsEpsilon = function (left, right, epsilon) {
 };
 
 /**
- * Computes the total number of whole and fractional days represented by the provided instance.
+ * 计算提供的实例表示的整数天和小数天的总天数。
  *
- * @param {JulianDate} julianDate The date.
- * @returns {number} The Julian date as single floating point number.
+ * @param {JulianDate} julianDate 日期。
+ * @returns {number} 儒略日期为单个浮点数。
  */
 JulianDate.totalDays = function (julianDate) {
   //>>includeStart('debug', pragmas.debug);
@@ -935,11 +935,11 @@ JulianDate.totalDays = function (julianDate) {
 };
 
 /**
- * Computes the difference in seconds between the provided instance.
+ * 计算提供的实例之间的秒差。
  *
- * @param {JulianDate} left The first instance.
- * @param {JulianDate} right The second instance.
- * @returns {number} The difference, in seconds, when subtracting <code>right</code> from <code>left</code>.
+ * @param {JulianDate} left 第一个实例。
+ * @param {JulianDate} right 第二个实例。
+ * @returns {number} 从 <code>left</code> 中减去 <code>right</code> 时的差值（以秒为单位）。
  */
 JulianDate.secondsDifference = function (left, right) {
   //>>includeStart('debug', pragmas.debug);
@@ -957,11 +957,11 @@ JulianDate.secondsDifference = function (left, right) {
 };
 
 /**
- * Computes the difference in days between the provided instance.
+ * 计算提供的实例之间的天数差。
  *
- * @param {JulianDate} left The first instance.
- * @param {JulianDate} right The second instance.
- * @returns {number} The difference, in days, when subtracting <code>right</code> from <code>left</code>.
+ * @param {JulianDate} left 第一个实例。
+ * @param {JulianDate} right 第二个实例。
+ * @returns {number} 从<code>左</code>减去<code>右</code>的差值（以天为单位）。
  */
 JulianDate.daysDifference = function (left, right) {
   //>>includeStart('debug', pragmas.debug);
@@ -980,10 +980,10 @@ JulianDate.daysDifference = function (left, right) {
 };
 
 /**
- * Computes the number of seconds the provided instance is ahead of UTC.
+ * 计算提供的实例领先于 UTC 的秒数。
  *
- * @param {JulianDate} julianDate The date.
- * @returns {number} The number of seconds the provided instance is ahead of UTC
+ * @param {JulianDate} julianDate 日期。
+ * @returns {number} 提供的实例领先于 UTC 的秒数
  */
 JulianDate.computeTaiMinusUtc = function (julianDate) {
   binarySearchScratchLeapSecond.julianDate = julianDate;
@@ -1004,11 +1004,11 @@ JulianDate.computeTaiMinusUtc = function (julianDate) {
 };
 
 /**
- * Adds the provided number of seconds to the provided date instance.
+ * 将提供的秒数添加到提供的日期实例中。
  *
- * @param {JulianDate} julianDate The date.
- * @param {number} seconds The number of seconds to add or subtract.
- * @param {JulianDate} result An existing instance to use for the result.
+ * @param {JulianDate} julianDate 日期。
+ * @param {number} seconds 要添加或减去的秒数。
+ * @param {JulianDate} result 用于结果的现有实例。
  * @returns {JulianDate} 修改后的结果参数。
  */
 JulianDate.addSeconds = function (julianDate, seconds, result) {
@@ -1032,11 +1032,11 @@ JulianDate.addSeconds = function (julianDate, seconds, result) {
 };
 
 /**
- * Adds the provided number of minutes to the provided date instance.
+ * 将提供的分钟数添加到提供的日期实例中。
  *
- * @param {JulianDate} julianDate The date.
- * @param {number} minutes The number of minutes to add or subtract.
- * @param {JulianDate} result An existing instance to use for the result.
+ * @param {JulianDate} julianDate 日期。
+ * @param {number} minutes 要加上或减去的分钟数。
+ * @param {JulianDate} result 用于结果的现有实例。
  * @returns {JulianDate} 修改后的结果参数。
  */
 JulianDate.addMinutes = function (julianDate, minutes, result) {
@@ -1058,11 +1058,11 @@ JulianDate.addMinutes = function (julianDate, minutes, result) {
 };
 
 /**
- * Adds the provided number of hours to the provided date instance.
+ * 将提供的小时数添加到提供的日期实例中。
  *
- * @param {JulianDate} julianDate The date.
- * @param {number} hours The number of hours to add or subtract.
- * @param {JulianDate} result An existing instance to use for the result.
+ * @param {JulianDate} julianDate 日期。
+ * @param {number} hours 要加上或减去的小时数。
+ * @param {JulianDate} result 用于结果的现有实例。
  * @returns {JulianDate} 修改后的结果参数。
  */
 JulianDate.addHours = function (julianDate, hours, result) {
@@ -1084,11 +1084,11 @@ JulianDate.addHours = function (julianDate, hours, result) {
 };
 
 /**
- * Adds the provided number of days to the provided date instance.
+ * 将提供的天数添加到提供的日期实例中。
  *
- * @param {JulianDate} julianDate The date.
- * @param {number} days The number of days to add or subtract.
- * @param {JulianDate} result An existing instance to use for the result.
+ * @param {JulianDate} julianDate 日期。
+ * @param {number} days 要加上或减去的天数。
+ * @param {JulianDate} result 用于结果的现有实例。
  * @returns {JulianDate} 修改后的结果参数。
  */
 JulianDate.addDays = function (julianDate, days, result) {
@@ -1109,94 +1109,94 @@ JulianDate.addDays = function (julianDate, days, result) {
 };
 
 /**
- * Compares the provided instances and returns <code>true</code> if <code>left</code> is earlier than <code>right</code>, <code>false</code> 否则。
+ * 比较提供的实例并返回 如果 <code>left</code> 早于 <code>right</code>，则为<code> true</code>，否则 <code>false</code>。
  *
- * @param {JulianDate} left The first instance.
- * @param {JulianDate} right The second instance.
- * @returns {boolean} <code>true</code> if <code>left</code> is earlier than <code>right</code>, <code>false</code> 否则。
+ * @param {JulianDate} left 第一个实例。
+ * @param {JulianDate} right 第二个实例。
+ * @returns {boolean} 如果 <code>left</code> 早于 <code>right</code>，则为<code> true</code>，否则 <code>false</code>。
  */
 JulianDate.lessThan = function (left, right) {
   return JulianDate.compare(left, right) < 0;
 };
 
 /**
- * Compares the provided instances and returns <code>true</code> if <code>left</code> is earlier than or equal to <code>right</code>, <code>false</code> 否则。
+ * 比较提供的实例并返回 如果 <code>left</code> 早于或等于 <code>right</code>，则为 <code>true</code>，否则<code>false</code> 。
  *
- * @param {JulianDate} left The first instance.
- * @param {JulianDate} right The second instance.
- * @returns {boolean} <code>true</code> if <code>left</code> is earlier than or equal to <code>right</code>, <code>false</code> 否则。
+ * @param {JulianDate} left 第一个实例。
+ * @param {JulianDate} right 第二个实例。
+ * @returns {boolean} 早于或等于 <code>right</code>，则为 <code>true</code>，否则<code>false</code> 。
  */
 JulianDate.lessThanOrEquals = function (left, right) {
   return JulianDate.compare(left, right) <= 0;
 };
 
 /**
- * Compares the provided instances and returns <code>true</code> if <code>left</code> is later than <code>right</code>, <code>false</code> 否则。
+ * 比较提供的实例并返回 如果 <code>left</code> 晚于 <code>right</code>，则为 <code>true</code>，否则 <code>false</code> 。
  *
- * @param {JulianDate} left The first instance.
- * @param {JulianDate} right The second instance.
- * @returns {boolean} <code>true</code> if <code>left</code> is later than <code>right</code>, <code>false</code> 否则。
+ * @param {JulianDate} left 第一个实例。
+ * @param {JulianDate} right 第二个实例。
+ * @returns {boolean} 如果 <code>left</code> 晚于 <code>right</code>，则为 <code>true</code>，否则 <code>false</code> 。
  */
 JulianDate.greaterThan = function (left, right) {
   return JulianDate.compare(left, right) > 0;
 };
 
 /**
- * Compares the provided instances and returns <code>true</code> if <code>left</code> is later than or equal to <code>right</code>, <code>false</code> 否则。
+ * 比较提供的实例并返回 如果 <code>left</code> 晚于或等于 <code>right</code>，>则为 <codetrue</code>， 否则 <code>false</code>。
  *
- * @param {JulianDate} left The first instance.
- * @param {JulianDate} right The second instance.
- * @returns {boolean} <code>true</code> if <code>left</code> is later than or equal to <code>right</code>, <code>false</code> 否则。
+ * @param {JulianDate} left 第一个实例。
+ * @param {JulianDate} right 第二个实例。
+ * @returns {boolean} 如果 <code>left</code> 晚于或等于 <code>right</code>，>则为 <codetrue</code>， 否则 <code>false</code>。
  */
 JulianDate.greaterThanOrEquals = function (left, right) {
   return JulianDate.compare(left, right) >= 0;
 };
 
 /**
- * 复制instance.
+ * 复制实例
  *
- * @param {JulianDate} [result] An existing instance to use for the result.
- * @returns {JulianDate} 修改后的结果参数 or a new instance if none was provided.
+ * @param {JulianDate} [result] 用于结果的现有实例。
+ * @returns {JulianDate} 修改后的结果参数 或者如果未提供任何实例，则为新实例。
  */
 JulianDate.prototype.clone = function (result) {
   return JulianDate.clone(this, result);
 };
 
 /**
- * Compares this and the provided instance and returns <code>true</code>，否则为<code>false</code>。
+ * 将此实例与提供的实例进行比较，并返回 <code>true</code>，否则为<code>false</code>。
  *
  * @param {JulianDate} [right] 第二个 instance.
- * @returns {boolean} <code>true</code> if the dates are equal; otherwise, <code>false</code>.
+ * @returns {boolean} 如果日期相等，<code>则为 true</code>;否则为 <code>false</code>。
  */
 JulianDate.prototype.equals = function (right) {
   return JulianDate.equals(this, right);
 };
 
 /**
- * Compares this and the provided instance and returns <code>true</code> if they are within <code>epsilon</code> seconds of
- * each other.  That is, in order for the dates to be considered equal (and for
- * this function to return <code>true</code>), the absolute value of the difference between them, in
- * seconds, must be less than <code>epsilon</code>.
+ * 将此实例与提供的实例进行比较，如果它们在 <code>epsilon</code> 秒内，则返回 <code>true</code>
+ * 彼此。 也就是说，为了将日期视为相等（并且
+ * 此函数返回 <code>true</code>），则表示它们之间差值的绝对值，在
+ * 秒，必须小于 <code>epsilon</code>。
  *
  * @param {JulianDate} [right] 第二个 instance.
- * @param {number} [epsilon=0] The maximum number of seconds that should separate the two instances.
- * @returns {boolean} <code>true</code> if the two dates are within <code>epsilon</code> seconds of each other; otherwise <code>false</code>.
+ * @param {number} [epsilon=0] 两个实例之间应分隔的最大秒数。
+ * @returns {boolean} <code>true</code> 如果日期相等;否则为 <code>false</code>
  */
 JulianDate.prototype.equalsEpsilon = function (right, epsilon) {
   return JulianDate.equalsEpsilon(this, right, epsilon);
 };
 
 /**
- * Creates a string representing this date in ISO8601 format.
+ * 创建一个字符串，以 ISO8601 格式表示此日期。
  *
- * @returns {string} A string representing this date in ISO8601 format.
+ * @returns {string} 以 ISO8601 格式表示此日期的字符串。
  */
 JulianDate.prototype.toString = function () {
   return JulianDate.toIso8601(this);
 };
 
 /**
- * 获取或设置list of leap seconds used throughout Cesium.
+ * 获取或设置整个 Cesium 中使用的闰秒列表。
  * @memberof JulianDate
  * @type {LeapSecond[]}
  */

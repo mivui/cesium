@@ -8,15 +8,15 @@ import Resource from "./Resource.js";
 import RuntimeError from "./RuntimeError.js";
 
 /**
- * A {@link Resource} instance that encapsulates Cesium ion asset access.
- * This object is normally not instantiated directly, use {@link IonResource.fromAssetId}.
+ * 封装 Cesium ion 资产访问的 {@link Resource} 实例。
+ * 此对象通常不直接实例化，请使用 {@link IonResource.fromAssetId}。
  *
  * @alias IonResource
  * @constructor
  * @augments Resource
  *
- * @param {object} endpoint The result of the Cesium ion asset endpoint service.
- * @param {Resource} endpointResource The resource used to retrieve the endpoint.
+ * @param {object} endpoint Cesium ion 资产端点服务的结果。
+ * @param {Resource} endpointResource 用于检索终端节点的资源。
  *
  * @see Ion
  * @see IonImageryProvider
@@ -78,13 +78,13 @@ if (defined(Object.create)) {
 }
 
 /**
- * Asynchronously creates an instance.
+ * 异步创建实例。
  *
  * @param {number} assetId The Cesium ion asset id.
- * @param {object} [options] An 对象，具有以下属性:
- * @param {string} [options.accessToken=Ion.defaultAccessToken] The access token to use.
- * @param {string|Resource} [options.server=Ion.defaultServer] The resource to the Cesium ion API server.
- * @returns {Promise<IonResource>} A Promise to am instance representing the Cesium ion Asset.
+ * @param {object} [options] 对象，具有以下属性:
+ * @param {string} [options.accessToken=Ion.defaultAccessToken] 要使用的访问令牌。
+ * @param {string|Resource} [options.server=Ion.defaultServer] Cesium ion API 服务器的资源。
+ * @returns {Promise<IonResource>} Promise，表示 Cesium ion Asset。
  *
  * @example
  * // Load a Cesium3DTileset with asset ID of 124624234
@@ -116,7 +116,7 @@ IonResource.fromAssetId = function (assetId, options) {
 
 Object.defineProperties(IonResource.prototype, {
   /**
-   * Gets the credits required for attribution of the asset.
+   * 获取资产归因所需的积分。
    *
    * @memberof IonResource.prototype
    * @type {Credit[]}

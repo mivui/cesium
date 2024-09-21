@@ -34,9 +34,9 @@ const c13 = 12.9590088;
 let dateTT = new JulianDate();
 
 /**
- * Compute the orientation parameters for the Moon.
+ * 计算月球的方向参数。
  *
- * @param {JulianDate} [date=JulianDate.now()] The date to evaluate the parameters.
+ * @param {JulianDate} [date=JulianDate.now()] 评估参数的日期。
  * @param {IauOrientationParameters} [result] 要在其上存储结果的对象。
  * @returns {IauOrientationParameters} 修改后的结果参数 or a new instance representing the orientation of the Earth's Moon.
  * @private

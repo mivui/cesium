@@ -1,22 +1,22 @@
 import defaultValue from "./defaultValue.js";
 
 /**
- * Represents the closed interval [start, stop].
+ * 表示封闭区间 [start， stop]。
  * @alias Interval
  * @constructor
  *
- * @param {number} [start=0.0] The beginning of the interval.
- * @param {number} [stop=0.0] The end of the interval.
+ * @param {number} [start=0.0] 区间的开始。
+ * @param {number} [stop=0.0] 区间结束。
  */
 function Interval(start, stop) {
   /**
-   * The beginning of the interval.
+   * 区间的开始。
    * @type {number}
    * @default 0.0
    */
   this.start = defaultValue(start, 0.0);
   /**
-   * The end of the interval.
+   * 区间结束。
    * @type {number}
    * @default 0.0
    */

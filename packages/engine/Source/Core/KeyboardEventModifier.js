@@ -1,12 +1,12 @@
 /**
- * This enumerated type is for representing keyboard modifiers. These are keys
- * that are held down in addition to other event types.
+ * 此枚举类型用于表示键盘修饰符。这些是键
+ * 以及其他事件类型一起被按住。
  *
  * @enum {number}
  */
 const KeyboardEventModifier = {
   /**
-   * Represents the shift key being held down.
+   * 表示按住 Shift 键。
    *
    * @type {number}
    * @constant
@@ -14,7 +14,7 @@ const KeyboardEventModifier = {
   SHIFT: 0,
 
   /**
-   * Represents the control key being held down.
+   * 表示按住 control 键。
    *
    * @type {number}
    * @constant
@@ -22,7 +22,7 @@ const KeyboardEventModifier = {
   CTRL: 1,
 
   /**
-   * Represents the alt key being held down.
+   * 表示按住的 alt 键。
    *
    * @type {number}
    * @constant

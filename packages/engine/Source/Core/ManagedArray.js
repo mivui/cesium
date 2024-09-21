@@ -2,13 +2,13 @@ import Check from "./Check.js";
 import defaultValue from "./defaultValue.js";
 
 /**
- * A wrapper around arrays so that the internal length of the array can be manually managed.
+ * 数组的包装器，以便可以手动管理数组的内部长度。
  *
  * @alias ManagedArray
  * @constructor
  * @private
  *
- * @param {number} [length=0] The initial length of the array.
+ * @param {number} [length=0] 数组的初始长度。
  */
 function ManagedArray(length) {
   length = defaultValue(length, 0);
@@ -18,8 +18,8 @@ function ManagedArray(length) {
 
 Object.defineProperties(ManagedArray.prototype, {
   /**
-   * 获取或设置length of the array.
-   * If the set length is greater than the length of the internal array, the internal array is resized.
+   * 获取或设置数组的长度。
+   * 如果设置的长度大于内部数组的长度，则调整内部数组的大小。
    *
    * @memberof ManagedArray.prototype
    * @type {number}
@@ -47,7 +47,7 @@ Object.defineProperties(ManagedArray.prototype, {
   },
 
   /**
-   * Gets the internal array.
+   * 获取内部数组。
    *
    * @memberof ManagedArray.prototype
    * @type {Array}
@@ -61,9 +61,9 @@ Object.defineProperties(ManagedArray.prototype, {
 });
 
 /**
- * Gets the element at an index.
+ * 获取索引处的元素。
  *
- * @param {number} index The index to get.
+ * @param {number} index 要获取的索引。
  */
 ManagedArray.prototype.get = function (index) {
   //>>includeStart('debug', pragmas.debug);
@@ -74,10 +74,10 @@ ManagedArray.prototype.get = function (index) {
 };
 
 /**
- * Sets the element at an index. Resizes the array if index is greater than the length of the array.
+ * 将元素设置为索引。如果 index 大于数组的长度，则调整数组的大小。
  *
- * @param {number} index The index to set.
- * @param {*} element The element to set at index.
+ * @param {number} index 要设置的索引。
+ * @param {*} element 要在索引处设置的元素。
  */
 ManagedArray.prototype.set = function (index, element) {
   //>>includeStart('debug', pragmas.debug);
@@ -91,18 +91,18 @@ ManagedArray.prototype.set = function (index, element) {
 };
 
 /**
- * Returns the last element in the array without modifying the array.
+ * 返回数组中的最后一个元素，而不修改数组。
  *
- * @returns {*} The last element in the array.
+ * @returns {*} 数组中的最后一个元素。
  */
 ManagedArray.prototype.peek = function () {
   return this._array[this._length - 1];
 };
 
 /**
- * Push an element into the array.
+ * 将元素推送到数组中。
  *
- * @param {*} element The element to push.
+ * @param {*} element 要推送的元素。
  */
 ManagedArray.prototype.push = function (element) {
   const index = this.length++;
@@ -110,9 +110,9 @@ ManagedArray.prototype.push = function (element) {
 };
 
 /**
- * Pop an element from the array.
+ * 从数组中弹出一个元素。
  *
- * @returns {*} The last element in the array.
+ * @returns {*} 数组中的最后一个元素。
  */
 ManagedArray.prototype.pop = function () {
   if (this._length === 0) {
@@ -124,9 +124,9 @@ ManagedArray.prototype.pop = function () {
 };
 
 /**
- * Resize the internal array if length > _array.length.
+ * 如果 length > _array.length，则调整内部数组的大小。
  *
- * @param {number} length The length.
+ * @param {number} length 长度。
  */
 ManagedArray.prototype.reserve = function (length) {
   //>>includeStart('debug', pragmas.debug);
@@ -139,9 +139,9 @@ ManagedArray.prototype.reserve = function (length) {
 };
 
 /**
- * Resize the array.
+ * 调整数组大小。
  *
- * @param {number} length The length.
+ * @param {number} length 长度。
  */
 ManagedArray.prototype.resize = function (length) {
   //>>includeStart('debug', pragmas.debug);
@@ -152,9 +152,9 @@ ManagedArray.prototype.resize = function (length) {
 };
 
 /**
- * Trim the internal array to the specified length. Defaults to the current length.
+ * 将内部数组修剪到指定的长度。默认为当前长度。
  *
- * @param {number} [length] The length.
+ * @param {number} [length] 长度。
  */
 ManagedArray.prototype.trim = function (length) {
   length = defaultValue(length, this._length);

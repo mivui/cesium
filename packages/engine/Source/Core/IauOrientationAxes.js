@@ -7,12 +7,12 @@ import Matrix3 from "./Matrix3.js";
 import Quaternion from "./Quaternion.js";
 
 /**
- * The Axes representing the orientation of a Globe as represented by the data
- * from the IAU/IAG Working Group reports on rotational elements.
+ * 表示数据所表示的地球仪方向的轴
+ * 来自 IAU/IAG 工作组关于旋转元件的报告。
  * @alias IauOrientationAxes
  * @constructor
  *
- * @param {IauOrientationAxes.ComputeFunction} [computeFunction] The function that computes the {@link IauOrientationParameters} given a {@link JulianDate}.
+ * @param {IauOrientationAxes.ComputeFunction} [computeFunction] 在给定 {@link JulianDate} 的情况下计算 {@link IauOrientationParameters} 的函数。
  *
  * @see Iau2000Orientation
  *
@@ -66,11 +66,11 @@ const rotMtxScratch = new Matrix3();
 const quatScratch = new Quaternion();
 
 /**
- * Computes a rotation from ICRF to a Globe's Fixed axes.
+ * 计算从 ICRF 到地球仪固定轴的旋转。
  *
- * @param {JulianDate} date The date to evaluate the matrix.
+ * @param {JulianDate} date 计算矩阵的日期。
  * @param {Matrix3} result 要在其上存储结果的对象。
- * @returns {Matrix3} 修改后的结果参数 or a new instance of the rotation from ICRF to Fixed.
+ * @returns {Matrix3} 修改后的结果参数或从 ICRF 到 Fixed 的旋转的新实例。
  */
 IauOrientationAxes.prototype.evaluate = function (date, result) {
   if (!defined(date)) {
@@ -96,10 +96,10 @@ IauOrientationAxes.prototype.evaluate = function (date, result) {
 };
 
 /**
- * A function that computes the {@link IauOrientationParameters} for a {@link JulianDate}.
+ * 计算 {@link JulianDate} 的 {@link IauOrientationParameters} 的函数。
  * @callback IauOrientationAxes.ComputeFunction
- * @param {JulianDate} date The date to evaluate the parameters.
- * @returns {IauOrientationParameters} The orientation parameters.
+ * @param {JulianDate} date 评估参数的日期。
+ * @returns {IauOrientationParameters} 方向参数。
  * @private
  */
 export default IauOrientationAxes;

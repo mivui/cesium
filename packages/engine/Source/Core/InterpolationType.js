@@ -1,5 +1,5 @@
 /**
- * An enum describing the type of interpolation used in a glTF animation.
+ * 描述 glTF 动画中使用的插值类型的枚举。
  *
  * @enum {number}
  *

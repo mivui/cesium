@@ -3,12 +3,12 @@ import Check from "./Check.js";
 const blobUriRegex = /^blob:/i;
 
 /**
- * Determines if the specified uri is a blob uri.
+ * 确定指定的 uri 是否为 blob uri。
  *
  * @function isBlobUri
  *
- * @param {string} uri The uri to test.
- * @returns {boolean} true when the uri is a blob uri; otherwise, false.
+ * @param {string} uri 要测试的 uri。
+ * @returns {boolean} true（当 URI 为 blob URI 时）;否则为 false。
  *
  * @private
  */

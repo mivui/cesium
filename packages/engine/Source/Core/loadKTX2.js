@@ -3,14 +3,14 @@ import Resource from "./Resource.js";
 import KTX2Transcoder from "./KTX2Transcoder.js";
 
 /**
- * Stores the supported formats that KTX2 can transcode to. Called during context creation.
+ * 存储 KTX2 可以转码到的支持格式。在上下文创建期间调用。
  *
- * @param {boolean} s3tc Whether or not S3TC is supported
- * @param {boolean} pvrtc Whether or not PVRTC is supported
- * @param {boolean} astc Whether or not ASTC is supported
- * @param {boolean} etc Whether or not ETC is supported
- * @param {boolean} etc1 Whether or not ETC1 is supported
- * @param {boolean} bc7 Whether or not BC7 is supported
+ * @param {boolean} s3tc 是否支持 S3TC
+ * @param {boolean} pvrtc 是否支持 PVRTC
+ * @param {boolean} astc 是否支持 ASTC
+ * @param {boolean} etc 是否支持 ETC
+ * @param {boolean} etc1 是否支持 ETC1
+ * @param {boolean} bc7 是否支持 BC7
  * @private
  */
 let supportedTranscoderFormats;
@@ -34,33 +34,33 @@ loadKTX2.setKTX2SupportedFormats = function (
 };
 
 /**
- * Asynchronously loads and parses the given URL to a KTX2 file or parses the raw binary data of a KTX2 file.
- * Returns a promise that will resolve to an object containing the image buffer, width, height, and format once loaded,
- * or reject if the URL failed to load or failed to parse the data. The data is loaded
- * using XMLHttpRequest, which means that in order to make requests to another origin,
- * the server must have Cross-Origin Resource sharing (CORS) headers enabled.
+ * 异步加载和解析给定的 URL 到 KTX2 文件，或解析 KTX2 文件的原始二进制数据。
+ * 返回一个 Promise，该 Promise 将在加载后解析为包含图像缓冲区、宽度、高度和格式的对象，
+ * 或 reject 如果 URL 加载失败或解析数据失败。数据已加载
+ * 使用 XMLHttpRequest，这意味着为了向另一个源发出请求，
+ * 服务器必须启用跨域资源共享 （CORS） 标头。
  * <p>
- * The following are part of the KTX2 format specification but are not supported:
+ * 以下是 KTX2 格式规范的一部分，但不受支持：
  * <ul>
- *     <li>Metadata</li>
- *     <li>3D textures</li>
- *     <li>Texture Arrays</li>
- *     <li>Video</li>
+ * <li>元数据</li>
+ * <li>3D 纹理</li>
+ * <li>纹理数组</li>
+ * <li>视频</li>
  * </ul>
  * </p>
  *
  * @function loadKTX2
  *
- * @param {Resource|string|ArrayBuffer} resourceOrUrlOrBuffer The URL of the binary data or an ArrayBuffer.
- * @returns {Promise<CompressedTextureBuffer>|undefined} A promise that will resolve to the requested data when loaded. Returns undefined if <code>request.throttle</code> is true and the request does not have high enough priority.
+ * @param {Resource|string|ArrayBuffer} resourceOrUrlOrBuffer 二进制数据或 ArrayBuffer 的 URL。
+ * @returns {Promise<CompressedTextureBuffer>|undefined} 一个 Promise，在加载时将解析为请求的数据。如果 <code>request.throttle</code> 为 true，并且请求的优先级不够高，则返回 undefined。
  *
- * @exception {RuntimeError} Invalid KTX2 file.
- * @exception {RuntimeError} KTX2 texture arrays are not supported.
- * @exception {RuntimeError} KTX2 3D textures are unsupported.
- * @exception {RuntimeError} No transcoding format target available for ETC1S compressed ktx2s.
- * @exception {RuntimeError} No transcoding format target available for UASTC compressed ktx2s.
- * @exception {RuntimeError} startTranscoding() failed.
- * @exception {RuntimeError} transcodeImage() failed.
+ * @exception {RuntimeError} 无效的 KTX2 文件。
+ * 不支持 @exception {RuntimeError} KTX2 纹理数组。
+ * @exception 不支持 KTX2 3D 纹理。
+ * @exception {RuntimeError} 没有可用于 ETC1S 压缩 ktx2 的转码格式目标。
+ * @exception {RuntimeError} 没有可用于 UASTC 压缩 ktx2 的转码格式目标。
+ * @exception {RuntimeError} startTranscoding（） 失败。
+ * @exception {RuntimeError} transcodeImage（） 失败。
  *
  * @example
  * // load a single URL asynchronously

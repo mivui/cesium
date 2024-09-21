@@ -7,14 +7,14 @@ import PeliasGeocoderService from "./PeliasGeocoderService.js";
 import Resource from "./Resource.js";
 
 /**
- * Provides geocoding through Cesium ion.
+ * 通过 Cesium ion 提供地理编码。
  * @alias IonGeocoderService
  * @constructor
  *
  * @param {object} options 对象，具有以下属性:
- * @param {Scene} options.scene The scene
- * @param {string} [options.accessToken=Ion.defaultAccessToken] The access token to use.
- * @param {string|Resource} [options.server=Ion.defaultServer] The resource to the Cesium ion API server.
+ * @param {Scene} options.scene 场景
+ * @param {string} [options.accessToken=Ion.defaultAccessToken] 要使用的访问令牌。
+ * @param {string|Resource} [options.server=Ion.defaultServer] Cesium ion API 服务器的资源。
  *
  * @see Ion
  */
@@ -70,7 +70,7 @@ Object.defineProperties(IonGeocoderService.prototype, {
  * @function
  *
  * @param {string} query 要发送到地理编码器服务的查询
- * @param {GeocodeType} [type=GeocodeType.SEARCH] The type of geocode to perform.
+ * @param {GeocodeType} [type=GeocodeType.SEARCH] 要执行的地理编码类型。
  * @returns {Promise<GeocoderService.Result[]>}
  */
 IonGeocoderService.prototype.geocode = async function (query, geocodeType) {

@@ -7,21 +7,21 @@ import Resource from "./Resource.js";
 import TimeStandard from "./TimeStandard.js";
 
 /**
- * A set of IAU2006 XYS data that is used to evaluate the transformation between the International
- * Celestial Reference Frame (ICRF) and the International Terrestrial Reference Frame (ITRF).
+ * 一组 IAU2006 XYS 数据，用于评估国际
+ * 天体参考系 （ICRF） 和国际地面参考系 （ITRF）。
  *
  * @alias Iau2006XysData
  * @constructor
  *
- * @param {object} [options] 对象，具有以下属性:
- * @param {Resource|string} [options.xysFileUrlTemplate='Assets/IAU2006_XYS/IAU2006_XYS_{0}.json'] A template URL for obtaining the XYS data.  In the template,
- *                 `{0}` will be replaced with the file index.
- * @param {number} [options.interpolationOrder=9] The order of interpolation to perform on the XYS data.
- * @param {number} [options.sampleZeroJulianEphemerisDate=2442396.5] The Julian ephemeris date (JED) of the
- *                 first XYS sample.
- * @param {number} [options.stepSizeDays=1.0] The step size, in days, between successive XYS samples.
- * @param {number} [options.samplesPerXysFile=1000] The number of samples in each XYS file.
- * @param {number} [options.totalSamples=27426] The total number of samples in all XYS files.
+ * @param {object} [options] 对象，具有以下属性：
+ * @param {Resource|string} [options.xysFileUrlTemplate='Assets/IAU2006_XYS/IAU2006_XYS_{0}.json'] 用于获取 XYS 数据的模板 URL。 在模板中，
+ * '{0}' 将替换为文件索引。
+ * @param {number} [options.interpolationOrder=9] 对 XYS 数据执行的插值顺序。
+ * @param {number} [options.sampleZeroJulianEphemerisDate=2442396.5] 儒略历日期 （JED）
+ * 第一个 XYS 样品。
+ * @param {number} [options.stepSizeDays=1.0] 连续 XYS 样本之间的步长（以天为单位）。
+ * @param {number} [options.samplesPerXysFile=1000] 每个 XYS 文件中的样本数。
+ * @param {number} [options.totalSamples=27426] 所有 XYS 文件中的样本总数。
  *
  * @private
  */
@@ -83,18 +83,18 @@ function getDaysSinceEpoch(xys, dayTT, secondTT) {
 }
 
 /**
- * Preloads XYS data for a specified date range.
+ * 预加载指定日期范围的 XYS 数据。
  *
- * @param {number} startDayTT The Julian day number of the beginning of the interval to preload, expressed in
- *                 the Terrestrial Time (TT) time standard.
- * @param {number} startSecondTT The seconds past noon of the beginning of the interval to preload, expressed in
- *                 the Terrestrial Time (TT) time standard.
- * @param {number} stopDayTT The Julian day number of the end of the interval to preload, expressed in
- *                 the Terrestrial Time (TT) time standard.
- * @param {number} stopSecondTT The seconds past noon of the end of the interval to preload, expressed in
- *                 the Terrestrial Time (TT) time standard.
- * @returns {Promise<void>} A promise that, when resolved, indicates that the requested interval has been
- *                    preloaded.
+ * @param {number} startDayTT 预加载区间开始的儒略日数，以
+ * 地球时间 （TT） 时间标准。
+ * @param {number} startSecondTT 预加载间隔开始后中午的秒数，表示为
+ * 地球时间 （TT） 时间标准。
+ * @param {number} stopDayTT 预加载区间结束的儒略日数，以
+ * 地球时间 （TT） 时间标准。
+ * @param {number} stopSecondTT 预加载间隔结束后中午的秒数，表示为
+ * 地球时间 （TT） 时间标准。
+ * @returns {Promise<void>} 一个 Promise，当解析时，表示请求的间隔已被
+ *预 加载。
  */
 Iau2006XysData.prototype.preload = function (
   startDayTT,
@@ -135,17 +135,17 @@ Iau2006XysData.prototype.preload = function (
 };
 
 /**
- * Computes the XYS values for a given date by interpolating.  If the required data is not yet downloaded,
- * this method will return undefined.
+ * 通过插值计算给定日期的 XYS 值。 如果尚未下载所需的数据，
+ * 此方法将返回 undefined。
  *
- * @param {number} dayTT The Julian day number for which to compute the XYS value, expressed in
- *                 the Terrestrial Time (TT) time standard.
- * @param {number} secondTT The seconds past noon of the date for which to compute the XYS value, expressed in
- *                 the Terrestrial Time (TT) time standard.
- * @param {Iau2006XysSample} [result] The instance to which to copy the interpolated result.  If this parameter
- *                           is undefined, a new instance is allocated and returned.
- * @returns {Iau2006XysSample} The interpolated XYS values, or undefined if the required data for this
- *                             computation has not yet been downloaded.
+ * @param {number} dayTT 计算 XYS 值的儒略日数，以
+ * 地球时间 （TT） 时间标准。
+ * @param {number} secondTT 计算 XYS 值的日期中午之后的秒数，以
+ * 地球时间 （TT） 时间标准。
+ * @param {Iau2006XysSample} [result] 要将插值结果复制到的实例。 如果此参数
+ * 未定义，则会分配并返回一个新实例。
+ * @returns {Iau2006XysSample} 插值的 XYS 值，如果此所需的数据为 undefined
+ * 计算结果尚未下载。
  *
  * @see Iau2006XysData#preload
  */

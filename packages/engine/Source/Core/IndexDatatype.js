@@ -4,15 +4,15 @@ import CesiumMath from "./Math.js";
 import WebGLConstants from "./WebGLConstants.js";
 
 /**
- * Constants for WebGL index datatypes.  These corresponds to the
- * <code>type</code> parameter of {@link http://www.khronos.org/opengles/sdk/docs/man/xhtml/glDrawElements.xml|drawElements}.
+ * WebGL 索引数据类型的常量。 这些对应于
+ * <code>type</code> 参数的 {@link http://www.khronos.org/opengles/sdk/docs/man/xhtml/glDrawElements.xml|drawElements} 的 intent 参数。
  *
  * @enum {number}
  */
 const IndexDatatype = {
   /**
-   * 8-bit unsigned byte corresponding to <code>UNSIGNED_BYTE</code> and the type
-   * of an element in <code>Uint8Array</code>.
+   * 8-bit unsigned 字节对应于 <code>UNSIGNED_BYTE</code> 和 类型
+   * 的元素 <code>Uint8Array</code>.
    *
    * @type {number}
    * @constant
@@ -20,8 +20,8 @@ const IndexDatatype = {
   UNSIGNED_BYTE: WebGLConstants.UNSIGNED_BYTE,
 
   /**
-   * 16-bit unsigned short corresponding to <code>UNSIGNED_SHORT</code> and the type
-   * of an element in <code>Uint16Array</code>.
+   * 16-bit unsigned short 对应于 <code>UNSIGNED_SHORT</code> 和 类型
+   *  的元素<code>Uint16Array</code>.
    *
    * @type {number}
    * @constant
@@ -29,8 +29,8 @@ const IndexDatatype = {
   UNSIGNED_SHORT: WebGLConstants.UNSIGNED_SHORT,
 
   /**
-   * 32-bit unsigned int corresponding to <code>UNSIGNED_INT</code> and the type
-   * of an element in <code>Uint32Array</code>.
+   * 32-bit unsigned int 对应于 <code>UNSIGNED_INT</code> 和类型
+   *  的元素<code>Uint32Array</code>.
    *
    * @type {number}
    * @constant
@@ -39,10 +39,10 @@ const IndexDatatype = {
 };
 
 /**
- * Returns the size, in bytes, of the corresponding datatype.
+ * 返回相应数据类型的大小 （以字节为单位）。
  *
- * @param {IndexDatatype} indexDatatype The index datatype to get the size of.
- * @returns {number} The size in bytes.
+ * @param {IndexDatatype} indexDatatype 要获取其大小的索引数据类型。
+ * @returns {number} 大小（以字节为单位）。
  *
  * @example
  * // Returns 2
@@ -66,10 +66,10 @@ IndexDatatype.getSizeInBytes = function (indexDatatype) {
 };
 
 /**
- * Gets the datatype with a given size in bytes.
+ * 获取具有给定大小（以字节为单位）的数据类型。
  *
- * @param {number} sizeInBytes The size of a single index in bytes.
- * @returns {IndexDatatype} The index datatype with the given size.
+ * @param {number} sizeInBytes 单个索引的大小（以字节为单位）。
+ * @returns {IndexDatatype} 具有给定大小的索引数据类型。
  */
 IndexDatatype.fromSizeInBytes = function (sizeInBytes) {
   switch (sizeInBytes) {
@@ -89,10 +89,10 @@ IndexDatatype.fromSizeInBytes = function (sizeInBytes) {
 };
 
 /**
- * Validates that the provided index datatype is a valid {@link IndexDatatype}.
+ * 验证提供的索引数据类型是否为有效的 {@link IndexDatatype}。
  *
- * @param {IndexDatatype} indexDatatype The index datatype to validate.
- * @returns {boolean} <code>true</code> if the provided index datatype is a valid value; otherwise, <code>false</code>.
+ * @param {IndexDatatype} indexDatatype 要验证的索引数据类型。
+ * @returns {boolean} <code>true</code>，如果提供的索引数据类型是有效值;否则为 <code>false</code>。
  *
  * @example
  * if (!Cesium.IndexDatatype.validate(indexDatatype)) {
@@ -109,12 +109,12 @@ IndexDatatype.validate = function (indexDatatype) {
 };
 
 /**
- * Creates a typed array that will store indices, using either <code><Uint16Array</code>
- * or <code>Uint32Array</code> depending on the number of vertices.
+ * 使用 <code><Uint16Array</code> 创建将存储索引的类型化数组
+ * 或 <code>Uint32Array</code>，具体取决于顶点的数量。
  *
- * @param {number} numberOfVertices Number of vertices that the indices will reference.
- * @param {number|Array} indicesLengthOrArray Passed through to the typed array constructor.
- * @returns {Uint16Array|Uint32Array} A <code>Uint16Array</code> or <code>Uint32Array</code> constructed with <code>indicesLengthOrArray</code>.
+ * @param {number} numberOfVertices 索引将引用的顶点数。
+ * @param {number|Array} indicesLengthOrArray 传递给类型化数组构造函数。
+ * @returns {Uint16Array|Uint32Array} 使用 <code>indicesLengthOrArray</code> 构造的 <code>Uint16Array</code> 或 <code>Uint32Array</code>。
  *
  * @example
  * this.indices = Cesium.IndexDatatype.createTypedArray(positions.length / 3, numberOfIndices);
@@ -137,14 +137,14 @@ IndexDatatype.createTypedArray = function (
 };
 
 /**
- * Creates a typed array from a source array buffer.  The resulting typed array will store indices, using either <code><Uint16Array</code>
- * or <code>Uint32Array</code> depending on the number of vertices.
+ * 从源数组缓冲区创建类型化数组。 生成的类型化数组将使用 <code><Uint16Array</code> 存储索引
+ * 或 <code>Uint32Array</code>，具体取决于顶点的数量。
  *
- * @param {number} numberOfVertices Number of vertices that the indices will reference.
- * @param {ArrayBuffer} sourceArray Passed through to the typed array constructor.
- * @param {number} byteOffset Passed through to the typed array constructor.
- * @param {number} length Passed through to the typed array constructor.
- * @returns {Uint16Array|Uint32Array} A <code>Uint16Array</code> or <code>Uint32Array</code> constructed with <code>sourceArray</code>, <code>byteOffset</code>, and <code>length</code>.
+ * @param {number} numberOfVertices 索引将引用的顶点数。
+ * @param {ArrayBuffer} sourceArray 传递给类型化数组构造函数。
+ * @param {number} byteOffset 传递给类型化数组构造函数。
+ * @param {number} length 传递给类型化数组构造函数。
+ * @returns {Uint16Array|Uint32Array} 使用 <code>sourceArray</code>、<code>byteOffset</code> 和 <code>length</code> 构造的 <code>Uint16Array</code> 或 <code>Uint32Array</code>。
  *
  */
 IndexDatatype.createTypedArrayFromArrayBuffer = function (
@@ -173,10 +173,10 @@ IndexDatatype.createTypedArrayFromArrayBuffer = function (
 };
 
 /**
- * Gets the {@link IndexDatatype} for the provided TypedArray instance.
+ * 获取提供的 TypedArray 实例的 {@link IndexDatatype}。
  *
- * @param {Uint8Array|Uint16Array|Uint32Array} array The typed array.
- * @returns {IndexDatatype} The IndexDatatype for the provided array, or undefined if the array is not a Uint8Array, Uint16Array, or Uint32Array.
+ * @param {Uint8Array|Uint16Array|uint32Array} array 类型化数组。
+ * @returns {IndexDatatype} 所提供数组的 IndexDatatype，如果数组不是 Uint8Array、Uint16Array 或 Uint32Array，则为 undefined。
  */
 IndexDatatype.fromTypedArray = function (array) {
   if (array instanceof Uint8Array) {

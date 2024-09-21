@@ -1,9 +1,9 @@
 /**
- * A structure containing the orientation data computed at a particular time. The data
- * represents the direction of the pole of rotation and the rotation about that pole.
+ * 包含在特定时间计算的取向数据的结构体。 数据
+ * 表示旋转极点的方向和围绕该极点的旋转。
  * <p>
- * These parameters correspond to the parameters in the Report from the IAU/IAG Working Group
- * except that they are expressed in radians.
+ * 这些参数对应于 IAU/IAG 工作组报告中的参数
+ * 只是它们以弧度表示。
  * </p>
  *
  * @namespace IauOrientationParameters
@@ -17,8 +17,8 @@ function IauOrientationParameters(
   rotationRate
 ) {
   /**
-   * The right ascension of the north pole of the body with respect to
-   * the International Celestial Reference Frame, in radians.
+   * 天体北极相对于
+   * 国际天体参考系，以弧度为单位。
    * @type {number}
    *
    * @private
@@ -26,8 +26,8 @@ function IauOrientationParameters(
   this.rightAscension = rightAscension;
 
   /**
-   * The declination of the north pole of the body with respect to
-   * the International Celestial Reference Frame, in radians.
+   * 物体北极相对于
+   * 国际天体参考系，以弧度为单位。
    * @type {number}
    *
    * @private
@@ -35,8 +35,8 @@ function IauOrientationParameters(
   this.declination = declination;
 
   /**
-   * The rotation about the north pole used to align a set of axes with
-   * the meridian defined by the IAU report, in radians.
+   * 用于对齐一组轴的绕北极的旋转
+   * IAU 报告定义的子午线，以弧度为单位。
    * @type {number}
    *
    * @private
@@ -44,7 +44,7 @@ function IauOrientationParameters(
   this.rotation = rotation;
 
   /**
-   * The instantaneous rotation rate about the north pole, in radians per second.
+   * 绕北极的瞬时旋转速率，以弧度/秒为单位。
    * @type {number}
    *
    * @private

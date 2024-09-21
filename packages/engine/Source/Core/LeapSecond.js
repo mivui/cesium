@@ -1,11 +1,11 @@
 /**
- * Describes a single leap second, which is constructed from a {@link JulianDate} and a
- * numerical offset representing the number of seconds TAI is ahead of the UTC time standard.
+ * 描述单个闰秒，它由 {@link JulianDate} 和
+ * 数字偏移量表示 TAI 领先于 UTC 时间标准的秒数。
  * @alias LeapSecond
  * @constructor
  *
- * @param {JulianDate} [date] A Julian date representing the time of the leap second.
- * @param {number} [offset] The cumulative number of seconds that TAI is ahead of UTC at the provided date.
+ * @param {JulianDate} [date] 表示闰秒时间的儒略日期。
+ * @param {number} [offset] TAI 在提供的日期领先于 UTC 的累计秒数。
  */
 function LeapSecond(date, offset) {
   /**
