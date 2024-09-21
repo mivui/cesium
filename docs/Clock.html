@@ -479,14 +479,7 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Create a clock that loops on Christmas day 2013 and runs in real-time.
-const clock = new Cesium.Clock({
-   startTime : Cesium.JulianDate.fromIso8601("2013-12-25"),
-   currentTime : Cesium.JulianDate.fromIso8601("2013-12-25"),
-   stopTime : Cesium.JulianDate.fromIso8601("2013-12-26"),
-   clockRange : Cesium.ClockRange.LOOP_STOP,
-   clockStep : Cesium.ClockStep.SYSTEM_CLOCK_MULTIPLIER
-});</code></pre>
+    <pre><code class="language-javascript">// Create a clock that loops on Christmas day 2013 and runs in real-time.const clock = new Cesium.Clock({   startTime : Cesium.JulianDate.fromIso8601("2013-12-25"),   currentTime : Cesium.JulianDate.fromIso8601("2013-12-25"),   stopTime : Cesium.JulianDate.fromIso8601("2013-12-26"),   clockRange : Cesium.ClockRange.LOOP_STOP,   clockStep : Cesium.ClockStep.SYSTEM_CLOCK_MULTIPLIER});</code></pre>
 
     
 
@@ -547,9 +540,7 @@ const clock = new Cesium.Clock({
 
 
 <div class="description">
-    Indicates whether <a href="Clock.html#tick"><code>Clock#tick</code></a> can advance time.  This could be false if data is being buffered,
-for example.  The clock will only advance time when both
-<a href="Clock.html#canAnimate"><code>Clock#canAnimate</code></a> and <a href="Clock.html#shouldAnimate"><code>Clock#shouldAnimate</code></a> are true.
+    Indicates whether <a href="Clock.html#tick"><code>Clock#tick</code></a> can advance time.  This could be false if data is being buffered,for example.  The clock will only advance time when both<a href="Clock.html#canAnimate"><code>Clock#canAnimate</code></a> and <a href="Clock.html#shouldAnimate"><code>Clock#shouldAnimate</code></a> are true.
 </div>
 
 
@@ -612,9 +603,7 @@ for example.  The clock will only advance time when both
 
 
 <div class="description">
-    Determines how the clock should behave when
-<a href="Clock.html#startTime"><code>Clock#startTime</code></a> or <a href="Clock.html#stopTime"><code>Clock#stopTime</code></a>
-is reached.
+    Determines how the clock should behave when<a href="Clock.html#startTime"><code>Clock#startTime</code></a> or <a href="Clock.html#stopTime"><code>Clock#stopTime</code></a>is reached.
 </div>
 
 
@@ -677,10 +666,7 @@ is reached.
 
 
 <div class="description">
-    Determines if calls to <a href="Clock.html#tick"><code>Clock#tick</code></a> are frame dependent or system clock dependent.
-Changing this property to <a href="global.html#ClockStep#.SYSTEM_CLOCK"><code>ClockStep.SYSTEM_CLOCK</code></a> will set
-<a href="Clock.html#multiplier"><code>Clock#multiplier</code></a> to 1.0, <a href="Clock.html#shouldAnimate"><code>Clock#shouldAnimate</code></a> to true, and
-<a href="Clock.html#currentTime"><code>Clock#currentTime</code></a> to the current system clock time.
+    Determines if calls to <a href="Clock.html#tick"><code>Clock#tick</code></a> are frame dependent or system clock dependent.Changing this property to <a href="global.html#ClockStep#.SYSTEM_CLOCK"><code>ClockStep.SYSTEM_CLOCK</code></a> will set<a href="Clock.html#multiplier"><code>Clock#multiplier</code></a> to 1.0, <a href="Clock.html#shouldAnimate"><code>Clock#shouldAnimate</code></a> to true, and<a href="Clock.html#currentTime"><code>Clock#currentTime</code></a> to the current system clock time.
 </div>
 
 
@@ -743,10 +729,7 @@ Changing this property to <a href="global.html#ClockStep#.SYSTEM_CLOCK"><code>Cl
 
 
 <div class="description">
-    The current time.
-Changing this property will change
-<a href="Clock.html#clockStep"><code>Clock#clockStep</code></a> from <a href="global.html#ClockStep#.SYSTEM_CLOCK"><code>ClockStep.SYSTEM_CLOCK</code></a> to
-<a href="global.html#ClockStep#.SYSTEM_CLOCK_MULTIPLIER"><code>ClockStep.SYSTEM_CLOCK_MULTIPLIER</code></a>.
+    The current time.Changing this property will change<a href="Clock.html#clockStep"><code>Clock#clockStep</code></a> from <a href="global.html#ClockStep#.SYSTEM_CLOCK"><code>ClockStep.SYSTEM_CLOCK</code></a> to<a href="global.html#ClockStep#.SYSTEM_CLOCK_MULTIPLIER"><code>ClockStep.SYSTEM_CLOCK_MULTIPLIER</code></a>.
 </div>
 
 
@@ -806,13 +789,7 @@ Changing this property will change
 
 
 <div class="description">
-    Gets or sets how much time advances when <a href="Clock.html#tick"><code>Clock#tick</code></a> is called. Negative values allow for advancing backwards.
-If <a href="Clock.html#clockStep"><code>Clock#clockStep</code></a> is set to <a href="global.html#ClockStep#.TICK_DEPENDENT"><code>ClockStep.TICK_DEPENDENT</code></a>, this is the number of seconds to advance.
-If <a href="Clock.html#clockStep"><code>Clock#clockStep</code></a> is set to <a href="global.html#ClockStep#.SYSTEM_CLOCK_MULTIPLIER"><code>ClockStep.SYSTEM_CLOCK_MULTIPLIER</code></a>, this value is multiplied by the
-elapsed system time since the last call to <a href="Clock.html#tick"><code>Clock#tick</code></a>.
-Changing this property will change
-<a href="Clock.html#clockStep"><code>Clock#clockStep</code></a> from <a href="global.html#ClockStep#.SYSTEM_CLOCK"><code>ClockStep.SYSTEM_CLOCK</code></a> to
-<a href="global.html#ClockStep#.SYSTEM_CLOCK_MULTIPLIER"><code>ClockStep.SYSTEM_CLOCK_MULTIPLIER</code></a>.
+    Gets or sets how much time advances when <a href="Clock.html#tick"><code>Clock#tick</code></a> is called. Negative values allow for advancing backwards.If <a href="Clock.html#clockStep"><code>Clock#clockStep</code></a> is set to <a href="global.html#ClockStep#.TICK_DEPENDENT"><code>ClockStep.TICK_DEPENDENT</code></a>, this is the number of seconds to advance.If <a href="Clock.html#clockStep"><code>Clock#clockStep</code></a> is set to <a href="global.html#ClockStep#.SYSTEM_CLOCK_MULTIPLIER"><code>ClockStep.SYSTEM_CLOCK_MULTIPLIER</code></a>, this value is multiplied by theelapsed system time since the last call to <a href="Clock.html#tick"><code>Clock#tick</code></a>.Changing this property will change<a href="Clock.html#clockStep"><code>Clock#clockStep</code></a> from <a href="global.html#ClockStep#.SYSTEM_CLOCK"><code>ClockStep.SYSTEM_CLOCK</code></a> to<a href="global.html#ClockStep#.SYSTEM_CLOCK_MULTIPLIER"><code>ClockStep.SYSTEM_CLOCK_MULTIPLIER</code></a>.
 </div>
 
 
@@ -995,12 +972,7 @@ Changing this property will change
 
 
 <div class="description">
-    Indicates whether <a href="Clock.html#tick"><code>Clock#tick</code></a> should attempt to advance time.
-The clock will only advance time when both
-<a href="Clock.html#canAnimate"><code>Clock#canAnimate</code></a> and <a href="Clock.html#shouldAnimate"><code>Clock#shouldAnimate</code></a> are true.
-Changing this property will change
-<a href="Clock.html#clockStep"><code>Clock#clockStep</code></a> from <a href="global.html#ClockStep#.SYSTEM_CLOCK"><code>ClockStep.SYSTEM_CLOCK</code></a> to
-<a href="global.html#ClockStep#.SYSTEM_CLOCK_MULTIPLIER"><code>ClockStep.SYSTEM_CLOCK_MULTIPLIER</code></a>.
+    Indicates whether <a href="Clock.html#tick"><code>Clock#tick</code></a> should attempt to advance time.The clock will only advance time when both<a href="Clock.html#canAnimate"><code>Clock#canAnimate</code></a> and <a href="Clock.html#shouldAnimate"><code>Clock#shouldAnimate</code></a> are true.Changing this property will change<a href="Clock.html#clockStep"><code>Clock#clockStep</code></a> from <a href="global.html#ClockStep#.SYSTEM_CLOCK"><code>ClockStep.SYSTEM_CLOCK</code></a> to<a href="global.html#ClockStep#.SYSTEM_CLOCK_MULTIPLIER"><code>ClockStep.SYSTEM_CLOCK_MULTIPLIER</code></a>.
 </div>
 
 
@@ -1190,9 +1162,7 @@ Changing this property will change
 
 
 <div class="description">
-    Advances the clock from the current time based on the current configuration options.
-tick should be called every frame, regardless of whether animation is taking place
-or not.  To control animation, use the <a href="Clock.html#shouldAnimate"><code>Clock#shouldAnimate</code></a> property.
+    Advances the clock from the current time based on the current configuration options.tick should be called every frame, regardless of whether animation is taking placeor not.  To control animation, use the <a href="Clock.html#shouldAnimate"><code>Clock#shouldAnimate</code></a> property.
 </div>
 
 

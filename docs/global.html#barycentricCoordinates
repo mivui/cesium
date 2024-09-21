@@ -47,7 +47,7 @@
 
 
         
-            <div class="description">Computes the barycentric coordinates for a point with respect to a triangle.</div>
+            <div class="description">计算一个点相对于一个三角形的质心坐标。</div>
         
 
         

@@ -58,10 +58,7 @@
 
 
 <div class="description">
-    Specifies a set of clipping polygons. Clipping polygons selectively disable rendering in a region
-inside or outside the specified list of <a href="ClippingPolygon.html"><code>ClippingPolygon</code></a> objects for a single glTF model, 3D Tileset, or the globe.
-
-Clipping Polygons are only supported in WebGL 2 contexts.
+    Specifies a set of clipping polygons. Clipping polygons selectively disable rendering in a regioninside or outside the specified list of <a href="ClippingPolygon.html"><code>ClippingPolygon</code></a> objects for a single glTF model, 3D Tileset, or the globe.Clipping Polygons are only supported in WebGL 2 contexts.
 </div>
 
 
@@ -294,26 +291,7 @@ Clipping Polygons are only supported in WebGL 2 contexts.
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const positions = Cesium.Cartesian3.fromRadiansArray([
-    -1.3194369277314022,
-    0.6988062530900625,
-    -1.31941,
-    0.69879,
-    -1.3193955980204217,
-    0.6988091578771254,
-    -1.3193931220959367,
-    0.698743632490865,
-    -1.3194358224045408,
-    0.6987471965556998,
-]);
-
-const polygon = new Cesium.ClippingPolygon({
-    positions: positions
-});
-
-const polygons = new Cesium.ClippingPolygonCollection({
-   polygons: [ polygon ]
-});</code></pre>
+    <pre><code class="language-javascript">const positions = Cesium.Cartesian3.fromRadiansArray([    -1.3194369277314022,    0.6988062530900625,    -1.31941,    0.69879,    -1.3193955980204217,    0.6988091578771254,    -1.3193931220959367,    0.698743632490865,    -1.3194358224045408,    0.6987471965556998,]);const polygon = new Cesium.ClippingPolygon({    positions: positions});const polygons = new Cesium.ClippingPolygonCollection({   polygons: [ polygon ]});</code></pre>
 
     
 
@@ -365,9 +343,7 @@ const polygons = new Cesium.ClippingPolygonCollection({
 
 
 <div class="description">
-    Returns the number of polygons in this collection.  This is commonly used with
-<a href="ClippingPolygonCollection.html#get"><code>ClippingPolygonCollection#get</code></a> to iterate over all the polygons
-in the collection.
+    Returns the number of polygons in this collection.  This is commonly used with<a href="ClippingPolygonCollection.html#get"><code>ClippingPolygonCollection#get</code></a> to iterate over all the polygonsin the collection.
 </div>
 
 
@@ -427,8 +403,7 @@ in the collection.
 
 
 <div class="description">
-    An event triggered when a new clipping polygon is added to the collection.  Event handlers
-are passed the new polygon and the index at which it was added.
+    An event triggered when a new clipping polygon is added to the collection.  Event handlersare passed the new polygon and the index at which it was added.
 </div>
 
 
@@ -491,8 +466,7 @@ are passed the new polygon and the index at which it was added.
 
 
 <div class="description">
-    An event triggered when a new clipping polygon is removed from the collection.  Event handlers
-are passed the new polygon and the index from which it was removed.
+    An event triggered when a new clipping polygon is removed from the collection.  Event handlersare passed the new polygon and the index from which it was removed.
 </div>
 
 
@@ -700,9 +674,7 @@ are passed the new polygon and the index from which it was removed.
 
 
 <div class="description">
-    Adds the specified <a href="ClippingPolygon.html"><code>ClippingPolygon</code></a> to the collection to be used to selectively disable rendering
-on the inside of each polygon. Use <code>ClippingPolygonCollection#unionClippingRegions</code> to modify
-how modify the clipping behavior of multiple polygons.
+    Adds the specified <a href="ClippingPolygon.html"><code>ClippingPolygon</code></a> to the collection to be used to selectively disable renderingon the inside of each polygon. Use <code>ClippingPolygonCollection#unionClippingRegions</code> to modifyhow modify the clipping behavior of multiple polygons.
 </div>
 
 
@@ -805,24 +777,7 @@ how modify the clipping behavior of multiple polygons.
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const polygons = new Cesium.ClippingPolygonCollection();
-
-const positions = Cesium.Cartesian3.fromRadiansArray([
-    -1.3194369277314022,
-    0.6988062530900625,
-    -1.31941,
-    0.69879,
-    -1.3193955980204217,
-    0.6988091578771254,
-    -1.3193931220959367,
-    0.698743632490865,
-    -1.3194358224045408,
-    0.6987471965556998,
-]);
-
-polygons.add(new Cesium.ClippingPolygon({
-    positions: positions
-}));</code></pre>
+    <pre><code class="language-javascript">const polygons = new Cesium.ClippingPolygonCollection();const positions = Cesium.Cartesian3.fromRadiansArray([    -1.3194369277314022,    0.6988062530900625,    -1.31941,    0.69879,    -1.3193955980204217,    0.6988091578771254,    -1.3193931220959367,    0.698743632490865,    -1.3194358224045408,    0.6987471965556998,]);polygons.add(new Cesium.ClippingPolygon({    positions: positions}));</code></pre>
 
     
 
@@ -938,7 +893,7 @@ polygons.add(new Cesium.ClippingPolygon({
 
         
 <div class="param-desc">
-    true if this collection contains the ClippingPolygon, false otherwise.
+    true if this collection contains the ClippingPolygon, false 否则。
 </div>
 
 
@@ -1006,12 +961,7 @@ polygons.add(new Cesium.ClippingPolygon({
 
 
 <div class="description">
-    Destroys the WebGL resources held by this object.  Destroying an object allows for deterministic
-release of WebGL resources, instead of relying on the garbage collector to destroy this object.
-<br /><br />
-Once an object is destroyed, it should not be used; calling any function other than
-<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.  Therefore,
-assign the return value (<code>undefined</code>) to the object as done in the example.
+    Destroys the WebGL resources held by this object.  Destroying an object allows for deterministicrelease of WebGL resources, instead of relying on the garbage collector to destroy this object.<br /><br />Once an object is destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.  Therefore,assign the return value (<code>undefined</code>) to the object as done in the example.
 </div>
 
 
@@ -1116,11 +1066,7 @@ assign the return value (<code>undefined</code>) to the object as done in the ex
 
 
 <div class="description">
-    Returns the clipping polygon in the collection at the specified index.  Indices are zero-based
-and increase as polygons are added.  Removing a polygon polygon all polygons after
-it to the left, changing their indices.  This function is commonly used with
-<a href="ClippingPolygonCollection.html#length"><code>ClippingPolygonCollection#length</code></a> to iterate over all the polygons
-in the collection.
+    Returns the clipping polygon in the collection at the specified index.  Indices are zero-basedand increase as polygons are added.  Removing a polygon polygon all polygons afterit to the left, changing their indices.  This function is commonly used with<a href="ClippingPolygonCollection.html#length"><code>ClippingPolygonCollection#length</code></a> to iterate over all the polygonsin the collection.
 </div>
 
 
@@ -1260,10 +1206,7 @@ in the collection.
 
 
 <div class="description">
-    Returns true if this object was destroyed; otherwise, false.
-<br /><br />
-If this object was destroyed, it should not be used; calling any function other than
-<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.
+    Returns true if this object was destroyed; otherwise, false.<br /><br />If this object was destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.
 </div>
 
 

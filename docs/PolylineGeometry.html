@@ -58,9 +58,7 @@
 
 
 <div class="description">
-    A description of a polyline modeled as a line strip; the first two positions define a line segment,
-and each additional position defines a line segment from the previous position. The polyline is capable of
-displaying with a material.
+    A description of a polyline modeled as a line strip; the first two positions define a line segment,and each additional position defines a line segment from the previous position. The polyline is capable ofdisplaying with a material.
 </div>
 
 
@@ -375,7 +373,7 @@ displaying with a material.
 
                 
             
-                The vertex attributes to be computed.</td>
+                要计算的顶点属性。</td>
         </tr>
 
     
@@ -496,16 +494,7 @@ displaying with a material.
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// A polyline with two connected line segments
-const polyline = new Cesium.PolylineGeometry({
-  positions : Cesium.Cartesian3.fromDegreesArray([
-    0.0, 0.0,
-    5.0, 0.0,
-    5.0, 5.0
-  ]),
-  width : 10.0
-});
-const geometry = Cesium.PolylineGeometry.createGeometry(polyline);</code></pre>
+    <pre><code class="language-javascript">// A polyline with two connected line segmentsconst polyline = new Cesium.PolylineGeometry({  positions : Cesium.Cartesian3.fromDegreesArray([    0.0, 0.0,    5.0, 0.0,    5.0, 5.0  ]),  width : 10.0});const geometry = Cesium.PolylineGeometry.createGeometry(polyline);</code></pre>
 
     
 
@@ -567,7 +556,7 @@ const geometry = Cesium.PolylineGeometry.createGeometry(polyline);</code></pre>
 
 
 <div class="description">
-    The number of elements used to pack the object into an array.
+    用于将对象打包到数组中的元素数量。
 </div>
 
 
@@ -706,7 +695,7 @@ const geometry = Cesium.PolylineGeometry.createGeometry(polyline);</code></pre>
 
         
 <div class="param-desc">
-    The computed vertices and indices.
+    计算的顶点和索引。
 </div>
 
 
@@ -769,7 +758,7 @@ const geometry = Cesium.PolylineGeometry.createGeometry(polyline);</code></pre>
 
 
 <div class="description">
-    Stores the provided instance into the provided array.
+    将提供的实例存储到提供的数组中。
 </div>
 
 
@@ -831,7 +820,7 @@ const geometry = Cesium.PolylineGeometry.createGeometry(polyline);</code></pre>
 
                 
             
-                The value to pack.</td>
+                要打包的值。</td>
         </tr>
 
     
@@ -863,7 +852,7 @@ const geometry = Cesium.PolylineGeometry.createGeometry(polyline);</code></pre>
 
                 
             
-                The array to pack into.</td>
+                要装入的数组。</td>
         </tr>
 
     
@@ -899,7 +888,7 @@ const geometry = Cesium.PolylineGeometry.createGeometry(polyline);</code></pre>
 
                 
             
-                The index into the array at which to start packing the elements.</td>
+                开始打包元素的数组的索引。</td>
         </tr>
 
     
@@ -920,7 +909,7 @@ const geometry = Cesium.PolylineGeometry.createGeometry(polyline);</code></pre>
 
         
 <div class="param-desc">
-    The array that was packed into
+    被装入的数组
 </div>
 
 
@@ -983,7 +972,7 @@ const geometry = Cesium.PolylineGeometry.createGeometry(polyline);</code></pre>
 
 
 <div class="description">
-    Retrieves an instance from a packed array.
+    从打包数组中检索实例。
 </div>
 
 
@@ -1045,7 +1034,7 @@ const geometry = Cesium.PolylineGeometry.createGeometry(polyline);</code></pre>
 
                 
             
-                The packed array.</td>
+                打包数组。</td>
         </tr>
 
     
@@ -1081,7 +1070,7 @@ const geometry = Cesium.PolylineGeometry.createGeometry(polyline);</code></pre>
 
                 
             
-                The starting index of the element to be unpacked.</td>
+                要解压缩的元素的起始索引。</td>
         </tr>
 
     
@@ -1115,7 +1104,7 @@ const geometry = Cesium.PolylineGeometry.createGeometry(polyline);</code></pre>
 
                 
             
-                The object into which to store the result.</td>
+                要在其中存储结果的对象。</td>
         </tr>
 
     
@@ -1136,7 +1125,7 @@ const geometry = Cesium.PolylineGeometry.createGeometry(polyline);</code></pre>
 
         
 <div class="param-desc">
-    The modified result parameter or a new PolylineGeometry instance if one was not provided.
+    修改后的结果参数 or a new PolylineGeometry instance if one was not provided.
 </div>
 
 

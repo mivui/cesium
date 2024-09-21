@@ -58,7 +58,7 @@
 
 
 <div class="description">
-    A position defined by longitude, latitude, and height.
+    由经度、纬度和高度定义的位置。
 </div>
 
 
@@ -124,7 +124,7 @@
 
                 
             
-                The longitude, in radians.</td>
+                经度，以弧度为单位.</td>
         </tr>
 
     
@@ -160,7 +160,7 @@
 
                 
             
-                The latitude, in radians.</td>
+                纬度，以弧度为单位.</td>
         </tr>
 
     
@@ -196,7 +196,7 @@
 
                 
             
-                The height, in meters, above the ellipsoid.</td>
+                椭球体上方的高度，单位为米。</td>
         </tr>
 
     
@@ -291,7 +291,7 @@
 
 
 <div class="description">
-    An immutable Cartographic instance initialized to (0.0, 0.0, 0.0).
+    初始化为。的不可变Cartographic 实例 (0.0, 0.0, 0.0).
 </div>
 
 
@@ -351,7 +351,7 @@
 
 
 <div class="description">
-    The height, in meters, above the ellipsoid.
+    椭球体上方的高度，单位为米。
 </div>
 
 
@@ -414,7 +414,7 @@
 
 
 <div class="description">
-    The latitude, in radians.
+    纬度，以弧度为单位.
 </div>
 
 
@@ -477,7 +477,7 @@
 
 
 <div class="description">
-    The longitude, in radians.
+    经度，以弧度为单位.
 </div>
 
 
@@ -547,7 +547,7 @@
 
 
 <div class="description">
-    Duplicates a Cartographic instance.
+    复制Cartographic instance.
 </div>
 
 
@@ -603,7 +603,7 @@
 
                 
             
-                The cartographic to duplicate.</td>
+                要复制的Cartographic。</td>
         </tr>
 
     
@@ -633,7 +633,7 @@
 
                 
             
-                The object onto which to store the result.</td>
+                要在其上存储结果的对象。</td>
         </tr>
 
     
@@ -654,7 +654,7 @@
 
         
 <div class="param-desc">
-    The modified result parameter or a new Cartographic instance if one was not provided. (Returns undefined if cartographic is undefined)
+    修改后的结果参数 或新的Cartographic实例(如果没有提供的话)。 (如果cartographic未定义则返回未定义)
 </div>
 
 
@@ -717,7 +717,7 @@
 
 
 <div class="description">
-    Compares the provided cartographics componentwise and returns<code>true</code> if they are equal, <code>false</code> otherwise.
+    比较所提供的地图组件并返回<code>true</code>，否则为<code>false</code>。
 </div>
 
 
@@ -775,7 +775,7 @@
 
                 
             
-                The first cartographic.</td>
+                第一个cartographic.</td>
         </tr>
 
     
@@ -805,7 +805,7 @@
 
                 
             
-                The second cartographic.</td>
+                第二个 cartographic.</td>
         </tr>
 
     
@@ -826,7 +826,7 @@
 
         
 <div class="param-desc">
-    <code>true</code> if left and right are equal, <code>false</code> otherwise.
+    <code>true</code>如果左和右相等，否则<code>false</code>。
 </div>
 
 
@@ -889,7 +889,7 @@
 
 
 <div class="description">
-    Compares the provided cartographics componentwise and returns<code>true</code> if they are within the provided epsilon,<code>false</code> otherwise.
+    比较所提供的地图组件并返回<code>true</code> 如果它们在给定的范围内，<code>false</code> 否则。
 </div>
 
 
@@ -953,7 +953,7 @@
 
                 
             
-                The first cartographic.</td>
+                第一个cartographic.</td>
         </tr>
 
     
@@ -987,7 +987,7 @@
 
                 
             
-                The second cartographic.</td>
+                第二个 cartographic.</td>
         </tr>
 
     
@@ -1023,7 +1023,7 @@
 
                 
             
-                The epsilon to use for equality testing.</td>
+                用来检验等式。</td>
         </tr>
 
     
@@ -1044,7 +1044,7 @@
 
         
 <div class="param-desc">
-    <code>true</code> if left and right are within the provided epsilon, <code>false</code> otherwise.
+    <code>true</code>如果左和右在提供的epsilon内，<code>false</code>否则。
 </div>
 
 
@@ -1107,7 +1107,7 @@
 
 
 <div class="description">
-    Creates a new Cartographic instance from a Cartesian position. The values in theresulting object will be in radians.
+    从笛卡尔位置创建一个新的Cartographic实例。中的值结果对象将以弧度为单位。
 </div>
 
 
@@ -1169,7 +1169,7 @@
 
                 
             
-                The Cartesian position to convert to cartographic representation.</td>
+                要转换为地图表示法的笛卡尔位置。</td>
         </tr>
 
     
@@ -1205,7 +1205,7 @@
 
                 
             
-                The ellipsoid on which the position lies.</td>
+                位置所在的椭球体。</td>
         </tr>
 
     
@@ -1239,7 +1239,7 @@
 
                 
             
-                The object onto which to store the result.</td>
+                要在其上存储结果的对象。</td>
         </tr>
 
     
@@ -1260,7 +1260,7 @@
 
         
 <div class="param-desc">
-    The modified result parameter, new Cartographic instance if none was provided, or undefined if the cartesian is at the center of the ellipsoid.
+    修改后的结果参数, 如果没有提供，则为新的Cartographic实例;如果直角坐标位于椭球体的中心，则为未定义的。
 </div>
 
 
@@ -1323,7 +1323,7 @@
 
 
 <div class="description">
-    Creates a new Cartographic instance from longitude and latitudespecified in degrees.  The values in the resulting object willbe in radians.
+    根据经度和纬度创建新的Cartographic实例以度数指定。结果对象中的值将以弧度为单位。
 </div>
 
 
@@ -1385,7 +1385,7 @@
 
                 
             
-                The longitude, in degrees.</td>
+                经度，以度为单位。</td>
         </tr>
 
     
@@ -1417,7 +1417,7 @@
 
                 
             
-                The latitude, in degrees.</td>
+                纬度，以度为单位.</td>
         </tr>
 
     
@@ -1453,7 +1453,7 @@
 
                 
             
-                The height, in meters, above the ellipsoid.</td>
+                椭球体上方的高度，单位为米。</td>
         </tr>
 
     
@@ -1487,7 +1487,7 @@
 
                 
             
-                The object onto which to store the result.</td>
+                要在其上存储结果的对象。</td>
         </tr>
 
     
@@ -1508,7 +1508,7 @@
 
         
 <div class="param-desc">
-    The modified result parameter or a new Cartographic instance if one was not provided.
+    修改后的结果参数 或新的Cartographic实例(如果没有提供的话)。
 </div>
 
 
@@ -1571,7 +1571,7 @@
 
 
 <div class="description">
-    Creates a new Cartographic instance from longitude and latitudespecified in radians.
+    根据经度和纬度创建新的Cartographic实例以弧度指定。
 </div>
 
 
@@ -1633,7 +1633,7 @@
 
                 
             
-                The longitude, in radians.</td>
+                经度，以弧度为单位.</td>
         </tr>
 
     
@@ -1665,7 +1665,7 @@
 
                 
             
-                The latitude, in radians.</td>
+                纬度，以弧度为单位.</td>
         </tr>
 
     
@@ -1701,7 +1701,7 @@
 
                 
             
-                The height, in meters, above the ellipsoid.</td>
+                椭球体上方的高度，单位为米。</td>
         </tr>
 
     
@@ -1735,7 +1735,7 @@
 
                 
             
-                The object onto which to store the result.</td>
+                要在其上存储结果的对象。</td>
         </tr>
 
     
@@ -1756,7 +1756,7 @@
 
         
 <div class="param-desc">
-    The modified result parameter or a new Cartographic instance if one was not provided.
+    修改后的结果参数 或新的Cartographic实例(如果没有提供的话)。
 </div>
 
 
@@ -1819,7 +1819,7 @@
 
 
 <div class="description">
-    Creates a new Cartesian3 instance from a Cartographic input. The values in the inputtedobject should be in radians.
+    从一个制图输入创建一个新的Cartesian3实例。输入的值物体应该以弧度为单位。
 </div>
 
 
@@ -1881,7 +1881,7 @@
 
                 
             
-                Input to be converted into a Cartesian3 output.</td>
+                将输入转换为笛卡尔输出。</td>
         </tr>
 
     
@@ -1917,7 +1917,7 @@
 
                 
             
-                The ellipsoid on which the position lies.</td>
+                位置所在的椭球体。</td>
         </tr>
 
     
@@ -1951,7 +1951,7 @@
 
                 
             
-                The object onto which to store the result.</td>
+                要在其上存储结果的对象。</td>
         </tr>
 
     
@@ -1972,7 +1972,7 @@
 
         
 <div class="param-desc">
-    The position
+    位置
 </div>
 
 
@@ -2035,7 +2035,7 @@
 
 
 <div class="description">
-    Duplicates this instance.
+    复制instance.
 </div>
 
 
@@ -2093,7 +2093,7 @@
 
                 
             
-                The object onto which to store the result.</td>
+                要在其上存储结果的对象。</td>
         </tr>
 
     
@@ -2114,7 +2114,7 @@
 
         
 <div class="param-desc">
-    The modified result parameter or a new Cartographic instance if one was not provided.
+    修改后的结果参数 或新的Cartographic实例(如果没有提供的话)。
 </div>
 
 
@@ -2177,7 +2177,7 @@
 
 
 <div class="description">
-    Compares the provided against this cartographic componentwise and returns<code>true</code> if they are equal, <code>false</code> otherwise.
+    将所提供的与此cartographic 组件进行比较并返回<code>true</code>，否则为<code>false</code>。
 </div>
 
 
@@ -2235,7 +2235,7 @@
 
                 
             
-                The second cartographic.</td>
+                第二个 cartographic.</td>
         </tr>
 
     
@@ -2256,7 +2256,7 @@
 
         
 <div class="param-desc">
-    <code>true</code> if left and right are equal, <code>false</code> otherwise.
+    <code>true</code>如果左和右相等，否则<code>false</code>。
 </div>
 
 
@@ -2319,7 +2319,7 @@
 
 
 <div class="description">
-    Compares the provided against this cartographic componentwise and returns<code>true</code> if they are within the provided epsilon,<code>false</code> otherwise.
+    将所提供的与此cartographic 组件进行比较并返回<code>true</code> 如果它们在给定的范围内，<code>false</code> 否则。
 </div>
 
 
@@ -2383,7 +2383,7 @@
 
                 
             
-                The second cartographic.</td>
+                第二个 cartographic.</td>
         </tr>
 
     
@@ -2419,7 +2419,7 @@
 
                 
             
-                The epsilon to use for equality testing.</td>
+                用来检验等式。</td>
         </tr>
 
     
@@ -2440,7 +2440,7 @@
 
         
 <div class="param-desc">
-    <code>true</code> if left and right are within the provided epsilon, <code>false</code> otherwise.
+    <code>true</code>如果左和右在提供的epsilon内，<code>false</code>否则。
 </div>
 
 
@@ -2503,7 +2503,7 @@
 
 
 <div class="description">
-    Creates a string representing this cartographic in the format '(longitude, latitude, height)'.
+    以'(经度，纬度，高度)'的格式创建表示此Cartographic的字符串。
 </div>
 
 
@@ -2530,7 +2530,7 @@
 
         
 <div class="param-desc">
-    A string representing the provided cartographic in the format '(longitude, latitude, height)'.
+    表示所提供Cartographic的字符串，格式为'(经度，纬度，高度)'。
 </div>
 
 

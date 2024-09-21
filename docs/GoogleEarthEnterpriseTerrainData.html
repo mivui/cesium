@@ -259,17 +259,7 @@
 
                 
             
-                A bit mask indicating which of this tile's four children exist.
-                If a child's bit is set, geometry will be requested for that tile as well when it
-                is needed.  If the bit is cleared, the child tile is not requested and geometry is
-                instead upsampled from the parent.  The bit values are as follows:
-                <table>
-                 <tr><th>Bit Position</th><th>Bit Value</th><th>Child Tile</th></tr>
-                 <tr><td>0</td><td>1</td><td>Southwest</td></tr>
-                 <tr><td>1</td><td>2</td><td>Southeast</td></tr>
-                 <tr><td>2</td><td>4</td><td>Northeast</td></tr>
-                 <tr><td>3</td><td>8</td><td>Northwest</td></tr>
-                </table></td>
+                A bit mask indicating which of this tile's four children exist.                If a child's bit is set, geometry will be requested for that tile as well when it                is needed.  If the bit is cleared, the child tile is not requested and geometry is                instead upsampled from the parent.  The bit values are as follows:                <table>                 <tr><th>Bit Position</th><th>Bit Value</th><th>Child Tile</th></tr>                 <tr><td>0</td><td>1</td><td>Southwest</td></tr>                 <tr><td>1</td><td>2</td><td>Southeast</td></tr>                 <tr><td>2</td><td>4</td><td>Northeast</td></tr>                 <tr><td>3</td><td>8</td><td>Northwest</td></tr>                </table></td>
         </tr>
 
     
@@ -305,8 +295,7 @@
 
                 
             
-                True if this instance was created by upsampling another instance;
-                 otherwise, false.</td>
+                True if this instance was created by upsampling another instance;                 otherwise, false.</td>
         </tr>
 
     
@@ -389,12 +378,7 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const buffer = ...
-const childTileMask = ...
-const terrainData = new Cesium.GoogleEarthEnterpriseTerrainData({
-  buffer : heightBuffer,
-  childTileMask : childTileMask
-});</code></pre>
+    <pre><code class="language-javascript">const buffer = ...const childTileMask = ...const terrainData = new Cesium.GoogleEarthEnterpriseTerrainData({  buffer : heightBuffer,  childTileMask : childTileMask});</code></pre>
 
     
 
@@ -515,9 +499,7 @@ const terrainData = new Cesium.GoogleEarthEnterpriseTerrainData({
 
 
 <div class="description">
-    The water mask included in this terrain data, if any.  A water mask is a rectangular
-Uint8Array or image where a value of 255 indicates water and a value of 0 indicates land.
-Values in between 0 and 255 are allowed as well to smoothly blend between land and water.
+    The water mask included in this terrain data, if any.  A water mask is a rectangularUint8Array or image where a value of 255 indicates water and a value of 0 indicates land.Values in between 0 and 255 are allowed as well to smoothly blend between land and water.
 </div>
 
 
@@ -702,9 +684,7 @@ Values in between 0 and 255 are allowed as well to smoothly blend between land a
 
         
 <div class="param-desc">
-    The terrain height at the specified position.  If the position
-         is outside the rectangle, this method will extrapolate the height, which is likely to be wildly
-         incorrect for positions far outside the rectangle.
+    The terrain height at the specified position.  If the position         is outside the rectangle, this method will extrapolate the height, which is likely to be wildly         incorrect for positions far outside the rectangle.
 </div>
 
 
@@ -767,10 +747,7 @@ Values in between 0 and 255 are allowed as well to smoothly blend between land a
 
 
 <div class="description">
-    Determines if a given child tile is available, based on the
-<code>HeightmapTerrainData.childTileMask</code>.  The given child tile coordinates are assumed
-to be one of the four children of this tile.  If non-child tile coordinates are
-given, the availability of the southeast child tile is returned.
+    Determines if a given child tile is available, based on the<code>HeightmapTerrainData.childTileMask</code>.  The given child tile coordinates are assumedto be one of the four children of this tile.  If non-child tile coordinates aregiven, the availability of the southeast child tile is returned.
 </div>
 
 
@@ -974,8 +951,7 @@ given, the availability of the southeast child tile is returned.
 
 
 <div class="description">
-    Upsamples this terrain data for use by a descendant tile.  The resulting instance will contain a subset of the
-height samples in this instance, interpolated if necessary.
+    Upsamples this terrain data for use by a descendant tile.  The resulting instance will contain a subset of theheight samples in this instance, interpolated if necessary.
 </div>
 
 
@@ -1185,9 +1161,7 @@ height samples in this instance, interpolated if necessary.
 
         
 <div class="param-desc">
-    A promise for upsampled heightmap terrain data for the descendant tile,
-         or undefined if too many asynchronous upsample operations are in progress and the request has been
-         deferred.
+    A promise for upsampled heightmap terrain data for the descendant tile,         or undefined if too many asynchronous upsample operations are in progress and the request has been         deferred.
 </div>
 
 
@@ -1250,10 +1224,7 @@ height samples in this instance, interpolated if necessary.
 
 
 <div class="description">
-    Gets a value indicating whether or not this terrain data was created by upsampling lower resolution
-terrain data.  If this value is false, the data was obtained from some other source, such
-as by downloading it from a remote server.  This method should return true for instances
-returned from a call to <a href="HeightmapTerrainData.html#upsample"><code>HeightmapTerrainData#upsample</code></a>.
+    Gets a value indicating whether or not this terrain data was created by upsampling lower resolutionterrain data.  If this value is false, the data was obtained from some other source, suchas by downloading it from a remote server.  This method should return true for instancesreturned from a call to <a href="HeightmapTerrainData.html#upsample"><code>HeightmapTerrainData#upsample</code></a>.
 </div>
 
 

@@ -486,7 +486,7 @@
 
 
 <div class="description">
-    Duplicates a Stereographic instance.
+    复制Stereographic instance.
 </div>
 
 
@@ -572,7 +572,7 @@
 
                 
             
-                The object onto which to store the result.</td>
+                要在其上存储结果的对象。</td>
         </tr>
 
     
@@ -593,7 +593,7 @@
 
         
 <div class="param-desc">
-    The modified result parameter or a new Stereographic instance if one was not provided. (Returns undefined if stereographic is undefined)
+    修改后的结果参数 or a new Stereographic instance if one was not provided. (Returns undefined if stereographic is undefined)
 </div>
 
 
@@ -742,7 +742,7 @@
 
                 
             
-                The object onto which to store the result.</td>
+                要在其上存储结果的对象。</td>
         </tr>
 
     
@@ -763,7 +763,7 @@
 
         
 <div class="param-desc">
-    The modified result parameter or a new Sterographic instance if none was provided.
+    修改后的结果参数 or a new Sterographic instance if none was provided.
 </div>
 
 
@@ -912,7 +912,7 @@
 
                 
             
-                The object onto which to store the result.</td>
+                要在其上存储结果的对象。</td>
         </tr>
 
     
@@ -933,7 +933,7 @@
 
         
 <div class="param-desc">
-    The modified result parameter or a new Sterographic instance if none was provided.
+    修改后的结果参数 or a new Sterographic instance if none was provided.
 </div>
 
 

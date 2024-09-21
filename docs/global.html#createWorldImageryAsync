@@ -73,21 +73,9 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Create a Cesium World Imagery base layer with default settings
-try {
-  const imageryProvider = await Cesium.createWorldImageryAsync();
-} catch (error) {
-  console.log(`There was an error creating world imagery: ${error}`);
-}</code></pre>
+    <pre><code class="language-javascript">// Create a Cesium World Imagery base layer with default settingstry {  const imageryProvider = await Cesium.createWorldImageryAsync();} catch (error) {  console.log(`There was an error creating world imagery: ${error}`);}</code></pre>
 
-    <pre><code class="language-javascript">// Create Cesium World Imagery with different style
-try {
-  const imageryProvider = await Cesium.createWorldImageryAsync({
-        style: Cesium.IonWorldImageryStyle.AERIAL_WITH_LABELS
-  });
-} catch (error) {
-  console.log(`There was an error creating world imagery: ${error}`);
-}</code></pre>
+    <pre><code class="language-javascript">// Create Cesium World Imagery with different styletry {  const imageryProvider = await Cesium.createWorldImageryAsync({        style: Cesium.IonWorldImageryStyle.AERIAL_WITH_LABELS  });} catch (error) {  console.log(`There was an error creating world imagery: ${error}`);}</code></pre>
 
     
 

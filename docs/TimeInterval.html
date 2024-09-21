@@ -58,8 +58,7 @@
 
 
 <div class="description">
-    An interval defined by a start and a stop time; optionally including those times as part of the interval.
-Arbitrary data can optionally be associated with each instance for used with <a href="TimeIntervalCollection.html"><code>TimeIntervalCollection</code></a>.
+    An interval defined by a start and a stop time; optionally including those times as part of the interval.Arbitrary data can optionally be associated with each instance for used with <a href="TimeIntervalCollection.html"><code>TimeIntervalCollection</code></a>.
 </div>
 
 
@@ -243,7 +242,7 @@ Arbitrary data can optionally be associated with each instance for used with <a 
 
                 
             
-                <code>true</code> if <code>options.start</code> is included in the interval, <code>false</code> otherwise.</td>
+                <code>true</code> if <code>options.start</code> is included in the interval, <code>false</code> 否则。</td>
         </tr>
 
     
@@ -279,7 +278,7 @@ Arbitrary data can optionally be associated with each instance for used with <a 
 
                 
             
-                <code>true</code> if <code>options.stop</code> is included in the interval, <code>false</code> otherwise.</td>
+                <code>true</code> if <code>options.stop</code> is included in the interval, <code>false</code> 否则。</td>
         </tr>
 
     
@@ -362,41 +361,11 @@ Arbitrary data can optionally be associated with each instance for used with <a 
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Create an instance that spans August 1st, 1980 and is associated
-// with a Cartesian position.
-const timeInterval = new Cesium.TimeInterval({
-    start : Cesium.JulianDate.fromIso8601('1980-08-01T00:00:00Z'),
-    stop : Cesium.JulianDate.fromIso8601('1980-08-02T00:00:00Z'),
-    isStartIncluded : true,
-    isStopIncluded : false,
-    data : Cesium.Cartesian3.fromDegrees(39.921037, -75.170082)
-});</code></pre>
+    <pre><code class="language-javascript">// Create an instance that spans August 1st, 1980 and is associated// with a Cartesian position.const timeInterval = new Cesium.TimeInterval({    start : Cesium.JulianDate.fromIso8601('1980-08-01T00:00:00Z'),    stop : Cesium.JulianDate.fromIso8601('1980-08-02T00:00:00Z'),    isStartIncluded : true,    isStopIncluded : false,    data : Cesium.Cartesian3.fromDegrees(39.921037, -75.170082)});</code></pre>
 
-    <pre><code class="language-javascript">// Create two instances from ISO 8601 intervals with associated numeric data
-// then compute their intersection, summing the data they contain.
-const left = Cesium.TimeInterval.fromIso8601({
-    iso8601 : '2000/2010',
-    data : 2
-});
+    <pre><code class="language-javascript">// Create two instances from ISO 8601 intervals with associated numeric data// then compute their intersection, summing the data they contain.const left = Cesium.TimeInterval.fromIso8601({    iso8601 : '2000/2010',    data : 2});const right = Cesium.TimeInterval.fromIso8601({    iso8601 : '1995/2005',    data : 3});//The result of the below intersection will be an interval equivalent to//const intersection = Cesium.TimeInterval.fromIso8601({//  iso8601 : '2000/2005',//  data : 5//});const intersection = new Cesium.TimeInterval();Cesium.TimeInterval.intersect(left, right, intersection, function(leftData, rightData) {    return leftData + rightData;});</code></pre>
 
-const right = Cesium.TimeInterval.fromIso8601({
-    iso8601 : '1995/2005',
-    data : 3
-});
-
-//The result of the below intersection will be an interval equivalent to
-//const intersection = Cesium.TimeInterval.fromIso8601({
-//  iso8601 : '2000/2005',
-//  data : 5
-//});
-const intersection = new Cesium.TimeInterval();
-Cesium.TimeInterval.intersect(left, right, intersection, function(leftData, rightData) {
-    return leftData + rightData;
-});</code></pre>
-
-    <pre><code class="language-javascript">// Check if an interval contains a specific time.
-const dateToCheck = Cesium.JulianDate.fromIso8601('1982-09-08T11:30:00Z');
-const containsDate = Cesium.TimeInterval.contains(timeInterval, dateToCheck);</code></pre>
+    <pre><code class="language-javascript">// Check if an interval contains a specific time.const dateToCheck = Cesium.JulianDate.fromIso8601('1982-09-08T11:30:00Z');const containsDate = Cesium.TimeInterval.contains(timeInterval, dateToCheck);</code></pre>
 
     
 
@@ -990,7 +959,7 @@ const containsDate = Cesium.TimeInterval.contains(timeInterval, dateToCheck);</c
 
         
 <div class="param-desc">
-    The modified result parameter or a new instance if none was provided.
+    修改后的结果参数 or a new instance if none was provided.
 </div>
 
 
@@ -1148,7 +1117,7 @@ const containsDate = Cesium.TimeInterval.contains(timeInterval, dateToCheck);</c
 
         
 <div class="param-desc">
-    <code>true</code> if the interval contains the specified date, <code>false</code> otherwise.
+    <code>true</code> if the interval contains the specified date, <code>false</code> 否则。
 </div>
 
 
@@ -1211,7 +1180,7 @@ const containsDate = Cesium.TimeInterval.contains(timeInterval, dateToCheck);</c
 
 
 <div class="description">
-    Compares two instances and returns <code>true</code> if they are equal, <code>false</code> otherwise.
+    Compares two instances and returns <code>true</code>，否则为<code>false</code>。
 </div>
 
 
@@ -1269,7 +1238,7 @@ const containsDate = Cesium.TimeInterval.contains(timeInterval, dateToCheck);</c
 
                 
             
-                The first instance.</td>
+                第一个instance.</td>
         </tr>
 
     
@@ -1299,7 +1268,7 @@ const containsDate = Cesium.TimeInterval.contains(timeInterval, dateToCheck);</c
 
                 
             
-                The second instance.</td>
+                第二个 instance.</td>
         </tr>
 
     
@@ -1413,10 +1382,7 @@ const containsDate = Cesium.TimeInterval.contains(timeInterval, dateToCheck);</c
 
 
 <div class="description">
-    Compares two instances and returns <code>true</code> if they are within <code>epsilon</code> seconds of
-each other.  That is, in order for the dates to be considered equal (and for
-this function to return <code>true</code>), the absolute value of the difference between them, in
-seconds, must be less than <code>epsilon</code>.
+    Compares two instances and returns <code>true</code> if they are within <code>epsilon</code> seconds ofeach other.  That is, in order for the dates to be considered equal (and forthis function to return <code>true</code>), the absolute value of the difference between them, inseconds, must be less than <code>epsilon</code>.
 </div>
 
 
@@ -1480,7 +1446,7 @@ seconds, must be less than <code>epsilon</code>.
 
                 
             
-                The first instance.</td>
+                第一个instance.</td>
         </tr>
 
     
@@ -1514,7 +1480,7 @@ seconds, must be less than <code>epsilon</code>.
 
                 
             
-                The second instance.</td>
+                第二个 instance.</td>
         </tr>
 
     
@@ -1810,7 +1776,7 @@ seconds, must be less than <code>epsilon</code>.
 
                 
             
-                <code>true</code> if <code>options.start</code> is included in the interval, <code>false</code> otherwise.</td>
+                <code>true</code> if <code>options.start</code> is included in the interval, <code>false</code> 否则。</td>
         </tr>
 
     
@@ -1846,7 +1812,7 @@ seconds, must be less than <code>epsilon</code>.
 
                 
             
-                <code>true</code> if <code>options.stop</code> is included in the interval, <code>false</code> otherwise.</td>
+                <code>true</code> if <code>options.stop</code> is included in the interval, <code>false</code> 否则。</td>
         </tr>
 
     
@@ -1937,7 +1903,7 @@ seconds, must be less than <code>epsilon</code>.
 
         
 <div class="param-desc">
-    The modified result parameter or a new instance if none was provided.
+    修改后的结果参数 or a new instance if none was provided.
 </div>
 
 
@@ -2099,7 +2065,7 @@ seconds, must be less than <code>epsilon</code>.
 
                 
             
-                The second interval.</td>
+                第二个 interval.</td>
         </tr>
 
     
@@ -2180,7 +2146,7 @@ seconds, must be less than <code>epsilon</code>.
 
         
 <div class="param-desc">
-    The modified result parameter.
+    修改后的结果参数。
 </div>
 
 
@@ -2413,7 +2379,7 @@ seconds, must be less than <code>epsilon</code>.
 
 
 <div class="description">
-    Duplicates this instance.
+    复制instance.
 </div>
 
 
@@ -2492,7 +2458,7 @@ seconds, must be less than <code>epsilon</code>.
 
         
 <div class="param-desc">
-    The modified result parameter or a new instance if none was provided.
+    修改后的结果参数 or a new instance if none was provided.
 </div>
 
 
@@ -2555,8 +2521,7 @@ seconds, must be less than <code>epsilon</code>.
 
 
 <div class="description">
-    Compares this instance against the provided instance componentwise and returns
-<code>true</code> if they are equal, <code>false</code> otherwise.
+    Compares this instance against the provided instance componentwise and returns<code>true</code>，否则为<code>false</code>。
 </div>
 
 
@@ -2614,7 +2579,7 @@ seconds, must be less than <code>epsilon</code>.
 
                 
             
-                The right hand side interval.</td>
+                右边 interval.</td>
         </tr>
 
     
@@ -2665,7 +2630,7 @@ seconds, must be less than <code>epsilon</code>.
 
         
 <div class="param-desc">
-    <code>true</code> if they are equal, <code>false</code> otherwise.
+    <code>true</code>，否则为<code>false</code>。
 </div>
 
 
@@ -2728,9 +2693,7 @@ seconds, must be less than <code>epsilon</code>.
 
 
 <div class="description">
-    Compares this instance against the provided instance componentwise and returns
-<code>true</code> if they are within the provided epsilon,
-<code>false</code> otherwise.
+    Compares this instance against the provided instance componentwise and returns<code>true</code> if they are within the provided epsilon,<code>false</code> 否则。
 </div>
 
 
@@ -2794,7 +2757,7 @@ seconds, must be less than <code>epsilon</code>.
 
                 
             
-                The right hand side interval.</td>
+                右边 interval.</td>
         </tr>
 
     
@@ -2830,7 +2793,7 @@ seconds, must be less than <code>epsilon</code>.
 
                 
             
-                The epsilon to use for equality testing.</td>
+                用来检验等式。</td>
         </tr>
 
     
@@ -2885,7 +2848,7 @@ seconds, must be less than <code>epsilon</code>.
 
         
 <div class="param-desc">
-    <code>true</code> if they are within the provided epsilon, <code>false</code> otherwise.
+    <code>true</code>如果它们在提供的epsilon内，<code>false</code>否则。
 </div>
 
 
@@ -3139,7 +3102,7 @@ seconds, must be less than <code>epsilon</code>.
 
         
 <div class="param-desc">
-    <code>true</code> if the provided instances are equal, <code>false</code> otherwise.
+    <code>true</code> if the provided instances are equal, <code>false</code> 否则。
 </div>
 
 

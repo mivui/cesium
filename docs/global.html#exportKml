@@ -47,14 +47,7 @@
 
 
         
-            <div class="description">Exports an EntityCollection as a KML document. Only Point, Billboard, Model, Path, Polygon, Polyline geometries
-will be exported. Note that there is not a 1 to 1 mapping of Entity properties to KML Feature properties. For
-example, entity properties that are time dynamic but cannot be dynamic in KML are exported with their values at
-options.time or the beginning of the EntityCollection's time interval if not specified. For time-dynamic properties
-that are supported in KML, we use the samples if it is a <a href="SampledProperty.html"><code>SampledProperty</code></a> otherwise we sample the value using
-the options.sampleDuration. Point, Billboard, Model and Path geometries with time-dynamic positions will be exported
-as gx:Track Features. Not all Materials are representable in KML, so for more advanced Materials just the primary
-color is used. Canvas objects are exported as PNG images.</div>
+            <div class="description">Exports an EntityCollection as a KML document. Only Point, Billboard, Model, Path, Polygon, Polyline geometrieswill be exported. Note that there is not a 1 to 1 mapping of Entity properties to KML Feature properties. Forexample, entity properties that are time dynamic but cannot be dynamic in KML are exported with their values atoptions.time or the beginning of the EntityCollection's time interval if not specified. For time-dynamic propertiesthat are supported in KML, we use the samples if it is a <a href="SampledProperty.html"><code>SampledProperty</code></a> otherwise we sample the value usingthe options.sampleDuration. Point, Billboard, Model and Path geometries with time-dynamic positions will be exportedas gx:Track Features. Not all Materials are representable in KML, so for more advanced Materials just the primarycolor is used. Canvas objects are exported as PNG images.</div>
         
 
         
@@ -80,18 +73,7 @@ color is used. Canvas objects are exported as PNG images.</div>
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">Cesium.exportKml({
-     entities: entityCollection
- })
-  .then(function(result) {
-    // The XML string is in result.kml
-
-    const externalFiles = result.externalFiles
-    for(const file in externalFiles) {
-      // file is the name of the file used in the KML document as the href
-      // externalFiles[file] is a blob with the contents of the file
-    }
-  });</code></pre>
+    <pre><code class="language-javascript">Cesium.exportKml({     entities: entityCollection })  .then(function(result) {    // The XML string is in result.kml    const externalFiles = result.externalFiles    for(const file in externalFiles) {      // file is the name of the file used in the KML document as the href      // externalFiles[file] is a blob with the contents of the file    }  });</code></pre>
 
     
 

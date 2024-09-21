@@ -58,10 +58,7 @@
 
 
 <div class="description">
-    A wrapper around a web worker that allows scheduling tasks for a given worker,
-returning results asynchronously via a promise.
-
-The Worker is not constructed until a task is scheduled.
+    A wrapper around a web worker that allows scheduling tasks for a given worker,returning results asynchronously via a promise.The Worker is not constructed until a task is scheduled.
 </div>
 
 
@@ -159,9 +156,7 @@ The Worker is not constructed until a task is scheduled.
 
                 
             
-                The maximum number of active tasks.  Once exceeded,
-                                       scheduleTask will not queue any more tasks, allowing
-                                       work to be rescheduled in future frames.</td>
+                The maximum number of active tasks.  Once exceeded,                                       scheduleTask will not queue any more tasks, allowing                                       work to be rescheduled in future frames.</td>
         </tr>
 
     
@@ -254,10 +249,7 @@ The Worker is not constructed until a task is scheduled.
 
 
 <div class="description">
-    Destroys this object.  This will immediately terminate the Worker.
-<br /><br />
-Once an object is destroyed, it should not be used; calling any function other than
-<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.
+    Destroys this object.  This will immediately terminate the Worker.<br /><br />Once an object is destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.
 </div>
 
 
@@ -338,9 +330,7 @@ Once an object is destroyed, it should not be used; calling any function other t
 
 
 <div class="description">
-    Posts a message to a web worker with configuration to initialize loading
-and compiling a web assembly module asynchronously, as well as an optional
-fallback JavaScript module to use if Web Assembly is not supported.
+    Posts a message to a web worker with configuration to initialize loadingand compiling a web assembly module asynchronously, as well as an optionalfallback JavaScript module to use if Web Assembly is not supported.
 </div>
 
 
@@ -608,10 +598,7 @@ fallback JavaScript module to use if Web Assembly is not supported.
 
 
 <div class="description">
-    Returns true if this object was destroyed; otherwise, false.
-<br /><br />
-If this object was destroyed, it should not be used; calling any function other than
-<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.
+    Returns true if this object was destroyed; otherwise, false.<br /><br />If this object was destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.
 </div>
 
 
@@ -706,10 +693,7 @@ If this object was destroyed, it should not be used; calling any function other 
 
 
 <div class="description">
-    Schedule a task to be processed by the web worker asynchronously.  If there are currently more
-tasks active than the maximum set by the constructor, will immediately return undefined.
-Otherwise, returns a promise that will resolve to the result posted back by the worker when
-finished.
+    Schedule a task to be processed by the web worker asynchronously.  If there are currently moretasks active than the maximum set by the constructor, will immediately return undefined.Otherwise, returns a promise that will resolve to the result posted back by the worker whenfinished.
 </div>
 
 
@@ -795,8 +779,7 @@ finished.
 
                 
             
-                An array of objects contained in parameters that should be
-                                     transferred to the worker instead of copied.</td>
+                An array of objects contained in parameters that should be                                     transferred to the worker instead of copied.</td>
         </tr>
 
     
@@ -817,8 +800,7 @@ finished.
 
         
 <div class="param-desc">
-    Either a promise that will resolve to the result when available, or undefined
-                   if there are too many active tasks,
+    Either a promise that will resolve to the result when available, or undefined                   if there are too many active tasks,
 </div>
 
 
@@ -849,18 +831,7 @@ finished.
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const taskProcessor = new Cesium.TaskProcessor('myWorkerPath');
-const promise = taskProcessor.scheduleTask({
-    someParameter : true,
-    another : 'hello'
-});
-if (!Cesium.defined(promise)) {
-    // too many active tasks - try again later
-} else {
-    promise.then(function(result) {
-        // use the result of the task
-    });
-}</code></pre>
+    <pre><code class="language-javascript">const taskProcessor = new Cesium.TaskProcessor('myWorkerPath');const promise = taskProcessor.scheduleTask({    someParameter : true,    another : 'hello'});if (!Cesium.defined(promise)) {    // too many active tasks - try again later} else {    promise.then(function(result) {        // use the result of the task    });}</code></pre>
 
     
 

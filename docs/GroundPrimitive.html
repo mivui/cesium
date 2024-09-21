@@ -58,28 +58,7 @@
 
 
 <div class="description">
-    A ground primitive represents geometry draped over terrain or 3D Tiles in the <a href="Scene.html"><code>Scene</code></a>.
-<p>
-A primitive combines geometry instances with an <a href="Appearance.html"><code>Appearance</code></a> that describes the full shading, including
-<a href="Material.html"><code>Material</code></a> and <code>RenderState</code>.  Roughly, the geometry instance defines the structure and placement,
-and the appearance defines the visual characteristics.  Decoupling geometry and appearance allows us to mix
-and match most of them and add a new geometry or appearance independently of each other.
-</p>
-<p>
-Support for the WEBGL_depth_texture extension is required to use GeometryInstances with different PerInstanceColors
-or materials besides PerInstanceColorAppearance.
-</p>
-<p>
-Textured GroundPrimitives were designed for notional patterns and are not meant for precisely mapping
-textures to terrain - for that use case, use <a href="SingleTileImageryProvider.html"><code>SingleTileImageryProvider</code></a>.
-</p>
-<p>
-For correct rendering, this feature requires the EXT_frag_depth WebGL extension. For hardware that do not support this extension, there
-will be rendering artifacts for some viewing angles.
-</p>
-<p>
-Valid geometries are <a href="CircleGeometry.html"><code>CircleGeometry</code></a>, <a href="CorridorGeometry.html"><code>CorridorGeometry</code></a>, <a href="EllipseGeometry.html"><code>EllipseGeometry</code></a>, <a href="PolygonGeometry.html"><code>PolygonGeometry</code></a>, and <a href="RectangleGeometry.html"><code>RectangleGeometry</code></a>.
-</p>
+    A ground primitive represents geometry draped over terrain or 3D Tiles in the <a href="Scene.html"><code>Scene</code></a>.<p>A primitive combines geometry instances with an <a href="Appearance.html"><code>Appearance</code></a> that describes the full shading, including<a href="Material.html"><code>Material</code></a> and <code>RenderState</code>.  Roughly, the geometry instance defines the structure and placement,and the appearance defines the visual characteristics.  Decoupling geometry and appearance allows us to mixand match most of them and add a new geometry or appearance independently of each other.</p><p>Support for the WEBGL_depth_texture extension is required to use GeometryInstances with different PerInstanceColorsor materials besides PerInstanceColorAppearance.</p><p>Textured GroundPrimitives were designed for notional patterns and are not meant for precisely mappingtextures to terrain - for that use case, use <a href="SingleTileImageryProvider.html"><code>SingleTileImageryProvider</code></a>.</p><p>For correct rendering, this feature requires the EXT_frag_depth WebGL extension. For hardware that do not support this extension, therewill be rendering artifacts for some viewing angles.</p><p>Valid geometries are <a href="CircleGeometry.html"><code>CircleGeometry</code></a>, <a href="CorridorGeometry.html"><code>CorridorGeometry</code></a>, <a href="EllipseGeometry.html"><code>EllipseGeometry</code></a>, <a href="PolygonGeometry.html"><code>PolygonGeometry</code></a>, and <a href="RectangleGeometry.html"><code>RectangleGeometry</code></a>.</p>
 </div>
 
 
@@ -586,8 +565,7 @@ Valid geometries are <a href="CircleGeometry.html"><code>CircleGeometry</code></
 
                 
             
-                For debugging only. Determines if the shadow volume for each geometry in the primitive is drawn. Must be <code>true</code> on
-                 creation for the volumes to be created before the geometry is released or options.releaseGeometryInstance must be <code>false</code>.</td>
+                For debugging only. Determines if the shadow volume for each geometry in the primitive is drawn. Must be <code>true</code> on                 creation for the volumes to be created before the geometry is released or options.releaseGeometryInstance must be <code>false</code>.</td>
         </tr>
 
     
@@ -636,45 +614,7 @@ Valid geometries are <a href="CircleGeometry.html"><code>CircleGeometry</code></
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Example 1: Create primitive with a single instance
-const rectangleInstance = new Cesium.GeometryInstance({
-  geometry : new Cesium.RectangleGeometry({
-    rectangle : Cesium.Rectangle.fromDegrees(-140.0, 30.0, -100.0, 40.0)
-  }),
-  id : 'rectangle',
-  attributes : {
-    color : new Cesium.ColorGeometryInstanceAttribute(0.0, 1.0, 1.0, 0.5)
-  }
-});
-scene.primitives.add(new Cesium.GroundPrimitive({
-  geometryInstances : rectangleInstance
-}));
-
-// Example 2: Batch instances
-const color = new Cesium.ColorGeometryInstanceAttribute(0.0, 1.0, 1.0, 0.5); // Both instances must have the same color.
-const rectangleInstance = new Cesium.GeometryInstance({
-  geometry : new Cesium.RectangleGeometry({
-    rectangle : Cesium.Rectangle.fromDegrees(-140.0, 30.0, -100.0, 40.0)
-  }),
-  id : 'rectangle',
-  attributes : {
-    color : color
-  }
-});
-const ellipseInstance = new Cesium.GeometryInstance({
-    geometry : new Cesium.EllipseGeometry({
-        center : Cesium.Cartesian3.fromDegrees(-105.0, 40.0),
-        semiMinorAxis : 300000.0,
-        semiMajorAxis : 400000.0
-    }),
-    id : 'ellipse',
-    attributes : {
-        color : color
-    }
-});
-scene.primitives.add(new Cesium.GroundPrimitive({
-  geometryInstances : [rectangleInstance, ellipseInstance]
-}));</code></pre>
+    <pre><code class="language-javascript">// Example 1: Create primitive with a single instanceconst rectangleInstance = new Cesium.GeometryInstance({  geometry : new Cesium.RectangleGeometry({    rectangle : Cesium.Rectangle.fromDegrees(-140.0, 30.0, -100.0, 40.0)  }),  id : 'rectangle',  attributes : {    color : new Cesium.ColorGeometryInstanceAttribute(0.0, 1.0, 1.0, 0.5)  }});scene.primitives.add(new Cesium.GroundPrimitive({  geometryInstances : rectangleInstance}));// Example 2: Batch instancesconst color = new Cesium.ColorGeometryInstanceAttribute(0.0, 1.0, 1.0, 0.5); // Both instances must have the same color.const rectangleInstance = new Cesium.GeometryInstance({  geometry : new Cesium.RectangleGeometry({    rectangle : Cesium.Rectangle.fromDegrees(-140.0, 30.0, -100.0, 40.0)  }),  id : 'rectangle',  attributes : {    color : color  }});const ellipseInstance = new Cesium.GeometryInstance({    geometry : new Cesium.EllipseGeometry({        center : Cesium.Cartesian3.fromDegrees(-105.0, 40.0),        semiMinorAxis : 300000.0,        semiMajorAxis : 400000.0    }),    id : 'ellipse',    attributes : {        color : color    }});scene.primitives.add(new Cesium.GroundPrimitive({  geometryInstances : [rectangleInstance, ellipseInstance]}));</code></pre>
 
     
 
@@ -800,10 +740,7 @@ scene.primitives.add(new Cesium.GroundPrimitive({
 
 
 <div class="description">
-    The <a href="Appearance.html"><code>Appearance</code></a> used to shade this primitive. Each geometry
-instance is shaded with the same appearance.  Some appearances, like
-<a href="PerInstanceColorAppearance.html"><code>PerInstanceColorAppearance</code></a> allow giving each instance unique
-properties.
+    The <a href="Appearance.html"><code>Appearance</code></a> used to shade this primitive. Each geometryinstance is shaded with the same appearance.  Some appearances, like<a href="PerInstanceColorAppearance.html"><code>PerInstanceColorAppearance</code></a> allow giving each instance uniqueproperties.
 </div>
 
 
@@ -1055,10 +992,7 @@ properties.
 
 
 <div class="description">
-    This property is for debugging only; it is not for production use nor is it optimized.
-<p>
-Draws the bounding sphere for each draw command in the primitive.
-</p>
+    This property is for debugging only; it is not for production use nor is it optimized.<p>Draws the bounding sphere for each draw command in the primitive.</p>
 </div>
 
 
@@ -1121,10 +1055,7 @@ Draws the bounding sphere for each draw command in the primitive.
 
 
 <div class="description">
-    This property is for debugging only; it is not for production use nor is it optimized.
-<p>
-Draws the shadow volume for each geometry in the primitive.
-</p>
+    This property is for debugging only; it is not for production use nor is it optimized.<p>Draws the shadow volume for each geometry in the primitive.</p>
 </div>
 
 
@@ -1187,12 +1118,7 @@ Draws the shadow volume for each geometry in the primitive.
 
 
 <div class="description">
-    The geometry instances rendered with this primitive.  This may
-be <code>undefined</code> if <code>options.releaseGeometryInstances</code>
-is <code>true</code> when the primitive is constructed.
-<p>
-Changing this property after the primitive is rendered has no effect.
-</p>
+    The geometry instances rendered with this primitive.  This maybe <code>undefined</code> if <code>options.releaseGeometryInstances</code>is <code>true</code> when the primitive is constructed.<p>Changing this property after the primitive is rendered has no effect.</p>
 </div>
 
 
@@ -1318,9 +1244,7 @@ Changing this property after the primitive is rendered has no effect.
 
 
 <div class="description">
-    Determines if the primitive is complete and ready to render.  If this property is
-true, the primitive will be rendered the next time that <a href="GroundPrimitive.html#update"><code>GroundPrimitive#update</code></a>
-is called.
+    Determines if the primitive is complete and ready to render.  If this property istrue, the primitive will be rendered the next time that <a href="GroundPrimitive.html#update"><code>GroundPrimitive#update</code></a>is called.
 </div>
 
 
@@ -1443,8 +1367,7 @@ is called.
 
 
 <div class="description">
-    Determines if the primitive will be shown.  This affects all geometry
-instances in the primitive.
+    Determines if the primitive will be shown.  This affects all geometryinstances in the primitive.
 </div>
 
 
@@ -1577,8 +1500,7 @@ instances in the primitive.
 
 
 <div class="description">
-    Initializes the minimum and maximum terrain heights. This only needs to be called if you are creating the
-GroundPrimitive synchronously.
+    Initializes the minimum and maximum terrain heights. This only needs to be called if you are creating theGroundPrimitive synchronously.
 </div>
 
 
@@ -1803,8 +1725,7 @@ GroundPrimitive synchronously.
 
 
 <div class="description">
-    Checks if the given Scene supports materials on GroundPrimitives.
-Materials on GroundPrimitives require support for the WEBGL_depth_texture extension.
+    Checks if the given Scene supports materials on GroundPrimitives.Materials on GroundPrimitives require support for the WEBGL_depth_texture extension.
 </div>
 
 
@@ -1939,13 +1860,7 @@ Materials on GroundPrimitives require support for the WEBGL_depth_texture extens
 
 
 <div class="description">
-    Destroys the WebGL resources held by this object.  Destroying an object allows for deterministic
-release of WebGL resources, instead of relying on the garbage collector to destroy this object.
-<p>
-Once an object is destroyed, it should not be used; calling any function other than
-<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.  Therefore,
-assign the return value (<code>undefined</code>) to the object as done in the example.
-</p>
+    Destroys the WebGL resources held by this object.  Destroying an object allows for deterministicrelease of WebGL resources, instead of relying on the garbage collector to destroy this object.<p>Once an object is destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.  Therefore,assign the return value (<code>undefined</code>) to the object as done in the example.</p>
 </div>
 
 
@@ -2167,9 +2082,7 @@ assign the return value (<code>undefined</code>) to the object as done in the ex
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const attributes = primitive.getGeometryInstanceAttributes('an id');
-attributes.color = Cesium.ColorGeometryInstanceAttribute.toValue(Cesium.Color.AQUA);
-attributes.show = Cesium.ShowGeometryInstanceAttribute.toValue(true);</code></pre>
+    <pre><code class="language-javascript">const attributes = primitive.getGeometryInstanceAttributes('an id');attributes.color = Cesium.ColorGeometryInstanceAttribute.toValue(Cesium.Color.AQUA);attributes.show = Cesium.ShowGeometryInstanceAttribute.toValue(true);</code></pre>
 
     
 
@@ -2206,11 +2119,7 @@ attributes.show = Cesium.ShowGeometryInstanceAttribute.toValue(true);</code></pr
 
 
 <div class="description">
-    Returns true if this object was destroyed; otherwise, false.
-<p>
-If this object was destroyed, it should not be used; calling any function other than
-<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.
-</p>
+    Returns true if this object was destroyed; otherwise, false.<p>If this object was destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.</p>
 </div>
 
 
@@ -2305,12 +2214,7 @@ If this object was destroyed, it should not be used; calling any function other 
 
 
 <div class="description">
-    Called when <a href="Viewer.html"><code>Viewer</code></a> or <a href="CesiumWidget.html"><code>CesiumWidget</code></a> render the scene to
-get the draw commands needed to render this primitive.
-<p>
-Do not call this function directly.  This is documented just to
-list the exceptions that may be propagated when the scene is rendered:
-</p>
+    Called when <a href="Viewer.html"><code>Viewer</code></a> or <a href="CesiumWidget.html"><code>CesiumWidget</code></a> render the scene toget the draw commands needed to render this primitive.<p>Do not call this function directly.  This is documented just tolist the exceptions that may be propagated when the scene is rendered:</p>
 </div>
 
 

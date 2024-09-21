@@ -58,13 +58,7 @@
 
 
 <div class="description">
-    A simple <a href="TerrainProvider.html"><code>TerrainProvider</code></a> that gets height values from a callback function.
-It can be used for procedurally generated terrain or as a way to load custom
-heightmap data without creating a subclass of <a href="TerrainProvider.html"><code>TerrainProvider</code></a>.
-
-There are some limitations such as no water mask, no vertex normals, and no
-availability, so a full-fledged <a href="TerrainProvider.html"><code>TerrainProvider</code></a> subclass is better suited
-for these more sophisticated use cases.
+    A simple <a href="TerrainProvider.html"><code>TerrainProvider</code></a> that gets height values from a callback function.It can be used for procedurally generated terrain or as a way to load customheightmap data without creating a subclass of <a href="TerrainProvider.html"><code>TerrainProvider</code></a>.There are some limitations such as no water mask, no vertex normals, and noavailability, so a full-fledged <a href="TerrainProvider.html"><code>TerrainProvider</code></a> subclass is better suitedfor these more sophisticated use cases.
 </div>
 
 
@@ -263,9 +257,7 @@ for these more sophisticated use cases.
 
                 
             
-                The tiling scheme specifying how the ellipsoidal
-surface is broken into tiles. If this parameter is not provided, a <a href="GeographicTilingScheme.html"><code>GeographicTilingScheme</code></a>
-is used.</td>
+                The tiling scheme specifying how the ellipsoidalsurface is broken into tiles. If this parameter is not provided, a <a href="GeographicTilingScheme.html"><code>GeographicTilingScheme</code></a>is used.</td>
         </tr>
 
     
@@ -301,9 +293,7 @@ is used.</td>
 
                 
             
-                The ellipsoid.  If the tilingScheme is specified,
-this parameter is ignored and the tiling scheme's ellipsoid is used instead. If neither
-parameter is specified, the default ellipsoid is used.</td>
+                The ellipsoid.  If the tilingScheme is specified,this parameter is ignored and the tiling scheme's ellipsoid is used instead. If neitherparameter is specified, the default ellipsoid is used.</td>
         </tr>
 
     
@@ -389,15 +379,7 @@ parameter is specified, the default ellipsoid is used.</td>
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const viewer = new Cesium.Viewer("cesiumContainer", {
-  terrainProvider: new Cesium.CustomHeightmapTerrainProvider({
-    width: 32,
-    height: 32,
-    callback: function (x, y, level) {
-      return new Float32Array(32 * 32); // all zeros
-    },
-  }),
-});</code></pre>
+    <pre><code class="language-javascript">const viewer = new Cesium.Viewer("cesiumContainer", {  terrainProvider: new Cesium.CustomHeightmapTerrainProvider({    width: 32,    height: 32,    callback: function (x, y, level) {      return new Float32Array(32 * 32); // all zeros    },  }),});</code></pre>
 
     
 
@@ -454,9 +436,7 @@ parameter is specified, the default ellipsoid is used.</td>
 
 
 <div class="description">
-    Gets an object that can be used to determine availability of terrain from this provider, such as
-at points and in rectangles. This property may be undefined if availability
-information is not available.
+    Gets an object that can be used to determine availability of terrain from this provider, such asat points and in rectangles. This property may be undefined if availabilityinformation is not available.
 </div>
 
 
@@ -516,8 +496,7 @@ information is not available.
 
 
 <div class="description">
-    Gets the credit to display when this terrain provider is active. Typically this is used to credit
-the source of the terrain.
+    Gets the credit to display when this terrain provider is active. Typically this is used to creditthe source of the terrain.
 </div>
 
 
@@ -577,9 +556,7 @@ the source of the terrain.
 
 
 <div class="description">
-    Gets an event that is raised when the terrain provider encounters an asynchronous error. By subscribing
-to the event, you will be notified of the error and can potentially recover from it. Event listeners
-are passed an instance of <a href="TileProviderError.html"><code>TileProviderError</code></a>.
+    Gets an event that is raised when the terrain provider encounters an asynchronous error. By subscribingto the event, you will be notified of the error and can potentially recover from it. Event listenersare passed an instance of <a href="TileProviderError.html"><code>TileProviderError</code></a>.
 </div>
 
 
@@ -639,9 +616,7 @@ are passed an instance of <a href="TileProviderError.html"><code>TileProviderErr
 
 
 <div class="description">
-    Gets a value indicating whether or not the requested tiles include vertex normals.
-Vertex normals are not supported by <a href="CustomHeightmapTerrainProvider.html"><code>CustomHeightmapTerrainProvider</code></a>, so the return
-value will always be false.
+    Gets a value indicating whether or not the requested tiles include vertex normals.Vertex normals are not supported by <a href="CustomHeightmapTerrainProvider.html"><code>CustomHeightmapTerrainProvider</code></a>, so the returnvalue will always be false.
 </div>
 
 
@@ -701,11 +676,7 @@ value will always be false.
 
 
 <div class="description">
-    Gets a value indicating whether or not the provider includes a water mask. The water mask
-indicates which areas of the globe are water rather than land, so they can be rendered
-as a reflective surface with animated waves.
-Water mask is not supported by <a href="CustomHeightmapTerrainProvider.html"><code>CustomHeightmapTerrainProvider</code></a>, so the return
-value will always be false.
+    Gets a value indicating whether or not the provider includes a water mask. The water maskindicates which areas of the globe are water rather than land, so they can be renderedas a reflective surface with animated waves.Water mask is not supported by <a href="CustomHeightmapTerrainProvider.html"><code>CustomHeightmapTerrainProvider</code></a>, so the returnvalue will always be false.
 </div>
 
 
@@ -952,7 +923,7 @@ value will always be false.
 
 
 <div class="description">
-    Gets the maximum geometric error allowed in a tile at a given level.
+    获取给定级别的贴图中允许的最大几何误差。
 </div>
 
 
@@ -1003,7 +974,7 @@ value will always be false.
 
             <td class="description last">
             
-                The tile level for which to get the maximum geometric error.</td>
+                要获得最大几何误差的瓦片水平。</td>
         </tr>
 
     
@@ -1024,7 +995,7 @@ value will always be false.
 
         
 <div class="param-desc">
-    The maximum geometric error.
+    最大几何误差。
 </div>
 
 
@@ -1087,7 +1058,7 @@ value will always be false.
 
 
 <div class="description">
-    Determines whether data for a tile is available to be loaded.
+    确定是否可以加载磁贴的数据。
 </div>
 
 
@@ -1138,7 +1109,7 @@ value will always be false.
 
             <td class="description last">
             
-                The X coordinate of the tile for which to request geometry.</td>
+                要为其请求几何图形的贴图的X坐标。</td>
         </tr>
 
     
@@ -1161,7 +1132,7 @@ value will always be false.
 
             <td class="description last">
             
-                The Y coordinate of the tile for which to request geometry.</td>
+                要为其请求几何图形的贴图的Y坐标。</td>
         </tr>
 
     
@@ -1184,7 +1155,7 @@ value will always be false.
 
             <td class="description last">
             
-                The level of the tile for which to request geometry.</td>
+                要为其请求几何图形的贴图的级别。</td>
         </tr>
 
     
@@ -1205,7 +1176,7 @@ value will always be false.
 
         
 <div class="param-desc">
-    Undefined if not supported, otherwise true or false.
+    如果不支持则未定义，否则为true或false。
 </div>
 
 
@@ -1268,7 +1239,7 @@ value will always be false.
 
 
 <div class="description">
-    Makes sure we load availability data for a tile
+    确保我们为tile加载了可用性数据
 </div>
 
 
@@ -1319,7 +1290,7 @@ value will always be false.
 
             <td class="description last">
             
-                The X coordinate of the tile for which to request geometry.</td>
+                要为其请求几何图形的贴图的X坐标。</td>
         </tr>
 
     
@@ -1342,7 +1313,7 @@ value will always be false.
 
             <td class="description last">
             
-                The Y coordinate of the tile for which to request geometry.</td>
+                要为其请求几何图形的贴图的Y坐标。</td>
         </tr>
 
     
@@ -1365,7 +1336,7 @@ value will always be false.
 
             <td class="description last">
             
-                The level of the tile for which to request geometry.</td>
+                要为其请求几何图形的贴图的级别。</td>
         </tr>
 
     
@@ -1449,8 +1420,7 @@ value will always be false.
 
 
 <div class="description">
-    Requests the geometry for a given tile. The result includes terrain
-data and indicates that all child tiles are available.
+    Requests the geometry for a given tile. The result includes terraindata and indicates that all child tiles are available.
 </div>
 
 
@@ -1506,7 +1476,7 @@ data and indicates that all child tiles are available.
 
                 
             
-                The X coordinate of the tile for which to request geometry.</td>
+                要为其请求几何图形的贴图的X坐标。</td>
         </tr>
 
     
@@ -1534,7 +1504,7 @@ data and indicates that all child tiles are available.
 
                 
             
-                The Y coordinate of the tile for which to request geometry.</td>
+                要为其请求几何图形的贴图的Y坐标。</td>
         </tr>
 
     
@@ -1562,7 +1532,7 @@ data and indicates that all child tiles are available.
 
                 
             
-                The level of the tile for which to request geometry.</td>
+                要为其请求几何图形的贴图的级别。</td>
         </tr>
 
     
@@ -1592,7 +1562,7 @@ data and indicates that all child tiles are available.
 
                 
             
-                The request object. Intended for internal use only.</td>
+                请求对象。仅供内部使用。</td>
         </tr>
 
     
@@ -1613,9 +1583,7 @@ data and indicates that all child tiles are available.
 
         
 <div class="param-desc">
-    A promise for the requested geometry. If this method
-         returns undefined instead of a promise, it is an indication that too many requests are already
-         pending and the request will be retried later.
+    A promise for the requested geometry. If this method        返回未定义而不是承诺，这表明已经有太多请求        等待中，请求将稍后重试。
 </div>
 
 
@@ -1731,7 +1699,7 @@ data and indicates that all child tiles are available.
 
             <td class="description last">
             
-                The X coordinate of the tile for which to request geometry.</td>
+                要为其请求几何图形的贴图的X坐标。</td>
         </tr>
 
     
@@ -1754,7 +1722,7 @@ data and indicates that all child tiles are available.
 
             <td class="description last">
             
-                The Y coordinate of the tile for which to request geometry.</td>
+                要为其请求几何图形的贴图的Y坐标。</td>
         </tr>
 
     
@@ -1777,7 +1745,7 @@ data and indicates that all child tiles are available.
 
             <td class="description last">
             
-                The level of the tile for which to request geometry.</td>
+                要为其请求几何图形的贴图的级别。</td>
         </tr>
 
     

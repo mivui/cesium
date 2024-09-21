@@ -639,7 +639,7 @@
 
                 
             
-                True if this widget should control the render loop, false otherwise.</td>
+                True if this widget should control the render loop, false 否则。</td>
         </tr>
 
     
@@ -816,8 +816,7 @@
 
                 
             
-                The DOM element or ID that will contain the <a href="CreditDisplay.html"><code>CreditDisplay</code></a>.  If not specified, the credits are added
-       to the bottom of the widget itself.</td>
+                The DOM element or ID that will contain the <a href="CreditDisplay.html"><code>CreditDisplay</code></a>.  If not specified, the credits are added       to the bottom of the widget itself.</td>
         </tr>
 
     
@@ -1169,30 +1168,7 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// For each example, include a link to CesiumWidget.css stylesheet in HTML head,
-// and in the body, include: &lt;div id="cesiumContainer">&lt;/div>
-
-// Widget with no terrain and default Bing Maps imagery provider.
-const widget = new Cesium.CesiumWidget("cesiumContainer");
-
-// Widget with ion imagery and Cesium World Terrain.
-const widget2 = new Cesium.CesiumWidget("cesiumContainer", {
-    baseLayer: Cesium.ImageryLayer.fromWorldTerrain(),
-    terrain: Cesium.Terrain.fromWorldTerrain()
-    skyBox: new Cesium.SkyBox({
-      sources: {
-        positiveX: "stars/TychoSkymapII.t3_08192x04096_80_px.jpg",
-        negativeX: "stars/TychoSkymapII.t3_08192x04096_80_mx.jpg",
-        positiveY: "stars/TychoSkymapII.t3_08192x04096_80_py.jpg",
-        negativeY: "stars/TychoSkymapII.t3_08192x04096_80_my.jpg",
-        positiveZ: "stars/TychoSkymapII.t3_08192x04096_80_pz.jpg",
-        negativeZ: "stars/TychoSkymapII.t3_08192x04096_80_mz.jpg"
-      }
-    }),
-    // Show Columbus View map with Web Mercator projection
-    sceneMode: Cesium.SceneMode.COLUMBUS_VIEW,
-    mapProjection: new Cesium.WebMercatorProjection()
-});</code></pre>
+    <pre><code class="language-javascript">// For each example, include a link to CesiumWidget.css stylesheet in HTML head,// and in the body, include: &lt;div id="cesiumContainer">&lt;/div>// Widget with no terrain and default Bing Maps imagery provider.const widget = new Cesium.CesiumWidget("cesiumContainer");// Widget with ion imagery and Cesium World Terrain.const widget2 = new Cesium.CesiumWidget("cesiumContainer", {    baseLayer: Cesium.ImageryLayer.fromWorldTerrain(),    terrain: Cesium.Terrain.fromWorldTerrain()    skyBox: new Cesium.SkyBox({      sources: {        positiveX: "stars/TychoSkymapII.t3_08192x04096_80_px.jpg",        negativeX: "stars/TychoSkymapII.t3_08192x04096_80_mx.jpg",        positiveY: "stars/TychoSkymapII.t3_08192x04096_80_py.jpg",        negativeY: "stars/TychoSkymapII.t3_08192x04096_80_my.jpg",        positiveZ: "stars/TychoSkymapII.t3_08192x04096_80_pz.jpg",        negativeZ: "stars/TychoSkymapII.t3_08192x04096_80_mz.jpg"      }    }),    // Show Columbus View map with Web Mercator projection    sceneMode: Cesium.SceneMode.COLUMBUS_VIEW,    mapProjection: new Cesium.WebMercatorProjection()});</code></pre>
 
     
 
@@ -1789,12 +1765,7 @@ const widget2 = new Cesium.CesiumWidget("cesiumContainer", {
 
 
 <div class="description">
-    Gets or sets a scaling factor for rendering resolution.  Values less than 1.0 can improve
-performance on less powerful devices while values greater than 1.0 will render at a higher
-resolution and then scale down, resulting in improved visual fidelity.
-For example, if the widget is laid out at a size of 640x480, setting this value to 0.5
-will cause the scene to be rendered at 320x240 and then scaled up while setting
-it to 2.0 will cause the scene to be rendered at 1280x960 and then scaled down.
+    Gets or sets a scaling factor for rendering resolution.  Values less than 1.0 can improveperformance on less powerful devices while values greater than 1.0 will render at a higherresolution and then scale down, resulting in improved visual fidelity.For example, if the widget is laid out at a size of 640x480, setting this value to 0.5will cause the scene to be rendered at 320x240 and then scaled up while settingit to 2.0 will cause the scene to be rendered at 1280x960 and then scaled down.
 </div>
 
 
@@ -1977,10 +1948,7 @@ it to 2.0 will cause the scene to be rendered at 1280x960 and then scaled down.
 
 
 <div class="description">
-    获取或设置target frame rate of the widget when <code>useDefaultRenderLoop</code>
-is true. If undefined, the browser's requestAnimationFrame implementation
-determines the frame rate.  If defined, this value must be greater than 0.  A value higher
-than the underlying requestAnimationFrame implementation will have no effect.
+    获取或设置target frame rate of the widget when <code>useDefaultRenderLoop</code>is true. If undefined, the browser's requestAnimationFrame implementationdetermines the frame rate.  If defined, this value must be greater than 0.  A value higherthan the underlying requestAnimationFrame implementation will have no effect.
 </div>
 
 
@@ -2100,12 +2068,7 @@ than the underlying requestAnimationFrame implementation will have no effect.
 
 
 <div class="description">
-    Boolean flag indicating if the browser's recommended resolution is used.
-If true, the browser's device pixel ratio is ignored and 1.0 is used instead,
-effectively rendering based on CSS pixels instead of device pixels. This can improve
-performance on less powerful devices that have high pixel density. When false, rendering
-will be in device pixels. <a href="CesiumWidget.html#resolutionScale"><code>CesiumWidget#resolutionScale</code></a> will still take effect whether
-this flag is true or false.
+    Boolean flag indicating if the browser's recommended resolution is used.If true, the browser's device pixel ratio is ignored and 1.0 is used instead,effectively rendering based on CSS pixels instead of device pixels. This can improveperformance on less powerful devices that have high pixel density. When false, renderingwill be in device pixels. <a href="CesiumWidget.html#resolutionScale"><code>CesiumWidget#resolutionScale</code></a> will still take effect whetherthis flag is true or false.
 </div>
 
 
@@ -2168,15 +2131,7 @@ this flag is true or false.
 
 
 <div class="description">
-    获取或设置是否 this widget should control the render loop.
-If true the widget will use requestAnimationFrame to
-perform rendering and resizing of the widget, as well as drive the
-simulation clock. If set to false, you must manually call the
-<code>resize</code>, <code>render</code> methods as part of a custom
-render loop.  If an error occurs during rendering, <a href="Scene.html"><code>Scene</code></a>'s
-<code>renderError</code> event will be raised and this property
-will be set to false.  It must be set back to true to continue rendering
-after the error.
+    获取或设置是否 this widget should control the render loop.If true the widget will use requestAnimationFrame toperform rendering and resizing of the widget, as well as drive thesimulation clock. If set to false, you must manually call the<code>resize</code>, <code>render</code> methods as part of a customrender loop.  If an error occurs during rendering, <a href="Scene.html"><code>Scene</code></a>'s<code>renderError</code> event will be raised and this propertywill be set to false.  It must be set back to true to continue renderingafter the error.
 </div>
 
 
@@ -2243,8 +2198,7 @@ after the error.
 
 
 <div class="description">
-    销毁小部件。应该叫它永久的吗
-从布局中删除小部件。
+    销毁小部件。应该叫它永久的吗从布局中删除小部件。
 </div>
 
 
@@ -2411,8 +2365,7 @@ after the error.
 
 
 <div class="description">
-    Renders the scene.  This function is called automatically
-unless <code>useDefaultRenderLoop</code> is set to false;
+    Renders the scene.  This function is called automaticallyunless <code>useDefaultRenderLoop</code> is set to false;
 </div>
 
 
@@ -2493,9 +2446,7 @@ unless <code>useDefaultRenderLoop</code> is set to false;
 
 
 <div class="description">
-    Updates the canvas size, camera aspect ratio, and viewport size.
-This function is called automatically as needed unless
-<code>useDefaultRenderLoop</code> is set to false.
+    Updates the canvas size, camera aspect ratio, and viewport size.This function is called automatically as needed unless<code>useDefaultRenderLoop</code> is set to false.
 </div>
 
 
@@ -2576,10 +2527,7 @@ This function is called automatically as needed unless
 
 
 <div class="description">
-    Show an error panel to the user containing a title and a longer error message,
-which can be dismissed using an OK button.  This panel is displayed automatically
-when a render loop error occurs, if showRenderLoopErrors was not false when the
-widget was constructed.
+    Show an error panel to the user containing a title and a longer error message,which can be dismissed using an OK button.  This panel is displayed automaticallywhen a render loop error occurs, if showRenderLoopErrors was not false when thewidget was constructed.
 </div>
 
 

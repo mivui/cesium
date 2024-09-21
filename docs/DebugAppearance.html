@@ -58,12 +58,7 @@
 
 
 <div class="description">
-    Visualizes a vertex attribute by displaying it as a color for debugging.
-<p>
-Components for well-known unit-length vectors, i.e., <code>normal</code>,
-<code>tangent</code>, and <code>bitangent</code>, are scaled and biased
-from [-1.0, 1.0] to (-1.0, 1.0).
-</p>
+    Visualizes a vertex attribute by displaying it as a color for debugging.<p>Components for well-known unit-length vectors, i.e., <code>normal</code>,<code>tangent</code>, and <code>bitangent</code>, are scaled and biasedfrom [-1.0, 1.0] to (-1.0, 1.0).</p>
 </div>
 
 
@@ -401,12 +396,7 @@ from [-1.0, 1.0] to (-1.0, 1.0).
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const primitive = new Cesium.Primitive({
-  geometryInstances : // ...
-  appearance : new Cesium.DebugAppearance({
-    attributeName : 'normal'
-  })
-});</code></pre>
+    <pre><code class="language-javascript">const primitive = new Cesium.Primitive({  geometryInstances : // ...  appearance : new Cesium.DebugAppearance({    attributeName : 'normal'  })});</code></pre>
 
     
 
@@ -581,9 +571,7 @@ from [-1.0, 1.0] to (-1.0, 1.0).
 
 
 <div class="description">
-    The GLSL source code for the fragment shader.  The full fragment shader
-source is built procedurally taking into account the <a href="DebugAppearance.html#material"><code>DebugAppearance#material</code></a>.
-Use <a href="DebugAppearance.html#getFragmentShaderSource"><code>DebugAppearance#getFragmentShaderSource</code></a> to get the full source.
+    The GLSL source code for the fragment shader.  The full fragment shadersource is built procedurally taking into account the <a href="DebugAppearance.html#material"><code>DebugAppearance#material</code></a>.Use <a href="DebugAppearance.html#getFragmentShaderSource"><code>DebugAppearance#getFragmentShaderSource</code></a> to get the full source.
 </div>
 
 
@@ -703,8 +691,7 @@ Use <a href="DebugAppearance.html#getFragmentShaderSource"><code>DebugAppearance
 
 
 <div class="description">
-    This property is part of the <a href="Appearance.html"><code>Appearance</code></a> interface, but is not
-used by <a href="DebugAppearance.html"><code>DebugAppearance</code></a> since a fully custom fragment shader is used.
+    This property is part of the <a href="Appearance.html"><code>Appearance</code></a> interface, but is notused by <a href="DebugAppearance.html"><code>DebugAppearance</code></a> since a fully custom fragment shader is used.
 </div>
 
 
@@ -957,8 +944,7 @@ used by <a href="DebugAppearance.html"><code>DebugAppearance</code></a> since a 
 
 
 <div class="description">
-    Returns the full GLSL fragment shader source, which for <a href="DebugAppearance.html"><code>DebugAppearance</code></a> is just
-<a href="DebugAppearance.html#fragmentShaderSource"><code>DebugAppearance#fragmentShaderSource</code></a>.
+    Returns the full GLSL fragment shader source, which for <a href="DebugAppearance.html"><code>DebugAppearance</code></a> is just<a href="DebugAppearance.html#fragmentShaderSource"><code>DebugAppearance#fragmentShaderSource</code></a>.
 </div>
 
 
@@ -1048,9 +1034,7 @@ used by <a href="DebugAppearance.html"><code>DebugAppearance</code></a> since a 
 
 
 <div class="description">
-    Creates a render state.  This is not the final render state instance; instead,
-it can contain a subset of render state properties identical to the render state
-created in the context.
+    Creates a render state.  This is not the final render state instance; instead,it can contain a subset of render state properties identical to the render statecreated in the context.
 </div>
 
 

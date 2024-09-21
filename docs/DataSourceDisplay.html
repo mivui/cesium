@@ -227,8 +227,7 @@
 
                 
             
-                A function which creates an array of visualizers used for visualization.
-       If undefined, all standard visualizers are used.</td>
+                A function which creates an array of visualizers used for visualization.       If undefined, all standard visualizers are used.</td>
         </tr>
 
     
@@ -384,10 +383,7 @@
 
 
 <div class="description">
-    Gets the default data source instance which can be used to
-manually create and visualize entities not tied to
-a specific data source. This instance is always available
-and does not appear in the list dataSources collection.
+    Gets the default data source instance which can be used tomanually create and visualize entities not tied toa specific data source. This instance is always availableand does not appear in the list dataSources collection.
 </div>
 
 
@@ -574,8 +570,7 @@ and does not appear in the list dataSources collection.
 
 
 <div class="description">
-    获取或设置default function which creates an array of visualizers used for visualization.
-By default, this function uses all standard visualizers.
+    获取或设置default function which creates an array of visualizers used for visualization.By default, this function uses all standard visualizers.
 </div>
 
 
@@ -656,12 +651,7 @@ By default, this function uses all standard visualizers.
 
 
 <div class="description">
-    Destroys the WebGL resources held by this object.  Destroying an object allows for deterministic
-release of WebGL resources, instead of relying on the garbage collector to destroy this object.
-<br /><br />
-Once an object is destroyed, it should not be used; calling any function other than
-<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.  Therefore,
-assign the return value (<code>undefined</code>) to the object as done in the example.
+    Destroys the WebGL resources held by this object.  Destroying an object allows for deterministicrelease of WebGL resources, instead of relying on the garbage collector to destroy this object.<br /><br />Once an object is destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.  Therefore,assign the return value (<code>undefined</code>) to the object as done in the example.
 </div>
 
 
@@ -766,10 +756,7 @@ assign the return value (<code>undefined</code>) to the object as done in the ex
 
 
 <div class="description">
-    Returns true if this object was destroyed; otherwise, false.
-<br /><br />
-If this object was destroyed, it should not be used; calling any function other than
-<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.
+    Returns true if this object was destroyed; otherwise, false.<br /><br />If this object was destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.
 </div>
 
 
@@ -936,7 +923,7 @@ If this object was destroyed, it should not be used; calling any function other 
 
         
 <div class="param-desc">
-    True if all data sources are ready to be displayed, false otherwise.
+    True if all data sources are ready to be displayed, false 否则。
 </div>
 
 
@@ -1154,9 +1141,7 @@ If this object was destroyed, it should not be used; calling any function other 
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">function createVisualizers(scene, entityCluster, dataSource) {
-    return [new Cesium.BillboardVisualizer(entityCluster, dataSource.entities)];
-}</code></pre>
+    <pre><code class="language-javascript">function createVisualizers(scene, entityCluster, dataSource) {    return [new Cesium.BillboardVisualizer(entityCluster, dataSource.entities)];}</code></pre>
 
     
 

@@ -58,9 +58,7 @@
 
 
 <div class="description">
-    An appearance for <a href="GeometryInstance.html"><code>GeometryInstance</code></a> instances with color attributes.
-This allows several geometry instances, each with a different color, to
-be drawn with the same <a href="Primitive.html"><code>Primitive</code></a> as shown in the second example below.
+    An appearance for <a href="GeometryInstance.html"><code>GeometryInstance</code></a> instances with color attributes.This allows several geometry instances, each with a different color, tobe drawn with the same <a href="Primitive.html"><code>Primitive</code></a> as shown in the second example below.
 </div>
 
 
@@ -431,48 +429,7 @@ be drawn with the same <a href="Primitive.html"><code>Primitive</code></a> as sh
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// A solid white line segment
-const primitive = new Cesium.Primitive({
-  geometryInstances : new Cesium.GeometryInstance({
-    geometry : new Cesium.SimplePolylineGeometry({
-      positions : Cesium.Cartesian3.fromDegreesArray([
-        0.0, 0.0,
-        5.0, 0.0
-      ])
-    }),
-    attributes : {
-      color : Cesium.ColorGeometryInstanceAttribute.fromColor(new Cesium.Color(1.0, 1.0, 1.0, 1.0))
-    }
-  }),
-  appearance : new Cesium.PerInstanceColorAppearance({
-    flat : true,
-    translucent : false
-  })
-});
-
-// Two rectangles in a primitive, each with a different color
-const instance = new Cesium.GeometryInstance({
-  geometry : new Cesium.RectangleGeometry({
-    rectangle : Cesium.Rectangle.fromDegrees(0.0, 20.0, 10.0, 30.0)
-  }),
-  attributes : {
-    color : new Cesium.ColorGeometryInstanceAttribute(1.0, 0.0, 0.0, 0.5)
-  }
-});
-
-const anotherInstance = new Cesium.GeometryInstance({
-  geometry : new Cesium.RectangleGeometry({
-    rectangle : Cesium.Rectangle.fromDegrees(0.0, 40.0, 10.0, 50.0)
-  }),
-  attributes : {
-    color : new Cesium.ColorGeometryInstanceAttribute(0.0, 0.0, 1.0, 0.5)
-  }
-});
-
-const rectanglePrimitive = new Cesium.Primitive({
-  geometryInstances : [instance, anotherInstance],
-  appearance : new Cesium.PerInstanceColorAppearance()
-});</code></pre>
+    <pre><code class="language-javascript">// A solid white line segmentconst primitive = new Cesium.Primitive({  geometryInstances : new Cesium.GeometryInstance({    geometry : new Cesium.SimplePolylineGeometry({      positions : Cesium.Cartesian3.fromDegreesArray([        0.0, 0.0,        5.0, 0.0      ])    }),    attributes : {      color : Cesium.ColorGeometryInstanceAttribute.fromColor(new Cesium.Color(1.0, 1.0, 1.0, 1.0))    }  }),  appearance : new Cesium.PerInstanceColorAppearance({    flat : true,    translucent : false  })});// Two rectangles in a primitive, each with a different colorconst instance = new Cesium.GeometryInstance({  geometry : new Cesium.RectangleGeometry({    rectangle : Cesium.Rectangle.fromDegrees(0.0, 20.0, 10.0, 30.0)  }),  attributes : {    color : new Cesium.ColorGeometryInstanceAttribute(1.0, 0.0, 0.0, 0.5)  }});const anotherInstance = new Cesium.GeometryInstance({  geometry : new Cesium.RectangleGeometry({    rectangle : Cesium.Rectangle.fromDegrees(0.0, 40.0, 10.0, 50.0)  }),  attributes : {    color : new Cesium.ColorGeometryInstanceAttribute(0.0, 0.0, 1.0, 0.5)  }});const rectanglePrimitive = new Cesium.Primitive({  geometryInstances : [instance, anotherInstance],  appearance : new Cesium.PerInstanceColorAppearance()});</code></pre>
 
     
 
@@ -524,9 +481,7 @@ const rectanglePrimitive = new Cesium.Primitive({
 
 
 <div class="description">
-    The <a href="VertexFormat.html"><code>VertexFormat</code></a> that all <a href="PerInstanceColorAppearance.html"><code>PerInstanceColorAppearance</code></a> instances
-are compatible with when <a href="PerInstanceColorAppearance.html#flat"><code>PerInstanceColorAppearance#flat</code></a> is <code>true</code>.
-This requires only a <code>position</code> attribute.
+    The <a href="VertexFormat.html"><code>VertexFormat</code></a> that all <a href="PerInstanceColorAppearance.html"><code>PerInstanceColorAppearance</code></a> instancesare compatible with when <a href="PerInstanceColorAppearance.html#flat"><code>PerInstanceColorAppearance#flat</code></a> is <code>true</code>.This requires only a <code>position</code> attribute.
 </div>
 
 
@@ -586,9 +541,7 @@ This requires only a <code>position</code> attribute.
 
 
 <div class="description">
-    The <a href="VertexFormat.html"><code>VertexFormat</code></a> that all <a href="PerInstanceColorAppearance.html"><code>PerInstanceColorAppearance</code></a> instances
-are compatible with.  This requires only <code>position</code> and <code>normal</code>
-attributes.
+    The <a href="VertexFormat.html"><code>VertexFormat</code></a> that all <a href="PerInstanceColorAppearance.html"><code>PerInstanceColorAppearance</code></a> instancesare compatible with.  This requires only <code>position</code> and <code>normal</code>attributes.
 </div>
 
 
@@ -648,9 +601,7 @@ attributes.
 
 
 <div class="description">
-    When <code>true</code>, the geometry is expected to be closed so
-<a href="PerInstanceColorAppearance.html#renderState"><code>PerInstanceColorAppearance#renderState</code></a> has backface culling enabled.
-If the viewer enters the geometry, it will not be visible.
+    When <code>true</code>, the geometry is expected to be closed so<a href="PerInstanceColorAppearance.html#renderState"><code>PerInstanceColorAppearance#renderState</code></a> has backface culling enabled.If the viewer enters the geometry, it will not be visible.
 </div>
 
 
@@ -713,10 +664,7 @@ If the viewer enters the geometry, it will not be visible.
 
 
 <div class="description">
-    When <code>true</code>, the fragment shader flips the surface normal
-as needed to ensure that the normal faces the viewer to avoid
-dark spots.  This is useful when both sides of a geometry should be
-shaded like <a href="WallGeometry.html"><code>WallGeometry</code></a>.
+    When <code>true</code>, the fragment shader flips the surface normalas needed to ensure that the normal faces the viewer to avoiddark spots.  This is useful when both sides of a geometry should beshaded like <a href="WallGeometry.html"><code>WallGeometry</code></a>.
 </div>
 
 
@@ -779,8 +727,7 @@ shaded like <a href="WallGeometry.html"><code>WallGeometry</code></a>.
 
 
 <div class="description">
-    When <code>true</code>, flat shading is used in the fragment shader,
-which means lighting is not taking into account.
+    When <code>true</code>, flat shading is used in the fragment shader,which means lighting is not taking into account.
 </div>
 
 
@@ -903,8 +850,7 @@ which means lighting is not taking into account.
 
 
 <div class="description">
-    This property is part of the <a href="Appearance.html"><code>Appearance</code></a> interface, but is not
-used by <a href="PerInstanceColorAppearance.html"><code>PerInstanceColorAppearance</code></a> since a fully custom fragment shader is used.
+    This property is part of the <a href="Appearance.html"><code>Appearance</code></a> interface, but is notused by <a href="PerInstanceColorAppearance.html"><code>PerInstanceColorAppearance</code></a> since a fully custom fragment shader is used.
 </div>
 
 
@@ -967,12 +913,7 @@ used by <a href="PerInstanceColorAppearance.html"><code>PerInstanceColorAppearan
 
 
 <div class="description">
-    The WebGL fixed-function state to use when rendering the geometry.
-<p>
-The render state can be explicitly defined when constructing a <a href="PerInstanceColorAppearance.html"><code>PerInstanceColorAppearance</code></a>
-instance, or it is set implicitly via <a href="PerInstanceColorAppearance.html#translucent"><code>PerInstanceColorAppearance#translucent</code></a>
-and <a href="PerInstanceColorAppearance.html#closed"><code>PerInstanceColorAppearance#closed</code></a>.
-</p>
+    The WebGL fixed-function state to use when rendering the geometry.<p>The render state can be explicitly defined when constructing a <a href="PerInstanceColorAppearance.html"><code>PerInstanceColorAppearance</code></a>instance, or it is set implicitly via <a href="PerInstanceColorAppearance.html#translucent"><code>PerInstanceColorAppearance#translucent</code></a>and <a href="PerInstanceColorAppearance.html#closed"><code>PerInstanceColorAppearance#closed</code></a>.</p>
 </div>
 
 
@@ -1032,8 +973,7 @@ and <a href="PerInstanceColorAppearance.html#closed"><code>PerInstanceColorAppea
 
 
 <div class="description">
-    When <code>true</code>, the geometry is expected to appear translucent so
-<a href="PerInstanceColorAppearance.html#renderState"><code>PerInstanceColorAppearance#renderState</code></a> has alpha blending enabled.
+    When <code>true</code>, the geometry is expected to appear translucent so<a href="PerInstanceColorAppearance.html#renderState"><code>PerInstanceColorAppearance#renderState</code></a> has alpha blending enabled.
 </div>
 
 
@@ -1096,9 +1036,7 @@ and <a href="PerInstanceColorAppearance.html#closed"><code>PerInstanceColorAppea
 
 
 <div class="description">
-    The <a href="VertexFormat.html"><code>VertexFormat</code></a> that this appearance instance is compatible with.
-A geometry can have more vertex attributes and still be compatible - at a
-potential performance cost - but it can't have less.
+    The <a href="VertexFormat.html"><code>VertexFormat</code></a> that this appearance instance is compatible with.A geometry can have more vertex attributes and still be compatible - at apotential performance cost - but it can't have less.
 </div>
 
 
@@ -1225,9 +1163,7 @@ potential performance cost - but it can't have less.
 
 
 <div class="description">
-    Procedurally creates the full GLSL fragment shader source.  For <a href="PerInstanceColorAppearance.html"><code>PerInstanceColorAppearance</code></a>,
-this is derived from <a href="PerInstanceColorAppearance.html#fragmentShaderSource"><code>PerInstanceColorAppearance#fragmentShaderSource</code></a>, <a href="PerInstanceColorAppearance.html#flat"><code>PerInstanceColorAppearance#flat</code></a>,
-and <a href="PerInstanceColorAppearance.html#faceForward"><code>PerInstanceColorAppearance#faceForward</code></a>.
+    Procedurally creates the full GLSL fragment shader source.  For <a href="PerInstanceColorAppearance.html"><code>PerInstanceColorAppearance</code></a>,this is derived from <a href="PerInstanceColorAppearance.html#fragmentShaderSource"><code>PerInstanceColorAppearance#fragmentShaderSource</code></a>, <a href="PerInstanceColorAppearance.html#flat"><code>PerInstanceColorAppearance#flat</code></a>,and <a href="PerInstanceColorAppearance.html#faceForward"><code>PerInstanceColorAppearance#faceForward</code></a>.
 </div>
 
 
@@ -1317,9 +1253,7 @@ and <a href="PerInstanceColorAppearance.html#faceForward"><code>PerInstanceColor
 
 
 <div class="description">
-    Creates a render state.  This is not the final render state instance; instead,
-it can contain a subset of render state properties identical to the render state
-created in the context.
+    Creates a render state.  This is not the final render state instance; instead,it can contain a subset of render state properties identical to the render statecreated in the context.
 </div>
 
 

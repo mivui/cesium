@@ -58,25 +58,13 @@
 
 
 <div class="description">
-    A renderable collection of polylines.
-<br /><br />
-<div align="center">
-<img src="Images/Polyline.png" width="400" height="300" /><br />
-Example polylines
-</div>
-<br /><br />
-Polylines are added and removed from the collection using <a href="PolylineCollection.html#add"><code>PolylineCollection#add</code></a>
-and <a href="PolylineCollection.html#remove"><code>PolylineCollection#remove</code></a>.
+    A renderable collection of polylines.<br /><br /><div align="center"><img src="Images/Polyline.png" width="400" height="300" /><br />Example polylines</div><br /><br />Polylines are added and removed from the collection using <a href="PolylineCollection.html#add"><code>PolylineCollection#add</code></a>and <a href="PolylineCollection.html#remove"><code>PolylineCollection#remove</code></a>.
 </div>
 
 
 
     <h5>Performance:</h5>
-    <p class="description">For best performance, prefer a few collections, each with many polylines, to
-many collections with only a few polylines each.  Organize collections so that polylines
-with the same update frequency are in the same collection, i.e., polylines that do not
-change should be in one collection; polylines that change every frame should be in another
-collection; and so on.</p>
+    <p class="description">For best performance, prefer a few collections, each with many polylines, tomany collections with only a few polylines each.  Organize collections so that polylineswith the same update frequency are in the same collection, i.e., polylines that do notchange should be in one collection; polylines that change every frame should be in anothercollection; and so on.</p>
 
 
 
@@ -306,25 +294,7 @@ collection; and so on.</p>
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Create a polyline collection with two polylines
-const polylines = new Cesium.PolylineCollection();
-polylines.add({
-  positions : Cesium.Cartesian3.fromDegreesArray([
-    -75.10, 39.57,
-    -77.02, 38.53,
-    -80.50, 35.14,
-    -80.12, 25.46]),
-  width : 2
-});
-
-polylines.add({
-  positions : Cesium.Cartesian3.fromDegreesArray([
-    -73.10, 37.57,
-    -75.02, 36.53,
-    -78.50, 33.14,
-    -78.12, 23.46]),
-  width : 4
-});</code></pre>
+    <pre><code class="language-javascript">// Create a polyline collection with two polylinesconst polylines = new Cesium.PolylineCollection();polylines.add({  positions : Cesium.Cartesian3.fromDegreesArray([    -75.10, 39.57,    -77.02, 38.53,    -80.50, 35.14,    -80.12, 25.46]),  width : 2});polylines.add({  positions : Cesium.Cartesian3.fromDegreesArray([    -73.10, 37.57,    -75.02, 36.53,    -78.50, 33.14,    -78.12, 23.46]),  width : 4});</code></pre>
 
     
 
@@ -387,10 +357,7 @@ polylines.add({
 
 
 <div class="description">
-    This property is for debugging only; it is not for production use nor is it optimized.
-<p>
-Draws the bounding sphere for each draw command in the primitive.
-</p>
+    This property is for debugging only; it is not for production use nor is it optimized.<p>Draws the bounding sphere for each draw command in the primitive.</p>
 </div>
 
 
@@ -453,9 +420,7 @@ Draws the bounding sphere for each draw command in the primitive.
 
 
 <div class="description">
-    Returns the number of polylines in this collection.  This is commonly used with
-<a href="PolylineCollection.html#get"><code>PolylineCollection#get</code></a> to iterate over all the polylines
-in the collection.
+    Returns the number of polylines in this collection.  This is commonly used with<a href="PolylineCollection.html#get"><code>PolylineCollection#get</code></a> to iterate over all the polylinesin the collection.
 </div>
 
 
@@ -515,10 +480,7 @@ in the collection.
 
 
 <div class="description">
-    The 4x4 transformation matrix that transforms each polyline in this collection from model to world coordinates.
-When this is the identity matrix, the polylines are drawn in world coordinates, i.e., Earth's WGS84 coordinates.
-Local reference frames can be used by providing a different transformation matrix, like that returned
-by <a href="Transforms.html#.eastNorthUpToFixedFrame"><code>Transforms.eastNorthUpToFixedFrame</code></a>.
+    The 4x4 transformation matrix that transforms each polyline in this collection from model to world coordinates.When this is the identity matrix, the polylines are drawn in world coordinates, i.e., Earth's WGS84 coordinates.Local reference frames can be used by providing a different transformation matrix, like that returnedby <a href="Transforms.html#.eastNorthUpToFixedFrame"><code>Transforms.eastNorthUpToFixedFrame</code></a>.
 </div>
 
 
@@ -651,16 +613,13 @@ by <a href="Transforms.html#.eastNorthUpToFixedFrame"><code>Transforms.eastNorth
 
 
 <div class="description">
-    Creates and adds a polyline with the specified initial properties to the collection.
-The added polyline is returned so it can be modified or removed from the collection later.
+    Creates and adds a polyline with the specified initial properties to the collection.The added polyline is returned so it can be modified or removed from the collection later.
 </div>
 
 
 
     <h5>Performance:</h5>
-    <p class="description">After calling <code>add</code>, <a href="PolylineCollection.html#update"><code>PolylineCollection#update</code></a> is called and
-the collection's vertex buffer is rewritten - an <code>O(n)</code> operation that also incurs CPU to GPU overhead.
-For best performance, add as many polylines as possible before calling <code>update</code>.</p>
+    <p class="description">After calling <code>add</code>, <a href="PolylineCollection.html#update"><code>PolylineCollection#update</code></a> is called andthe collection's vertex buffer is rewritten - an <code>O(n)</code> operation that also incurs CPU to GPU overhead.For best performance, add as many polylines as possible before calling <code>update</code>.</p>
 
 
 
@@ -781,14 +740,9 @@ For best performance, add as many polylines as possible before calling <code>upd
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Example 1:  Add a polyline, specifying all the default values.
-const p = polylines.add({
-  show : true,
-  positions : ellipsoid.cartographicArrayToCartesianArray([
+    <pre><code class="language-javascript">// Example 1:  Add a polyline, specifying all the default values.const p = polylines.add({  show : true,  positions : ellipsoid.cartographicArrayToCartesianArray([
            Cesium.Cartographic.fromDegrees(-75.10, 39.57),
-           Cesium.Cartographic.fromDegrees(-77.02, 38.53)]),
-  width : 1
-});</code></pre>
+           Cesium.Cartographic.fromDegrees(-77.02, 38.53)]),  width : 1});</code></pre>
 
     
 
@@ -906,7 +860,7 @@ const p = polylines.add({
 
         
 <div class="param-desc">
-    true if this collection contains the polyline, false otherwise.
+    true if this collection contains the polyline, false 否则。
 </div>
 
 
@@ -974,12 +928,7 @@ const p = polylines.add({
 
 
 <div class="description">
-    Destroys the WebGL resources held by this object.  Destroying an object allows for deterministic
-release of WebGL resources, instead of relying on the garbage collector to destroy this object.
-<br /><br />
-Once an object is destroyed, it should not be used; calling any function other than
-<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.  Therefore,
-assign the return value (<code>undefined</code>) to the object as done in the example.
+    Destroys the WebGL resources held by this object.  Destroying an object allows for deterministicrelease of WebGL resources, instead of relying on the garbage collector to destroy this object.<br /><br />Once an object is destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.  Therefore,assign the return value (<code>undefined</code>) to the object as done in the example.
 </div>
 
 
@@ -1084,19 +1033,13 @@ assign the return value (<code>undefined</code>) to the object as done in the ex
 
 
 <div class="description">
-    Returns the polyline in the collection at the specified index.  Indices are zero-based
-and increase as polylines are added.  Removing a polyline shifts all polylines after
-it to the left, changing their indices.  This function is commonly used with
-<a href="PolylineCollection.html#length"><code>PolylineCollection#length</code></a> to iterate over all the polylines
-in the collection.
+    Returns the polyline in the collection at the specified index.  Indices are zero-basedand increase as polylines are added.  Removing a polyline shifts all polylines afterit to the left, changing their indices.  This function is commonly used with<a href="PolylineCollection.html#length"><code>PolylineCollection#length</code></a> to iterate over all the polylinesin the collection.
 </div>
 
 
 
     <h5>Performance:</h5>
-    <p class="description">If polylines were removed from the collection and
-<a href="PolylineCollection.html#update"><code>PolylineCollection#update</code></a> was not called, an implicit <code>O(n)</code>
-operation is performed.</p>
+    <p class="description">If polylines were removed from the collection and<a href="PolylineCollection.html#update"><code>PolylineCollection#update</code></a> was not called, an implicit <code>O(n)</code>operation is performed.</p>
 
 
 
@@ -1210,12 +1153,7 @@ operation is performed.</p>
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Toggle the show property of every polyline in the collection
-const len = polylines.length;
-for (let i = 0; i &lt; len; ++i) {
-  const p = polylines.get(i);
-  p.show = !p.show;
-}</code></pre>
+    <pre><code class="language-javascript">// Toggle the show property of every polyline in the collectionconst len = polylines.length;for (let i = 0; i &lt; len; ++i) {  const p = polylines.get(i);  p.show = !p.show;}</code></pre>
 
     
 
@@ -1257,10 +1195,7 @@ for (let i = 0; i &lt; len; ++i) {
 
 
 <div class="description">
-    Returns true if this object was destroyed; otherwise, false.
-<br /><br />
-If this object was destroyed, it should not be used; calling any function other than
-<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.
+    Returns true if this object was destroyed; otherwise, false.<br /><br />If this object was destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.
 </div>
 
 
@@ -1361,11 +1296,7 @@ If this object was destroyed, it should not be used; calling any function other 
 
 
     <h5>Performance:</h5>
-    <p class="description">After calling <code>remove</code>, <a href="PolylineCollection.html#update"><code>PolylineCollection#update</code></a> is called and
-the collection's vertex buffer is rewritten - an <code>O(n)</code> operation that also incurs CPU to GPU overhead.
-For best performance, remove as many polylines as possible before calling <code>update</code>.
-If you intend to temporarily hide a polyline, it is usually more efficient to call
-<a href="Polyline.html#show"><code>Polyline#show</code></a> instead of removing and re-adding the polyline.</p>
+    <p class="description">After calling <code>remove</code>, <a href="PolylineCollection.html#update"><code>PolylineCollection#update</code></a> is called andthe collection's vertex buffer is rewritten - an <code>O(n)</code> operation that also incurs CPU to GPU overhead.For best performance, remove as many polylines as possible before calling <code>update</code>.If you intend to temporarily hide a polyline, it is usually more efficient to call<a href="Polyline.html#show"><code>Polyline#show</code></a> instead of removing and re-adding the polyline.</p>
 
 
 
@@ -1479,8 +1410,7 @@ If you intend to temporarily hide a polyline, it is usually more efficient to ca
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const p = polylines.add(...);
-polylines.remove(p);  // Returns true</code></pre>
+    <pre><code class="language-javascript">const p = polylines.add(...);polylines.remove(p);  // Returns true</code></pre>
 
     
 
@@ -1534,8 +1464,7 @@ polylines.remove(p);  // Returns true</code></pre>
 
 
     <h5>Performance:</h5>
-    <p class="description"><code>O(n)</code>.  It is more efficient to remove all the polylines
-from a collection and then add new ones than to create a new collection entirely.</p>
+    <p class="description"><code>O(n)</code>.  It is more efficient to remove all the polylinesfrom a collection and then add new ones than to create a new collection entirely.</p>
 
 
 
@@ -1595,9 +1524,7 @@ from a collection and then add new ones than to create a new collection entirely
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">polylines.add(...);
-polylines.add(...);
-polylines.removeAll();</code></pre>
+    <pre><code class="language-javascript">polylines.add(...);polylines.add(...);polylines.removeAll();</code></pre>
 
     
 
@@ -1643,12 +1570,7 @@ polylines.removeAll();</code></pre>
 
 
 <div class="description">
-    Called when <a href="Viewer.html"><code>Viewer</code></a> or <a href="CesiumWidget.html"><code>CesiumWidget</code></a> render the scene to
-get the draw commands needed to render this primitive.
-<p>
-Do not call this function directly.  This is documented just to
-list the exceptions that may be propagated when the scene is rendered:
-</p>
+    Called when <a href="Viewer.html"><code>Viewer</code></a> or <a href="CesiumWidget.html"><code>CesiumWidget</code></a> render the scene toget the draw commands needed to render this primitive.<p>Do not call this function directly.  This is documented just tolist the exceptions that may be propagated when the scene is rendered:</p>
 </div>
 
 

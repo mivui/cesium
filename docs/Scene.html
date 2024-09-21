@@ -58,8 +58,7 @@
 
 
 <div class="description">
-    The container for all 3D graphical objects and state in a Cesium virtual scene.  Generally,
-a scene is not created directly; instead, it is implicitly created by <a href="CesiumWidget.html"><code>CesiumWidget</code></a>.
+    The container for all 3D graphical objects and state in a Cesium virtual scene.  Generally,a scene is not created directly; instead, it is implicitly created by <a href="CesiumWidget.html"><code>CesiumWidget</code></a>.
 </div>
 
 
@@ -685,13 +684,7 @@ a scene is not created directly; instead, it is implicitly created by <a href="C
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Create scene without anisotropic texture filtering
-const scene = new Cesium.Scene({
-  canvas : canvas,
-  contextOptions : {
-    allowTextureFilterAnisotropic : false
-  }
-});</code></pre>
+    <pre><code class="language-javascript">// Create scene without anisotropic texture filteringconst scene = new Cesium.Scene({  canvas : canvas,  contextOptions : {    allowTextureFilterAnisotropic : false  }});</code></pre>
 
     
 
@@ -750,8 +743,7 @@ const scene = new Cesium.Scene({
 
 
 <div class="description">
-    Use this to set the default value for <a href="Scene.html#logarithmicDepthBuffer"><code>Scene#logarithmicDepthBuffer</code></a> in newly constructed Scenes
-This property relies on fragmentDepth being supported.
+    Use this to set the default value for <a href="Scene.html#logarithmicDepthBuffer"><code>Scene#logarithmicDepthBuffer</code></a> in newly constructed ScenesThis property relies on fragmentDepth being supported.
 </div>
 
 
@@ -811,8 +803,7 @@ This property relies on fragmentDepth being supported.
 
 
 <div class="description">
-    Settings for atmosphere lighting effects affecting 3D Tiles and model rendering. This is not to be confused with
-<a href="Scene.html#skyAtmosphere"><code>Scene#skyAtmosphere</code></a> which is responsible for rendering the sky.
+    Settings for atmosphere lighting effects affecting 3D Tiles and model rendering. This is not to be confused with<a href="Scene.html#skyAtmosphere"><code>Scene#skyAtmosphere</code></a> which is responsible for rendering the sky.
 </div>
 
 
@@ -1190,8 +1181,7 @@ This property relies on fragmentDepth being supported.
 
 
 <div class="description">
-    Determines whether or not to instantly complete the
-scene transition animation on user input.
+    Determines whether or not to instantly complete thescene transition animation on user input.
 </div>
 
 
@@ -1254,15 +1244,7 @@ scene transition animation on user input.
 
 
 <div class="description">
-    This property is for debugging only; it is not for production use.
-<p>
-A function that determines what commands are executed.  As shown in the examples below,
-the function receives the command's <code>owner</code> as an argument, and returns a boolean indicating if the
-command should be executed.
-</p>
-<p>
-The default is <code>undefined</code>, indicating that all commands are executed.
-</p>
+    This property is for debugging only; it is not for production use.<p>A function that determines what commands are executed.  As shown in the examples below,the function receives the command's <code>owner</code> as an argument, and returns a boolean indicating if thecommand should be executed.</p><p>The default is <code>undefined</code>, indicating that all commands are executed.</p>
 </div>
 
 
@@ -1294,16 +1276,7 @@ The default is <code>undefined</code>, indicating that all commands are executed
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Do not execute any commands.
-scene.debugCommandFilter = function(command) {
-    return false;
-};
-
-// Execute only the billboard's commands.  That is, only draw the billboard.
-const billboards = new Cesium.BillboardCollection();
-scene.debugCommandFilter = function(command) {
-    return command.owner === billboards;
-};</code></pre>
+    <pre><code class="language-javascript">// Do not execute any commands.scene.debugCommandFilter = function(command) {    return false;};// Execute only the billboard's commands.  That is, only draw the billboard.const billboards = new Cesium.BillboardCollection();scene.debugCommandFilter = function(command) {    return command.owner === billboards;};</code></pre>
 
     
 
@@ -1339,15 +1312,7 @@ scene.debugCommandFilter = function(command) {
 
 
 <div class="description">
-    This property is for debugging only; it is not for production use.
-<p>
-When <code>Scene.debugShowFrustums</code> is <code>true</code>, this contains
-properties with statistics about the number of command execute per frustum.
-<code>totalCommands</code> is the total number of commands executed, ignoring
-overlap. <code>commandsInFrustums</code> is an array with the number of times
-commands are executed redundantly, e.g., how many commands overlap two or
-three frustums.
-</p>
+    This property is for debugging only; it is not for production use.<p>When <code>Scene.debugShowFrustums</code> is <code>true</code>, this containsproperties with statistics about the number of command execute per frustum.<code>totalCommands</code> is the total number of commands executed, ignoringoverlap. <code>commandsInFrustums</code> is an array with the number of timescommands are executed redundantly, e.g., how many commands overlap two orthree frustums.</p>
 </div>
 
 
@@ -1410,12 +1375,7 @@ three frustums.
 
 
 <div class="description">
-    This property is for debugging only; it is not for production use.
-<p>
-When <code>true</code>, commands are randomly shaded.  This is useful
-for performance analysis to see what parts of a scene or model are
-command-dense and could benefit from batching.
-</p>
+    This property is for debugging only; it is not for production use.<p>When <code>true</code>, commands are randomly shaded.  This is usefulfor performance analysis to see what parts of a scene or model arecommand-dense and could benefit from batching.</p>
 </div>
 
 
@@ -1478,10 +1438,7 @@ command-dense and could benefit from batching.
 
 
 <div class="description">
-    This property is for debugging only; it is not for production use.
-<p>
-Indicates which frustum will have depth information displayed.
-</p>
+    This property is for debugging only; it is not for production use.<p>Indicates which frustum will have depth information displayed.</p>
 </div>
 
 
@@ -1544,10 +1501,7 @@ Indicates which frustum will have depth information displayed.
 
 
 <div class="description">
-    This property is for debugging only; it is not for production use.
-<p>
-Displays frames per second and time between frames.
-</p>
+    This property is for debugging only; it is not for production use.<p>Displays frames per second and time between frames.</p>
 </div>
 
 
@@ -1610,10 +1564,7 @@ Displays frames per second and time between frames.
 
 
 <div class="description">
-    This property is for debugging only; it is not for production use.
-<p>
-When <code>true</code>, draws outlines to 显示boundaries of the camera frustums
-</p>
+    This property is for debugging only; it is not for production use.<p>When <code>true</code>, draws outlines to 显示boundaries of the camera frustums</p>
 </div>
 
 
@@ -1676,15 +1627,7 @@ When <code>true</code>, draws outlines to 显示boundaries of the camera frustum
 
 
 <div class="description">
-    This property is for debugging only; it is not for production use.
-<p>
-When <code>true</code>, commands are shaded based on the frustums they
-overlap.  Commands in the closest frustum are tinted red, commands in
-the next closest are green, and commands in the farthest frustum are
-blue.  If a command overlaps more than one frustum, the color components
-are combined, e.g., a command overlapping the first two frustums is tinted
-yellow.
-</p>
+    This property is for debugging only; it is not for production use.<p>When <code>true</code>, commands are shaded based on the frustums theyoverlap.  Commands in the closest frustum are tinted red, commands inthe next closest are green, and commands in the farthest frustum areblue.  If a command overlaps more than one frustum, the color componentsare combined, e.g., a command overlapping the first two frustums is tintedyellow.</p>
 </div>
 
 
@@ -1997,12 +1940,7 @@ yellow.
 
 
 <div class="description">
-    The far-to-near ratio of the multi-frustum when using a normal depth buffer.
-<p>
-This value is used to create the near and far values for each frustum of the multi-frustum. It is only used
-when <a href="Scene.html#logarithmicDepthBuffer"><code>Scene#logarithmicDepthBuffer</code></a> is <code>false</code>. When <code>logarithmicDepthBuffer</code> is
-<code>true</code>, use <a href="Scene.html#logarithmicDepthFarToNearRatio"><code>Scene#logarithmicDepthFarToNearRatio</code></a>.
-</p>
+    The far-to-near ratio of the multi-frustum when using a normal depth buffer.<p>This value is used to create the near and far values for each frustum of the multi-frustum. It is only usedwhen <a href="Scene.html#logarithmicDepthBuffer"><code>Scene#logarithmicDepthBuffer</code></a> is <code>false</code>. When <code>logarithmicDepthBuffer</code> is<code>true</code>, use <a href="Scene.html#logarithmicDepthFarToNearRatio"><code>Scene#logarithmicDepthFarToNearRatio</code></a>.</p>
 </div>
 
 
@@ -2125,10 +2063,7 @@ when <a href="Scene.html#logarithmicDepthBuffer"><code>Scene#logarithmicDepthBuf
 
 
 <div class="description">
-    Blends the atmosphere to geometry far from the camera for horizon views. Allows for additional
-performance improvements by rendering less geometry and dispatching less terrain requests.
-
-Disbaled by default if an ellipsoid other than WGS84 is used.
+    Blends the atmosphere to geometry far from the camera for horizon views. Allows for additionalperformance improvements by rendering less geometry and dispatching less terrain requests.Disbaled by default if an ellipsoid other than WGS84 is used.
 </div>
 
 
@@ -2617,8 +2552,7 @@ Disbaled by default if an ellipsoid other than WGS84 is used.
 
 
 <div class="description">
-    When <code>false</code>, 3D Tiles will render normally. When <code>true</code>, classified 3D Tile geometry will render normally and
-unclassified 3D Tile geometry will render with the color multiplied by <a href="Scene.html#invertClassificationColor"><code>Scene#invertClassificationColor</code></a>.
+    When <code>false</code>, 3D Tiles will render normally. When <code>true</code>, classified 3D Tile geometry will render normally andunclassified 3D Tile geometry will render with the color multiplied by <a href="Scene.html#invertClassificationColor"><code>Scene#invertClassificationColor</code></a>.
 </div>
 
 
@@ -2681,9 +2615,7 @@ unclassified 3D Tile geometry will render with the color multiplied by <a href="
 
 
 <div class="description">
-    The highlight color of unclassified 3D Tile geometry when <a href="Scene.html#invertClassification"><code>Scene#invertClassification</code></a> is <code>true</code>.
-<p>When the color's alpha is less than 1.0, the unclassified portions of the 3D Tiles will not blend correctly with the classified positions of the 3D Tiles.</p>
-<p>Also, when the color's alpha is less than 1.0, the WEBGL_depth_texture and EXT_frag_depth WebGL extensions must be supported.</p>
+    The highlight color of unclassified 3D Tile geometry when <a href="Scene.html#invertClassification"><code>Scene#invertClassification</code></a> is <code>true</code>.<p>When the color's alpha is less than 1.0, the unclassified portions of the 3D Tiles will not blend correctly with the classified positions of the 3D Tiles.</p><p>Also, when the color's alpha is less than 1.0, the WEBGL_depth_texture and EXT_frag_depth WebGL extensions must be supported.</p>
 </div>
 
 
@@ -2811,8 +2743,7 @@ unclassified 3D Tile geometry will render with the color multiplied by <a href="
 
 
 <div class="description">
-    Gets the simulation time when the scene was last rendered. Returns undefined if the scene has not yet been
-rendered.
+    Gets the simulation time when the scene was last rendered. Returns undefined if the scene has not yet beenrendered.
 </div>
 
 
@@ -2932,8 +2863,7 @@ rendered.
 
 
 <div class="description">
-    Whether or not to use a logarithmic depth buffer. Enabling this option will allow for less frustums in the multi-frustum,
-increasing performance. This property relies on fragmentDepth being supported.
+    Whether or not to use a logarithmic depth buffer. Enabling this option will allow for less frustums in the multi-frustum,increasing performance. This property relies on fragmentDepth being supported.
 </div>
 
 
@@ -2993,12 +2923,7 @@ increasing performance. This property relies on fragmentDepth being supported.
 
 
 <div class="description">
-    The far-to-near ratio of the multi-frustum when using a logarithmic depth buffer.
-<p>
-This value is used to create the near and far values for each frustum of the multi-frustum. It is only used
-when <a href="Scene.html#logarithmicDepthBuffer"><code>Scene#logarithmicDepthBuffer</code></a> is <code>true</code>. When <code>logarithmicDepthBuffer</code> is
-<code>false</code>, use <a href="Scene.html#farToNearRatio"><code>Scene#farToNearRatio</code></a>.
-</p>
+    The far-to-near ratio of the multi-frustum when using a logarithmic depth buffer.<p>This value is used to create the near and far values for each frustum of the multi-frustum. It is only usedwhen <a href="Scene.html#logarithmicDepthBuffer"><code>Scene#logarithmicDepthBuffer</code></a> is <code>true</code>. When <code>logarithmicDepthBuffer</code> is<code>false</code>, use <a href="Scene.html#farToNearRatio"><code>Scene#farToNearRatio</code></a>.</p>
 </div>
 
 
@@ -3314,12 +3239,7 @@ when <a href="Scene.html#logarithmicDepthBuffer"><code>Scene#logarithmicDepthBuf
 
 
 <div class="description">
-    If <a href="Scene.html#requestRenderMode"><code>Scene#requestRenderMode</code></a> is <code>true</code>, this value defines the maximum change in
-simulation time allowed before a render is requested. Lower values increase the number of frames rendered
-and higher values decrease the number of frames rendered. If <code>undefined</code>, changes to
-the simulation time will never request a render.
-This value impacts the rate of rendering for changes in the scene like lighting, entity property updates,
-and animations.
+    If <a href="Scene.html#requestRenderMode"><code>Scene#requestRenderMode</code></a> is <code>true</code>, this value defines the maximum change insimulation time allowed before a render is requested. Lower values increase the number of frames renderedand higher values decrease the number of frames rendered. If <code>undefined</code>, changes tothe simulation time will never request a render.This value impacts the rate of rendering for changes in the scene like lighting, entity property updates,and animations.
 </div>
 
 
@@ -3389,10 +3309,7 @@ and animations.
 
 
 <div class="description">
-    The distance from the camera at which to disable the depth test of billboards, labels and points
-to, for example, prevent clipping against terrain. When set to zero, the depth test should always
-be applied. When less than zero, the depth test should never be applied. Setting the disableDepthTestDistance
-property of a billboard, label or point will override this value.
+    The distance from the camera at which to disable the depth test of billboards, labels and pointsto, for example, prevent clipping against terrain. When set to zero, the depth test should alwaysbe applied. When less than zero, the depth test should never be applied. Setting the disableDepthTestDistanceproperty of a billboard, label or point will override this value.
 </div>
 
 
@@ -3707,8 +3624,7 @@ property of a billboard, label or point will override this value.
 
 
 <div class="description">
-    The current morph transition time between 2D/Columbus View and 3D,
-with 0.0 being 2D or Columbus View and 1.0 being 3D.
+    The current morph transition time between 2D/Columbus View and 3D,with 0.0 being 2D or Columbus View and 1.0 being 3D.
 </div>
 
 
@@ -3894,9 +3810,7 @@ with 0.0 being 2D or Columbus View and 1.0 being 3D.
 
 
 <div class="description">
-    Determines the uniform depth size in meters of each frustum of the multifrustum in 2D. If a primitive or model close
-to the surface shows z-fighting, decreasing this will eliminate the artifact, but decrease performance. On the
-other hand, increasing this will increase performance but may cause z-fighting among primitives close to the surface.
+    Determines the uniform depth size in meters of each frustum of the multifrustum in 2D. If a primitive or model closeto the surface shows z-fighting, decreasing this will eliminate the artifact, but decrease performance. On theother hand, increasing this will increase performance but may cause z-fighting among primitives close to the surface.
 </div>
 
 
@@ -3959,9 +3873,7 @@ other hand, increasing this will increase performance but may cause z-fighting a
 
 
 <div class="description">
-    获取是否 the scene has order independent translucency enabled.
-Note that this only reflects the original construction option, and there are
-other factors that could prevent OIT from functioning on a given system configuration.
+    获取是否 the scene has order independent translucency enabled.Note that this only reflects the original construction option, and there areother factors that could prevent OIT from functioning on a given system configuration.
 </div>
 
 
@@ -4086,12 +3998,7 @@ other factors that could prevent OIT from functioning on a given system configur
 
 
 <div class="description">
-    When <code>true</code>, enables picking translucent geometry using the depth buffer. Note that <a href="Scene.html#useDepthPicking"><code>Scene#useDepthPicking</code></a> must also be true for enabling this to work.
-
-<p>
-There is a decrease in performance when enabled. There are extra draw calls to write depth for
-translucent geometry.
-</p>
+    When <code>true</code>, enables picking translucent geometry using the depth buffer. Note that <a href="Scene.html#useDepthPicking"><code>Scene#useDepthPicking</code></a> must also be true for enabling this to work.<p>There is a decrease in performance when enabled. There are extra draw calls to write depth fortranslucent geometry.</p>
 </div>
 
 
@@ -4123,15 +4030,7 @@ translucent geometry.
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// picking the position of a translucent primitive
-viewer.screenSpaceEventHandler.setInputAction(function onLeftClick(movement) {
-     const pickedFeature = viewer.scene.pick(movement.position);
-     if (!Cesium.defined(pickedFeature)) {
-         // nothing picked
-         return;
-     }
-     const worldPosition = viewer.scene.pickPosition(movement.position);
-}, Cesium.ScreenSpaceEventType.LEFT_CLICK);</code></pre>
+    <pre><code class="language-javascript">// picking the position of a translucent primitiveviewer.screenSpaceEventHandler.setInputAction(function onLeftClick(movement) {     const pickedFeature = viewer.scene.pick(movement.position);     if (!Cesium.defined(pickedFeature)) {         // nothing picked         return;     }     const worldPosition = viewer.scene.pickPosition(movement.position);}, Cesium.ScreenSpaceEventType.LEFT_CLICK);</code></pre>
 
     
 
@@ -4227,8 +4126,7 @@ viewer.screenSpaceEventHandler.setInputAction(function onLeftClick(movement) {
 
 
 <div class="description">
-    Gets the event that will be raised immediately after the scene is rendered.  Subscribers to the event
-receive the Scene instance as the first parameter and the current time as the second parameter.
+    Gets the event that will be raised immediately after the scene is rendered.  Subscribers to the eventreceive the Scene instance as the first parameter and the current time as the second parameter.
 </div>
 
 
@@ -4299,9 +4197,7 @@ receive the Scene instance as the first parameter and the current time as the se
 
 
 <div class="description">
-    Gets the event that will be raised immediately after the scene is updated and before the scene is rendered.
-Subscribers to the event receive the Scene instance as the first parameter and the current time as the second
-parameter.
+    Gets the event that will be raised immediately after the scene is updated and before the scene is rendered.Subscribers to the event receive the Scene instance as the first parameter and the current time as the secondparameter.
 </div>
 
 
@@ -4372,9 +4268,7 @@ parameter.
 
 
 <div class="description">
-    Gets the event that will be raised after the scene is updated and immediately before the scene is rendered.
-Subscribers to the event receive the Scene instance as the first parameter and the current time as the second
-parameter.
+    Gets the event that will be raised after the scene is updated and immediately before the scene is rendered.Subscribers to the event receive the Scene instance as the first parameter and the current time as the secondparameter.
 </div>
 
 
@@ -4445,8 +4339,7 @@ parameter.
 
 
 <div class="description">
-    Gets the event that will be raised before the scene is updated or rendered.  Subscribers to the event
-receive the Scene instance as the first parameter and the current time as the second parameter.
+    Gets the event that will be raised before the scene is updated or rendered.  Subscribers to the eventreceive the Scene instance as the first parameter and the current time as the second parameter.
 </div>
 
 
@@ -4577,10 +4470,7 @@ receive the Scene instance as the first parameter and the current time as the se
 
 
 <div class="description">
-    Gets the event that will be raised when an error is thrown inside the <code>render</code> function.
-The Scene instance and the thrown error are the only two parameters passed to the event handler.
-By default, errors are not rethrown after this event is raised, but that can be changed by setting
-the <code>rethrowRenderErrors</code> property.
+    Gets the event that will be raised when an error is thrown inside the <code>render</code> function.The Scene instance and the thrown error are the only two parameters passed to the event handler.By default, errors are not rethrown after this event is raised, but that can be changed by settingthe <code>rethrowRenderErrors</code> property.
 </div>
 
 
@@ -4640,10 +4530,7 @@ the <code>rethrowRenderErrors</code> property.
 
 
 <div class="description">
-    When <code>true</code>, rendering a frame will only occur when needed as determined by changes within the scene.
-Enabling improves performance of the application, but requires using <a href="Scene.html#requestRender"><code>Scene#requestRender</code></a>
-to render a new frame explicitly in this mode. This will be necessary in many cases after making changes
-to the scene in other parts of the API.
+    When <code>true</code>, rendering a frame will only occur when needed as determined by changes within the scene.Enabling improves performance of the application, but requires using <a href="Scene.html#requestRender"><code>Scene#requestRender</code></a>to render a new frame explicitly in this mode. This will be necessary in many cases after making changesto the scene in other parts of the API.
 </div>
 
 
@@ -4715,10 +4602,7 @@ to the scene in other parts of the API.
 
 
 <div class="description">
-    Exceptions occurring in <code>render</code> are always caught in order to raise the
-<code>renderError</code> event.  If this property is true, the error is rethrown
-after the event is raised.  If this property is false, the <code>render</code> function
-returns normally after raising the event.
+    Exceptions occurring in <code>render</code> are always caught in order to raise the<code>renderError</code> event.  If this property is true, the error is rethrownafter the event is raised.  If this property is false, the <code>render</code> functionreturns normally after raising the event.
 </div>
 
 
@@ -5713,8 +5597,7 @@ returns normally after raising the event.
 
 
 <div class="description">
-    When <code>true</code>, splits the scene into two viewports with steroscopic views for the left and right eyes.
-Used for cardboard and WebVR.
+    When <code>true</code>, splits the scene into two viewports with steroscopic views for the left and right eyes.Used for cardboard and WebVR.
 </div>
 
 
@@ -5777,8 +5660,7 @@ Used for cardboard and WebVR.
 
 
 <div class="description">
-    The vertical exaggeration of the scene.
-When set to 1.0, no exaggeration is applied.
+    The vertical exaggeration of the scene.When set to 1.0, no exaggeration is applied.
 </div>
 
 
@@ -5841,8 +5723,7 @@ When set to 1.0, no exaggeration is applied.
 
 
 <div class="description">
-    The reference height for vertical exaggeration of the scene.
-When set to 0.0, the exaggeration is applied relative to the ellipsoid surface.
+    The reference height for vertical exaggeration of the scene.When set to 0.0, the exaggeration is applied relative to the ellipsoid surface.
 </div>
 
 
@@ -5912,8 +5793,7 @@ When set to 0.0, the exaggeration is applied relative to the ellipsoid surface.
 
 
 <div class="description">
-    Transforms a position in cartesian coordinates to canvas coordinates.  This is commonly used to place an
-HTML element at the same screen position as an object in the scene.
+    Transforms a position in cartesian coordinates to canvas coordinates.  This is commonly used to place anHTML element at the same screen position as an object in the scene.
 </div>
 
 
@@ -6020,7 +5900,7 @@ HTML element at the same screen position as an object in the scene.
 
         
 <div class="param-desc">
-    The modified result parameter or a new Cartesian2 instance if one was not provided.  This may be <code>undefined</code> if the input position is near the center of the ellipsoid.
+    如果没有提供新的Cartesian2实例，则使用修改后的结果参数。  This may be <code>undefined</code> if the input position is near the center of the ellipsoid.
 </div>
 
 
@@ -6051,13 +5931,7 @@ HTML element at the same screen position as an object in the scene.
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Output the canvas position of longitude/latitude (0, 0) every time the mouse moves.
-const scene = widget.scene;
-const position = Cesium.Cartesian3.fromDegrees(0.0, 0.0);
-const handler = new Cesium.ScreenSpaceEventHandler(scene.canvas);
-handler.setInputAction(function(movement) {
-    console.log(scene.cartesianToCanvasCoordinates(position));
-}, Cesium.ScreenSpaceEventType.MOUSE_MOVE);</code></pre>
+    <pre><code class="language-javascript">// Output the canvas position of longitude/latitude (0, 0) every time the mouse moves.const scene = widget.scene;const position = Cesium.Cartesian3.fromDegrees(0.0, 0.0);const handler = new Cesium.ScreenSpaceEventHandler(scene.canvas);handler.setInputAction(function(movement) {    console.log(scene.cartesianToCanvasCoordinates(position));}, Cesium.ScreenSpaceEventType.MOUSE_MOVE);</code></pre>
 
     
 
@@ -6094,13 +5968,7 @@ handler.setInputAction(function(movement) {
 
 
 <div class="description">
-    Clamps the given cartesian position to the scene geometry along the geodetic surface normal. Returns the
-clamped position or <code>undefined</code> if there was no scene geometry to clamp to. May be used to clamp
-objects to the globe, 3D Tiles, or primitives in the scene.
-<p>
-This function only clamps to globe tiles and 3D Tiles that are rendered in the current view. Clamps to
-all other primitives regardless of their visibility.
-</p>
+    Clamps the given cartesian position to the scene geometry along the geodetic surface normal. Returns theclamped position or <code>undefined</code> if there was no scene geometry to clamp to. May be used to clampobjects to the globe, 3D Tiles, or primitives in the scene.<p>This function only clamps to globe tiles and 3D Tiles that are rendered in the current view. Clamps toall other primitives regardless of their visibility.</p>
 </div>
 
 
@@ -6287,7 +6155,7 @@ all other primitives regardless of their visibility.
 
         
 <div class="param-desc">
-    The modified result parameter or a new Cartesian3 instance if one was not provided. This may be <code>undefined</code> if there was no scene geometry to clamp to.
+    修改后的结果参数 or a new Cartesian3 instance if one was not provided. This may be <code>undefined</code> if there was no scene geometry to clamp to.
 </div>
 
 
@@ -6343,9 +6211,7 @@ all other primitives regardless of their visibility.
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Clamp an entity to the underlying scene geometry
-const position = entity.position.getValue(Cesium.JulianDate.now());
-entity.position = viewer.scene.clampToHeight(position);</code></pre>
+    <pre><code class="language-javascript">// Clamp an entity to the underlying scene geometryconst position = entity.position.getValue(Cesium.JulianDate.now());entity.position = viewer.scene.clampToHeight(position);</code></pre>
 
     
 
@@ -6391,10 +6257,7 @@ entity.position = viewer.scene.clampToHeight(position);</code></pre>
 
 
 <div class="description">
-    Initiates an asynchronous <a href="Scene.html#clampToHeight"><code>Scene#clampToHeight</code></a> query for an array of <a href="Cartesian3.html"><code>Cartesian3</code></a> positions
-using the maximum level of detail for 3D Tilesets in the scene. Returns a promise that is resolved when
-the query completes. Each position is modified in place. If a position cannot be clamped because no geometry
-can be sampled at that location, or another error occurs, the element in the array is set to undefined.
+    Initiates an asynchronous <a href="Scene.html#clampToHeight"><code>Scene#clampToHeight</code></a> query for an array of <a href="Cartesian3.html"><code>Cartesian3</code></a> positionsusing the maximum level of detail for 3D Tilesets in the scene. Returns a promise that is resolved whenthe query completes. Each position is modified in place. If a position cannot be clamped because no geometrycan be sampled at that location, or another error occurs, the element in the array is set to undefined.
 </div>
 
 
@@ -6603,15 +6466,7 @@ can be sampled at that location, or another error occurs, the element in the arr
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const cartesians = [
-    entities[0].position.getValue(Cesium.JulianDate.now()),
-    entities[1].position.getValue(Cesium.JulianDate.now())
-];
-const promise = viewer.scene.clampToHeightMostDetailed(cartesians);
-promise.then(function(updatedCartesians) {
-    entities[0].position = updatedCartesians[0];
-    entities[1].position = updatedCartesians[1];
-}</code></pre>
+    <pre><code class="language-javascript">const cartesians = [    entities[0].position.getValue(Cesium.JulianDate.now()),    entities[1].position.getValue(Cesium.JulianDate.now())];const promise = viewer.scene.clampToHeightMostDetailed(cartesians);promise.then(function(updatedCartesians) {    entities[0].position = updatedCartesians[0];    entities[1].position = updatedCartesians[1];}</code></pre>
 
     
 
@@ -6734,12 +6589,7 @@ promise.then(function(updatedCartesians) {
 
 
 <div class="description">
-    Destroys the WebGL resources held by this object.  Destroying an object allows for deterministic
-release of WebGL resources, instead of relying on the garbage collector to destroy this object.
-<br /><br />
-Once an object is destroyed, it should not be used; calling any function other than
-<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.  Therefore,
-assign the return value (<code>undefined</code>) to the object as done in the example.
+    Destroys the WebGL resources held by this object.  Destroying an object allows for deterministicrelease of WebGL resources, instead of relying on the garbage collector to destroy this object.<br /><br />Once an object is destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.  Therefore,assign the return value (<code>undefined</code>) to the object as done in the example.
 </div>
 
 
@@ -6844,10 +6694,7 @@ assign the return value (<code>undefined</code>) to the object as done in the ex
 
 
 <div class="description">
-    Returns a list of objects, each containing a `primitive` property, for all primitives at
-a particular window coordinate position. Other properties may also be set depending on the
-type of primitive and may be used to further identify the picked object. The primitives in
-the list are ordered by their visual order in the scene (front to back).
+    Returns a list of objects, each containing a `primitive` property, for all primitives ata particular window coordinate position. Other properties may also be set depending on thetype of primitive and may be used to further identify the picked object. The primitives inthe list are ordered by their visual order in the scene (front to back).
 </div>
 
 
@@ -7258,10 +7105,7 @@ the list are ordered by their visual order in the scene (front to back).
 
 
 <div class="description">
-    Returns true if this object was destroyed; otherwise, false.
-<br /><br />
-If this object was destroyed, it should not be used; calling any function other than
-<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.
+    Returns true if this object was destroyed; otherwise, false.<br /><br />If this object was destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.
 </div>
 
 
@@ -7779,12 +7623,7 @@ If this object was destroyed, it should not be used; calling any function other 
 
 
 <div class="description">
-    Returns an object with a `primitive` property that contains the first (top) primitive in the scene
-at a particular window coordinate or undefined if nothing is at the location. Other properties may
-potentially be set depending on the type of primitive and may be used to further identify the picked object.
-<p>
-When a feature of a 3D Tiles tileset is picked, <code>pick</code> returns a <a href="Cesium3DTileFeature.html"><code>Cesium3DTileFeature</code></a> object.
-</p>
+    Returns an object with a `primitive` property that contains the first (top) primitive in the sceneat a particular window coordinate or undefined if nothing is at the location. Other properties maypotentially be set depending on the type of primitive and may be used to further identify the picked object.<p>When a feature of a 3D Tiles tileset is picked, <code>pick</code> returns a <a href="Cesium3DTileFeature.html"><code>Cesium3DTileFeature</code></a> object.</p>
 </div>
 
 
@@ -7970,13 +7809,7 @@ When a feature of a 3D Tiles tileset is picked, <code>pick</code> returns a <a h
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// On mouse over, color the feature yellow.
-handler.setInputAction(function(movement) {
-    const feature = scene.pick(movement.endPosition);
-    if (feature instanceof Cesium.Cesium3DTileFeature) {
-        feature.color = Cesium.Color.YELLOW;
-    }
-}, Cesium.ScreenSpaceEventType.MOUSE_MOVE);</code></pre>
+    <pre><code class="language-javascript">// On mouse over, color the feature yellow.handler.setInputAction(function(movement) {    const feature = scene.pick(movement.endPosition);    if (feature instanceof Cesium.Cesium3DTileFeature) {        feature.color = Cesium.Color.YELLOW;    }}, Cesium.ScreenSpaceEventType.MOUSE_MOVE);</code></pre>
 
     
 
@@ -8013,16 +7846,7 @@ handler.setInputAction(function(movement) {
 
 
 <div class="description">
-    Returns the cartesian position reconstructed from the depth buffer and window position.
-<p>
-The position reconstructed from the depth buffer in 2D may be slightly different from those
-reconstructed in 3D and Columbus view. This is caused by the difference in the distribution
-of depth values of perspective and orthographic projection.
-</p>
-<p>
-Set <a href="Scene.html#pickTranslucentDepth"><code>Scene#pickTranslucentDepth</code></a> to <code>true</code> to include the depth of
-translucent primitives; otherwise, this essentially picks through translucent primitives.
-</p>
+    Returns the cartesian position reconstructed from the depth buffer and window position.<p>The position reconstructed from the depth buffer in 2D may be slightly different from thosereconstructed in 3D and Columbus view. This is caused by the difference in the distributionof depth values of perspective and orthographic projection.</p><p>Set <a href="Scene.html#pickTranslucentDepth"><code>Scene#pickTranslucentDepth</code></a> to <code>true</code> to include the depth oftranslucent primitives; otherwise, this essentially picks through translucent primitives.</p>
 </div>
 
 
@@ -8206,8 +8030,7 @@ translucent primitives; otherwise, this essentially picks through translucent pr
 
 
 <div class="description">
-    Returns a <a href="VoxelCell.html"><code>VoxelCell</code></a> for the voxel sample rendered at a particular window coordinate,
-or undefined if no voxel is rendered at that position.
+    Returns a <a href="VoxelCell.html"><code>VoxelCell</code></a> for the voxel sample rendered at a particular window coordinate,or undefined if no voxel is rendered at that position.
 </div>
 
 
@@ -8393,13 +8216,7 @@ or undefined if no voxel is rendered at that position.
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">On left click, report the value of the "color" property at that voxel sample.
-handler.setInputAction(function(movement) {
-  const voxelCell = scene.pickVoxel(movement.position);
-  if (defined(voxelCell)) {
-    console.log(voxelCell.getProperty("color"));
-  }
-}, Cesium.ScreenSpaceEventType.LEFT_CLICK);</code></pre>
+    <pre><code class="language-javascript">On left click, report the value of the "color" property at that voxel sample.handler.setInputAction(function(movement) {  const voxelCell = scene.pickVoxel(movement.position);  if (defined(voxelCell)) {    console.log(voxelCell.getProperty("color"));  }}, Cesium.ScreenSpaceEventType.LEFT_CLICK);</code></pre>
 
     
 
@@ -8443,8 +8260,7 @@ handler.setInputAction(function(movement) {
 
 
 <div class="description">
-    Update and render the scene. It is usually not necessary to call this function
-directly because <a href="CesiumWidget.html"><code>CesiumWidget</code></a> will do it automatically.
+    Update and render the scene. It is usually not necessary to call this functiondirectly because <a href="CesiumWidget.html"><code>CesiumWidget</code></a> will do it automatically.
 </div>
 
 
@@ -8577,8 +8393,7 @@ directly because <a href="CesiumWidget.html"><code>CesiumWidget</code></a> will 
 
 
 <div class="description">
-    Requests a new rendered frame when <a href="Scene.html#requestRenderMode"><code>Scene#requestRenderMode</code></a> is set to <code>true</code>.
-The render rate will not exceed the <a href="CesiumWidget.html#targetFrameRate"><code>CesiumWidget#targetFrameRate</code></a>.
+    Requests a new rendered frame when <a href="Scene.html#requestRenderMode"><code>Scene#requestRenderMode</code></a> is set to <code>true</code>.The render rate will not exceed the <a href="CesiumWidget.html#targetFrameRate"><code>CesiumWidget#targetFrameRate</code></a>.
 </div>
 
 
@@ -8664,13 +8479,7 @@ The render rate will not exceed the <a href="CesiumWidget.html#targetFrameRate">
 
 
 <div class="description">
-    Returns the height of scene geometry at the given cartographic position or <code>undefined</code> if there was no
-scene geometry to sample height from. The height of the input position is ignored. May be used to clamp objects to
-the globe, 3D Tiles, or primitives in the scene.
-<p>
-This function only samples height from globe tiles and 3D Tiles that are rendered in the current view. Samples height
-from all other primitives regardless of their visibility.
-</p>
+    Returns the height of scene geometry at the given cartographic position or <code>undefined</code> if there was noscene geometry to sample height from. The height of the input position is ignored. May be used to clamp objects tothe globe, 3D Tiles, or primitives in the scene.<p>This function only samples height from globe tiles and 3D Tiles that are rendered in the current view. Samples heightfrom all other primitives regardless of their visibility.</p>
 </div>
 
 
@@ -8879,9 +8688,7 @@ from all other primitives regardless of their visibility.
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const position = new Cesium.Cartographic(-1.31968, 0.698874);
-const height = viewer.scene.sampleHeight(position);
-console.log(height);</code></pre>
+    <pre><code class="language-javascript">const position = new Cesium.Cartographic(-1.31968, 0.698874);const height = viewer.scene.sampleHeight(position);console.log(height);</code></pre>
 
     
 
@@ -8927,11 +8734,7 @@ console.log(height);</code></pre>
 
 
 <div class="description">
-    Initiates an asynchronous <a href="Scene.html#sampleHeight"><code>Scene#sampleHeight</code></a> query for an array of <a href="Cartographic.html"><code>Cartographic</code></a> positions
-using the maximum level of detail for 3D Tilesets in the scene. The height of the input positions is ignored.
-Returns a promise that is resolved when the query completes. Each point height is modified in place.
-If a height cannot be determined because no geometry can be sampled at that location, or another error occurs,
-the height is set to undefined.
+    Initiates an asynchronous <a href="Scene.html#sampleHeight"><code>Scene#sampleHeight</code></a> query for an array of <a href="Cartographic.html"><code>Cartographic</code></a> positionsusing the maximum level of detail for 3D Tilesets in the scene. The height of the input positions is ignored.Returns a promise that is resolved when the query completes. Each point height is modified in place.If a height cannot be determined because no geometry can be sampled at that location, or another error occurs,the height is set to undefined.
 </div>
 
 
@@ -9140,15 +8943,7 @@ the height is set to undefined.
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const positions = [
-    new Cesium.Cartographic(-1.31968, 0.69887),
-    new Cesium.Cartographic(-1.10489, 0.83923)
-];
-const promise = viewer.scene.sampleHeightMostDetailed(positions);
-promise.then(function(updatedPosition) {
-    // positions[0].height and positions[1].height have been updated.
-    // updatedPositions is just a reference to positions.
-}</code></pre>
+    <pre><code class="language-javascript">const positions = [    new Cesium.Cartographic(-1.31968, 0.69887),    new Cesium.Cartographic(-1.10489, 0.83923)];const promise = viewer.scene.sampleHeightMostDetailed(positions);promise.then(function(updatedPosition) {    // positions[0].height and positions[1].height have been updated.    // updatedPositions is just a reference to positions.}</code></pre>
 
     
 
@@ -9293,16 +9088,9 @@ promise.then(function(updatedPosition) {
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Use Cesium World Terrain
-scene.setTerrain(Cesium.Terrain.fromWorldTerrain());</code></pre>
+    <pre><code class="language-javascript">// Use Cesium World Terrainscene.setTerrain(Cesium.Terrain.fromWorldTerrain());</code></pre>
 
-    <pre><code class="language-javascript">// Use a custom terrain provider
-const terrain = new Cesium.Terrain(Cesium.CesiumTerrainProvider.fromUrl("https://myTestTerrain.com"));
-scene.setTerrain(terrain);
-
-terrain.errorEvent.addEventListener(error => {
-  alert(`Encountered an error while creating terrain! ${error}`);
-});</code></pre>
+    <pre><code class="language-javascript">// Use a custom terrain providerconst terrain = new Cesium.Terrain(Cesium.CesiumTerrainProvider.fromUrl("https://myTestTerrain.com"));scene.setTerrain(terrain);terrain.errorEvent.addEventListener(error => {  alert(`Encountered an error while creating terrain! ${error}`);});</code></pre>
 
     
 

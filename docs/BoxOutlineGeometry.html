@@ -58,7 +58,7 @@
 
 
 <div class="description">
-    A description of the outline of a cube centered at the origin.
+    以原点为中心的立方体轮廓的描述。
 </div>
 
 
@@ -148,7 +148,7 @@
 
             <td class="description last">
             
-                The minimum x, y, and z coordinates of the box.</td>
+                最小x, y, z坐标来自 box.</td>
         </tr>
 
     
@@ -171,7 +171,7 @@
 
             <td class="description last">
             
-                The maximum x, y, and z coordinates of the box.</td>
+                最大x, y, z坐标来自 box.</td>
         </tr>
 
     
@@ -220,11 +220,7 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const box = new Cesium.BoxOutlineGeometry({
-  maximum : new Cesium.Cartesian3(250000.0, 250000.0, 250000.0),
-  minimum : new Cesium.Cartesian3(-250000.0, -250000.0, -250000.0)
-});
-const geometry = Cesium.BoxOutlineGeometry.createGeometry(box);</code></pre>
+    <pre><code class="language-javascript">const box = new Cesium.BoxOutlineGeometry({  maximum : new Cesium.Cartesian3(250000.0, 250000.0, 250000.0),  minimum : new Cesium.Cartesian3(-250000.0, -250000.0, -250000.0)});const geometry = Cesium.BoxOutlineGeometry.createGeometry(box);</code></pre>
 
     
 
@@ -285,7 +281,7 @@ const geometry = Cesium.BoxOutlineGeometry.createGeometry(box);</code></pre>
 
 
 <div class="description">
-    The number of elements used to pack the object into an array.
+    用于将对象打包到数组中的元素数量。
 </div>
 
 
@@ -352,7 +348,7 @@ const geometry = Cesium.BoxOutlineGeometry.createGeometry(box);</code></pre>
 
 
 <div class="description">
-    Computes the geometric representation of an outline of a box, including its vertices, indices, and a bounding sphere.
+    计算框的轮廓的几何表示，包括其顶点、索引和边界球。
 </div>
 
 
@@ -403,7 +399,7 @@ const geometry = Cesium.BoxOutlineGeometry.createGeometry(box);</code></pre>
 
             <td class="description last">
             
-                A description of the box outline.</td>
+                盒子轮廓的描述。</td>
         </tr>
 
     
@@ -424,7 +420,7 @@ const geometry = Cesium.BoxOutlineGeometry.createGeometry(box);</code></pre>
 
         
 <div class="param-desc">
-    The computed vertices and indices.
+    计算的顶点和索引。
 </div>
 
 
@@ -487,7 +483,7 @@ const geometry = Cesium.BoxOutlineGeometry.createGeometry(box);</code></pre>
 
 
 <div class="description">
-    Creates an outline of a cube from the dimensions of an AxisAlignedBoundingBox.
+    根据AxisAlignedBoundingBox的尺寸创建立方体的轮廓。
 </div>
 
 
@@ -586,16 +582,7 @@ const geometry = Cesium.BoxOutlineGeometry.createGeometry(box);</code></pre>
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const aabb = Cesium.AxisAlignedBoundingBox.fromPoints(Cesium.Cartesian3.fromDegreesArray([
-     -72.0, 40.0,
-     -70.0, 35.0,
-     -75.0, 30.0,
-     -70.0, 30.0,
-     -68.0, 40.0
-]));
-const box = Cesium.BoxOutlineGeometry.fromAxisAlignedBoundingBox(aabb);
-
- </code></pre>
+    <pre><code class="language-javascript">const aabb = Cesium.AxisAlignedBoundingBox.fromPoints(Cesium.Cartesian3.fromDegreesArray([     -72.0, 40.0,     -70.0, 35.0,     -75.0, 30.0,     -70.0, 30.0,     -68.0, 40.0]));const box = Cesium.BoxOutlineGeometry.fromAxisAlignedBoundingBox(aabb); </code></pre>
 
     
 
@@ -637,7 +624,7 @@ const box = Cesium.BoxOutlineGeometry.fromAxisAlignedBoundingBox(aabb);
 
 
 <div class="description">
-    Creates an outline of a cube centered at the origin given its dimensions.
+    创建给定尺寸的以原点为中心的立方体的轮廓。
 </div>
 
 
@@ -727,7 +714,7 @@ const box = Cesium.BoxOutlineGeometry.fromAxisAlignedBoundingBox(aabb);
 
             <td class="description last">
             
-                The width, depth, and height of the box stored in the x, y, and z coordinates of the <code>Cartesian3</code>, respectively.</td>
+                盒子的宽度、深度和高度分别存储在<code>Cartesian3</code>的x、y和z坐标中。</td>
         </tr>
 
     
@@ -795,10 +782,7 @@ const box = Cesium.BoxOutlineGeometry.fromAxisAlignedBoundingBox(aabb);
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const box = Cesium.BoxOutlineGeometry.fromDimensions({
-  dimensions : new Cesium.Cartesian3(500000.0, 500000.0, 500000.0)
-});
-const geometry = Cesium.BoxOutlineGeometry.createGeometry(box);</code></pre>
+    <pre><code class="language-javascript">const box = Cesium.BoxOutlineGeometry.fromDimensions({  dimensions : new Cesium.Cartesian3(500000.0, 500000.0, 500000.0)});const geometry = Cesium.BoxOutlineGeometry.createGeometry(box);</code></pre>
 
     
 
@@ -840,7 +824,7 @@ const geometry = Cesium.BoxOutlineGeometry.createGeometry(box);</code></pre>
 
 
 <div class="description">
-    Stores the provided instance into the provided array.
+    将提供的实例存储到提供的数组中。
 </div>
 
 
@@ -902,7 +886,7 @@ const geometry = Cesium.BoxOutlineGeometry.createGeometry(box);</code></pre>
 
                 
             
-                The value to pack.</td>
+                要打包的值。</td>
         </tr>
 
     
@@ -934,7 +918,7 @@ const geometry = Cesium.BoxOutlineGeometry.createGeometry(box);</code></pre>
 
                 
             
-                The array to pack into.</td>
+                要装入的数组。</td>
         </tr>
 
     
@@ -970,7 +954,7 @@ const geometry = Cesium.BoxOutlineGeometry.createGeometry(box);</code></pre>
 
                 
             
-                The index into the array at which to start packing the elements.</td>
+                开始打包元素的数组的索引。</td>
         </tr>
 
     
@@ -991,7 +975,7 @@ const geometry = Cesium.BoxOutlineGeometry.createGeometry(box);</code></pre>
 
         
 <div class="param-desc">
-    The array that was packed into
+    被装入的数组
 </div>
 
 
@@ -1054,7 +1038,7 @@ const geometry = Cesium.BoxOutlineGeometry.createGeometry(box);</code></pre>
 
 
 <div class="description">
-    Retrieves an instance from a packed array.
+    从打包数组中检索实例。
 </div>
 
 
@@ -1116,7 +1100,7 @@ const geometry = Cesium.BoxOutlineGeometry.createGeometry(box);</code></pre>
 
                 
             
-                The packed array.</td>
+                打包数组。</td>
         </tr>
 
     
@@ -1152,7 +1136,7 @@ const geometry = Cesium.BoxOutlineGeometry.createGeometry(box);</code></pre>
 
                 
             
-                The starting index of the element to be unpacked.</td>
+                要解压缩的元素的起始索引。</td>
         </tr>
 
     
@@ -1186,7 +1170,7 @@ const geometry = Cesium.BoxOutlineGeometry.createGeometry(box);</code></pre>
 
                 
             
-                The object into which to store the result.</td>
+                要在其中存储结果的对象。</td>
         </tr>
 
     
@@ -1207,7 +1191,7 @@ const geometry = Cesium.BoxOutlineGeometry.createGeometry(box);</code></pre>
 
         
 <div class="param-desc">
-    The modified result parameter or a new BoxOutlineGeometry instance if one was not provided.
+    修改后的结果参数 or a new BoxOutlineGeometry instance if one was not provided.
 </div>
 
 

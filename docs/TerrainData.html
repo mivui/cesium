@@ -58,8 +58,7 @@
 
 
 <div class="description">
-    Terrain data for a single tile.  This type describes an
-interface and is not intended to be instantiated directly.
+    Terrain data for a single tile.  This type describes aninterface and is not intended to be instantiated directly.
 </div>
 
 
@@ -224,9 +223,7 @@ interface and is not intended to be instantiated directly.
 
 
 <div class="description">
-    The water mask included in this terrain data, if any.  A water mask is a rectangular
-Uint8Array or image where a value of 255 indicates water and a value of 0 indicates land.
-Values in between 0 and 255 are allowed as well to smoothly blend between land and water.
+    The water mask included in this terrain data, if any.  A water mask is a rectangularUint8Array or image where a value of 255 indicates water and a value of 0 indicates land.Values in between 0 and 255 are allowed as well to smoothly blend between land and water.
 </div>
 
 
@@ -411,9 +408,7 @@ Values in between 0 and 255 are allowed as well to smoothly blend between land a
 
         
 <div class="param-desc">
-    The terrain height at the specified position.  If the position
-         is outside the rectangle, this method will extrapolate the height, which is likely to be wildly
-         incorrect for positions far outside the rectangle.
+    The terrain height at the specified position.  If the position         is outside the rectangle, this method will extrapolate the height, which is likely to be wildly         incorrect for positions far outside the rectangle.
 </div>
 
 
@@ -476,10 +471,7 @@ Values in between 0 and 255 are allowed as well to smoothly blend between land a
 
 
 <div class="description">
-    Determines if a given child tile is available, based on the
-<code>TerrainData#childTileMask</code>.  The given child tile coordinates are assumed
-to be one of the four children of this tile.  If non-child tile coordinates are
-given, the availability of the southeast child tile is returned.
+    Determines if a given child tile is available, based on the<code>TerrainData#childTileMask</code>.  The given child tile coordinates are assumedto be one of the four children of this tile.  If non-child tile coordinates aregiven, the availability of the southeast child tile is returned.
 </div>
 
 
@@ -893,9 +885,7 @@ given, the availability of the southeast child tile is returned.
 
         
 <div class="param-desc">
-    A promise for upsampled terrain data for the descendant tile,
-         or undefined if too many asynchronous upsample operations are in progress and the request has been
-         deferred.
+    A promise for upsampled terrain data for the descendant tile,         or undefined if too many asynchronous upsample operations are in progress and the request has been         deferred.
 </div>
 
 
@@ -958,10 +948,7 @@ given, the availability of the southeast child tile is returned.
 
 
 <div class="description">
-    Gets a value indicating whether or not this terrain data was created by upsampling lower resolution
-terrain data.  If this value is false, the data was obtained from some other source, such
-as by downloading it from a remote server.  This method should return true for instances
-returned from a call to <a href="TerrainData.html#upsample"><code>TerrainData#upsample</code></a>.
+    Gets a value indicating whether or not this terrain data was created by upsampling lower resolutionterrain data.  If this value is false, the data was obtained from some other source, suchas by downloading it from a remote server.  This method should return true for instancesreturned from a call to <a href="TerrainData.html#upsample"><code>TerrainData#upsample</code></a>.
 </div>
 
 

@@ -275,7 +275,7 @@
 
 
 <div class="description">
-    ArcType defines the path that should be taken connecting vertices.
+    ArcType定义了连接顶点的路径。
 </div>
 
 
@@ -327,7 +327,7 @@
 
             
 
-            <td class="description last">Straight line that does not conform to the surface of the ellipsoid.</td>
+            <td class="description last">不符合椭球表面的直线。</td>
         </tr>
 
     
@@ -350,7 +350,7 @@
 
             
 
-            <td class="description last">Follow geodesic path.</td>
+            <td class="description last">遵循测地线路径。</td>
         </tr>
 
     
@@ -373,7 +373,7 @@
 
             
 
-            <td class="description last">Follow rhumb or loxodrome path.</td>
+            <td class="description last">沿着弯道或斜路走。</td>
         </tr>
 
     
@@ -1213,7 +1213,7 @@
 
             
 
-            <td class="description last">The blend factor is the source color.</td>
+            <td class="description last">The blend factor is 源颜色。</td>
         </tr>
 
     
@@ -1236,7 +1236,7 @@
 
             
 
-            <td class="description last">The blend factor is one minus the source color.</td>
+            <td class="description last">The blend factor is one minus 源颜色。</td>
         </tr>
 
     
@@ -26472,7 +26472,7 @@
 
 
 <div class="description">
-    Computes the barycentric coordinates for a point with respect to a triangle.
+    计算一个点相对于一个三角形的质心坐标。
 </div>
 
 
@@ -26531,7 +26531,7 @@
 
                 
             
-                The point to test.</td>
+                要测试的点。</td>
         </tr>
 
     
@@ -26562,7 +26562,7 @@
 
                 
             
-                The first point of the triangle, corresponding to the barycentric x-axis.</td>
+                三角形的第一点，对应于以质量为中心的x轴。</td>
         </tr>
 
     
@@ -26593,7 +26593,7 @@
 
                 
             
-                The second point of the triangle, corresponding to the barycentric y-axis.</td>
+                三角形的第二个点，对应于以质量为中心的y轴。</td>
         </tr>
 
     
@@ -26624,7 +26624,7 @@
 
                 
             
-                The third point of the triangle, corresponding to the barycentric z-axis.</td>
+                三角形的第三个点，对应以质量为中心的z轴。</td>
         </tr>
 
     
@@ -26654,7 +26654,7 @@
 
                 
             
-                The object onto which to store the result.</td>
+                要在其上存储结果的对象。</td>
         </tr>
 
     
@@ -26675,7 +26675,7 @@
 
         
 <div class="param-desc">
-    The modified result parameter or a new Cartesian3 instance if one was not provided. If the triangle is degenerate the function will return undefined.
+    如果没有提供新的Cartesian3实例，则使用修改后的结果参数。如果三角形是退化的，函数将返回undefined。
 </div>
 
 
@@ -26743,7 +26743,7 @@
 
 
 <div class="description">
-    Finds an item in a sorted array.
+    在已排序的数组中查找项。
 </div>
 
 
@@ -26794,7 +26794,7 @@
 
             <td class="description last">
             
-                The sorted array to search.</td>
+                要搜索的排序数组。</td>
         </tr>
 
     
@@ -26817,7 +26817,7 @@
 
             <td class="description last">
             
-                The item to find in the array.</td>
+                要在数组中查找的项。</td>
         </tr>
 
     
@@ -26840,7 +26840,7 @@
 
             <td class="description last">
             
-                The function to use to compare the item to       elements in the array.</td>
+                用于比较项的函数       数组中的元素。</td>
         </tr>
 
     
@@ -26861,7 +26861,7 @@
 
         
 <div class="param-desc">
-    The index of <code>itemToFind</code> in the array, if it exists.  If <code>itemToFind</code>       does not exist, the return value is a negative number which is the bitwise complement (~)       of the index before which the itemToFind should be inserted in order to maintain the       sorted order of the array.
+    <code>itemToFind</code>在数组中的索引(如果存在)。如果<code>itemToFind</code>不存在，返回值是一个负数，是位补码(~)在索引之前插入itemToFind以维护索引的数组的排序顺序。
 </div>
 
 
@@ -26929,7 +26929,7 @@
 
 
 <div class="description">
-    Given a relative URL under the Cesium base URL, returns an absolute URL.
+    给定Cesium基础URL下的相对URL，返回绝对URL。
 </div>
 
 
@@ -26980,7 +26980,7 @@
 
             <td class="description last">
             
-                The relative path.</td>
+                相对路径。</td>
         </tr>
 
     
@@ -27001,7 +27001,7 @@
 
         
 <div class="param-desc">
-    The absolutely URL representation of the provided path.
+    所提供路径的绝对URL表示形式。
 </div>
 
 
@@ -27315,7 +27315,7 @@
 
                 
             
-                The first object to merge.</td>
+                第一个object to merge.</td>
         </tr>
 
     
@@ -27349,7 +27349,7 @@
 
                 
             
-                The second object to merge.</td>
+                第二个 object to merge.</td>
         </tr>
 
     
@@ -27647,10 +27647,7 @@
 
 
 <div class="description">
-    Creates a <a href="Material.html"><code>Material</code></a> that combines multiple layers of color/gradient bands and maps them to terrain heights.
-
-The shader does a binary search over all the heights to find out which colors are above and below a given height, and
-interpolates between them for the final color. This material supports hundreds of entries relatively cheaply.
+    Creates a <a href="Material.html"><code>Material</code></a> that combines multiple layers of color/gradient bands and maps them to terrain heights.The shader does a binary search over all the heights to find out which colors are above and below a given height, andinterpolates between them for the final color. This material supports hundreds of entries relatively cheaply.
 </div>
 
 
@@ -27821,28 +27818,7 @@ interpolates between them for the final color. This material supports hundreds o
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">scene.globe.material = Cesium.createElevationBandMaterial({
-    scene : scene,
-    layers : [{
-        entries : [{
-            height : 4200.0,
-            color : new Cesium.Color(0.0, 0.0, 0.0, 1.0)
-        }, {
-            height : 8848.0,
-            color : new Cesium.Color(1.0, 1.0, 1.0, 1.0)
-        }],
-        extendDownwards : true,
-        extendUpwards : true,
-    }, {
-        entries : [{
-            height : 7000.0,
-            color : new Cesium.Color(1.0, 0.0, 0.0, 0.5)
-        }, {
-            height : 7100.0,
-            color : new Cesium.Color(1.0, 0.0, 0.0, 0.5)
-        }]
-    }]
-});</code></pre>
+    <pre><code class="language-javascript">scene.globe.material = Cesium.createElevationBandMaterial({    scene : scene,    layers : [{        entries : [{            height : 4200.0,            color : new Cesium.Color(0.0, 0.0, 0.0, 1.0)        }, {            height : 8848.0,            color : new Cesium.Color(1.0, 1.0, 1.0, 1.0)        }],        extendDownwards : true,        extendUpwards : true,    }, {        entries : [{            height : 7000.0,            color : new Cesium.Color(1.0, 0.0, 0.0, 0.5)        }, {            height : 7100.0,            color : new Cesium.Color(1.0, 0.0, 0.0, 0.5)        }]    }]});</code></pre>
 
     
 
@@ -28488,10 +28464,7 @@ interpolates between them for the final color. This material supports hundreds o
 
 
 <div class="description">
-    Creates a <a href="Primitive.html"><code>Primitive</code></a> to visualize well-known vector vertex attributes:
-<code>normal</code>, <code>tangent</code>, and <code>bitangent</code>.  Normal
-is red; tangent is green; and bitangent is blue.  If an attribute is not
-present, it is not drawn.
+    Creates a <a href="Primitive.html"><code>Primitive</code></a> to visualize well-known vector vertex attributes:<code>normal</code>, <code>tangent</code>, and <code>bitangent</code>.  Normalis red; tangent is green; and bitangent is blue.  If an attribute is notpresent, it is not drawn.
 </div>
 
 
@@ -28722,11 +28695,7 @@ present, it is not drawn.
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">scene.primitives.add(Cesium.createTangentSpaceDebugPrimitive({
-   geometry : instance.geometry,
-   length : 100000.0,
-   modelMatrix : instance.modelMatrix
-}));</code></pre>
+    <pre><code class="language-javascript">scene.primitives.add(Cesium.createTangentSpaceDebugPrimitive({   geometry : instance.geometry,   length : 100000.0,   modelMatrix : instance.modelMatrix}));</code></pre>
 
     
 
@@ -28933,25 +28902,9 @@ present, it is not drawn.
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Create Cesium World Bathymetry with default settings
-try {
-  const viewer = new Cesium.Viewer("cesiumContainer", {
-    terrainProvider: await Cesium.createWorldBathymetryAsync();
-  });
-} catch (error) {
-  console.log(error);
-}</code></pre>
+    <pre><code class="language-javascript">// Create Cesium World Bathymetry with default settingstry {  const viewer = new Cesium.Viewer("cesiumContainer", {    terrainProvider: await Cesium.createWorldBathymetryAsync();  });} catch (error) {  console.log(error);}</code></pre>
 
-    <pre><code class="language-javascript">// Create Cesium World Bathymetry with normals.
-try {
-  const viewer1 = new Cesium.Viewer("cesiumContainer", {
-    terrainProvider: await Cesium.createWorldBathymetryAsync({
-      requestVertexNormals: true
-    });
-  });
-} catch (error) {
-  console.log(error);
-}</code></pre>
+    <pre><code class="language-javascript">// Create Cesium World Bathymetry with normals.try {  const viewer1 = new Cesium.Viewer("cesiumContainer", {    terrainProvider: await Cesium.createWorldBathymetryAsync({      requestVertexNormals: true    });  });} catch (error) {  console.log(error);}</code></pre>
 
     
 
@@ -29159,21 +29112,9 @@ try {
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Create a Cesium World Imagery base layer with default settings
-try {
-  const imageryProvider = await Cesium.createWorldImageryAsync();
-} catch (error) {
-  console.log(`There was an error creating world imagery: ${error}`);
-}</code></pre>
+    <pre><code class="language-javascript">// Create a Cesium World Imagery base layer with default settingstry {  const imageryProvider = await Cesium.createWorldImageryAsync();} catch (error) {  console.log(`There was an error creating world imagery: ${error}`);}</code></pre>
 
-    <pre><code class="language-javascript">// Create Cesium World Imagery with different style
-try {
-  const imageryProvider = await Cesium.createWorldImageryAsync({
-        style: Cesium.IonWorldImageryStyle.AERIAL_WITH_LABELS
-  });
-} catch (error) {
-  console.log(`There was an error creating world imagery: ${error}`);
-}</code></pre>
+    <pre><code class="language-javascript">// Create Cesium World Imagery with different styletry {  const imageryProvider = await Cesium.createWorldImageryAsync({        style: Cesium.IonWorldImageryStyle.AERIAL_WITH_LABELS  });} catch (error) {  console.log(`There was an error creating world imagery: ${error}`);}</code></pre>
 
     
 
@@ -29421,26 +29362,9 @@ try {
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Create Cesium World Terrain with default settings
-try {
-  const viewer = new Cesium.Viewer("cesiumContainer", {
-    terrainProvider: await Cesium.createWorldTerrainAsync();
-  });
-} catch (error) {
-  console.log(error);
-}</code></pre>
+    <pre><code class="language-javascript">// Create Cesium World Terrain with default settingstry {  const viewer = new Cesium.Viewer("cesiumContainer", {    terrainProvider: await Cesium.createWorldTerrainAsync();  });} catch (error) {  console.log(error);}</code></pre>
 
-    <pre><code class="language-javascript">// Create Cesium World Terrain with water and normals.
-try {
-  const viewer1 = new Cesium.Viewer("cesiumContainer", {
-    terrainProvider: await Cesium.createWorldTerrainAsync({
-      requestWaterMask: true,
-      requestVertexNormals: true
-    });
-  });
-} catch (error) {
-  console.log(error);
-}</code></pre>
+    <pre><code class="language-javascript">// Create Cesium World Terrain with water and normals.try {  const viewer1 = new Cesium.Viewer("cesiumContainer", {    terrainProvider: await Cesium.createWorldTerrainAsync({      requestWaterMask: true,      requestVertexNormals: true    });  });} catch (error) {  console.log(error);}</code></pre>
 
     
 
@@ -29713,7 +29637,7 @@ try {
 
         
 <div class="param-desc">
-    Returns true if the object is defined, returns false otherwise.
+    Returns true if the object is defined, returns false 否则。
 </div>
 
 
@@ -29952,14 +29876,7 @@ try {
 
 
 <div class="description">
-    Exports an EntityCollection as a KML document. Only Point, Billboard, Model, Path, Polygon, Polyline geometries
-will be exported. Note that there is not a 1 to 1 mapping of Entity properties to KML Feature properties. For
-example, entity properties that are time dynamic but cannot be dynamic in KML are exported with their values at
-options.time or the beginning of the EntityCollection's time interval if not specified. For time-dynamic properties
-that are supported in KML, we use the samples if it is a <a href="SampledProperty.html"><code>SampledProperty</code></a> otherwise we sample the value using
-the options.sampleDuration. Point, Billboard, Model and Path geometries with time-dynamic positions will be exported
-as gx:Track Features. Not all Materials are representable in KML, so for more advanced Materials just the primary
-color is used. Canvas objects are exported as PNG images.
+    Exports an EntityCollection as a KML document. Only Point, Billboard, Model, Path, Polygon, Polyline geometrieswill be exported. Note that there is not a 1 to 1 mapping of Entity properties to KML Feature properties. Forexample, entity properties that are time dynamic but cannot be dynamic in KML are exported with their values atoptions.time or the beginning of the EntityCollection's time interval if not specified. For time-dynamic propertiesthat are supported in KML, we use the samples if it is a <a href="SampledProperty.html"><code>SampledProperty</code></a> otherwise we sample the value usingthe options.sampleDuration. Point, Billboard, Model and Path geometries with time-dynamic positions will be exportedas gx:Track Features. Not all Materials are representable in KML, so for more advanced Materials just the primarycolor is used. Canvas objects are exported as PNG images.
 </div>
 
 
@@ -30332,18 +30249,7 @@ color is used. Canvas objects are exported as PNG images.
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">Cesium.exportKml({
-     entities: entityCollection
- })
-  .then(function(result) {
-    // The XML string is in result.kml
-
-    const externalFiles = result.externalFiles
-    for(const file in externalFiles) {
-      // file is the name of the file used in the KML document as the href
-      // externalFiles[file] is a blob with the contents of the file
-    }
-  });</code></pre>
+    <pre><code class="language-javascript">Cesium.exportKml({     entities: entityCollection })  .then(function(result) {    // The XML string is in result.kml    const externalFiles = result.externalFiles    for(const file in externalFiles) {      // file is the name of the file used in the KML document as the href      // externalFiles[file] is a blob with the contents of the file    }  });</code></pre>
 
     
 
@@ -31346,7 +31252,7 @@ color is used. Canvas objects are exported as PNG images.
 
 
 <div class="description">
-    Gets a timestamp that can be used in measuring the time between events.  Timestampsare expressed in milliseconds, but it is not specified what the milliseconds aremeasured from.  This function uses performance.now() if it is available, or Date.now()otherwise.
+    Gets a timestamp that can be used in measuring the time between events.  Timestampsare expressed in milliseconds, but it is not specified what the milliseconds aremeasured from.  This function uses performance.now() if it is available, or Date.now()否则。
 </div>
 
 
@@ -32050,7 +31956,7 @@ color is used. Canvas objects are exported as PNG images.
 
             <td class="description last">
             
-                The point to test.</td>
+                要测试的点。</td>
         </tr>
 
     
@@ -33742,9 +33648,7 @@ color is used. Canvas objects are exported as PNG images.
 
 
 <div class="description">
-    一个添加默认拖放支持CZML文件到Viewer小部件的mixin。
-不是直接调用，这个函数通常作为
-<a href="Viewer.html#extend"><code>Viewer#extend</code></a> 的参数，如下例所示。
+    一个添加默认拖放支持CZML文件到Viewer小部件的mixin。不是直接调用，这个函数通常作为<a href="Viewer.html#extend"><code>Viewer#extend</code></a> 的参数，如下例所示。
 </div>
 
 
@@ -34136,12 +34040,7 @@ color is used. Canvas objects are exported as PNG images.
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Add basic drag and drop support and pop up an alert window on error.
-const viewer = new Cesium.Viewer('cesiumContainer');
-viewer.extend(Cesium.viewerDragDropMixin);
-viewer.dropError.addEventListener(function(viewerArg, source, error) {
-    window.alert('Error processing ' + source + ':' + error);
-});</code></pre>
+    <pre><code class="language-javascript">// Add basic drag and drop support and pop up an alert window on error.const viewer = new Cesium.Viewer('cesiumContainer');viewer.extend(Cesium.viewerDragDropMixin);viewer.dropError.addEventListener(function(viewerArg, source, error) {    window.alert('Error processing ' + source + ':' + error);});</code></pre>
 
     
 
@@ -34549,8 +34448,7 @@ viewer.dropError.addEventListener(function(viewerArg, source, error) {
 
 
 <div class="description">
-    Writes the given text into a new canvas.  The canvas will be sized to fit the text.
-If text is blank, returns undefined.
+    Writes the given text into a new canvas.  The canvas will be sized to fit the text.If text is blank, returns undefined.
 </div>
 
 
@@ -35005,9 +34903,7 @@ If text is blank, returns undefined.
 
         
 <div class="param-desc">
-    A new canvas with the given text drawn into it.  The dimensions object
-                  from measureText will also be added to the returned canvas. If text is
-                  blank, returns undefined.
+    A new canvas with the given text drawn into it.  The dimensions object                  from measureText will also be added to the returned canvas. If text is                  blank, returns undefined.
 </div>
 
 
@@ -35076,7 +34972,7 @@ If text is blank, returns undefined.
 
 
 <div class="description">
-    A function used to compare two items while performing a binary search.
+    在执行二分查找时比较两个项的函数。
 </div>
 
 
@@ -35127,7 +35023,7 @@ If text is blank, returns undefined.
 
             <td class="description last">
             
-                An item in the array.</td>
+                数组中的一项。</td>
         </tr>
 
     
@@ -35150,7 +35046,7 @@ If text is blank, returns undefined.
 
             <td class="description last">
             
-                The item being searched for.</td>
+                正在搜索的项目。</td>
         </tr>
 
     
@@ -35171,7 +35067,7 @@ If text is blank, returns undefined.
 
         
 <div class="param-desc">
-    Returns a negative value if <code>a</code> is less than <code>b</code>,         a positive value if <code>a</code> is greater than <code>b</code>, or         0 if <code>a</code> is equal to <code>b</code>.
+    如果<code>a</code>小于<code>b</code>，则返回负值;如果<code>a</code>大于<code>b</code>，则为正数当<code>a</code>等于<code>b</code>时为0。
 </div>
 
 
@@ -35238,13 +35134,7 @@ If text is blank, returns undefined.
 
 
 <div class="description">
-    Options to control the setting up of a WebGL Context.
-<p>
-<code>allowTextureFilterAnisotropic</code> defaults to true, which enables
-anisotropic texture filtering when the WebGL extension is supported.
-Setting this to false will improve performance, but hurt visual quality,
-especially for horizon views.
-</p>
+    Options to control the setting up of a WebGL Context.<p><code>allowTextureFilterAnisotropic</code> defaults to true, which enablesanisotropic texture filtering when the WebGL extension is supported.Setting this to false will improve performance, but hurt visual quality,especially for horizon views.</p>
 </div>
 
 
@@ -35940,9 +35830,7 @@ especially for horizon views.
 
 
 <div class="description">
-    Since KML does not support glTF models, this callback is required to specify what URL to use for the model in the KML document.
-It can also be used to add additional files to the <code>externalFiles</code> object, which is the list of files embedded in the exported KMZ,
-or otherwise returned with the KML string when exporting.
+    Since KML does not support glTF models, this callback is required to specify what URL to use for the model in the KML document.It can also be used to add additional files to the <code>externalFiles</code> object, which is the list of files embedded in the exported KMZ,or otherwise returned with the KML string when exporting.
 </div>
 
 
@@ -36679,7 +36567,7 @@ or otherwise returned with the KML string when exporting.
 
                 
             
-                An item in the array.</td>
+                数组中的一项。</td>
         </tr>
 
     
@@ -36707,7 +36595,7 @@ or otherwise returned with the KML string when exporting.
 
                 
             
-                An item in the array.</td>
+                数组中的一项。</td>
         </tr>
 
     
@@ -36990,16 +36878,7 @@ or otherwise returned with the KML string when exporting.
 
 
 <div class="description">
-    WebGL options to be passed on to HTMLCanvasElement.getContext().
-See <a href="https://registry.khronos.org/webgl/specs/latest/1.0/#5.2">WebGLContextAttributes</a>
-but note the modified defaults for 'alpha', 'stencil', and 'powerPreference'
-
-<p>
-<code>alpha</code> defaults to false, which can improve performance
-compared to the standard WebGL default of true.  If an application needs
-to composite Cesium above other HTML elements using alpha-blending, set
-<code>alpha</code> to true.
-</p>
+    WebGL options to be passed on to HTMLCanvasElement.getContext().See <a href="https://registry.khronos.org/webgl/specs/latest/1.0/#5.2">WebGLContextAttributes</a>but note the modified defaults for 'alpha', 'stencil', and 'powerPreference'<p><code>alpha</code> defaults to false, which can improve performancecompared to the standard WebGL default of true.  If an application needsto composite Cesium above other HTML elements using alpha-blending, set<code>alpha</code> to true.</p>
 </div>
 
 

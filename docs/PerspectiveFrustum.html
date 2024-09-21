@@ -58,10 +58,7 @@
 
 
 <div class="description">
-    The viewing frustum is defined by 6 planes.
-Each plane is represented by a <a href="Cartesian4.html"><code>Cartesian4</code></a> object, where the x, y, and z components
-define the unit vector normal to the plane, and the w component is the distance of the
-plane from the origin/camera position.
+    The viewing frustum is defined by 6 planes.Each plane is represented by a <a href="Cartesian4.html"><code>Cartesian4</code></a> object, where the x, y, and z componentsdefine the unit vector normal to the plane, and the w component is the distance of theplane from the origin/camera position.
 </div>
 
 
@@ -398,12 +395,7 @@ plane from the origin/camera position.
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const frustum = new Cesium.PerspectiveFrustum({
-    fov : Cesium.Math.PI_OVER_THREE,
-    aspectRatio : canvas.clientWidth / canvas.clientHeight
-    near : 1.0,
-    far : 1000.0
-});</code></pre>
+    <pre><code class="language-javascript">const frustum = new Cesium.PerspectiveFrustum({    fov : Cesium.Math.PI_OVER_THREE,    aspectRatio : canvas.clientWidth / canvas.clientHeight    near : 1.0,    far : 1000.0});</code></pre>
 
     
 
@@ -460,7 +452,7 @@ plane from the origin/camera position.
 
 
 <div class="description">
-    The number of elements used to pack the object into an array.
+    用于将对象打包到数组中的元素数量。
 </div>
 
 
@@ -646,9 +638,7 @@ plane from the origin/camera position.
 
 
 <div class="description">
-    The angle of the field of view (FOV), in radians.  This angle will be used
-as the horizontal FOV if the width is greater than the height, otherwise
-it will be the vertical FOV.
+    The angle of the field of view (FOV), in radians.  This angle will be usedas the horizontal FOV if the width is greater than the height, otherwiseit will be the vertical FOV.
 </div>
 
 
@@ -1100,7 +1090,7 @@ it will be the vertical FOV.
 
 
 <div class="description">
-    Stores the provided instance into the provided array.
+    将提供的实例存储到提供的数组中。
 </div>
 
 
@@ -1162,7 +1152,7 @@ it will be the vertical FOV.
 
                 
             
-                The value to pack.</td>
+                要打包的值。</td>
         </tr>
 
     
@@ -1194,7 +1184,7 @@ it will be the vertical FOV.
 
                 
             
-                The array to pack into.</td>
+                要装入的数组。</td>
         </tr>
 
     
@@ -1230,7 +1220,7 @@ it will be the vertical FOV.
 
                 
             
-                The index into the array at which to start packing the elements.</td>
+                开始打包元素的数组的索引。</td>
         </tr>
 
     
@@ -1251,7 +1241,7 @@ it will be the vertical FOV.
 
         
 <div class="param-desc">
-    The array that was packed into
+    被装入的数组
 </div>
 
 
@@ -1314,7 +1304,7 @@ it will be the vertical FOV.
 
 
 <div class="description">
-    Retrieves an instance from a packed array.
+    从打包数组中检索实例。
 </div>
 
 
@@ -1376,7 +1366,7 @@ it will be the vertical FOV.
 
                 
             
-                The packed array.</td>
+                打包数组。</td>
         </tr>
 
     
@@ -1412,7 +1402,7 @@ it will be the vertical FOV.
 
                 
             
-                The starting index of the element to be unpacked.</td>
+                要解压缩的元素的起始索引。</td>
         </tr>
 
     
@@ -1446,7 +1436,7 @@ it will be the vertical FOV.
 
                 
             
-                The object into which to store the result.</td>
+                要在其中存储结果的对象。</td>
         </tr>
 
     
@@ -1467,7 +1457,7 @@ it will be the vertical FOV.
 
         
 <div class="param-desc">
-    The modified result parameter or a new PerspectiveFrustum instance if one was not provided.
+    修改后的结果参数 or a new PerspectiveFrustum instance if one was not provided.
 </div>
 
 
@@ -1588,7 +1578,7 @@ it will be the vertical FOV.
 
                 
             
-                The object onto which to store the result.</td>
+                要在其上存储结果的对象。</td>
         </tr>
 
     
@@ -1609,7 +1599,7 @@ it will be the vertical FOV.
 
         
 <div class="param-desc">
-    The modified result parameter or a new PerspectiveFrustum instance if one was not provided.
+    修改后的结果参数 or a new PerspectiveFrustum instance if one was not provided.
 </div>
 
 
@@ -1821,9 +1811,7 @@ it will be the vertical FOV.
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Check if a bounding volume intersects the frustum.
-const cullingVolume = frustum.computeCullingVolume(cameraPosition, cameraDirection, cameraUp);
-const intersect = cullingVolume.computeVisibility(boundingVolume);</code></pre>
+    <pre><code class="language-javascript">// Check if a bounding volume intersects the frustum.const cullingVolume = frustum.computeCullingVolume(cameraPosition, cameraDirection, cameraUp);const intersect = cullingVolume.computeVisibility(boundingVolume);</code></pre>
 
     
 
@@ -1860,8 +1848,7 @@ const intersect = cullingVolume.computeVisibility(boundingVolume);</code></pre>
 
 
 <div class="description">
-    Compares the provided PerspectiveFrustum componentwise and returns
-<code>true</code> if they are equal, <code>false</code> otherwise.
+    Compares the provided PerspectiveFrustum componentwise and returns<code>true</code>，否则为<code>false</code>。
 </div>
 
 
@@ -1919,7 +1906,7 @@ const intersect = cullingVolume.computeVisibility(boundingVolume);</code></pre>
 
                 
             
-                The right hand side PerspectiveFrustum.</td>
+                右边 PerspectiveFrustum.</td>
         </tr>
 
     
@@ -1940,7 +1927,7 @@ const intersect = cullingVolume.computeVisibility(boundingVolume);</code></pre>
 
         
 <div class="param-desc">
-    <code>true</code> if they are equal, <code>false</code> otherwise.
+    <code>true</code>，否则为<code>false</code>。
 </div>
 
 
@@ -2003,9 +1990,7 @@ const intersect = cullingVolume.computeVisibility(boundingVolume);</code></pre>
 
 
 <div class="description">
-    Compares the provided PerspectiveFrustum componentwise and returns
-<code>true</code> if they pass an absolute or relative tolerance test,
-<code>false</code> otherwise.
+    Compares the provided PerspectiveFrustum componentwise and returns<code>true</code> 如果它们通过了绝对或相对耐受性测试，<code>false</code> 否则。
 </div>
 
 
@@ -2067,7 +2052,7 @@ const intersect = cullingVolume.computeVisibility(boundingVolume);</code></pre>
 
                 
             
-                The right hand side PerspectiveFrustum.</td>
+                右边 PerspectiveFrustum.</td>
         </tr>
 
     
@@ -2099,7 +2084,7 @@ const intersect = cullingVolume.computeVisibility(boundingVolume);</code></pre>
 
                 
             
-                The relative epsilon tolerance to use for equality testing.</td>
+                用于相等性检验的相对容差。</td>
         </tr>
 
     
@@ -2135,7 +2120,7 @@ const intersect = cullingVolume.computeVisibility(boundingVolume);</code></pre>
 
                 
             
-                The absolute epsilon tolerance to use for equality testing.</td>
+                用于相等性检验的绝对公差。</td>
         </tr>
 
     
@@ -2156,7 +2141,7 @@ const intersect = cullingVolume.computeVisibility(boundingVolume);</code></pre>
 
         
 <div class="param-desc">
-    <code>true</code> if this and other are within the provided epsilon, <code>false</code> otherwise.
+    <code>true</code> if this and other are within the provided epsilon, <code>false</code> 否则。
 </div>
 
 
@@ -2362,7 +2347,7 @@ const intersect = cullingVolume.computeVisibility(boundingVolume);</code></pre>
 
             <td class="description last">
             
-                The object onto which to store the result.</td>
+                要在其上存储结果的对象。</td>
         </tr>
 
     
@@ -2383,7 +2368,7 @@ const intersect = cullingVolume.computeVisibility(boundingVolume);</code></pre>
 
         
 <div class="param-desc">
-    The modified result parameter or a new instance of <a href="Cartesian2.html"><code>Cartesian2</code></a> with the pixel's width and height in the x and y properties, respectively.
+    修改后的结果参数 or a new instance of <a href="Cartesian2.html"><code>Cartesian2</code></a> with the pixel's width and height in the x and y properties, respectively.
 </div>
 
 
@@ -2450,19 +2435,9 @@ const intersect = cullingVolume.computeVisibility(boundingVolume);</code></pre>
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Example 1
-// Get the width and height of a pixel.
-const pixelSize = camera.frustum.getPixelDimensions(scene.drawingBufferWidth, scene.drawingBufferHeight, 1.0, scene.pixelRatio, new Cesium.Cartesian2());</code></pre>
+    <pre><code class="language-javascript">// Example 1// Get the width and height of a pixel.const pixelSize = camera.frustum.getPixelDimensions(scene.drawingBufferWidth, scene.drawingBufferHeight, 1.0, scene.pixelRatio, new Cesium.Cartesian2());</code></pre>
 
-    <pre><code class="language-javascript">// Example 2
-// Get the width and height of a pixel if the near plane was set to 'distance'.
-// For example, get the size of a pixel of an image on a billboard.
-const position = camera.position;
-const direction = camera.direction;
-const toCenter = Cesium.Cartesian3.subtract(primitive.boundingVolume.center, position, new Cesium.Cartesian3());      // vector from camera to a primitive
-const toCenterProj = Cesium.Cartesian3.multiplyByScalar(direction, Cesium.Cartesian3.dot(direction, toCenter), new Cesium.Cartesian3()); // project vector onto camera direction vector
-const distance = Cesium.Cartesian3.magnitude(toCenterProj);
-const pixelSize = camera.frustum.getPixelDimensions(scene.drawingBufferWidth, scene.drawingBufferHeight, distance, scene.pixelRatio, new Cesium.Cartesian2());</code></pre>
+    <pre><code class="language-javascript">// Example 2// Get the width and height of a pixel if the near plane was set to 'distance'.// For example, get the size of a pixel of an image on a billboard.const position = camera.position;const direction = camera.direction;const toCenter = Cesium.Cartesian3.subtract(primitive.boundingVolume.center, position, new Cesium.Cartesian3());      // vector from camera to a primitiveconst toCenterProj = Cesium.Cartesian3.multiplyByScalar(direction, Cesium.Cartesian3.dot(direction, toCenter), new Cesium.Cartesian3()); // project vector onto camera direction vectorconst distance = Cesium.Cartesian3.magnitude(toCenterProj);const pixelSize = camera.frustum.getPixelDimensions(scene.drawingBufferWidth, scene.drawingBufferHeight, distance, scene.pixelRatio, new Cesium.Cartesian2());</code></pre>
 
     
 

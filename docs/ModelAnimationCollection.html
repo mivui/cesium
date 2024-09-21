@@ -58,11 +58,7 @@
 
 
 <div class="description">
-    <div class="notice">
-Access a model's animations <a href="Model.html#activeAnimations"><code>Model#activeAnimations</code></a>. Do not call the constructor directly
-</div>
-
-A collection of active model animations.
+    <div class="notice">Access a model's animations <a href="Model.html#activeAnimations"><code>Model#activeAnimations</code></a>. Do not call the constructor directly</div>A collection of active model animations.
 </div>
 
 
@@ -163,10 +159,7 @@ A collection of active model animations.
 
 
 <div class="description">
-    When true, the animation will play even when the scene time is paused. However,
-whether animation takes place will depend on the animationTime functions assigned
-to the model's animations. By default, this is based on scene time, so models using
-the default will not animate regardless of this setting.
+    When true, the animation will play even when the scene time is paused. However,whether animation takes place will depend on the animationTime functions assignedto the model's animations. By default, this is based on scene time, so models usingthe default will not animate regardless of this setting.
 </div>
 
 
@@ -229,8 +222,7 @@ the default will not animate regardless of this setting.
 
 
 <div class="description">
-    The event fired when an animation is added to the collection.  This can be used, for
-example, to keep a UI in sync.
+    The event fired when an animation is added to the collection.  This can be used, forexample, to keep a UI in sync.
 </div>
 
 
@@ -262,9 +254,7 @@ example, to keep a UI in sync.
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">model.activeAnimations.animationAdded.addEventListener(function(model, animation) {
-  console.log(`Animation added: ${animation.name}`);
-});</code></pre>
+    <pre><code class="language-javascript">model.activeAnimations.animationAdded.addEventListener(function(model, animation) {  console.log(`Animation added: ${animation.name}`);});</code></pre>
 
     
 
@@ -300,8 +290,7 @@ example, to keep a UI in sync.
 
 
 <div class="description">
-    The event fired when an animation is removed from the collection.  This can be used, for
-example, to keep a UI in sync.
+    The event fired when an animation is removed from the collection.  This can be used, forexample, to keep a UI in sync.
 </div>
 
 
@@ -333,9 +322,7 @@ example, to keep a UI in sync.
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">model.activeAnimations.animationRemoved.addEventListener(function(model, animation) {
-  console.log(`Animation removed: ${animation.name}`);
-});</code></pre>
+    <pre><code class="language-javascript">model.activeAnimations.animationRemoved.addEventListener(function(model, animation) {  console.log(`Animation removed: ${animation.name}`);});</code></pre>
 
     
 
@@ -498,10 +485,7 @@ example, to keep a UI in sync.
 
 
 <div class="description">
-    Creates and adds an animation with the specified initial properties to the collection.
-<p>
-This raises the <a href="ModelAnimationCollection.html#animationAdded"><code>ModelAnimationCollection#animationAdded</code></a> event so, for example, a UI can stay in sync.
-</p>
+    Creates and adds an animation with the specified initial properties to the collection.<p>This raises the <a href="ModelAnimationCollection.html#animationAdded"><code>ModelAnimationCollection#animationAdded</code></a> event so, for example, a UI can stay in sync.</p>
 </div>
 
 
@@ -1036,39 +1020,11 @@ This raises the <a href="ModelAnimationCollection.html#animationAdded"><code>Mod
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Example 1. Add an animation by name
-model.activeAnimations.add({
-  name : 'animation name'
-});</code></pre>
+    <pre><code class="language-javascript">// Example 1. Add an animation by namemodel.activeAnimations.add({  name : 'animation name'});</code></pre>
 
-    <pre><code class="language-javascript">// Example 2. Add an animation by index
-model.activeAnimations.add({
-  index : 0
-});</code></pre>
+    <pre><code class="language-javascript">// Example 2. Add an animation by indexmodel.activeAnimations.add({  index : 0});</code></pre>
 
-    <pre><code class="language-javascript">// Example 3. Add an animation and provide all properties and events
-const startTime = Cesium.JulianDate.now();
-
-const animation = model.activeAnimations.add({
-  name : 'another animation name',
-  startTime : startTime,
-  delay : 0.0,                                 // Play at startTime (default)
-  stopTime : Cesium.JulianDate.addSeconds(startTime, 4.0, new Cesium.JulianDate()),
-  removeOnStop : false,                        // Do not remove when animation stops (default)
-  multiplier : 2.0,                            // Play at double speed
-  reverse : true,                              // Play in reverse
-  loop : Cesium.ModelAnimationLoop.REPEAT      // Loop the animation
-});
-
-animation.start.addEventListener(function(model, animation) {
-  console.log(`Animation started: ${animation.name}`);
-});
-animation.update.addEventListener(function(model, animation, time) {
-  console.log(`Animation updated: ${animation.name}. glTF animation time: ${time}`);
-});
-animation.stop.addEventListener(function(model, animation) {
-  console.log(`Animation stopped: ${animation.name}`);
-});</code></pre>
+    <pre><code class="language-javascript">// Example 3. Add an animation and provide all properties and eventsconst startTime = Cesium.JulianDate.now();const animation = model.activeAnimations.add({  name : 'another animation name',  startTime : startTime,  delay : 0.0,                                 // Play at startTime (default)  stopTime : Cesium.JulianDate.addSeconds(startTime, 4.0, new Cesium.JulianDate()),  removeOnStop : false,                        // Do not remove when animation stops (default)  multiplier : 2.0,                            // Play at double speed  reverse : true,                              // Play in reverse  loop : Cesium.ModelAnimationLoop.REPEAT      // Loop the animation});animation.start.addEventListener(function(model, animation) {  console.log(`Animation started: ${animation.name}`);});animation.update.addEventListener(function(model, animation, time) {  console.log(`Animation updated: ${animation.name}. glTF animation time: ${time}`);});animation.stop.addEventListener(function(model, animation) {  console.log(`Animation stopped: ${animation.name}`);});</code></pre>
 
     
 
@@ -1105,11 +1061,7 @@ animation.stop.addEventListener(function(model, animation) {
 
 
 <div class="description">
-    Creates and adds animations with the specified initial properties to the collection
-for all animations in the model.
-<p>
-This raises the <a href="ModelAnimationCollection.html#animationAdded"><code>ModelAnimationCollection#animationAdded</code></a> event for each model so, for example, a UI can stay in sync.
-</p>
+    Creates and adds animations with the specified initial properties to the collectionfor all animations in the model.<p>This raises the <a href="ModelAnimationCollection.html#animationAdded"><code>ModelAnimationCollection#animationAdded</code></a> event for each model so, for example, a UI can stay in sync.</p>
 </div>
 
 
@@ -1550,10 +1502,7 @@ This raises the <a href="ModelAnimationCollection.html#animationAdded"><code>Mod
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">model.activeAnimations.addAll({
-  multiplier : 0.5,                            // Play at half-speed
-  loop : Cesium.ModelAnimationLoop.REPEAT      // Loop the animations
-});</code></pre>
+    <pre><code class="language-javascript">model.activeAnimations.addAll({  multiplier : 0.5,                            // Play at half-speed  loop : Cesium.ModelAnimationLoop.REPEAT      // Loop the animations});</code></pre>
 
     
 
@@ -1662,7 +1611,7 @@ This raises the <a href="ModelAnimationCollection.html#animationAdded"><code>Mod
 
         
 <div class="param-desc">
-    <code>true</code> if this collection contains the animation, <code>false</code> otherwise.
+    <code>true</code> if this collection contains the animation, <code>false</code> 否则。
 </div>
 
 
@@ -1725,10 +1674,7 @@ This raises the <a href="ModelAnimationCollection.html#animationAdded"><code>Mod
 
 
 <div class="description">
-    Returns the animation in the collection at the specified index.  Indices are zero-based
-and increase as animations are added.  Removing an animation shifts all animations after
-it to the left, changing their indices.  This function is commonly used to iterate over
-all the animations in the collection.
+    Returns the animation in the collection at the specified index.  Indices are zero-basedand increase as animations are added.  Removing an animation shifts all animations afterit to the left, changing their indices.  This function is commonly used to iterate overall the animations in the collection.
 </div>
 
 
@@ -1831,12 +1777,7 @@ all the animations in the collection.
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Output the names of all the animations in the collection.
-const animations = model.activeAnimations;
-const length = animations.length;
-for (let i = 0; i &lt; length; ++i) {
-  console.log(animations.get(i).name);
-}</code></pre>
+    <pre><code class="language-javascript">// Output the names of all the animations in the collection.const animations = model.activeAnimations;const length = animations.length;for (let i = 0; i &lt; length; ++i) {  console.log(animations.get(i).name);}</code></pre>
 
     
 
@@ -1873,14 +1814,7 @@ for (let i = 0; i &lt; length; ++i) {
 
 
 <div class="description">
-    Removes an animation from the collection.
-<p>
-This raises the <a href="ModelAnimationCollection.html#animationRemoved"><code>ModelAnimationCollection#animationRemoved</code></a> event so, for example, a UI can stay in sync.
-</p>
-<p>
-An animation can also be implicitly removed from the collection by setting <code>ModelAnimationCollection#removeOnStop</code> to
-<code>true</code>.  The <a href="ModelAnimationCollection.html#animationRemoved"><code>ModelAnimationCollection#animationRemoved</code></a> event is still fired when the animation is removed.
-</p>
+    Removes an animation from the collection.<p>This raises the <a href="ModelAnimationCollection.html#animationRemoved"><code>ModelAnimationCollection#animationRemoved</code></a> event so, for example, a UI can stay in sync.</p><p>An animation can also be implicitly removed from the collection by setting <code>ModelAnimationCollection#removeOnStop</code> to<code>true</code>.  The <a href="ModelAnimationCollection.html#animationRemoved"><code>ModelAnimationCollection#animationRemoved</code></a> event is still fired when the animation is removed.</p>
 </div>
 
 
@@ -1983,10 +1917,7 @@ An animation can also be implicitly removed from the collection by setting <code
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const a = model.activeAnimations.add({
-  name : 'animation name'
-});
-model.activeAnimations.remove(a); // Returns true</code></pre>
+    <pre><code class="language-javascript">const a = model.activeAnimations.add({  name : 'animation name'});model.activeAnimations.remove(a); // Returns true</code></pre>
 
     
 
@@ -2023,11 +1954,7 @@ model.activeAnimations.remove(a); // Returns true</code></pre>
 
 
 <div class="description">
-    Removes all animations from the collection.
-<p>
-This raises the <a href="ModelAnimationCollection.html#animationRemoved"><code>ModelAnimationCollection#animationRemoved</code></a> event for each
-animation so, for example, a UI can stay in sync.
-</p>
+    Removes all animations from the collection.<p>This raises the <a href="ModelAnimationCollection.html#animationRemoved"><code>ModelAnimationCollection#animationRemoved</code></a> event for eachanimation so, for example, a UI can stay in sync.</p>
 </div>
 
 

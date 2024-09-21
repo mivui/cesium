@@ -47,8 +47,7 @@
 
 
         
-            <div class="description">Writes the given text into a new canvas.  The canvas will be sized to fit the text.
-If text is blank, returns undefined.</div>
+            <div class="description">Writes the given text into a new canvas.  The canvas will be sized to fit the text.If text is blank, returns undefined.</div>
         
 
         

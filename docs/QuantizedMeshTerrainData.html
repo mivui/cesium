@@ -58,11 +58,7 @@
 
 
 <div class="description">
-    Terrain data for a single tile where the terrain data is represented as a quantized mesh.  A quantized
-mesh consists of three vertex attributes, longitude, latitude, and height.  All attributes are expressed
-as 16-bit values in the range 0 to 32767.  Longitude and latitude are zero at the southwest corner
-of the tile and 32767 at the northeast corner.  Height is zero at the minimum height in the tile
-and 32767 at the maximum height in the tile.
+    Terrain data for a single tile where the terrain data is represented as a quantized mesh.  A quantizedmesh consists of three vertex attributes, longitude, latitude, and height.  All attributes are expressedas 16-bit values in the range 0 to 32767.  Longitude and latitude are zero at the southwest cornerof the tile and 32767 at the northeast corner.  Height is zero at the minimum height in the tileand 32767 at the maximum height in the tile.
 </div>
 
 
@@ -198,8 +194,7 @@ and 32767 at the maximum height in the tile.
 
                 
             
-                The indices specifying how the quantized vertices are linked
-                     together into triangles.  Each three indices specifies one triangle.</td>
+                The indices specifying how the quantized vertices are linked                     together into triangles.  Each three indices specifies one triangle.</td>
         </tr>
 
     
@@ -361,9 +356,7 @@ and 32767 at the maximum height in the tile.
 
                 
             
-                The horizon occlusion point of the mesh.  If this point
-                     is below the horizon, the entire tile is assumed to be below the horizon as well.
-                     The point is expressed in ellipsoid-scaled coordinates.</td>
+                The horizon occlusion point of the mesh.  If this point                     is below the horizon, the entire tile is assumed to be below the horizon as well.                     The point is expressed in ellipsoid-scaled coordinates.</td>
         </tr>
 
     
@@ -655,17 +648,7 @@ and 32767 at the maximum height in the tile.
 
                 
             
-                A bit mask indicating which of this tile's four children exist.
-                If a child's bit is set, geometry will be requested for that tile as well when it
-                is needed.  If the bit is cleared, the child tile is not requested and geometry is
-                instead upsampled from the parent.  The bit values are as follows:
-                <table>
-                 <tr><th>Bit Position</th><th>Bit Value</th><th>Child Tile</th></tr>
-                 <tr><td>0</td><td>1</td><td>Southwest</td></tr>
-                 <tr><td>1</td><td>2</td><td>Southeast</td></tr>
-                 <tr><td>2</td><td>4</td><td>Northwest</td></tr>
-                 <tr><td>3</td><td>8</td><td>Northeast</td></tr>
-                </table></td>
+                A bit mask indicating which of this tile's four children exist.                If a child's bit is set, geometry will be requested for that tile as well when it                is needed.  If the bit is cleared, the child tile is not requested and geometry is                instead upsampled from the parent.  The bit values are as follows:                <table>                 <tr><th>Bit Position</th><th>Bit Value</th><th>Child Tile</th></tr>                 <tr><td>0</td><td>1</td><td>Southwest</td></tr>                 <tr><td>1</td><td>2</td><td>Southeast</td></tr>                 <tr><td>2</td><td>4</td><td>Northwest</td></tr>                 <tr><td>3</td><td>8</td><td>Northeast</td></tr>                </table></td>
         </tr>
 
     
@@ -701,8 +684,7 @@ and 32767 at the maximum height in the tile.
 
                 
             
-                True if this instance was created by upsampling another instance;
-                 otherwise, false.</td>
+                True if this instance was created by upsampling another instance;                 otherwise, false.</td>
         </tr>
 
     
@@ -853,30 +835,7 @@ and 32767 at the maximum height in the tile.
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const data = new Cesium.QuantizedMeshTerrainData({
-    minimumHeight : -100,
-    maximumHeight : 2101,
-    quantizedVertices : new Uint16Array([// order is SW NW SE NE
-                                         // longitude
-                                         0, 0, 32767, 32767,
-                                         // latitude
-                                         0, 32767, 0, 32767,
-                                         // heights
-                                         16384, 0, 32767, 16384]),
-    indices : new Uint16Array([0, 3, 1,
-                               0, 2, 3]),
-    boundingSphere : new Cesium.BoundingSphere(new Cesium.Cartesian3(1.0, 2.0, 3.0), 10000),
-    orientedBoundingBox : new Cesium.OrientedBoundingBox(new Cesium.Cartesian3(1.0, 2.0, 3.0), Cesium.Matrix3.fromRotationX(Cesium.Math.PI, new Cesium.Matrix3())),
-    horizonOcclusionPoint : new Cesium.Cartesian3(3.0, 2.0, 1.0),
-    westIndices : [0, 1],
-    southIndices : [0, 1],
-    eastIndices : [2, 3],
-    northIndices : [1, 3],
-    westSkirtHeight : 1.0,
-    southSkirtHeight : 1.0,
-    eastSkirtHeight : 1.0,
-    northSkirtHeight : 1.0
-});</code></pre>
+    <pre><code class="language-javascript">const data = new Cesium.QuantizedMeshTerrainData({    minimumHeight : -100,    maximumHeight : 2101,    quantizedVertices : new Uint16Array([// order is SW NW SE NE                                         // longitude                                         0, 0, 32767, 32767,                                         // latitude                                         0, 32767, 0, 32767,                                         // heights                                         16384, 0, 32767, 16384]),    indices : new Uint16Array([0, 3, 1,                               0, 2, 3]),    boundingSphere : new Cesium.BoundingSphere(new Cesium.Cartesian3(1.0, 2.0, 3.0), 10000),    orientedBoundingBox : new Cesium.OrientedBoundingBox(new Cesium.Cartesian3(1.0, 2.0, 3.0), Cesium.Matrix3.fromRotationX(Cesium.Math.PI, new Cesium.Matrix3())),    horizonOcclusionPoint : new Cesium.Cartesian3(3.0, 2.0, 1.0),    westIndices : [0, 1],    southIndices : [0, 1],    eastIndices : [2, 3],    northIndices : [1, 3],    westSkirtHeight : 1.0,    southSkirtHeight : 1.0,    eastSkirtHeight : 1.0,    northSkirtHeight : 1.0});</code></pre>
 
     
 
@@ -997,9 +956,7 @@ and 32767 at the maximum height in the tile.
 
 
 <div class="description">
-    The water mask included in this terrain data, if any.  A water mask is a rectangular
-Uint8Array or image where a value of 255 indicates water and a value of 0 indicates land.
-Values in between 0 and 255 are allowed as well to smoothly blend between land and water.
+    The water mask included in this terrain data, if any.  A water mask is a rectangularUint8Array or image where a value of 255 indicates water and a value of 0 indicates land.Values in between 0 and 255 are allowed as well to smoothly blend between land and water.
 </div>
 
 
@@ -1184,8 +1141,7 @@ Values in between 0 and 255 are allowed as well to smoothly blend between land a
 
         
 <div class="param-desc">
-    The terrain height at the specified position.  The position is clamped to
-         the rectangle, so expect incorrect results for positions far outside the rectangle.
+    The terrain height at the specified position.  The position is clamped to         the rectangle, so expect incorrect results for positions far outside the rectangle.
 </div>
 
 
@@ -1248,10 +1204,7 @@ Values in between 0 and 255 are allowed as well to smoothly blend between land a
 
 
 <div class="description">
-    Determines if a given child tile is available, based on the
-<code>HeightmapTerrainData.childTileMask</code>.  The given child tile coordinates are assumed
-to be one of the four children of this tile.  If non-child tile coordinates are
-given, the availability of the southeast child tile is returned.
+    Determines if a given child tile is available, based on the<code>HeightmapTerrainData.childTileMask</code>.  The given child tile coordinates are assumedto be one of the four children of this tile.  If non-child tile coordinates aregiven, the availability of the southeast child tile is returned.
 </div>
 
 
@@ -1455,8 +1408,7 @@ given, the availability of the southeast child tile is returned.
 
 
 <div class="description">
-    Upsamples this terrain data for use by a descendant tile.  The resulting instance will contain a subset of the
-vertices in this instance, interpolated if necessary.
+    Upsamples this terrain data for use by a descendant tile.  The resulting instance will contain a subset of thevertices in this instance, interpolated if necessary.
 </div>
 
 
@@ -1666,9 +1618,7 @@ vertices in this instance, interpolated if necessary.
 
         
 <div class="param-desc">
-    A promise for upsampled heightmap terrain data for the descendant tile,
-         or undefined if too many asynchronous upsample operations are in progress and the request has been
-         deferred.
+    A promise for upsampled heightmap terrain data for the descendant tile,         or undefined if too many asynchronous upsample operations are in progress and the request has been         deferred.
 </div>
 
 
@@ -1731,10 +1681,7 @@ vertices in this instance, interpolated if necessary.
 
 
 <div class="description">
-    Gets a value indicating whether or not this terrain data was created by upsampling lower resolution
-terrain data.  If this value is false, the data was obtained from some other source, such
-as by downloading it from a remote server.  This method should return true for instances
-returned from a call to <a href="HeightmapTerrainData.html#upsample"><code>HeightmapTerrainData#upsample</code></a>.
+    Gets a value indicating whether or not this terrain data was created by upsampling lower resolutionterrain data.  If this value is false, the data was obtained from some other source, suchas by downloading it from a remote server.  This method should return true for instancesreturned from a call to <a href="HeightmapTerrainData.html#upsample"><code>HeightmapTerrainData#upsample</code></a>.
 </div>
 
 

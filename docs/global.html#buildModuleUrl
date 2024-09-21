@@ -47,7 +47,7 @@
 
 
         
-            <div class="description">Given a relative URL under the Cesium base URL, returns an absolute URL.</div>
+            <div class="description">给定Cesium基础URL下的相对URL，返回绝对URL。</div>
         
 
         
@@ -127,7 +127,7 @@
 
 
 <div class="description">
-    Gets the base URL for resolving modules.
+    获取解析模块的基URL。
 </div>
 
 
@@ -154,7 +154,7 @@
 
         
 <div class="param-desc">
-    The configured base URL
+    配置的基础URL
 </div>
 
 
@@ -217,7 +217,7 @@
 
 
 <div class="description">
-    Sets the base URL for resolving modules.
+    设置解析模块的基URL。
 </div>
 
 
@@ -268,7 +268,7 @@
 
             <td class="description last">
             
-                The new base URL.</td>
+                新的基URL。</td>
         </tr>
 
     

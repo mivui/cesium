@@ -58,11 +58,7 @@
 
 
 <div class="description">
-    A sky box around the scene to draw stars.  The sky box is defined using the True Equator Mean Equinox (TEME) axes.
-<p>
-This is only supported in 3D.  The sky box is faded out when morphing to 2D or Columbus view.  The size of
-the sky box must not exceed <a href="Scene.html#maximumCubeMapSize"><code>Scene#maximumCubeMapSize</code></a>.
-</p>
+    A sky box around the scene to draw stars.  The sky box is defined using the True Equator Mean Equinox (TEME) axes.<p>This is only supported in 3D.  The sky box is faded out when morphing to 2D or Columbus view.  The size ofthe sky box must not exceed <a href="Scene.html#maximumCubeMapSize"><code>Scene#maximumCubeMapSize</code></a>.</p>
 </div>
 
 
@@ -250,16 +246,7 @@ the sky box must not exceed <a href="Scene.html#maximumCubeMapSize"><code>Scene#
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">scene.skyBox = new Cesium.SkyBox({
-  sources : {
-    positiveX : 'skybox_px.png',
-    negativeX : 'skybox_nx.png',
-    positiveY : 'skybox_py.png',
-    negativeY : 'skybox_ny.png',
-    positiveZ : 'skybox_pz.png',
-    negativeZ : 'skybox_nz.png'
-  }
-});</code></pre>
+    <pre><code class="language-javascript">scene.skyBox = new Cesium.SkyBox({  sources : {    positiveX : 'skybox_px.png',    negativeX : 'skybox_nx.png',    positiveY : 'skybox_py.png',    negativeY : 'skybox_ny.png',    positiveZ : 'skybox_pz.png',    negativeZ : 'skybox_nz.png'  }});</code></pre>
 
     
 
@@ -381,10 +368,7 @@ the sky box must not exceed <a href="Scene.html#maximumCubeMapSize"><code>Scene#
 
 
 <div class="description">
-    The sources used to create the cube map faces: an object
-with <code>positiveX</code>, <code>negativeX</code>, <code>positiveY</code>,
-<code>negativeY</code>, <code>positiveZ</code>, and <code>negativeZ</code> properties.
-These can be either URLs or <code>Image</code> objects.
+    The sources used to create the cube map faces: an objectwith <code>positiveX</code>, <code>negativeX</code>, <code>positiveY</code>,<code>negativeY</code>, <code>positiveZ</code>, and <code>negativeZ</code> properties.These can be either URLs or <code>Image</code> objects.
 </div>
 
 
@@ -549,12 +533,7 @@ These can be either URLs or <code>Image</code> objects.
 
 
 <div class="description">
-    Destroys the WebGL resources held by this object.  Destroying an object allows for deterministic
-release of WebGL resources, instead of relying on the garbage collector to destroy this object.
-<br /><br />
-Once an object is destroyed, it should not be used; calling any function other than
-<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.  Therefore,
-assign the return value (<code>undefined</code>) to the object as done in the example.
+    Destroys the WebGL resources held by this object.  Destroying an object allows for deterministicrelease of WebGL resources, instead of relying on the garbage collector to destroy this object.<br /><br />Once an object is destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.  Therefore,assign the return value (<code>undefined</code>) to the object as done in the example.
 </div>
 
 
@@ -659,10 +638,7 @@ assign the return value (<code>undefined</code>) to the object as done in the ex
 
 
 <div class="description">
-    Returns true if this object was destroyed; otherwise, false.
-<br /><br />
-If this object was destroyed, it should not be used; calling any function other than
-<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.
+    Returns true if this object was destroyed; otherwise, false.<br /><br />If this object was destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.
 </div>
 
 
@@ -757,12 +733,7 @@ If this object was destroyed, it should not be used; calling any function other 
 
 
 <div class="description">
-    Called when <a href="Viewer.html"><code>Viewer</code></a> or <a href="CesiumWidget.html"><code>CesiumWidget</code></a> render the scene to
-get the draw commands needed to render this primitive.
-<p>
-Do not call this function directly.  This is documented just to
-list the exceptions that may be propagated when the scene is rendered:
-</p>
+    Called when <a href="Viewer.html"><code>Viewer</code></a> or <a href="CesiumWidget.html"><code>CesiumWidget</code></a> render the scene toget the draw commands needed to render this primitive.<p>Do not call this function directly.  This is documented just tolist the exceptions that may be propagated when the scene is rendered:</p>
 </div>
 
 

@@ -152,27 +152,9 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Create
-const viewer = new Cesium.Viewer("cesiumContainer", {
-  terrain: new Cesium.Terrain(Cesium.CesiumTerrainProvider.fromUrl("https://myTestTerrain.com"));
-});</code></pre>
+    <pre><code class="language-javascript">// Createconst viewer = new Cesium.Viewer("cesiumContainer", {  terrain: new Cesium.Terrain(Cesium.CesiumTerrainProvider.fromUrl("https://myTestTerrain.com"));});</code></pre>
 
-    <pre><code class="language-javascript">// Handle loading events
-const terrain = new Cesium.Terrain(Cesium.CesiumTerrainProvider.fromUrl("https://myTestTerrain.com"));
-
-scene.setTerrain(terrain);
-
-terrain.readyEvent.addEventListener(provider => {
-  scene.globe.enableLighting = true;
-
-  terrain.provider.errorEvent.addEventListener(error => {
-    alert(`Encountered an error while loading terrain tiles! ${error}`);
-  });
-});
-
-terrain.errorEvent.addEventListener(error => {
-  alert(`Encountered an error while creating terrain! ${error}`);
-});</code></pre>
+    <pre><code class="language-javascript">// Handle loading eventsconst terrain = new Cesium.Terrain(Cesium.CesiumTerrainProvider.fromUrl("https://myTestTerrain.com"));scene.setTerrain(terrain);terrain.readyEvent.addEventListener(provider => {  scene.globe.enableLighting = true;  terrain.provider.errorEvent.addEventListener(error => {    alert(`Encountered an error while loading terrain tiles! ${error}`);  });});terrain.errorEvent.addEventListener(error => {  alert(`Encountered an error while creating terrain! ${error}`);});</code></pre>
 
     
 
@@ -235,9 +217,7 @@ terrain.errorEvent.addEventListener(error => {
 
 
 <div class="description">
-    Gets an event that is raised when the terrain provider encounters an asynchronous error.  By subscribing
-to the event, you will be notified of the error and can potentially recover from it.  Event listeners
-are passed an instance of the thrown error.
+    Gets an event that is raised when the terrain provider encounters an asynchronous error.  By subscribingto the event, you will be notified of the error and can potentially recover from it.  Event listenersare passed an instance of the thrown error.
 </div>
 
 
@@ -417,8 +397,7 @@ are passed an instance of the thrown error.
 
 
 <div class="description">
-    Gets an event that is raised when the terrain provider has been successfully created. Event listeners
-are passed the created instance of <a href="TerrainProvider.html"><code>TerrainProvider</code></a>.
+    Gets an event that is raised when the terrain provider has been successfully created. Event listenersare passed the created instance of <a href="TerrainProvider.html"><code>TerrainProvider</code></a>.
 </div>
 
 
@@ -655,34 +634,11 @@ are passed the created instance of <a href="TerrainProvider.html"><code>TerrainP
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Create Cesium World Bathymetry with default settings
-const viewer = new Cesium.Viewer("cesiumContainer", {
-  terrain: Cesium.Terrain.fromWorldBathymetry)
-});</code></pre>
+    <pre><code class="language-javascript">// Create Cesium World Bathymetry with default settingsconst viewer = new Cesium.Viewer("cesiumContainer", {  terrain: Cesium.Terrain.fromWorldBathymetry)});</code></pre>
 
-    <pre><code class="language-javascript">// Create Cesium World Terrain with normals.
-const viewer1 = new Cesium.Viewer("cesiumContainer", {
-  terrain: Cesium.Terrain.fromWorldBathymetry({
-     requestVertexNormals: true
-   });
-});</code></pre>
+    <pre><code class="language-javascript">// Create Cesium World Terrain with normals.const viewer1 = new Cesium.Viewer("cesiumContainer", {  terrain: Cesium.Terrain.fromWorldBathymetry({     requestVertexNormals: true   });});</code></pre>
 
-    <pre><code class="language-javascript">// Handle loading events
-const bathymetry = Cesium.Terrain.fromWorldBathymetry();
-
-scene.setTerrain(bathymetry);
-
-bathymetry.readyEvent.addEventListener(provider => {
-  scene.globe.enableLighting = true;
-
-  bathymetry.provider.errorEvent.addEventListener(error => {
-    alert(`Encountered an error while loading bathymetric terrain tiles! ${error}`);
-  });
-});
-
-bathymetry.errorEvent.addEventListener(error => {
-  alert(`Encountered an error while creating bathymetric terrain! ${error}`);
-});</code></pre>
+    <pre><code class="language-javascript">// Handle loading eventsconst bathymetry = Cesium.Terrain.fromWorldBathymetry();scene.setTerrain(bathymetry);bathymetry.readyEvent.addEventListener(provider => {  scene.globe.enableLighting = true;  bathymetry.provider.errorEvent.addEventListener(error => {    alert(`Encountered an error while loading bathymetric terrain tiles! ${error}`);  });});bathymetry.errorEvent.addEventListener(error => {  alert(`Encountered an error while creating bathymetric terrain! ${error}`);});</code></pre>
 
     
 
@@ -932,35 +888,11 @@ bathymetry.errorEvent.addEventListener(error => {
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Create Cesium World Terrain with default settings
-const viewer = new Cesium.Viewer("cesiumContainer", {
-  terrain: Cesium.Terrain.fromWorldTerrain()
-});</code></pre>
+    <pre><code class="language-javascript">// Create Cesium World Terrain with default settingsconst viewer = new Cesium.Viewer("cesiumContainer", {  terrain: Cesium.Terrain.fromWorldTerrain()});</code></pre>
 
-    <pre><code class="language-javascript">// Create Cesium World Terrain with water and normals.
-const viewer1 = new Cesium.Viewer("cesiumContainer", {
-  terrain: Cesium.Terrain.fromWorldTerrain({
-     requestWaterMask: true,
-     requestVertexNormals: true
-   });
-});</code></pre>
+    <pre><code class="language-javascript">// Create Cesium World Terrain with water and normals.const viewer1 = new Cesium.Viewer("cesiumContainer", {  terrain: Cesium.Terrain.fromWorldTerrain({     requestWaterMask: true,     requestVertexNormals: true   });});</code></pre>
 
-    <pre><code class="language-javascript">// Handle loading events
-const terrain = Cesium.Terrain.fromWorldTerrain();
-
-scene.setTerrain(terrain);
-
-terrain.readyEvent.addEventListener(provider => {
-  scene.globe.enableLighting = true;
-
-  terrain.provider.errorEvent.addEventListener(error => {
-    alert(`Encountered an error while loading terrain tiles! ${error}`);
-  });
-});
-
-terrain.errorEvent.addEventListener(error => {
-  alert(`Encountered an error while creating terrain! ${error}`);
-});</code></pre>
+    <pre><code class="language-javascript">// Handle loading eventsconst terrain = Cesium.Terrain.fromWorldTerrain();scene.setTerrain(terrain);terrain.readyEvent.addEventListener(provider => {  scene.globe.enableLighting = true;  terrain.provider.errorEvent.addEventListener(error => {    alert(`Encountered an error while loading terrain tiles! ${error}`);  });});terrain.errorEvent.addEventListener(error => {  alert(`Encountered an error while creating terrain! ${error}`);});</code></pre>
 
     
 

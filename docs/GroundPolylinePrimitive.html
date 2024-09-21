@@ -58,10 +58,7 @@
 
 
 <div class="description">
-    A GroundPolylinePrimitive represents a polyline draped over the terrain or 3D Tiles in the <a href="Scene.html"><code>Scene</code></a>.
-<p>
-Only to be used with GeometryInstances containing <a href="GroundPolylineGeometry.html"><code>GroundPolylineGeometry</code></a>.
-</p>
+    A GroundPolylinePrimitive represents a polyline draped over the terrain or 3D Tiles in the <a href="Scene.html"><code>Scene</code></a>.<p>Only to be used with GeometryInstances containing <a href="GroundPolylineGeometry.html"><code>GroundPolylineGeometry</code></a>.</p>
 </div>
 
 
@@ -545,49 +542,7 @@ Only to be used with GeometryInstances containing <a href="GroundPolylineGeometr
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// 1. Draw a polyline on terrain with a basic color material
-
-const instance = new Cesium.GeometryInstance({
-  geometry : new Cesium.GroundPolylineGeometry({
-     positions : Cesium.Cartesian3.fromDegreesArray([
-         -112.1340164450331, 36.05494287836128,
-         -112.08821010582645, 36.097804071380715
-     ]),
-     width : 4.0
-  }),
-  id : 'object returned when this instance is picked and to get/set per-instance attributes'
-});
-
-scene.groundPrimitives.add(new Cesium.GroundPolylinePrimitive({
-  geometryInstances : instance,
-  appearance : new Cesium.PolylineMaterialAppearance()
-}));
-
-// 2. Draw a looped polyline on terrain with per-instance color and a distance display condition.
-// Distance display conditions for polylines on terrain are based on an approximate terrain height
-// instead of true terrain height.
-
-const instance2 = new Cesium.GeometryInstance({
-  geometry : new Cesium.GroundPolylineGeometry({
-     positions : Cesium.Cartesian3.fromDegreesArray([
-         -112.1340164450331, 36.05494287836128,
-         -112.08821010582645, 36.097804071380715,
-         -112.13296079730024, 36.168769146801104
-     ]),
-     loop : true,
-     width : 4.0
-  }),
-  attributes : {
-     color : Cesium.ColorGeometryInstanceAttribute.fromColor(Cesium.Color.fromCssColorString('green').withAlpha(0.7)),
-     distanceDisplayCondition : new Cesium.DistanceDisplayConditionGeometryInstanceAttribute(1000, 30000)
-  },
-  id : 'object returned when this instance is picked and to get/set per-instance attributes'
-});
-
-scene.groundPrimitives.add(new Cesium.GroundPolylinePrimitive({
-  geometryInstances : instance2,
-  appearance : new Cesium.PolylineColorAppearance()
-}));</code></pre>
+    <pre><code class="language-javascript">// 1. Draw a polyline on terrain with a basic color materialconst instance = new Cesium.GeometryInstance({  geometry : new Cesium.GroundPolylineGeometry({     positions : Cesium.Cartesian3.fromDegreesArray([         -112.1340164450331, 36.05494287836128,         -112.08821010582645, 36.097804071380715     ]),     width : 4.0  }),  id : 'object returned when this instance is picked and to get/set per-instance attributes'});scene.groundPrimitives.add(new Cesium.GroundPolylinePrimitive({  geometryInstances : instance,  appearance : new Cesium.PolylineMaterialAppearance()}));// 2. Draw a looped polyline on terrain with per-instance color and a distance display condition.// Distance display conditions for polylines on terrain are based on an approximate terrain height// instead of true terrain height.const instance2 = new Cesium.GeometryInstance({  geometry : new Cesium.GroundPolylineGeometry({     positions : Cesium.Cartesian3.fromDegreesArray([         -112.1340164450331, 36.05494287836128,         -112.08821010582645, 36.097804071380715,         -112.13296079730024, 36.168769146801104     ]),     loop : true,     width : 4.0  }),  attributes : {     color : Cesium.ColorGeometryInstanceAttribute.fromColor(Cesium.Color.fromCssColorString('green').withAlpha(0.7)),     distanceDisplayCondition : new Cesium.DistanceDisplayConditionGeometryInstanceAttribute(1000, 30000)  },  id : 'object returned when this instance is picked and to get/set per-instance attributes'});scene.groundPrimitives.add(new Cesium.GroundPolylinePrimitive({  geometryInstances : instance2,  appearance : new Cesium.PolylineColorAppearance()}));</code></pre>
 
     
 
@@ -702,10 +657,7 @@ scene.groundPrimitives.add(new Cesium.GroundPolylinePrimitive({
 
 
 <div class="description">
-    The <a href="Appearance.html"><code>Appearance</code></a> used to shade this primitive. Each geometry
-instance is shaded with the same appearance.  Some appearances, like
-<a href="PolylineColorAppearance.html"><code>PolylineColorAppearance</code></a> allow giving each instance unique
-properties.
+    The <a href="Appearance.html"><code>Appearance</code></a> used to shade this primitive. Each geometryinstance is shaded with the same appearance.  Some appearances, like<a href="PolylineColorAppearance.html"><code>PolylineColorAppearance</code></a> allow giving each instance uniqueproperties.
 </div>
 
 
@@ -894,10 +846,7 @@ properties.
 
 
 <div class="description">
-    This property is for debugging only; it is not for production use nor is it optimized.
-<p>
-Draws the bounding sphere for each draw command in the primitive.
-</p>
+    This property is for debugging only; it is not for production use nor is it optimized.<p>Draws the bounding sphere for each draw command in the primitive.</p>
 </div>
 
 
@@ -960,10 +909,7 @@ Draws the bounding sphere for each draw command in the primitive.
 
 
 <div class="description">
-    This property is for debugging only; it is not for production use nor is it optimized.
-<p>
-If true, draws the shadow volume for each geometry in the primitive.
-</p>
+    This property is for debugging only; it is not for production use nor is it optimized.<p>If true, draws the shadow volume for each geometry in the primitive.</p>
 </div>
 
 
@@ -1026,12 +972,7 @@ If true, draws the shadow volume for each geometry in the primitive.
 
 
 <div class="description">
-    The geometry instances rendered with this primitive. This may
-be <code>undefined</code> if <code>options.releaseGeometryInstances</code>
-is <code>true</code> when the primitive is constructed.
-<p>
-Changing this property after the primitive is rendered has no effect.
-</p>
+    The geometry instances rendered with this primitive. This maybe <code>undefined</code> if <code>options.releaseGeometryInstances</code>is <code>true</code> when the primitive is constructed.<p>Changing this property after the primitive is rendered has no effect.</p>
 </div>
 
 
@@ -1157,9 +1098,7 @@ Changing this property after the primitive is rendered has no effect.
 
 
 <div class="description">
-    Determines if the primitive is complete and ready to render.  If this property is
-true, the primitive will be rendered the next time that <a href="GroundPolylinePrimitive.html#update"><code>GroundPolylinePrimitive#update</code></a>
-is called.
+    Determines if the primitive is complete and ready to render.  If this property istrue, the primitive will be rendered the next time that <a href="GroundPolylinePrimitive.html#update"><code>GroundPolylinePrimitive#update</code></a>is called.
 </div>
 
 
@@ -1282,8 +1221,7 @@ is called.
 
 
 <div class="description">
-    Determines if the primitive will be shown.  This affects all geometry
-instances in the primitive.
+    Determines if the primitive will be shown.  This affects all geometryinstances in the primitive.
 </div>
 
 
@@ -1353,8 +1291,7 @@ instances in the primitive.
 
 
 <div class="description">
-    Initializes the minimum and maximum terrain heights. This only needs to be called if you are creating the
-GroundPolylinePrimitive synchronously.
+    Initializes the minimum and maximum terrain heights. This only needs to be called if you are creating theGroundPolylinePrimitive synchronously.
 </div>
 
 
@@ -1444,8 +1381,7 @@ GroundPolylinePrimitive synchronously.
 
 
 <div class="description">
-    Checks if the given Scene supports GroundPolylinePrimitives.
-GroundPolylinePrimitives require support for the WEBGL_depth_texture extension.
+    Checks if the given Scene supports GroundPolylinePrimitives.GroundPolylinePrimitives require support for the WEBGL_depth_texture extension.
 </div>
 
 
@@ -1580,13 +1516,7 @@ GroundPolylinePrimitives require support for the WEBGL_depth_texture extension.
 
 
 <div class="description">
-    Destroys the WebGL resources held by this object.  Destroying an object allows for deterministic
-release of WebGL resources, instead of relying on the garbage collector to destroy this object.
-<p>
-Once an object is destroyed, it should not be used; calling any function other than
-<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.  Therefore,
-assign the return value (<code>undefined</code>) to the object as done in the example.
-</p>
+    Destroys the WebGL resources held by this object.  Destroying an object allows for deterministicrelease of WebGL resources, instead of relying on the garbage collector to destroy this object.<p>Once an object is destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.  Therefore,assign the return value (<code>undefined</code>) to the object as done in the example.</p>
 </div>
 
 
@@ -1808,9 +1738,7 @@ assign the return value (<code>undefined</code>) to the object as done in the ex
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const attributes = primitive.getGeometryInstanceAttributes('an id');
-attributes.color = Cesium.ColorGeometryInstanceAttribute.toValue(Cesium.Color.AQUA);
-attributes.show = Cesium.ShowGeometryInstanceAttribute.toValue(true);</code></pre>
+    <pre><code class="language-javascript">const attributes = primitive.getGeometryInstanceAttributes('an id');attributes.color = Cesium.ColorGeometryInstanceAttribute.toValue(Cesium.Color.AQUA);attributes.show = Cesium.ShowGeometryInstanceAttribute.toValue(true);</code></pre>
 
     
 
@@ -1847,11 +1775,7 @@ attributes.show = Cesium.ShowGeometryInstanceAttribute.toValue(true);</code></pr
 
 
 <div class="description">
-    Returns true if this object was destroyed; otherwise, false.
-<p>
-If this object was destroyed, it should not be used; calling any function other than
-<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.
-</p>
+    Returns true if this object was destroyed; otherwise, false.<p>If this object was destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.</p>
 </div>
 
 
@@ -1946,12 +1870,7 @@ If this object was destroyed, it should not be used; calling any function other 
 
 
 <div class="description">
-    Called when <a href="Viewer.html"><code>Viewer</code></a> or <a href="CesiumWidget.html"><code>CesiumWidget</code></a> render the scene to
-get the draw commands needed to render this primitive.
-<p>
-Do not call this function directly.  This is documented just to
-list the exceptions that may be propagated when the scene is rendered:
-</p>
+    Called when <a href="Viewer.html"><code>Viewer</code></a> or <a href="CesiumWidget.html"><code>CesiumWidget</code></a> render the scene toget the draw commands needed to render this primitive.<p>Do not call this function directly.  This is documented just tolist the exceptions that may be propagated when the scene is rendered:</p>
 </div>
 
 

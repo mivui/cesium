@@ -58,8 +58,7 @@
 
 
 <div class="description">
-    A <a href="Resource.html"><code>Resource</code></a> instance that encapsulates Cesium ion asset access.
-This object is normally not instantiated directly, use <a href="IonResource.html#.fromAssetId"><code>IonResource.fromAssetId</code></a>.
+    A <a href="Resource.html"><code>Resource</code></a> instance that encapsulates Cesium ion asset access.This object is normally not instantiated directly, use <a href="IonResource.html#.fromAssetId"><code>IonResource.fromAssetId</code></a>.
 </div>
 
 
@@ -1394,20 +1393,9 @@ This object is normally not instantiated directly, use <a href="IonResource.html
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Load a Cesium3DTileset with asset ID of 124624234
-try {
-  const resource = await Cesium.IonResource.fromAssetId(124624234);
-  const tileset = await Cesium.Cesium3DTileset.fromUrl(resource);
-  scene.primitives.add(tileset);
-} catch (error) {
-  console.error(`Error creating tileset: ${error}`);
-}</code></pre>
+    <pre><code class="language-javascript">// Load a Cesium3DTileset with asset ID of 124624234try {  const resource = await Cesium.IonResource.fromAssetId(124624234);  const tileset = await Cesium.Cesium3DTileset.fromUrl(resource);  scene.primitives.add(tileset);} catch (error) {  console.error(`Error creating tileset: ${error}`);}</code></pre>
 
-    <pre><code class="language-javascript">//Load a CZML file with asset ID of 10890
-Cesium.IonResource.fromAssetId(10890)
-  .then(function (resource) {
-    viewer.dataSources.add(Cesium.CzmlDataSource.load(resource));
-  });</code></pre>
+    <pre><code class="language-javascript">//Load a CZML file with asset ID of 10890Cesium.IonResource.fromAssetId(10890)  .then(function (resource) {    viewer.dataSources.add(Cesium.CzmlDataSource.load(resource));  });</code></pre>
 
     
 
@@ -1530,8 +1518,7 @@ Cesium.IonResource.fromAssetId(10890)
 
 
 <div class="description">
-    Combines the specified object and the existing query parameters. This allows you to add many parameters at once,
- as opposed to adding them one at a time to the queryParameters property.
+    Combines the specified object and the existing query parameters. This allows you to add many parameters at once, as opposed to adding them one at a time to the queryParameters property.
 </div>
 
 
@@ -1662,7 +1649,7 @@ Cesium.IonResource.fromAssetId(10890)
 
 
 <div class="description">
-    Duplicates a Resource instance.
+    复制Resource instance.
 </div>
 
 
@@ -1720,7 +1707,7 @@ Cesium.IonResource.fromAssetId(10890)
 
                 
             
-                The object onto which to store the result.</td>
+                要在其上存储结果的对象。</td>
         </tr>
 
     
@@ -1741,7 +1728,7 @@ Cesium.IonResource.fromAssetId(10890)
 
         
 <div class="param-desc">
-    The modified result parameter or a new Resource instance if one was not provided.
+    修改后的结果参数 or a new Resource instance if one was not provided.
 </div>
 
 
@@ -1809,10 +1796,7 @@ Cesium.IonResource.fromAssetId(10890)
 
 
 <div class="description">
-    Asynchronously deletes the given resource.  Returns a promise that will resolve to
-the result once loaded, or reject if the resource failed to load.  The data is loaded
-using XMLHttpRequest, which means that in order to make requests to another origin,
-the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
+    Asynchronously deletes the given resource.  Returns a promise that will resolve tothe result once loaded, or reject if the resource failed to load.  The data is loadedusing XMLHttpRequest, which means that in order to make requests to another origin,the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
 </div>
 
 
@@ -2039,12 +2023,7 @@ the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">resource.delete()
-  .then(function(body) {
-      // use the data
-  }).catch(function(error) {
-      // an error occurred
-  });</code></pre>
+    <pre><code class="language-javascript">resource.delete()  .then(function(body) {      // use the data  }).catch(function(error) {      // an error occurred  });</code></pre>
 
     
 
@@ -2088,11 +2067,7 @@ the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
 
 
 <div class="description">
-    Asynchronously loads the given resource.  Returns a promise that will resolve to
-the result once loaded, or reject if the resource failed to load.  The data is loaded
-using XMLHttpRequest, which means that in order to make requests to another origin,
-the server must have Cross-Origin Resource Sharing (CORS) headers enabled. It's recommended that you use
-the more specific functions eg. fetchJson, fetchBlob, etc.
+    Asynchronously loads the given resource.  Returns a promise that will resolve tothe result once loaded, or reject if the resource failed to load.  The data is loadedusing XMLHttpRequest, which means that in order to make requests to another origin,the server must have Cross-Origin Resource Sharing (CORS) headers enabled. It's recommended that you usethe more specific functions eg. fetchJson, fetchBlob, etc.
 </div>
 
 
@@ -2319,12 +2294,7 @@ the more specific functions eg. fetchJson, fetchBlob, etc.
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">resource.fetch()
-  .then(function(body) {
-      // use the data
-  }).catch(function(error) {
-      // an error occurred
-  });</code></pre>
+    <pre><code class="language-javascript">resource.fetch()  .then(function(body) {      // use the data  }).catch(function(error) {      // an error occurred  });</code></pre>
 
     
 
@@ -2368,10 +2338,7 @@ the more specific functions eg. fetchJson, fetchBlob, etc.
 
 
 <div class="description">
-    Asynchronously loads the resource as raw binary data.  Returns a promise that will resolve to
-an ArrayBuffer once loaded, or reject if the resource failed to load.  The data is loaded
-using XMLHttpRequest, which means that in order to make requests to another origin,
-the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
+    Asynchronously loads the resource as raw binary data.  Returns a promise that will resolve toan ArrayBuffer once loaded, or reject if the resource failed to load.  The data is loadedusing XMLHttpRequest, which means that in order to make requests to another origin,the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
 </div>
 
 
@@ -2434,12 +2401,7 @@ the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// load a single URL asynchronously
-resource.fetchArrayBuffer().then(function(arrayBuffer) {
-    // use the data
-}).catch(function(error) {
-    // an error occurred
-});</code></pre>
+    <pre><code class="language-javascript">// load a single URL asynchronouslyresource.fetchArrayBuffer().then(function(arrayBuffer) {    // use the data}).catch(function(error) {    // an error occurred});</code></pre>
 
     
 
@@ -2483,10 +2445,7 @@ resource.fetchArrayBuffer().then(function(arrayBuffer) {
 
 
 <div class="description">
-    Asynchronously loads the given resource as a blob.  Returns a promise that will resolve to
-a Blob once loaded, or reject if the resource failed to load.  The data is loaded
-using XMLHttpRequest, which means that in order to make requests to another origin,
-the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
+    Asynchronously loads the given resource as a blob.  Returns a promise that will resolve toa Blob once loaded, or reject if the resource failed to load.  The data is loadedusing XMLHttpRequest, which means that in order to make requests to another origin,the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
 </div>
 
 
@@ -2549,12 +2508,7 @@ the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// load a single URL asynchronously
-resource.fetchBlob().then(function(blob) {
-    // use the data
-}).catch(function(error) {
-    // an error occurred
-});</code></pre>
+    <pre><code class="language-javascript">// load a single URL asynchronouslyresource.fetchBlob().then(function(blob) {    // use the data}).catch(function(error) {    // an error occurred});</code></pre>
 
     
 
@@ -2598,9 +2552,7 @@ resource.fetchBlob().then(function(blob) {
 
 
 <div class="description">
-    Asynchronously loads the given image resource.  Returns a promise that will resolve to
-an <a href="https://developer.mozilla.org/en-US/docs/Web/API/ImageBitmap">ImageBitmap</a> if <code>preferImageBitmap</code> is true and the browser supports <code>createImageBitmap</code> or otherwise an
-<a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement">Image</a> once loaded, or reject if the image failed to load.
+    Asynchronously loads the given image resource.  Returns a promise that will resolve toan <a href="https://developer.mozilla.org/en-US/docs/Web/API/ImageBitmap">ImageBitmap</a> if <code>preferImageBitmap</code> is true and the browser supports <code>createImageBitmap</code> or otherwise an<a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement">Image</a> once loaded, or reject if the image failed to load.
 </div>
 
 
@@ -2883,17 +2835,7 @@ an <a href="https://developer.mozilla.org/en-US/docs/Web/API/ImageBitmap">ImageB
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// load a single image asynchronously
-resource.fetchImage().then(function(image) {
-    // use the loaded image
-}).catch(function(error) {
-    // an error occurred
-});
-
-// load several images in parallel
-Promise.all([resource1.fetchImage(), resource2.fetchImage()]).then(function(images) {
-    // images is an array containing all the loaded images
-});</code></pre>
+    <pre><code class="language-javascript">// load a single image asynchronouslyresource.fetchImage().then(function(image) {    // use the loaded image}).catch(function(error) {    // an error occurred});// load several images in parallelPromise.all([resource1.fetchImage(), resource2.fetchImage()]).then(function(images) {    // images is an array containing all the loaded images});</code></pre>
 
     
 
@@ -2937,12 +2879,7 @@ Promise.all([resource1.fetchImage(), resource2.fetchImage()]).then(function(imag
 
 
 <div class="description">
-    Asynchronously loads the given resource as JSON.  Returns a promise that will resolve to
-a JSON object once loaded, or reject if the resource failed to load.  The data is loaded
-using XMLHttpRequest, which means that in order to make requests to another origin,
-the server must have Cross-Origin Resource Sharing (CORS) headers enabled. This function
-adds 'Accept: application/json,&#42;&#47;&#42;;q=0.01' to the request headers, if not
-already specified.
+    Asynchronously loads the given resource as JSON.  Returns a promise that will resolve toa JSON object once loaded, or reject if the resource failed to load.  The data is loadedusing XMLHttpRequest, which means that in order to make requests to another origin,the server must have Cross-Origin Resource Sharing (CORS) headers enabled. This functionadds 'Accept: application/json,&#42;&#47;&#42;;q=0.01' to the request headers, if notalready specified.
 </div>
 
 
@@ -3005,11 +2942,7 @@ already specified.
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">resource.fetchJson().then(function(jsonData) {
-    // Do something with the JSON object
-}).catch(function(error) {
-    // an error occurred
-});</code></pre>
+    <pre><code class="language-javascript">resource.fetchJson().then(function(jsonData) {    // Do something with the JSON object}).catch(function(error) {    // an error occurred});</code></pre>
 
     
 
@@ -3176,12 +3109,7 @@ already specified.
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// load a data asynchronously
-resource.fetchJsonp().then(function(data) {
-    // use the loaded data
-}).catch(function(error) {
-    // an error occurred
-});</code></pre>
+    <pre><code class="language-javascript">// load a data asynchronouslyresource.fetchJsonp().then(function(data) {    // use the loaded data}).catch(function(error) {    // an error occurred});</code></pre>
 
     
 
@@ -3223,10 +3151,7 @@ resource.fetchJsonp().then(function(data) {
 
 
 <div class="description">
-    Asynchronously loads the given resource as text.  Returns a promise that will resolve to
-a String once loaded, or reject if the resource failed to load.  The data is loaded
-using XMLHttpRequest, which means that in order to make requests to another origin,
-the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
+    Asynchronously loads the given resource as text.  Returns a promise that will resolve toa String once loaded, or reject if the resource failed to load.  The data is loadedusing XMLHttpRequest, which means that in order to make requests to another origin,the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
 </div>
 
 
@@ -3289,18 +3214,7 @@ the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// load text from a URL, setting a custom header
-const resource = new Resource({
-  url: 'http://someUrl.com/someJson.txt',
-  headers: {
-    'X-Custom-Header' : 'some value'
-  }
-});
-resource.fetchText().then(function(text) {
-    // Do something with the text
-}).catch(function(error) {
-    // an error occurred
-});</code></pre>
+    <pre><code class="language-javascript">// load text from a URL, setting a custom headerconst resource = new Resource({  url: 'http://someUrl.com/someJson.txt',  headers: {    'X-Custom-Header' : 'some value'  }});resource.fetchText().then(function(text) {    // Do something with the text}).catch(function(error) {    // an error occurred});</code></pre>
 
     
 
@@ -3346,10 +3260,7 @@ resource.fetchText().then(function(text) {
 
 
 <div class="description">
-    Asynchronously loads the given resource as XML.  Returns a promise that will resolve to
-an XML Document once loaded, or reject if the resource failed to load.  The data is loaded
-using XMLHttpRequest, which means that in order to make requests to another origin,
-the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
+    Asynchronously loads the given resource as XML.  Returns a promise that will resolve toan XML Document once loaded, or reject if the resource failed to load.  The data is loadedusing XMLHttpRequest, which means that in order to make requests to another origin,the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
 </div>
 
 
@@ -3412,14 +3323,7 @@ the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// load XML from a URL, setting a custom header
-Cesium.loadXML('http://someUrl.com/someXML.xml', {
-  'X-Custom-Header' : 'some value'
-}).then(function(document) {
-    // Do something with the document
-}).catch(function(error) {
-    // an error occurred
-});</code></pre>
+    <pre><code class="language-javascript">// load XML from a URL, setting a custom headerCesium.loadXML('http://someUrl.com/someXML.xml', {  'X-Custom-Header' : 'some value'}).then(function(document) {    // Do something with the document}).catch(function(error) {    // an error occurred});</code></pre>
 
     
 
@@ -4285,10 +4189,7 @@ Cesium.loadXML('http://someUrl.com/someXML.xml', {
 
 
 <div class="description">
-    Asynchronously gets headers the given resource.  Returns a promise that will resolve to
-the result once loaded, or reject if the resource failed to load.  The data is loaded
-using XMLHttpRequest, which means that in order to make requests to another origin,
-the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
+    Asynchronously gets headers the given resource.  Returns a promise that will resolve tothe result once loaded, or reject if the resource failed to load.  The data is loadedusing XMLHttpRequest, which means that in order to make requests to another origin,the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
 </div>
 
 
@@ -4515,12 +4416,7 @@ the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">resource.head()
-  .then(function(headers) {
-      // use the data
-  }).catch(function(error) {
-      // an error occurred
-  });</code></pre>
+    <pre><code class="language-javascript">resource.head()  .then(function(headers) {      // use the data  }).catch(function(error) {      // an error occurred  });</code></pre>
 
     
 
@@ -4564,10 +4460,7 @@ the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
 
 
 <div class="description">
-    Asynchronously gets options the given resource.  Returns a promise that will resolve to
-the result once loaded, or reject if the resource failed to load.  The data is loaded
-using XMLHttpRequest, which means that in order to make requests to another origin,
-the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
+    Asynchronously gets options the given resource.  Returns a promise that will resolve tothe result once loaded, or reject if the resource failed to load.  The data is loadedusing XMLHttpRequest, which means that in order to make requests to another origin,the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
 </div>
 
 
@@ -4794,12 +4687,7 @@ the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">resource.options()
-  .then(function(headers) {
-      // use the data
-  }).catch(function(error) {
-      // an error occurred
-  });</code></pre>
+    <pre><code class="language-javascript">resource.options()  .then(function(headers) {      // use the data  }).catch(function(error) {      // an error occurred  });</code></pre>
 
     
 
@@ -4843,10 +4731,7 @@ the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
 
 
 <div class="description">
-    Asynchronously patches data to the given resource.  Returns a promise that will resolve to
-the result once loaded, or reject if the resource failed to load.  The data is loaded
-using XMLHttpRequest, which means that in order to make requests to another origin,
-the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
+    Asynchronously patches data to the given resource.  Returns a promise that will resolve tothe result once loaded, or reject if the resource failed to load.  The data is loadedusing XMLHttpRequest, which means that in order to make requests to another origin,the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
 </div>
 
 
@@ -5101,12 +4986,7 @@ the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">resource.patch(data)
-  .then(function(result) {
-      // use the result
-  }).catch(function(error) {
-      // an error occurred
-  });</code></pre>
+    <pre><code class="language-javascript">resource.patch(data)  .then(function(result) {      // use the result  }).catch(function(error) {      // an error occurred  });</code></pre>
 
     
 
@@ -5150,10 +5030,7 @@ the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
 
 
 <div class="description">
-    Asynchronously posts data to the given resource.  Returns a promise that will resolve to
-the result once loaded, or reject if the resource failed to load.  The data is loaded
-using XMLHttpRequest, which means that in order to make requests to another origin,
-the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
+    Asynchronously posts data to the given resource.  Returns a promise that will resolve tothe result once loaded, or reject if the resource failed to load.  The data is loadedusing XMLHttpRequest, which means that in order to make requests to another origin,the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
 </div>
 
 
@@ -5438,12 +5315,7 @@ the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">resource.post(data)
-  .then(function(result) {
-      // use the result
-  }).catch(function(error) {
-      // an error occurred
-  });</code></pre>
+    <pre><code class="language-javascript">resource.post(data)  .then(function(result) {      // use the result  }).catch(function(error) {      // an error occurred  });</code></pre>
 
     
 
@@ -5487,10 +5359,7 @@ the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
 
 
 <div class="description">
-    Asynchronously puts data to the given resource.  Returns a promise that will resolve to
-the result once loaded, or reject if the resource failed to load.  The data is loaded
-using XMLHttpRequest, which means that in order to make requests to another origin,
-the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
+    Asynchronously puts data to the given resource.  Returns a promise that will resolve tothe result once loaded, or reject if the resource failed to load.  The data is loadedusing XMLHttpRequest, which means that in order to make requests to another origin,the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
 </div>
 
 
@@ -5745,12 +5614,7 @@ the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">resource.put(data)
-  .then(function(result) {
-      // use the result
-  }).catch(function(error) {
-      // an error occurred
-  });</code></pre>
+    <pre><code class="language-javascript">resource.put(data)  .then(function(result) {      // use the result  }).catch(function(error) {      // an error occurred  });</code></pre>
 
     
 
@@ -5794,8 +5658,7 @@ the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
 
 
 <div class="description">
-    Combines the specified object and the existing query parameters. This allows you to add many parameters at once,
- as opposed to adding them one at a time to the queryParameters property. If a value is already set, it will be replaced with the new value.
+    Combines the specified object and the existing query parameters. This allows you to add many parameters at once, as opposed to adding them one at a time to the queryParameters property. If a value is already set, it will be replaced with the new value.
 </div>
 
 
@@ -5973,8 +5836,7 @@ the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
 
 
 <div class="description">
-    Combines the specified object and the existing template values. This allows you to add many values at once,
- as opposed to adding them one at a time to the templateValues property. If a value is already set, it will become an array and the new value will be appended.
+    Combines the specified object and the existing template values. This allows you to add many values at once, as opposed to adding them one at a time to the templateValues property. If a value is already set, it will become an array and the new value will be appended.
 </div>
 
 
@@ -6152,8 +6014,7 @@ the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
 
 
 <div class="description">
-    Override Object#toString so that implicit string conversion gives the
-complete URL represented by this Resource.
+    Override Object#toString so that implicit string conversion gives thecomplete URL represented by this Resource.
 </div>
 
 

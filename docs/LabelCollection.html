@@ -58,25 +58,13 @@
 
 
 <div class="description">
-    A renderable collection of labels.  Labels are viewport-aligned text positioned in the 3D scene.
-Each label can have a different font, color, scale, etc.
-<br /><br />
-<div align='center'>
-<img src='Images/Label.png' width='400' height='300' /><br />
-Example labels
-</div>
-<br /><br />
-Labels are added and removed from the collection using <a href="LabelCollection.html#add"><code>LabelCollection#add</code></a>
-and <a href="LabelCollection.html#remove"><code>LabelCollection#remove</code></a>.
+    A renderable collection of labels.  Labels are viewport-aligned text positioned in the 3D scene.Each label can have a different font, color, scale, etc.<br /><br /><div align='center'><img src='Images/Label.png' width='400' height='300' /><br />Example labels</div><br /><br />Labels are added and removed from the collection using <a href="LabelCollection.html#add"><code>LabelCollection#add</code></a>and <a href="LabelCollection.html#remove"><code>LabelCollection#remove</code></a>.
 </div>
 
 
 
     <h5>Performance:</h5>
-    <p class="description">For best performance, prefer a few collections, each with many labels, to
-many collections with only a few labels each.  Avoid having collections where some
-labels change every frame and others do not; instead, create one or more collections
-for static labels, and one or more collections for dynamic labels.</p>
+    <p class="description">For best performance, prefer a few collections, each with many labels, tomany collections with only a few labels each.  Avoid having collections where somelabels change every frame and others do not; instead, create one or more collectionsfor static labels, and one or more collections for dynamic labels.</p>
 
 
 
@@ -291,9 +279,7 @@ for static labels, and one or more collections for dynamic labels.</p>
 
                 
             
-                The label blending option. The default
-is used for rendering both opaque and translucent labels. However, if either all of the labels are completely opaque or all are completely translucent,
-setting the technique to BlendOption.OPAQUE or BlendOption.TRANSLUCENT can improve performance by up to 2x.</td>
+                The label blending option. The defaultis used for rendering both opaque and translucent labels. However, if either all of the labels are completely opaque or all are completely translucent,setting the technique to BlendOption.OPAQUE or BlendOption.TRANSLUCENT can improve performance by up to 2x.</td>
         </tr>
 
     
@@ -378,16 +364,7 @@ setting the technique to BlendOption.OPAQUE or BlendOption.TRANSLUCENT can impro
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Create a label collection with two labels
-const labels = scene.primitives.add(new Cesium.LabelCollection());
-labels.add({
-  position : new Cesium.Cartesian3(1.0, 2.0, 3.0),
-  text : 'A label'
-});
-labels.add({
-  position : new Cesium.Cartesian3(4.0, 5.0, 6.0),
-  text : 'Another label'
-});</code></pre>
+    <pre><code class="language-javascript">// Create a label collection with two labelsconst labels = scene.primitives.add(new Cesium.LabelCollection());labels.add({  position : new Cesium.Cartesian3(1.0, 2.0, 3.0),  text : 'A label'});labels.add({  position : new Cesium.Cartesian3(4.0, 5.0, 6.0),  text : 'Another label'});</code></pre>
 
     
 
@@ -455,10 +432,7 @@ labels.add({
 
 
 <div class="description">
-    The label blending option. The default is used for rendering both opaque and translucent labels.
-However, if either all of the labels are completely opaque or all are completely translucent,
-setting the technique to BlendOption.OPAQUE or BlendOption.TRANSLUCENT can improve
-performance by up to 2x.
+    The label blending option. The default is used for rendering both opaque and translucent labels.However, if either all of the labels are completely opaque or all are completely translucent,setting the technique to BlendOption.OPAQUE or BlendOption.TRANSLUCENT can improveperformance by up to 2x.
 </div>
 
 
@@ -521,10 +495,7 @@ performance by up to 2x.
 
 
 <div class="description">
-    This property is for debugging only; it is not for production use nor is it optimized.
-<p>
-Draws the bounding sphere for each draw command in the primitive.
-</p>
+    This property is for debugging only; it is not for production use nor is it optimized.<p>Draws the bounding sphere for each draw command in the primitive.</p>
 </div>
 
 
@@ -587,9 +558,7 @@ Draws the bounding sphere for each draw command in the primitive.
 
 
 <div class="description">
-    Returns the number of labels in this collection.  This is commonly used with
-<a href="LabelCollection.html#get"><code>LabelCollection#get</code></a> to iterate over all the labels
-in the collection.
+    Returns the number of labels in this collection.  This is commonly used with<a href="LabelCollection.html#get"><code>LabelCollection#get</code></a> to iterate over all the labelsin the collection.
 </div>
 
 
@@ -649,10 +618,7 @@ in the collection.
 
 
 <div class="description">
-    The 4x4 transformation matrix that transforms each label in this collection from model to world coordinates.
-When this is the identity matrix, the labels are drawn in world coordinates, i.e., Earth's WGS84 coordinates.
-Local reference frames can be used by providing a different transformation matrix, like that returned
-by <a href="Transforms.html#.eastNorthUpToFixedFrame"><code>Transforms.eastNorthUpToFixedFrame</code></a>.
+    The 4x4 transformation matrix that transforms each label in this collection from model to world coordinates.When this is the identity matrix, the labels are drawn in world coordinates, i.e., Earth's WGS84 coordinates.Local reference frames can be used by providing a different transformation matrix, like that returnedby <a href="Transforms.html#.eastNorthUpToFixedFrame"><code>Transforms.eastNorthUpToFixedFrame</code></a>.
 </div>
 
 
@@ -684,24 +650,7 @@ by <a href="Transforms.html#.eastNorthUpToFixedFrame"><code>Transforms.eastNorth
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const center = Cesium.Cartesian3.fromDegrees(-75.59777, 40.03883);
-labels.modelMatrix = Cesium.Transforms.eastNorthUpToFixedFrame(center);
-labels.add({
-  position : new Cesium.Cartesian3(0.0, 0.0, 0.0),
-  text     : 'Center'
-});
-labels.add({
-  position : new Cesium.Cartesian3(1000000.0, 0.0, 0.0),
-  text     : 'East'
-});
-labels.add({
-  position : new Cesium.Cartesian3(0.0, 1000000.0, 0.0),
-  text     : 'North'
-});
-labels.add({
-  position : new Cesium.Cartesian3(0.0, 0.0, 1000000.0),
-  text     : 'Up'
-});</code></pre>
+    <pre><code class="language-javascript">const center = Cesium.Cartesian3.fromDegrees(-75.59777, 40.03883);labels.modelMatrix = Cesium.Transforms.eastNorthUpToFixedFrame(center);labels.add({  position : new Cesium.Cartesian3(0.0, 0.0, 0.0),  text     : 'Center'});labels.add({  position : new Cesium.Cartesian3(1000000.0, 0.0, 0.0),  text     : 'East'});labels.add({  position : new Cesium.Cartesian3(0.0, 1000000.0, 0.0),  text     : 'North'});labels.add({  position : new Cesium.Cartesian3(0.0, 0.0, 1000000.0),  text     : 'Up'});</code></pre>
 
     
 
@@ -807,17 +756,13 @@ labels.add({
 
 
 <div class="description">
-    Creates and adds a label with the specified initial properties to the collection.
-The added label is returned so it can be modified or removed from the collection later.
+    Creates and adds a label with the specified initial properties to the collection.The added label is returned so it can be modified or removed from the collection later.
 </div>
 
 
 
     <h5>Performance:</h5>
-    <p class="description">Calling <code>add</code> is expected constant time.  However, the collection's vertex buffer
-is rewritten; this operations is <code>O(n)</code> and also incurs
-CPU to GPU overhead.  For best performance, add as many billboards as possible before
-calling <code>update</code>.</p>
+    <p class="description">Calling <code>add</code> is expected constant time.  However, the collection's vertex bufferis rewritten; this operations is <code>O(n)</code> and also incursCPU to GPU overhead.  For best performance, add as many billboards as possible beforecalling <code>update</code>.</p>
 
 
 
@@ -938,37 +883,9 @@ calling <code>update</code>.</p>
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Example 1:  Add a label, specifying all the default values.
-const l = labels.add({
-  show : true,
-  position : Cesium.Cartesian3.ZERO,
-  text : '',
-  font : '30px sans-serif',
-  fillColor : Cesium.Color.WHITE,
-  outlineColor : Cesium.Color.BLACK,
-  outlineWidth : 1.0,
-  showBackground : false,
-  backgroundColor : new Cesium.Color(0.165, 0.165, 0.165, 0.8),
-  backgroundPadding : new Cesium.Cartesian2(7, 5),
-  style : Cesium.LabelStyle.FILL,
-  pixelOffset : Cesium.Cartesian2.ZERO,
-  eyeOffset : Cesium.Cartesian3.ZERO,
-  horizontalOrigin : Cesium.HorizontalOrigin.LEFT,
-  verticalOrigin : Cesium.VerticalOrigin.BASELINE,
-  scale : 1.0,
-  translucencyByDistance : undefined,
-  pixelOffsetScaleByDistance : undefined,
-  heightReference : HeightReference.NONE,
-  distanceDisplayCondition : undefined
-});</code></pre>
+    <pre><code class="language-javascript">// Example 1:  Add a label, specifying all the default values.const l = labels.add({  show : true,  position : Cesium.Cartesian3.ZERO,  text : '',  font : '30px sans-serif',  fillColor : Cesium.Color.WHITE,  outlineColor : Cesium.Color.BLACK,  outlineWidth : 1.0,  showBackground : false,  backgroundColor : new Cesium.Color(0.165, 0.165, 0.165, 0.8),  backgroundPadding : new Cesium.Cartesian2(7, 5),  style : Cesium.LabelStyle.FILL,  pixelOffset : Cesium.Cartesian2.ZERO,  eyeOffset : Cesium.Cartesian3.ZERO,  horizontalOrigin : Cesium.HorizontalOrigin.LEFT,  verticalOrigin : Cesium.VerticalOrigin.BASELINE,  scale : 1.0,  translucencyByDistance : undefined,  pixelOffsetScaleByDistance : undefined,  heightReference : HeightReference.NONE,  distanceDisplayCondition : undefined});</code></pre>
 
-    <pre><code class="language-javascript">// Example 2:  Specify only the label's cartographic position,
-// text, and font.
-const l = labels.add({
-  position : Cesium.Cartesian3.fromRadians(longitude, latitude, height),
-  text : 'Hello World',
-  font : '24px Helvetica',
-});</code></pre>
+    <pre><code class="language-javascript">// Example 2:  Specify only the label's cartographic position,// text, and font.const l = labels.add({  position : Cesium.Cartesian3.fromRadians(longitude, latitude, height),  text : 'Hello World',  font : '24px Helvetica',});</code></pre>
 
     
 
@@ -1084,7 +1001,7 @@ const l = labels.add({
 
         
 <div class="param-desc">
-    true if this collection contains the label, false otherwise.
+    true if this collection contains the label, false 否则。
 </div>
 
 
@@ -1152,12 +1069,7 @@ const l = labels.add({
 
 
 <div class="description">
-    Destroys the WebGL resources held by this object.  Destroying an object allows for deterministic
-release of WebGL resources, instead of relying on the garbage collector to destroy this object.
-<br /><br />
-Once an object is destroyed, it should not be used; calling any function other than
-<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.  Therefore,
-assign the return value (<code>undefined</code>) to the object as done in the example.
+    Destroys the WebGL resources held by this object.  Destroying an object allows for deterministicrelease of WebGL resources, instead of relying on the garbage collector to destroy this object.<br /><br />Once an object is destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.  Therefore,assign the return value (<code>undefined</code>) to the object as done in the example.
 </div>
 
 
@@ -1262,19 +1174,13 @@ assign the return value (<code>undefined</code>) to the object as done in the ex
 
 
 <div class="description">
-    Returns the label in the collection at the specified index.  Indices are zero-based
-and increase as labels are added.  Removing a label shifts all labels after
-it to the left, changing their indices.  This function is commonly used with
-<a href="LabelCollection.html#length"><code>LabelCollection#length</code></a> to iterate over all the labels
-in the collection.
+    Returns the label in the collection at the specified index.  Indices are zero-basedand increase as labels are added.  Removing a label shifts all labels afterit to the left, changing their indices.  This function is commonly used with<a href="LabelCollection.html#length"><code>LabelCollection#length</code></a> to iterate over all the labelsin the collection.
 </div>
 
 
 
     <h5>Performance:</h5>
-    <p class="description">Expected constant time.  If labels were removed from the collection and
-<a href="Scene.html#render"><code>Scene#render</code></a> was not called, an implicit <code>O(n)</code>
-operation is performed.</p>
+    <p class="description">Expected constant time.  If labels were removed from the collection and<a href="Scene.html#render"><code>Scene#render</code></a> was not called, an implicit <code>O(n)</code>operation is performed.</p>
 
 
 
@@ -1388,12 +1294,7 @@ operation is performed.</p>
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Toggle the show property of every label in the collection
-const len = labels.length;
-for (let i = 0; i &lt; len; ++i) {
-  const l = billboards.get(i);
-  l.show = !l.show;
-}</code></pre>
+    <pre><code class="language-javascript">// Toggle the show property of every label in the collectionconst len = labels.length;for (let i = 0; i &lt; len; ++i) {  const l = billboards.get(i);  l.show = !l.show;}</code></pre>
 
     
 
@@ -1435,10 +1336,7 @@ for (let i = 0; i &lt; len; ++i) {
 
 
 <div class="description">
-    Returns true if this object was destroyed; otherwise, false.
-<br /><br />
-If this object was destroyed, it should not be used; calling any function other than
-<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.
+    Returns true if this object was destroyed; otherwise, false.<br /><br />If this object was destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.
 </div>
 
 
@@ -1539,11 +1437,7 @@ If this object was destroyed, it should not be used; calling any function other 
 
 
     <h5>Performance:</h5>
-    <p class="description">Calling <code>remove</code> is expected constant time.  However, the collection's vertex buffer
-is rewritten - an <code>O(n)</code> operation that also incurs CPU to GPU overhead.  For
-best performance, remove as many labels as possible before calling <code>update</code>.
-If you intend to temporarily hide a label, it is usually more efficient to call
-<a href="Label.html#show"><code>Label#show</code></a> instead of removing and re-adding the label.</p>
+    <p class="description">Calling <code>remove</code> is expected constant time.  However, the collection's vertex bufferis rewritten - an <code>O(n)</code> operation that also incurs CPU to GPU overhead.  Forbest performance, remove as many labels as possible before calling <code>update</code>.If you intend to temporarily hide a label, it is usually more efficient to call<a href="Label.html#show"><code>Label#show</code></a> instead of removing and re-adding the label.</p>
 
 
 
@@ -1657,8 +1551,7 @@ If you intend to temporarily hide a label, it is usually more efficient to call
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const l = labels.add(...);
-labels.remove(l);  // Returns true</code></pre>
+    <pre><code class="language-javascript">const l = labels.add(...);labels.remove(l);  // Returns true</code></pre>
 
     
 
@@ -1710,8 +1603,7 @@ labels.remove(l);  // Returns true</code></pre>
 
 
     <h5>Performance:</h5>
-    <p class="description"><code>O(n)</code>.  It is more efficient to remove all the labels
-from a collection and then add new ones than to create a new collection entirely.</p>
+    <p class="description"><code>O(n)</code>.  It is more efficient to remove all the labelsfrom a collection and then add new ones than to create a new collection entirely.</p>
 
 
 
@@ -1771,9 +1663,7 @@ from a collection and then add new ones than to create a new collection entirely
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">labels.add(...);
-labels.add(...);
-labels.removeAll();</code></pre>
+    <pre><code class="language-javascript">labels.add(...);labels.add(...);labels.removeAll();</code></pre>
 
     
 

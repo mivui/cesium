@@ -58,10 +58,7 @@
 
 
 <div class="description">
-    An appearance for <a href="GeometryInstance.html"><code>GeometryInstance</code></a> instances with color attributes and
-<a href="PolylineGeometry.html"><code>PolylineGeometry</code></a> or <a href="GroundPolylineGeometry.html"><code>GroundPolylineGeometry</code></a>.
-This allows several geometry instances, each with a different color, to
-be drawn with the same <a href="Primitive.html"><code>Primitive</code></a>.
+    An appearance for <a href="GeometryInstance.html"><code>GeometryInstance</code></a> instances with color attributes and<a href="PolylineGeometry.html"><code>PolylineGeometry</code></a> or <a href="GroundPolylineGeometry.html"><code>GroundPolylineGeometry</code></a>.This allows several geometry instances, each with a different color, tobe drawn with the same <a href="Primitive.html"><code>Primitive</code></a>.
 </div>
 
 
@@ -324,25 +321,7 @@ be drawn with the same <a href="Primitive.html"><code>Primitive</code></a>.
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// A solid white line segment
-const primitive = new Cesium.Primitive({
-  geometryInstances : new Cesium.GeometryInstance({
-    geometry : new Cesium.PolylineGeometry({
-      positions : Cesium.Cartesian3.fromDegreesArray([
-        0.0, 0.0,
-        5.0, 0.0
-      ]),
-      width : 10.0,
-      vertexFormat : Cesium.PolylineColorAppearance.VERTEX_FORMAT
-    }),
-    attributes : {
-      color : Cesium.ColorGeometryInstanceAttribute.fromColor(new Cesium.Color(1.0, 1.0, 1.0, 1.0))
-    }
-  }),
-  appearance : new Cesium.PolylineColorAppearance({
-    translucent : false
-  })
-});</code></pre>
+    <pre><code class="language-javascript">// A solid white line segmentconst primitive = new Cesium.Primitive({  geometryInstances : new Cesium.GeometryInstance({    geometry : new Cesium.PolylineGeometry({      positions : Cesium.Cartesian3.fromDegreesArray([        0.0, 0.0,        5.0, 0.0      ]),      width : 10.0,      vertexFormat : Cesium.PolylineColorAppearance.VERTEX_FORMAT    }),    attributes : {      color : Cesium.ColorGeometryInstanceAttribute.fromColor(new Cesium.Color(1.0, 1.0, 1.0, 1.0))    }  }),  appearance : new Cesium.PolylineColorAppearance({    translucent : false  })});</code></pre>
 
     
 
@@ -394,8 +373,7 @@ const primitive = new Cesium.Primitive({
 
 
 <div class="description">
-    The <a href="VertexFormat.html"><code>VertexFormat</code></a> that all <a href="PolylineColorAppearance.html"><code>PolylineColorAppearance</code></a> instances
-are compatible with. This requires only a <code>position</code> attribute.
+    The <a href="VertexFormat.html"><code>VertexFormat</code></a> that all <a href="PolylineColorAppearance.html"><code>PolylineColorAppearance</code></a> instancesare compatible with. This requires only a <code>position</code> attribute.
 </div>
 
 
@@ -455,9 +433,7 @@ are compatible with. This requires only a <code>position</code> attribute.
 
 
 <div class="description">
-    When <code>true</code>, the geometry is expected to be closed so
-<a href="PolylineColorAppearance.html#renderState"><code>PolylineColorAppearance#renderState</code></a> has backface culling enabled.
-This is always <code>false</code> for <code>PolylineColorAppearance</code>.
+    When <code>true</code>, the geometry is expected to be closed so<a href="PolylineColorAppearance.html#renderState"><code>PolylineColorAppearance#renderState</code></a> has backface culling enabled.This is always <code>false</code> for <code>PolylineColorAppearance</code>.
 </div>
 
 
@@ -580,8 +556,7 @@ This is always <code>false</code> for <code>PolylineColorAppearance</code>.
 
 
 <div class="description">
-    This property is part of the <a href="Appearance.html"><code>Appearance</code></a> interface, but is not
-used by <a href="PolylineColorAppearance.html"><code>PolylineColorAppearance</code></a> since a fully custom fragment shader is used.
+    This property is part of the <a href="Appearance.html"><code>Appearance</code></a> interface, but is notused by <a href="PolylineColorAppearance.html"><code>PolylineColorAppearance</code></a> since a fully custom fragment shader is used.
 </div>
 
 
@@ -644,11 +619,7 @@ used by <a href="PolylineColorAppearance.html"><code>PolylineColorAppearance</co
 
 
 <div class="description">
-    The WebGL fixed-function state to use when rendering the geometry.
-<p>
-The render state can be explicitly defined when constructing a <a href="PolylineColorAppearance.html"><code>PolylineColorAppearance</code></a>
-instance, or it is set implicitly via <a href="PolylineColorAppearance.html#translucent"><code>PolylineColorAppearance#translucent</code></a>.
-</p>
+    The WebGL fixed-function state to use when rendering the geometry.<p>The render state can be explicitly defined when constructing a <a href="PolylineColorAppearance.html"><code>PolylineColorAppearance</code></a>instance, or it is set implicitly via <a href="PolylineColorAppearance.html#translucent"><code>PolylineColorAppearance#translucent</code></a>.</p>
 </div>
 
 
@@ -708,8 +679,7 @@ instance, or it is set implicitly via <a href="PolylineColorAppearance.html#tran
 
 
 <div class="description">
-    When <code>true</code>, the geometry is expected to appear translucent so
-<a href="PolylineColorAppearance.html#renderState"><code>PolylineColorAppearance#renderState</code></a> has alpha blending enabled.
+    When <code>true</code>, the geometry is expected to appear translucent so<a href="PolylineColorAppearance.html#renderState"><code>PolylineColorAppearance#renderState</code></a> has alpha blending enabled.
 </div>
 
 
@@ -772,9 +742,7 @@ instance, or it is set implicitly via <a href="PolylineColorAppearance.html#tran
 
 
 <div class="description">
-    The <a href="VertexFormat.html"><code>VertexFormat</code></a> that this appearance instance is compatible with.
-A geometry can have more vertex attributes and still be compatible - at a
-potential performance cost - but it can't have less.
+    The <a href="VertexFormat.html"><code>VertexFormat</code></a> that this appearance instance is compatible with.A geometry can have more vertex attributes and still be compatible - at apotential performance cost - but it can't have less.
 </div>
 
 
@@ -994,9 +962,7 @@ potential performance cost - but it can't have less.
 
 
 <div class="description">
-    Creates a render state.  This is not the final render state instance; instead,
-it can contain a subset of render state properties identical to the render state
-created in the context.
+    Creates a render state.  This is not the final render state instance; instead,it can contain a subset of render state properties identical to the render statecreated in the context.
 </div>
 
 

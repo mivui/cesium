@@ -58,9 +58,7 @@
 
 
 <div class="description">
-    A collection of primitives.  This is most often used with <a href="Scene.html#primitives"><code>Scene#primitives</code></a>,
-but <code>PrimitiveCollection</code> is also a primitive itself so collections can
-be added to collections forming a hierarchy.
+    A collection of primitives.  This is most often used with <a href="Scene.html#primitives"><code>Scene#primitives</code></a>,but <code>PrimitiveCollection</code> is also a primitive itself so collections canbe added to collections forming a hierarchy.
 </div>
 
 
@@ -257,14 +255,7 @@ be added to collections forming a hierarchy.
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const billboards = new Cesium.BillboardCollection();
-const labels = new Cesium.LabelCollection();
-
-const collection = new Cesium.PrimitiveCollection();
-collection.add(billboards);
-
-scene.primitives.add(collection);  // Add collection
-scene.primitives.add(labels);      // Add regular primitive</code></pre>
+    <pre><code class="language-javascript">const billboards = new Cesium.BillboardCollection();const labels = new Cesium.LabelCollection();const collection = new Cesium.PrimitiveCollection();collection.add(billboards);scene.primitives.add(collection);  // Add collectionscene.primitives.add(labels);      // Add regular primitive</code></pre>
 
     
 
@@ -316,9 +307,7 @@ scene.primitives.add(labels);      // Add regular primitive</code></pre>
 
 
 <div class="description">
-    Determines if primitives in the collection are destroyed when they are removed by
-<a href="PrimitiveCollection.html#destroy"><code>PrimitiveCollection#destroy</code></a> or  <a href="PrimitiveCollection.html#remove"><code>PrimitiveCollection#remove</code></a> or implicitly
-by <a href="PrimitiveCollection.html#removeAll"><code>PrimitiveCollection#removeAll</code></a>.
+    Determines if primitives in the collection are destroyed when they are removed by<a href="PrimitiveCollection.html#destroy"><code>PrimitiveCollection#destroy</code></a> or  <a href="PrimitiveCollection.html#remove"><code>PrimitiveCollection#remove</code></a> or implicitlyby <a href="PrimitiveCollection.html#removeAll"><code>PrimitiveCollection#removeAll</code></a>.
 </div>
 
 
@@ -350,19 +339,9 @@ by <a href="PrimitiveCollection.html#removeAll"><code>PrimitiveCollection#remove
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Example 1. Primitives are destroyed by default.
-const primitives = new Cesium.PrimitiveCollection();
-const labels = primitives.add(new Cesium.LabelCollection());
-primitives = primitives.destroy();
-const b = labels.isDestroyed(); // true</code></pre>
+    <pre><code class="language-javascript">// Example 1. Primitives are destroyed by default.const primitives = new Cesium.PrimitiveCollection();const labels = primitives.add(new Cesium.LabelCollection());primitives = primitives.destroy();const b = labels.isDestroyed(); // true</code></pre>
 
-    <pre><code class="language-javascript">// Example 2. Do not destroy primitives in a collection.
-const primitives = new Cesium.PrimitiveCollection();
-primitives.destroyPrimitives = false;
-const labels = primitives.add(new Cesium.LabelCollection());
-primitives = primitives.destroy();
-const b = labels.isDestroyed(); // false
-labels = labels.destroy();    // explicitly destroy</code></pre>
+    <pre><code class="language-javascript">// Example 2. Do not destroy primitives in a collection.const primitives = new Cesium.PrimitiveCollection();primitives.destroyPrimitives = false;const labels = primitives.add(new Cesium.LabelCollection());primitives = primitives.destroy();const b = labels.isDestroyed(); // falselabels = labels.destroy();    // explicitly destroy</code></pre>
 
     
 
@@ -458,8 +437,7 @@ labels = labels.destroy();    // explicitly destroy</code></pre>
 
 
 <div class="description">
-    An event that is raised when a primitive is added to the collection.
-Event handlers are passed the primitive that was added.
+    An event that is raised when a primitive is added to the collection.Event handlers are passed the primitive that was added.
 </div>
 
 
@@ -519,11 +497,7 @@ Event handlers are passed the primitive that was added.
 
 
 <div class="description">
-    An event that is raised when a primitive is removed from the collection.
-Event handlers are passed the primitive that was removed.
-<p>
-Note: Depending on the destroyPrimitives constructor option, the primitive may already be destroyed.
-</p>
+    An event that is raised when a primitive is removed from the collection.Event handlers are passed the primitive that was removed.<p>Note: Depending on the destroyPrimitives constructor option, the primitive may already be destroyed.</p>
 </div>
 
 
@@ -1003,16 +977,7 @@ Note: Depending on the destroyPrimitives constructor option, the primitive may a
 
 
 <div class="description">
-    Destroys the WebGL resources held by each primitive in this collection.  Explicitly destroying this
-collection allows for deterministic release of WebGL resources, instead of relying on the garbage
-collector to destroy this collection.
-<br /><br />
-Since destroying a collection destroys all the contained primitives, only destroy a collection
-when you are sure no other code is still using any of the contained primitives.
-<br /><br />
-Once this collection is destroyed, it should not be used; calling any function other than
-<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.  Therefore,
-assign the return value (<code>undefined</code>) to the object as done in the example.
+    Destroys the WebGL resources held by each primitive in this collection.  Explicitly destroying thiscollection allows for deterministic release of WebGL resources, instead of relying on the garbagecollector to destroy this collection.<br /><br />Since destroying a collection destroys all the contained primitives, only destroy a collectionwhen you are sure no other code is still using any of the contained primitives.<br /><br />Once this collection is destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.  Therefore,assign the return value (<code>undefined</code>) to the object as done in the example.
 </div>
 
 
@@ -1234,13 +1199,7 @@ assign the return value (<code>undefined</code>) to the object as done in the ex
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Toggle the show property of every primitive in the collection.
-const primitives = scene.primitives;
-const length = primitives.length;
-for (let i = 0; i &lt; length; ++i) {
-  const p = primitives.get(i);
-  p.show = !p.show;
-}</code></pre>
+    <pre><code class="language-javascript">// Toggle the show property of every primitive in the collection.const primitives = scene.primitives;const length = primitives.length;for (let i = 0; i &lt; length; ++i) {  const p = primitives.get(i);  p.show = !p.show;}</code></pre>
 
     
 
@@ -1282,10 +1241,7 @@ for (let i = 0; i &lt; length; ++i) {
 
 
 <div class="description">
-    Returns true if this object was destroyed; otherwise, false.
-<br /><br />
-If this object was destroyed, it should not be used; calling any function other than
-<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.
+    Returns true if this object was destroyed; otherwise, false.<br /><br />If this object was destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.
 </div>
 
 
@@ -1380,8 +1336,7 @@ If this object was destroyed, it should not be used; calling any function other 
 
 
 <div class="description">
-    Lowers a primitive "down one" in the collection.  If all primitives in the collection are drawn
-on the globe surface, this visually moves the primitive down one.
+    Lowers a primitive "down one" in the collection.  If all primitives in the collection are drawnon the globe surface, this visually moves the primitive down one.
 </div>
 
 
@@ -1548,8 +1503,7 @@ on the globe surface, this visually moves the primitive down one.
 
 
 <div class="description">
-    Lowers a primitive to the "bottom" of the collection.  If all primitives in the collection are drawn
-on the globe surface, this visually moves the primitive to the bottom.
+    Lowers a primitive to the "bottom" of the collection.  If all primitives in the collection are drawnon the globe surface, this visually moves the primitive to the bottom.
 </div>
 
 
@@ -1716,8 +1670,7 @@ on the globe surface, this visually moves the primitive to the bottom.
 
 
 <div class="description">
-    Raises a primitive "up one" in the collection.  If all primitives in the collection are drawn
-on the globe surface, this visually moves the primitive up one.
+    Raises a primitive "up one" in the collection.  If all primitives in the collection are drawnon the globe surface, this visually moves the primitive up one.
 </div>
 
 
@@ -1884,8 +1837,7 @@ on the globe surface, this visually moves the primitive up one.
 
 
 <div class="description">
-    Raises a primitive to the "top" of the collection.  If all primitives in the collection are drawn
-on the globe surface, this visually moves the primitive to the top.
+    Raises a primitive to the "top" of the collection.  If all primitives in the collection are drawnon the globe surface, this visually moves the primitive to the top.
 </div>
 
 
@@ -2176,8 +2128,7 @@ on the globe surface, this visually moves the primitive to the top.
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const billboards = scene.primitives.add(new Cesium.BillboardCollection());
-scene.primitives.remove(billboards);  // Returns true</code></pre>
+    <pre><code class="language-javascript">const billboards = scene.primitives.add(new Cesium.BillboardCollection());scene.primitives.remove(billboards);  // Returns true</code></pre>
 
     
 

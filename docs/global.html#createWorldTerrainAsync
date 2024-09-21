@@ -73,26 +73,9 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Create Cesium World Terrain with default settings
-try {
-  const viewer = new Cesium.Viewer("cesiumContainer", {
-    terrainProvider: await Cesium.createWorldTerrainAsync();
-  });
-} catch (error) {
-  console.log(error);
-}</code></pre>
+    <pre><code class="language-javascript">// Create Cesium World Terrain with default settingstry {  const viewer = new Cesium.Viewer("cesiumContainer", {    terrainProvider: await Cesium.createWorldTerrainAsync();  });} catch (error) {  console.log(error);}</code></pre>
 
-    <pre><code class="language-javascript">// Create Cesium World Terrain with water and normals.
-try {
-  const viewer1 = new Cesium.Viewer("cesiumContainer", {
-    terrainProvider: await Cesium.createWorldTerrainAsync({
-      requestWaterMask: true,
-      requestVertexNormals: true
-    });
-  });
-} catch (error) {
-  console.log(error);
-}</code></pre>
+    <pre><code class="language-javascript">// Create Cesium World Terrain with water and normals.try {  const viewer1 = new Cesium.Viewer("cesiumContainer", {    terrainProvider: await Cesium.createWorldTerrainAsync({      requestWaterMask: true,      requestVertexNormals: true    });  });} catch (error) {  console.log(error);}</code></pre>
 
     
 

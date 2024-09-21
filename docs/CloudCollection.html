@@ -58,15 +58,7 @@
 
 
 <div class="description">
-    A renderable collection of clouds in the 3D scene.
-<br /><br />
-<div align='center'>
-<img src='Images/CumulusCloud.png' width='400' height='300' /><br />
-Example cumulus clouds
-</div>
-<br /><br />
-Clouds are added and removed from the collection using <a href="CloudCollection.html#add"><code>CloudCollection#add</code></a>
-and <a href="CloudCollection.html#remove"><code>CloudCollection#remove</code></a>.
+    A renderable collection of clouds in the 3D scene.<br /><br /><div align='center'><img src='Images/CumulusCloud.png' width='400' height='300' /><br />Example cumulus clouds</div><br /><br />Clouds are added and removed from the collection using <a href="CloudCollection.html#add"><code>CloudCollection#add</code></a>and <a href="CloudCollection.html#remove"><code>CloudCollection#remove</code></a>.
 </div>
 
 
@@ -371,17 +363,7 @@ and <a href="CloudCollection.html#remove"><code>CloudCollection#remove</code></a
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Create a cloud collection with two cumulus clouds
-const clouds = scene.primitives.add(new Cesium.CloudCollection());
-clouds.add({
-  position : new Cesium.Cartesian3(1.0, 2.0, 3.0),
-  maximumSize: new Cesium.Cartesian3(20.0, 12.0, 8.0)
-});
-clouds.add({
-  position : new Cesium.Cartesian3(4.0, 5.0, 6.0),
-  maximumSize: new Cesium.Cartesian3(15.0, 9.0, 9.0),
-  slice: 0.5
-});</code></pre>
+    <pre><code class="language-javascript">// Create a cloud collection with two cumulus cloudsconst clouds = scene.primitives.add(new Cesium.CloudCollection());clouds.add({  position : new Cesium.Cartesian3(1.0, 2.0, 3.0),  maximumSize: new Cesium.Cartesian3(20.0, 12.0, 8.0)});clouds.add({  position : new Cesium.Cartesian3(4.0, 5.0, 6.0),  maximumSize: new Cesium.Cartesian3(15.0, 9.0, 9.0),  slice: 0.5});</code></pre>
 
     
 
@@ -449,10 +431,7 @@ clouds.add({
 
 
 <div class="description">
-    This property is for debugging only; it is not for production use nor is it optimized.
-<p>
-Renders the billboards with one opaque color for the sake of debugging.
-</p>
+    This property is for debugging only; it is not for production use nor is it optimized.<p>Renders the billboards with one opaque color for the sake of debugging.</p>
 </div>
 
 
@@ -515,11 +494,7 @@ Renders the billboards with one opaque color for the sake of debugging.
 
 
 <div class="description">
-    This property is for debugging only; it is not for production use nor is it optimized.
-<p>
-Draws the clouds as opaque, monochrome ellipsoids for the sake of debugging.
-If <code>debugBillboards</code> is also true, then the ellipsoids will draw on top of the billboards.
-</p>
+    This property is for debugging only; it is not for production use nor is it optimized.<p>Draws the clouds as opaque, monochrome ellipsoids for the sake of debugging.If <code>debugBillboards</code> is also true, then the ellipsoids will draw on top of the billboards.</p>
 </div>
 
 
@@ -642,25 +617,7 @@ If <code>debugBillboards</code> is also true, then the ellipsoids will draw on t
 
 
 <div class="description">
-    <p>
-Controls the amount of detail captured in the precomputed noise texture
-used to render the cumulus clouds. In order for the texture to be tileable,
-this must be a power of two. For best results, set this to be a power of two
-between <code>8.0</code> and <code>32.0</code> (inclusive).
-</p>
-
-<div align='center'>
-<table border='0' cellpadding='5'><tr>
-<td align='center'>
-  <code>clouds.noiseDetail = 8.0;</code><br/>
-  <img src='Images/CloudCollection.noiseDetail8.png' width='250' height='158' />
-</td>
-<td align='center'>
-  <code>clouds.noiseDetail = 32.0;</code><br/>
-  <img src='Images/CloudCollection.noiseDetail32.png' width='250' height='158' />
-</td>
-</tr></table>
-</div>
+    <p>Controls the amount of detail captured in the precomputed noise textureused to render the cumulus clouds. In order for the texture to be tileable,this must be a power of two. For best results, set this to be a power of twobetween <code>8.0</code> and <code>32.0</code> (inclusive).</p><div align='center'><table border='0' cellpadding='5'><tr><td align='center'>  <code>clouds.noiseDetail = 8.0;</code><br/>  <img src='Images/CloudCollection.noiseDetail8.png' width='250' height='158' /></td><td align='center'>  <code>clouds.noiseDetail = 32.0;</code><br/>  <img src='Images/CloudCollection.noiseDetail32.png' width='250' height='158' /></td></tr></table></div>
 </div>
 
 
@@ -723,23 +680,7 @@ between <code>8.0</code> and <code>32.0</code> (inclusive).
 
 
 <div class="description">
-    <p>
-Applies a translation to noise texture coordinates to generate different data.
-This can be modified if the default noise does not generate good-looking clouds.
-</p>
-
-<div align='center'>
-<table border='0' cellpadding='5'><tr>
-<td align='center'>
-  <code>default</code><br/>
-  <img src='Images/CloudCollection.noiseOffsetdefault.png' width='250' height='158' />
-</td>
-<td align='center'>
-  <code>clouds.noiseOffset = new Cesium.Cartesian3(10, 20, 10);</code><br/>
-  <img src='Images/CloudCollection.noiseOffsetx10y20z10.png' width='250' height='158' />
-</td>
-</tr></table>
-</div>
+    <p>Applies a translation to noise texture coordinates to generate different data.This can be modified if the default noise does not generate good-looking clouds.</p><div align='center'><table border='0' cellpadding='5'><tr><td align='center'>  <code>default</code><br/>  <img src='Images/CloudCollection.noiseOffsetdefault.png' width='250' height='158' /></td><td align='center'>  <code>clouds.noiseOffset = new Cesium.Cartesian3(10, 20, 10);</code><br/>  <img src='Images/CloudCollection.noiseOffsetx10y20z10.png' width='250' height='158' /></td></tr></table></div>
 </div>
 
 
@@ -872,16 +813,13 @@ This can be modified if the default noise does not generate good-looking clouds.
 
 
 <div class="description">
-    Creates and adds a cloud with the specified initial properties to the collection.
-The added cloud is returned so it can be modified or removed from the collection later.
+    Creates and adds a cloud with the specified initial properties to the collection.The added cloud is returned so it can be modified or removed from the collection later.
 </div>
 
 
 
     <h5>Performance:</h5>
-    <p class="description">Calling <code>add</code> is expected constant time.  However, the collection's vertex buffer
-is rewritten - an <code>O(n)</code> operation that also incurs CPU to GPU overhead.  For
-best performance, add as many clouds as possible before calling <code>update</code>.</p>
+    <p class="description">Calling <code>add</code> is expected constant time.  However, the collection's vertex bufferis rewritten - an <code>O(n)</code> operation that also incurs CPU to GPU overhead.  Forbest performance, add as many clouds as possible before calling <code>update</code>.</p>
 
 
 
@@ -1002,20 +940,9 @@ best performance, add as many clouds as possible before calling <code>update</co
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Example 1:  Add a cumulus cloud, specifying all the default values.
-const c = clouds.add({
-  show : true,
-  position : Cesium.Cartesian3.ZERO,
-  scale : new Cesium.Cartesian2(20.0, 12.0),
-  maximumSize: new Cesium.Cartesian3(20.0, 12.0, 12.0),
-  slice: -1.0,
-  cloudType : CloudType.CUMULUS
-});</code></pre>
+    <pre><code class="language-javascript">// Example 1:  Add a cumulus cloud, specifying all the default values.const c = clouds.add({  show : true,  position : Cesium.Cartesian3.ZERO,  scale : new Cesium.Cartesian2(20.0, 12.0),  maximumSize: new Cesium.Cartesian3(20.0, 12.0, 12.0),  slice: -1.0,  cloudType : CloudType.CUMULUS});</code></pre>
 
-    <pre><code class="language-javascript">// Example 2:  Specify only the cloud's cartographic position.
-const c = clouds.add({
-  position : Cesium.Cartesian3.fromDegrees(longitude, latitude, height)
-});</code></pre>
+    <pre><code class="language-javascript">// Example 2:  Specify only the cloud's cartographic position.const c = clouds.add({  position : Cesium.Cartesian3.fromDegrees(longitude, latitude, height)});</code></pre>
 
     
 
@@ -1138,7 +1065,7 @@ const c = clouds.add({
 
         
 <div class="param-desc">
-    true if this collection contains the cloud, false otherwise.
+    true if this collection contains the cloud, false 否则。
 </div>
 
 
@@ -1206,12 +1133,7 @@ const c = clouds.add({
 
 
 <div class="description">
-    Destroys the WebGL resources held by this object.  Destroying an object allows for deterministic
-release of WebGL resources, instead of relying on the garbage collector to destroy this object.
-<br /><br />
-Once an object is destroyed, it should not be used; calling any function other than
-<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.  Therefore,
-assign the return value (<code>undefined</code>) to the object as done in the example.
+    Destroys the WebGL resources held by this object.  Destroying an object allows for deterministicrelease of WebGL resources, instead of relying on the garbage collector to destroy this object.<br /><br />Once an object is destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.  Therefore,assign the return value (<code>undefined</code>) to the object as done in the example.
 </div>
 
 
@@ -1316,18 +1238,13 @@ assign the return value (<code>undefined</code>) to the object as done in the ex
 
 
 <div class="description">
-    Returns the cloud in the collection at the specified index. Indices are zero-based
-and increase as clouds are added. Removing a cloud shifts all clouds after
-it to the left, changing their indices. This function is commonly used with
-<a href="CloudCollection.html#length"><code>CloudCollection#length</code></a> to iterate over all the clouds in the collection.
+    Returns the cloud in the collection at the specified index. Indices are zero-basedand increase as clouds are added. Removing a cloud shifts all clouds afterit to the left, changing their indices. This function is commonly used with<a href="CloudCollection.html#length"><code>CloudCollection#length</code></a> to iterate over all the clouds in the collection.
 </div>
 
 
 
     <h5>Performance:</h5>
-    <p class="description">Expected constant time. If clouds were removed from the collection and
-<code>CloudCollection#update</code> was not called, an implicit <code>O(n)</code>
-operation is performed.</p>
+    <p class="description">Expected constant time. If clouds were removed from the collection and<code>CloudCollection#update</code> was not called, an implicit <code>O(n)</code>operation is performed.</p>
 
 
 
@@ -1441,12 +1358,7 @@ operation is performed.</p>
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Toggle the show property of every cloud in the collection
-const len = clouds.length;
-for (let i = 0; i &lt; len; ++i) {
-  const c = clouds.get(i);
-  c.show = !c.show;
-}</code></pre>
+    <pre><code class="language-javascript">// Toggle the show property of every cloud in the collectionconst len = clouds.length;for (let i = 0; i &lt; len; ++i) {  const c = clouds.get(i);  c.show = !c.show;}</code></pre>
 
     
 
@@ -1488,10 +1400,7 @@ for (let i = 0; i &lt; len; ++i) {
 
 
 <div class="description">
-    Returns true if this object was destroyed; otherwise, false.
-<br /><br />
-If this object was destroyed, it should not be used; calling any function other than
-<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.
+    Returns true if this object was destroyed; otherwise, false.<br /><br />If this object was destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.
 </div>
 
 
@@ -1703,8 +1612,7 @@ If this object was destroyed, it should not be used; calling any function other 
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const c = clouds.add(...);
-clouds.remove(c);  // Returns true</code></pre>
+    <pre><code class="language-javascript">const c = clouds.add(...);clouds.remove(c);  // Returns true</code></pre>
 
     
 
@@ -1756,8 +1664,7 @@ clouds.remove(c);  // Returns true</code></pre>
 
 
     <h5>Performance:</h5>
-    <p class="description"><code>O(n)</code>.  It is more efficient to remove all the clouds
-from a collection and then add new ones than to create a new collection entirely.</p>
+    <p class="description"><code>O(n)</code>.  It is more efficient to remove all the cloudsfrom a collection and then add new ones than to create a new collection entirely.</p>
 
 
 
@@ -1817,9 +1724,7 @@ from a collection and then add new ones than to create a new collection entirely
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">clouds.add(...);
-clouds.add(...);
-clouds.removeAll();</code></pre>
+    <pre><code class="language-javascript">clouds.add(...);clouds.add(...);clouds.removeAll();</code></pre>
 
     
 

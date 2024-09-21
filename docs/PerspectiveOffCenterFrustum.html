@@ -58,10 +58,7 @@
 
 
 <div class="description">
-    The viewing frustum is defined by 6 planes.
-Each plane is represented by a <a href="Cartesian4.html"><code>Cartesian4</code></a> object, where the x, y, and z components
-define the unit vector normal to the plane, and the w component is the distance of the
-plane from the origin/camera position.
+    The viewing frustum is defined by 6 planes.Each plane is represented by a <a href="Cartesian4.html"><code>Cartesian4</code></a> object, where the x, y, and z componentsdefine the unit vector normal to the plane, and the w component is the distance of theplane from the origin/camera position.
 </div>
 
 
@@ -394,14 +391,7 @@ plane from the origin/camera position.
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const frustum = new Cesium.PerspectiveOffCenterFrustum({
-    left : -1.0,
-    right : 1.0,
-    top : 1.0,
-    bottom : -1.0,
-    near : 1.0,
-    far : 100.0
-});</code></pre>
+    <pre><code class="language-javascript">const frustum = new Cesium.PerspectiveOffCenterFrustum({    left : -1.0,    right : 1.0,    top : 1.0,    bottom : -1.0,    near : 1.0,    far : 100.0});</code></pre>
 
     
 
@@ -1031,7 +1021,7 @@ plane from the origin/camera position.
 
                 
             
-                The object onto which to store the result.</td>
+                要在其上存储结果的对象。</td>
         </tr>
 
     
@@ -1052,7 +1042,7 @@ plane from the origin/camera position.
 
         
 <div class="param-desc">
-    The modified result parameter or a new PerspectiveFrustum instance if one was not provided.
+    修改后的结果参数 or a new PerspectiveFrustum instance if one was not provided.
 </div>
 
 
@@ -1264,9 +1254,7 @@ plane from the origin/camera position.
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Check if a bounding volume intersects the frustum.
-const cullingVolume = frustum.computeCullingVolume(cameraPosition, cameraDirection, cameraUp);
-const intersect = cullingVolume.computeVisibility(boundingVolume);</code></pre>
+    <pre><code class="language-javascript">// Check if a bounding volume intersects the frustum.const cullingVolume = frustum.computeCullingVolume(cameraPosition, cameraDirection, cameraUp);const intersect = cullingVolume.computeVisibility(boundingVolume);</code></pre>
 
     
 
@@ -1303,8 +1291,7 @@ const intersect = cullingVolume.computeVisibility(boundingVolume);</code></pre>
 
 
 <div class="description">
-    Compares the provided PerspectiveOffCenterFrustum componentwise and returns
-<code>true</code> if they are equal, <code>false</code> otherwise.
+    Compares the provided PerspectiveOffCenterFrustum componentwise and returns<code>true</code>，否则为<code>false</code>。
 </div>
 
 
@@ -1362,7 +1349,7 @@ const intersect = cullingVolume.computeVisibility(boundingVolume);</code></pre>
 
                 
             
-                The right hand side PerspectiveOffCenterFrustum.</td>
+                右边 PerspectiveOffCenterFrustum.</td>
         </tr>
 
     
@@ -1383,7 +1370,7 @@ const intersect = cullingVolume.computeVisibility(boundingVolume);</code></pre>
 
         
 <div class="param-desc">
-    <code>true</code> if they are equal, <code>false</code> otherwise.
+    <code>true</code>，否则为<code>false</code>。
 </div>
 
 
@@ -1446,9 +1433,7 @@ const intersect = cullingVolume.computeVisibility(boundingVolume);</code></pre>
 
 
 <div class="description">
-    Compares the provided PerspectiveOffCenterFrustum componentwise and returns
-<code>true</code> if they pass an absolute or relative tolerance test,
-<code>false</code> otherwise.
+    Compares the provided PerspectiveOffCenterFrustum componentwise and returns<code>true</code> 如果它们通过了绝对或相对耐受性测试，<code>false</code> 否则。
 </div>
 
 
@@ -1510,7 +1495,7 @@ const intersect = cullingVolume.computeVisibility(boundingVolume);</code></pre>
 
                 
             
-                The right hand side PerspectiveOffCenterFrustum.</td>
+                右边 PerspectiveOffCenterFrustum.</td>
         </tr>
 
     
@@ -1542,7 +1527,7 @@ const intersect = cullingVolume.computeVisibility(boundingVolume);</code></pre>
 
                 
             
-                The relative epsilon tolerance to use for equality testing.</td>
+                用于相等性检验的相对容差。</td>
         </tr>
 
     
@@ -1578,7 +1563,7 @@ const intersect = cullingVolume.computeVisibility(boundingVolume);</code></pre>
 
                 
             
-                The absolute epsilon tolerance to use for equality testing.</td>
+                用于相等性检验的绝对公差。</td>
         </tr>
 
     
@@ -1599,7 +1584,7 @@ const intersect = cullingVolume.computeVisibility(boundingVolume);</code></pre>
 
         
 <div class="param-desc">
-    <code>true</code> if this and other are within the provided epsilon, <code>false</code> otherwise.
+    <code>true</code> if this and other are within the provided epsilon, <code>false</code> 否则。
 </div>
 
 
@@ -1805,7 +1790,7 @@ const intersect = cullingVolume.computeVisibility(boundingVolume);</code></pre>
 
             <td class="description last">
             
-                The object onto which to store the result.</td>
+                要在其上存储结果的对象。</td>
         </tr>
 
     
@@ -1826,7 +1811,7 @@ const intersect = cullingVolume.computeVisibility(boundingVolume);</code></pre>
 
         
 <div class="param-desc">
-    The modified result parameter or a new instance of <a href="Cartesian2.html"><code>Cartesian2</code></a> with the pixel's width and height in the x and y properties, respectively.
+    修改后的结果参数 or a new instance of <a href="Cartesian2.html"><code>Cartesian2</code></a> with the pixel's width and height in the x and y properties, respectively.
 </div>
 
 
@@ -1893,19 +1878,9 @@ const intersect = cullingVolume.computeVisibility(boundingVolume);</code></pre>
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Example 1
-// Get the width and height of a pixel.
-const pixelSize = camera.frustum.getPixelDimensions(scene.drawingBufferWidth, scene.drawingBufferHeight, 1.0, scene.pixelRatio, new Cesium.Cartesian2());</code></pre>
+    <pre><code class="language-javascript">// Example 1// Get the width and height of a pixel.const pixelSize = camera.frustum.getPixelDimensions(scene.drawingBufferWidth, scene.drawingBufferHeight, 1.0, scene.pixelRatio, new Cesium.Cartesian2());</code></pre>
 
-    <pre><code class="language-javascript">// Example 2
-// Get the width and height of a pixel if the near plane was set to 'distance'.
-// For example, get the size of a pixel of an image on a billboard.
-const position = camera.position;
-const direction = camera.direction;
-const toCenter = Cesium.Cartesian3.subtract(primitive.boundingVolume.center, position, new Cesium.Cartesian3());      // vector from camera to a primitive
-const toCenterProj = Cesium.Cartesian3.multiplyByScalar(direction, Cesium.Cartesian3.dot(direction, toCenter), new Cesium.Cartesian3()); // project vector onto camera direction vector
-const distance = Cesium.Cartesian3.magnitude(toCenterProj);
-const pixelSize = camera.frustum.getPixelDimensions(scene.drawingBufferWidth, scene.drawingBufferHeight, distance, scene.pixelRatio, new Cesium.Cartesian2());</code></pre>
+    <pre><code class="language-javascript">// Example 2// Get the width and height of a pixel if the near plane was set to 'distance'.// For example, get the size of a pixel of an image on a billboard.const position = camera.position;const direction = camera.direction;const toCenter = Cesium.Cartesian3.subtract(primitive.boundingVolume.center, position, new Cesium.Cartesian3());      // vector from camera to a primitiveconst toCenterProj = Cesium.Cartesian3.multiplyByScalar(direction, Cesium.Cartesian3.dot(direction, toCenter), new Cesium.Cartesian3()); // project vector onto camera direction vectorconst distance = Cesium.Cartesian3.magnitude(toCenterProj);const pixelSize = camera.frustum.getPixelDimensions(scene.drawingBufferWidth, scene.drawingBufferHeight, distance, scene.pixelRatio, new Cesium.Cartesian2());</code></pre>
 
     
 

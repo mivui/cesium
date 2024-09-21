@@ -58,26 +58,7 @@
 
 
 <div class="description">
-    <span style="display: block; text-align: center;">
-<img src="Images/AnimationWidget.png" width="211" height="142" alt="" />
-<br />Animation widget
-</span>
-<br /><br />
-Animation小部件提供播放、暂停和反转按钮，以及
-当前的时间和日期，由一个“穿梭环”包围，以控制动画的速度。
-<br /><br />
-"shuttle ring"的概念是从视频编辑中借鉴来的
-"jog wheel"可以旋转移动过去的个别动画帧非常缓慢，和
-周围的穿梭环可以扭曲，以控制方向和速度的快速播放。
-铯通常将时间视为连续的(不分解为预定义的动画帧)，
-所以这个小部件不提供慢跑轮。相反，穿梭环既能快速又能
-播放非常慢。点击并拖动穿梭环指针本身(上面的绿色部分)，
-或单击环区域的其余部分，将指针轻推到该方向的下一个预设速度。
-<br /><br />
-动画小部件还提供了一个“实时”按钮(在左上角)
-动画时间与最终用户的系统时钟同步，通常显示
-“今天”或“现在”。  此模式在 <a href="global.html#ClockRange#.CLAMPED"><code>ClockRange.CLAMPED</code></a> 或
-<a href="global.html#ClockRange#.LOOP_STOP"><code>ClockRange.LOOP_STOP</code></a> 如果当前时间在 <a href="Clock.html"><code>Clock</code></a>的 startTime和endTime.
+    <span style="display: block; text-align: center;"><img src="Images/AnimationWidget.png" width="211" height="142" alt="" /><br />Animation widget</span><br /><br />Animation小部件提供播放、暂停和反转按钮，以及当前的时间和日期，由一个“穿梭环”包围，以控制动画的速度。<br /><br />"shuttle ring"的概念是从视频编辑中借鉴来的"jog wheel"可以旋转移动过去的个别动画帧非常缓慢，和周围的穿梭环可以扭曲，以控制方向和速度的快速播放。铯通常将时间视为连续的(不分解为预定义的动画帧)，所以这个小部件不提供慢跑轮。相反，穿梭环既能快速又能播放非常慢。点击并拖动穿梭环指针本身(上面的绿色部分)，或单击环区域的其余部分，将指针轻推到该方向的下一个预设速度。<br /><br />动画小部件还提供了一个“实时”按钮(在左上角)动画时间与最终用户的系统时钟同步，通常显示“今天”或“现在”。  此模式在 <a href="global.html#ClockRange#.CLAMPED"><code>ClockRange.CLAMPED</code></a> 或<a href="global.html#ClockRange#.LOOP_STOP"><code>ClockRange.LOOP_STOP</code></a> 如果当前时间在 <a href="Clock.html"><code>Clock</code></a>的 startTime和endTime.
 </div>
 
 
@@ -211,19 +192,7 @@ Animation小部件提供播放、暂停和反转按钮，以及
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// In HTML head, include a link to Animation.css stylesheet,
-// and in the body, include: &lt;div id="animationContainer">&lt;/div>
-
-const clock = new Cesium.Clock();
-const clockViewModel = new Cesium.ClockViewModel(clock);
-const viewModel = new Cesium.AnimationViewModel(clockViewModel);
-const widget = new Cesium.Animation('animationContainer', viewModel);
-
-function tick() {
-    clock.tick();
-    requestAnimationFrame(tick);
-}
-requestAnimationFrame(tick);</code></pre>
+    <pre><code class="language-javascript">// In HTML head, include a link to Animation.css stylesheet,// and in the body, include: &lt;div id="animationContainer">&lt;/div>const clock = new Cesium.Clock();const clockViewModel = new Cesium.ClockViewModel(clock);const viewModel = new Cesium.AnimationViewModel(clockViewModel);const widget = new Cesium.Animation('animationContainer', viewModel);function tick() {    clock.tick();    requestAnimationFrame(tick);}requestAnimationFrame(tick);</code></pre>
 
     
 
@@ -458,9 +427,7 @@ requestAnimationFrame(tick);</code></pre>
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">//Switch to the cesium-lighter theme.
-document.body.className = 'cesium-lighter';
-animation.applyThemeChanges();</code></pre>
+    <pre><code class="language-javascript">//Switch to the cesium-lighter theme.document.body.className = 'cesium-lighter';animation.applyThemeChanges();</code></pre>
 
     
 
@@ -497,8 +464,7 @@ animation.applyThemeChanges();</code></pre>
 
 
 <div class="description">
-    Destroys the animation widget.  Should be called if permanently
-从布局中删除小部件。
+    破坏动画小部件。应该叫它永久的吗从布局中删除小部件。
 </div>
 
 
@@ -665,8 +631,7 @@ animation.applyThemeChanges();</code></pre>
 
 
 <div class="description">
-    Resizes the widget to match the container size.
-This function should be called whenever the container size is changed.
+    调整小部件的大小以匹配容器大小。这个函数应该在容器大小改变时调用。
 </div>
 
 

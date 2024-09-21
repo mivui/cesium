@@ -142,7 +142,7 @@
 
             
 
-            <td class="description last">The blend factor is the source color.</td>
+            <td class="description last">The blend factor is 源颜色。</td>
         </tr>
 
     
@@ -165,7 +165,7 @@
 
             
 
-            <td class="description last">The blend factor is one minus the source color.</td>
+            <td class="description last">The blend factor is one minus 源颜色。</td>
         </tr>
 
     
@@ -1122,7 +1122,7 @@
 
 
 <div class="description">
-    The blend factor is one minus the source color.
+    The blend factor is one minus 源颜色。
 </div>
 
 
@@ -1311,7 +1311,7 @@
 
 
 <div class="description">
-    The blend factor is the source color.
+    The blend factor is 源颜色。
 </div>
 
 

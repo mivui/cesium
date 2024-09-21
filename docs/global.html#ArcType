@@ -47,7 +47,7 @@
 
 
         
-            <div class="description">ArcType defines the path that should be taken connecting vertices.</div>
+            <div class="description">ArcType定义了连接顶点的路径。</div>
         
 
         
@@ -96,7 +96,7 @@
 
             
 
-            <td class="description last">Straight line that does not conform to the surface of the ellipsoid.</td>
+            <td class="description last">不符合椭球表面的直线。</td>
         </tr>
 
     
@@ -119,7 +119,7 @@
 
             
 
-            <td class="description last">Follow geodesic path.</td>
+            <td class="description last">遵循测地线路径。</td>
         </tr>
 
     
@@ -142,7 +142,7 @@
 
             
 
-            <td class="description last">Follow rhumb or loxodrome path.</td>
+            <td class="description last">沿着弯道或斜路走。</td>
         </tr>
 
     
@@ -216,7 +216,7 @@
 
 
 <div class="description">
-    Follow geodesic path.
+    遵循测地线路径。
 </div>
 
 
@@ -279,7 +279,7 @@
 
 
 <div class="description">
-    Straight line that does not conform to the surface of the ellipsoid.
+    不符合椭球表面的直线。
 </div>
 
 
@@ -339,7 +339,7 @@
 
 
 <div class="description">
-    Follow rhumb or loxodrome path.
+    沿着弯道或斜路走。
 </div>
 
 

@@ -322,22 +322,7 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const instance = new Cesium.GeometryInstance({
-  geometry : Cesium.BoxGeometry.fromDimensions({
-    dimensions : new Cesium.Cartesian3(1000000.0, 1000000.0, 500000.0)
-  }),
-  modelMatrix : Cesium.Matrix4.multiplyByTranslation(Cesium.Transforms.eastNorthUpToFixedFrame(
-    Cesium.Cartesian3.fromDegrees(0.0, 0.0)), new Cesium.Cartesian3(0.0, 0.0, 1000000.0), new Cesium.Matrix4()),
-  id : 'box',
-  attributes : {
-    color : new Cesium.GeometryInstanceAttribute({
-      componentDatatype : Cesium.ComponentDatatype.UNSIGNED_BYTE,
-      componentsPerAttribute : 4,
-      normalize : true,
-      value : [255, 255, 0, 255]
-    })
-  }
-});</code></pre>
+    <pre><code class="language-javascript">const instance = new Cesium.GeometryInstance({  geometry : Cesium.BoxGeometry.fromDimensions({    dimensions : new Cesium.Cartesian3(1000000.0, 1000000.0, 500000.0)  }),  modelMatrix : Cesium.Matrix4.multiplyByTranslation(Cesium.Transforms.eastNorthUpToFixedFrame(    Cesium.Cartesian3.fromDegrees(0.0, 0.0)), new Cesium.Cartesian3(0.0, 0.0, 1000000.0), new Cesium.Matrix4()),  id : 'box',  attributes : {    color : new Cesium.GeometryInstanceAttribute({      componentDatatype : Cesium.ComponentDatatype.UNSIGNED_BYTE,      componentsPerAttribute : 4,      normalize : true,      value : [255, 255, 0, 255]    })  }});</code></pre>
 
     
 
@@ -398,8 +383,7 @@
 
 
 <div class="description">
-    The datatype of each component in the attribute, e.g., individual elements in
-<a href="GeometryInstanceAttribute.html#value"><code>GeometryInstanceAttribute#value</code></a>.
+    The datatype of each component in the attribute, e.g., individual elements in<a href="GeometryInstanceAttribute.html#value"><code>GeometryInstanceAttribute#value</code></a>.
 </div>
 
 
@@ -459,9 +443,7 @@
 
 
 <div class="description">
-    A number between 1 and 4 that defines the number of components in an attributes.
-For example, a position attribute with x, y, and z components would have 3 as
-shown in the code example.
+    A number between 1 and 4 that defines the number of components in an attributes.For example, a position attribute with x, y, and z components would have 3 asshown in the code example.
 </div>
 
 
@@ -490,12 +472,7 @@ shown in the code example.
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">show : new Cesium.GeometryInstanceAttribute({
-  componentDatatype : Cesium.ComponentDatatype.UNSIGNED_BYTE,
-  componentsPerAttribute : 1,
-  normalize : true,
-  value : [1.0]
-})</code></pre>
+    <pre><code class="language-javascript">show : new Cesium.GeometryInstanceAttribute({  componentDatatype : Cesium.ComponentDatatype.UNSIGNED_BYTE,  componentsPerAttribute : 1,  normalize : true,  value : [1.0]})</code></pre>
 
     
 
@@ -531,12 +508,7 @@ shown in the code example.
 
 
 <div class="description">
-    When <code>true</code> and <code>componentDatatype</code> is an integer format,
-indicate that the components should be mapped to the range [0, 1] (unsigned)
-or [-1, 1] (signed) when they are accessed as floating-point for rendering.
-<p>
-This is commonly used when storing colors using <a href="global.html#ComponentDatatype#.UNSIGNED_BYTE"><code>ComponentDatatype.UNSIGNED_BYTE</code></a>.
-</p>
+    When <code>true</code> and <code>componentDatatype</code> is an integer format,indicate that the components should be mapped to the range [0, 1] (unsigned)or [-1, 1] (signed) when they are accessed as floating-point for rendering.<p>This is commonly used when storing colors using <a href="global.html#ComponentDatatype#.UNSIGNED_BYTE"><code>ComponentDatatype.UNSIGNED_BYTE</code></a>.</p>
 </div>
 
 
@@ -568,15 +540,7 @@ This is commonly used when storing colors using <a href="global.html#ComponentDa
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">attribute.componentDatatype = Cesium.ComponentDatatype.UNSIGNED_BYTE;
-attribute.componentsPerAttribute = 4;
-attribute.normalize = true;
-attribute.value = [
-  Cesium.Color.floatToByte(color.red),
-  Cesium.Color.floatToByte(color.green),
-  Cesium.Color.floatToByte(color.blue),
-  Cesium.Color.floatToByte(color.alpha)
-];</code></pre>
+    <pre><code class="language-javascript">attribute.componentDatatype = Cesium.ComponentDatatype.UNSIGNED_BYTE;attribute.componentsPerAttribute = 4;attribute.normalize = true;attribute.value = [  Cesium.Color.floatToByte(color.red),  Cesium.Color.floatToByte(color.green),  Cesium.Color.floatToByte(color.blue),  Cesium.Color.floatToByte(color.alpha)];</code></pre>
 
     
 
@@ -612,9 +576,7 @@ attribute.value = [
 
 
 <div class="description">
-    The values for the attributes stored in a typed array.  In the code example,
-every three elements in <code>values</code> defines one attributes since
-<code>componentsPerAttribute</code> is 3.
+    The values for the attributes stored in a typed array.  In the code example,every three elements in <code>values</code> defines one attributes since<code>componentsPerAttribute</code> is 3.
 </div>
 
 
@@ -643,12 +605,7 @@ every three elements in <code>values</code> defines one attributes since
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">show : new Cesium.GeometryInstanceAttribute({
-  componentDatatype : Cesium.ComponentDatatype.UNSIGNED_BYTE,
-  componentsPerAttribute : 1,
-  normalize : true,
-  value : [1.0]
-})</code></pre>
+    <pre><code class="language-javascript">show : new Cesium.GeometryInstanceAttribute({  componentDatatype : Cesium.ComponentDatatype.UNSIGNED_BYTE,  componentsPerAttribute : 1,  normalize : true,  value : [1.0]})</code></pre>
 
     
 

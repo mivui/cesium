@@ -58,74 +58,7 @@
 
 
 <div class="description">
-    <div class="notice">
-To construct a Model, call <a href="Model.html#.fromGltfAsync"><code>Model.fromGltfAsync</code></a>. Do not call the constructor directly.
-</div>
-A 3D model based on glTF, the runtime asset format for WebGL, OpenGL ES, and OpenGL.
-<p>
-Cesium supports glTF assets with the following extensions:
-<ul>
- <li>
- <a href="https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/AGI_articulations/README.md">AGI_articulations</a>
- </li>
- <li>
- <a href="https://github.com/KhronosGroup/glTF/tree/main/extensions/2.0/Vendor/CESIUM_primitive_outline">CESIUM_primitive_outline</a>
- </li>
- <li>
- <a href="https://github.com/KhronosGroup/glTF/blob/master/extensions/1.0/Vendor/CESIUM_RTC/README.md">CESIUM_RTC</a>
- </li>
- <li>
- <a href="https://github.com/CesiumGS/glTF/tree/3d-tiles-next/extensions/2.0/Vendor/EXT_instance_features">EXT_instance_features</a>
- </li>
- <li>
- <a href="https://github.com/CesiumGS/glTF/tree/3d-tiles-next/extensions/2.0/Vendor/EXT_mesh_features">EXT_mesh_features</a>
- </li>
- <li>
- <a href="https://github.com/KhronosGroup/glTF/tree/main/extensions/2.0/Vendor/EXT_mesh_gpu_instancing">EXT_mesh_gpu_instancing</a>
- </li>
- <li>
- <a href="https://github.com/KhronosGroup/glTF/tree/main/extensions/2.0/Vendor/EXT_meshopt_compression">EXT_meshopt_compression</a>
- </li>
- <li>
- <a href="https://github.com/CesiumGS/glTF/tree/3d-tiles-next/extensions/2.0/Vendor/EXT_structural_metadata">EXT_structural_metadata</a>
- </li>
- <li>
- <a href="https://github.com/KhronosGroup/glTF/tree/main/extensions/2.0/Vendor/EXT_texture_webp">EXT_texture_webp</a>
- </li>
- <li>
- <a href="https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Khronos/KHR_draco_mesh_compression/README.md">KHR_draco_mesh_compression</a>
- </li>
- <li>
- <a href="https://github.com/KhronosGroup/glTF/blob/main/extensions/2.0/Archived/KHR_techniques_webgl/README.md">KHR_techniques_webgl</a>
- </li>
- <li>
- <a href="https://github.com/KhronosGroup/glTF/blob/main/extensions/1.0/Khronos/KHR_materials_common/README.md">KHR_materials_common</a>
- </li>
- <li>
- <a href="https://github.com/KhronosGroup/glTF/tree/main/extensions/2.0/Archived/KHR_materials_pbrSpecularGlossiness">KHR_materials_pbrSpecularGlossiness</a>
- </li>
- <li>
- <a href="https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_materials_unlit/README.md">KHR_materials_unlit</a>
- </li>
- <li>
- <a href="https://github.com/KhronosGroup/glTF/tree/main/extensions/2.0/Khronos/KHR_mesh_quantization">KHR_mesh_quantization</a>
- </li>
- <li>
- <a href="https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Khronos/KHR_texture_basisu">KHR_texture_basisu</a>
- </li>
- <li>
- <a href="https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Khronos/KHR_texture_transform/README.md">KHR_texture_transform</a>
- </li>
- <li>
- <a href="https://github.com/KhronosGroup/glTF/blob/main/extensions/1.0/Vendor/WEB3D_quantized_attributes/README.md">WEB3D_quantized_attributes</a>
- </li>
-</ul>
-</p>
-<p>
-Note: for models with compressed textures using the KHR_texture_basisu extension, we recommend power of 2 textures in both dimensions
-for maximum compatibility. This is because some samplers require power of 2 textures (<a href="https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Using_textures_in_WebGL">Using textures in WebGL</a>)
-and KHR_texture_basisu requires multiple of 4 dimensions (<a href="https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Khronos/KHR_texture_basisu/README.md#additional-requirements">KHR_texture_basisu additional requirements</a>).
-</p>
+    <div class="notice">To construct a Model, call <a href="Model.html#.fromGltfAsync"><code>Model.fromGltfAsync</code></a>. 不要直接调用构造函数。</div>A 3D model based on glTF, the runtime asset format for WebGL, OpenGL ES, and OpenGL.<p>Cesium supports glTF assets with the following extensions:<ul> <li> <a href="https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/AGI_articulations/README.md">AGI_articulations</a> </li> <li> <a href="https://github.com/KhronosGroup/glTF/tree/main/extensions/2.0/Vendor/CESIUM_primitive_outline">CESIUM_primitive_outline</a> </li> <li> <a href="https://github.com/KhronosGroup/glTF/blob/master/extensions/1.0/Vendor/CESIUM_RTC/README.md">CESIUM_RTC</a> </li> <li> <a href="https://github.com/CesiumGS/glTF/tree/3d-tiles-next/extensions/2.0/Vendor/EXT_instance_features">EXT_instance_features</a> </li> <li> <a href="https://github.com/CesiumGS/glTF/tree/3d-tiles-next/extensions/2.0/Vendor/EXT_mesh_features">EXT_mesh_features</a> </li> <li> <a href="https://github.com/KhronosGroup/glTF/tree/main/extensions/2.0/Vendor/EXT_mesh_gpu_instancing">EXT_mesh_gpu_instancing</a> </li> <li> <a href="https://github.com/KhronosGroup/glTF/tree/main/extensions/2.0/Vendor/EXT_meshopt_compression">EXT_meshopt_compression</a> </li> <li> <a href="https://github.com/CesiumGS/glTF/tree/3d-tiles-next/extensions/2.0/Vendor/EXT_structural_metadata">EXT_structural_metadata</a> </li> <li> <a href="https://github.com/KhronosGroup/glTF/tree/main/extensions/2.0/Vendor/EXT_texture_webp">EXT_texture_webp</a> </li> <li> <a href="https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Khronos/KHR_draco_mesh_compression/README.md">KHR_draco_mesh_compression</a> </li> <li> <a href="https://github.com/KhronosGroup/glTF/blob/main/extensions/2.0/Archived/KHR_techniques_webgl/README.md">KHR_techniques_webgl</a> </li> <li> <a href="https://github.com/KhronosGroup/glTF/blob/main/extensions/1.0/Khronos/KHR_materials_common/README.md">KHR_materials_common</a> </li> <li> <a href="https://github.com/KhronosGroup/glTF/tree/main/extensions/2.0/Archived/KHR_materials_pbrSpecularGlossiness">KHR_materials_pbrSpecularGlossiness</a> </li> <li> <a href="https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_materials_unlit/README.md">KHR_materials_unlit</a> </li> <li> <a href="https://github.com/KhronosGroup/glTF/tree/main/extensions/2.0/Khronos/KHR_mesh_quantization">KHR_mesh_quantization</a> </li> <li> <a href="https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Khronos/KHR_texture_basisu">KHR_texture_basisu</a> </li> <li> <a href="https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Khronos/KHR_texture_transform/README.md">KHR_texture_transform</a> </li> <li> <a href="https://github.com/KhronosGroup/glTF/blob/main/extensions/1.0/Vendor/WEB3D_quantized_attributes/README.md">WEB3D_quantized_attributes</a> </li></ul></p><p>Note: for models with compressed textures using the KHR_texture_basisu extension, we recommend power of 2 textures in both dimensionsfor maximum compatibility. This is because some samplers require power of 2 textures (<a href="https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Using_textures_in_WebGL">Using textures in WebGL</a>)and KHR_texture_basisu requires multiple of 4 dimensions (<a href="https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Khronos/KHR_texture_basisu/README.md#additional-requirements">KHR_texture_basisu additional requirements</a>).</p>
 </div>
 
 
@@ -291,10 +224,7 @@ and KHR_texture_basisu requires multiple of 4 dimensions (<a href="https://githu
 
 
 <div class="description">
-    Whether to cull back-facing geometry. When true, back face culling is
-determined by the material's doubleSided property; when false, back face
-culling is disabled. Back faces are not culled if <a href="Model.html#color"><code>Model#color</code></a>
-is translucent or <a href="Model.html#silhouetteSize"><code>Model#silhouetteSize</code></a> is greater than 0.0.
+    Whether to cull back-facing geometry. When true, back face culling isdetermined by the material's doubleSided property; when false, back faceculling is disabled. Back faces are not culled if <a href="Model.html#color"><code>Model#color</code></a>is translucent or <a href="Model.html#silhouetteSize"><code>Model#silhouetteSize</code></a> is greater than 0.0.
 </div>
 
 
@@ -357,9 +287,7 @@ is translucent or <a href="Model.html#silhouetteSize"><code>Model#silhouetteSize
 
 
 <div class="description">
-    Gets the model's bounding sphere in world space. This does not take into account
-glTF animations, skins, or morph targets. It also does not account for
-<a href="Model.html#minimumPixelSize"><code>Model#minimumPixelSize</code></a>.
+    Gets the model's bounding sphere in world space. This does not take into accountglTF animations, skins, or morph targets. It also does not account for<a href="Model.html#minimumPixelSize"><code>Model#minimumPixelSize</code></a>.
 </div>
 
 
@@ -482,23 +410,7 @@ glTF animations, skins, or morph targets. It also does not account for
 
 
 <div class="description">
-    Gets the model's classification type. This determines whether terrain,
-3D Tiles, or both will be classified by this model.
-<p>
-Additionally, there are a few requirements/limitations:
-<ul>
-    <li>The glTF cannot contain morph targets, skins, or animations.</li>
-    <li>The glTF cannot contain the <code>EXT_mesh_gpu_instancing</code> extension.</li>
-    <li>Only meshes with TRIANGLES can be used to classify other assets.</li>
-    <li>The meshes must be watertight.</li>
-    <li>The POSITION attribute is required.</li>
-    <li>If feature IDs and an index buffer are both present, all indices with the same feature id must occupy contiguous sections of the index buffer.</li>
-    <li>If feature IDs are present without an index buffer, all positions with the same feature id must occupy contiguous sections of the position buffer.</li>
-</ul>
-</p>
-<p>
-The 3D Tiles or terrain receiving the classification must be opaque.
-</p>
+    Gets the model's classification type. This determines whether terrain,3D Tiles, or both will be classified by this model.<p>Additionally, there are a few requirements/limitations:<ul>    <li>The glTF cannot contain morph targets, skins, or animations.</li>    <li>The glTF cannot contain the <code>EXT_mesh_gpu_instancing</code> extension.</li>    <li>Only meshes with TRIANGLES can be used to classify other assets.</li>    <li>The meshes must be watertight.</li>    <li>The POSITION attribute is required.</li>    <li>If feature IDs and an index buffer are both present, all indices with the same feature id must occupy contiguous sections of the index buffer.</li>    <li>If feature IDs are present without an index buffer, all positions with the same feature id must occupy contiguous sections of the position buffer.</li></ul></p><p>The 3D Tiles or terrain receiving the classification must be opaque.</p>
 </div>
 
 
@@ -937,8 +849,7 @@ The 3D Tiles or terrain receiving the classification must be opaque.
 
 
 <div class="description">
-    The model's custom shader, if it exists. Using custom shaders with a <a href="Cesium3DTileStyle.html"><code>Cesium3DTileStyle</code></a>
-may lead to undefined behavior.
+    The model's custom shader, if it exists. Using custom shaders with a <a href="Cesium3DTileStyle.html"><code>Cesium3DTileStyle</code></a>may lead to undefined behavior.
 </div>
 
 
@@ -1005,10 +916,7 @@ may lead to undefined behavior.
 
 
 <div class="description">
-    This property is for debugging only; it is not for production use nor is it optimized.
-<p>
-Draws the bounding sphere for each draw command in the model.
-</p>
+    This property is for debugging only; it is not for production use nor is it optimized.<p>Draws the bounding sphere for each draw command in the model.</p>
 </div>
 
 
@@ -1071,10 +979,7 @@ Draws the bounding sphere for each draw command in the model.
 
 
 <div class="description">
-    This property is for debugging only; it is not for production use nor is it optimized.
-<p>
-Draws the model in wireframe.
-</p>
+    This property is for debugging only; it is not for production use nor is it optimized.<p>Draws the model in wireframe.</p>
 </div>
 
 
@@ -1137,8 +1042,7 @@ Draws the model in wireframe.
 
 
 <div class="description">
-    获取或设置distance display condition, which specifies at what distance
-from the camera this model will be displayed.
+    获取或设置distance display condition, which specifies at what distancefrom the camera this model will be displayed.
 </div>
 
 
@@ -1233,9 +1137,7 @@ from the camera this model will be displayed.
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Exaggerate terrain by a factor of 2, but prevent model exaggeration
-scene.verticalExaggeration = 2.0;
-model.enableVerticalExaggeration = false;</code></pre>
+    <pre><code class="language-javascript">// Exaggerate terrain by a factor of 2, but prevent model exaggerationscene.verticalExaggeration = 2.0;model.enableVerticalExaggeration = false;</code></pre>
 
     
 
@@ -1271,9 +1173,7 @@ model.enableVerticalExaggeration = false;</code></pre>
 
 
 <div class="description">
-    Gets an event that is raised when the model encounters an asynchronous rendering error.  By subscribing
-to the event, you will be notified of the error and can potentially recover from it.  Event listeners
-are passed an instance of <code>ModelError</code>.
+    Gets an event that is raised when the model encounters an asynchronous rendering error.  By subscribingto the event, you will be notified of the error and can potentially recover from it.  Event listenersare passed an instance of <code>ModelError</code>.
 </div>
 
 
@@ -1333,21 +1233,7 @@ are passed an instance of <code>ModelError</code>.
 
 
 <div class="description">
-    Label of the feature ID set to use for picking and styling.
-<p>
-For EXT_mesh_features, this is the feature ID's label property, or
-"featureId_N" (where N is the index in the featureIds array) when not
-specified. EXT_feature_metadata did not have a label field, so such
-feature ID sets are always labeled "featureId_N" where N is the index in
-the list of all feature Ids, where feature ID attributes are listed before
-feature ID textures.
-</p>
-<p>
-If featureIdLabel is set to an integer N, it is converted to
-the string "featureId_N" automatically. If both per-primitive and
-per-instance feature IDs are present, the instance feature IDs take
-priority.
-</p>
+    Label of the feature ID set to use for picking and styling.<p>For EXT_mesh_features, this is the feature ID's label property, or"featureId_N" (where N is the index in the featureIds array) when notspecified. EXT_feature_metadata did not have a label field, so suchfeature ID sets are always labeled "featureId_N" where N is the index inthe list of all feature Ids, where feature ID attributes are listed beforefeature ID textures.</p><p>If featureIdLabel is set to an integer N, it is converted tothe string "featureId_N" automatically. If both per-primitive andper-instance feature IDs are present, the instance feature IDs takepriority.</p>
 </div>
 
 
@@ -1414,8 +1300,7 @@ priority.
 
 
 <div class="description">
-    The height reference of the model, which determines how the model is drawn
-relative to terrain.
+    The height reference of the model, which determines how the model is drawnrelative to terrain.
 </div>
 
 
@@ -1606,13 +1491,7 @@ relative to terrain.
 
 
 <div class="description">
-    Label of the instance feature ID set used for picking and styling.
-<p>
-If instanceFeatureIdLabel is set to an integer N, it is converted to
-the string "instanceFeatureId_N" automatically.
-If both per-primitive and per-instance feature IDs are present, the
-instance feature IDs take priority.
-</p>
+    Label of the instance feature ID set used for picking and styling.<p>If instanceFeatureIdLabel is set to an integer N, it is converted tothe string "instanceFeatureId_N" automatically.If both per-primitive and per-instance feature IDs are present, theinstance feature IDs take priority.</p>
 </div>
 
 
@@ -1679,12 +1558,7 @@ instance feature IDs take priority.
 
 
 <div class="description">
-    The light color when shading the model. When <code>undefined</code> the scene's light color is used instead.
-<p>
-Disabling additional light sources by setting
-<code>model.imageBasedLighting.imageBasedLightingFactor = new Cartesian2(0.0, 0.0)</code>
-will make the model much darker. Here, increasing the intensity of the light source will make the model brighter.
-</p>
+    The light color when shading the model. When <code>undefined</code> the scene's light color is used instead.<p>Disabling additional light sources by setting<code>model.imageBasedLighting.imageBasedLightingFactor = new Cartesian2(0.0, 0.0)</code>will make the model much darker. Here, increasing the intensity of the light source will make the model brighter.</p>
 </div>
 
 
@@ -1747,9 +1621,7 @@ will make the model much darker. Here, increasing the intensity of the light sou
 
 
 <div class="description">
-    The maximum scale size for a model. This can be used to give
-an upper limit to the <a href="Model.html#minimumPixelSize"><code>Model#minimumPixelSize</code></a>, ensuring that the model
-is never an unreasonable scale.
+    The maximum scale size for a model. This can be used to givean upper limit to the <a href="Model.html#minimumPixelSize"><code>Model#minimumPixelSize</code></a>, ensuring that the modelis never an unreasonable scale.
 </div>
 
 
@@ -1809,9 +1681,7 @@ is never an unreasonable scale.
 
 
 <div class="description">
-    The approximate minimum pixel size of the model regardless of zoom.
-This can be used to ensure that a model is visible even when the viewer
-zooms out.  When <code>0.0</code>, no minimum size is enforced.
+    The approximate minimum pixel size of the model regardless of zoom.This can be used to ensure that a model is visible even when the viewerzooms out.  When <code>0.0</code>, no minimum size is enforced.
 </div>
 
 
@@ -1874,10 +1744,7 @@ zooms out.  When <code>0.0</code>, no minimum size is enforced.
 
 
 <div class="description">
-    The 4x4 transformation matrix that transforms the model from model to world coordinates.
-When this is the identity matrix, the model is drawn in world coordinates, i.e., Earth's Cartesian WGS84 coordinates.
-Local reference frames can be used by providing a different transformation matrix, like that returned
-by <a href="Transforms.html#.eastNorthUpToFixedFrame"><code>Transforms.eastNorthUpToFixedFrame</code></a>.
+    The 4x4 transformation matrix that transforms the model from model to world coordinates.When this is the identity matrix, the model is drawn in world coordinates, i.e., Earth's Cartesian WGS84 coordinates.Local reference frames can be used by providing a different transformation matrix, like that returnedby <a href="Transforms.html#.eastNorthUpToFixedFrame"><code>Transforms.eastNorthUpToFixedFrame</code></a>.
 </div>
 
 
@@ -1909,8 +1776,7 @@ by <a href="Transforms.html#.eastNorthUpToFixedFrame"><code>Transforms.eastNorth
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const origin = Cesium.Cartesian3.fromDegrees(-95.0, 40.0, 200000.0);
-m.modelMatrix = Cesium.Transforms.eastNorthUpToFixedFrame(origin);</code></pre>
+    <pre><code class="language-javascript">const origin = Cesium.Cartesian3.fromDegrees(-95.0, 40.0, 200000.0);m.modelMatrix = Cesium.Transforms.eastNorthUpToFixedFrame(origin);</code></pre>
 
     
 
@@ -2009,9 +1875,7 @@ m.modelMatrix = Cesium.Transforms.eastNorthUpToFixedFrame(origin);</code></pre>
 
 
 <div class="description">
-    Point cloud shading settings for controlling point cloud attenuation
-and lighting. For 3D Tiles, this is inherited from the
-<a href="Cesium3DTileset.html"><code>Cesium3DTileset</code></a>.
+    Point cloud shading settings for controlling point cloud attenuationand lighting. For 3D Tiles, this is inherited from the<a href="Cesium3DTileset.html"><code>Cesium3DTileset</code></a>.
 </div>
 
 
@@ -2071,8 +1935,7 @@ and lighting. For 3D Tiles, this is inherited from the
 
 
 <div class="description">
-    When <code>true</code>, this model is ready to render, i.e., the external binary, image,
-and shader files were downloaded and the WebGL resources were created.
+    When <code>true</code>, this model is ready to render, i.e., the external binary, image,and shader files were downloaded and the WebGL resources were created.
 </div>
 
 
@@ -2135,13 +1998,7 @@ and shader files were downloaded and the WebGL resources were created.
 
 
 <div class="description">
-    Gets an event that is raised when the model is loaded and ready for rendering, i.e. when the external resources
-have been downloaded and the WebGL resources are created. Event listeners
-are passed an instance of the <a href="Model.html"><code>Model</code></a>.
-
-<p>
-If <code>Model.incrementallyLoadTextures</code> is true, this event will be raised before all textures are loaded and ready for rendering. Subscribe to <code>Model.texturesReadyEvent</code> to be notified when the textures are ready.
-</p>
+    Gets an event that is raised when the model is loaded and ready for rendering, i.e. when the external resourceshave been downloaded and the WebGL resources are created. Event listenersare passed an instance of the <a href="Model.html"><code>Model</code></a>.<p>If <code>Model.incrementallyLoadTextures</code> is true, this event will be raised before all textures are loaded and ready for rendering. Subscribe to <code>Model.texturesReadyEvent</code> to be notified when the textures are ready.</p>
 </div>
 
 
@@ -2201,9 +2058,7 @@ If <code>Model.incrementallyLoadTextures</code> is true, this event will be rais
 
 
 <div class="description">
-    A uniform scale applied to this model before the <a href="Model.html#modelMatrix"><code>Model#modelMatrix</code></a>.
-Values greater than <code>1.0</code> increase the size of the model; values
-less than <code>1.0</code> decrease.
+    A uniform scale applied to this model before the <a href="Model.html#modelMatrix"><code>Model#modelMatrix</code></a>.Values greater than <code>1.0</code> increase the size of the model; valuesless than <code>1.0</code> decrease.
 </div>
 
 
@@ -2392,8 +2247,7 @@ less than <code>1.0</code> decrease.
 
 
 <div class="description">
-    Gets or sets whether the credits of the model will be displayed
-on the screen.
+    Gets or sets whether the credits of the model will be displayedon the screen.
 </div>
 
 
@@ -2456,9 +2310,7 @@ on the screen.
 
 
 <div class="description">
-    Whether to display the outline for models using the
-<a href="https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/CESIUM_primitive_outline">CESIUM_primitive_outline</a> extension.
-When true, outlines are displayed. When false, outlines are not displayed.
+    Whether to display the outline for models using the<a href="https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/CESIUM_primitive_outline">CESIUM_primitive_outline</a> extension.When true, outlines are displayed. When false, outlines are not displayed.
 </div>
 
 
@@ -2770,9 +2622,7 @@ When true, outlines are displayed. When false, outlines are not displayed.
 
 
 <div class="description">
-    Gets an event that, if <code>Model.incrementallyLoadTextures</code> is true, is raised when the model textures are loaded and ready for rendering, i.e. when the external resources
-have been downloaded and the WebGL resources are created. Event listeners
-are passed an instance of the <a href="Model.html"><code>Model</code></a>.
+    Gets an event that, if <code>Model.incrementallyLoadTextures</code> is true, is raised when the model textures are loaded and ready for rendering, i.e. when the external resourceshave been downloaded and the WebGL resources are created. Event listenersare passed an instance of the <a href="Model.html"><code>Model</code></a>.
 </div>
 
 
@@ -2839,12 +2689,7 @@ are passed an instance of the <a href="Model.html"><code>Model</code></a>.
 
 
 <div class="description">
-    <p>
-Asynchronously creates a model from a glTF asset. This function returns a promise that resolves when the model is ready to render, i.e., when the external binary, image,
-and shader files are downloaded and the WebGL resources are created.
-</p>
-<p>
-The model can be a traditional glTF asset with a .gltf extension or a Binary glTF using the .glb extension.
+    <p>Asynchronously creates a model from a glTF asset. This function returns a promise that resolves when the model is ready to render, i.e., when the external binary, image,and shader files are downloaded and the WebGL resources are created.</p><p>The model can be a traditional glTF asset with a .gltf extension or a Binary glTF using the .glb extension.
 </div>
 
 
@@ -4788,63 +4633,11 @@ The model can be a traditional glTF asset with a .gltf extension or a Binary glT
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Load a model and add it to the scene
-try {
- const model = await Cesium.Model.fromGltfAsync({
-   url: "../../SampleData/models/CesiumMan/Cesium_Man.glb"
- });
- viewer.scene.primitives.add(model);
-} catch (error) {
- console.log(`Failed to load model. ${error}`);
-}</code></pre>
+    <pre><code class="language-javascript">// Load a model and add it to the scenetry { const model = await Cesium.Model.fromGltfAsync({   url: "../../SampleData/models/CesiumMan/Cesium_Man.glb" }); viewer.scene.primitives.add(model);} catch (error) { console.log(`Failed to load model. ${error}`);}</code></pre>
 
-    <pre><code class="language-javascript">// Position a model with modelMatrix and display it with a minimum size of 128 pixels
-const position = Cesium.Cartesian3.fromDegrees(
-  -123.0744619,
-  44.0503706,
-  5000.0
-);
-const headingPositionRoll = new Cesium.HeadingPitchRoll();
-const fixedFrameTransform = Cesium.Transforms.localFrameToFixedFrameGenerator(
-  "north",
-  "west"
-);
-try {
- const model = await Cesium.Model.fromGltfAsync({
-   url: "../../SampleData/models/CesiumAir/Cesium_Air.glb",
-   modelMatrix: Cesium.Transforms.headingPitchRollToFixedFrame(
-     position,
-     headingPositionRoll,
-     Cesium.Ellipsoid.WGS84,
-     fixedFrameTransform
-   ),
-   minimumPixelSize: 128,
- });
- viewer.scene.primitives.add(model);
-} catch (error) {
- console.log(`Failed to load model. ${error}`);
-}</code></pre>
+    <pre><code class="language-javascript">// Position a model with modelMatrix and display it with a minimum size of 128 pixelsconst position = Cesium.Cartesian3.fromDegrees(  -123.0744619,  44.0503706,  5000.0);const headingPositionRoll = new Cesium.HeadingPitchRoll();const fixedFrameTransform = Cesium.Transforms.localFrameToFixedFrameGenerator(  "north",  "west");try { const model = await Cesium.Model.fromGltfAsync({   url: "../../SampleData/models/CesiumAir/Cesium_Air.glb",   modelMatrix: Cesium.Transforms.headingPitchRollToFixedFrame(     position,     headingPositionRoll,     Cesium.Ellipsoid.WGS84,     fixedFrameTransform   ),   minimumPixelSize: 128, }); viewer.scene.primitives.add(model);} catch (error) { console.log(`Failed to load model. ${error}`);}</code></pre>
 
-    <pre><code class="language-javascript">// Load a model and play the last animation at half speed
-let animations;
-try {
- const model = await Cesium.Model.fromGltfAsync({
-   url: "../../SampleData/models/CesiumMan/Cesium_Man.glb",
-   gltfCallback: gltf => {
-     animations = gltf.animations
-   }
- });
- viewer.scene.primitives.add(model);
- model.readyEvent.addEventListener(() => {
-   model.activeAnimations.add({
-     index: animations.length - 1,
-     loop: Cesium.ModelAnimationLoop.REPEAT,
-     multiplier: 0.5,
-   });
- });
-} catch (error) {
- console.log(`Failed to load model. ${error}`);
-}</code></pre>
+    <pre><code class="language-javascript">// Load a model and play the last animation at half speedlet animations;try { const model = await Cesium.Model.fromGltfAsync({   url: "../../SampleData/models/CesiumMan/Cesium_Man.glb",   gltfCallback: gltf => {     animations = gltf.animations   } }); viewer.scene.primitives.add(model); model.readyEvent.addEventListener(() => {   model.activeAnimations.add({     index: animations.length - 1,     loop: Cesium.ModelAnimationLoop.REPEAT,     multiplier: 0.5,   }); });} catch (error) { console.log(`Failed to load model. ${error}`);}</code></pre>
 
     
 
@@ -4881,9 +4674,7 @@ try {
 
 
 <div class="description">
-    Applies any modified articulation stages to the matrix of each node that
-participates in any articulation. Note that this will overwrite any node
-transformations on participating nodes.
+    Applies any modified articulation stages to the matrix of each node thatparticipates in any articulation. Note that this will overwrite any nodetransformations on participating nodes.
 </div>
 
 
@@ -4978,12 +4769,7 @@ transformations on participating nodes.
 
 
 <div class="description">
-    Destroys the WebGL resources held by this object.  Destroying an object allows for deterministic
-release of WebGL resources, instead of relying on the garbage collector to destroy this object.
-<br /><br />
-Once an object is destroyed, it should not be used; calling any function other than
-<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.  Therefore,
-assign the return value (<code>undefined</code>) to the object as done in the example.
+    Destroys the WebGL resources held by this object.  Destroying an object allows for deterministicrelease of WebGL resources, instead of relying on the garbage collector to destroy this object.<br /><br />Once an object is destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.  Therefore,assign the return value (<code>undefined</code>) to the object as done in the example.
 </div>
 
 
@@ -5088,8 +4874,7 @@ assign the return value (<code>undefined</code>) to the object as done in the ex
 
 
 <div class="description">
-    Returns the node with the given <code>name</code> in the glTF. This is used to
-modify a node's transform for user-defined animation.
+    Returns the node with the given <code>name</code> in the glTF. This is used tomodify a node's transform for user-defined animation.
 </div>
 
 
@@ -5206,9 +4991,7 @@ modify a node's transform for user-defined animation.
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Apply non-uniform scale to node "Hand"
-const node = model.getNode("Hand");
-node.matrix = Cesium.Matrix4.fromScale(new Cesium.Cartesian3(5.0, 1.0, 1.0), node.matrix);</code></pre>
+    <pre><code class="language-javascript">// Apply non-uniform scale to node "Hand"const node = model.getNode("Hand");node.matrix = Cesium.Matrix4.fromScale(new Cesium.Cartesian3(5.0, 1.0, 1.0), node.matrix);</code></pre>
 
     
 
@@ -5245,10 +5028,7 @@ node.matrix = Cesium.Matrix4.fromScale(new Cesium.Cartesian3(5.0, 1.0, 1.0), nod
 
 
 <div class="description">
-    Returns true if this object was destroyed; otherwise, false.
-<br /><br />
-If this object was destroyed, it should not be used; calling any function other than
-<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.
+    Returns true if this object was destroyed; otherwise, false.<br /><br />If this object was destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.
 </div>
 
 
@@ -5343,8 +5123,7 @@ If this object was destroyed, it should not be used; calling any function other 
 
 
 <div class="description">
-    Marks the model's <a href="Model.html#style"><code>Model#style</code></a> as dirty, which forces all features
-to re-evaluate the style in the next frame the model is visible.
+    Marks the model's <a href="Model.html#style"><code>Model#style</code></a> as dirty, which forces all featuresto re-evaluate the style in the next frame the model is visible.
 </div>
 
 
@@ -5425,9 +5204,7 @@ to re-evaluate the style in the next frame the model is visible.
 
 
 <div class="description">
-    Sets the current value of an articulation stage.  After setting one or
-multiple stage values, call Model.applyArticulations() to
-cause the node matrices to be recalculated.
+    Sets the current value of an articulation stage.  After setting one ormultiple stage values, call Model.applyArticulations() tocause the node matrices to be recalculated.
 </div>
 
 
@@ -5558,8 +5335,7 @@ cause the node matrices to be recalculated.
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Sets the value of the stage named "MoveX" belonging to the articulation named "SampleArticulation"
-model.setArticulationStage("SampleArticulation MoveX", 50.0);</code></pre>
+    <pre><code class="language-javascript">// Sets the value of the stage named "MoveX" belonging to the articulation named "SampleArticulation"model.setArticulationStage("SampleArticulation MoveX", 50.0);</code></pre>
 
     
 
@@ -5601,12 +5377,7 @@ model.setArticulationStage("SampleArticulation MoveX", 50.0);</code></pre>
 
 
 <div class="description">
-    Called when <a href="Viewer.html"><code>Viewer</code></a> or <a href="CesiumWidget.html"><code>CesiumWidget</code></a> render the scene to
-get the draw commands needed to render this primitive.
-<p>
-Do not call this function directly.  This is documented just to
-list the exceptions that may be propagated when the scene is rendered:
-</p>
+    Called when <a href="Viewer.html"><code>Viewer</code></a> or <a href="CesiumWidget.html"><code>CesiumWidget</code></a> render the scene toget the draw commands needed to render this primitive.<p>Do not call this function directly.  This is documented just tolist the exceptions that may be propagated when the scene is rendered:</p>
 </div>
 
 

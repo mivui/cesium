@@ -47,7 +47,7 @@
 
 
         
-            <div class="description">A function used to compare two items while performing a binary search.</div>
+            <div class="description">在执行二分查找时比较两个项的函数。</div>
         
 
         

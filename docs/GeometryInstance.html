@@ -58,10 +58,7 @@
 
 
 <div class="description">
-    Geometry instancing allows one <a href="Geometry.html"><code>Geometry</code></a> object to be positions in several
-different locations and colored uniquely.  For example, one <a href="BoxGeometry.html"><code>BoxGeometry</code></a> can
-be instanced several times, each with a different <code>modelMatrix</code> to change
-its position, rotation, and scale.
+    Geometry instancing allows one <a href="Geometry.html"><code>Geometry</code></a> object to be positions in severaldifferent locations and colored uniquely.  For example, one <a href="BoxGeometry.html"><code>BoxGeometry</code></a> canbe instanced several times, each with a different <code>modelMatrix</code> to changeits position, rotation, and scale.
 </div>
 
 
@@ -318,31 +315,7 @@ its position, rotation, and scale.
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Create geometry for a box, and two instances that refer to it.
-// One instance positions the box on the bottom and colored aqua.
-// The other instance positions the box on the top and color white.
-const geometry = Cesium.BoxGeometry.fromDimensions({
-  vertexFormat : Cesium.VertexFormat.POSITION_AND_NORMAL,
-  dimensions : new Cesium.Cartesian3(1000000.0, 1000000.0, 500000.0)
-});
-const instanceBottom = new Cesium.GeometryInstance({
-  geometry : geometry,
-  modelMatrix : Cesium.Matrix4.multiplyByTranslation(Cesium.Transforms.eastNorthUpToFixedFrame(
-    Cesium.Cartesian3.fromDegrees(-75.59777, 40.03883)), new Cesium.Cartesian3(0.0, 0.0, 1000000.0), new Cesium.Matrix4()),
-  attributes : {
-    color : Cesium.ColorGeometryInstanceAttribute.fromColor(Cesium.Color.AQUA)
-  },
-  id : 'bottom'
-});
-const instanceTop = new Cesium.GeometryInstance({
-  geometry : geometry,
-  modelMatrix : Cesium.Matrix4.multiplyByTranslation(Cesium.Transforms.eastNorthUpToFixedFrame(
-    Cesium.Cartesian3.fromDegrees(-75.59777, 40.03883)), new Cesium.Cartesian3(0.0, 0.0, 3000000.0), new Cesium.Matrix4()),
-  attributes : {
-    color : Cesium.ColorGeometryInstanceAttribute.fromColor(Cesium.Color.AQUA)
-  },
-  id : 'top'
-});</code></pre>
+    <pre><code class="language-javascript">// Create geometry for a box, and two instances that refer to it.// One instance positions the box on the bottom and colored aqua.// The other instance positions the box on the top and color white.const geometry = Cesium.BoxGeometry.fromDimensions({  vertexFormat : Cesium.VertexFormat.POSITION_AND_NORMAL,  dimensions : new Cesium.Cartesian3(1000000.0, 1000000.0, 500000.0)});const instanceBottom = new Cesium.GeometryInstance({  geometry : geometry,  modelMatrix : Cesium.Matrix4.multiplyByTranslation(Cesium.Transforms.eastNorthUpToFixedFrame(    Cesium.Cartesian3.fromDegrees(-75.59777, 40.03883)), new Cesium.Cartesian3(0.0, 0.0, 1000000.0), new Cesium.Matrix4()),  attributes : {    color : Cesium.ColorGeometryInstanceAttribute.fromColor(Cesium.Color.AQUA)  },  id : 'bottom'});const instanceTop = new Cesium.GeometryInstance({  geometry : geometry,  modelMatrix : Cesium.Matrix4.multiplyByTranslation(Cesium.Transforms.eastNorthUpToFixedFrame(    Cesium.Cartesian3.fromDegrees(-75.59777, 40.03883)), new Cesium.Cartesian3(0.0, 0.0, 3000000.0), new Cesium.Matrix4()),  attributes : {    color : Cesium.ColorGeometryInstanceAttribute.fromColor(Cesium.Color.AQUA)  },  id : 'top'});</code></pre>
 
     
 
@@ -399,8 +372,7 @@ const instanceTop = new Cesium.GeometryInstance({
 
 
 <div class="description">
-    Per-instance attributes like <a href="ColorGeometryInstanceAttribute.html"><code>ColorGeometryInstanceAttribute</code></a> or <a href="ShowGeometryInstanceAttribute.html"><code>ShowGeometryInstanceAttribute</code></a>.
-<a href="Geometry.html"><code>Geometry</code></a> attributes varying per vertex; these attributes are constant for the entire instance.
+    Per-instance attributes like <a href="ColorGeometryInstanceAttribute.html"><code>ColorGeometryInstanceAttribute</code></a> or <a href="ShowGeometryInstanceAttribute.html"><code>ShowGeometryInstanceAttribute</code></a>.<a href="Geometry.html"><code>Geometry</code></a> attributes varying per vertex; these attributes are constant for the entire instance.
 </div>
 
 
@@ -593,10 +565,7 @@ const instanceTop = new Cesium.GeometryInstance({
 
 
 <div class="description">
-    The 4x4 transformation matrix that transforms the geometry from model to world coordinates.
-When this is the identity matrix, the geometry is drawn in world coordinates, i.e., Earth's WGS84 coordinates.
-Local reference frames can be used by providing a different transformation matrix, like that returned
-by <a href="Transforms.html#.eastNorthUpToFixedFrame"><code>Transforms.eastNorthUpToFixedFrame</code></a>.
+    The 4x4 transformation matrix that transforms the geometry from model to world coordinates.When this is the identity matrix, the geometry is drawn in world coordinates, i.e., Earth's WGS84 coordinates.Local reference frames can be used by providing a different transformation matrix, like that returnedby <a href="Transforms.html#.eastNorthUpToFixedFrame"><code>Transforms.eastNorthUpToFixedFrame</code></a>.
 </div>
 
 

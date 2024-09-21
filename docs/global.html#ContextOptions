@@ -47,13 +47,7 @@
 
 
         
-            <div class="description">Options to control the setting up of a WebGL Context.
-<p>
-<code>allowTextureFilterAnisotropic</code> defaults to true, which enables
-anisotropic texture filtering when the WebGL extension is supported.
-Setting this to false will improve performance, but hurt visual quality,
-especially for horizon views.
-</p></div>
+            <div class="description">Options to control the setting up of a WebGL Context.<p><code>allowTextureFilterAnisotropic</code> defaults to true, which enablesanisotropic texture filtering when the WebGL extension is supported.Setting this to false will improve performance, but hurt visual quality,especially for horizon views.</p></div>
         
 
         

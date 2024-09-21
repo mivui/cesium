@@ -47,9 +47,7 @@
 
 
         
-            <div class="description">一个添加默认拖放支持CZML文件到Viewer小部件的mixin。
-不是直接调用，这个函数通常作为
-<a href="Viewer.html#extend"><code>Viewer#extend</code></a> 的参数，如下例所示。</div>
+            <div class="description">一个添加默认拖放支持CZML文件到Viewer小部件的mixin。不是直接调用，这个函数通常作为<a href="Viewer.html#extend"><code>Viewer#extend</code></a> 的参数，如下例所示。</div>
         
 
         
@@ -75,12 +73,7 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Add basic drag and drop support and pop up an alert window on error.
-const viewer = new Cesium.Viewer('cesiumContainer');
-viewer.extend(Cesium.viewerDragDropMixin);
-viewer.dropError.addEventListener(function(viewerArg, source, error) {
-    window.alert('Error processing ' + source + ':' + error);
-});</code></pre>
+    <pre><code class="language-javascript">// Add basic drag and drop support and pop up an alert window on error.const viewer = new Cesium.Viewer('cesiumContainer');viewer.extend(Cesium.viewerDragDropMixin);viewer.dropError.addEventListener(function(viewerArg, source, error) {    window.alert('Error processing ' + source + ':' + error);});</code></pre>
 
     
 

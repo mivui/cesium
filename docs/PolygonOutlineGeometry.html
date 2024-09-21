@@ -265,7 +265,7 @@
 
                 
             
-                The vertex attributes to be computed.</td>
+                要计算的顶点属性。</td>
         </tr>
 
     
@@ -458,71 +458,7 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// 1. create a polygon outline from points
-const polygon = new Cesium.PolygonOutlineGeometry({
-  polygonHierarchy : new Cesium.PolygonHierarchy(
-    Cesium.Cartesian3.fromDegreesArray([
-      -72.0, 40.0,
-      -70.0, 35.0,
-      -75.0, 30.0,
-      -70.0, 30.0,
-      -68.0, 40.0
-    ])
-  )
-});
-const geometry = Cesium.PolygonOutlineGeometry.createGeometry(polygon);
-
-// 2. create a nested polygon with holes outline
-const polygonWithHole = new Cesium.PolygonOutlineGeometry({
-  polygonHierarchy : new Cesium.PolygonHierarchy(
-    Cesium.Cartesian3.fromDegreesArray([
-      -109.0, 30.0,
-      -95.0, 30.0,
-      -95.0, 40.0,
-      -109.0, 40.0
-    ]),
-    [new Cesium.PolygonHierarchy(
-      Cesium.Cartesian3.fromDegreesArray([
-        -107.0, 31.0,
-        -107.0, 39.0,
-        -97.0, 39.0,
-        -97.0, 31.0
-      ]),
-      [new Cesium.PolygonHierarchy(
-        Cesium.Cartesian3.fromDegreesArray([
-          -105.0, 33.0,
-          -99.0, 33.0,
-          -99.0, 37.0,
-          -105.0, 37.0
-        ]),
-        [new Cesium.PolygonHierarchy(
-          Cesium.Cartesian3.fromDegreesArray([
-            -103.0, 34.0,
-            -101.0, 34.0,
-            -101.0, 36.0,
-            -103.0, 36.0
-          ])
-        )]
-      )]
-    )]
-  )
-});
-const geometry = Cesium.PolygonOutlineGeometry.createGeometry(polygonWithHole);
-
-// 3. create extruded polygon outline
-const extrudedPolygon = new Cesium.PolygonOutlineGeometry({
-  polygonHierarchy : new Cesium.PolygonHierarchy(
-    Cesium.Cartesian3.fromDegreesArray([
-      -72.0, 40.0,
-      -70.0, 35.0,
-      -75.0, 30.0,
-      -70.0, 30.0,
-      -68.0, 40.0
-    ])
-  ),
-  extrudedHeight: 300000
-});
-const geometry = Cesium.PolygonOutlineGeometry.createGeometry(extrudedPolygon);</code></pre>
+    <pre><code class="language-javascript">// 1. create a polygon outline from pointsconst polygon = new Cesium.PolygonOutlineGeometry({  polygonHierarchy : new Cesium.PolygonHierarchy(    Cesium.Cartesian3.fromDegreesArray([      -72.0, 40.0,      -70.0, 35.0,      -75.0, 30.0,      -70.0, 30.0,      -68.0, 40.0    ])  )});const geometry = Cesium.PolygonOutlineGeometry.createGeometry(polygon);// 2. create a nested polygon with holes outlineconst polygonWithHole = new Cesium.PolygonOutlineGeometry({  polygonHierarchy : new Cesium.PolygonHierarchy(    Cesium.Cartesian3.fromDegreesArray([      -109.0, 30.0,      -95.0, 30.0,      -95.0, 40.0,      -109.0, 40.0    ]),    [new Cesium.PolygonHierarchy(      Cesium.Cartesian3.fromDegreesArray([        -107.0, 31.0,        -107.0, 39.0,        -97.0, 39.0,        -97.0, 31.0      ]),      [new Cesium.PolygonHierarchy(        Cesium.Cartesian3.fromDegreesArray([          -105.0, 33.0,          -99.0, 33.0,          -99.0, 37.0,          -105.0, 37.0        ]),        [new Cesium.PolygonHierarchy(          Cesium.Cartesian3.fromDegreesArray([            -103.0, 34.0,            -101.0, 34.0,            -101.0, 36.0,            -103.0, 36.0          ])        )]      )]    )]  )});const geometry = Cesium.PolygonOutlineGeometry.createGeometry(polygonWithHole);// 3. create extruded polygon outlineconst extrudedPolygon = new Cesium.PolygonOutlineGeometry({  polygonHierarchy : new Cesium.PolygonHierarchy(    Cesium.Cartesian3.fromDegreesArray([      -72.0, 40.0,      -70.0, 35.0,      -75.0, 30.0,      -70.0, 30.0,      -68.0, 40.0    ])  ),  extrudedHeight: 300000});const geometry = Cesium.PolygonOutlineGeometry.createGeometry(extrudedPolygon);</code></pre>
 
     
 
@@ -581,7 +517,7 @@ const geometry = Cesium.PolygonOutlineGeometry.createGeometry(extrudedPolygon);<
 
 
 <div class="description">
-    The number of elements used to pack the object into an array.
+    用于将对象打包到数组中的元素数量。
 </div>
 
 
@@ -720,7 +656,7 @@ const geometry = Cesium.PolygonOutlineGeometry.createGeometry(extrudedPolygon);<
 
         
 <div class="param-desc">
-    The computed vertices and indices.
+    计算的顶点和索引。
 </div>
 
 
@@ -920,7 +856,7 @@ const geometry = Cesium.PolygonOutlineGeometry.createGeometry(extrudedPolygon);<
 
                 
             
-                The height of the polygon.</td>
+                高度 polygon.</td>
         </tr>
 
     
@@ -954,7 +890,7 @@ const geometry = Cesium.PolygonOutlineGeometry.createGeometry(extrudedPolygon);<
 
                 
             
-                The height of the polygon extrusion.</td>
+                高度 polygon extrusion.</td>
         </tr>
 
     
@@ -1152,17 +1088,7 @@ const geometry = Cesium.PolygonOutlineGeometry.createGeometry(extrudedPolygon);<
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// create a polygon from points
-const polygon = Cesium.PolygonOutlineGeometry.fromPositions({
-  positions : Cesium.Cartesian3.fromDegreesArray([
-    -72.0, 40.0,
-    -70.0, 35.0,
-    -75.0, 30.0,
-    -70.0, 30.0,
-    -68.0, 40.0
-  ])
-});
-const geometry = Cesium.PolygonOutlineGeometry.createGeometry(polygon);</code></pre>
+    <pre><code class="language-javascript">// create a polygon from pointsconst polygon = Cesium.PolygonOutlineGeometry.fromPositions({  positions : Cesium.Cartesian3.fromDegreesArray([    -72.0, 40.0,    -70.0, 35.0,    -75.0, 30.0,    -70.0, 30.0,    -68.0, 40.0  ])});const geometry = Cesium.PolygonOutlineGeometry.createGeometry(polygon);</code></pre>
 
     
 
@@ -1204,7 +1130,7 @@ const geometry = Cesium.PolygonOutlineGeometry.createGeometry(polygon);</code></
 
 
 <div class="description">
-    Stores the provided instance into the provided array.
+    将提供的实例存储到提供的数组中。
 </div>
 
 
@@ -1266,7 +1192,7 @@ const geometry = Cesium.PolygonOutlineGeometry.createGeometry(polygon);</code></
 
                 
             
-                The value to pack.</td>
+                要打包的值。</td>
         </tr>
 
     
@@ -1298,7 +1224,7 @@ const geometry = Cesium.PolygonOutlineGeometry.createGeometry(polygon);</code></
 
                 
             
-                The array to pack into.</td>
+                要装入的数组。</td>
         </tr>
 
     
@@ -1334,7 +1260,7 @@ const geometry = Cesium.PolygonOutlineGeometry.createGeometry(polygon);</code></
 
                 
             
-                The index into the array at which to start packing the elements.</td>
+                开始打包元素的数组的索引。</td>
         </tr>
 
     
@@ -1355,7 +1281,7 @@ const geometry = Cesium.PolygonOutlineGeometry.createGeometry(polygon);</code></
 
         
 <div class="param-desc">
-    The array that was packed into
+    被装入的数组
 </div>
 
 
@@ -1418,7 +1344,7 @@ const geometry = Cesium.PolygonOutlineGeometry.createGeometry(polygon);</code></
 
 
 <div class="description">
-    Retrieves an instance from a packed array.
+    从打包数组中检索实例。
 </div>
 
 
@@ -1480,7 +1406,7 @@ const geometry = Cesium.PolygonOutlineGeometry.createGeometry(polygon);</code></
 
                 
             
-                The packed array.</td>
+                打包数组。</td>
         </tr>
 
     
@@ -1516,7 +1442,7 @@ const geometry = Cesium.PolygonOutlineGeometry.createGeometry(polygon);</code></
 
                 
             
-                The starting index of the element to be unpacked.</td>
+                要解压缩的元素的起始索引。</td>
         </tr>
 
     
@@ -1550,7 +1476,7 @@ const geometry = Cesium.PolygonOutlineGeometry.createGeometry(polygon);</code></
 
                 
             
-                The object into which to store the result.</td>
+                要在其中存储结果的对象。</td>
         </tr>
 
     
@@ -1571,7 +1497,7 @@ const geometry = Cesium.PolygonOutlineGeometry.createGeometry(polygon);</code></
 
         
 <div class="param-desc">
-    The modified result parameter or a new PolygonOutlineGeometry instance if one was not provided.
+    修改后的结果参数 or a new PolygonOutlineGeometry instance if one was not provided.
 </div>
 
 

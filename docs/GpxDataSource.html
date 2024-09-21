@@ -107,8 +107,7 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const viewer = new Cesium.Viewer('cesiumContainer');
-viewer.dataSources.add(Cesium.GpxDataSource.load('../../SampleData/track.gpx'));</code></pre>
+    <pre><code class="language-javascript">const viewer = new Cesium.Viewer('cesiumContainer');viewer.dataSources.add(Cesium.GpxDataSource.load('../../SampleData/track.gpx'));</code></pre>
 
     
 
@@ -232,9 +231,7 @@ viewer.dataSources.add(Cesium.GpxDataSource.load('../../SampleData/track.gpx'));
 
 
 <div class="description">
-    Gets the clock settings defined by the loaded GPX. This represents the total
-availability interval for all time-dynamic data. If the GPX does not contain
-time-dynamic data, this value is undefined.
+    Gets the clock settings defined by the loaded GPX. This represents the totalavailability interval for all time-dynamic data. If the GPX does not containtime-dynamic data, this value is undefined.
 </div>
 
 
@@ -714,8 +711,7 @@ time-dynamic data, this value is undefined.
 
 
 <div class="description">
-    Gets a human-readable name for this instance.
-This will be automatically be set to the GPX document name on load.
+    Gets a human-readable name for this instance.This will be automatically be set to the GPX document name on load.
 </div>
 
 
@@ -1598,10 +1594,7 @@ This will be automatically be set to the GPX document name on load.
 
 
 <div class="description">
-    Updates the data source to the provided time.  This function is optional and
-is not required to be implemented.  It is provided for data sources which
-retrieve data based on the current animation time or scene state.
-If implemented, update will be called by <a href="DataSourceDisplay.html"><code>DataSourceDisplay</code></a> once a frame.
+    Updates the data source to the provided time.  This function is optional andis not required to be implemented.  It is provided for data sources whichretrieve data based on the current animation time or scene state.If implemented, update will be called by <a href="DataSourceDisplay.html"><code>DataSourceDisplay</code></a> once a frame.
 </div>
 
 
@@ -1673,7 +1666,7 @@ If implemented, update will be called by <a href="DataSourceDisplay.html"><code>
 
         
 <div class="param-desc">
-    True if this data source is ready to be displayed at the provided time, false otherwise.
+    True if this data source is ready to be displayed at the provided time, false 否则。
 </div>
 
 

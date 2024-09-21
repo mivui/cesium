@@ -58,20 +58,13 @@
 
 
 <div class="description">
-    A renderable collection of points.
-<br /><br />
-Points are added and removed from the collection using <a href="PointPrimitiveCollection.html#add"><code>PointPrimitiveCollection#add</code></a>
-and <a href="PointPrimitiveCollection.html#remove"><code>PointPrimitiveCollection#remove</code></a>.
+    A renderable collection of points.<br /><br />Points are added and removed from the collection using <a href="PointPrimitiveCollection.html#add"><code>PointPrimitiveCollection#add</code></a>and <a href="PointPrimitiveCollection.html#remove"><code>PointPrimitiveCollection#remove</code></a>.
 </div>
 
 
 
     <h5>Performance:</h5>
-    <p class="description">For best performance, prefer a few collections, each with many points, to
-many collections with only a few points each.  Organize collections so that points
-with the same update frequency are in the same collection, i.e., points that do not
-change should be in one collection; points that change every frame should be in another
-collection; and so on.</p>
+    <p class="description">For best performance, prefer a few collections, each with many points, tomany collections with only a few points each.  Organize collections so that pointswith the same update frequency are in the same collection, i.e., points that do notchange should be in one collection; points that change every frame should be in anothercollection; and so on.</p>
 
 
 
@@ -252,9 +245,7 @@ collection; and so on.</p>
 
                 
             
-                The point blending option. The default
-is used for rendering both opaque and translucent points. However, if either all of the points are completely opaque or all are completely translucent,
-setting the technique to BlendOption.OPAQUE or BlendOption.TRANSLUCENT can improve performance by up to 2x.</td>
+                The point blending option. The defaultis used for rendering both opaque and translucent points. However, if either all of the points are completely opaque or all are completely translucent,setting the technique to BlendOption.OPAQUE or BlendOption.TRANSLUCENT can improve performance by up to 2x.</td>
         </tr>
 
     
@@ -339,16 +330,7 @@ setting the technique to BlendOption.OPAQUE or BlendOption.TRANSLUCENT can impro
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Create a pointPrimitive collection with two points
-const points = scene.primitives.add(new Cesium.PointPrimitiveCollection());
-points.add({
-  position : new Cesium.Cartesian3(1.0, 2.0, 3.0),
-  color : Cesium.Color.YELLOW
-});
-points.add({
-  position : new Cesium.Cartesian3(4.0, 5.0, 6.0),
-  color : Cesium.Color.CYAN
-});</code></pre>
+    <pre><code class="language-javascript">// Create a pointPrimitive collection with two pointsconst points = scene.primitives.add(new Cesium.PointPrimitiveCollection());points.add({  position : new Cesium.Cartesian3(1.0, 2.0, 3.0),  color : Cesium.Color.YELLOW});points.add({  position : new Cesium.Cartesian3(4.0, 5.0, 6.0),  color : Cesium.Color.CYAN});</code></pre>
 
     
 
@@ -409,10 +391,7 @@ points.add({
 
 
 <div class="description">
-    The point blending option. The default is used for rendering both opaque and translucent points.
-However, if either all of the points are completely opaque or all are completely translucent,
-setting the technique to BlendOption.OPAQUE or BlendOption.TRANSLUCENT can improve
-performance by up to 2x.
+    The point blending option. The default is used for rendering both opaque and translucent points.However, if either all of the points are completely opaque or all are completely translucent,setting the technique to BlendOption.OPAQUE or BlendOption.TRANSLUCENT can improveperformance by up to 2x.
 </div>
 
 
@@ -475,10 +454,7 @@ performance by up to 2x.
 
 
 <div class="description">
-    This property is for debugging only; it is not for production use nor is it optimized.
-<p>
-Draws the bounding sphere for each draw command in the primitive.
-</p>
+    This property is for debugging only; it is not for production use nor is it optimized.<p>Draws the bounding sphere for each draw command in the primitive.</p>
 </div>
 
 
@@ -541,9 +517,7 @@ Draws the bounding sphere for each draw command in the primitive.
 
 
 <div class="description">
-    Returns the number of points in this collection.  This is commonly used with
-<a href="PointPrimitiveCollection.html#get"><code>PointPrimitiveCollection#get</code></a> to iterate over all the points
-in the collection.
+    Returns the number of points in this collection.  This is commonly used with<a href="PointPrimitiveCollection.html#get"><code>PointPrimitiveCollection#get</code></a> to iterate over all the pointsin the collection.
 </div>
 
 
@@ -603,10 +577,7 @@ in the collection.
 
 
 <div class="description">
-    The 4x4 transformation matrix that transforms each point in this collection from model to world coordinates.
-When this is the identity matrix, the pointPrimitives are drawn in world coordinates, i.e., Earth's WGS84 coordinates.
-Local reference frames can be used by providing a different transformation matrix, like that returned
-by <a href="Transforms.html#.eastNorthUpToFixedFrame"><code>Transforms.eastNorthUpToFixedFrame</code></a>.
+    The 4x4 transformation matrix that transforms each point in this collection from model to world coordinates.When this is the identity matrix, the pointPrimitives are drawn in world coordinates, i.e., Earth's WGS84 coordinates.Local reference frames can be used by providing a different transformation matrix, like that returnedby <a href="Transforms.html#.eastNorthUpToFixedFrame"><code>Transforms.eastNorthUpToFixedFrame</code></a>.
 </div>
 
 
@@ -638,24 +609,7 @@ by <a href="Transforms.html#.eastNorthUpToFixedFrame"><code>Transforms.eastNorth
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const center = Cesium.Cartesian3.fromDegrees(-75.59777, 40.03883);
-pointPrimitives.modelMatrix = Cesium.Transforms.eastNorthUpToFixedFrame(center);
-pointPrimitives.add({
-  color : Cesium.Color.ORANGE,
-  position : new Cesium.Cartesian3(0.0, 0.0, 0.0) // center
-});
-pointPrimitives.add({
-  color : Cesium.Color.YELLOW,
-  position : new Cesium.Cartesian3(1000000.0, 0.0, 0.0) // east
-});
-pointPrimitives.add({
-  color : Cesium.Color.GREEN,
-  position : new Cesium.Cartesian3(0.0, 1000000.0, 0.0) // north
-});
-pointPrimitives.add({
-  color : Cesium.Color.CYAN,
-  position : new Cesium.Cartesian3(0.0, 0.0, 1000000.0) // up
-});</code></pre>
+    <pre><code class="language-javascript">const center = Cesium.Cartesian3.fromDegrees(-75.59777, 40.03883);pointPrimitives.modelMatrix = Cesium.Transforms.eastNorthUpToFixedFrame(center);pointPrimitives.add({  color : Cesium.Color.ORANGE,  position : new Cesium.Cartesian3(0.0, 0.0, 0.0) // center});pointPrimitives.add({  color : Cesium.Color.YELLOW,  position : new Cesium.Cartesian3(1000000.0, 0.0, 0.0) // east});pointPrimitives.add({  color : Cesium.Color.GREEN,  position : new Cesium.Cartesian3(0.0, 1000000.0, 0.0) // north});pointPrimitives.add({  color : Cesium.Color.CYAN,  position : new Cesium.Cartesian3(0.0, 0.0, 1000000.0) // up});</code></pre>
 
     
 
@@ -766,16 +720,13 @@ pointPrimitives.add({
 
 
 <div class="description">
-    Creates and adds a point with the specified initial properties to the collection.
-The added point is returned so it can be modified or removed from the collection later.
+    Creates and adds a point with the specified initial properties to the collection.The added point is returned so it can be modified or removed from the collection later.
 </div>
 
 
 
     <h5>Performance:</h5>
-    <p class="description">Calling <code>add</code> is expected constant time.  However, the collection's vertex buffer
-is rewritten - an <code>O(n)</code> operation that also incurs CPU to GPU overhead.  For
-best performance, add as many pointPrimitives as possible before calling <code>update</code>.</p>
+    <p class="description">Calling <code>add</code> is expected constant time.  However, the collection's vertex bufferis rewritten - an <code>O(n)</code> operation that also incurs CPU to GPU overhead.  Forbest performance, add as many pointPrimitives as possible before calling <code>update</code>.</p>
 
 
 
@@ -896,21 +847,9 @@ best performance, add as many pointPrimitives as possible before calling <code>u
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Example 1:  Add a point, specifying all the default values.
-const p = pointPrimitives.add({
-  show : true,
-  position : Cesium.Cartesian3.ZERO,
-  pixelSize : 10.0,
-  color : Cesium.Color.WHITE,
-  outlineColor : Cesium.Color.TRANSPARENT,
-  outlineWidth : 0.0,
-  id : undefined
-});</code></pre>
+    <pre><code class="language-javascript">// Example 1:  Add a point, specifying all the default values.const p = pointPrimitives.add({  show : true,  position : Cesium.Cartesian3.ZERO,  pixelSize : 10.0,  color : Cesium.Color.WHITE,  outlineColor : Cesium.Color.TRANSPARENT,  outlineWidth : 0.0,  id : undefined});</code></pre>
 
-    <pre><code class="language-javascript">// Example 2:  Specify only the point's cartographic position.
-const p = pointPrimitives.add({
-  position : Cesium.Cartesian3.fromDegrees(longitude, latitude, height)
-});</code></pre>
+    <pre><code class="language-javascript">// Example 2:  Specify only the point's cartographic position.const p = pointPrimitives.add({  position : Cesium.Cartesian3.fromDegrees(longitude, latitude, height)});</code></pre>
 
     
 
@@ -1033,7 +972,7 @@ const p = pointPrimitives.add({
 
         
 <div class="param-desc">
-    true if this collection contains the point, false otherwise.
+    true if this collection contains the point, false 否则。
 </div>
 
 
@@ -1101,12 +1040,7 @@ const p = pointPrimitives.add({
 
 
 <div class="description">
-    Destroys the WebGL resources held by this object.  Destroying an object allows for deterministic
-release of WebGL resources, instead of relying on the garbage collector to destroy this object.
-<br /><br />
-Once an object is destroyed, it should not be used; calling any function other than
-<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.  Therefore,
-assign the return value (<code>undefined</code>) to the object as done in the example.
+    Destroys the WebGL resources held by this object.  Destroying an object allows for deterministicrelease of WebGL resources, instead of relying on the garbage collector to destroy this object.<br /><br />Once an object is destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.  Therefore,assign the return value (<code>undefined</code>) to the object as done in the example.
 </div>
 
 
@@ -1211,19 +1145,13 @@ assign the return value (<code>undefined</code>) to the object as done in the ex
 
 
 <div class="description">
-    Returns the point in the collection at the specified index.  Indices are zero-based
-and increase as points are added.  Removing a point shifts all points after
-it to the left, changing their indices.  This function is commonly used with
-<a href="PointPrimitiveCollection.html#length"><code>PointPrimitiveCollection#length</code></a> to iterate over all the points
-in the collection.
+    Returns the point in the collection at the specified index.  Indices are zero-basedand increase as points are added.  Removing a point shifts all points afterit to the left, changing their indices.  This function is commonly used with<a href="PointPrimitiveCollection.html#length"><code>PointPrimitiveCollection#length</code></a> to iterate over all the pointsin the collection.
 </div>
 
 
 
     <h5>Performance:</h5>
-    <p class="description">Expected constant time.  If points were removed from the collection and
-<code>PointPrimitiveCollection#update</code> was not called, an implicit <code>O(n)</code>
-operation is performed.</p>
+    <p class="description">Expected constant time.  If points were removed from the collection and<code>PointPrimitiveCollection#update</code> was not called, an implicit <code>O(n)</code>operation is performed.</p>
 
 
 
@@ -1337,12 +1265,7 @@ operation is performed.</p>
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Toggle the show property of every point in the collection
-const len = pointPrimitives.length;
-for (let i = 0; i &lt; len; ++i) {
-  const p = pointPrimitives.get(i);
-  p.show = !p.show;
-}</code></pre>
+    <pre><code class="language-javascript">// Toggle the show property of every point in the collectionconst len = pointPrimitives.length;for (let i = 0; i &lt; len; ++i) {  const p = pointPrimitives.get(i);  p.show = !p.show;}</code></pre>
 
     
 
@@ -1384,10 +1307,7 @@ for (let i = 0; i &lt; len; ++i) {
 
 
 <div class="description">
-    Returns true if this object was destroyed; otherwise, false.
-<br /><br />
-If this object was destroyed, it should not be used; calling any function other than
-<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.
+    Returns true if this object was destroyed; otherwise, false.<br /><br />If this object was destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.
 </div>
 
 
@@ -1488,11 +1408,7 @@ If this object was destroyed, it should not be used; calling any function other 
 
 
     <h5>Performance:</h5>
-    <p class="description">Calling <code>remove</code> is expected constant time.  However, the collection's vertex buffer
-is rewritten - an <code>O(n)</code> operation that also incurs CPU to GPU overhead.  For
-best performance, remove as many points as possible before calling <code>update</code>.
-If you intend to temporarily hide a point, it is usually more efficient to call
-<a href="PointPrimitive.html#show"><code>PointPrimitive#show</code></a> instead of removing and re-adding the point.</p>
+    <p class="description">Calling <code>remove</code> is expected constant time.  However, the collection's vertex bufferis rewritten - an <code>O(n)</code> operation that also incurs CPU to GPU overhead.  Forbest performance, remove as many points as possible before calling <code>update</code>.If you intend to temporarily hide a point, it is usually more efficient to call<a href="PointPrimitive.html#show"><code>PointPrimitive#show</code></a> instead of removing and re-adding the point.</p>
 
 
 
@@ -1606,8 +1522,7 @@ If you intend to temporarily hide a point, it is usually more efficient to call
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const p = pointPrimitives.add(...);
-pointPrimitives.remove(p);  // Returns true</code></pre>
+    <pre><code class="language-javascript">const p = pointPrimitives.add(...);pointPrimitives.remove(p);  // Returns true</code></pre>
 
     
 
@@ -1659,8 +1574,7 @@ pointPrimitives.remove(p);  // Returns true</code></pre>
 
 
     <h5>Performance:</h5>
-    <p class="description"><code>O(n)</code>.  It is more efficient to remove all the points
-from a collection and then add new ones than to create a new collection entirely.</p>
+    <p class="description"><code>O(n)</code>.  It is more efficient to remove all the pointsfrom a collection and then add new ones than to create a new collection entirely.</p>
 
 
 
@@ -1720,9 +1634,7 @@ from a collection and then add new ones than to create a new collection entirely
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">pointPrimitives.add(...);
-pointPrimitives.add(...);
-pointPrimitives.removeAll();</code></pre>
+    <pre><code class="language-javascript">pointPrimitives.add(...);pointPrimitives.add(...);pointPrimitives.removeAll();</code></pre>
 
     
 

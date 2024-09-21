@@ -58,10 +58,7 @@
 
 
 <div class="description">
-    Monitors the frame rate (frames per second) in a <a href="Scene.html"><code>Scene</code></a> and raises an event if the frame rate is
-lower than a threshold.  Later, if the frame rate returns to the required level, a separate event is raised.
-To avoid creating multiple FrameRateMonitors for a single <a href="Scene.html"><code>Scene</code></a>, use <a href="FrameRateMonitor.html#.fromScene"><code>FrameRateMonitor.fromScene</code></a>
-instead of constructing an instance explicitly.
+    Monitors the frame rate (frames per second) in a <a href="Scene.html"><code>Scene</code></a> and raises an event if the frame rate islower than a threshold.  Later, if the frame rate returns to the required level, a separate event is raised.To avoid creating multiple FrameRateMonitors for a single <a href="Scene.html"><code>Scene</code></a>, use <a href="FrameRateMonitor.html#.fromScene"><code>FrameRateMonitor.fromScene</code></a>instead of constructing an instance explicitly.
 </div>
 
 
@@ -241,8 +238,7 @@ instead of constructing an instance explicitly.
 
                 
             
-                The length of time to wait at startup and each time the page becomes visible (i.e. when the user
-       switches back to the tab) before starting to measure performance, in seconds.</td>
+                The length of time to wait at startup and each time the page becomes visible (i.e. when the user       switches back to the tab) before starting to measure performance, in seconds.</td>
         </tr>
 
     
@@ -278,8 +274,7 @@ instead of constructing an instance explicitly.
 
                 
             
-                The length of the warmup period, in seconds.  During the warmup period, a separate
-       (usually lower) frame rate is required.</td>
+                The length of the warmup period, in seconds.  During the warmup period, a separate       (usually lower) frame rate is required.</td>
         </tr>
 
     
@@ -315,9 +310,7 @@ instead of constructing an instance explicitly.
 
                 
             
-                The minimum frames-per-second that are required for acceptable performance during
-       the warmup period.  If the frame rate averages less than this during any samplingWindow during the warmupPeriod, the
-       lowFrameRate event will be raised and the page will redirect to the redirectOnLowFrameRateUrl, if any.</td>
+                The minimum frames-per-second that are required for acceptable performance during       the warmup period.  If the frame rate averages less than this during any samplingWindow during the warmupPeriod, the       lowFrameRate event will be raised and the page will redirect to the redirectOnLowFrameRateUrl, if any.</td>
         </tr>
 
     
@@ -353,9 +346,7 @@ instead of constructing an instance explicitly.
 
                 
             
-                The minimum frames-per-second that are required for acceptable performance after
-       the end of the warmup period.  If the frame rate averages less than this during any samplingWindow after the warmupPeriod, the
-       lowFrameRate event will be raised and the page will redirect to the redirectOnLowFrameRateUrl, if any.</td>
+                The minimum frames-per-second that are required for acceptable performance after       the end of the warmup period.  If the frame rate averages less than this during any samplingWindow after the warmupPeriod, the       lowFrameRate event will be raised and the page will redirect to the redirectOnLowFrameRateUrl, if any.</td>
         </tr>
 
     
@@ -451,9 +442,7 @@ instead of constructing an instance explicitly.
 
 
 <div class="description">
-    The default frame rate monitoring settings.  These settings are used when <a href="FrameRateMonitor.html#.fromScene"><code>FrameRateMonitor.fromScene</code></a>
-needs to create a new frame rate monitor, and for any settings that are not passed to the
-<a href="FrameRateMonitor.html"><code>FrameRateMonitor</code></a> constructor.
+    The default frame rate monitoring settings.  These settings are used when <a href="FrameRateMonitor.html#.fromScene"><code>FrameRateMonitor.fromScene</code></a>needs to create a new frame rate monitor, and for any settings that are not passed to the<a href="FrameRateMonitor.html"><code>FrameRateMonitor</code></a> constructor.
 </div>
 
 
@@ -513,8 +502,7 @@ needs to create a new frame rate monitor, and for any settings that are not pass
 
 
 <div class="description">
-    Gets the most recently computed average frames-per-second over the last <code>samplingWindow</code>.
-This property may be undefined if the frame rate has not been computed.
+    Gets the most recently computed average frames-per-second over the last <code>samplingWindow</code>.This property may be undefined if the frame rate has not been computed.
 </div>
 
 
@@ -574,9 +562,7 @@ This property may be undefined if the frame rate has not been computed.
 
 
 <div class="description">
-    Gets the event that is raised when a low frame rate is detected.  The function will be passed
-the <a href="Scene.html"><code>Scene</code></a> instance as its first parameter and the average number of frames per second
-over the sampling window as its second parameter.
+    Gets the event that is raised when a low frame rate is detected.  The function will be passedthe <a href="Scene.html"><code>Scene</code></a> instance as its first parameter and the average number of frames per secondover the sampling window as its second parameter.
 </div>
 
 
@@ -636,9 +622,7 @@ over the sampling window as its second parameter.
 
 
 <div class="description">
-    获取或设置minimum frames-per-second that are required for acceptable performance after
-the end of the warmup period.  If the frame rate averages less than this during any <code>samplingWindow</code> after the <code>warmupPeriod</code>, the
-<code>lowFrameRate</code> event will be raised and the page will redirect to the <code>redirectOnLowFrameRateUrl</code>, if any.
+    获取或设置minimum frames-per-second that are required for acceptable performance afterthe end of the warmup period.  If the frame rate averages less than this during any <code>samplingWindow</code> after the <code>warmupPeriod</code>, the<code>lowFrameRate</code> event will be raised and the page will redirect to the <code>redirectOnLowFrameRateUrl</code>, if any.
 </div>
 
 
@@ -698,9 +682,7 @@ the end of the warmup period.  If the frame rate averages less than this during 
 
 
 <div class="description">
-    获取或设置minimum frames-per-second that are required for acceptable performance during
-the warmup period.  If the frame rate averages less than this during any <code>samplingWindow</code> during the <code>warmupPeriod</code>, the
-<code>lowFrameRate</code> event will be raised and the page will redirect to the <code>redirectOnLowFrameRateUrl</code>, if any.
+    获取或设置minimum frames-per-second that are required for acceptable performance duringthe warmup period.  If the frame rate averages less than this during any <code>samplingWindow</code> during the <code>warmupPeriod</code>, the<code>lowFrameRate</code> event will be raised and the page will redirect to the <code>redirectOnLowFrameRateUrl</code>, if any.
 </div>
 
 
@@ -760,9 +742,7 @@ the warmup period.  If the frame rate averages less than this during any <code>s
 
 
 <div class="description">
-    Gets the event that is raised when the frame rate returns to a normal level after having been low.
-The function will be passed the <a href="Scene.html"><code>Scene</code></a> instance as its first parameter and the average
-number of frames per second over the sampling window as its second parameter.
+    Gets the event that is raised when the frame rate returns to a normal level after having been low.The function will be passed the <a href="Scene.html"><code>Scene</code></a> instance as its first parameter and the averagenumber of frames per second over the sampling window as its second parameter.
 </div>
 
 
@@ -822,8 +802,7 @@ number of frames per second over the sampling window as its second parameter.
 
 
 <div class="description">
-    获取或设置length of time to wait at startup and each time the page becomes visible (i.e. when the user
-switches back to the tab) before starting to measure performance, in seconds.
+    获取或设置length of time to wait at startup and each time the page becomes visible (i.e. when the userswitches back to the tab) before starting to measure performance, in seconds.
 </div>
 
 
@@ -1003,8 +982,7 @@ switches back to the tab) before starting to measure performance, in seconds.
 
 
 <div class="description">
-    获取或设置length of the warmup period, in seconds.  During the warmup period, a separate
-(usually lower) frame rate is required.
+    获取或设置length of the warmup period, in seconds.  During the warmup period, a separate(usually lower) frame rate is required.
 </div>
 
 
@@ -1071,8 +1049,7 @@ switches back to the tab) before starting to measure performance, in seconds.
 
 
 <div class="description">
-    Gets the <a href="FrameRateMonitor.html"><code>FrameRateMonitor</code></a> for a given scene.  If the scene does not yet have
-a <a href="FrameRateMonitor.html"><code>FrameRateMonitor</code></a>, one is created with the <a href="FrameRateMonitor.html#.defaultSettings"><code>FrameRateMonitor.defaultSettings</code></a>.
+    Gets the <a href="FrameRateMonitor.html"><code>FrameRateMonitor</code></a> for a given scene.  If the scene does not yet havea <a href="FrameRateMonitor.html"><code>FrameRateMonitor</code></a>, one is created with the <a href="FrameRateMonitor.html#.defaultSettings"><code>FrameRateMonitor.defaultSettings</code></a>.
 </div>
 
 
@@ -1207,10 +1184,7 @@ a <a href="FrameRateMonitor.html"><code>FrameRateMonitor</code></a>, one is crea
 
 
 <div class="description">
-    Unsubscribes this instance from all events it is listening to.
-Once an object is destroyed, it should not be used; calling any function other than
-<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.  Therefore,
-assign the return value (<code>undefined</code>) to the object as done in the example.
+    Unsubscribes this instance from all events it is listening to.Once an object is destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.  Therefore,assign the return value (<code>undefined</code>) to the object as done in the example.
 </div>
 
 
@@ -1310,10 +1284,7 @@ assign the return value (<code>undefined</code>) to the object as done in the ex
 
 
 <div class="description">
-    Returns true if this object was destroyed; otherwise, false.
-<br /><br />
-If this object was destroyed, it should not be used; calling any function other than
-<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.
+    Returns true if this object was destroyed; otherwise, false.<br /><br />If this object was destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.
 </div>
 
 
@@ -1408,8 +1379,7 @@ If this object was destroyed, it should not be used; calling any function other 
 
 
 <div class="description">
-    Pauses monitoring of the frame rate.  To resume monitoring, <a href="FrameRateMonitor.html#unpause"><code>FrameRateMonitor#unpause</code></a>
-must be called once for each time this function is called.
+    Pauses monitoring of the frame rate.  To resume monitoring, <a href="FrameRateMonitor.html#unpause"><code>FrameRateMonitor#unpause</code></a>must be called once for each time this function is called.
 </div>
 
 
@@ -1490,9 +1460,7 @@ must be called once for each time this function is called.
 
 
 <div class="description">
-    Resumes monitoring of the frame rate.  If <a href="FrameRateMonitor.html#pause"><code>FrameRateMonitor#pause</code></a> was called
-multiple times, this function must be called the same number of times in order to
-actually resume monitoring.
+    Resumes monitoring of the frame rate.  If <a href="FrameRateMonitor.html#pause"><code>FrameRateMonitor#pause</code></a> was calledmultiple times, this function must be called the same number of times in order toactually resume monitoring.
 </div>
 
 

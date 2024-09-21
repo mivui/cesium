@@ -58,8 +58,7 @@
 
 
 <div class="description">
-    A description of a wall outline. A wall is defined by a series of points,
-which extrude down to the ground. Optionally, they can extrude downwards to a specified height.
+    A description of a wall outline. A wall is defined by a series of points,which extrude down to the ground. Optionally, they can extrude downwards to a specified height.
 </div>
 
 
@@ -230,8 +229,7 @@ which extrude down to the ground. Optionally, they can extrude downwards to a sp
 
                 
             
-                An array parallel to <code>positions</code> that give the maximum height of the
-       wall at <code>positions</code>. If undefined, the height of each position in used.</td>
+                An array parallel to <code>positions</code> that give the maximum height of the       wall at <code>positions</code>. If undefined, the height of each position in used.</td>
         </tr>
 
     
@@ -265,8 +263,7 @@ which extrude down to the ground. Optionally, they can extrude downwards to a sp
 
                 
             
-                An array parallel to <code>positions</code> that give the minimum height of the
-       wall at <code>positions</code>. If undefined, the height at each position is 0.0.</td>
+                An array parallel to <code>positions</code> that give the minimum height of the       wall at <code>positions</code>. If undefined, the height at each position is 0.0.</td>
         </tr>
 
     
@@ -387,17 +384,7 @@ which extrude down to the ground. Optionally, they can extrude downwards to a sp
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// create a wall outline that spans from ground level to 10000 meters
-const wall = new Cesium.WallOutlineGeometry({
-  positions : Cesium.Cartesian3.fromDegreesArrayHeights([
-    19.0, 47.0, 10000.0,
-    19.0, 48.0, 10000.0,
-    20.0, 48.0, 10000.0,
-    20.0, 47.0, 10000.0,
-    19.0, 47.0, 10000.0
-  ])
-});
-const geometry = Cesium.WallOutlineGeometry.createGeometry(wall);</code></pre>
+    <pre><code class="language-javascript">// create a wall outline that spans from ground level to 10000 metersconst wall = new Cesium.WallOutlineGeometry({  positions : Cesium.Cartesian3.fromDegreesArrayHeights([    19.0, 47.0, 10000.0,    19.0, 48.0, 10000.0,    20.0, 48.0, 10000.0,    20.0, 47.0, 10000.0,    19.0, 47.0, 10000.0  ])});const geometry = Cesium.WallOutlineGeometry.createGeometry(wall);</code></pre>
 
     
 
@@ -456,7 +443,7 @@ const geometry = Cesium.WallOutlineGeometry.createGeometry(wall);</code></pre>
 
 
 <div class="description">
-    The number of elements used to pack the object into an array.
+    用于将对象打包到数组中的元素数量。
 </div>
 
 
@@ -595,7 +582,7 @@ const geometry = Cesium.WallOutlineGeometry.createGeometry(wall);</code></pre>
 
         
 <div class="param-desc">
-    The computed vertices and indices.
+    计算的顶点和索引。
 </div>
 
 
@@ -658,8 +645,7 @@ const geometry = Cesium.WallOutlineGeometry.createGeometry(wall);</code></pre>
 
 
 <div class="description">
-    A description of a walloutline. A wall is defined by a series of points,
-which extrude down to the ground. Optionally, they can extrude downwards to a specified height.
+    A description of a walloutline. A wall is defined by a series of points,which extrude down to the ground. Optionally, they can extrude downwards to a specified height.
 </div>
 
 
@@ -794,8 +780,7 @@ which extrude down to the ground. Optionally, they can extrude downwards to a sp
 
                 
             
-                A constant that defines the maximum height of the
-       wall at <code>positions</code>. If undefined, the height of each position in used.</td>
+                A constant that defines the maximum height of the       wall at <code>positions</code>. If undefined, the height of each position in used.</td>
         </tr>
 
     
@@ -829,8 +814,7 @@ which extrude down to the ground. Optionally, they can extrude downwards to a sp
 
                 
             
-                A constant that defines the minimum height of the
-       wall at <code>positions</code>. If undefined, the height at each position is 0.0.</td>
+                A constant that defines the minimum height of the       wall at <code>positions</code>. If undefined, the height at each position is 0.0.</td>
         </tr>
 
     
@@ -920,19 +904,7 @@ which extrude down to the ground. Optionally, they can extrude downwards to a sp
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// create a wall that spans from 10000 meters to 20000 meters
-const wall = Cesium.WallOutlineGeometry.fromConstantHeights({
-  positions : Cesium.Cartesian3.fromDegreesArray([
-    19.0, 47.0,
-    19.0, 48.0,
-    20.0, 48.0,
-    20.0, 47.0,
-    19.0, 47.0,
-  ]),
-  minimumHeight : 20000.0,
-  maximumHeight : 10000.0
-});
-const geometry = Cesium.WallOutlineGeometry.createGeometry(wall);</code></pre>
+    <pre><code class="language-javascript">// create a wall that spans from 10000 meters to 20000 metersconst wall = Cesium.WallOutlineGeometry.fromConstantHeights({  positions : Cesium.Cartesian3.fromDegreesArray([    19.0, 47.0,    19.0, 48.0,    20.0, 48.0,    20.0, 47.0,    19.0, 47.0,  ]),  minimumHeight : 20000.0,  maximumHeight : 10000.0});const geometry = Cesium.WallOutlineGeometry.createGeometry(wall);</code></pre>
 
     
 
@@ -974,7 +946,7 @@ const geometry = Cesium.WallOutlineGeometry.createGeometry(wall);</code></pre>
 
 
 <div class="description">
-    Stores the provided instance into the provided array.
+    将提供的实例存储到提供的数组中。
 </div>
 
 
@@ -1036,7 +1008,7 @@ const geometry = Cesium.WallOutlineGeometry.createGeometry(wall);</code></pre>
 
                 
             
-                The value to pack.</td>
+                要打包的值。</td>
         </tr>
 
     
@@ -1068,7 +1040,7 @@ const geometry = Cesium.WallOutlineGeometry.createGeometry(wall);</code></pre>
 
                 
             
-                The array to pack into.</td>
+                要装入的数组。</td>
         </tr>
 
     
@@ -1104,7 +1076,7 @@ const geometry = Cesium.WallOutlineGeometry.createGeometry(wall);</code></pre>
 
                 
             
-                The index into the array at which to start packing the elements.</td>
+                开始打包元素的数组的索引。</td>
         </tr>
 
     
@@ -1125,7 +1097,7 @@ const geometry = Cesium.WallOutlineGeometry.createGeometry(wall);</code></pre>
 
         
 <div class="param-desc">
-    The array that was packed into
+    被装入的数组
 </div>
 
 
@@ -1188,7 +1160,7 @@ const geometry = Cesium.WallOutlineGeometry.createGeometry(wall);</code></pre>
 
 
 <div class="description">
-    Retrieves an instance from a packed array.
+    从打包数组中检索实例。
 </div>
 
 
@@ -1250,7 +1222,7 @@ const geometry = Cesium.WallOutlineGeometry.createGeometry(wall);</code></pre>
 
                 
             
-                The packed array.</td>
+                打包数组。</td>
         </tr>
 
     
@@ -1286,7 +1258,7 @@ const geometry = Cesium.WallOutlineGeometry.createGeometry(wall);</code></pre>
 
                 
             
-                The starting index of the element to be unpacked.</td>
+                要解压缩的元素的起始索引。</td>
         </tr>
 
     
@@ -1320,7 +1292,7 @@ const geometry = Cesium.WallOutlineGeometry.createGeometry(wall);</code></pre>
 
                 
             
-                The object into which to store the result.</td>
+                要在其中存储结果的对象。</td>
         </tr>
 
     
@@ -1341,7 +1313,7 @@ const geometry = Cesium.WallOutlineGeometry.createGeometry(wall);</code></pre>
 
         
 <div class="param-desc">
-    The modified result parameter or a new WallOutlineGeometry instance if one was not provided.
+    修改后的结果参数 or a new WallOutlineGeometry instance if one was not provided.
 </div>
 
 
