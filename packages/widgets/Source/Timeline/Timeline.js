@@ -93,12 +93,12 @@ const timelineMonthNames = [
 ];
 
 /**
- * The Timeline is a widget for displaying and controlling the current scene time.
+ * 时间轴是一个显示和控制当前场景时间的小部件。
  * @alias Timeline
  * @constructor
  *
- * @param {Element} container The parent HTML container node for this widget.
- * @param {Clock} clock The clock to use.
+ * @param {Element} container 此小部件的父HTML容器节点。
+ * @param {Clock} clock 时钟使用。
  */
 function Timeline(container, clock) {
   //>>includeStart('debug', pragmas.debug);
@@ -265,7 +265,7 @@ Timeline.prototype.addTrack = function (
 };
 
 /**
- * Sets the view to the provided times.
+ * 将视图设置为提供的时间。
  *
  * @param {JulianDate} startTime The start time.
  * @param {JulianDate} stopTime The stop time.
@@ -984,7 +984,7 @@ function createTouchMoveCallback(timeline) {
 }
 
 /**
- * Resizes the widget to match the container size.
+ * 调整小部件的大小以匹配容器大小。
  */
 Timeline.prototype.resize = function () {
   const width = this.container.clientWidth;
