@@ -4,7 +4,7 @@ import { DeveloperError } from "@cesium/engine";
  * 命令是一个函数，它带有一个额外的<code>canExecute</code> observable属性来判断
  * 命令是否能执行。执行时，Command函数将检查
  *  <code>canExecute</code>并抛出如果false。
- * 
+ *
  * 这个类型描述了一个接口，不打算被直接实例化。
  * 参见 {@link createCommand} 从函数创建命令。
  *

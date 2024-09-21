@@ -9,7 +9,7 @@ import PerformanceWatchdog from "../PerformanceWatchdog/PerformanceWatchdog.js";
  *
  * @param {Viewer} viewer 查看器实例。
  * @param {object} [options] An object with properties.
- * @param {string} [options.lowFrameRateMessage='This application appears to be performing poorly on your system.  Please try using a different web browser or updating your video drivers.'] 
+ * @param {string} [options.lowFrameRateMessage='This application appears to be performing poorly on your system.  Please try using a different web browser or updating your video drivers.']
  *        当检测到低帧率时显示的消息。该消息被解释为HTML，因此请确保
  *        它来自可信来源，因此您的应用程序不易受到跨站点脚本攻击。
  *

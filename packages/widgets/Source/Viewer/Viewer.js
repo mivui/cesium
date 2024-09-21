@@ -1512,7 +1512,7 @@ Object.defineProperties(Viewer.prototype, {
   },
   /**
    * 获取或设置对象实例，为其显示选择指示符。
-   * 
+   *
    * 如果用户交互选择一个cesium3dtiesfeature实例，那么这个属性
    * 将包含一个瞬态实体实例，其属性名为“feature”
    * 被选中的实例。

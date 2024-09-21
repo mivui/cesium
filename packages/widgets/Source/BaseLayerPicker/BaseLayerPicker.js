@@ -29,7 +29,7 @@ import BaseLayerPickerViewModel from "./BaseLayerPickerViewModel.js";
  *
  * @param {Element|string} container 此小部件的父HTML容器节点或ID。
  * @param {object} options 对象，具有以下属性:
- * @param {Globe} options.globe  Globe 去使用 
+ * @param {Globe} options.globe  Globe 去使用
  * @param {ProviderViewModel[]} [options.imageryProviderViewModels=[]] 用于图像的ProviderViewModel实例数组。
  * @param {ProviderViewModel} [options.selectedImageryProviderViewModel] 当前基本图像层的视图模型，如果没有提供，则使用第一个可用的图像层。
  * @param {ProviderViewModel[]} [options.terrainProviderViewModels=[]] 用于地形的ProviderViewModel实例数组。
