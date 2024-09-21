@@ -1,6 +1,6 @@
 /**
- * Constants used by {@link Clock#tick} to determine behavior
- * when {@link Clock#startTime} or {@link Clock#stopTime} is reached.
+ * {@link Clock#tick} 用于确定行为的常量
+ * 当达到 {@link Clock#startTime} 或 {@link Clock#stopTime} 时。
  *
  * @enum {number}
  *
@@ -9,7 +9,7 @@
  */
 const ClockRange = {
   /**
-   * {@link Clock#tick} will always advances the clock in its current direction.
+   * {@link Clock#tick} 将始终将时钟向前推进其当前方向。
    *
    * @type {number}
    * @constant
@@ -17,8 +17,8 @@ const ClockRange = {
   UNBOUNDED: 0,
 
   /**
-   * When {@link Clock#startTime} or {@link Clock#stopTime} is reached,
-   * {@link Clock#tick} will not advance {@link Clock#currentTime} any further.
+   * 当达到 {@link Clock#startTime} 或 {@link Clock#stopTime} 时，
+   * {@link Clock#tick} 不会进一步推进 {@link Clock#currentTime}。
    *
    * @type {number}
    * @constant
@@ -26,10 +26,10 @@ const ClockRange = {
   CLAMPED: 1,
 
   /**
-   * When {@link Clock#stopTime} is reached, {@link Clock#tick} will advance
-   * {@link Clock#currentTime} to the opposite end of the interval.  When
-   * time is moving backwards, {@link Clock#tick} will not advance past
-   * {@link Clock#startTime}
+   * 当达到 {@link Clock#stopTime} 时，{@link Clock#tick} 将前进
+   * {@link Clock#currentTime} 到间隔的另一端。 什么时候
+   * 时间向后移动，{@link Clock#tick} 不会过去
+   * {@link 时钟#startTime}
    *
    * @type {number}
    * @constant

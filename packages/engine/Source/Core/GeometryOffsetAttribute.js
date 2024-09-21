@@ -1,5 +1,5 @@
 /**
- * Represents which vertices should have a value of `true` for the `applyOffset` attribute
+ * 表示哪些顶点的 'applyOffset' 属性的值应为 'true'
  * @private
  */
 const GeometryOffsetAttribute = {

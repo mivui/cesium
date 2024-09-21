@@ -378,14 +378,14 @@ function interpolateUsingSurfaceDistance(
 }
 
 /**
- * Initializes a rhumb line on the ellipsoid connecting the two provided planetodetic points.
+ * 在连接两个提供的行星点的椭球体上初始化一条恒向线。
  *
  * @alias EllipsoidRhumbLine
  * @constructor
  *
- * @param {Cartographic} [start] The initial planetodetic point on the path.
- * @param {Cartographic} [end] The final planetodetic point on the path.
- * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] The ellipsoid on which the rhumb line lies.
+ * @param {Cartographic} [start] 路径上的初始行星点。
+ * @param {Cartographic} [end] 路径上的最后一个行星点。
+ * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] 恒向线所在的椭球体。
  *
  * @exception {DeveloperError} angle between start and end must be at least 0.0125 radians.
  */
@@ -407,7 +407,7 @@ function EllipsoidRhumbLine(start, end, ellipsoid) {
 
 Object.defineProperties(EllipsoidRhumbLine.prototype, {
   /**
-   * Gets the ellipsoid.
+   * 获取椭球体。
    * @memberof EllipsoidRhumbLine.prototype
    * @type {Ellipsoid}
    * @readonly
@@ -419,7 +419,7 @@ Object.defineProperties(EllipsoidRhumbLine.prototype, {
   },
 
   /**
-   * Gets the surface distance between the start and end point
+   * 获取起点和终点之间的曲面距离
    * @memberof EllipsoidRhumbLine.prototype
    * @type {number}
    * @readonly
@@ -435,7 +435,7 @@ Object.defineProperties(EllipsoidRhumbLine.prototype, {
   },
 
   /**
-   * Gets the initial planetodetic point on the path.
+   * 获取路径上的初始 planetodetic 点。
    * @memberof EllipsoidRhumbLine.prototype
    * @type {Cartographic}
    * @readonly
@@ -447,7 +447,7 @@ Object.defineProperties(EllipsoidRhumbLine.prototype, {
   },
 
   /**
-   * Gets the final planetodetic point on the path.
+   * 获取路径上的最后一个 planetodetic 点。
    * @memberof EllipsoidRhumbLine.prototype
    * @type {Cartographic}
    * @readonly
@@ -459,7 +459,7 @@ Object.defineProperties(EllipsoidRhumbLine.prototype, {
   },
 
   /**
-   * Gets the heading from the start point to the end point.
+   * 获取从起点到终点的航向。
    * @memberof EllipsoidRhumbLine.prototype
    * @type {number}
    * @readonly
@@ -476,14 +476,14 @@ Object.defineProperties(EllipsoidRhumbLine.prototype, {
 });
 
 /**
- * Create a rhumb line using an initial position with a heading and distance.
+ * 使用带有航向和距离的初始位置创建恒向线。
  *
- * @param {Cartographic} start The initial planetodetic point on the path.
- * @param {number} heading The heading in radians.
- * @param {number} distance The rhumb line distance between the start and end point.
- * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] The ellipsoid on which the rhumb line lies.
- * @param {EllipsoidRhumbLine} [result] The object in which to store the result.
- * @returns {EllipsoidRhumbLine} The EllipsoidRhumbLine object.
+ * @param {Cartographic} start 路径上的初始行星点。
+ * @param {number} heading 以弧度为单位的标题。
+ * @param {number} distance 起点和终点之间的恒向线距离。
+ * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] 恒向线所在的椭球体。
+ * @param {EllipsoidRhumbLine} [result] 用于存储结果的对象。
+ * @returns {EllipsoidRhumbLine} EllipsoidRhumbLine 对象。
  */
 EllipsoidRhumbLine.fromStartHeadingDistance = function (
   start,
@@ -527,10 +527,10 @@ EllipsoidRhumbLine.fromStartHeadingDistance = function (
 };
 
 /**
- * Sets the start and end points of the rhumb line.
+ * 设置 rhumb 线的起点和终点。
  *
- * @param {Cartographic} start The initial planetodetic point on the path.
- * @param {Cartographic} end The final planetodetic point on the path.
+ * @param {Cartographic} start 路径上的初始行星点。
+ * @param {Cartographic} end 路径上的最后一个行星点。
  */
 EllipsoidRhumbLine.prototype.setEndPoints = function (start, end) {
   //>>includeStart('debug', pragmas.debug);
@@ -542,11 +542,11 @@ EllipsoidRhumbLine.prototype.setEndPoints = function (start, end) {
 };
 
 /**
- * Provides the location of a point at the indicated portion along the rhumb line.
+ * 提供沿恒向线指示部分的点的位置。
  *
- * @param {number} fraction The portion of the distance between the initial and final points.
- * @param {Cartographic} [result] The object in which to store the result.
- * @returns {Cartographic} The location of the point along the rhumb line.
+ * @param {number} fraction 初始点和最终点之间的距离部分。
+ * @param {Cartographic} [result] 存储结果的对象。
+ * @returns {Cartographic} 点沿恒向线的位置。
  */
 EllipsoidRhumbLine.prototype.interpolateUsingFraction = function (
   fraction,
@@ -559,11 +559,11 @@ EllipsoidRhumbLine.prototype.interpolateUsingFraction = function (
 };
 
 /**
- * Provides the location of a point at the indicated distance along the rhumb line.
+ * 提供沿恒向线的指示距离处的点的位置。
  *
- * @param {number} distance The distance from the inital point to the point of interest along the rhumbLine.
- * @param {Cartographic} [result] The object in which to store the result.
- * @returns {Cartographic} The location of the point along the rhumb line.
+ * @param {number} distance 沿 rhumbLine 从初始点到目标点的距离。
+ * @param {Cartographic} [result] 存储结果的对象。
+ * @returns {Cartographic} 点沿恒向线的位置。
  *
  * @exception {DeveloperError} start and end must be set before calling function interpolateUsingSurfaceDistance
  */
@@ -591,12 +591,12 @@ EllipsoidRhumbLine.prototype.interpolateUsingSurfaceDistance = function (
 };
 
 /**
- * Provides the location of a point at the indicated longitude along the rhumb line.
- * If the longitude is outside the range of start and end points, the first intersection with the longitude from the start point in the direction of the heading is returned. This follows the spiral property of a rhumb line.
+ * 提供沿恒向线在指示经度处的点的位置。
+ * 如果经度超出起点和终点的范围，则返回从起点到航向方向的经度的第一个交点。这遵循恒向线的螺旋属性。
  *
- * @param {number} intersectionLongitude 经度，以弧度为单位, at which to find the intersection point from the starting point using the heading.
- * @param {Cartographic} [result] The object in which to store the result.
- * @returns {Cartographic} The location of the intersection point along the rhumb line, undefined if there is no intersection or infinite intersections.
+ * @param {number} intersectionLongitude 经度，以弧度为单位，在该位置使用标题从起点找到交点。
+ * @param {Cartographic} [result] 存储结果的对象。
+ * @returns {Cartographic} 沿恒向线的交点位置，如果没有交点或无限交点，则未定义。
  *
  * @exception {DeveloperError} start and end must be set before calling function findIntersectionWithLongitude.
  */
@@ -695,12 +695,12 @@ EllipsoidRhumbLine.prototype.findIntersectionWithLongitude = function (
 };
 
 /**
- * Provides the location of a point at the indicated latitude along the rhumb line.
- * If the latitude is outside the range of start and end points, the first intersection with the latitude from that start point in the direction of the heading is returned. This follows the spiral property of a rhumb line.
+ * 提供沿恒向线在指示纬度处的点的位置。
+ * 如果纬度超出起点和终点的范围，则返回从该起点到航向方向的纬度的第一个交点。这遵循恒向线的螺旋属性。
  *
- * @param {number} intersectionLatitude 纬度，以弧度为单位, at which to find the intersection point from the starting point using the heading.
- * @param {Cartographic} [result] The object in which to store the result.
- * @returns {Cartographic} The location of the intersection point along the rhumb line, undefined if there is no intersection or infinite intersections.
+ * @param {number} intersectionLatitude 纬度，以弧度为单位，在该位置使用标题从起点找到交点。
+ * @param {Cartographic} [result] 存储结果的对象。
+ * @returns {Cartographic} 沿恒向线的交点位置，如果没有交点或无限交点，则未定义。
  *
  * @exception {DeveloperError} start and end must be set before calling function findIntersectionWithLongitude.
  */

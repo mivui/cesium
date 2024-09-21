@@ -1,33 +1,33 @@
 import defined from "./defined.js";
 
 /**
- * Constructs an exception object that is thrown due to a developer error, e.g., invalid argument,
- * argument out of range, etc.  This exception should only be thrown during development;
- * it usually indicates a bug in the calling code.  This exception should never be
- * caught; instead the calling code should strive not to generate it.
+ * 构造一个由于开发人员错误（例如无效参数）而引发的异常对象，
+ * 参数超出范围等。 此异常应仅在开发期间引发;
+ * 它通常表示调用代码中存在 bug。 此异常绝不应为
+ *抓住;相反，调用代码应努力不生成它。
  * <br /><br />
- * On the other hand, a {@link RuntimeError} indicates an exception that may
- * be thrown at runtime, e.g., out of memory, that the calling code should be prepared
- * to catch.
+ * 另一方面，{@link RuntimeError} 表示可能
+ * 在运行时抛出，例如，内存不足，因此应准备调用代码
+ * 来捕捉。
  *
  * @alias DeveloperError
  * @constructor
- * @extends Error
+ * @extends 错误
  *
- * @param {string} [message] The error message for this exception.
+ * @param {string} [message] 此异常的错误消息。
  *
  * @see RuntimeError
  */
 function DeveloperError(message) {
   /**
-   * 'DeveloperError' indicating that this exception was thrown due to a developer error.
+   * “DeveloperError”，表示由于开发人员错误而引发此异常。
    * @type {string}
    * @readonly
    */
   this.name = "DeveloperError";
 
   /**
-   * The explanation for why this exception was thrown.
+   * 引发此异常的原因的说明。
    * @type {string}
    * @readonly
    */
@@ -42,7 +42,7 @@ function DeveloperError(message) {
   }
 
   /**
-   * The stack trace of this exception, if available.
+   * 此异常的堆栈跟踪（如果可用）。
    * @type {string}
    * @readonly
    */

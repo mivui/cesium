@@ -4,13 +4,13 @@ import defined from "./defined.js";
 import DeveloperError from "./DeveloperError.js";
 
 /**
- * Value and type information for per-instance geometry attribute that determines if the geometry instance has a distance display condition.
+ * 每个实例的几何属性的值和类型信息，用于确定几何实例是否具有距离显示条件。
  *
  * @alias DistanceDisplayConditionGeometryInstanceAttribute
  * @constructor
  *
- * @param {number} [near=0.0] The near distance.
- * @param {number} [far=Number.MAX_VALUE] The far distance.
+ * @param {number} [near=0.0] 近距。
+ * @param {number} [far=Number.MAX_VALUE] 远距离。
  *
  * @exception {DeveloperError} far must be greater than near.
  *
@@ -45,7 +45,7 @@ function DistanceDisplayConditionGeometryInstanceAttribute(near, far) {
   //>>includeEnd('debug');
 
   /**
-   * The values for the attributes stored in a typed array.
+   * 存储在类型化数组中的属性的值。
    *
    * @type {Float32Array}
    *
@@ -58,7 +58,7 @@ Object.defineProperties(
   DistanceDisplayConditionGeometryInstanceAttribute.prototype,
   {
     /**
-     * The datatype of each component in the attribute, e.g., individual elements in
+     * 属性中每个组件的数据类型，例如，其中的单个元素
      * {@link DistanceDisplayConditionGeometryInstanceAttribute#value}.
      *
      * @memberof DistanceDisplayConditionGeometryInstanceAttribute.prototype
@@ -75,7 +75,7 @@ Object.defineProperties(
     },
 
     /**
-     * The number of components in the attributes, i.e., {@link DistanceDisplayConditionGeometryInstanceAttribute#value}.
+     * 属性中的组件数量，即 {@link DistanceDisplayConditionGeometryInstanceAttribute#value}.
      *
      * @memberof DistanceDisplayConditionGeometryInstanceAttribute.prototype
      *
@@ -91,9 +91,9 @@ Object.defineProperties(
     },
 
     /**
-     * When <code>true</code> and <code>componentDatatype</code> is an integer format,
-     * indicate that the components should be mapped to the range [0, 1] (unsigned)
-     * or [-1, 1] (signed) when they are accessed as floating-point for rendering.
+     * 当 <code>true</code> 且 <code>componentDatatype</code> 为整数格式时，
+     * 表示组件应映射到范围 [0， 1]（无符号）
+     * 或 [-1， 1]（带符号）当它们作为浮点进行访问以进行渲染时。
      *
      * @memberof DistanceDisplayConditionGeometryInstanceAttribute.prototype
      *
@@ -111,10 +111,10 @@ Object.defineProperties(
 );
 
 /**
- * Creates a new {@link DistanceDisplayConditionGeometryInstanceAttribute} instance given the provided an enabled flag and {@link DistanceDisplayCondition}.
+ * 在给定提供的已启用标志和 {@link DistanceDisplayCondition} 的情况下，创建新的 {@link DistanceDisplayConditionGeometryInstanceAttribute} 实例。
  *
- * @param {DistanceDisplayCondition} distanceDisplayCondition The distance display condition.
- * @returns {DistanceDisplayConditionGeometryInstanceAttribute} The new {@link DistanceDisplayConditionGeometryInstanceAttribute} instance.
+ * @param {DistanceDisplayCondition} distanceDisplayCondition 距离显示条件。
+ * @returns {DistanceDisplayConditionGeometryInstanceAttribute} 新的 {@link DistanceDisplayConditionGeometryInstanceAttribute} 实例。
  *
  * @exception {DeveloperError} distanceDisplayCondition.far must be greater than distanceDisplayCondition.near
  *
@@ -148,11 +148,11 @@ DistanceDisplayConditionGeometryInstanceAttribute.fromDistanceDisplayCondition =
 };
 
 /**
- * Converts a distance display condition to a typed array that can be used to assign a distance display condition attribute.
+ * 将距离显示条件转换为可用于分配距离显示条件属性的类型化数组。
  *
- * @param {DistanceDisplayCondition} distanceDisplayCondition The distance display condition value.
- * @param {Float32Array} [result] The array to store the result in, if undefined a new instance will be created.
- * @returns {Float32Array} 修改后的结果参数 or a new instance if result was undefined.
+ * @param {DistanceDisplayCondition} distanceDisplayCondition 距离显示条件值。
+ * @param {Float32Array} [result] 用于存储结果的数组，如果未定义，将创建一个新实例。
+ * @returns {Float32Array} 修改后的结果参数或新实例（如果 result 未定义）。
  *
  * @example
  * const attributes = primitive.getGeometryInstanceAttributes('an id');

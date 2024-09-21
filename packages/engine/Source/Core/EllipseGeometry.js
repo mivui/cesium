@@ -883,21 +883,21 @@ function computeRectangle(
 }
 
 /**
- * A description of an ellipse on an ellipsoid. Ellipse geometry can be rendered with both {@link Primitive} and {@link GroundPrimitive}.
+ * 椭球体上椭圆的描述。椭圆几何体可以使用 {@link Primitive} 和 {@link GroundPrimitive} 进行渲染。
  *
  * @alias EllipseGeometry
  * @constructor
  *
- * @param {object} options 对象，具有以下属性:
- * @param {Cartesian3} options.center The ellipse's center point in the fixed frame.
- * @param {number} options.semiMajorAxis The length of the ellipse's semi-major axis in meters.
- * @param {number} options.semiMinorAxis The length of the ellipse's semi-minor axis in meters.
- * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] The ellipsoid the ellipse will be on.
- * @param {number} [options.height=0.0] The distance in meters between the ellipse and the ellipsoid surface.
- * @param {number} [options.extrudedHeight] The distance in meters between the ellipse's extruded face and the ellipsoid surface.
- * @param {number} [options.rotation=0.0] The angle of rotation counter-clockwise from north.
- * @param {number} [options.stRotation=0.0] The rotation of the texture coordinates counter-clockwise from north.
- * @param {number} [options.granularity=CesiumMath.RADIANS_PER_DEGREE] The angular distance between points on the ellipse in radians.
+ * @param {object} options 对象，具有以下属性：
+ * @param {Cartesian3} options.center 椭圆在固定框架中的中心点。
+ * @param {number} options.semiMajorAxis 椭圆的半长轴的长度，以米为单位。
+ * @param {number} options.semiMinorAxis 椭圆的短半轴的长度，以米为单位。
+ * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] 椭圆将位于的椭球体上。
+ * @param {number} [options.height=0.0] 椭圆体和椭球体表面之间的距离（以米为单位）。
+ * @param {number} [options.extrudedHeight] 椭圆的拉伸面与椭球体表面之间的距离（以米为单位）。
+ * @param {number} [options.rotation=0.0] 从北逆时针旋转的角度。
+ * @param {number} [options.stRotation=0.0] 纹理坐标从北逆时针旋转。
+ * @param {number} [options.granularity=CesiumMath.RADIANS_PER_DEGREE] 椭圆上点之间的角距离，以弧度为单位。
  * @param {VertexFormat} [options.vertexFormat=VertexFormat.DEFAULT] 要计算的顶点属性。
  *
  * @exception {DeveloperError} semiMajorAxis and semiMinorAxis must be greater than zero.
@@ -1038,7 +1038,7 @@ const scratchOptions = {
  * @param {number[]} array 打包数组。
  * @param {number} [startingIndex=0] 要解压缩的元素的起始索引。
  * @param {EllipseGeometry} [result] 要在其中存储结果的对象。
- * @returns {EllipseGeometry} 修改后的结果参数 or a new EllipseGeometry instance if one was not provided.
+ * @returns {EllipseGeometry} 修改后的结果参数 或新的 EllipseGeometry 实例（如果未提供）。
  */
 EllipseGeometry.unpack = function (array, startingIndex, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -1103,16 +1103,16 @@ EllipseGeometry.unpack = function (array, startingIndex, result) {
 };
 
 /**
- * Computes the bounding rectangle based on the provided options
+ * 根据提供的选项计算边界矩形
  *
  * @param {object} options 对象，具有以下属性:
- * @param {Cartesian3} options.center The ellipse's center point in the fixed frame.
- * @param {number} options.semiMajorAxis The length of the ellipse's semi-major axis in meters.
- * @param {number} options.semiMinorAxis The length of the ellipse's semi-minor axis in meters.
- * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] The ellipsoid the ellipse will be on.
- * @param {number} [options.rotation=0.0] The angle of rotation counter-clockwise from north.
- * @param {number} [options.granularity=CesiumMath.RADIANS_PER_DEGREE] The angular distance between points on the ellipse in radians.
- * @param {Rectangle} [result] An object in which to store the result
+ * @param {Cartesian3} options.center 椭圆在固定框架中的中心点。
+ * @param {number} options.semiMajorAxis 椭圆的半长轴的长度，以米为单位。
+ * @param {number} options.semiMinorAxis 椭圆的短半轴的长度，以米为单位。
+ * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] 椭圆将位于的椭球体上。
+ * @param {number} [options.rotation=0.0] 从北逆时针旋转的角度。
+ * @param {number} [options.granularity=CesiumMath.RADIANS_PER_DEGREE] 椭圆上点之间的角距离，以弧度为单位。
+ * @param {Rectangle} [result] 用于存储结果的对象
  *
  * @returns {Rectangle} The result rectangle
  */
@@ -1155,9 +1155,9 @@ EllipseGeometry.computeRectangle = function (options, result) {
 };
 
 /**
- * Computes the geometric representation of a ellipse on an ellipsoid, including its vertices, indices, and a bounding sphere.
+ * 计算椭圆体上椭圆的几何表示，包括其顶点、索引和边界球体。
  *
- * @param {EllipseGeometry} ellipseGeometry A description of the ellipse.
+ * @param {EllipseGeometry} ellipseGeometry 椭圆的描述。
  * @returns {Geometry|undefined} 计算的顶点和索引。
  */
 EllipseGeometry.createGeometry = function (ellipseGeometry) {
@@ -1308,7 +1308,7 @@ Object.defineProperties(EllipseGeometry.prototype, {
     },
   },
   /**
-   * For remapping texture coordinates when rendering EllipseGeometries as GroundPrimitives.
+   * 用于在将 EllipseGeometries 渲染为 GroundPrimitives 时重新映射纹理坐标。
    * @private
    */
   textureCoordinateRotationPoints: {

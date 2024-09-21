@@ -353,19 +353,19 @@ function computePositionsExtruded(params) {
 }
 
 /**
- * A description of a corridor outline.
+ * 走廊轮廓的描述。
  *
  * @alias CorridorOutlineGeometry
  * @constructor
  *
  * @param {object} options 对象，具有以下属性:
- * @param {Cartesian3[]} options.positions An array of positions that define the center of the corridor outline.
- * @param {number} options.width The distance between the edges of the corridor outline.
- * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] The ellipsoid to be used as a reference.
- * @param {number} [options.granularity=CesiumMath.RADIANS_PER_DEGREE] The distance, in radians, between each latitude and longitude. Determines the number of positions in the buffer.
- * @param {number} [options.height=0] The distance in meters between the positions and the ellipsoid surface.
- * @param {number} [options.extrudedHeight] The distance in meters between the extruded face and the ellipsoid surface.
- * @param {CornerType} [options.cornerType=CornerType.ROUNDED] Determines the style of the corners.
+ * @param {Cartesian3[]} options.positions 定义走廊轮廓中心的位置数组。
+ * @param {number} options.width 走廊轮廓边缘之间的距离。
+ * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] 要用作参考的椭球体。
+ * @param {number} [options.granularity=CesiumMath.RADIANS_PER_DEGREE] 每个纬度和经度之间的距离，以弧度为单位。确定缓冲区中的位置数。
+ * @param {number} [options.height=0] 位置与椭球体表面之间的距离（以米为单位）。
+ * @param {number} [options.extrudedHeight] 拉伸面与椭球体表面之间的距离（以米为单位）。
+ * @param {CornerType} [options.cornerType=CornerType.ROUNDED] 确定角的样式。
  *
  * @see CorridorOutlineGeometry.createGeometry
  *
@@ -467,7 +467,7 @@ const scratchOptions = {
  * @param {number[]} array 打包数组。
  * @param {number} [startingIndex=0] 要解压缩的元素的起始索引。
  * @param {CorridorOutlineGeometry} [result] 要在其中存储结果的对象。
- * @returns {CorridorOutlineGeometry} 修改后的结果参数 or a new CorridorOutlineGeometry instance if one was not provided.
+ * @returns {CorridorOutlineGeometry} 修改后的结果参数 或新的 CorridorOutlineGeometry 实例（如果未提供）。
  */
 CorridorOutlineGeometry.unpack = function (array, startingIndex, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -519,9 +519,9 @@ CorridorOutlineGeometry.unpack = function (array, startingIndex, result) {
 };
 
 /**
- * Computes the geometric representation of a corridor, including its vertices, indices, and a bounding sphere.
+ * 计算廊道的几何表示，包括其折点、索引和边界球体。
  *
- * @param {CorridorOutlineGeometry} corridorOutlineGeometry A description of the corridor.
+ * @param {CorridorOutlineGeometry} corridorOutlineGeometry 走廊的描述。
  * @returns {Geometry|undefined} 计算的顶点和索引。
  */
 CorridorOutlineGeometry.createGeometry = function (corridorOutlineGeometry) {

@@ -1,8 +1,8 @@
 import DeveloperError from "../Core/DeveloperError.js";
 
 /**
- * Base class for all geometry creation utility classes that can be passed to {@link GeometryInstance}
- * for asynchronous geometry creation.
+ * 所有可传递给 {@link GeometryInstance} 的几何图形创建实用程序类的基类
+ * 用于异步几何体创建。
  *
  * @constructor
  * @class
@@ -13,9 +13,9 @@ function GeometryFactory() {
 }
 
 /**
- * Returns a geometry.
+ * 返回几何图形。
  *
- * @param {GeometryFactory} geometryFactory A description of the circle.
+ * @param {GeometryFactory} geometryFactory 圆的描述。
  * @returns {Geometry|undefined} 计算的顶点和索引。
  */
 GeometryFactory.createGeometry = function (geometryFactory) {

@@ -31,11 +31,11 @@ const defaultKey = stringToBuffer(
 
 /**
  * <div class="notice">
- * To construct GoogleEarthEnterpriseMetadata, call {@link GoogleEarthEnterpriseMetadata.fromUrl}. 不要直接调用构造函数。
+ * 要构建 GoogleEarthEnterpriseMetadata，请调用 {@link GoogleEarthEnterpriseMetadata.fromUrl}. 不要直接调用构造函数。
  * </div>
  *
- * Provides metadata using the Google Earth Enterprise REST API. This is used by the GoogleEarthEnterpriseImageryProvider
- *  and GoogleEarthEnterpriseTerrainProvider to share metadata requests.
+ * 使用 Google Earth Enterprise REST API 提供元数据。此函数由 GoogleEarthEnterpriseImageryProvider 使用
+ * 和 GoogleEarthEnterpriseTerrainProvider 共享元数据请求。
  *
  * @alias GoogleEarthEnterpriseMetadata
  * @constructor
@@ -53,7 +53,7 @@ function GoogleEarthEnterpriseMetadata(resourceOrUrl) {
   this.imageryPresent = true;
 
   /**
-   * True if imagery is sent as a protocol buffer, false if sent as plain images. If undefined we will try both.
+   * 如果图像作为协议缓冲区发送，则为 True，如果作为纯图像发送，则为 false。如果未定义，我们将同时尝试两者。
    * @type {boolean|undefined}
    * @default undefined
    */
@@ -67,14 +67,14 @@ function GoogleEarthEnterpriseMetadata(resourceOrUrl) {
   this.terrainPresent = true;
 
   /**
-   * Exponent used to compute constant to calculate negative height values.
+   * 指数 用于计算常数以计算负高度值。
    * @type {number}
    * @default 32
    */
   this.negativeAltitudeExponentBias = 32;
 
   /**
-   * Threshold where any numbers smaller are actually negative values. They are multiplied by -2^negativeAltitudeExponentBias.
+   * 阈值，其中任何较小的数字实际上是负值。它们乘以 -2^negativeAltitudeExponentBias。
    * @type {number}
    * @default EPSILON12
    */
@@ -88,7 +88,7 @@ function GoogleEarthEnterpriseMetadata(resourceOrUrl) {
   this.providers = {};
 
   /**
-   * Key used to decode packets
+   * 用于解码数据包的密钥
    * @type {ArrayBuffer}
    */
   this.key = undefined;
@@ -101,7 +101,7 @@ function GoogleEarthEnterpriseMetadata(resourceOrUrl) {
 
 Object.defineProperties(GoogleEarthEnterpriseMetadata.prototype, {
   /**
-   * Gets the name of the Google Earth Enterprise server.
+   * 获取 Google Earth Enterprise 服务器的名称。
    * @memberof GoogleEarthEnterpriseMetadata.prototype
    * @type {string}
    * @readonly
@@ -113,7 +113,7 @@ Object.defineProperties(GoogleEarthEnterpriseMetadata.prototype, {
   },
 
   /**
-   * Gets the proxy used for metadata requests.
+   * 获取用于元数据请求的代理。
    * @memberof GoogleEarthEnterpriseMetadata.prototype
    * @type {Proxy}
    * @readonly
@@ -125,7 +125,7 @@ Object.defineProperties(GoogleEarthEnterpriseMetadata.prototype, {
   },
 
   /**
-   * Gets the resource used for metadata requests.
+   * 获取用于元数据请求的资源。
    * @memberof GoogleEarthEnterpriseMetadata.prototype
    * @type {Resource}
    * @readonly
@@ -138,12 +138,12 @@ Object.defineProperties(GoogleEarthEnterpriseMetadata.prototype, {
 });
 
 /**
- * Creates a metadata object using the Google Earth Enterprise REST API. This is used by the GoogleEarthEnterpriseImageryProvider
- * and GoogleEarthEnterpriseTerrainProvider to share metadata requests.
+ * 使用 Google Earth Enterprise REST API 创建元数据对象。此函数由 GoogleEarthEnterpriseImageryProvider 使用
+ * 和 GoogleEarthEnterpriseTerrainProvider 共享元数据请求。
  *
- * @param {Resource|String} resourceOrUrl The url of the Google Earth Enterprise server hosting the imagery.
+ * @param {Resource|String} resourceOrUrl 托管影像的 Google Earth Enterprise 服务器的 URL。
  *
- * @returns {Promise<GoogleEarthEnterpriseMetadata>} A promise which resolves to the created GoogleEarthEnterpriseMetadata instance/
+ * @returns {Promise<GoogleEarthEnterpriseMetadata>} 一个 Promise，它解析为创建的 GoogleEarthEnterpriseMetadata 实例/
  */
 GoogleEarthEnterpriseMetadata.fromUrl = async function (resourceOrUrl) {
   //>>includeStart('debug', pragmas.debug);
@@ -180,12 +180,12 @@ GoogleEarthEnterpriseMetadata.fromUrl = async function (resourceOrUrl) {
 };
 
 /**
- * Converts a tiles (x, y, level) position into a quadkey used to request an image
- * from a Google Earth Enterprise server.
+ * 将图块 （x， y， level） 位置转换为用于请求图像的四边形键
+ * 从 Google Earth Enterprise 服务器。
  *
- * @param {number} x The tile's x coordinate.
- * @param {number} y The tile's y coordinate.
- * @param {number} level The tile's zoom level.
+ * @param {number} x 瓦片的 x 坐标。
+ * @param {number} y 瓦片的 y 坐标。
+ * @param {number} level 磁贴的缩放级别。
  *
  * @see GoogleEarthEnterpriseMetadata#quadKeyToTileXY
  */
@@ -222,10 +222,10 @@ GoogleEarthEnterpriseMetadata.tileXYToQuadKey = function (x, y, level) {
 };
 
 /**
- * Converts a tile's quadkey used to request an image from a Google Earth Enterprise server into the
- * (x, y, level) position.
+ * 将用于从 Google Earth Enterprise 服务器请求图像的瓦片的 quad 键转换为
+ * （x， y， level） 位置。
  *
- * @param {string} quadkey The tile's quad key
+ * @param {string} quadkey 瓦片的四键
  *
  * @see GoogleEarthEnterpriseMetadata#tileXYToQuadKey
  */
@@ -291,10 +291,10 @@ GoogleEarthEnterpriseMetadata.prototype.isValid = function (quadKey) {
 const taskProcessor = new TaskProcessor("decodeGoogleEarthEnterprisePacket");
 
 /**
- * Retrieves a Google Earth Enterprise quadtree packet.
+ * 检索 Google Earth Enterprise 四叉树数据包。
  *
- * @param {string} [quadKey=''] The quadkey to retrieve the packet for.
- * @param {number} [version=1] The cnode version to be used in the request.
+ * @param {string} [quadKey=''] 要为其检索数据包的 quadkey。
+ * @param {number} [version=1] 请求中使用的 cnode 版本。
  * @param {Request} [request] 请求对象。仅供内部使用。
  *
  * @private
@@ -370,14 +370,14 @@ GoogleEarthEnterpriseMetadata.prototype.getQuadTreePacket = function (
 };
 
 /**
- * Populates the metadata subtree down to the specified tile.
+ * 将元数据子树向下填充到指定的磁贴。
  *
- * @param {number} x The tile X coordinate.
- * @param {number} y The tile Y coordinate.
- * @param {number} level The tile level.
+ * @param {number} x 瓦片 X 坐标。
+ * @param {number} y 瓦片 Y 坐标。
+ * @param {number} level 瓦片级别。
  * @param {Request} [request] 请求对象。仅供内部使用。
  *
- * @returns {Promise<GoogleEarthEnterpriseTileInformation>} A promise that resolves to the tile info for the requested quad key
+ * @returns {Promise<GoogleEarthEnterpriseTileInformation>} 解析为请求的四键的磁贴信息的 Promise
  *
  * @private
  */
@@ -457,12 +457,12 @@ function populateSubtree(that, quadKey, request) {
 }
 
 /**
- * Gets information about a tile
+ * 获取有关磁贴的信息
  *
- * @param {number} x The tile X coordinate.
- * @param {number} y The tile Y coordinate.
- * @param {number} level The tile level.
- * @returns {GoogleEarthEnterpriseTileInformation|undefined} Information about the tile or undefined if it isn't loaded.
+ * @param {number} x 瓦片 X 坐标。
+ * @param {number} y 瓦片 Y 坐标。
+ * @param {number} level 瓦片级别。
+ * @returns {GoogleEarthEnterpriseTileInformation|undefined} 有关图块的信息，如果未加载，则为 undefined。
  *
  * @private
  */
@@ -476,10 +476,10 @@ GoogleEarthEnterpriseMetadata.prototype.getTileInformation = function (
 };
 
 /**
- * Gets information about a tile from a quadKey
+ * 从 quadKey 获取有关瓦片的信息
  *
- * @param {string} quadkey The quadkey for the tile
- * @returns {GoogleEarthEnterpriseTileInformation|undefined} Information about the tile or undefined if it isn't loaded.
+ * @param {string} quadkey 瓦片的四键
+ * @returns {GoogleEarthEnterpriseTileInformation|undefined} 有关图块的信息，如果未加载，则为 undefined。
  *
  * @private
  */

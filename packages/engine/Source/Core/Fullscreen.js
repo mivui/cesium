@@ -11,7 +11,7 @@ const _names = {
 };
 
 /**
- * Browser-independent functions for working with the standard fullscreen API.
+ * 独立于浏览器的函数，用于使用标准全屏 API。
  *
  * @namespace Fullscreen
  *
@@ -21,8 +21,8 @@ const Fullscreen = {};
 
 Object.defineProperties(Fullscreen, {
   /**
-   * The element that is currently fullscreen, if any.  To simply check if the
-   * browser is in fullscreen mode or not, use {@link Fullscreen#fullscreen}.
+   * 当前全屏的元素（如果有）。 要简单地检查
+   * 浏览器是否处于全屏模式，请使用 {@link Fullscreen#fullscreen}。
    * @memberof Fullscreen
    * @type {object}
    * @readonly
@@ -38,10 +38,10 @@ Object.defineProperties(Fullscreen, {
   },
 
   /**
-   * The name of the event on the document that is fired when fullscreen is
-   * entered or exited.  This event name is intended for use with addEventListener.
-   * In your event handler, to determine if the browser is in fullscreen mode or not,
-   * use {@link Fullscreen#fullscreen}.
+   * 当 fullscreen 为
+   * 已进入或已退出。 此事件名称旨在与 addEventListener 一起使用。
+   * 在事件处理程序中，要确定浏览器是否处于全屏模式，
+   * 使用 {@link Fullscreen#fullscreen}。
    * @memberof Fullscreen
    * @type {string}
    * @readonly
@@ -57,8 +57,8 @@ Object.defineProperties(Fullscreen, {
   },
 
   /**
-   * The name of the event that is fired when a fullscreen error
-   * occurs.  This event name is intended for use with addEventListener.
+   * 全屏错误时触发的事件的名称
+   *发生。 此事件名称旨在与 addEventListener 一起使用。
    * @memberof Fullscreen
    * @type {string}
    * @readonly
@@ -74,9 +74,9 @@ Object.defineProperties(Fullscreen, {
   },
 
   /**
-   * Determine whether the browser will allow an element to be made fullscreen, or not.
-   * For example, by default, iframes cannot go fullscreen unless the containing page
-   * adds an "allowfullscreen" attribute (or prefixed equivalent).
+   * 确定浏览器是否允许将元素全屏显示。
+   * 例如，默认情况下，iframe 无法全屏显示，除非包含页面
+   * 添加 “allowFullScreen” 属性（或前缀等效属性）。
    * @memberof Fullscreen
    * @type {boolean}
    * @readonly
@@ -92,7 +92,7 @@ Object.defineProperties(Fullscreen, {
   },
 
   /**
-   * Determines if the browser is currently in fullscreen mode.
+   * 确定浏览器当前是否处于全屏模式。
    * @memberof Fullscreen
    * @type {boolean}
    * @readonly
@@ -109,9 +109,9 @@ Object.defineProperties(Fullscreen, {
 });
 
 /**
- * Detects whether the browser supports the standard fullscreen API.
+ * 检测浏览器是否支持标准的全屏 API。
  *
- * @returns {boolean} <code>true</code> if the browser supports the standard fullscreen API,
+ * @returns {boolean} <code>true</code>，如果浏览器支持标准的全屏 API，
  * <code>false</code> 否则。
  */
 Fullscreen.supportsFullscreen = function () {
@@ -211,11 +211,11 @@ Fullscreen.supportsFullscreen = function () {
 };
 
 /**
- * Asynchronously requests the browser to enter fullscreen mode on the given element.
- * If fullscreen mode is not supported by the browser, does nothing.
+ * 异步请求浏览器在给定元素上进入全屏模式。
+ * 如果浏览器不支持全屏模式，则不执行任何操作。
  *
- * @param {object} element The HTML element which will be placed into fullscreen mode.
- * @param {object} [vrDevice] The HMDVRDevice device.
+ * @param {object} element 将置于全屏模式的 HTML 元素。
+ * @param {object} [vrDevice] HMDVRDevice 设备。
  *
  * @example
  * // Put the entire page into fullscreen.
@@ -233,8 +233,8 @@ Fullscreen.requestFullscreen = function (element, vrDevice) {
 };
 
 /**
- * Asynchronously exits fullscreen mode.  If the browser is not currently
- * in fullscreen, or if fullscreen mode is not supported by the browser, does nothing.
+ * 异步退出全屏模式。 如果浏览器当前未
+ * 在全屏模式下，或者如果浏览器不支持全屏模式，则不执行任何操作。
  */
 Fullscreen.exitFullscreen = function () {
   if (!Fullscreen.supportsFullscreen()) {

@@ -1,13 +1,13 @@
 import defined from "./defined.js";
 
 /**
- * Formats an error object into a String.  If available, uses name, message, and stack
- * properties, otherwise, falls back on toString().
+ * 将错误对象格式化为 String。 如果可用，则使用 name、message 和 stack
+ * 属性，否则将回退到 toString（） 上。
  *
  * @function
  *
- * @param {*} object The item to find in the array.
- * @returns {string} A string containing the formatted error.
+ * @param {*} object 要在数组中查找的项。
+ * @returns {string} 包含格式化错误的字符串。
  */
 function formatError(object) {
   let result;

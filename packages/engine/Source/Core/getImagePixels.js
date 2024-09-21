@@ -3,15 +3,15 @@ import defined from "./defined.js";
 const context2DsByWidthAndHeight = {};
 
 /**
- * Extract a pixel array from a loaded image.  Draws the image
- * into a canvas so it can read the pixels back.
+ * 从加载的图像中提取像素数组。 绘制图像
+ * 复制到 Canvas 中，以便它可以读回像素。
  *
  * @function getImagePixels
  *
- * @param {HTMLImageElement|ImageBitmap} image The image to extract pixels from.
- * @param {number} width The width of the image. If not defined, then image.width is assigned.
- * @param {number} height The height of the image. If not defined, then image.height is assigned.
- * @returns {ImageData} The pixels of the image.
+ * @param {HTMLImageElement|ImageBitmap} image 要从中提取像素的图像。
+ * @param {number} width 图像的宽度。如果未定义，则分配 image.width。
+ * @param {number} height 图像的高度。如果未定义，则分配 image.height。
+ * @returns {ImageData} 图像的像素。
  */
 function getImagePixels(image, width, height) {
   if (!defined(width)) {

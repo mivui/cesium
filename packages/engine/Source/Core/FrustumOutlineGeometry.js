@@ -17,15 +17,15 @@ const PERSPECTIVE = 0;
 const ORTHOGRAPHIC = 1;
 
 /**
- * A description of the outline of a frustum with the given the origin and orientation.
+ * 给定原点和方向的视锥体轮廓的描述。
  *
  * @alias FrustumOutlineGeometry
  * @constructor
  *
  * @param {object} options 对象，具有以下属性:
- * @param {PerspectiveFrustum|OrthographicFrustum} options.frustum The frustum.
- * @param {Cartesian3} options.origin The origin of the frustum.
- * @param {Quaternion} options.orientation The orientation of the frustum.
+ * @param {PerspectiveFrustum|OrthographicFrustum} options.frustum 视锥体。
+ * @param {Cartesian3} options.origin 视锥体的原点。
+ * @param {Quaternion} options.orientation 视锥体的方向。
  */
 function FrustumOutlineGeometry(options) {
   //>>includeStart('debug', pragmas.debug);
@@ -178,9 +178,9 @@ FrustumOutlineGeometry.unpack = function (array, startingIndex, result) {
 };
 
 /**
- * Computes the geometric representation of a frustum outline, including its vertices, indices, and a bounding sphere.
+ * 计算视锥体轮廓的几何表示，包括其顶点、索引和边界球体。
  *
- * @param {FrustumOutlineGeometry} frustumGeometry A description of the frustum.
+ * @param {FrustumOutlineGeometry} frustumGeometry 对视锥体的描述。
  * @returns {Geometry|undefined} 计算的顶点和索引。
  */
 FrustumOutlineGeometry.createGeometry = function (frustumGeometry) {

@@ -4,12 +4,12 @@ import defined from "./defined.js";
 import DeveloperError from "./DeveloperError.js";
 
 /**
- * Given a relative Uri and a base Uri, returns the absolute Uri of the relative Uri.
+ * 给定相对 Uri 和基本 Uri，返回相对 Uri 的绝对 Uri。
  * @function
  *
- * @param {string} relative The relative Uri.
- * @param {string} [base] The base Uri.
- * @returns {string} The absolute Uri of the given relative Uri.
+ * @param {string} relative 相对 Uri。
+ * @param {string} [base] 基 Uri。
+ * @returns {string} 给定相对 Uri 的绝对 Uri。
  *
  * @example
  * //absolute Uri will be "https://test.com/awesome.png";

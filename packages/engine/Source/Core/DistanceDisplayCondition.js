@@ -3,13 +3,13 @@ import defined from "./defined.js";
 import DeveloperError from "./DeveloperError.js";
 
 /**
- * Determines visibility based on the distance to the camera.
+ * 根据到摄像机的距离确定能见度。
  *
  * @alias DistanceDisplayCondition
  * @constructor
  *
- * @param {number} [near=0.0] The smallest distance in the interval where the object is visible.
- * @param {number} [far=Number.MAX_VALUE] The largest distance in the interval where the object is visible.
+ * @param {number} [near=0.0] 对象可见的间隔中的最小距离。
+ * @param {number} [far=Number.MAX_VALUE] 对象可见的间隔中的最大距离。
  *
  * @example
  * // Make a billboard that is only visible when the distance to the camera is between 10 and 20 meters.
@@ -25,7 +25,7 @@ function DistanceDisplayCondition(near, far) {
 
 Object.defineProperties(DistanceDisplayCondition.prototype, {
   /**
-   * The smallest distance in the interval where the object is visible.
+   * 对象可见的间隔中的最小距离。
    * @memberof DistanceDisplayCondition.prototype
    * @type {number}
    * @default 0.0
@@ -39,7 +39,7 @@ Object.defineProperties(DistanceDisplayCondition.prototype, {
     },
   },
   /**
-   * The largest distance in the interval where the object is visible.
+   * 对象可见的间隔中的最大距离。
    * @memberof DistanceDisplayCondition.prototype
    * @type {number}
    * @default Number.MAX_VALUE
@@ -93,7 +93,7 @@ DistanceDisplayCondition.pack = function (value, array, startingIndex) {
  * @param {number[]} array 打包数组。
  * @param {number} [startingIndex=0] 要解压缩的元素的起始索引。
  * @param {DistanceDisplayCondition} [result] 要在其中存储结果的对象。
- * @returns {DistanceDisplayCondition} 修改后的结果参数 or a new DistanceDisplayCondition instance if one was not provided.
+ * @returns {DistanceDisplayCondition} 修改后的结果参数或新的 DistanceDisplayCondition 实例（如果未提供）。
  */
 DistanceDisplayCondition.unpack = function (array, startingIndex, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -113,11 +113,11 @@ DistanceDisplayCondition.unpack = function (array, startingIndex, result) {
 };
 
 /**
- * Determines if two distance display conditions are equal.
+ * 确定两个距离显示条件是否相等。
  *
- * @param {DistanceDisplayCondition} left A distance display condition.
- * @param {DistanceDisplayCondition} right Another distance display condition.
- * @return {boolean} Whether the two distance display conditions are equal.
+ * @param {DistanceDisplayCondition} left 距离显示条件。
+ * @param {DistanceDisplayCondition} right 另一个距离显示条件。
+ * @return {boolean} 两个距离显示条件是否相等。
  */
 DistanceDisplayCondition.equals = function (left, right) {
   return (
@@ -130,11 +130,11 @@ DistanceDisplayCondition.equals = function (left, right) {
 };
 
 /**
- * 复制distance display condition instance.
+ * 复制距离显示条件实例。
  *
- * @param {DistanceDisplayCondition} [value] The distance display condition to duplicate.
- * @param {DistanceDisplayCondition} [result] The result onto which to store the result.
- * @return {DistanceDisplayCondition} The duplicated instance.
+ * @param {DistanceDisplayCondition} [value] 要复制的距离显示条件。
+ * @param {DistanceDisplayCondition} [result] 存储结果的结果。
+ * @return {DistanceDisplayCondition} 复制的实例。
  */
 DistanceDisplayCondition.clone = function (value, result) {
   if (!defined(value)) {
@@ -151,20 +151,20 @@ DistanceDisplayCondition.clone = function (value, result) {
 };
 
 /**
- * 复制instance.
+ * 复制实例。
  *
- * @param {DistanceDisplayCondition} [result] The result onto which to store the result.
- * @return {DistanceDisplayCondition} The duplicated instance.
+ * @param {DistanceDisplayCondition} [result] 存储结果的结果。
+ * @return {DistanceDisplayCondition} 复制的实例。
  */
 DistanceDisplayCondition.prototype.clone = function (result) {
   return DistanceDisplayCondition.clone(this, result);
 };
 
 /**
- * Determines if this distance display condition is equal to another.
+ * 确定此距离显示条件是否等于另一个距离显示条件。
  *
- * @param {DistanceDisplayCondition} other Another distance display condition.
- * @return {boolean} Whether this distance display condition is equal to the other.
+ * @param {DistanceDisplayCondition} 其他 另一个距离显示条件。
+ * @return {boolean} 此距离显示条件是否等于另一个。
  */
 DistanceDisplayCondition.prototype.equals = function (other) {
   return DistanceDisplayCondition.equals(this, other);

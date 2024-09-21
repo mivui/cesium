@@ -3,11 +3,11 @@ import defined from "./defined.js";
 import DeveloperError from "./DeveloperError.js";
 
 /**
- * Given a URI, returns the extension of the URI.
+ * 给定 URI，返回 URI 的扩展名。
  * @function getExtensionFromUri
  *
  * @param {string} uri The Uri.
- * @returns {string} The extension of the Uri.
+ * @returns {string} Uri 的扩展名。
  *
  * @example
  * //extension will be "czml";

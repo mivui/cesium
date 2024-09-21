@@ -5,10 +5,10 @@ const compressedMagic = 0x7468dead;
 const compressedMagicSwap = 0xadde6874;
 
 /**
- * Decodes data that is received from the Google Earth Enterprise server.
+ * 对从 Google 地球企业版服务器接收的数据进行解码。
  *
- * @param {ArrayBuffer} key The key used during decoding.
- * @param {ArrayBuffer} data The data to be decoded.
+ * @param {ArrayBuffer} key 解码时使用的密钥。
+ * @param {ArrayBuffer} data 需要解码的数据。
  *
  * @private
  */

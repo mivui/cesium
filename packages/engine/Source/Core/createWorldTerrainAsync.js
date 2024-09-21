@@ -8,9 +8,9 @@ import Ellipsoid from "./Ellipsoid.js";
  * @function
  *
  * @param {Object} [options] 对象，具有以下属性:
- * @param {Boolean} [options.requestVertexNormals=false] Flag that indicates if the client should request additional lighting information from the server if available.
- * @param {Boolean} [options.requestWaterMask=false] Flag that indicates if the client should request 每个tile water masks from the server if available.
- * @returns {Promise<CesiumTerrainProvider>} A promise that resolves to the created CesiumTerrainProvider
+ * @param {Boolean} [options.requestVertexNormals=false] 指示客户端是否应从服务器请求其他照明信息（如果可用）的标志。
+ * @param {Boolean} [options.requestWaterMask=false] 指示客户端是否应从服务器请求每个图块水面具（如果可用）的标志。
+ * @returns {Promise<CesiumTerrainProvider>} 解析为创建的 CesiumTerrainProvider 的 Promise
  *
  * @see Ion
  *

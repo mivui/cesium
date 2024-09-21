@@ -11,24 +11,24 @@ import TimeConstants from "./TimeConstants.js";
 import TimeStandard from "./TimeStandard.js";
 
 /**
- * Specifies Earth polar motion coordinates and the difference between UT1 and UTC.
- * These Earth Orientation Parameters (EOP) are primarily used in the transformation from
- * the International Celestial Reference Frame (ICRF) to the International Terrestrial
- * Reference Frame (ITRF).
- * This object is normally not instantiated directly, use {@link EarthOrientationParameters.fromUrl}.
+ * 指定地球极地运动坐标以及 UT1 和 UTC 之间的差值。
+ * 这些地球方向参数 （EOP） 主要用于从
+ * 国际天体参考系 （ICRF） 到国际地面
+ * 参考框架 （ITRF）。
+ * 此对象通常不直接实例化，请使用 {@link EarthOrientationParameters.fromUrl}。
  *
  * @alias EarthOrientationParameters
  * @constructor
  *
  * @param {object} [options] 对象，具有以下属性:
- * @param {object} [options.data] The actual EOP data.  If neither this
- *                 parameter nor options.data is specified, all EOP values are assumed
- *                 to be 0.0.
- * @param {boolean} [options.addNewLeapSeconds=true] True if leap seconds that
- *                  are specified in the EOP data but not in {@link JulianDate.leapSeconds}
- *                  should be added to {@link JulianDate.leapSeconds}.  False if
- *                  new leap seconds should be handled correctly in the context
- *                  of the EOP data but otherwise ignored.
+ * @param {object} [options.data] 实际的 EOP 数据。 如果 this 都没有
+ * parameter 也不指定 options.data，则假定所有 EOP 值
+ * 设置为 0.0。
+ * @param {boolean} [options.addNewLeapSeconds=true] 如果闰秒为 True，则为
+ * 在 EOP 数据中指定，但不在 {@link JulianDate.leapSeconds} 中指定
+ * 应添加到 {@link JulianDate.leapSeconds} 中。 如果为 False，则为 False
+ * 应在上下文中正确处理新的闰秒
+ * 的 EOP 数据，否则将被忽略。
  *
  * @private
  */
@@ -75,16 +75,16 @@ function EarthOrientationParameters(options) {
 
 /**
  *
- * @param {Resource|string} [url] The URL from which to obtain EOP data.  If neither this
- *                 parameter nor options.data is specified, all EOP values are assumed
- *                 to be 0.0.  If options.data is specified, this parameter is
- *                 ignored.
- * @param {object} [options] 对象，具有以下属性:
- * @param {boolean} [options.addNewLeapSeconds=true] True if leap seconds that
- *                  are specified in the EOP data but not in {@link JulianDate.leapSeconds}
- *                  should be added to {@link JulianDate.leapSeconds}.  False if
- *                  new leap seconds should be handled correctly in the context
- *                  of the EOP data but otherwise ignored.
+ * @param {Resource|string} [url] 从中获取 EOP 数据的 URL。 如果 this 都没有
+ * parameter 也不指定 options.data，则假定所有 EOP 值
+ * 设置为 0.0。 如果指定了 options.data，则此参数为
+ * 忽视。
+ * @param {object} [options] 对象，具有以下属性：
+ * @param {boolean} [options.addNewLeapSeconds=true] 如果闰秒为 True，则为
+ * 在 EOP 数据中指定，但不在 {@link JulianDate.leapSeconds} 中指定
+ * 应添加到 {@link JulianDate.leapSeconds} 中。 如果为 False，则为 False
+ * 应在上下文中正确处理新的闰秒
+ * 的 EOP 数据，否则将被忽略。
  *
  * @example
  * // An example EOP data file, EOP.json:
@@ -128,7 +128,7 @@ EarthOrientationParameters.fromUrl = async function (url, options) {
 };
 
 /**
- * A default {@link EarthOrientationParameters} instance that returns zero for all EOP values.
+ * 一个默认的 {@link EarthOrientationParameters} 实例，对所有 EOP 值都返回零。
  */
 EarthOrientationParameters.NONE = Object.freeze({
   compute: function (date, result) {
@@ -146,15 +146,15 @@ EarthOrientationParameters.NONE = Object.freeze({
 });
 
 /**
- * Computes the Earth Orientation Parameters (EOP) for a given date by interpolating.
- * If the EOP data has not yet been download, this method returns undefined.
+ * 通过插值计算给定日期的地球方向参数 （EOP）。
+ * 如果尚未下载 EOP 数据，则该方法返回 undefined。
  *
- * @param {JulianDate} date The date for each to evaluate the EOP.
- * @param {EarthOrientationParametersSample} [result] The instance to which to copy the result.
- *        If this parameter is undefined, a new instance is created and returned.
- * @returns {EarthOrientationParametersSample} The EOP evaluated at the given date, or
- *          undefined if the data necessary to evaluate EOP at the date has not yet been
- *          downloaded.
+ * @param {JulianDate} date 每个评估 EOP 的日期。
+ * @param {EarthOrientationParametersSample} [result] 要将结果复制到的实例。
+ * 如果未定义此参数，则创建并返回一个新实例。
+ * @returns {EarthOrientationParametersSample} 在给定日期评估的 EOP，或
+ * 如果未定义，则尚未提供评估 EOP 所需的数据
+ * 下载。
  *
  * @exception {RuntimeError} The loaded EOP data has an error and cannot be used.
  *

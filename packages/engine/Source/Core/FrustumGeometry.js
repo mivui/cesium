@@ -20,15 +20,15 @@ const PERSPECTIVE = 0;
 const ORTHOGRAPHIC = 1;
 
 /**
- * Describes a frustum at the given the origin and orientation.
+ * 描述给定原点和方向处的视锥体。
  *
  * @alias FrustumGeometry
  * @constructor
  *
  * @param {object} options 对象，具有以下属性:
- * @param {PerspectiveFrustum|OrthographicFrustum} options.frustum The frustum.
- * @param {Cartesian3} options.origin The origin of the frustum.
- * @param {Quaternion} options.orientation The orientation of the frustum.
+ * @param {PerspectiveFrustum|OrthographicFrustum} options.frustum 视锥体。
+ * @param {Cartesian3} options.origin 视锥体的原点。
+ * @param {Quaternion} options.orientation 视锥体的方向。
  * @param {VertexFormat} [options.vertexFormat=VertexFormat.DEFAULT] 要计算的顶点属性。
  */
 function FrustumGeometry(options) {

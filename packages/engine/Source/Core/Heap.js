@@ -3,14 +3,14 @@ import defaultValue from "./defaultValue.js";
 import defined from "./defined.js";
 
 /**
- * Array implementation of a heap.
+ * 堆的数组实现。
  *
  * @alias Heap
  * @constructor
  * @private
  *
  * @param {object} options 对象，具有以下属性:
- * @param {Heap.ComparatorCallback} options.comparator The comparator to use for the heap. If comparator(a, b) is less than 0, sort a to a lower index than b, otherwise sort to a higher index.
+ * @param {Heap.ComparatorCallback} options.comparator 用于堆的 comparator 。如果 comparator（a， b） 小于 0，则将 a 排序到比 b 更低的索引，否则排序到更高的索引。
  */
 function Heap(options) {
   //>>includeStart('debug', pragmas.debug);
@@ -26,7 +26,7 @@ function Heap(options) {
 
 Object.defineProperties(Heap.prototype, {
   /**
-   * Gets the length of the heap.
+   * 获取堆的长度。
    *
    * @memberof Heap.prototype
    *
@@ -40,7 +40,7 @@ Object.defineProperties(Heap.prototype, {
   },
 
   /**
-   * Gets the internal array.
+   * 获取内部数组。
    *
    * @memberof Heap.prototype
    *
@@ -54,7 +54,7 @@ Object.defineProperties(Heap.prototype, {
   },
 
   /**
-   * Gets and sets the maximum length of the heap.
+   * 获取并设置堆的最大长度。
    *
    * @memberof Heap.prototype
    *
@@ -83,7 +83,7 @@ Object.defineProperties(Heap.prototype, {
   },
 
   /**
-   * The comparator to use for the heap. If comparator(a, b) is less than 0, sort a to a lower index than b, otherwise sort to a higher index.
+   * 用于堆的比较器。如果 comparator（a， b） 小于 0，则将 a 排序到比 b 更低的索引，否则排序到更高的索引。
    *
    * @memberof Heap.prototype
    *
@@ -103,9 +103,9 @@ function swap(array, a, b) {
 }
 
 /**
- * Resizes the internal array of the heap.
+ * 调整堆的内部数组的大小。
  *
- * @param {number} [length] The length to resize internal array to. Defaults to the current length of the heap.
+ * @param {number} [length] 将内部数组调整为的长度。默认为堆的当前长度。
  */
 Heap.prototype.reserve = function (length) {
   length = defaultValue(length, this._length);
@@ -113,9 +113,9 @@ Heap.prototype.reserve = function (length) {
 };
 
 /**
- * Update the heap so that index and all descendants satisfy the heap property.
+ * 更新堆，以便 index 和所有后代都满足 heap 属性。
  *
- * @param {number} [index=0] The starting index to heapify from.
+ * @param {number} [index=0] 要从中堆化的起始索引。
  */
 Heap.prototype.heapify = function (index) {
   index = defaultValue(index, 0);
@@ -158,12 +158,12 @@ Heap.prototype.resort = function () {
 };
 
 /**
- * Insert an element into the heap. If the length would grow greater than maximumLength
- * of the heap, extra elements are removed.
+ * 在堆中插入一个元素。如果 length 增长大于 maximumLength
+ * 中，额外的元素将被删除。
  *
- * @param {*} element The element to insert
+ * @param {*} element 要插入的元素
  *
- * @return {*} The element that was removed from the heap if the heap is at full capacity.
+ * @return {*} 如果堆已满，则从堆中删除的元素。
  */
 Heap.prototype.insert = function (element) {
   //>>includeStart('debug', pragmas.debug);
@@ -202,10 +202,10 @@ Heap.prototype.insert = function (element) {
 };
 
 /**
- * Remove the element specified by index from the heap and return it.
+ * 从堆中删除 index 指定的元素并返回它。
  *
- * @param {number} [index=0] The index to remove.
- * @returns {*} The specified element of the heap.
+ * @param {number} [index=0] 要删除的索引。
+ * @returns {*} 堆的指定元素。
  */
 Heap.prototype.pop = function (index) {
   index = defaultValue(index, 0);
@@ -225,10 +225,10 @@ Heap.prototype.pop = function (index) {
 };
 
 /**
- * The comparator to use for the heap.
+ * 用于堆的比较器。
  * @callback Heap.ComparatorCallback
- * @param {*} a An element in the heap.
- * @param {*} b An element in the heap.
- * @returns {number} If the result of the comparison is less than 0, sort a to a lower index than b, otherwise sort to a higher index.
+ * @param {*} a 堆中的元素。
+ * @param {*} b 堆中的一个元素。
+ * @returns {number} 如果比较结果小于 0，则将 a 排序到比 b 低的索引，否则排序到更高的索引。
  */
 export default Heap;

@@ -1,15 +1,15 @@
 /**
- * Returns the first parameter if not undefined, otherwise the second parameter.
- * Useful for setting a default value for a parameter.
+ * 如果未定义，则返回第一个参数，否则返回第二个参数。
+ * 用于设置参数的默认值。
  *
  * @function
  *
  * @param {*} a
  * @param {*} b
- * @returns {*} Returns the first parameter if not undefined, otherwise the second parameter.
+ * @returns {*} 如果不是 undefined，则返回第一个参数，否则返回第二个参数。
  *
  * @example
- * param = Cesium.defaultValue(param, 'default');
+ * param = Cesium.defaultValue（param， '默认'）;
  */
 function defaultValue(a, b) {
   if (a !== undefined && a !== null) {
@@ -19,8 +19,8 @@ function defaultValue(a, b) {
 }
 
 /**
- * A frozen empty object that can be used as the default value for options passed as
- * an object literal.
+ * 一个冻结的空对象，可以用作作为
+ * 对象字面量。
  * @type {object}
  * @memberof defaultValue
  */

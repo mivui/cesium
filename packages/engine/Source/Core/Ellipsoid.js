@@ -54,18 +54,18 @@ function initialize(ellipsoid, x, y, z) {
 }
 
 /**
- * A quadratic surface defined in Cartesian coordinates by the equation
- * <code>(x / a)^2 + (y / b)^2 + (z / c)^2 = 1</code>.  Primarily used
- * by Cesium to represent the shape of planetary bodies.
+ * 由方程
+ * <code>（x / a）^2 + （y / b）^2 + （z / c）^2 = 1</code>. 主要用途
+ * 由 Cesium 表示行星体的形状。
  *
- * Rather than constructing this object directly, one of the provided
- * constants is normally used.
- * @alias Ellipsoid
+ * 而不是直接构造此对象，而是提供的
+ * 常量。
+ * @alias 椭球体
  * @constructor
  *
- * @param {number} [x=0] The radius in the x direction.
- * @param {number} [y=0] The radius in the y direction.
- * @param {number} [z=0] The radius in the z direction.
+ * @param {number} [x=0] x 方向的半径。
+ * @param {number} [y=0] y 方向的半径。
+ * @param {number} [z=0] z 方向的半径。
  *
  * @exception {DeveloperError} All radii components must be greater than or equal to zero.
  *
@@ -100,7 +100,7 @@ Object.defineProperties(Ellipsoid.prototype, {
     },
   },
   /**
-   * Gets the squared radii of the ellipsoid.
+   * 获取椭球体的平方半径。
    * @memberof Ellipsoid.prototype
    * @type {Cartesian3}
    * @readonly
@@ -111,7 +111,7 @@ Object.defineProperties(Ellipsoid.prototype, {
     },
   },
   /**
-   * Gets the radii of the ellipsoid raise to the fourth power.
+   * 获取椭球体的半径提高到四次方。
    * @memberof Ellipsoid.prototype
    * @type {Cartesian3}
    * @readonly
@@ -122,7 +122,7 @@ Object.defineProperties(Ellipsoid.prototype, {
     },
   },
   /**
-   * Gets one over the radii of the ellipsoid.
+   * 在椭球体的半径上获取 1。
    * @memberof Ellipsoid.prototype
    * @type {Cartesian3}
    * @readonly
@@ -133,7 +133,7 @@ Object.defineProperties(Ellipsoid.prototype, {
     },
   },
   /**
-   * Gets one over the squared radii of the ellipsoid.
+   * 在椭球体的平方半径上获取 1。
    * @memberof Ellipsoid.prototype
    * @type {Cartesian3}
    * @readonly
@@ -144,7 +144,7 @@ Object.defineProperties(Ellipsoid.prototype, {
     },
   },
   /**
-   * Gets the minimum radius of the ellipsoid.
+   * 获取椭球体的最小半径。
    * @memberof Ellipsoid.prototype
    * @type {number}
    * @readonly
@@ -155,7 +155,7 @@ Object.defineProperties(Ellipsoid.prototype, {
     },
   },
   /**
-   * Gets the maximum radius of the ellipsoid.
+   * 获取椭球体的最大半径。
    * @memberof Ellipsoid.prototype
    * @type {number}
    * @readonly
@@ -168,12 +168,12 @@ Object.defineProperties(Ellipsoid.prototype, {
 });
 
 /**
- * Duplicates an Ellipsoid instance.
+ * 复制 Ellipsoid 实例。
  *
- * @param {Ellipsoid} ellipsoid The ellipsoid to duplicate.
- * @param {Ellipsoid} [result] The object onto which to store the result, or undefined if a new
- *                    instance should be created.
- * @returns {Ellipsoid} The cloned Ellipsoid. (Returns undefined if ellipsoid is undefined)
+ * @param {Ellipsoid} ellipsoid 要复制的椭球体。
+ * @param {Ellipsoid} [result] 存储结果的对象，如果新的、
+ * 实例。
+ * @returns {Ellipsoid} 克隆的 Ellipsoid。（如果省略球体为 undefined，则返回 undefined）
  */
 Ellipsoid.clone = function (ellipsoid, result) {
   if (!defined(ellipsoid)) {
@@ -198,12 +198,12 @@ Ellipsoid.clone = function (ellipsoid, result) {
 };
 
 /**
- * Computes an Ellipsoid from a Cartesian specifying the radii in x, y, and z directions.
+ * 根据指定 x、y 和 z 方向半径的笛卡尔计算椭球体。
  *
- * @param {Cartesian3} [cartesian=Cartesian3.ZERO] The ellipsoid's radius in the x, y, and z directions.
- * @param {Ellipsoid} [result] The object onto which to store the result, or undefined if a new
- *                    instance should be created.
- * @returns {Ellipsoid} A new Ellipsoid instance.
+ * @param {Cartesian3} [cartesian=Cartesian3.ZERO] 椭球体在 x、y 和 z 方向上的半径。
+ * @param {Ellipsoid} [result] 存储结果的对象，如果新的、
+ * 实例。
+ * @returns {Ellipsoid} 一个新的 Ellipsoid 实例。
  *
  * @exception {DeveloperError} All radii components must be greater than or equal to zero.
  *
@@ -224,7 +224,7 @@ Ellipsoid.fromCartesian3 = function (cartesian, result) {
 };
 
 /**
- * An Ellipsoid instance initialized to the WGS84 standard.
+ * 初始化为 WGS84 标准的 Ellipsoid 实例。
  *
  * @type {Ellipsoid}
  * @constant
@@ -234,7 +234,7 @@ Ellipsoid.WGS84 = Object.freeze(
 );
 
 /**
- * An Ellipsoid instance initialized to radii of (1.0, 1.0, 1.0).
+ * 初始化为半径 （1.0， 1.0， 1.0） 的 Ellipsoid 实例。
  *
  * @type {Ellipsoid}
  * @constant
@@ -242,7 +242,7 @@ Ellipsoid.WGS84 = Object.freeze(
 Ellipsoid.UNIT_SPHERE = Object.freeze(new Ellipsoid(1.0, 1.0, 1.0));
 
 /**
- * An Ellipsoid instance initialized to a sphere with the lunar radius.
+ * 初始化为具有月球半径的球体的 Ellipsoid 实例。
  *
  * @type {Ellipsoid}
  * @constant
@@ -258,7 +258,7 @@ Ellipsoid.MOON = Object.freeze(
 Ellipsoid._default = Ellipsoid.WGS84;
 Object.defineProperties(Ellipsoid, {
   /**
-   * The default ellipsoid used when not otherwise specified.
+   * 未另行指定时使用的默认椭球体。
    * @memberof Ellipsoid
    * @type {Ellipsoid}
    * @example
@@ -290,11 +290,11 @@ Object.defineProperties(Ellipsoid, {
 });
 
 /**
- * Duplicates an Ellipsoid instance.
+ * 复制 Ellipsoid 实例。
  *
- * @param {Ellipsoid} [result] The object onto which to store the result, or undefined if a new
- *                    instance should be created.
- * @returns {Ellipsoid} The cloned Ellipsoid.
+ * @param {Ellipsoid} [result] 存储结果的对象，如果新的、
+ * 实例。
+ * @returns {Ellipsoid} 克隆的 Ellipsoid。
  */
 Ellipsoid.prototype.clone = function (result) {
   return Ellipsoid.clone(this, result);
@@ -334,7 +334,7 @@ Ellipsoid.pack = function (value, array, startingIndex) {
  * @param {number[]} array 打包数组。
  * @param {number} [startingIndex=0] 要解压缩的元素的起始索引。
  * @param {Ellipsoid} [result] 要在其中存储结果的对象。
- * @returns {Ellipsoid} 修改后的结果参数 or a new Ellipsoid instance if one was not provided.
+ * @returns {Ellipsoid} 修改后的结果参数 或者一个新的 Ellipsoid 实例（如果未提供）。
  */
 Ellipsoid.unpack = function (array, startingIndex, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -348,21 +348,21 @@ Ellipsoid.unpack = function (array, startingIndex, result) {
 };
 
 /**
- * Computes the unit vector directed from the center of this ellipsoid toward the provided Cartesian position.
+ * 计算从此椭球体中心指向提供的笛卡尔位置的单位向量。
  * @function
  *
- * @param {Cartesian3} cartesian The Cartesian for which to to determine the geocentric normal.
+ * @param {Cartesian3} 笛卡尔 用于确定地心法线的笛卡尔。
  * @param {Cartesian3} [result] 要在其上存储结果的对象。
- * @returns {Cartesian3} 修改后的结果参数 or a new Cartesian3 instance if none was provided.
+ * @returns {Cartesian3} 修改后的结果参数或新的 Cartesian3 实例（如果未提供）。
  */
 Ellipsoid.prototype.geocentricSurfaceNormal = Cartesian3.normalize;
 
 /**
- * Computes the normal of the plane tangent to the surface of the ellipsoid at the provided position.
+ * 计算在给定位置处与椭球体表面相切的平面的法线。
  *
- * @param {Cartographic} cartographic The cartographic position for which to to determine the geodetic normal.
+ * @param {Cartographic} 制图：用于确定大地法线的制图位置。
  * @param {Cartesian3} [result] 要在其上存储结果的对象。
- * @returns {Cartesian3} 修改后的结果参数 or a new Cartesian3 instance if none was provided.
+ * @returns {Cartesian3} 修改后的结果参数或新的 Cartesian3 实例（如果未提供）。
  */
 Ellipsoid.prototype.geodeticSurfaceNormalCartographic = function (
   cartographic,
@@ -390,11 +390,11 @@ Ellipsoid.prototype.geodeticSurfaceNormalCartographic = function (
 };
 
 /**
- * Computes the normal of the plane tangent to the surface of the ellipsoid at the provided position.
+ * 计算在给定位置处与椭球体表面相切的平面的法线。
  *
- * @param {Cartesian3} cartesian The Cartesian position for which to to determine the surface normal.
+ * @param {Cartesian3} 笛卡尔 用于确定表面法线的笛卡尔位置。
  * @param {Cartesian3} [result] 要在其上存储结果的对象。
- * @returns {Cartesian3} 修改后的结果参数 or a new Cartesian3 instance if none was provided, or undefined if a normal cannot be found.
+ * @returns {Cartesian3} 修改后的结果参数或新的 Cartesian3 实例（如果未提供），则为 undefined（如果未找到法线）。
  */
 Ellipsoid.prototype.geodeticSurfaceNormal = function (cartesian, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -423,11 +423,11 @@ const cartographicToCartesianNormal = new Cartesian3();
 const cartographicToCartesianK = new Cartesian3();
 
 /**
- * Converts the provided cartographic to Cartesian representation.
+ * 将提供的制图转换为笛卡尔表示。
  *
- * @param {Cartographic} cartographic The cartographic position.
+ * @param {Cartographic} cartographic 制图位置。
  * @param {Cartesian3} [result] 要在其上存储结果的对象。
- * @returns {Cartesian3} 修改后的结果参数 or a new Cartesian3 instance if none was provided.
+ * @returns {Cartesian3} 修改后的结果参数或新的 Cartesian3 实例（如果未提供）。
  *
  * @example
  * //Create a Cartographic and determine it's Cartesian representation on a WGS84 ellipsoid.
@@ -451,11 +451,11 @@ Ellipsoid.prototype.cartographicToCartesian = function (cartographic, result) {
 };
 
 /**
- * Converts the provided array of cartographics to an array of Cartesians.
+ * 将提供的制图数组转换为笛卡尔数组。
  *
- * @param {Cartographic[]} cartographics An array of cartographic positions.
+ * @param {Cartographic[]} cartographics 制图位置数组。
  * @param {Cartesian3[]} [result] 要在其上存储结果的对象。
- * @returns {Cartesian3[]} 修改后的结果参数 or a new Array instance if none was provided.
+ * @returns {Cartesian3[]} 修改后的结果参数或新的 Array 实例（如果未提供）。
  *
  * @example
  * //Convert an array of Cartographics and determine their Cartesian representation on a WGS84 ellipsoid.
@@ -489,12 +489,12 @@ const cartesianToCartographicP = new Cartesian3();
 const cartesianToCartographicH = new Cartesian3();
 
 /**
- * Converts the provided cartesian to cartographic representation.
- * The cartesian is undefined at the center of the ellipsoid.
+ * 将提供的笛卡尔表示转换为制图表示。
+ * 笛卡尔坐标在椭球体的中心未定义。
  *
- * @param {Cartesian3} cartesian The Cartesian position to convert to cartographic representation.
+ * @param {Cartesian3} 笛卡尔 要转换为制图表示的笛卡尔位置。
  * @param {Cartographic} [result] 要在其上存储结果的对象。
- * @returns {Cartographic} 修改后的结果参数, new Cartographic instance if none was provided, or undefined if the cartesian is at the center of the ellipsoid.
+ * @returns {Cartographic} 修改后的结果参数，如果未提供任何实例，则为新制图实例，如果笛卡尔位于椭球体的中心，则为 undefined。
  *
  * @example
  * //Create a Cartesian and determine it's Cartographic representation on a WGS84 ellipsoid.
@@ -527,11 +527,11 @@ Ellipsoid.prototype.cartesianToCartographic = function (cartesian, result) {
 };
 
 /**
- * Converts the provided array of cartesians to an array of cartographics.
+ * 将提供的笛卡尔数组转换为制图数组。
  *
- * @param {Cartesian3[]} cartesians An array of Cartesian positions.
+ * @param {Cartesian3[]} 笛卡尔位置数组。
  * @param {Cartographic[]} [result] 要在其上存储结果的对象。
- * @returns {Cartographic[]} 修改后的结果参数 or a new Array instance if none was provided.
+ * @returns {Cartographic[]} 修改后的结果参数或新的 Array 实例（如果未提供）。
  *
  * @example
  * //Create an array of Cartesians and determine their Cartographic representation on a WGS84 ellipsoid.
@@ -561,13 +561,13 @@ Ellipsoid.prototype.cartesianArrayToCartographicArray = function (
 };
 
 /**
- * Scales the provided Cartesian position along the geodetic surface normal
- * so that it is on the surface of this ellipsoid.  If the position is
- * at the center of the ellipsoid, this function returns undefined.
+ * 沿大地测量表面法线缩放提供的笛卡尔位置
+ * 使其位于此椭球体的表面上。 如果位置为
+ * 在椭球体的中心，此函数返回 undefined。
  *
- * @param {Cartesian3} cartesian The Cartesian position to scale.
+ * @param {Cartesian3} 笛卡尔 刻度的笛卡尔位置。
  * @param {Cartesian3} [result] 要在其上存储结果的对象。
- * @returns {Cartesian3} 修改后的结果参数, a new Cartesian3 instance if none was provided, or undefined if the position is at the center.
+ * @returns {Cartesian3} 修改后的结果参数，如果未提供，则为新的 Cartesian3 实例，如果位置位于中心，则为 undefined。
  */
 Ellipsoid.prototype.scaleToGeodeticSurface = function (cartesian, result) {
   return scaleToGeodeticSurface(
@@ -580,12 +580,12 @@ Ellipsoid.prototype.scaleToGeodeticSurface = function (cartesian, result) {
 };
 
 /**
- * Scales the provided Cartesian position along the geocentric surface normal
- * so that it is on the surface of this ellipsoid.
+ * 沿地心表面法线缩放提供的笛卡尔位置
+ * 使其位于此椭球体的表面上。
  *
- * @param {Cartesian3} cartesian The Cartesian position to scale.
+ * @param {Cartesian3} 笛卡尔 刻度的笛卡尔位置。
  * @param {Cartesian3} [result] 要在其上存储结果的对象。
- * @returns {Cartesian3} 修改后的结果参数 or a new Cartesian3 instance if none was provided.
+ * @returns {Cartesian3} 修改后的结果参数或新的 Cartesian3 实例（如果未提供）。
  */
 Ellipsoid.prototype.scaleToGeocentricSurface = function (cartesian, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -613,14 +613,14 @@ Ellipsoid.prototype.scaleToGeocentricSurface = function (cartesian, result) {
 };
 
 /**
- * Transforms a Cartesian X, Y, Z position to the ellipsoid-scaled space by multiplying
- * its components by the result of {@link Ellipsoid#oneOverRadii}.
+ * 通过乘法将笛卡尔 X、Y、Z 位置转换为椭球标度空间
+ * 其组件由 {@link Ellipsoid#oneOverRadii} 的结果。
  *
- * @param {Cartesian3} position The position to transform.
- * @param {Cartesian3} [result] The position to which to copy the result, or undefined to create and
- *        return a new instance.
- * @returns {Cartesian3} The position expressed in the scaled space.  The returned instance is the
- *          one passed as the result parameter if it is not undefined, or a new instance of it is.
+ * @param {Cartesian3} position 要转换的位置。
+ * @param {Cartesian3} [result] 将结果复制到的位置，或 undefined 创建 和
+ * 返回一个新实例。
+ * @returns {Cartesian3} 在缩放空间中表示的位置。 返回的实例是
+ * 如果它不是 undefined，则作为 result 参数传递的，或者它是它的新实例。
  */
 Ellipsoid.prototype.transformPositionToScaledSpace = function (
   position,
@@ -634,14 +634,14 @@ Ellipsoid.prototype.transformPositionToScaledSpace = function (
 };
 
 /**
- * Transforms a Cartesian X, Y, Z position from the ellipsoid-scaled space by multiplying
- * its components by the result of {@link Ellipsoid#radii}.
+ * 通过乘以
+ * 其分量由 {@link Ellipsoid#radii} 的结果。
  *
- * @param {Cartesian3} position The position to transform.
- * @param {Cartesian3} [result] The position to which to copy the result, or undefined to create and
- *        return a new instance.
- * @returns {Cartesian3} The position expressed in the unscaled space.  The returned instance is the
- *          one passed as the result parameter if it is not undefined, or a new instance of it is.
+ * @param {Cartesian3} position 要转换的位置。
+ * @param {Cartesian3} [result] 将结果复制到的位置，或 undefined 创建 和
+ * 返回一个新实例。
+ * @returns {Cartesian3} 在未缩放空间中表示的位置。 返回的实例是
+ * 如果它不是 undefined，则作为 result 参数传递的，或者它是它的新实例。
  */
 Ellipsoid.prototype.transformPositionFromScaledSpace = function (
   position,
@@ -655,10 +655,10 @@ Ellipsoid.prototype.transformPositionFromScaledSpace = function (
 };
 
 /**
- * Compares this Ellipsoid against the provided Ellipsoid componentwise and returns
- * <code>true</code>，否则为<code>false</code>。
+ * 将此 Ellipsoid 与提供的 Ellipsoid 组件进行比较，并返回
+ * <code>true</code>，否则为 <code>false</code>。
  *
- * @param {Ellipsoid} [right] The other Ellipsoid.
+ * @param {Ellipsoid} [right] 另一个椭球体。
  * @returns {boolean} <code>true</code>，否则为<code>false</code>。
  */
 Ellipsoid.prototype.equals = function (right) {
@@ -669,29 +669,29 @@ Ellipsoid.prototype.equals = function (right) {
 };
 
 /**
- * Creates a string representing this Ellipsoid in the format '(radii.x, radii.y, radii.z)'.
+ * 创建一个字符串，表示此椭球体，格式为 '（radii.x， radii.y， radii.z）'。
  *
- * @returns {string} A string representing this ellipsoid in the format '(radii.x, radii.y, radii.z)'.
+ * @returns {string} 表示此椭球体的字符串，格式为 '（radii.x， radii.y， radii.z）'。
  */
 Ellipsoid.prototype.toString = function () {
   return this._radii.toString();
 };
 
 /**
- * Computes a point which is the intersection of the surface normal with the z-axis.
+ * 计算一个点，该点是曲面法线与 z 轴的交点。
  *
- * @param {Cartesian3} position the position. must be on the surface of the ellipsoid.
- * @param {number} [buffer = 0.0] A buffer to subtract from the ellipsoid size when checking if the point is inside the ellipsoid.
- *                                In earth case, with common earth datums, there is no need for this buffer since the intersection point is always (relatively) very close to the center.
- *                                In WGS84 datum, intersection point is at max z = +-42841.31151331382 (0.673% of z-axis).
- *                                Intersection point could be outside the ellipsoid if the ratio of MajorAxis / AxisOfRotation is bigger than the square root of 2
- * @param {Cartesian3} [result] The cartesian to which to copy the result, or undefined to create and
- *        return a new instance.
- * @returns {Cartesian3 | undefined} the intersection point if it's inside the ellipsoid, undefined otherwise
+ * @param {Cartesian3} 定位位置。必须位于椭球体的表面上。
+ * @param {number} [buffer = 0.0] 检查点是否在椭球体内时要从椭球大小中减去的缓冲区。
+ * 在地球情况下，对于公共地球基准面，不需要此缓冲区，因为交点总是（相对）非常靠近中心。
+ * 在 WGS84 基准面中，交点位于最大 z = +-42841.31151331382（z 轴的 0.673%）处。
+ * 如果 MajorAxis / AxisOfRotation 的比率大于 2 的平方根，则交点可能位于椭球体之外
+ * @param {Cartesian3} [result] 要将结果复制到的笛卡尔坐标，或 undefined 来创建 和
+ * 返回一个新实例。
+ * @returns {Cartesian3 | undefined} 如果交点位于椭球体内部，则为 undefined，否则为 undefined
  *
- * @exception {DeveloperError} position is required.
- * @exception {DeveloperError} Ellipsoid must be an ellipsoid of revolution (radii.x == radii.y).
- * @exception {DeveloperError} Ellipsoid.radii.z must be greater than 0.
+ * @exception {DeveloperError} 位置是必需的。
+ * @exception {DeveloperError} 椭球体必须是公转的椭球体 （radii.x == radii.y）。
+ * @exception {DeveloperError} Ellipsoid.radii.z 必须大于 0。
  */
 Ellipsoid.prototype.getSurfaceNormalIntersectionWithZAxis = function (
   position,
@@ -738,11 +738,11 @@ Ellipsoid.prototype.getSurfaceNormalIntersectionWithZAxis = function (
 const scratchEndpoint = new Cartesian3();
 
 /**
- * Computes the ellipsoid curvatures at a given position on the surface.
+ * 计算曲面上给定位置的椭球体曲率。
  *
- * @param {Cartesian3} surfacePosition The position on the ellipsoid surface where curvatures will be calculated.
- * @param {Cartesian2} [result] The cartesian to which to copy the result, or undefined to create and return a new instance.
- * @returns {Cartesian2} The local curvature of the ellipsoid surface at the provided position, in east and north directions.
+ * @param {Cartesian3} surfacePosition 椭球体曲面上将计算曲率的位置。
+ * @param {Cartesian2} [result] 要将结果复制到的笛卡尔坐标，或 undefined 以创建并返回新实例。
+ * @returns {笛卡尔2} 椭球体表面在提供位置（东向和北向）的局部曲率。
  *
  * @exception {DeveloperError} position is required.
  */
@@ -830,21 +830,21 @@ function gaussLegendreQuadrature(a, b, func) {
 }
 
 /**
- * A real valued scalar function.
- * @callback Ellipsoid~RealValuedScalarFunction
+ * 实值标量函数。
+ * @callback 椭球体~RealValuedScalarFunction
  *
- * @param {number} x The value used to evaluate the function.
- * @returns {number} The value of the function at x.
+ * @param {number} x 用于计算函数的值。
+ * @returns {number} 函数在 x 处的值。
  *
  * @private
  */
 
 /**
- * Computes an approximation of the surface area of a rectangle on the surface of an ellipsoid using
- * Gauss-Legendre 10th order quadrature.
+ * 计算矩形在椭球体表面上的表面积的近似值
+ * Gauss-Legendre 10 阶求积。
  *
- * @param {Rectangle} rectangle The rectangle used for computing the surface area.
- * @returns {number} The approximate area of the rectangle on the surface of this ellipsoid.
+ * @param {Rectangle} rectangle 用于计算表面积的矩形。
+ * @returns {number} 矩形在这个椭球体表面上的近似面积。
  */
 Ellipsoid.prototype.surfaceArea = function (rectangle) {
   //>>includeStart('debug', pragmas.debug);

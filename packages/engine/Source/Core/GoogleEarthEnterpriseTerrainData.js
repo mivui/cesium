@@ -17,29 +17,29 @@ import TerrainEncoding from "./TerrainEncoding.js";
 import TerrainMesh from "./TerrainMesh.js";
 
 /**
- * Terrain data for a single tile from a Google Earth Enterprise server.
+ * 来自 Google Earth Enterprise 服务器的单个瓦片的地形数据。
  *
  * @alias GoogleEarthEnterpriseTerrainData
  * @constructor
  *
  * @param {object} options 对象，具有以下属性:
- * @param {ArrayBuffer} options.buffer The buffer containing terrain data.
- * @param {number} options.negativeAltitudeExponentBias Multiplier for negative terrain heights that are encoded as very small positive values.
- * @param {number} options.negativeElevationThreshold Threshold for negative values
- * @param {number} [options.childTileMask=15] A bit mask indicating which of this tile's four children exist.
- *                 If a child's bit is set, geometry will be requested for that tile as well when it
- *                 is needed.  If the bit is cleared, the child tile is not requested and geometry is
- *                 instead upsampled from the parent.  The bit values are as follows:
- *                 <table>
- *                  <tr><th>Bit Position</th><th>Bit Value</th><th>Child Tile</th></tr>
- *                  <tr><td>0</td><td>1</td><td>Southwest</td></tr>
- *                  <tr><td>1</td><td>2</td><td>Southeast</td></tr>
- *                  <tr><td>2</td><td>4</td><td>Northeast</td></tr>
- *                  <tr><td>3</td><td>8</td><td>Northwest</td></tr>
- *                 </table>
- * @param {boolean} [options.createdByUpsampling=false] True if this instance was created by upsampling another instance;
- *                  otherwise, false.
- * @param {Credit[]} [options.credits] Array of credits for this tile.
+ * @param {ArrayBuffer} options.buffer 包含地形数据的缓冲区。
+ * @param {number} options.negativeAltitudeExponentBias 乘数，用于编码为非常小的正值的负地形高度。
+ * @param {number} options.negativeElevationThreshold 负值的阈值
+ * @param {number} [options.childTileMask=15] 一个位掩码，指示此图块的四个子图块中存在哪一个。
+ * 如果设置了子位，则当该图块
+ * 是必需的。 如果清除该位，则不会请求子平铺，并且 geometry 为
+ * 而是从父级进行上采样。 位值如下所示：
+ * <table>
+ * <tr><th>Bit Position</th><th>位值</th><th>子平铺</th></tr>
+ * <tr><td>0</td><td>1</td><td>西南</td></tr>
+ * <tr><td>1</td><td>2</td><td>东南</td></tr>
+ * <tr><td>2</td><td>4</td><td>东北</td></tr>部
+ * <tr><td>3</td><td>8</td><td>西北</td></tr>
+ * </table>
+ * @param {boolean} [options.createdByUpsampling=false] 如果此实例是通过对另一个实例进行上采样创建的，则为 True;
+ * 否则为 false。
+ * @param {Credit[]} [options.credits] 此图块的积分数组。
  *
  *
  * @example
@@ -94,7 +94,7 @@ function GoogleEarthEnterpriseTerrainData(options) {
 
 Object.defineProperties(GoogleEarthEnterpriseTerrainData.prototype, {
   /**
-   * An array of credits for this tile
+   * 此磁贴的制作人员名单数组
    * @memberof GoogleEarthEnterpriseTerrainData.prototype
    * @type {Credit[]}
    */
@@ -104,9 +104,9 @@ Object.defineProperties(GoogleEarthEnterpriseTerrainData.prototype, {
     },
   },
   /**
-   * The water mask included in this terrain data, if any.  A water mask is a rectangular
-   * Uint8Array or image where a value of 255 indicates water and a value of 0 indicates land.
-   * Values in between 0 and 255 are allowed as well to smoothly blend between land and water.
+   * 此地形数据中包含的水面罩（如果有）。 水面罩是矩形的
+   * Uint8Array 或图像，其中值 255 表示水，值 0 表示陆地。
+   * 允许介于 0 和 255 之间的值，以便在陆地和水之间平滑混合。
    * @memberof GoogleEarthEnterpriseTerrainData.prototype
    * @type {Uint8Array|HTMLImageElement|HTMLCanvasElement}
    */
@@ -128,21 +128,21 @@ const nativeRectangleScratch = new Rectangle();
 const rectangleScratch = new Rectangle();
 
 /**
- * Creates a {@link TerrainMesh} from this terrain data.
+ * 从此地形数据创建 {@link TerrainMesh}。
  *
  * @private
  *
  * @param {object} options 对象，具有以下属性:
- * @param {TilingScheme} options.tilingScheme The tiling scheme to which this tile belongs.
- * @param {number} options.x x坐标  tile for which to create the terrain data.
- * @param {number} options.y y坐标 tile for which to create the terrain data.
- * @param {number} options.level The level of the tile for which to create the terrain data.
- * @param {number} [options.exaggeration=1.0] The scale used to exaggerate the terrain.
- * @param {number} [options.exaggerationRelativeHeight=0.0] The height from which terrain is exaggerated.
- * @param {boolean} [options.throttle=true] If true, indicates that this operation will need to be retried if too many asynchronous mesh creations are already in progress.
- * @returns {Promise<TerrainMesh>|undefined} A promise for the terrain mesh, or undefined if too many
- *          asynchronous mesh creations are already in progress and the operation should
- *          be retried later.
+ * @param {TilingScheme} options.tilingScheme 此瓦片所属的平铺方案。
+ * @param {number} options.x x坐标 瓦片，为其创建地形数据。
+ * @param {number} options.y y坐标 瓦片，为其创建 terrain 数据。
+ * @param {number} options.level 要为其创建 terrain 数据的瓦片的级别。
+ * @param {number} [options.exaggeration=1.0] 用于夸大地形的比例尺。
+ * @param {number} [options.exaggerationRelativeHeight=0.0] 地形被夸大的高度。
+ * @param {boolean} [options.throttle=true] 如果为 true，则表示如果正在进行的异步网格创建太多，则需要重试此操作。
+ * @returns {Promise<TerrainMesh>|undefined} 地形网格的 Promise，如果太多，则为 undefined
+ * 异步网格创建已在进行中，操作应
+ * 稍后重试。
  */
 GoogleEarthEnterpriseTerrainData.prototype.createMesh = function (options) {
   options = defaultValue(options, defaultValue.EMPTY_OBJECT);
@@ -234,14 +234,14 @@ GoogleEarthEnterpriseTerrainData.prototype.createMesh = function (options) {
 };
 
 /**
- * Computes the terrain height at a specified longitude and latitude.
+ * 计算指定经纬度处的地形高度。
  *
- * @param {Rectangle} rectangle The rectangle covered by this terrain data.
- * @param {number} longitude The longitude in radians.
- * @param {number} latitude The latitude in radians.
- * @returns {number} The terrain height at the specified position.  If the position
- *          is outside the rectangle, this method will extrapolate the height, which is likely to be wildly
- *          incorrect for positions far outside the rectangle.
+ * @param {Rectangle} rectangle 此地形数据覆盖的矩形。
+ * @param {number} longitude 以弧度为单位的经度。
+ * @param {number} latitude 以弧度为单位的纬度。
+ * @returns {number} 指定位置的地形高度。 如果位置
+ * 在矩形之外，这个方法会推断高度，很可能会很疯狂
+ * 对于远在矩形之外的位置不正确。
  */
 GoogleEarthEnterpriseTerrainData.prototype.interpolateHeight = function (
   rectangle,
@@ -272,19 +272,19 @@ const upsampleTaskProcessor = new TaskProcessor(
 );
 
 /**
- * Upsamples this terrain data for use by a descendant tile.  The resulting instance will contain a subset of the
- * height samples in this instance, interpolated if necessary.
+ * 对此地形数据进行上采样，以供后代瓦片使用。 生成的实例将包含
+ * 高度样本，必要时进行插值。
  *
- * @param {TilingScheme} tilingScheme The tiling scheme of this terrain data.
- * @param {number} thisX The X coordinate of this tile in the tiling scheme.
- * @param {number} thisY The Y coordinate of this tile in the tiling scheme.
- * @param {number} thisLevel The level of this tile in the tiling scheme.
- * @param {number} descendantX The X coordinate within the tiling scheme of the descendant tile for which we are upsampling.
- * @param {number} descendantY The Y coordinate within the tiling scheme of the descendant tile for which we are upsampling.
- * @param {number} descendantLevel The level within the tiling scheme of the descendant tile for which we are upsampling.
- * @returns {Promise<HeightmapTerrainData>|undefined} A promise for upsampled heightmap terrain data for the descendant tile,
- *          or undefined if too many asynchronous upsample operations are in progress and the request has been
- *          deferred.
+ * @param {TilingScheme} tilingScheme 此地形数据的平铺方案。
+ * @param {number} thisX 平铺方案中此瓦片的 X 坐标。
+ * @param {number} thisY 此瓦片在切片方案中的 Y 坐标。
+ * @param {number} thisLevel 此瓦片在平铺方案中的级别。
+ * @param {number} descendantX 我们正在上采样的后代瓦片的平铺方案中的 X 坐标。
+ * @param {number} descendantY 我们正在进行上采样的后代瓦片的平铺方案中的 Y 坐标。
+ * @param {number} descendantLevel 我们正在上采样的后代瓦片的平铺方案中的级别。
+ * @returns {Promise<HeightmapTerrainData>|undefined} 为后代瓦片提供上采样高度贴图地形数据的承诺，
+ * 或 undefined 如果正在进行的异步 Upsample 操作过多，并且请求已被
+ * 递延。
  */
 GoogleEarthEnterpriseTerrainData.prototype.upsample = function (
   tilingScheme,
@@ -382,16 +382,16 @@ GoogleEarthEnterpriseTerrainData.prototype.upsample = function (
 };
 
 /**
- * Determines if a given child tile is available, based on the
- * {@link HeightmapTerrainData.childTileMask}.  The given child tile coordinates are assumed
- * to be one of the four children of this tile.  If non-child tile coordinates are
- * given, the availability of the southeast child tile is returned.
+ * 根据
+ * {@link HeightmapTerrainData.childTileMask} 中。 假定给定的子图块坐标
+ * 成为此牌的四个子牌之一。 如果非子图块坐标为
+ * 给定，则返回 southeast child tile 的可用性。
  *
- * @param {number} thisX The tile X coordinate of this (the parent) tile.
- * @param {number} thisY The tile Y coordinate of this (the parent) tile.
- * @param {number} childX The tile X coordinate of the child tile to check for availability.
- * @param {number} childY The tile Y coordinate of the child tile to check for availability.
- * @returns {boolean} True if the child tile is available; otherwise, false.
+ * @param {number} thisX 此（父）瓦片的瓦片 X 坐标。
+ * @param {number} thisY 此（父）瓦片的瓦片 Y 坐标。
+ * @param {number} childX 用于检查可用性的子磁贴的磁贴 X 坐标。
+ * @param {number} childY 要检查可用性的子磁贴的磁贴 Y 坐标。
+ * @returns {boolean} 如果子磁贴可用，则为 True;否则为 false。
  */
 GoogleEarthEnterpriseTerrainData.prototype.isChildAvailable = function (
   thisX,
@@ -418,12 +418,12 @@ GoogleEarthEnterpriseTerrainData.prototype.isChildAvailable = function (
 };
 
 /**
- * Gets a value indicating whether or not this terrain data was created by upsampling lower resolution
- * terrain data.  If this value is false, the data was obtained from some other source, such
- * as by downloading it from a remote server.  This method should return true for instances
- * returned from a call to {@link HeightmapTerrainData#upsample}.
+ * 获取一个值，该值指示此地形数据是否是通过对较低分辨率的上采样创建的
+ * 地形数据。 如果此值为 false，则数据是从其他来源获取的，例如
+ * 从远程服务器下载。 对于实例，此方法应返回 true
+ * 从调用 {@link HeightmapTerrainData#upsample} 返回。
  *
- * @returns {boolean} True if this instance was created by upsampling; otherwise, false.
+ * @returns {boolean} 如果此实例是通过上采样创建的，则为 True;否则为 false。
  */
 GoogleEarthEnterpriseTerrainData.prototype.wasCreatedByUpsampling = function () {
   return this._createdByUpsampling;

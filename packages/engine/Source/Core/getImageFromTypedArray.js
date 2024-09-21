@@ -1,10 +1,10 @@
 /**
- * Constructs an image from a TypedArray of pixel values
+ * 从像素值的 TypedArray 构造图像
  *
- * @param {Uint8Array} typedArray The array of pixel values
- * @param {number} width The width of the image to create
- * @param {number} height The height of the image to create
- * @returns {HTMLCanvasElement} A new canvas containing the constructed image
+ * @param {Uint8Array} typedArray 像素值数组
+ * @param {number} width 要创建的图片宽度
+ * @param {number} height 要创建的图片高度
+ * @returns {HTMLCanvasElement} 包含构造图像的新画布
  *
  * @private
  */

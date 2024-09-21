@@ -26,20 +26,20 @@ const cos = Math.cos;
 const sin = Math.sin;
 
 /**
- * A description of an ellipsoid centered at the origin.
+ * 以原点为中心的椭球体的描述。
  *
  * @alias EllipsoidGeometry
  * @constructor
  *
  * @param {object} [options] 对象，具有以下属性:
- * @param {Cartesian3} [options.radii=Cartesian3(1.0, 1.0, 1.0)] The radii of the ellipsoid in the x, y, and z directions.
- * @param {Cartesian3} [options.innerRadii=options.radii] The inner radii of the ellipsoid in the x, y, and z directions.
- * @param {number} [options.minimumClock=0.0] The minimum angle lying in the xy-plane measured from the positive x-axis and toward the positive y-axis.
- * @param {number} [options.maximumClock=2*PI] The maximum angle lying in the xy-plane measured from the positive x-axis and toward the positive y-axis.
- * @param {number} [options.minimumCone=0.0] The minimum angle measured from the positive z-axis and toward the negative z-axis.
- * @param {number} [options.maximumCone=PI] The maximum angle measured from the positive z-axis and toward the negative z-axis.
- * @param {number} [options.stackPartitions=64] The number of times to partition the ellipsoid into stacks.
- * @param {number} [options.slicePartitions=64] The number of times to partition the ellipsoid into radial slices.
+ * @param {Cartesian3} [options.radii=Cartesian3(1.0, 1.0, 1.0)] 椭球体在 x、y 和 z 方向上的半径。
+ * @param {Cartesian3} [options.innerRadii=options.radii] 椭球体在 x、y 和 z 方向上的内半径。
+ * @param {number} [options.minimumClock=0.0] 位于 xy 平面上从正 x 轴到正 y 轴测量的最小角度。
+ * @param {number} [options.maximumClock=2*PI] 位于 xy 平面上从正 x 轴到正 y 轴测量的最大角度。
+ * @param {number} [options.minimumCone=0.0] 从正 z 轴到负 z 轴测量的最小角度。
+ * @param {number} [options.maximumCone=PI] 从正 z 轴到负 z 轴测量的最大角度。
+ * @param {number} [options.stackPartitions=64] 将椭球体划分为堆栈的次数。
+ * @param {number} [options.slicePartitions=64] 将椭球体划分为径向切片的次数。
  * @param {VertexFormat} [options.vertexFormat=VertexFormat.DEFAULT] 要计算的顶点属性。
  *
  * @exception {DeveloperError} options.slicePartitions cannot be less than three.
@@ -163,7 +163,7 @@ const scratchOptions = {
  * @param {number[]} array 打包数组。
  * @param {number} [startingIndex=0] 要解压缩的元素的起始索引。
  * @param {EllipsoidGeometry} [result] 要在其中存储结果的对象。
- * @returns {EllipsoidGeometry} 修改后的结果参数 or a new EllipsoidGeometry instance if one was not provided.
+ * @returns {EllipsoidGeometry} 修改后的结果参数 或新的 EllipsoidGeometry 实例（如果未提供）。
  */
 EllipsoidGeometry.unpack = function (array, startingIndex, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -223,9 +223,9 @@ EllipsoidGeometry.unpack = function (array, startingIndex, result) {
 };
 
 /**
- * Computes the geometric representation of an ellipsoid, including its vertices, indices, and a bounding sphere.
+ * 计算椭球体的几何表示，包括其顶点、索引和边界球体。
  *
- * @param {EllipsoidGeometry} ellipsoidGeometry A description of the ellipsoid.
+ * @param {EllipsoidGeometry} ellipsoidGeometry 椭球体的描述。
  * @returns {Geometry|undefined} 计算的顶点和索引。
  */
 EllipsoidGeometry.createGeometry = function (ellipsoidGeometry) {
@@ -630,7 +630,7 @@ EllipsoidGeometry.createGeometry = function (ellipsoidGeometry) {
 let unitEllipsoidGeometry;
 
 /**
- * Returns the geometric representation of a unit ellipsoid, including its vertices, indices, and a bounding sphere.
+ * 返回单位椭球体的几何表示，包括其顶点、索引和边界球体。
  * @returns {Geometry} 计算的顶点和索引。
  *
  * @private

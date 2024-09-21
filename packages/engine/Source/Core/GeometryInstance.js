@@ -4,19 +4,19 @@ import DeveloperError from "./DeveloperError.js";
 import Matrix4 from "./Matrix4.js";
 
 /**
- * Geometry instancing allows one {@link Geometry} object to be positions in several
- * different locations and colored uniquely.  For example, one {@link BoxGeometry} can
- * be instanced several times, each with a different <code>modelMatrix</code> to change
- * its position, rotation, and scale.
+ * 几何实例化允许一个 {@link Geometry} 对象位于多个
+ * 不同的位置和独特的颜色。 例如，一个 {@link BoxGeometry} 可以
+ * 实例化多次，每次实例化都有不同的 <code>modelMatrix</code> 进行更改
+ * 它的位置、旋转和缩放。
  *
  * @alias GeometryInstance
  * @constructor
  *
- * @param {object} options 对象，具有以下属性:
- * @param {Geometry|GeometryFactory} options.geometry The geometry to instance.
- * @param {Matrix4} [options.modelMatrix=Matrix4.IDENTITY] The model matrix that transforms to transform the geometry from model to world coordinates.
- * @param {object} [options.id] A user-defined object to return when the instance is picked with {@link Scene#pick} or get/set per-instance attributes with {@link Primitive#getGeometryInstanceAttributes}.
- * @param {object} [options.attributes] Per-instance attributes like a show or color attribute shown in the example below.
+ * @param {object} options 对象，具有以下属性：
+ * @param {几何|GeometryFactory} options.geometry 要实例的几何体。
+ * @param {Matrix4} [options.modelMatrix=Matrix4.IDENTITY] 转换以将几何体从模型坐标转换为世界坐标的模型矩阵。
+ * @param {object} [options.id] 使用 {@link Scene#pick} 选取实例或使用 {@link Primitive#getGeometryInstanceAttributes} 获取/设置每个实例的属性时返回的用户定义对象。
+ * @param {object} [options.attributes] 每个实例的属性，如以下示例中所示的 show 或 color 属性。
  *
  *
  * @example
@@ -58,7 +58,7 @@ function GeometryInstance(options) {
   //>>includeEnd('debug');
 
   /**
-   * The geometry being instanced.
+   * 正在实例化的几何体。
    *
    * @type Geometry
    *
@@ -66,9 +66,9 @@ function GeometryInstance(options) {
   this.geometry = options.geometry;
 
   /**
-   * The 4x4 transformation matrix that transforms the geometry from model to world coordinates.
-   * When this is the identity matrix, the geometry is drawn in world coordinates, i.e., Earth's WGS84 coordinates.
-   * Local reference frames can be used by providing a different transformation matrix, like that returned
+   * 将几何体从模型转换为世界坐标的 4x4 转换矩阵。
+   * 当这是单位矩阵时，几何图形在世界坐标中绘制，即地球的 WGS84 坐标。
+   * 可以通过提供不同的转换矩阵来使用本地参考帧，就像返回的矩阵一样
    * by {@link Transforms.eastNorthUpToFixedFrame}.
    *
    * @type Matrix4
@@ -80,7 +80,7 @@ function GeometryInstance(options) {
   );
 
   /**
-   * User-defined object returned when the instance is picked or used to get/set per-instance attributes.
+   * 选取实例或用于获取/设置每个实例属性时返回的用户定义对象。
    *
    * @type {object|undefined}
    *
@@ -92,15 +92,15 @@ function GeometryInstance(options) {
   this.id = options.id;
 
   /**
-   * Used for picking primitives that wrap geometry instances.
+   * 用于拾取包裹几何体实例的基元。
    *
    * @private
    */
   this.pickPrimitive = options.pickPrimitive;
 
   /**
-   * Per-instance attributes like {@link ColorGeometryInstanceAttribute} or {@link ShowGeometryInstanceAttribute}.
-   * {@link Geometry} attributes varying per vertex; these attributes are constant for the entire instance.
+   * 每个实例的属性，如 {@link ColorGeometryInstanceAttribute} 或 {@link ShowGeometryInstanceAttribute}。
+   * {@link Geometry} 属性因顶点而异;这些属性对于整个实例都是常量。
    *
    * @type {object}
    *

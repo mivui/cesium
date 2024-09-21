@@ -44,17 +44,17 @@ const WALL_INITIAL_MIN_HEIGHT = 0.0;
 const WALL_INITIAL_MAX_HEIGHT = 1000.0;
 
 /**
- * A description of a polyline on terrain or 3D Tiles. Only to be used with {@link GroundPolylinePrimitive}.
+ * 地形或 3D 瓦片上的折线的描述。只能与 {@link GroundPolylinePrimitive} 一起使用。
  *
  * @alias GroundPolylineGeometry
  * @constructor
  *
- * @param {object} options Options with the following properties:
- * @param {Cartesian3[]} options.positions An array of {@link Cartesian3} defining the polyline's points. Heights above the ellipsoid will be ignored.
- * @param {number} [options.width=1.0] The screen space width in pixels.
- * @param {number} [options.granularity=9999.0] The distance interval in meters used for interpolating options.points. Defaults to 9999.0 meters. Zero indicates no interpolation.
- * @param {boolean} [options.loop=false] Whether during geometry creation a line segment will be added between the last and first line positions to make this Polyline a loop.
- * @param {ArcType} [options.arcType=ArcType.GEODESIC] The type of line the polyline segments must follow. Valid options are {@link ArcType.GEODESIC} and {@link ArcType.RHUMB}.
+ * @param {object} options 具有以下属性的选项：
+ * @param {Cartesian3[]} options.positions 定义折线点的 {@link Cartesian3} 数组。椭球体上方的高度将被忽略。
+ * @param {number} [options.width=1.0] 屏幕空间宽度，以像素为单位。
+ * @param {number} [options.granularity=9999.0] 用于插值 options.points 的距离间隔（以米为单位）。默认为 9999.0 米。零表示无插值。
+ * @param {boolean} [options.loop=false] 在创建几何图形时，是否会在最后一行和第一行位置之间添加一条线段，使这条多段线成为一个循环。
+ * @param {ArcType} [options.arcType=ArcType.GEODESIC] 多段线段必须遵循的线类型。有效选项为 {@link ArcType.GEODESIC} 和 {@link ArcType.RHUMB}。
  *
  * @exception {DeveloperError} At least two positions are required.
  *
@@ -91,7 +91,7 @@ function GroundPolylineGeometry(options) {
   //>>includeEnd('debug');
 
   /**
-   * The screen space width in pixels.
+   * 屏幕空间宽度（以像素为单位）。
    * @type {number}
    */
   this.width = defaultValue(options.width, 1.0); // Doesn't get packed, not necessary for computing geometry.
@@ -99,23 +99,23 @@ function GroundPolylineGeometry(options) {
   this._positions = positions;
 
   /**
-   * The distance interval used for interpolating options.points. Zero indicates no interpolation.
-   * Default of 9999.0 allows centimeter accuracy with 32 bit floating point.
+   * 用于插值 options.points 的距离间隔。零表示无插值。
+   * 默认值 9999.0 允许厘米级精度和 32 位浮点。
    * @type {boolean}
    * @default 9999.0
    */
   this.granularity = defaultValue(options.granularity, 9999.0);
 
   /**
-   * Whether during geometry creation a line segment will be added between the last and first line positions to make this Polyline a loop.
-   * If the geometry has two positions this parameter will be ignored.
+   * 在创建几何图形时，是否在最后一条和第一条线位置之间添加一条线段，以使该多段线成为循环。
+   * 如果几何体有两个位置，则此参数将被忽略。
    * @type {boolean}
    * @default false
    */
   this.loop = defaultValue(options.loop, false);
 
   /**
-   * The type of path the polyline must follow. Valid options are {@link ArcType.GEODESIC} and {@link ArcType.RHUMB}.
+   * 多段线必须遵循的路径类型。有效选项为 {@link ArcType.GEODESIC} 和 {@link ArcType.RHUMB}。
    * @type {ArcType}
    * @default ArcType.GEODESIC
    */
@@ -156,11 +156,11 @@ Object.defineProperties(GroundPolylineGeometry.prototype, {
 });
 
 /**
- * Set the GroundPolylineGeometry's projection and ellipsoid.
- * Used by GroundPolylinePrimitive to signal scene information to the geometry for generating 2D attributes.
+ * 设置 GroundPolylineGeometry 的投影和椭球体。
+ * 由 GroundPolylinePrimitive 用于向几何体发送场景信息信号，以生成 2D 属性。
  *
- * @param {GroundPolylineGeometry} groundPolylineGeometry GroundPolylinGeometry describing a polyline on terrain or 3D Tiles.
- * @param {Projection} mapProjection A MapProjection used for projecting cartographic coordinates to 2D.
+ * @param {GroundPolylineGeometry} groundPolylineGeometry GroundPolylinGeometry 描述地形或 3D 瓦片上的折线。
+ * @param {Projection} mapProjection 用于将制图坐标投影到 2D 的 MapProjection。
  * @private
  */
 GroundPolylineGeometry.setProjectionAndEllipsoid = function (
@@ -448,9 +448,9 @@ const cartographicScratch0 = new Cartographic();
 const cartographicScratch1 = new Cartographic();
 const cartographicIntersectionScratch = new Cartographic();
 /**
- * Computes shadow volumes for the ground polyline, consisting of its vertices, indices, and a bounding sphere.
- * Vertices are "fat," packing all the data needed in each volume to describe a line on terrain or 3D Tiles.
- * Should not be called independent of {@link GroundPolylinePrimitive}.
+ * 计算地面多段线的阴影体积，由其顶点、索引和边界球体组成。
+ * 顶点是“胖的”，它包含每个体积中描述地形或 3D 瓦片上的线条所需的所有数据。
+ * 不应独立于 {@link GroundPolylinePrimitive} 调用。
  *
  * @param {GroundPolylineGeometry} groundPolylineGeometry
  * @private
@@ -1644,15 +1644,15 @@ function getVec4GeometryAttribute(typedArray) {
 }
 
 /**
- * Approximates an ellipsoid-tangent vector in 2D by projecting the end point into 2D.
- * Exposed for testing.
+ * 通过将终点投影到 2D 中，在 2D 中近似椭球切线矢量。
+ * 暴露以进行测试。
  *
- * @param {MapProjection} projection Map Projection for projecting coordinates to 2D.
- * @param {Cartographic} cartographic The cartographic origin point of the normal.
- *   Used to check if the normal crosses the IDL during projection.
- * @param {Cartesian3} normal The normal in 3D.
- * @param {Cartesian3} projectedPosition The projected origin point of the normal in 2D.
- * @param {Cartesian3} result Result parameter on which to store the projected normal.
+ * @param {MapProjection} projection 用于将坐标投影到 2D 的 Map Projection。
+ * @param {Cartographic} cartographic 法线的制图原点。
+ * 用于检查投影期间法线是否与 IDL 交叉。
+ * @param {Cartesian3} normal 3D 中的法线。
+ * @param {Cartesian3} projectedPosition 2D 中法线的投影原点。
+ * @param {Cartesian3} result Result 参数，用于存储投影法线。
  * @private
  */
 GroundPolylineGeometry._projectNormal = projectNormal;

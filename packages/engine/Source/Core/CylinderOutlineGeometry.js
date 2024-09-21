@@ -17,23 +17,23 @@ import PrimitiveType from "./PrimitiveType.js";
 const radiusScratch = new Cartesian2();
 
 /**
- * A description of the outline of a cylinder.
+ * 圆柱体轮廓的描述。
  *
  * @alias CylinderOutlineGeometry
  * @constructor
  *
  * @param {object} options 对象，具有以下属性:
- * @param {number} options.length The length of the cylinder.
- * @param {number} options.topRadius The radius of the top of the cylinder.
- * @param {number} options.bottomRadius The radius of the bottom of the cylinder.
- * @param {number} [options.slices=128] The number of edges around the perimeter of the cylinder.
- * @param {number} [options.numberOfVerticalLines=16] Number of lines to draw between the top and bottom surfaces of the cylinder.
+ * @param {number} options.length 圆柱体的长度。
+ * @param {number} options.topRadius 圆柱体顶部的半径。
+ * @param {number} options.bottomRadius 圆柱体底部的半径。
+ * @param {number} [options.slices=128] 圆柱体周边的边数。
+ * @param {number} [options.numberOfVerticalLines=16] 在圆柱体的顶面和底面之间绘制的线数。
  *
- * @exception {DeveloperError} options.length must be greater than 0.
- * @exception {DeveloperError} options.topRadius must be greater than 0.
- * @exception {DeveloperError} options.bottomRadius must be greater than 0.
- * @exception {DeveloperError} bottomRadius and topRadius cannot both equal 0.
- * @exception {DeveloperError} options.slices must be greater than or equal to 3.
+ * @exception {DeveloperError} options.length 必须大于 0。
+ * @exception {DeveloperError} options.topRadius 必须大于 0。
+ * @exception {DeveloperError} options.bottomRadius 必须大于 0。
+ * @exception {DeveloperError} bottomRadius 和 topRadius 不能都等于 0。
+ * @exception {DeveloperError} options.slices 必须大于或等于 3。
  *
  * @see CylinderOutlineGeometry.createGeometry
  *
@@ -130,7 +130,7 @@ const scratchOptions = {
  * @param {number[]} array 打包数组。
  * @param {number} [startingIndex=0] 要解压缩的元素的起始索引。
  * @param {CylinderOutlineGeometry} [result] 要在其中存储结果的对象。
- * @returns {CylinderOutlineGeometry} 修改后的结果参数 or a new CylinderOutlineGeometry instance if one was not provided.
+ * @returns {CylinderOutlineGeometry} 修改后的结果参数 或新的 CylinderOutlineGeometry 实例（如果未提供）。
  */
 CylinderOutlineGeometry.unpack = function (array, startingIndex, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -169,9 +169,9 @@ CylinderOutlineGeometry.unpack = function (array, startingIndex, result) {
 };
 
 /**
- * Computes the geometric representation of an outline of a cylinder, including its vertices, indices, and a bounding sphere.
+ * 计算圆柱体轮廓的几何表示，包括其顶点、索引和边界球体。
  *
- * @param {CylinderOutlineGeometry} cylinderGeometry A description of the cylinder outline.
+ * @param {CylinderOutlineGeometry} cylinderGeometry 圆柱轮廓的描述。
  * @returns {Geometry|undefined} 计算的顶点和索引。
  */
 CylinderOutlineGeometry.createGeometry = function (cylinderGeometry) {

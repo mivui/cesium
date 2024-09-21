@@ -3,14 +3,14 @@ import DeveloperError from "./DeveloperError.js";
 import oneTimeWarning from "./oneTimeWarning.js";
 
 /**
- * Logs a deprecation message to the console.  Use this function instead of
- * <code>console.log</code> directly since this does not log duplicate messages
- * unless it is called from multiple workers.
+ * 将弃用消息记录到控制台。 使用此功能代替
+ * 直接<code>console.log</code>，因为这不会记录重复的消息
+ * 除非它从多个 worker 调用。
  *
  * @function deprecationWarning
  *
- * @param {string} identifier The unique identifier for this deprecated API.
- * @param {string} message The message to log to the console.
+ * @param {string} identifier 此已弃用 API 的唯一标识符。
+ * @param {string} message 要记录到控制台的消息。
  *
  * @example
  * // Deprecated function or class

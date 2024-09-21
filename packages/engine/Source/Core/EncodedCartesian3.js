@@ -3,11 +3,11 @@ import Check from "./Check.js";
 import defined from "./defined.js";
 
 /**
- * A fixed-point encoding of a {@link Cartesian3} with 64-bit floating-point components, as two {@link Cartesian3}
- * values that, when converted to 32-bit floating-point and added, approximate the original input.
+ * 具有 64 位浮点分量的 {@link Cartesian3} 的定点编码，作为两个 {@link Cartesian3}
+ * 值，当转换为 32 位浮点并添加时，近似于原始输入。
  * <p>
- * This is used to encode positions in vertex buffers for rendering without jittering artifacts
- * as described in {@link http://help.agi.com/AGIComponents/html/BlogPrecisionsPrecisions.htm|Precisions, Precisions}.
+ * 这用于对顶点缓冲区中的位置进行编码，以便在渲染时不会产生抖动伪影
+ * 如 {@link http://help.agi.com/AGIComponents/html/BlogPrecisionsPrecisions.htm|Precisions, Precisions}.
  * </p>
  *
  * @alias EncodedCartesian3
@@ -17,7 +17,7 @@ import defined from "./defined.js";
  */
 function EncodedCartesian3() {
   /**
-   * The high bits for each component.  Bits 0 to 22 store the whole value.  Bits 23 to 31 are not used.
+   * 每个组件的高位。 位 0 到 22 存储整个值。 不使用位 23 到 31。
    *
    * @type {Cartesian3}
    * @default {@link Cartesian3.ZERO}
@@ -25,7 +25,7 @@ function EncodedCartesian3() {
   this.high = Cartesian3.clone(Cartesian3.ZERO);
 
   /**
-   * The low bits for each component.  Bits 7 to 22 store the whole value, and bits 0 to 6 store the fraction.  Bits 23 to 31 are not used.
+   * 每个组件的低位。 第 7 位到第 22 位存储整个值，第 0 位到第 6 位存储小数。 不使用位 23 到 31。
    *
    * @type {Cartesian3}
    * @default {@link Cartesian3.ZERO}
@@ -34,16 +34,16 @@ function EncodedCartesian3() {
 }
 
 /**
- * Encodes a 64-bit floating-point value as two floating-point values that, when converted to
- * 32-bit floating-point and added, approximate the original input.  The returned object
- * has <code>high</code> and <code>low</code> properties for the high and low bits, respectively.
+ * 将 64 位浮点值编码为两个浮点值，当转换为
+ * 32 位浮点并添加，近似于原始输入。 返回的对象
+ * 分别具有 high 和 low 位的 <code>high</code> 和 <code>low</code> 属性。
  * <p>
- * The fixed-point encoding follows {@link http://help.agi.com/AGIComponents/html/BlogPrecisionsPrecisions.htm|Precisions, Precisions}.
+ * 定点编码遵循 {@link http://help.agi.com/AGIComponents/html/BlogPrecisionsPrecisions.htm|Precisions, Precisions}.
  * </p>
  *
- * @param {number} value The floating-point value to encode.
+ * @param {number} value 要编码的浮点值。
  * @param {object} [result] 要在其上存储结果的对象。
- * @returns {object} 修改后的结果参数 or a new instance if one was not provided.
+ * @returns {object} 修改后的结果参数或新实例（如果未提供）。
  *
  * @example
  * const value = 1234567.1234567;
@@ -81,15 +81,15 @@ const scratchEncode = {
 };
 
 /**
- * Encodes a {@link Cartesian3} with 64-bit floating-point components as two {@link Cartesian3}
- * values that, when converted to 32-bit floating-point and added, approximate the original input.
+ * 将具有 64 位浮点分量的 {@link Cartesian3} 编码为两个 {@link Cartesian3}
+ * 值，当转换为 32 位浮点并添加时，近似于原始输入。
  * <p>
- * The fixed-point encoding follows {@link https://help.agi.com/AGIComponents/html/BlogPrecisionsPrecisions.htm|Precisions, Precisions}.
+ * 定点编码遵循 {@link https://help.agi.com/AGIComponents/html/BlogPrecisionsPrecisions.htm|Precisions, Precisions}.
  * </p>
  *
- * @param {Cartesian3} cartesian The cartesian to encode.
+ * @param {Cartesian3} cartesian 要编码的笛卡尔。
  * @param {EncodedCartesian3} [result] 要在其上存储结果的对象。
- * @returns {EncodedCartesian3} 修改后的结果参数 or a new EncodedCartesian3 instance if one was not provided.
+ * @returns {EncodedCartesian3} 修改后的结果参数或新的 EncodedCartesian3 实例（如果未提供）。
  *
  * @example
  * const cart = new Cesium.Cartesian3(-10000000.0, 0.0, 10000000.0);
@@ -125,15 +125,15 @@ EncodedCartesian3.fromCartesian = function (cartesian, result) {
 const encodedP = new EncodedCartesian3();
 
 /**
- * Encodes the provided <code>cartesian</code>, and writes it to an array with <code>high</code>
- * components followed by <code>low</code> components, i.e. <code>[high.x, high.y, high.z, low.x, low.y, low.z]</code>.
+ * 对提供的<code>笛卡尔进行</code>编码，并将其写入一个具有 <code>high</code>
+ * 分量后跟<code>低</code>分量，即 <code>[high.x， high.y， high.z， low.x， low.y， low.z]。</code>
  * <p>
- * This is used to create interleaved high-precision position vertex attributes.
+ * 用于创建交错的高精度位置顶点属性。
  * </p>
  *
- * @param {Cartesian3} cartesian The cartesian to encode.
- * @param {number[]} cartesianArray The array to write to.
- * @param {number} index The index into the array to start writing.  Six elements will be written.
+ * @param {Cartesian3} cartesian 要编码的笛卡尔。
+ * @param {number[]} cartesianArray 要写入的数组。
+ * @param {number} index 数组中的索引以开始写入。 将编写六个要素。
  *
  * @exception {DeveloperError} index must be a number greater than or equal to 0.
  *

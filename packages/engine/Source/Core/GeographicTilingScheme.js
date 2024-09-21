@@ -8,21 +8,21 @@ import CesiumMath from "./Math.js";
 import Rectangle from "./Rectangle.js";
 
 /**
- * A tiling scheme for geometry referenced to a simple {@link GeographicProjection} where
- * longitude and latitude are directly mapped to X and Y.  This projection is commonly
- * known as geographic, equirectangular, equidistant cylindrical, or plate carrée.
+ * 引用简单 {@link GeographicProjection} 的几何图形的平铺方案，其中
+ * 经度和纬度直接映射到 X 和 Y。 这种投影通常
+ * 称为地理、等距矩形、等距圆柱形或板状圆柱体。
  *
  * @alias GeographicTilingScheme
  * @constructor
  *
- * @param {object} [options] 对象，具有以下属性:
- * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] The ellipsoid whose surface is being tiled. Defaults to
- * the default ellipsoid.
- * @param {Rectangle} [options.rectangle=Rectangle.MAX_VALUE] The rectangle, in radians, covered by the tiling scheme.
- * @param {number} [options.numberOfLevelZeroTilesX=2] The number of tiles in the X direction at level zero of
- * the tile tree.
- * @param {number} [options.numberOfLevelZeroTilesY=1] The number of tiles in the Y direction at level zero of
- * the tile tree.
+ * @param {object} [options] 对象，具有以下属性：
+ * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] 其表面正在平铺的椭球体。默认为
+ * 默认椭球体。
+ * @param {Rectangle} [options.rectangle=Rectangle.MAX_VALUE] 切片方案覆盖的矩形（以弧度为单位）。
+ * @param {number} [options.numberOfLevelZeroTilesX=2] 在零级
+ * 瓦片树。
+ * @param {number} [options.numberOfLevelZeroTilesY=1] 在零级
+ * 瓦片树。
  */
 function GeographicTilingScheme(options) {
   options = defaultValue(options, defaultValue.EMPTY_OBJECT);
@@ -42,7 +42,7 @@ function GeographicTilingScheme(options) {
 
 Object.defineProperties(GeographicTilingScheme.prototype, {
   /**
-   * Gets the ellipsoid that is tiled by this tiling scheme.
+   * 获取此平铺方案平铺的椭球体。
    * @memberof GeographicTilingScheme.prototype
    * @type {Ellipsoid}
    */
@@ -53,7 +53,7 @@ Object.defineProperties(GeographicTilingScheme.prototype, {
   },
 
   /**
-   * Gets the rectangle, in radians, covered by this tiling scheme.
+   * 获取此平铺方案覆盖的矩形（以弧度为单位）。
    * @memberof GeographicTilingScheme.prototype
    * @type {Rectangle}
    */
@@ -64,7 +64,7 @@ Object.defineProperties(GeographicTilingScheme.prototype, {
   },
 
   /**
-   * Gets the map projection used by this tiling scheme.
+   * 获取此切片方案使用的地图投影。
    * @memberof GeographicTilingScheme.prototype
    * @type {MapProjection}
    */
@@ -76,34 +76,34 @@ Object.defineProperties(GeographicTilingScheme.prototype, {
 });
 
 /**
- * Gets the total number of tiles in the X direction at a specified level-of-detail.
+ * 获取指定细节级别 X 方向的图块总数。
  *
- * @param {number} level The level-of-detail.
- * @returns {number} The number of tiles in the X direction at the given level.
+ * @param {number} level 细节级别。
+ * @returns {number} 给定级别 X 方向的图块数量。
  */
 GeographicTilingScheme.prototype.getNumberOfXTilesAtLevel = function (level) {
   return this._numberOfLevelZeroTilesX << level;
 };
 
 /**
- * Gets the total number of tiles in the Y direction at a specified level-of-detail.
+ * 获取指定细节级别 Y 方向的平铺总数。
  *
- * @param {number} level The level-of-detail.
- * @returns {number} The number of tiles in the Y direction at the given level.
+ * @param {number} level 细节级别。
+ * @returns {number} 给定级别上 Y 方向的图块数量。
  */
 GeographicTilingScheme.prototype.getNumberOfYTilesAtLevel = function (level) {
   return this._numberOfLevelZeroTilesY << level;
 };
 
 /**
- * Transforms a rectangle specified in geodetic radians to the native coordinate system
- * of this tiling scheme.
+ * 将以大地弧度中指定的矩形转换为本地坐标系
+ * 的 Package。
  *
- * @param {Rectangle} rectangle The rectangle to transform.
- * @param {Rectangle} [result] The instance to which to copy the result, or undefined if a new instance
- *        should be created.
- * @returns {Rectangle} The specified 'result', or a new object containing the native rectangle if 'result'
- *          is undefined.
+ * @param {Rectangle} rectangle 要转换的矩形。
+ * @param {Rectangle} [result] 要将结果复制到的实例，如果是新实例，则为 undefined
+ * 应创建。
+ * @returns {Rectangle} 指定的 'result'，或者包含 'result' 的原生矩形的新对象
+ * 未定义。
  */
 GeographicTilingScheme.prototype.rectangleToNativeRectangle = function (
   rectangle,
@@ -130,16 +130,16 @@ GeographicTilingScheme.prototype.rectangleToNativeRectangle = function (
 };
 
 /**
- * Converts tile x, y coordinates and level to a rectangle expressed in the native coordinates
- * of the tiling scheme.
+ * 将图块 x、y 坐标和标高转换为以本机坐标表示的矩形
+ * 的平铺方案。
  *
- * @param {number} x The integer x coordinate of the tile.
- * @param {number} y The integer y coordinate of the tile.
- * @param {number} level The tile level-of-detail.  Zero is the least detailed.
- * @param {object} [result] The instance to which to copy the result, or undefined if a new instance
- *        should be created.
- * @returns {Rectangle} The specified 'result', or a new object containing the rectangle
- *          if 'result' is undefined.
+ * @param {number} x 瓦片的整数 x 坐标。
+ * @param {number} y 瓦片的整数 y 坐标。
+ * @param {number} level 瓦片细节级别。 零是最不详细的。
+ * @param {object} [result] 要将结果复制到的实例，如果是新实例，则为 undefined
+ * 应创建。
+ * @returns {Rectangle} 指定的 'result'，或包含矩形的新对象
+ * 如果 'result' 未定义。
  */
 GeographicTilingScheme.prototype.tileXYToNativeRectangle = function (
   x,
@@ -156,15 +156,15 @@ GeographicTilingScheme.prototype.tileXYToNativeRectangle = function (
 };
 
 /**
- * Converts tile x, y coordinates and level to a cartographic rectangle in radians.
+ * 将平铺 x、y 坐标和级别转换为以弧度为单位的制图矩形。
  *
- * @param {number} x The integer x coordinate of the tile.
- * @param {number} y The integer y coordinate of the tile.
- * @param {number} level The tile level-of-detail.  Zero is the least detailed.
- * @param {object} [result] The instance to which to copy the result, or undefined if a new instance
- *        should be created.
- * @returns {Rectangle} The specified 'result', or a new object containing the rectangle
- *          if 'result' is undefined.
+ * @param {number} x 瓦片的整数 x 坐标。
+ * @param {number} y 瓦片的整数 y 坐标。
+ * @param {number} level 瓦片细节级别。 零是最不详细的。
+ * @param {object} [result] 要将结果复制到的实例，如果是新实例，则为 undefined
+ * 应创建。
+ * @returns {Rectangle} 指定的 'result'，或包含矩形的新对象
+ * 如果 'result' 未定义。
  */
 GeographicTilingScheme.prototype.tileXYToRectangle = function (
   x,
@@ -197,15 +197,15 @@ GeographicTilingScheme.prototype.tileXYToRectangle = function (
 };
 
 /**
- * Calculates the tile x, y coordinates of the tile containing
- * a given cartographic position.
+ * 计算包含
+ * 给定的制图位置。
  *
- * @param {Cartographic} position The position.
- * @param {number} level The tile level-of-detail.  Zero is the least detailed.
- * @param {Cartesian2} [result] The instance to which to copy the result, or undefined if a new instance
- *        should be created.
- * @returns {Cartesian2} The specified 'result', or a new object containing the tile x, y coordinates
- *          if 'result' is undefined.
+ * @param {制图} 位置 位置。
+ * @param {number} level 瓦片细节级别。 零是最不详细的。
+ * @param {Cartesian2} [result] 要将结果复制到的实例，如果是新实例，则为 undefined
+ * 应创建。
+ * @returns {Cartesian2} 指定的 'result'，或包含图块 x、y 坐标的新对象
+ * 如果 'result' 未定义。
  */
 GeographicTilingScheme.prototype.positionToTileXY = function (
   position,

@@ -386,10 +386,10 @@ Object.defineProperties(EllipsoidGeodesic.prototype, {
 });
 
 /**
- * Sets the start and end points of the geodesic
+ * 设置测地线的起点和终点
  *
- * @param {Cartographic} start The initial planetodetic point on the path.
- * @param {Cartographic} end The final planetodetic point on the path.
+ * @param {Cartographic} start 路径上的初始行星点。
+ * @param {Cartographic} end 路径上的最后一个行星点。
  */
 EllipsoidGeodesic.prototype.setEndPoints = function (start, end) {
   //>>includeStart('debug', pragmas.debug);
@@ -401,11 +401,11 @@ EllipsoidGeodesic.prototype.setEndPoints = function (start, end) {
 };
 
 /**
- * Provides the location of a point at the indicated portion along the geodesic.
+ * 提供沿测地线的指示部分的点的位置。
  *
- * @param {number} fraction The portion of the distance between the initial and final points.
- * @param {Cartographic} [result] The object in which to store the result.
- * @returns {Cartographic} The location of the point along the geodesic.
+ * @param {number} fraction 初始点和最终点之间的距离部分。
+ * @param {Cartographic} [result] 存储结果的对象。
+ * @returns {制图} 沿测地线的点的位置。
  */
 EllipsoidGeodesic.prototype.interpolateUsingFraction = function (
   fraction,
@@ -418,11 +418,11 @@ EllipsoidGeodesic.prototype.interpolateUsingFraction = function (
 };
 
 /**
- * Provides the location of a point at the indicated distance along the geodesic.
+ * 提供沿测地线的指示距离处的点的位置。
  *
- * @param {number} distance The distance from the inital point to the point of interest along the geodesic
- * @param {Cartographic} [result] The object in which to store the result.
- * @returns {Cartographic} The location of the point along the geodesic.
+ * @param {number} distance 沿测地线从初始点到感兴趣点的距离
+ * @param {Cartographic} [result] 存储结果的对象。
+ * @returns {制图} 沿测地线的点的位置。
  *
  * @exception {DeveloperError} start and end must be set before calling function interpolateUsingSurfaceDistance
  */

@@ -3,13 +3,13 @@ import DeveloperError from "./DeveloperError.js";
 import Spline from "./Spline.js";
 
 /**
- * A spline that evaluates to a constant value. Although this follows the {@link Spline} interface,
- * it does not maintain an internal array of times since its value never changes.
+ * 计算结果为常量值的样条曲线。虽然这遵循 {@link Spline} 接口，
+ * 它不维护内部时间数组，因为它的值永远不会改变。
  *
  * @alias ConstantSpline
  * @constructor
  *
- * @param {number|Cartesian3|Quaternion} value The constant value that the spline evaluates to.
+ * @param {number|Cartesian3|Quaternion} value 样条计算结果的常量值。
  *
  * @example
  * const position = new Cesium.Cartesian3(1.0, 2.0, 3.0);
@@ -30,7 +30,7 @@ function ConstantSpline(value) {
 
 Object.defineProperties(ConstantSpline.prototype, {
   /**
-   * The constant value that the spline evaluates to.
+   * 样条计算结果的常量值。
    *
    * @memberof ConstantSpline.prototype
    *
@@ -45,13 +45,14 @@ Object.defineProperties(ConstantSpline.prototype, {
 });
 
 /**
- * Finds an index <code>i</code> in <code>times</code> such that the parameter
- * <code>time</code> is in the interval <code>[times[i], times[i + 1]]</code>.
+ * 在<code>times</code>中查找索引 <code>i</code>，使得参数
+ * <code>times</code>在区间 <code>[times[i]， times[i + 1]]</code> 中。
  *
- * Since a constant spline has no internal times array, this will throw an error.
+ * 由于常量样条没有内部 times 数组，这将引发错误。
+ *
  * @function
  *
- * @param {number} time The time.
+ * @param {number} time  time.
  *
  * @exception {DeveloperError} findTimeInterval cannot be called on a ConstantSpline.
  */
@@ -64,11 +65,11 @@ ConstantSpline.prototype.findTimeInterval = function (time) {
 };
 
 /**
- * Wraps the given time to the period covered by the spline.
+ * 将给定时间环绕到样条所覆盖的时间段。
  * @function
  *
- * @param {number} time The time.
- * @return {number} The time, wrapped around to the updated animation.
+ * @param {number} time 时间。
+ * @return {number} 时间，环绕到更新的动画。
  */
 ConstantSpline.prototype.wrapTime = function (time) {
   //>>includeStart('debug', pragmas.debug);
@@ -79,11 +80,11 @@ ConstantSpline.prototype.wrapTime = function (time) {
 };
 
 /**
- * Clamps the given time to the period covered by the spline.
+ * 将给定时间限制为样条所覆盖的时间段。
  * @function
  *
- * @param {number} time The time.
- * @return {number} The time, clamped to the animation period.
+ * @param {number} time 时间。
+ * @return {number} 时间，固定到动画周期。
  */
 ConstantSpline.prototype.clampTime = function (time) {
   //>>includeStart('debug', pragmas.debug);
@@ -94,12 +95,12 @@ ConstantSpline.prototype.clampTime = function (time) {
 };
 
 /**
- * Evaluates the curve at a given time.
+ * 在给定时间计算曲线。
  * @function
  *
- * @param {number} time The time at which to evaluate the curve.
+ * @param {number} time 评估曲线的时间。
  * @param {Cartesian3|Quaternion} [result] 要在其上存储结果的对象。
- * @returns {number|Cartesian3|Quaternion} 修改后的结果参数 or the value that the constant spline represents.
+ * @returns {number|Cartesian3|Quaternion} 修改后的结果参数 或常量样条所表示的值。
  */
 ConstantSpline.prototype.evaluate = function (time, result) {
   //>>includeStart('debug', pragmas.debug);

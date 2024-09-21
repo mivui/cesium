@@ -7,23 +7,23 @@ import Ellipsoid from "./Ellipsoid.js";
 import VertexFormat from "./VertexFormat.js";
 
 /**
- * A description of a circle on the ellipsoid. Circle geometry can be rendered with both {@link Primitive} and {@link GroundPrimitive}.
+ * 椭球体上圆的描述。圆形几何体可以使用 {@link Primitive} 和 {@link GroundPrimitive} 进行渲染。
  *
  * @alias CircleGeometry
  * @constructor
  *
- * @param {object} options 对象，具有以下属性:
- * @param {Cartesian3} options.center The circle's center point in the fixed frame.
- * @param {number} options.radius The radius in meters.
- * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] The ellipsoid the circle will be on.
- * @param {number} [options.height=0.0] The distance in meters between the circle and the ellipsoid surface.
- * @param {number} [options.granularity=0.02] The angular distance between points on the circle in radians.
+ * @param {object} options 对象，具有以下属性：
+ * @param {Cartesian3} options.center 圆在固定坐标系中的圆心点。
+ * @param {number} options.radius 半径（以米为单位）。
+ * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] 圆圈所在的椭球体。
+ * @param {number} [options.height=0.0] 圆与椭球体表面之间的距离（以米为单位）。
+ * @param {number} [options.granularity=0.02] 圆上点之间的角距离，以弧度为单位。
  * @param {VertexFormat} [options.vertexFormat=VertexFormat.DEFAULT] 要计算的顶点属性。
- * @param {number} [options.extrudedHeight=0.0] The distance in meters between the circle's extruded face and the ellipsoid surface.
- * @param {number} [options.stRotation=0.0] The rotation of the texture coordinates, in radians. A positive rotation is counter-clockwise.
+ * @param {number} [options.extrudedHeight=0.0] 圆的拉伸面与椭球体表面之间的距离（以米为单位）。
+ * @param {number} [options.stRotation=0.0] 纹理坐标的旋转，以弧度为单位。正旋转是逆时针旋转。
  *
- * @exception {DeveloperError} radius must be greater than zero.
- * @exception {DeveloperError} granularity must be greater than zero.
+ * @exception {DeveloperError} 半径必须大于零。
+ * @exception {DeveloperError} 粒度必须大于零。
  *
  * @see CircleGeometry.createGeometry
  * @see Packable
@@ -107,7 +107,7 @@ const scratchOptions = {
  * @param {number[]} array 打包数组。
  * @param {number} [startingIndex=0] 要解压缩的元素的起始索引。
  * @param {CircleGeometry} [result] 要在其中存储结果的对象。
- * @returns {CircleGeometry} 修改后的结果参数 or a new CircleGeometry instance if one was not provided.
+ * @returns {CircleGeometry} 修改后的结果参数或新的 CircleGeometry 实例（如果未提供）。
  */
 CircleGeometry.unpack = function (array, startingIndex, result) {
   const ellipseGeometry = EllipseGeometry.unpack(
@@ -149,9 +149,9 @@ CircleGeometry.unpack = function (array, startingIndex, result) {
 };
 
 /**
- * Computes the geometric representation of a circle on an ellipsoid, including its vertices, indices, and a bounding sphere.
+ * 计算椭球体上圆的几何表示，包括其顶点、索引和边界球体。
  *
- * @param {CircleGeometry} circleGeometry A description of the circle.
+ * @param {CircleGeometry} circleGeometry 圆的描述。
  * @returns {Geometry|undefined} 计算的顶点和索引。
  */
 CircleGeometry.createGeometry = function (circleGeometry) {
@@ -195,7 +195,7 @@ Object.defineProperties(CircleGeometry.prototype, {
     },
   },
   /**
-   * For remapping texture coordinates when rendering CircleGeometries as GroundPrimitives.
+   * 用于在将 CircleGeometries 渲染为 GroundPrimitives 时重新映射纹理坐标。
    * @private
    */
   textureCoordinateRotationPoints: {

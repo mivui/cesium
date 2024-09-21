@@ -7,19 +7,19 @@ import HeightmapTerrainData from "./HeightmapTerrainData.js";
 import TerrainProvider from "./TerrainProvider.js";
 
 /**
- * A very simple {@link TerrainProvider} that produces geometry by tessellating an ellipsoidal
- * surface.
+ * 一个非常简单的 {@link TerrainProvider}，它通过分割椭球体来生成几何体
+ *表面。
  *
  * @alias EllipsoidTerrainProvider
  * @constructor
  *
- * @param {object} [options] 对象，具有以下属性:
- * @param {TilingScheme} [options.tilingScheme] The tiling scheme specifying how the ellipsoidal
- * surface is broken into tiles.  If this parameter is not provided, a {@link GeographicTilingScheme}
- * is used.
- * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] The ellipsoid.  If the tilingScheme is specified,
- * this parameter is ignored and the tiling scheme's ellipsoid is used instead. If neither
- * parameter is specified, the default ellipsoid is used.
+ * @param {object} [options] 对象，具有以下属性：
+ * @param {TilingScheme} [options.tilingScheme] 指定椭球体如何
+ * 表面被打碎成图块。 如果未提供此参数，则 {@link GeographicTilingScheme}
+ * 被使用。
+ * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] 椭球体。 如果指定了 tilingScheme，则
+ * 此参数将被忽略，而使用切片方案的椭球体。如果两者都不是
+ * 参数，则使用默认椭球。
  *
  * @see TerrainProvider
  */
@@ -46,9 +46,9 @@ function EllipsoidTerrainProvider(options) {
 
 Object.defineProperties(EllipsoidTerrainProvider.prototype, {
   /**
-   * Gets an event that is raised when the terrain provider encounters an asynchronous error.  By subscribing
-   * to the event, you will be notified of the error and can potentially recover from it.  Event listeners
-   * are passed an instance of {@link TileProviderError}.
+   * 获取 terrain 提供程序遇到异步错误时引发的事件。 通过订阅
+   * 时，您将收到错误通知，并可能从中恢复。 事件侦听器
+   * 将传递 {@link TileProviderError} 的实例。
    * @memberof EllipsoidTerrainProvider.prototype
    * @type {Event}
    * @readonly
@@ -60,8 +60,8 @@ Object.defineProperties(EllipsoidTerrainProvider.prototype, {
   },
 
   /**
-   * Gets the credit to display when this terrain provider is active.  Typically this is used to credit
-   * the source of the terrain.
+   * 获取此地形提供程序处于活动状态时要显示的信用额度。 通常，这用于贷记
+   * 地形的源。
    * @memberof EllipsoidTerrainProvider.prototype
    * @type {Credit}
    * @readonly
@@ -73,7 +73,7 @@ Object.defineProperties(EllipsoidTerrainProvider.prototype, {
   },
 
   /**
-   * Gets the tiling scheme used by this provider.
+   * 获取此提供程序使用的平铺方案。
    * @memberof EllipsoidTerrainProvider.prototype
    * @type {GeographicTilingScheme}
    * @readonly
@@ -85,9 +85,9 @@ Object.defineProperties(EllipsoidTerrainProvider.prototype, {
   },
 
   /**
-   * Gets a value indicating whether or not the provider includes a water mask.  The water mask
-   * indicates which areas of the globe are water rather than land, so they can be rendered
-   * as a reflective surface with animated waves.
+   * 获取一个值，该值指示提供程序是否包含水面罩。 水面罩
+   * 表示地球上的哪些区域是水面而不是陆地，因此可以渲染它们
+   * 作为具有动画波形的反射表面。
    * @memberof EllipsoidTerrainProvider.prototype
    * @type {boolean}
    * @readonly
@@ -99,7 +99,7 @@ Object.defineProperties(EllipsoidTerrainProvider.prototype, {
   },
 
   /**
-   * Gets a value indicating whether or not the requested tiles include vertex normals.
+   * 获取一个值，该值指示请求的图块是否包含顶点法线。
    * @memberof EllipsoidTerrainProvider.prototype
    * @type {boolean}
    * @readonly
@@ -110,9 +110,9 @@ Object.defineProperties(EllipsoidTerrainProvider.prototype, {
     },
   },
   /**
-   * Gets an object that can be used to determine availability of terrain from this provider, such as
-   * at points and in rectangles. This property may be undefined if availability
-   * information is not available.
+   * 获取一个对象，该对象可用于确定此提供程序提供的地形的可用性，例如
+   * 在点和矩形中。如果可用性
+   * 信息不可用。
    * @memberof EllipsoidTerrainProvider.prototype
    * @type {TileAvailability}
    * @readonly
@@ -125,8 +125,8 @@ Object.defineProperties(EllipsoidTerrainProvider.prototype, {
 });
 
 /**
- * Requests the geometry for a given tile. The result includes terrain
- * data and indicates that all child tiles are available.
+ * 请求给定图块的几何图形。结果包括 terrain
+ * 数据，并指示所有子磁贴都可用。
  *
  * @param {number} x 要为其请求几何图形的贴图的X坐标。
  * @param {number} y 要为其请求几何图形的贴图的Y坐标。

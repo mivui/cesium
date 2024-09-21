@@ -4,15 +4,15 @@ import DeveloperError from "./DeveloperError.js";
 import CesiumMath from "./Math.js";
 
 /**
- * A rotation expressed as a heading, pitch, and roll. Heading is the rotation about the
- * negative z axis. Pitch is the rotation about the negative y axis. Roll is the rotation about
- * the positive x axis.
+ * 以航向、俯仰和滚动表示的旋转。heading 是围绕
+ * 负 Z 轴。Pitch 是绕负 y 轴的旋转。Roll 是旋转
+ * 正 x 轴。
  * @alias HeadingPitchRoll
  * @constructor
  *
- * @param {number} [heading=0.0] The heading component in radians.
- * @param {number} [pitch=0.0] The pitch component in radians.
- * @param {number} [roll=0.0] The roll component in radians.
+ * @param {number} [heading=0.0] 以弧度为单位的航向分量。
+ * @param {number} [pitch=0.0] 以弧度为单位的音高分量。
+ * @param {number} [roll=0.0] 以弧度为单位的滚动分量。
  */
 function HeadingPitchRoll(heading, pitch, roll) {
   /**
@@ -36,11 +36,11 @@ function HeadingPitchRoll(heading, pitch, roll) {
 }
 
 /**
- * Computes the heading, pitch and roll from a quaternion (see http://en.wikipedia.org/wiki/Conversion_between_quaternions_and_Euler_angles )
+ * 从四元数开始计算航向、俯仰和滚动（见 http://en.wikipedia.org/wiki/Conversion_between_quaternions_and_Euler_angles ）
  *
- * @param {Quaternion} quaternion The quaternion from which to retrieve heading, pitch, and roll, all expressed in radians.
- * @param {HeadingPitchRoll} [result] The object in which to store the result. If not provided, a new instance is created and returned.
- * @returns {HeadingPitchRoll} 修改后的结果参数 or a new HeadingPitchRoll instance if one was not provided.
+ * @param {四元数} 四元数 从中检索航向、俯仰和滚动的四元数，全部以弧度表示。
+ * @param {HeadingPitchRoll} [result] 存储结果的对象。如果未提供，则创建并返回一个新实例。
+ * @returns {HeadingPitchRoll} 修改后的结果参数或新的 HeadingPitchRoll 实例（如果未提供）。
  */
 HeadingPitchRoll.fromQuaternion = function (quaternion, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -67,13 +67,13 @@ HeadingPitchRoll.fromQuaternion = function (quaternion, result) {
 };
 
 /**
- * Returns a new HeadingPitchRoll instance from angles given in degrees.
+ * 从以度为单位给出的角度返回一个新的 HeadingPitchRoll 实例。
  *
- * @param {number} heading the heading in degrees
- * @param {number} pitch the pitch in degrees
- * @param {number} roll the heading in degrees
- * @param {HeadingPitchRoll} [result] The object in which to store the result. If not provided, a new instance is created and returned.
- * @returns {HeadingPitchRoll} A new HeadingPitchRoll instance
+ * @param {number} 以度为单位的标题
+ * @param {number} 以度为单位调整音高
+ * @param {number} 以度为单位滚动航向
+ * @param {HeadingPitchRoll} [result] 存储结果的对象。如果未提供，则创建并返回一个新实例。
+ * @returns {HeadingPitchRoll} 一个新的 HeadingPitchRoll 实例
  */
 HeadingPitchRoll.fromDegrees = function (heading, pitch, roll, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -97,11 +97,11 @@ HeadingPitchRoll.fromDegrees = function (heading, pitch, roll, result) {
 };
 
 /**
- * 复制HeadingPitchRoll instance.
+ * 复制HeadingPitchRoll 实例。
  *
- * @param {HeadingPitchRoll} headingPitchRoll The HeadingPitchRoll to duplicate.
+ * @param {HeadingPitchRoll} headingPitchRoll 要复制的 HeadingPitchRoll 中。
  * @param {HeadingPitchRoll} [result] 要在其上存储结果的对象。
- * @returns {HeadingPitchRoll} 修改后的结果参数 or a new HeadingPitchRoll instance if one was not provided. (Returns undefined if headingPitchRoll is undefined)
+ * @returns {HeadingPitchRoll} 修改后的结果参数 或者一个新的 HeadingPitchRoll 实例（如果未提供）。（如果 headingPitchRoll 未定义，则返回 undefined）
  */
 HeadingPitchRoll.clone = function (headingPitchRoll, result) {
   if (!defined(headingPitchRoll)) {
@@ -121,7 +121,7 @@ HeadingPitchRoll.clone = function (headingPitchRoll, result) {
 };
 
 /**
- * Compares the provided HeadingPitchRolls componentwise and returns
+ * 对提供的 HeadingPitchRolls 组件进行比较，并返回
  * <code>true</code>，否则为<code>false</code>。
  *
  * @param {HeadingPitchRoll} [left] 第一个HeadingPitchRoll.
@@ -140,7 +140,7 @@ HeadingPitchRoll.equals = function (left, right) {
 };
 
 /**
- * Compares the provided HeadingPitchRolls componentwise and returns
+ * 对提供的 HeadingPitchRolls 组件进行比较，并返回
  * <code>true</code> 如果它们通过了绝对或相对耐受性测试，
  * <code>false</code> 否则。
  *
@@ -192,7 +192,7 @@ HeadingPitchRoll.prototype.clone = function (result) {
 };
 
 /**
- * Compares this HeadingPitchRoll against the provided HeadingPitchRoll componentwise and returns
+ * 将此 HeadingPitchRoll 与提供的 HeadingPitchRoll 组件进行比较，并返回
  * <code>true</code>，否则为<code>false</code>。
  *
  * @param {HeadingPitchRoll} [right] 右边 HeadingPitchRoll.
@@ -203,7 +203,7 @@ HeadingPitchRoll.prototype.equals = function (right) {
 };
 
 /**
- * Compares this HeadingPitchRoll against the provided HeadingPitchRoll componentwise and returns
+ * 将此 HeadingPitchRoll 与提供的 HeadingPitchRoll 组件进行比较，并返回
  * <code>true</code> 如果它们通过了绝对或相对耐受性测试，
  * <code>false</code> 否则。
  *
@@ -226,9 +226,9 @@ HeadingPitchRoll.prototype.equalsEpsilon = function (
 };
 
 /**
- * Creates a string representing this HeadingPitchRoll in the format '(heading, pitch, roll)' in radians.
+ * 创建一个字符串，表示此 HeadingPitchRoll，格式为 '（heading， pitch， roll）'，以弧度为单位。
  *
- * @returns {string} A string representing the provided HeadingPitchRoll in the format '(heading, pitch, roll)'.
+ * @returns {string} 一个字符串，表示提供的 HeadingPitchRoll，格式为 '（heading， pitch， roll）'。
  */
 HeadingPitchRoll.prototype.toString = function () {
   return `(${this.heading}, ${this.pitch}, ${this.roll})`;

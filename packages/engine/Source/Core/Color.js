@@ -24,12 +24,12 @@ function hue2rgb(m1, m2, h) {
 }
 
 /**
- * A color, specified using red, green, blue, and alpha values,
- * which range from <code>0</code> (no intensity) to <code>1.0</code> (full intensity).
- * @param {number} [red=1.0] The red component.
- * @param {number} [green=1.0] The green component.
- * @param {number} [blue=1.0] The blue component.
- * @param {number} [alpha=1.0] The alpha component.
+ * 使用红色、绿色、蓝色和 alpha 值指定的颜色，
+ * 范围从 <code>0</code>（无强度）到 <code>1.0</code>（全强度）。
+ * @param {number} [red=1.0] 红色分量。
+ * @param {number} [green=1.0] 绿色分量。
+ * @param {number} [blue=1.0] 蓝色分量。
+ * @param {number} [alpha=1.0] alpha 分量。
  *
  * @constructor
  * @alias Color
@@ -38,25 +38,25 @@ function hue2rgb(m1, m2, h) {
  */
 function Color(red, green, blue, alpha) {
   /**
-   * The red component.
+   * 红色分量。
    * @type {number}
    * @default 1.0
    */
   this.red = defaultValue(red, 1.0);
   /**
-   * The green component.
+   * 绿色组件。
    * @type {number}
    * @default 1.0
    */
   this.green = defaultValue(green, 1.0);
   /**
-   * The blue component.
+   * 蓝色分量。
    * @type {number}
    * @default 1.0
    */
   this.blue = defaultValue(blue, 1.0);
   /**
-   * The alpha component.
+   * Alpha 分量。
    * @type {number}
    * @default 1.0
    */
@@ -64,12 +64,12 @@ function Color(red, green, blue, alpha) {
 }
 
 /**
- * Creates a Color instance from a {@link Cartesian4}. <code>x</code>, <code>y</code>, <code>z</code>,
- * and <code>w</code> map to <code>red</code>, <code>green</code>, <code>blue</code>, and <code>alpha</code>, respectively.
+ * 从 {@link Cartesian4} 创建 Color 实例。<code>x</code>、<code>y</code>、<code>z</code>、
+ * 和 <code>W</code> 映射分别为<code>红色</code>、<code>绿色</code>、<code>蓝色</code>和 <code>Alpha</code>。
  *
- * @param {Cartesian4} cartesian The source cartesian.
+ * @param {Cartesian4} cartesian 源笛卡尔。
  * @param {Color} [result] 要在其上存储结果的对象。
- * @returns {Color} 修改后的结果参数 or a new Color instance if one was not provided.
+ * @returns {Color} 修改后的结果参数或新的 Color 实例（如果未提供）。
  */
 Color.fromCartesian4 = function (cartesian, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -88,15 +88,15 @@ Color.fromCartesian4 = function (cartesian, result) {
 };
 
 /**
- * Creates a new Color specified using red, green, blue, and alpha values
- * that are in the range of 0 to 255, converting them internally to a range of 0.0 to 1.0.
+ * 创建使用红色、绿色、蓝色和 Alpha 值指定的新 Color
+ * ，在 0 到 255 的范围内，在内部将它们转换为 0.0 到 1.0 的范围。
  *
- * @param {number} [red=255] The red component.
- * @param {number} [green=255] The green component.
- * @param {number} [blue=255] The blue component.
- * @param {number} [alpha=255] The alpha component.
+ * @param {number} [red=255] 红色分量。
+ * @param {number} [green=255] 绿色组件。
+ * @param {number} [blue=255] 蓝色分量。
+ * @param {number} [alpha=255] Alpha 分量。
  * @param {Color} [result] 要在其上存储结果的对象。
- * @returns {Color} 修改后的结果参数 or a new Color instance if one was not provided.
+ * @returns {Color} 修改后的结果参数或新的 Color 实例（如果未提供）。
  */
 Color.fromBytes = function (red, green, blue, alpha, result) {
   red = Color.byteToFloat(defaultValue(red, 255.0));
@@ -116,13 +116,13 @@ Color.fromBytes = function (red, green, blue, alpha, result) {
 };
 
 /**
- * Creates a new Color that has the same red, green, and blue components
- * of the specified color, but with the specified alpha value.
+ * 创建具有相同红色、绿色和蓝色分量的新颜色
+ * 的指定颜色，但具有指定的 alpha 值。
  *
- * @param {Color} color The base color
- * @param {number} alpha The new alpha component.
+ * @param {Color} color 底色
+ * @param {number} alpha 新的 alpha 分量。
  * @param {Color} [result] 要在其上存储结果的对象。
- * @returns {Color} 修改后的结果参数 or a new Color instance if one was not provided.
+ * @returns {Color} 修改后的结果参数或新的 Color 实例（如果未提供）。
  *
  * @example const translucentRed = Cesium.Color.fromAlpha(Cesium.Color.RED, 0.9);
  */
@@ -153,12 +153,12 @@ if (FeatureDetection.supportsTypedArrays()) {
 }
 
 /**
- * Creates a new Color from a single numeric unsigned 32-bit RGBA value, using the endianness
- * of the system.
+ * 使用字节序从单个数字无符号 32 位 RGBA 值创建新颜色
+ * 的系统。
  *
- * @param {number} rgba A single numeric unsigned 32-bit RGBA value.
- * @param {Color} [result] The object to store the result in, if undefined a new instance will be created.
- * @returns {Color} The color object.
+ * @param {number} rgba 单个数字无符号 32 位 RGBA 值。
+ * @param {Color} [result] 用于存储结果的对象，如果未定义，将创建一个新实例。
+ * @returns {Color} 颜色对象。
  *
  * @example
  * const color = Cesium.Color.fromRgba(0x67ADDFFF);
@@ -178,14 +178,14 @@ Color.fromRgba = function (rgba, result) {
 };
 
 /**
- * Creates a Color instance from hue, saturation, and lightness.
+ * 从色相、饱和度和亮度创建 Color 实例。
  *
- * @param {number} [hue=0] The hue angle 0...1
- * @param {number} [saturation=0] The saturation value 0...1
- * @param {number} [lightness=0] The lightness value 0...1
- * @param {number} [alpha=1.0] The alpha component 0...1
- * @param {Color} [result] The object to store the result in, if undefined a new instance will be created.
- * @returns {Color} The color object.
+ * @param {number} [hue=0] 色相角度 0...1
+ * @param {number} [saturation=0] 饱和度值 0...1
+ * @param {number} [lightness=0] 亮度值 0...1
+ * @param {number} [alpha=1.0] alpha 分量 0...1
+ * @param {Color} [result] 用于存储结果的对象，如果未定义，将创建一个新实例。
+ * @returns {Color} 颜色对象。
  *
  * @see {@link http://www.w3.org/TR/css3-color/#hsl-color|CSS color values}
  */
@@ -225,29 +225,29 @@ Color.fromHsl = function (hue, saturation, lightness, alpha, result) {
 };
 
 /**
- * Creates a random color using the provided options. For reproducible random colors, you should
- * call {@link CesiumMath#setRandomNumberSeed} once at the beginning of your application.
+ * 使用提供的选项创建随机颜色。对于可重现的随机颜色，您应该
+ * 在应用程序开始时调用 {@link CesiumMath#setRandomNumberSeed} 一次。
  *
- * @param {object} [options] 对象，具有以下属性:
- * @param {number} [options.red] If specified, the red component to use instead of a randomized value.
- * @param {number} [options.minimumRed=0.0] The maximum red value to generate if none was specified.
- * @param {number} [options.maximumRed=1.0] The minimum red value to generate if none was specified.
- * @param {number} [options.green] If specified, the green component to use instead of a randomized value.
- * @param {number} [options.minimumGreen=0.0] The maximum green value to generate if none was specified.
- * @param {number} [options.maximumGreen=1.0] The minimum green value to generate if none was specified.
- * @param {number} [options.blue] If specified, the blue component to use instead of a randomized value.
- * @param {number} [options.minimumBlue=0.0] The maximum blue value to generate if none was specified.
- * @param {number} [options.maximumBlue=1.0] The minimum blue value to generate if none was specified.
- * @param {number} [options.alpha] If specified, the alpha component to use instead of a randomized value.
- * @param {number} [options.minimumAlpha=0.0] The maximum alpha value to generate if none was specified.
- * @param {number} [options.maximumAlpha=1.0] The minimum alpha value to generate if none was specified.
- * @param {Color} [result] The object to store the result in, if undefined a new instance will be created.
- * @returns {Color} 修改后的结果参数 or a new instance if result was undefined.
+ * @param {object} [options] 对象，具有以下属性：
+ * @param {number} [options.red] 如果指定，则为要使用的红色分量，而不是随机值。
+ * @param {number} [options.minimumRed=0.0] 如果未指定，则生成的最大红色值。
+ * @param {number} [options.maximumRed=1.0] 如果未指定，则生成的最小红色值。
+ * @param {number} [options.green] 如果指定，则为要使用的绿色分量，而不是随机化值。
+ * @param {number} [options.minimumGreen=0.0] 如果未指定，则生成的最大绿色值。
+ * @param {number} [options.maximumGreen=1.0] 如果未指定，则生成的最小绿色值。
+ * @param {number} [options.blue] 如果指定，则为要使用的蓝色分量，而不是随机化值。
+ * @param {number} [options.minimumBlue=0.0] 如果未指定，则生成的最大蓝色值。
+ * @param {number} [options.maximumBlue=1.0] 如果未指定，则生成的最小蓝色值。
+ * @param {number} [options.alpha] 如果指定，则为要使用的 alpha 分量，而不是随机化值。
+ * @param {number} [options.minimumAlpha=0.0] 如果未指定，则要生成的最大 alpha 值。
+ * @param {number} [options.maximumAlpha=1.0] 如果未指定，则要生成的最小 alpha 值。
+ * @param {Color} [result] 用于存储结果的对象，如果未定义，将创建一个新实例。
+ * @returns {Color} 修改后的结果参数，如果 result 未定义，则为新实例。
  *
- * @exception {DeveloperError} minimumRed must be less than or equal to maximumRed.
- * @exception {DeveloperError} minimumGreen must be less than or equal to maximumGreen.
- * @exception {DeveloperError} minimumBlue must be less than or equal to maximumBlue.
- * @exception {DeveloperError} minimumAlpha must be less than or equal to maximumAlpha.
+ * @exception {DeveloperError} minimumRed 必须小于或等于 maximumRed。
+ * @exception {DeveloperError} minimumGreen 必须小于或等于 maximumGreen。
+ * @exception {DeveloperError} minimumBlue 必须小于或等于 maximumBlue。
+ * @exception {DeveloperError} minimumAlpha 必须小于或等于 maximumAlpha。
  *
  * @example
  * //Create a completely random color
@@ -357,16 +357,16 @@ const rgbParenthesesMatcher = /^rgba?\s*\(\s*([0-9.]+%?)\s*[,\s]+\s*([0-9.]+%?)\
 const hslParenthesesMatcher = /^hsla?\s*\(\s*([0-9.]+)\s*[,\s]+\s*([0-9.]+%)\s*[,\s]+\s*([0-9.]+%)(?:\s*[,\s/]+\s*([0-9.]+))?\s*\)$/i;
 
 /**
- * Creates a Color instance from a CSS color value.
+ * 从 CSS 颜色值创建 Color 实例。
  *
- * @param {string} color The CSS color value in #rgb, #rgba, #rrggbb, #rrggbbaa, rgb(), rgba(), hsl(), or hsla() format.
- * @param {Color} [result] The object to store the result in, if undefined a new instance will be created.
- * @returns {Color} The color object, or undefined if the string was not a valid CSS color.
+ * @param {string} color #rgb、#rgba、#rrggbb、#rrggbbaa、rgb（）、rgba（）、hsl（） 或 hsla（） 格式的 CSS 颜色值。
+ * @param {Color} [result] 用于存储结果的对象，如果未定义，将创建一个新实例。
+ * @returns {Color} 颜色对象，如果字符串不是有效的 CSS 颜色，则为 undefined。
  *
  *
  * @example
- * const cesiumBlue = Cesium.Color.fromCssColorString('#67ADDF');
- * const green = Cesium.Color.fromCssColorString('green');
+ * const cesiumBlue = Cesium.Color.fromCssColorString（'#67ADDF'）;
+ * const green = Cesium.Color.fromCssColorString（'green'）;
  *
  * @see {@link http://www.w3.org/TR/css3-color|CSS color values}
  */
@@ -488,22 +488,22 @@ Color.unpack = function (array, startingIndex, result) {
 };
 
 /**
- * Converts a 'byte' color component in the range of 0 to 255 into
- * a 'float' color component in the range of 0 to 1.0.
+ * 将 0 到 255 范围内的 'byte' 颜色分量转换为
+ * 0 到 1.0 范围内的 'float' 颜色分量。
  *
- * @param {number} number The number to be converted.
- * @returns {number} The converted number.
+ * @param {number} number 要转换的数字。
+ * @returns {number} 转换后的号码。
  */
 Color.byteToFloat = function (number) {
   return number / 255.0;
 };
 
 /**
- * Converts a 'float' color component in the range of 0 to 1.0 into
- * a 'byte' color component in the range of 0 to 255.
+ * 将 0 到 1.0 范围内的 'float' 颜色分量转换为
+ * 0 到 255 范围内的 'byte' 颜色分量。
  *
- * @param {number} number The number to be converted.
- * @returns {number} The converted number.
+ * @param {number} number 要转换的数字。
+ * @returns {number} 转换后的号码。
  */
 Color.floatToByte = function (number) {
   return number === 1.0 ? 255.0 : (number * 256.0) | 0;
@@ -512,9 +512,9 @@ Color.floatToByte = function (number) {
 /**
  * 复制Color.
  *
- * @param {Color} color The Color to duplicate.
- * @param {Color} [result] The object to store the result in, if undefined a new instance will be created.
- * @returns {Color} 修改后的结果参数 or a new instance if result was undefined. (Returns undefined if color is undefined)
+ * @param {Color} color 要复制的颜色。
+ * @param {Color} [result] 用于存储结果的对象，如果未定义，将创建一个新实例。
+ * @returns {Color} 修改后的结果参数，如果 result 未定义，则为新实例。（如果颜色未定义，则返回 undefined）
  */
 Color.clone = function (color, result) {
   if (!defined(color)) {
@@ -531,11 +531,11 @@ Color.clone = function (color, result) {
 };
 
 /**
- * Returns true if the first Color equals the second color.
+ * 如果第一个 Color 等于第二个颜色，则返回 true。
  *
- * @param {Color} left The first Color to compare for equality.
- * @param {Color} right The second Color to compare for equality.
- * @returns {boolean} <code>true</code> if the Colors are equal; otherwise, <code>false</code>.
+ * @param {Color} left 要比较是否相等的第一个 Color。
+ * @param {Color} right 要比较是否相等的第二个 Color。
+ * 如果颜色相等，则 @returns {boolean} <code>true</code>;否则为 <code>false</code>。
  */
 Color.equals = function (left, right) {
   return (
@@ -562,31 +562,31 @@ Color.equalsArray = function (color, array, offset) {
 };
 
 /**
- * Returns a duplicate of a Color instance.
+ * 返回 Color 实例的副本。
  *
- * @param {Color} [result] The object to store the result in, if undefined a new instance will be created.
- * @returns {Color} 修改后的结果参数 or a new instance if result was undefined.
+ * @param {Color} [result] 用于存储结果的对象，如果未定义，将创建一个新实例。
+ * @returns {Color} 修改后的结果参数，如果 result 未定义，则为新实例。
  */
 Color.prototype.clone = function (result) {
   return Color.clone(this, result);
 };
 
 /**
- * Returns true if this Color equals other.
+ * 如果此 Color 等于 other，则返回 true。
  *
- * @param {Color} other The Color to compare for equality.
- * @returns {boolean} <code>true</code> if the Colors are equal; otherwise, <code>false</code>.
+ * @param {Color} other 要比较是否相等的 Color。
+ * @returns {boolean} 如果 Colors 相等，<code>则为 true</code>;否则为 <code>false</code>。
  */
 Color.prototype.equals = function (other) {
   return Color.equals(this, other);
 };
 
 /**
- * Returns <code>true</code> if this Color equals other componentwise within the specified epsilon.
+ * 如果此 Color 等于指定 epsilon 内的其他组件，则返回 <code>true</code>。
  *
- * @param {Color} other The Color to compare for equality.
+ * @param {Color} other 要比较是否相等的 Color。
  * @param {number} [epsilon=0.0] 用来检验等式。
- * @returns {boolean} <code>true</code> if the Colors are equal within the specified epsilon; otherwise, <code>false</code>.
+ * @returns {boolean} 如果 Colors 在指定的 epsilon 内相等，<code>则为 true</code>;否则为 <code>false</code>。
  */
 Color.prototype.equalsEpsilon = function (other, epsilon) {
   return (
@@ -600,18 +600,18 @@ Color.prototype.equalsEpsilon = function (other, epsilon) {
 };
 
 /**
- * Creates a string representing this Color in the format '(red, green, blue, alpha)'.
+ * 以 '（red， green， blue， alpha） 格式创建表示此 Color 的字符串。
  *
- * @returns {string} A string representing this Color in the format '(red, green, blue, alpha)'.
+ * @returns {string} 表示此 Color 的字符串，格式为 '（red， green， blue， alpha）'。
  */
 Color.prototype.toString = function () {
   return `(${this.red}, ${this.green}, ${this.blue}, ${this.alpha})`;
 };
 
 /**
- * Creates a string containing the CSS color value for this color.
+ * 创建一个包含此颜色的 CSS 颜色值的字符串。
  *
- * @returns {string} The CSS equivalent of this color.
+ * @returns {string} 此颜色的 CSS 等效项。
  *
  * @see {@link http://www.w3.org/TR/css3-color/#rgba-color|CSS RGB or RGBA color values}
  */
@@ -626,9 +626,9 @@ Color.prototype.toCssColorString = function () {
 };
 
 /**
- * Creates a string containing CSS hex string color value for this color.
+ * 创建一个字符串，其中包含此颜色的 CSS 十六进制字符串颜色值。
  *
- * @returns {string} The CSS hex string equivalent of this color.
+ * @returns {string} 相当于此颜色的 CSS 十六进制字符串。
  */
 Color.prototype.toCssHexString = function () {
   let r = Color.floatToByte(this.red).toString(16);
@@ -654,11 +654,11 @@ Color.prototype.toCssHexString = function () {
 };
 
 /**
- * Converts this color to an array of red, green, blue, and alpha values
- * that are in the range of 0 to 255.
+ * 将此颜色转换为红色、绿色、蓝色和 Alpha 值的数组
+ * 介于 0 到 255 之间。
  *
- * @param {number[]} [result] The array to store the result in, if undefined a new instance will be created.
- * @returns {number[]} 修改后的结果参数 or a new instance if result was undefined.
+ * @param {number[]} [result] 用于存储结果的数组，如果未定义，将创建一个新实例。
+ * @returns {number[]} 修改后的结果参数，如果 result 未定义，则使用新实例。
  */
 Color.prototype.toBytes = function (result) {
   const red = Color.floatToByte(this.red);
@@ -677,10 +677,10 @@ Color.prototype.toBytes = function (result) {
 };
 
 /**
- * Converts this color to a single numeric unsigned 32-bit RGBA value, using the endianness
- * of the system.
+ * 使用字节序将此颜色转换为单个数字无符号 32 位 RGBA 值
+ * 的系统。
  *
- * @returns {number} A single numeric unsigned 32-bit RGBA value.
+ * @returns {number} 单个数字无符号 32 位 RGBA 值。
  *
  *
  * @example
@@ -698,9 +698,9 @@ Color.prototype.toRgba = function () {
 };
 
 /**
- * Brightens this color by the provided magnitude.
+ * 按提供的量级增亮此颜色。
  *
- * @param {number} magnitude A positive number indicating the amount to brighten.
+ * @param {number} magnitude 一个正数，表示要增亮的量。
  * @param {Color} result 要在其上存储结果的对象。
  * @returns {Color} 修改后的结果参数。
  *
@@ -723,9 +723,9 @@ Color.prototype.brighten = function (magnitude, result) {
 };
 
 /**
- * Darkens this color by the provided magnitude.
+ * 按提供的量级使此颜色变暗。
  *
- * @param {number} magnitude A positive number indicating the amount to darken.
+ * @param {number} magnitude 一个正数，表示要变暗的量。
  * @param {Color} result 要在其上存储结果的对象。
  * @returns {Color} 修改后的结果参数。
  *
@@ -748,12 +748,12 @@ Color.prototype.darken = function (magnitude, result) {
 };
 
 /**
- * Creates a new Color that has the same red, green, and blue components
- * as this Color, but with the specified alpha value.
+ * 创建具有相同红色、绿色和蓝色分量的新颜色
+ * 作为此 Color，但具有指定的 alpha 值。
  *
- * @param {number} alpha The new alpha component.
+ * @param {number} alpha 新的 alpha 分量。
  * @param {Color} [result] 要在其上存储结果的对象。
- * @returns {Color} 修改后的结果参数 or a new Color instance if one was not provided.
+ * @returns {Color} 修改后的结果参数或新的 Color 实例（如果未提供）。
  *
  * @example const translucentRed = Cesium.Color.RED.withAlpha(0.9);
  */
@@ -762,10 +762,10 @@ Color.prototype.withAlpha = function (alpha, result) {
 };
 
 /**
- * Computes the componentwise sum of two Colors.
+ * 计算两个 Color 的分量和。
  *
- * @param {Color} left The first Color.
- * @param {Color} right The second Color.
+ * @param {Color} left 第一个 Color。
+ * @param {Color} right 第二种颜色。
  * @param {Color} result 要在其上存储结果的对象。
  * @returns {Color} 修改后的结果参数。
  */
@@ -784,10 +784,10 @@ Color.add = function (left, right, result) {
 };
 
 /**
- * Computes the componentwise difference of two Colors.
+ * 计算两种 Color 的分量差异。
  *
- * @param {Color} left The first Color.
- * @param {Color} right The second Color.
+ * @param {Color} left 第一个 Color。
+ * @param {Color} right 第二种颜色。
  * @param {Color} result 要在其上存储结果的对象。
  * @returns {Color} 修改后的结果参数。
  */
@@ -806,10 +806,10 @@ Color.subtract = function (left, right, result) {
 };
 
 /**
- * Computes the componentwise product of two Colors.
+ * 计算两种 Color 的分量乘积。
  *
- * @param {Color} left The first Color.
- * @param {Color} right The second Color.
+ * @param {Color} left 第一个 Color。
+ * @param {Color} right 第二种颜色。
  * @param {Color} result 要在其上存储结果的对象。
  * @returns {Color} 修改后的结果参数。
  */
@@ -828,10 +828,10 @@ Color.multiply = function (left, right, result) {
 };
 
 /**
- * Computes the componentwise quotient of two Colors.
+ * 计算两种 Color 的分量商。
  *
- * @param {Color} left The first Color.
- * @param {Color} right The second Color.
+ * @param {Color} left 第一个 Color。
+ * @param {Color} right 第二种颜色。
  * @param {Color} result 要在其上存储结果的对象。
  * @returns {Color} 修改后的结果参数。
  */
@@ -850,10 +850,10 @@ Color.divide = function (left, right, result) {
 };
 
 /**
- * Computes the componentwise modulus of two Colors.
+ * 计算两种 Color 的分量模数。
  *
- * @param {Color} left The first Color.
- * @param {Color} right The second Color.
+ * @param {Color} left 第一个 Color。
+ * @param {Color} right 第二种颜色。
  * @param {Color} result 要在其上存储结果的对象。
  * @returns {Color} 修改后的结果参数。
  */
@@ -872,10 +872,10 @@ Color.mod = function (left, right, result) {
 };
 
 /**
- * Computes the linear interpolation or extrapolation at t between the provided colors.
+ * 计算所提供颜色之间在 t 处的线性插值或外插。
  *
- * @param {Color} start The color corresponding to t at 0.0.
- * @param {Color} end The color corresponding to t at 1.0.
+ * @param {Color} start 0.0 处对应的 t 对应的颜色。
+ * @param {Color} end 对应于 1.0 的 t 的颜色。
  * @param {number} t 沿着t进行插值的点。
  * @param {Color} result 要在其上存储结果的对象。
  * @returns {Color} 修改后的结果参数。
@@ -896,9 +896,9 @@ Color.lerp = function (start, end, t, result) {
 };
 
 /**
- * Multiplies the provided Color componentwise by the provided scalar.
+ * 将提供的 Color 分量乘以提供的标量。
  *
- * @param {Color} color The Color to be scaled.
+ * @param {Color} color 要缩放的颜色。
  * @param {number} scalar 与之相乘的标量。
  * @param {Color} result 要在其上存储结果的对象。
  * @returns {Color} 修改后的结果参数。
@@ -918,10 +918,10 @@ Color.multiplyByScalar = function (color, scalar, result) {
 };
 
 /**
- * Divides the provided Color componentwise by the provided scalar.
+ * 将提供的 Color 分量除以提供的标量。
  *
- * @param {Color} color The Color to be divided.
- * @param {number} scalar The scalar to divide with.
+ * @param {Color} color 要划分的颜色。
+ * @param {number} scalar 要与之除法的标量。
  * @param {Color} result 要在其上存储结果的对象。
  * @returns {Color} 修改后的结果参数。
  */
@@ -940,7 +940,7 @@ Color.divideByScalar = function (color, scalar, result) {
 };
 
 /**
- * An immutable Color instance initialized to CSS color #F0F8FF
+ * 初始化为 CSS 颜色的不可变 Color 实例 #F0F8FF
  * <span class="colorSwath" style="background: #F0F8FF;"></span>
  *
  * @constant
@@ -949,7 +949,7 @@ Color.divideByScalar = function (color, scalar, result) {
 Color.ALICEBLUE = Object.freeze(Color.fromCssColorString("#F0F8FF"));
 
 /**
- * An immutable Color instance initialized to CSS color #FAEBD7
+ * 初始化为 CSS 颜色的不可变 Color 实例 #FAEBD7
  * <span class="colorSwath" style="background: #FAEBD7;"></span>
  *
  * @constant
@@ -958,7 +958,7 @@ Color.ALICEBLUE = Object.freeze(Color.fromCssColorString("#F0F8FF"));
 Color.ANTIQUEWHITE = Object.freeze(Color.fromCssColorString("#FAEBD7"));
 
 /**
- * An immutable Color instance initialized to CSS color #00FFFF
+ * 初始化为 CSS 颜色的不可变 Color 实例 #00FFFF
  * <span class="colorSwath" style="background: #00FFFF;"></span>
  *
  * @constant
@@ -967,7 +967,7 @@ Color.ANTIQUEWHITE = Object.freeze(Color.fromCssColorString("#FAEBD7"));
 Color.AQUA = Object.freeze(Color.fromCssColorString("#00FFFF"));
 
 /**
- * An immutable Color instance initialized to CSS color #7FFFD4
+ * 初始化为 CSS 颜色的不可变 Color 实例 #7FFFD4
  * <span class="colorSwath" style="background: #7FFFD4;"></span>
  *
  * @constant
@@ -976,7 +976,7 @@ Color.AQUA = Object.freeze(Color.fromCssColorString("#00FFFF"));
 Color.AQUAMARINE = Object.freeze(Color.fromCssColorString("#7FFFD4"));
 
 /**
- * An immutable Color instance initialized to CSS color #F0FFFF
+ * 初始化为 CSS 颜色的不可变 Color 实例 #F0FFFF
  * <span class="colorSwath" style="background: #F0FFFF;"></span>
  *
  * @constant
@@ -985,7 +985,7 @@ Color.AQUAMARINE = Object.freeze(Color.fromCssColorString("#7FFFD4"));
 Color.AZURE = Object.freeze(Color.fromCssColorString("#F0FFFF"));
 
 /**
- * An immutable Color instance initialized to CSS color #F5F5DC
+ * 初始化为 CSS 颜色的不可变 Color 实例 #F5F5DC
  * <span class="colorSwath" style="background: #F5F5DC;"></span>
  *
  * @constant
@@ -994,7 +994,7 @@ Color.AZURE = Object.freeze(Color.fromCssColorString("#F0FFFF"));
 Color.BEIGE = Object.freeze(Color.fromCssColorString("#F5F5DC"));
 
 /**
- * An immutable Color instance initialized to CSS color #FFE4C4
+ * 初始化为 CSS 颜色的不可变 Color 实例 #FFE4C4
  * <span class="colorSwath" style="background: #FFE4C4;"></span>
  *
  * @constant
@@ -1003,7 +1003,7 @@ Color.BEIGE = Object.freeze(Color.fromCssColorString("#F5F5DC"));
 Color.BISQUE = Object.freeze(Color.fromCssColorString("#FFE4C4"));
 
 /**
- * An immutable Color instance initialized to CSS color #000000
+ * 初始化为 CSS 颜色的不可变 Color 实例 #000000
  * <span class="colorSwath" style="background: #000000;"></span>
  *
  * @constant
@@ -1012,7 +1012,7 @@ Color.BISQUE = Object.freeze(Color.fromCssColorString("#FFE4C4"));
 Color.BLACK = Object.freeze(Color.fromCssColorString("#000000"));
 
 /**
- * An immutable Color instance initialized to CSS color #FFEBCD
+ * 初始化为 CSS 颜色的不可变 Color 实例 #FFEBCD
  * <span class="colorSwath" style="background: #FFEBCD;"></span>
  *
  * @constant
@@ -1021,7 +1021,7 @@ Color.BLACK = Object.freeze(Color.fromCssColorString("#000000"));
 Color.BLANCHEDALMOND = Object.freeze(Color.fromCssColorString("#FFEBCD"));
 
 /**
- * An immutable Color instance initialized to CSS color #0000FF
+ * 初始化为 CSS 颜色的不可变 Color 实例 #0000FF
  * <span class="colorSwath" style="background: #0000FF;"></span>
  *
  * @constant
@@ -1030,7 +1030,7 @@ Color.BLANCHEDALMOND = Object.freeze(Color.fromCssColorString("#FFEBCD"));
 Color.BLUE = Object.freeze(Color.fromCssColorString("#0000FF"));
 
 /**
- * An immutable Color instance initialized to CSS color #8A2BE2
+ * 初始化为 CSS 颜色的不可变 Color 实例 #8A2BE2
  * <span class="colorSwath" style="background: #8A2BE2;"></span>
  *
  * @constant
@@ -1039,7 +1039,7 @@ Color.BLUE = Object.freeze(Color.fromCssColorString("#0000FF"));
 Color.BLUEVIOLET = Object.freeze(Color.fromCssColorString("#8A2BE2"));
 
 /**
- * An immutable Color instance initialized to CSS color #A52A2A
+ * 初始化为 CSS 颜色的不可变 Color 实例 #A52A2A
  * <span class="colorSwath" style="background: #A52A2A;"></span>
  *
  * @constant
@@ -1048,7 +1048,7 @@ Color.BLUEVIOLET = Object.freeze(Color.fromCssColorString("#8A2BE2"));
 Color.BROWN = Object.freeze(Color.fromCssColorString("#A52A2A"));
 
 /**
- * An immutable Color instance initialized to CSS color #DEB887
+ * 初始化为 CSS 颜色的不可变 Color 实例 #DEB887
  * <span class="colorSwath" style="background: #DEB887;"></span>
  *
  * @constant
@@ -1057,7 +1057,7 @@ Color.BROWN = Object.freeze(Color.fromCssColorString("#A52A2A"));
 Color.BURLYWOOD = Object.freeze(Color.fromCssColorString("#DEB887"));
 
 /**
- * An immutable Color instance initialized to CSS color #5F9EA0
+ * 初始化为 CSS 颜色的不可变 Color 实例 #5F9EA0
  * <span class="colorSwath" style="background: #5F9EA0;"></span>
  *
  * @constant
@@ -1065,7 +1065,7 @@ Color.BURLYWOOD = Object.freeze(Color.fromCssColorString("#DEB887"));
  */
 Color.CADETBLUE = Object.freeze(Color.fromCssColorString("#5F9EA0"));
 /**
- * An immutable Color instance initialized to CSS color #7FFF00
+ * 初始化为 CSS 颜色的不可变 Color 实例 #7FFF00
  * <span class="colorSwath" style="background: #7FFF00;"></span>
  *
  * @constant
@@ -1074,7 +1074,7 @@ Color.CADETBLUE = Object.freeze(Color.fromCssColorString("#5F9EA0"));
 Color.CHARTREUSE = Object.freeze(Color.fromCssColorString("#7FFF00"));
 
 /**
- * An immutable Color instance initialized to CSS color #D2691E
+ * 初始化为 CSS 颜色的不可变 Color 实例 #D2691E
  * <span class="colorSwath" style="background: #D2691E;"></span>
  *
  * @constant
@@ -1083,7 +1083,7 @@ Color.CHARTREUSE = Object.freeze(Color.fromCssColorString("#7FFF00"));
 Color.CHOCOLATE = Object.freeze(Color.fromCssColorString("#D2691E"));
 
 /**
- * An immutable Color instance initialized to CSS color #FF7F50
+ * 初始化为 CSS 颜色的不可变 Color 实例 #FF7F50
  * <span class="colorSwath" style="background: #FF7F50;"></span>
  *
  * @constant
@@ -1092,7 +1092,7 @@ Color.CHOCOLATE = Object.freeze(Color.fromCssColorString("#D2691E"));
 Color.CORAL = Object.freeze(Color.fromCssColorString("#FF7F50"));
 
 /**
- * An immutable Color instance initialized to CSS color #6495ED
+ * 初始化为 CSS 颜色的不可变 Color 实例 #6495ED
  * <span class="colorSwath" style="background: #6495ED;"></span>
  *
  * @constant
@@ -1101,7 +1101,7 @@ Color.CORAL = Object.freeze(Color.fromCssColorString("#FF7F50"));
 Color.CORNFLOWERBLUE = Object.freeze(Color.fromCssColorString("#6495ED"));
 
 /**
- * An immutable Color instance initialized to CSS color #FFF8DC
+ * 初始化为 CSS 颜色的不可变 Color 实例 #FFF8DC
  * <span class="colorSwath" style="background: #FFF8DC;"></span>
  *
  * @constant
@@ -1110,7 +1110,7 @@ Color.CORNFLOWERBLUE = Object.freeze(Color.fromCssColorString("#6495ED"));
 Color.CORNSILK = Object.freeze(Color.fromCssColorString("#FFF8DC"));
 
 /**
- * An immutable Color instance initialized to CSS color #DC143C
+ * 初始化为 CSS 颜色的不可变 Color 实例 #DC143C
  * <span class="colorSwath" style="background: #DC143C;"></span>
  *
  * @constant
@@ -1119,7 +1119,7 @@ Color.CORNSILK = Object.freeze(Color.fromCssColorString("#FFF8DC"));
 Color.CRIMSON = Object.freeze(Color.fromCssColorString("#DC143C"));
 
 /**
- * An immutable Color instance initialized to CSS color #00FFFF
+ * 初始化为 CSS 颜色的不可变 Color 实例 #00FFFF
  * <span class="colorSwath" style="background: #00FFFF;"></span>
  *
  * @constant
@@ -1128,7 +1128,7 @@ Color.CRIMSON = Object.freeze(Color.fromCssColorString("#DC143C"));
 Color.CYAN = Object.freeze(Color.fromCssColorString("#00FFFF"));
 
 /**
- * An immutable Color instance initialized to CSS color #00008B
+ * 初始化为 CSS 颜色的不可变 Color 实例 #00008B
  * <span class="colorSwath" style="background: #00008B;"></span>
  *
  * @constant
@@ -1137,7 +1137,7 @@ Color.CYAN = Object.freeze(Color.fromCssColorString("#00FFFF"));
 Color.DARKBLUE = Object.freeze(Color.fromCssColorString("#00008B"));
 
 /**
- * An immutable Color instance initialized to CSS color #008B8B
+ * 初始化为 CSS 颜色的不可变 Color 实例 #008B8B
  * <span class="colorSwath" style="background: #008B8B;"></span>
  *
  * @constant
@@ -1146,7 +1146,7 @@ Color.DARKBLUE = Object.freeze(Color.fromCssColorString("#00008B"));
 Color.DARKCYAN = Object.freeze(Color.fromCssColorString("#008B8B"));
 
 /**
- * An immutable Color instance initialized to CSS color #B8860B
+ * 初始化为 CSS 颜色的不可变 Color 实例 #B8860B
  * <span class="colorSwath" style="background: #B8860B;"></span>
  *
  * @constant
@@ -1155,7 +1155,7 @@ Color.DARKCYAN = Object.freeze(Color.fromCssColorString("#008B8B"));
 Color.DARKGOLDENROD = Object.freeze(Color.fromCssColorString("#B8860B"));
 
 /**
- * An immutable Color instance initialized to CSS color #A9A9A9
+ * 初始化为 CSS 颜色的不可变 Color 实例 #A9A9A9
  * <span class="colorSwath" style="background: #A9A9A9;"></span>
  *
  * @constant
@@ -1164,7 +1164,7 @@ Color.DARKGOLDENROD = Object.freeze(Color.fromCssColorString("#B8860B"));
 Color.DARKGRAY = Object.freeze(Color.fromCssColorString("#A9A9A9"));
 
 /**
- * An immutable Color instance initialized to CSS color #006400
+ * 初始化为 CSS 颜色的不可变 Color 实例 #006400
  * <span class="colorSwath" style="background: #006400;"></span>
  *
  * @constant
@@ -1173,7 +1173,7 @@ Color.DARKGRAY = Object.freeze(Color.fromCssColorString("#A9A9A9"));
 Color.DARKGREEN = Object.freeze(Color.fromCssColorString("#006400"));
 
 /**
- * An immutable Color instance initialized to CSS color #A9A9A9
+ * 初始化为 CSS 颜色的不可变 Color 实例 #A9A9A9
  * <span class="colorSwath" style="background: #A9A9A9;"></span>
  *
  * @constant
@@ -1182,7 +1182,7 @@ Color.DARKGREEN = Object.freeze(Color.fromCssColorString("#006400"));
 Color.DARKGREY = Color.DARKGRAY;
 
 /**
- * An immutable Color instance initialized to CSS color #BDB76B
+ * 初始化为 CSS 颜色的不可变 Color 实例 #BDB76B
  * <span class="colorSwath" style="background: #BDB76B;"></span>
  *
  * @constant
@@ -1191,7 +1191,7 @@ Color.DARKGREY = Color.DARKGRAY;
 Color.DARKKHAKI = Object.freeze(Color.fromCssColorString("#BDB76B"));
 
 /**
- * An immutable Color instance initialized to CSS color #8B008B
+ * 初始化为 CSS 颜色的不可变 Color 实例 #8B008B
  * <span class="colorSwath" style="background: #8B008B;"></span>
  *
  * @constant
@@ -1200,7 +1200,7 @@ Color.DARKKHAKI = Object.freeze(Color.fromCssColorString("#BDB76B"));
 Color.DARKMAGENTA = Object.freeze(Color.fromCssColorString("#8B008B"));
 
 /**
- * An immutable Color instance initialized to CSS color #556B2F
+ * 初始化为 CSS 颜色的不可变 Color 实例 #556B2F
  * <span class="colorSwath" style="background: #556B2F;"></span>
  *
  * @constant
@@ -1209,7 +1209,7 @@ Color.DARKMAGENTA = Object.freeze(Color.fromCssColorString("#8B008B"));
 Color.DARKOLIVEGREEN = Object.freeze(Color.fromCssColorString("#556B2F"));
 
 /**
- * An immutable Color instance initialized to CSS color #FF8C00
+ * 初始化为 CSS 颜色的不可变 Color 实例 #FF8C00
  * <span class="colorSwath" style="background: #FF8C00;"></span>
  *
  * @constant
@@ -1218,7 +1218,7 @@ Color.DARKOLIVEGREEN = Object.freeze(Color.fromCssColorString("#556B2F"));
 Color.DARKORANGE = Object.freeze(Color.fromCssColorString("#FF8C00"));
 
 /**
- * An immutable Color instance initialized to CSS color #9932CC
+ * 初始化为 CSS 颜色的不可变 Color 实例 #9932CC
  * <span class="colorSwath" style="background: #9932CC;"></span>
  *
  * @constant
@@ -1227,7 +1227,7 @@ Color.DARKORANGE = Object.freeze(Color.fromCssColorString("#FF8C00"));
 Color.DARKORCHID = Object.freeze(Color.fromCssColorString("#9932CC"));
 
 /**
- * An immutable Color instance initialized to CSS color #8B0000
+ * 初始化为 CSS 颜色的不可变 Color 实例 #8B0000
  * <span class="colorSwath" style="background: #8B0000;"></span>
  *
  * @constant
@@ -1236,7 +1236,7 @@ Color.DARKORCHID = Object.freeze(Color.fromCssColorString("#9932CC"));
 Color.DARKRED = Object.freeze(Color.fromCssColorString("#8B0000"));
 
 /**
- * An immutable Color instance initialized to CSS color #E9967A
+ * 初始化为 CSS 颜色的不可变 Color 实例 #E9967A
  * <span class="colorSwath" style="background: #E9967A;"></span>
  *
  * @constant
@@ -1245,7 +1245,7 @@ Color.DARKRED = Object.freeze(Color.fromCssColorString("#8B0000"));
 Color.DARKSALMON = Object.freeze(Color.fromCssColorString("#E9967A"));
 
 /**
- * An immutable Color instance initialized to CSS color #8FBC8F
+ * 初始化为 CSS 颜色的不可变 Color 实例 #8FBC8F
  * <span class="colorSwath" style="background: #8FBC8F;"></span>
  *
  * @constant
@@ -1254,7 +1254,7 @@ Color.DARKSALMON = Object.freeze(Color.fromCssColorString("#E9967A"));
 Color.DARKSEAGREEN = Object.freeze(Color.fromCssColorString("#8FBC8F"));
 
 /**
- * An immutable Color instance initialized to CSS color #483D8B
+ * 初始化为 CSS 颜色的不可变 Color 实例 #483D8B
  * <span class="colorSwath" style="background: #483D8B;"></span>
  *
  * @constant
@@ -1263,7 +1263,7 @@ Color.DARKSEAGREEN = Object.freeze(Color.fromCssColorString("#8FBC8F"));
 Color.DARKSLATEBLUE = Object.freeze(Color.fromCssColorString("#483D8B"));
 
 /**
- * An immutable Color instance initialized to CSS color #2F4F4F
+ * 初始化为 CSS 颜色的不可变 Color 实例 #2F4F4F
  * <span class="colorSwath" style="background: #2F4F4F;"></span>
  *
  * @constant
@@ -1272,7 +1272,7 @@ Color.DARKSLATEBLUE = Object.freeze(Color.fromCssColorString("#483D8B"));
 Color.DARKSLATEGRAY = Object.freeze(Color.fromCssColorString("#2F4F4F"));
 
 /**
- * An immutable Color instance initialized to CSS color #2F4F4F
+ * 初始化为 CSS 颜色的不可变 Color 实例 #2F4F4F
  * <span class="colorSwath" style="background: #2F4F4F;"></span>
  *
  * @constant
@@ -1281,7 +1281,7 @@ Color.DARKSLATEGRAY = Object.freeze(Color.fromCssColorString("#2F4F4F"));
 Color.DARKSLATEGREY = Color.DARKSLATEGRAY;
 
 /**
- * An immutable Color instance initialized to CSS color #00CED1
+ * 初始化为 CSS 颜色的不可变 Color 实例 #00CED1
  * <span class="colorSwath" style="background: #00CED1;"></span>
  *
  * @constant
@@ -1290,7 +1290,7 @@ Color.DARKSLATEGREY = Color.DARKSLATEGRAY;
 Color.DARKTURQUOISE = Object.freeze(Color.fromCssColorString("#00CED1"));
 
 /**
- * An immutable Color instance initialized to CSS color #9400D3
+ * 初始化为 CSS 颜色的不可变 Color 实例 #9400D3
  * <span class="colorSwath" style="background: #9400D3;"></span>
  *
  * @constant
@@ -1299,7 +1299,7 @@ Color.DARKTURQUOISE = Object.freeze(Color.fromCssColorString("#00CED1"));
 Color.DARKVIOLET = Object.freeze(Color.fromCssColorString("#9400D3"));
 
 /**
- * An immutable Color instance initialized to CSS color #FF1493
+ * 初始化为 CSS 颜色的不可变 Color 实例 #FF1493
  * <span class="colorSwath" style="background: #FF1493;"></span>
  *
  * @constant
@@ -1308,7 +1308,7 @@ Color.DARKVIOLET = Object.freeze(Color.fromCssColorString("#9400D3"));
 Color.DEEPPINK = Object.freeze(Color.fromCssColorString("#FF1493"));
 
 /**
- * An immutable Color instance initialized to CSS color #00BFFF
+ * 初始化为 CSS 颜色的不可变 Color 实例 #00BFFF
  * <span class="colorSwath" style="background: #00BFFF;"></span>
  *
  * @constant
@@ -1317,7 +1317,7 @@ Color.DEEPPINK = Object.freeze(Color.fromCssColorString("#FF1493"));
 Color.DEEPSKYBLUE = Object.freeze(Color.fromCssColorString("#00BFFF"));
 
 /**
- * An immutable Color instance initialized to CSS color #696969
+ * 初始化为 CSS 颜色的不可变 Color 实例 #696969
  * <span class="colorSwath" style="background: #696969;"></span>
  *
  * @constant
@@ -1326,7 +1326,7 @@ Color.DEEPSKYBLUE = Object.freeze(Color.fromCssColorString("#00BFFF"));
 Color.DIMGRAY = Object.freeze(Color.fromCssColorString("#696969"));
 
 /**
- * An immutable Color instance initialized to CSS color #696969
+ * 初始化为 CSS 颜色的不可变 Color 实例 #696969
  * <span class="colorSwath" style="background: #696969;"></span>
  *
  * @constant
@@ -1335,7 +1335,7 @@ Color.DIMGRAY = Object.freeze(Color.fromCssColorString("#696969"));
 Color.DIMGREY = Color.DIMGRAY;
 
 /**
- * An immutable Color instance initialized to CSS color #1E90FF
+ * 初始化为 CSS 颜色的不可变 Color 实例 #1E90FF
  * <span class="colorSwath" style="background: #1E90FF;"></span>
  *
  * @constant
@@ -1344,7 +1344,7 @@ Color.DIMGREY = Color.DIMGRAY;
 Color.DODGERBLUE = Object.freeze(Color.fromCssColorString("#1E90FF"));
 
 /**
- * An immutable Color instance initialized to CSS color #B22222
+ * 初始化为 CSS 颜色的不可变 Color 实例 #B22222
  * <span class="colorSwath" style="background: #B22222;"></span>
  *
  * @constant
@@ -1353,7 +1353,7 @@ Color.DODGERBLUE = Object.freeze(Color.fromCssColorString("#1E90FF"));
 Color.FIREBRICK = Object.freeze(Color.fromCssColorString("#B22222"));
 
 /**
- * An immutable Color instance initialized to CSS color #FFFAF0
+ * 初始化为 CSS 颜色的不可变 Color 实例 #FFFAF0
  * <span class="colorSwath" style="background: #FFFAF0;"></span>
  *
  * @constant
@@ -1362,7 +1362,7 @@ Color.FIREBRICK = Object.freeze(Color.fromCssColorString("#B22222"));
 Color.FLORALWHITE = Object.freeze(Color.fromCssColorString("#FFFAF0"));
 
 /**
- * An immutable Color instance initialized to CSS color #228B22
+ * 初始化为 CSS 颜色的不可变 Color 实例 #228B22
  * <span class="colorSwath" style="background: #228B22;"></span>
  *
  * @constant
@@ -1371,7 +1371,7 @@ Color.FLORALWHITE = Object.freeze(Color.fromCssColorString("#FFFAF0"));
 Color.FORESTGREEN = Object.freeze(Color.fromCssColorString("#228B22"));
 
 /**
- * An immutable Color instance initialized to CSS color #FF00FF
+ * 初始化为 CSS 颜色的不可变 Color 实例 #FF00FF
  * <span class="colorSwath" style="background: #FF00FF;"></span>
  *
  * @constant
@@ -1380,7 +1380,7 @@ Color.FORESTGREEN = Object.freeze(Color.fromCssColorString("#228B22"));
 Color.FUCHSIA = Object.freeze(Color.fromCssColorString("#FF00FF"));
 
 /**
- * An immutable Color instance initialized to CSS color #DCDCDC
+ * 初始化为 CSS 颜色的不可变 Color 实例 #DCDCDC
  * <span class="colorSwath" style="background: #DCDCDC;"></span>
  *
  * @constant
@@ -1389,7 +1389,7 @@ Color.FUCHSIA = Object.freeze(Color.fromCssColorString("#FF00FF"));
 Color.GAINSBORO = Object.freeze(Color.fromCssColorString("#DCDCDC"));
 
 /**
- * An immutable Color instance initialized to CSS color #F8F8FF
+ * 初始化为 CSS 颜色的不可变 Color 实例 #F8F8FF
  * <span class="colorSwath" style="background: #F8F8FF;"></span>
  *
  * @constant
@@ -1398,7 +1398,7 @@ Color.GAINSBORO = Object.freeze(Color.fromCssColorString("#DCDCDC"));
 Color.GHOSTWHITE = Object.freeze(Color.fromCssColorString("#F8F8FF"));
 
 /**
- * An immutable Color instance initialized to CSS color #FFD700
+ * 初始化为 CSS 颜色的不可变 Color 实例 #FFD700
  * <span class="colorSwath" style="background: #FFD700;"></span>
  *
  * @constant
@@ -1407,7 +1407,7 @@ Color.GHOSTWHITE = Object.freeze(Color.fromCssColorString("#F8F8FF"));
 Color.GOLD = Object.freeze(Color.fromCssColorString("#FFD700"));
 
 /**
- * An immutable Color instance initialized to CSS color #DAA520
+ * 初始化为 CSS 颜色的不可变 Color 实例 #DAA520
  * <span class="colorSwath" style="background: #DAA520;"></span>
  *
  * @constant
@@ -1416,7 +1416,7 @@ Color.GOLD = Object.freeze(Color.fromCssColorString("#FFD700"));
 Color.GOLDENROD = Object.freeze(Color.fromCssColorString("#DAA520"));
 
 /**
- * An immutable Color instance initialized to CSS color #808080
+ * 初始化为 CSS 颜色的不可变 Color 实例 #808080
  * <span class="colorSwath" style="background: #808080;"></span>
  *
  * @constant
@@ -1425,7 +1425,7 @@ Color.GOLDENROD = Object.freeze(Color.fromCssColorString("#DAA520"));
 Color.GRAY = Object.freeze(Color.fromCssColorString("#808080"));
 
 /**
- * An immutable Color instance initialized to CSS color #008000
+ * 初始化为 CSS 颜色的不可变 Color 实例 #008000
  * <span class="colorSwath" style="background: #008000;"></span>
  *
  * @constant
@@ -1434,7 +1434,7 @@ Color.GRAY = Object.freeze(Color.fromCssColorString("#808080"));
 Color.GREEN = Object.freeze(Color.fromCssColorString("#008000"));
 
 /**
- * An immutable Color instance initialized to CSS color #ADFF2F
+ * 初始化为 CSS 颜色的不可变 Color 实例 #ADFF2F
  * <span class="colorSwath" style="background: #ADFF2F;"></span>
  *
  * @constant
@@ -1443,7 +1443,7 @@ Color.GREEN = Object.freeze(Color.fromCssColorString("#008000"));
 Color.GREENYELLOW = Object.freeze(Color.fromCssColorString("#ADFF2F"));
 
 /**
- * An immutable Color instance initialized to CSS color #808080
+ * 初始化为 CSS 颜色的不可变 Color 实例 #808080
  * <span class="colorSwath" style="background: #808080;"></span>
  *
  * @constant
@@ -1452,7 +1452,7 @@ Color.GREENYELLOW = Object.freeze(Color.fromCssColorString("#ADFF2F"));
 Color.GREY = Color.GRAY;
 
 /**
- * An immutable Color instance initialized to CSS color #F0FFF0
+ * 初始化为 CSS 颜色的不可变 Color 实例 #F0FFF0
  * <span class="colorSwath" style="background: #F0FFF0;"></span>
  *
  * @constant
@@ -1461,7 +1461,7 @@ Color.GREY = Color.GRAY;
 Color.HONEYDEW = Object.freeze(Color.fromCssColorString("#F0FFF0"));
 
 /**
- * An immutable Color instance initialized to CSS color #FF69B4
+ * 初始化为 CSS 颜色的不可变 Color 实例 #FF69B4
  * <span class="colorSwath" style="background: #FF69B4;"></span>
  *
  * @constant
@@ -1470,7 +1470,7 @@ Color.HONEYDEW = Object.freeze(Color.fromCssColorString("#F0FFF0"));
 Color.HOTPINK = Object.freeze(Color.fromCssColorString("#FF69B4"));
 
 /**
- * An immutable Color instance initialized to CSS color #CD5C5C
+ * 初始化为 CSS 颜色的不可变 Color 实例 #CD5C5C
  * <span class="colorSwath" style="background: #CD5C5C;"></span>
  *
  * @constant
@@ -1479,7 +1479,7 @@ Color.HOTPINK = Object.freeze(Color.fromCssColorString("#FF69B4"));
 Color.INDIANRED = Object.freeze(Color.fromCssColorString("#CD5C5C"));
 
 /**
- * An immutable Color instance initialized to CSS color #4B0082
+ * 初始化为 CSS 颜色的不可变 Color 实例 #4B0082
  * <span class="colorSwath" style="background: #4B0082;"></span>
  *
  * @constant
@@ -1488,7 +1488,7 @@ Color.INDIANRED = Object.freeze(Color.fromCssColorString("#CD5C5C"));
 Color.INDIGO = Object.freeze(Color.fromCssColorString("#4B0082"));
 
 /**
- * An immutable Color instance initialized to CSS color #FFFFF0
+ * 初始化为 CSS 颜色的不可变 Color 实例 #FFFFF0
  * <span class="colorSwath" style="background: #FFFFF0;"></span>
  *
  * @constant
@@ -1497,7 +1497,7 @@ Color.INDIGO = Object.freeze(Color.fromCssColorString("#4B0082"));
 Color.IVORY = Object.freeze(Color.fromCssColorString("#FFFFF0"));
 
 /**
- * An immutable Color instance initialized to CSS color #F0E68C
+ * 初始化为 CSS 颜色的不可变 Color 实例 #F0E68C
  * <span class="colorSwath" style="background: #F0E68C;"></span>
  *
  * @constant
@@ -1506,7 +1506,7 @@ Color.IVORY = Object.freeze(Color.fromCssColorString("#FFFFF0"));
 Color.KHAKI = Object.freeze(Color.fromCssColorString("#F0E68C"));
 
 /**
- * An immutable Color instance initialized to CSS color #E6E6FA
+ * 初始化为 CSS 颜色的不可变 Color 实例 #E6E6FA
  * <span class="colorSwath" style="background: #E6E6FA;"></span>
  *
  * @constant
@@ -1515,7 +1515,7 @@ Color.KHAKI = Object.freeze(Color.fromCssColorString("#F0E68C"));
 Color.LAVENDER = Object.freeze(Color.fromCssColorString("#E6E6FA"));
 
 /**
- * An immutable Color instance initialized to CSS color #FFF0F5
+ * 初始化为 CSS 颜色的不可变 Color 实例 #FFF0F5
  * <span class="colorSwath" style="background: #FFF0F5;"></span>
  *
  * @constant
@@ -1524,7 +1524,7 @@ Color.LAVENDER = Object.freeze(Color.fromCssColorString("#E6E6FA"));
 Color.LAVENDAR_BLUSH = Object.freeze(Color.fromCssColorString("#FFF0F5"));
 
 /**
- * An immutable Color instance initialized to CSS color #7CFC00
+ * 初始化为 CSS 颜色的不可变 Color 实例 #7CFC00
  * <span class="colorSwath" style="background: #7CFC00;"></span>
  *
  * @constant
@@ -1533,7 +1533,7 @@ Color.LAVENDAR_BLUSH = Object.freeze(Color.fromCssColorString("#FFF0F5"));
 Color.LAWNGREEN = Object.freeze(Color.fromCssColorString("#7CFC00"));
 
 /**
- * An immutable Color instance initialized to CSS color #FFFACD
+ * 初始化为 CSS 颜色的不可变 Color 实例 #FFFACD
  * <span class="colorSwath" style="background: #FFFACD;"></span>
  *
  * @constant
@@ -1542,7 +1542,7 @@ Color.LAWNGREEN = Object.freeze(Color.fromCssColorString("#7CFC00"));
 Color.LEMONCHIFFON = Object.freeze(Color.fromCssColorString("#FFFACD"));
 
 /**
- * An immutable Color instance initialized to CSS color #ADD8E6
+ * 初始化为 CSS 颜色的不可变 Color 实例 #ADD8E6
  * <span class="colorSwath" style="background: #ADD8E6;"></span>
  *
  * @constant
@@ -1551,7 +1551,7 @@ Color.LEMONCHIFFON = Object.freeze(Color.fromCssColorString("#FFFACD"));
 Color.LIGHTBLUE = Object.freeze(Color.fromCssColorString("#ADD8E6"));
 
 /**
- * An immutable Color instance initialized to CSS color #F08080
+ * 初始化为 CSS 颜色的不可变 Color 实例 #F08080
  * <span class="colorSwath" style="background: #F08080;"></span>
  *
  * @constant
@@ -1560,7 +1560,7 @@ Color.LIGHTBLUE = Object.freeze(Color.fromCssColorString("#ADD8E6"));
 Color.LIGHTCORAL = Object.freeze(Color.fromCssColorString("#F08080"));
 
 /**
- * An immutable Color instance initialized to CSS color #E0FFFF
+ * 初始化为 CSS 颜色的不可变 Color 实例 #E0FFFF
  * <span class="colorSwath" style="background: #E0FFFF;"></span>
  *
  * @constant
@@ -1569,7 +1569,7 @@ Color.LIGHTCORAL = Object.freeze(Color.fromCssColorString("#F08080"));
 Color.LIGHTCYAN = Object.freeze(Color.fromCssColorString("#E0FFFF"));
 
 /**
- * An immutable Color instance initialized to CSS color #FAFAD2
+ * 初始化为 CSS 颜色的不可变 Color 实例 #FAFAD2
  * <span class="colorSwath" style="background: #FAFAD2;"></span>
  *
  * @constant
@@ -1578,7 +1578,7 @@ Color.LIGHTCYAN = Object.freeze(Color.fromCssColorString("#E0FFFF"));
 Color.LIGHTGOLDENRODYELLOW = Object.freeze(Color.fromCssColorString("#FAFAD2"));
 
 /**
- * An immutable Color instance initialized to CSS color #D3D3D3
+ * 初始化为 CSS 颜色的不可变 Color 实例 #D3D3D3
  * <span class="colorSwath" style="background: #D3D3D3;"></span>
  *
  * @constant
@@ -1587,7 +1587,7 @@ Color.LIGHTGOLDENRODYELLOW = Object.freeze(Color.fromCssColorString("#FAFAD2"));
 Color.LIGHTGRAY = Object.freeze(Color.fromCssColorString("#D3D3D3"));
 
 /**
- * An immutable Color instance initialized to CSS color #90EE90
+ * 初始化为 CSS 颜色的不可变 Color 实例 #90EE90
  * <span class="colorSwath" style="background: #90EE90;"></span>
  *
  * @constant
@@ -1596,7 +1596,7 @@ Color.LIGHTGRAY = Object.freeze(Color.fromCssColorString("#D3D3D3"));
 Color.LIGHTGREEN = Object.freeze(Color.fromCssColorString("#90EE90"));
 
 /**
- * An immutable Color instance initialized to CSS color #D3D3D3
+ * 初始化为 CSS 颜色的不可变 Color 实例 #D3D3D3
  * <span class="colorSwath" style="background: #D3D3D3;"></span>
  *
  * @constant
@@ -1605,7 +1605,7 @@ Color.LIGHTGREEN = Object.freeze(Color.fromCssColorString("#90EE90"));
 Color.LIGHTGREY = Color.LIGHTGRAY;
 
 /**
- * An immutable Color instance initialized to CSS color #FFB6C1
+ * 初始化为 CSS 颜色的不可变 Color 实例 #FFB6C1
  * <span class="colorSwath" style="background: #FFB6C1;"></span>
  *
  * @constant
@@ -1614,7 +1614,7 @@ Color.LIGHTGREY = Color.LIGHTGRAY;
 Color.LIGHTPINK = Object.freeze(Color.fromCssColorString("#FFB6C1"));
 
 /**
- * An immutable Color instance initialized to CSS color #20B2AA
+ * 初始化为 CSS 颜色的不可变 Color 实例 #20B2AA
  * <span class="colorSwath" style="background: #20B2AA;"></span>
  *
  * @constant
@@ -1623,7 +1623,7 @@ Color.LIGHTPINK = Object.freeze(Color.fromCssColorString("#FFB6C1"));
 Color.LIGHTSEAGREEN = Object.freeze(Color.fromCssColorString("#20B2AA"));
 
 /**
- * An immutable Color instance initialized to CSS color #87CEFA
+ * 初始化为 CSS 颜色的不可变 Color 实例 #87CEFA
  * <span class="colorSwath" style="background: #87CEFA;"></span>
  *
  * @constant
@@ -1632,7 +1632,7 @@ Color.LIGHTSEAGREEN = Object.freeze(Color.fromCssColorString("#20B2AA"));
 Color.LIGHTSKYBLUE = Object.freeze(Color.fromCssColorString("#87CEFA"));
 
 /**
- * An immutable Color instance initialized to CSS color #778899
+ * 初始化为 CSS 颜色的不可变 Color 实例 #778899
  * <span class="colorSwath" style="background: #778899;"></span>
  *
  * @constant
@@ -1641,7 +1641,7 @@ Color.LIGHTSKYBLUE = Object.freeze(Color.fromCssColorString("#87CEFA"));
 Color.LIGHTSLATEGRAY = Object.freeze(Color.fromCssColorString("#778899"));
 
 /**
- * An immutable Color instance initialized to CSS color #778899
+ * 初始化为 CSS 颜色的不可变 Color 实例 #778899
  * <span class="colorSwath" style="background: #778899;"></span>
  *
  * @constant
@@ -1650,7 +1650,7 @@ Color.LIGHTSLATEGRAY = Object.freeze(Color.fromCssColorString("#778899"));
 Color.LIGHTSLATEGREY = Color.LIGHTSLATEGRAY;
 
 /**
- * An immutable Color instance initialized to CSS color #B0C4DE
+ * 初始化为 CSS 颜色的不可变 Color 实例 #B0C4DE
  * <span class="colorSwath" style="background: #B0C4DE;"></span>
  *
  * @constant
@@ -1659,7 +1659,7 @@ Color.LIGHTSLATEGREY = Color.LIGHTSLATEGRAY;
 Color.LIGHTSTEELBLUE = Object.freeze(Color.fromCssColorString("#B0C4DE"));
 
 /**
- * An immutable Color instance initialized to CSS color #FFFFE0
+ * 初始化为 CSS 颜色的不可变 Color 实例 #FFFFE0
  * <span class="colorSwath" style="background: #FFFFE0;"></span>
  *
  * @constant
@@ -1668,7 +1668,7 @@ Color.LIGHTSTEELBLUE = Object.freeze(Color.fromCssColorString("#B0C4DE"));
 Color.LIGHTYELLOW = Object.freeze(Color.fromCssColorString("#FFFFE0"));
 
 /**
- * An immutable Color instance initialized to CSS color #00FF00
+ * 初始化为 CSS 颜色的不可变 Color 实例 #00FF00
  * <span class="colorSwath" style="background: #00FF00;"></span>
  *
  * @constant
@@ -1677,7 +1677,7 @@ Color.LIGHTYELLOW = Object.freeze(Color.fromCssColorString("#FFFFE0"));
 Color.LIME = Object.freeze(Color.fromCssColorString("#00FF00"));
 
 /**
- * An immutable Color instance initialized to CSS color #32CD32
+ * 初始化为 CSS 颜色的不可变 Color 实例 #32CD32
  * <span class="colorSwath" style="background: #32CD32;"></span>
  *
  * @constant
@@ -1686,7 +1686,7 @@ Color.LIME = Object.freeze(Color.fromCssColorString("#00FF00"));
 Color.LIMEGREEN = Object.freeze(Color.fromCssColorString("#32CD32"));
 
 /**
- * An immutable Color instance initialized to CSS color #FAF0E6
+ * 初始化为 CSS 颜色的不可变 Color 实例 #FAF0E6
  * <span class="colorSwath" style="background: #FAF0E6;"></span>
  *
  * @constant
@@ -1695,7 +1695,7 @@ Color.LIMEGREEN = Object.freeze(Color.fromCssColorString("#32CD32"));
 Color.LINEN = Object.freeze(Color.fromCssColorString("#FAF0E6"));
 
 /**
- * An immutable Color instance initialized to CSS color #FF00FF
+ * 初始化为 CSS 颜色的不可变 Color 实例 #FF00FF
  * <span class="colorSwath" style="background: #FF00FF;"></span>
  *
  * @constant
@@ -1704,7 +1704,7 @@ Color.LINEN = Object.freeze(Color.fromCssColorString("#FAF0E6"));
 Color.MAGENTA = Object.freeze(Color.fromCssColorString("#FF00FF"));
 
 /**
- * An immutable Color instance initialized to CSS color #800000
+ * 初始化为 CSS 颜色的不可变 Color 实例 #800000
  * <span class="colorSwath" style="background: #800000;"></span>
  *
  * @constant
@@ -1713,7 +1713,7 @@ Color.MAGENTA = Object.freeze(Color.fromCssColorString("#FF00FF"));
 Color.MAROON = Object.freeze(Color.fromCssColorString("#800000"));
 
 /**
- * An immutable Color instance initialized to CSS color #66CDAA
+ * 初始化为 CSS 颜色的不可变 Color 实例 #66CDAA
  * <span class="colorSwath" style="background: #66CDAA;"></span>
  *
  * @constant
@@ -1722,7 +1722,7 @@ Color.MAROON = Object.freeze(Color.fromCssColorString("#800000"));
 Color.MEDIUMAQUAMARINE = Object.freeze(Color.fromCssColorString("#66CDAA"));
 
 /**
- * An immutable Color instance initialized to CSS color #0000CD
+ * 初始化为 CSS 颜色的不可变 Color 实例 #0000CD
  * <span class="colorSwath" style="background: #0000CD;"></span>
  *
  * @constant
@@ -1731,7 +1731,7 @@ Color.MEDIUMAQUAMARINE = Object.freeze(Color.fromCssColorString("#66CDAA"));
 Color.MEDIUMBLUE = Object.freeze(Color.fromCssColorString("#0000CD"));
 
 /**
- * An immutable Color instance initialized to CSS color #BA55D3
+ * 初始化为 CSS 颜色的不可变 Color 实例 #BA55D3
  * <span class="colorSwath" style="background: #BA55D3;"></span>
  *
  * @constant
@@ -1740,7 +1740,7 @@ Color.MEDIUMBLUE = Object.freeze(Color.fromCssColorString("#0000CD"));
 Color.MEDIUMORCHID = Object.freeze(Color.fromCssColorString("#BA55D3"));
 
 /**
- * An immutable Color instance initialized to CSS color #9370DB
+ * 初始化为 CSS 颜色的不可变 Color 实例 #9370DB
  * <span class="colorSwath" style="background: #9370DB;"></span>
  *
  * @constant
@@ -1749,7 +1749,7 @@ Color.MEDIUMORCHID = Object.freeze(Color.fromCssColorString("#BA55D3"));
 Color.MEDIUMPURPLE = Object.freeze(Color.fromCssColorString("#9370DB"));
 
 /**
- * An immutable Color instance initialized to CSS color #3CB371
+ * 初始化为 CSS 颜色的不可变 Color 实例 #3CB371
  * <span class="colorSwath" style="background: #3CB371;"></span>
  *
  * @constant
@@ -1758,7 +1758,7 @@ Color.MEDIUMPURPLE = Object.freeze(Color.fromCssColorString("#9370DB"));
 Color.MEDIUMSEAGREEN = Object.freeze(Color.fromCssColorString("#3CB371"));
 
 /**
- * An immutable Color instance initialized to CSS color #7B68EE
+ * 初始化为 CSS 颜色的不可变 Color 实例 #7B68EE
  * <span class="colorSwath" style="background: #7B68EE;"></span>
  *
  * @constant
@@ -1767,7 +1767,7 @@ Color.MEDIUMSEAGREEN = Object.freeze(Color.fromCssColorString("#3CB371"));
 Color.MEDIUMSLATEBLUE = Object.freeze(Color.fromCssColorString("#7B68EE"));
 
 /**
- * An immutable Color instance initialized to CSS color #00FA9A
+ * 初始化为 CSS 颜色的不可变 Color 实例 #00FA9A
  * <span class="colorSwath" style="background: #00FA9A;"></span>
  *
  * @constant
@@ -1776,7 +1776,7 @@ Color.MEDIUMSLATEBLUE = Object.freeze(Color.fromCssColorString("#7B68EE"));
 Color.MEDIUMSPRINGGREEN = Object.freeze(Color.fromCssColorString("#00FA9A"));
 
 /**
- * An immutable Color instance initialized to CSS color #48D1CC
+ * 初始化为 CSS 颜色的不可变 Color 实例 #48D1CC
  * <span class="colorSwath" style="background: #48D1CC;"></span>
  *
  * @constant
@@ -1785,7 +1785,7 @@ Color.MEDIUMSPRINGGREEN = Object.freeze(Color.fromCssColorString("#00FA9A"));
 Color.MEDIUMTURQUOISE = Object.freeze(Color.fromCssColorString("#48D1CC"));
 
 /**
- * An immutable Color instance initialized to CSS color #C71585
+ * 初始化为 CSS 颜色的不可变 Color 实例 #C71585
  * <span class="colorSwath" style="background: #C71585;"></span>
  *
  * @constant
@@ -1794,7 +1794,7 @@ Color.MEDIUMTURQUOISE = Object.freeze(Color.fromCssColorString("#48D1CC"));
 Color.MEDIUMVIOLETRED = Object.freeze(Color.fromCssColorString("#C71585"));
 
 /**
- * An immutable Color instance initialized to CSS color #191970
+ * 初始化为 CSS 颜色的不可变 Color 实例 #191970
  * <span class="colorSwath" style="background: #191970;"></span>
  *
  * @constant
@@ -1803,7 +1803,7 @@ Color.MEDIUMVIOLETRED = Object.freeze(Color.fromCssColorString("#C71585"));
 Color.MIDNIGHTBLUE = Object.freeze(Color.fromCssColorString("#191970"));
 
 /**
- * An immutable Color instance initialized to CSS color #F5FFFA
+ * 初始化为 CSS 颜色的不可变 Color 实例 #F5FFFA
  * <span class="colorSwath" style="background: #F5FFFA;"></span>
  *
  * @constant
@@ -1812,7 +1812,7 @@ Color.MIDNIGHTBLUE = Object.freeze(Color.fromCssColorString("#191970"));
 Color.MINTCREAM = Object.freeze(Color.fromCssColorString("#F5FFFA"));
 
 /**
- * An immutable Color instance initialized to CSS color #FFE4E1
+ * 初始化为 CSS 颜色的不可变 Color 实例 #FFE4E1
  * <span class="colorSwath" style="background: #FFE4E1;"></span>
  *
  * @constant
@@ -1821,7 +1821,7 @@ Color.MINTCREAM = Object.freeze(Color.fromCssColorString("#F5FFFA"));
 Color.MISTYROSE = Object.freeze(Color.fromCssColorString("#FFE4E1"));
 
 /**
- * An immutable Color instance initialized to CSS color #FFE4B5
+ * 初始化为 CSS 颜色的不可变 Color 实例 #FFE4B5
  * <span class="colorSwath" style="background: #FFE4B5;"></span>
  *
  * @constant
@@ -1830,7 +1830,7 @@ Color.MISTYROSE = Object.freeze(Color.fromCssColorString("#FFE4E1"));
 Color.MOCCASIN = Object.freeze(Color.fromCssColorString("#FFE4B5"));
 
 /**
- * An immutable Color instance initialized to CSS color #FFDEAD
+ * 初始化为 CSS 颜色的不可变 Color 实例 #FFDEAD
  * <span class="colorSwath" style="background: #FFDEAD;"></span>
  *
  * @constant
@@ -1839,7 +1839,7 @@ Color.MOCCASIN = Object.freeze(Color.fromCssColorString("#FFE4B5"));
 Color.NAVAJOWHITE = Object.freeze(Color.fromCssColorString("#FFDEAD"));
 
 /**
- * An immutable Color instance initialized to CSS color #000080
+ * 初始化为 CSS 颜色的不可变 Color 实例 #000080
  * <span class="colorSwath" style="background: #000080;"></span>
  *
  * @constant
@@ -1848,7 +1848,7 @@ Color.NAVAJOWHITE = Object.freeze(Color.fromCssColorString("#FFDEAD"));
 Color.NAVY = Object.freeze(Color.fromCssColorString("#000080"));
 
 /**
- * An immutable Color instance initialized to CSS color #FDF5E6
+ * 初始化为 CSS 颜色的不可变 Color 实例 #FDF5E6
  * <span class="colorSwath" style="background: #FDF5E6;"></span>
  *
  * @constant
@@ -1857,7 +1857,7 @@ Color.NAVY = Object.freeze(Color.fromCssColorString("#000080"));
 Color.OLDLACE = Object.freeze(Color.fromCssColorString("#FDF5E6"));
 
 /**
- * An immutable Color instance initialized to CSS color #808000
+ * 初始化为 CSS 颜色的不可变 Color 实例 #808000
  * <span class="colorSwath" style="background: #808000;"></span>
  *
  * @constant
@@ -1866,7 +1866,7 @@ Color.OLDLACE = Object.freeze(Color.fromCssColorString("#FDF5E6"));
 Color.OLIVE = Object.freeze(Color.fromCssColorString("#808000"));
 
 /**
- * An immutable Color instance initialized to CSS color #6B8E23
+ * 初始化为 CSS 颜色的不可变 Color 实例 #6B8E23
  * <span class="colorSwath" style="background: #6B8E23;"></span>
  *
  * @constant
@@ -1875,7 +1875,7 @@ Color.OLIVE = Object.freeze(Color.fromCssColorString("#808000"));
 Color.OLIVEDRAB = Object.freeze(Color.fromCssColorString("#6B8E23"));
 
 /**
- * An immutable Color instance initialized to CSS color #FFA500
+ * 初始化为 CSS 颜色的不可变 Color 实例 #FFA500
  * <span class="colorSwath" style="background: #FFA500;"></span>
  *
  * @constant
@@ -1884,7 +1884,7 @@ Color.OLIVEDRAB = Object.freeze(Color.fromCssColorString("#6B8E23"));
 Color.ORANGE = Object.freeze(Color.fromCssColorString("#FFA500"));
 
 /**
- * An immutable Color instance initialized to CSS color #FF4500
+ * 初始化为 CSS 颜色的不可变 Color 实例 #FF4500
  * <span class="colorSwath" style="background: #FF4500;"></span>
  *
  * @constant
@@ -1893,7 +1893,7 @@ Color.ORANGE = Object.freeze(Color.fromCssColorString("#FFA500"));
 Color.ORANGERED = Object.freeze(Color.fromCssColorString("#FF4500"));
 
 /**
- * An immutable Color instance initialized to CSS color #DA70D6
+ * 初始化为 CSS 颜色的不可变 Color 实例 #DA70D6
  * <span class="colorSwath" style="background: #DA70D6;"></span>
  *
  * @constant
@@ -1902,7 +1902,7 @@ Color.ORANGERED = Object.freeze(Color.fromCssColorString("#FF4500"));
 Color.ORCHID = Object.freeze(Color.fromCssColorString("#DA70D6"));
 
 /**
- * An immutable Color instance initialized to CSS color #EEE8AA
+ * 初始化为 CSS 颜色的不可变 Color 实例 #EEE8AA
  * <span class="colorSwath" style="background: #EEE8AA;"></span>
  *
  * @constant
@@ -1911,7 +1911,7 @@ Color.ORCHID = Object.freeze(Color.fromCssColorString("#DA70D6"));
 Color.PALEGOLDENROD = Object.freeze(Color.fromCssColorString("#EEE8AA"));
 
 /**
- * An immutable Color instance initialized to CSS color #98FB98
+ * 初始化为 CSS 颜色的不可变 Color 实例 #98FB98
  * <span class="colorSwath" style="background: #98FB98;"></span>
  *
  * @constant
@@ -1920,7 +1920,7 @@ Color.PALEGOLDENROD = Object.freeze(Color.fromCssColorString("#EEE8AA"));
 Color.PALEGREEN = Object.freeze(Color.fromCssColorString("#98FB98"));
 
 /**
- * An immutable Color instance initialized to CSS color #AFEEEE
+ * 初始化为 CSS 颜色的不可变 Color 实例 #AFEEEE
  * <span class="colorSwath" style="background: #AFEEEE;"></span>
  *
  * @constant
@@ -1929,7 +1929,7 @@ Color.PALEGREEN = Object.freeze(Color.fromCssColorString("#98FB98"));
 Color.PALETURQUOISE = Object.freeze(Color.fromCssColorString("#AFEEEE"));
 
 /**
- * An immutable Color instance initialized to CSS color #DB7093
+ * 初始化为 CSS 颜色的不可变 Color 实例 #DB7093
  * <span class="colorSwath" style="background: #DB7093;"></span>
  *
  * @constant
@@ -1938,7 +1938,7 @@ Color.PALETURQUOISE = Object.freeze(Color.fromCssColorString("#AFEEEE"));
 Color.PALEVIOLETRED = Object.freeze(Color.fromCssColorString("#DB7093"));
 
 /**
- * An immutable Color instance initialized to CSS color #FFEFD5
+ * 初始化为 CSS 颜色的不可变 Color 实例 #FFEFD5
  * <span class="colorSwath" style="background: #FFEFD5;"></span>
  *
  * @constant
@@ -1947,7 +1947,7 @@ Color.PALEVIOLETRED = Object.freeze(Color.fromCssColorString("#DB7093"));
 Color.PAPAYAWHIP = Object.freeze(Color.fromCssColorString("#FFEFD5"));
 
 /**
- * An immutable Color instance initialized to CSS color #FFDAB9
+ * 初始化为 CSS 颜色的不可变 Color 实例 #FFDAB9
  * <span class="colorSwath" style="background: #FFDAB9;"></span>
  *
  * @constant
@@ -1956,7 +1956,7 @@ Color.PAPAYAWHIP = Object.freeze(Color.fromCssColorString("#FFEFD5"));
 Color.PEACHPUFF = Object.freeze(Color.fromCssColorString("#FFDAB9"));
 
 /**
- * An immutable Color instance initialized to CSS color #CD853F
+ * 初始化为 CSS 颜色的不可变 Color 实例 #CD853F
  * <span class="colorSwath" style="background: #CD853F;"></span>
  *
  * @constant
@@ -1965,7 +1965,7 @@ Color.PEACHPUFF = Object.freeze(Color.fromCssColorString("#FFDAB9"));
 Color.PERU = Object.freeze(Color.fromCssColorString("#CD853F"));
 
 /**
- * An immutable Color instance initialized to CSS color #FFC0CB
+ * 初始化为 CSS 颜色的不可变 Color 实例 #FFC0CB
  * <span class="colorSwath" style="background: #FFC0CB;"></span>
  *
  * @constant
@@ -1974,7 +1974,7 @@ Color.PERU = Object.freeze(Color.fromCssColorString("#CD853F"));
 Color.PINK = Object.freeze(Color.fromCssColorString("#FFC0CB"));
 
 /**
- * An immutable Color instance initialized to CSS color #DDA0DD
+ * 初始化为 CSS 颜色的不可变 Color 实例 #DDA0DD
  * <span class="colorSwath" style="background: #DDA0DD;"></span>
  *
  * @constant
@@ -1983,7 +1983,7 @@ Color.PINK = Object.freeze(Color.fromCssColorString("#FFC0CB"));
 Color.PLUM = Object.freeze(Color.fromCssColorString("#DDA0DD"));
 
 /**
- * An immutable Color instance initialized to CSS color #B0E0E6
+ * 初始化为 CSS 颜色的不可变 Color 实例 #B0E0E6
  * <span class="colorSwath" style="background: #B0E0E6;"></span>
  *
  * @constant
@@ -1992,7 +1992,7 @@ Color.PLUM = Object.freeze(Color.fromCssColorString("#DDA0DD"));
 Color.POWDERBLUE = Object.freeze(Color.fromCssColorString("#B0E0E6"));
 
 /**
- * An immutable Color instance initialized to CSS color #800080
+ * 初始化为 CSS 颜色的不可变 Color 实例 #800080
  * <span class="colorSwath" style="background: #800080;"></span>
  *
  * @constant
@@ -2001,7 +2001,7 @@ Color.POWDERBLUE = Object.freeze(Color.fromCssColorString("#B0E0E6"));
 Color.PURPLE = Object.freeze(Color.fromCssColorString("#800080"));
 
 /**
- * An immutable Color instance initialized to CSS color #FF0000
+ * 初始化为 CSS 颜色的不可变 Color 实例 #FF0000
  * <span class="colorSwath" style="background: #FF0000;"></span>
  *
  * @constant
@@ -2010,7 +2010,7 @@ Color.PURPLE = Object.freeze(Color.fromCssColorString("#800080"));
 Color.RED = Object.freeze(Color.fromCssColorString("#FF0000"));
 
 /**
- * An immutable Color instance initialized to CSS color #BC8F8F
+ * 初始化为 CSS 颜色的不可变 Color 实例 #BC8F8F
  * <span class="colorSwath" style="background: #BC8F8F;"></span>
  *
  * @constant
@@ -2019,7 +2019,7 @@ Color.RED = Object.freeze(Color.fromCssColorString("#FF0000"));
 Color.ROSYBROWN = Object.freeze(Color.fromCssColorString("#BC8F8F"));
 
 /**
- * An immutable Color instance initialized to CSS color #4169E1
+ * 初始化为 CSS 颜色的不可变 Color 实例 #4169E1
  * <span class="colorSwath" style="background: #4169E1;"></span>
  *
  * @constant
@@ -2028,7 +2028,7 @@ Color.ROSYBROWN = Object.freeze(Color.fromCssColorString("#BC8F8F"));
 Color.ROYALBLUE = Object.freeze(Color.fromCssColorString("#4169E1"));
 
 /**
- * An immutable Color instance initialized to CSS color #8B4513
+ * 初始化为 CSS 颜色的不可变 Color 实例 #8B4513
  * <span class="colorSwath" style="background: #8B4513;"></span>
  *
  * @constant
@@ -2037,7 +2037,7 @@ Color.ROYALBLUE = Object.freeze(Color.fromCssColorString("#4169E1"));
 Color.SADDLEBROWN = Object.freeze(Color.fromCssColorString("#8B4513"));
 
 /**
- * An immutable Color instance initialized to CSS color #FA8072
+ * 初始化为 CSS 颜色的不可变 Color 实例 #FA8072
  * <span class="colorSwath" style="background: #FA8072;"></span>
  *
  * @constant
@@ -2046,7 +2046,7 @@ Color.SADDLEBROWN = Object.freeze(Color.fromCssColorString("#8B4513"));
 Color.SALMON = Object.freeze(Color.fromCssColorString("#FA8072"));
 
 /**
- * An immutable Color instance initialized to CSS color #F4A460
+ * 初始化为 CSS 颜色的不可变 Color 实例 #F4A460
  * <span class="colorSwath" style="background: #F4A460;"></span>
  *
  * @constant
@@ -2055,7 +2055,7 @@ Color.SALMON = Object.freeze(Color.fromCssColorString("#FA8072"));
 Color.SANDYBROWN = Object.freeze(Color.fromCssColorString("#F4A460"));
 
 /**
- * An immutable Color instance initialized to CSS color #2E8B57
+ * 初始化为 CSS 颜色的不可变 Color 实例 #2E8B57
  * <span class="colorSwath" style="background: #2E8B57;"></span>
  *
  * @constant
@@ -2064,7 +2064,7 @@ Color.SANDYBROWN = Object.freeze(Color.fromCssColorString("#F4A460"));
 Color.SEAGREEN = Object.freeze(Color.fromCssColorString("#2E8B57"));
 
 /**
- * An immutable Color instance initialized to CSS color #FFF5EE
+ * 初始化为 CSS 颜色的不可变 Color 实例 #FFF5EE
  * <span class="colorSwath" style="background: #FFF5EE;"></span>
  *
  * @constant
@@ -2073,7 +2073,7 @@ Color.SEAGREEN = Object.freeze(Color.fromCssColorString("#2E8B57"));
 Color.SEASHELL = Object.freeze(Color.fromCssColorString("#FFF5EE"));
 
 /**
- * An immutable Color instance initialized to CSS color #A0522D
+ * 初始化为 CSS 颜色的不可变 Color 实例 #A0522D
  * <span class="colorSwath" style="background: #A0522D;"></span>
  *
  * @constant
@@ -2082,7 +2082,7 @@ Color.SEASHELL = Object.freeze(Color.fromCssColorString("#FFF5EE"));
 Color.SIENNA = Object.freeze(Color.fromCssColorString("#A0522D"));
 
 /**
- * An immutable Color instance initialized to CSS color #C0C0C0
+ * 初始化为 CSS 颜色的不可变 Color 实例 #C0C0C0
  * <span class="colorSwath" style="background: #C0C0C0;"></span>
  *
  * @constant
@@ -2091,7 +2091,7 @@ Color.SIENNA = Object.freeze(Color.fromCssColorString("#A0522D"));
 Color.SILVER = Object.freeze(Color.fromCssColorString("#C0C0C0"));
 
 /**
- * An immutable Color instance initialized to CSS color #87CEEB
+ * 初始化为 CSS 颜色的不可变 Color 实例 #87CEEB
  * <span class="colorSwath" style="background: #87CEEB;"></span>
  *
  * @constant
@@ -2100,7 +2100,7 @@ Color.SILVER = Object.freeze(Color.fromCssColorString("#C0C0C0"));
 Color.SKYBLUE = Object.freeze(Color.fromCssColorString("#87CEEB"));
 
 /**
- * An immutable Color instance initialized to CSS color #6A5ACD
+ * 初始化为 CSS 颜色的不可变 Color 实例 #6A5ACD
  * <span class="colorSwath" style="background: #6A5ACD;"></span>
  *
  * @constant
@@ -2109,7 +2109,7 @@ Color.SKYBLUE = Object.freeze(Color.fromCssColorString("#87CEEB"));
 Color.SLATEBLUE = Object.freeze(Color.fromCssColorString("#6A5ACD"));
 
 /**
- * An immutable Color instance initialized to CSS color #708090
+ * 初始化为 CSS 颜色的不可变 Color 实例 #708090
  * <span class="colorSwath" style="background: #708090;"></span>
  *
  * @constant
@@ -2118,7 +2118,7 @@ Color.SLATEBLUE = Object.freeze(Color.fromCssColorString("#6A5ACD"));
 Color.SLATEGRAY = Object.freeze(Color.fromCssColorString("#708090"));
 
 /**
- * An immutable Color instance initialized to CSS color #708090
+ * 初始化为 CSS 颜色的不可变 Color 实例 #708090
  * <span class="colorSwath" style="background: #708090;"></span>
  *
  * @constant
@@ -2127,7 +2127,7 @@ Color.SLATEGRAY = Object.freeze(Color.fromCssColorString("#708090"));
 Color.SLATEGREY = Color.SLATEGRAY;
 
 /**
- * An immutable Color instance initialized to CSS color #FFFAFA
+ * 初始化为 CSS 颜色的不可变 Color 实例 #FFFAFA
  * <span class="colorSwath" style="background: #FFFAFA;"></span>
  *
  * @constant
@@ -2136,7 +2136,7 @@ Color.SLATEGREY = Color.SLATEGRAY;
 Color.SNOW = Object.freeze(Color.fromCssColorString("#FFFAFA"));
 
 /**
- * An immutable Color instance initialized to CSS color #00FF7F
+ * 初始化为 CSS 颜色的不可变 Color 实例 #00FF7F
  * <span class="colorSwath" style="background: #00FF7F;"></span>
  *
  * @constant
@@ -2145,7 +2145,7 @@ Color.SNOW = Object.freeze(Color.fromCssColorString("#FFFAFA"));
 Color.SPRINGGREEN = Object.freeze(Color.fromCssColorString("#00FF7F"));
 
 /**
- * An immutable Color instance initialized to CSS color #4682B4
+ * 初始化为 CSS 颜色的不可变 Color 实例 #4682B4
  * <span class="colorSwath" style="background: #4682B4;"></span>
  *
  * @constant
@@ -2154,7 +2154,7 @@ Color.SPRINGGREEN = Object.freeze(Color.fromCssColorString("#00FF7F"));
 Color.STEELBLUE = Object.freeze(Color.fromCssColorString("#4682B4"));
 
 /**
- * An immutable Color instance initialized to CSS color #D2B48C
+ * 初始化为 CSS 颜色的不可变 Color 实例 #D2B48C
  * <span class="colorSwath" style="background: #D2B48C;"></span>
  *
  * @constant
@@ -2163,7 +2163,7 @@ Color.STEELBLUE = Object.freeze(Color.fromCssColorString("#4682B4"));
 Color.TAN = Object.freeze(Color.fromCssColorString("#D2B48C"));
 
 /**
- * An immutable Color instance initialized to CSS color #008080
+ * 初始化为 CSS 颜色的不可变 Color 实例 #008080
  * <span class="colorSwath" style="background: #008080;"></span>
  *
  * @constant
@@ -2172,7 +2172,7 @@ Color.TAN = Object.freeze(Color.fromCssColorString("#D2B48C"));
 Color.TEAL = Object.freeze(Color.fromCssColorString("#008080"));
 
 /**
- * An immutable Color instance initialized to CSS color #D8BFD8
+ * 初始化为 CSS 颜色的不可变 Color 实例 #D8BFD8
  * <span class="colorSwath" style="background: #D8BFD8;"></span>
  *
  * @constant
@@ -2181,7 +2181,7 @@ Color.TEAL = Object.freeze(Color.fromCssColorString("#008080"));
 Color.THISTLE = Object.freeze(Color.fromCssColorString("#D8BFD8"));
 
 /**
- * An immutable Color instance initialized to CSS color #FF6347
+ * 初始化为 CSS 颜色的不可变 Color 实例 #FF6347
  * <span class="colorSwath" style="background: #FF6347;"></span>
  *
  * @constant
@@ -2190,7 +2190,7 @@ Color.THISTLE = Object.freeze(Color.fromCssColorString("#D8BFD8"));
 Color.TOMATO = Object.freeze(Color.fromCssColorString("#FF6347"));
 
 /**
- * An immutable Color instance initialized to CSS color #40E0D0
+ * 初始化为 CSS 颜色的不可变 Color 实例 #40E0D0
  * <span class="colorSwath" style="background: #40E0D0;"></span>
  *
  * @constant
@@ -2199,7 +2199,7 @@ Color.TOMATO = Object.freeze(Color.fromCssColorString("#FF6347"));
 Color.TURQUOISE = Object.freeze(Color.fromCssColorString("#40E0D0"));
 
 /**
- * An immutable Color instance initialized to CSS color #EE82EE
+ * 初始化为 CSS 颜色的不可变 Color 实例 #EE82EE
  * <span class="colorSwath" style="background: #EE82EE;"></span>
  *
  * @constant
@@ -2208,7 +2208,7 @@ Color.TURQUOISE = Object.freeze(Color.fromCssColorString("#40E0D0"));
 Color.VIOLET = Object.freeze(Color.fromCssColorString("#EE82EE"));
 
 /**
- * An immutable Color instance initialized to CSS color #F5DEB3
+ * 初始化为 CSS 颜色的不可变 Color 实例 #F5DEB3
  * <span class="colorSwath" style="background: #F5DEB3;"></span>
  *
  * @constant
@@ -2217,7 +2217,7 @@ Color.VIOLET = Object.freeze(Color.fromCssColorString("#EE82EE"));
 Color.WHEAT = Object.freeze(Color.fromCssColorString("#F5DEB3"));
 
 /**
- * An immutable Color instance initialized to CSS color #FFFFFF
+ * 初始化为 CSS 颜色的不可变 Color 实例 #FFFFFF
  * <span class="colorSwath" style="background: #FFFFFF;"></span>
  *
  * @constant
@@ -2226,7 +2226,7 @@ Color.WHEAT = Object.freeze(Color.fromCssColorString("#F5DEB3"));
 Color.WHITE = Object.freeze(Color.fromCssColorString("#FFFFFF"));
 
 /**
- * An immutable Color instance initialized to CSS color #F5F5F5
+ * 初始化为 CSS 颜色的不可变 Color 实例 #F5F5F5
  * <span class="colorSwath" style="background: #F5F5F5;"></span>
  *
  * @constant
@@ -2235,7 +2235,7 @@ Color.WHITE = Object.freeze(Color.fromCssColorString("#FFFFFF"));
 Color.WHITESMOKE = Object.freeze(Color.fromCssColorString("#F5F5F5"));
 
 /**
- * An immutable Color instance initialized to CSS color #FFFF00
+ * 初始化为 CSS 颜色的不可变 Color 实例 #FFFF00
  * <span class="colorSwath" style="background: #FFFF00;"></span>
  *
  * @constant
@@ -2244,7 +2244,7 @@ Color.WHITESMOKE = Object.freeze(Color.fromCssColorString("#F5F5F5"));
 Color.YELLOW = Object.freeze(Color.fromCssColorString("#FFFF00"));
 
 /**
- * An immutable Color instance initialized to CSS color #9ACD32
+ * 初始化为 CSS 颜色的不可变 Color 实例 #9ACD32
  * <span class="colorSwath" style="background: #9ACD32;"></span>
  *
  * @constant
@@ -2253,7 +2253,7 @@ Color.YELLOW = Object.freeze(Color.fromCssColorString("#FFFF00"));
 Color.YELLOWGREEN = Object.freeze(Color.fromCssColorString("#9ACD32"));
 
 /**
- * An immutable Color instance initialized to CSS transparent.
+ * 初始化为 CSS 的不可变 Color 实例 transparent.
  * <span class="colorSwath" style="background: transparent;"></span>
  *
  * @constant

@@ -110,21 +110,21 @@ function generateNatural(points) {
 }
 
 /**
- * A Hermite spline is a cubic interpolating spline. Points, incoming tangents, outgoing tangents, and times
- * must be defined for each control point. The outgoing tangents are defined for points [0, n - 2] and the incoming
- * tangents are defined for points [1, n - 1]. For example, when interpolating a segment of the curve between <code>points[i]</code> and
- * <code>points[i + 1]</code>, the tangents at the points will be <code>outTangents[i]</code> and <code>inTangents[i]</code>,
- * respectively.
+ * Hermite 样条是三次插值样条。点、传入切线、传出切线和时间
+ * 必须为每个控制点定义。传出切线是为点 [0， n - 2] 定义的，传入的
+ * 为点 [1， n - 1] 定义切线。例如，在<code>点 [i]</code> 和
+ * <code>points[i + 1]</code>，则点处的切线将为 <code>outTangents[i]</code> 和 <code>inTangents[i]</code>，
+ *分别。
  *
  * @alias HermiteSpline
  * @constructor
  *
- * @param {object} options 对象，具有以下属性:
- * @param {number[]} options.times An array of strictly increasing, unit-less, floating-point times at each point.
- *                The values are in no way connected to the clock time. They are the parameterization for the curve.
- * @param {Cartesian3[]} options.points The array of control points.
- * @param {Cartesian3[]} options.inTangents The array of incoming tangents at each control point.
- * @param {Cartesian3[]} options.outTangents The array of outgoing tangents at each control point.
+ * @param {object} options 对象，具有以下属性：
+ * @param {number[]} options.times 每个点的严格递增、无单位的浮点时间数组。
+ * 这些值与 clock time 无关。它们是曲线的参数化。
+ * @param {Cartesian3[]} options.points 控制点数组。
+ * @param {Cartesian3[]} options.inTangents 每个控制点处的输入切线数组。
+ * @param {Cartesian3[]} options.outTangents 每个控制点处的传出切线数组。
  *
  * @exception {DeveloperError} points.length must be greater than or equal to 2.
  * @exception {DeveloperError} times.length must be equal to points.length.
@@ -225,7 +225,7 @@ function HermiteSpline(options) {
 
 Object.defineProperties(HermiteSpline.prototype, {
   /**
-   * An array of times for the control points.
+   * 控制点的时间数组。
    *
    * @memberof HermiteSpline.prototype
    *
@@ -239,7 +239,7 @@ Object.defineProperties(HermiteSpline.prototype, {
   },
 
   /**
-   * An array of control points.
+   * 控制点数组。
    *
    * @memberof HermiteSpline.prototype
    *
@@ -253,7 +253,7 @@ Object.defineProperties(HermiteSpline.prototype, {
   },
 
   /**
-   * An array of incoming tangents at each control point.
+   * 每个控制点处的传入切线数组。
    *
    * @memberof HermiteSpline.prototype
    *
@@ -267,7 +267,7 @@ Object.defineProperties(HermiteSpline.prototype, {
   },
 
   /**
-   * An array of outgoing tangents at each control point.
+   * 每个控制点处的传出切线数组。
    *
    * @memberof HermiteSpline.prototype
    *
@@ -282,14 +282,14 @@ Object.defineProperties(HermiteSpline.prototype, {
 });
 
 /**
- * Creates a spline where the tangents at each control point are the same.
- * The curves are guaranteed to be at least in the class C<sup>1</sup>.
+ * 创建每个控制点处的切线相同的样条曲线。
+ * 保证曲线至少在类中 C<sup>1</sup>.
  *
  * @param {object} options 对象，具有以下属性:
- * @param {number[]} options.times The array of control point times.
- * @param {Cartesian3[]} options.points The array of control points.
- * @param {Cartesian3[]} options.tangents The array of tangents at the control points.
- * @returns {HermiteSpline} A hermite spline.
+ * @param {number[]} options.times 控制点时间数组。
+ * @param {Cartesian3[]} options.points 控制点数组。
+ * @param {Cartesian3[]} options.tangents 控制点处的切线数组。
+ * @returns {HermiteSpline} 隐士样条。
  *
  * @exception {DeveloperError} points, times and tangents are required.
  * @exception {DeveloperError} points.length must be greater than or equal to 2.
@@ -354,13 +354,13 @@ HermiteSpline.createC1 = function (options) {
 };
 
 /**
- * Creates a natural cubic spline. The tangents at the control points are generated
- * to create a curve in the class C<sup>2</sup>.
+ * 创建自然的三次样条线。将生成控制点处的切线
+ * 在类 C<sup>2</sup> 中创建曲线。
  *
  * @param {object} options 对象，具有以下属性:
- * @param {number[]} options.times The array of control point times.
- * @param {Cartesian3[]} options.points The array of control points.
- * @returns {HermiteSpline|LinearSpline} A hermite spline, or a linear spline if less than 3 control points were given.
+ * @param {number[]} options.times 控制点时间数组。
+ * @param {Cartesian3[]} options.points 控制点数组。
+ * @returns {HermiteSpline|LinearSpline} 隐蔽样条曲线，如果给出的控制点少于 3 个，则为线性样条曲线。
  *
  * @exception {DeveloperError} points and times are required.
  * @exception {DeveloperError} points.length must be greater than or equal to 2.
@@ -419,15 +419,15 @@ HermiteSpline.createNaturalCubic = function (options) {
 };
 
 /**
- * Creates a clamped cubic spline. The tangents at the interior control points are generated
- * to create a curve in the class C<sup>2</sup>.
+ * 创建钳制的三次样条线。生成内部控制点处的切线
+ * 在类 C<sup>2</sup> 中创建曲线。
  *
  * @param {object} options 对象，具有以下属性:
- * @param {number[]} options.times The array of control point times.
- * @param {number[]|Cartesian3[]} options.points The array of control points.
- * @param {Cartesian3} options.firstTangent The outgoing tangent of the first control point.
- * @param {Cartesian3} options.lastTangent The incoming tangent of the last control point.
- * @returns {HermiteSpline|LinearSpline} A hermite spline, or a linear spline if less than 3 control points were given.
+ * @param {number[]} options.times 控制点时间数组。
+ * @param {number[]|Cartesian3[]} options.points 控制点数组。
+ * @param {Cartesian3} options.firstTangent 第一个控制点的传出切线。
+ * @param {Cartesian3} options.lastTangent 最后一个控制点的传入切线。
+ * @returns {HermiteSpline|LinearSpline} 隐蔽样条曲线，如果给出的控制点少于 3 个，则为线性样条曲线。
  *
  * @exception {DeveloperError} points, times, firstTangent and lastTangent are required.
  * @exception {DeveloperError} points.length must be greater than or equal to 2.
@@ -519,12 +519,12 @@ HermiteSpline.hermiteCoefficientMatrix = new Matrix4(
 );
 
 /**
- * Finds an index <code>i</code> in <code>times</code> such that the parameter
- * <code>time</code> is in the interval <code>[times[i], times[i + 1]]</code>.
+ * 在<code>times</code>中查找索引 <code>i</code>，使得参数
+ * <code>times</code>在区间 <code>[times[i]， times[i + 1]]</code> 中。
  * @function
  *
- * @param {number} time The time.
- * @returns {number} The index for the element at the start of the interval.
+ * @param {number} time 时间。
+ * @returns {number} 区间开始时元素的索引。
  *
  * @exception {DeveloperError} time must be in the range <code>[t<sub>0</sub>, t<sub>n</sub>]</code>, where <code>t<sub>0</sub></code>
  *                             is the first element in the array <code>times</code> and <code>t<sub>n</sub></code> is the last element
@@ -536,29 +536,29 @@ const scratchTimeVec = new Cartesian4();
 const scratchTemp = new Cartesian3();
 
 /**
- * Wraps the given time to the period covered by the spline.
+ * 将给定时间环绕到样条所覆盖的时间段。
  * @function
  *
- * @param {number} time The time.
- * @return {number} The time, wrapped around to the updated animation.
+ * @param {number} time 时间。
+ * @return {number} 时间，环绕到更新的动画。
  */
 HermiteSpline.prototype.wrapTime = Spline.prototype.wrapTime;
 
 /**
- * Clamps the given time to the period covered by the spline.
+ * 将给定时间限制为样条所覆盖的时间段。
  * @function
  *
- * @param {number} time The time.
- * @return {number} The time, clamped to the animation period.
+ * @param {number} time 时间。
+ * @return {number} 时间，固定到动画周期。
  */
 HermiteSpline.prototype.clampTime = Spline.prototype.clampTime;
 
 /**
- * Evaluates the curve at a given time.
+ * 在给定时间计算曲线。
  *
- * @param {number} time The time at which to evaluate the curve.
+ * @param {number} time 评估曲线的时间。
  * @param {Cartesian3} [result] 要在其上存储结果的对象。
- * @returns {Cartesian3} 修改后的结果参数 or a new instance of the point on the curve at the given time.
+ * @returns {Cartesian3} 修改后的结果参数 或给定时间曲线上点的新实例。
  *
  * @exception {DeveloperError} time must be in the range <code>[t<sub>0</sub>, t<sub>n</sub>]</code>, where <code>t<sub>0</sub></code>
  *                             is the first element in the array <code>times</code> and <code>t<sub>n</sub></code> is the last element

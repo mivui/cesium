@@ -2,13 +2,13 @@ import CesiumTerrainProvider from "./CesiumTerrainProvider.js";
 import defaultValue from "./defaultValue.js";
 
 /**
- * Creates a {@link CesiumTerrainProvider} instance for the {@link https://cesium.com/content/#cesium-world-bathymetry|Cesium World Bathymetry}.
+ * 创建一个 {@link CesiumTerrainProvider} instance 的{@link https://cesium.com/content/#cesium-world-bathymetry|Cesium World Bathymetry}.
  *
  * @function
  *
  * @param {Object} [options] 对象，具有以下属性:
- * @param {Boolean} [options.requestVertexNormals=false] Flag that indicates if the client should request additional lighting information from the server if available.
- * @returns {Promise<CesiumTerrainProvider>} A promise that resolves to the created CesiumTerrainProvider
+ * @param {Boolean} [options.requestVertexNormals=false] 指示客户端是否应从服务器请求其他照明信息（如果可用）的标志。
+ * @returns {Promise<CesiumTerrainProvider>} 解析为创建的 CesiumTerrainProvider 的 Promise
  *
  * @see Ion
  *

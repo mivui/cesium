@@ -179,21 +179,21 @@ function computeExtrudedEllipse(options) {
 }
 
 /**
- * A description of the outline of an ellipse on an ellipsoid.
+ * 椭球体上椭圆轮廓的描述。
  *
  * @alias EllipseOutlineGeometry
  * @constructor
  *
  * @param {object} options 对象，具有以下属性:
- * @param {Cartesian3} options.center The ellipse's center point in the fixed frame.
- * @param {number} options.semiMajorAxis The length of the ellipse's semi-major axis in meters.
- * @param {number} options.semiMinorAxis The length of the ellipse's semi-minor axis in meters.
- * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] The ellipsoid the ellipse will be on.
- * @param {number} [options.height=0.0] The distance in meters between the ellipse and the ellipsoid surface.
- * @param {number} [options.extrudedHeight] The distance in meters between the ellipse's extruded face and the ellipsoid surface.
- * @param {number} [options.rotation=0.0] The angle from north (counter-clockwise) in radians.
- * @param {number} [options.granularity=0.02] The angular distance between points on the ellipse in radians.
- * @param {number} [options.numberOfVerticalLines=16] Number of lines to draw between the top and bottom surface of an extruded ellipse.
+ * @param {Cartesian3} options.center 椭圆在固定框架中的中心点。
+ * @param {number} options.semiMajorAxis 椭圆的半长轴的长度，以米为单位。
+ * @param {number} options.semiMinorAxis 椭圆的短半轴的长度，以米为单位。
+ * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] 椭圆将位于的椭球体上。
+ * @param {number} [options.height=0.0] 椭圆体和椭球体表面之间的距离（以米为单位）。
+ * @param {number} [options.extrudedHeight] 椭圆的拉伸面与椭球体表面之间的距离（以米为单位）。
+ * @param {number} [options.rotation=0.0] 以弧度为单位的北（逆时针）角度。
+ * @param {number} [options.granularity=0.02] 椭圆上点之间的角距离，以弧度为单位。
+ * @param {number} [options.numberOfVerticalLines=16] 在拉伸椭圆的顶部和底部表面之间绘制的线数。
  *
  * @exception {DeveloperError} semiMajorAxis and semiMinorAxis must be greater than zero.
  * @exception {DeveloperError} semiMajorAxis must be greater than or equal to the semiMinorAxis.
@@ -328,7 +328,7 @@ const scratchOptions = {
  * @param {number[]} array 打包数组。
  * @param {number} [startingIndex=0] 要解压缩的元素的起始索引。
  * @param {EllipseOutlineGeometry} [result] 要在其中存储结果的对象。
- * @returns {EllipseOutlineGeometry} 修改后的结果参数 or a new EllipseOutlineGeometry instance if one was not provided.
+ * @returns {EllipseOutlineGeometry} 修改后的结果参数 或新的 EllipseOutlineGeometry 实例（如果未提供）。
  */
 EllipseOutlineGeometry.unpack = function (array, startingIndex, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -384,9 +384,9 @@ EllipseOutlineGeometry.unpack = function (array, startingIndex, result) {
 };
 
 /**
- * Computes the geometric representation of an outline of an ellipse on an ellipsoid, including its vertices, indices, and a bounding sphere.
+ * 计算椭球体上椭圆轮廓的几何表示，包括其顶点、索引和边界球体。
  *
- * @param {EllipseOutlineGeometry} ellipseGeometry A description of the ellipse.
+ * @param {EllipseOutlineGeometry} ellipseGeometry 椭圆的描述。
  * @returns {Geometry|undefined} 计算的顶点和索引。
  */
 EllipseOutlineGeometry.createGeometry = function (ellipseGeometry) {

@@ -49,13 +49,13 @@ function createGeometryFromPositions(positions) {
 }
 
 /**
- * A description of the outline of a polygon composed of arbitrary coplanar positions.
+ * 由任意共面位置组成的多边形轮廓的描述。
  *
  * @alias CoplanarPolygonOutlineGeometry
  * @constructor
  *
- * @param {object} options 对象，具有以下属性:
- * @param {PolygonHierarchy} options.polygonHierarchy A polygon hierarchy that can include holes.
+ * @param {object} options 对象，具有以下属性：
+ * @param {PolygonHierarchy} options.polygonHierarchy 可以包含孔洞的多边形层次结构。
  *
  * @see CoplanarPolygonOutlineGeometry.createGeometry
  *
@@ -92,10 +92,10 @@ function CoplanarPolygonOutlineGeometry(options) {
 }
 
 /**
- * A description of a coplanar polygon outline from an array of positions.
+ * 来自位置数组的共面多边形轮廓的描述。
  *
  * @param {object} options 对象，具有以下属性:
- * @param {Cartesian3[]} options.positions An array of positions that defined the corner points of the polygon.
+ * @param {Cartesian3[]} options.positions 定义多边形的角点的位置数组。
  * @returns {CoplanarPolygonOutlineGeometry}
  */
 CoplanarPolygonOutlineGeometry.fromPositions = function (options) {
@@ -151,7 +151,7 @@ const scratchOptions = {
  * @param {number[]} array 打包数组。
  * @param {number} [startingIndex=0] 要解压缩的元素的起始索引。
  * @param {CoplanarPolygonOutlineGeometry} [result] 要在其中存储结果的对象。
- * @returns {CoplanarPolygonOutlineGeometry} 修改后的结果参数 or a new CoplanarPolygonOutlineGeometry instance if one was not provided.
+ * @returns {CoplanarPolygonOutlineGeometry} 修改后的结果参数 或者新的 CoplanarPolygonOutlineGeometry 实例（如果未提供）。
  */
 CoplanarPolygonOutlineGeometry.unpack = function (
   array,
@@ -184,9 +184,9 @@ CoplanarPolygonOutlineGeometry.unpack = function (
 };
 
 /**
- * Computes the geometric representation of an arbitrary coplanar polygon, including its vertices, indices, and a bounding sphere.
+ * 计算任意共面多边形的几何表示，包括其顶点、索引和边界球体。
  *
- * @param {CoplanarPolygonOutlineGeometry} polygonGeometry A description of the polygon.
+ * @param {CoplanarPolygonOutlineGeometry} polygonGeometry 多边形的描述。
  * @returns {Geometry|undefined} 计算的顶点和索引。
  */
 CoplanarPolygonOutlineGeometry.createGeometry = function (polygonGeometry) {

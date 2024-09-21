@@ -1,12 +1,12 @@
 /**
- * Gets a timestamp that can be used in measuring the time between events.  Timestamps
- * are expressed in milliseconds, but it is not specified what the milliseconds are
- * measured from.  This function uses performance.now() if it is available, or Date.now()
+ * 获取可用于测量事件之间时间的时间戳。 时间 戳
+ * 以毫秒表示，但没有指定毫秒数
+ * 测量起始。 此函数使用 performance.now（）（如果可用）或 Date.now（）
  * 否则。
  *
  * @function getTimestamp
  *
- * @returns {number} The timestamp in milliseconds since some unspecified reference time.
+ * @returns {number} 自某个未指定的引用时间以来的时间戳（以毫秒为单位）。
  */
 let getTimestamp;
 

@@ -22,16 +22,16 @@ const tangentScratch = new Cartesian3();
 const positionScratch = new Cartesian3();
 
 /**
- * A description of a cylinder.
+ * 气缸的描述。
  *
  * @alias CylinderGeometry
  * @constructor
  *
  * @param {object} options 对象，具有以下属性:
- * @param {number} options.length The length of the cylinder.
- * @param {number} options.topRadius The radius of the top of the cylinder.
- * @param {number} options.bottomRadius The radius of the bottom of the cylinder.
- * @param {number} [options.slices=128] The number of edges around the perimeter of the cylinder.
+ * @param {number} options.length 圆柱体的长度。
+ * @param {number} options.topRadius 圆柱体顶部的半径。
+ * @param {number} options.bottomRadius 圆柱体底部的半径。
+ * @param {number} [options.slices=128] 圆柱体周边的边数。
  * @param {VertexFormat} [options.vertexFormat=VertexFormat.DEFAULT] 要计算的顶点属性。
  *
  * @exception {DeveloperError} options.slices must be greater than or equal to 3.
@@ -145,7 +145,7 @@ const scratchOptions = {
  * @param {number[]} array 打包数组。
  * @param {number} [startingIndex=0] 要解压缩的元素的起始索引。
  * @param {CylinderGeometry} [result] 要在其中存储结果的对象。
- * @returns {CylinderGeometry} 修改后的结果参数 or a new CylinderGeometry instance if one was not provided.
+ * @returns {CylinderGeometry} 修改后的结果参数 或新的 CylinderGeometry 实例（如果未提供）。
  */
 CylinderGeometry.unpack = function (array, startingIndex, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -191,9 +191,9 @@ CylinderGeometry.unpack = function (array, startingIndex, result) {
 };
 
 /**
- * Computes the geometric representation of a cylinder, including its vertices, indices, and a bounding sphere.
+ * 计算圆柱体的几何表示，包括其顶点、索引和边界球体。
  *
- * @param {CylinderGeometry} cylinderGeometry A description of the cylinder.
+ * @param {CylinderGeometry} cylinderGeometry 圆柱体的描述。
  * @returns {Geometry|undefined} 计算的顶点和索引。
  */
 CylinderGeometry.createGeometry = function (cylinderGeometry) {

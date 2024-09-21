@@ -1,14 +1,14 @@
 /**
- * A set of Earth Orientation Parameters (EOP) sampled at a time.
+ * 一次采样的一组地球方向参数 （EOP）。
  *
  * @alias EarthOrientationParametersSample
  * @constructor
  *
- * @param {number} xPoleWander The pole wander about the X axis, in radians.
- * @param {number} yPoleWander The pole wander about the Y axis, in radians.
- * @param {number} xPoleOffset The offset to the Celestial Intermediate Pole (CIP) about the X axis, in radians.
- * @param {number} yPoleOffset The offset to the Celestial Intermediate Pole (CIP) about the Y axis, in radians.
- * @param {number} ut1MinusUtc The difference in time standards, UT1 - UTC, in seconds.
+ * @param {number} xPoleWander 极点绕 X 轴漂移，以弧度为单位。
+ * @param {number} yPoleWander 极点绕 Y 轴徘徊，以弧度为单位。
+ * @param {number} xPoleOffset 到天体中间极 （CIP） 绕 X 轴的偏移量，以弧度为单位。
+ * @param {number} yPoleOffset 到天体中间极 （CIP） 绕 Y 轴的偏移量，以弧度为单位。
+ * @param {number} ut1MinusUtc 时间标准的差异，UT1 - UTC，以秒为单位。
  *
  * @private
  */
@@ -20,31 +20,31 @@ function EarthOrientationParametersSample(
   ut1MinusUtc
 ) {
   /**
-   * The pole wander about the X axis, in radians.
+   * 极点绕 X 轴徘徊，以弧度为单位。
    * @type {number}
    */
   this.xPoleWander = xPoleWander;
 
   /**
-   * The pole wander about the Y axis, in radians.
+   * 极点绕 Y 轴徘徊，以弧度为单位。
    * @type {number}
    */
   this.yPoleWander = yPoleWander;
 
   /**
-   * The offset to the Celestial Intermediate Pole (CIP) about the X axis, in radians.
+   * 到天体中间极 （CIP） 绕 X 轴的偏移量，以弧度为单位。
    * @type {number}
    */
   this.xPoleOffset = xPoleOffset;
 
   /**
-   * The offset to the Celestial Intermediate Pole (CIP) about the Y axis, in radians.
+   * 到天体中间极 （CIP） 绕 Y 轴的偏移量，以弧度为单位。
    * @type {number}
    */
   this.yPoleOffset = yPoleOffset;
 
   /**
-   * The difference in time standards, UT1 - UTC, in seconds.
+   * 时间标准（UT1 - UTC）的差异，单位为秒。
    * @type {number}
    */
   this.ut1MinusUtc = ut1MinusUtc;

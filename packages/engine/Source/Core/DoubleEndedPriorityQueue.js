@@ -3,16 +3,16 @@ import Check from "./Check.js";
 import defined from "./defined.js";
 
 /**
- * Array-backed min-max heap implementation of a double-ended priority queue.
- * This data structure allows for efficient removal of minimum and maximum elements.
+ * 双端优先级队列的数组支持的 min-max 堆实现。
+ * 此数据结构允许有效地删除最小和最大元素。
  *
  * @alias DoubleEndedPriorityQueue
  * @constructor
  * @private
  *
- * @param {object} options 对象，具有以下属性:
- * @param {DoubleEndedPriorityQueue.ComparatorCallback} options.comparator The comparator to use for the queue. If comparator(a, b) is less than 0, a is lower priority than b.
- * @param {number} [options.maximumLength] The maximum length of the queue. If an element is inserted when the queue is at full capacity, the minimum element is removed. By default, the size of the queue is unlimited.
+ * @param {object} options 对象，具有以下属性：
+ * @param {DoubleEndedPriorityQueue.ComparatorCallback} options.comparator 用于队列的比较器。如果 comparator（a， b） 小于 0，则 a 的优先级低于 b。
+ * @param {number} [options.maximumLength] 队列的最大长度。如果在队列满负荷时插入元素，则会删除最小元素。默认情况下，队列的大小不受限制。
  */
 function DoubleEndedPriorityQueue(options) {
   //>>includeStart('debug', pragmas.debug);
@@ -37,7 +37,7 @@ function DoubleEndedPriorityQueue(options) {
 
 Object.defineProperties(DoubleEndedPriorityQueue.prototype, {
   /**
-   * Gets the number of elements in the queue.
+   * 获取队列中的元素数。
    *
    * @memberof DoubleEndedPriorityQueue.prototype
    *
@@ -51,10 +51,10 @@ Object.defineProperties(DoubleEndedPriorityQueue.prototype, {
   },
 
   /**
-   * 获取或设置maximum number of elements in the queue.
-   * If set to a smaller value than the current length of the queue, the lowest priority elements are removed.
-   * If an element is inserted when the queue is at full capacity, the minimum element is removed.
-   * If set to undefined, the size of the queue is unlimited.
+   * 获取或设置队列中的最大元素数。
+   * 如果设置为小于队列当前长度的值，则会删除优先级最低的元素。
+   * 如果在队列满员时插入元素，则会删除最小元素。
+   * 如果设置为 undefined，则队列的大小不受限制。
    *
    * @memberof DoubleEndedPriorityQueue.prototype
    *
@@ -98,8 +98,8 @@ Object.defineProperties(DoubleEndedPriorityQueue.prototype, {
   },
 
   /**
-   * The comparator used by the queue.
-   * If comparator(a, b) is less than 0, a is lower priority than b.
+   * 队列使用的比较器。
+   * 如果 comparator（a， b） 小于 0，则 a 的优先级低于 b。
    *
    * @memberof DoubleEndedPriorityQueue.prototype
    *
@@ -114,9 +114,9 @@ Object.defineProperties(DoubleEndedPriorityQueue.prototype, {
 });
 
 /**
- * Clones the double ended priority queue.
+ * 克隆双端优先级队列。
  *
- * @returns {DoubleEndedPriorityQueue} The cloned double ended priority queue.
+ * @returns {DoubleEndedPriorityQueue} 克隆的双端优先级队列。
  */
 DoubleEndedPriorityQueue.prototype.clone = function () {
   const maximumLength = this._maximumLength;
@@ -138,7 +138,7 @@ DoubleEndedPriorityQueue.prototype.clone = function () {
 };
 
 /**
- * Removes all elements from the queue.
+ * 从队列中删除所有元素。
  */
 DoubleEndedPriorityQueue.prototype.reset = function () {
   this._length = 0;
@@ -157,7 +157,7 @@ DoubleEndedPriorityQueue.prototype.reset = function () {
 };
 
 /**
- * Resort the queue.
+ * 重新排序。
  */
 DoubleEndedPriorityQueue.prototype.resort = function () {
   const length = this._length;
@@ -169,12 +169,12 @@ DoubleEndedPriorityQueue.prototype.resort = function () {
 };
 
 /**
- * Inserts an element into the queue.
- * If the queue is at full capacity, the minimum element is removed.
- * The new element is returned (and not added) if it is less than or equal priority to the minimum element.
+ * 将元素插入队列中。
+ * 如果队列已满，则删除最小元素。
+ * 如果新元素的优先级小于或等于最小元素，则返回 （而不是添加） 新元素。
  *
- * @param {*} element
- * @returns {*|undefined} The minimum element if the queue is at full capacity. Returns undefined if there is no maximum length.
+ * @param {*} 元素
+ * @returns {*|undefined} 队列满负荷时的最小元素。如果没有最大长度，则返回 undefined。
  */
 DoubleEndedPriorityQueue.prototype.insert = function (element) {
   let removedElement;
@@ -205,10 +205,10 @@ DoubleEndedPriorityQueue.prototype.insert = function (element) {
 };
 
 /**
- * Removes the minimum element from the queue and returns it.
- * If the queue is empty, the return value is undefined.
+ * 从队列中删除最小元素并返回它。
+ * 如果队列为空，则返回值为 undefined。
  *
- * @returns {*|undefined} The minimum element, or undefined if the queue is empty.
+ * @returns {*|undefined} 最小元素，如果队列为空，则为 undefined。
  */
 DoubleEndedPriorityQueue.prototype.removeMinimum = function () {
   const length = this._length;
@@ -233,10 +233,10 @@ DoubleEndedPriorityQueue.prototype.removeMinimum = function () {
 };
 
 /**
- * Removes the maximum element from the queue and returns it.
- * If the queue is empty, the return value is undefined.
+ * 从队列中删除 maximum 元素并将其返回。
+ * 如果队列为空，则返回值为 undefined。
  *
- * @returns {*|undefined} The maximum element, or undefined if the queue is empty.
+ * @returns {*|undefined} 最大元素，如果队列为空，则为 undefined。
  */
 DoubleEndedPriorityQueue.prototype.removeMaximum = function () {
   const length = this._length;
@@ -270,10 +270,10 @@ DoubleEndedPriorityQueue.prototype.removeMaximum = function () {
 };
 
 /**
- * Gets the minimum element in the queue.
- * If the queue is empty, the result is undefined.
+ * 获取队列中的最小元素。
+ * 如果队列为空，则结果为 undefined。
  *
- * @returns {*|undefined} element
+ * @returns {*|undefined} 元素
  */
 
 DoubleEndedPriorityQueue.prototype.getMinimum = function () {
@@ -287,10 +287,10 @@ DoubleEndedPriorityQueue.prototype.getMinimum = function () {
 };
 
 /**
- * Gets the maximum element in the queue.
- * If the queue is empty, the result is undefined.
+ * 获取队列中的最大元素数。
+ * 如果队列为空，则结果为 undefined。
  *
- * @returns {*|undefined} element
+ * @returns {*|undefined} 元素
  */
 DoubleEndedPriorityQueue.prototype.getMaximum = function () {
   const length = this._length;
@@ -396,10 +396,10 @@ function pushDown(that, index) {
 }
 
 /**
- * The comparator to use for the queue.
+ * 用于队列的比较器。
  * @callback DoubleEndedPriorityQueue.ComparatorCallback
- * @param {*} a An element in the queue.
- * @param {*} b An element in the queue.
- * @returns {number} If the result of the comparison is less than 0, a is lower priority than b.
+ * @param {*} a 队列中的元素。
+ * @param {*} b 队列中的元素。
+ * @returns {number} 如果比较结果小于 0，则 a 的优先级低于 b。
  */
 export default DoubleEndedPriorityQueue;

@@ -1,8 +1,8 @@
 /**
- * Style options for corners.
+ * 角的样式选项。
  *
- * @demo The {@link https://sandcastle.cesium.com/index.html?src=Corridor.html&label=Geometries|Corridor Demo}
- * demonstrates the three corner types, as used by {@link CorridorGraphics}.
+ * @demo  {@link https://sandcastle.cesium.com/index.html?src=Corridor.html&label=Geometries|Corridor Demo}
+ * 演示了三种角类型，如{@link CorridorGraphics}.
  *
  * @enum {number}
  */
@@ -10,7 +10,7 @@ const CornerType = {
   /**
    * <img src="Images/CornerTypeRounded.png" style="vertical-align: middle;" width="186" height="189" />
    *
-   * Corner has a smooth edge.
+   * 边角具有光滑的边缘。
    * @type {number}
    * @constant
    */
@@ -19,7 +19,7 @@ const CornerType = {
   /**
    * <img src="Images/CornerTypeMitered.png" style="vertical-align: middle;" width="186" height="189" />
    *
-   * Corner point is the intersection of adjacent edges.
+   * 拐角点是相邻边的交集。
    * @type {number}
    * @constant
    */
@@ -28,7 +28,7 @@ const CornerType = {
   /**
    * <img src="Images/CornerTypeBeveled.png" style="vertical-align: middle;" width="186" height="189" />
    *
-   * Corner is clipped.
+   * 边角被剪断。
    * @type {number}
    * @constant
    */

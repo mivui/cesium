@@ -2,20 +2,20 @@ import DeveloperError from "./DeveloperError.js";
 import QuadraticRealPolynomial from "./QuadraticRealPolynomial.js";
 
 /**
- * Defines functions for 3rd order polynomial functions of one variable with only real coefficients.
+ * 定义一个变量的 3 阶多项式函数的函数，其中只有实系数。
  *
  * @namespace CubicRealPolynomial
  */
 const CubicRealPolynomial = {};
 
 /**
- * Provides the discriminant of the cubic equation from the supplied coefficients.
+ * 提供三次方程与提供的系数的判别式。
  *
- * @param {number} a The coefficient of the 3rd order monomial.
- * @param {number} b The coefficient of the 2nd order monomial.
- * @param {number} c The coefficient of the 1st order monomial.
- * @param {number} d The coefficient of the 0th order monomial.
- * @returns {number} The value of the discriminant.
+ * @param {number} a 三阶单项式的系数。
+ * @param {number} b 二阶单项式的系数。
+ * @param {number} c 一阶单项式的系数。
+ * @param {number} d 0 阶单项式的系数。
+ * @returns {number} 判别值。
  */
 CubicRealPolynomial.computeDiscriminant = function (a, b, c, d) {
   //>>includeStart('debug', pragmas.debug);
@@ -153,13 +153,13 @@ function computeRealRoots(a, b, c, d) {
 }
 
 /**
- * Provides the real valued roots of the cubic polynomial with the provided coefficients.
+ * 提供具有所提供系数的三次多项式的实值根。
  *
- * @param {number} a The coefficient of the 3rd order monomial.
- * @param {number} b The coefficient of the 2nd order monomial.
- * @param {number} c The coefficient of the 1st order monomial.
- * @param {number} d The coefficient of the 0th order monomial.
- * @returns {number[]} The real valued roots.
+ * @param {number} a 三阶单项式的系数。
+ * @param {number} b 二阶单项式的系数。
+ * @param {number} c 一阶单项式的系数。
+ * @param {number} d 0 阶单项式的系数。
+ * @returns {number[]} 实值根。
  */
 CubicRealPolynomial.computeRealRoots = function (a, b, c, d) {
   //>>includeStart('debug', pragmas.debug);

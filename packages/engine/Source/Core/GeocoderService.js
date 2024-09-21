@@ -4,14 +4,14 @@ import DeveloperError from "./DeveloperError.js";
 
 /**
  * @typedef {object} GeocoderService.Result
- * @property {string} displayName The display name for a location
- * @property {Rectangle|Cartesian3} destination The bounding box for a location
- * @property {object[]} [attributions]
+ * @property {string} displayName 位置的显示名称
+ * @property {矩形|Cartesian3} destination 位置的边界框
+ * @property {object[]} [属性]
  */
 
 /**
- * Provides geocoding through an external service. This type describes an interface and
- * is not intended to be used.
+ * 通过外部服务提供地理编码。此类型描述接口和
+ * 不打算使用。
  * @alias GeocoderService
  * @constructor
  *
@@ -25,7 +25,7 @@ function GeocoderService() {
 
 Object.defineProperties(GeocoderService.prototype, {
   /**
-   * 获取要在执行地理代码后显示的信用项。这通常用于信贷
+   * 获取要在执行地理代码后显示的信用项。 这通常用于信贷
    * 地理编码器服务。
    * @memberof GeocoderService.prototype
    * @type {Credit|undefined}
@@ -37,9 +37,9 @@ Object.defineProperties(GeocoderService.prototype, {
 });
 
 /**
- * Parses credits from the geocoder result attributions, if present.
- * @param {GeocoderService.Result} geocoderResult The geocoder result
- * @returns {Credit[]|undefined} A list of credits if present in the result, otherwise undefined
+ * 解析地理编码器结果属性（如果存在）中的制作者名单。
+ * @param {GeocoderService.Result} geocoderResult 地理编码器结果
+ * @returns {Credit[]|undefined} 结果中存在的积分列表，否则为 undefined
  */
 GeocoderService.getCreditsFromResult = function (geocoderResult) {
   if (defined(geocoderResult.attributions)) {
@@ -53,7 +53,7 @@ GeocoderService.getCreditsFromResult = function (geocoderResult) {
  * @function
  *
  * @param {string} query 要发送到地理编码器服务的查询
- * @param {GeocodeType} [type=GeocodeType.SEARCH] The type of geocode to perform.
+ * @param {GeocodeType} [type=GeocodeType.SEARCH] 要执行的地理编码类型。
  * @returns {Promise<GeocoderService.Result[]>}
  */
 GeocoderService.prototype.geocode = DeveloperError.throwInstantiationError;

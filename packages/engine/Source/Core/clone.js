@@ -1,13 +1,13 @@
 import defaultValue from "./defaultValue.js";
 
 /**
- * Clones an object, returning a new object containing the same properties.
+ * 克隆对象，返回包含相同属性的新对象。
  *
  * @function
  *
- * @param {object} object The object to clone.
- * @param {boolean} [deep=false] If true, all properties will be deep cloned recursively.
- * @returns {object} The cloned object.
+ * @param {object} object 要克隆的对象。
+ * @param {boolean} [deep=false] 如果为 true，则所有属性都将递归深度克隆。
+ * @returns {object} 克隆的对象。
  */
 function clone(object, deep) {
   if (object === null || typeof object !== "object") {

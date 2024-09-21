@@ -2,9 +2,9 @@ import defined from "./defined.js";
 import DeveloperError from "./DeveloperError.js";
 
 /**
- * A convenience object that simplifies the common pattern of attaching event listeners
- * to several events, then removing all those listeners at once later, for example, in
- * a destroy method.
+ * 一个方便的对象，简化了附加事件侦听器的常见模式
+ * 添加到多个事件中，然后稍后立即删除所有这些侦听器，例如，在
+ * 销毁方法。
  *
  * @alias EventHelper
  * @constructor
@@ -26,13 +26,13 @@ function EventHelper() {
 }
 
 /**
- * Adds a listener to an event, and records the registration to be cleaned up later.
+ * 向事件添加侦听器，并记录注册以供稍后清理。
  *
- * @param {Event} event The event to attach to.
- * @param {Function} listener The function to be executed when the event is raised.
- * @param {object} [scope] An optional object scope to serve as the <code>this</code>
- *        pointer in which the listener function will execute.
- * @returns {EventHelper.RemoveCallback} A function that will remove this event listener when invoked.
+ * @param {Event} event 要附加到的事件。
+ * @param {Function} listener 引发事件时要执行的函数。
+ * @param {object} [scope] 一个可选的对象范围，用作 <code>this</code>
+ * 侦听器函数将在其中执行的指针。
+ * @returns {EventHelper.RemoveCallback} 一个函数，该函数将在调用时删除此事件侦听器。
  *
  * @see Event#addEventListener
  */
@@ -55,7 +55,7 @@ EventHelper.prototype.add = function (event, listener, scope) {
 };
 
 /**
- * Unregisters all previously added listeners.
+ * 取消注册所有以前添加的侦听器。
  *
  * @see Event#removeEventListener
  */
@@ -68,7 +68,7 @@ EventHelper.prototype.removeAll = function () {
 };
 
 /**
- * A function that removes a listener.
+ * 删除侦听器的函数。
  * @callback EventHelper.RemoveCallback
  */
 export default EventHelper;

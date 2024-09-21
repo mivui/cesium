@@ -9,14 +9,14 @@ const imageBitmask = 0x40;
 const terrainBitmask = 0x80;
 
 /**
- * Contains information about each tile from a Google Earth Enterprise server
+ * 包含来自 Google 地球企业版服务器的每个图块的相关信息
  *
- * @param {number} bits Bitmask that contains the type of data and available children for each tile.
- * @param {number} cnodeVersion Version of the request for subtree metadata.
- * @param {number} imageryVersion Version of the request for imagery tile.
- * @param {number} terrainVersion Version of the request for terrain tile.
- * @param {number} imageryProvider Id of imagery provider.
- * @param {number} terrainProvider Id of terrain provider.
+ * @param {number} bits 位，包含每个图块的数据类型和可用子项的位掩码。
+ * @param {number} cnodeVersion 子树元数据请求的版本。
+ * @param {number} imageryVersion 图像请求图块的版本。
+ * @param {number} terrainVersion 地形瓦片请求的版本。
+ * @param 图像提供商的 {number} imageryProvider ID。
+ * @param terrain provider 的 {number} terrainProvider ID。
  *
  * @private
  */
@@ -39,11 +39,11 @@ function GoogleEarthEnterpriseTileInformation(
 }
 
 /**
- * Creates GoogleEarthEnterpriseTileInformation from an object
+ * 从对象创建 GoogleEarthEnterpriseTileInformation
  *
- * @param {object} info Object to be cloned
+ * @param {object} info 要克隆的对象
  * @param {GoogleEarthEnterpriseTileInformation} [result] 要在其上存储结果的对象。
- * @returns {GoogleEarthEnterpriseTileInformation} 修改后的结果参数 or a new GoogleEarthEnterpriseTileInformation instance if none was provided.
+ * @returns {GoogleEarthEnterpriseTileInformation} 修改后的结果参数 或新的 GoogleEarthEnterpriseTileInformation 实例（如果未提供）。
  */
 GoogleEarthEnterpriseTileInformation.clone = function (info, result) {
   if (!defined(result)) {
@@ -70,65 +70,65 @@ GoogleEarthEnterpriseTileInformation.clone = function (info, result) {
 };
 
 /**
- * Sets the parent for the tile
+ * 设置磁贴的父级
  *
- * @param {GoogleEarthEnterpriseTileInformation} parent Parent tile
+ * @param {GoogleEarthEnterpriseTileInformation} 父级父磁贴
  */
 GoogleEarthEnterpriseTileInformation.prototype.setParent = function (parent) {
   this.ancestorHasTerrain = parent.ancestorHasTerrain || this.hasTerrain();
 };
 
 /**
- * Gets whether a subtree is available
+ * 获取子树是否可用
  *
- * @returns {boolean} true if subtree is available, false 否则。
+ * @returns {boolean} true 如果 subtree 可用， false 否则。
  */
 GoogleEarthEnterpriseTileInformation.prototype.hasSubtree = function () {
   return isBitSet(this._bits, cacheFlagBitmask);
 };
 
 /**
- * Gets whether imagery is available
+ * 获取图像是否可用
  *
- * @returns {boolean} true if imagery is available, false 否则。
+ * @returns {boolean} 如果影像可用，则为 true， false 否则。
  */
 GoogleEarthEnterpriseTileInformation.prototype.hasImagery = function () {
   return isBitSet(this._bits, imageBitmask);
 };
 
 /**
- * Gets whether terrain is available
+ * 获取 terrain 是否可用
  *
- * @returns {boolean} true if terrain is available, false 否则。
+ * @returns {boolean} true（如果地形可用），则为 false。 否则。
  */
 GoogleEarthEnterpriseTileInformation.prototype.hasTerrain = function () {
   return isBitSet(this._bits, terrainBitmask);
 };
 
 /**
- * Gets whether any children are present
+ * 获取是否存在任何子项
  *
- * @returns {boolean} true if any children are available, false 否则。
+ * @returns {boolean} true（如果有子项可用），否则 false 。
  */
 GoogleEarthEnterpriseTileInformation.prototype.hasChildren = function () {
   return isBitSet(this._bits, anyChildBitmask);
 };
 
 /**
- * Gets whether a specified child is available
+ * 获取指定的子项是否可用
  *
- * @param {number} index Index of child tile
+ * @param {number} index 子瓦片的索引
  *
- * @returns {boolean} true if child is available, false otherwise
+ * @returns {boolean} true（如果 child 可用），否则为 false。
  */
 GoogleEarthEnterpriseTileInformation.prototype.hasChild = function (index) {
   return isBitSet(this._bits, childrenBitmasks[index]);
 };
 
 /**
- * Gets bitmask containing children
+ * 获取包含子项的位掩码
  *
- * @returns {number} Children bitmask
+ * @returns {number} 子位掩码
  */
 GoogleEarthEnterpriseTileInformation.prototype.getChildBitmask = function () {
   return this._bits & anyChildBitmask;

@@ -2,9 +2,9 @@ import defaultValue from "./defaultValue.js";
 import defined from "./defined.js";
 
 /**
- * Merges two objects, copying their properties onto a new combined object. When two objects have the same
- * property, the value of the property on the first object is used.  If either object is undefined,
- * it will be treated as an empty object.
+ * 合并两个对象，将其属性复制到新的组合对象上。当两个对象具有相同的
+ * 属性，则使用第一个对象上的属性值。 如果任一对象未定义，则
+ * 它将被视为空对象。
  *
  * @example
  * const object1 = {

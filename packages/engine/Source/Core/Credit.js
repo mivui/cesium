@@ -7,9 +7,9 @@ let nextCreditId = 0;
 const creditToId = {};
 
 /**
- * A credit contains data pertaining to how to display attributions/credits for certain content on the screen.
- * @param {string} html An string representing an html code snippet
- * @param {boolean} [showOnScreen=false] If true, the credit will be visible in the main credit container.  Otherwise, it will appear in a popover. All credits are displayed `inline`, if you have an image we recommend sizing it correctly to match the text or use css to `vertical-align` it.
+ * 积分包含有关如何在屏幕上显示某些内容的署名/学分的数据。
+ * @param {string} html 表示 html 代码片段的字符串
+ * @param {boolean} [showOnScreen=false] 如果为 true，则信用额度将显示在主信用额度容器中。 否则，它将出现在弹出窗口中。所有制作人员名单都以“内联”方式显示，如果您有图像，我们建议您正确调整其大小以匹配文本或使用 css 对其进行“垂直对齐”。
  *
  * @alias Credit
  * @constructor
@@ -45,7 +45,7 @@ function Credit(html, showOnScreen) {
 
 Object.defineProperties(Credit.prototype, {
   /**
-   * The credit content
+   * 制作人员名单内容
    * @memberof Credit.prototype
    * @type {string}
    * @readonly
@@ -70,7 +70,7 @@ Object.defineProperties(Credit.prototype, {
   },
 
   /**
-   * Whether the credit should be displayed on screen or in a lightbox
+   * 积分应显示在屏幕上还是灯箱中
    * @memberof Credit.prototype
    * @type {boolean}
    */
@@ -84,7 +84,7 @@ Object.defineProperties(Credit.prototype, {
   },
 
   /**
-   * Gets the credit element
+   * 获取 credit 元素
    * @memberof Credit.prototype
    * @type {HTMLElement}
    * @readonly
@@ -113,10 +113,10 @@ Object.defineProperties(Credit.prototype, {
 });
 
 /**
- * Returns true if the credits are equal
+ * 如果积分相等，则返回 true
  *
- * @param {Credit} left The first credit
- * @param {Credit} right The second credit
+ * @param {Credit} left 第一个 credit
+ * @param {Credit} right 第二个 credit
  * @returns {boolean} <code>true</code>如果左和右相等，否则<code>false</code>。
  */
 Credit.equals = function (left, right) {
@@ -130,9 +130,9 @@ Credit.equals = function (left, right) {
 };
 
 /**
- * Returns true if the credits are equal
+ * 如果credit相等，则返回 true
  *
- * @param {Credit} credit The credit to compare to.
+ * @param {Credit} credit 要比较的credit。
  * @returns {boolean} <code>true</code>如果左和右相等，否则<code>false</code>。
  */
 Credit.prototype.equals = function (credit) {
@@ -162,8 +162,8 @@ Credit.getIonCredit = function (attribution) {
 /**
  * 复制Credit instance.
  *
- * @param {Credit} [credit] The Credit to duplicate.
- * @returns {Credit} A new Credit instance that is a duplicate of the one provided. (Returns undefined if the credit is undefined)
+ * @param {Credit} [credit] 要复制的 Credit。
+ * @returns {Credit} 一个新的 Credit 实例，该实例与提供的实例重复。（如果信用额度未定义，则返回 undefined）
  */
 Credit.clone = function (credit) {
   if (defined(credit)) {

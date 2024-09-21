@@ -1042,18 +1042,18 @@ function computeRectangle(positions, ellipsoid, width, cornerType, result) {
 }
 
 /**
- * A description of a corridor. Corridor geometry can be rendered with both {@link Primitive} and {@link GroundPrimitive}.
+ * 廊道的描述。走廊几何体可以使用 {@link Primitive} 和 {@link GroundPrimitive} 进行渲染。
  *
  * @alias CorridorGeometry
  * @constructor
  *
- * @param {object} options 对象，具有以下属性:
- * @param {Cartesian3[]} options.positions An array of positions that define the center of the corridor.
- * @param {number} options.width The distance between the edges of the corridor in meters.
- * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] The ellipsoid to be used as a reference.
- * @param {number} [options.granularity=CesiumMath.RADIANS_PER_DEGREE] The distance, in radians, between each latitude and longitude. Determines the number of positions in the buffer.
- * @param {number} [options.height=0] The distance in meters between the ellipsoid surface and the positions.
- * @param {number} [options.extrudedHeight] The distance in meters between the ellipsoid surface and the extruded face.
+ * @param {object} options 对象，具有以下属性：
+ * @param {Cartesian3[]} options.positions 定义走廊中心的位置数组。
+ * @param {number} options.width 走廊边缘之间的距离，以米为单位。
+ * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] 要用作参考的椭球体。
+ * @param {number} [options.granularity=CesiumMath.RADIANS_PER_DEGREE] 每个纬度和经度之间的距离，以弧度为单位。确定缓冲区中的位置数。
+ * @param {number} [options.height=0] 椭球体表面与位置之间的距离（以米为单位）。
+ * @param {number} [options.extrudedHeight] 椭球体表面和拉伸面之间的距离（以米为单位）。
  * @param {VertexFormat} [options.vertexFormat=VertexFormat.DEFAULT] 要计算的顶点属性。
  * @param {CornerType} [options.cornerType=CornerType.ROUNDED] Determines the style of the corners.
  *
@@ -1177,7 +1177,7 @@ const scratchOptions = {
  * @param {number[]} array 打包数组。
  * @param {number} [startingIndex=0] 要解压缩的元素的起始索引。
  * @param {CorridorGeometry} [result] 要在其中存储结果的对象。
- * @returns {CorridorGeometry} 修改后的结果参数 or a new CorridorGeometry instance if one was not provided.
+ * @returns {CorridorGeometry} 修改后的结果参数 或新的 CorridorGeometry 实例（如果未提供）。
  */
 CorridorGeometry.unpack = function (array, startingIndex, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -1241,16 +1241,16 @@ CorridorGeometry.unpack = function (array, startingIndex, result) {
 };
 
 /**
- * Computes the bounding rectangle given the provided options
+ * 在给定提供的选项下计算边界矩形
  *
  * @param {object} options 对象，具有以下属性:
- * @param {Cartesian3[]} options.positions An array of positions that define the center of the corridor.
- * @param {number} options.width The distance between the edges of the corridor in meters.
- * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] The ellipsoid to be used as a reference.
- * @param {CornerType} [options.cornerType=CornerType.ROUNDED] Determines the style of the corners.
- * @param {Rectangle} [result] An object in which to store the result.
+ * @param {Cartesian3[]} options.positions 定义走廊中心的位置数组。
+ * @param {number} options.width 走廊边缘之间的距离，以米为单位。
+ * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] 要用作参考的椭球体。
+ * @param {CornerType} [options.cornerType=CornerType.ROUNDED] 确定角的样式。
+ * @param {Rectangle} [result] 用于存储结果的对象。
  *
- * @returns {Rectangle} The result rectangle.
+ * @returns {Rectangle} 结果 rectangle。
  */
 CorridorGeometry.computeRectangle = function (options, result) {
   options = defaultValue(options, defaultValue.EMPTY_OBJECT);
@@ -1269,9 +1269,9 @@ CorridorGeometry.computeRectangle = function (options, result) {
 };
 
 /**
- * Computes the geometric representation of a corridor, including its vertices, indices, and a bounding sphere.
+ * 计算廊道的几何表示，包括其折点、索引和边界球体。
  *
- * @param {CorridorGeometry} corridorGeometry A description of the corridor.
+ * @param {CorridorGeometry} corridorGeometry 走廊的描述。
  * @returns {Geometry|undefined} 计算的顶点和索引。
  */
 CorridorGeometry.createGeometry = function (corridorGeometry) {
@@ -1401,10 +1401,10 @@ Object.defineProperties(CorridorGeometry.prototype, {
     },
   },
   /**
-   * For remapping texture coordinates when rendering CorridorGeometries as GroundPrimitives.
+   * 用于在将 CorridorGeometries 渲染为 GroundPrimitives 时重新映射纹理坐标。
    *
-   * Corridors don't support stRotation,
-   * so just return the corners of the original system.
+   * 走廊不支持 stRotation，
+   * 所以只需返回原始系统的角落。
    * @private
    */
   textureCoordinateRotationPoints: {
