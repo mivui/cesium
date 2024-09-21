@@ -5,9 +5,9 @@ import CesiumMath from "./Math.js";
 import TimeConstants from "./TimeConstants.js";
 
 /**
- * This is a collection of the orientation information available for central bodies.
- * The data comes from the Report of the IAU/IAG Working Group on Cartographic
- * Coordinates and Rotational Elements: 2000.
+ * 这是中央机构可用的方向信息集合。
+ * 数据来自 IAU/IAG 制图工作组的报告
+ * 坐标和旋转元素：2000。
  *
  * @namespace Iau2000Orientation
  *

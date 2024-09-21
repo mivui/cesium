@@ -5,7 +5,7 @@ import DeveloperError from "./DeveloperError.js";
 /**
  * @typedef {object} GeocoderService.Result
  * @property {string} displayName 位置的显示名称
- * @property {矩形|Cartesian3} destination 位置的边界框
+ * @property {Rectangle|Cartesian3} destination 位置的边界框
  * @property {object[]} [属性]
  */
 

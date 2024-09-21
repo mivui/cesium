@@ -60,7 +60,7 @@ function initialize(ellipsoid, x, y, z) {
  *
  * 而不是直接构造此对象，而是提供的
  * 常量。
- * @alias 椭球体
+ * @alias Ellipsoid
  * @constructor
  *
  * @param {number} [x=0] x 方向的半径。
@@ -89,7 +89,7 @@ function Ellipsoid(x, y, z) {
 
 Object.defineProperties(Ellipsoid.prototype, {
   /**
-   * Gets the radii of the ellipsoid.
+   * 获取椭球体的半径。
    * @memberof Ellipsoid.prototype
    * @type {Cartesian3}
    * @readonly
@@ -360,7 +360,7 @@ Ellipsoid.prototype.geocentricSurfaceNormal = Cartesian3.normalize;
 /**
  * 计算在给定位置处与椭球体表面相切的平面的法线。
  *
- * @param {Cartographic} 制图：用于确定大地法线的制图位置。
+ * @param {Cartographic} cartographic 用于确定大地测量法线的制图位置。
  * @param {Cartesian3} [result] 要在其上存储结果的对象。
  * @returns {Cartesian3} 修改后的结果参数或新的 Cartesian3 实例（如果未提供）。
  */
@@ -529,7 +529,7 @@ Ellipsoid.prototype.cartesianToCartographic = function (cartesian, result) {
 /**
  * 将提供的笛卡尔数组转换为制图数组。
  *
- * @param {Cartesian3[]} 笛卡尔位置数组。
+ * @param {Cartesian3[]} cartesians 笛卡尔位置的数组。
  * @param {Cartographic[]} [result] 要在其上存储结果的对象。
  * @returns {Cartographic[]} 修改后的结果参数或新的 Array 实例（如果未提供）。
  *
@@ -680,7 +680,7 @@ Ellipsoid.prototype.toString = function () {
 /**
  * 计算一个点，该点是曲面法线与 z 轴的交点。
  *
- * @param {Cartesian3} 定位位置。必须位于椭球体的表面上。
+ * @param {Cartesian3} position 必须位于椭球体的表面上。
  * @param {number} [buffer = 0.0] 检查点是否在椭球体内时要从椭球大小中减去的缓冲区。
  * 在地球情况下，对于公共地球基准面，不需要此缓冲区，因为交点总是（相对）非常靠近中心。
  * 在 WGS84 基准面中，交点位于最大 z = +-42841.31151331382（z 轴的 0.673%）处。
@@ -742,7 +742,7 @@ const scratchEndpoint = new Cartesian3();
  *
  * @param {Cartesian3} surfacePosition 椭球体曲面上将计算曲率的位置。
  * @param {Cartesian2} [result] 要将结果复制到的笛卡尔坐标，或 undefined 以创建并返回新实例。
- * @returns {笛卡尔2} 椭球体表面在提供位置（东向和北向）的局部曲率。
+ * @returns {Cartesian2} 椭球体表面在提供位置（东向和北向）的局部曲率。
  *
  * @exception {DeveloperError} position is required.
  */
@@ -797,12 +797,12 @@ const weights = [
 ];
 
 /**
- * Compute the 10th order Gauss-Legendre Quadrature of the given definite integral.
+ * 计算给定定积分的 10 阶高斯-勒让德求积。
  *
- * @param {number} a The lower bound for the integration.
- * @param {number} b The upper bound for the integration.
- * @param {Ellipsoid~RealValuedScalarFunction} func The function to integrate.
- * @returns {number} The value of the integral of the given function over the given domain.
+ * @param {number} a 集成的下限。
+ * @param {number} b 集成的上限。
+ * @param {Ellipsoid~RealValuedScalarFunction} func 要集成的函数。
+ * @returns {number} 给定函数在给定域上的积分值。
  *
  * @private
  */

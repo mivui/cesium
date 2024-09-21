@@ -45,7 +45,7 @@ Object.defineProperties(GeographicProjection.prototype, {
  * X 和 Y 分别是经度和纬度乘以
  * 椭圆体。 Z 是未修改的高度。
  *
- * @param {Cartographic} 制图：要投影的坐标。
+ * @param {Cartographic} cartographic 要投影的坐标。
  * @param {Cartesian3} [result] 要将结果复制到的实例。 如果该参数为
  * undefined，则创建并返回一个新实例。
  * @returns {Cartesian3} 投影坐标。 如果 result 参数不是 undefined，则
@@ -77,7 +77,7 @@ GeographicProjection.prototype.project = function (cartographic, result) {
  * @param {Cartesian3} 笛卡尔 高度 （z） 取消投影的笛卡尔位置，以米为单位。
  * @param {Cartographic} [result] 要将结果复制到其中的实例。 如果该参数为
  * undefined，则创建并返回一个新实例。
- * @returns {制图} 未投影的坐标。 如果 result 参数不是 undefined，则
+ * @returns {Cartographic} 未投影的坐标。 如果 result 参数不是 undefined，则
  * 坐标将复制到那里，并返回该实例。 否则，新实例为
  * created 并返回。
  */

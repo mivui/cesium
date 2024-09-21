@@ -200,7 +200,7 @@ GeographicTilingScheme.prototype.tileXYToRectangle = function (
  * 计算包含
  * 给定的制图位置。
  *
- * @param {制图} 位置 位置。
+ * @param {Cartographic} 位置 位置。
  * @param {number} level 瓦片细节级别。 零是最不详细的。
  * @param {Cartesian2} [result] 要将结果复制到的实例，如果是新实例，则为 undefined
  * 应创建。

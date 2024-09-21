@@ -9,7 +9,7 @@
  * 用于在失败时拒绝 Promise 的函数。
  * @callback defer.reject
  *
- * @param {*} 错误 错误。
+ * @param {*} error 错误。
  */
 
 /**

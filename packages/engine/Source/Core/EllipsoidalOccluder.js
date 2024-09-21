@@ -224,7 +224,7 @@ const scratchEllipsoidShrunk = Ellipsoid.clone(Ellipsoid.UNIT_SPHERE);
  * 椭球体的轴。
  * @param {number} [minimumHeight] 所有位置的最小高度。如果未定义此值，则假定所有位置都位于椭球体上方。
  * @param {Cartesian3} [result] 存储结果而不是分配新实例的实例。
- * @returns {笛卡尔3} 计算出的水平剔除点，以可能缩小的椭球体缩放空间表示。
+ * @returns {Cartesian3} 计算出的水平剔除点，以可能缩小的椭球体缩放空间表示。
  */
 EllipsoidalOccluder.prototype.computeHorizonCullingPointPossiblyUnderEllipsoid = function (
   directionToPoint,
@@ -296,7 +296,7 @@ EllipsoidalOccluder.prototype.computeHorizonCullingPointFromVertices = function 
  * @param {Cartesian3} [center=Cartesian3.ZERO]
  * @param {number} [minimumHeight] 所有顶点的最小高度。如果未定义此值，则假定所有顶点都位于椭球体上方。
  * @param {Cartesian3} [result] 存储结果而不是分配新实例的实例。
- * @returns {笛卡尔3} 计算出的水平剔除点，以可能缩小的椭球体缩放空间表示。
+ * @returns {Cartesian3} 计算出的水平剔除点，以可能缩小的椭球体缩放空间表示。
  */
 EllipsoidalOccluder.prototype.computeHorizonCullingPointFromVerticesPossiblyUnderEllipsoid = function (
   directionToPoint,

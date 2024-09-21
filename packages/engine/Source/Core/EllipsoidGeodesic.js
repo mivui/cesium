@@ -405,7 +405,7 @@ EllipsoidGeodesic.prototype.setEndPoints = function (start, end) {
  *
  * @param {number} fraction 初始点和最终点之间的距离部分。
  * @param {Cartographic} [result] 存储结果的对象。
- * @returns {制图} 沿测地线的点的位置。
+ * @returns {Cartographic} 沿测地线的点的位置。
  */
 EllipsoidGeodesic.prototype.interpolateUsingFraction = function (
   fraction,
@@ -422,7 +422,7 @@ EllipsoidGeodesic.prototype.interpolateUsingFraction = function (
  *
  * @param {number} distance 沿测地线从初始点到感兴趣点的距离
  * @param {Cartographic} [result] 存储结果的对象。
- * @returns {制图} 沿测地线的点的位置。
+ * @returns {Cartographic} 沿测地线的点的位置。
  *
  * @exception {DeveloperError} start and end must be set before calling function interpolateUsingSurfaceDistance
  */

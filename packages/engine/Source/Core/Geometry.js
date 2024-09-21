@@ -29,7 +29,7 @@ import Transforms from "./Transforms.js";
  * @param {object} options 对象，具有以下属性:
  * @param {GeometryAttributes} options.attributes 属性，它们构成了几何体的顶点。
  * @param {PrimitiveType} [options.primitiveType=PrimitiveType.TRIANGLES] 几何体中基元的类型。
- * @param {uint16Array|Uint32Array} [options.indices] 确定几何体中基元的可选索引数据。
+ * @param {Uint16Array|Uint32Array} [options.indices] 确定几何体中基元的可选索引数据。
  * @param {BoundingSphere} [options.boundingSphere] 一个完全封闭几何体的可选边界球体。
  *
  * @see PolygonGeometry

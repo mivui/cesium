@@ -38,7 +38,7 @@ function HeadingPitchRoll(heading, pitch, roll) {
 /**
  * 从四元数开始计算航向、俯仰和滚动（见 http://en.wikipedia.org/wiki/Conversion_between_quaternions_and_Euler_angles ）
  *
- * @param {四元数} 四元数 从中检索航向、俯仰和滚动的四元数，全部以弧度表示。
+ * @param {Quaternion} quaternion  从中检索航向、俯仰和滚动的四元数，全部以弧度表示。
  * @param {HeadingPitchRoll} [result] 存储结果的对象。如果未提供，则创建并返回一个新实例。
  * @returns {HeadingPitchRoll} 修改后的结果参数或新的 HeadingPitchRoll 实例（如果未提供）。
  */

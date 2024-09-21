@@ -12,7 +12,7 @@ import defined from "./defined.js";
  *
  * @alias DeveloperError
  * @constructor
- * @extends 错误
+ * @extends Error
  *
  * @param {string} [message] 此异常的错误消息。
  *

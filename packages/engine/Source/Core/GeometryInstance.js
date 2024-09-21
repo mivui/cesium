@@ -13,7 +13,7 @@ import Matrix4 from "./Matrix4.js";
  * @constructor
  *
  * @param {object} options 对象，具有以下属性：
- * @param {几何|GeometryFactory} options.geometry 要实例的几何体。
+ * @param {Geometry|GeometryFactory} options.geometry 要实例的几何体。
  * @param {Matrix4} [options.modelMatrix=Matrix4.IDENTITY] 转换以将几何体从模型坐标转换为世界坐标的模型矩阵。
  * @param {object} [options.id] 使用 {@link Scene#pick} 选取实例或使用 {@link Primitive#getGeometryInstanceAttributes} 获取/设置每个实例的属性时返回的用户定义对象。
  * @param {object} [options.attributes] 每个实例的属性，如以下示例中所示的 show 或 color 属性。

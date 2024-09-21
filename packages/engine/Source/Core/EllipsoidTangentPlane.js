@@ -18,10 +18,10 @@ const scratchCart4 = new Cartesian4();
  * 在提供的原点处与提供的椭球体相切的平面。
  * 如果原点不在椭球体的表面上，则将使用它的表面投影。
  * 如果 origin 位于椭球体的中心，则会引发异常。
- * @alias EllipsoidTangentPlane（椭圆体切线平面）
+ * @alias EllipsoidTangentPlane
  * @constructor
  *
- * @param {Cartesian3} 原点 椭球体曲面上切平面接触的点。
+ * @param {Cartesian3} origin 椭球体曲面上切平面接触的点。
  * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] 要使用的椭球体。
  *
  * @exception {DeveloperError} origin must not be at the center of the ellipsoid.
