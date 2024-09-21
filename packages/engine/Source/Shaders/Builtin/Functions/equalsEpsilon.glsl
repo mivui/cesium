@@ -9,7 +9,7 @@
  *
  * @param {} left The first vector.
  * @param {} right The second vector.
- * @param {float} epsilon The epsilon to use for equality testing.
+ * @param {float} epsilon 用来检验等式。
  * @returns {bool} <code>true</code> if the components are within <code>epsilon</code> and <code>false</code> 否则。
  *
  * @example

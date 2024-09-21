@@ -31,7 +31,7 @@ const defaultKey = stringToBuffer(
 
 /**
  * <div class="notice">
- * To construct GoogleEarthEnterpriseMetadata, call {@link GoogleEarthEnterpriseMetadata.fromUrl}. Do not call the constructor directly.
+ * To construct GoogleEarthEnterpriseMetadata, call {@link GoogleEarthEnterpriseMetadata.fromUrl}. 不要直接调用构造函数。
  * </div>
  *
  * Provides metadata using the Google Earth Enterprise REST API. This is used by the GoogleEarthEnterpriseImageryProvider

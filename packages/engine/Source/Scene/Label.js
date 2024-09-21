@@ -117,7 +117,7 @@ function parseFont(label) {
 
 /**
  * <div class="notice">
- * Create labels by calling {@link LabelCollection#add}. Do not call the constructor directly.
+ * Create labels by calling {@link LabelCollection#add}. 不要直接调用构造函数。
  * </div>
  *
  * @alias Label

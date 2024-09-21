@@ -159,7 +159,7 @@ async function requestMetadata(
 
 /**
  * <div class="notice">
- * To construct a GoogleEarthEnterpriseMapsProvider, call {@link GoogleEarthEnterpriseImageryProvider.fromUrl}. Do not call the constructor directly.
+ * To construct a GoogleEarthEnterpriseMapsProvider, call {@link GoogleEarthEnterpriseImageryProvider.fromUrl}. 不要直接调用构造函数。
  * </div>
  *
  * Provides tiled imagery using the Google Earth Imagery API.

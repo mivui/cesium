@@ -2,8 +2,8 @@ import Cartesian3 from "./Cartesian3.js";
 import Check from "./Check.js";
 
 /**
- * Geocodes queries containing longitude and latitude coordinates and an optional height.
- * Query format: `longitude latitude (height)` with longitude/latitude in degrees and height in meters.
+ * 对包含经纬度坐标和可选高度的查询进行地理编码。
+ * 查询格式:'经纬度(高度)'，经纬度以度为单位，高度以米为单位。
  *
  * @alias CartographicGeocoderService
  * @constructor

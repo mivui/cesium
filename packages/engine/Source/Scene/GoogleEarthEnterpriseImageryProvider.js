@@ -54,7 +54,7 @@ GoogleEarthEnterpriseDiscardPolicy.prototype.shouldDiscardImage = function (
 
 /**
  * <div class="notice">
- * To construct a GoogleEarthEnterpriseImageryProvider, call {@link GoogleEarthEnterpriseImageryProvider.fromMetadata}. Do not call the constructor directly.
+ * To construct a GoogleEarthEnterpriseImageryProvider, call {@link GoogleEarthEnterpriseImageryProvider.fromMetadata}. 不要直接调用构造函数。
  * </div>
  *
  * Provides tiled imagery using the Google Earth Enterprise REST API.

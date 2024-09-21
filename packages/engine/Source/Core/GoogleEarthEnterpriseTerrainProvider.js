@@ -75,7 +75,7 @@ TerrainCache.prototype.tidy = function () {
 
 /**
  * <div class="notice">
- * To construct a GoogleEarthEnterpriseTerrainProvider, call {@link  GoogleEarthEnterpriseTerrainProvider.fromMetadata}. Do not call the constructor directly.
+ * To construct a GoogleEarthEnterpriseTerrainProvider, call {@link  GoogleEarthEnterpriseTerrainProvider.fromMetadata}. 不要直接调用构造函数。
  * </div>
  *
  * Provides tiled terrain using the Google Earth Enterprise REST API.

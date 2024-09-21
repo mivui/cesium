@@ -1068,7 +1068,7 @@ Quaternion.equals = function (left, right) {
  *
  * @param {Quaternion} [left] 第一个quaternion.
  * @param {Quaternion} [right] 第二个 quaternion.
- * @param {number} [epsilon=0] The epsilon to use for equality testing.
+ * @param {number} [epsilon=0] 用来检验等式。
  * @returns {boolean} <code>true</code>如果左和右在提供的epsilon内，<code>false</code>否则。
  */
 Quaternion.equalsEpsilon = function (left, right, epsilon) {
@@ -1128,7 +1128,7 @@ Quaternion.prototype.equals = function (right) {
  * <code>false</code> 否则。
  *
  * @param {Quaternion} [right] 右边 quaternion.
- * @param {number} [epsilon=0] The epsilon to use for equality testing.
+ * @param {number} [epsilon=0] 用来检验等式。
  * @returns {boolean} <code>true</code>如果左和右在提供的epsilon内，<code>false</code>否则。
  */
 Quaternion.prototype.equalsEpsilon = function (right, epsilon) {

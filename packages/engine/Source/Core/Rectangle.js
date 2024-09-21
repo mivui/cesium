@@ -525,7 +525,7 @@ Rectangle.equals = function (left, right) {
  * <code>false</code> 否则。
  *
  * @param {Rectangle} [other] The Rectangle to compare.
- * @param {number} [epsilon=0] The epsilon to use for equality testing.
+ * @param {number} [epsilon=0] 用来检验等式。
  * @returns {boolean} <code>true</code> if the Rectangles are within the provided epsilon, <code>false</code> 否则。
  */
 Rectangle.prototype.equalsEpsilon = function (other, epsilon) {

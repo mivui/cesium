@@ -56,7 +56,7 @@ import SplitDirection from "./SplitDirection.js";
 /**
  * <div class="notice">
  * A billboard is created and its initial
- * properties are set by calling {@link BillboardCollection#add}. Do not call the constructor directly.
+ * properties are set by calling {@link BillboardCollection#add}. 不要直接调用构造函数。
  * </div>
  * A viewport-aligned image positioned in the 3D scene, that is created
  * and rendered using a {@link BillboardCollection}.

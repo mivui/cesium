@@ -953,7 +953,7 @@ Matrix2.equalsArray = function (matrix, array, offset) {
  *
  * @param {Matrix2} [left] 第一个matrix.
  * @param {Matrix2} [right] 第二个 matrix.
- * @param {number} [epsilon=0] The epsilon to use for equality testing.
+ * @param {number} [epsilon=0] 用来检验等式。
  * @returns {boolean} <code>true</code>如果左和右在提供的epsilon内，<code>false</code>否则。
  */
 Matrix2.equalsEpsilon = function (left, right, epsilon) {
@@ -1074,7 +1074,7 @@ Matrix2.prototype.equals = function (right) {
  * <code>false</code> 否则。
  *
  * @param {Matrix2} [right] 右边 matrix.
- * @param {number} [epsilon=0] The epsilon to use for equality testing.
+ * @param {number} [epsilon=0] 用来检验等式。
  * @returns {boolean} <code>true</code>如果它们在提供的epsilon内，<code>false</code>否则。
  */
 Matrix2.prototype.equalsEpsilon = function (right, epsilon) {

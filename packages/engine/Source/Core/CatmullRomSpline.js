@@ -104,21 +104,21 @@ const firstTangentScratch = new Cartesian3();
 const lastTangentScratch = new Cartesian3();
 
 /**
- * A Catmull-Rom spline is a cubic spline where the tangent at control points,
- * except the first and last, are computed using the previous and next control points.
- * Catmull-Rom splines are in the class C<sup>1</sup>.
+ * Catmull-Rom样条是三次样条，其中控制点的切线，
+ * 除第一个和最后一个控制点外，使用前一个和下一个控制点计算。
+ * Catmull-Rom样条在C<sup>1</sup>类中。
  *
  * @alias CatmullRomSpline
  * @constructor
  *
  * @param {object} options 对象，具有以下属性:
- * @param {number[]} options.times An array of strictly increasing, unit-less, floating-point times at each point.
- *                The values are in no way connected to the clock time. They are the parameterization for the curve.
- * @param {Cartesian3[]} options.points The array of {@link Cartesian3} control points.
- * @param {Cartesian3} [options.firstTangent] The tangent of the curve at the first control point.
- *                     If the tangent is not given, it will be estimated.
- * @param {Cartesian3} [options.lastTangent] The tangent of the curve at the last control point.
- *                     If the tangent is not given, it will be estimated.
+ * @param {number[]} options.times 在每个点上严格递增的、无单位的浮点时间的数组。
+ *                这些值与时钟时间没有任何关系。它们是曲线的参数化。
+ * @param {Cartesian3[]} options.points {@link Cartesian3} 控制点数组。
+ * @param {Cartesian3} [options.firstTangent] 曲线在第一个控制点处的切线。
+ *                     如果正切值没有给出，它将被估计。
+ * @param {Cartesian3} [options.lastTangent] 曲线在最后一个控制点的切线。
+ *                     如果正切值没有给出，它将被估计。
  *
  * @exception {DeveloperError} points.length must be greater than or equal to 2.
  * @exception {DeveloperError} times.length must be equal to points.length.
@@ -197,7 +197,7 @@ function CatmullRomSpline(options) {
 
 Object.defineProperties(CatmullRomSpline.prototype, {
   /**
-   * An array of times for the control points.
+   * 控制点的时间数组。
    *
    * @memberof CatmullRomSpline.prototype
    *
@@ -211,7 +211,7 @@ Object.defineProperties(CatmullRomSpline.prototype, {
   },
 
   /**
-   * An array of {@link Cartesian3} control points.
+   * {@link Cartesian3} 控制点数组。
    *
    * @memberof CatmullRomSpline.prototype
    *
@@ -225,7 +225,7 @@ Object.defineProperties(CatmullRomSpline.prototype, {
   },
 
   /**
-   * The tangent at the first control point.
+   * 在第一个控制点的切线。
    *
    * @memberof CatmullRomSpline.prototype
    *
@@ -239,7 +239,7 @@ Object.defineProperties(CatmullRomSpline.prototype, {
   },
 
   /**
-   * The tangent at the last control point.
+   * 最后一个控制点的切线。
    *
    * @memberof CatmullRomSpline.prototype
    *
@@ -276,12 +276,12 @@ CatmullRomSpline.catmullRomCoefficientMatrix = new Matrix4(
 );
 
 /**
- * Finds an index <code>i</code> in <code>times</code> such that the parameter
+ * 在<code>times</code>中查找索引<code>i</code>，使得参数
  * <code>time</code> is in the interval <code>[times[i], times[i + 1]]</code>.
  * @function
  *
- * @param {number} time The time.
- * @returns {number} The index for the element at the start of the interval.
+ * @param {number} time  time.
+ * @returns {number} 区间开始处元素的索引。
  *
  * @exception {DeveloperError} time must be in the range <code>[t<sub>0</sub>, t<sub>n</sub>]</code>, where <code>t<sub>0</sub></code>
  *                             is the first element in the array <code>times</code> and <code>t<sub>n</sub></code> is the last element
@@ -290,33 +290,33 @@ CatmullRomSpline.catmullRomCoefficientMatrix = new Matrix4(
 CatmullRomSpline.prototype.findTimeInterval = Spline.prototype.findTimeInterval;
 
 /**
- * Wraps the given time to the period covered by the spline.
+ * 将给定的时间包裹到样条所覆盖的周期。
  * @function
  *
- * @param {number} time The time.
- * @return {number} The time, wrapped around to the updated animation.
+ * @param {number} time  time.
+ * @return {number} 时间，绕来绕去更新动画。
  */
 CatmullRomSpline.prototype.wrapTime = Spline.prototype.wrapTime;
 
 /**
- * Clamps the given time to the period covered by the spline.
+ * 将给定的时间夹紧到样条所覆盖的周期。
  * @function
  *
- * @param {number} time The time.
- * @return {number} The time, clamped to the animation period.
+ * @param {number} time  time.
+ * @return {number} 时间，被夹到了动画时期。
  */
 CatmullRomSpline.prototype.clampTime = Spline.prototype.clampTime;
 
 /**
- * Evaluates the curve at a given time.
+ * 在给定时间对曲线求值。
  *
- * @param {number} time The time at which to evaluate the curve.
+ * @param {number} time 计算曲线的时间。
  * @param {Cartesian3} [result] 要在其上存储结果的对象。
- * @returns {Cartesian3} 修改后的结果参数 or a new instance of the point on the curve at the given time.
+ * @returns {Cartesian3} 修改后的结果参数或给定时间曲线上该点的新实例。
  *
- * @exception {DeveloperError} time must be in the range <code>[t<sub>0</sub>, t<sub>n</sub>]</code>, where <code>t<sub>0</sub></code>
- *                             is the first element in the array <code>times</code> and <code>t<sub>n</sub></code> is the last element
- *                             in the array <code>times</code>.
+ * @exception {DeveloperError} 时间必须在范围内 <code>[t<sub>0</sub>, t<sub>n</sub>]</code>, where <code>t<sub>0</sub></code>
+ *                             是数组中的第一个元素 <code>times</code> 和 <code>t<sub>n</sub></code>是最后一个元素
+ *                            在数组中 <code>times</code>.
  */
 CatmullRomSpline.prototype.evaluate = function (time, result) {
   return this._evaluateFunction(time, result);

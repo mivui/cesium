@@ -41,22 +41,22 @@ function LayerInformation(layer) {
 /**
  * @typedef {Object} CesiumTerrainProvider.ConstructorOptions
  *
- * Initialization options for the CesiumTerrainProvider constructor
+ * CesiumTerrainProvider构造函数的初始化选项
  *
- * @property {boolean} [requestVertexNormals=false] Flag that indicates if the client should request additional lighting information from the server, in the form of per vertex normals if available.
- * @property {boolean} [requestWaterMask=false] Flag that indicates if the client should request 每个tile water masks from the server, if available.
- * @property {boolean} [requestMetadata=true] Flag that indicates if the client should request 每个tile metadata from the server, if available.
- * @property {Ellipsoid} [ellipsoid=Ellipsoid.default] The ellipsoid.  If not specified, the default ellipsoid is used.
- * @property {Credit|string} [credit] A credit for the data source, which is displayed on the canvas.
+ * @property {boolean} [requestVertexNormals=false] 标志，指示客户端是否应该从服务器请求额外的光照信息，如果可用，以每个顶点法线的形式。
+ * @property {boolean} [requestWaterMask=false] 标志，指示客户端是否应该请求每个瓷砖水掩码从服务器，如果可用。
+ * @property {boolean} [requestMetadata=true] 标志，指示客户端是否应该从服务器请求每个tile元数据(如果可用)。
+ * @property {Ellipsoid} [ellipsoid=Ellipsoid.default] 椭球。如果未指定，则使用默认的椭球体。
+ * @property {Credit|string} [credit] 数据源的信用记录，显示在画布上。
  */
 
 /**
- * Used to track creation details while fetching initial metadata
+ * 用于在获取初始元数据时跟踪创建细节
  *
  * @constructor
  * @private
  *
- * @param {CesiumTerrainProvider.ConstructorOptions} options An 描述初始化选项的对象
+ * @param {CesiumTerrainProvider.ConstructorOptions} options 描述初始化选项的对象
  */
 function TerrainProviderBuilder(options) {
   this.requestVertexNormals = defaultValue(options.requestVertexNormals, false);
@@ -86,7 +86,7 @@ function TerrainProviderBuilder(options) {
 }
 
 /**
- * Complete CesiumTerrainProvider creation based on builder values.
+ * 根据生成器的值完成CesiumTerrainProvider的创建。
  *
  * @private
  *
@@ -442,11 +442,11 @@ async function requestLayerJson(terrainProviderBuilder, provider) {
 
 /**
  * <div class="notice">
- * To construct a CesiumTerrainProvider, call {@link CesiumTerrainProvider.fromIonAssetId} or {@link CesiumTerrainProvider.fromUrl}. Do not call the constructor directly.
+ * 要构造一个CesiumTerrainProvider，调用 {@link CesiumTerrainProvider.fromIonAssetId} 或 {@link CesiumTerrainProvider.fromUrl}. 不要直接调用构造函数。
  * </div>
  *
- * A {@link TerrainProvider} that accesses terrain data in a Cesium terrain format.
- * Terrain formats can be one of the following:
+ * {@link TerrainProvider} 以cesium地形格式访问地形数据。
+ * 地形格式可以是以下其中一种:
  * <ul>
  * <li> {@link https://github.com/AnalyticalGraphicsInc/quantized-mesh Quantized Mesh} </li>
  * <li> {@link https://github.com/AnalyticalGraphicsInc/cesium/wiki/heightmap-1.0 Height Map} </li>
@@ -486,7 +486,7 @@ function CesiumTerrainProvider(options) {
   this._ellipsoid = options.ellipsoid;
 
   /**
-   * Boolean flag that indicates if the client should request vertex normals from the server.
+   * 布尔标志，指示客户端是否应该从服务器请求顶点法线。
    * @type {boolean}
    * @default false
    * @private
@@ -497,7 +497,7 @@ function CesiumTerrainProvider(options) {
   );
 
   /**
-   * Boolean flag that indicates if the client should request tile watermasks from the server.
+   * 布尔标志，指示客户端是否应该从服务器请求平纹遮罩。
    * @type {boolean}
    * @default false
    * @private
@@ -505,7 +505,7 @@ function CesiumTerrainProvider(options) {
   this._requestWaterMask = defaultValue(options.requestWaterMask, false);
 
   /**
-   * Boolean flag that indicates if the client should request tile metadata from the server.
+   * 布尔标志，指示客户端是否应该从服务器请求tile元数据。
    * @type {boolean}
    * @default true
    * @private
@@ -528,8 +528,8 @@ function CesiumTerrainProvider(options) {
 }
 
 /**
- * When using the Quantized-Mesh format, a tile may be returned that includes additional extensions, such as PerVertexNormals, watermask, etc.
- * This enumeration defines the unique identifiers for each type of extension data that has been appended to the standard mesh data.
+ * 当使用Quantized-Mesh格式时，可能会返回一个包含额外扩展的贴图，例如PerVertexNormals, watermask等。
+ * 此枚举定义了附加到标准网格数据的每种类型的扩展数据的唯一标识符。
  *
  * @namespace QuantizedMeshExtensionIds
  * @see CesiumTerrainProvider
@@ -537,7 +537,7 @@ function CesiumTerrainProvider(options) {
  */
 const QuantizedMeshExtensionIds = {
   /**
-   * Oct-Encoded Per-Vertex Normals are included as an extension to the tile mesh
+   * 八进制编码的每顶点法线作为扩展包含在贴图网格中
    *
    * @type {number}
    * @constant
@@ -545,7 +545,7 @@ const QuantizedMeshExtensionIds = {
    */
   OCT_VERTEX_NORMALS: 1,
   /**
-   * A watermask is included as an extension to the tile mesh
+   * 一个水遮罩被包括作为扩展到瓷砖网格
    *
    * @type {number}
    * @constant
@@ -553,7 +553,7 @@ const QuantizedMeshExtensionIds = {
    */
   WATER_MASK: 2,
   /**
-   * A json object contain metadata about the tile
+   * json对象包含关于tile的元数据
    *
    * @type {number}
    * @constant
@@ -839,8 +839,8 @@ function createQuantizedMeshTerrainData(provider, buffer, level, x, y, layer) {
 }
 
 /**
- * Requests the geometry for a given tile. The result must include terrain data and
- * may optionally include a water mask and an indication of which child tiles are available.
+ * 请求给定贴图的几何图形。结果必须包括地形数据和
+ * 可选地包括一个水罩和指示哪些子瓦片可用。
  *
  * @param {number} x 要为其请求几何图形的贴图的X坐标。
  * @param {number} y 要为其请求几何图形的贴图的Y坐标。
@@ -1005,9 +1005,9 @@ function requestTileGeometry(provider, x, y, level, layerToUse, request) {
 
 Object.defineProperties(CesiumTerrainProvider.prototype, {
   /**
-   * Gets an event that is raised when the terrain provider encounters an asynchronous error.  By subscribing
-   * to the event, you will be notified of the error and can potentially recover from it.  Event listeners
-   * are passed an instance of {@link TileProviderError}.
+   * 获取地形提供程序遇到异步错误时引发的事件。通过订阅
+   * 到事件，您将收到错误通知，并可能从中恢复。事件监听器
+   * 传递 {@link TileProviderError} 的实例.
    * @memberof CesiumTerrainProvider.prototype
    * @type {Event}
    * @readonly
@@ -1019,8 +1019,8 @@ Object.defineProperties(CesiumTerrainProvider.prototype, {
   },
 
   /**
-   * Gets the credit to display when this terrain provider is active.  Typically this is used to credit
-   * the source of the terrain.
+   * 获取此地形提供程序处于活动状态时要显示的信用值。这通常用于信贷
+   * 地形的来源。
    * @memberof CesiumTerrainProvider.prototype
    * @type {Credit}
    * @readonly
@@ -1032,7 +1032,7 @@ Object.defineProperties(CesiumTerrainProvider.prototype, {
   },
 
   /**
-   * Gets the tiling scheme used by this provider.
+   * 获取此提供程序使用的平铺模式。
    * @memberof CesiumTerrainProvider.prototype
    * @type {GeographicTilingScheme}
    * @readonly
@@ -1044,9 +1044,9 @@ Object.defineProperties(CesiumTerrainProvider.prototype, {
   },
 
   /**
-   * Gets a value indicating whether or not the provider includes a water mask.  The water mask
-   * indicates which areas of the globe are water rather than land, so they can be rendered
-   * as a reflective surface with animated waves.
+   * 获取一个值，该值指示提供程序是否包含水掩码。水面罩
+   * 表示地球上哪些区域是水而不是陆地，因此它们可以被渲染
+   * 作为具有动画波的反射表面。
    * @memberof CesiumTerrainProvider.prototype
    * @type {boolean}
    * @readonly
@@ -1058,7 +1058,7 @@ Object.defineProperties(CesiumTerrainProvider.prototype, {
   },
 
   /**
-   * Gets a value indicating whether or not the requested tiles include vertex normals.
+   * 获取一个值，该值指示请求的贴图是否包含顶点法线。
    * @memberof CesiumTerrainProvider.prototype
    * @type {boolean}
    * @readonly
@@ -1071,7 +1071,7 @@ Object.defineProperties(CesiumTerrainProvider.prototype, {
   },
 
   /**
-   * Gets a value indicating whether or not the requested tiles include metadata.
+   * 获取一个值，该值指示所请求的磁贴是否包含元数据。
    * @memberof CesiumTerrainProvider.prototype
    * @type {boolean}
    * @readonly
@@ -1084,9 +1084,9 @@ Object.defineProperties(CesiumTerrainProvider.prototype, {
   },
 
   /**
-   * Boolean flag that indicates if the client should request vertex normals from the server.
-   * Vertex normals data is appended to the standard tile mesh data only if the client requests the vertex normals and
-   * if the server provides vertex normals.
+   * 布尔标志，表示客户端是否应该从服务器请求顶点法线。
+   * 顶点法线数据只有在客户端请求顶点法线和顶点法线时才会添加到标准贴图网格数据中
+   * 如果服务器提供顶点法线。
    * @memberof CesiumTerrainProvider.prototype
    * @type {boolean}
    * @readonly
@@ -1098,9 +1098,9 @@ Object.defineProperties(CesiumTerrainProvider.prototype, {
   },
 
   /**
-   * Boolean flag that indicates if the client should request a watermask from the server.
-   * Watermask data is appended to the standard tile mesh data only if the client requests the watermask and
-   * if the server provides a watermask.
+   * 布尔标志，表示客户端是否应该从服务器请求一个水掩码。
+   * 只有当客户端请求水掩码和时，水掩码数据才会被附加到标准贴图网格数据中
+   * 如果服务器提供了一个掩码。
    * @memberof CesiumTerrainProvider.prototype
    * @type {boolean}
    * @readonly
@@ -1112,9 +1112,9 @@ Object.defineProperties(CesiumTerrainProvider.prototype, {
   },
 
   /**
-   * Boolean flag that indicates if the client should request metadata from the server.
-   * Metadata is appended to the standard tile mesh data only if the client requests the metadata and
-   * if the server provides a metadata.
+   * 布尔标志，表示客户端是否应该从服务器请求元数据。
+   * 只有当客户端请求元数据和元数据时，才会将元数据添加到标准网格数据中
+   * 如果服务器提供元数据。
    * @memberof CesiumTerrainProvider.prototype
    * @type {boolean}
    * @readonly
@@ -1126,12 +1126,12 @@ Object.defineProperties(CesiumTerrainProvider.prototype, {
   },
 
   /**
-   * Gets an object that can be used to determine availability of terrain from this provider, such as
-   * at points and in rectangles. This property may be undefined if availability
-   * information is not available. Note that this reflects tiles that are known to be available currently.
-   * Additional tiles may be discovered to be available in the future, e.g. if availability information
-   * exists deeper in the tree rather than it all being discoverable at the root. However, a tile that
-   * is available now will not become unavailable in the future.
+   * 获取一个对象，该对象可用于从此提供程序确定地形的可用性，例如
+   * 在点和矩形中。如果可用，此属性可能未定义
+   * 信息不可用。请注意，这反映了当前已知可用的磁贴。
+   * 将来可能会发现其他可用的瓷砖，例如可用性信息
+   * 存在于树的更深处，而不是在根节点都可以发现。然而，一个瓷砖
+   * 现在可用，将来不会不可用。
    * @memberof CesiumTerrainProvider.prototype
    * @type {TileAvailability}
    * @readonly
@@ -1156,8 +1156,8 @@ CesiumTerrainProvider.prototype.getLevelMaximumGeometricError = function (
 };
 
 /**
- * Creates a {@link TerrainProvider} from a Cesium ion asset ID that accesses terrain data in a Cesium terrain format
- * Terrain formats can be one of the following:
+ * 从cesium资产ID创建 {@link TerrainProvider}，以铯地形格式访问地形数据
+ * 地形格式可以是以下其中一种:
  * <ul>
  * <li> {@link https://github.com/AnalyticalGraphicsInc/quantized-mesh Quantized Mesh} </li>
  * <li> {@link https://github.com/AnalyticalGraphicsInc/cesium/wiki/heightmap-1.0 Height Map} </li>
@@ -1195,8 +1195,8 @@ CesiumTerrainProvider.fromIonAssetId = async function (assetId, options) {
 };
 
 /**
- * Creates a {@link TerrainProvider} that accesses terrain data in a Cesium terrain format.
- * Terrain formats can be one of the following:
+ * 创建 {@link TerrainProvider} 以cesium地形格式访问地形数据。
+ * 地形格式可以是以下其中一种:
  * <ul>
  * <li> {@link https://github.com/AnalyticalGraphicsInc/quantized-mesh Quantized Mesh} </li>
  * <li> {@link https://github.com/AnalyticalGraphicsInc/cesium/wiki/heightmap-1.0 Height Map} </li>
@@ -1258,7 +1258,7 @@ CesiumTerrainProvider.fromUrl = async function (url, options) {
  * @param {number} x 要为其请求几何图形的贴图的X坐标。
  * @param {number} y 要为其请求几何图形的贴图的Y坐标。
  * @param {number} level 要为其请求几何图形的贴图的级别。
- * @returns {boolean|undefined} Undefined if not supported or availability is unknown, otherwise true or false.
+ * @returns {boolean|undefined} 如果不支持或可用性未知，则未定义，否则为true或false。
  */
 CesiumTerrainProvider.prototype.getTileDataAvailable = function (x, y, level) {
   if (!defined(this._availability)) {
@@ -1296,7 +1296,7 @@ CesiumTerrainProvider.prototype.getTileDataAvailable = function (x, y, level) {
  * @param {number} x 要为其请求几何图形的贴图的X坐标。
  * @param {number} y 要为其请求几何图形的贴图的Y坐标。
  * @param {number} level 要为其请求几何图形的贴图的级别。
- * @returns {undefined|Promise<void>} Undefined if nothing need to be loaded or a Promise that resolves when all required tiles are loaded
+ * @returns {undefined|Promise<void>} 如果不需要加载任何内容，则为Undefined;如果需要加载所有tile，则为Promise，该Promise在加载所有所需tile时解析
  */
 CesiumTerrainProvider.prototype.loadTileDataAvailability = function (
   x,

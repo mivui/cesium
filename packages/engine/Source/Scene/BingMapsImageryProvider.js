@@ -174,7 +174,7 @@ async function requestMetadata(
 
 /**
  * <div class="notice">
- * To construct a BingMapsImageryProvider, call {@link BingMapsImageryProvider.fromUrl}. Do not call the constructor directly.
+ * To construct a BingMapsImageryProvider, call {@link BingMapsImageryProvider.fromUrl}. 不要直接调用构造函数。
  * </div>
  *
  * Provides tiled imagery using the Bing Maps Imagery REST API.

@@ -387,7 +387,7 @@ TimeInterval.prototype.equals = function (right, dataComparer) {
  * <code>false</code> 否则。
  *
  * @param {TimeInterval} [right] 右边 interval.
- * @param {number} [epsilon=0] The epsilon to use for equality testing.
+ * @param {number} [epsilon=0] 用来检验等式。
  * @param {TimeInterval.DataComparer} [dataComparer] A function which compares the data of the two intervals.  If omitted, reference equality is used.
  * @returns {boolean} <code>true</code>如果它们在提供的epsilon内，<code>false</code>否则。
  */

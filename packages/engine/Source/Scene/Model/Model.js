@@ -45,7 +45,7 @@ import pickModel from "./pickModel.js";
 
 /**
  * <div class="notice">
- * To construct a Model, call {@link Model.fromGltfAsync}. Do not call the constructor directly.
+ * To construct a Model, call {@link Model.fromGltfAsync}. 不要直接调用构造函数。
  * </div>
  * A 3D model based on glTF, the runtime asset format for WebGL, OpenGL ES, and OpenGL.
  * <p>

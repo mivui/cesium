@@ -65,7 +65,7 @@ const ImageryProviderAsyncMapping = {
 
 /**
  * <div class="notice">
- * To construct a IonImageryProvider, call {@link IonImageryProvider.fromAssetId}. Do not call the constructor directly.
+ * To construct a IonImageryProvider, call {@link IonImageryProvider.fromAssetId}. 不要直接调用构造函数。
  * </div>
  *
  * Provides tiled imagery using the Cesium ion REST API.

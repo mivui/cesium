@@ -3,7 +3,7 @@ import defined from "../../Core/defined.js";
 
 /**
  * <div class="notice">
- * Use {@link Model#getNode} to get a node from a loaded model. Do not call the constructor directly.
+ * Use {@link Model#getNode} to get a node from a loaded model. 不要直接调用构造函数。
  * </div>
  *
  * A model node with a modifiable transform to allow users to define their

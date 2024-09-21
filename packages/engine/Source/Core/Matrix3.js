@@ -1644,7 +1644,7 @@ Matrix3.equals = function (left, right) {
  *
  * @param {Matrix3} [left] 第一个matrix.
  * @param {Matrix3} [right] 第二个 matrix.
- * @param {number} [epsilon=0] The epsilon to use for equality testing.
+ * @param {number} [epsilon=0] 用来检验等式。
  * @returns {boolean} <code>true</code>如果左和右在提供的epsilon内，<code>false</code>否则。
  */
 Matrix3.equalsEpsilon = function (left, right, epsilon) {
@@ -1816,7 +1816,7 @@ Matrix3.equalsArray = function (matrix, array, offset) {
  * <code>false</code> 否则。
  *
  * @param {Matrix3} [right] 右边 matrix.
- * @param {number} [epsilon=0] The epsilon to use for equality testing.
+ * @param {number} [epsilon=0] 用来检验等式。
  * @returns {boolean} <code>true</code>如果它们在提供的epsilon内，<code>false</code>否则。
  */
 Matrix3.prototype.equalsEpsilon = function (right, epsilon) {

@@ -8,7 +8,7 @@ import defined from "../Core/defined.js";
 /**
  * <div class="notice">
  * A cloud is created and its initial properties are set by calling {@link CloudCollection#add}.
- * and {@link CloudCollection#remove}. Do not call the constructor directly.
+ * and {@link CloudCollection#remove}. 不要直接调用构造函数。
  * </div>
  * A cumulus cloud billboard positioned in the 3D scene, that is created and rendered using a {@link CloudCollection}.
  * <br /><br />

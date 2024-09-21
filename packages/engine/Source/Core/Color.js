@@ -585,7 +585,7 @@ Color.prototype.equals = function (other) {
  * Returns <code>true</code> if this Color equals other componentwise within the specified epsilon.
  *
  * @param {Color} other The Color to compare for equality.
- * @param {number} [epsilon=0.0] The epsilon to use for equality testing.
+ * @param {number} [epsilon=0.0] 用来检验等式。
  * @returns {boolean} <code>true</code> if the Colors are equal within the specified epsilon; otherwise, <code>false</code>.
  */
 Color.prototype.equalsEpsilon = function (other, epsilon) {

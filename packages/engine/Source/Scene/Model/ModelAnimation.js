@@ -8,7 +8,7 @@ import ModelAnimationChannel from "./ModelAnimationChannel.js";
 
 /**
  * <div class="notice">
- * Create animations by calling {@link ModelAnimationCollection#add}. Do not call the constructor directly.
+ * Create animations by calling {@link ModelAnimationCollection#add}. 不要直接调用构造函数。
  * </div>
  *
  * An active animation derived from a glTF asset. An active animation is an

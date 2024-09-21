@@ -6,7 +6,7 @@ import CesiumMath from "./Math.js";
 import scaleToGeodeticSurface from "./scaleToGeodeticSurface.js";
 
 /**
- * A position defined by longitude, latitude, and height.
+ * 由经度、纬度和高度定义的位置。
  * @alias Cartographic
  * @constructor
  *
@@ -40,14 +40,14 @@ function Cartographic(longitude, latitude, height) {
 }
 
 /**
- * Creates a new Cartographic instance from longitude and latitude
- * specified in radians.
+ * 根据经度和纬度创建新的Cartographic实例
+ * 以弧度指定。
  *
  * @param {number} longitude 经度，以弧度为单位.
  * @param {number} latitude 纬度，以弧度为单位.
  * @param {number} [height=0.0] 椭球体上方的高度，单位为米。
  * @param {Cartographic} [result] 要在其上存储结果的对象。
- * @returns {Cartographic} 修改后的结果参数 or a new Cartographic instance if one was not provided.
+ * @returns {Cartographic} 修改后的结果参数 或新的Cartographic实例(如果没有提供的话)。
  */
 Cartographic.fromRadians = function (longitude, latitude, height, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -68,15 +68,15 @@ Cartographic.fromRadians = function (longitude, latitude, height, result) {
 };
 
 /**
- * Creates a new Cartographic instance from longitude and latitude
- * specified in degrees.  The values in the resulting object will
- * be in radians.
+ * 根据经度和纬度创建新的Cartographic实例
+ * 以度数指定。结果对象中的值将
+ * 以弧度为单位。
  *
- * @param {number} longitude The longitude, in degrees.
+ * @param {number} longitude 经度，以度为单位。
  * @param {number} latitude 纬度，以度为单位.
  * @param {number} [height=0.0] 椭球体上方的高度，单位为米。
  * @param {Cartographic} [result] 要在其上存储结果的对象。
- * @returns {Cartographic} 修改后的结果参数 or a new Cartographic instance if one was not provided.
+ * @returns {Cartographic} 修改后的结果参数 或新的Cartographic实例(如果没有提供的话)。
  */
 Cartographic.fromDegrees = function (longitude, latitude, height, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -108,13 +108,13 @@ Cartographic._ellipsoidOneOverRadiiSquared = new Cartesian3(
 Cartographic._ellipsoidCenterToleranceSquared = CesiumMath.EPSILON1;
 
 /**
- * Creates a new Cartographic instance from a Cartesian position. The values in the
- * resulting object will be in radians.
+ * 从笛卡尔位置创建一个新的Cartographic实例。中的值
+ * 结果对象将以弧度为单位。
  *
- * @param {Cartesian3} cartesian The Cartesian position to convert to cartographic representation.
+ * @param {Cartesian3} cartesian 要转换为地图表示法的笛卡尔位置。
  * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] 位置所在的椭球体。
  * @param {Cartographic} [result] 要在其上存储结果的对象。
- * @returns {Cartographic} 修改后的结果参数, new Cartographic instance if none was provided, or undefined if the cartesian is at the center of the ellipsoid.
+ * @returns {Cartographic} 修改后的结果参数, 如果没有提供，则为新的Cartographic实例;如果直角坐标位于椭球体的中心，则为未定义的。
  */
 Cartographic.fromCartesian = function (cartesian, ellipsoid, result) {
   const oneOverRadii = defined(ellipsoid)
@@ -164,13 +164,13 @@ Cartographic.fromCartesian = function (cartesian, ellipsoid, result) {
 };
 
 /**
- * Creates a new Cartesian3 instance from a Cartographic input. The values in the inputted
- * object should be in radians.
+ * 从一个制图输入创建一个新的Cartesian3实例。输入的值
+ * 物体应该以弧度为单位。
  *
- * @param {Cartographic} cartographic Input to be converted into a Cartesian3 output.
+ * @param {Cartographic} cartographic 将输入转换为笛卡尔输出。
  * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] 位置所在的椭球体。
  * @param {Cartesian3} [result] 要在其上存储结果的对象。
- * @returns {Cartesian3} The position
+ * @returns {Cartesian3} 位置
  */
 Cartographic.toCartesian = function (cartographic, ellipsoid, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -189,9 +189,9 @@ Cartographic.toCartesian = function (cartographic, ellipsoid, result) {
 /**
  * 复制Cartographic instance.
  *
- * @param {Cartographic} cartographic The cartographic to duplicate.
+ * @param {Cartographic} cartographic 要复制的Cartographic。
  * @param {Cartographic} [result] 要在其上存储结果的对象。
- * @returns {Cartographic} 修改后的结果参数 or a new Cartographic instance if one was not provided. (Returns undefined if cartographic is undefined)
+ * @returns {Cartographic} 修改后的结果参数 或新的Cartographic实例(如果没有提供的话)。 (如果cartographic未定义则返回未定义)
  */
 Cartographic.clone = function (cartographic, result) {
   if (!defined(cartographic)) {
@@ -211,7 +211,7 @@ Cartographic.clone = function (cartographic, result) {
 };
 
 /**
- * Compares the provided cartographics componentwise and returns
+ * 比较所提供的地图组件并返回
  * <code>true</code>，否则为<code>false</code>。
  *
  * @param {Cartographic} [left] 第一个cartographic.
@@ -230,13 +230,13 @@ Cartographic.equals = function (left, right) {
 };
 
 /**
- * Compares the provided cartographics componentwise and returns
- * <code>true</code> if they are within the provided epsilon,
+ * 比较所提供的地图组件并返回
+ * <code>true</code> 如果它们在给定的范围内，
  * <code>false</code> 否则。
  *
  * @param {Cartographic} [left] 第一个cartographic.
  * @param {Cartographic} [right] 第二个 cartographic.
- * @param {number} [epsilon=0] The epsilon to use for equality testing.
+ * @param {number} [epsilon=0] 用来检验等式。
  * @returns {boolean} <code>true</code>如果左和右在提供的epsilon内，<code>false</code>否则。
  */
 Cartographic.equalsEpsilon = function (left, right, epsilon) {
@@ -253,7 +253,7 @@ Cartographic.equalsEpsilon = function (left, right, epsilon) {
 };
 
 /**
- * An immutable Cartographic instance initialized to (0.0, 0.0, 0.0).
+ * 初始化为。的不可变Cartographic 实例 (0.0, 0.0, 0.0).
  *
  * @type {Cartographic}
  * @constant
@@ -264,14 +264,14 @@ Cartographic.ZERO = Object.freeze(new Cartographic(0.0, 0.0, 0.0));
  * 复制instance.
  *
  * @param {Cartographic} [result] 要在其上存储结果的对象。
- * @returns {Cartographic} 修改后的结果参数 or a new Cartographic instance if one was not provided.
+ * @returns {Cartographic} 修改后的结果参数 或新的Cartographic实例(如果没有提供的话)。
  */
 Cartographic.prototype.clone = function (result) {
   return Cartographic.clone(this, result);
 };
 
 /**
- * Compares the provided against this cartographic componentwise and returns
+ * 将所提供的与此cartographic 组件进行比较并返回
  * <code>true</code>，否则为<code>false</code>。
  *
  * @param {Cartographic} [right] 第二个 cartographic.
@@ -282,12 +282,12 @@ Cartographic.prototype.equals = function (right) {
 };
 
 /**
- * Compares the provided against this cartographic componentwise and returns
- * <code>true</code> if they are within the provided epsilon,
+ * 将所提供的与此cartographic 组件进行比较并返回
+ * <code>true</code> 如果它们在给定的范围内，
  * <code>false</code> 否则。
  *
  * @param {Cartographic} [right] 第二个 cartographic.
- * @param {number} [epsilon=0] The epsilon to use for equality testing.
+ * @param {number} [epsilon=0] 用来检验等式。
  * @returns {boolean} <code>true</code>如果左和右在提供的epsilon内，<code>false</code>否则。
  */
 Cartographic.prototype.equalsEpsilon = function (right, epsilon) {
@@ -295,9 +295,9 @@ Cartographic.prototype.equalsEpsilon = function (right, epsilon) {
 };
 
 /**
- * Creates a string representing this cartographic in the format '(longitude, latitude, height)'.
+ * 以'(经度，纬度，高度)'的格式创建表示此Cartographic的字符串。
  *
- * @returns {string} A string representing the provided cartographic in the format '(longitude, latitude, height)'.
+ * @returns {string} 表示所提供Cartographic的字符串，格式为'(经度，纬度，高度)'。
  */
 Cartographic.prototype.toString = function () {
   return `(${this.longitude}, ${this.latitude}, ${this.height})`;

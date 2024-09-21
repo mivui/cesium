@@ -15,7 +15,7 @@ import SplitDirection from "./SplitDirection.js";
 
 /**
  * <div class="notice">
- * A point is created and its initial properties are set by calling {@link PointPrimitiveCollection#add}. Do not call the constructor directly.
+ * A point is created and its initial properties are set by calling {@link PointPrimitiveCollection#add}. 不要直接调用构造函数。
  * </div>
  * A graphical point positioned in the 3D scene, that is created
  * and rendered using a {@link PointPrimitiveCollection}.

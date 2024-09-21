@@ -12,7 +12,7 @@ import Material from "./Material.js";
 
 /**
  * <div class="notice">
- * Create this by calling {@link PolylineCollection#add}. Do not call the constructor directly.
+ * Create this by calling {@link PolylineCollection#add}. 不要直接调用构造函数。
  * </div>
  *
  * A renderable polyline.

@@ -134,7 +134,7 @@ async function requestMetadata(terrainProviderBuilder, resource, provider) {
 
 /**
  * <div class="notice">
- * To construct a VRTheWorldTerrainProvider, call {@link VRTheWorldTerrainProvider.fromUrl}. Do not call the constructor directly.
+ * To construct a VRTheWorldTerrainProvider, call {@link VRTheWorldTerrainProvider.fromUrl}. 不要直接调用构造函数。
  * </div>
  *
  * A {@link TerrainProvider} that produces terrain geometry by tessellating height maps
