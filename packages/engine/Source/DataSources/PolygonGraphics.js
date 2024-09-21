@@ -52,7 +52,7 @@ function createPolygonHierarchyProperty(value) {
  * @alias PolygonGraphics
  * @constructor
  *
- * @param {PolygonGraphics.ConstructorOptions} [options] Object describing initialization options
+ * @param {PolygonGraphics.ConstructorOptions} [options] 描述初始化选项的对象
  *
  * @see Entity
  * @demo {@link https://sandcastle.cesium.com/index.html?src=Polygon.html|Cesium Sandcastle Polygon Demo}

@@ -22,7 +22,7 @@ import createPropertyDescriptor from "./createPropertyDescriptor.js";
  * @alias Cesium3DTilesetGraphics
  * @constructor
  *
- * @param {Cesium3DTilesetGraphics.ConstructorOptions} [options] Object describing initialization options
+ * @param {Cesium3DTilesetGraphics.ConstructorOptions} [options] 描述初始化选项的对象
  */
 function Cesium3DTilesetGraphics(options) {
   this._definitionChanged = new Event();

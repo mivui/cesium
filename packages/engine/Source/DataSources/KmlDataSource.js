@@ -3583,7 +3583,7 @@ function load(dataSource, entityCollection, data, options) {
  * @alias KmlDataSource
  * @constructor
  *
- * @param {KmlDataSource.ConstructorOptions} [options] Object describing initialization options
+ * @param {KmlDataSource.ConstructorOptions} [options] 描述初始化选项的对象
  *
  * @see {@link http://www.opengeospatial.org/standards/kml/|Open Geospatial Consortium KML Standard}
  * @see {@link https://developers.google.com/kml/|Google KML Documentation}

@@ -67,7 +67,7 @@ import DeveloperError from "../Core/DeveloperError.js";
  * @constructor
  * @private
  *
- * @param {ArcGisMapServerImageryProvider.ConstructorOptions} options An object describing initialization options
+ * @param {ArcGisMapServerImageryProvider.ConstructorOptions} options An 描述初始化选项的对象
  */
 function ImageryProviderBuilder(options) {
   this.useTiles = defaultValue(options.usePreCachedTilesIfAvailable, true);
@@ -270,7 +270,7 @@ async function requestMetadata(resource, imageryProviderBuilder) {
  * @alias ArcGisMapServerImageryProvider
  * @constructor
  *
- * @param {ArcGisMapServerImageryProvider.ConstructorOptions} [options] Object describing initialization options
+ * @param {ArcGisMapServerImageryProvider.ConstructorOptions} [options] 描述初始化选项的对象
  *
  * @see ArcGisMapServerImageryProvider.fromBasemapType
  * @see ArcGisMapServerImageryProvider.fromUrl
@@ -351,7 +351,7 @@ function ArcGisMapServerImageryProvider(options) {
 /**
  * Creates an {@link ImageryProvider} which provides tiled imagery from an ArcGIS base map.
  * @param {ArcGisBaseMapType} style The style of the ArcGIS base map imagery. Valid options are {@link ArcGisBaseMapType.SATELLITE}, {@link ArcGisBaseMapType.OCEANS}, and {@link ArcGisBaseMapType.HILLSHADE}.
- * @param {ArcGisMapServerImageryProvider.ConstructorOptions} [options] Object describing initialization options.
+ * @param {ArcGisMapServerImageryProvider.ConstructorOptions} [options] 描述初始化选项的对象.
  * @returns {Promise<ArcGisMapServerImageryProvider>} A promise that resolves to the created ArcGisMapServerImageryProvider.
  *
  * @example
@@ -702,7 +702,7 @@ Object.defineProperties(ArcGisMapServerImageryProvider.prototype, {
  * used, if available.
  *
  * @param {Resource|String} url The URL of the ArcGIS MapServer service.
- * @param {ArcGisMapServerImageryProvider.ConstructorOptions} [options] Object describing initialization options.
+ * @param {ArcGisMapServerImageryProvider.ConstructorOptions} [options] 描述初始化选项的对象.
  * @returns {Promise<ArcGisMapServerImageryProvider>} A promise that resolves to the created ArcGisMapServerImageryProvider.
  *
  * @example

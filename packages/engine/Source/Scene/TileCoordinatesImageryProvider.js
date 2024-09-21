@@ -26,7 +26,7 @@ import GeographicTilingScheme from "../Core/GeographicTilingScheme.js";
  * @alias TileCoordinatesImageryProvider
  * @constructor
  *
- * @param {TileCoordinatesImageryProvider.ConstructorOptions} [options] Object describing initialization options
+ * @param {TileCoordinatesImageryProvider.ConstructorOptions} [options] 描述初始化选项的对象
  */
 function TileCoordinatesImageryProvider(options) {
   options = defaultValue(options, defaultValue.EMPTY_OBJECT);

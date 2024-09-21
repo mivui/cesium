@@ -50,7 +50,7 @@ import UrlTemplateImageryProvider from "./UrlTemplateImageryProvider.js";
  * @constructor
  * @extends UrlTemplateImageryProvider
  *
- * @param {TileMapServiceImageryProvider.ConstructorOptions} [options] Object describing initialization options
+ * @param {TileMapServiceImageryProvider.ConstructorOptions} [options] 描述初始化选项的对象
  *
  * @see ArcGisMapServerImageryProvider
  * @see BingMapsImageryProvider
@@ -108,7 +108,7 @@ TileMapServiceImageryProvider._requestMetadata = async function (
  * Creates a TileMapServiceImageryProvider from the specified url.
  *
  * @param {Resource|String} url Path to image tiles on server.
- * @param {TileMapServiceImageryProvider.ConstructorOptions} [options] Object describing initialization options.
+ * @param {TileMapServiceImageryProvider.ConstructorOptions} [options] 描述初始化选项的对象.
  * @returns {Promise<TileMapServiceImageryProvider>} A promise that resolves to the created TileMapServiceImageryProvider.
  *
  * @example

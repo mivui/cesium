@@ -28,7 +28,7 @@ import createPropertyDescriptor from "./createPropertyDescriptor.js";
  * @alias PointGraphics
  * @constructor
  *
- * @param {PointGraphics.ConstructorOptions} [options] Object describing initialization options
+ * @param {PointGraphics.ConstructorOptions} [options] 描述初始化选项的对象
  */
 function PointGraphics(options) {
   this._definitionChanged = new Event();

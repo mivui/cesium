@@ -31,7 +31,7 @@ import ImageryProvider from "./ImageryProvider.js";
  * @alias SingleTileImageryProvider
  * @constructor
  *
- * @param {SingleTileImageryProvider.ConstructorOptions} options Object describing initialization options
+ * @param {SingleTileImageryProvider.ConstructorOptions} options 描述初始化选项的对象
  *
  * @see ArcGisMapServerImageryProvider
  * @see BingMapsImageryProvider
@@ -295,7 +295,7 @@ async function doRequest(resource, provider, previousError) {
 /**
  * Creates a provider for a single, top-level imagery tile.  The single image is assumed to use a
  * @param {Resource|String} url The url for the tile
- * @param {SingleTileImageryProvider.fromUrlOptions} [options] Object describing initialization options.
+ * @param {SingleTileImageryProvider.fromUrlOptions} [options] 描述初始化选项的对象.
  * @returns {Promise.<SingleTileImageryProvider>} The resolved SingleTileImageryProvider.
  *
  * @example

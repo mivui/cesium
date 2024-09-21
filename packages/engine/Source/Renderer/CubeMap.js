@@ -58,7 +58,7 @@ import TextureMinificationFilter from "./TextureMinificationFilter.js";
  * @alias CubeMap
  * @constructor
  *
- * @param {CubeMap.ConstructorOptions} options An object describing initialization options.
+ * @param {CubeMap.ConstructorOptions} options An 描述初始化选项的对象.
  * @private
  */
 function CubeMap(options) {

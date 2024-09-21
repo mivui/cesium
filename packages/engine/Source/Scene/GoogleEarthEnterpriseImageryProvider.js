@@ -65,7 +65,7 @@ GoogleEarthEnterpriseDiscardPolicy.prototype.shouldDiscardImage = function (
  * @alias GoogleEarthEnterpriseImageryProvider
  * @constructor
  *
- * @param {GoogleEarthEnterpriseImageryProvider.ConstructorOptions} [options] Object describing initialization options
+ * @param {GoogleEarthEnterpriseImageryProvider.ConstructorOptions} [options] 描述初始化选项的对象
  *
  * @see GoogleEarthEnterpriseImageryProvider.fromMetadata
  * @see GoogleEarthEnterpriseTerrainProvider
@@ -288,7 +288,7 @@ Object.defineProperties(GoogleEarthEnterpriseImageryProvider.prototype, {
 /**
  * Creates a tiled imagery provider using the Google Earth Enterprise REST API.
  * @param {GoogleEarthEnterpriseMetadata} metadata A metadata object that can be used to share metadata requests with a GoogleEarthEnterpriseTerrainProvider.
- * @param {GoogleEarthEnterpriseImageryProvider.ConstructorOptions} options Object describing initialization options.
+ * @param {GoogleEarthEnterpriseImageryProvider.ConstructorOptions} options 描述初始化选项的对象.
  * @returns {GoogleEarthEnterpriseImageryProvider}
  *
  * @exception {RuntimeError} The metadata url does not have imagery

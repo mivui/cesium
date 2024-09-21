@@ -1546,7 +1546,7 @@ const pitchScratch = new Cartesian3();
  * the default view for the 3D scene.  The home view for 2D and columbus view shows the
  * entire map.
  *
- * @param {number} [duration] The duration of the flight in seconds. If omitted, Cesium attempts to calculate an ideal duration based on the distance to be traveled by the flight. See {@link Camera#flyTo}
+ * @param {number} [duration] 飞行时间以秒为单位。 If omitted, Cesium attempts to calculate an ideal duration based on the distance to be traveled by the flight. See {@link Camera#flyTo}
  */
 Camera.prototype.flyHome = function (duration) {
   const mode = this._mode;
@@ -2314,7 +2314,7 @@ const scratchLookAtMatrix4 = new Matrix4();
  * determined from the offset, the heading will be north.
  *
  * @param {Cartesian3} target The target position in world coordinates.
- * @param {Cartesian3|HeadingPitchRange} offset The offset from the target in the local east-north-up reference frame centered at the target.
+ * @param {Cartesian3|HeadingPitchRange} offset 在以目标为中心的本地east-north-up参考系中与目标的偏移量。
  *
  * @exception {DeveloperError} lookAt is not supported while morphing.
  *
@@ -3323,11 +3323,11 @@ Camera.prototype.completeFlight = function () {
  * @param {object} [options.orientation] An object that contains either direction and up properties or heading, pitch and roll properties. By default, the direction will point
  * towards the center of the frame in 3D and in the negative z direction in Columbus view. The up direction will point towards local north in 3D and in the positive
  * y direction in Columbus view.  Orientation is not used in 2D when in infinite scrolling mode.
- * @param {number} [options.duration] The duration of the flight in seconds. If omitted, Cesium attempts to calculate an ideal duration based on the distance to be traveled by the flight.
+ * @param {number} [options.duration] 飞行时间以秒为单位。 If omitted, Cesium attempts to calculate an ideal duration based on the distance to be traveled by the flight.
  * @param {Camera.FlightCompleteCallback} [options.complete] The function to execute when the flight is complete.
  * @param {Camera.FlightCancelledCallback} [options.cancel] The function to execute if the flight is cancelled.
  * @param {Matrix4} [options.endTransform] Transform matrix representing the reference frame the camera will be in when the flight is completed.
- * @param {number} [options.maximumHeight] The maximum height at the peak of the flight.
+ * @param {number} [options.maximumHeight] 飞行高峰时的最大高度。
  * @param {number} [options.pitchAdjustHeight] If camera flyes higher than that value, adjust pitch duiring the flight to look down, and keep Earth in viewport.
  * @param {number} [options.flyOverLongitude] There are always two ways between 2 points on globe. This option force camera to choose fight direction to fly over that longitude.
  * @param {number} [options.flyOverLongitudeWeight] Fly over the lon specifyed via flyOverLongitude only if that way is not longer than short way times flyOverLongitudeWeight.
@@ -3548,7 +3548,7 @@ function adjustBoundingSphereOffset(camera, boundingSphere, offset) {
  * determined from the offset, the heading will be north.</p>
  *
  * @param {BoundingSphere} boundingSphere The bounding sphere to view, in world coordinates.
- * @param {HeadingPitchRange} [offset] The offset from the target in the local east-north-up reference frame centered at the target.
+ * @param {HeadingPitchRange} [offset] 在以目标为中心的本地east-north-up参考系中与目标的偏移量。
  *
  * @exception {DeveloperError} viewBoundingSphere is not supported while morphing.
  */
@@ -3592,12 +3592,12 @@ const scratchFlyToBoundingSphereMatrix3 = new Matrix3();
  *
  * @param {BoundingSphere} boundingSphere The bounding sphere to view, in world coordinates.
  * @param {object} [options] 对象，具有以下属性:
- * @param {number} [options.duration] The duration of the flight in seconds. If omitted, Cesium attempts to calculate an ideal duration based on the distance to be traveled by the flight.
- * @param {HeadingPitchRange} [options.offset] The offset from the target in the local east-north-up reference frame centered at the target.
+ * @param {number} [options.duration] 飞行时间以秒为单位。 If omitted, Cesium attempts to calculate an ideal duration based on the distance to be traveled by the flight.
+ * @param {HeadingPitchRange} [options.offset] 在以目标为中心的本地east-north-up参考系中与目标的偏移量。
  * @param {Camera.FlightCompleteCallback} [options.complete] The function to execute when the flight is complete.
  * @param {Camera.FlightCancelledCallback} [options.cancel] The function to execute if the flight is cancelled.
  * @param {Matrix4} [options.endTransform] Transform matrix representing the reference frame the camera will be in when the flight is completed.
- * @param {number} [options.maximumHeight] The maximum height at the peak of the flight.
+ * @param {number} [options.maximumHeight] 飞行高峰时的最大高度。
  * @param {number} [options.pitchAdjustHeight] If camera flyes higher than that value, adjust pitch duiring the flight to look down, and keep Earth in viewport.
  * @param {number} [options.flyOverLongitude] There are always two ways between 2 points on globe. This option force camera to choose fight direction to fly over that longitude.
  * @param {number} [options.flyOverLongitudeWeight] Fly over the lon specifyed via flyOverLongitude only if that way is not longer than short way times flyOverLongitudeWeight.

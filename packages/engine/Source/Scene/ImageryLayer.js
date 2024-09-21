@@ -133,7 +133,7 @@ import TileImagery from "./TileImagery.js";
  * @constructor
  *
  * @param {ImageryProvider} [imageryProvider] The imagery provider to use.
- * @param {ImageryLayer.ConstructorOptions} [options] An object describing initialization options
+ * @param {ImageryLayer.ConstructorOptions} [options] An 描述初始化选项的对象
  *
  * @see ImageryLayer.fromProviderAsync
  * @see ImageryLayer.fromWorldImagery
@@ -511,7 +511,7 @@ ImageryLayer.DEFAULT_APPLY_COLOR_TO_ALPHA_THRESHOLD = 0.004;
  * Create a new imagery layer from an asynchronous imagery provider. The layer will handle any asynchronous loads or errors, and begin rendering the imagery layer once ready.
  *
  * @param {Promise<ImageryProvider>} imageryProviderPromise A promise which resolves to a imagery provider
- * @param {ImageryLayer.ConstructorOptions} options An object describing initialization options
+ * @param {ImageryLayer.ConstructorOptions} options An 描述初始化选项的对象
  * @returns {ImageryLayer} The created imagery layer.
  *
  * @example
@@ -569,7 +569,7 @@ ImageryLayer.fromProviderAsync = function (imageryProviderPromise, options) {
 /**
  * Create a new imagery layer for ion's default global base imagery layer, currently Bing Maps. The layer will handle any asynchronous loads or errors, and begin rendering the imagery layer once ready.
  *
- * @param {ImageryLayer.WorldImageryConstructorOptions} options An object describing initialization options
+ * @param {ImageryLayer.WorldImageryConstructorOptions} options An 描述初始化选项的对象
  * @returns {ImageryLayer} The created imagery layer.
  *
  * * @example

@@ -2,12 +2,12 @@ import { defined, DeveloperError } from "@cesium/engine";
 import CesiumInspector from "../CesiumInspector/CesiumInspector.js";
 
 /**
- * A mixin which adds the CesiumInspector widget to the Viewer widget.
- * Rather than being called directly, this function is normally passed as
- * a parameter to {@link Viewer#extend}, as shown in the example below.
+ * 将CesiumInspector小部件添加到Viewer小部件的mixin。
+ * 不是直接调用，这个函数通常作为
+ * {@link Viewer#extend}的参数，如下例所示。
  * @function
  *
- * @param {Viewer} viewer The viewer instance.
+ * @param {Viewer} viewer 查看器实例。
  *
  * @exception {DeveloperError} viewer is required.
  *

@@ -38,7 +38,7 @@ const ALL_CHILDREN = 15;
  * @constructor
  * @private
  *
- * @param {ArcGISTiledElevationTerrainProvider.ConstructorOptions} [options] An object describing initialization options.
+ * @param {ArcGISTiledElevationTerrainProvider.ConstructorOptions} [options] An 描述初始化选项的对象.
  */
 function TerrainProviderBuilder(options) {
   this.ellipsoid = defaultValue(options.ellipsoid, Ellipsoid.default);
@@ -221,7 +221,7 @@ async function requestMetadata(
  * @alias ArcGISTiledElevationTerrainProvider
  * @constructor
  *
- * @param {CesiumTerrainProvider.ConstructorOptions} [options] A url or an object describing initialization options
+ * @param {CesiumTerrainProvider.ConstructorOptions} [options] A url or an 描述初始化选项的对象
  *
  * @example
  * const terrainProvider = await Cesium.ArcGISTiledElevationTerrainProvider.fromUrl("https://elevation3d.arcgis.com/arcgis/rest/services/WorldElevation3D/Terrain3D/ImageServer", {
@@ -338,7 +338,7 @@ Object.defineProperties(ArcGISTiledElevationTerrainProvider.prototype, {
  * retrieved from Elevation Tiles of an an ArcGIS ImageService.
  *
  * @param {Resource|String|Promise<Resource>|Promise<String>} url The URL of the ArcGIS ImageServer service.
- * @param {ArcGISTiledElevationTerrainProvider.ConstructorOptions} [options] A url or an object describing initialization options.
+ * @param {ArcGISTiledElevationTerrainProvider.ConstructorOptions} [options] A url or an 描述初始化选项的对象.
  * @returns {Promise<ArcGISTiledElevationTerrainProvider>}
  *
  * @example

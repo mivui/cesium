@@ -44,7 +44,7 @@ import createPropertyDescriptor from "./createPropertyDescriptor.js";
  * @alias LabelGraphics
  * @constructor
  *
- * @param {LabelGraphics.ConstructorOptions} [options] Object describing initialization options
+ * @param {LabelGraphics.ConstructorOptions} [options] 描述初始化选项的对象
  *
  * @demo {@link https://sandcastle.cesium.com/index.html?src=Labels.html|Cesium Sandcastle Labels Demo}
  */

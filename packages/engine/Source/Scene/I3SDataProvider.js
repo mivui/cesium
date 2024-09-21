@@ -109,7 +109,7 @@ import Rectangle from "../Core/Rectangle.js";
  * @alias I3SDataProvider
  * @constructor
  *
- * @param {I3SDataProvider.ConstructorOptions} options An object describing initialization options
+ * @param {I3SDataProvider.ConstructorOptions} options An 描述初始化选项的对象
  *
  * @see I3SDataProvider.fromUrl
  * @see ArcGISTiledElevationTerrainProvider
@@ -510,7 +510,7 @@ async function addLayers(provider, data, options) {
  * 1.7/1.8 (OGC I3S 1.2).
  *
  * @param {string|Resource} url The url of the I3S dataset, which should return an I3S scene object
- * @param {I3SDataProvider.ConstructorOptions} options An object describing initialization options
+ * @param {I3SDataProvider.ConstructorOptions} options An 描述初始化选项的对象
  * @returns {Promise<I3SDataProvider>}
  *
  * @example

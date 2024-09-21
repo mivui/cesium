@@ -33,7 +33,7 @@ import createPropertyDescriptor from "./createPropertyDescriptor.js";
  * @alias CylinderGraphics
  * @constructor
  *
- * @param {CylinderGraphics.ConstructorOptions} [options] Object describing initialization options
+ * @param {CylinderGraphics.ConstructorOptions} [options] 描述初始化选项的对象
  */
 function CylinderGraphics(options) {
   this._definitionChanged = new Event();

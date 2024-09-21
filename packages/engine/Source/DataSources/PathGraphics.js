@@ -25,7 +25,7 @@ import createPropertyDescriptor from "./createPropertyDescriptor.js";
  * @alias PathGraphics
  * @constructor
  *
- * @param {PathGraphics.ConstructorOptions} [options] Object describing initialization options
+ * @param {PathGraphics.ConstructorOptions} [options] 描述初始化选项的对象
  */
 function PathGraphics(options) {
   this._definitionChanged = new Event();

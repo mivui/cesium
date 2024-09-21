@@ -38,7 +38,7 @@ import createPropertyDescriptor from "./createPropertyDescriptor.js";
  * @alias CorridorGraphics
  * @constructor
  *
- * @param {CorridorGraphics.ConstructorOptions} [options] Object describing initialization options
+ * @param {CorridorGraphics.ConstructorOptions} [options] 描述初始化选项的对象
  *
  * @see Entity
  * @demo {@link https://sandcastle.cesium.com/index.html?src=Corridor.html|Cesium Sandcastle Corridor Demo}

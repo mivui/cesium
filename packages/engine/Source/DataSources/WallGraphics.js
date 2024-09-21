@@ -31,7 +31,7 @@ import createPropertyDescriptor from "./createPropertyDescriptor.js";
  * @alias WallGraphics
  * @constructor
  *
- * @param {WallGraphics.ConstructorOptions} [options] Object describing initialization options
+ * @param {WallGraphics.ConstructorOptions} [options] 描述初始化选项的对象
  *
  * @see Entity
  * @demo {@link https://sandcastle.cesium.com/index.html?src=Wall.html|Cesium Sandcastle Wall Demo}

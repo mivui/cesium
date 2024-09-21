@@ -41,7 +41,7 @@ import createPropertyDescriptor from "./createPropertyDescriptor.js";
  * @alias EllipseGraphics
  * @constructor
  *
- * @param {EllipseGraphics.ConstructorOptions} [options] Object describing initialization options
+ * @param {EllipseGraphics.ConstructorOptions} [options] 描述初始化选项的对象
  *
  * @demo {@link https://sandcastle.cesium.com/index.html?src=Circles and Ellipses.html|Cesium Sandcastle Circles and Ellipses Demo}
  */

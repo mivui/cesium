@@ -124,7 +124,7 @@ function parseFont(label) {
  * @internalConstructor
  * @class
  *
- * @param {Label.ConstructorOptions} options Object describing initialization options
+ * @param {Label.ConstructorOptions} options 描述初始化选项的对象
  * @param {LabelCollection} labelCollection Instance of LabelCollection
  *
  * @exception {DeveloperError} translucencyByDistance.far must be greater than translucencyByDistance.near

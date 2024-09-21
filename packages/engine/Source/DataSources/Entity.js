@@ -105,7 +105,7 @@ function createPropertyTypeDescriptor(name, Type) {
  * @alias Entity
  * @constructor
  *
- * @param {Entity.ConstructorOptions} [options] Object describing initialization options
+ * @param {Entity.ConstructorOptions} [options] 描述初始化选项的对象
  *
  * @see {@link https://cesium.com/learn/cesiumjs-learn/cesiumjs-creating-entities/|Creating Entities}
  */

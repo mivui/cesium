@@ -58,7 +58,7 @@ const xhrBlobSupported = (function () {
  * @alias Resource
  * @constructor
  *
- * @param {string|Resource.ConstructorOptions} options A url or an object describing initialization options
+ * @param {string|Resource.ConstructorOptions} options A url or an 描述初始化选项的对象
  *
  * @example
  * function refreshTokenRetryCallback(resource, error) {

@@ -29,7 +29,7 @@ import createPropertyDescriptor from "./createPropertyDescriptor.js";
  * @alias BoxGraphics
  * @constructor
  *
- * @param {BoxGraphics.ConstructorOptions} [options] Object describing initialization options
+ * @param {BoxGraphics.ConstructorOptions} [options] 描述初始化选项的对象
  *
  * @demo {@link https://sandcastle.cesium.com/index.html?src=Box.html|Cesium Sandcastle Box Demo}
  */

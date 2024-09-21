@@ -77,7 +77,7 @@ const excludesReverseAxis = [
  * @alias WebMapServiceImageryProvider
  * @constructor
  *
- * @param {WebMapServiceImageryProvider.ConstructorOptions} options Object describing initialization options
+ * @param {WebMapServiceImageryProvider.ConstructorOptions} options 描述初始化选项的对象
  *
  * @see ArcGisMapServerImageryProvider
  * @see BingMapsImageryProvider

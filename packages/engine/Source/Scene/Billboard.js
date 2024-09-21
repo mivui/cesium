@@ -87,7 +87,7 @@ import SplitDirection from "./SplitDirection.js";
  * @internalConstructor
  * @class
  *
- * @param {Billboard.ConstructorOptions} options Object describing initialization options
+ * @param {Billboard.ConstructorOptions} options 描述初始化选项的对象
  * @param {BillboardCollection} billboardCollection Instance of BillboardCollection
  *
  * @demo {@link https://sandcastle.cesium.com/index.html?src=Billboards.html|Cesium Sandcastle Billboard Demo}

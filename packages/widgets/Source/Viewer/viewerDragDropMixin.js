@@ -11,24 +11,24 @@ import {
   wrapFunction,
 } from "@cesium/engine";
 /**
- * A mixin which adds default drag and drop support for CZML files to the Viewer widget.
- * Rather than being called directly, this function is normally passed as
- * a parameter to {@link Viewer#extend}, as shown in the example below.
+ * 一个添加默认拖放支持CZML文件到Viewer小部件的mixin。
+ * 不是直接调用，这个函数通常作为
+ * {@link Viewer#extend} 的参数，如下例所示。
  * @function viewerDragDropMixin
 
- * @param {Viewer} viewer The viewer instance.
+ * @param {Viewer} viewer 查看器实例。
  * @param {object} [options] 对象，具有以下属性:
- * @param {Element|string} [options.dropTarget=viewer.container] The DOM element which will serve as the drop target.
- * @param {boolean} [options.clearOnDrop=true] When true, dropping files will clear all existing data sources first, when false, new data sources will be loaded after the existing ones.
- * @param {boolean} [options.flyToOnDrop=true] When true, dropping files will fly to the data source once it is loaded.
- * @param {boolean} [options.clampToGround=true] When true, datasources are clamped to the ground.
- * @param {Proxy} [options.proxy] The proxy to be used for KML network links.
+ * @param {Element|string} [options.dropTarget=viewer.container] 作为拖放目标的DOM元素。
+ * @param {boolean} [options.clearOnDrop=true] 当为true时，删除文件将首先清除所有现有数据源，当为false时，将在现有数据源之后加载新数据源。
+ * @param {boolean} [options.flyToOnDrop=true] 如果为true，则加载数据源后，删除文件将飞到数据源。
+ * @param {boolean} [options.clampToGround=true] 如果为true，则数据源被限制在地面上。
+ * @param {Proxy} [options.proxy] 要用于KML网络链接的代理。
  *
- * @exception {DeveloperError} Element with id <options.dropTarget> does not exist in the document.
- * @exception {DeveloperError} dropTarget is already defined by another mixin.
- * @exception {DeveloperError} dropEnabled is already defined by another mixin.
- * @exception {DeveloperError} dropError is already defined by another mixin.
- * @exception {DeveloperError} clearOnDrop is already defined by another mixin.
+ * @exception {DeveloperError}  具有id的元素 <options.dropTarget> 在文档中不存在。
+ * @exception {DeveloperError} dropTarget已经被另一个mixin定义了。
+ * @exception {DeveloperError} dropEnabled已经被另一个mixin定义了。
+ * @exception {DeveloperError} dropError已经被另一个mixin定义了
+ * @exception {DeveloperError} clearOnDrop 已经被另一个mixin定义了
  *
  * @example
  * // Add basic drag and drop support and pop up an alert window on error.
@@ -104,7 +104,7 @@ function viewerDragDropMixin(viewer, options) {
     },
 
     /**
-     * Gets or sets a value indicating if drag and drop support is enabled.
+     * 获取或设置一个值，该值指示是否启用了拖放支持。
      * @memberof viewerDragDropMixin.prototype
      * @type {Element}
      */
@@ -125,7 +125,7 @@ function viewerDragDropMixin(viewer, options) {
     },
 
     /**
-     * Gets the event that will be raised when an error is encountered during drop processing.
+     * 获取在删除处理过程中遇到错误时将引发的事件。
      * @memberof viewerDragDropMixin.prototype
      * @type {Event}
      */
@@ -136,7 +136,7 @@ function viewerDragDropMixin(viewer, options) {
     },
 
     /**
-     * Gets or sets a value indicating if existing data sources should be cleared before adding the newly dropped sources.
+     * 获取或设置一个值，该值指示在添加新删除的数据源之前是否应清除现有数据源。
      * @memberof viewerDragDropMixin.prototype
      * @type {boolean}
      */
@@ -150,7 +150,7 @@ function viewerDragDropMixin(viewer, options) {
     },
 
     /**
-     * Gets or sets a value indicating if the camera should fly to the data source after it is loaded.
+     * 获取或设置一个值，该值指示摄像机在加载后是否应飞到数据源。
      * @memberof viewerDragDropMixin.prototype
      * @type {boolean}
      */
@@ -164,7 +164,7 @@ function viewerDragDropMixin(viewer, options) {
     },
 
     /**
-     * 获取或设置proxy to be used for KML.
+     * 获取或设置用于KML的代理。
      * @memberof viewerDragDropMixin.prototype
      * @type {Proxy}
      */
@@ -178,7 +178,7 @@ function viewerDragDropMixin(viewer, options) {
     },
 
     /**
-     * Gets or sets a value indicating if the datasources should be clamped to the ground
+     * 获取或设置一个值，该值指示是否应将数据源固定在地面上
      * @memberof viewerDragDropMixin.prototype
      * @type {boolean}
      */

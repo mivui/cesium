@@ -59,7 +59,7 @@ function createArticulationStagePropertyBag(value) {
  * @alias ModelGraphics
  * @constructor
  *
- * @param {ModelGraphics.ConstructorOptions} [options] Object describing initialization options
+ * @param {ModelGraphics.ConstructorOptions} [options] 描述初始化选项的对象
  *
  * @demo {@link https://sandcastle.cesium.com/index.html?src=3D%20Models.html|Cesium Sandcastle 3D Models Demo}
  */

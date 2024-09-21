@@ -34,7 +34,7 @@ const defaultCredit = new Credit(
  * @alias MapboxImageryProvider
  * @constructor
  *
- * @param {MapboxImageryProvider.ConstructorOptions} options Object describing initialization options
+ * @param {MapboxImageryProvider.ConstructorOptions} options 描述初始化选项的对象
  *
  * @example
  * // Mapbox tile provider

@@ -50,7 +50,7 @@ import ImageryProvider from "./ImageryProvider.js";
  * @constructor
  * @private
  *
- * @param {GoogleEarthEnterpriseMapsProvider.ConstructorOptions} options An object describing initialization options
+ * @param {GoogleEarthEnterpriseMapsProvider.ConstructorOptions} options An 描述初始化选项的对象
  */
 function ImageryProviderBuilder(options) {
   this.channel = options.channel;
@@ -179,7 +179,7 @@ async function requestMetadata(
  * @alias GoogleEarthEnterpriseMapsProvider
  * @constructor
  *
- * @param {GoogleEarthEnterpriseMapsProvider.ConstructorOptions} options Object describing initialization options
+ * @param {GoogleEarthEnterpriseMapsProvider.ConstructorOptions} options 描述初始化选项的对象
  *
  * @exception {RuntimeError} Could not find layer with channel (id) of <code>options.channel</code>.
  * @exception {RuntimeError} Could not find a version in channel (id) <code>options.channel</code>.
@@ -438,7 +438,7 @@ Object.defineProperties(GoogleEarthEnterpriseMapsProvider.prototype, {
  * Creates a tiled imagery provider using the Google Earth Imagery API.
  *
  * @param {Resource|String} url The url of the Google Earth server hosting the imagery.
- * @param {GoogleEarthEnterpriseMapsProvider.ConstructorOptions} [options] Object describing initialization options
+ * @param {GoogleEarthEnterpriseMapsProvider.ConstructorOptions} [options] 描述初始化选项的对象
  * @returns {Promise<GoogleEarthEnterpriseMapsProvider>} The created GoogleEarthEnterpriseMapsProvider.
  *
  * @exception {RuntimeError} Could not find layer with channel (id) of <code>options.channel</code>.

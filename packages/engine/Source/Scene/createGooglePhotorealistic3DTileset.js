@@ -11,7 +11,7 @@ import Resource from "../Core/Resource.js";
  * @function
  *
  * @param {string} [key=GoogleMaps.defaultApiKey] Your API key to access Google Photorealistic 3D Tiles. See {@link https://developers.google.com/maps/documentation/javascript/get-api-key} for instructions on how to create your own key.
- * @param {Cesium3DTileset.ConstructorOptions} [options] An object describing initialization options.
+ * @param {Cesium3DTileset.ConstructorOptions} [options] An 描述初始化选项的对象.
  * @returns {Promise<Cesium3DTileset>}
  *
  * @see GoogleMaps

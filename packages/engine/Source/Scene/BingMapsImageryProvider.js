@@ -41,7 +41,7 @@ import ImageryProvider from "./ImageryProvider.js";
  * @constructor
  * @private
  *
- * @param {BingMapsImageryProvider.ConstructorOptions} options An object describing initialization options
+ * @param {BingMapsImageryProvider.ConstructorOptions} options An 描述初始化选项的对象
  */
 function ImageryProviderBuilder(options) {
   this.tileWidth = undefined;
@@ -182,7 +182,7 @@ async function requestMetadata(
  * @alias BingMapsImageryProvider
  * @constructor
  *
- * @param {BingMapsImageryProvider.ConstructorOptions} options Object describing initialization options
+ * @param {BingMapsImageryProvider.ConstructorOptions} options 描述初始化选项的对象
  *
  * @see BingMapsImageryProvider.fromUrl
  * @see ArcGisMapServerImageryProvider
@@ -458,7 +458,7 @@ Object.defineProperties(BingMapsImageryProvider.prototype, {
  * Creates an {@link ImageryProvider} which provides tiled imagery using the Bing Maps Imagery REST API.
  *
  * @param {Resource|String} url The url of the Bing Maps server hosting the imagery.
- * @param {BingMapsImageryProvider.ConstructorOptions} options Object describing initialization options
+ * @param {BingMapsImageryProvider.ConstructorOptions} options 描述初始化选项的对象
  * @returns {Promise<BingMapsImageryProvider>} A promise that resolves to the created BingMapsImageryProvider
  *
  * @example

@@ -34,7 +34,7 @@ function DataRectangle(rectangle, maxLevel) {
  * @constructor
  * @private
  *
- * @param {VRTheWorldTerrainProvider.ConstructorOptions} options An object describing initialization options
+ * @param {VRTheWorldTerrainProvider.ConstructorOptions} options An 描述初始化选项的对象
  */
 function TerrainProviderBuilder(options) {
   this.ellipsoid = defaultValue(options.ellipsoid, Ellipsoid.default);
@@ -143,7 +143,7 @@ async function requestMetadata(terrainProviderBuilder, resource, provider) {
  * @alias VRTheWorldTerrainProvider
  * @constructor
  *
- * @param {VRTheWorldTerrainProvider.ConstructorOptions} [options] An object describing initialization options.
+ * @param {VRTheWorldTerrainProvider.ConstructorOptions} [options] An 描述初始化选项的对象.
  *
  * @example
  * const terrainProvider = await Cesium.VRTheWorldTerrainProvider.fromUrl(
@@ -264,7 +264,7 @@ Object.defineProperties(VRTheWorldTerrainProvider.prototype, {
  * retrieved from a {@link http://vr-theworld.com/|VT MÄK VR-TheWorld server}.
  *
  * @param {Resource|String} url The URL of the VR-TheWorld TileMap.
- * @param {VRTheWorldTerrainProvider.ConstructorOptions} [options] An object describing initialization options.
+ * @param {VRTheWorldTerrainProvider.ConstructorOptions} [options] An 描述初始化选项的对象.
  * @returns {Promise<VRTheWorldTerrainProvider>}
  *
  * @example

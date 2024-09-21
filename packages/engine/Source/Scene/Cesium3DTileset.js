@@ -142,7 +142,7 @@ import Ray from "../Core/Ray.js";
  * @alias Cesium3DTileset
  * @constructor
  *
- * @param {Cesium3DTileset.ConstructorOptions} options An object describing initialization options
+ * @param {Cesium3DTileset.ConstructorOptions} options An 描述初始化选项的对象
  *
  * @exception {DeveloperError} The tileset must be 3D Tiles version 0.0 or 1.0.
  *
@@ -1988,7 +1988,7 @@ Object.defineProperties(Cesium3DTileset.prototype, {
  * used for streaming massive heterogeneous 3D geospatial datasets, from a Cesium ion asset ID.
  *
  * @param {number} assetId The Cesium ion asset id.
- * @param {Cesium3DTileset.ConstructorOptions} [options] An object describing initialization options
+ * @param {Cesium3DTileset.ConstructorOptions} [options] An 描述初始化选项的对象
  * @returns {Promise<Cesium3DTileset>}
  *
  * @exception {RuntimeError} When the tileset asset version is not 0.0, 1.0, or 1.1,
@@ -2019,7 +2019,7 @@ Cesium3DTileset.fromIonAssetId = async function (assetId, options) {
  * used for streaming massive heterogeneous 3D geospatial datasets.
  *
  * @param {Resource|string} url The url to a tileset JSON file.
- * @param {Cesium3DTileset.ConstructorOptions} [options] An object describing initialization options
+ * @param {Cesium3DTileset.ConstructorOptions} [options] An 描述初始化选项的对象
  * @returns {Promise<Cesium3DTileset>}
  *
  * @exception {RuntimeError} When the tileset asset version is not 0.0, 1.0, or 1.1,

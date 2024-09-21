@@ -36,7 +36,7 @@ import createPropertyDescriptor from "./createPropertyDescriptor.js";
  * @alias EllipsoidGraphics
  * @constructor
  *
- * @param {EllipsoidGraphics.ConstructorOptions} [options] Object describing initialization options
+ * @param {EllipsoidGraphics.ConstructorOptions} [options] 描述初始化选项的对象
  *
  * @demo {@link https://sandcastle.cesium.com/index.html?src=Spheres%20and%20Ellipsoids.html|Cesium Sandcastle Spheres and Ellipsoids Demo}
  */

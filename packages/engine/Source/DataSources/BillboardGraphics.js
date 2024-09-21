@@ -44,7 +44,7 @@ import createPropertyDescriptor from "./createPropertyDescriptor.js";
  * @alias BillboardGraphics
  * @constructor
  *
- * @param {BillboardGraphics.ConstructorOptions} [options] Object describing initialization options
+ * @param {BillboardGraphics.ConstructorOptions} [options] 描述初始化选项的对象
  *
  * @demo {@link https://sandcastle.cesium.com/index.html?src=Billboards.html|Cesium Sandcastle Billboard Demo}
  */

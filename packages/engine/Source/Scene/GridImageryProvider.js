@@ -33,7 +33,7 @@ const defaultBackgroundColor = new Color(0.0, 0.5, 0.0, 0.2);
  *
  * @alias GridImageryProvider
  * @constructor
- * @param {GridImageryProvider.ConstructorOptions} options Object describing initialization options
+ * @param {GridImageryProvider.ConstructorOptions} options 描述初始化选项的对象
  *
  */
 function GridImageryProvider(options) {

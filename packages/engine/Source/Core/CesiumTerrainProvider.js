@@ -56,7 +56,7 @@ function LayerInformation(layer) {
  * @constructor
  * @private
  *
- * @param {CesiumTerrainProvider.ConstructorOptions} options An object describing initialization options
+ * @param {CesiumTerrainProvider.ConstructorOptions} options An 描述初始化选项的对象
  */
 function TerrainProviderBuilder(options) {
   this.requestVertexNormals = defaultValue(options.requestVertexNormals, false);
@@ -455,7 +455,7 @@ async function requestLayerJson(terrainProviderBuilder, provider) {
  * @alias CesiumTerrainProvider
  * @constructor
  *
- * @param {CesiumTerrainProvider.ConstructorOptions} [options] An object describing initialization options
+ * @param {CesiumTerrainProvider.ConstructorOptions} [options] An 描述初始化选项的对象
  *
  * @example
  * // Create Arctic DEM terrain with normals.
@@ -1164,7 +1164,7 @@ CesiumTerrainProvider.prototype.getLevelMaximumGeometricError = function (
  * </ul>
  *
  * @param {number} assetId The Cesium ion asset id.
- * @param {CesiumTerrainProvider.ConstructorOptions} [options] An object describing initialization options.
+ * @param {CesiumTerrainProvider.ConstructorOptions} [options] An 描述初始化选项的对象.
  * @returns {Promise<CesiumTerrainProvider>}
  *
  * @example
@@ -1203,7 +1203,7 @@ CesiumTerrainProvider.fromIonAssetId = async function (assetId, options) {
  * </ul>
  *
  * @param {Resource|String|Promise<Resource>|Promise<String>} url The URL of the Cesium terrain server.
- * @param {CesiumTerrainProvider.ConstructorOptions} [options] An object describing initialization options.
+ * @param {CesiumTerrainProvider.ConstructorOptions} [options] An 描述初始化选项的对象.
  * @returns {Promise<CesiumTerrainProvider>}
  *
  * @example

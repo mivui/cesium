@@ -143,7 +143,7 @@ const pickFeaturesTags = combine(tags, {
  * @alias UrlTemplateImageryProvider
  * @constructor
  *
- * @param {UrlTemplateImageryProvider.ConstructorOptions} options Object describing initialization options
+ * @param {UrlTemplateImageryProvider.ConstructorOptions} options 描述初始化选项的对象
  *
  * @example
  * // Access Natural Earth II imagery, which uses a TMS tiling scheme and Geographic (EPSG:4326) project

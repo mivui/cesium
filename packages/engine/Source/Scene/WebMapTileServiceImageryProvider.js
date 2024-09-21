@@ -50,7 +50,7 @@ const defaultParameters = Object.freeze({
  * @alias WebMapTileServiceImageryProvider
  * @constructor
  *
- * @param {WebMapTileServiceImageryProvider.ConstructorOptions} options Object describing initialization options
+ * @param {WebMapTileServiceImageryProvider.ConstructorOptions} options 描述初始化选项的对象
  *
  * @demo {@link https://sandcastle.cesium.com/index.html?src=Web%20Map%20Tile%20Service%20with%20Time.html|Cesium Sandcastle Web Map Tile Service with Time Demo}
  *

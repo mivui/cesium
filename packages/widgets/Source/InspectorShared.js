@@ -62,8 +62,8 @@ InspectorShared.createSection = function (
   );
   //>>includeEnd('debug');
   const section = document.createElement("div");
- 部分。className = "cesium-cesiumInspector-section";
- 部分。setAttribute(
+  section.className = "cesium-cesiumInspector-section";
+  section.setAttribute(
     "data-bind",
     `css: { "cesium-cesiumInspector-section-collapsed": !${sectionVisibleBinding} }`
   );
@@ -76,11 +76,11 @@ InspectorShared.createSection = function (
     "data-bind",
     `click: ${toggleSectionVisibilityBinding}`
   );
- 部分。appendChild(sectionHeader);
+  section.appendChild(sectionHeader);
 
   const sectionContent = document.createElement("div");
   sectionContent.className = "cesium-cesiumInspector-sectionContent";
- 部分。appendChild(sectionContent);
+  section.appendChild(sectionContent);
   return sectionContent;
 };
 
