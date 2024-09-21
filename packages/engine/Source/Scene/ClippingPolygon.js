@@ -115,7 +115,7 @@ ClippingPolygon.clone = function (polygon, result) {
 
 /**
  * Compares the provided ClippingPolygons and returns
- * <code>为true</code>，否则为false</code>。
+ * <code>true</code>，否则为<code>false</code>。
  *
  * @param {Plane} left The first polygon.
  * @param {Plane} right The second polygon.

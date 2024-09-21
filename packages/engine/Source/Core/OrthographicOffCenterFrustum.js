@@ -385,10 +385,10 @@ OrthographicOffCenterFrustum.prototype.clone = function (result) {
 
 /**
  * Compares the provided OrthographicOffCenterFrustum componentwise and returns
- * <code>为true</code>，否则为false</code>。
+ * <code>true</code>，否则为<code>false</code>。
  *
  * @param {OrthographicOffCenterFrustum} [other] 右边 OrthographicOffCenterFrustum.
- * @returns {boolean} <code>为true</code>，否则为false</code>。
+ * @returns {boolean} <code>true</code>，否则为<code>false</code>。
  */
 OrthographicOffCenterFrustum.prototype.equals = function (other) {
   return (
@@ -406,12 +406,12 @@ OrthographicOffCenterFrustum.prototype.equals = function (other) {
 /**
  * Compares the provided OrthographicOffCenterFrustum componentwise and returns
  * <code>true</code> if they pass an absolute or relative tolerance test,
- * <code>false</code> otherwise.
+ * <code>false</code> 否则。
  *
  * @param {OrthographicOffCenterFrustum} other 右边 OrthographicOffCenterFrustum.
  * @param {number} relativeEpsilon The relative epsilon tolerance to use for equality testing.
  * @param {number} [absoluteEpsilon=relativeEpsilon] The absolute epsilon tolerance to use for equality testing.
- * @returns {boolean} <code>true</code> if this and other are within the provided epsilon, <code>false</code> otherwise.
+ * @returns {boolean} <code>true</code> if this and other are within the provided epsilon, <code>false</code> 否则。
  */
 OrthographicOffCenterFrustum.prototype.equalsEpsilon = function (
   other,

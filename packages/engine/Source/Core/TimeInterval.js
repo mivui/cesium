@@ -14,8 +14,8 @@ import JulianDate from "./JulianDate.js";
  * @param {object} [options] 对象，具有以下属性:
  * @param {JulianDate} [options.start=new JulianDate()] The start time of the interval.
  * @param {JulianDate} [options.stop=new JulianDate()] The stop time of the interval.
- * @param {boolean} [options.isStartIncluded=true] <code>true</code> if <code>options.start</code> is included in the interval, <code>false</code> otherwise.
- * @param {boolean} [options.isStopIncluded=true] <code>true</code> if <code>options.stop</code> is included in the interval, <code>false</code> otherwise.
+ * @param {boolean} [options.isStartIncluded=true] <code>true</code> if <code>options.start</code> is included in the interval, <code>false</code> 否则。
+ * @param {boolean} [options.isStopIncluded=true] <code>true</code> if <code>options.stop</code> is included in the interval, <code>false</code> 否则。
  * @param {object} [options.data] Arbitrary data associated with this interval.
  *
  * @example
@@ -130,8 +130,8 @@ const scratchInterval = {
  *
  * @param {object} options 对象，具有以下属性:
  * @param {string} options.iso8601 An ISO 8601 interval.
- * @param {boolean} [options.isStartIncluded=true] <code>true</code> if <code>options.start</code> is included in the interval, <code>false</code> otherwise.
- * @param {boolean} [options.isStopIncluded=true] <code>true</code> if <code>options.stop</code> is included in the interval, <code>false</code> otherwise.
+ * @param {boolean} [options.isStartIncluded=true] <code>true</code> if <code>options.start</code> is included in the interval, <code>false</code> 否则。
+ * @param {boolean} [options.isStopIncluded=true] <code>true</code> if <code>options.stop</code> is included in the interval, <code>false</code> 否则。
  * @param {object} [options.data] Arbitrary data associated with this interval.
  * @param {TimeInterval} [result] An existing instance to use for the result.
  * @returns {TimeInterval} The modified result parameter or a new instance if none was provided.
@@ -212,7 +212,7 @@ TimeInterval.clone = function (timeInterval, result) {
 };
 
 /**
- * Compares two instances and returns <code>为true</code>，否则为false</code>。
+ * Compares two instances and returns <code>true</code>，否则为<code>false</code>。
  *
  * @param {TimeInterval} [left] 第一个instance.
  * @param {TimeInterval} [right] 第二个 instance.
@@ -331,7 +331,7 @@ TimeInterval.intersect = function (left, right, result, mergeCallback) {
  *
  * @param {TimeInterval} timeInterval The interval.
  * @param {JulianDate} julianDate The date to check.
- * @returns {boolean} <code>true</code> if the interval contains the specified date, <code>false</code> otherwise.
+ * @returns {boolean} <code>true</code> if the interval contains the specified date, <code>false</code> 否则。
  */
 TimeInterval.contains = function (timeInterval, julianDate) {
   //>>includeStart('debug', pragmas.debug);
@@ -371,11 +371,11 @@ TimeInterval.prototype.clone = function (result) {
 
 /**
  * Compares this instance against the provided instance componentwise and returns
- * <code>为true</code>，否则为false</code>。
+ * <code>true</code>，否则为<code>false</code>。
  *
  * @param {TimeInterval} [right] 右边 interval.
  * @param {TimeInterval.DataComparer} [dataComparer] A function which compares the data of the two intervals.  If omitted, reference equality is used.
- * @returns {boolean} <code>为true</code>，否则为false</code>。
+ * @returns {boolean} <code>true</code>，否则为<code>false</code>。
  */
 TimeInterval.prototype.equals = function (right, dataComparer) {
   return TimeInterval.equals(this, right, dataComparer);
@@ -384,12 +384,12 @@ TimeInterval.prototype.equals = function (right, dataComparer) {
 /**
  * Compares this instance against the provided instance componentwise and returns
  * <code>true</code> if they are within the provided epsilon,
- * <code>false</code> otherwise.
+ * <code>false</code> 否则。
  *
  * @param {TimeInterval} [right] 右边 interval.
  * @param {number} [epsilon=0] The epsilon to use for equality testing.
  * @param {TimeInterval.DataComparer} [dataComparer] A function which compares the data of the two intervals.  If omitted, reference equality is used.
- * @returns {boolean} <code>true</code> if they are within the provided epsilon, <code>false</code> otherwise.
+ * @returns {boolean} <code>true</code> if they are within the provided epsilon, <code>false</code> 否则。
  */
 TimeInterval.prototype.equalsEpsilon = function (right, epsilon, dataComparer) {
   return TimeInterval.equalsEpsilon(this, right, epsilon, dataComparer);
@@ -433,6 +433,6 @@ TimeInterval.EMPTY = Object.freeze(
  * @callback TimeInterval.DataComparer
  * @param {*} leftData The first data instance.
  * @param {*} rightData The second data instance.
- * @returns {boolean} <code>true</code> if the provided instances are equal, <code>false</code> otherwise.
+ * @returns {boolean} <code>true</code> if the provided instances are equal, <code>false</code> 否则。
  */
 export default TimeInterval;

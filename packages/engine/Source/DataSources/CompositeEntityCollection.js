@@ -257,17 +257,17 @@ CompositeEntityCollection.prototype.removeAllCollections = function () {
  * Checks to see if the composite contains a given collection.
  *
  * @param {EntityCollection} collection the collection to check for.
- * @returns {boolean} true if the composite contains the collection, false otherwise.
+ * @returns {boolean} true if the composite contains the collection, false 否则。
  */
 CompositeEntityCollection.prototype.containsCollection = function (collection) {
   return this._collections.indexOf(collection) !== -1;
 };
 
 /**
- * Returns true if the provided entity is in this collection, false otherwise.
+ * Returns true if the provided entity is in this collection, false 否则。
  *
  * @param {Entity} entity The entity.
- * @returns {boolean} true if the provided entity is in this collection, false otherwise.
+ * @returns {boolean} true if the provided entity is in this collection, false 否则。
  */
 CompositeEntityCollection.prototype.contains = function (entity) {
   return this._composite.contains(entity);

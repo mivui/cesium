@@ -395,7 +395,7 @@ PointPrimitiveCollection.prototype._updatePointPrimitive = function (
  * Check whether this collection contains a given point.
  *
  * @param {PointPrimitive} [pointPrimitive] The point to check for.
- * @returns {boolean} true if this collection contains the point, false otherwise.
+ * @returns {boolean} true if this collection contains the point, false 否则。
  *
  * @see PointPrimitiveCollection#get
  */

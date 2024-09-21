@@ -501,8 +501,8 @@ Texture.create = function (options) {
  * @param {PixelFormat} [options.pixelFormat=PixelFormat.RGB] The texture's internal pixel format.
  * @param {number} [options.framebufferXOffset=0] An offset in the x direction in the framebuffer where copying begins from.
  * @param {number} [options.framebufferYOffset=0] An offset in the y direction in the framebuffer where copying begins from.
- * @param {number} [options.width=canvas.clientWidth] The width of the texture in texels.
- * @param {number} [options.height=canvas.clientHeight] The height of the texture in texels.
+ * @param {number} [options.width=canvas.clientWidth] 宽度 texture in texels.
+ * @param {number} [options.height=canvas.clientHeight] 高度 texture in texels.
  * @param {Framebuffer} [options.framebuffer=defaultFramebuffer] The framebuffer from which to create the texture.  If this
  *        parameter is not specified, the default framebuffer is used.
  * @returns {Texture} A texture with contents from the framebuffer.

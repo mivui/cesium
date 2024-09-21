@@ -852,8 +852,8 @@ function deriveBoundingVolume(
  * @param {Cesium3DTile} parentTile The parent of the new child tile
  * @param {number} childIndex The morton index of the child tile relative to its parent
  * @param {number} level The level of the descendant tile relative to the root implicit tile
- * @param {number} x The x coordinate of the descendant tile
- * @param {number} y The y coordinate of the descendant tile
+ * @param {number} x x坐标  descendant tile
+ * @param {number} y y坐标 descendant tile
  * @param {number} [z] The z coordinate of the descendant tile (octree only)
  * @returns {object} An object with the 3DTILES_bounding_volume_S2 extension.
  * @private
@@ -951,8 +951,8 @@ const scratchHalfAxes = new Matrix3();
  *
  * @param {number[]} rootBox An array of 12 numbers representing the bounding box of the root tile
  * @param {number} level The level of the descendant tile relative to the root implicit tile
- * @param {number} x The x coordinate of the descendant tile
- * @param {number} y The y coordinate of the descendant tile
+ * @param {number} x x坐标  descendant tile
+ * @param {number} y y坐标 descendant tile
  * @param {number} [z] The z coordinate of the descendant tile (octree only)
  * @returns {number[]} An array of 12 numbers representing the bounding box of the descendant tile.
  * @private
@@ -1028,8 +1028,8 @@ const scratchRectangle = new Rectangle();
  * </p>
  * @param {number[]} rootRegion An array of 6 numbers representing the root implicit tile
  * @param {number} level The level of the descendant tile relative to the root implicit tile
- * @param {number} x The x coordinate of the descendant tile
- * @param {number} y The x coordinate of the descendant tile
+ * @param {number} x x坐标  descendant tile
+ * @param {number} y x坐标  descendant tile
  * @param {number} [z] The z coordinate of the descendant tile (octree only)
  * @returns {number[]} An array of 6 numbers representing the bounding region of the descendant tile
  * @private

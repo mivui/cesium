@@ -726,7 +726,7 @@ Resource.prototype.retryOnError = function (error) {
 };
 
 /**
- * Duplicates a Resource instance.
+ * 复制Resource instance.
  *
  * @param {Resource} [result] 要在其上存储结果的对象。
  *

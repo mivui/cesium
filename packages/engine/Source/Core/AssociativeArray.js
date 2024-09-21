@@ -43,7 +43,7 @@ Object.defineProperties(AssociativeArray.prototype, {
  * 确定所提供的键是否在数组中。
  *
  * @param {string|number} key 检查的钥匙。
- * @returns {boolean} 如果键在数组中，则<code>为true</code>，否则为false</code>。
+ * @returns {boolean} 如果键在数组中，则<code>true</code>，否则为<code>false</code>。
  */
 AssociativeArray.prototype.contains = function (key) {
   //>>includeStart('debug', pragmas.debug);

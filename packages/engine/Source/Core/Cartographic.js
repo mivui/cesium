@@ -187,7 +187,7 @@ Cartographic.toCartesian = function (cartographic, ellipsoid, result) {
 };
 
 /**
- * Duplicates a Cartographic instance.
+ * 复制Cartographic instance.
  *
  * @param {Cartographic} cartographic The cartographic to duplicate.
  * @param {Cartographic} [result] 要在其上存储结果的对象。
@@ -212,7 +212,7 @@ Cartographic.clone = function (cartographic, result) {
 
 /**
  * Compares the provided cartographics componentwise and returns
- * <code>为true</code>，否则为false</code>。
+ * <code>true</code>，否则为<code>false</code>。
  *
  * @param {Cartographic} [left] 第一个cartographic.
  * @param {Cartographic} [right] 第二个 cartographic.
@@ -232,12 +232,12 @@ Cartographic.equals = function (left, right) {
 /**
  * Compares the provided cartographics componentwise and returns
  * <code>true</code> if they are within the provided epsilon,
- * <code>false</code> otherwise.
+ * <code>false</code> 否则。
  *
  * @param {Cartographic} [left] 第一个cartographic.
  * @param {Cartographic} [right] 第二个 cartographic.
  * @param {number} [epsilon=0] The epsilon to use for equality testing.
- * @returns {boolean} <code>true</code> if left and right are within the provided epsilon, <code>false</code> otherwise.
+ * @returns {boolean} <code>true</code> if left and right are within the provided epsilon, <code>false</code> 否则。
  */
 Cartographic.equalsEpsilon = function (left, right, epsilon) {
   epsilon = defaultValue(epsilon, 0);
@@ -272,7 +272,7 @@ Cartographic.prototype.clone = function (result) {
 
 /**
  * Compares the provided against this cartographic componentwise and returns
- * <code>为true</code>，否则为false</code>。
+ * <code>true</code>，否则为<code>false</code>。
  *
  * @param {Cartographic} [right] 第二个 cartographic.
  * @returns {boolean} <code>true</code>如果左和右相等，否则<code>false</code>。
@@ -284,11 +284,11 @@ Cartographic.prototype.equals = function (right) {
 /**
  * Compares the provided against this cartographic componentwise and returns
  * <code>true</code> if they are within the provided epsilon,
- * <code>false</code> otherwise.
+ * <code>false</code> 否则。
  *
  * @param {Cartographic} [right] 第二个 cartographic.
  * @param {number} [epsilon=0] The epsilon to use for equality testing.
- * @returns {boolean} <code>true</code> if left and right are within the provided epsilon, <code>false</code> otherwise.
+ * @returns {boolean} <code>true</code> if left and right are within the provided epsilon, <code>false</code> 否则。
  */
 Cartographic.prototype.equalsEpsilon = function (right, epsilon) {
   return Cartographic.equalsEpsilon(this, right, epsilon);

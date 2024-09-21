@@ -210,7 +210,7 @@ const occludeePositionScratch = new Cartesian3();
 /**
  * Determines whether or not a sphere, the <code>occludee</code>, is hidden from view by the occluder.
  *
- * @param {BoundingSphere} occludee The bounding sphere surrounding the occludee object.
+ * @param {BoundingSphere} occludee 包围被遮挡物体的边界球。
  * @returns {boolean} <code>true</code> if the occludee is visible; otherwise <code>false</code>.
  *
  *

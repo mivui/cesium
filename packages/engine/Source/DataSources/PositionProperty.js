@@ -82,7 +82,7 @@ PositionProperty.prototype.getValueInReferenceFrame =
 
 /**
  * Compares this property to the provided property and returns
- * <code>为true</code>，否则为false</code>。
+ * <code>true</code>，否则为<code>false</code>。
  * @function
  *
  * @param {Property} [other] The other property.

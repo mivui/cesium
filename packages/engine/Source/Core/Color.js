@@ -440,13 +440,13 @@ Color.fromCssColorString = function (color, result) {
 Color.packedLength = 4;
 
 /**
- * Stores the provided instance into the provided array.
+ * 将提供的实例存储到提供的数组中。
  *
- * @param {Color} value The value to pack.
- * @param {number[]} array The array to pack into.
- * @param {number} [startingIndex=0] The index into the array at which to start packing the elements.
+ * @param {Color} value 要打包的值。
+ * @param {number[]} array 要装入的数组。
+ * @param {number} [startingIndex=0] 开始打包元素的数组的索引。
  *
- * @returns {number[]} The array that was packed into
+ * @returns {number[]} 被装入的数组
  */
 Color.pack = function (value, array, startingIndex) {
   //>>includeStart('debug', pragmas.debug);
@@ -464,11 +464,11 @@ Color.pack = function (value, array, startingIndex) {
 };
 
 /**
- * Retrieves an instance from a packed array.
+ * 从打包数组中检索实例。
  *
- * @param {number[]} array The packed array.
- * @param {number} [startingIndex=0] The starting index of the element to be unpacked.
- * @param {Color} [result] The object into which to store the result.
+ * @param {number[]} array 打包数组。
+ * @param {number} [startingIndex=0] 要解压缩的元素的起始索引。
+ * @param {Color} [result] 要在其中存储结果的对象。
  * @returns {Color} The modified result parameter or a new Color instance if one was not provided.
  */
 Color.unpack = function (array, startingIndex, result) {
@@ -510,7 +510,7 @@ Color.floatToByte = function (number) {
 };
 
 /**
- * Duplicates a Color.
+ * 复制Color.
  *
  * @param {Color} color The Color to duplicate.
  * @param {Color} [result] The object to store the result in, if undefined a new instance will be created.

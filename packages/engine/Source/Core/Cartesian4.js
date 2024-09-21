@@ -94,7 +94,7 @@ Cartesian4.fromColor = function (color, result) {
 };
 
 /**
- * Duplicates a Cartesian4 instance.
+ * 复制Cartesian4 instance.
  *
  * @param {Cartesian4} cartesian The Cartesian to duplicate.
  * @param {Cartesian4} [result] 要在其上存储结果的对象。
@@ -123,13 +123,13 @@ Cartesian4.clone = function (cartesian, result) {
 Cartesian4.packedLength = 4;
 
 /**
- * Stores the provided instance into the provided array.
+ * 将提供的实例存储到提供的数组中。
  *
- * @param {Cartesian4} value The value to pack.
- * @param {number[]} array The array to pack into.
- * @param {number} [startingIndex=0] The index into the array at which to start packing the elements.
+ * @param {Cartesian4} value 要打包的值。
+ * @param {number[]} array 要装入的数组。
+ * @param {number} [startingIndex=0] 开始打包元素的数组的索引。
  *
- * @returns {number[]} The array that was packed into
+ * @returns {number[]} 被装入的数组
  */
 Cartesian4.pack = function (value, array, startingIndex) {
   //>>includeStart('debug', pragmas.debug);
@@ -148,11 +148,11 @@ Cartesian4.pack = function (value, array, startingIndex) {
 };
 
 /**
- * Retrieves an instance from a packed array.
+ * 从打包数组中检索实例。
  *
- * @param {number[]} array The packed array.
- * @param {number} [startingIndex=0] The starting index of the element to be unpacked.
- * @param {Cartesian4} [result] The object into which to store the result.
+ * @param {number[]} array 打包数组。
+ * @param {number} [startingIndex=0] 要解压缩的元素的起始索引。
+ * @param {Cartesian4} [result] 要在其中存储结果的对象。
  * @returns {Cartesian4}  The modified result parameter or a new Cartesian4 instance if one was not provided.
  */
 Cartesian4.unpack = function (array, startingIndex, result) {
@@ -177,7 +177,7 @@ Cartesian4.unpack = function (array, startingIndex, result) {
  *
  * @param {Cartesian4[]} array The array of cartesians to pack.
  * @param {number[]} [result] The array onto which to store the result. If this is a typed array, it must have array.length * 4 components, else a {@link DeveloperError} will be thrown. If it is a regular array, it will be resized to have (array.length * 4) elements.
- * @returns {number[]} The packed array.
+ * @returns {number[]} 打包数组。
  */
 Cartesian4.packArray = function (array, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -287,7 +287,7 @@ Cartesian4.minimumComponent = function (cartesian) {
  *
  * @param {Cartesian4} first A cartesian to compare.
  * @param {Cartesian4} second A cartesian to compare.
- * @param {Cartesian4} result The object into which to store the result.
+ * @param {Cartesian4} result 要在其中存储结果的对象。
  * @returns {Cartesian4} A cartesian with the minimum components.
  */
 Cartesian4.minimumByComponent = function (first, second, result) {
@@ -310,7 +310,7 @@ Cartesian4.minimumByComponent = function (first, second, result) {
  *
  * @param {Cartesian4} first A cartesian to compare.
  * @param {Cartesian4} second A cartesian to compare.
- * @param {Cartesian4} result The object into which to store the result.
+ * @param {Cartesian4} result 要在其中存储结果的对象。
  * @returns {Cartesian4} A cartesian with the maximum components.
  */
 Cartesian4.maximumByComponent = function (first, second, result) {
@@ -334,7 +334,7 @@ Cartesian4.maximumByComponent = function (first, second, result) {
  * @param {Cartesian4} value The value to clamp.
  * @param {Cartesian4} min The minimum bound.
  * @param {Cartesian4} max The maximum bound.
- * @param {Cartesian4} result The object into which to store the result.
+ * @param {Cartesian4} result 要在其中存储结果的对象。
  * @returns {Cartesian4} The clamped value such that min <= result <= max.
  */
 Cartesian4.clamp = function (value, min, max, result) {
@@ -729,7 +729,7 @@ Cartesian4.mostOrthogonalAxis = function (cartesian, result) {
 
 /**
  * Compares the provided Cartesians componentwise and returns
- * <code>为true</code>，否则为false</code>。
+ * <code>true</code>，否则为<code>false</code>。
  *
  * @param {Cartesian4} [left] 第一个Cartesian.
  * @param {Cartesian4} [right] 第二个 Cartesian.
@@ -762,13 +762,13 @@ Cartesian4.equalsArray = function (cartesian, array, offset) {
 /**
  * Compares the provided Cartesians componentwise and returns
  * <code>true</code> if they pass an absolute or relative tolerance test,
- * <code>false</code> otherwise.
+ * <code>false</code> 否则。
  *
  * @param {Cartesian4} [left] 第一个Cartesian.
  * @param {Cartesian4} [right] 第二个 Cartesian.
  * @param {number} [relativeEpsilon=0] The relative epsilon tolerance to use for equality testing.
  * @param {number} [absoluteEpsilon=relativeEpsilon] The absolute epsilon tolerance to use for equality testing.
- * @returns {boolean} <code>true</code> if left and right are within the provided epsilon, <code>false</code> otherwise.
+ * @returns {boolean} <code>true</code> if left and right are within the provided epsilon, <code>false</code> 否则。
  */
 Cartesian4.equalsEpsilon = function (
   left,
@@ -867,10 +867,10 @@ Cartesian4.prototype.clone = function (result) {
 
 /**
  * Compares this Cartesian against the provided Cartesian componentwise and returns
- * <code>为true</code>，否则为false</code>。
+ * <code>true</code>，否则为<code>false</code>。
  *
  * @param {Cartesian4} [right] 右边 Cartesian.
- * @returns {boolean} <code>为true</code>，否则为false</code>。
+ * @returns {boolean} <code>true</code>，否则为<code>false</code>。
  */
 Cartesian4.prototype.equals = function (right) {
   return Cartesian4.equals(this, right);
@@ -879,12 +879,12 @@ Cartesian4.prototype.equals = function (right) {
 /**
  * Compares this Cartesian against the provided Cartesian componentwise and returns
  * <code>true</code> if they pass an absolute or relative tolerance test,
- * <code>false</code> otherwise.
+ * <code>false</code> 否则。
  *
  * @param {Cartesian4} [right] 右边 Cartesian.
  * @param {number} [relativeEpsilon=0] The relative epsilon tolerance to use for equality testing.
  * @param {number} [absoluteEpsilon=relativeEpsilon] The absolute epsilon tolerance to use for equality testing.
- * @returns {boolean} <code>true</code> if they are within the provided epsilon, <code>false</code> otherwise.
+ * @returns {boolean} <code>true</code> if they are within the provided epsilon, <code>false</code> 否则。
  */
 Cartesian4.prototype.equalsEpsilon = function (
   right,

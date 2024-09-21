@@ -42,8 +42,8 @@ import ImplicitSubdivisionScheme from "./ImplicitSubdivisionScheme.js";
  * @param {ImplicitSubdivisionScheme} options.subdivisionScheme Whether the coordinates are for a quadtree or octree
  * @param {number} options.subtreeLevels The number of distinct levels within the coordinate's subtree
  * @param {number} options.level The level of a tile relative to the tile with the extension
- * @param {number} options.x The x coordinate of the tile
- * @param {number} options.y The y coordinate of the tile
+ * @param {number} options.x x坐标  tile
+ * @param {number} options.y y坐标 tile
  * @param {number} [options.z] The z coordinate of the tile. Only required when options.subdivisionScheme is ImplicitSubdivisionScheme.OCTREE
  * @private
  * @experimental This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.

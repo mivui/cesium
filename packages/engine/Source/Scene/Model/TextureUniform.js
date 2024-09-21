@@ -13,8 +13,8 @@ import TextureWrap from "../../Renderer/TextureWrap.js";
  *
  * @param {object} options An 对象，具有以下属性:
  * @param {Uint8Array} [options.typedArray] A typed array storing the contents of a texture. Values are stored in row-major order. Since WebGL uses a y-up convention for textures, rows are listed from bottom to top.
- * @param {number} [options.width] The width of the image. Required when options.typedArray is present
- * @param {number} [options.height] The height of the image. Required when options.typedArray is present.
+ * @param {number} [options.width] 宽度 image. Required when options.typedArray is present
+ * @param {number} [options.height] 高度 image. Required when options.typedArray is present.
  * @param {string|Resource} [options.url] A URL string or resource pointing to a texture image.
  * @param {boolean} [options.repeat=true] When defined, the texture sampler will be set to wrap in both directions
  * @param {PixelFormat} [options.pixelFormat=PixelFormat.RGBA] When options.typedArray is defined, this is used to determine the pixel format of the texture

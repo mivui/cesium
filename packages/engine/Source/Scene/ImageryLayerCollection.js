@@ -204,7 +204,7 @@ ImageryLayerCollection.prototype.removeAll = function (destroy) {
  *
  * @param {ImageryLayer} layer the layer to check for.
  *
- * @returns {boolean} true if the collection contains the layer, false otherwise.
+ * @returns {boolean} true if the collection contains the layer, false 否则。
  */
 ImageryLayerCollection.prototype.contains = function (layer) {
   return this.indexOf(layer) !== -1;

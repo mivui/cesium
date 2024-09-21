@@ -114,13 +114,13 @@ CoplanarPolygonOutlineGeometry.fromPositions = function (options) {
 };
 
 /**
- * Stores the provided instance into the provided array.
+ * 将提供的实例存储到提供的数组中。
  *
- * @param {CoplanarPolygonOutlineGeometry} value The value to pack.
- * @param {number[]} array The array to pack into.
- * @param {number} [startingIndex=0] The index into the array at which to start packing the elements.
+ * @param {CoplanarPolygonOutlineGeometry} value 要打包的值。
+ * @param {number[]} array 要装入的数组。
+ * @param {number} [startingIndex=0] 开始打包元素的数组的索引。
  *
- * @returns {number[]} The array that was packed into
+ * @returns {number[]} 被装入的数组
  */
 CoplanarPolygonOutlineGeometry.pack = function (value, array, startingIndex) {
   //>>includeStart('debug', pragmas.debug);
@@ -146,11 +146,11 @@ const scratchOptions = {
   polygonHierarchy: {},
 };
 /**
- * Retrieves an instance from a packed array.
+ * 从打包数组中检索实例。
  *
- * @param {number[]} array The packed array.
- * @param {number} [startingIndex=0] The starting index of the element to be unpacked.
- * @param {CoplanarPolygonOutlineGeometry} [result] The object into which to store the result.
+ * @param {number[]} array 打包数组。
+ * @param {number} [startingIndex=0] 要解压缩的元素的起始索引。
+ * @param {CoplanarPolygonOutlineGeometry} [result] 要在其中存储结果的对象。
  * @returns {CoplanarPolygonOutlineGeometry} The modified result parameter or a new CoplanarPolygonOutlineGeometry instance if one was not provided.
  */
 CoplanarPolygonOutlineGeometry.unpack = function (

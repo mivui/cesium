@@ -160,7 +160,7 @@ AxisAlignedBoundingBox.clone = function (box, result) {
 
 /**
  * 比较提供的AxisAlignedBoundingBox组件和返回
- * <code>为true</code>，否则为false</code>。
+ * <code>true</code>，否则为<code>false</code>。
  *
  * @param {AxisAlignedBoundingBox} [left] 第一个AxisAlignedBoundingBox.
  * @param {AxisAlignedBoundingBox} [right] 第二个 AxisAlignedBoundingBox.
@@ -248,10 +248,10 @@ AxisAlignedBoundingBox.prototype.intersectPlane = function (plane) {
 
 /**
  * 将此AxisAlignedBoundingBox与提供的AxisAlignedBoundingBox组件进行比较并返回
- * <code>为true</code>，否则为false</code>。
+ * <code>true</code>，否则为<code>false</code>。
  *
  * @param {AxisAlignedBoundingBox} [right] 右边 AxisAlignedBoundingBox.
- * @returns {boolean} <code>为true</code>，否则为false</code>。
+ * @returns {boolean} <code>true</code>，否则为<code>false</code>。
  */
 AxisAlignedBoundingBox.prototype.equals = function (right) {
   return AxisAlignedBoundingBox.equals(this, right);

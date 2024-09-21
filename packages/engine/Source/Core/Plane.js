@@ -201,7 +201,7 @@ const scratchTransformNormal = new Cartesian3();
  *
  * @param {Plane} plane The plane.
  * @param {Matrix4} transform The transformation matrix.
- * @param {Plane} [result] The object into which to store the result.
+ * @param {Plane} [result] 要在其中存储结果的对象。
  * @returns {Plane} The plane transformed by the given transformation matrix.
  */
 Plane.transform = function (plane, transform, result) {
@@ -245,7 +245,7 @@ Plane.transform = function (plane, transform, result) {
 };
 
 /**
- * Duplicates a Plane instance.
+ * 复制Plane instance.
  *
  * @param {Plane} plane The plane to duplicate.
  * @param {Plane} [result] 要在其上存储结果的对象。
@@ -268,7 +268,7 @@ Plane.clone = function (plane, result) {
 
 /**
  * Compares the provided Planes by normal and distance and returns
- * <code>为true</code>，否则为false</code>。
+ * <code>true</code>，否则为<code>false</code>。
  *
  * @param {Plane} left The first plane.
  * @param {Plane} right The second plane.

@@ -831,7 +831,7 @@ JulianDate.toIso8601 = function (julianDate, precision) {
 };
 
 /**
- * Duplicates a JulianDate instance.
+ * 复制JulianDate instance.
  *
  * @param {JulianDate} julianDate The date to duplicate.
  * @param {JulianDate} [result] An existing instance to use for the result.
@@ -878,7 +878,7 @@ JulianDate.compare = function (left, right) {
 };
 
 /**
- * Compares two instances and returns <code>为true</code>，否则为false</code>。
+ * Compares two instances and returns <code>true</code>，否则为<code>false</code>。
  *
  * @param {JulianDate} [left] 第一个instance.
  * @param {JulianDate} [right] 第二个 instance.
@@ -1109,44 +1109,44 @@ JulianDate.addDays = function (julianDate, days, result) {
 };
 
 /**
- * Compares the provided instances and returns <code>true</code> if <code>left</code> is earlier than <code>right</code>, <code>false</code> otherwise.
+ * Compares the provided instances and returns <code>true</code> if <code>left</code> is earlier than <code>right</code>, <code>false</code> 否则。
  *
  * @param {JulianDate} left The first instance.
  * @param {JulianDate} right The second instance.
- * @returns {boolean} <code>true</code> if <code>left</code> is earlier than <code>right</code>, <code>false</code> otherwise.
+ * @returns {boolean} <code>true</code> if <code>left</code> is earlier than <code>right</code>, <code>false</code> 否则。
  */
 JulianDate.lessThan = function (left, right) {
   return JulianDate.compare(left, right) < 0;
 };
 
 /**
- * Compares the provided instances and returns <code>true</code> if <code>left</code> is earlier than or equal to <code>right</code>, <code>false</code> otherwise.
+ * Compares the provided instances and returns <code>true</code> if <code>left</code> is earlier than or equal to <code>right</code>, <code>false</code> 否则。
  *
  * @param {JulianDate} left The first instance.
  * @param {JulianDate} right The second instance.
- * @returns {boolean} <code>true</code> if <code>left</code> is earlier than or equal to <code>right</code>, <code>false</code> otherwise.
+ * @returns {boolean} <code>true</code> if <code>left</code> is earlier than or equal to <code>right</code>, <code>false</code> 否则。
  */
 JulianDate.lessThanOrEquals = function (left, right) {
   return JulianDate.compare(left, right) <= 0;
 };
 
 /**
- * Compares the provided instances and returns <code>true</code> if <code>left</code> is later than <code>right</code>, <code>false</code> otherwise.
+ * Compares the provided instances and returns <code>true</code> if <code>left</code> is later than <code>right</code>, <code>false</code> 否则。
  *
  * @param {JulianDate} left The first instance.
  * @param {JulianDate} right The second instance.
- * @returns {boolean} <code>true</code> if <code>left</code> is later than <code>right</code>, <code>false</code> otherwise.
+ * @returns {boolean} <code>true</code> if <code>left</code> is later than <code>right</code>, <code>false</code> 否则。
  */
 JulianDate.greaterThan = function (left, right) {
   return JulianDate.compare(left, right) > 0;
 };
 
 /**
- * Compares the provided instances and returns <code>true</code> if <code>left</code> is later than or equal to <code>right</code>, <code>false</code> otherwise.
+ * Compares the provided instances and returns <code>true</code> if <code>left</code> is later than or equal to <code>right</code>, <code>false</code> 否则。
  *
  * @param {JulianDate} left The first instance.
  * @param {JulianDate} right The second instance.
- * @returns {boolean} <code>true</code> if <code>left</code> is later than or equal to <code>right</code>, <code>false</code> otherwise.
+ * @returns {boolean} <code>true</code> if <code>left</code> is later than or equal to <code>right</code>, <code>false</code> 否则。
  */
 JulianDate.greaterThanOrEquals = function (left, right) {
   return JulianDate.compare(left, right) >= 0;
@@ -1163,7 +1163,7 @@ JulianDate.prototype.clone = function (result) {
 };
 
 /**
- * Compares this and the provided instance and returns <code>为true</code>，否则为false</code>。
+ * Compares this and the provided instance and returns <code>true</code>，否则为<code>false</code>。
  *
  * @param {JulianDate} [right] 第二个 instance.
  * @returns {boolean} <code>true</code> if the dates are equal; otherwise, <code>false</code>.

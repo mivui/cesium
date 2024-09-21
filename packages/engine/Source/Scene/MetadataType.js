@@ -175,7 +175,7 @@ MetadataType.getComponentCount = function (type) {
  * Get the corresponding vector or matrix class. This is used to simplify
  * packing and unpacking code.
  * @param {MetadataType} type The metadata type
- * @return {object} The appropriate CartesianN class for vector types, MatrixN class for matrix types, or undefined otherwise.
+ * @return {object} The appropriate CartesianN class for vector types, MatrixN class for matrix types, or undefined 否则。
  * @private
  */
 MetadataType.getMathType = function (type) {

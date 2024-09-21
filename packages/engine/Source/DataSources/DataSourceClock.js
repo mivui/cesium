@@ -87,7 +87,7 @@ Object.defineProperties(DataSourceClock.prototype, {
 });
 
 /**
- * Duplicates a DataSourceClock instance.
+ * 复制DataSourceClock instance.
  *
  * @param {DataSourceClock} [result] 要在其上存储结果的对象。
  * @returns {DataSourceClock} The modified result parameter or a new instance if one was not provided.

@@ -162,7 +162,7 @@ ColorGeometryInstanceAttribute.toValue = function (color, result) {
 
 /**
  * Compares the provided ColorGeometryInstanceAttributes and returns
- * <code>为true</code>，否则为false</code>。
+ * <code>true</code>，否则为<code>false</code>。
  *
  * @param {ColorGeometryInstanceAttribute} [left] 第一个ColorGeometryInstanceAttribute.
  * @param {ColorGeometryInstanceAttribute} [right] 第二个 ColorGeometryInstanceAttribute.

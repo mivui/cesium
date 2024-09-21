@@ -288,7 +288,7 @@ Object.defineProperties(GeometryUpdater.prototype, {
  * Checks if the geometry is outlined at the provided time.
  *
  * @param {JulianDate} time The time for which to retrieve visibility.
- * @returns {boolean} true if geometry is outlined at the provided time, false otherwise.
+ * @returns {boolean} true if geometry is outlined at the provided time, false 否则。
  */
 GeometryUpdater.prototype.isOutlineVisible = function (time) {
   const entity = this._entity;
@@ -304,7 +304,7 @@ GeometryUpdater.prototype.isOutlineVisible = function (time) {
  * Checks if the geometry is filled at the provided time.
  *
  * @param {JulianDate} time The time for which to retrieve visibility.
- * @returns {boolean} true if geometry is filled at the provided time, false otherwise.
+ * @returns {boolean} true if geometry is filled at the provided time, false 否则。
  */
 GeometryUpdater.prototype.isFilled = function (time) {
   const entity = this._entity;

@@ -225,13 +225,13 @@ const sampledQuaternionQuaternion0Conjugate = new Quaternion();
 Quaternion.packedLength = 4;
 
 /**
- * Stores the provided instance into the provided array.
+ * 将提供的实例存储到提供的数组中。
  *
- * @param {Quaternion} value The value to pack.
- * @param {number[]} array The array to pack into.
- * @param {number} [startingIndex=0] The index into the array at which to start packing the elements.
+ * @param {Quaternion} value 要打包的值。
+ * @param {number[]} array 要装入的数组。
+ * @param {number} [startingIndex=0] 开始打包元素的数组的索引。
  *
- * @returns {number[]} The array that was packed into
+ * @returns {number[]} 被装入的数组
  */
 Quaternion.pack = function (value, array, startingIndex) {
   //>>includeStart('debug', pragmas.debug);
@@ -250,11 +250,11 @@ Quaternion.pack = function (value, array, startingIndex) {
 };
 
 /**
- * Retrieves an instance from a packed array.
+ * 从打包数组中检索实例。
  *
- * @param {number[]} array The packed array.
- * @param {number} [startingIndex=0] The starting index of the element to be unpacked.
- * @param {Quaternion} [result] The object into which to store the result.
+ * @param {number[]} array 打包数组。
+ * @param {number} [startingIndex=0] 要解压缩的元素的起始索引。
+ * @param {Quaternion} [result] 要在其中存储结果的对象。
  * @returns {Quaternion} The modified result parameter or a new Quaternion instance if one was not provided.
  */
 Quaternion.unpack = function (array, startingIndex, result) {
@@ -283,10 +283,10 @@ Quaternion.packedInterpolationLength = 3;
 /**
  * Converts a packed array into a form suitable for interpolation.
  *
- * @param {number[]} packedArray The packed array.
+ * @param {number[]} packedArray 打包数组。
  * @param {number} [startingIndex=0] The index of the first element to be converted.
  * @param {number} [lastIndex=packedArray.length] The index of the last element to be converted.
- * @param {number[]} [result] The object into which to store the result.
+ * @param {number[]} [result] 要在其中存储结果的对象。
  */
 Quaternion.convertPackedArrayForInterpolation = function (
   packedArray,
@@ -346,7 +346,7 @@ Quaternion.convertPackedArrayForInterpolation = function (
  * @param {number[]} sourceArray The original packed array.
  * @param {number} [firstIndex=0] The firstIndex used to convert the array.
  * @param {number} [lastIndex=packedArray.length] The lastIndex used to convert the array.
- * @param {Quaternion} [result] The object into which to store the result.
+ * @param {Quaternion} [result] 要在其中存储结果的对象。
  * @returns {Quaternion} The modified result parameter or a new Quaternion instance if one was not provided.
  */
 Quaternion.unpackInterpolationResult = function (
@@ -382,7 +382,7 @@ Quaternion.unpackInterpolationResult = function (
 };
 
 /**
- * Duplicates a Quaternion instance.
+ * 复制Quaternion instance.
  *
  * @param {Quaternion} quaternion The quaternion to duplicate.
  * @param {Quaternion} [result] 要在其上存储结果的对象。
@@ -1043,7 +1043,7 @@ Quaternion.fastSquad = function (q0, q1, s0, s1, t, result) {
 
 /**
  * Compares the provided quaternions componentwise and returns
- * <code>为true</code>，否则为false</code>。
+ * <code>true</code>，否则为<code>false</code>。
  *
  * @param {Quaternion} [left] 第一个quaternion.
  * @param {Quaternion} [right] 第二个 quaternion.
@@ -1064,12 +1064,12 @@ Quaternion.equals = function (left, right) {
 /**
  * Compares the provided quaternions componentwise and returns
  * <code>true</code> if they are within the provided epsilon,
- * <code>false</code> otherwise.
+ * <code>false</code> 否则。
  *
  * @param {Quaternion} [left] 第一个quaternion.
  * @param {Quaternion} [right] 第二个 quaternion.
  * @param {number} [epsilon=0] The epsilon to use for equality testing.
- * @returns {boolean} <code>true</code> if left and right are within the provided epsilon, <code>false</code> otherwise.
+ * @returns {boolean} <code>true</code> if left and right are within the provided epsilon, <code>false</code> 否则。
  */
 Quaternion.equalsEpsilon = function (left, right, epsilon) {
   epsilon = defaultValue(epsilon, 0);
@@ -1113,7 +1113,7 @@ Quaternion.prototype.clone = function (result) {
 
 /**
  * Compares this and the provided quaternion componentwise and returns
- * <code>为true</code>，否则为false</code>。
+ * <code>true</code>，否则为<code>false</code>。
  *
  * @param {Quaternion} [right] 右边 quaternion.
  * @returns {boolean} <code>true</code>如果左和右相等，否则<code>false</code>。
@@ -1125,11 +1125,11 @@ Quaternion.prototype.equals = function (right) {
 /**
  * Compares this and the provided quaternion componentwise and returns
  * <code>true</code> if they are within the provided epsilon,
- * <code>false</code> otherwise.
+ * <code>false</code> 否则。
  *
  * @param {Quaternion} [right] 右边 quaternion.
  * @param {number} [epsilon=0] The epsilon to use for equality testing.
- * @returns {boolean} <code>true</code> if left and right are within the provided epsilon, <code>false</code> otherwise.
+ * @returns {boolean} <code>true</code> if left and right are within the provided epsilon, <code>false</code> 否则。
  */
 Quaternion.prototype.equalsEpsilon = function (right, epsilon) {
   return Quaternion.equalsEpsilon(this, right, epsilon);

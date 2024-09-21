@@ -2592,7 +2592,7 @@ Model.prototype.hasSilhouette = function (frameState) {
  * is supported (i.e. the context supports stencil buffers).
  *
  * @param {FrameState} frameState The frame state.
- * @returns {boolean} <code>true</code> if the model is part of a tileset that uses the skipLevelOfDetail optimization, <code>false</code> otherwise.
+ * @returns {boolean} <code>true</code> if the model is part of a tileset that uses the skipLevelOfDetail optimization, <code>false</code> 否则。
  * @private
  */
 Model.prototype.hasSkipLevelOfDetail = function (frameState) {

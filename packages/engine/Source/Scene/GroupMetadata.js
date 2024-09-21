@@ -156,7 +156,7 @@ GroupMetadata.prototype.getProperty = function (propertyId) {
  *
  * @param {string} propertyId The case-sensitive ID of the property.
  * @param {*} value The value of the property that will be copied.
- * @returns {boolean} <code>true</code> if the property was set, <code>false</code> otherwise.
+ * @returns {boolean} <code>true</code> if the property was set, <code>false</code> 否则。
  * @private
  */
 GroupMetadata.prototype.setProperty = function (propertyId, value) {
@@ -188,7 +188,7 @@ GroupMetadata.prototype.getPropertyBySemantic = function (semantic) {
  *
  * @param {string} semantic The case-sensitive semantic of the property.
  * @param {*} value The value of the property that will be copied.
- * @returns {boolean} <code>true</code> if the property was set, <code>false</code> otherwise.
+ * @returns {boolean} <code>true</code> if the property was set, <code>false</code> 否则。
  * @private
  */
 GroupMetadata.prototype.setPropertyBySemantic = function (semantic, value) {

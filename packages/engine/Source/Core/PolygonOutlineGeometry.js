@@ -414,13 +414,13 @@ function PolygonOutlineGeometry(options) {
 }
 
 /**
- * Stores the provided instance into the provided array.
+ * 将提供的实例存储到提供的数组中。
  *
- * @param {PolygonOutlineGeometry} value The value to pack.
- * @param {number[]} array The array to pack into.
- * @param {number} [startingIndex=0] The index into the array at which to start packing the elements.
+ * @param {PolygonOutlineGeometry} value 要打包的值。
+ * @param {number[]} array 要装入的数组。
+ * @param {number} [startingIndex=0] 开始打包元素的数组的索引。
  *
- * @returns {number[]} The array that was packed into
+ * @returns {number[]} 被装入的数组
  */
 PolygonOutlineGeometry.pack = function (value, array, startingIndex) {
   //>>includeStart('debug', pragmas.debug);
@@ -458,11 +458,11 @@ const dummyOptions = {
 };
 
 /**
- * Retrieves an instance from a packed array.
+ * 从打包数组中检索实例。
  *
- * @param {number[]} array The packed array.
- * @param {number} [startingIndex=0] The starting index of the element to be unpacked.
- * @param {PolygonOutlineGeometry} [result] The object into which to store the result.
+ * @param {number[]} array 打包数组。
+ * @param {number} [startingIndex=0] 要解压缩的元素的起始索引。
+ * @param {PolygonOutlineGeometry} [result] 要在其中存储结果的对象。
  * @returns {PolygonOutlineGeometry} The modified result parameter or a new PolygonOutlineGeometry instance if one was not provided.
  */
 PolygonOutlineGeometry.unpack = function (array, startingIndex, result) {
@@ -516,8 +516,8 @@ PolygonOutlineGeometry.unpack = function (array, startingIndex, result) {
  *
  * @param {object} options 对象，具有以下属性:
  * @param {Cartesian3[]} options.positions An array of positions that defined the corner points of the polygon.
- * @param {number} [options.height=0.0] The height of the polygon.
- * @param {number} [options.extrudedHeight] The height of the polygon extrusion.
+ * @param {number} [options.height=0.0] 高度 polygon.
+ * @param {number} [options.extrudedHeight] 高度 polygon extrusion.
  * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] The ellipsoid to be used as a reference.
  * @param {number} [options.granularity=CesiumMath.RADIANS_PER_DEGREE] The distance, in radians, between each latitude and longitude. Determines the number of positions in the buffer.
  * @param {boolean} [options.perPositionHeight=false] Use the height of options.positions for each position instead of using options.height to determine the height.

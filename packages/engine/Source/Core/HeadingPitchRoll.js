@@ -97,7 +97,7 @@ HeadingPitchRoll.fromDegrees = function (heading, pitch, roll, result) {
 };
 
 /**
- * Duplicates a HeadingPitchRoll instance.
+ * 复制HeadingPitchRoll instance.
  *
  * @param {HeadingPitchRoll} headingPitchRoll The HeadingPitchRoll to duplicate.
  * @param {HeadingPitchRoll} [result] 要在其上存储结果的对象。
@@ -122,7 +122,7 @@ HeadingPitchRoll.clone = function (headingPitchRoll, result) {
 
 /**
  * Compares the provided HeadingPitchRolls componentwise and returns
- * <code>为true</code>，否则为false</code>。
+ * <code>true</code>，否则为<code>false</code>。
  *
  * @param {HeadingPitchRoll} [left] 第一个HeadingPitchRoll.
  * @param {HeadingPitchRoll} [right] 第二个 HeadingPitchRoll.
@@ -142,13 +142,13 @@ HeadingPitchRoll.equals = function (left, right) {
 /**
  * Compares the provided HeadingPitchRolls componentwise and returns
  * <code>true</code> if they pass an absolute or relative tolerance test,
- * <code>false</code> otherwise.
+ * <code>false</code> 否则。
  *
  * @param {HeadingPitchRoll} [left] 第一个HeadingPitchRoll.
  * @param {HeadingPitchRoll} [right] 第二个 HeadingPitchRoll.
  * @param {number} [relativeEpsilon=0] The relative epsilon tolerance to use for equality testing.
  * @param {number} [absoluteEpsilon=relativeEpsilon] The absolute epsilon tolerance to use for equality testing.
- * @returns {boolean} <code>true</code> if left and right are within the provided epsilon, <code>false</code> otherwise.
+ * @returns {boolean} <code>true</code> if left and right are within the provided epsilon, <code>false</code> 否则。
  */
 HeadingPitchRoll.equalsEpsilon = function (
   left,
@@ -193,10 +193,10 @@ HeadingPitchRoll.prototype.clone = function (result) {
 
 /**
  * Compares this HeadingPitchRoll against the provided HeadingPitchRoll componentwise and returns
- * <code>为true</code>，否则为false</code>。
+ * <code>true</code>，否则为<code>false</code>。
  *
  * @param {HeadingPitchRoll} [right] 右边 HeadingPitchRoll.
- * @returns {boolean} <code>为true</code>，否则为false</code>。
+ * @returns {boolean} <code>true</code>，否则为<code>false</code>。
  */
 HeadingPitchRoll.prototype.equals = function (right) {
   return HeadingPitchRoll.equals(this, right);
@@ -205,12 +205,12 @@ HeadingPitchRoll.prototype.equals = function (right) {
 /**
  * Compares this HeadingPitchRoll against the provided HeadingPitchRoll componentwise and returns
  * <code>true</code> if they pass an absolute or relative tolerance test,
- * <code>false</code> otherwise.
+ * <code>false</code> 否则。
  *
  * @param {HeadingPitchRoll} [right] 右边 HeadingPitchRoll.
  * @param {number} [relativeEpsilon=0] The relative epsilon tolerance to use for equality testing.
  * @param {number} [absoluteEpsilon=relativeEpsilon] The absolute epsilon tolerance to use for equality testing.
- * @returns {boolean} <code>true</code> if they are within the provided epsilon, <code>false</code> otherwise.
+ * @returns {boolean} <code>true</code> if they are within the provided epsilon, <code>false</code> 否则。
  */
 HeadingPitchRoll.prototype.equalsEpsilon = function (
   right,

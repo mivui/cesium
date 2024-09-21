@@ -206,7 +206,7 @@ ModelFeature.prototype.getPropertyIds = function (results) {
  *
  * @param {string} name The case-sensitive name of the property.
  * @param {*} value The value of the property that will be copied.
- * @returns {boolean} <code>true</code> if the property was set, <code>false</code> otherwise.
+ * @returns {boolean} <code>true</code> if the property was set, <code>false</code> 否则。
  *
  * @exception {DeveloperError} Inherited batch table hierarchy property is read only.
  *

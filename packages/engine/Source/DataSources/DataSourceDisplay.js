@@ -286,7 +286,7 @@ DataSourceDisplay.prototype.destroy = function () {
  * Updates the display to the provided time.
  *
  * @param {JulianDate} time The simulation time.
- * @returns {boolean} True if all data sources are ready to be displayed, false otherwise.
+ * @returns {boolean} True if all data sources are ready to be displayed, false 否则。
  */
 DataSourceDisplay.prototype.update = function (time) {
   //>>includeStart('debug', pragmas.debug);

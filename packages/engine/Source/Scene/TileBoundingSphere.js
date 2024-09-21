@@ -14,8 +14,8 @@ import Primitive from "./Primitive.js";
  * @alias TileBoundingSphere
  * @constructor
  *
- * @param {Cartesian3} [center=Cartesian3.ZERO] The center of the bounding sphere.
- * @param {number} [radius=0.0] The radius of the bounding sphere.
+ * @param {Cartesian3} [center=Cartesian3.ZERO] 边界球的中心。
+ * @param {number} [radius=0.0] 边界范围的半径。
  *
  * @private
  */
@@ -106,10 +106,10 @@ TileBoundingSphere.prototype.distanceToCamera = function (frameState) {
  * Determines which side of a plane this sphere is located.
  *
  * @param {Plane} plane 要测试的飞机。
- * @returns {Intersect} {@link Intersect.INSIDE} if the entire sphere is on the side of the plane
- *                      the normal is pointing, {@link Intersect.OUTSIDE} if the entire sphere is
- *                      on the opposite side, 和 {@link Intersect.INTERSECTING} if the sphere
- *                      intersects the plane.
+ * @returns {Intersect}{@link Intersect.INSIDE} 如果整个球体在平面的一侧,
+ *                      法线是指向的，{@link Intersect.OUTSIDE}。如果整个球体是
+ *                      在对面，和{@link Intersect.INTERSECTING}。与球面相交
+ *                      与平面相交。
  */
 TileBoundingSphere.prototype.intersectPlane = function (plane) {
   //>>includeStart('debug', pragmas.debug);
@@ -121,8 +121,8 @@ TileBoundingSphere.prototype.intersectPlane = function (plane) {
 /**
  * Update the bounding sphere after the tile is transformed.
  *
- * @param {Cartesian3} center The center of the bounding sphere.
- * @param {number} radius The radius of the bounding sphere.
+ * @param {Cartesian3} center 边界球的中心。
+ * @param {number} radius 边界范围的半径。
  */
 TileBoundingSphere.prototype.update = function (center, radius) {
   Cartesian3.clone(center, this._boundingSphere.center);

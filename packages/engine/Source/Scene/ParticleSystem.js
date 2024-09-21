@@ -525,7 +525,7 @@ Object.defineProperties(ParticleSystem.prototype, {
     },
   },
   /**
-   * When <code>true</code>, the particle system has reached the end of its lifetime; <code>false</code> otherwise.
+   * When <code>true</code>, the particle system has reached the end of its lifetime; <code>false</code> 否则。
    * @memberof ParticleSystem.prototype
    * @type {boolean}
    */

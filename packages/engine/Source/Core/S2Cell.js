@@ -196,7 +196,7 @@ S2Cell.fromToken = function (token) {
  * Validates an S2 cell ID.
  *
  * @param {bigint} [cellId] The S2CellId.
- * @returns {boolean} Returns true if the cell ID is valid, returns false otherwise.
+ * @returns {boolean} Returns true if the cell ID is valid, returns false 否则。
  * @private
  */
 S2Cell.isValidId = function (cellId) {
@@ -230,7 +230,7 @@ S2Cell.isValidId = function (cellId) {
  * Validates an S2 cell token.
  *
  * @param {string} [token] The hexadecimal representation of an S2CellId.
- * @returns {boolean} Returns true if the token is valid, returns false otherwise.
+ * @returns {boolean} Returns true if the token is valid, returns false 否则。
  * @private
  */
 S2Cell.isValidToken = function (token) {

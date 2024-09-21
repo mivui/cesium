@@ -32,7 +32,7 @@ function Ray(origin, direction) {
 }
 
 /**
- * Duplicates a Ray instance.
+ * 复制Ray instance.
  *
  * @param {Ray} ray The ray to duplicate.
  * @param {Ray} [result] 要在其上存储结果的对象。

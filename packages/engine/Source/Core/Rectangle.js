@@ -88,13 +88,13 @@ Object.defineProperties(Rectangle.prototype, {
 Rectangle.packedLength = 4;
 
 /**
- * Stores the provided instance into the provided array.
+ * 将提供的实例存储到提供的数组中。
  *
- * @param {Rectangle} value The value to pack.
- * @param {number[]} array The array to pack into.
- * @param {number} [startingIndex=0] The index into the array at which to start packing the elements.
+ * @param {Rectangle} value 要打包的值。
+ * @param {number[]} array 要装入的数组。
+ * @param {number} [startingIndex=0] 开始打包元素的数组的索引。
  *
- * @returns {number[]} The array that was packed into
+ * @returns {number[]} 被装入的数组
  */
 Rectangle.pack = function (value, array, startingIndex) {
   //>>includeStart('debug', pragmas.debug);
@@ -113,11 +113,11 @@ Rectangle.pack = function (value, array, startingIndex) {
 };
 
 /**
- * Retrieves an instance from a packed array.
+ * 从打包数组中检索实例。
  *
- * @param {number[]} array The packed array.
- * @param {number} [startingIndex=0] The starting index of the element to be unpacked.
- * @param {Rectangle} [result] The object into which to store the result.
+ * @param {number[]} array 打包数组。
+ * @param {number} [startingIndex=0] 要解压缩的元素的起始索引。
+ * @param {Rectangle} [result] 要在其中存储结果的对象。
  * @returns {Rectangle} The modified result parameter or a new Rectangle instance if one was not provided.
  */
 Rectangle.unpack = function (array, startingIndex, result) {
@@ -427,7 +427,7 @@ Rectangle.fromBoundingSphere = function (boundingSphere, ellipsoid, result) {
 };
 
 /**
- * Duplicates a Rectangle.
+ * 复制Rectangle.
  *
  * @param {Rectangle} rectangle The rectangle to clone.
  * @param {Rectangle} [result] The object onto which to store the result, or undefined if a new instance should be created.
@@ -457,12 +457,12 @@ Rectangle.clone = function (rectangle, result) {
 /**
  * Compares the provided Rectangles componentwise and returns
  * <code>true</code> if they pass an absolute or relative tolerance test,
- * <code>false</code> otherwise.
+ * <code>false</code> 否则。
  *
  * @param {Rectangle} [left] 第一个Rectangle.
  * @param {Rectangle} [right] 第二个 Rectangle.
  * @param {number} [absoluteEpsilon=0] The absolute epsilon tolerance to use for equality testing.
- * @returns {boolean} <code>true</code> if left and right are within the provided epsilon, <code>false</code> otherwise.
+ * @returns {boolean} <code>true</code> if left and right are within the provided epsilon, <code>false</code> 否则。
  */
 Rectangle.equalsEpsilon = function (left, right, absoluteEpsilon) {
   absoluteEpsilon = defaultValue(absoluteEpsilon, 0);
@@ -490,10 +490,10 @@ Rectangle.prototype.clone = function (result) {
 
 /**
  * Compares the provided Rectangle with this Rectangle componentwise and returns
- * <code>为true</code>，否则为false</code>。
+ * <code>true</code>，否则为<code>false</code>。
  *
  * @param {Rectangle} [other] The Rectangle to compare.
- * @returns {boolean} <code>true</code> if the Rectangles are equal, <code>false</code> otherwise.
+ * @returns {boolean} <code>true</code> if the Rectangles are equal, <code>false</code> 否则。
  */
 Rectangle.prototype.equals = function (other) {
   return Rectangle.equals(this, other);
@@ -501,7 +501,7 @@ Rectangle.prototype.equals = function (other) {
 
 /**
  * Compares the provided rectangles and returns <code>true</code> if they are equal,
- * <code>false</code> otherwise.
+ * <code>false</code> 否则。
  *
  * @param {Rectangle} [left] 第一个Rectangle.
  * @param {Rectangle} [right] 第二个 Rectangle.
@@ -522,11 +522,11 @@ Rectangle.equals = function (left, right) {
 /**
  * Compares the provided Rectangle with this Rectangle componentwise and returns
  * <code>true</code> if they are within the provided epsilon,
- * <code>false</code> otherwise.
+ * <code>false</code> 否则。
  *
  * @param {Rectangle} [other] The Rectangle to compare.
  * @param {number} [epsilon=0] The epsilon to use for equality testing.
- * @returns {boolean} <code>true</code> if the Rectangles are within the provided epsilon, <code>false</code> otherwise.
+ * @returns {boolean} <code>true</code> if the Rectangles are within the provided epsilon, <code>false</code> 否则。
  */
 Rectangle.prototype.equalsEpsilon = function (other, epsilon) {
   return Rectangle.equalsEpsilon(this, other, epsilon);
@@ -871,11 +871,11 @@ Rectangle.expand = function (rectangle, cartographic, result) {
 };
 
 /**
- * Returns true if the cartographic is on or inside the rectangle, false otherwise.
+ * Returns true if the cartographic is on or inside the rectangle, false 否则。
  *
  * @param {Rectangle} rectangle The rectangle
  * @param {Cartographic} cartographic The cartographic to test.
- * @returns {boolean} true if the provided cartographic is inside the rectangle, false otherwise.
+ * @returns {boolean} true if the provided cartographic is inside the rectangle, false 否则。
  */
 Rectangle.contains = function (rectangle, cartographic) {
   //>>includeStart('debug', pragmas.debug);
@@ -913,7 +913,7 @@ const subsampleLlaScratch = new Cartographic();
  *
  * @param {Rectangle} rectangle The rectangle to subsample.
  * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] The ellipsoid to use.
- * @param {number} [surfaceHeight=0.0] The height of the rectangle above the ellipsoid.
+ * @param {number} [surfaceHeight=0.0] 高度 rectangle above the ellipsoid.
  * @param {Cartesian3[]} [result] The array of Cartesians onto which to store the result.
  * @returns {Cartesian3[]} The modified result parameter or a new Array of Cartesians instances if none was provided.
  */

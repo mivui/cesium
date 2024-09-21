@@ -320,7 +320,7 @@ PolylineCollection.prototype.removeAll = function () {
  * Determines if this collection contains the specified polyline.
  *
  * @param {Polyline} polyline The polyline to check for.
- * @returns {boolean} true if this collection contains the polyline, false otherwise.
+ * @returns {boolean} true if this collection contains the polyline, false 否则。
  *
  * @see PolylineCollection#get
  */

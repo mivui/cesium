@@ -38,7 +38,7 @@ function ParticleBurst(options) {
 
 Object.defineProperties(ParticleBurst.prototype, {
   /**
-   * <code>true</code> if the burst has been completed; <code>false</code> otherwise.
+   * <code>true</code> if the burst has been completed; <code>false</code> 否则。
    * @memberof ParticleBurst.prototype
    * @type {boolean}
    */

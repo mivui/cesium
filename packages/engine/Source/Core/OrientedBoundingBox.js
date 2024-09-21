@@ -63,13 +63,13 @@ OrientedBoundingBox.packedLength =
   Cartesian3.packedLength + Matrix3.packedLength;
 
 /**
- * Stores the provided instance into the provided array.
+ * 将提供的实例存储到提供的数组中。
  *
- * @param {OrientedBoundingBox} value The value to pack.
- * @param {number[]} array The array to pack into.
- * @param {number} [startingIndex=0] The index into the array at which to start packing the elements.
+ * @param {OrientedBoundingBox} value 要打包的值。
+ * @param {number[]} array 要装入的数组。
+ * @param {number} [startingIndex=0] 开始打包元素的数组的索引。
  *
- * @returns {number[]} The array that was packed into
+ * @returns {number[]} 被装入的数组
  */
 OrientedBoundingBox.pack = function (value, array, startingIndex) {
   //>>includeStart('debug', pragmas.debug);
@@ -86,11 +86,11 @@ OrientedBoundingBox.pack = function (value, array, startingIndex) {
 };
 
 /**
- * Retrieves an instance from a packed array.
+ * 从打包数组中检索实例。
  *
- * @param {number[]} array The packed array.
- * @param {number} [startingIndex=0] The starting index of the element to be unpacked.
- * @param {OrientedBoundingBox} [result] The object into which to store the result.
+ * @param {number[]} array 打包数组。
+ * @param {number} [startingIndex=0] 要解压缩的元素的起始索引。
+ * @param {OrientedBoundingBox} [result] 要在其中存储结果的对象。
  * @returns {OrientedBoundingBox} The modified result parameter or a new OrientedBoundingBox instance if one was not provided.
  */
 OrientedBoundingBox.unpack = function (array, startingIndex, result) {
@@ -637,7 +637,7 @@ OrientedBoundingBox.fromTransformation = function (transformation, result) {
 };
 
 /**
- * Duplicates a OrientedBoundingBox instance.
+ * 复制OrientedBoundingBox instance.
  *
  * @param {OrientedBoundingBox} box The bounding box to duplicate.
  * @param {OrientedBoundingBox} [result] 要在其上存储结果的对象。
@@ -880,13 +880,13 @@ const scratchToCenter = new Cartesian3();
 /**
  * The distances calculated by the vector from the center of the bounding box to position projected onto direction.
  * <br>
- * If you imagine the infinite number of planes with normal direction, this computes the smallest distance to the
+ * 如果你想象有无限个法线方向的平面，这计算出到
  * closest and farthest planes from position that intersect the bounding box.
  *
  * @param {OrientedBoundingBox} box The bounding box to calculate the distance to.
- * @param {Cartesian3} position The position to calculate the distance from.
+ * @param {Cartesian3} position 要计算距离的位置。
  * @param {Cartesian3} direction The direction from position.
- * @param {Interval} [result] A Interval to store the nearest and farthest distances.
+ * @param {Interval} [result] 存储最近和最远距离的间隔。
  * @returns {Interval} The nearest and farthest distances on the bounding box from position in direction.
  */
 OrientedBoundingBox.computePlaneDistances = function (
@@ -1165,7 +1165,7 @@ OrientedBoundingBox.prototype.intersectPlane = function (plane) {
  * Computes the estimated distance squared from the closest point on a bounding box to a point.
  *
  * @param {Cartesian3} cartesian The point
- * @returns {number} The estimated distance squared from the bounding sphere to the point.
+ * @returns {number} 从边界球到该点的估计距离的平方。
  *
  * @example
  * // Sort bounding boxes from back to front
@@ -1180,12 +1180,12 @@ OrientedBoundingBox.prototype.distanceSquaredTo = function (cartesian) {
 /**
  * The distances calculated by the vector from the center of the bounding box to position projected onto direction.
  * <br>
- * If you imagine the infinite number of planes with normal direction, this computes the smallest distance to the
+ * 如果你想象有无限个法线方向的平面，这计算出到
  * closest and farthest planes from position that intersect the bounding box.
  *
- * @param {Cartesian3} position The position to calculate the distance from.
+ * @param {Cartesian3} position 要计算距离的位置。
  * @param {Cartesian3} direction The direction from position.
- * @param {Interval} [result] A Interval to store the nearest and farthest distances.
+ * @param {Interval} [result] 存储最近和最远距离的间隔。
  * @returns {Interval} The nearest and farthest distances on the bounding box from position in direction.
  */
 OrientedBoundingBox.prototype.computePlaneDistances = function (
@@ -1225,7 +1225,7 @@ OrientedBoundingBox.prototype.computeTransformation = function (result) {
  * Determines whether or not a bounding box is hidden from view by the occluder.
  *
  * @param {Occluder} occluder The occluder.
- * @returns {boolean} <code>true</code> if the sphere is not visible; otherwise <code>false</code>.
+ * @returns {boolean} <code>true</code>如果球体不可见;否则<code>false</code>。
  */
 OrientedBoundingBox.prototype.isOccluded = function (occluder) {
   return OrientedBoundingBox.isOccluded(this, occluder);
@@ -1233,7 +1233,7 @@ OrientedBoundingBox.prototype.isOccluded = function (occluder) {
 
 /**
  * Compares the provided OrientedBoundingBox componentwise and returns
- * <code>为true</code>，否则为false</code>。
+ * <code>true</code>，否则为<code>false</code>。
  *
  * @param {OrientedBoundingBox} left The first OrientedBoundingBox.
  * @param {OrientedBoundingBox} right The second OrientedBoundingBox.
@@ -1261,10 +1261,10 @@ OrientedBoundingBox.prototype.clone = function (result) {
 
 /**
  * Compares this OrientedBoundingBox against the provided OrientedBoundingBox componentwise and returns
- * <code>为true</code>，否则为false</code>。
+ * <code>true</code>，否则为<code>false</code>。
  *
  * @param {OrientedBoundingBox} [right] 右边 OrientedBoundingBox.
- * @returns {boolean} <code>为true</code>，否则为false</code>。
+ * @returns {boolean} <code>true</code>，否则为<code>false</code>。
  */
 OrientedBoundingBox.prototype.equals = function (right) {
   return OrientedBoundingBox.equals(this, right);

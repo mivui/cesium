@@ -164,7 +164,7 @@ Object.defineProperties(CustomDataSource.prototype, {
  * If implemented, update will be called by {@link DataSourceDisplay} once a frame.
  *
  * @param {JulianDate} time The simulation time.
- * @returns {boolean} True if this data source is ready to be displayed at the provided time, false otherwise.
+ * @returns {boolean} True if this data source is ready to be displayed at the provided time, false 否则。
  */
 CustomDataSource.prototype.update = function (time) {
   return true;

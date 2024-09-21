@@ -92,7 +92,7 @@ MetadataEntity.prototype.getProperty = function (propertyId) {
  *
  * @param {string} propertyId The case-sensitive ID of the property.
  * @param {*} value The value of the property that will be copied.
- * @returns {boolean} <code>true</code> if the property was set, <code>false</code> otherwise.
+ * @returns {boolean} <code>true</code> if the property was set, <code>false</code> 否则。
  * @private
  */
 MetadataEntity.prototype.setProperty = function (propertyId, value) {
@@ -115,7 +115,7 @@ MetadataEntity.prototype.getPropertyBySemantic = function (semantic) {
  *
  * @param {string} semantic The case-sensitive semantic of the property.
  * @param {*} value The value of the property that will be copied.
- * @returns {boolean} <code>true</code> if the property was set, <code>false</code> otherwise.
+ * @returns {boolean} <code>true</code> if the property was set, <code>false</code> 否则。
  * @private
  */
 MetadataEntity.prototype.setPropertyBySemantic = function (semantic, value) {
@@ -305,7 +305,7 @@ MetadataEntity.getProperty = function (
  * @param {*} value The value of the property that will be copied.
  * @param {object} properties The dictionary containing properties.
  * @param {MetadataClass} classDefinition The class.
- * @returns {boolean} <code>true</code> if the property was set, <code>false</code> otherwise.
+ * @returns {boolean} <code>true</code> if the property was set, <code>false</code> 否则。
  *
  * @private
  */
@@ -388,7 +388,7 @@ MetadataEntity.getPropertyBySemantic = function (
  * @param {*} value The value of the property that will be copied.
  * @param {object} properties The dictionary containing properties.
  * @param {MetadataClass} classDefinition The class.
- * @returns {boolean} <code>true</code> if the property was set, <code>false</code> otherwise.
+ * @returns {boolean} <code>true</code> if the property was set, <code>false</code> 否则。
  * @private
  */
 MetadataEntity.setPropertyBySemantic = function (

@@ -135,7 +135,7 @@ TimeIntervalCollectionPositionProperty.prototype.getValueInReferenceFrame = func
 
 /**
  * Compares this property to the provided property and returns
- * <code>为true</code>，否则为false</code>。
+ * <code>true</code>，否则为<code>false</code>。
  *
  * @param {Property} [other] The other property.
  * @returns {boolean} <code>true</code>如果左和右相等，否则<code>false</code>。

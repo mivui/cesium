@@ -26,7 +26,7 @@ import Primitive from "./Primitive.js";
  *
  * @param {object} [options] 对象，具有以下属性:
  * @param {number} [options.length=10000000.0] The length of the axes in meters.
- * @param {number} [options.width=2.0] The width of the axes in pixels.
+ * @param {number} [options.width=2.0] 宽度 axes in pixels.
  * @param {Matrix4} [options.modelMatrix=Matrix4.IDENTITY] The 4x4 matrix that defines the reference frame, i.e., origin plus axes, to visualize.
  * @param {boolean} [options.show=true] Determines if this primitive will be shown.
  * @param {object} [options.id] A user-defined object to return when the instance is picked with {@link Scene#pick}

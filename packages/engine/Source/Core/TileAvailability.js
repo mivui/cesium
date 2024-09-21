@@ -38,10 +38,10 @@ function findNode(level, x, y, nodes) {
  * add your ranges in order of increasing level.
  *
  * @param {number} level The level.
- * @param {number} startX The X coordinate of the first available tiles at the level.
- * @param {number} startY The Y coordinate of the first available tiles at the level.
- * @param {number} endX The X coordinate of the last available tiles at the level.
- * @param {number} endY The Y coordinate of the last available tiles at the level.
+ * @param {number} startX x坐标  first available tiles at the level.
+ * @param {number} startY y坐标 first available tiles at the level.
+ * @param {number} endX x坐标  last available tiles at the level.
+ * @param {number} endY y坐标 last available tiles at the level.
  */
 TileAvailability.prototype.addAvailableTileRange = function (
   level,
@@ -188,8 +188,8 @@ const cartographicScratch = new Cartographic();
 /**
  * Determines if a particular tile is available.
  * @param {number} level The tile level to check.
- * @param {number} x The X coordinate of the tile to check.
- * @param {number} y The Y coordinate of the tile to check.
+ * @param {number} x x坐标  tile to check.
+ * @param {number} y y坐标 tile to check.
  * @return {boolean} True if the tile is available; otherwise, false.
  */
 TileAvailability.prototype.isTileAvailable = function (level, x, y) {
@@ -221,8 +221,8 @@ TileAvailability.prototype.isTileAvailable = function (level, x, y) {
  * </table>
  *
  * @param {number} level The level of the parent tile.
- * @param {number} x The X coordinate of the parent tile.
- * @param {number} y The Y coordinate of the parent tile.
+ * @param {number} x x坐标  parent tile.
+ * @param {number} y y坐标 parent tile.
  * @return {number} The bit mask indicating child availability.
  */
 TileAvailability.prototype.computeChildMaskForTile = function (level, x, y) {

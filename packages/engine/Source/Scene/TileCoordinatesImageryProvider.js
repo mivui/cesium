@@ -14,8 +14,8 @@ import GeographicTilingScheme from "../Core/GeographicTilingScheme.js";
  *                    this parameter is ignored and the tiling scheme's ellipsoid is used instead. If neither
  *                    parameter is specified, the WGS84 ellipsoid is used.
  * @property {Color} [color=Color.YELLOW] The color to draw the tile box and label.
- * @property {number} [tileWidth=256] The width of the tile for level-of-detail selection purposes.
- * @property {number} [tileHeight=256] The height of the tile for level-of-detail selection purposes.
+ * @property {number} [tileWidth=256] 宽度 tile for level-of-detail selection purposes.
+ * @property {number} [tileHeight=256] 高度 tile for level-of-detail selection purposes.
  */
 
 /**

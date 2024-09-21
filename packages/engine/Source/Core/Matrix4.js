@@ -96,13 +96,13 @@ function Matrix4(
 Matrix4.packedLength = 16;
 
 /**
- * Stores the provided instance into the provided array.
+ * 将提供的实例存储到提供的数组中。
  *
- * @param {Matrix4} value The value to pack.
- * @param {number[]} array The array to pack into.
- * @param {number} [startingIndex=0] The index into the array at which to start packing the elements.
+ * @param {Matrix4} value 要打包的值。
+ * @param {number[]} array 要装入的数组。
+ * @param {number} [startingIndex=0] 开始打包元素的数组的索引。
  *
- * @returns {number[]} The array that was packed into
+ * @returns {number[]} 被装入的数组
  */
 Matrix4.pack = function (value, array, startingIndex) {
   //>>includeStart('debug', pragmas.debug);
@@ -133,11 +133,11 @@ Matrix4.pack = function (value, array, startingIndex) {
 };
 
 /**
- * Retrieves an instance from a packed array.
+ * 从打包数组中检索实例。
  *
- * @param {number[]} array The packed array.
- * @param {number} [startingIndex=0] The starting index of the element to be unpacked.
- * @param {Matrix4} [result] The object into which to store the result.
+ * @param {number[]} array 打包数组。
+ * @param {number} [startingIndex=0] 要解压缩的元素的起始索引。
+ * @param {Matrix4} [result] 要在其中存储结果的对象。
  * @returns {Matrix4} The modified result parameter or a new Matrix4 instance if one was not provided.
  */
 Matrix4.unpack = function (array, startingIndex, result) {
@@ -176,7 +176,7 @@ Matrix4.unpack = function (array, startingIndex, result) {
  *
  * @param {Matrix4[]} array The array of matrices to pack.
  * @param {number[]} [result] The array onto which to store the result. If this is a typed array, it must have array.length * 16 components, else a {@link DeveloperError} will be thrown. If it is a regular array, it will be resized to have (array.length * 16) elements.
- * @returns {number[]} The packed array.
+ * @returns {number[]} 打包数组。
  */
 Matrix4.packArray = function (array, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -234,7 +234,7 @@ Matrix4.unpackArray = function (array, result) {
 };
 
 /**
- * Duplicates a Matrix4 instance.
+ * 复制Matrix4 instance.
  *
  * @param {Matrix4} matrix The matrix to duplicate.
  * @param {Matrix4} [result] 要在其上存储结果的对象。
@@ -2487,7 +2487,7 @@ Matrix4.abs = function (matrix, result) {
 
 /**
  * Compares the provided matrices componentwise and returns
- * <code>为true</code>，否则为false</code>。
+ * <code>true</code>，否则为<code>false</code>。
  *
  * @param {Matrix4} [left] 第一个matrix.
  * @param {Matrix4} [right] 第二个 matrix.
@@ -2548,12 +2548,12 @@ Matrix4.equals = function (left, right) {
 /**
  * Compares the provided matrices componentwise and returns
  * <code>true</code> if they are within the provided epsilon,
- * <code>false</code> otherwise.
+ * <code>false</code> 否则。
  *
  * @param {Matrix4} [left] 第一个matrix.
  * @param {Matrix4} [right] 第二个 matrix.
  * @param {number} [epsilon=0] The epsilon to use for equality testing.
- * @returns {boolean} <code>true</code> if left and right are within the provided epsilon, <code>false</code> otherwise.
+ * @returns {boolean} <code>true</code> if left and right are within the provided epsilon, <code>false</code> 否则。
  *
  * @example
  * //compares two Matrix4 instances
@@ -3170,10 +3170,10 @@ Matrix4.prototype.clone = function (result) {
 
 /**
  * Compares this matrix to the provided matrix componentwise and returns
- * <code>为true</code>，否则为false</code>。
+ * <code>true</code>，否则为<code>false</code>。
  *
  * @param {Matrix4} [right] 右边 matrix.
- * @returns {boolean} <code>为true</code>，否则为false</code>。
+ * @returns {boolean} <code>true</code>，否则为<code>false</code>。
  */
 Matrix4.prototype.equals = function (right) {
   return Matrix4.equals(this, right);
@@ -3206,11 +3206,11 @@ Matrix4.equalsArray = function (matrix, array, offset) {
 /**
  * Compares this matrix to the provided matrix componentwise and returns
  * <code>true</code> if they are within the provided epsilon,
- * <code>false</code> otherwise.
+ * <code>false</code> 否则。
  *
  * @param {Matrix4} [right] 右边 matrix.
  * @param {number} [epsilon=0] The epsilon to use for equality testing.
- * @returns {boolean} <code>true</code> if they are within the provided epsilon, <code>false</code> otherwise.
+ * @returns {boolean} <code>true</code> if they are within the provided epsilon, <code>false</code> 否则。
  */
 Matrix4.prototype.equalsEpsilon = function (right, epsilon) {
   return Matrix4.equalsEpsilon(this, right, epsilon);

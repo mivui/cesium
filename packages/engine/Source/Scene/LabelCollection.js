@@ -834,7 +834,7 @@ LabelCollection.prototype.removeAll = function () {
  * Check whether this collection contains a given label.
  *
  * @param {Label} label The label to check for.
- * @returns {boolean} true if this collection contains the label, false otherwise.
+ * @returns {boolean} true if this collection contains the label, false 否则。
  *
  * @see LabelCollection#get
  *

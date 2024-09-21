@@ -181,7 +181,7 @@ RequestScheduler.serverHasOpenSlots = function (serverKey, desiredRequests) {
  * are from. This is used in {@link Multiple3DTileContent} for determining when
  * all requests can be scheduled
  * @param {number} desiredRequests The number of requests the caller intends to make
- * @return {boolean} <code>true</code> if the heap has enough available slots to meet the desiredRequests. <code>false</code> otherwise.
+ * @return {boolean} <code>true</code> if the heap has enough available slots to meet the desiredRequests. <code>false</code> 否则。
  *
  * @private
  */

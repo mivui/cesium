@@ -105,7 +105,7 @@ function getAuthority(url) {
  *
  * @param {string} url The url to be tested against the trusted list
  *
- * @returns {boolean} Returns true if url is trusted, false otherwise.
+ * @returns {boolean} Returns true if url is trusted, false 否则。
  *
  * @example
  * // Add server

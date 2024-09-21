@@ -197,7 +197,7 @@ Stereographic.fromCartesianArray = function (cartesians, result) {
 };
 
 /**
- * Duplicates a Stereographic instance.
+ * 复制Stereographic instance.
  *
  * @param {Stereographic} stereographic The Stereographic to duplicate.
  * @param {Stereographic} [result] 要在其上存储结果的对象。

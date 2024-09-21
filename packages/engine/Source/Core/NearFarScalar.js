@@ -42,7 +42,7 @@ function NearFarScalar(near, nearValue, far, farValue) {
 }
 
 /**
- * Duplicates a NearFarScalar instance.
+ * 复制NearFarScalar instance.
  *
  * @param {NearFarScalar} nearFarScalar The NearFarScalar to duplicate.
  * @param {NearFarScalar} [result] 要在其上存储结果的对象。
@@ -76,13 +76,13 @@ NearFarScalar.clone = function (nearFarScalar, result) {
 NearFarScalar.packedLength = 4;
 
 /**
- * Stores the provided instance into the provided array.
+ * 将提供的实例存储到提供的数组中。
  *
- * @param {NearFarScalar} value The value to pack.
- * @param {number[]} array The array to pack into.
- * @param {number} [startingIndex=0] The index into the array at which to start packing the elements.
+ * @param {NearFarScalar} value 要打包的值。
+ * @param {number[]} array 要装入的数组。
+ * @param {number} [startingIndex=0] 开始打包元素的数组的索引。
  *
- * @returns {number[]} The array that was packed into
+ * @returns {number[]} 被装入的数组
  */
 NearFarScalar.pack = function (value, array, startingIndex) {
   //>>includeStart('debug', pragmas.debug);
@@ -105,11 +105,11 @@ NearFarScalar.pack = function (value, array, startingIndex) {
 };
 
 /**
- * Retrieves an instance from a packed array.
+ * 从打包数组中检索实例。
  *
- * @param {number[]} array The packed array.
- * @param {number} [startingIndex=0] The starting index of the element to be unpacked.
- * @param {NearFarScalar} [result] The object into which to store the result.
+ * @param {number[]} array 打包数组。
+ * @param {number} [startingIndex=0] 要解压缩的元素的起始索引。
+ * @param {NearFarScalar} [result] 要在其中存储结果的对象。
  * @returns {NearFarScalar} The modified result parameter or a new NearFarScalar instance if one was not provided.
  */
 NearFarScalar.unpack = function (array, startingIndex, result) {
@@ -133,7 +133,7 @@ NearFarScalar.unpack = function (array, startingIndex, result) {
 
 /**
  * Compares the provided NearFarScalar and returns <code>true</code> if they are equal,
- * <code>false</code> otherwise.
+ * <code>false</code> 否则。
  *
  * @param {NearFarScalar} [left] 第一个NearFarScalar.
  * @param {NearFarScalar} [right] 第二个 NearFarScalar.
@@ -163,7 +163,7 @@ NearFarScalar.prototype.clone = function (result) {
 
 /**
  * Compares this instance to the provided NearFarScalar and returns <code>true</code> if they are equal,
- * <code>false</code> otherwise.
+ * <code>false</code> 否则。
  *
  * @param {NearFarScalar} [right] 右边 NearFarScalar.
  * @returns {boolean} <code>true</code> if left and right are equal; otherwise <code>false</code>.

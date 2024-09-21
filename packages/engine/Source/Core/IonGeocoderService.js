@@ -53,8 +53,8 @@ function IonGeocoderService(options) {
 
 Object.defineProperties(IonGeocoderService.prototype, {
   /**
-   * Gets the credit to display after a geocode is performed. Typically this is used to credit
-   * the geocoder service.
+   * 获取要在执行地理代码后显示的信用项。这通常用于信贷
+   * 地理编码器服务。
    * @memberof IonGeocoderService.prototype
    * @type {Credit|undefined}
    * @readonly
@@ -69,7 +69,7 @@ Object.defineProperties(IonGeocoderService.prototype, {
 /**
  * @function
  *
- * @param {string} query The query to be sent to the geocoder service
+ * @param {string} query 要发送到地理编码器服务的查询
  * @param {GeocodeType} [type=GeocodeType.SEARCH] The type of geocode to perform.
  * @returns {Promise<GeocoderService.Result[]>}
  */

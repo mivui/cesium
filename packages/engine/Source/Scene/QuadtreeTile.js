@@ -12,8 +12,8 @@ import TileSelectionResult from "./TileSelectionResult.js";
  * @private
  *
  * @param {number} options.level The level of the tile in the quadtree.
- * @param {number} options.x The X coordinate of the tile in the quadtree.  0 is the westernmost tile.
- * @param {number} options.y The Y coordinate of the tile in the quadtree.  0 is the northernmost tile.
+ * @param {number} options.x x坐标  tile in the quadtree.  0 is the westernmost tile.
+ * @param {number} options.y y坐标 tile in the quadtree.  0 is the northernmost tile.
  * @param {TilingScheme} options.tilingScheme The tiling scheme in which this tile exists.
  * @param {QuadtreeTile} [options.parent] This tile's parent, or undefined if this is a root tile.
  */

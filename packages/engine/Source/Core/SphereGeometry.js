@@ -50,13 +50,13 @@ function SphereGeometry(options) {
 SphereGeometry.packedLength = EllipsoidGeometry.packedLength;
 
 /**
- * Stores the provided instance into the provided array.
+ * 将提供的实例存储到提供的数组中。
  *
- * @param {SphereGeometry} value The value to pack.
- * @param {number[]} array The array to pack into.
- * @param {number} [startingIndex=0] The index into the array at which to start packing the elements.
+ * @param {SphereGeometry} value 要打包的值。
+ * @param {number[]} array 要装入的数组。
+ * @param {number} [startingIndex=0] 开始打包元素的数组的索引。
  *
- * @returns {number[]} The array that was packed into
+ * @returns {number[]} 被装入的数组
  */
 SphereGeometry.pack = function (value, array, startingIndex) {
   //>>includeStart('debug', pragmas.debug);
@@ -76,11 +76,11 @@ const scratchOptions = {
 };
 
 /**
- * Retrieves an instance from a packed array.
+ * 从打包数组中检索实例。
  *
- * @param {number[]} array The packed array.
- * @param {number} [startingIndex=0] The starting index of the element to be unpacked.
- * @param {SphereGeometry} [result] The object into which to store the result.
+ * @param {number[]} array 打包数组。
+ * @param {number} [startingIndex=0] 要解压缩的元素的起始索引。
+ * @param {SphereGeometry} [result] 要在其中存储结果的对象。
  * @returns {SphereGeometry} The modified result parameter or a new SphereGeometry instance if one was not provided.
  */
 SphereGeometry.unpack = function (array, startingIndex, result) {

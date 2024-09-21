@@ -12,13 +12,13 @@ import SceneMode from "./SceneMode.js";
  */
 function Fog() {
   /**
-   * <code>true</code> if fog is enabled, <code>false</code> otherwise.
+   * <code>true</code> if fog is enabled, <code>false</code> 否则。
    * @type {boolean}
    * @default true
    */
   this.enabled = true;
   /**
-   * <code>true</code> if fog is renderable in shaders, <code>false</code> otherwise.
+   * <code>true</code> if fog is renderable in shaders, <code>false</code> 否则。
    * This allows to benefits from optimized tile loading strategy based on fog density without the actual visual rendering.
    * @type {boolean}
    * @default true

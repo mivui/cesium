@@ -10,9 +10,9 @@ import formatError from "./formatError.js";
  *
  * @param {ImageryProvider|TerrainProvider} provider The imagery or terrain provider that experienced the error.
  * @param {string} message A message describing the error.
- * @param {number} [x] The X coordinate of the tile that experienced the error, or undefined if the error
+ * @param {number} [x] x坐标  tile that experienced the error, or undefined if the error
  *        is not specific to a particular tile.
- * @param {number} [y] The Y coordinate of the tile that experienced the error, or undefined if the error
+ * @param {number} [y] y坐标 tile that experienced the error, or undefined if the error
  *        is not specific to a particular tile.
  * @param {number} [level] The level of the tile that experienced the error, or undefined if the error
  *        is not specific to a particular tile.
@@ -41,14 +41,14 @@ function TileProviderError(
   this.message = message;
 
   /**
-   * The X coordinate of the tile that experienced the error.  If the error is not specific
+   * x坐标  tile that experienced the error.  If the error is not specific
    * to a particular tile, this property will be undefined.
    * @type {number}
    */
   this.x = x;
 
   /**
-   * The Y coordinate of the tile that experienced the error.  If the error is not specific
+   * y坐标 tile that experienced the error.  If the error is not specific
    * to a particular tile, this property will be undefined.
    * @type {number}
    */
@@ -95,9 +95,9 @@ function TileProviderError(
  * @param {ImageryProvider|TerrainProvider} [provider] The imagery or terrain provider that encountered the error.
  * @param {Event} [event] The event to raise to inform listeners of the error.
  * @param {string} [message] The message describing the error.
- * @param {number} [x] The X coordinate of the tile that experienced the error, or undefined if the
+ * @param {number} [x] x坐标  tile that experienced the error, or undefined if the
  *        error is not specific to a particular tile.
- * @param {number} [y] The Y coordinate of the tile that experienced the error, or undefined if the
+ * @param {number} [y] y坐标 tile that experienced the error, or undefined if the
  *        error is not specific to a particular tile.
  * @param {number} [level] The level-of-detail of the tile that experienced the error, or undefined if the
  *        error is not specific to a particular tile.

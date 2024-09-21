@@ -16,8 +16,8 @@ import ImageryProvider from "./ImageryProvider.js";
  * Initialization options for the SingleTileImageryProvider constructor
  *
  * @property {Resource|string} url The url for the tile.
- * @property {number} [tileWidth] The width of the tile, in pixels.
- * @property {number} [tileHeight] The height of the tile, in pixels.
+ * @property {number} [tileWidth] 宽度 tile, in pixels.
+ * @property {number} [tileHeight] 高度 tile, in pixels.
  * @property {Rectangle} [rectangle=Rectangle.MAX_VALUE] The rectangle, in radians, covered by the image.
  * @property {Credit|string} [credit] A credit for the data source, which is displayed on the canvas.
  * @property {Ellipsoid} [ellipsoid] The ellipsoid.  If not specified, the WGS84 ellipsoid is used.

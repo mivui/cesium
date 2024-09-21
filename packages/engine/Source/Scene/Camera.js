@@ -3537,7 +3537,7 @@ function adjustBoundingSphereOffset(camera, boundingSphere, offset) {
 /**
  * Sets the camera so that the current view contains the provided bounding sphere.
  *
- * <p>The offset is heading/pitch/range in the local east-north-up reference frame centered at the center of the bounding sphere.
+ * <p>The offset is heading/pitch/range in the local east-north-up reference frame centered at 边界球的中心。
  * The heading and the pitch angles are defined in the local east-north-up reference frame.
  * The heading is the angle from y axis and increasing towards the x axis. Pitch is the rotation from the xy-plane. Positive pitch
  * angles are below the plane. Negative pitch angles are above the plane. The range is the distance from the center. If the range is
@@ -3581,7 +3581,7 @@ const scratchFlyToBoundingSphereMatrix3 = new Matrix3();
 /**
  * Flies the camera to a location where the current view contains the provided bounding sphere.
  *
- * <p> The offset is heading/pitch/range in the local east-north-up reference frame centered at the center of the bounding sphere.
+ * <p> The offset is heading/pitch/range in the local east-north-up reference frame centered at 边界球的中心。
  * The heading and the pitch angles are defined in the local east-north-up reference frame.
  * The heading is the angle from y axis and increasing towards the x axis. Pitch is the rotation from the xy-plane. Positive pitch
  * angles are below the plane. Negative pitch angles are above the plane. The range is the distance from the center. If the range is

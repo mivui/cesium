@@ -43,10 +43,10 @@ function TranslationRotationScale(translation, rotation, scale) {
 
 /**
  * Compares this instance against the provided instance and returns
- * <code>为true</code>，否则为false</code>。
+ * <code>true</code>，否则为<code>false</code>。
  *
  * @param {TranslationRotationScale} [right] 右边 TranslationRotationScale.
- * @returns {boolean} <code>为true</code>，否则为false</code>。
+ * @returns {boolean} <code>true</code>，否则为<code>false</code>。
  */
 TranslationRotationScale.prototype.equals = function (right) {
   return (

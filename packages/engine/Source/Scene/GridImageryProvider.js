@@ -22,8 +22,8 @@ const defaultBackgroundColor = new Color(0.0, 0.5, 0.0, 0.2);
  * @property {Color} [glowColor=Color(0.0, 1.0, 0.0, 0.05)] The color to draw glow for grid lines.
  * @property {number} [glowWidth=6] The width of lines used for rendering the line glow effect.
  * @property {Color} [backgroundColor=Color(0.0, 0.5, 0.0, 0.2)] Background fill color.
- * @property {number} [tileWidth=256] The width of the tile for level-of-detail selection purposes.
- * @property {number} [tileHeight=256] The height of the tile for level-of-detail selection purposes.
+ * @property {number} [tileWidth=256] 宽度 tile for level-of-detail selection purposes.
+ * @property {number} [tileHeight=256] 高度 tile for level-of-detail selection purposes.
  * @property {number} [canvasSize=256] The size of the canvas used for rendering.
  */
 

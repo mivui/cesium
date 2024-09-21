@@ -298,7 +298,7 @@ SampledPositionProperty.prototype.addSamplesPackedArray = function (
  * Removes a sample at the given time, if present.
  *
  * @param {JulianDate} time The sample time.
- * @returns {boolean} <code>true</code> if a sample at time was removed, <code>false</code> otherwise.
+ * @returns {boolean} <code>true</code> if a sample at time was removed, <code>false</code> 否则。
  */
 SampledPositionProperty.prototype.removeSample = function (time) {
   return this._property.removeSample(time);
@@ -315,7 +315,7 @@ SampledPositionProperty.prototype.removeSamples = function (timeInterval) {
 
 /**
  * Compares this property to the provided property and returns
- * <code>为true</code>，否则为false</code>。
+ * <code>true</code>，否则为<code>false</code>。
  *
  * @param {Property} [other] The other property.
  * @returns {boolean} <code>true</code>如果左和右相等，否则<code>false</code>。

@@ -160,7 +160,7 @@ Credit.getIonCredit = function (attribution) {
 };
 
 /**
- * Duplicates a Credit instance.
+ * 复制Credit instance.
  *
  * @param {Credit} [credit] The Credit to duplicate.
  * @returns {Credit} A new Credit instance that is a duplicate of the one provided. (Returns undefined if the credit is undefined)

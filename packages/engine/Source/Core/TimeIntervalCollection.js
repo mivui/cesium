@@ -126,11 +126,11 @@ Object.defineProperties(TimeIntervalCollection.prototype, {
 
 /**
  * Compares this instance against the provided instance componentwise and returns
- * <code>为true</code>，否则为false</code>。
+ * <code>true</code>，否则为<code>false</code>。
  *
  * @param {TimeIntervalCollection} [right] 右边 collection.
  * @param {TimeInterval.DataComparer} [dataComparer] A function which compares the data of the two intervals.  If omitted, reference equality is used.
- * @returns {boolean} <code>为true</code>，否则为false</code>。
+ * @returns {boolean} <code>true</code>，否则为<code>false</code>。
  */
 TimeIntervalCollection.prototype.equals = function (right, dataComparer) {
   if (this === right) {
@@ -207,7 +207,7 @@ TimeIntervalCollection.prototype.findDataForIntervalContainingDate = function (
  * Checks if the specified date is inside this collection.
  *
  * @param {JulianDate} julianDate The date to check.
- * @returns {boolean} <code>true</code> if the collection contains the specified date, <code>false</code> otherwise.
+ * @returns {boolean} <code>true</code> if the collection contains the specified date, <code>false</code> 否则。
  */
 TimeIntervalCollection.prototype.contains = function (julianDate) {
   return this.indexOf(julianDate) >= 0;
@@ -272,8 +272,8 @@ TimeIntervalCollection.prototype.indexOf = function (date) {
  * @param {object} [options] 对象，具有以下属性:
  * @param {JulianDate} [options.start] The start time of the interval.
  * @param {JulianDate} [options.stop] The stop time of the interval.
- * @param {boolean} [options.isStartIncluded] <code>true</code> if <code>options.start</code> is included in the interval, <code>false</code> otherwise.
- * @param {boolean} [options.isStopIncluded] <code>true</code> if <code>options.stop</code> is included in the interval, <code>false</code> otherwise.
+ * @param {boolean} [options.isStartIncluded] <code>true</code> if <code>options.start</code> is included in the interval, <code>false</code> 否则。
+ * @param {boolean} [options.isStopIncluded] <code>true</code> if <code>options.stop</code> is included in the interval, <code>false</code> 否则。
  * @returns {TimeInterval|undefined} The first interval in the collection that matches the specified parameters.
  */
 TimeIntervalCollection.prototype.findInterval = function (options) {
@@ -733,10 +733,10 @@ TimeIntervalCollection.prototype.intersect = function (
  *
  * @param {object} options 对象，具有以下属性:
  * @param {JulianDate[]} options.julianDates An array of ISO 8601 dates.
- * @param {boolean} [options.isStartIncluded=true] <code>true</code> if start time is included in the interval, <code>false</code> otherwise.
- * @param {boolean} [options.isStopIncluded=true] <code>true</code> if stop time is included in the interval, <code>false</code> otherwise.
- * @param {boolean} [options.leadingInterval=false] <code>true</code> if you want to add a interval from Iso8601.MINIMUM_VALUE to start time,  <code>false</code> otherwise.
- * @param {boolean} [options.trailingInterval=false] <code>true</code> if you want to add a interval from stop time to Iso8601.MAXIMUM_VALUE,  <code>false</code> otherwise.
+ * @param {boolean} [options.isStartIncluded=true] <code>true</code> if start time is included in the interval, <code>false</code> 否则。
+ * @param {boolean} [options.isStopIncluded=true] <code>true</code> if stop time is included in the interval, <code>false</code> 否则。
+ * @param {boolean} [options.leadingInterval=false] <code>true</code> if you want to add a interval from Iso8601.MINIMUM_VALUE to start time,  <code>false</code> 否则。
+ * @param {boolean} [options.trailingInterval=false] <code>true</code> if you want to add a interval from stop time to Iso8601.MAXIMUM_VALUE,  <code>false</code> 否则。
  * @param {Function} [options.dataCallback] A function that will be return the data that is called with each interval before it is added to the collection. If unspecified, the data will be the index in the collection.
  * @param {TimeIntervalCollection} [result] An existing instance to use for the result.
  * @returns {TimeIntervalCollection} The modified result parameter or a new instance if none was provided.
@@ -983,10 +983,10 @@ const scratchDuration = new GregorianDate();
  *
  * @param {object} options 对象，具有以下属性:
  * @param {string} options.iso8601 An ISO 8601 interval.
- * @param {boolean} [options.isStartIncluded=true] <code>true</code> if start time is included in the interval, <code>false</code> otherwise.
- * @param {boolean} [options.isStopIncluded=true] <code>true</code> if stop time is included in the interval, <code>false</code> otherwise.
- * @param {boolean} [options.leadingInterval=false] <code>true</code> if you want to add a interval from Iso8601.MINIMUM_VALUE to start time,  <code>false</code> otherwise.
- * @param {boolean} [options.trailingInterval=false] <code>true</code> if you want to add a interval from stop time to Iso8601.MAXIMUM_VALUE,  <code>false</code> otherwise.
+ * @param {boolean} [options.isStartIncluded=true] <code>true</code> if start time is included in the interval, <code>false</code> 否则。
+ * @param {boolean} [options.isStopIncluded=true] <code>true</code> if stop time is included in the interval, <code>false</code> 否则。
+ * @param {boolean} [options.leadingInterval=false] <code>true</code> if you want to add a interval from Iso8601.MINIMUM_VALUE to start time,  <code>false</code> 否则。
+ * @param {boolean} [options.trailingInterval=false] <code>true</code> if you want to add a interval from stop time to Iso8601.MAXIMUM_VALUE,  <code>false</code> 否则。
  * @param {Function} [options.dataCallback] A function that will be return the data that is called with each interval before it is added to the collection. If unspecified, the data will be the index in the collection.
  * @param {TimeIntervalCollection} [result] An existing instance to use for the result.
  * @returns {TimeIntervalCollection} The modified result parameter or a new instance if none was provided.
@@ -1040,10 +1040,10 @@ TimeIntervalCollection.fromIso8601 = function (options, result) {
  *
  * @param {object} options 对象，具有以下属性:
  * @param {string[]} options.iso8601Dates An array of ISO 8601 dates.
- * @param {boolean} [options.isStartIncluded=true] <code>true</code> if start time is included in the interval, <code>false</code> otherwise.
- * @param {boolean} [options.isStopIncluded=true] <code>true</code> if stop time is included in the interval, <code>false</code> otherwise.
- * @param {boolean} [options.leadingInterval=false] <code>true</code> if you want to add a interval from Iso8601.MINIMUM_VALUE to start time,  <code>false</code> otherwise.
- * @param {boolean} [options.trailingInterval=false] <code>true</code> if you want to add a interval from stop time to Iso8601.MAXIMUM_VALUE,  <code>false</code> otherwise.
+ * @param {boolean} [options.isStartIncluded=true] <code>true</code> if start time is included in the interval, <code>false</code> 否则。
+ * @param {boolean} [options.isStopIncluded=true] <code>true</code> if stop time is included in the interval, <code>false</code> 否则。
+ * @param {boolean} [options.leadingInterval=false] <code>true</code> if you want to add a interval from Iso8601.MINIMUM_VALUE to start time,  <code>false</code> 否则。
+ * @param {boolean} [options.trailingInterval=false] <code>true</code> if you want to add a interval from stop time to Iso8601.MAXIMUM_VALUE,  <code>false</code> 否则。
  * @param {Function} [options.dataCallback] A function that will be return the data that is called with each interval before it is added to the collection. If unspecified, the data will be the index in the collection.
  * @param {TimeIntervalCollection} [result] An existing instance to use for the result.
  * @returns {TimeIntervalCollection} The modified result parameter or a new instance if none was provided.
@@ -1080,10 +1080,10 @@ TimeIntervalCollection.fromIso8601DateArray = function (options, result) {
  * @param {JulianDate} options.epoch An date that the durations are relative to.
  * @param {string} options.iso8601Durations An array of ISO 8601 durations.
  * @param {boolean} [options.relativeToPrevious=false] <code>true</code> if durations are relative to previous date, <code>false</code> if always relative to the epoch.
- * @param {boolean} [options.isStartIncluded=true] <code>true</code> if start time is included in the interval, <code>false</code> otherwise.
- * @param {boolean} [options.isStopIncluded=true] <code>true</code> if stop time is included in the interval, <code>false</code> otherwise.
- * @param {boolean} [options.leadingInterval=false] <code>true</code> if you want to add a interval from Iso8601.MINIMUM_VALUE to start time,  <code>false</code> otherwise.
- * @param {boolean} [options.trailingInterval=false] <code>true</code> if you want to add a interval from stop time to Iso8601.MAXIMUM_VALUE,  <code>false</code> otherwise.
+ * @param {boolean} [options.isStartIncluded=true] <code>true</code> if start time is included in the interval, <code>false</code> 否则。
+ * @param {boolean} [options.isStopIncluded=true] <code>true</code> if stop time is included in the interval, <code>false</code> 否则。
+ * @param {boolean} [options.leadingInterval=false] <code>true</code> if you want to add a interval from Iso8601.MINIMUM_VALUE to start time,  <code>false</code> 否则。
+ * @param {boolean} [options.trailingInterval=false] <code>true</code> if you want to add a interval from stop time to Iso8601.MAXIMUM_VALUE,  <code>false</code> 否则。
  * @param {Function} [options.dataCallback] A function that will be return the data that is called with each interval before it is added to the collection. If unspecified, the data will be the index in the collection.
  * @param {TimeIntervalCollection} [result] An existing instance to use for the result.
  * @returns {TimeIntervalCollection} The modified result parameter or a new instance if none was provided.

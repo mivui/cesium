@@ -336,7 +336,7 @@ ModelAnimationCollection.prototype.removeAll = function () {
  * Determines whether this collection contains a given animation.
  *
  * @param {ModelAnimation} runtimeAnimation The runtime animation to check for.
- * @returns {boolean} <code>true</code> if this collection contains the animation, <code>false</code> otherwise.
+ * @returns {boolean} <code>true</code> if this collection contains the animation, <code>false</code> 否则。
  */
 ModelAnimationCollection.prototype.contains = function (runtimeAnimation) {
   if (defined(runtimeAnimation)) {
@@ -396,7 +396,7 @@ function createAnimationRemovedFunction(
  * that have stopped.
  *
  * @param {FrameState} frameState The current frame state.
- * @returns {boolean} <code>true</code> if an animation played during this update, <code>false</code> otherwise.
+ * @returns {boolean} <code>true</code> if an animation played during this update, <code>false</code> 否则。
  *
  * @private
  */

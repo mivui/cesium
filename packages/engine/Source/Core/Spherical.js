@@ -105,11 +105,11 @@ Spherical.normalize = function (spherical, result) {
 };
 
 /**
- * Returns true if the first spherical is equal to the second spherical, false otherwise.
+ * Returns true if the first spherical is equal to the second spherical, false 否则。
  *
  * @param {Spherical} left The first Spherical to be compared.
  * @param {Spherical} right The second Spherical to be compared.
- * @returns {boolean} true if the first spherical is equal to the second spherical, false otherwise.
+ * @returns {boolean} true if the first spherical is equal to the second spherical, false 否则。
  */
 Spherical.equals = function (left, right) {
   return (
@@ -123,12 +123,12 @@ Spherical.equals = function (left, right) {
 };
 
 /**
- * Returns true if the first spherical is within the provided epsilon of the second spherical, false otherwise.
+ * Returns true if the first spherical is within the provided epsilon of the second spherical, false 否则。
  *
  * @param {Spherical} left The first Spherical to be compared.
  * @param {Spherical} right The second Spherical to be compared.
  * @param {number} [epsilon=0.0] The epsilon to compare against.
- * @returns {boolean} true if the first spherical is within the provided epsilon of the second spherical, false otherwise.
+ * @returns {boolean} true if the first spherical is within the provided epsilon of the second spherical, false 否则。
  */
 Spherical.equalsEpsilon = function (left, right, epsilon) {
   epsilon = defaultValue(epsilon, 0.0);
@@ -143,10 +143,10 @@ Spherical.equalsEpsilon = function (left, right, epsilon) {
 };
 
 /**
- * Returns true if this spherical is equal to the provided spherical, false otherwise.
+ * Returns true if this spherical is equal to the provided spherical, false 否则。
  *
  * @param {Spherical} other The Spherical to be compared.
- * @returns {boolean} true if this spherical is equal to the provided spherical, false otherwise.
+ * @returns {boolean} true if this spherical is equal to the provided spherical, false 否则。
  */
 Spherical.prototype.equals = function (other) {
   return Spherical.equals(this, other);
@@ -163,11 +163,11 @@ Spherical.prototype.clone = function (result) {
 };
 
 /**
- * Returns true if this spherical is within the provided epsilon of the provided spherical, false otherwise.
+ * Returns true if this spherical is within the provided epsilon of the provided spherical, false 否则。
  *
  * @param {Spherical} other The Spherical to be compared.
  * @param {number} epsilon The epsilon to compare against.
- * @returns {boolean} true if this spherical is within the provided epsilon of the provided spherical, false otherwise.
+ * @returns {boolean} true if this spherical is within the provided epsilon of the provided spherical, false 否则。
  */
 Spherical.prototype.equalsEpsilon = function (other, epsilon) {
   return Spherical.equalsEpsilon(this, other, epsilon);

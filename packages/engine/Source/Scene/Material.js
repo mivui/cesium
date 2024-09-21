@@ -390,7 +390,7 @@ Material.fromType = function (type, uniforms) {
 
 /**
  * 获取是否 this material is translucent.
- * @returns {boolean} <code>true</code> if this material is translucent, <code>false</code> otherwise.
+ * @returns {boolean} <code>true</code> if this material is translucent, <code>false</code> 否则。
  */
 Material.prototype.isTranslucent = function () {
   if (defined(this.translucent)) {

@@ -755,8 +755,8 @@ function PolygonGeometry(options) {
  *
  * @param {object} options 对象，具有以下属性:
  * @param {Cartesian3[]} options.positions An array of positions that defined the corner points of the polygon.
- * @param {number} [options.height=0.0] The height of the polygon.
- * @param {number} [options.extrudedHeight] The height of the polygon extrusion.
+ * @param {number} [options.height=0.0] 高度 polygon.
+ * @param {number} [options.extrudedHeight] 高度 polygon extrusion.
  * @param {VertexFormat} [options.vertexFormat=VertexFormat.DEFAULT] The vertex attributes to be computed.
  * @param {number} [options.stRotation=0.0] The rotation of the texture coordinates, in radians. A positive rotation is counter-clockwise.
  * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] The ellipsoid to be used as a reference.
@@ -811,13 +811,13 @@ PolygonGeometry.fromPositions = function (options) {
 };
 
 /**
- * Stores the provided instance into the provided array.
+ * 将提供的实例存储到提供的数组中。
  *
- * @param {PolygonGeometry} value The value to pack.
- * @param {number[]} array The array to pack into.
- * @param {number} [startingIndex=0] The index into the array at which to start packing the elements.
+ * @param {PolygonGeometry} value 要打包的值。
+ * @param {number[]} array 要装入的数组。
+ * @param {number} [startingIndex=0] 开始打包元素的数组的索引。
  *
- * @returns {number[]} The array that was packed into
+ * @returns {number[]} 被装入的数组
  */
 PolygonGeometry.pack = function (value, array, startingIndex) {
   //>>includeStart('debug', pragmas.debug);
@@ -874,11 +874,11 @@ const dummyOptions = {
 };
 
 /**
- * Retrieves an instance from a packed array.
+ * 从打包数组中检索实例。
  *
- * @param {number[]} array The packed array.
- * @param {number} [startingIndex=0] The starting index of the element to be unpacked.
- * @param {PolygonGeometry} [result] The object into which to store the result.
+ * @param {number[]} array 打包数组。
+ * @param {number} [startingIndex=0] 要解压缩的元素的起始索引。
+ * @param {PolygonGeometry} [result] 要在其中存储结果的对象。
  */
 PolygonGeometry.unpack = function (array, startingIndex, result) {
   //>>includeStart('debug', pragmas.debug);

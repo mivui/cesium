@@ -14,8 +14,8 @@ const url = "https://dev.virtualearth.net/REST/v1/Locations";
  * @constructor
  *
  * @param {object} options 对象，具有以下属性:
- * @param {string} options.key A key to use with the Bing Maps geocoding service
- * @param {string} [options.culture] A Bing Maps {@link https://docs.microsoft.com/en-us/bingmaps/rest-services/common-parameters-and-types/supported-culture-codes|Culture Code} to return results in a specific culture and language.
+ * @param {string} options.key 与必应地图地理编码服务一起使用的键
+ * @param {string} [options.culture] Bing Maps {@link https://docs.microsoft.com/en-us/bingmaps/rest-services/common-parameters-and-types/supported-culture-codes|Culture Code} 返回特定文化和语言的结果
  */
 function BingMapsGeocoderService(options) {
   options = defaultValue(options, defaultValue.EMPTY_OBJECT);
@@ -49,7 +49,7 @@ function BingMapsGeocoderService(options) {
 
 Object.defineProperties(BingMapsGeocoderService.prototype, {
   /**
-   * The URL endpoint for the Bing geocoder service
+   * Bing地理编码器服务的URL端点
    * @type {string}
    * @memberof BingMapsGeocoderService.prototype
    * @readonly
@@ -61,7 +61,7 @@ Object.defineProperties(BingMapsGeocoderService.prototype, {
   },
 
   /**
-   * The key for the Bing geocoder service
+   * Bing地理编码器服务的关键字
    * @type {string}
    * @memberof BingMapsGeocoderService.prototype
    * @readonly
@@ -72,8 +72,8 @@ Object.defineProperties(BingMapsGeocoderService.prototype, {
     },
   },
   /**
-   * Gets the credit to display after a geocode is performed. Typically this is used to credit
-   * the geocoder service.
+   * 获取要在执行地理代码后显示的信用项。这通常用于信贷
+   * 地理编码器服务。
    * @memberof BingMapsGeocoderService.prototype
    * @type {Credit|undefined}
    * @readonly
@@ -88,7 +88,7 @@ Object.defineProperties(BingMapsGeocoderService.prototype, {
 /**
  * @function
  *
- * @param {string} query The query to be sent to the geocoder service
+ * @param {string} query 要发送到地理编码器服务的查询
  * @returns {Promise<GeocoderService.Result[]>}
  */
 BingMapsGeocoderService.prototype.geocode = async function (query) {

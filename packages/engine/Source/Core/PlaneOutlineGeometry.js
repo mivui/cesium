@@ -26,12 +26,12 @@ function PlaneOutlineGeometry() {
 PlaneOutlineGeometry.packedLength = 0;
 
 /**
- * Stores the provided instance into the provided array.
+ * 将提供的实例存储到提供的数组中。
  *
- * @param {PlaneOutlineGeometry} value The value to pack.
- * @param {number[]} array The array to pack into.
+ * @param {PlaneOutlineGeometry} value 要打包的值。
+ * @param {number[]} array 要装入的数组。
  *
- * @returns {number[]} The array that was packed into
+ * @returns {number[]} 被装入的数组
  */
 PlaneOutlineGeometry.pack = function (value, array) {
   //>>includeStart('debug', pragmas.debug);
@@ -43,11 +43,11 @@ PlaneOutlineGeometry.pack = function (value, array) {
 };
 
 /**
- * Retrieves an instance from a packed array.
+ * 从打包数组中检索实例。
  *
- * @param {number[]} array The packed array.
- * @param {number} [startingIndex=0] The starting index of the element to be unpacked.
- * @param {PlaneOutlineGeometry} [result] The object into which to store the result.
+ * @param {number[]} array 打包数组。
+ * @param {number} [startingIndex=0] 要解压缩的元素的起始索引。
+ * @param {PlaneOutlineGeometry} [result] 要在其中存储结果的对象。
  * @returns {PlaneOutlineGeometry} The modified result parameter or a new PlaneOutlineGeometry instance if one was not provided.
  */
 PlaneOutlineGeometry.unpack = function (array, startingIndex, result) {

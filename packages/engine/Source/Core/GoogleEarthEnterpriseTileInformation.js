@@ -81,7 +81,7 @@ GoogleEarthEnterpriseTileInformation.prototype.setParent = function (parent) {
 /**
  * Gets whether a subtree is available
  *
- * @returns {boolean} true if subtree is available, false otherwise.
+ * @returns {boolean} true if subtree is available, false 否则。
  */
 GoogleEarthEnterpriseTileInformation.prototype.hasSubtree = function () {
   return isBitSet(this._bits, cacheFlagBitmask);
@@ -90,7 +90,7 @@ GoogleEarthEnterpriseTileInformation.prototype.hasSubtree = function () {
 /**
  * Gets whether imagery is available
  *
- * @returns {boolean} true if imagery is available, false otherwise.
+ * @returns {boolean} true if imagery is available, false 否则。
  */
 GoogleEarthEnterpriseTileInformation.prototype.hasImagery = function () {
   return isBitSet(this._bits, imageBitmask);
@@ -99,7 +99,7 @@ GoogleEarthEnterpriseTileInformation.prototype.hasImagery = function () {
 /**
  * Gets whether terrain is available
  *
- * @returns {boolean} true if terrain is available, false otherwise.
+ * @returns {boolean} true if terrain is available, false 否则。
  */
 GoogleEarthEnterpriseTileInformation.prototype.hasTerrain = function () {
   return isBitSet(this._bits, terrainBitmask);
@@ -108,7 +108,7 @@ GoogleEarthEnterpriseTileInformation.prototype.hasTerrain = function () {
 /**
  * Gets whether any children are present
  *
- * @returns {boolean} true if any children are available, false otherwise.
+ * @returns {boolean} true if any children are available, false 否则。
  */
 GoogleEarthEnterpriseTileInformation.prototype.hasChildren = function () {
   return isBitSet(this._bits, anyChildBitmask);

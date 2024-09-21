@@ -148,7 +148,7 @@ DataSourceCollection.prototype.removeAll = function (destroy) {
  * Checks to see if the collection contains a given data source.
  *
  * @param {DataSource} dataSource The data source to check for.
- * @returns {boolean} true if the collection contains the data source, false otherwise.
+ * @returns {boolean} true if the collection contains the data source, false 否则。
  */
 DataSourceCollection.prototype.contains = function (dataSource) {
   return this.indexOf(dataSource) !== -1;

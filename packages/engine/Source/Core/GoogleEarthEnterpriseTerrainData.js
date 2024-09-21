@@ -134,8 +134,8 @@ const rectangleScratch = new Rectangle();
  *
  * @param {object} options 对象，具有以下属性:
  * @param {TilingScheme} options.tilingScheme The tiling scheme to which this tile belongs.
- * @param {number} options.x The X coordinate of the tile for which to create the terrain data.
- * @param {number} options.y The Y coordinate of the tile for which to create the terrain data.
+ * @param {number} options.x x坐标  tile for which to create the terrain data.
+ * @param {number} options.y y坐标 tile for which to create the terrain data.
  * @param {number} options.level The level of the tile for which to create the terrain data.
  * @param {number} [options.exaggeration=1.0] The scale used to exaggerate the terrain.
  * @param {number} [options.exaggerationRelativeHeight=0.0] The height from which terrain is exaggerated.

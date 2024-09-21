@@ -314,10 +314,10 @@ EntityCollection.prototype.remove = function (entity) {
 };
 
 /**
- * Returns true if the provided entity is in this collection, false otherwise.
+ * Returns true if the provided entity is in this collection, false 否则。
  *
  * @param {Entity} entity The entity.
- * @returns {boolean} true if the provided entity is in this collection, false otherwise.
+ * @returns {boolean} true if the provided entity is in this collection, false 否则。
  */
 EntityCollection.prototype.contains = function (entity) {
   //>>includeStart('debug', pragmas.debug);

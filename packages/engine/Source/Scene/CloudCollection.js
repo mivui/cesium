@@ -403,7 +403,7 @@ CloudCollection.prototype._updateCloud = function (cloud, propertyChanged) {
  * Check whether this collection contains a given cloud.
  *
  * @param {CumulusCloud} [cloud] The cloud to check for.
- * @returns {boolean} true if this collection contains the cloud, false otherwise.
+ * @returns {boolean} true if this collection contains the cloud, false 否则。
  *
  * @see CloudCollection#get
  */

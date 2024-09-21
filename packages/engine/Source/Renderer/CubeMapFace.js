@@ -250,8 +250,8 @@ CubeMapFace.prototype.copyFrom = function (options) {
  * @param {number} [yOffset=0] An offset in the y direction in the cubemap where copying begins.
  * @param {number} [framebufferXOffset=0] An offset in the x direction in the framebuffer where copying begins from.
  * @param {number} [framebufferYOffset=0] An offset in the y direction in the framebuffer where copying begins from.
- * @param {number} [width=CubeMap's width] The width of the subimage to copy.
- * @param {number} [height=CubeMap's height] The height of the subimage to copy.
+ * @param {number} [width=CubeMap's width] 宽度 subimage to copy.
+ * @param {number} [height=CubeMap's height] 高度 subimage to copy.
  *
  * @exception {DeveloperError} Cannot call copyFromFramebuffer when the texture pixel data type is FLOAT.
  * @exception {DeveloperError} Cannot call copyFromFramebuffer when the texture pixel data type is HALF_FLOAT.

@@ -77,7 +77,7 @@ Object.defineProperties(PropertyBag.prototype, {
  *
  * @param {string} propertyName The name of the property to check for.
  *
- * @returns {boolean} True if this object has defined a property with the given name, false otherwise.
+ * @returns {boolean} True if this object has defined a property with the given name, false 否则。
  */
 PropertyBag.prototype.hasProperty = function (propertyName) {
   return this._propertyNames.indexOf(propertyName) !== -1;
@@ -261,7 +261,7 @@ function propertiesEqual(a, b) {
 
 /**
  * Compares this property to the provided property and returns
- * <code>为true</code>，否则为false</code>。
+ * <code>true</code>，否则为<code>false</code>。
  *
  * @param {Property} [other] The other property.
  * @returns {boolean} <code>true</code>如果左和右相等，否则<code>false</code>。

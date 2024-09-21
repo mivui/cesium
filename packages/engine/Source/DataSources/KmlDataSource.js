@@ -4113,7 +4113,7 @@ const entitiesToIgnore = new AssociativeArray();
  * Updates any NetworkLink that require updating.
  *
  * @param {JulianDate} time The simulation time.
- * @returns {boolean} True if this data source is ready to be displayed at the provided time, false otherwise.
+ * @returns {boolean} True if this data source is ready to be displayed at the provided time, false 否则。
  */
 KmlDataSource.prototype.update = function (time) {
   const networkLinks = this._networkLinks;

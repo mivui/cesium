@@ -38,7 +38,7 @@ function HeadingPitchRange(heading, pitch, range) {
 }
 
 /**
- * Duplicates a HeadingPitchRange instance.
+ * 复制HeadingPitchRange instance.
  *
  * @param {HeadingPitchRange} hpr The HeadingPitchRange to duplicate.
  * @param {HeadingPitchRange} [result] 要在其上存储结果的对象。

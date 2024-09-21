@@ -324,7 +324,7 @@ ClippingPolygonCollection.prototype.get = function (index) {
  * Checks whether this collection contains a ClippingPolygon equal to the given ClippingPolygon.
  *
  * @param {ClippingPolygon} polygon The ClippingPolygon to check for.
- * @returns {boolean} true if this collection contains the ClippingPolygon, false otherwise.
+ * @returns {boolean} true if this collection contains the ClippingPolygon, false 否则。
  *
  * @see ClippingPolygonCollection#get
  */

@@ -331,7 +331,7 @@ function indexOf(planes, plane) {
  * Checks whether this collection contains a ClippingPlane equal to the given ClippingPlane.
  *
  * @param {ClippingPlane} [clippingPlane] The ClippingPlane to check for.
- * @returns {boolean} true if this collection contains the ClippingPlane, false otherwise.
+ * @returns {boolean} true if this collection contains the ClippingPlane, false 否则。
  *
  * @see ClippingPlaneCollection#get
  */

@@ -23,8 +23,8 @@ import MetadataComponentType from "./MetadataComponentType.js";
  * @param {MetadataType} options.type The type of the property such as SCALAR, VEC2, VEC3.
  * @param {MetadataComponentType} [options.componentType] The component type of the property. This includes integer (e.g. INT8 or UINT16), and floating point (FLOAT32 and FLOAT64) values.
  * @param {MetadataEnum} [options.enumType] The enum type of the property. Only defined when type is ENUM.
- * @param {boolean} [options.isArray=false] True if a property is an array (either fixed length or variable length), false otherwise.
- * @param {boolean} [options.isVariableLengthArray=false] True if a property is a variable length array, false otherwise.
+ * @param {boolean} [options.isArray=false] True if a property is an array (either fixed length or variable length), false 否则。
+ * @param {boolean} [options.isVariableLengthArray=false] True if a property is a variable length array, false 否则。
  * @param {number} [options.arrayLength] The number of array elements. Only defined for fixed length arrays.
  * @param {boolean} [options.normalized=false] Whether the property is normalized.
  * @param {number|number[]|number[][]} [options.min] A number or an array of numbers storing the minimum allowable value of this property. Only defined when type is a numeric type.
@@ -290,7 +290,7 @@ Object.defineProperties(MetadataClassProperty.prototype, {
 
   /**
    * True if a property is an array (either fixed length or variable length),
-   * false otherwise.
+   * false 否则。
    *
    * @memberof MetadataClassProperty.prototype
    * @type {boolean}
@@ -303,7 +303,7 @@ Object.defineProperties(MetadataClassProperty.prototype, {
   },
 
   /**
-   * True if a property is a variable length array, false otherwise.
+   * True if a property is a variable length array, false 否则。
    *
    * @memberof MetadataClassProperty.prototype
    * @type {boolean}

@@ -145,7 +145,7 @@ Request.prototype.cancel = function () {
 };
 
 /**
- * Duplicates a Request instance.
+ * 复制Request instance.
  *
  * @param {Request} [result] 要在其上存储结果的对象。
  *

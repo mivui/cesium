@@ -20,10 +20,10 @@ const PackableForInterpolation = {
    * Converts a packed array into a form suitable for interpolation.
    * @function
    *
-   * @param {number[]} packedArray The packed array.
+   * @param {number[]} packedArray 打包数组。
    * @param {number} [startingIndex=0] The index of the first element to be converted.
    * @param {number} [lastIndex=packedArray.length] The index of the last element to be converted.
-   * @param {number[]} [result] The object into which to store the result.
+   * @param {number[]} [result] 要在其中存储结果的对象。
    */
   convertPackedArrayForInterpolation: DeveloperError.throwInstantiationError,
 
@@ -35,7 +35,7 @@ const PackableForInterpolation = {
    * @param {number[]} sourceArray The original packed array.
    * @param {number} [startingIndex=0] The startingIndex used to convert the array.
    * @param {number} [lastIndex=packedArray.length] The lastIndex used to convert the array.
-   * @param {object} [result] The object into which to store the result.
+   * @param {object} [result] 要在其中存储结果的对象。
    * @returns {object} The modified result parameter or a new Object instance if one was not provided.
    */
   unpackInterpolationResult: DeveloperError.throwInstantiationError,
