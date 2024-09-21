@@ -11,7 +11,7 @@ import subscribeAndEvaluate from "../subscribeAndEvaluate.js";
 import InfoBoxViewModel from "./InfoBoxViewModel.js";
 
 /**
- * A widget for displaying information or a description.
+ * 用于显示信息或描述的小部件。
  *
  * @alias InfoBox
  * @constructor

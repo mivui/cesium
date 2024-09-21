@@ -16,37 +16,37 @@ function InfoBoxViewModel() {
   this._closeClicked = new Event();
 
   /**
-   * 获取或设置maximum height of the info box in pixels.  这个属性是可观察的。
+   * 获取或设置信息框的最大高度，以像素为单位.  这个属性是可观察的。
    * @type {number}
    */
   this.maxHeight = 500;
 
   /**
-   * Gets or sets whether the camera tracking icon is enabled.
+   * 获取或设置是否启用摄像机跟踪图标。
    * @type {boolean}
    */
   this.enableCamera = false;
 
   /**
-   * 获取或设置status of current camera tracking of the selected object.
+   * 获取或设置所选对象的当前摄像机跟踪状态。
    * @type {boolean}
    */
   this.isCameraTracking = false;
 
   /**
-   * 获取或设置visibility of the info box.
+   * 获取或设置信息框的可见性。
    * @type {boolean}
    */
   this.showInfo = false;
 
   /**
-   * 获取或设置title text in the info box.
+   * 获取或设置title 信息框中的文本。
    * @type {string}
    */
   this.titleText = "";
 
   /**
-   * 获取或设置description HTML for the info box.
+   * 获取或设置description信息框的HTML格式。
    * @type {string}
    */
   this.description = "";
@@ -84,8 +84,8 @@ function InfoBoxViewModel() {
 }
 
 /**
- * Gets the maximum height of sections within the info box, minus an offset, in CSS-ready form.
- * @param {number} offset The offset in pixels.
+ * 以CSS-ready格式获取信息框内各节的最大高度(减去偏移量)。
+ * @param {number} offset 以像素为单位的偏移量。
  * @returns {string}
  */
 InfoBoxViewModel.prototype.maxHeightOffset = function (offset) {
@@ -94,7 +94,7 @@ InfoBoxViewModel.prototype.maxHeightOffset = function (offset) {
 
 Object.defineProperties(InfoBoxViewModel.prototype, {
   /**
-   * Gets an {@link Event} that is fired when the user clicks the camera icon.
+   * 获取当用户单击相机图标时触发的 {@link Event}。
    * @memberof InfoBoxViewModel.prototype
    * @type {Event}
    */
@@ -104,7 +104,7 @@ Object.defineProperties(InfoBoxViewModel.prototype, {
     },
   },
   /**
-   * Gets an {@link Event} that is fired when the user closes the info box.
+   * 获取在用户关闭信息框时触发的 {@link Event}。
    * @memberof InfoBoxViewModel.prototype
    * @type {Event}
    */
