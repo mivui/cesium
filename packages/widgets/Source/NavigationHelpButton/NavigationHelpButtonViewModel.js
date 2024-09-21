@@ -8,7 +8,7 @@ import createCommand from "../createCommand.js";
  */
 function NavigationHelpButtonViewModel() {
   /**
-   * Gets or sets whether the instructions are currently shown.  这个属性是可观察的。
+   * 获取或设置当前是否显示指令。 这个属性是可观察的。
    * @type {boolean}
    * @default false
    */
@@ -51,7 +51,7 @@ Object.defineProperties(NavigationHelpButtonViewModel.prototype, {
   },
 
   /**
-   * Gets the Command that is executed when the mouse instructions should be shown.
+   * 获取应显示鼠标指令时执行的命令。
    * @memberof NavigationHelpButtonViewModel.prototype
    *
    * @type {Command}
@@ -63,7 +63,7 @@ Object.defineProperties(NavigationHelpButtonViewModel.prototype, {
   },
 
   /**
-   * Gets the Command that is executed when the touch instructions should be shown.
+   * 获取在应该显示触摸指令时执行的Command。
    * @memberof NavigationHelpButtonViewModel.prototype
    *
    * @type {Command}
