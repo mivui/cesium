@@ -75,7 +75,7 @@ function QuadtreeTile(options) {
   this._loadedCallbacks = {};
 
   /**
-   * Gets or sets the current state of the tile in the tile load pipeline.
+   * 获取或设置current state of the tile in the tile load pipeline.
    * @type {QuadtreeTileLoadState}
    * @default {@link QuadtreeTileLoadState.START}
    */
@@ -99,7 +99,7 @@ function QuadtreeTile(options) {
   this.upsampledFromParent = false;
 
   /**
-   * Gets or sets the additional data associated with this tile.  The exact content is specific to the
+   * 获取或设置additional data associated with this tile.  The exact content is specific to the
    * {@link QuadtreeTileProvider}.
    * @type {object}
    * @default undefined

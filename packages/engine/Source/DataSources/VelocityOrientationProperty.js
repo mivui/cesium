@@ -69,7 +69,7 @@ Object.defineProperties(VelocityOrientationProperty.prototype, {
     },
   },
   /**
-   * Gets or sets the position property used to compute orientation.
+   * 获取或设置position property used to compute orientation.
    * @memberof VelocityOrientationProperty.prototype
    *
    * @type {Property|undefined}
@@ -83,7 +83,7 @@ Object.defineProperties(VelocityOrientationProperty.prototype, {
     },
   },
   /**
-   * Gets or sets the ellipsoid used to determine which way is up.
+   * 获取或设置ellipsoid used to determine which way is up.
    * @memberof VelocityOrientationProperty.prototype
    *
    * @type {Property|undefined}

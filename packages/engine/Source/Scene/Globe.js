@@ -110,7 +110,7 @@ function Globe(ellipsoid) {
   this.tileCacheSize = 100;
 
   /**
-   * Gets or sets the number of loading descendant tiles that is considered "too many".
+   * 获取或设置number of loading descendant tiles that is considered "too many".
    * If a tile has too many loading descendants, that tile will be loaded and rendered before any of
    * its descendants are loaded and rendered. This means more feedback for the user that something
    * is happening at the cost of a longer overall load time. Setting this to 0 will cause each
@@ -426,7 +426,7 @@ Object.defineProperties(Globe.prototype, {
     },
   },
   /**
-   * Gets or sets the color of the globe when no imagery is available.
+   * 获取或设置color of the globe when no imagery is available.
    * @memberof Globe.prototype
    * @type {Color}
    */
@@ -549,7 +549,7 @@ Object.defineProperties(Globe.prototype, {
   },
 
   /**
-   * Gets or sets the material appearance of the Globe.  This can be one of several built-in {@link Material} objects or a custom material, scripted with
+   * 获取或设置material appearance of the Globe.  This can be one of several built-in {@link Material} objects or a custom material, scripted with
    * {@link https://github.com/CesiumGS/cesium/wiki/Fabric|Fabric}.
    * @memberof Globe.prototype
    * @type {Material | undefined}
@@ -588,7 +588,7 @@ Object.defineProperties(Globe.prototype, {
   },
 
   /**
-   * Gets or sets the near and far distance for blending {@link Globe#undergroundColor} with the globe color.
+   * 获取或设置near and far distance for blending {@link Globe#undergroundColor} with the globe color.
    * The alpha will interpolate between the {@link NearFarScalar#nearValue} and
    * {@link NearFarScalar#farValue} while the camera distance falls within the lower and upper bounds
    * of the specified {@link NearFarScalar#near} and {@link NearFarScalar#far}.

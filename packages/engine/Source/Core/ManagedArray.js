@@ -18,7 +18,7 @@ function ManagedArray(length) {
 
 Object.defineProperties(ManagedArray.prototype, {
   /**
-   * Gets or sets the length of the array.
+   * 获取或设置length of the array.
    * If the set length is greater than the length of the internal array, the internal array is resized.
    *
    * @memberof ManagedArray.prototype

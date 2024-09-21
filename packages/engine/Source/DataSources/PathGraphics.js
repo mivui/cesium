@@ -61,7 +61,7 @@ Object.defineProperties(PathGraphics.prototype, {
   },
 
   /**
-   * Gets or sets the boolean Property specifying the visibility of the path.
+   * 获取或设置boolean Property specifying the visibility of the path.
    * @memberof PathGraphics.prototype
    * @type {Property|undefined}
    * @default true
@@ -69,21 +69,21 @@ Object.defineProperties(PathGraphics.prototype, {
   show: createPropertyDescriptor("show"),
 
   /**
-   * Gets or sets the Property specifying the number of seconds in front of the object to show.
+   * 获取或设置Property specifying the number of seconds in front of the object to show.
    * @memberof PathGraphics.prototype
    * @type {Property|undefined}
    */
   leadTime: createPropertyDescriptor("leadTime"),
 
   /**
-   * Gets or sets the Property specifying the number of seconds behind the object to show.
+   * 获取或设置Property specifying the number of seconds behind the object to show.
    * @memberof PathGraphics.prototype
    * @type {Property|undefined}
    */
   trailTime: createPropertyDescriptor("trailTime"),
 
   /**
-   * Gets or sets the numeric Property specifying the width in pixels.
+   * 获取或设置numeric Property specifying the width in pixels.
    * @memberof PathGraphics.prototype
    * @type {Property|undefined}
    * @default 1.0
@@ -91,7 +91,7 @@ Object.defineProperties(PathGraphics.prototype, {
   width: createPropertyDescriptor("width"),
 
   /**
-   * Gets or sets the Property specifying the maximum number of seconds to step when sampling the position.
+   * 获取或设置Property specifying the maximum number of seconds to step when sampling the position.
    * @memberof PathGraphics.prototype
    * @type {Property|undefined}
    * @default 60
@@ -99,7 +99,7 @@ Object.defineProperties(PathGraphics.prototype, {
   resolution: createPropertyDescriptor("resolution"),
 
   /**
-   * Gets or sets the Property specifying the material used to draw the path.
+   * 获取或设置Property specifying the material used to draw the path.
    * @memberof PathGraphics.prototype
    * @type {MaterialProperty}
    * @default Color.WHITE
@@ -107,7 +107,7 @@ Object.defineProperties(PathGraphics.prototype, {
   material: createMaterialPropertyDescriptor("material"),
 
   /**
-   * Gets or sets the {@link DistanceDisplayCondition} Property specifying at what distance from the camera that this path will be displayed.
+   * 获取或设置{@link DistanceDisplayCondition} Property specifying at what distance from the camera that this path will be displayed.
    * @memberof PathGraphics.prototype
    * @type {Property|undefined}
    */

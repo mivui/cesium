@@ -306,7 +306,7 @@ Object.defineProperties(Label.prototype, {
   },
 
   /**
-   * Gets or sets the Cartesian position of this label.
+   * 获取或设置Cartesian position of this label.
    * @memberof Label.prototype
    * @type {Cartesian3}
    */
@@ -343,7 +343,7 @@ Object.defineProperties(Label.prototype, {
   },
 
   /**
-   * Gets or sets the height reference of this billboard.
+   * 获取或设置height reference of this billboard.
    * @memberof Label.prototype
    * @type {HeightReference}
    * @default HeightReference.NONE
@@ -382,7 +382,7 @@ Object.defineProperties(Label.prototype, {
   },
 
   /**
-   * Gets or sets the text of this label.
+   * 获取或设置text of this label.
    * @memberof Label.prototype
    * @type {string}
    */
@@ -411,7 +411,7 @@ Object.defineProperties(Label.prototype, {
   },
 
   /**
-   * Gets or sets the font used to draw this label. Fonts are specified using the same syntax as the CSS 'font' property.
+   * 获取或设置font used to draw this label. Fonts are specified using the same syntax as the CSS 'font' property.
    * @memberof Label.prototype
    * @type {string}
    * @default '30px sans-serif'
@@ -437,7 +437,7 @@ Object.defineProperties(Label.prototype, {
   },
 
   /**
-   * Gets or sets the fill color of this label.
+   * 获取或设置fill color of this label.
    * @memberof Label.prototype
    * @type {Color}
    * @default Color.WHITE
@@ -463,7 +463,7 @@ Object.defineProperties(Label.prototype, {
   },
 
   /**
-   * Gets or sets the outline color of this label.
+   * 获取或设置outline color of this label.
    * @memberof Label.prototype
    * @type {Color}
    * @default Color.BLACK
@@ -489,7 +489,7 @@ Object.defineProperties(Label.prototype, {
   },
 
   /**
-   * Gets or sets the outline width of this label.
+   * 获取或设置outline width of this label.
    * @memberof Label.prototype
    * @type {number}
    * @default 1.0
@@ -538,7 +538,7 @@ Object.defineProperties(Label.prototype, {
   },
 
   /**
-   * Gets or sets the background color of this label.
+   * 获取或设置background color of this label.
    * @memberof Label.prototype
    * @type {Color}
    * @default new Color(0.165, 0.165, 0.165, 0.8)
@@ -567,7 +567,7 @@ Object.defineProperties(Label.prototype, {
   },
 
   /**
-   * Gets or sets the background padding, in pixels, of this label.  The <code>x</code> value
+   * 获取或设置background padding, in pixels, of this label.  The <code>x</code> value
    * controls horizontal padding, and the <code>y</code> value controls vertical padding.
    * @memberof Label.prototype
    * @type {Cartesian2}
@@ -593,7 +593,7 @@ Object.defineProperties(Label.prototype, {
   },
 
   /**
-   * Gets or sets the style of this label.
+   * 获取或设置style of this label.
    * @memberof Label.prototype
    * @type {LabelStyle}
    * @default LabelStyle.FILL
@@ -617,7 +617,7 @@ Object.defineProperties(Label.prototype, {
   },
 
   /**
-   * Gets or sets the pixel offset in screen space from the origin of this label.  This is commonly used
+   * 获取或设置pixel offset in screen space from the origin of this label.  This is commonly used
    * to align multiple labels and billboards at the same position, e.g., an image and text.  The
    * screen space origin is the top, left corner of the canvas; <code>x</code> increases from
    * left to right, and <code>y</code> increases from top to bottom.
@@ -886,7 +886,7 @@ Object.defineProperties(Label.prototype, {
   },
 
   /**
-   * Gets or sets the horizontal origin of this label, which determines if the label is drawn
+   * 获取或设置horizontal origin of this label, which determines if the label is drawn
    * to the left, center, or right of its anchor position.
    * <br /><br />
    * <div align='center'>
@@ -919,7 +919,7 @@ Object.defineProperties(Label.prototype, {
   },
 
   /**
-   * Gets or sets the vertical origin of this label, which determines if the label is
+   * 获取或设置vertical origin of this label, which determines if the label is
    * to the above, below, or at the center of its anchor position.
    * <br /><br />
    * <div align='center'>
@@ -965,7 +965,7 @@ Object.defineProperties(Label.prototype, {
   },
 
   /**
-   * Gets or sets the uniform scale that is multiplied with the label's size in pixels.
+   * 获取或设置uniform scale that is multiplied with the label's size in pixels.
    * A scale of <code>1.0</code> does not change the size of the label; a scale greater than
    * <code>1.0</code> enlarges the label; a positive scale less than <code>1.0</code> shrinks
    * the label.
@@ -1027,7 +1027,7 @@ Object.defineProperties(Label.prototype, {
   },
 
   /**
-   * Gets or sets the condition specifying at what distance from the camera that this label will be displayed.
+   * 获取或设置condition specifying at what distance from the camera that this label will be displayed.
    * @memberof Label.prototype
    * @type {DistanceDisplayCondition}
    * @default undefined
@@ -1066,7 +1066,7 @@ Object.defineProperties(Label.prototype, {
   },
 
   /**
-   * Gets or sets the distance from the camera at which to disable the depth test to, for example, prevent clipping against terrain.
+   * 获取或设置distance from the camera at which to disable the depth test to, for example, prevent clipping against terrain.
    * When set to zero, the depth test is always applied. When set to Number.POSITIVE_INFINITY, the depth test is never applied.
    * @memberof Label.prototype
    * @type {number}
@@ -1102,7 +1102,7 @@ Object.defineProperties(Label.prototype, {
   },
 
   /**
-   * Gets or sets the user-defined value returned when the label is picked.
+   * 获取或设置user-defined value returned when the label is picked.
    * @memberof Label.prototype
    * @type {*}
    */

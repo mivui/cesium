@@ -157,7 +157,7 @@ describe("Scene/QuadtreePrimitive", function () {
       });
     });
 
-    it("selects deeper tiles once they are renderable", function () {
+    it("selects dee每个tiles once they are renderable", function () {
       mockTerrain
         .requestTileGeometryWillSucceed(rootTiles[0])
         .requestTileGeometryWillSucceed(rootTiles[1])

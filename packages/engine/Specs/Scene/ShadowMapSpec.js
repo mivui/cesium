@@ -1385,7 +1385,7 @@ describe(
 
       const startTime = new JulianDate(2457561.211806); // Sun pointing straight above
 
-      // Show the floor and render. The receive shadows shader should now be up-to-date.
+      // 显示floor and render. The receive shadows shader should now be up-to-date.
       floor.show = true;
       renderAndCall(function (rgba) {
         expect(rgba).not.toEqual(backgroundColor);

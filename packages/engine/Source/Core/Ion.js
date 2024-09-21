@@ -22,14 +22,14 @@ const defaultAccessToken =
 const Ion = {};
 
 /**
- * Gets or sets the default Cesium ion access token.
+ * 获取或设置default Cesium ion access token.
  *
  * @type {string}
  */
 Ion.defaultAccessToken = defaultAccessToken;
 
 /**
- * Gets or sets the default Cesium ion server.
+ * 获取或设置default Cesium ion server.
  *
  * @type {string|Resource}
  * @default https://api.cesium.com

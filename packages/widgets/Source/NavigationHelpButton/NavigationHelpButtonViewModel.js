@@ -2,7 +2,7 @@ import knockout from "../ThirdParty/knockout.js";
 import createCommand from "../createCommand.js";
 
 /**
- * The view model for {@link NavigationHelpButton}.
+ * 视图模型 {@link NavigationHelpButton}.
  * @alias NavigationHelpButtonViewModel
  * @constructor
  */
@@ -28,7 +28,7 @@ function NavigationHelpButtonViewModel() {
   this._touch = false;
 
   /**
-   * Gets or sets the tooltip.  这个属性是可观察的。
+   * 获取或设置tooltip.  这个属性是可观察的。
    *
    * @type {string}
    */

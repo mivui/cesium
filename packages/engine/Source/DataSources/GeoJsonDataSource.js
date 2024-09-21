@@ -618,7 +618,7 @@ GeoJsonDataSource.load = function (data, options) {
 
 Object.defineProperties(GeoJsonDataSource, {
   /**
-   * Gets or sets the default size of the map pin created for each point, in pixels.
+   * 获取或设置default size of the map pin created for each point, in pixels.
    * @memberof GeoJsonDataSource
    * @type {number}
    * @default 48
@@ -632,7 +632,7 @@ Object.defineProperties(GeoJsonDataSource, {
     },
   },
   /**
-   * Gets or sets the default symbol of the map pin created for each point.
+   * 获取或设置default symbol of the map pin created for each point.
    * This can be any valid {@link http://mapbox.com/maki/|Maki} identifier, any single character,
    * or blank if no symbol is to be used.
    * @memberof GeoJsonDataSource
@@ -647,7 +647,7 @@ Object.defineProperties(GeoJsonDataSource, {
     },
   },
   /**
-   * Gets or sets the default color of the map pin created for each point.
+   * 获取或设置default color of the map pin created for each point.
    * @memberof GeoJsonDataSource
    * @type {Color}
    * @default Color.ROYALBLUE
@@ -661,7 +661,7 @@ Object.defineProperties(GeoJsonDataSource, {
     },
   },
   /**
-   * Gets or sets the default color of polylines and polygon outlines.
+   * 获取或设置default color of polylines and polygon outlines.
    * @memberof GeoJsonDataSource
    * @type {Color}
    * @default Color.BLACK
@@ -675,7 +675,7 @@ Object.defineProperties(GeoJsonDataSource, {
     },
   },
   /**
-   * Gets or sets the default width of polylines and polygon outlines.
+   * 获取或设置default width of polylines and polygon outlines.
    * @memberof GeoJsonDataSource
    * @type {number}
    * @default 2.0
@@ -852,7 +852,7 @@ Object.defineProperties(GeoJsonDataSource.prototype, {
   },
 
   /**
-   * Gets or sets the clustering options for this data source. This object can be shared between multiple data sources.
+   * 获取或设置clustering options for this data source. This object can be shared between multiple data sources.
    *
    * @memberof GeoJsonDataSource.prototype
    * @type {EntityCluster}

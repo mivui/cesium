@@ -51,7 +51,7 @@ Object.defineProperties(DoubleEndedPriorityQueue.prototype, {
   },
 
   /**
-   * Gets or sets the maximum number of elements in the queue.
+   * 获取或设置maximum number of elements in the queue.
    * If set to a smaller value than the current length of the queue, the lowest priority elements are removed.
    * If an element is inserted when the queue is at full capacity, the minimum element is removed.
    * If set to undefined, the size of the queue is unlimited.

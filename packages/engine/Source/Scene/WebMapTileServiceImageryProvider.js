@@ -26,7 +26,7 @@ const defaultParameters = Object.freeze({
  * @property {string} layer The layer name for WMTS requests.
  * @property {string} style The style name for WMTS requests.
  * @property {string} tileMatrixSetID The identifier of the TileMatrixSet to use for WMTS requests.
- * @property {Array} [tileMatrixLabels] A list of identifiers in the TileMatrix to use for WMTS requests, one per TileMatrix level.
+ * @property {Array} [tileMatrixLabels] A list of identifiers in the TileMatrix to use for WMTS requests, one 每个tileMatrix level.
  * @property {Clock} [clock] A Clock instance that is used when determining the value for the time dimension. Required when `times` is specified.
  * @property {TimeIntervalCollection} [times] TimeIntervalCollection with its <code>data</code> property being an object containing time dynamic dimension and their values.
  * @property {object} [dimensions] A object containing static dimensions and their values.

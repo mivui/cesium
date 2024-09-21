@@ -73,7 +73,7 @@ Object.defineProperties(PointGraphics.prototype, {
   },
 
   /**
-   * Gets or sets the boolean Property specifying the visibility of the point.
+   * 获取或设置boolean Property specifying the visibility of the point.
    * @memberof PointGraphics.prototype
    * @type {Property|undefined}
    * @default true
@@ -81,7 +81,7 @@ Object.defineProperties(PointGraphics.prototype, {
   show: createPropertyDescriptor("show"),
 
   /**
-   * Gets or sets the numeric Property specifying the size in pixels.
+   * 获取或设置numeric Property specifying the size in pixels.
    * @memberof PointGraphics.prototype
    * @type {Property|undefined}
    * @default 1
@@ -89,7 +89,7 @@ Object.defineProperties(PointGraphics.prototype, {
   pixelSize: createPropertyDescriptor("pixelSize"),
 
   /**
-   * Gets or sets the Property specifying the {@link HeightReference}.
+   * 获取或设置Property specifying the {@link HeightReference}.
    * @memberof PointGraphics.prototype
    * @type {Property|undefined}
    * @default HeightReference.NONE
@@ -97,7 +97,7 @@ Object.defineProperties(PointGraphics.prototype, {
   heightReference: createPropertyDescriptor("heightReference"),
 
   /**
-   * Gets or sets the Property specifying the {@link Color} of the point.
+   * 获取或设置Property specifying the {@link Color} of the point.
    * @memberof PointGraphics.prototype
    * @type {Property|undefined}
    * @default Color.WHITE
@@ -105,7 +105,7 @@ Object.defineProperties(PointGraphics.prototype, {
   color: createPropertyDescriptor("color"),
 
   /**
-   * Gets or sets the Property specifying the {@link Color} of the outline.
+   * 获取或设置Property specifying the {@link Color} of the outline.
    * @memberof PointGraphics.prototype
    * @type {Property|undefined}
    * @default Color.BLACK
@@ -113,7 +113,7 @@ Object.defineProperties(PointGraphics.prototype, {
   outlineColor: createPropertyDescriptor("outlineColor"),
 
   /**
-   * Gets or sets the numeric Property specifying the the outline width in pixels.
+   * 获取或设置numeric Property specifying the the outline width in pixels.
    * @memberof PointGraphics.prototype
    * @type {Property|undefined}
    * @default 0
@@ -121,7 +121,7 @@ Object.defineProperties(PointGraphics.prototype, {
   outlineWidth: createPropertyDescriptor("outlineWidth"),
 
   /**
-   * Gets or sets the {@link NearFarScalar} Property used to scale the point based on distance.
+   * 获取或设置{@link NearFarScalar} Property used to scale the point based on distance.
    * If undefined, a constant size is used.
    * @memberof PointGraphics.prototype
    * @type {Property|undefined}
@@ -140,7 +140,7 @@ Object.defineProperties(PointGraphics.prototype, {
   translucencyByDistance: createPropertyDescriptor("translucencyByDistance"),
 
   /**
-   * Gets or sets the {@link DistanceDisplayCondition} Property specifying at what distance from the camera that this point will be displayed.
+   * 获取或设置{@link DistanceDisplayCondition} Property specifying at what distance from the camera that this point will be displayed.
    * @memberof PointGraphics.prototype
    * @type {Property|undefined}
    */
@@ -149,7 +149,7 @@ Object.defineProperties(PointGraphics.prototype, {
   ),
 
   /**
-   * Gets or sets the distance from the camera at which to disable the depth test to, for example, prevent clipping against terrain.
+   * 获取或设置distance from the camera at which to disable the depth test to, for example, prevent clipping against terrain.
    * When set to zero, the depth test is always applied. When set to Number.POSITIVE_INFINITY, the depth test is never applied.
    * @memberof PointGraphics.prototype
    * @type {Property|undefined}
@@ -159,7 +159,7 @@ Object.defineProperties(PointGraphics.prototype, {
   ),
 
   /**
-   * Gets or sets the Property specifying the {@link SplitDirection} of this point.
+   * 获取或设置Property specifying the {@link SplitDirection} of this point.
    * @memberof PointGraphics.prototype
    * @type {Property|undefined}
    * @default SplitDirection.NONE

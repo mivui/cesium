@@ -81,7 +81,7 @@ Object.defineProperties(PolylineVolumeGraphics.prototype, {
   },
 
   /**
-   * Gets or sets the boolean Property specifying the visibility of the volume.
+   * 获取或设置boolean Property specifying the visibility of the volume.
    * @memberof PolylineVolumeGraphics.prototype
    * @type {Property|undefined}
    * @default true
@@ -89,21 +89,21 @@ Object.defineProperties(PolylineVolumeGraphics.prototype, {
   show: createPropertyDescriptor("show"),
 
   /**
-   * Gets or sets the Property specifying the array of {@link Cartesian3} positions which define the line strip.
+   * 获取或设置Property specifying the array of {@link Cartesian3} positions which define the line strip.
    * @memberof PolylineVolumeGraphics.prototype
    * @type {Property|undefined}
    */
   positions: createPropertyDescriptor("positions"),
 
   /**
-   * Gets or sets the Property specifying the array of {@link Cartesian2} positions which define the shape to be extruded.
+   * 获取或设置Property specifying the array of {@link Cartesian2} positions which define the shape to be extruded.
    * @memberof PolylineVolumeGraphics.prototype
    * @type {Property|undefined}
    */
   shape: createPropertyDescriptor("shape"),
 
   /**
-   * Gets or sets the {@link CornerType} Property specifying the style of the corners.
+   * 获取或设置{@link CornerType} Property specifying the style of the corners.
    * @memberof PolylineVolumeGraphics.prototype
    * @type {Property|undefined}
    * @default CornerType.ROUNDED
@@ -111,7 +111,7 @@ Object.defineProperties(PolylineVolumeGraphics.prototype, {
   cornerType: createPropertyDescriptor("cornerType"),
 
   /**
-   * Gets or sets the numeric Property specifying the angular distance between points on the volume.
+   * 获取或设置numeric Property specifying the angular distance between points on the volume.
    * @memberof PolylineVolumeGraphics.prototype
    * @type {Property|undefined}
    * @default {CesiumMath.RADIANS_PER_DEGREE}
@@ -119,7 +119,7 @@ Object.defineProperties(PolylineVolumeGraphics.prototype, {
   granularity: createPropertyDescriptor("granularity"),
 
   /**
-   * Gets or sets the boolean Property specifying whether the volume is filled with the provided material.
+   * 获取或设置boolean Property specifying whether the volume is filled with the provided material.
    * @memberof PolylineVolumeGraphics.prototype
    * @type {Property|undefined}
    * @default true
@@ -127,7 +127,7 @@ Object.defineProperties(PolylineVolumeGraphics.prototype, {
   fill: createPropertyDescriptor("fill"),
 
   /**
-   * Gets or sets the Property specifying the material used to fill the volume.
+   * 获取或设置Property specifying the material used to fill the volume.
    * @memberof PolylineVolumeGraphics.prototype
    * @type {MaterialProperty}
    * @default Color.WHITE
@@ -135,7 +135,7 @@ Object.defineProperties(PolylineVolumeGraphics.prototype, {
   material: createMaterialPropertyDescriptor("material"),
 
   /**
-   * Gets or sets the Property specifying whether the volume is outlined.
+   * 获取或设置Property specifying whether the volume is outlined.
    * @memberof PolylineVolumeGraphics.prototype
    * @type {Property|undefined}
    * @default false
@@ -143,7 +143,7 @@ Object.defineProperties(PolylineVolumeGraphics.prototype, {
   outline: createPropertyDescriptor("outline"),
 
   /**
-   * Gets or sets the Property specifying the {@link Color} of the outline.
+   * 获取或设置Property specifying the {@link Color} of the outline.
    * @memberof PolylineVolumeGraphics.prototype
    * @type {Property|undefined}
    * @default Color.BLACK
@@ -151,7 +151,7 @@ Object.defineProperties(PolylineVolumeGraphics.prototype, {
   outlineColor: createPropertyDescriptor("outlineColor"),
 
   /**
-   * Gets or sets the numeric Property specifying the width of the outline.
+   * 获取或设置numeric Property specifying the width of the outline.
    * <p>
    * Note: This property will be ignored on all major browsers on Windows platforms. For details, see (@link https://github.com/CesiumGS/cesium/issues/40}.
    * </p>
@@ -171,7 +171,7 @@ Object.defineProperties(PolylineVolumeGraphics.prototype, {
   shadows: createPropertyDescriptor("shadows"),
 
   /**
-   * Gets or sets the {@link DistanceDisplayCondition} Property specifying at what distance from the camera that this volume will be displayed.
+   * 获取或设置{@link DistanceDisplayCondition} Property specifying at what distance from the camera that this volume will be displayed.
    * @memberof PolylineVolumeGraphics.prototype
    * @type {Property|undefined}
    */

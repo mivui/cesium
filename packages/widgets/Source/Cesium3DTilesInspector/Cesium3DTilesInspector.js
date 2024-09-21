@@ -4,13 +4,13 @@ import InspectorShared from "../InspectorShared.js";
 import Cesium3DTilesInspectorViewModel from "./Cesium3DTilesInspectorViewModel.js";
 
 /**
- * Inspector widget to aid in debugging 3D Tiles
+ * 检查器小部件，以帮助调试3DTiles
  *
  * @alias Cesium3DTilesInspector
  * @constructor
  *
  * @param {Element|string} container 将包含小部件的DOM元素或ID。
- * @param {Scene} scene the Scene instance to use.
+ * @param {Scene} scene 要使用的场景实例。
  */
 function Cesium3DTilesInspector(container, scene) {
   //>>includeStart('debug', pragmas.debug);

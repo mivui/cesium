@@ -72,7 +72,7 @@ function toggleVR(viewModel, scene, isVRMode, isOrthographic) {
 }
 
 /**
- * The view model for {@link VRButton}.
+ * 视图模型 {@link VRButton}.
  * @alias VRButtonViewModel
  * @constructor
  *
@@ -171,7 +171,7 @@ function VRButtonViewModel(scene, vrElement) {
 
 Object.defineProperties(VRButtonViewModel.prototype, {
   /**
-   * Gets or sets the HTML element to place into VR mode when the
+   * 获取或设置HTML element to place into VR mode when the
    * corresponding button is pressed.
    * @memberof VRButtonViewModel.prototype
    *

@@ -9,13 +9,13 @@
  */
 function LeapSecond(date, offset) {
   /**
-   * Gets or sets the date at which this leap second occurs.
+   * 获取或设置date at which this leap second occurs.
    * @type {JulianDate}
    */
   this.julianDate = date;
 
   /**
-   * Gets or sets the cumulative number of seconds between the UTC and TAI time standards at the time
+   * 获取或设置cumulative number of seconds between the UTC and TAI time standards at the time
    * of this leap second.
    * @type {number}
    */

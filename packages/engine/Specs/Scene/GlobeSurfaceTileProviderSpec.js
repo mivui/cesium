@@ -318,7 +318,7 @@ describe(
           });
         });
 
-        it("calling _reload adds a callback per layer per tile", async function () {
+        it("calling _reload adds a callback per layer 每个tile", async function () {
           const provider1 = await SingleTileImageryProvider.fromUrl(
             "Data/Images/Red16x16.png"
           );
@@ -872,7 +872,7 @@ describe(
               renderStateWithAlphaBlending.blending
             );
           } else {
-            // Successive draw commands per tile should alpha blend.
+            // Successive draw commands 每个tile should alpha blend.
             expect(command.renderState.blending).toEqual(
               renderStateWithAlphaBlending.blending
             );

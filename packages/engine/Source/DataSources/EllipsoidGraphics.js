@@ -97,7 +97,7 @@ Object.defineProperties(EllipsoidGraphics.prototype, {
   },
 
   /**
-   * Gets or sets the boolean Property specifying the visibility of the ellipsoid.
+   * 获取或设置boolean Property specifying the visibility of the ellipsoid.
    * @memberof EllipsoidGraphics.prototype
    * @type {Property|undefined}
    * @default true
@@ -105,14 +105,14 @@ Object.defineProperties(EllipsoidGraphics.prototype, {
   show: createPropertyDescriptor("show"),
 
   /**
-   * Gets or sets the {@link Cartesian3} {@link Property} specifying the radii of the ellipsoid.
+   * 获取或设置{@link Cartesian3} {@link Property} specifying the radii of the ellipsoid.
    * @memberof EllipsoidGraphics.prototype
    * @type {Property|undefined}
    */
   radii: createPropertyDescriptor("radii"),
 
   /**
-   * Gets or sets the {@link Cartesian3} {@link Property} specifying the inner radii of the ellipsoid.
+   * 获取或设置{@link Cartesian3} {@link Property} specifying the inner radii of the ellipsoid.
    * @memberof EllipsoidGraphics.prototype
    * @type {Property|undefined}
    * @default radii
@@ -120,7 +120,7 @@ Object.defineProperties(EllipsoidGraphics.prototype, {
   innerRadii: createPropertyDescriptor("innerRadii"),
 
   /**
-   * Gets or sets the Property specifying the minimum clock angle of the ellipsoid.
+   * 获取或设置Property specifying the minimum clock angle of the ellipsoid.
    * @memberof EllipsoidGraphics.prototype
    * @type {Property|undefined}
    * @default 0.0
@@ -128,7 +128,7 @@ Object.defineProperties(EllipsoidGraphics.prototype, {
   minimumClock: createPropertyDescriptor("minimumClock"),
 
   /**
-   * Gets or sets the Property specifying the maximum clock angle of the ellipsoid.
+   * 获取或设置Property specifying the maximum clock angle of the ellipsoid.
    * @memberof EllipsoidGraphics.prototype
    * @type {Property|undefined}
    * @default 2*PI
@@ -136,7 +136,7 @@ Object.defineProperties(EllipsoidGraphics.prototype, {
   maximumClock: createPropertyDescriptor("maximumClock"),
 
   /**
-   * Gets or sets the Property specifying the minimum cone angle of the ellipsoid.
+   * 获取或设置Property specifying the minimum cone angle of the ellipsoid.
    * @memberof EllipsoidGraphics.prototype
    * @type {Property|undefined}
    * @default 0.0
@@ -144,7 +144,7 @@ Object.defineProperties(EllipsoidGraphics.prototype, {
   minimumCone: createPropertyDescriptor("minimumCone"),
 
   /**
-   * Gets or sets the Property specifying the maximum cone angle of the ellipsoid.
+   * 获取或设置Property specifying the maximum cone angle of the ellipsoid.
    * @memberof EllipsoidGraphics.prototype
    * @type {Property|undefined}
    * @default PI
@@ -152,7 +152,7 @@ Object.defineProperties(EllipsoidGraphics.prototype, {
   maximumCone: createPropertyDescriptor("maximumCone"),
 
   /**
-   * Gets or sets the Property specifying the {@link HeightReference}.
+   * 获取或设置Property specifying the {@link HeightReference}.
    * @memberof EllipsoidGraphics.prototype
    * @type {Property|undefined}
    * @default HeightReference.NONE
@@ -160,7 +160,7 @@ Object.defineProperties(EllipsoidGraphics.prototype, {
   heightReference: createPropertyDescriptor("heightReference"),
 
   /**
-   * Gets or sets the boolean Property specifying whether the ellipsoid is filled with the provided material.
+   * 获取或设置boolean Property specifying whether the ellipsoid is filled with the provided material.
    * @memberof EllipsoidGraphics.prototype
    * @type {Property|undefined}
    * @default true
@@ -168,7 +168,7 @@ Object.defineProperties(EllipsoidGraphics.prototype, {
   fill: createPropertyDescriptor("fill"),
 
   /**
-   * Gets or sets the Property specifying the material used to fill the ellipsoid.
+   * 获取或设置Property specifying the material used to fill the ellipsoid.
    * @memberof EllipsoidGraphics.prototype
    * @type {MaterialProperty}
    * @default Color.WHITE
@@ -176,7 +176,7 @@ Object.defineProperties(EllipsoidGraphics.prototype, {
   material: createMaterialPropertyDescriptor("material"),
 
   /**
-   * Gets or sets the Property specifying whether the ellipsoid is outlined.
+   * 获取或设置Property specifying whether the ellipsoid is outlined.
    * @memberof EllipsoidGraphics.prototype
    * @type {Property|undefined}
    * @default false
@@ -184,7 +184,7 @@ Object.defineProperties(EllipsoidGraphics.prototype, {
   outline: createPropertyDescriptor("outline"),
 
   /**
-   * Gets or sets the Property specifying the {@link Color} of the outline.
+   * 获取或设置Property specifying the {@link Color} of the outline.
    * @memberof EllipsoidGraphics.prototype
    * @type {Property|undefined}
    * @default Color.BLACK
@@ -192,7 +192,7 @@ Object.defineProperties(EllipsoidGraphics.prototype, {
   outlineColor: createPropertyDescriptor("outlineColor"),
 
   /**
-   * Gets or sets the numeric Property specifying the width of the outline.
+   * 获取或设置numeric Property specifying the width of the outline.
    * <p>
    * Note: This property will be ignored on all major browsers on Windows platforms. For details, see (@link https://github.com/CesiumGS/cesium/issues/40}.
    * </p>
@@ -203,7 +203,7 @@ Object.defineProperties(EllipsoidGraphics.prototype, {
   outlineWidth: createPropertyDescriptor("outlineWidth"),
 
   /**
-   * Gets or sets the Property specifying the number of stacks.
+   * 获取或设置Property specifying the number of stacks.
    * @memberof EllipsoidGraphics.prototype
    * @type {Property|undefined}
    * @default 64
@@ -211,7 +211,7 @@ Object.defineProperties(EllipsoidGraphics.prototype, {
   stackPartitions: createPropertyDescriptor("stackPartitions"),
 
   /**
-   * Gets or sets the Property specifying the number of radial slices per 360 degrees.
+   * 获取或设置Property specifying the number of radial slices per 360 degrees.
    * @memberof EllipsoidGraphics.prototype
    * @type {Property|undefined}
    * @default 64
@@ -219,7 +219,7 @@ Object.defineProperties(EllipsoidGraphics.prototype, {
   slicePartitions: createPropertyDescriptor("slicePartitions"),
 
   /**
-   * Gets or sets the Property specifying the number of samples per outline ring, determining the granularity of the curvature.
+   * 获取或设置Property specifying the number of samples per outline ring, determining the granularity of the curvature.
    * @memberof EllipsoidGraphics.prototype
    * @type {Property|undefined}
    * @default 128
@@ -236,7 +236,7 @@ Object.defineProperties(EllipsoidGraphics.prototype, {
   shadows: createPropertyDescriptor("shadows"),
 
   /**
-   * Gets or sets the {@link DistanceDisplayCondition} Property specifying at what distance from the camera that this ellipsoid will be displayed.
+   * 获取或设置{@link DistanceDisplayCondition} Property specifying at what distance from the camera that this ellipsoid will be displayed.
    * @memberof EllipsoidGraphics.prototype
    * @type {Property|undefined}
    */

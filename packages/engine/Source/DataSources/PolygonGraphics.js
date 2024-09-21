@@ -122,7 +122,7 @@ Object.defineProperties(PolygonGraphics.prototype, {
   },
 
   /**
-   * Gets or sets the boolean Property specifying the visibility of the polygon.
+   * 获取或设置boolean Property specifying the visibility of the polygon.
    * @memberof PolygonGraphics.prototype
    * @type {Property|undefined}
    * @default true
@@ -130,7 +130,7 @@ Object.defineProperties(PolygonGraphics.prototype, {
   show: createPropertyDescriptor("show"),
 
   /**
-   * Gets or sets the Property specifying the {@link PolygonHierarchy}.
+   * 获取或设置Property specifying the {@link PolygonHierarchy}.
    * @memberof PolygonGraphics.prototype
    * @type {Property|undefined}
    */
@@ -141,7 +141,7 @@ Object.defineProperties(PolygonGraphics.prototype, {
   ),
 
   /**
-   * Gets or sets the numeric Property specifying the constant altitude of the polygon.
+   * 获取或设置numeric Property specifying the constant altitude of the polygon.
    * @memberof PolygonGraphics.prototype
    * @type {Property|undefined}
    * @default 0.0
@@ -149,7 +149,7 @@ Object.defineProperties(PolygonGraphics.prototype, {
   height: createPropertyDescriptor("height"),
 
   /**
-   * Gets or sets the Property specifying the {@link HeightReference}.
+   * 获取或设置Property specifying the {@link HeightReference}.
    * @memberof PolygonGraphics.prototype
    * @type {Property|undefined}
    * @default HeightReference.NONE
@@ -157,7 +157,7 @@ Object.defineProperties(PolygonGraphics.prototype, {
   heightReference: createPropertyDescriptor("heightReference"),
 
   /**
-   * Gets or sets the numeric Property specifying the altitude of the polygon extrusion.
+   * 获取或设置numeric Property specifying the altitude of the polygon extrusion.
    * If {@link PolygonGraphics#perPositionHeight} is false, the volume starts at {@link PolygonGraphics#height} and ends at this altitude.
    * If {@link PolygonGraphics#perPositionHeight} is true, the volume starts at the height of each {@link PolygonGraphics#hierarchy} position and ends at this altitude.
    * @memberof PolygonGraphics.prototype
@@ -166,7 +166,7 @@ Object.defineProperties(PolygonGraphics.prototype, {
   extrudedHeight: createPropertyDescriptor("extrudedHeight"),
 
   /**
-   * Gets or sets the Property specifying the extruded {@link HeightReference}.
+   * 获取或设置Property specifying the extruded {@link HeightReference}.
    * @memberof PolygonGraphics.prototype
    * @type {Property|undefined}
    * @default HeightReference.NONE
@@ -174,7 +174,7 @@ Object.defineProperties(PolygonGraphics.prototype, {
   extrudedHeightReference: createPropertyDescriptor("extrudedHeightReference"),
 
   /**
-   * Gets or sets the numeric property specifying the rotation of the polygon texture counter-clockwise from north. Only has an effect if textureCoordinates is not defined.
+   * 获取或设置numeric property specifying the rotation of the polygon texture counter-clockwise from north. Only has an effect if textureCoordinates is not defined.
    * @memberof PolygonGraphics.prototype
    * @type {Property|undefined}
    * @default 0
@@ -182,7 +182,7 @@ Object.defineProperties(PolygonGraphics.prototype, {
   stRotation: createPropertyDescriptor("stRotation"),
 
   /**
-   * Gets or sets the numeric Property specifying the angular distance between points on the polygon.
+   * 获取或设置numeric Property specifying the angular distance between points on the polygon.
    * @memberof PolygonGraphics.prototype
    * @type {Property|undefined}
    * @default {CesiumMath.RADIANS_PER_DEGREE}
@@ -190,7 +190,7 @@ Object.defineProperties(PolygonGraphics.prototype, {
   granularity: createPropertyDescriptor("granularity"),
 
   /**
-   * Gets or sets the boolean Property specifying whether the polygon is filled with the provided material.
+   * 获取或设置boolean Property specifying whether the polygon is filled with the provided material.
    * @memberof PolygonGraphics.prototype
    * @type {Property|undefined}
    * @default true
@@ -198,7 +198,7 @@ Object.defineProperties(PolygonGraphics.prototype, {
   fill: createPropertyDescriptor("fill"),
 
   /**
-   * Gets or sets the Property specifying the material used to fill the polygon.
+   * 获取或设置Property specifying the material used to fill the polygon.
    * @memberof PolygonGraphics.prototype
    * @type {MaterialProperty}
    * @default Color.WHITE
@@ -206,7 +206,7 @@ Object.defineProperties(PolygonGraphics.prototype, {
   material: createMaterialPropertyDescriptor("material"),
 
   /**
-   * Gets or sets the Property specifying whether the polygon is outlined.
+   * 获取或设置Property specifying whether the polygon is outlined.
    * @memberof PolygonGraphics.prototype
    * @type {Property|undefined}
    * @default false
@@ -214,7 +214,7 @@ Object.defineProperties(PolygonGraphics.prototype, {
   outline: createPropertyDescriptor("outline"),
 
   /**
-   * Gets or sets the Property specifying the {@link Color} of the outline.
+   * 获取或设置Property specifying the {@link Color} of the outline.
    * @memberof PolygonGraphics.prototype
    * @type {Property|undefined}
    * @default Color.BLACK
@@ -222,7 +222,7 @@ Object.defineProperties(PolygonGraphics.prototype, {
   outlineColor: createPropertyDescriptor("outlineColor"),
 
   /**
-   * Gets or sets the numeric Property specifying the width of the outline.
+   * 获取或设置numeric Property specifying the width of the outline.
    * <p>
    * Note: This property will be ignored on all major browsers on Windows platforms. For details, see (@link https://github.com/CesiumGS/cesium/issues/40}.
    * </p>
@@ -233,7 +233,7 @@ Object.defineProperties(PolygonGraphics.prototype, {
   outlineWidth: createPropertyDescriptor("outlineWidth"),
 
   /**
-   * Gets or sets the boolean specifying whether or not the the height of each position is used.
+   * 获取或设置boolean specifying whether or not the the height of each position is used.
    * If true, the shape will have non-uniform altitude defined by the height of each {@link PolygonGraphics#hierarchy} position.
    * If false, the shape will have a constant altitude as specified by {@link PolygonGraphics#height}.
    * @memberof PolygonGraphics.prototype
@@ -256,7 +256,7 @@ Object.defineProperties(PolygonGraphics.prototype, {
   closeBottom: createPropertyDescriptor("closeBottom"),
 
   /**
-   * Gets or sets the {@link ArcType} Property specifying the type of lines the polygon edges use.
+   * 获取或设置{@link ArcType} Property specifying the type of lines the polygon edges use.
    * @memberof PolygonGraphics.prototype
    * @type {Property|undefined}
    * @default ArcType.GEODESIC
@@ -273,7 +273,7 @@ Object.defineProperties(PolygonGraphics.prototype, {
   shadows: createPropertyDescriptor("shadows"),
 
   /**
-   * Gets or sets the {@link DistanceDisplayCondition} Property specifying at what distance from the camera that this polygon will be displayed.
+   * 获取或设置{@link DistanceDisplayCondition} Property specifying at what distance from the camera that this polygon will be displayed.
    * @memberof PolygonGraphics.prototype
    * @type {Property|undefined}
    */
@@ -282,7 +282,7 @@ Object.defineProperties(PolygonGraphics.prototype, {
   ),
 
   /**
-   * Gets or sets the {@link ClassificationType} Property specifying whether this polygon will classify terrain, 3D Tiles, or both when on the ground.
+   * 获取或设置{@link ClassificationType} Property specifying whether this polygon will classify terrain, 3D Tiles, or both when on the ground.
    * @memberof PolygonGraphics.prototype
    * @type {Property|undefined}
    * @default ClassificationType.BOTH
@@ -290,7 +290,7 @@ Object.defineProperties(PolygonGraphics.prototype, {
   classificationType: createPropertyDescriptor("classificationType"),
 
   /**
-   * Gets or sets the zIndex Prperty specifying the ordering of ground geometry.  Only has an effect if the polygon is constant and neither height or extrudedHeight are specified.
+   * 获取或设置zIndex Prperty specifying the ordering of ground geometry.  Only has an effect if the polygon is constant and neither height or extrudedHeight are specified.
    * @memberof PolygonGraphics.prototype
    * @type {ConstantProperty|undefined}
    * @default 0

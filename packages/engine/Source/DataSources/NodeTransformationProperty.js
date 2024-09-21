@@ -69,7 +69,7 @@ Object.defineProperties(NodeTransformationProperty.prototype, {
   },
 
   /**
-   * Gets or sets the {@link Cartesian3} Property specifying the (x, y, z) translation to apply to the node.
+   * 获取或设置{@link Cartesian3} Property specifying the (x, y, z) translation to apply to the node.
    * @memberof NodeTransformationProperty.prototype
    * @type {Property|undefined}
    * @default Cartesian3.ZERO
@@ -77,7 +77,7 @@ Object.defineProperties(NodeTransformationProperty.prototype, {
   translation: createPropertyDescriptor("translation"),
 
   /**
-   * Gets or sets the {@link Quaternion} Property specifying the (x, y, z, w) rotation to apply to the node.
+   * 获取或设置{@link Quaternion} Property specifying the (x, y, z, w) rotation to apply to the node.
    * @memberof NodeTransformationProperty.prototype
    * @type {Property|undefined}
    * @default Quaternion.IDENTITY
@@ -85,7 +85,7 @@ Object.defineProperties(NodeTransformationProperty.prototype, {
   rotation: createPropertyDescriptor("rotation"),
 
   /**
-   * Gets or sets the {@link Cartesian3} Property specifying the (x, y, z) scaling to apply to the node.
+   * 获取或设置{@link Cartesian3} Property specifying the (x, y, z) scaling to apply to the node.
    * @memberof NodeTransformationProperty.prototype
    * @type {Property|undefined}
    * @default new Cartesian3(1.0, 1.0, 1.0)

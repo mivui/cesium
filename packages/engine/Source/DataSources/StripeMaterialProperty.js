@@ -83,7 +83,7 @@ Object.defineProperties(StripeMaterialProperty.prototype, {
   },
 
   /**
-   * Gets or sets the Property specifying the {@link StripeOrientation}/
+   * 获取或设置Property specifying the {@link StripeOrientation}/
    * @memberof StripeMaterialProperty.prototype
    * @type {Property|undefined}
    * @default StripeOrientation.HORIZONTAL
@@ -91,7 +91,7 @@ Object.defineProperties(StripeMaterialProperty.prototype, {
   orientation: createPropertyDescriptor("orientation"),
 
   /**
-   * Gets or sets the Property specifying the first {@link Color}.
+   * 获取或设置Property specifying the first {@link Color}.
    * @memberof StripeMaterialProperty.prototype
    * @type {Property|undefined}
    * @default Color.WHITE
@@ -99,7 +99,7 @@ Object.defineProperties(StripeMaterialProperty.prototype, {
   evenColor: createPropertyDescriptor("evenColor"),
 
   /**
-   * Gets or sets the Property specifying the second {@link Color}.
+   * 获取或设置Property specifying the second {@link Color}.
    * @memberof StripeMaterialProperty.prototype
    * @type {Property|undefined}
    * @default Color.BLACK
@@ -107,7 +107,7 @@ Object.defineProperties(StripeMaterialProperty.prototype, {
   oddColor: createPropertyDescriptor("oddColor"),
 
   /**
-   * Gets or sets the numeric Property specifying the point into the pattern
+   * 获取或设置numeric Property specifying the point into the pattern
    * to begin drawing; with 0.0 being the beginning of the even color, 1.0 the beginning
    * of the odd color, 2.0 being the even color again, and any multiple or fractional values
    * being in between.
@@ -118,7 +118,7 @@ Object.defineProperties(StripeMaterialProperty.prototype, {
   offset: createPropertyDescriptor("offset"),
 
   /**
-   * Gets or sets the numeric Property specifying how many times the stripes repeat.
+   * 获取或设置numeric Property specifying how many times the stripes repeat.
    * @memberof StripeMaterialProperty.prototype
    * @type {Property|undefined}
    * @default 1.0

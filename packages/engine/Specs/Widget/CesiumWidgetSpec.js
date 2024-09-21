@@ -401,7 +401,7 @@ describe(
       });
     });
 
-    it("does not show the error panel if disabled", function () {
+    it("does not 显示error panel if disabled", function () {
       widget = createCesiumWidget(container, {
         showRenderLoopErrors: false,
       });

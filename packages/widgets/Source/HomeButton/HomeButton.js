@@ -14,7 +14,7 @@ import HomeButtonViewModel from "./HomeButtonViewModel.js";
  * @constructor
  *
  * @param {Element|string} container 将包含小部件的DOM元素或ID。
- * @param {Scene} scene The Scene instance to use.
+ * @param {Scene} scene 要使用的场景实例。
  * @param {number} [duration] The time, in seconds, it takes to complete the camera flight home.
  */
 function HomeButton(container, scene, duration) {

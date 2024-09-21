@@ -118,7 +118,7 @@ Object.defineProperties(SampledPositionProperty.prototype, {
     },
   },
   /**
-   * Gets or sets the type of extrapolation to perform when a value
+   * 获取或设置type of extrapolation to perform when a value
    * is requested at a time after any available samples.
    * @memberof SampledPositionProperty.prototype
    * @type {ExtrapolationType}
@@ -133,7 +133,7 @@ Object.defineProperties(SampledPositionProperty.prototype, {
     },
   },
   /**
-   * Gets or sets the amount of time to extrapolate forward before
+   * 获取或设置amount of time to extrapolate forward before
    * the property becomes undefined.  A value of 0 will extrapolate forever.
    * @memberof SampledPositionProperty.prototype
    * @type {number}
@@ -148,7 +148,7 @@ Object.defineProperties(SampledPositionProperty.prototype, {
     },
   },
   /**
-   * Gets or sets the type of extrapolation to perform when a value
+   * 获取或设置type of extrapolation to perform when a value
    * is requested at a time before any available samples.
    * @memberof SampledPositionProperty.prototype
    * @type {ExtrapolationType}
@@ -163,7 +163,7 @@ Object.defineProperties(SampledPositionProperty.prototype, {
     },
   },
   /**
-   * Gets or sets the amount of time to extrapolate backward
+   * 获取或设置amount of time to extrapolate backward
    * before the property becomes undefined.  A value of 0 will extrapolate forever.
    * @memberof SampledPositionProperty.prototype
    * @type {number}

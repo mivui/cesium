@@ -850,7 +850,7 @@ const scratchShowBoundingVolumeOptions = {
 };
 
 /**
- * Traverses through all draw commands and changes whether to show the debug bounding volume.
+ * Traverses through all draw commands and changes whether to 显示debug bounding volume.
  *
  * @param {boolean} debugShowBoundingVolume The new value for showing the debug bounding volume.
  *

@@ -18,7 +18,7 @@ const defaultRotation = Quaternion.IDENTITY;
  */
 function TranslationRotationScale(translation, rotation, scale) {
   /**
-   * Gets or sets the (x, y, z) translation to apply to the node.
+   * 获取或设置(x, y, z) translation to apply to the node.
    * @type {Cartesian3}
    * @default Cartesian3.ZERO
    */
@@ -27,14 +27,14 @@ function TranslationRotationScale(translation, rotation, scale) {
   );
 
   /**
-   * Gets or sets the (x, y, z, w) rotation to apply to the node.
+   * 获取或设置(x, y, z, w) rotation to apply to the node.
    * @type {Quaternion}
    * @default Quaternion.IDENTITY
    */
   this.rotation = Quaternion.clone(defaultValue(rotation, defaultRotation));
 
   /**
-   * Gets or sets the (x, y, z) scaling to apply to the node.
+   * 获取或设置(x, y, z) scaling to apply to the node.
    * @type {Cartesian3}
    * @default new Cartesian3(1.0, 1.0, 1.0)
    */

@@ -565,7 +565,7 @@ GoogleEarthEnterpriseMapsProvider._logoUrl = undefined;
 
 Object.defineProperties(GoogleEarthEnterpriseMapsProvider, {
   /**
-   * Gets or sets the URL to the Google Earth logo for display in the credit.
+   * 获取或设置URL to the Google Earth logo for display in the credit.
    * @memberof GoogleEarthEnterpriseMapsProvider
    * @type {string}
    */

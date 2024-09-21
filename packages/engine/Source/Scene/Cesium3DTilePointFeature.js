@@ -96,7 +96,7 @@ Object.defineProperties(Cesium3DTilePointFeature.prototype, {
   },
 
   /**
-   * Gets or sets the color of the point of this feature.
+   * 获取或设置color of the point of this feature.
    * <p>
    * Only applied when <code>image</code> is <code>undefined</code>.
    * </p>
@@ -116,7 +116,7 @@ Object.defineProperties(Cesium3DTilePointFeature.prototype, {
   },
 
   /**
-   * Gets or sets the point size of this feature.
+   * 获取或设置point size of this feature.
    * <p>
    * Only applied when <code>image</code> is <code>undefined</code>.
    * </p>
@@ -136,7 +136,7 @@ Object.defineProperties(Cesium3DTilePointFeature.prototype, {
   },
 
   /**
-   * Gets or sets the point outline color of this feature.
+   * 获取或设置point outline color of this feature.
    * <p>
    * Only applied when <code>image</code> is <code>undefined</code>.
    * </p>
@@ -156,7 +156,7 @@ Object.defineProperties(Cesium3DTilePointFeature.prototype, {
   },
 
   /**
-   * Gets or sets the point outline width in pixels of this feature.
+   * 获取或设置point outline width in pixels of this feature.
    * <p>
    * Only applied when <code>image</code> is <code>undefined</code>.
    * </p>
@@ -176,7 +176,7 @@ Object.defineProperties(Cesium3DTilePointFeature.prototype, {
   },
 
   /**
-   * Gets or sets the label color of this feature.
+   * 获取或设置label color of this feature.
    * <p>
    * The color will be applied to the label if <code>labelText</code> is defined.
    * </p>
@@ -196,7 +196,7 @@ Object.defineProperties(Cesium3DTilePointFeature.prototype, {
   },
 
   /**
-   * Gets or sets the label outline color of this feature.
+   * 获取或设置label outline color of this feature.
    * <p>
    * The outline color will be applied to the label if <code>labelText</code> is defined.
    * </p>
@@ -215,7 +215,7 @@ Object.defineProperties(Cesium3DTilePointFeature.prototype, {
   },
 
   /**
-   * Gets or sets the outline width in pixels of this feature.
+   * 获取或设置outline width in pixels of this feature.
    * <p>
    * The outline width will be applied to the point if <code>labelText</code> is defined.
    * </p>
@@ -234,7 +234,7 @@ Object.defineProperties(Cesium3DTilePointFeature.prototype, {
   },
 
   /**
-   * Gets or sets the font of this feature.
+   * 获取或设置font of this feature.
    * <p>
    * Only applied when the <code>labelText</code> is defined.
    * </p>
@@ -253,7 +253,7 @@ Object.defineProperties(Cesium3DTilePointFeature.prototype, {
   },
 
   /**
-   * Gets or sets the fill and outline style of this feature.
+   * 获取或设置fill and outline style of this feature.
    * <p>
    * Only applied when <code>labelText</code> is defined.
    * </p>
@@ -272,7 +272,7 @@ Object.defineProperties(Cesium3DTilePointFeature.prototype, {
   },
 
   /**
-   * Gets or sets the text for this feature.
+   * 获取或设置text for this feature.
    *
    * @memberof Cesium3DTilePointFeature.prototype
    *
@@ -291,7 +291,7 @@ Object.defineProperties(Cesium3DTilePointFeature.prototype, {
   },
 
   /**
-   * Gets or sets the background color of the text for this feature.
+   * 获取或设置background color of the text for this feature.
    * <p>
    * Only applied when <code>labelText</code> is defined.
    * </p>
@@ -310,7 +310,7 @@ Object.defineProperties(Cesium3DTilePointFeature.prototype, {
   },
 
   /**
-   * Gets or sets the background padding of the text for this feature.
+   * 获取或设置background padding of the text for this feature.
    * <p>
    * Only applied when <code>labelText</code> is defined.
    * </p>
@@ -348,7 +348,7 @@ Object.defineProperties(Cesium3DTilePointFeature.prototype, {
   },
 
   /**
-   * Gets or sets the near and far scaling properties for this feature.
+   * 获取或设置near and far scaling properties for this feature.
    *
    * @memberof Cesium3DTilePointFeature.prototype
    *
@@ -365,7 +365,7 @@ Object.defineProperties(Cesium3DTilePointFeature.prototype, {
   },
 
   /**
-   * Gets or sets the near and far translucency properties for this feature.
+   * 获取或设置near and far translucency properties for this feature.
    *
    * @memberof Cesium3DTilePointFeature.prototype
    *
@@ -382,7 +382,7 @@ Object.defineProperties(Cesium3DTilePointFeature.prototype, {
   },
 
   /**
-   * Gets or sets the condition specifying at what distance from the camera that this feature will be displayed.
+   * 获取或设置condition specifying at what distance from the camera that this feature will be displayed.
    *
    * @memberof Cesium3DTilePointFeature.prototype
    *
@@ -400,7 +400,7 @@ Object.defineProperties(Cesium3DTilePointFeature.prototype, {
   },
 
   /**
-   * Gets or sets the height offset in meters of this feature.
+   * 获取或设置height offset in meters of this feature.
    *
    * @memberof Cesium3DTilePointFeature.prototype
    *
@@ -449,7 +449,7 @@ Object.defineProperties(Cesium3DTilePointFeature.prototype, {
   },
 
   /**
-   * Gets or sets the color for the anchor line.
+   * 获取或设置color for the anchor line.
    * <p>
    * Only applied when <code>heightOffset</code> is defined.
    * </p>
@@ -471,7 +471,7 @@ Object.defineProperties(Cesium3DTilePointFeature.prototype, {
   },
 
   /**
-   * Gets or sets the image of this feature.
+   * 获取或设置image of this feature.
    *
    * @memberof Cesium3DTilePointFeature.prototype
    *
@@ -491,7 +491,7 @@ Object.defineProperties(Cesium3DTilePointFeature.prototype, {
   },
 
   /**
-   * Gets or sets the distance where depth testing will be disabled.
+   * 获取或设置distance where depth testing will be disabled.
    *
    * @memberof Cesium3DTilePointFeature.prototype
    *
@@ -508,7 +508,7 @@ Object.defineProperties(Cesium3DTilePointFeature.prototype, {
   },
 
   /**
-   * Gets or sets the horizontal origin of this point, which determines if the point is
+   * 获取或设置horizontal origin of this point, which determines if the point is
    * to the left, center, or right of its anchor position.
    *
    * @memberof Cesium3DTilePointFeature.prototype
@@ -525,7 +525,7 @@ Object.defineProperties(Cesium3DTilePointFeature.prototype, {
   },
 
   /**
-   * Gets or sets the vertical origin of this point, which determines if the point is
+   * 获取或设置vertical origin of this point, which determines if the point is
    * to the bottom, center, or top of its anchor position.
    *
    * @memberof Cesium3DTilePointFeature.prototype
@@ -542,7 +542,7 @@ Object.defineProperties(Cesium3DTilePointFeature.prototype, {
   },
 
   /**
-   * Gets or sets the horizontal origin of this point's text, which determines if the point's text is
+   * 获取或设置horizontal origin of this point's text, which determines if the point's text is
    * to the left, center, or right of its anchor position.
    *
    * @memberof Cesium3DTilePointFeature.prototype

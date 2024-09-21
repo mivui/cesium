@@ -63,7 +63,7 @@ Object.defineProperties(Cesium3DTileFeature.prototype, {
   },
 
   /**
-   * Gets or sets the highlight color multiplied with the feature's color.  When
+   * 获取或设置highlight color multiplied with the feature's color.  When
    * this is white, the feature's color is not changed. This is set for all features
    * when a style's color is evaluated.
    *

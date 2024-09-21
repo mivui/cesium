@@ -139,7 +139,7 @@ Object.defineProperties(Polyline.prototype, {
   },
 
   /**
-   * Gets or sets the positions of the polyline.
+   * 获取或设置positions of the polyline.
    * @memberof Polyline.prototype
    * @type {Cartesian3[]}
    * @example
@@ -195,7 +195,7 @@ Object.defineProperties(Polyline.prototype, {
   },
 
   /**
-   * Gets or sets the surface appearance of the polyline.  This can be one of several built-in {@link Material} objects or a custom material, scripted with
+   * 获取或设置surface appearance of the polyline.  This can be one of several built-in {@link Material} objects or a custom material, scripted with
    * {@link https://github.com/CesiumGS/cesium/wiki/Fabric|Fabric}.
    * @memberof Polyline.prototype
    * @type {Material}
@@ -219,7 +219,7 @@ Object.defineProperties(Polyline.prototype, {
   },
 
   /**
-   * Gets or sets the width of the polyline.
+   * 获取或设置width of the polyline.
    * @memberof Polyline.prototype
    * @type {number}
    */
@@ -288,7 +288,7 @@ Object.defineProperties(Polyline.prototype, {
   },
 
   /**
-   * Gets or sets the user-defined value returned when the polyline is picked.
+   * 获取或设置user-defined value returned when the polyline is picked.
    * @memberof Polyline.prototype
    * @type {*}
    */
@@ -327,7 +327,7 @@ Object.defineProperties(Polyline.prototype, {
   },
 
   /**
-   * Gets or sets the condition specifying at what distance from the camera that this polyline will be displayed.
+   * 获取或设置condition specifying at what distance from the camera that this polyline will be displayed.
    * @memberof Polyline.prototype
    * @type {DistanceDisplayCondition}
    * @default undefined

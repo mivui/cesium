@@ -85,7 +85,7 @@ Object.defineProperties(GridMaterialProperty.prototype, {
   },
 
   /**
-   * Gets or sets the Property specifying the grid {@link Color}.
+   * 获取或设置Property specifying the grid {@link Color}.
    * @memberof GridMaterialProperty.prototype
    * @type {Property|undefined}
    * @default Color.WHITE
@@ -93,7 +93,7 @@ Object.defineProperties(GridMaterialProperty.prototype, {
   color: createPropertyDescriptor("color"),
 
   /**
-   * Gets or sets the numeric Property specifying cell alpha values.
+   * 获取或设置numeric Property specifying cell alpha values.
    * @memberof GridMaterialProperty.prototype
    * @type {Property|undefined}
    * @default 0.1
@@ -101,7 +101,7 @@ Object.defineProperties(GridMaterialProperty.prototype, {
   cellAlpha: createPropertyDescriptor("cellAlpha"),
 
   /**
-   * Gets or sets the {@link Cartesian2} Property specifying the number of grid lines along each axis.
+   * 获取或设置{@link Cartesian2} Property specifying the number of grid lines along each axis.
    * @memberof GridMaterialProperty.prototype
    * @type {Property|undefined}
    * @default new Cartesian2(8.0, 8.0)
@@ -109,7 +109,7 @@ Object.defineProperties(GridMaterialProperty.prototype, {
   lineCount: createPropertyDescriptor("lineCount"),
 
   /**
-   * Gets or sets the {@link Cartesian2} Property specifying the thickness of grid lines along each axis.
+   * 获取或设置{@link Cartesian2} Property specifying the thickness of grid lines along each axis.
    * @memberof GridMaterialProperty.prototype
    * @type {Property|undefined}
    * @default new Cartesian2(1.0, 1.0)
@@ -117,7 +117,7 @@ Object.defineProperties(GridMaterialProperty.prototype, {
   lineThickness: createPropertyDescriptor("lineThickness"),
 
   /**
-   * Gets or sets the {@link Cartesian2} Property specifying the starting offset of grid lines along each axis.
+   * 获取或设置{@link Cartesian2} Property specifying the starting offset of grid lines along each axis.
    * @memberof GridMaterialProperty.prototype
    * @type {Property|undefined}
    * @default new Cartesian2(0.0, 0.0)

@@ -100,7 +100,7 @@ Object.defineProperties(RectangleGraphics.prototype, {
   },
 
   /**
-   * Gets or sets the boolean Property specifying the visibility of the rectangle.
+   * 获取或设置boolean Property specifying the visibility of the rectangle.
    * @memberof RectangleGraphics.prototype
    * @type {Property|undefined}
    * @default true
@@ -108,14 +108,14 @@ Object.defineProperties(RectangleGraphics.prototype, {
   show: createPropertyDescriptor("show"),
 
   /**
-   * Gets or sets the Property specifying the {@link Rectangle}.
+   * 获取或设置Property specifying the {@link Rectangle}.
    * @memberof RectangleGraphics.prototype
    * @type {Property|undefined}
    */
   coordinates: createPropertyDescriptor("coordinates"),
 
   /**
-   * Gets or sets the numeric Property specifying the altitude of the rectangle.
+   * 获取或设置numeric Property specifying the altitude of the rectangle.
    * @memberof RectangleGraphics.prototype
    * @type {Property|undefined}
    * @default 0.0
@@ -123,7 +123,7 @@ Object.defineProperties(RectangleGraphics.prototype, {
   height: createPropertyDescriptor("height"),
 
   /**
-   * Gets or sets the Property specifying the {@link HeightReference}.
+   * 获取或设置Property specifying the {@link HeightReference}.
    * @memberof RectangleGraphics.prototype
    * @type {Property|undefined}
    * @default HeightReference.NONE
@@ -131,7 +131,7 @@ Object.defineProperties(RectangleGraphics.prototype, {
   heightReference: createPropertyDescriptor("heightReference"),
 
   /**
-   * Gets or sets the numeric Property specifying the altitude of the rectangle extrusion.
+   * 获取或设置numeric Property specifying the altitude of the rectangle extrusion.
    * Setting this property creates volume starting at height and ending at this altitude.
    * @memberof RectangleGraphics.prototype
    * @type {Property|undefined}
@@ -139,7 +139,7 @@ Object.defineProperties(RectangleGraphics.prototype, {
   extrudedHeight: createPropertyDescriptor("extrudedHeight"),
 
   /**
-   * Gets or sets the Property specifying the extruded {@link HeightReference}.
+   * 获取或设置Property specifying the extruded {@link HeightReference}.
    * @memberof RectangleGraphics.prototype
    * @type {Property|undefined}
    * @default HeightReference.NONE
@@ -147,7 +147,7 @@ Object.defineProperties(RectangleGraphics.prototype, {
   extrudedHeightReference: createPropertyDescriptor("extrudedHeightReference"),
 
   /**
-   * Gets or sets the numeric property specifying the rotation of the rectangle clockwise from north.
+   * 获取或设置numeric property specifying the rotation of the rectangle clockwise from north.
    * @memberof RectangleGraphics.prototype
    * @type {Property|undefined}
    * @default 0
@@ -155,7 +155,7 @@ Object.defineProperties(RectangleGraphics.prototype, {
   rotation: createPropertyDescriptor("rotation"),
 
   /**
-   * Gets or sets the numeric property specifying the rotation of the rectangle texture counter-clockwise from north.
+   * 获取或设置numeric property specifying the rotation of the rectangle texture counter-clockwise from north.
    * @memberof RectangleGraphics.prototype
    * @type {Property|undefined}
    * @default 0
@@ -163,7 +163,7 @@ Object.defineProperties(RectangleGraphics.prototype, {
   stRotation: createPropertyDescriptor("stRotation"),
 
   /**
-   * Gets or sets the numeric Property specifying the angular distance between points on the rectangle.
+   * 获取或设置numeric Property specifying the angular distance between points on the rectangle.
    * @memberof RectangleGraphics.prototype
    * @type {Property|undefined}
    * @default {CesiumMath.RADIANS_PER_DEGREE}
@@ -171,7 +171,7 @@ Object.defineProperties(RectangleGraphics.prototype, {
   granularity: createPropertyDescriptor("granularity"),
 
   /**
-   * Gets or sets the boolean Property specifying whether the rectangle is filled with the provided material.
+   * 获取或设置boolean Property specifying whether the rectangle is filled with the provided material.
    * @memberof RectangleGraphics.prototype
    * @type {Property|undefined}
    * @default true
@@ -179,7 +179,7 @@ Object.defineProperties(RectangleGraphics.prototype, {
   fill: createPropertyDescriptor("fill"),
 
   /**
-   * Gets or sets the Property specifying the material used to fill the rectangle.
+   * 获取或设置Property specifying the material used to fill the rectangle.
    * @memberof RectangleGraphics.prototype
    * @type {MaterialProperty}
    * @default Color.WHITE
@@ -187,7 +187,7 @@ Object.defineProperties(RectangleGraphics.prototype, {
   material: createMaterialPropertyDescriptor("material"),
 
   /**
-   * Gets or sets the Property specifying whether the rectangle is outlined.
+   * 获取或设置Property specifying whether the rectangle is outlined.
    * @memberof RectangleGraphics.prototype
    * @type {Property|undefined}
    * @default false
@@ -195,7 +195,7 @@ Object.defineProperties(RectangleGraphics.prototype, {
   outline: createPropertyDescriptor("outline"),
 
   /**
-   * Gets or sets the Property specifying the {@link Color} of the outline.
+   * 获取或设置Property specifying the {@link Color} of the outline.
    * @memberof RectangleGraphics.prototype
    * @type {Property|undefined}
    * @default Color.BLACK
@@ -203,7 +203,7 @@ Object.defineProperties(RectangleGraphics.prototype, {
   outlineColor: createPropertyDescriptor("outlineColor"),
 
   /**
-   * Gets or sets the numeric Property specifying the width of the outline.
+   * 获取或设置numeric Property specifying the width of the outline.
    * <p>
    * Note: This property will be ignored on all major browsers on Windows platforms. For details, see (@link https://github.com/CesiumGS/cesium/issues/40}.
    * </p>
@@ -223,7 +223,7 @@ Object.defineProperties(RectangleGraphics.prototype, {
   shadows: createPropertyDescriptor("shadows"),
 
   /**
-   * Gets or sets the {@link DistanceDisplayCondition} Property specifying at what distance from the camera that this rectangle will be displayed.
+   * 获取或设置{@link DistanceDisplayCondition} Property specifying at what distance from the camera that this rectangle will be displayed.
    * @memberof RectangleGraphics.prototype
    * @type {Property|undefined}
    */
@@ -232,7 +232,7 @@ Object.defineProperties(RectangleGraphics.prototype, {
   ),
 
   /**
-   * Gets or sets the {@link ClassificationType} Property specifying whether this rectangle will classify terrain, 3D Tiles, or both when on the ground.
+   * 获取或设置{@link ClassificationType} Property specifying whether this rectangle will classify terrain, 3D Tiles, or both when on the ground.
    * @memberof RectangleGraphics.prototype
    * @type {Property|undefined}
    * @default ClassificationType.BOTH
@@ -240,7 +240,7 @@ Object.defineProperties(RectangleGraphics.prototype, {
   classificationType: createPropertyDescriptor("classificationType"),
 
   /**
-   * Gets or sets the zIndex Property specifying the ordering of the rectangle.  Only has an effect if the rectangle is constant and neither height or extrudedHeight are specified.
+   * 获取或设置zIndex Property specifying the ordering of the rectangle.  Only has an effect if the rectangle is constant and neither height or extrudedHeight are specified.
    * @memberof RectangleGraphics.prototype
    * @type {ConstantProperty|undefined}
    * @default 0

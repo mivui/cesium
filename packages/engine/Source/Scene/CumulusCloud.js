@@ -108,7 +108,7 @@ Object.defineProperties(CumulusCloud.prototype, {
   },
 
   /**
-   * Gets or sets the Cartesian position of this cumulus cloud.
+   * 获取或设置Cartesian position of this cumulus cloud.
    * @memberof CumulusCloud.prototype
    * @type {Cartesian3}
    */
@@ -314,7 +314,7 @@ Object.defineProperties(CumulusCloud.prototype, {
   },
 
   /**
-   * Gets or sets the brightness of the cloud. This can be used to give clouds
+   * 获取或设置brightness of the cloud. This can be used to give clouds
    * a darker, grayer appearance.
    * <br /><br />
    * <div align='center'>

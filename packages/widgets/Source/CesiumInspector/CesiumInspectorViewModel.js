@@ -55,11 +55,11 @@ const scratchPickRay = new Ray();
 const scratchPickCartesian = new Cartesian3();
 
 /**
- * The view model for {@link CesiumInspector}.
+ * 视图模型 {@link CesiumInspector}.
  * @alias CesiumInspectorViewModel
  * @constructor
  *
- * @param {Scene} scene The scene instance to use.
+ * @param {Scene} scene 要使用的场景实例。
  * @param {Element} performanceContainer The instance to use for performance container.
  */
 function CesiumInspectorViewModel(scene, performanceContainer) {
@@ -89,77 +89,77 @@ function CesiumInspectorViewModel(scene, performanceContainer) {
   globe.depthTestAgainstTerrain = true;
 
   /**
-   * Gets or sets the show frustums state.  这个属性是可观察的。
+   * 获取或设置show frustums state.  这个属性是可观察的。
    * @type {boolean}
    * @default false
    */
   this.frustums = false;
 
   /**
-   * Gets or sets the show frustum planes state.  这个属性是可观察的。
+   * 获取或设置show frustum planes state.  这个属性是可观察的。
    * @type {boolean}
    * @default false
    */
   this.frustumPlanes = false;
 
   /**
-   * Gets or sets the show performance display state.  这个属性是可观察的。
+   * 获取或设置show performance display state.  这个属性是可观察的。
    * @type {boolean}
    * @default false
    */
   this.performance = false;
 
   /**
-   * Gets or sets the shader cache text.  这个属性是可观察的。
+   * 获取或设置shader cache text.  这个属性是可观察的。
    * @type {string}
    * @default ''
    */
   this.shaderCacheText = "";
 
   /**
-   * Gets or sets the show primitive bounding sphere state.  这个属性是可观察的。
+   * 获取或设置show primitive bounding sphere state.  这个属性是可观察的。
    * @type {boolean}
    * @default false
    */
   this.primitiveBoundingSphere = false;
 
   /**
-   * Gets or sets the show primitive reference frame state.  这个属性是可观察的。
+   * 获取或设置show primitive reference frame state.  这个属性是可观察的。
    * @type {boolean}
    * @default false
    */
   this.primitiveReferenceFrame = false;
 
   /**
-   * Gets or sets the filter primitive state.  这个属性是可观察的。
+   * 获取或设置filter primitive state.  这个属性是可观察的。
    * @type {boolean}
    * @default false
    */
   this.filterPrimitive = false;
 
   /**
-   * Gets or sets the show tile bounding sphere state.  这个属性是可观察的。
+   * 获取或设置show tile bounding sphere state.  这个属性是可观察的。
    * @type {boolean}
    * @default false
    */
   this.tileBoundingSphere = false;
 
   /**
-   * Gets or sets the filter tile state.  这个属性是可观察的。
+   * 获取或设置filter tile state.  这个属性是可观察的。
    * @type {boolean}
    * @default false
    */
   this.filterTile = false;
 
   /**
-   * Gets or sets the show wireframe state.  这个属性是可观察的。
+   * 获取或设置show wireframe state.  这个属性是可观察的。
    * @type {boolean}
    * @default false
    */
   this.wireframe = false;
 
   /**
-   * Gets or sets the index of the depth frustum to display.  这个属性是可观察的。
+   * 获取或设置index of the depth frustum to display.  这个属性是可观察的。
    * @type {number}
    * @default 1
    */
@@ -167,28 +167,28 @@ function CesiumInspectorViewModel(scene, performanceContainer) {
   this._numberOfFrustums = 1;
 
   /**
-   * Gets or sets the suspend updates state.  这个属性是可观察的。
+   * 获取或设置suspend updates state.  这个属性是可观察的。
    * @type {boolean}
    * @default false
    */
   this.suspendUpdates = false;
 
   /**
-   * Gets or sets the show tile coordinates state.  这个属性是可观察的。
+   * 获取或设置show tile coordinates state.  这个属性是可观察的。
    * @type {boolean}
    * @default false
    */
   this.tileCoordinates = false;
 
   /**
-   * Gets or sets the frustum statistic text.  这个属性是可观察的。
+   * 获取或设置frustum statistic text.  这个属性是可观察的。
    * @type {string}
    * @default ''
    */
   this.frustumStatisticText = false;
 
   /**
-   * Gets or sets the selected tile information text.  这个属性是可观察的。
+   * 获取或设置selected tile information text.  这个属性是可观察的。
    * @type {string}
    * @default ''
    */
@@ -202,7 +202,7 @@ function CesiumInspectorViewModel(scene, performanceContainer) {
   this.hasPickedPrimitive = false;
 
   /**
-   * Gets if a tile has been selected.  This property is observable
+   * Gets if a tile has been selected.  这个属性是可观察的
    * @type {boolean}
    * @default false
    */
@@ -251,7 +251,7 @@ function CesiumInspectorViewModel(scene, performanceContainer) {
   this.terrainVisible = false;
 
   /**
-   * Gets or sets the index of the depth frustum text.  这个属性是可观察的。
+   * 获取或设置index of the depth frustum text.  这个属性是可观察的。
    * @type {string}
    * @default ''
    */
@@ -582,7 +582,7 @@ function CesiumInspectorViewModel(scene, performanceContainer) {
 
 Object.defineProperties(CesiumInspectorViewModel.prototype, {
   /**
-   * Gets the scene to control.
+   * 得到场景 to control.
    * @memberof CesiumInspectorViewModel.prototype
    *
    * @type {Scene}
@@ -849,7 +849,7 @@ Object.defineProperties(CesiumInspectorViewModel.prototype, {
   },
 
   /**
-   * Gets or sets the current selected primitive
+   * 获取或设置current selected primitive
    * @memberof CesiumInspectorViewModel.prototype
    *
    * @type {Command}
@@ -883,7 +883,7 @@ Object.defineProperties(CesiumInspectorViewModel.prototype, {
   },
 
   /**
-   * Gets or sets the current selected tile
+   * 获取或设置current selected tile
    * @memberof CesiumInspectorViewModel.prototype
    *
    * @type {Command}

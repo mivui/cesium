@@ -145,7 +145,7 @@ DataSourceDisplay.unregisterVisualizer = function (visualizer) {
 };
 
 /**
- * Gets or sets the default function which creates an array of visualizers used for visualization.
+ * 获取或设置default function which creates an array of visualizers used for visualization.
  * By default, this function uses all standard visualizers.
  *
  * @type {DataSourceDisplay.VisualizersCallback}
@@ -183,7 +183,7 @@ DataSourceDisplay.defaultVisualizersCallback = function (
 
 Object.defineProperties(DataSourceDisplay.prototype, {
   /**
-   * Gets the scene associated with this display.
+   * 得到场景 associated with this display.
    * @memberof DataSourceDisplay.prototype
    * @type {Scene}
    */

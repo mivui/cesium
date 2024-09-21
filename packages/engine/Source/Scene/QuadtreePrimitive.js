@@ -102,7 +102,7 @@ function QuadtreePrimitive(options) {
   this._cameraReferenceFrameOriginCartographic = undefined;
 
   /**
-   * Gets or sets the maximum screen-space error, in pixels, that is allowed.
+   * 获取或设置maximum screen-space error, in pixels, that is allowed.
    * A higher maximum error will render fewer tiles and improve performance, while a lower
    * value will improve visual quality.
    * @type {number}
@@ -114,7 +114,7 @@ function QuadtreePrimitive(options) {
   );
 
   /**
-   * Gets or sets the maximum number of tiles that will be retained in the tile cache.
+   * 获取或设置maximum number of tiles that will be retained in the tile cache.
    * Note that tiles will never be unloaded if they were used for rendering the last
    * frame, so the actual number of resident tiles may be higher.  The value of
    * this property will not affect visual quality.
@@ -124,7 +124,7 @@ function QuadtreePrimitive(options) {
   this.tileCacheSize = defaultValue(options.tileCacheSize, 100);
 
   /**
-   * Gets or sets the number of loading descendant tiles that is considered "too many".
+   * 获取或设置number of loading descendant tiles that is considered "too many".
    * If a tile has too many loading descendants, that tile will be loaded and rendered before any of
    * its descendants are loaded and rendered. This means more feedback for the user that something
    * is happening at the cost of a longer overall load time. Setting this to 0 will cause each

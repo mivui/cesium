@@ -38,7 +38,7 @@ Object.defineProperties(DataSourceClock.prototype, {
   },
 
   /**
-   * Gets or sets the desired start time of the clock.
+   * 获取或设置desired start time of the clock.
    * See {@link Clock#startTime}.
    * @memberof DataSourceClock.prototype
    * @type {JulianDate}
@@ -46,7 +46,7 @@ Object.defineProperties(DataSourceClock.prototype, {
   startTime: createRawPropertyDescriptor("startTime"),
 
   /**
-   * Gets or sets the desired stop time of the clock.
+   * 获取或设置desired stop time of the clock.
    * See {@link Clock#stopTime}.
    * @memberof DataSourceClock.prototype
    * @type {JulianDate}
@@ -54,7 +54,7 @@ Object.defineProperties(DataSourceClock.prototype, {
   stopTime: createRawPropertyDescriptor("stopTime"),
 
   /**
-   * Gets or sets the desired current time when this data source is loaded.
+   * 获取或设置desired current time when this data source is loaded.
    * See {@link Clock#currentTime}.
    * @memberof DataSourceClock.prototype
    * @type {JulianDate}
@@ -62,7 +62,7 @@ Object.defineProperties(DataSourceClock.prototype, {
   currentTime: createRawPropertyDescriptor("currentTime"),
 
   /**
-   * Gets or sets the desired clock range setting.
+   * 获取或设置desired clock range setting.
    * See {@link Clock#clockRange}.
    * @memberof DataSourceClock.prototype
    * @type {ClockRange}
@@ -70,7 +70,7 @@ Object.defineProperties(DataSourceClock.prototype, {
   clockRange: createRawPropertyDescriptor("clockRange"),
 
   /**
-   * Gets or sets the desired clock step setting.
+   * 获取或设置desired clock step setting.
    * See {@link Clock#clockStep}.
    * @memberof DataSourceClock.prototype
    * @type {ClockStep}
@@ -78,7 +78,7 @@ Object.defineProperties(DataSourceClock.prototype, {
   clockStep: createRawPropertyDescriptor("clockStep"),
 
   /**
-   * Gets or sets the desired clock multiplier.
+   * 获取或设置desired clock multiplier.
    * See {@link Clock#multiplier}.
    * @memberof DataSourceClock.prototype
    * @type {number}

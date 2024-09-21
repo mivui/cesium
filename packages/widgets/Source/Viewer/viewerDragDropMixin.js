@@ -81,7 +81,7 @@ function viewerDragDropMixin(viewer, options) {
 
   Object.defineProperties(viewer, {
     /**
-     * Gets or sets the element to serve as the drop target.
+     * 获取或设置element to serve as the drop target.
      * @memberof viewerDragDropMixin.prototype
      * @type {Element}
      */
@@ -164,7 +164,7 @@ function viewerDragDropMixin(viewer, options) {
     },
 
     /**
-     * Gets or sets the proxy to be used for KML.
+     * 获取或设置proxy to be used for KML.
      * @memberof viewerDragDropMixin.prototype
      * @type {Proxy}
      */

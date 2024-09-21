@@ -72,7 +72,7 @@ Object.defineProperties(PlaneGraphics.prototype, {
   },
 
   /**
-   * Gets or sets the boolean Property specifying the visibility of the plane.
+   * 获取或设置boolean Property specifying the visibility of the plane.
    * @memberof PlaneGraphics.prototype
    * @type {Property|undefined}
    * @default true
@@ -80,7 +80,7 @@ Object.defineProperties(PlaneGraphics.prototype, {
   show: createPropertyDescriptor("show"),
 
   /**
-   * Gets or sets the {@link Plane} Property specifying the normal and distance of the plane.
+   * 获取或设置{@link Plane} Property specifying the normal and distance of the plane.
    *
    * @memberof PlaneGraphics.prototype
    * @type {Property|undefined}
@@ -88,7 +88,7 @@ Object.defineProperties(PlaneGraphics.prototype, {
   plane: createPropertyDescriptor("plane"),
 
   /**
-   * Gets or sets the {@link Cartesian2} Property specifying the width and height of the plane.
+   * 获取或设置{@link Cartesian2} Property specifying the width and height of the plane.
    *
    * @memberof PlaneGraphics.prototype
    * @type {Property|undefined}
@@ -96,7 +96,7 @@ Object.defineProperties(PlaneGraphics.prototype, {
   dimensions: createPropertyDescriptor("dimensions"),
 
   /**
-   * Gets or sets the boolean Property specifying whether the plane is filled with the provided material.
+   * 获取或设置boolean Property specifying whether the plane is filled with the provided material.
    * @memberof PlaneGraphics.prototype
    * @type {Property|undefined}
    * @default true
@@ -104,7 +104,7 @@ Object.defineProperties(PlaneGraphics.prototype, {
   fill: createPropertyDescriptor("fill"),
 
   /**
-   * Gets or sets the material used to fill the plane.
+   * 获取或设置material used to fill the plane.
    * @memberof PlaneGraphics.prototype
    * @type {MaterialProperty}
    * @default Color.WHITE
@@ -112,7 +112,7 @@ Object.defineProperties(PlaneGraphics.prototype, {
   material: createMaterialPropertyDescriptor("material"),
 
   /**
-   * Gets or sets the Property specifying whether the plane is outlined.
+   * 获取或设置Property specifying whether the plane is outlined.
    * @memberof PlaneGraphics.prototype
    * @type {Property|undefined}
    * @default false
@@ -120,7 +120,7 @@ Object.defineProperties(PlaneGraphics.prototype, {
   outline: createPropertyDescriptor("outline"),
 
   /**
-   * Gets or sets the Property specifying the {@link Color} of the outline.
+   * 获取或设置Property specifying the {@link Color} of the outline.
    * @memberof PlaneGraphics.prototype
    * @type {Property|undefined}
    * @default Color.BLACK
@@ -128,7 +128,7 @@ Object.defineProperties(PlaneGraphics.prototype, {
   outlineColor: createPropertyDescriptor("outlineColor"),
 
   /**
-   * Gets or sets the numeric Property specifying the width of the outline.
+   * 获取或设置numeric Property specifying the width of the outline.
    * <p>
    * Note: This property will be ignored on all major browsers on Windows platforms. For details, see (@link https://github.com/CesiumGS/cesium/issues/40}.
    * </p>
@@ -148,7 +148,7 @@ Object.defineProperties(PlaneGraphics.prototype, {
   shadows: createPropertyDescriptor("shadows"),
 
   /**
-   * Gets or sets the {@link DistanceDisplayCondition} Property specifying at what distance from the camera that this plane will be displayed.
+   * 获取或设置{@link DistanceDisplayCondition} Property specifying at what distance from the camera that this plane will be displayed.
    * @memberof PlaneGraphics.prototype
    * @type {Property|undefined}
    */

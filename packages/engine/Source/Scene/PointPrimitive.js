@@ -175,7 +175,7 @@ Object.defineProperties(PointPrimitive.prototype, {
   },
 
   /**
-   * Gets or sets the Cartesian position of this point.
+   * 获取或设置Cartesian position of this point.
    * @memberof PointPrimitive.prototype
    * @type {Cartesian3}
    */
@@ -291,7 +291,7 @@ Object.defineProperties(PointPrimitive.prototype, {
   },
 
   /**
-   * Gets or sets the inner size of the point in pixels.
+   * 获取或设置inner size of the point in pixels.
    * @memberof PointPrimitive.prototype
    * @type {number}
    */
@@ -314,7 +314,7 @@ Object.defineProperties(PointPrimitive.prototype, {
   },
 
   /**
-   * Gets or sets the inner color of the point.
+   * 获取或设置inner color of the point.
    * The red, green, blue, and alpha values are indicated by <code>value</code>'s <code>red</code>, <code>green</code>,
    * <code>blue</code>, and <code>alpha</code> properties as shown in Example 1.  These components range from <code>0.0</code>
    * (no intensity) to <code>1.0</code> (full intensity).
@@ -349,7 +349,7 @@ Object.defineProperties(PointPrimitive.prototype, {
   },
 
   /**
-   * Gets or sets the outline color of the point.
+   * 获取或设置outline color of the point.
    * @memberof PointPrimitive.prototype
    * @type {Color}
    */
@@ -373,7 +373,7 @@ Object.defineProperties(PointPrimitive.prototype, {
   },
 
   /**
-   * Gets or sets the outline width in pixels.  This width adds to pixelSize,
+   * 获取或设置outline width in pixels.  This width adds to pixelSize,
    * increasing the total size of the point.
    * @memberof PointPrimitive.prototype
    * @type {number}
@@ -397,7 +397,7 @@ Object.defineProperties(PointPrimitive.prototype, {
   },
 
   /**
-   * Gets or sets the condition specifying at what distance from the camera that this point will be displayed.
+   * 获取或设置condition specifying at what distance from the camera that this point will be displayed.
    * @memberof PointPrimitive.prototype
    * @type {DistanceDisplayCondition}
    * @default undefined
@@ -425,7 +425,7 @@ Object.defineProperties(PointPrimitive.prototype, {
   },
 
   /**
-   * Gets or sets the distance from the camera at which to disable the depth test to, for example, prevent clipping against terrain.
+   * 获取或设置distance from the camera at which to disable the depth test to, for example, prevent clipping against terrain.
    * When set to zero, the depth test is always applied. When set to Number.POSITIVE_INFINITY, the depth test is never applied.
    * @memberof PointPrimitive.prototype
    * @type {number}
@@ -451,7 +451,7 @@ Object.defineProperties(PointPrimitive.prototype, {
   },
 
   /**
-   * Gets or sets the user-defined value returned when the point is picked.
+   * 获取或设置user-defined value returned when the point is picked.
    * @memberof PointPrimitive.prototype
    * @type {*}
    */

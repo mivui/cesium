@@ -178,7 +178,7 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
   },
 
   /**
-   * Gets or sets the {@link StyleExpression} object used to evaluate the style's <code>show</code> property. Alternatively a boolean, string, or object defining a show style can be used.
+   * 获取或设置{@link StyleExpression} object used to evaluate the style's <code>show</code> property. Alternatively a boolean, string, or object defining a show style can be used.
    * The getter will return the internal {@link Expression} or {@link ConditionsExpression}, which may differ from the value provided to the setter.
    * <p>
    * The expression must return or convert to a <code>Boolean</code>.
@@ -240,7 +240,7 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
   },
 
   /**
-   * Gets or sets the {@link StyleExpression} object used to evaluate the style's <code>color</code> property. Alternatively a string or object defining a color style can be used.
+   * 获取或设置{@link StyleExpression} object used to evaluate the style's <code>color</code> property. Alternatively a string or object defining a color style can be used.
    * The getter will return the internal {@link Expression} or {@link ConditionsExpression}, which may differ from the value provided to the setter.
    * <p>
    * The expression must return a <code>Color</code>.
@@ -295,7 +295,7 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
   },
 
   /**
-   * Gets or sets the {@link StyleExpression} object used to evaluate the style's <code>pointSize</code> property. Alternatively a string or object defining a point size style can be used.
+   * 获取或设置{@link StyleExpression} object used to evaluate the style's <code>pointSize</code> property. Alternatively a string or object defining a point size style can be used.
    * The getter will return the internal {@link Expression} or {@link ConditionsExpression}, which may differ from the value provided to the setter.
    * <p>
    * The expression must return a <code>Number</code>.
@@ -355,7 +355,7 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
   },
 
   /**
-   * Gets or sets the {@link StyleExpression} object used to evaluate the style's <code>pointOutlineColor</code> property. Alternatively a string or object defining a color style can be used.
+   * 获取或设置{@link StyleExpression} object used to evaluate the style's <code>pointOutlineColor</code> property. Alternatively a string or object defining a color style can be used.
    * The getter will return the internal {@link Expression} or {@link ConditionsExpression}, which may differ from the value provided to the setter.
    * <p>
    * The expression must return a <code>Color</code>.
@@ -398,7 +398,7 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
   },
 
   /**
-   * Gets or sets the {@link StyleExpression} object used to evaluate the style's <code>pointOutlineWidth</code> property. Alternatively a string or object defining a number style can be used.
+   * 获取或设置{@link StyleExpression} object used to evaluate the style's <code>pointOutlineWidth</code> property. Alternatively a string or object defining a number style can be used.
    * The getter will return the internal {@link Expression} or {@link ConditionsExpression}, which may differ from the value provided to the setter.
    * <p>
    * The expression must return a <code>Number</code>.
@@ -441,7 +441,7 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
   },
 
   /**
-   * Gets or sets the {@link StyleExpression} object used to evaluate the style's <code>labelColor</code> property. Alternatively a string or object defining a color style can be used.
+   * 获取或设置{@link StyleExpression} object used to evaluate the style's <code>labelColor</code> property. Alternatively a string or object defining a color style can be used.
    * The getter will return the internal {@link Expression} or {@link ConditionsExpression}, which may differ from the value provided to the setter.
    * <p>
    * The expression must return a <code>Color</code>.
@@ -482,7 +482,7 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
   },
 
   /**
-   * Gets or sets the {@link StyleExpression} object used to evaluate the style's <code>labelOutlineColor</code> property. Alternatively a string or object defining a color style can be used.
+   * 获取或设置{@link StyleExpression} object used to evaluate the style's <code>labelOutlineColor</code> property. Alternatively a string or object defining a color style can be used.
    * The getter will return the internal {@link Expression} or {@link ConditionsExpression}, which may differ from the value provided to the setter.
    * <p>
    * The expression must return a <code>Color</code>.
@@ -525,7 +525,7 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
   },
 
   /**
-   * Gets or sets the {@link StyleExpression} object used to evaluate the style's <code>labelOutlineWidth</code> property. Alternatively a string or object defining a number style can be used.
+   * 获取或设置{@link StyleExpression} object used to evaluate the style's <code>labelOutlineWidth</code> property. Alternatively a string or object defining a number style can be used.
    * The getter will return the internal {@link Expression} or {@link ConditionsExpression}, which may differ from the value provided to the setter.
    * <p>
    * The expression must return a <code>Number</code>.
@@ -568,7 +568,7 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
   },
 
   /**
-   * Gets or sets the {@link StyleExpression} object used to evaluate the style's <code>font</code> property. Alternatively a string or object defining a string style can be used.
+   * 获取或设置{@link StyleExpression} object used to evaluate the style's <code>font</code> property. Alternatively a string or object defining a string style can be used.
    * The getter will return the internal {@link Expression} or {@link ConditionsExpression}, which may differ from the value provided to the setter.
    * <p>
    * The expression must return a <code>String</code>.
@@ -609,7 +609,7 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
   },
 
   /**
-   * Gets or sets the {@link StyleExpression} object used to evaluate the style's <code>label style</code> property. Alternatively a string or object defining a number style can be used.
+   * 获取或设置{@link StyleExpression} object used to evaluate the style's <code>label style</code> property. Alternatively a string or object defining a number style can be used.
    * The getter will return the internal {@link Expression} or {@link ConditionsExpression}, which may differ from the value provided to the setter.
    * <p>
    * The expression must return a <code>LabelStyle</code>.
@@ -650,7 +650,7 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
   },
 
   /**
-   * Gets or sets the {@link StyleExpression} object used to evaluate the style's <code>labelText</code> property. Alternatively a string or object defining a string style can be used.
+   * 获取或设置{@link StyleExpression} object used to evaluate the style's <code>labelText</code> property. Alternatively a string or object defining a string style can be used.
    * The getter will return the internal {@link Expression} or {@link ConditionsExpression}, which may differ from the value provided to the setter.
    * <p>
    * The expression must return a <code>String</code>.
@@ -691,7 +691,7 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
   },
 
   /**
-   * Gets or sets the {@link StyleExpression} object used to evaluate the style's <code>backgroundColor</code> property. Alternatively a string or object defining a color style can be used.
+   * 获取或设置{@link StyleExpression} object used to evaluate the style's <code>backgroundColor</code> property. Alternatively a string or object defining a color style can be used.
    * The getter will return the internal {@link Expression} or {@link ConditionsExpression}, which may differ from the value provided to the setter.
    * <p>
    * The expression must return a <code>Color</code>.
@@ -734,7 +734,7 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
   },
 
   /**
-   * Gets or sets the {@link StyleExpression} object used to evaluate the style's <code>backgroundPadding</code> property. Alternatively a string or object defining a vec2 style can be used.
+   * 获取或设置{@link StyleExpression} object used to evaluate the style's <code>backgroundPadding</code> property. Alternatively a string or object defining a vec2 style can be used.
    * The getter will return the internal {@link Expression} or {@link ConditionsExpression}, which may differ from the value provided to the setter.
    * <p>
    * The expression must return a <code>Cartesian2</code>.
@@ -768,7 +768,7 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
   },
 
   /**
-   * Gets or sets the {@link StyleExpression} object used to evaluate the style's <code>backgroundEnabled</code> property. Alternatively a string or object defining a boolean style can be used.
+   * 获取或设置{@link StyleExpression} object used to evaluate the style's <code>backgroundEnabled</code> property. Alternatively a string or object defining a boolean style can be used.
    * The getter will return the internal {@link Expression} or {@link ConditionsExpression}, which may differ from the value provided to the setter.
    * <p>
    * The expression must return a <code>Boolean</code>.
@@ -811,7 +811,7 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
   },
 
   /**
-   * Gets or sets the {@link StyleExpression} object used to evaluate the style's <code>scaleByDistance</code> property. Alternatively a string or object defining a vec4 style can be used.
+   * 获取或设置{@link StyleExpression} object used to evaluate the style's <code>scaleByDistance</code> property. Alternatively a string or object defining a vec4 style can be used.
    * The getter will return the internal {@link Expression} or {@link ConditionsExpression}, which may differ from the value provided to the setter.
    * <p>
    * The expression must return a <code>Cartesian4</code>.
@@ -845,7 +845,7 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
   },
 
   /**
-   * Gets or sets the {@link StyleExpression} object used to evaluate the style's <code>translucencyByDistance</code> property. Alternatively a string or object defining a vec4 style can be used.
+   * 获取或设置{@link StyleExpression} object used to evaluate the style's <code>translucencyByDistance</code> property. Alternatively a string or object defining a vec4 style can be used.
    * The getter will return the internal {@link Expression} or {@link ConditionsExpression}, which may differ from the value provided to the setter.
    * <p>
    * The expression must return a <code>Cartesian4</code>.
@@ -879,7 +879,7 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
   },
 
   /**
-   * Gets or sets the {@link StyleExpression} object used to evaluate the style's <code>distanceDisplayCondition</code> property. Alternatively a string or object defining a vec2 style can be used.
+   * 获取或设置{@link StyleExpression} object used to evaluate the style's <code>distanceDisplayCondition</code> property. Alternatively a string or object defining a vec2 style can be used.
    * The getter will return the internal {@link Expression} or {@link ConditionsExpression}, which may differ from the value provided to the setter.
    * <p>
    * The expression must return a <code>Cartesian2</code>.
@@ -913,7 +913,7 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
   },
 
   /**
-   * Gets or sets the {@link StyleExpression} object used to evaluate the style's <code>heightOffset</code> property. Alternatively a string or object defining a number style can be used.
+   * 获取或设置{@link StyleExpression} object used to evaluate the style's <code>heightOffset</code> property. Alternatively a string or object defining a number style can be used.
    * The getter will return the internal {@link Expression} or {@link ConditionsExpression}, which may differ from the value provided to the setter.
    * <p>
    * The expression must return a <code>Number</code>.
@@ -954,7 +954,7 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
   },
 
   /**
-   * Gets or sets the {@link StyleExpression} object used to evaluate the style's <code>anchorLineEnabled</code> property. Alternatively a string or object defining a boolean style can be used.
+   * 获取或设置{@link StyleExpression} object used to evaluate the style's <code>anchorLineEnabled</code> property. Alternatively a string or object defining a boolean style can be used.
    * The getter will return the internal {@link Expression} or {@link ConditionsExpression}, which may differ from the value provided to the setter.
    * <p>
    * The expression must return a <code>Boolean</code>.
@@ -997,7 +997,7 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
   },
 
   /**
-   * Gets or sets the {@link StyleExpression} object used to evaluate the style's <code>anchorLineColor</code> property. Alternatively a string or object defining a color style can be used.
+   * 获取或设置{@link StyleExpression} object used to evaluate the style's <code>anchorLineColor</code> property. Alternatively a string or object defining a color style can be used.
    * The getter will return the internal {@link Expression} or {@link ConditionsExpression}, which may differ from the value provided to the setter.
    * <p>
    * The expression must return a <code>Color</code>.
@@ -1040,7 +1040,7 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
   },
 
   /**
-   * Gets or sets the {@link StyleExpression} object used to evaluate the style's <code>image</code> property. Alternatively a string or object defining a string style can be used.
+   * 获取或设置{@link StyleExpression} object used to evaluate the style's <code>image</code> property. Alternatively a string or object defining a string style can be used.
    * The getter will return the internal {@link Expression} or {@link ConditionsExpression}, which may differ from the value provided to the setter.
    * <p>
    * The expression must return a <code>String</code>.
@@ -1081,7 +1081,7 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
   },
 
   /**
-   * Gets or sets the {@link StyleExpression} object used to evaluate the style's <code>disableDepthTestDistance</code> property. Alternatively a string or object defining a number style can be used.
+   * 获取或设置{@link StyleExpression} object used to evaluate the style's <code>disableDepthTestDistance</code> property. Alternatively a string or object defining a number style can be used.
    * The getter will return the internal {@link Expression} or {@link ConditionsExpression}, which may differ from the value provided to the setter.
    * <p>
    * The expression must return a <code>Number</code>.
@@ -1115,7 +1115,7 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
   },
 
   /**
-   * Gets or sets the {@link StyleExpression} object used to evaluate the style's <code>horizontalOrigin</code> property. Alternatively a string or object defining a number style can be used.
+   * 获取或设置{@link StyleExpression} object used to evaluate the style's <code>horizontalOrigin</code> property. Alternatively a string or object defining a number style can be used.
    * The getter will return the internal {@link Expression} or {@link ConditionsExpression}, which may differ from the value provided to the setter.
    * <p>
    * The expression must return a <code>HorizontalOrigin</code>.
@@ -1158,7 +1158,7 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
   },
 
   /**
-   * Gets or sets the {@link StyleExpression} object used to evaluate the style's <code>verticalOrigin</code> property. Alternatively a string or object defining a number style can be used.
+   * 获取或设置{@link StyleExpression} object used to evaluate the style's <code>verticalOrigin</code> property. Alternatively a string or object defining a number style can be used.
    * The getter will return the internal {@link Expression} or {@link ConditionsExpression}, which may differ from the value provided to the setter.
    * <p>
    * The expression must return a <code>VerticalOrigin</code>.
@@ -1199,7 +1199,7 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
   },
 
   /**
-   Gets or sets the {@link StyleExpression} object used to evaluate the style's <code>labelHorizontalOrigin</code> property. Alternatively a string or object defining a number style can be used.
+   获取或设置{@link StyleExpression} object used to evaluate the style's <code>labelHorizontalOrigin</code> property. Alternatively a string or object defining a number style can be used.
     * The getter will return the internal {@link Expression} or {@link ConditionsExpression}, which may differ from the value provided to the setter.
     * <p>
     * The expression must return a <code>HorizontalOrigin</code>.
@@ -1242,7 +1242,7 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
   },
 
   /**
-   * Gets or sets the {@link StyleExpression} object used to evaluate the style's <code>labelVerticalOrigin</code> property. Alternatively a string or object defining a number style can be used.
+   * 获取或设置{@link StyleExpression} object used to evaluate the style's <code>labelVerticalOrigin</code> property. Alternatively a string or object defining a number style can be used.
    * The getter will return the internal {@link Expression} or {@link ConditionsExpression}, which may differ from the value provided to the setter.
    * <p>
    * The expression must return a <code>VerticalOrigin</code>.
@@ -1285,7 +1285,7 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
   },
 
   /**
-   * Gets or sets the object containing application-specific expression that can be explicitly
+   * 获取或设置object containing application-specific expression that can be explicitly
    * evaluated, e.g., for display in a UI.
    *
    * @memberof Cesium3DTileStyle.prototype

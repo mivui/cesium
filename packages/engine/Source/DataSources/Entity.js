@@ -196,7 +196,7 @@ function Entity(options) {
   this._children = [];
 
   /**
-   * Gets or sets the entity collection that this entity belongs to.
+   * 获取或设置entity collection that this entity belongs to.
    * @type {EntityCollection}
    */
   this.entityCollection = undefined;
@@ -258,7 +258,7 @@ Object.defineProperties(Entity.prototype, {
     },
   },
   /**
-   * Gets or sets the name of the object.  The name is intended for end-user
+   * 获取或设置name of the object.  The name is intended for end-user
    * consumption and does not need to be unique.
    * @memberof Entity.prototype
    * @type {string|undefined}
@@ -312,7 +312,7 @@ Object.defineProperties(Entity.prototype, {
     },
   },
   /**
-   * Gets or sets the parent object.
+   * 获取或设置parent object.
    * @memberof Entity.prototype
    * @type {Entity|undefined}
    */
@@ -358,104 +358,104 @@ Object.defineProperties(Entity.prototype, {
     },
   },
   /**
-   * Gets or sets the billboard.
+   * 获取或设置billboard.
    * @memberof Entity.prototype
    * @type {BillboardGraphics|undefined}
    */
   billboard: createPropertyTypeDescriptor("billboard", BillboardGraphics),
   /**
-   * Gets or sets the box.
+   * 获取或设置box.
    * @memberof Entity.prototype
    * @type {BoxGraphics|undefined}
    */
   box: createPropertyTypeDescriptor("box", BoxGraphics),
   /**
-   * Gets or sets the corridor.
+   * 获取或设置corridor.
    * @memberof Entity.prototype
    * @type {CorridorGraphics|undefined}
    */
   corridor: createPropertyTypeDescriptor("corridor", CorridorGraphics),
   /**
-   * Gets or sets the cylinder.
+   * 获取或设置cylinder.
    * @memberof Entity.prototype
    * @type {CylinderGraphics|undefined}
    */
   cylinder: createPropertyTypeDescriptor("cylinder", CylinderGraphics),
   /**
-   * Gets or sets the description.
+   * 获取或设置description.
    * @memberof Entity.prototype
    * @type {Property|undefined}
    */
   description: createPropertyDescriptor("description"),
   /**
-   * Gets or sets the ellipse.
+   * 获取或设置ellipse.
    * @memberof Entity.prototype
    * @type {EllipseGraphics|undefined}
    */
   ellipse: createPropertyTypeDescriptor("ellipse", EllipseGraphics),
   /**
-   * Gets or sets the ellipsoid.
+   * 获取或设置ellipsoid.
    * @memberof Entity.prototype
    * @type {EllipsoidGraphics|undefined}
    */
   ellipsoid: createPropertyTypeDescriptor("ellipsoid", EllipsoidGraphics),
   /**
-   * Gets or sets the label.
+   * 获取或设置label.
    * @memberof Entity.prototype
    * @type {LabelGraphics|undefined}
    */
   label: createPropertyTypeDescriptor("label", LabelGraphics),
   /**
-   * Gets or sets the model.
+   * 获取或设置model.
    * @memberof Entity.prototype
    * @type {ModelGraphics|undefined}
    */
   model: createPropertyTypeDescriptor("model", ModelGraphics),
   /**
-   * Gets or sets the tileset.
+   * 获取或设置tileset.
    * @memberof Entity.prototype
    * @type {Cesium3DTilesetGraphics|undefined}
    */
   tileset: createPropertyTypeDescriptor("tileset", Cesium3DTilesetGraphics),
   /**
-   * Gets or sets the orientation in respect to Earth-fixed-Earth-centered (ECEF).
+   * 获取或设置orientation in respect to Earth-fixed-Earth-centered (ECEF).
    * Defaults to east-north-up at entity position.
    * @memberof Entity.prototype
    * @type {Property|undefined}
    */
   orientation: createPropertyDescriptor("orientation"),
   /**
-   * Gets or sets the path.
+   * 获取或设置path.
    * @memberof Entity.prototype
    * @type {PathGraphics|undefined}
    */
   path: createPropertyTypeDescriptor("path", PathGraphics),
   /**
-   * Gets or sets the plane.
+   * 获取或设置plane.
    * @memberof Entity.prototype
    * @type {PlaneGraphics|undefined}
    */
   plane: createPropertyTypeDescriptor("plane", PlaneGraphics),
   /**
-   * Gets or sets the point graphic.
+   * 获取或设置point graphic.
    * @memberof Entity.prototype
    * @type {PointGraphics|undefined}
    */
   point: createPropertyTypeDescriptor("point", PointGraphics),
   /**
-   * Gets or sets the polygon.
+   * 获取或设置polygon.
    * @memberof Entity.prototype
    * @type {PolygonGraphics|undefined}
    */
   polygon: createPropertyTypeDescriptor("polygon", PolygonGraphics),
   /**
-   * Gets or sets the polyline.
+   * 获取或设置polyline.
    * @memberof Entity.prototype
    * @type {PolylineGraphics|undefined}
    */
   polyline: createPropertyTypeDescriptor("polyline", PolylineGraphics),
   /**
-   * Gets or sets the polyline volume.
+   * 获取或设置polyline volume.
    * @memberof Entity.prototype
    * @type {PolylineVolumeGraphics|undefined}
    */
@@ -464,25 +464,25 @@ Object.defineProperties(Entity.prototype, {
     PolylineVolumeGraphics
   ),
   /**
-   * Gets or sets the bag of arbitrary properties associated with this entity.
+   * 获取或设置bag of arbitrary properties associated with this entity.
    * @memberof Entity.prototype
    * @type {PropertyBag|undefined}
    */
   properties: createPropertyTypeDescriptor("properties", PropertyBag),
   /**
-   * Gets or sets the position.
+   * 获取或设置position.
    * @memberof Entity.prototype
    * @type {PositionProperty|undefined}
    */
   position: createPositionPropertyDescriptor("position"),
   /**
-   * Gets or sets the rectangle.
+   * 获取或设置rectangle.
    * @memberof Entity.prototype
    * @type {RectangleGraphics|undefined}
    */
   rectangle: createPropertyTypeDescriptor("rectangle", RectangleGraphics),
   /**
-   * Gets or sets the suggested initial offset when tracking this object.
+   * 获取或设置suggested initial offset when tracking this object.
    * The offset is typically defined in the east-north-up reference frame,
    * but may be another frame depending on the object's velocity.
    * @memberof Entity.prototype
@@ -490,7 +490,7 @@ Object.defineProperties(Entity.prototype, {
    */
   viewFrom: createPropertyDescriptor("viewFrom"),
   /**
-   * Gets or sets the wall.
+   * 获取或设置wall.
    * @memberof Entity.prototype
    * @type {WallGraphics|undefined}
    */

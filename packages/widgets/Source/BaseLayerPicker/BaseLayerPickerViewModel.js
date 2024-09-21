@@ -46,21 +46,21 @@ function BaseLayerPickerViewModel(options) {
   this._globe = globe;
 
   /**
-   * 获取或设置可用于图像选择的ProviderViewModel实例数组。
+   *  获取或设置可用于图像选择的ProviderViewModel实例数组。
    * 这个属性是可观察的。
    * @type {ProviderViewModel[]}
    */
   this.imageryProviderViewModels = imageryProviderViewModels.slice(0);
 
   /**
-   * 获取或设置可用于地形选择的ProviderViewModel实例数组。
+   *  获取或设置可用于地形选择的ProviderViewModel实例数组。
    * 这个属性是可观察的。
    * @type {ProviderViewModel[]}
    */
   this.terrainProviderViewModels = terrainProviderViewModels.slice(0);
 
   /**
-   * 获取或设置图像选择下拉框当前是否可见。
+   *  获取或设置图像选择下拉框当前是否可见。
    * @type {boolean}
    * @default false
    */
@@ -171,7 +171,7 @@ function BaseLayerPickerViewModel(options) {
   });
 
   /**
-   * 获取或设置当前选定的图像。  这个属性是可观察的。
+   *  获取或设置当前选定的图像。  这个属性是可观察的。
    * @type {ProviderViewModel}
    * @default undefined
    */
@@ -238,7 +238,7 @@ function BaseLayerPickerViewModel(options) {
   });
 
   /**
-   * 获取或设置当前选定的地形。  这个属性是可观察的。
+   *  获取或设置当前选定的地形。  这个属性是可观察的。
    * @type {ProviderViewModel}
    * @default undefined
    */

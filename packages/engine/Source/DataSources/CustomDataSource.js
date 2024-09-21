@@ -54,7 +54,7 @@ Object.defineProperties(CustomDataSource.prototype, {
     },
   },
   /**
-   * Gets or sets the clock for this instance.
+   * 获取或设置clock for this instance.
    * @memberof CustomDataSource.prototype
    * @type {DataSourceClock}
    */
@@ -137,7 +137,7 @@ Object.defineProperties(CustomDataSource.prototype, {
   },
 
   /**
-   * Gets or sets the clustering options for this data source. This object can be shared between multiple data sources.
+   * 获取或设置clustering options for this data source. This object can be shared between multiple data sources.
    *
    * @memberof CustomDataSource.prototype
    * @type {EntityCluster}

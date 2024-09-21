@@ -9,7 +9,7 @@ import knockout from "../ThirdParty/knockout.js";
 import createCommand from "../createCommand.js";
 
 /**
- * The view model for {@link PerformanceWatchdog}.
+ * 视图模型 {@link PerformanceWatchdog}.
  *
  * @alias PerformanceWatchdogViewModel
  * @constructor
@@ -30,7 +30,7 @@ function PerformanceWatchdogViewModel(options) {
   this._scene = options.scene;
 
   /**
-   * Gets or sets the message to display when a low frame rate is detected.  This string will be interpreted as HTML.
+   * 获取或设置message to display when a low frame rate is detected.  This string will be interpreted as HTML.
    * @type {string}
    */
   this.lowFrameRateMessage = defaultValue(

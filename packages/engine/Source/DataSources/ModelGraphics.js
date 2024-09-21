@@ -131,7 +131,7 @@ Object.defineProperties(ModelGraphics.prototype, {
   },
 
   /**
-   * Gets or sets the boolean Property specifying the visibility of the model.
+   * 获取或设置boolean Property specifying the visibility of the model.
    * @memberof ModelGraphics.prototype
    * @type {Property|undefined}
    * @default true
@@ -139,14 +139,14 @@ Object.defineProperties(ModelGraphics.prototype, {
   show: createPropertyDescriptor("show"),
 
   /**
-   * Gets or sets the string Property specifying the URI of the glTF asset.
+   * 获取或设置string Property specifying the URI of the glTF asset.
    * @memberof ModelGraphics.prototype
    * @type {Property|undefined}
    */
   uri: createPropertyDescriptor("uri"),
 
   /**
-   * Gets or sets the numeric Property specifying a uniform linear scale
+   * 获取或设置numeric Property specifying a uniform linear scale
    * for this model. Values greater than 1.0 increase the size of the model while
    * values less than 1.0 decrease it.
    * @memberof ModelGraphics.prototype
@@ -156,7 +156,7 @@ Object.defineProperties(ModelGraphics.prototype, {
   scale: createPropertyDescriptor("scale"),
 
   /**
-   * Gets or sets the boolean Property specifying if the model is exaggerated along the ellipsoid normal when {@link Scene.verticalExaggeration} is set to a value other than <code>1.0</code>.
+   * 获取或设置boolean Property specifying if the model is exaggerated along the ellipsoid normal when {@link Scene.verticalExaggeration} is set to a value other than <code>1.0</code>.
    * @memberof ModelGraphics.prototype
    * @type {Property|undefined}
    * @default true
@@ -166,7 +166,7 @@ Object.defineProperties(ModelGraphics.prototype, {
   ),
 
   /**
-   * Gets or sets the numeric Property specifying the approximate minimum
+   * 获取或设置numeric Property specifying the approximate minimum
    * pixel size of the model regardless of zoom. This can be used to ensure that
    * a model is visible even when the viewer zooms out.  When <code>0.0</code>,
    * no minimum size is enforced.
@@ -177,7 +177,7 @@ Object.defineProperties(ModelGraphics.prototype, {
   minimumPixelSize: createPropertyDescriptor("minimumPixelSize"),
 
   /**
-   * Gets or sets the numeric Property specifying the maximum scale
+   * 获取或设置numeric Property specifying the maximum scale
    * size of a model. This property is used as an upper limit for
    * {@link ModelGraphics#minimumPixelSize}.
    * @memberof ModelGraphics.prototype
@@ -196,7 +196,7 @@ Object.defineProperties(ModelGraphics.prototype, {
   ),
 
   /**
-   * Gets or sets the boolean Property specifying if glTF animations should be run.
+   * 获取或设置boolean Property specifying if glTF animations should be run.
    * @memberof ModelGraphics.prototype
    * @type {Property|undefined}
    * @default true
@@ -204,7 +204,7 @@ Object.defineProperties(ModelGraphics.prototype, {
   runAnimations: createPropertyDescriptor("runAnimations"),
 
   /**
-   * Gets or sets the boolean Property specifying if glTF animations should hold the last pose for time durations with no keyframes.
+   * 获取或设置boolean Property specifying if glTF animations should hold the last pose for time durations with no keyframes.
    * @memberof ModelGraphics.prototype
    * @type {Property|undefined}
    * @default true
@@ -221,7 +221,7 @@ Object.defineProperties(ModelGraphics.prototype, {
   shadows: createPropertyDescriptor("shadows"),
 
   /**
-   * Gets or sets the Property specifying the {@link HeightReference}.
+   * 获取或设置Property specifying the {@link HeightReference}.
    * @memberof ModelGraphics.prototype
    * @type {Property|undefined}
    * @default HeightReference.NONE
@@ -229,7 +229,7 @@ Object.defineProperties(ModelGraphics.prototype, {
   heightReference: createPropertyDescriptor("heightReference"),
 
   /**
-   * Gets or sets the Property specifying the {@link Color} of the silhouette.
+   * 获取或设置Property specifying the {@link Color} of the silhouette.
    * @memberof ModelGraphics.prototype
    * @type {Property|undefined}
    * @default Color.RED
@@ -237,7 +237,7 @@ Object.defineProperties(ModelGraphics.prototype, {
   silhouetteColor: createPropertyDescriptor("silhouetteColor"),
 
   /**
-   * Gets or sets the numeric Property specifying the size of the silhouette in pixels.
+   * 获取或设置numeric Property specifying the size of the silhouette in pixels.
    * @memberof ModelGraphics.prototype
    * @type {Property|undefined}
    * @default 0.0
@@ -245,7 +245,7 @@ Object.defineProperties(ModelGraphics.prototype, {
   silhouetteSize: createPropertyDescriptor("silhouetteSize"),
 
   /**
-   * Gets or sets the Property specifying the {@link Color} that blends with the model's rendered color.
+   * 获取或设置Property specifying the {@link Color} that blends with the model's rendered color.
    * @memberof ModelGraphics.prototype
    * @type {Property|undefined}
    * @default Color.WHITE
@@ -253,7 +253,7 @@ Object.defineProperties(ModelGraphics.prototype, {
   color: createPropertyDescriptor("color"),
 
   /**
-   * Gets or sets the enum Property specifying how the color blends with the model.
+   * 获取或设置enum Property specifying how the color blends with the model.
    * @memberof ModelGraphics.prototype
    * @type {Property|undefined}
    * @default ColorBlendMode.HIGHLIGHT
@@ -287,7 +287,7 @@ Object.defineProperties(ModelGraphics.prototype, {
   lightColor: createPropertyDescriptor("lightColor"),
 
   /**
-   * Gets or sets the {@link DistanceDisplayCondition} Property specifying at what distance from the camera that this model will be displayed.
+   * 获取或设置{@link DistanceDisplayCondition} Property specifying at what distance from the camera that this model will be displayed.
    * @memberof ModelGraphics.prototype
    * @type {Property|undefined}
    */
@@ -296,7 +296,7 @@ Object.defineProperties(ModelGraphics.prototype, {
   ),
 
   /**
-   * Gets or sets the set of node transformations to apply to this model.  This is represented as an {@link PropertyBag}, where keys are
+   * 获取或设置set of node transformations to apply to this model.  This is represented as an {@link PropertyBag}, where keys are
    * names of nodes, and values are {@link TranslationRotationScale} Properties describing the transformation to apply to that node.
    * The transformation is applied after the node's existing transformation as specified in the glTF, and does not replace the node's existing transformation.
    * @memberof ModelGraphics.prototype
@@ -309,7 +309,7 @@ Object.defineProperties(ModelGraphics.prototype, {
   ),
 
   /**
-   * Gets or sets the set of articulation values to apply to this model.  This is represented as an {@link PropertyBag}, where keys are
+   * 获取或设置set of articulation values to apply to this model.  This is represented as an {@link PropertyBag}, where keys are
    * composed as the name of the articulation, a single space, and the name of the stage.
    * @memberof ModelGraphics.prototype
    * @type {PropertyBag}
@@ -328,7 +328,7 @@ Object.defineProperties(ModelGraphics.prototype, {
   clippingPlanes: createPropertyDescriptor("clippingPlanes"),
 
   /**
-   * Gets or sets the {@link CustomShader} to apply to this model. When <code>undefined</code>, no custom shader code is used.
+   * 获取或设置{@link CustomShader} to apply to this model. When <code>undefined</code>, no custom shader code is used.
    * @memberof ModelGraphics.prototype
    * @type {Property|undefined}
    */

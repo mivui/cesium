@@ -12,7 +12,7 @@ const screenSpacePos = new Cartesian2();
 const offScreen = "-1000px";
 
 /**
- * The view model for {@link SelectionIndicator}.
+ * 视图模型 {@link SelectionIndicator}.
  * @alias SelectionIndicatorViewModel
  * @constructor
  *
@@ -48,13 +48,13 @@ function SelectionIndicatorViewModel(
   this._scale = 1;
 
   /**
-   * Gets or sets the world position of the object for which to display the selection indicator.
+   * 获取或设置world position of the object for which to display the selection indicator.
    * @type {Cartesian3}
    */
   this.position = undefined;
 
   /**
-   * Gets or sets the visibility of the selection indicator.
+   * 获取或设置visibility of the selection indicator.
    * @type {boolean}
    */
   this.showSelection = false;
@@ -86,7 +86,7 @@ function SelectionIndicatorViewModel(
   });
 
   /**
-   * Gets or sets the function for converting the world position of the object to the screen space position.
+   * 获取或设置function for converting the world position of the object to the screen space position.
    *
    * @member
    * @type {SelectionIndicatorViewModel.ComputeScreenSpacePosition}
@@ -193,7 +193,7 @@ Object.defineProperties(SelectionIndicatorViewModel.prototype, {
   },
 
   /**
-   * Gets the scene being used.
+   * 得到场景 being used.
    * @memberof SelectionIndicatorViewModel.prototype
    *
    * @type {Scene}

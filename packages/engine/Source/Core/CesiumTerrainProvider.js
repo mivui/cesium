@@ -44,8 +44,8 @@ function LayerInformation(layer) {
  * Initialization options for the CesiumTerrainProvider constructor
  *
  * @property {boolean} [requestVertexNormals=false] Flag that indicates if the client should request additional lighting information from the server, in the form of per vertex normals if available.
- * @property {boolean} [requestWaterMask=false] Flag that indicates if the client should request per tile water masks from the server, if available.
- * @property {boolean} [requestMetadata=true] Flag that indicates if the client should request per tile metadata from the server, if available.
+ * @property {boolean} [requestWaterMask=false] Flag that indicates if the client should request 每个tile water masks from the server, if available.
+ * @property {boolean} [requestMetadata=true] Flag that indicates if the client should request 每个tile metadata from the server, if available.
  * @property {Ellipsoid} [ellipsoid=Ellipsoid.default] The ellipsoid.  If not specified, the default ellipsoid is used.
  * @property {Credit|string} [credit] A credit for the data source, which is displayed on the canvas.
  */

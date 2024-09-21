@@ -115,14 +115,14 @@ function AnimationViewModel(clockViewModel) {
   this._timeFormatter = AnimationViewModel.defaultTimeFormatter;
 
   /**
-   * 获取或设置当前是否正在拖动穿梭环。这个属性是可观察的。
+   *  获取或设置当前是否正在拖动穿梭环。这个属性是可观察的。
    * @type {boolean}
    * @default false
    */
   this.shuttleRingDragging = false;
 
   /**
-   * 获取或设置拖曳梭子环是否会产生乘数
+   *  获取或设置拖曳梭子环是否会产生乘数
    * 捕捉到定义的刻度值，而不是在它们之间插入。
    * 这个属性是可观察的。
    * @type {boolean}
@@ -183,7 +183,7 @@ function AnimationViewModel(clockViewModel) {
   });
 
   /**
-   * 获取或设置当前梭子环角度。这个属性是可观察的。
+   *  获取或设置当前梭子环角度。这个属性是可观察的。
    * @type {number}
    */
   this.shuttleRingAngle = undefined;
@@ -379,7 +379,7 @@ function AnimationViewModel(clockViewModel) {
 }
 
 /**
- * 获取或设置新实例使用的默认日期格式化程序。
+ *  获取或设置新实例使用的默认日期格式化程序。
  *
  * @member
  * @type {AnimationViewModel.DateFormatter}
@@ -392,7 +392,7 @@ AnimationViewModel.defaultDateFormatter = function (date, viewModel) {
 };
 
 /**
- * 获取或设置与穿梭环的新实例关联的已知时钟乘法器的默认数组。
+ *  获取或设置与穿梭环的新实例关联的已知时钟乘法器的默认数组。
  * @type {number[]}
  */
 AnimationViewModel.defaultTicks = [
@@ -430,7 +430,7 @@ AnimationViewModel.defaultTicks = [
 ];
 
 /**
- * 获取或设置新实例使用的默认时间格式化程序。
+ *  获取或设置新实例使用的默认时间格式化程序。
  *
  * @member
  * @type {AnimationViewModel.TimeFormatter}
@@ -592,7 +592,7 @@ Object.defineProperties(AnimationViewModel.prototype, {
   },
 
   /**
-   * 获取或设置格式化要显示的日期的函数。
+   *  获取或设置格式化要显示的日期的函数。
    * @memberof AnimationViewModel.prototype
    *
    * @type {AnimationViewModel.DateFormatter}
@@ -615,7 +615,7 @@ Object.defineProperties(AnimationViewModel.prototype, {
   },
 
   /**
-   * 获取或设置格式化显示时间的函数。
+   *  获取或设置格式化显示时间的函数。
    * @memberof AnimationViewModel.prototype
    *
    * @type {AnimationViewModel.TimeFormatter}

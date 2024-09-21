@@ -32,7 +32,7 @@ QuadtreeTileProvider.computeDefaultLevelZeroMaximumGeometricError = function (
 
 Object.defineProperties(QuadtreeTileProvider.prototype, {
   /**
-   * Gets or sets the {@link QuadtreePrimitive} for which this provider is
+   * 获取或设置{@link QuadtreePrimitive} for which this provider is
    * providing tiles.
    * @memberof QuadtreeTileProvider.prototype
    * @type {QuadtreePrimitive}

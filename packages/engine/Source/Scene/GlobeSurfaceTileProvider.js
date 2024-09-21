@@ -194,7 +194,7 @@ function GlobeSurfaceTileProvider(options) {
 
 Object.defineProperties(GlobeSurfaceTileProvider.prototype, {
   /**
-   * Gets or sets the color of the globe when no imagery is available.
+   * 获取或设置color of the globe when no imagery is available.
    * @memberof GlobeSurfaceTileProvider.prototype
    * @type {Color}
    */
@@ -217,7 +217,7 @@ Object.defineProperties(GlobeSurfaceTileProvider.prototype, {
     },
   },
   /**
-   * Gets or sets the {@link QuadtreePrimitive} for which this provider is
+   * 获取或设置{@link QuadtreePrimitive} for which this provider is
    * providing tiles.  This property may be undefined if the provider is not yet associated
    * with a {@link QuadtreePrimitive}.
    * @memberof GlobeSurfaceTileProvider.prototype
@@ -278,7 +278,7 @@ Object.defineProperties(GlobeSurfaceTileProvider.prototype, {
   },
 
   /**
-   * Gets or sets the terrain provider that describes the surface geometry.
+   * 获取或设置terrain provider that describes the surface geometry.
    * @memberof GlobeSurfaceTileProvider.prototype
    * @type {TerrainProvider}
    */

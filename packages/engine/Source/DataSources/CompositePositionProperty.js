@@ -65,7 +65,7 @@ Object.defineProperties(CompositePositionProperty.prototype, {
     },
   },
   /**
-   * Gets or sets the reference frame which this position presents itself as.
+   * 获取或设置reference frame which this position presents itself as.
    * Each PositionProperty making up this object has it's own reference frame,
    * so this property merely exposes a "preferred" reference frame for clients
    * to use.

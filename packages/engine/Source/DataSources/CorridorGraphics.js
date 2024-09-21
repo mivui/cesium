@@ -99,7 +99,7 @@ Object.defineProperties(CorridorGraphics.prototype, {
   },
 
   /**
-   * Gets or sets the boolean Property specifying the visibility of the corridor.
+   * 获取或设置boolean Property specifying the visibility of the corridor.
    * @memberof CorridorGraphics.prototype
    * @type {Property|undefined}
    * @default true
@@ -114,14 +114,14 @@ Object.defineProperties(CorridorGraphics.prototype, {
   positions: createPropertyDescriptor("positions"),
 
   /**
-   * Gets or sets the numeric Property specifying the width of the outline.
+   * 获取或设置numeric Property specifying the width of the outline.
    * @memberof CorridorGraphics.prototype
    * @type {Property|undefined}
    */
   width: createPropertyDescriptor("width"),
 
   /**
-   * Gets or sets the numeric Property specifying the altitude of the corridor.
+   * 获取或设置numeric Property specifying the altitude of the corridor.
    * @memberof CorridorGraphics.prototype
    * @type {Property|undefined}
    * @default 0.0
@@ -129,7 +129,7 @@ Object.defineProperties(CorridorGraphics.prototype, {
   height: createPropertyDescriptor("height"),
 
   /**
-   * Gets or sets the Property specifying the {@link HeightReference}.
+   * 获取或设置Property specifying the {@link HeightReference}.
    * @memberof CorridorGraphics.prototype
    * @type {Property|undefined}
    * @default HeightReference.NONE
@@ -137,7 +137,7 @@ Object.defineProperties(CorridorGraphics.prototype, {
   heightReference: createPropertyDescriptor("heightReference"),
 
   /**
-   * Gets or sets the numeric Property specifying the altitude of the corridor extrusion.
+   * 获取或设置numeric Property specifying the altitude of the corridor extrusion.
    * Setting this property creates a corridor shaped volume starting at height and ending
    * at this altitude.
    * @memberof CorridorGraphics.prototype
@@ -146,7 +146,7 @@ Object.defineProperties(CorridorGraphics.prototype, {
   extrudedHeight: createPropertyDescriptor("extrudedHeight"),
 
   /**
-   * Gets or sets the Property specifying the extruded {@link HeightReference}.
+   * 获取或设置Property specifying the extruded {@link HeightReference}.
    * @memberof CorridorGraphics.prototype
    * @type {Property|undefined}
    * @default HeightReference.NONE
@@ -154,7 +154,7 @@ Object.defineProperties(CorridorGraphics.prototype, {
   extrudedHeightReference: createPropertyDescriptor("extrudedHeightReference"),
 
   /**
-   * Gets or sets the {@link CornerType} Property specifying how corners are styled.
+   * 获取或设置{@link CornerType} Property specifying how corners are styled.
    * @memberof CorridorGraphics.prototype
    * @type {Property|undefined}
    * @default CornerType.ROUNDED
@@ -162,7 +162,7 @@ Object.defineProperties(CorridorGraphics.prototype, {
   cornerType: createPropertyDescriptor("cornerType"),
 
   /**
-   * Gets or sets the numeric Property specifying the sampling distance between each latitude and longitude point.
+   * 获取或设置numeric Property specifying the sampling distance between each latitude and longitude point.
    * @memberof CorridorGraphics.prototype
    * @type {Property|undefined}
    * @default {CesiumMath.RADIANS_PER_DEGREE}
@@ -170,7 +170,7 @@ Object.defineProperties(CorridorGraphics.prototype, {
   granularity: createPropertyDescriptor("granularity"),
 
   /**
-   * Gets or sets the boolean Property specifying whether the corridor is filled with the provided material.
+   * 获取或设置boolean Property specifying whether the corridor is filled with the provided material.
    * @memberof CorridorGraphics.prototype
    * @type {Property|undefined}
    * @default true
@@ -178,7 +178,7 @@ Object.defineProperties(CorridorGraphics.prototype, {
   fill: createPropertyDescriptor("fill"),
 
   /**
-   * Gets or sets the Property specifying the material used to fill the corridor.
+   * 获取或设置Property specifying the material used to fill the corridor.
    * @memberof CorridorGraphics.prototype
    * @type {MaterialProperty|undefined}
    * @default Color.WHITE
@@ -186,7 +186,7 @@ Object.defineProperties(CorridorGraphics.prototype, {
   material: createMaterialPropertyDescriptor("material"),
 
   /**
-   * Gets or sets the Property specifying whether the corridor is outlined.
+   * 获取或设置Property specifying whether the corridor is outlined.
    * @memberof CorridorGraphics.prototype
    * @type {Property|undefined}
    * @default false
@@ -194,7 +194,7 @@ Object.defineProperties(CorridorGraphics.prototype, {
   outline: createPropertyDescriptor("outline"),
 
   /**
-   * Gets or sets the Property specifying the {@link Color} of the outline.
+   * 获取或设置Property specifying the {@link Color} of the outline.
    * @memberof CorridorGraphics.prototype
    * @type {Property|undefined}
    * @default Color.BLACK
@@ -202,7 +202,7 @@ Object.defineProperties(CorridorGraphics.prototype, {
   outlineColor: createPropertyDescriptor("outlineColor"),
 
   /**
-   * Gets or sets the numeric Property specifying the width of the outline.
+   * 获取或设置numeric Property specifying the width of the outline.
    * <p>
    * Note: This property will be ignored on all major browsers on Windows platforms. For details, see (@link https://github.com/CesiumGS/cesium/issues/40}.
    * </p>
@@ -222,7 +222,7 @@ Object.defineProperties(CorridorGraphics.prototype, {
   shadows: createPropertyDescriptor("shadows"),
 
   /**
-   * Gets or sets the {@link DistanceDisplayCondition} Property specifying at what distance from the camera that this corridor will be displayed.
+   * 获取或设置{@link DistanceDisplayCondition} Property specifying at what distance from the camera that this corridor will be displayed.
    * @memberof CorridorGraphics.prototype
    * @type {Property|undefined}
    */
@@ -231,7 +231,7 @@ Object.defineProperties(CorridorGraphics.prototype, {
   ),
 
   /**
-   * Gets or sets the {@link ClassificationType} Property specifying whether this corridor will classify terrain, 3D Tiles, or both when on the ground.
+   * 获取或设置{@link ClassificationType} Property specifying whether this corridor will classify terrain, 3D Tiles, or both when on the ground.
    * @memberof CorridorGraphics.prototype
    * @type {Property|undefined}
    * @default ClassificationType.BOTH
@@ -239,7 +239,7 @@ Object.defineProperties(CorridorGraphics.prototype, {
   classificationType: createPropertyDescriptor("classificationType"),
 
   /**
-   * Gets or sets the zIndex Property specifying the ordering of the corridor.  Only has an effect if the coridor is static and neither height or exturdedHeight are specified.
+   * 获取或设置zIndex Property specifying the ordering of the corridor.  Only has an effect if the coridor is static and neither height or exturdedHeight are specified.
    * @memberof CorridorGraphics.prototype
    * @type {ConstantProperty|undefined}
    * @default 0

@@ -81,7 +81,7 @@ Object.defineProperties(WallGraphics.prototype, {
   },
 
   /**
-   * Gets or sets the boolean Property specifying the visibility of the wall.
+   * 获取或设置boolean Property specifying the visibility of the wall.
    * @memberof WallGraphics.prototype
    * @type {Property|undefined}
    * @default true
@@ -89,14 +89,14 @@ Object.defineProperties(WallGraphics.prototype, {
   show: createPropertyDescriptor("show"),
 
   /**
-   * Gets or sets the Property specifying the array of {@link Cartesian3} positions which define the top of the wall.
+   * 获取或设置Property specifying the array of {@link Cartesian3} positions which define the top of the wall.
    * @memberof WallGraphics.prototype
    * @type {Property|undefined}
    */
   positions: createPropertyDescriptor("positions"),
 
   /**
-   * Gets or sets the Property specifying an array of heights to be used for the bottom of the wall instead of the surface of the globe.
+   * 获取或设置Property specifying an array of heights to be used for the bottom of the wall instead of the surface of the globe.
    * If defined, the array must be the same length as {@link Wall#positions}.
    * @memberof WallGraphics.prototype
    * @type {Property|undefined}
@@ -104,7 +104,7 @@ Object.defineProperties(WallGraphics.prototype, {
   minimumHeights: createPropertyDescriptor("minimumHeights"),
 
   /**
-   * Gets or sets the Property specifying an array of heights to be used for the top of the wall instead of the height of each position.
+   * 获取或设置Property specifying an array of heights to be used for the top of the wall instead of the height of each position.
    * If defined, the array must be the same length as {@link Wall#positions}.
    * @memberof WallGraphics.prototype
    * @type {Property|undefined}
@@ -112,7 +112,7 @@ Object.defineProperties(WallGraphics.prototype, {
   maximumHeights: createPropertyDescriptor("maximumHeights"),
 
   /**
-   * Gets or sets the numeric Property specifying the angular distance between points on the wall.
+   * 获取或设置numeric Property specifying the angular distance between points on the wall.
    * @memberof WallGraphics.prototype
    * @type {Property|undefined}
    * @default {CesiumMath.RADIANS_PER_DEGREE}
@@ -120,7 +120,7 @@ Object.defineProperties(WallGraphics.prototype, {
   granularity: createPropertyDescriptor("granularity"),
 
   /**
-   * Gets or sets the boolean Property specifying whether the wall is filled with the provided material.
+   * 获取或设置boolean Property specifying whether the wall is filled with the provided material.
    * @memberof WallGraphics.prototype
    * @type {Property|undefined}
    * @default true
@@ -128,7 +128,7 @@ Object.defineProperties(WallGraphics.prototype, {
   fill: createPropertyDescriptor("fill"),
 
   /**
-   * Gets or sets the Property specifying the material used to fill the wall.
+   * 获取或设置Property specifying the material used to fill the wall.
    * @memberof WallGraphics.prototype
    * @type {MaterialProperty}
    * @default Color.WHITE
@@ -136,7 +136,7 @@ Object.defineProperties(WallGraphics.prototype, {
   material: createMaterialPropertyDescriptor("material"),
 
   /**
-   * Gets or sets the Property specifying whether the wall is outlined.
+   * 获取或设置Property specifying whether the wall is outlined.
    * @memberof WallGraphics.prototype
    * @type {Property|undefined}
    * @default false
@@ -144,7 +144,7 @@ Object.defineProperties(WallGraphics.prototype, {
   outline: createPropertyDescriptor("outline"),
 
   /**
-   * Gets or sets the Property specifying the {@link Color} of the outline.
+   * 获取或设置Property specifying the {@link Color} of the outline.
    * @memberof WallGraphics.prototype
    * @type {Property|undefined}
    * @default Color.BLACK
@@ -152,7 +152,7 @@ Object.defineProperties(WallGraphics.prototype, {
   outlineColor: createPropertyDescriptor("outlineColor"),
 
   /**
-   * Gets or sets the numeric Property specifying the width of the outline.
+   * 获取或设置numeric Property specifying the width of the outline.
    * <p>
    * Note: This property will be ignored on all major browsers on Windows platforms. For details, see (@link https://github.com/CesiumGS/cesium/issues/40}.
    * </p>
@@ -172,7 +172,7 @@ Object.defineProperties(WallGraphics.prototype, {
   shadows: createPropertyDescriptor("shadows"),
 
   /**
-   * Gets or sets the {@link DistanceDisplayCondition} Property specifying at what distance from the camera that this wall will be displayed.
+   * 获取或设置{@link DistanceDisplayCondition} Property specifying at what distance from the camera that this wall will be displayed.
    * @memberof WallGraphics.prototype
    * @type {Property|undefined}
    */

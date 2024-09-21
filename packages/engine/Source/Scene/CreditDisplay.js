@@ -638,7 +638,7 @@ function getDefaultCredit() {
 
 Object.defineProperties(CreditDisplay, {
   /**
-   * Gets or sets the Cesium logo credit.
+   * 获取或设置Cesium logo credit.
    * @memberof CreditDisplay
    * @type {Credit}
    */

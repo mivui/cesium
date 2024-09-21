@@ -39,7 +39,7 @@ function FrameRateMonitor(options) {
   this._scene = options.scene;
 
   /**
-   * Gets or sets the length of the sliding window over which to compute the average frame rate, in seconds.
+   * 获取或设置length of the sliding window over which to compute the average frame rate, in seconds.
    * @type {number}
    */
   this.samplingWindow = defaultValue(
@@ -48,7 +48,7 @@ function FrameRateMonitor(options) {
   );
 
   /**
-   * Gets or sets the length of time to wait at startup and each time the page becomes visible (i.e. when the user
+   * 获取或设置length of time to wait at startup and each time the page becomes visible (i.e. when the user
    * switches back to the tab) before starting to measure performance, in seconds.
    * @type {number}
    */
@@ -58,7 +58,7 @@ function FrameRateMonitor(options) {
   );
 
   /**
-   * Gets or sets the length of the warmup period, in seconds.  During the warmup period, a separate
+   * 获取或设置length of the warmup period, in seconds.  During the warmup period, a separate
    * (usually lower) frame rate is required.
    * @type {number}
    */
@@ -68,7 +68,7 @@ function FrameRateMonitor(options) {
   );
 
   /**
-   * Gets or sets the minimum frames-per-second that are required for acceptable performance during
+   * 获取或设置minimum frames-per-second that are required for acceptable performance during
    * the warmup period.  If the frame rate averages less than this during any <code>samplingWindow</code> during the <code>warmupPeriod</code>, the
    * <code>lowFrameRate</code> event will be raised and the page will redirect to the <code>redirectOnLowFrameRateUrl</code>, if any.
    * @type {number}
@@ -79,7 +79,7 @@ function FrameRateMonitor(options) {
   );
 
   /**
-   * Gets or sets the minimum frames-per-second that are required for acceptable performance after
+   * 获取或设置minimum frames-per-second that are required for acceptable performance after
    * the end of the warmup period.  If the frame rate averages less than this during any <code>samplingWindow</code> after the <code>warmupPeriod</code>, the
    * <code>lowFrameRate</code> event will be raised and the page will redirect to the <code>redirectOnLowFrameRateUrl</code>, if any.
    * @type {number}

@@ -69,7 +69,7 @@ Object.defineProperties(PolylineOutlineMaterialProperty.prototype, {
     },
   },
   /**
-   * Gets or sets the Property specifying the {@link Color} of the line.
+   * 获取或设置Property specifying the {@link Color} of the line.
    * @memberof PolylineOutlineMaterialProperty.prototype
    * @type {Property|undefined}
    * @default Color.WHITE
@@ -77,7 +77,7 @@ Object.defineProperties(PolylineOutlineMaterialProperty.prototype, {
   color: createPropertyDescriptor("color"),
 
   /**
-   * Gets or sets the Property specifying the {@link Color} of the outline.
+   * 获取或设置Property specifying the {@link Color} of the outline.
    * @memberof PolylineOutlineMaterialProperty.prototype
    * @type {Property|undefined}
    * @default Color.BLACK
@@ -85,7 +85,7 @@ Object.defineProperties(PolylineOutlineMaterialProperty.prototype, {
   outlineColor: createPropertyDescriptor("outlineColor"),
 
   /**
-   * Gets or sets the numeric Property specifying the width of the outline.
+   * 获取或设置numeric Property specifying the width of the outline.
    * @memberof PolylineOutlineMaterialProperty.prototype
    * @type {Property|undefined}
    * @default 1.0

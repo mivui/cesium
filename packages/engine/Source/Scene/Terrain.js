@@ -114,7 +114,7 @@ Object.defineProperties(Terrain.prototype, {
  *
  * @param {Object} [options] 对象，具有以下属性:
  * @param {Boolean} [options.requestVertexNormals=false] Flag that indicates if the client should request additional lighting information from the server if available.
- * @param {Boolean} [options.requestWaterMask=false] Flag that indicates if the client should request per tile water masks from the server if available.
+ * @param {Boolean} [options.requestWaterMask=false] Flag that indicates if the client should request 每个tile water masks from the server if available.
  * @returns {Terrain} An asynchronous helper object for a CesiumTerrainProvider
  *
  * @see Ion

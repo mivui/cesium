@@ -527,7 +527,7 @@ Object.defineProperties(EntityCluster.prototype, {
     },
   },
   /**
-   * Gets or sets the pixel range to extend the screen space bounding box.
+   * 获取或设置pixel range to extend the screen space bounding box.
    * @memberof EntityCluster.prototype
    * @type {number}
    */
@@ -541,7 +541,7 @@ Object.defineProperties(EntityCluster.prototype, {
     },
   },
   /**
-   * Gets or sets the minimum number of screen space objects that can be clustered.
+   * 获取或设置minimum number of screen space objects that can be clustered.
    * @memberof EntityCluster.prototype
    * @type {number}
    */

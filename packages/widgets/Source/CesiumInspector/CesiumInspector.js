@@ -15,7 +15,7 @@ import CesiumInspectorViewModel from "./CesiumInspectorViewModel.js";
  * @constructor
  *
  * @param {Element|string} container 将包含小部件的DOM元素或ID。
- * @param {Scene} scene The Scene instance to use.
+ * @param {Scene} scene 要使用的场景实例。
  *
  * @demo {@link https://sandcastle.cesium.com/index.html?src=Cesium%20Inspector.html|Cesium Sandcastle Cesium Inspector Demo}
  */

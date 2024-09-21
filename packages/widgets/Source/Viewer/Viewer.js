@@ -309,9 +309,9 @@ function enableVRUI(viewer, enabled) {
  * @property {boolean} [scene3DOnly=false] When <code>true</code>, each geometry instance will only be rendered in 3D to save GPU memory.
  * @property {boolean} [shouldAnimate=false] <code>true</code> if the clock should attempt to advance simulation time by default, <code>false</code> otherwise.  This option takes precedence over setting {@link Viewer#clockViewModel}.
  * @property {ClockViewModel} [clockViewModel=new ClockViewModel(clock)] The clock view model to use to control current time.
- * @property {ProviderViewModel} [selectedImageryProviderViewModel] The view model for the current base imagery layer, if not supplied the first available base layer is used.  This value is only valid if `baseLayerPicker` is set to true.
+ * @property {ProviderViewModel} [selectedImageryProviderViewModel] 视图模型 the current base imagery layer, if not supplied the first available base layer is used.  This value is only valid if `baseLayerPicker` is set to true.
  * @property {ProviderViewModel[]} [imageryProviderViewModels=createDefaultImageryProviderViewModels()] The array of ProviderViewModels to be selectable from the BaseLayerPicker.  This value is only valid if `baseLayerPicker` is set to true.
- * @property {ProviderViewModel} [selectedTerrainProviderViewModel] The view model for the current base terrain layer, if not supplied the first available base layer is used.  This value is only valid if `baseLayerPicker` is set to true.
+ * @property {ProviderViewModel} [selectedTerrainProviderViewModel] 视图模型 the current base terrain layer, if not supplied the first available base layer is used.  This value is only valid if `baseLayerPicker` is set to true.
  * @property {ProviderViewModel[]} [terrainProviderViewModels=createDefaultTerrainProviderViewModels()] The array of ProviderViewModels to be selectable from the BaseLayerPicker.  This value is only valid if `baseLayerPicker` is set to true.
  * @property {ImageryLayer|false} [baseLayer=ImageryLayer.fromWorldImagery()] The bottommost imagery layer applied to the globe. If set to <code>false</code>, no imagery provider will be added. This value is only valid if `baseLayerPicker` is set to false.
  * @property {Ellipsoid} [ellipsoid = Ellipsoid.default] The default ellipsoid.
@@ -786,7 +786,7 @@ Either specify options.terrainProvider instead or set options.baseLayerPicker to
     );
 
     //Subscribe to fullscreenButton.viewModel.isFullscreenEnabled so
-    //that we can hide/show the button as well as size the timeline.
+    //that we can hide/显示button as well as size the timeline.
     fullscreenSubscription = subscribeAndEvaluate(
       fullscreenButton.viewModel,
       "isFullscreenEnabled",
@@ -1059,7 +1059,7 @@ Object.defineProperties(Viewer.prototype, {
   },
 
   /**
-   * Gets the SceneModePicker.
+   * 得到场景ModePicker.
    * @memberof Viewer.prototype
    * @type {SceneModePicker}
    * @readonly
@@ -1204,7 +1204,7 @@ Object.defineProperties(Viewer.prototype, {
   },
 
   /**
-   * Gets the scene.
+   * 得到场景.
    * @memberof Viewer.prototype
    * @type {Scene}
    * @readonly
@@ -1360,7 +1360,7 @@ Object.defineProperties(Viewer.prototype, {
   },
 
   /**
-   * Gets or sets the target frame rate of the widget when <code>useDefaultRenderLoop</code>
+   * 获取或设置target frame rate of the widget when <code>useDefaultRenderLoop</code>
    * is true. If undefined, the browser's requestAnimationFrame implementation
    * determines the frame rate.  If defined, this value must be greater than 0.  A value higher
    * than the underlying requestAnimationFrame implementation will have no effect.
@@ -1462,7 +1462,7 @@ Object.defineProperties(Viewer.prototype, {
   },
 
   /**
-   * Gets or sets the Entity instance currently being tracked by the camera.
+   * 获取或设置Entity instance currently being tracked by the camera.
    * @memberof Viewer.prototype
    * @type {Entity | undefined}
    */
@@ -1511,7 +1511,7 @@ Object.defineProperties(Viewer.prototype, {
     },
   },
   /**
-   * Gets or sets the object instance for which to display a selection indicator.
+   * 获取或设置object instance for which to display a selection indicator.
    *
    * If a user interactively picks a Cesium3DTilesFeature instance, then this property
    * will contain a transient Entity instance with a property named "feature" that is
@@ -1564,7 +1564,7 @@ Object.defineProperties(Viewer.prototype, {
     },
   },
   /**
-   * Gets or sets the data source to track with the viewer's clock.
+   * 获取或设置data source to track with the viewer's clock.
    * @memberof Viewer.prototype
    * @type {DataSource}
    */

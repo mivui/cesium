@@ -62,7 +62,7 @@ Object.defineProperties(VelocityVectorProperty.prototype, {
     },
   },
   /**
-   * Gets or sets the position property used to compute the velocity vector.
+   * 获取或设置position property used to compute the velocity vector.
    * @memberof VelocityVectorProperty.prototype
    *
    * @type {Property|undefined}

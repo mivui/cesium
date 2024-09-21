@@ -630,7 +630,7 @@ Object.defineProperties(Cesium3DTile.prototype, {
   },
 
   /**
-   * Gets or sets the tile's highlight color.
+   * 获取或设置tile's highlight color.
    *
    * @memberof Cesium3DTile.prototype
    *

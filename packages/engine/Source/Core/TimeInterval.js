@@ -60,7 +60,7 @@ import JulianDate from "./JulianDate.js";
 function TimeInterval(options) {
   options = defaultValue(options, defaultValue.EMPTY_OBJECT);
   /**
-   * Gets or sets the start time of this interval.
+   * 获取或设置start time of this interval.
    * @type {JulianDate}
    */
   this.start = defined(options.start)
@@ -68,7 +68,7 @@ function TimeInterval(options) {
     : new JulianDate();
 
   /**
-   * Gets or sets the stop time of this interval.
+   * 获取或设置stop time of this interval.
    * @type {JulianDate}
    */
   this.stop = defined(options.stop)
@@ -76,7 +76,7 @@ function TimeInterval(options) {
     : new JulianDate();
 
   /**
-   * Gets or sets the data associated with this interval.
+   * 获取或设置data associated with this interval.
    * @type {*}
    */
   this.data = options.data;

@@ -520,7 +520,7 @@ PolylineUpdater.prototype.updateObject = function (time, item) {
     entity.isAvailable(time) &&
     (!defined(showProperty) || showProperty.getValue(time));
 
-  //While we want to show the path, there may not actually be anything to show
+  //While we want to 显示path, there may not actually be anything to show
   //depending on lead/trail settings.  Compute the interval of the path to
   //show and check against actual availability.
   if (show) {

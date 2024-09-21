@@ -160,7 +160,7 @@ describe(
       expect(viewModel.showingLowFrameRateMessage).toBe(false);
     });
 
-    it("does not show the low frame rate message again once it is dismissed", function () {
+    it("does not 显示low frame rate message again once it is dismissed", function () {
       const monitor = FrameRateMonitor.fromScene(scene);
       monitor.quietPeriod = 0.001;
       monitor.warmupPeriod = 0.001;

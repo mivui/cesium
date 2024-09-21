@@ -3,11 +3,11 @@ import knockout from "../ThirdParty/knockout.js";
 import createCommand from "../createCommand.js";
 
 /**
- * The view model for {@link HomeButton}.
+ * 视图模型 {@link HomeButton}.
  * @alias HomeButtonViewModel
  * @constructor
  *
- * @param {Scene} scene The scene instance to use.
+ * @param {Scene} scene 要使用的场景实例。
  * @param {number} [duration] The duration of the camera flight in seconds.
  */
 function HomeButtonViewModel(scene, duration) {
@@ -26,7 +26,7 @@ function HomeButtonViewModel(scene, duration) {
   });
 
   /**
-   * Gets or sets the tooltip.  这个属性是可观察的。
+   * 获取或设置tooltip.  这个属性是可观察的。
    *
    * @type {string}
    */
@@ -37,7 +37,7 @@ function HomeButtonViewModel(scene, duration) {
 
 Object.defineProperties(HomeButtonViewModel.prototype, {
   /**
-   * Gets the scene to control.
+   * 得到场景 to control.
    * @memberof HomeButtonViewModel.prototype
    *
    * @type {Scene}
@@ -61,7 +61,7 @@ Object.defineProperties(HomeButtonViewModel.prototype, {
   },
 
   /**
-   * Gets or sets the the duration of the camera flight in seconds.
+   * 获取或设置the duration of the camera flight in seconds.
    * A value of zero causes the camera to instantly switch to home view.
    * The duration will be computed based on the distance when undefined.
    * @memberof HomeButtonViewModel.prototype

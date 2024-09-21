@@ -73,7 +73,7 @@ Object.defineProperties(BoxGraphics.prototype, {
   },
 
   /**
-   * Gets or sets the boolean Property specifying the visibility of the box.
+   * 获取或设置boolean Property specifying the visibility of the box.
    * @memberof BoxGraphics.prototype
    * @type {Property|undefined}
    * @default true
@@ -88,7 +88,7 @@ Object.defineProperties(BoxGraphics.prototype, {
   dimensions: createPropertyDescriptor("dimensions"),
 
   /**
-   * Gets or sets the Property specifying the {@link HeightReference}.
+   * 获取或设置Property specifying the {@link HeightReference}.
    * @memberof BoxGraphics.prototype
    * @type {Property|undefined}
    * @default HeightReference.NONE
@@ -96,7 +96,7 @@ Object.defineProperties(BoxGraphics.prototype, {
   heightReference: createPropertyDescriptor("heightReference"),
 
   /**
-   * Gets or sets the boolean Property specifying whether the box is filled with the provided material.
+   * 获取或设置boolean Property specifying whether the box is filled with the provided material.
    * @memberof BoxGraphics.prototype
    * @type {Property|undefined}
    * @default true
@@ -104,7 +104,7 @@ Object.defineProperties(BoxGraphics.prototype, {
   fill: createPropertyDescriptor("fill"),
 
   /**
-   * Gets or sets the material used to fill the box.
+   * 获取或设置material used to fill the box.
    * @memberof BoxGraphics.prototype
    * @type {MaterialProperty|undefined}
    * @default Color.WHITE
@@ -112,7 +112,7 @@ Object.defineProperties(BoxGraphics.prototype, {
   material: createMaterialPropertyDescriptor("material"),
 
   /**
-   * Gets or sets the Property specifying whether the box is outlined.
+   * 获取或设置Property specifying whether the box is outlined.
    * @memberof BoxGraphics.prototype
    * @type {Property|undefined}
    * @default false
@@ -120,7 +120,7 @@ Object.defineProperties(BoxGraphics.prototype, {
   outline: createPropertyDescriptor("outline"),
 
   /**
-   * Gets or sets the Property specifying the {@link Color} of the outline.
+   * 获取或设置Property specifying the {@link Color} of the outline.
    * @memberof BoxGraphics.prototype
    * @type {Property|undefined}
    * @default Color.BLACK
@@ -128,7 +128,7 @@ Object.defineProperties(BoxGraphics.prototype, {
   outlineColor: createPropertyDescriptor("outlineColor"),
 
   /**
-   * Gets or sets the numeric Property specifying the width of the outline.
+   * 获取或设置numeric Property specifying the width of the outline.
    * <p>
    * Note: This property will be ignored on all major browsers on Windows platforms. For details, see (@link https://github.com/CesiumGS/cesium/issues/40}.
    * </p>
@@ -148,7 +148,7 @@ Object.defineProperties(BoxGraphics.prototype, {
   shadows: createPropertyDescriptor("shadows"),
 
   /**
-   * Gets or sets the {@link DistanceDisplayCondition} Property specifying at what distance from the camera that this box will be displayed.
+   * 获取或设置{@link DistanceDisplayCondition} Property specifying at what distance from the camera that this box will be displayed.
    * @memberof BoxGraphics.prototype
    * @type {Property|undefined}
    */

@@ -21,7 +21,7 @@ const ModelSplitterPipelineStage = {
  * <ul>
  *  <li>adds a define to the fragment shader to indicate that the model is split</li>
  *  <li>adds a function to the fragment shader to discard the fragment if it's on the wrong side of the splitter.</li>
- *  <li>adds a uniform indicating the "splitDirection" (side of the screen on which to show the model)
+ *  <li>adds a uniform indicating the "splitDirection" (side of the screen on which to 显示model)
  *</ul>
  *
  * @param {ModelRenderResources} renderResources The render resources for this model.

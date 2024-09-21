@@ -473,7 +473,7 @@ function Scene(options) {
   /**
    * This property is for debugging only; it is not for production use.
    * <p>
-   * When <code>true</code>, draws outlines to show the boundaries of the camera frustums
+   * When <code>true</code>, draws outlines to 显示boundaries of the camera frustums
    * </p>
    *
    * @type {boolean}
@@ -945,7 +945,7 @@ Object.defineProperties(Scene.prototype, {
   },
 
   /**
-   * Gets or sets the depth-test ellipsoid.
+   * 获取或设置depth-test ellipsoid.
    * @memberof Scene.prototype
    *
    * @type {Globe}
@@ -990,7 +990,7 @@ Object.defineProperties(Scene.prototype, {
   },
 
   /**
-   * Gets or sets the camera.
+   * 获取或设置camera.
    * @memberof Scene.prototype
    *
    * @type {Camera}
@@ -1007,7 +1007,7 @@ Object.defineProperties(Scene.prototype, {
   },
 
   /**
-   * Gets or sets the view.
+   * 获取或设置view.
    * @memberof Scene.prototype
    *
    * @type {View}
@@ -1385,7 +1385,7 @@ Object.defineProperties(Scene.prototype, {
   },
 
   /**
-   * Gets or sets the current mode of the scene.
+   * 获取或设置current mode of the scene.
    * @memberof Scene.prototype
    * @type {SceneMode}
    * @default {@link SceneMode.SCENE3D}
@@ -1502,7 +1502,7 @@ Object.defineProperties(Scene.prototype, {
   },
 
   /**
-   * Gets or sets the position of the splitter within the viewport.  Valid values are between 0.0 and 1.0.
+   * 获取或设置position of the splitter within the viewport.  Valid values are between 0.0 and 1.0.
    * @memberof Scene.prototype
    *
    * @type {number}

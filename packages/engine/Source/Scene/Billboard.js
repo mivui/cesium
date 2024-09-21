@@ -313,7 +313,7 @@ Object.defineProperties(Billboard.prototype, {
   },
 
   /**
-   * Gets or sets the Cartesian position of this billboard.
+   * 获取或设置Cartesian position of this billboard.
    * @memberof Billboard.prototype
    * @type {Cartesian3}
    */
@@ -337,7 +337,7 @@ Object.defineProperties(Billboard.prototype, {
   },
 
   /**
-   * Gets or sets the height reference of this billboard.
+   * 获取或设置height reference of this billboard.
    * @memberof Billboard.prototype
    * @type {HeightReference}
    * @default HeightReference.NONE
@@ -361,7 +361,7 @@ Object.defineProperties(Billboard.prototype, {
   },
 
   /**
-   * Gets or sets the pixel offset in screen space from the origin of this billboard.  This is commonly used
+   * 获取或设置pixel offset in screen space from the origin of this billboard.  This is commonly used
    * to align multiple billboards and labels at the same position, e.g., an image and text.  The
    * screen space origin is the top, left corner of the canvas; <code>x</code> increases from
    * left to right, and <code>y</code> increases from top to bottom.
@@ -539,7 +539,7 @@ Object.defineProperties(Billboard.prototype, {
   },
 
   /**
-   * Gets or sets the 3D Cartesian offset applied to this billboard in eye coordinates.  Eye coordinates is a left-handed
+   * 获取或设置3D Cartesian offset applied to this billboard in eye coordinates.  Eye coordinates is a left-handed
    * coordinate system, where <code>x</code> points towards the viewer's right, <code>y</code> points up, and
    * <code>z</code> points into the screen.  Eye coordinates use the same scale as world and model coordinates,
    * which is typically meters.
@@ -578,7 +578,7 @@ Object.defineProperties(Billboard.prototype, {
   },
 
   /**
-   * Gets or sets the horizontal origin of this billboard, which determines if the billboard is
+   * 获取或设置horizontal origin of this billboard, which determines if the billboard is
    * to the left, center, or right of its anchor position.
    * <br /><br />
    * <div align='center'>
@@ -608,7 +608,7 @@ Object.defineProperties(Billboard.prototype, {
   },
 
   /**
-   * Gets or sets the vertical origin of this billboard, which determines if the billboard is
+   * 获取或设置vertical origin of this billboard, which determines if the billboard is
    * to the above, below, or at the center of its anchor position.
    * <br /><br />
    * <div align='center'>
@@ -638,7 +638,7 @@ Object.defineProperties(Billboard.prototype, {
   },
 
   /**
-   * Gets or sets the uniform scale that is multiplied with the billboard's image size in pixels.
+   * 获取或设置uniform scale that is multiplied with the billboard's image size in pixels.
    * A scale of <code>1.0</code> does not change the size of the billboard; a scale greater than
    * <code>1.0</code> enlarges the billboard; a positive scale less than <code>1.0</code> shrinks
    * the billboard.
@@ -668,7 +668,7 @@ Object.defineProperties(Billboard.prototype, {
   },
 
   /**
-   * Gets or sets the color that is multiplied with the billboard's texture.  This has two common use cases.  First,
+   * 获取或设置color that is multiplied with the billboard's texture.  This has two common use cases.  First,
    * the same white texture may be used by many different billboards, each with a different color, to create
    * colored billboards.  Second, the color's alpha component can be used to make the billboard translucent as shown below.
    * An alpha of <code>0.0</code> makes the billboard transparent, and <code>1.0</code> makes the billboard opaque.
@@ -712,7 +712,7 @@ Object.defineProperties(Billboard.prototype, {
   },
 
   /**
-   * Gets or sets the rotation angle in radians.
+   * 获取或设置rotation angle in radians.
    * @memberof Billboard.prototype
    * @type {number}
    */
@@ -733,7 +733,7 @@ Object.defineProperties(Billboard.prototype, {
   },
 
   /**
-   * Gets or sets the aligned axis in world space. The aligned axis is the unit vector that the billboard up vector points towards.
+   * 获取或设置aligned axis in world space. The aligned axis is the unit vector that the billboard up vector points towards.
    * The default is the zero vector, which means the billboard is aligned to the screen up vector.
    * @memberof Billboard.prototype
    * @type {Cartesian3}
@@ -837,7 +837,7 @@ Object.defineProperties(Billboard.prototype, {
   },
 
   /**
-   * Gets or sets the condition specifying at what distance from the camera that this billboard will be displayed.
+   * 获取或设置condition specifying at what distance from the camera that this billboard will be displayed.
    * @memberof Billboard.prototype
    * @type {DistanceDisplayCondition}
    * @default undefined
@@ -870,7 +870,7 @@ Object.defineProperties(Billboard.prototype, {
   },
 
   /**
-   * Gets or sets the distance from the camera at which to disable the depth test to, for example, prevent clipping against terrain.
+   * 获取或设置distance from the camera at which to disable the depth test to, for example, prevent clipping against terrain.
    * When set to zero, the depth test is always applied. When set to Number.POSITIVE_INFINITY, the depth test is never applied.
    * @memberof Billboard.prototype
    * @type {number}
@@ -898,7 +898,7 @@ Object.defineProperties(Billboard.prototype, {
   },
 
   /**
-   * Gets or sets the user-defined object returned when the billboard is picked.
+   * 获取或设置user-defined object returned when the billboard is picked.
    * @memberof Billboard.prototype
    * @type {*}
    */
@@ -942,7 +942,7 @@ Object.defineProperties(Billboard.prototype, {
 
   /**
    * <p>
-   * Gets or sets the image to be used for this billboard.  If a texture has already been created for the
+   * 获取或设置image to be used for this billboard.  If a texture has already been created for the
    * given image, the existing texture is used.
    * </p>
    * <p>
@@ -1082,7 +1082,7 @@ Object.defineProperties(Billboard.prototype, {
   },
 
   /**
-   * Gets or sets the {@link SplitDirection} of this billboard.
+   * 获取或设置{@link SplitDirection} of this billboard.
    * @memberof Billboard.prototype
    * @type {SplitDirection}
    * @default {@link SplitDirection.NONE}

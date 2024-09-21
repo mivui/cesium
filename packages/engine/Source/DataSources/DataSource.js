@@ -81,7 +81,7 @@ Object.defineProperties(DataSource.prototype, {
   },
 
   /**
-   * Gets or sets the clustering options for this data source. This object can be shared between multiple data sources.
+   * 获取或设置clustering options for this data source. This object can be shared between multiple data sources.
    *
    * @memberof DataSource.prototype
    * @type {EntityCluster}

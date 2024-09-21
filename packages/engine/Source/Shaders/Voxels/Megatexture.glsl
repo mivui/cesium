@@ -6,7 +6,7 @@
 #define PADDING
 */
 
-uniform ivec2 u_megatextureSliceDimensions; // number of slices per tile, in two dimensions
+uniform ivec2 u_megatextureSliceDimensions; // number of slices 每个tile, in two dimensions
 uniform ivec2 u_megatextureTileDimensions; // number of tiles per megatexture, in two dimensions
 uniform vec2 u_megatextureVoxelSizeUv;
 uniform vec2 u_megatextureSliceSizeUv;

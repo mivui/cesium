@@ -99,7 +99,7 @@ Object.defineProperties(ShowGeometryInstanceAttribute.prototype, {
 /**
  * Converts a boolean show to a typed array that can be used to assign a show attribute.
  *
- * @param {boolean} show The show value.
+ * @param {boolean} 显示show value.
  * @param {Uint8Array} [result] The array to store the result in, if undefined a new instance will be created.
  * @returns {Uint8Array} The modified result parameter or a new instance if result was undefined.
  *

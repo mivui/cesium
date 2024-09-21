@@ -21,12 +21,12 @@ import createCommand from "../createCommand.js";
 const DEFAULT_HEIGHT = 1000;
 
 /**
- * The view model for the {@link Geocoder} widget.
+ * 视图模型 the {@link Geocoder} widget.
  * @alias GeocoderViewModel
  * @constructor
  *
  * @param {object} options 对象，具有以下属性:
- * @param {Scene} options.scene The Scene instance to use.
+ * @param {Scene} options.scene 要使用的场景实例。
  * @param {GeocoderService[]} [options.geocoderServices] Geocoder services to use for geocoding queries.
  *        If more than one are supplied, suggestions will be gathered for the geocoders that support it,
  *        and if no suggestion is selected the result from the first geocoder service wil be used.
@@ -194,7 +194,7 @@ function GeocoderViewModel(options) {
   });
 
   /**
-   * Gets or sets the text to search for.  The text can be an address, or longitude, latitude,
+   * 获取或设置text to search for.  The text can be an address, or longitude, latitude,
    * and optional height, where longitude and latitude are in degrees and height is in meters.
    *
    * @type {string}
@@ -219,7 +219,7 @@ function GeocoderViewModel(options) {
   });
 
   /**
-   * Gets or sets the the duration of the camera flight in seconds.
+   * 获取或设置the duration of the camera flight in seconds.
    * A value of zero causes the camera to instantly switch to the geocoding location.
    * The duration will be computed based on the distance when undefined.
    *
@@ -257,7 +257,7 @@ Object.defineProperties(GeocoderViewModel.prototype, {
   },
 
   /**
-   * Gets the scene to control.
+   * 得到场景 to control.
    * @memberof GeocoderViewModel.prototype
    *
    * @type {Scene}

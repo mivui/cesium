@@ -8,7 +8,7 @@ import defined from "../Core/defined.js";
  */
 function ImageryLayerFeatureInfo() {
   /**
-   * Gets or sets the name of the feature.
+   * 获取或设置name of the feature.
    * @type {string|undefined}
    */
   this.name = undefined;
@@ -21,21 +21,21 @@ function ImageryLayerFeatureInfo() {
   this.description = undefined;
 
   /**
-   * Gets or sets the position of the feature, or undefined if the position is not known.
+   * 获取或设置position of the feature, or undefined if the position is not known.
    *
    * @type {Cartographic|undefined}
    */
   this.position = undefined;
 
   /**
-   * Gets or sets the raw data describing the feature.  The raw data may be in any
+   * 获取或设置raw data describing the feature.  The raw data may be in any
    * number of formats, such as GeoJSON, KML, etc.
    * @type {object|undefined}
    */
   this.data = undefined;
 
   /**
-   * Gets or sets the image layer of the feature.
+   * 获取或设置image layer of the feature.
    * @type {object|undefined}
    */
   this.imageryLayer = undefined;

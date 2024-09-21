@@ -57,7 +57,7 @@ Object.defineProperties(EllipsoidalOccluder.prototype, {
     },
   },
   /**
-   * Gets or sets the position of the camera.
+   * 获取或设置position of the camera.
    * @memberof EllipsoidalOccluder.prototype
    * @type {Cartesian3}
    */

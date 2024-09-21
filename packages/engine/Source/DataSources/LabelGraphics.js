@@ -111,14 +111,14 @@ Object.defineProperties(LabelGraphics.prototype, {
   },
 
   /**
-   * Gets or sets the boolean Property specifying the visibility of the label.
+   * 获取或设置boolean Property specifying the visibility of the label.
    * @memberof LabelGraphics.prototype
    * @type {Property|undefined}
    */
   show: createPropertyDescriptor("show"),
 
   /**
-   * Gets or sets the string Property specifying the text of the label.
+   * 获取或设置string Property specifying the text of the label.
    * Explicit newlines '\n' are supported.
    * @memberof LabelGraphics.prototype
    * @type {Property|undefined}
@@ -126,7 +126,7 @@ Object.defineProperties(LabelGraphics.prototype, {
   text: createPropertyDescriptor("text"),
 
   /**
-   * Gets or sets the string Property specifying the font in CSS syntax.
+   * 获取或设置string Property specifying the font in CSS syntax.
    * @memberof LabelGraphics.prototype
    * @type {Property|undefined}
    * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/font|CSS font on MDN}
@@ -134,14 +134,14 @@ Object.defineProperties(LabelGraphics.prototype, {
   font: createPropertyDescriptor("font"),
 
   /**
-   * Gets or sets the Property specifying the {@link LabelStyle}.
+   * 获取或设置Property specifying the {@link LabelStyle}.
    * @memberof LabelGraphics.prototype
    * @type {Property|undefined}
    */
   style: createPropertyDescriptor("style"),
 
   /**
-   * Gets or sets the numeric Property specifying the uniform scale to apply to the image.
+   * 获取或设置numeric Property specifying the uniform scale to apply to the image.
    * A scale greater than <code>1.0</code> enlarges the label while a scale less than <code>1.0</code> shrinks it.
    * <p>
    * <div align='center'>
@@ -157,7 +157,7 @@ Object.defineProperties(LabelGraphics.prototype, {
   scale: createPropertyDescriptor("scale"),
 
   /**
-   * Gets or sets the boolean Property specifying the visibility of the background behind the label.
+   * 获取或设置boolean Property specifying the visibility of the background behind the label.
    * @memberof LabelGraphics.prototype
    * @type {Property|undefined}
    * @default false
@@ -165,7 +165,7 @@ Object.defineProperties(LabelGraphics.prototype, {
   showBackground: createPropertyDescriptor("showBackground"),
 
   /**
-   * Gets or sets the Property specifying the background {@link Color}.
+   * 获取或设置Property specifying the background {@link Color}.
    * @memberof LabelGraphics.prototype
    * @type {Property|undefined}
    * @default new Color(0.165, 0.165, 0.165, 0.8)
@@ -173,7 +173,7 @@ Object.defineProperties(LabelGraphics.prototype, {
   backgroundColor: createPropertyDescriptor("backgroundColor"),
 
   /**
-   * Gets or sets the {@link Cartesian2} Property specifying the label's horizontal and vertical
+   * 获取或设置{@link Cartesian2} Property specifying the label's horizontal and vertical
    * background padding in pixels.
    * @memberof LabelGraphics.prototype
    * @type {Property|undefined}
@@ -182,7 +182,7 @@ Object.defineProperties(LabelGraphics.prototype, {
   backgroundPadding: createPropertyDescriptor("backgroundPadding"),
 
   /**
-   * Gets or sets the {@link Cartesian2} Property specifying the label's pixel offset in screen space
+   * 获取或设置{@link Cartesian2} Property specifying the label's pixel offset in screen space
    * from the origin of this label.  This is commonly used to align multiple labels and labels at
    * the same position, e.g., an image and text.  The screen space origin is the top, left corner of the
    * canvas; <code>x</code> increases from left to right, and <code>y</code> increases from top to bottom.
@@ -202,7 +202,7 @@ Object.defineProperties(LabelGraphics.prototype, {
   pixelOffset: createPropertyDescriptor("pixelOffset"),
 
   /**
-   * Gets or sets the {@link Cartesian3} Property specifying the label's offset in eye coordinates.
+   * 获取或设置{@link Cartesian3} Property specifying the label's offset in eye coordinates.
    * Eye coordinates is a left-handed coordinate system, where <code>x</code> points towards the viewer's
    * right, <code>y</code> points up, and <code>z</code> points into the screen.
    * <p>
@@ -227,21 +227,21 @@ Object.defineProperties(LabelGraphics.prototype, {
   eyeOffset: createPropertyDescriptor("eyeOffset"),
 
   /**
-   * Gets or sets the Property specifying the {@link HorizontalOrigin}.
+   * 获取或设置Property specifying the {@link HorizontalOrigin}.
    * @memberof LabelGraphics.prototype
    * @type {Property|undefined}
    */
   horizontalOrigin: createPropertyDescriptor("horizontalOrigin"),
 
   /**
-   * Gets or sets the Property specifying the {@link VerticalOrigin}.
+   * 获取或设置Property specifying the {@link VerticalOrigin}.
    * @memberof LabelGraphics.prototype
    * @type {Property|undefined}
    */
   verticalOrigin: createPropertyDescriptor("verticalOrigin"),
 
   /**
-   * Gets or sets the Property specifying the {@link HeightReference}.
+   * 获取或设置Property specifying the {@link HeightReference}.
    * @memberof LabelGraphics.prototype
    * @type {Property|undefined}
    * @default HeightReference.NONE
@@ -249,21 +249,21 @@ Object.defineProperties(LabelGraphics.prototype, {
   heightReference: createPropertyDescriptor("heightReference"),
 
   /**
-   * Gets or sets the Property specifying the fill {@link Color}.
+   * 获取或设置Property specifying the fill {@link Color}.
    * @memberof LabelGraphics.prototype
    * @type {Property|undefined}
    */
   fillColor: createPropertyDescriptor("fillColor"),
 
   /**
-   * Gets or sets the Property specifying the outline {@link Color}.
+   * 获取或设置Property specifying the outline {@link Color}.
    * @memberof LabelGraphics.prototype
    * @type {Property|undefined}
    */
   outlineColor: createPropertyDescriptor("outlineColor"),
 
   /**
-   * Gets or sets the numeric Property specifying the outline width.
+   * 获取或设置numeric Property specifying the outline width.
    * @memberof LabelGraphics.prototype
    * @type {Property|undefined}
    */
@@ -306,7 +306,7 @@ Object.defineProperties(LabelGraphics.prototype, {
   scaleByDistance: createPropertyDescriptor("scaleByDistance"),
 
   /**
-   * Gets or sets the {@link DistanceDisplayCondition} Property specifying at what distance from the camera that this label will be displayed.
+   * 获取或设置{@link DistanceDisplayCondition} Property specifying at what distance from the camera that this label will be displayed.
    * @memberof LabelGraphics.prototype
    * @type {Property|undefined}
    */
@@ -315,7 +315,7 @@ Object.defineProperties(LabelGraphics.prototype, {
   ),
 
   /**
-   * Gets or sets the distance from the camera at which to disable the depth test to, for example, prevent clipping against terrain.
+   * 获取或设置distance from the camera at which to disable the depth test to, for example, prevent clipping against terrain.
    * When set to zero, the depth test is always applied. When set to Number.POSITIVE_INFINITY, the depth test is never applied.
    * @memberof LabelGraphics.prototype
    * @type {Property|undefined}

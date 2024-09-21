@@ -205,13 +205,13 @@ const iso8601ErrorMessage = "Invalid ISO 8601 date.";
  */
 function JulianDate(julianDayNumber, secondsOfDay, timeStandard) {
   /**
-   * Gets or sets the number of whole days.
+   * 获取或设置number of whole days.
    * @type {number}
    */
   this.dayNumber = undefined;
 
   /**
-   * Gets or sets the number of seconds into the current day.
+   * 获取或设置number of seconds into the current day.
    * @type {number}
    */
   this.secondsOfDay = undefined;
@@ -1196,7 +1196,7 @@ JulianDate.prototype.toString = function () {
 };
 
 /**
- * Gets or sets the list of leap seconds used throughout Cesium.
+ * 获取或设置list of leap seconds used throughout Cesium.
  * @memberof JulianDate
  * @type {LeapSecond[]}
  */

@@ -106,7 +106,7 @@ Object.defineProperties(EllipseGraphics.prototype, {
   },
 
   /**
-   * Gets or sets the boolean Property specifying the visibility of the ellipse.
+   * 获取或设置boolean Property specifying the visibility of the ellipse.
    * @memberof EllipseGraphics.prototype
    * @type {Property|undefined}
    * @default true
@@ -114,21 +114,21 @@ Object.defineProperties(EllipseGraphics.prototype, {
   show: createPropertyDescriptor("show"),
 
   /**
-   * Gets or sets the numeric Property specifying the semi-major axis.
+   * 获取或设置numeric Property specifying the semi-major axis.
    * @memberof EllipseGraphics.prototype
    * @type {Property|undefined}
    */
   semiMajorAxis: createPropertyDescriptor("semiMajorAxis"),
 
   /**
-   * Gets or sets the numeric Property specifying the semi-minor axis.
+   * 获取或设置numeric Property specifying the semi-minor axis.
    * @memberof EllipseGraphics.prototype
    * @type {Property|undefined}
    */
   semiMinorAxis: createPropertyDescriptor("semiMinorAxis"),
 
   /**
-   * Gets or sets the numeric Property specifying the altitude of the ellipse.
+   * 获取或设置numeric Property specifying the altitude of the ellipse.
    * @memberof EllipseGraphics.prototype
    * @type {Property|undefined}
    * @default 0.0
@@ -136,7 +136,7 @@ Object.defineProperties(EllipseGraphics.prototype, {
   height: createPropertyDescriptor("height"),
 
   /**
-   * Gets or sets the Property specifying the {@link HeightReference}.
+   * 获取或设置Property specifying the {@link HeightReference}.
    * @memberof EllipseGraphics.prototype
    * @type {Property|undefined}
    * @default HeightReference.NONE
@@ -144,7 +144,7 @@ Object.defineProperties(EllipseGraphics.prototype, {
   heightReference: createPropertyDescriptor("heightReference"),
 
   /**
-   * Gets or sets the numeric Property specifying the altitude of the ellipse extrusion.
+   * 获取或设置numeric Property specifying the altitude of the ellipse extrusion.
    * Setting this property creates volume starting at height and ending at this altitude.
    * @memberof EllipseGraphics.prototype
    * @type {Property|undefined}
@@ -152,7 +152,7 @@ Object.defineProperties(EllipseGraphics.prototype, {
   extrudedHeight: createPropertyDescriptor("extrudedHeight"),
 
   /**
-   * Gets or sets the Property specifying the extruded {@link HeightReference}.
+   * 获取或设置Property specifying the extruded {@link HeightReference}.
    * @memberof EllipseGraphics.prototype
    * @type {Property|undefined}
    * @default HeightReference.NONE
@@ -160,7 +160,7 @@ Object.defineProperties(EllipseGraphics.prototype, {
   extrudedHeightReference: createPropertyDescriptor("extrudedHeightReference"),
 
   /**
-   * Gets or sets the numeric property specifying the rotation of the ellipse counter-clockwise from north.
+   * 获取或设置numeric property specifying the rotation of the ellipse counter-clockwise from north.
    * @memberof EllipseGraphics.prototype
    * @type {Property|undefined}
    * @default 0
@@ -168,7 +168,7 @@ Object.defineProperties(EllipseGraphics.prototype, {
   rotation: createPropertyDescriptor("rotation"),
 
   /**
-   * Gets or sets the numeric property specifying the rotation of the ellipse texture counter-clockwise from north.
+   * 获取或设置numeric property specifying the rotation of the ellipse texture counter-clockwise from north.
    * @memberof EllipseGraphics.prototype
    * @type {Property|undefined}
    * @default 0
@@ -176,7 +176,7 @@ Object.defineProperties(EllipseGraphics.prototype, {
   stRotation: createPropertyDescriptor("stRotation"),
 
   /**
-   * Gets or sets the numeric Property specifying the angular distance between points on the ellipse.
+   * 获取或设置numeric Property specifying the angular distance between points on the ellipse.
    * @memberof EllipseGraphics.prototype
    * @type {Property|undefined}
    * @default {CesiumMath.RADIANS_PER_DEGREE}
@@ -184,7 +184,7 @@ Object.defineProperties(EllipseGraphics.prototype, {
   granularity: createPropertyDescriptor("granularity"),
 
   /**
-   * Gets or sets the boolean Property specifying whether the ellipse is filled with the provided material.
+   * 获取或设置boolean Property specifying whether the ellipse is filled with the provided material.
    * @memberof EllipseGraphics.prototype
    * @type {Property|undefined}
    * @default true
@@ -192,7 +192,7 @@ Object.defineProperties(EllipseGraphics.prototype, {
   fill: createPropertyDescriptor("fill"),
 
   /**
-   * Gets or sets the Property specifying the material used to fill the ellipse.
+   * 获取或设置Property specifying the material used to fill the ellipse.
    * @memberof EllipseGraphics.prototype
    * @type {MaterialProperty|undefined}
    * @default Color.WHITE
@@ -200,7 +200,7 @@ Object.defineProperties(EllipseGraphics.prototype, {
   material: createMaterialPropertyDescriptor("material"),
 
   /**
-   * Gets or sets the Property specifying whether the ellipse is outlined.
+   * 获取或设置Property specifying whether the ellipse is outlined.
    * @memberof EllipseGraphics.prototype
    * @type {Property|undefined}
    * @default false
@@ -208,7 +208,7 @@ Object.defineProperties(EllipseGraphics.prototype, {
   outline: createPropertyDescriptor("outline"),
 
   /**
-   * Gets or sets the Property specifying the {@link Color} of the outline.
+   * 获取或设置Property specifying the {@link Color} of the outline.
    * @memberof EllipseGraphics.prototype
    * @type {Property|undefined}
    * @default Color.BLACK
@@ -216,7 +216,7 @@ Object.defineProperties(EllipseGraphics.prototype, {
   outlineColor: createPropertyDescriptor("outlineColor"),
 
   /**
-   * Gets or sets the numeric Property specifying the width of the outline.
+   * 获取或设置numeric Property specifying the width of the outline.
    * <p>
    * Note: This property will be ignored on all major browsers on Windows platforms. For details, see (@link https://github.com/CesiumGS/cesium/issues/40}.
    * </p>
@@ -227,7 +227,7 @@ Object.defineProperties(EllipseGraphics.prototype, {
   outlineWidth: createPropertyDescriptor("outlineWidth"),
 
   /**
-   * Gets or sets the numeric Property specifying the number of vertical lines to draw along the perimeter for the outline.
+   * 获取或设置numeric Property specifying the number of vertical lines to draw along the perimeter for the outline.
    * @memberof EllipseGraphics.prototype
    * @type {Property|undefined}
    * @default 16
@@ -244,7 +244,7 @@ Object.defineProperties(EllipseGraphics.prototype, {
   shadows: createPropertyDescriptor("shadows"),
 
   /**
-   * Gets or sets the {@link DistanceDisplayCondition} Property specifying at what distance from the camera that this ellipse will be displayed.
+   * 获取或设置{@link DistanceDisplayCondition} Property specifying at what distance from the camera that this ellipse will be displayed.
    * @memberof EllipseGraphics.prototype
    * @type {Property|undefined}
    */
@@ -253,7 +253,7 @@ Object.defineProperties(EllipseGraphics.prototype, {
   ),
 
   /**
-   * Gets or sets the {@link ClassificationType} Property specifying whether this ellipse will classify terrain, 3D Tiles, or both when on the ground.
+   * 获取或设置{@link ClassificationType} Property specifying whether this ellipse will classify terrain, 3D Tiles, or both when on the ground.
    * @memberof EllipseGraphics.prototype
    * @type {Property|undefined}
    * @default ClassificationType.BOTH
@@ -261,7 +261,7 @@ Object.defineProperties(EllipseGraphics.prototype, {
   classificationType: createPropertyDescriptor("classificationType"),
 
   /**
-   * Gets or sets the zIndex Property specifying the ellipse ordering.  Only has an effect if the ellipse is constant and neither height or extrudedHeight are specified
+   * 获取或设置zIndex Property specifying the ellipse ordering.  Only has an effect if the ellipse is constant and neither height or extrudedHeight are specified
    * @memberof EllipseGraphics.prototype
    * @type {ConstantProperty|undefined}
    * @default 0

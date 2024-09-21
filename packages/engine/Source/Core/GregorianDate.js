@@ -54,37 +54,37 @@ function GregorianDate(
   //>>includeEnd('debug');
 
   /**
-   * Gets or sets the year as a whole number.
+   * 获取或设置year as a whole number.
    * @type {number}
    */
   this.year = year;
   /**
-   * Gets or sets the month as a whole number with range [1, 12].
+   * 获取或设置month as a whole number with range [1, 12].
    * @type {number}
    */
   this.month = month;
   /**
-   * Gets or sets the day of the month as a whole number starting at 1.
+   * 获取或设置day of the month as a whole number starting at 1.
    * @type {number}
    */
   this.day = day;
   /**
-   * Gets or sets the hour as a whole number with range [0, 23].
+   * 获取或设置hour as a whole number with range [0, 23].
    * @type {number}
    */
   this.hour = hour;
   /**
-   * Gets or sets the minute of the hour as a whole number with range [0, 59].
+   * 获取或设置minute of the hour as a whole number with range [0, 59].
    * @type {number}
    */
   this.minute = minute;
   /**
-   * Gets or sets the second of the minute as a whole number with range [0, 60], with 60 representing a leap second.
+   * 获取或设置second of the minute as a whole number with range [0, 60], with 60 representing a leap second.
    * @type {number}
    */
   this.second = second;
   /**
-   * Gets or sets the millisecond of the second as a floating point number with range [0.0, 1000.0).
+   * 获取或设置millisecond of the second as a floating point number with range [0.0, 1000.0).
    * @type {number}
    */
   this.millisecond = millisecond;

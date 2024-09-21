@@ -699,7 +699,7 @@ Object.defineProperties(VoxelPrimitive.prototype, {
   },
 
   /**
-   * Gets or sets the nearest sampling.
+   * 获取或设置nearest sampling.
    *
    * @memberof VoxelPrimitive.prototype
    * @type {boolean}
@@ -743,7 +743,7 @@ Object.defineProperties(VoxelPrimitive.prototype, {
   },
 
   /**
-   * Gets or sets the screen space error in pixels. If the screen space size
+   * 获取或设置screen space error in pixels. If the screen space size
    * of a voxel is greater than the screen space error, the tile is subdivided.
    * Lower screen space error corresponds with higher detail rendering, but could
    * result in worse performance and higher memory consumption.
@@ -765,7 +765,7 @@ Object.defineProperties(VoxelPrimitive.prototype, {
   },
 
   /**
-   * Gets or sets the step size multiplier used during raymarching.
+   * 获取或设置step size multiplier used during raymarching.
    * The lower the value, the higher the rendering quality, but
    * also the worse the performance.
    *
@@ -786,7 +786,7 @@ Object.defineProperties(VoxelPrimitive.prototype, {
   },
 
   /**
-   * Gets or sets the minimum bounds in the shape's local coordinate system.
+   * 获取或设置minimum bounds in the shape's local coordinate system.
    * Voxel data is stretched or squashed to fit the bounds.
    *
    * @memberof VoxelPrimitive.prototype
@@ -806,7 +806,7 @@ Object.defineProperties(VoxelPrimitive.prototype, {
   },
 
   /**
-   * Gets or sets the maximum bounds in the shape's local coordinate system.
+   * 获取或设置maximum bounds in the shape's local coordinate system.
    * Voxel data is stretched or squashed to fit the bounds.
    *
    * @memberof VoxelPrimitive.prototype
@@ -826,7 +826,7 @@ Object.defineProperties(VoxelPrimitive.prototype, {
   },
 
   /**
-   * Gets or sets the minimum clipping location in the shape's local coordinate system.
+   * 获取或设置minimum clipping location in the shape's local coordinate system.
    * Any voxel content outside the range is clipped.
    *
    * @memberof VoxelPrimitive.prototype
@@ -849,7 +849,7 @@ Object.defineProperties(VoxelPrimitive.prototype, {
   },
 
   /**
-   * Gets or sets the maximum clipping location in the shape's local coordinate system.
+   * 获取或设置maximum clipping location in the shape's local coordinate system.
    * Any voxel content outside the range is clipped.
    *
    * @memberof VoxelPrimitive.prototype
@@ -888,7 +888,7 @@ Object.defineProperties(VoxelPrimitive.prototype, {
   },
 
   /**
-   * Gets or sets the custom shader. If undefined, {@link VoxelPrimitive.DefaultCustomShader} is set.
+   * 获取或设置custom shader. If undefined, {@link VoxelPrimitive.DefaultCustomShader} is set.
    *
    * @memberof VoxelPrimitive.prototype
    * @type {CustomShader}

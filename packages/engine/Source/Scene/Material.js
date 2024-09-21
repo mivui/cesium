@@ -242,7 +242,7 @@ import WaterMaterial from "../Shaders/Materials/Water.js";
  *
  * @exception {DeveloperError} fabric: uniform has invalid type.
  * @exception {DeveloperError} fabric: uniforms and materials cannot share the same property.
- * @exception {DeveloperError} fabric: cannot have source and components in the same section.
+ * @exception {DeveloperError} fabric: cannot have source and components in the same部分。
  * @exception {DeveloperError} fabric: property name is not valid. It should be 'type', 'materials', 'uniforms', 'components', or 'source'.
  * @exception {DeveloperError} fabric: property name is not valid. It should be 'diffuse', 'specular', 'shininess', 'normal', 'emission', or 'alpha'.
  * @exception {DeveloperError} strict: shader source does not use string.
@@ -1219,13 +1219,13 @@ Material._materialCache = {
 };
 
 /**
- * Gets or sets the default texture uniform value.
+ * 获取或设置default texture uniform value.
  * @type {string}
  */
 Material.DefaultImageId = "czm_defaultImage";
 
 /**
- * Gets or sets the default cube map texture uniform value.
+ * 获取或设置default cube map texture uniform value.
  * @type {string}
  */
 Material.DefaultCubeMapId = "czm_defaultCubeMap";

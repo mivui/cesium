@@ -30,7 +30,7 @@ function ToggleButtonViewModel(command, options) {
   this.toggled = defaultValue(options.toggled, false);
 
   /**
-   * Gets or sets the button's tooltip.  这个属性是可观察的。
+   * 获取或设置button's tooltip.  这个属性是可观察的。
    * @type {string}
    * @default ''
    */

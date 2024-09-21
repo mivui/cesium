@@ -224,7 +224,7 @@ Object.defineProperties(PolylineGeometryUpdater.prototype, {
     },
   },
   /**
-   * Gets or sets the {@link DistanceDisplayCondition} Property specifying at what distance from the camera that this geometry will be displayed.
+   * 获取或设置{@link DistanceDisplayCondition} Property specifying at what distance from the camera that this geometry will be displayed.
    * @memberof PolylineGeometryUpdater.prototype
    *
    * @type {Property}
@@ -236,7 +236,7 @@ Object.defineProperties(PolylineGeometryUpdater.prototype, {
     },
   },
   /**
-   * Gets or sets the {@link ClassificationType} Property specifying if this geometry will classify terrain, 3D Tiles, or both when on the ground.
+   * 获取或设置{@link ClassificationType} Property specifying if this geometry will classify terrain, 3D Tiles, or both when on the ground.
    * @memberof PolylineGeometryUpdater.prototype
    *
    * @type {Property}

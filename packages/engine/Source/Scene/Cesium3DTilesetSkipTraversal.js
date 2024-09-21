@@ -340,7 +340,7 @@ function executeTraversal(root, frameState) {
  *
  * The reason for the preorder traversal is so that tiles can easily be marked with their
  * selection depth. A tile's _selectionDepth is its depth in the tree where all non-selected tiles are removed.
- * This property is important for use in the stencil test because we want to render deeper tiles on top of their
+ * This property is important for use in the stencil test because we want to render dee每个tiles on top of their
  * ancestors. If a tileset is very deep, the depth is unlikely to fit into the stencil buffer.
  *
  * We want to select children before their ancestors because there is no guarantee on the relationship between

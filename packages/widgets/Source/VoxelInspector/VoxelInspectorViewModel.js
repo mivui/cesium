@@ -45,11 +45,11 @@ function formatShaderString(str) {
 }
 
 /**
- * The view model for {@link VoxelInspector}.
+ * 视图模型 {@link VoxelInspector}.
  * @alias VoxelInspectorViewModel
  * @constructor
  *
- * @param {Scene} scene The scene instance to use.
+ * @param {Scene} scene 要使用的场景实例。
  */
 function VoxelInspectorViewModel(scene) {
   //>>includeStart('debug', pragmas.debug);
@@ -690,7 +690,7 @@ function setModelMatrix(viewModel) {
 
 Object.defineProperties(VoxelInspectorViewModel.prototype, {
   /**
-   * Gets the scene
+   * 得到场景
    * @memberof VoxelInspectorViewModel.prototype
    * @type {Scene}
    * @readonly
@@ -702,7 +702,7 @@ Object.defineProperties(VoxelInspectorViewModel.prototype, {
   },
 
   /**
-   * Gets or sets the primitive of the view model.
+   * 获取或设置primitive of the view model.
    * @memberof VoxelInspectorViewModel.prototype
    * @type {VoxelPrimitive}
    */

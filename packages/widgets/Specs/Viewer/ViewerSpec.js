@@ -947,7 +947,7 @@ describe(
       });
     });
 
-    it("does not show the error panel if disabled", function () {
+    it("does not 显示error panel if disabled", function () {
       viewer = createViewer(container, {
         showRenderLoopErrors: false,
       });

@@ -452,7 +452,7 @@ Object.defineProperties(CesiumWidget.prototype, {
   },
 
   /**
-   * Gets the scene.
+   * 得到场景.
    * @memberof CesiumWidget.prototype
    *
    * @type {Scene}
@@ -557,7 +557,7 @@ Object.defineProperties(CesiumWidget.prototype, {
   },
 
   /**
-   * Gets or sets the target frame rate of the widget when <code>useDefaultRenderLoop</code>
+   * 获取或设置target frame rate of the widget when <code>useDefaultRenderLoop</code>
    * is true. If undefined, the browser's requestAnimationFrame implementation
    * determines the frame rate.  If defined, this value must be greater than 0.  A value higher
    * than the underlying requestAnimationFrame implementation will have no effect.

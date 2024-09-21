@@ -87,7 +87,7 @@ Object.defineProperties(I3SSublayer.prototype, {
   },
 
   /**
-   * Gets or sets the sublayer visibility.
+   * 获取或设置sublayer visibility.
    * @memberof I3SSublayer.prototype
    * @type {boolean}
    */

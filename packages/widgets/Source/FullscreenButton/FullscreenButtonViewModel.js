@@ -10,7 +10,7 @@ import knockout from "../ThirdParty/knockout.js";
 import createCommand from "../createCommand.js";
 
 /**
- * The view model for {@link FullscreenButton}.
+ * 视图模型 {@link FullscreenButton}.
  * @alias FullscreenButtonViewModel
  * @constructor
  *
@@ -92,7 +92,7 @@ function FullscreenButtonViewModel(fullscreenElement, container) {
 
 Object.defineProperties(FullscreenButtonViewModel.prototype, {
   /**
-   * Gets or sets the HTML element to place into fullscreen mode when the
+   * 获取或设置HTML element to place into fullscreen mode when the
    * corresponding button is pressed.
    * @memberof FullscreenButtonViewModel.prototype
    *

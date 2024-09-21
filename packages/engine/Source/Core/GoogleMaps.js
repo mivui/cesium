@@ -15,14 +15,14 @@ import Resource from "./Resource.js";
 const GoogleMaps = {};
 
 /**
- * Gets or sets the default Google Maps API key.
+ * 获取或设置default Google Maps API key.
  *
  * @type {undefined|string}
  */
 GoogleMaps.defaultApiKey = undefined;
 
 /**
- * Gets or sets the default Google Map Tiles API endpoint.
+ * 获取或设置default Google Map Tiles API endpoint.
  *
  * @type {string|Resource}
  * @default https://tile.googleapis.com/v1/

@@ -84,7 +84,7 @@ Object.defineProperties(CylinderGraphics.prototype, {
   },
 
   /**
-   * Gets or sets the boolean Property specifying the visibility of the cylinder.
+   * 获取或设置boolean Property specifying the visibility of the cylinder.
    * @memberof CylinderGraphics.prototype
    * @type {Property|undefined}
    * @default true
@@ -92,28 +92,28 @@ Object.defineProperties(CylinderGraphics.prototype, {
   show: createPropertyDescriptor("show"),
 
   /**
-   * Gets or sets the numeric Property specifying the length of the cylinder.
+   * 获取或设置numeric Property specifying the length of the cylinder.
    * @memberof CylinderGraphics.prototype
    * @type {Property|undefined}
    */
   length: createPropertyDescriptor("length"),
 
   /**
-   * Gets or sets the numeric Property specifying the radius of the top of the cylinder.
+   * 获取或设置numeric Property specifying the radius of the top of the cylinder.
    * @memberof CylinderGraphics.prototype
    * @type {Property|undefined}
    */
   topRadius: createPropertyDescriptor("topRadius"),
 
   /**
-   * Gets or sets the numeric Property specifying the radius of the bottom of the cylinder.
+   * 获取或设置numeric Property specifying the radius of the bottom of the cylinder.
    * @memberof CylinderGraphics.prototype
    * @type {Property|undefined}
    */
   bottomRadius: createPropertyDescriptor("bottomRadius"),
 
   /**
-   * Gets or sets the Property specifying the {@link HeightReference}.
+   * 获取或设置Property specifying the {@link HeightReference}.
    * @memberof CylinderGraphics.prototype
    * @type {Property|undefined}
    * @default HeightReference.NONE
@@ -121,7 +121,7 @@ Object.defineProperties(CylinderGraphics.prototype, {
   heightReference: createPropertyDescriptor("heightReference"),
 
   /**
-   * Gets or sets the boolean Property specifying whether the cylinder is filled with the provided material.
+   * 获取或设置boolean Property specifying whether the cylinder is filled with the provided material.
    * @memberof CylinderGraphics.prototype
    * @type {Property|undefined}
    * @default true
@@ -129,7 +129,7 @@ Object.defineProperties(CylinderGraphics.prototype, {
   fill: createPropertyDescriptor("fill"),
 
   /**
-   * Gets or sets the Property specifying the material used to fill the cylinder.
+   * 获取或设置Property specifying the material used to fill the cylinder.
    * @memberof CylinderGraphics.prototype
    * @type {MaterialProperty|undefined}
    * @default Color.WHITE
@@ -137,7 +137,7 @@ Object.defineProperties(CylinderGraphics.prototype, {
   material: createMaterialPropertyDescriptor("material"),
 
   /**
-   * Gets or sets the boolean Property specifying whether the cylinder is outlined.
+   * 获取或设置boolean Property specifying whether the cylinder is outlined.
    * @memberof CylinderGraphics.prototype
    * @type {Property|undefined}
    * @default false
@@ -145,7 +145,7 @@ Object.defineProperties(CylinderGraphics.prototype, {
   outline: createPropertyDescriptor("outline"),
 
   /**
-   * Gets or sets the Property specifying the {@link Color} of the outline.
+   * 获取或设置Property specifying the {@link Color} of the outline.
    * @memberof CylinderGraphics.prototype
    * @type {Property|undefined}
    * @default Color.BLACK
@@ -153,7 +153,7 @@ Object.defineProperties(CylinderGraphics.prototype, {
   outlineColor: createPropertyDescriptor("outlineColor"),
 
   /**
-   * Gets or sets the numeric Property specifying the width of the outline.
+   * 获取或设置numeric Property specifying the width of the outline.
    * <p>
    * Note: This property will be ignored on all major browsers on Windows platforms. For details, see (@link https://github.com/CesiumGS/cesium/issues/40}.
    * </p>
@@ -164,7 +164,7 @@ Object.defineProperties(CylinderGraphics.prototype, {
   outlineWidth: createPropertyDescriptor("outlineWidth"),
 
   /**
-   * Gets or sets the Property specifying the number of vertical lines to draw along the perimeter for the outline.
+   * 获取或设置Property specifying the number of vertical lines to draw along the perimeter for the outline.
    * @memberof CylinderGraphics.prototype
    * @type {Property|undefined}
    * @default 16
@@ -172,7 +172,7 @@ Object.defineProperties(CylinderGraphics.prototype, {
   numberOfVerticalLines: createPropertyDescriptor("numberOfVerticalLines"),
 
   /**
-   * Gets or sets the Property specifying the number of edges around the perimeter of the cylinder.
+   * 获取或设置Property specifying the number of edges around the perimeter of the cylinder.
    * @memberof CylinderGraphics.prototype
    * @type {Property|undefined}
    * @default 128
@@ -189,7 +189,7 @@ Object.defineProperties(CylinderGraphics.prototype, {
   shadows: createPropertyDescriptor("shadows"),
 
   /**
-   * Gets or sets the {@link DistanceDisplayCondition} Property specifying at what distance from the camera that this cylinder will be displayed.
+   * 获取或设置{@link DistanceDisplayCondition} Property specifying at what distance from the camera that this cylinder will be displayed.
    * @memberof CylinderGraphics.prototype
    * @type {Property|undefined}
    */

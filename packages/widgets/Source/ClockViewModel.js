@@ -34,7 +34,7 @@ function ClockViewModel(clock) {
   this.systemTime.equalityComparer = JulianDate.equals;
 
   /**
-   * Gets or sets the start time of the clock.
+   * 获取或设置start time of the clock.
    * See {@link Clock#startTime}.
    * 这个属性是可观察的。
    * @type {JulianDate}
@@ -47,7 +47,7 @@ function ClockViewModel(clock) {
   }, this);
 
   /**
-   * Gets or sets the stop time of the clock.
+   * 获取或设置stop time of the clock.
    * See {@link Clock#stopTime}.
    * 这个属性是可观察的。
    * @type {JulianDate}
@@ -60,7 +60,7 @@ function ClockViewModel(clock) {
   }, this);
 
   /**
-   * Gets or sets the current time.
+   * 获取或设置current time.
    * See {@link Clock#currentTime}.
    * 这个属性是可观察的。
    * @type {JulianDate}
@@ -73,7 +73,7 @@ function ClockViewModel(clock) {
   }, this);
 
   /**
-   * Gets or sets the clock multiplier.
+   * 获取或设置clock multiplier.
    * See {@link Clock#multiplier}.
    * 这个属性是可观察的。
    * @type {number}
@@ -85,7 +85,7 @@ function ClockViewModel(clock) {
   }, this);
 
   /**
-   * Gets or sets the clock step setting.
+   * 获取或设置clock step setting.
    * See {@link Clock#clockStep}.
    * 这个属性是可观察的。
    * @type {ClockStep}
@@ -97,7 +97,7 @@ function ClockViewModel(clock) {
   }, this);
 
   /**
-   * Gets or sets the clock range setting.
+   * 获取或设置clock range setting.
    * See {@link Clock#clockRange}.
    * 这个属性是可观察的。
    * @type {ClockRange}

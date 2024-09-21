@@ -10,7 +10,7 @@ import knockout from "../ThirdParty/knockout.js";
 import createCommand from "../createCommand.js";
 
 /**
- * The view model for {@link ProjectionPicker}.
+ * 视图模型 {@link ProjectionPicker}.
  * @alias ProjectionPickerViewModel
  * @constructor
  *
@@ -35,14 +35,14 @@ function ProjectionPickerViewModel(scene) {
   this.dropDownVisible = false;
 
   /**
-   * Gets or sets the perspective projection tooltip.  这个属性是可观察的。
+   * 获取或设置perspective projection tooltip.  这个属性是可观察的。
    * @type {string}
    * @default 'Perspective Projection'
    */
   this.tooltipPerspective = "Perspective Projection";
 
   /**
-   * Gets or sets the orthographic projection tooltip.  这个属性是可观察的。
+   * 获取或设置orthographic projection tooltip.  这个属性是可观察的。
    * @type {string}
    * @default 'Orthographic Projection'
    */
@@ -55,7 +55,7 @@ function ProjectionPickerViewModel(scene) {
   this.selectedTooltip = undefined;
 
   /**
-   * Gets or sets the current SceneMode.  这个属性是可观察的。
+   * 获取或设置current SceneMode.  这个属性是可观察的。
    * @type {SceneMode}
    */
   this.sceneMode = scene.mode;
@@ -127,7 +127,7 @@ function ProjectionPickerViewModel(scene) {
 
 Object.defineProperties(ProjectionPickerViewModel.prototype, {
   /**
-   * Gets the scene
+   * 得到场景
    * @memberof ProjectionPickerViewModel.prototype
    * @type {Scene}
    */

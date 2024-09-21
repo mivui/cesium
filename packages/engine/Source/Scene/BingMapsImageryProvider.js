@@ -675,7 +675,7 @@ BingMapsImageryProvider._logoUrl = undefined;
 
 Object.defineProperties(BingMapsImageryProvider, {
   /**
-   * Gets or sets the URL to the Bing logo for display in the credit.
+   * 获取或设置URL to the Bing logo for display in the credit.
    * @memberof BingMapsImageryProvider
    * @type {string}
    */

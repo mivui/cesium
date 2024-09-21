@@ -111,7 +111,7 @@ Object.defineProperties(BillboardGraphics.prototype, {
   },
 
   /**
-   * Gets or sets the boolean Property specifying the visibility of the billboard.
+   * 获取或设置boolean Property specifying the visibility of the billboard.
    * @memberof BillboardGraphics.prototype
    * @type {Property|undefined}
    * @default true
@@ -119,14 +119,14 @@ Object.defineProperties(BillboardGraphics.prototype, {
   show: createPropertyDescriptor("show"),
 
   /**
-   * Gets or sets the Property specifying the Image, URI, or Canvas to use for the billboard.
+   * 获取或设置Property specifying the Image, URI, or Canvas to use for the billboard.
    * @memberof BillboardGraphics.prototype
    * @type {Property|undefined}
    */
   image: createPropertyDescriptor("image"),
 
   /**
-   * Gets or sets the numeric Property specifying the uniform scale to apply to the image.
+   * 获取或设置numeric Property specifying the uniform scale to apply to the image.
    * A scale greater than <code>1.0</code> enlarges the billboard while a scale less than <code>1.0</code> shrinks it.
    * <p>
    * <div align='center'>
@@ -141,7 +141,7 @@ Object.defineProperties(BillboardGraphics.prototype, {
   scale: createPropertyDescriptor("scale"),
 
   /**
-   * Gets or sets the {@link Cartesian2} Property specifying the billboard's pixel offset in screen space
+   * 获取或设置{@link Cartesian2} Property specifying the billboard's pixel offset in screen space
    * from the origin of this billboard.  This is commonly used to align multiple billboards and labels at
    * the same position, e.g., an image and text.  The screen space origin is the top, left corner of the
    * canvas; <code>x</code> increases from left to right, and <code>y</code> increases from top to bottom.
@@ -161,7 +161,7 @@ Object.defineProperties(BillboardGraphics.prototype, {
   pixelOffset: createPropertyDescriptor("pixelOffset"),
 
   /**
-   * Gets or sets the {@link Cartesian3} Property specifying the billboard's offset in eye coordinates.
+   * 获取或设置{@link Cartesian3} Property specifying the billboard's offset in eye coordinates.
    * Eye coordinates is a left-handed coordinate system, where <code>x</code> points towards the viewer's
    * right, <code>y</code> points up, and <code>z</code> points into the screen.
    * <p>
@@ -186,7 +186,7 @@ Object.defineProperties(BillboardGraphics.prototype, {
   eyeOffset: createPropertyDescriptor("eyeOffset"),
 
   /**
-   * Gets or sets the Property specifying the {@link HorizontalOrigin}.
+   * 获取或设置Property specifying the {@link HorizontalOrigin}.
    * @memberof BillboardGraphics.prototype
    * @type {Property|undefined}
    * @default HorizontalOrigin.CENTER
@@ -194,7 +194,7 @@ Object.defineProperties(BillboardGraphics.prototype, {
   horizontalOrigin: createPropertyDescriptor("horizontalOrigin"),
 
   /**
-   * Gets or sets the Property specifying the {@link VerticalOrigin}.
+   * 获取或设置Property specifying the {@link VerticalOrigin}.
    * @memberof BillboardGraphics.prototype
    * @type {Property|undefined}
    * @default VerticalOrigin.CENTER
@@ -202,7 +202,7 @@ Object.defineProperties(BillboardGraphics.prototype, {
   verticalOrigin: createPropertyDescriptor("verticalOrigin"),
 
   /**
-   * Gets or sets the Property specifying the {@link HeightReference}.
+   * 获取或设置Property specifying the {@link HeightReference}.
    * @memberof BillboardGraphics.prototype
    * @type {Property|undefined}
    * @default HeightReference.NONE
@@ -210,7 +210,7 @@ Object.defineProperties(BillboardGraphics.prototype, {
   heightReference: createPropertyDescriptor("heightReference"),
 
   /**
-   * Gets or sets the Property specifying the {@link Color} that is multiplied with the <code>image</code>.
+   * 获取或设置Property specifying the {@link Color} that is multiplied with the <code>image</code>.
    * This has two common use cases.  First, the same white texture may be used by many different billboards,
    * each with a different color, to create colored billboards. Second, the color's alpha component can be
    * used to make the billboard translucent as shown below. An alpha of <code>0.0</code> makes the billboard
@@ -230,7 +230,7 @@ Object.defineProperties(BillboardGraphics.prototype, {
   color: createPropertyDescriptor("color"),
 
   /**
-   * Gets or sets the numeric Property specifying the rotation of the image
+   * 获取或设置numeric Property specifying the rotation of the image
    * counter clockwise from the <code>alignedAxis</code>.
    * @memberof BillboardGraphics.prototype
    * @type {Property|undefined}
@@ -239,7 +239,7 @@ Object.defineProperties(BillboardGraphics.prototype, {
   rotation: createPropertyDescriptor("rotation"),
 
   /**
-   * Gets or sets the {@link Cartesian3} Property specifying the unit vector axis of rotation
+   * 获取或设置{@link Cartesian3} Property specifying the unit vector axis of rotation
    * in the fixed frame. When set to Cartesian3.ZERO the rotation is from the top of the screen.
    * @memberof BillboardGraphics.prototype
    * @type {Property|undefined}
@@ -248,7 +248,7 @@ Object.defineProperties(BillboardGraphics.prototype, {
   alignedAxis: createPropertyDescriptor("alignedAxis"),
 
   /**
-   * Gets or sets the boolean Property specifying if this billboard's size will be measured in meters.
+   * 获取或设置boolean Property specifying if this billboard's size will be measured in meters.
    * @memberof BillboardGraphics.prototype
    * @type {Property|undefined}
    * @default false
@@ -256,7 +256,7 @@ Object.defineProperties(BillboardGraphics.prototype, {
   sizeInMeters: createPropertyDescriptor("sizeInMeters"),
 
   /**
-   * Gets or sets the numeric Property specifying the width of the billboard in pixels.
+   * 获取或设置numeric Property specifying the width of the billboard in pixels.
    * When undefined, the native width is used.
    * @memberof BillboardGraphics.prototype
    * @type {Property|undefined}
@@ -264,7 +264,7 @@ Object.defineProperties(BillboardGraphics.prototype, {
   width: createPropertyDescriptor("width"),
 
   /**
-   * Gets or sets the numeric Property specifying the height of the billboard in pixels.
+   * 获取或设置numeric Property specifying the height of the billboard in pixels.
    * When undefined, the native height is used.
    * @memberof BillboardGraphics.prototype
    * @type {Property|undefined}
@@ -307,7 +307,7 @@ Object.defineProperties(BillboardGraphics.prototype, {
   ),
 
   /**
-   * Gets or sets the Property specifying a {@link BoundingRectangle} that defines a
+   * 获取或设置Property specifying a {@link BoundingRectangle} that defines a
    * sub-region of the <code>image</code> to use for the billboard, rather than the entire image,
    * measured in pixels from the bottom-left.
    * @memberof BillboardGraphics.prototype
@@ -316,7 +316,7 @@ Object.defineProperties(BillboardGraphics.prototype, {
   imageSubRegion: createPropertyDescriptor("imageSubRegion"),
 
   /**
-   * Gets or sets the {@link DistanceDisplayCondition} Property specifying at what distance from the camera that this billboard will be displayed.
+   * 获取或设置{@link DistanceDisplayCondition} Property specifying at what distance from the camera that this billboard will be displayed.
    * @memberof BillboardGraphics.prototype
    * @type {Property|undefined}
    */
@@ -325,7 +325,7 @@ Object.defineProperties(BillboardGraphics.prototype, {
   ),
 
   /**
-   * Gets or sets the distance from the camera at which to disable the depth test to, for example, prevent clipping against terrain.
+   * 获取或设置distance from the camera at which to disable the depth test to, for example, prevent clipping against terrain.
    * When set to zero, the depth test is always applied. When set to Number.POSITIVE_INFINITY, the depth test is never applied.
    * @memberof BillboardGraphics.prototype
    * @type {Property|undefined}
@@ -335,7 +335,7 @@ Object.defineProperties(BillboardGraphics.prototype, {
   ),
 
   /**
-   * Gets or sets the Property specifying the {@link SplitDirection} of this billboard.
+   * 获取或设置Property specifying the {@link SplitDirection} of this billboard.
    * @memberof BillboardGraphics.prototype
    * @type {Property|undefined}
    * @default SplitDirection.NONE

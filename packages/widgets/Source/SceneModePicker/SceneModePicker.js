@@ -32,7 +32,7 @@ const columbusViewPath =
  * @constructor
  *
  * @param {Element|string} container 将包含小部件的DOM元素或ID。
- * @param {Scene} scene The Scene instance to use.
+ * @param {Scene} scene 要使用的场景实例。
  * @param {number} [duration=2.0] The time, in seconds, it takes for the scene to transition.
  *
  * @exception {DeveloperError} Element with id "container" does not exist in the document.

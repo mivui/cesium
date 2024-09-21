@@ -31,14 +31,14 @@ function VideoSynchronizer(options) {
   this.element = options.element;
 
   /**
-   * Gets or sets the simulation time that marks the start of the video.
+   * 获取或设置simulation time that marks the start of the video.
    * @type {JulianDate}
    * @default Iso8601.MINIMUM_VALUE
    */
   this.epoch = defaultValue(options.epoch, Iso8601.MINIMUM_VALUE);
 
   /**
-   * Gets or sets the amount of time in seconds the video's currentTime
+   * 获取或设置amount of time in seconds the video's currentTime
    * and the clock's currentTime can diverge before a video seek is performed.
    * Lower values make the synchronization more accurate but video
    * performance might suffer.  Higher values provide better performance
@@ -55,7 +55,7 @@ function VideoSynchronizer(options) {
 
 Object.defineProperties(VideoSynchronizer.prototype, {
   /**
-   * Gets or sets the clock used to drive the video element.
+   * 获取或设置clock used to drive the video element.
    *
    * @memberof VideoSynchronizer.prototype
    * @type {Clock}
@@ -87,7 +87,7 @@ Object.defineProperties(VideoSynchronizer.prototype, {
     },
   },
   /**
-   * Gets or sets the video element to synchronize.
+   * 获取或设置video element to synchronize.
    *
    * @memberof VideoSynchronizer.prototype
    * @type {HTMLVideoElement}

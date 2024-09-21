@@ -323,7 +323,7 @@ Object.defineProperties(WebMapServiceImageryProvider.prototype, {
   },
 
   /**
-   * Gets the names of the WMS layers, separated by commas.
+   * 获取名称 WMS layers, separated by commas.
    * @memberof WebMapServiceImageryProvider.prototype
    * @type {string}
    * @readonly

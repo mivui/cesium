@@ -16,19 +16,19 @@ import CesiumMath from "./Math.js";
  */
 function HeadingPitchRoll(heading, pitch, roll) {
   /**
-   * Gets or sets the heading.
+   * 获取或设置heading.
    * @type {number}
    * @default 0.0
    */
   this.heading = defaultValue(heading, 0.0);
   /**
-   * Gets or sets the pitch.
+   * 获取或设置pitch.
    * @type {number}
    * @default 0.0
    */
   this.pitch = defaultValue(pitch, 0.0);
   /**
-   * Gets or sets the roll.
+   * 获取或设置roll.
    * @type {number}
    * @default 0.0
    */

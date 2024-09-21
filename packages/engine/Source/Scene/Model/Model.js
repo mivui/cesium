@@ -870,7 +870,7 @@ Object.defineProperties(Model.prototype, {
   },
 
   /**
-   * Gets or sets the distance display condition, which specifies at what distance
+   * 获取或设置distance display condition, which specifies at what distance
    * from the camera this model will be displayed.
    *
    * @memberof Model.prototype

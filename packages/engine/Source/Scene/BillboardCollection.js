@@ -362,7 +362,7 @@ Object.defineProperties(BillboardCollection.prototype, {
   },
 
   /**
-   * Gets or sets the textureAtlas.
+   * 获取或设置textureAtlas.
    * @memberof BillboardCollection.prototype
    * @type {TextureAtlas}
    * @private

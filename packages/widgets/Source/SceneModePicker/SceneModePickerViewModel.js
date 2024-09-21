@@ -10,7 +10,7 @@ import knockout from "../ThirdParty/knockout.js";
 import createCommand from "../createCommand.js";
 
 /**
- * The view model for {@link SceneModePicker}.
+ * 视图模型 {@link SceneModePicker}.
  * @alias SceneModePickerViewModel
  * @constructor
  *
@@ -39,7 +39,7 @@ function SceneModePickerViewModel(scene, duration) {
   this._duration = defaultValue(duration, 2.0);
 
   /**
-   * Gets or sets the current SceneMode.  这个属性是可观察的。
+   * 获取或设置current SceneMode.  这个属性是可观察的。
    * @type {SceneMode}
    */
   this.sceneMode = scene.mode;
@@ -52,21 +52,21 @@ function SceneModePickerViewModel(scene, duration) {
   this.dropDownVisible = false;
 
   /**
-   * Gets or sets the 2D tooltip.  这个属性是可观察的。
+   * 获取或设置2D tooltip.  这个属性是可观察的。
    * @type {string}
    * @default '2D'
    */
   this.tooltip2D = "2D";
 
   /**
-   * Gets or sets the 3D tooltip.  这个属性是可观察的。
+   * 获取或设置3D tooltip.  这个属性是可观察的。
    * @type {string}
    * @default '3D'
    */
   this.tooltip3D = "3D";
 
   /**
-   * Gets or sets the Columbus View tooltip.  这个属性是可观察的。
+   * 获取或设置Columbus View tooltip.  这个属性是可观察的。
    * @type {string}
    * @default 'Columbus View'
    */
@@ -118,7 +118,7 @@ function SceneModePickerViewModel(scene, duration) {
 
 Object.defineProperties(SceneModePickerViewModel.prototype, {
   /**
-   * Gets the scene
+   * 得到场景
    * @memberof SceneModePickerViewModel.prototype
    * @type {Scene}
    */
@@ -129,7 +129,7 @@ Object.defineProperties(SceneModePickerViewModel.prototype, {
   },
 
   /**
-   * Gets or sets the the duration of scene mode transition animations in seconds.
+   * 获取或设置the duration of scene mode transition animations in seconds.
    * A value of zero causes the scene to instantly change modes.
    * @memberof SceneModePickerViewModel.prototype
    * @type {number}

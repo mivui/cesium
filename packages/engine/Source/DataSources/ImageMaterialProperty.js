@@ -74,14 +74,14 @@ Object.defineProperties(ImageMaterialProperty.prototype, {
   },
 
   /**
-   * Gets or sets the Property specifying Image, URL, Canvas, or Video to use.
+   * 获取或设置Property specifying Image, URL, Canvas, or Video to use.
    * @memberof ImageMaterialProperty.prototype
    * @type {Property|undefined}
    */
   image: createPropertyDescriptor("image"),
 
   /**
-   * Gets or sets the {@link Cartesian2} Property specifying the number of times the image repeats in each direction.
+   * 获取或设置{@link Cartesian2} Property specifying the number of times the image repeats in each direction.
    * @memberof ImageMaterialProperty.prototype
    * @type {Property|undefined}
    * @default new Cartesian2(1, 1)
@@ -89,7 +89,7 @@ Object.defineProperties(ImageMaterialProperty.prototype, {
   repeat: createPropertyDescriptor("repeat"),
 
   /**
-   * Gets or sets the Color Property specifying the desired color applied to the image.
+   * 获取或设置Color Property specifying the desired color applied to the image.
    * @memberof ImageMaterialProperty.prototype
    * @type {Property|undefined}
    * @default 1.0
@@ -97,7 +97,7 @@ Object.defineProperties(ImageMaterialProperty.prototype, {
   color: createPropertyDescriptor("color"),
 
   /**
-   * Gets or sets the Boolean Property specifying whether the image has transparency
+   * 获取或设置Boolean Property specifying whether the image has transparency
    * @memberof ImageMaterialProperty.prototype
    * @type {Property|undefined}
    * @default 1.0
