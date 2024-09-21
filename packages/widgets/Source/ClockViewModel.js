@@ -159,7 +159,7 @@ Object.defineProperties(ClockViewModel.prototype, {
 });
 
 /**
- * Updates the view model with the contents of the underlying clock.
+ * 更新视图模型 with the contents of the underlying clock.
  * Can be called to force an update of the viewModel if the underlying
  * clock has changed and <code>Clock.tick</code> has not yet been called.
  */

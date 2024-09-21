@@ -75,7 +75,7 @@ const scratchCartographic = new Cartographic();
 
 Object.defineProperties(Cesium3DTilePointFeature.prototype, {
   /**
-   * Gets or sets if the feature will be shown. This is set for all features
+   * 获取或设置是否 feature will be shown. This is set for all features
    * when a style's show is evaluated.
    *
    * @memberof Cesium3DTilePointFeature.prototype

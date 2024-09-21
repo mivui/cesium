@@ -9,13 +9,13 @@ import InspectorShared from "../InspectorShared.js";
 import CesiumInspectorViewModel from "./CesiumInspectorViewModel.js";
 
 /**
- * Inspector widget to aid in debugging
+ * 检查器小部件，以帮助调试
  *
  * @alias CesiumInspector
  * @constructor
  *
  * @param {Element|string} container 将包含小部件的DOM元素或ID。
- * @param {Scene} scene 要使用的场景实例。
+ * @param {Scene} scene 要使用的场景实例。.
  *
  * @demo {@link https://sandcastle.cesium.com/index.html?src=Cesium%20Inspector.html|Cesium Sandcastle Cesium Inspector Demo}
  */

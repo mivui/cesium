@@ -481,7 +481,7 @@ Object.defineProperties(ParticleSystem.prototype, {
     },
   },
   /**
-   * Gets or sets if the particle size is in meters or pixels. <code>true</code> to size particles in meters; otherwise, the size is in pixels.
+   * 获取或设置是否 particle size is in meters or pixels. <code>true</code> to size particles in meters; otherwise, the size is in pixels.
    * @memberof ParticleSystem.prototype
    * @type {boolean}
    * @default false

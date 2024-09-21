@@ -12,7 +12,7 @@ import InspectorShared from "../InspectorShared.js";
 import VoxelInspectorViewModel from "./VoxelInspectorViewModel.js";
 
 /**
- * Inspector widget to aid in debugging voxels
+ * 检查器小部件，以帮助调试 voxels
  *
  * @alias VoxelInspector
  * @constructor

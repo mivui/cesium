@@ -60,7 +60,7 @@ const scratchPickCartesian = new Cartesian3();
  * @constructor
  *
  * @param {Scene} scene 要使用的场景实例。
- * @param {Element} performanceContainer The instance to use for performance container.
+ * @param {Element} performanceContainer 要用于性能容器的实例
  */
 function CesiumInspectorViewModel(scene, performanceContainer) {
   //>>includeStart('debug', pragmas.debug);
@@ -89,77 +89,77 @@ function CesiumInspectorViewModel(scene, performanceContainer) {
   globe.depthTestAgainstTerrain = true;
 
   /**
-   * 获取或设置show frustums state.  这个属性是可观察的。
+   * 获取或设置显示 frustum 状态.  这个属性是可观察的。
    * @type {boolean}
    * @default false
    */
   this.frustums = false;
 
   /**
-   * 获取或设置show frustum planes state.  这个属性是可观察的。
+   * 获取或设置显示 frustum 飞行状态.  这个属性是可观察的。
    * @type {boolean}
    * @default false
    */
   this.frustumPlanes = false;
 
   /**
-   * 获取或设置show performance display state.  这个属性是可观察的。
+   * 获取或设置显示性能显示状态.  这个属性是可观察的。
    * @type {boolean}
    * @default false
    */
   this.performance = false;
 
   /**
-   * 获取或设置shader cache text.  这个属性是可观察的。
+   * 获取或设置着色器缓存文本.  这个属性是可观察的。
    * @type {string}
    * @default ''
    */
   this.shaderCacheText = "";
 
   /**
-   * 获取或设置show primitive bounding sphere state.  这个属性是可观察的。
+   * 获取或设置显示原始边界球状态.  这个属性是可观察的。
    * @type {boolean}
    * @default false
    */
   this.primitiveBoundingSphere = false;
 
   /**
-   * 获取或设置show primitive reference frame state.  这个属性是可观察的。
+   * 获取或设置显示原始参考帧状态.  这个属性是可观察的。
    * @type {boolean}
    * @default false
    */
   this.primitiveReferenceFrame = false;
 
   /**
-   * 获取或设置filter primitive state.  这个属性是可观察的。
+   * 获取或设置滤波原态.  这个属性是可观察的。
    * @type {boolean}
    * @default false
    */
   this.filterPrimitive = false;
 
   /**
-   * 获取或设置show tile bounding sphere state.  这个属性是可观察的。
+   * 获取或设置显示tile边界球状态.  这个属性是可观察的。
    * @type {boolean}
    * @default false
    */
   this.tileBoundingSphere = false;
 
   /**
-   * 获取或设置filter tile state.  这个属性是可观察的。
+   * 获取或设置 tile 状态.  这个属性是可观察的。
    * @type {boolean}
    * @default false
    */
   this.filterTile = false;
 
   /**
-   * 获取或设置show wireframe state.  这个属性是可观察的。
+   * 获取或设置显示线框状态.  这个属性是可观察的。
    * @type {boolean}
    * @default false
    */
   this.wireframe = false;
 
   /**
-   * 获取或设置index of the depth frustum to display.  这个属性是可观察的。
+   * 获取或设置要显示的深度截锥的索引.  这个属性是可观察的。
    * @type {number}
    * @default 1
    */
@@ -167,91 +167,91 @@ function CesiumInspectorViewModel(scene, performanceContainer) {
   this._numberOfFrustums = 1;
 
   /**
-   * 获取或设置suspend updates state.  这个属性是可观察的。
+   * 获取或设置挂起更新状态.  这个属性是可观察的。
    * @type {boolean}
    * @default false
    */
   this.suspendUpdates = false;
 
   /**
-   * 获取或设置show tile coordinates state.  这个属性是可观察的。
+   * 获取或设置显示tile坐标状态.  这个属性是可观察的。
    * @type {boolean}
    * @default false
    */
   this.tileCoordinates = false;
 
   /**
-   * 获取或设置frustum statistic text.  这个属性是可观察的。
+   * 获取或设置截锥体统计文本.  这个属性是可观察的。
    * @type {string}
    * @default ''
    */
   this.frustumStatisticText = false;
 
   /**
-   * 获取或设置selected tile information text.  这个属性是可观察的。
+   * 获取或设置选定的tile信息文本.  这个属性是可观察的。
    * @type {string}
    * @default ''
    */
   this.tileText = "";
 
   /**
-   * Gets if a primitive has been selected.  这个属性是可观察的。
+   * 获取是否选中Primitive。  这个属性是可观察的。
    * @type {boolean}
    * @default false
    */
   this.hasPickedPrimitive = false;
 
   /**
-   * Gets if a tile has been selected.  这个属性是可观察的
+   * 获取 tile 已被选中.  这个属性是可观察的
    * @type {boolean}
    * @default false
    */
   this.hasPickedTile = false;
 
   /**
-   * Gets if the picking primitive command is active.  这个属性是可观察的。
+   * 获取拾取原语命令处于活动状态.  这个属性是可观察的。
    * @type {boolean}
    * @default false
    */
   this.pickPrimitiveActive = false;
 
   /**
-   * Gets if the picking tile command is active.  这个属性是可观察的。
+   * 获取拾取瓷砖命令处于活动状态.  这个属性是可观察的。
    * @type {boolean}
    * @default false
    */
   this.pickTileActive = false;
 
   /**
-   * Gets or sets if the cesium inspector drop down is visible.  这个属性是可观察的。
+   * 获取或设置是否可见铯检查器下拉列表.  这个属性是可观察的。
    * @type {boolean}
    * @default true
    */
   this.dropDownVisible = true;
 
   /**
-   * Gets or sets if the general section is visible.  这个属性是可观察的。
+   * 获取或设置是否一般部分是可见的。  这个属性是可观察的。
    * @type {boolean}
    * @default true
    */
   this.generalVisible = true;
 
   /**
-   * Gets or sets if the primitive section is visible.  这个属性是可观察的。
+   * 获取或设置是否 primitive 部分可见.  这个属性是可观察的。
    * @type {boolean}
    * @default false
    */
   this.primitivesVisible = false;
 
   /**
-   * Gets or sets if the terrain section is visible.  这个属性是可观察的。
+   * 获取或设置是否 terrain 部分可见.  这个属性是可观察的。
    * @type {boolean}
    * @default false
    */
   this.terrainVisible = false;
 
   /**
-   * 获取或设置index of the depth frustum text.  这个属性是可观察的。
+   * 获取或设置深度截锥文本的索引。  这个属性是可观察的。
    * @type {string}
    * @default ''
    */
@@ -582,7 +582,7 @@ function CesiumInspectorViewModel(scene, performanceContainer) {
 
 Object.defineProperties(CesiumInspectorViewModel.prototype, {
   /**
-   * 得到场景 to control.
+   * 得到场景控制.
    * @memberof CesiumInspectorViewModel.prototype
    *
    * @type {Scene}
@@ -594,7 +594,7 @@ Object.defineProperties(CesiumInspectorViewModel.prototype, {
   },
 
   /**
-   * Gets the container of the PerformanceDisplay
+   * 获取PerformanceDisplay的容器
    * @memberof CesiumInspectorViewModel.prototype
    *
    * @type {Element}
@@ -606,7 +606,7 @@ Object.defineProperties(CesiumInspectorViewModel.prototype, {
   },
 
   /**
-   * Gets the command to toggle the visibility of the drop down.
+   * 获取切换下拉列表可见性的命令。
    * @memberof CesiumInspectorViewModel.prototype
    *
    * @type {Command}
@@ -618,7 +618,7 @@ Object.defineProperties(CesiumInspectorViewModel.prototype, {
   },
 
   /**
-   * Gets the command to toggle the visibility of a BoundingSphere for a primitive
+   * 获取用于为原语切换BoundingSphere的可见性的命令
    * @memberof CesiumInspectorViewModel.prototype
    *
    * @type {Command}
@@ -630,7 +630,7 @@ Object.defineProperties(CesiumInspectorViewModel.prototype, {
   },
 
   /**
-   * Gets the command to toggle the visibility of a {@link DebugModelMatrixPrimitive} for the model matrix of a primitive
+   * 控件的可见性的命令 {@link DebugModelMatrixPrimitive} 对于原语的模型矩阵
    * @memberof CesiumInspectorViewModel.prototype
    *
    * @type {Command}
@@ -642,7 +642,7 @@ Object.defineProperties(CesiumInspectorViewModel.prototype, {
   },
 
   /**
-   * Gets the command to toggle a filter that renders only a selected primitive
+   * 获取用于切换仅呈现选定原语的筛选器的命令
    * @memberof CesiumInspectorViewModel.prototype
    *
    * @type {Command}
@@ -654,7 +654,7 @@ Object.defineProperties(CesiumInspectorViewModel.prototype, {
   },
 
   /**
-   * Gets the command to increment the depth frustum index to be shown
+   * 获取用于增加要显示的深度截锥体索引的命令
    * @memberof CesiumInspectorViewModel.prototype
    *
    * @type {Command}
@@ -666,7 +666,7 @@ Object.defineProperties(CesiumInspectorViewModel.prototype, {
   },
 
   /**
-   * Gets the command to decrement the depth frustum index to be shown
+   * 获取用于减少要显示的深度截锥体索引的命令
    * @memberof CesiumInspectorViewModel.prototype
    *
    * @type {Command}
@@ -678,7 +678,7 @@ Object.defineProperties(CesiumInspectorViewModel.prototype, {
   },
 
   /**
-   * Gets the command to toggle the visibility of tile coordinates
+   * 获取用于切换 tile 坐标可见性的命令
    * @memberof CesiumInspectorViewModel.prototype
    *
    * @type {Command}
@@ -690,7 +690,7 @@ Object.defineProperties(CesiumInspectorViewModel.prototype, {
   },
 
   /**
-   * Gets the command to toggle the visibility of a BoundingSphere for a selected tile
+   * 获取用于为选定 tile 切换BoundingSphere的可见性的命令
    * @memberof CesiumInspectorViewModel.prototype
    *
    * @type {Command}
@@ -702,7 +702,7 @@ Object.defineProperties(CesiumInspectorViewModel.prototype, {
   },
 
   /**
-   * Gets the command to toggle a filter that renders only a selected tile
+   * 获取用于切换仅呈现选定磁贴的筛选器的命令
    * @memberof CesiumInspectorViewModel.prototype
    *
    * @type {Command}
@@ -714,7 +714,7 @@ Object.defineProperties(CesiumInspectorViewModel.prototype, {
   },
 
   /**
-   * Gets the command to expand and collapse the general section
+   * 获取展开和折叠常规部分的命令
    * @memberof CesiumInspectorViewModel.prototype
    *
    * @type {Command}
@@ -726,7 +726,7 @@ Object.defineProperties(CesiumInspectorViewModel.prototype, {
   },
 
   /**
-   * Gets the command to expand and collapse the primitives section
+   * 获取展开和折叠原语部分的命令
    * @memberof CesiumInspectorViewModel.prototype
    *
    * @type {Command}
@@ -738,7 +738,7 @@ Object.defineProperties(CesiumInspectorViewModel.prototype, {
   },
 
   /**
-   * Gets the command to expand and collapse the terrain section
+   * 获取展开和折叠地形部分的命令
    * @memberof CesiumInspectorViewModel.prototype
    *
    * @type {Command}
@@ -750,7 +750,7 @@ Object.defineProperties(CesiumInspectorViewModel.prototype, {
   },
 
   /**
-   * Gets the command to pick a primitive
+   * 获取选择原语的命令
    * @memberof CesiumInspectorViewModel.prototype
    *
    * @type {Command}
@@ -762,7 +762,7 @@ Object.defineProperties(CesiumInspectorViewModel.prototype, {
   },
 
   /**
-   * Gets the command to pick a tile
+   * 获取选择tile的命令
    * @memberof CesiumInspectorViewModel.prototype
    *
    * @type {Command}
@@ -774,7 +774,7 @@ Object.defineProperties(CesiumInspectorViewModel.prototype, {
   },
 
   /**
-   * Gets the command to pick a tile
+   * 获取选择tile的命令
    * @memberof CesiumInspectorViewModel.prototype
    *
    * @type {Command}
@@ -789,7 +789,7 @@ Object.defineProperties(CesiumInspectorViewModel.prototype, {
   },
 
   /**
-   * Gets the command to pick a tile
+   * 获取选择tile的命令
    * @memberof CesiumInspectorViewModel.prototype
    *
    * @type {Command}
@@ -804,7 +804,7 @@ Object.defineProperties(CesiumInspectorViewModel.prototype, {
   },
 
   /**
-   * Gets the command to pick a tile
+   * 获取选择tile的命令
    * @memberof CesiumInspectorViewModel.prototype
    *
    * @type {Command}
@@ -819,7 +819,7 @@ Object.defineProperties(CesiumInspectorViewModel.prototype, {
   },
 
   /**
-   * Gets the command to pick a tile
+   * 获取选择tile的命令
    * @memberof CesiumInspectorViewModel.prototype
    *
    * @type {Command}
@@ -834,7 +834,7 @@ Object.defineProperties(CesiumInspectorViewModel.prototype, {
   },
 
   /**
-   * Gets the command to pick a tile
+   * 获取选择tile的命令
    * @memberof CesiumInspectorViewModel.prototype
    *
    * @type {Command}
@@ -849,7 +849,7 @@ Object.defineProperties(CesiumInspectorViewModel.prototype, {
   },
 
   /**
-   * 获取或设置current selected primitive
+   * 获取或设置当前选中的primitive
    * @memberof CesiumInspectorViewModel.prototype
    *
    * @type {Command}
@@ -883,7 +883,7 @@ Object.defineProperties(CesiumInspectorViewModel.prototype, {
   },
 
   /**
-   * 获取或设置current selected tile
+   * 获取或设置当前选中的tile
    * @memberof CesiumInspectorViewModel.prototype
    *
    * @type {Command}
@@ -919,7 +919,7 @@ Object.defineProperties(CesiumInspectorViewModel.prototype, {
 });
 
 /**
- * Updates the view model
+ * 更新视图模型
  * @private
  */
 CesiumInspectorViewModel.prototype._update = function () {

@@ -53,7 +53,7 @@ Object.defineProperties(JobTypeBudget.prototype, {
  *     allows all job types to make progress each frame.
  *   </li>
  *   <li>
- *     Stealing from other jobs type budgets if they were not exhausted in the previous frame.  This allows
+ *     Stealing from other jobs type bud获取 they were not exhausted in the previous frame.  This allows
  *     using the entire budget for all job types each frame even if, for example, all the jobs are the same type.
  *   </li>
  *   <li>

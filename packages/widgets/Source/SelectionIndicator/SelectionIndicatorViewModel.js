@@ -16,7 +16,7 @@ const offScreen = "-1000px";
  * @alias SelectionIndicatorViewModel
  * @constructor
  *
- * @param {Scene} scene The scene instance to use for screen-space coordinate conversion.
+ * @param {Scene} scene 要使用的场景实例。 for screen-space coordinate conversion.
  * @param {Element} selectionIndicatorElement The element containing all elements that make up the selection indicator.
  * @param {Element} container The DOM element that contains the widget.
  */

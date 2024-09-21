@@ -431,7 +431,7 @@ Object.defineProperties(CameraEventAggregator.prototype, {
 });
 
 /**
- * Gets if a mouse button down or touch has started and has been moved.
+ * 获取 a mouse button down or touch has started and has been moved.
  *
  * @param {CameraEventType} type The camera event type.
  * @param {KeyboardEventModifier} [modifier] The keyboard modifier.
