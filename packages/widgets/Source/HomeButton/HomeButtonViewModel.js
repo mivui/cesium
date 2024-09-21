@@ -8,7 +8,7 @@ import createCommand from "../createCommand.js";
  * @constructor
  *
  * @param {Scene} scene 要使用的场景实例。
- * @param {number} [duration] The duration of the camera flight in seconds.
+ * @param {number} [duration] 相机飞行的持续时间，以秒为单位。
  */
 function HomeButtonViewModel(scene, duration) {
   //>>includeStart('debug', pragmas.debug);
@@ -37,7 +37,7 @@ function HomeButtonViewModel(scene, duration) {
 
 Object.defineProperties(HomeButtonViewModel.prototype, {
   /**
-   * 得到场景 to control.
+   * 得到场景控制器.
    * @memberof HomeButtonViewModel.prototype
    *
    * @type {Scene}
@@ -61,9 +61,9 @@ Object.defineProperties(HomeButtonViewModel.prototype, {
   },
 
   /**
-   * 获取或设置the duration of the camera flight in seconds.
-   * A value of zero causes the camera to instantly switch to home view.
-   * The duration will be computed based on the distance when undefined.
+   * 获取或设置相机飞行的持续时间，以秒为单位。
+   * 值为0会使相机立即切换到主视图。
+   * 持续时间将根据未定义的距离计算。
    * @memberof HomeButtonViewModel.prototype
    *
    * @type {number|undefined}
