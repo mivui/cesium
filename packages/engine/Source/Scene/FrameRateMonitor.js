@@ -16,7 +16,7 @@ import TimeConstants from "../Core/TimeConstants.js";
  * @constructor
  *
  * @param {object} [options] 对象，具有以下属性:
- * @param {Scene} options.scene The Scene instance for which to monitor performance.
+ * @param {Scene} options.scene The Scene instance 用于监视性能。
  * @param {number} [options.samplingWindow=5.0] The length of the sliding window over which to compute the average frame rate, in seconds.
  * @param {number} [options.quietPeriod=2.0] The length of time to wait at startup and each time the page becomes visible (i.e. when the user
  *        switches back to the tab) before starting to measure performance, in seconds.
@@ -195,7 +195,7 @@ FrameRateMonitor.fromScene = function (scene) {
 
 Object.defineProperties(FrameRateMonitor.prototype, {
   /**
-   * Gets the {@link Scene} instance for which to monitor performance.
+   * Gets the {@link Scene} instance 用于监视性能。
    * @memberof FrameRateMonitor.prototype
    * @type {Scene}
    */

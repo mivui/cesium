@@ -10,8 +10,8 @@ import PerformanceWatchdog from "../PerformanceWatchdog/PerformanceWatchdog.js";
  * @param {Viewer} viewer The viewer instance.
  * @param {object} [options] An object with properties.
  * @param {string} [options.lowFrameRateMessage='This application appears to be performing poorly on your system.  Please try using a different web browser or updating your video drivers.'] The
- *        message to display when a low frame rate is detected.  The message is interpeted as HTML, so make sure
- *        it comes from a trusted source so that your application is not vulnerable to cross-site scripting attacks.
+ *        当检测到低帧率时显示的消息。该消息被解释为HTML，因此请确保
+ *        它来自可信来源，因此您的应用程序不易受到跨站点脚本攻击。
  *
  * @exception {DeveloperError} viewer is required.
  *

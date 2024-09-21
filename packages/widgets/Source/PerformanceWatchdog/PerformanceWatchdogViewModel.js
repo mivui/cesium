@@ -15,10 +15,10 @@ import createCommand from "../createCommand.js";
  * @constructor
  *
  * @param {object} [options] 对象，具有以下属性:
- * @param {Scene} options.scene The Scene instance for which to monitor performance.
+ * @param {Scene} options.scene The Scene instance 用于监视性能。
  * @param {string} [options.lowFrameRateMessage='This application appears to be performing poorly on your system.  Please try using a different web browser or updating your video drivers.'] The
- *        message to display when a low frame rate is detected.  The message is interpeted as HTML, so make sure
- *        it comes from a trusted source so that your application is not vulnerable to cross-site scripting attacks.
+ *        当检测到低帧率时显示的消息。该消息被解释为HTML，因此请确保
+ *        它来自可信来源，因此您的应用程序不易受到跨站点脚本攻击。
  */
 function PerformanceWatchdogViewModel(options) {
   //>>includeStart('debug', pragmas.debug);
@@ -30,7 +30,7 @@ function PerformanceWatchdogViewModel(options) {
   this._scene = options.scene;
 
   /**
-   * 获取或设置message to display when a low frame rate is detected.  This string will be interpreted as HTML.
+   * 获取或设置当检测到低帧率时显示的消息。这个字符串将被解释为HTML。
    * @type {string}
    */
   this.lowFrameRateMessage = defaultValue(
@@ -39,14 +39,14 @@ function PerformanceWatchdogViewModel(options) {
   );
 
   /**
-   * Gets or sets a value indicating whether the low frame rate message has previously been dismissed by the user.  If it has
-   * been dismissed, the message will not be redisplayed, no matter the frame rate.
+   * 获取或设置一个值，该值指示低帧率消息先前是否已被用户驳回。如果有的话
+   * 被驳回，消息将不会被重新显示，无论帧速率如何。
    * @type {boolean}
    */
   this.lowFrameRateMessageDismissed = false;
 
   /**
-   * Gets or sets a value indicating whether the low frame rate message is currently being displayed.
+   * 获取或设置一个值，该值指示当前是否显示低帧率消息。
    * @type {boolean}
    */
   this.showingLowFrameRateMessage = false;
@@ -82,7 +82,7 @@ function PerformanceWatchdogViewModel(options) {
 
 Object.defineProperties(PerformanceWatchdogViewModel.prototype, {
   /**
-   * Gets the {@link Scene} instance for which to monitor performance.
+   * 获取 {@link Scene} 实例 用于监视性能。
    * @memberof PerformanceWatchdogViewModel.prototype
    * @type {Scene}
    */
@@ -93,8 +93,8 @@ Object.defineProperties(PerformanceWatchdogViewModel.prototype, {
   },
 
   /**
-   * Gets a command that dismisses the low frame rate message.  Once it is dismissed, the message
-   * will not be redisplayed.
+   * 获取一个命令，该命令驳回低帧率消息。一旦它被驳回，信息
+   * 不会被重新显示。
    * @memberof PerformanceWatchdogViewModel.prototype
    * @type {Command}
    */
