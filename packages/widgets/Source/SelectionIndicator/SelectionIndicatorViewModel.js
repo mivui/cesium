@@ -103,7 +103,7 @@ function SelectionIndicatorViewModel(
 }
 
 /**
- * Updates the view of the selection indicator to match the position and content properties of the view model.
+ * Updates the view of the selection indicator to match the position and content properties of 视图模型。
  * This function should be called as part of the render loop.
  */
 SelectionIndicatorViewModel.prototype.update = function () {

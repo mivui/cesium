@@ -39,7 +39,7 @@ function NavigationHelpButtonViewModel() {
 
 Object.defineProperties(NavigationHelpButtonViewModel.prototype, {
   /**
-   * Gets the Command that is executed when the button is clicked.
+   * 获取单击按钮时执行的命令。
    * @memberof NavigationHelpButtonViewModel.prototype
    *
    * @type {Command}

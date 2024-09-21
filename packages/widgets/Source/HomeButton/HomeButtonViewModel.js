@@ -49,7 +49,7 @@ Object.defineProperties(HomeButtonViewModel.prototype, {
   },
 
   /**
-   * Gets the Command that is executed when the button is clicked.
+   * 获取单击按钮时执行的命令。
    * @memberof HomeButtonViewModel.prototype
    *
    * @type {Command}

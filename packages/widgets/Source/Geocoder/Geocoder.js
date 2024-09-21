@@ -14,8 +14,8 @@ const stopSearchPath =
   "M24.778,21.419 19.276,15.917 24.777,10.415 21.949,7.585 16.447,13.087 10.945,7.585 8.117,10.415 13.618,15.917 8.116,21.419 10.946,24.248 16.447,18.746 21.948,24.248z";
 
 /**
- * A widget for finding addresses and landmarks, and flying the camera to them.  Geocoding is
- * performed using {@link https://cesium.com/cesium-ion/|Cesium ion}.
+ * 这是一个寻找地址和地标的小工具，并将相机飞向它们。地理编码是
+ * 执行使用 {@link https://cesium.com/cesium-ion/|Cesium ion}.
  *
  * @alias Geocoder
  * @constructor
@@ -23,10 +23,10 @@ const stopSearchPath =
  * @param {object} options 对象，具有以下属性:
  * @param {Element|string} options.container 将包含小部件的DOM元素或ID。
  * @param {Scene} options.scene 要使用的场景实例。
- * @param {GeocoderService[]} [options.geocoderServices] The geocoder services to be used
- * @param {boolean} [options.autoComplete = true] True if the geocoder should query as the user types to autocomplete
- * @param {number} [options.flightDuration=1.5] The duration of the camera flight to an entered location, in seconds.
- * @param {Geocoder.DestinationFoundFunction} [options.destinationFound=GeocoderViewModel.flyToDestination] A callback function that is called after a successful geocode.  If not supplied, the default behavior is to fly the camera to the result destination.
+ * @param {GeocoderService[]} [options.geocoderServices] 要使用的地理编码器服务
+ * @param {boolean} [options.autoComplete = true] 如果地理编码器应该在用户键入自动完成时进行查询，则为true
+ * @param {number} [options.flightDuration=1.5] 相机飞行到指定位置的持续时间，以秒为单位。
+ * @param {Geocoder.DestinationFoundFunction} [options.destinationFound=GeocoderViewModel.flyToDestination] 一个回调函数，在成功输入地理代码后调用。如果没有提供，默认行为是将相机飞到结果目的地。
  */
 function Geocoder(options) {
   //>>includeStart('debug', pragmas.debug);
@@ -225,9 +225,9 @@ Geocoder.prototype.destroy = function () {
 };
 
 /**
- * A function that handles the result of a successful geocode.
+ * 处理成功的地理编码结果的函数。
  * @callback Geocoder.DestinationFoundFunction
- * @param {GeocoderViewModel} viewModel The view model.
- * @param {Cartesian3|Rectangle} destination The destination result of the geocode.
+ * @param {GeocoderViewModel} viewModel 视图模型。
+ * @param {Cartesian3|Rectangle} destination 地理编码的目标结果。
  */
 export default Geocoder;

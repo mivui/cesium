@@ -206,7 +206,7 @@ SceneModePickerViewModel.prototype.isDestroyed = function () {
 };
 
 /**
- * Destroys the view model.
+ * Destroys 视图模型。
  */
 SceneModePickerViewModel.prototype.destroy = function () {
   this._eventHelper.removeAll();

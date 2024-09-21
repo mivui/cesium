@@ -27,11 +27,11 @@ const DEFAULT_HEIGHT = 1000;
  *
  * @param {object} options 对象，具有以下属性:
  * @param {Scene} options.scene 要使用的场景实例。
- * @param {GeocoderService[]} [options.geocoderServices] Geocoder services to use for geocoding queries.
- *        If more than one are supplied, suggestions will be gathered for the geocoders that support it,
- *        and if no suggestion is selected the result from the first geocoder service wil be used.
- * @param {number} [options.flightDuration] The duration of the camera flight to an entered location, in seconds.
- * @param {Geocoder.DestinationFoundFunction} [options.destinationFound=GeocoderViewModel.flyToDestination] A callback function that is called after a successful geocode.  If not supplied, the default behavior is to fly the camera to the result destination.
+ * @param {GeocoderService[]} [options.geocoderServices] 用于地理编码查询的Geocoder服务。
+ *        如果提供了多个，则将为支持它的地理编码器收集建议，
+ *       如果没有选择建议，将使用第一个地理编码器服务的结果。
+ * @param {number} [options.flightDuration] 相机飞行到指定位置的持续时间，以秒为单位。
+ * @param {Geocoder.DestinationFoundFunction} [options.destinationFound=GeocoderViewModel.flyToDestination] 一个回调函数，在成功输入地理代码后调用。如果没有提供，默认行为是将相机飞到结果目的地。
  */
 function GeocoderViewModel(options) {
   //>>includeStart('debug', pragmas.debug);
@@ -141,7 +141,7 @@ function GeocoderViewModel(options) {
   };
 
   /**
-   * Gets or sets a value indicating if this instance should always show its text input field.
+   * 获取或设置一个值，该值指示此实例是否应始终显示其文本输入字段。
    *
    * @type {boolean}
    * @default false
@@ -149,14 +149,14 @@ function GeocoderViewModel(options) {
   this.keepExpanded = false;
 
   /**
-   * True if the geocoder should query as the user types to autocomplete
+   * 如果地理编码器应该在用户键入自动完成时进行查询，则为true
    * @type {boolean}
    * @default true
    */
   this.autoComplete = defaultValue(options.autocomplete, true);
 
   /**
-   * Gets and sets the command called when a geocode destination is found
+   * 获取并设置在找到地理代码目的地时调用的命令
    * @type {Geocoder.DestinationFoundFunction}
    */
   this.destinationFound = defaultValue(
@@ -182,7 +182,7 @@ function GeocoderViewModel(options) {
     GeocoderViewModel._updateSearchSuggestions(that);
   });
   /**
-   * Gets a value indicating whether a search is currently in progress.  这个属性是可观察的。
+   * 获取一个值，该值指示当前是否正在进行搜索。 这个属性是可观察的。
    *
    * @type {boolean}
    */
@@ -194,8 +194,8 @@ function GeocoderViewModel(options) {
   });
 
   /**
-   * 获取或设置text to search for.  The text can be an address, or longitude, latitude,
-   * and optional height, where longitude and latitude are in degrees and height is in meters.
+   * 获取或设置要搜索的文本。文本可以是地址、经度、纬度、
+   * 还有可选的高度，经纬度单位是度，高度单位是米。
    *
    * @type {string}
    */
@@ -219,9 +219,9 @@ function GeocoderViewModel(options) {
   });
 
   /**
-   * 获取或设置the duration of the camera flight in seconds.
-   * A value of zero causes the camera to instantly switch to the geocoding location.
-   * The duration will be computed based on the distance when undefined.
+   * 获取或设置相机飞行的持续时间，以秒为单位。
+   * 值为0会使相机立即切换到地理编码位置。
+   * 持续时间将根据未定义的距离计算
    *
    * @type {number|undefined}
    * @default undefined
@@ -245,7 +245,7 @@ function GeocoderViewModel(options) {
 
 Object.defineProperties(GeocoderViewModel.prototype, {
   /**
-   * Gets the event triggered on flight completion.
+   * 获取飞行完成时触发的事件。
    * @memberof GeocoderViewModel.prototype
    *
    * @type {Event}
@@ -257,7 +257,7 @@ Object.defineProperties(GeocoderViewModel.prototype, {
   },
 
   /**
-   * 得到场景 to control.
+   * 得到场景控制.
    * @memberof GeocoderViewModel.prototype
    *
    * @type {Scene}
@@ -269,7 +269,7 @@ Object.defineProperties(GeocoderViewModel.prototype, {
   },
 
   /**
-   * Gets the Command that is executed when the button is clicked.
+   * 获取单击按钮时执行的命令。
    * @memberof GeocoderViewModel.prototype
    *
    * @type {Command}
@@ -281,7 +281,7 @@ Object.defineProperties(GeocoderViewModel.prototype, {
   },
 
   /**
-   * Gets the currently selected geocoder search suggestion
+   * 获取当前选定的地理编码器搜索建议
    * @memberof GeocoderViewModel.prototype
    *
    * @type {object}
@@ -293,7 +293,7 @@ Object.defineProperties(GeocoderViewModel.prototype, {
   },
 
   /**
-   * Gets the list of geocoder search suggestions
+   * 获取地理编码器搜索建议列表
    * @memberof GeocoderViewModel.prototype
    *
    * @type {Object[]}
@@ -590,7 +590,7 @@ async function updateSearchSuggestions(viewModel) {
 }
 
 /**
- * A function to fly to the destination found by a successful geocode.
+ * 飞到一个成功的地理编码找到的目的地的函数。
  * @type {Geocoder.DestinationFoundFunction}
  */
 GeocoderViewModel.flyToDestination = flyToDestination;

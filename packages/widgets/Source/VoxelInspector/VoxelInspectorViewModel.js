@@ -702,7 +702,7 @@ Object.defineProperties(VoxelInspectorViewModel.prototype, {
   },
 
   /**
-   * 获取或设置primitive of the view model.
+   * 获取或设置primitive of 视图模型。
    * @memberof VoxelInspectorViewModel.prototype
    * @type {VoxelPrimitive}
    */
