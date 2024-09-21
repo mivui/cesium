@@ -4949,7 +4949,7 @@ Object.defineProperties(CzmlDataSource.prototype, {
     },
   },
   /**
-   * Gets whether or not this data source should be displayed.
+   * 获取是否 this data source should be displayed.
    * @memberof CzmlDataSource.prototype
    * @type {boolean}
    */

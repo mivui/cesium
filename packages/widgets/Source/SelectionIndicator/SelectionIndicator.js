@@ -16,7 +16,7 @@ import SelectionIndicatorViewModel from "./SelectionIndicatorViewModel.js";
  * @param {Element|string} container 将包含小部件的DOM元素或ID。
  * @param {Scene} scene 要使用的场景实例。
  *
- * @exception {DeveloperError} Element with id "container" does not exist in the document.
+ * @exception {DeveloperError} id为"container"的元素在文档中不存在。
  */
 function SelectionIndicator(container, scene) {
   //>>includeStart('debug', pragmas.debug);

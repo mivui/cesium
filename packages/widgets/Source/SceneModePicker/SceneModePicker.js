@@ -35,7 +35,7 @@ const columbusViewPath =
  * @param {Scene} scene 要使用的场景实例。
  * @param {number} [duration=2.0] The time, in seconds, it takes for the scene to transition.
  *
- * @exception {DeveloperError} Element with id "container" does not exist in the document.
+ * @exception {DeveloperError} id为"container"的元素在文档中不存在。
  *
  * @example
  * // In HTML head, include a link to the SceneModePicker.css stylesheet,

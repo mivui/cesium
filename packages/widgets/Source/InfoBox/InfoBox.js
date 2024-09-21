@@ -18,7 +18,7 @@ import InfoBoxViewModel from "./InfoBoxViewModel.js";
  *
  * @param {Element|string} container 将包含小部件的DOM元素或ID。
  *
- * @exception {DeveloperError} Element with id "container" does not exist in the document.
+ * @exception {DeveloperError} id为"container"的元素在文档中不存在。
  */
 function InfoBox(container) {
   //>>includeStart('debug', pragmas.debug);

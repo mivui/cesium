@@ -72,7 +72,7 @@ Object.defineProperties(DataSource.prototype, {
     get: DeveloperError.throwInstantiationError,
   },
   /**
-   * Gets whether or not this data source should be displayed.
+   * 获取是否 this data source should be displayed.
    * @memberof DataSource.prototype
    * @type {boolean}
    */

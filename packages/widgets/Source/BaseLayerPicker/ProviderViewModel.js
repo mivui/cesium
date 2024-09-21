@@ -50,7 +50,7 @@ function ProviderViewModel(options) {
   this.name = options.name;
 
   /**
-   * Gets the tooltip.  这个属性是可观察的。
+   * 获取工具提示。  这个属性是可观察的。
    * @type {string}
    */
   this.tooltip = options.tooltip;

@@ -620,7 +620,7 @@ Object.defineProperties(VoxelPrimitive.prototype, {
   },
 
   /**
-   * Gets or sets whether or not this primitive should be displayed.
+   * 获取或设置是否 this primitive should be displayed.
    *
    * @memberof VoxelPrimitive.prototype
    * @type {boolean}
@@ -639,7 +639,7 @@ Object.defineProperties(VoxelPrimitive.prototype, {
   },
 
   /**
-   * Gets or sets whether or not the primitive should update when the view changes.
+   * 获取或设置是否 the primitive should update when the view changes.
    *
    * @memberof VoxelPrimitive.prototype
    * @type {boolean}
@@ -658,7 +658,7 @@ Object.defineProperties(VoxelPrimitive.prototype, {
   },
 
   /**
-   * Gets or sets whether or not to render debug visualizations.
+   * 获取或设置是否 to render debug visualizations.
    *
    * @memberof VoxelPrimitive.prototype
    * @type {boolean}
@@ -677,7 +677,7 @@ Object.defineProperties(VoxelPrimitive.prototype, {
   },
 
   /**
-   * Gets or sets whether or not to test against depth when rendering.
+   * 获取或设置是否 to test against depth when rendering.
    *
    * @memberof VoxelPrimitive.prototype
    * @type {boolean}

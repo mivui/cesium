@@ -883,7 +883,7 @@ Object.defineProperties(GpxDataSource.prototype, {
     },
   },
   /**
-   * Gets whether or not this data source should be displayed.
+   * 获取是否 this data source should be displayed.
    * @memberof GpxDataSource.prototype
    * @type {boolean}
    */

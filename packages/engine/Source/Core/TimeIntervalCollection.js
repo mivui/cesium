@@ -59,7 +59,7 @@ Object.defineProperties(TimeIntervalCollection.prototype, {
   },
 
   /**
-   * Gets whether or not the start time is included in the collection.
+   * 获取是否 the start time is included in the collection.
    * @memberof TimeIntervalCollection.prototype
    * @type {boolean}
    * @readonly
@@ -86,7 +86,7 @@ Object.defineProperties(TimeIntervalCollection.prototype, {
   },
 
   /**
-   * Gets whether or not the stop time is included in the collection.
+   * 获取是否 the stop time is included in the collection.
    * @memberof TimeIntervalCollection.prototype
    * @type {boolean}
    * @readonly
@@ -112,7 +112,7 @@ Object.defineProperties(TimeIntervalCollection.prototype, {
   },
 
   /**
-   * Gets whether or not the collection is empty.
+   * 获取是否 the collection is empty.
    * @memberof TimeIntervalCollection.prototype
    * @type {boolean}
    * @readonly

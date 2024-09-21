@@ -35,7 +35,7 @@ import BaseLayerPickerViewModel from "./BaseLayerPickerViewModel.js";
  * @param {ProviderViewModel[]} [options.terrainProviderViewModels=[]] 用于地形的ProviderViewModel实例数组。
  * @param {ProviderViewModel} [options.selectedTerrainProviderViewModel] 当前基本地形层的视图模型，如果没有提供，则使用第一个可用的地形层。
  *
- * @exception {DeveloperError} Element with id "container" does not exist in the document.
+ * @exception {DeveloperError} id为"container"的元素在文档中不存在。
  *
  *
  * @example

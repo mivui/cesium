@@ -22,7 +22,7 @@ const exitVRPath =
  * @param {Scene} scene The scene.
  * @param {Element|string} [vrElement=document.body] The element or id to be placed into vr mode.
  *
- * @exception {DeveloperError} Element with id "container" does not exist in the document.
+ * @exception {DeveloperError} id为"container"的元素在文档中不存在。
  */
 function VRButton(container, scene, vrElement) {
   //>>includeStart('debug', pragmas.debug);

@@ -21,7 +21,7 @@ import NavigationHelpButtonViewModel from "./NavigationHelpButtonViewModel.js";
  * @param {Element|string} options.container 将包含小部件的DOM元素或ID。
  * @param {boolean} [options.instructionsInitiallyVisible=false] True if the navigation instructions should initially be visible; otherwise, false.
  *
- * @exception {DeveloperError} Element with id "container" does not exist in the document.
+ * @exception {DeveloperError} id为"container"的元素在文档中不存在。
  *
  * @example
  * // In HTML head, include a link to the NavigationHelpButton.css stylesheet,

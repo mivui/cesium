@@ -22,7 +22,7 @@ const orthographicPath =
  * @param {Element|string} container 将包含小部件的DOM元素或ID。
  * @param {Scene} scene 要使用的场景实例。
  *
- * @exception {DeveloperError} Element with id "container" does not exist in the document.
+ * @exception {DeveloperError} id为"container"的元素在文档中不存在。
  *
  * @example
  * // In HTML head, include a link to the ProjectionPicker.css stylesheet,

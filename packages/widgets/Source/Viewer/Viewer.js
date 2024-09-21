@@ -319,7 +319,7 @@ function enableVRUI(viewer, enabled) {
  * @property {Terrain} [terrain] A terrain object which handles asynchronous terrain provider. Can only specify if options.terrainProvider is undefined.
  * @property {SkyBox|false} [skyBox] The skybox used to render the stars. When <code>undefined</code> and the WGS84 ellipsoid used, the default stars are used. If set to <code>false</code>, no skyBox, Sun, or Moon will be added.
  * @property {SkyAtmosphere|false} [skyAtmosphere] Blue sky, and the glow around the Earth's limb. Enabled when the WGS84 ellipsoid used. Set to <code>false</code> to turn it off.
- * @property {Element|string} [fullscreenElement=document.body] The element or id to be placed into fullscreen mode when the full screen button is pressed.
+ * @property {Element|string} [fullscreenElement=document.body] 要置于全屏模式的元素或id。 when the full screen button is pressed.
  * @property {boolean} [useDefaultRenderLoop=true] True if this widget should control the render loop, false otherwise.
  * @property {number} [targetFrameRate] The target frame rate when using the default render loop.
  * @property {boolean} [showRenderLoopErrors=true] If true, this widget will automatically display an HTML panel to the user containing the error, if a render loop error occurs.
@@ -355,7 +355,7 @@ function enableVRUI(viewer, enabled) {
  * @param {Element|string} container 将包含小部件的DOM元素或ID。
  * @param {Viewer.ConstructorOptions} [options] Object describing initialization options
  *
- * @exception {DeveloperError} Element with id "container" does not exist in the document.
+ * @exception {DeveloperError} id为"container"的元素在文档中不存在。
  * @exception {DeveloperError} options.selectedImageryProviderViewModel is not available when not using the BaseLayerPicker widget, specify options.baseLayer instead.
  * @exception {DeveloperError} options.selectedTerrainProviderViewModel is not available when not using the BaseLayerPicker widget, specify options.terrainProvider instead.
  *
@@ -1378,7 +1378,7 @@ Object.defineProperties(Viewer.prototype, {
   },
 
   /**
-   * Gets or sets whether or not this widget should control the render loop.
+   * 获取或设置是否 this widget should control the render loop.
    * If true the widget will use requestAnimationFrame to
    * perform rendering and resizing of the widget, as well as drive the
    * simulation clock. If set to false, you must manually call the
@@ -1443,7 +1443,7 @@ Object.defineProperties(Viewer.prototype, {
   },
 
   /**
-   * Gets or sets whether or not data sources can temporarily pause
+   * 获取或设置是否 data sources can temporarily pause
    * animation in order to avoid showing an incomplete picture to the user.
    * For example, if asynchronous primitives are being processed in the
    * background, the clock will not advance until the geometry is ready.

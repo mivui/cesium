@@ -838,7 +838,7 @@ Object.defineProperties(GeoJsonDataSource.prototype, {
     },
   },
   /**
-   * Gets whether or not this data source should be displayed.
+   * 获取是否 this data source should be displayed.
    * @memberof GeoJsonDataSource.prototype
    * @type {boolean}
    */

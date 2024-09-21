@@ -2538,7 +2538,7 @@ function addCreditsToCreditDisplay(model, frameState) {
 }
 
 /**
- * Gets whether or not the model is translucent based on its assigned model color.
+ * 获取是否 the model is translucent based on its assigned model color.
  * If the model color's alpha is equal to zero, then it is considered invisible,
  * not translucent.
  *
@@ -2551,7 +2551,7 @@ Model.prototype.isTranslucent = function () {
 };
 
 /**
- * Gets whether or not the model is invisible, i.e. if the model color's alpha
+ * 获取是否 the model is invisible, i.e. if the model color's alpha
  * is equal to zero.
  *
  * @returns {boolean} <code>true</code> if the model is invisible, otherwise <code>false</code>.
@@ -2567,7 +2567,7 @@ function supportsSilhouettes(frameState) {
 }
 
 /**
- * Gets whether or not the model has a silhouette. This accounts for whether
+ * 获取是否 the model has a silhouette. This accounts for whether
  * silhouettes are supported (i.e. the context supports stencil buffers).
  * <p>
  * If the model classifies another model, its silhouette will be disabled.
@@ -2587,7 +2587,7 @@ Model.prototype.hasSilhouette = function (frameState) {
 };
 
 /**
- * Gets whether or not the model is part of a tileset that uses the
+ * 获取是否 the model is part of a tileset that uses the
  * skipLevelOfDetail optimization. This accounts for whether skipLevelOfDetail
  * is supported (i.e. the context supports stencil buffers).
  *
@@ -2606,7 +2606,7 @@ Model.prototype.hasSkipLevelOfDetail = function (frameState) {
 };
 
 /**
- * Gets whether or not clipping planes are enabled for this model.
+ * 获取是否 clipping planes are enabled for this model.
  *
  * @returns {boolean} <code>true</code> if clipping planes are enabled for this model, <code>false</code>.
  * @private
@@ -2650,7 +2650,7 @@ Model.prototype.pick = function (
 };
 
 /**
- * Gets whether or not clipping polygons are enabled for this model.
+ * 获取是否 clipping polygons are enabled for this model.
  *
  * @returns {boolean} <code>true</code> if clipping polygons are enabled for this model, <code>false</code>.
  * @private

@@ -1347,7 +1347,7 @@ Object.defineProperties(Scene.prototype, {
   },
 
   /**
-   * Gets whether or not the scene is optimized for 3D only viewing.
+   * 获取是否 the scene is optimized for 3D only viewing.
    * @memberof Scene.prototype
    * @type {boolean}
    * @readonly
@@ -1359,7 +1359,7 @@ Object.defineProperties(Scene.prototype, {
   },
 
   /**
-   * Gets whether or not the scene has order independent translucency enabled.
+   * 获取是否 the scene has order independent translucency enabled.
    * Note that this only reflects the original construction option, and there are
    * other factors that could prevent OIT from functioning on a given system configuration.
    * @memberof Scene.prototype

@@ -82,14 +82,14 @@ function TimeInterval(options) {
   this.data = options.data;
 
   /**
-   * Gets or sets whether or not the start time is included in this interval.
+   * 获取或设置是否 the start time is included in this interval.
    * @type {boolean}
    * @default true
    */
   this.isStartIncluded = defaultValue(options.isStartIncluded, true);
 
   /**
-   * Gets or sets whether or not the stop time is included in this interval.
+   * 获取或设置是否 the stop time is included in this interval.
    * @type {boolean}
    * @default true
    */
@@ -98,7 +98,7 @@ function TimeInterval(options) {
 
 Object.defineProperties(TimeInterval.prototype, {
   /**
-   * Gets whether or not this interval is empty.
+   * 获取是否 this interval is empty.
    * @memberof TimeInterval.prototype
    * @type {boolean}
    * @readonly

@@ -150,7 +150,7 @@ Object.defineProperties(SceneModePickerViewModel.prototype, {
   },
 
   /**
-   * Gets the command to toggle the drop down box.
+   * 获取要切换的命令 the drop down box.
    * @memberof SceneModePickerViewModel.prototype
    *
    * @type {Command}

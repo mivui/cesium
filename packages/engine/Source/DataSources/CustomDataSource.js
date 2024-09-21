@@ -123,7 +123,7 @@ Object.defineProperties(CustomDataSource.prototype, {
     },
   },
   /**
-   * Gets whether or not this data source should be displayed.
+   * 获取是否 this data source should be displayed.
    * @memberof CustomDataSource.prototype
    * @type {boolean}
    */

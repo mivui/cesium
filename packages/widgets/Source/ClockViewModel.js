@@ -185,8 +185,8 @@ ClockViewModel.prototype.isDestroyed = function () {
 };
 
 /**
- * Destroys the view model.  Should be called to
- * properly clean up the view model when it is no longer needed.
+ * 销毁视图模型。应该被称为
+ * 当不再需要视图模型时，适当地清理视图模型。
  */
 ClockViewModel.prototype.destroy = function () {
   this._eventHelper.removeAll();

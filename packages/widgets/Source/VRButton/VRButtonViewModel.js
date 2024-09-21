@@ -92,7 +92,7 @@ function VRButtonViewModel(scene, vrElement) {
   const isVRMode = knockout.observable(false);
 
   /**
-   * Gets whether or not VR mode is active.
+   * 获取是否 VR是活跃的.
    *
    * @type {boolean}
    */
@@ -104,7 +104,7 @@ function VRButtonViewModel(scene, vrElement) {
   });
 
   /**
-   * Gets or sets whether or not VR functionality should be enabled.
+   * 获取或设置是否 VR functionality should be enabled.
    *
    * @type {boolean}
    * @see Fullscreen.enabled
@@ -120,7 +120,7 @@ function VRButtonViewModel(scene, vrElement) {
   });
 
   /**
-   * Gets the tooltip.  这个属性是可观察的。
+   * 获取工具提示。  这个属性是可观察的。
    *
    * @type {string}
    */
@@ -172,7 +172,7 @@ function VRButtonViewModel(scene, vrElement) {
 Object.defineProperties(VRButtonViewModel.prototype, {
   /**
    * 获取或设置HTML element to place into VR mode when the
-   * corresponding button is pressed.
+   * 按下相应的按钮。
    * @memberof VRButtonViewModel.prototype
    *
    * @type {Element}
@@ -194,7 +194,7 @@ Object.defineProperties(VRButtonViewModel.prototype, {
   },
 
   /**
-   * Gets the Command to toggle VR mode.
+   * 获取要切换的命令 VR mode.
    * @memberof VRButtonViewModel.prototype
    *
    * @type {Command}
@@ -214,8 +214,8 @@ VRButtonViewModel.prototype.isDestroyed = function () {
 };
 
 /**
- * Destroys the view model.  Should be called to
- * properly clean up the view model when it is no longer needed.
+ * 销毁视图模型。应该被称为
+ * 当不再需要视图模型时，适当地清理视图模型。
  */
 VRButtonViewModel.prototype.destroy = function () {
   this._eventHelper.removeAll();

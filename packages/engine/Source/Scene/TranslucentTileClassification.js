@@ -73,7 +73,7 @@ function TranslucentTileClassification(context) {
 
 Object.defineProperties(TranslucentTileClassification.prototype, {
   /**
-   * Gets whether or not translucent depth was rendered.
+   * 获取是否 translucent depth was rendered.
    * @memberof TranslucentTileClassification.prototype
    *
    * @type {boolean}

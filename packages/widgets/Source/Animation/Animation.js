@@ -412,7 +412,7 @@ SvgButton.prototype.setTooltip = function (tooltip) {
  * @param {Element|string} container 将包含小部件的DOM元素或ID。
  * @param {AnimationViewModel} viewModel 此小部件使用的视图模型。
  *
- * @exception {DeveloperError} Element with id "container" does not exist in the document.
+ * @exception {DeveloperError} id为"container"的元素在文档中不存在。
  *
  *
  * @example

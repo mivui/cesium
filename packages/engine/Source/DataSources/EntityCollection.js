@@ -147,7 +147,7 @@ Object.defineProperties(EntityCollection.prototype, {
     },
   },
   /**
-   * Gets whether or not this entity collection should be
+   * 获取是否 this entity collection should be
    * displayed.  When true, each entity is only displayed if
    * its own show property is also true.
    * @memberof EntityCollection.prototype

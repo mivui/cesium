@@ -14,7 +14,7 @@ import createCommand from "../createCommand.js";
  * @alias FullscreenButtonViewModel
  * @constructor
  *
- * @param {Element|string} [fullscreenElement=document.body] The element or id to be placed into fullscreen mode.
+ * @param {Element|string} [fullscreenElement=document.body] 要置于全屏模式的元素或id。.
  * @param {Element|string} [container] 将包含小部件的DOM元素或ID。
  */
 function FullscreenButtonViewModel(fullscreenElement, container) {
@@ -31,7 +31,7 @@ function FullscreenButtonViewModel(fullscreenElement, container) {
   const ownerDocument = container.ownerDocument;
 
   /**
-   * Gets whether or not fullscreen mode is active.  这个属性是可观察的。
+   * 获取是否 fullscreen是活跃的.  这个属性是可观察的。
    *
    * @type {boolean}
    */
@@ -43,7 +43,7 @@ function FullscreenButtonViewModel(fullscreenElement, container) {
   });
 
   /**
-   * Gets or sets whether or not fullscreen functionality should be enabled.  这个属性是可观察的。
+   * 获取或设置是否 fullscreen 应该启用功能.  这个属性是可观察的。
    *
    * @type {boolean}
    * @see Fullscreen.enabled
@@ -59,7 +59,7 @@ function FullscreenButtonViewModel(fullscreenElement, container) {
   });
 
   /**
-   * Gets the tooltip.  这个属性是可观察的。
+   * 获取工具提示。这个属性是可观察的。
    *
    * @type {string}
    */
@@ -92,8 +92,8 @@ function FullscreenButtonViewModel(fullscreenElement, container) {
 
 Object.defineProperties(FullscreenButtonViewModel.prototype, {
   /**
-   * 获取或设置HTML element to place into fullscreen mode when the
-   * corresponding button is pressed.
+   * 获取或设置HTML元素时，将其置于全屏模式
+   * 按下相应的按钮。
    * @memberof FullscreenButtonViewModel.prototype
    *
    * @type {Element}
@@ -115,7 +115,7 @@ Object.defineProperties(FullscreenButtonViewModel.prototype, {
   },
 
   /**
-   * Gets the Command to toggle fullscreen mode.
+   * 获取要切换的命令 fullscreen mode.
    * @memberof FullscreenButtonViewModel.prototype
    *
    * @type {Command}
@@ -135,8 +135,8 @@ FullscreenButtonViewModel.prototype.isDestroyed = function () {
 };
 
 /**
- * Destroys the view model.  Should be called to
- * properly clean up the view model when it is no longer needed.
+ * 销毁视图模型。应该被称为
+ * 当不再需要视图模型时，适当地清理视图模型。
  */
 FullscreenButtonViewModel.prototype.destroy = function () {
   document.removeEventListener(Fullscreen.changeEventName, this._callback);
