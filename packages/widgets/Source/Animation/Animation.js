@@ -743,7 +743,7 @@ Animation.prototype.isDestroyed = function () {
 };
 
 /**
- * Destroys the animation widget.  Should be called if permanently
+ * 破坏动画小部件。应该叫它永久的吗
  * 从布局中删除小部件。
  */
 Animation.prototype.destroy = function () {
@@ -809,8 +809,8 @@ Animation.prototype.destroy = function () {
 };
 
 /**
- * Resizes the widget to match the container size.
- * This function should be called whenever the container size is changed.
+ * 调整小部件的大小以匹配容器大小。
+ * 这个函数应该在容器大小改变时调用。
  */
 Animation.prototype.resize = function () {
   const parentWidth = this._container.clientWidth;

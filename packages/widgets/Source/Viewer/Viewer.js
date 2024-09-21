@@ -2094,7 +2094,7 @@ Viewer.prototype._onDataSourceRemoved = function (
  * 目标将是范围。标题将根据偏移量确定。如果标题不能
  * 由偏移量决定，标题将向北。</p>
  *
- * @param {Entity|Entity[]|EntityCollection|DataSource|ImageryLayer|Cesium3DTileset|TimeDynamicPointCloud|Promise<Entity|Entity[]|EntityCollection|DataSource|ImageryLayer|Cesium3DTileset|TimeDynamicPointCloud|VoxelPrimitive>} target要查看的实体、实体数组、实体集合、数据源、Cesium3DTileset、点云或图像层。您还可以传递一个承诺，该承诺解析为前面提到的类型之一。
+ * @param {Entity|Entity[]|EntityCollection|DataSource|ImageryLayer|Cesium3DTileset|TimeDynamicPointCloud|Promise<Entity|Entity[]|EntityCollection|DataSource|ImageryLayer|Cesium3DTileset|TimeDynamicPointCloud|VoxelPrimitive>} target 要查看的实体、实体数组、实体集合、数据源、Cesium3DTileset、点云或图像层。您还可以传递一个承诺，该承诺解析为前面提到的类型之一。
  * @param {HeadingPitchRange} [offset]  在本地east-north-up参考系中与实体中心的偏移量。
  * @returns {Promise<boolean>} 一个Promise，如果缩放成功，则解析为true;如果当前场景中没有显示目标或缩放被取消，则解析为false。
  */
@@ -2120,7 +2120,7 @@ Viewer.prototype.zoomTo = function (target, offset) {
  * 目标将是范围。标题将根据偏移量确定。如果标题不能
  * 由偏移量决定，标题将向北。</p>
  *
- * @param {Entity|Entity[]|EntityCollection|DataSource|ImageryLayer|Cesium3DTileset|TimeDynamicPointCloud|Promise<Entity|Entity[]|EntityCollection|DataSource|ImageryLayer|Cesium3DTileset|TimeDynamicPointCloud|VoxelPrimitive>} target要查看的实体、实体数组、实体集合、数据源、Cesium3DTileset、点云或图像层。您还可以传递一个承诺，该承诺解析为前面提到的类型之一。
+ * @param {Entity|Entity[]|EntityCollection|DataSource|ImageryLayer|Cesium3DTileset|TimeDynamicPointCloud|Promise<Entity|Entity[]|EntityCollection|DataSource|ImageryLayer|Cesium3DTileset|TimeDynamicPointCloud|VoxelPrimitive>} target 要查看的实体、实体数组、实体集合、数据源、Cesium3DTileset、点云或图像层。您还可以传递一个承诺，该承诺解析为前面提到的类型之一。
  * @param {object} [options] 对象，具有以下属性:
  * @param {number} [options.duration=3.0] 飞行时间以秒为单位。
  * @param {number} [options.maximumHeight] 飞行高峰时的最大高度。
