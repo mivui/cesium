@@ -1,16 +1,16 @@
 import { Check, defaultValue, defined } from "@cesium/engine";
 
 /**
- * A static class with helper functions used by CesiumInspector, Cesium3DTilesInspector, and VoxelInspector
+ * CesiumInspector, Cesium3DTilesInspector和VoxelInspector使用的一个静态类的辅助函数
  * @private
  */
 const InspectorShared = {};
 
 /**
- * Creates a checkbox component
- * @param {string} labelText The text to display in the checkbox label
- * @param {string} checkedBinding The name of the variable used for checked binding
- * @param {string} [enableBinding] The name of the variable used for enable binding
+ * 创建一个复选框组件
+ * @param {string} labelText 要在复选框标签中显示的文本
+ * @param {string} checkedBinding 用于已检查绑定的变量的名称
+ * @param {string} [enableBinding] 用于启用绑定的变量的名称
  * @return {Element}
  */
 InspectorShared.createCheckbox = function (
@@ -39,11 +39,11 @@ InspectorShared.createCheckbox = function (
 };
 
 /**
- * Creates a section element
- * @param {Element} panel The parent element
- * @param {string} headerText The text to display at the top of the section
- * @param {string} sectionVisibleBinding The name of the variable used for visible binding
- * @param {string} toggleSectionVisibilityBinding The name of the function used to toggle visibility
+ * 创建section元素
+ * @param {Element} panel 父元素
+ * @param {string} headerText 要显示在部分顶部的文本
+ * @param {string} sectionVisibleBinding 用于可见绑定的变量名
+ * @param {string} toggleSectionVisibilityBinding 用于切换可见性的函数的名称
  * @return {Element}
  */
 InspectorShared.createSection = function (
@@ -85,13 +85,13 @@ InspectorShared.createSection = function (
 };
 
 /**
- * Creates a range input
- * @param {string} rangeText The text to display
- * @param {string} sliderValueBinding The name of the variable used for slider value binding
- * @param {number} min The minimum value
- * @param {number} max The maximum value
- * @param {number} [step] The step size. Defaults to "any".
- * @param {string} [inputValueBinding] The name of the variable used for input value binding
+ * 创建范围输入
+ * @param {string} rangeText 要显示的文本
+ * @param {string} sliderValueBinding 用于滑块值绑定的变量名
+ * @param {number} min 最小值
+ * @param {number} max 最大值
+ * @param {number} [step] 步长。默认为“any”。
+ * @param {string} [inputValueBinding] 用于输入值绑定的变量名
  * @return {Element}
  */
 InspectorShared.createRangeInput = function (
@@ -137,10 +137,10 @@ InspectorShared.createRangeInput = function (
 };
 
 /**
- * Creates a button component
- * @param {string} buttonText The button text
- * @param {string} clickedBinding The name of the variable used for clicked binding
- * @param {string} [activeBinding] The name of the variable used for active binding
+ * 创建按钮组件
+ * @param {string} buttonText 按钮文本
+ * @param {string} clickedBinding 用于单击绑定的变量的名称
+ * @param {string} [activeBinding] 用于活动绑定的变量的名称
  * @return {Element}
  */
 InspectorShared.createButton = function (

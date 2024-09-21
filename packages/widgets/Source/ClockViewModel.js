@@ -8,11 +8,11 @@ import {
 import knockout from "./ThirdParty/knockout.js";
 
 /**
- * A view model which exposes a {@link Clock} for user interfaces.
+ * 为用户界面公开 {@link Clock} 的视图模型。
  * @alias ClockViewModel
  * @constructor
  *
- * @param {Clock} [clock] The clock object wrapped by this view model, if undefined a new instance will be created.
+ * @param {Clock} [clock] 由这个视图模型包装的时钟对象，如果未定义，将创建一个新的实例。
  *
  * @see Clock
  */
@@ -26,7 +26,7 @@ function ClockViewModel(clock) {
   this._eventHelper.add(clock.onTick, this.synchronize, this);
 
   /**
-   * Gets the current system time.
+   * 获取当前系统时间。
    * 这个属性是可观察的。
    * @type {JulianDate}
    */
@@ -34,7 +34,7 @@ function ClockViewModel(clock) {
   this.systemTime.equalityComparer = JulianDate.equals;
 
   /**
-   * 获取或设置start time of the clock.
+   * 获取或设置时钟的开始时间。
    * See {@link Clock#startTime}.
    * 这个属性是可观察的。
    * @type {JulianDate}
@@ -47,7 +47,7 @@ function ClockViewModel(clock) {
   }, this);
 
   /**
-   * 获取或设置stop time of the clock.
+   * 获取或设置时钟停止时间。
    * See {@link Clock#stopTime}.
    * 这个属性是可观察的。
    * @type {JulianDate}
@@ -60,7 +60,7 @@ function ClockViewModel(clock) {
   }, this);
 
   /**
-   * 获取或设置current time.
+   * 获取或设置当前时间。
    * See {@link Clock#currentTime}.
    * 这个属性是可观察的。
    * @type {JulianDate}
@@ -73,7 +73,7 @@ function ClockViewModel(clock) {
   }, this);
 
   /**
-   * 获取或设置clock multiplier.
+   * 获取或设置时钟倍数。
    * See {@link Clock#multiplier}.
    * 这个属性是可观察的。
    * @type {number}
@@ -85,7 +85,7 @@ function ClockViewModel(clock) {
   }, this);
 
   /**
-   * 获取或设置clock step setting.
+   * 获取或设置时钟步长设置。
    * See {@link Clock#clockStep}.
    * 这个属性是可观察的。
    * @type {ClockStep}
@@ -97,7 +97,7 @@ function ClockViewModel(clock) {
   }, this);
 
   /**
-   * 获取或设置clock range setting.
+   * 获取或设置时钟范围设置。
    * See {@link Clock#clockRange}.
    * 这个属性是可观察的。
    * @type {ClockRange}
@@ -109,7 +109,7 @@ function ClockViewModel(clock) {
   }, this);
 
   /**
-   * Gets or sets whether the clock can animate.
+   * 获取或设置时钟是否可以动画。
    * See {@link Clock#canAnimate}.
    * 这个属性是可观察的。
    * @type {boolean}
@@ -121,7 +121,7 @@ function ClockViewModel(clock) {
   }, this);
 
   /**
-   * Gets or sets whether the clock should animate.
+   * 获取或设置时钟是否应该动画。
    * See {@link Clock#shouldAnimate}.
    * 这个属性是可观察的。
    * @type {boolean}
@@ -147,7 +147,7 @@ function ClockViewModel(clock) {
 
 Object.defineProperties(ClockViewModel.prototype, {
   /**
-   * Gets the underlying Clock.
+   * 获取底层时钟。
    * @memberof ClockViewModel.prototype
    * @type {Clock}
    */
@@ -159,9 +159,9 @@ Object.defineProperties(ClockViewModel.prototype, {
 });
 
 /**
- * 更新视图模型 with the contents of the underlying clock.
- * Can be called to force an update of the viewModel if the underlying
- * clock has changed and <code>Clock.tick</code> has not yet been called.
+ * 更新视图模型与底层时钟的内容。
+ * 可以被调用来强制更新viewModel，如果底层
+ * 时钟已更改，<code>Clock.tick</code>。
  */
 ClockViewModel.prototype.synchronize = function () {
   const clock = this._clock;

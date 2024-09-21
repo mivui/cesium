@@ -1,19 +1,19 @@
 import knockout from "./ThirdParty/knockout.js";
 
 /**
- * Subscribe to a Knockout observable ES5 property, and immediately fire
- * the callback with the current value of the property.
+ * 订阅一个Knockout可观察对象ES5属性，并立即启动
+ * 用属性的当前值回调。
  *
  * @private
  *
  * @function subscribeAndEvaluate
  *
- * @param {object} owner The object containing the observable property.
- * @param {string} observablePropertyName The name of the observable property.
- * @param {Function} callback The callback function.
- * @param {object} [target] The value of this in the callback function.
- * @param {string} [event='change'] The name of the event to receive notification for.
- * @returns The subscription object from Knockout which can be used to dispose the subscription later.
+ * @param {object} owner 包含observable属性的对象。
+ * @param {string} observablePropertyName 可观察属性的名称。
+ * @param {Function} callback 回调函数。
+ * @param {object} [target] this在回调函数中的值。
+ * @param {string} [event='change'] 要接收通知的事件的名称。
+ * @returns 来自Knockout的订阅对象，稍后可用于处理订阅。
  */
 function subscribeAndEvaluate(
   owner,
