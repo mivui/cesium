@@ -3,13 +3,13 @@ import knockout from "../ThirdParty/knockout.js";
 import I3SBuildingSceneLayerExplorerViewModel from "./I3SBuildingSceneLayerExplorerViewModel.js";
 
 /**
- * I3S Building Scene Layer widget
+ * I3S建筑场景层小部件
  *
  * @alias I3SBuildingSceneLayerExplorer
  * @constructor
  *
- * @param {string} containerId The DOM element ID that will contain the widget.
- * @param {I3SDataProvider} i3sProvider I3S Data provider instance.
+ * @param {string} containerId 将包含小部件的DOM元素ID。
+ * @param {I3SDataProvider} i3sProvider I3S数据提供者实例。
  *
  * @demo {@link https://sandcastle.cesium.com/index.html?src=I3S%20Building%20Scene%20Layer.html|I3S Building Scene Layer}
  */
