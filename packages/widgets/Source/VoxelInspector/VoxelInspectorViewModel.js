@@ -747,49 +747,49 @@ Object.defineProperties(VoxelInspectorViewModel.prototype, {
 });
 
 /**
- * Toggles the inspector visibility
+ * 切换检查器的可见性
  */
 VoxelInspectorViewModel.prototype.toggleInspector = function () {
   this.inspectorVisible = !this.inspectorVisible;
 };
 
 /**
- * Toggles the visibility of the display section
+ * 切换显示部分的可见性
  */
 VoxelInspectorViewModel.prototype.toggleDisplay = function () {
   this.displayVisible = !this.displayVisible;
 };
 
 /**
- * Toggles the visibility of the transform section
+ * 切换转换部分的可见性
  */
 VoxelInspectorViewModel.prototype.toggleTransform = function () {
   this.transformVisible = !this.transformVisible;
 };
 
 /**
- * Toggles the visibility of the bounds section
+ * 切换边界部分的可见性
  */
 VoxelInspectorViewModel.prototype.toggleBounds = function () {
   this.boundsVisible = !this.boundsVisible;
 };
 
 /**
- * Toggles the visibility of the clipping section
+ * 切换剪辑部分的可见性
  */
 VoxelInspectorViewModel.prototype.toggleClipping = function () {
   this.clippingVisible = !this.clippingVisible;
 };
 
 /**
- * Toggles the visibility of the shader section
+ * 切换着色器部分的可见性
  */
 VoxelInspectorViewModel.prototype.toggleShader = function () {
   this.shaderVisible = !this.shaderVisible;
 };
 
 /**
- * Compiles the shader in the shader editor.
+ * 在着色器编辑器中编译着色器
  */
 VoxelInspectorViewModel.prototype.compileShader = function () {
   if (defined(this._voxelPrimitive)) {
@@ -802,7 +802,7 @@ VoxelInspectorViewModel.prototype.compileShader = function () {
 };
 
 /**
- * Handles key press events on the shader editor.
+ * 处理着色器编辑器上的按键事件。
  */
 VoxelInspectorViewModel.prototype.shaderEditorKeyPress = function (
   sender,
