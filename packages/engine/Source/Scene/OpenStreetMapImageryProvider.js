@@ -37,7 +37,7 @@ const defaultCredit = new Credit(
  * @extends UrlTemplateImageryProvider
  *
  * @param {OpenStreetMapImageryProvider.ConstructorOptions} options 描述初始化选项的对象
- * @exception {DeveloperError} The rectangle and minimumLevel indicate that there are more than four tiles at the minimum level. Imagery providers with more than four tiles at the minimum level are not supported.
+ * @exception {DeveloperError} rectangle 和 minimumLevel 指示 minimum 级别有四个以上的图块。不支持在最低级别具有四个以上切片的影像提供者。
  *
  * @see ArcGisMapServerImageryProvider
  * @see BingMapsImageryProvider

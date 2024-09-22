@@ -87,27 +87,27 @@ const requestRenderAfterFrame = function (scene) {
 };
 
 /**
- * The container for all 3D graphical objects and state in a Cesium virtual scene.  Generally,
- * a scene is not created directly; instead, it is implicitly created by {@link CesiumWidget}.
+ * Cesium 虚拟场景中所有 3D 图形对象和状态的容器。 一般
+ * 场景不是直接创建的;相反，它是由 {@link CesiumWidget} 隐式创建的。
  *
  * @alias Scene
  * @constructor
  *
  * @param {object} options 对象，具有以下属性:
- * @param {HTMLCanvasElement} options.canvas The HTML canvas element to create the scene for.
- * @param {ContextOptions} [options.contextOptions] Context and WebGL creation properties.
- * @param {Element} [options.creditContainer] The HTML element in which the credits will be displayed.
- * @param {Element} [options.creditViewport] The HTML element in which to display the credit popup.  If not specified, the viewport will be a added as a sibling of the canvas.
- * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] The default ellipsoid. If not specified, the default ellipsoid is used.
- * @param {MapProjection} [options.mapProjection=new GeographicProjection(options.ellipsoid)] The map projection to use in 2D and Columbus View modes.
- * @param {boolean} [options.orderIndependentTranslucency=true] If true and the configuration supports it, use order independent translucency.
- * @param {boolean} [options.scene3DOnly=false] If true, optimizes memory use and performance for 3D mode but disables the ability to use 2D or Columbus View.
- * @param {boolean} [options.shadows=false] Determines if shadows are cast by light sources.
- * @param {MapMode2D} [options.mapMode2D=MapMode2D.INFINITE_SCROLL] Determines if the 2D map is rotatable or can be scrolled infinitely in the horizontal direction.
- * @param {boolean} [options.requestRenderMode=false] If true, rendering a frame will only occur when needed as determined by changes within the scene. Enabling improves performance of the application, but requires using {@link Scene#requestRender} to render a new frame explicitly in this mode. This will be necessary in many cases after making changes to the scene in other parts of the API. See {@link https://cesium.com/blog/2018/01/24/cesium-scene-rendering-performance/|Improving Performance with Explicit Rendering}.
- * @param {number} [options.maximumRenderTimeChange=0.0] If requestRenderMode is true, this value defines the maximum change in simulation time allowed before a render is requested. See {@link https://cesium.com/blog/2018/01/24/cesium-scene-rendering-performance/|Improving Performance with Explicit Rendering}.
- * @param {number} [options.depthPlaneEllipsoidOffset=0.0] Adjust the DepthPlane to address rendering artefacts below ellipsoid zero elevation.
- * @param {number} [options.msaaSamples=4] If provided, this value controls the rate of multisample antialiasing. Typical multisampling rates are 2, 4, and sometimes 8 samples per pixel. Higher sampling rates of MSAA may impact performance in exchange for improved visual quality. This value only applies to WebGL2 contexts that support multisample render targets. Set to 1 to disable MSAA.
+ * @param {HTMLCanvasElement} options.canvas 要为其创建场景的 HTML 画布元素。
+ * @param {ContextOptions} [options.contextOptions] 上下文和 WebGL 创建属性。
+ * @param {Element} [options.creditContainer] 将在其中显示演职员表的 HTML 元素。
+ * @param {Element} [options.creditViewport] 用于显示信用弹出窗口的 HTML 元素。 如果未指定，则视口将添加为画布的同级。
+ * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] 默认的椭球体。如果未指定，则使用默认椭球体。
+ * @param {MapProjection} [options.mapProjection=new GeographicProjection（options.ellipsoid）] 在 2D 和 Columbus View 模式下使用的地图投影。
+ * @param {boolean} [options.orderIndependentTranslucency=true] 如果为 true 且配置支持，则使用顺序无关的半透明。
+ * @param {boolean} [options.scene3DOnly=false] 如果为 true，则优化 3D 模式的内存使用和性能，但禁用使用 2D 或哥伦布视图的功能。
+ * @param {boolean} [options.shadows=false] 确定阴影是否由光源投射。
+ * @param {MapMode2D} [options.mapMode2D=MapMode2D.INFINITE_SCROLL] 确定 2D 地图是可旋转的，还是可以在水平方向上无限滚动。
+ * @param {boolean} [options.requestRenderMode=false] 如果为 true，则仅在需要时渲染帧，具体取决于场景中的变化。启用可以提高应用程序的性能，但需要使用 {@link Scene#requestRender} 在此模式下显式渲染新帧。在 API 的其他部分对场景进行更改后，这在许多情况下是必需的。参见 {@link https://cesium.com/blog/2018/01/24/cesium-scene-rendering-performance/|通过显式渲染提高性能}。
+ * @param {number} [options.maximumRenderTimeChange=0.0] 如果 requestRenderMode 为 true，则此值定义在请求渲染之前允许的模拟时间的最大变化。参见 {@link https://cesium.com/blog/2018/01/24/cesium-scene-rendering-performance/|通过显式渲染提高性能}。
+ * @param {number} [options.depthPlaneEllipsoidOffset=0.0] 调整 DepthPlane，以解决低于椭球零高程的渲染伪影。
+ * @param {number} [options.msaaSamples=4] 如果提供，此值将控制多重采样抗锯齿的速率。典型的多重采样率为每像素 2 个、4 个样本，有时甚至 8 个样本。较高的 MSAA 采样率可能会影响性能，以换取提高的视觉质量。此值仅适用于支持多重采样渲染目标的 WebGL2 上下文。设置为 1 可禁用 MSAA。
  *
  * @see CesiumWidget
  * @see {@link http://www.khronos.org/registry/webgl/specs/latest/#5.2|WebGLContextAttributes}
@@ -231,10 +231,10 @@ function Scene(options) {
   this._msaaSamples = defaultValue(options.msaaSamples, 4);
 
   /**
-   * Exceptions occurring in <code>render</code> are always caught in order to raise the
-   * <code>renderError</code> event.  If this property is true, the error is rethrown
-   * after the event is raised.  If this property is false, the <code>render</code> function
-   * returns normally after raising the event.
+   * 始终捕获 <code>render</code> 中发生的异常，以便引发
+   * <code>renderError</code> 事件。 如果此属性为 true，则重新引发错误
+   * 在引发事件后。 如果此属性为 false，<code>则 render</code> 函数
+   * 在引发事件后正常返回。
    *
    * @type {boolean}
    * @default false
@@ -242,8 +242,8 @@ function Scene(options) {
   this.rethrowRenderErrors = false;
 
   /**
-   * Determines whether or not to instantly complete the
-   * scene transition animation on user input.
+   * 确定是否立即完成
+   * 用户输入的场景过渡动画。
    *
    * @type {boolean}
    * @default true
@@ -251,21 +251,21 @@ function Scene(options) {
   this.completeMorphOnUserInput = true;
 
   /**
-   * The event fired at the beginning of a scene transition.
+   * 该事件在场景转换开始时触发。
    * @type {Event}
    * @default Event()
    */
   this.morphStart = new Event();
 
   /**
-   * The event fired at the completion of a scene transition.
+   * 该事件在场景转换完成时触发。
    * @type {Event}
    * @default Event()
    */
   this.morphComplete = new Event();
 
   /**
-   * The {@link SkyBox} used to draw the stars.
+   * 用于绘制星星的 {@link SkyBox} 。
    *
    * @type {SkyBox}
    * @default undefined
@@ -291,7 +291,7 @@ function Scene(options) {
   this.sun = undefined;
 
   /**
-   * Uses a bloom filter on the sun when enabled.
+   * 启用后，在太阳上使用泛光过滤器。
    *
    * @type {boolean}
    * @default true
@@ -308,7 +308,7 @@ function Scene(options) {
   this.moon = undefined;
 
   /**
-   * The background color, which is only visible if there is no sky box, i.e., {@link Scene#skyBox} is undefined.
+   * 背景颜色，仅在没有天空盒时可见，即 {@link Scene#skyBox} 未定义。
    *
    * @type {Color}
    * @default {@link Color.BLACK}
@@ -324,8 +324,8 @@ function Scene(options) {
     : new GeographicProjection(this._ellipsoid);
 
   /**
-   * The current morph transition time between 2D/Columbus View and 3D,
-   * with 0.0 being 2D or Columbus View and 1.0 being 3D.
+   *  2D/Columbus View 和 3D 之间的当前变形过渡时间，
+   * 0.0 为 2D 或哥伦布视图，1.0 为 3D。
    *
    * @type {number}
    * @default 1.0
@@ -333,11 +333,11 @@ function Scene(options) {
   this.morphTime = 1.0;
 
   /**
-   * The far-to-near ratio of the multi-frustum when using a normal depth buffer.
+   * 使用正常深度缓冲区时多视锥体的远近比。
    * <p>
-   * This value is used to create the near and far values for each frustum of the multi-frustum. It is only used
-   * when {@link Scene#logarithmicDepthBuffer} is <code>false</code>. When <code>logarithmicDepthBuffer</code> is
-   * <code>true</code>, use {@link Scene#logarithmicDepthFarToNearRatio}.
+   * 此值用于为多视锥体的每个视锥体创建 near 和 far 值。它只被使用
+   * 当 {@link Scene#logarithmicDepthBuffer} 为 <code>false</code> 时。当 <code>logarithmicDepthBuffer</code> 为
+   * <code>true</code>，请使用 {@link Scene#logarithmicDepthFarToNearRatio}。
    * </p>
    *
    * @type {number}
@@ -346,11 +346,11 @@ function Scene(options) {
   this.farToNearRatio = 1000.0;
 
   /**
-   * The far-to-near ratio of the multi-frustum when using a logarithmic depth buffer.
+   * 使用对数深度缓冲区时多视锥体的远近比。
    * <p>
-   * This value is used to create the near and far values for each frustum of the multi-frustum. It is only used
-   * when {@link Scene#logarithmicDepthBuffer} is <code>true</code>. When <code>logarithmicDepthBuffer</code> is
-   * <code>false</code>, use {@link Scene#farToNearRatio}.
+   * 此值用于为多视锥体的每个视锥体创建 near 和 far 值。它只被使用
+   * 当 {@link Scene#logarithmicDepthBuffer} 为 <code>true</code> 时。当 <code>logarithmicDepthBuffer</code> 为
+   * <code>false</code>，请使用 {@link Scene#farToNearRatio}。
    * </p>
    *
    * @type {number}
@@ -359,9 +359,9 @@ function Scene(options) {
   this.logarithmicDepthFarToNearRatio = 1e9;
 
   /**
-   * Determines the uniform depth size in meters of each frustum of the multifrustum in 2D. If a primitive or model close
-   * to the surface shows z-fighting, decreasing this will eliminate the artifact, but decrease performance. On the
-   * other hand, increasing this will increase performance but may cause z-fighting among primitives close to the surface.
+   * 确定 2D 中多重视锥体的每个视锥体的统一深度大小（以米为单位）。如果基元或模型关闭
+   * 显示 Z 冲突，减少此选项将消除伪影，但会降低性能。在
+   * 另一方面，增加此值将提高性能，但可能会导致靠近表面的基元之间出现 Z 冲突。
    *
    * @type {number}
    * @default 1.75e6
@@ -369,8 +369,8 @@ function Scene(options) {
   this.nearToFarDistance2D = 1.75e6;
 
   /**
-   * The vertical exaggeration of the scene.
-   * When set to 1.0, no exaggeration is applied.
+   * 场景的垂直夸大。
+   * 设置为 1.0 时，不应用夸大。
    *
    * @type {number}
    * @default 1.0
@@ -378,8 +378,8 @@ function Scene(options) {
   this.verticalExaggeration = 1.0;
 
   /**
-   * The reference height for vertical exaggeration of the scene.
-   * When set to 0.0, the exaggeration is applied relative to the ellipsoid surface.
+   * 场景垂直夸大的参考高度。
+   * 设置为 0.0 时，将相对于椭球体表面应用夸大。
    *
    * @type {number}
    * @default 0.0
@@ -387,14 +387,14 @@ function Scene(options) {
   this.verticalExaggerationRelativeHeight = 0.0;
 
   /**
-   * This property is for debugging only; it is not for production use.
+   * 此属性仅用于调试;它不用于生产用途。
    * <p>
-   * A function that determines what commands are executed.  As shown in the examples below,
-   * the function receives the command's <code>owner</code> as an argument, and returns a boolean indicating if the
-   * command should be executed.
+   * 确定执行哪些命令的函数。 如以下示例所示，
+   * 该函数接收命令的 <code>owner</code> 作为参数，并返回一个布尔值，指示
+   * 命令。
    * </p>
    * <p>
-   * The default is <code>undefined</code>, indicating that all commands are executed.
+   * 默认为 <code>undefined</code>，表示执行所有命令。
    * </p>
    *
    * @type Function
@@ -416,11 +416,11 @@ function Scene(options) {
   this.debugCommandFilter = undefined;
 
   /**
-   * This property is for debugging only; it is not for production use.
+   * 此属性仅用于调试;它不用于生产用途。
    * <p>
-   * When <code>true</code>, commands are randomly shaded.  This is useful
-   * for performance analysis to see what parts of a scene or model are
-   * command-dense and could benefit from batching.
+   * 如果<code>为 true</code>，则命令会随机着色。 这很有用
+   * 用于性能分析，以查看场景或模型的哪些部分是
+   * command-dense，并且可以从批处理中受益。
    * </p>
    *
    * @type {boolean}
@@ -430,14 +430,14 @@ function Scene(options) {
   this.debugShowCommands = false;
 
   /**
-   * This property is for debugging only; it is not for production use.
+   * 此属性仅用于调试;它不用于生产用途。
    * <p>
-   * When <code>true</code>, commands are shaded based on the frustums they
-   * overlap.  Commands in the closest frustum are tinted red, commands in
-   * the next closest are green, and commands in the farthest frustum are
-   * blue.  If a command overlaps more than one frustum, the color components
-   * are combined, e.g., a command overlapping the first two frustums is tinted
-   * yellow.
+   * 如果<code>为 true</code>，则命令根据 frustums 进行着色
+   * 重叠。 最接近的 frustum 中的命令呈红色，命令
+   * 次近的命令为绿色，最远的视锥体中的命令为
+   * 蓝。 如果命令与多个视锥体重叠，则颜色分量
+   * 组合在一起，例如，与前两个视锥体重叠的命令会带有颜色
+   * 黄色。
    * </p>
    *
    * @type {boolean}
@@ -447,9 +447,9 @@ function Scene(options) {
   this.debugShowFrustums = false;
 
   /**
-   * This property is for debugging only; it is not for production use.
+   * 此属性仅用于调试;它不用于生产用途。
    * <p>
-   * Displays frames per second and time between frames.
+   * 显示每秒帧数和帧之间的时间。
    * </p>
    *
    * @type {boolean}
@@ -459,9 +459,9 @@ function Scene(options) {
   this.debugShowFramesPerSecond = false;
 
   /**
-   * This property is for debugging only; it is not for production use.
+   * 此属性仅用于调试;它不用于生产用途。
    * <p>
-   * Indicates which frustum will have depth information displayed.
+   * 指示哪个视锥体将显示深度信息。
    * </p>
    *
    * @type {number}
@@ -471,9 +471,9 @@ function Scene(options) {
   this.debugShowDepthFrustum = 1;
 
   /**
-   * This property is for debugging only; it is not for production use.
+   * 此属性仅用于调试;它不用于生产用途。
    * <p>
-   * When <code>true</code>, draws outlines to 显示boundaries of the camera frustums
+   * 如果<code>为 true</code>，则绘制轮廓以显示摄像机视锥体的边界
    * </p>
    *
    * @type {boolean}
@@ -485,7 +485,7 @@ function Scene(options) {
   this._debugFrustumPlanes = undefined;
 
   /**
-   * When <code>true</code>, enables picking using the depth buffer.
+   * 如果<code>为 true</code>，则启用使用深度缓冲区的拾取。
    *
    * @type {boolean}
    * @default true
@@ -493,11 +493,11 @@ function Scene(options) {
   this.useDepthPicking = true;
 
   /**
-   * When <code>true</code>, enables picking translucent geometry using the depth buffer. Note that {@link Scene#useDepthPicking} must also be true for enabling this to work.
+   * 如果<code>为 true</code>，则启用使用深度缓冲区拾取半透明几何体。请注意，{@link Scene#useDepthPicking} 也必须为 true，才能使其正常工作。
    *
    * <p>
-   * There is a decrease in performance when enabled. There are extra draw calls to write depth for
-   * translucent geometry.
+   * 启用后性能会下降。有额外的绘制调用可以写入深度
+   * 半透明几何体。
    * </p>
    *
    * @example
@@ -517,7 +517,7 @@ function Scene(options) {
   this.pickTranslucentDepth = false;
 
   /**
-   * The time in milliseconds to wait before checking if the camera has not moved and fire the cameraMoveEnd event.
+   * 在检查摄像机是否未移动并触发 cameraMoveEnd 事件之前等待的时间（以毫秒为单位）。
    * @type {number}
    * @default 500.0
    * @private
@@ -525,18 +525,18 @@ function Scene(options) {
   this.cameraEventWaitTime = 500.0;
 
   /**
-   * Settings for atmosphere lighting effects affecting 3D Tiles and model rendering. This is not to be confused with
-   * {@link Scene#skyAtmosphere} which is responsible for rendering the sky.
+   * 影响 3D 瓦片和模型渲染的气氛照明效果的设置。这不要与
+   * {@link Scene#skyAtmosphere} 负责渲染天空。
    *
    * @type {Atmosphere}
    */
   this.atmosphere = new Atmosphere();
 
   /**
-   * Blends the atmosphere to geometry far from the camera for horizon views. Allows for additional
-   * performance improvements by rendering less geometry and dispatching less terrain requests.
+   * 将大气与远离摄像机的几何体混合，以获得地平线视图。允许额外的
+   * 通过渲染更少的几何体和调度更少的地形请求来提高性能。
    *
-   * Disbaled by default if an ellipsoid other than WGS84 is used.
+   * 如果使用 WGS84 以外的椭球体，则默认取消。
    * @type {Fog}
    */
   this.fog = new Fog();
@@ -554,7 +554,7 @@ function Scene(options) {
   this._shadowMapCamera = new Camera(this);
 
   /**
-   * The shadow map for the scene's light source. When enabled, models, primitives, and the globe may cast and receive shadows.
+   * 场景光源的阴影贴图。启用后，模型、基元和地球可能会投射和接收阴影。
    * @type {ShadowMap}
    */
   this.shadowMap = new ShadowMap({
@@ -564,17 +564,17 @@ function Scene(options) {
   });
 
   /**
-   * When <code>false</code>, 3D Tiles will render normally. When <code>true</code>, classified 3D Tile geometry will render normally and
-   * unclassified 3D Tile geometry will render with the color multiplied by {@link Scene#invertClassificationColor}.
+   * 如果<code>为 false</code>，则 3D 瓦片将正常渲染。如果<code>为 true</code>，则分类的 3D 瓦片几何体将正常渲染，并且
+   * 未分类的 3D 瓦片几何体将使用颜色乘以 {@link Scene#invertClassificationColor} 进行渲染。
    * @type {boolean}
    * @default false
    */
   this.invertClassification = false;
 
   /**
-   * The highlight color of unclassified 3D Tile geometry when {@link Scene#invertClassification} is <code>true</code>.
-   * <p>When the color's alpha is less than 1.0, the unclassified portions of the 3D Tiles will not blend correctly with the classified positions of the 3D Tiles.</p>
-   * <p>Also, when the color's alpha is less than 1.0, the WEBGL_depth_texture and EXT_frag_depth WebGL extensions must be supported.</p>
+   * 当 {@link Scene#invertClassification} 为 <code>true</code> 时，未分类的 3D 瓦片几何体的高亮颜色。
+   * <p>当颜色的 Alpha 小于 1.0 时，3D 瓦片的未分类部分将无法与 3D 瓦片的分类位置正确混合。</p>
+   * <p>此外，当颜色的 Alpha 小于 1.0 时，必须支持 WEBGL_depth_texture 和 EXT_frag_depth WebGL 扩展。</p>
    * @type {Color}
    * @default Color.WHITE
    */
@@ -586,19 +586,19 @@ function Scene(options) {
   this._invertClassification = new InvertClassification();
 
   /**
-   * The focal length for use when with cardboard or WebVR.
+   * 与 Cardboard 或 WebVR 一起使用时使用的焦距。
    * @type {number}
    */
   this.focalLength = undefined;
 
   /**
-   * The eye separation distance in meters for use with cardboard or WebVR.
+   * 用于 cardboard 或 WebVR 的眼距（以米为单位）。
    * @type {number}
    */
   this.eyeSeparation = undefined;
 
   /**
-   * Post processing effects applied to the final render.
+   * 应用于最终渲染的后处理效果。
    * @type {PostProcessStageCollection}
    */
   this.postProcessStages = new PostProcessStageCollection();
@@ -646,10 +646,10 @@ function Scene(options) {
   this._aspectRatioVR = undefined;
 
   /**
-   * When <code>true</code>, rendering a frame will only occur when needed as determined by changes within the scene.
-   * Enabling improves performance of the application, but requires using {@link Scene#requestRender}
-   * to render a new frame explicitly in this mode. This will be necessary in many cases after making changes
-   * to the scene in other parts of the API.
+   * 如果<code>为 true</code>，则仅在需要时渲染帧，具体取决于场景中的更改。
+   * 启用可以提高应用程序的性能，但需要使用 {@link Scene#requestRender}
+   * 在此模式下显式渲染新帧。在进行更改后，这在许多情况下是必要的
+   * 添加到 API 其他部分的场景。
    *
    * @see {@link https://cesium.com/blog/2018/01/24/cesium-scene-rendering-performance/|Improving Performance with Explicit Rendering}
    * @see Scene#maximumRenderTimeChange
@@ -662,12 +662,12 @@ function Scene(options) {
   this._renderRequested = true;
 
   /**
-   * If {@link Scene#requestRenderMode} is <code>true</code>, this value defines the maximum change in
-   * simulation time allowed before a render is requested. Lower values increase the number of frames rendered
-   * and higher values decrease the number of frames rendered. If <code>undefined</code>, changes to
-   * the simulation time will never request a render.
-   * This value impacts the rate of rendering for changes in the scene like lighting, entity property updates,
-   * and animations.
+   * 如果 {@link Scene#requestRenderMode} 为 <code>true</code>，则此值定义
+   * 在请求渲染之前允许的模拟时间。较低的值会增加渲染的帧数
+   * 的值越高，渲染的帧数就越少。<code>如果未定义</code>，则更改为
+   * 模拟时间永远不会请求渲染。
+   * 此值会影响场景中更改的渲染速率，例如光照、实体属性更新、
+   * 和动画。
    *
    * @see {@link https://cesium.com/blog/2018/01/24/cesium-scene-rendering-performance/|Improving Performance with Explicit Rendering}
    * @see Scene#requestRenderMode
@@ -705,14 +705,14 @@ function Scene(options) {
   }
 
   /**
-   * The camera view for the scene camera flight destination. Used for preloading flight destination tiles.
+   * 场景摄像机飞行目的地的摄像机视图。用于预加载航班目的地图块。
    * @type {Camera}
    * @private
    */
   this.preloadFlightCamera = new Camera(this);
 
   /**
-   * The culling volume for the scene camera flight destination. Used for preloading flight destination tiles.
+   * 场景摄像机飞行目的地的剔除体积。用于预加载航班目的地图块。
    * @type {CullingVolume}
    * @private
    */
@@ -728,20 +728,20 @@ function Scene(options) {
   this.gamma = 2.2;
 
   /**
-   * The spherical harmonic coefficients for image-based lighting of PBR models.
+   * PBR 模型基于图像的照明的球谐系数。
    * @type {Cartesian3[]}
    */
   this.sphericalHarmonicCoefficients = undefined;
 
   /**
-   * The url to the KTX2 file containing the specular environment map and convoluted mipmaps for image-based lighting of PBR models.
+   * KTX2 文件的 URL，其中包含镜面反射环境映射和用于 PBR 模型基于图像的照明的复杂 mipmap。
    * @type {string}
    */
   this.specularEnvironmentMaps = undefined;
   this._specularEnvironmentCubeMap = undefined;
 
   /**
-   * The light source for shading. Defaults to a directional light from the Sun.
+   * 用于着色的光源。默认为来自太阳的平行光。
    * @type {Light}
    */
   this.light = new SunLight();
@@ -753,8 +753,8 @@ function Scene(options) {
 }
 
 /**
- * Use this to set the default value for {@link Scene#logarithmicDepthBuffer} in newly constructed Scenes
- * This property relies on fragmentDepth being supported.
+ * 使用此函数可设置新构建的场景中 {@link Scene#logarithmicDepthBuffer} 的默认值
+ * 此属性依赖于受支持的 fragmentDepth。
  */
 Scene.defaultLogDepthBuffer = true;
 
@@ -782,7 +782,7 @@ function updateGlobeListeners(scene, globe) {
 
 Object.defineProperties(Scene.prototype, {
   /**
-   * Gets the canvas element to which this scene is bound.
+   * 获取此场景绑定到的 canvas 元素。
    * @memberof Scene.prototype
    *
    * @type {HTMLCanvasElement}
@@ -795,7 +795,7 @@ Object.defineProperties(Scene.prototype, {
   },
 
   /**
-   * The drawingBufferHeight of the underlying GL context.
+   * 基础 GL 上下文的 drawingBufferHeight。
    * @memberof Scene.prototype
    *
    * @type {number}
@@ -810,7 +810,7 @@ Object.defineProperties(Scene.prototype, {
   },
 
   /**
-   * The drawingBufferWidth of the underlying GL context.
+   * 基础 GL 上下文的 drawingBufferWidth。
    * @memberof Scene.prototype
    *
    * @type {number}
@@ -825,7 +825,7 @@ Object.defineProperties(Scene.prototype, {
   },
 
   /**
-   * The maximum aliased line width, in pixels, supported by this WebGL implementation.  It will be at least one.
+   * 此 WebGL 实现支持的最大锯齿线宽（以像素为单位）。 至少会是 1 个。
    * @memberof Scene.prototype
    *
    * @type {number}
@@ -840,7 +840,7 @@ Object.defineProperties(Scene.prototype, {
   },
 
   /**
-   * The maximum length in pixels of one edge of a cube map, supported by this WebGL implementation.  It will be at least 16.
+   * 此 WebGL 实现支持的立方体贴图一条边的最大长度（以像素为单位）。 至少是 16 岁。
    * @memberof Scene.prototype
    *
    * @type {number}
@@ -855,7 +855,7 @@ Object.defineProperties(Scene.prototype, {
   },
 
   /**
-   * Returns <code>true</code> if the {@link Scene#pickPosition} function is supported.
+   * 如果支持 {@link Scene#pickPosition} 函数，则返回 <code>true</code>。
    * @memberof Scene.prototype
    *
    * @type {boolean}
@@ -870,7 +870,7 @@ Object.defineProperties(Scene.prototype, {
   },
 
   /**
-   * Returns <code>true</code> if the {@link Scene#sampleHeight} and {@link Scene#sampleHeightMostDetailed} functions are supported.
+   * 如果支持 {@link Scene#sampleHeight} 和 {@link Scene#sampleHeightMostDetailed} 函数，则返回 <code>true</code>。
    * @memberof Scene.prototype
    *
    * @type {boolean}
@@ -886,7 +886,7 @@ Object.defineProperties(Scene.prototype, {
   },
 
   /**
-   * Returns <code>true</code> if the {@link Scene#clampToHeight} and {@link Scene#clampToHeightMostDetailed} functions are supported.
+   * 如果支持 {@link Scene#clampToHeight} 和 {@link Scene#clampToHeightMostDetailed} 函数，则返回 <code>true</code>。
    * @memberof Scene.prototype
    *
    * @type {boolean}
@@ -902,7 +902,7 @@ Object.defineProperties(Scene.prototype, {
   },
 
   /**
-   * Returns <code>true</code> if the {@link Scene#invertClassification} is supported.
+   * 如果支持 {@link Scene#invertClassification}，则返回 <code>true</code>。
    * @memberof Scene.prototype
    *
    * @type {boolean}
@@ -917,7 +917,7 @@ Object.defineProperties(Scene.prototype, {
   },
 
   /**
-   * Returns <code>true</code> if specular environment maps are supported.
+   * 如果支持镜面反射环境贴图，则返回 <code>true</code>。
    * @memberof Scene.prototype
    *
    * @type {boolean}
@@ -932,7 +932,7 @@ Object.defineProperties(Scene.prototype, {
   },
 
   /**
-   * The ellipsoid.  If not specified, the default ellipsoid is used.
+   * 椭球体。 如果未指定，则使用默认椭球体。
    * @memberof Scene.prototype
    *
    * @type {Ellipsoid}
@@ -945,7 +945,7 @@ Object.defineProperties(Scene.prototype, {
   },
 
   /**
-   * 获取或设置depth-test ellipsoid.
+   * 获取或设置深度测试椭球体。
    * @memberof Scene.prototype
    *
    * @type {Globe}
@@ -964,7 +964,7 @@ Object.defineProperties(Scene.prototype, {
   },
 
   /**
-   * Gets the collection of primitives.
+   * 获取基元的集合。
    * @memberof Scene.prototype
    *
    * @type {PrimitiveCollection}
@@ -977,7 +977,7 @@ Object.defineProperties(Scene.prototype, {
   },
 
   /**
-   * Gets the collection of ground primitives.
+   * 获取地面基元的集合。
    * @memberof Scene.prototype
    *
    * @type {PrimitiveCollection}
@@ -1026,7 +1026,7 @@ Object.defineProperties(Scene.prototype, {
   },
 
   /**
-   * Gets the default view.
+   * 获取默认视图。
    * @memberof Scene.prototype
    *
    * @type {View}
@@ -1041,7 +1041,7 @@ Object.defineProperties(Scene.prototype, {
   },
 
   /**
-   * Gets picking functions and state
+   * 获取 picking 函数和状态
    * @memberof Scene.prototype
    *
    * @type {Picking}
@@ -1056,7 +1056,7 @@ Object.defineProperties(Scene.prototype, {
   },
 
   /**
-   * Gets the controller for camera input handling.
+   * 获取用于摄像机输入处理的控制器。
    * @memberof Scene.prototype
    *
    * @type {ScreenSpaceCameraController}
@@ -1069,7 +1069,7 @@ Object.defineProperties(Scene.prototype, {
   },
 
   /**
-   * Get the map projection to use in 2D and Columbus View modes.
+   * 获取地图投影以在 2D 和 Columbus View 模式下使用。
    * @memberof Scene.prototype
    *
    * @type {MapProjection}
@@ -1084,7 +1084,7 @@ Object.defineProperties(Scene.prototype, {
   },
 
   /**
-   * Gets the job scheduler
+   * 获取作业计划程序
    * @memberof Scene.prototype
    * @type {JobScheduler}
    * @readonly
@@ -1098,8 +1098,8 @@ Object.defineProperties(Scene.prototype, {
   },
 
   /**
-   * Gets state information about the current scene. If called outside of a primitive's <code>update</code>
-   * function, the previous frame's state is returned.
+   * 获取有关当前场景的状态信息。如果在原始元<code>的更新</code>之外调用
+   * 函数时，返回前一帧的状态。
    * @memberof Scene.prototype
    *
    * @type {FrameState}
@@ -1114,7 +1114,7 @@ Object.defineProperties(Scene.prototype, {
   },
 
   /**
-   * Gets the environment state.
+   * 获取环境状态。
    * @memberof Scene.prototype
    *
    * @type {EnvironmentState}
@@ -1129,7 +1129,7 @@ Object.defineProperties(Scene.prototype, {
   },
 
   /**
-   * Gets the collection of tweens taking place in the scene.
+   * 获取场景中发生的补间集合。
    * @memberof Scene.prototype
    *
    * @type {TweenCollection}
@@ -1144,7 +1144,7 @@ Object.defineProperties(Scene.prototype, {
   },
 
   /**
-   * Gets the collection of image layers that will be rendered on the globe.
+   * 获取将在地球上渲染的图像图层的集合。
    * @memberof Scene.prototype
    *
    * @type {ImageryLayerCollection}
@@ -1161,7 +1161,7 @@ Object.defineProperties(Scene.prototype, {
   },
 
   /**
-   * The terrain provider providing surface geometry for the globe.
+   * 提供地球表面几何图形的 terrain 提供程序。
    * @memberof Scene.prototype
    *
    * @type {TerrainProvider}
@@ -1187,7 +1187,7 @@ Object.defineProperties(Scene.prototype, {
   },
 
   /**
-   * Gets an event that's raised when the terrain provider is changed
+   * 获取在更改 terrain 提供程序时引发的事件
    * @memberof Scene.prototype
    *
    * @type {Event}
@@ -1204,8 +1204,8 @@ Object.defineProperties(Scene.prototype, {
   },
 
   /**
-   * Gets the event that will be raised before the scene is updated or rendered.  Subscribers to the event
-   * receive the Scene instance as the first parameter and the current time as the second parameter.
+   * 获取在更新或渲染场景之前将引发的事件。 事件的订阅者
+   * 接收 Scene 实例作为第一个参数，接收当前时间作为第二个参数。
    * @memberof Scene.prototype
    *
    * @see {@link https://cesium.com/blog/2018/01/24/cesium-scene-rendering-performance/|Improving Performance with Explicit Rendering}
@@ -1223,9 +1223,9 @@ Object.defineProperties(Scene.prototype, {
   },
 
   /**
-   * Gets the event that will be raised immediately after the scene is updated and before the scene is rendered.
-   * Subscribers to the event receive the Scene instance as the first parameter and the current time as the second
-   * parameter.
+   * 获取在更新场景后和渲染场景之前将立即引发的事件。
+   * 事件的订阅者接收 Scene 实例作为第一个参数，当前时间作为第二个参数
+   * 参数。
    * @memberof Scene.prototype
    *
    * @see {@link https://cesium.com/blog/2018/01/24/cesium-scene-rendering-performance/|Improving Performance with Explicit Rendering}
@@ -1243,10 +1243,10 @@ Object.defineProperties(Scene.prototype, {
   },
 
   /**
-   * Gets the event that will be raised when an error is thrown inside the <code>render</code> function.
-   * The Scene instance and the thrown error are the only two parameters passed to the event handler.
-   * By default, errors are not rethrown after this event is raised, but that can be changed by setting
-   * the <code>rethrowRenderErrors</code> property.
+   * 获取在 <code>render</code> 函数中引发错误时将引发的事件。
+   * Scene 实例和引发的错误是传递给事件处理程序的仅有的两个参数。
+   * 默认情况下，在引发此事件后不会重新引发错误，但可以通过设置
+   * <code>rethrowRenderErrors</code> 属性。
    * @memberof Scene.prototype
    *
    * @type {Event}
@@ -1259,9 +1259,9 @@ Object.defineProperties(Scene.prototype, {
   },
 
   /**
-   * Gets the event that will be raised after the scene is updated and immediately before the scene is rendered.
-   * Subscribers to the event receive the Scene instance as the first parameter and the current time as the second
-   * parameter.
+   * 获取在更新场景后和渲染场景之前将引发的事件。
+   * 事件的订阅者接收 Scene 实例作为第一个参数，当前时间作为第二个参数
+   *参数。
    * @memberof Scene.prototype
    *
    * @see {@link https://cesium.com/blog/2018/01/24/cesium-scene-rendering-performance/|Improving Performance with Explicit Rendering}
@@ -1279,8 +1279,8 @@ Object.defineProperties(Scene.prototype, {
   },
 
   /**
-   * Gets the event that will be raised immediately after the scene is rendered.  Subscribers to the event
-   * receive the Scene instance as the first parameter and the current time as the second parameter.
+   * 获取将在场景渲染后立即引发的事件。 事件的订阅者
+   * 接收 Scene 实例作为第一个参数，接收当前时间作为第二个参数。
    * @memberof Scene.prototype
    *
    * @see {@link https://cesium.com/blog/2018/01/24/cesium-scene-rendering-performance/|Improving Performance with Explicit Rendering}
@@ -1298,8 +1298,8 @@ Object.defineProperties(Scene.prototype, {
   },
 
   /**
-   * Gets the simulation time when the scene was last rendered. Returns undefined if the scene has not yet been
-   * rendered.
+   * 获取上次渲染场景时的模拟时间。如果场景尚未
+   *呈现。
    * @memberof Scene.prototype
    *
    * @type {JulianDate}
@@ -1323,14 +1323,14 @@ Object.defineProperties(Scene.prototype, {
   },
 
   /**
-   * This property is for debugging only; it is not for production use.
+   * 此属性仅用于调试;它不用于生产用途。
    * <p>
-   * When {@link Scene.debugShowFrustums} is <code>true</code>, this contains
-   * properties with statistics about the number of command execute per frustum.
-   * <code>totalCommands</code> is the total number of commands executed, ignoring
-   * overlap. <code>commandsInFrustums</code> is an array with the number of times
-   * commands are executed redundantly, e.g., how many commands overlap two or
-   * three frustums.
+   * 当 {@link Scene.debugShowFrustums} 为 <code>true</code> 时，此包含
+   * 属性，其中包含有关每个视锥体执行的命令数的统计信息。
+   * <code>totalCommands</code> 是执行的命令总数，忽略
+   * 重叠。<code>commandsInFrustums</code> 是一个数组，其次数
+   * 命令是冗余执行的，例如，有多少命令重叠 2 或
+   * 三个平截体。
    * </p>
    *
    * @memberof Scene.prototype
@@ -1347,7 +1347,7 @@ Object.defineProperties(Scene.prototype, {
   },
 
   /**
-   * 获取是否 the scene is optimized for 3D only viewing.
+   * 获取是否该场景已针对仅 3D 查看进行了优化。
    * @memberof Scene.prototype
    * @type {boolean}
    * @readonly
@@ -1359,9 +1359,9 @@ Object.defineProperties(Scene.prototype, {
   },
 
   /**
-   * 获取是否 the scene has order independent translucency enabled.
-   * Note that this only reflects the original construction option, and there are
-   * other factors that could prevent OIT from functioning on a given system configuration.
+   * 获取是否场景启用了 Order Independent Translucency。
+   * 请注意，这仅反映了原始构造选项，并且有
+   * 可能阻止 OIT 在给定系统配置上运行的其他因素。
    * @memberof Scene.prototype
    * @type {boolean}
    * @readonly
@@ -1373,7 +1373,7 @@ Object.defineProperties(Scene.prototype, {
   },
 
   /**
-   * Gets the unique identifier for this scene.
+   * 获取此场景的唯一标识符。
    * @memberof Scene.prototype
    * @type {string}
    * @readonly
@@ -1385,7 +1385,7 @@ Object.defineProperties(Scene.prototype, {
   },
 
   /**
-   * 获取或设置current mode of the scene.
+   * 获取或设置场景的当前模式。
    * @memberof Scene.prototype
    * @type {SceneMode}
    * @default {@link SceneMode.SCENE3D}
@@ -1420,7 +1420,7 @@ Object.defineProperties(Scene.prototype, {
   },
 
   /**
-   * Gets the number of frustums used in the last frame.
+   * 获取最后一帧中使用的视锥体数。
    * @memberof Scene.prototype
    * @type {FrustumCommands[]}
    *
@@ -1433,7 +1433,7 @@ Object.defineProperties(Scene.prototype, {
   },
 
   /**
-   * Gets the number of frustums used in the last frame.
+   * 获取最后一帧中使用的视锥体数。
    * @memberof Scene.prototype
    * @type {number}
    *
@@ -1446,8 +1446,8 @@ Object.defineProperties(Scene.prototype, {
   },
 
   /**
-   * When <code>true</code>, splits the scene into two viewports with steroscopic views for the left and right eyes.
-   * Used for cardboard and WebVR.
+   * 如果<code>为 true</code>，则将场景分割为两个视口，分别具有左眼和右眼的立体视图。
+   * 用于 cardboard 和 WebVR。
    * @memberof Scene.prototype
    * @type {boolean}
    * @default false
@@ -1490,7 +1490,7 @@ Object.defineProperties(Scene.prototype, {
   },
 
   /**
-   * Determines if the 2D map is rotatable or can be scrolled infinitely in the horizontal direction.
+   * 确定 2D 贴图是可旋转的还是可以在水平方向上无限滚动的。
    * @memberof Scene.prototype
    * @type {MapMode2D}
    * @readonly
@@ -1502,7 +1502,7 @@ Object.defineProperties(Scene.prototype, {
   },
 
   /**
-   * 获取或设置position of the splitter within the viewport.  Valid values are between 0.0 and 1.0.
+   * 获取或设置Splitter 在视区中的位置。 有效值介于 0.0 和 1.0 之间。
    * @memberof Scene.prototype
    *
    * @type {number}
@@ -1517,10 +1517,10 @@ Object.defineProperties(Scene.prototype, {
   },
 
   /**
-   * The distance from the camera at which to disable the depth test of billboards, labels and points
-   * to, for example, prevent clipping against terrain. When set to zero, the depth test should always
-   * be applied. When less than zero, the depth test should never be applied. Setting the disableDepthTestDistance
-   * property of a billboard, label or point will override this value.
+   * 禁用广告牌、标签和点的深度测试时与相机的距离
+   * 以防止与地形进行剪裁。当设置为零时，深度测试应始终
+   * 被应用。当小于零时，绝不应用深度测试。设置 disableDepthTestDistance
+   * Billboard、Label 或 Point 的属性将覆盖此值。
    * @memberof Scene.prototype
    * @type {number}
    * @default 0.0
@@ -1542,8 +1542,8 @@ Object.defineProperties(Scene.prototype, {
   },
 
   /**
-   * Whether or not to use a logarithmic depth buffer. Enabling this option will allow for less frustums in the multi-frustum,
-   * increasing performance. This property relies on fragmentDepth being supported.
+   * 是否使用对数深度缓冲区。启用此选项将允许多视锥体中的视锥体减少。
+   * 提高性能。此属性依赖于受支持的 fragmentDepth。
    * @memberof Scene.prototype
    * @type {boolean}
    */
@@ -1561,7 +1561,7 @@ Object.defineProperties(Scene.prototype, {
   },
 
   /**
-   * The value used for gamma correction. This is only used when rendering with high dynamic range.
+   * 用于 Gamma 校正的值。这仅在使用高动态范围渲染时使用。
    * @memberof Scene.prototype
    * @type {number}
    * @default 2.2
@@ -1576,7 +1576,7 @@ Object.defineProperties(Scene.prototype, {
   },
 
   /**
-   * Whether or not to use high dynamic range rendering.
+   * 是否使用高动态范围渲染。
    * @memberof Scene.prototype
    * @type {boolean}
    * @default false
@@ -1597,7 +1597,7 @@ Object.defineProperties(Scene.prototype, {
   },
 
   /**
-   * Whether or not high dynamic range rendering is supported.
+   * 是否支持高动态范围渲染。
    * @memberof Scene.prototype
    * @type {boolean}
    * @readonly
@@ -1614,7 +1614,7 @@ Object.defineProperties(Scene.prototype, {
   },
 
   /**
-   * Whether or not the camera is underneath the globe.
+   * 相机是否位于地球仪下方。
    * @memberof Scene.prototype
    * @type {boolean}
    * @readonly
@@ -1627,7 +1627,7 @@ Object.defineProperties(Scene.prototype, {
   },
 
   /**
-   * The sample rate of multisample antialiasing (values greater than 1 enable MSAA).
+   * 多重采样抗锯齿的采样率（大于 1 的值将启用 MSAA）。
    * @memberof Scene.prototype
    * @type {number}
    * @default 4
@@ -1643,7 +1643,7 @@ Object.defineProperties(Scene.prototype, {
   },
 
   /**
-   * Returns <code>true</code> if the Scene's context supports MSAA.
+   * 如果场景的上下文支持 MSAA，则返回 <code>true</code>。
    * @memberof Scene.prototype
    * @type {boolean}
    * @readonly
@@ -1655,8 +1655,8 @@ Object.defineProperties(Scene.prototype, {
   },
 
   /**
-   * Ratio between a pixel and a density-independent pixel. Provides a standard unit of
-   * measure for real pixel measurements appropriate to a particular device.
+   * 像素与密度无关像素之间的比率。提供
+   * 测量适合特定设备的真实像素测量值。
    *
    * @memberof Scene.prototype
    * @type {number}
@@ -1692,9 +1692,9 @@ Object.defineProperties(Scene.prototype, {
 });
 
 /**
- * Determines if a compressed texture format is supported.
- * @param {string} format The texture format. May be the name of the format or the WebGL extension name, e.g. s3tc or WEBGL_compressed_texture_s3tc.
- * @return {boolean} Whether or not the format is supported.
+ * 确定是否支持压缩纹理格式。
+ * @param {string} format 纹理格式。可以是格式名称或 WebGL 扩展名，例如 s3tc 或 WEBGL_compressed_texture_s3tc。
+ * @return {boolean} 是否支持该格式。
  */
 Scene.prototype.getCompressedTextureFormatSupported = function (format) {
   const context = this.context;
@@ -3727,15 +3727,15 @@ Scene.prototype.getHeight = function (cartographic, heightReference) {
 
 const updateHeightScratchCartographic = new Cartographic();
 /**
- * Calls the callback when a new tile is rendered that contains the given cartographic. The only parameter
- * is the cartesian position on the tile.
+ * 在渲染包含给定制图的新瓦片时调用回调。唯一的参数
+ * 是瓦片上的笛卡尔位置。
  *
  * @private
  *
- * @param {Cartographic} cartographic The cartographic position.
- * @param {Function} callback The function to be called when a new tile is loaded containing the updated cartographic.
- * @param {HeightReference} [heightReference=CLAMP_TO_GROUND] Based on the height reference value, determines whether to ignore heights from 3D Tiles or terrain.
- * @returns {Function} The function to remove this callback from the quadtree.
+ * @param {Cartographic} cartographic 制图位置。
+ * @param {Function} callback 加载包含更新的制图的新瓦片时要调用的函数。
+ * @param {HeightReference} [heightReference=CLAMP_TO_GROUND] 根据高度参考值，确定是否忽略 3D 瓦片或地形的高度。
+ * @returns {Function} 从四叉树中删除此回调的函数。
  */
 Scene.prototype.updateHeight = function (
   cartographic,
@@ -4041,14 +4041,14 @@ function updateMostDetailedRayPicks(scene) {
 }
 
 /**
- * Update and render the scene. It is usually not necessary to call this function
- * directly because {@link CesiumWidget} will do it automatically.
- * @param {JulianDate} [time] The simulation time at which to render.
+ * 更新并渲染场景。通常不需要调用此函数
+ * 直接执行此操作，因为 {@link CesiumWidget} 会自动执行此操作。
+ * @param {JulianDate} [time] 渲染的模拟时间。
  */
 Scene.prototype.render = function (time) {
   /**
    *
-   * Pre passes update. Execute any pass invariant code that should run before the passes here.
+   * Pre pass 更新。在此处执行应在传递之前运行的任何传递不变代码。
    *
    */
   this._preUpdate.raiseEvent(this, time);
@@ -4103,7 +4103,7 @@ Scene.prototype.render = function (time) {
 
   /**
    *
-   * Passes update. Add any passes here
+   * 凭证更新。在此处添加任何通行证
    *
    */
   if (this.primitives.show) {
@@ -4125,7 +4125,7 @@ Scene.prototype.render = function (time) {
 
   /**
    *
-   * Post passes update. Execute any pass invariant code that should run after the passes here.
+   * 传递后更新。在此处执行应在传递之后运行的任何传递不变代码。
    *
    */
   updateDebugShowFramesPerSecond(this, shouldRender);
@@ -4142,9 +4142,9 @@ Scene.prototype.render = function (time) {
 };
 
 /**
- * Update and render the scene. Always forces a new render frame regardless of whether a render was
- * previously requested.
- * @param {JulianDate} [time] The simulation time at which to render.
+ * 更新并渲染场景。始终强制使用新的渲染帧，无论渲染是否为
+ * 之前要求。
+ * @param {JulianDate} [time] 渲染的模拟时间。
  *
  * @private
  */
@@ -4154,8 +4154,8 @@ Scene.prototype.forceRender = function (time) {
 };
 
 /**
- * Requests a new rendered frame when {@link Scene#requestRenderMode} is set to <code>true</code>.
- * The render rate will not exceed the {@link CesiumWidget#targetFrameRate}.
+ * 当 {@link Scene#requestRenderMode} 设置为 <code>true</code> 时，请求新的渲染帧。
+ * 渲染速率不会超过 {@link CesiumWidget#targetFrameRate}。
  *
  * @see Scene#requestRenderMode
  */
@@ -4174,11 +4174,11 @@ Scene.prototype.clampLineWidth = function (width) {
 };
 
 /**
- * Returns an object with a `primitive` property that contains the first (top) primitive in the scene
- * at a particular window coordinate or undefined if nothing is at the location. Other properties may
- * potentially be set depending on the type of primitive and may be used to further identify the picked object.
+ * 返回具有 'primitive' 属性的对象，该属性包含场景中的第一个（顶部）基元
+ * 在特定窗口坐标处，如果该位置没有任何内容，则为 undefined。其他属性可能
+ * 可能根据基元的类型进行设置，并可用于进一步标识拾取的对象。
  * <p>
- * When a feature of a 3D Tiles tileset is picked, <code>pick</code> returns a {@link Cesium3DTileFeature} object.
+ * 选取 3D 瓦片集的特征时，<code>pick</code> 返回 {@link Cesium3DTileFeature} 对象。
  * </p>
  *
  * @example
@@ -4200,8 +4200,8 @@ Scene.prototype.pick = function (windowPosition, width, height) {
 };
 
 /**
- * Returns a {@link VoxelCell} for the voxel sample rendered at a particular window coordinate,
- * or undefined if no voxel is rendered at that position.
+ * 返回在特定窗口坐标处渲染的体素样本的 {@link VoxelCell}，
+ * 或 undefined（如果在该位置未渲染体素）。
  *
  * @example
  * On left click, report the value of the "color" property at that voxel sample.
@@ -4253,19 +4253,19 @@ Scene.prototype.pickVoxel = function (windowPosition, width, height) {
 };
 
 /**
- * Returns the cartesian position reconstructed from the depth buffer and window position.
- * The returned position is in world coordinates. Used internally by camera functions to
- * prevent conversion to projected 2D coordinates and then back.
+ * 返回从深度缓冲区和窗口位置重建的笛卡尔位置。
+ * 返回的位置在世界坐标中。由相机功能在内部用于
+ * 防止转换为投影的 2D 坐标，然后再转换回来。
  * <p>
- * Set {@link Scene#pickTranslucentDepth} to <code>true</code> to include the depth of
- * translucent primitives; otherwise, this essentially picks through translucent primitives.
+ * 将 {@link Scene#pickTranslucentDepth} 设置为 <code>true</code>，以包含
+ * 半透明基元;否则，这基本上会选择 Translucent Primitives。
  * </p>
  *
  * @private
  *
- * @param {Cartesian2} windowPosition Window coordinates to perform picking on.
- * @param {Cartesian3} [result] The object on which to restore the result.
- * @returns {Cartesian3} The cartesian position in world coordinates.
+ * @param {Cartesian2} windowPosition 窗口坐标以执行选取。
+ * @param {Cartesian3} [result] 要恢复结果的对象。
+ * @returns {Cartesian3} 世界坐标中的笛卡尔位置。
  *
  * @exception {DeveloperError} Picking from the depth buffer is not supported. Check pickPositionSupported.
  */
@@ -4281,20 +4281,20 @@ Scene.prototype.pickPositionWorldCoordinates = function (
 };
 
 /**
- * Returns the cartesian position reconstructed from the depth buffer and window position.
+ * 返回从深度缓冲区和窗口位置重建的笛卡尔位置。
  * <p>
- * The position reconstructed from the depth buffer in 2D may be slightly different from those
- * reconstructed in 3D and Columbus view. This is caused by the difference in the distribution
- * of depth values of perspective and orthographic projection.
+ * 从 2D 深度缓冲区重建的位置可能与
+ * 以 3D 和哥伦布视图重建。这是由分布的差异引起的
+ * 透视和正交投影的深度值。
  * </p>
  * <p>
- * Set {@link Scene#pickTranslucentDepth} to <code>true</code> to include the depth of
- * translucent primitives; otherwise, this essentially picks through translucent primitives.
+ * 将 {@link Scene#pickTranslucentDepth} 设置为 <code>true</code>，以包含
+ * 半透明基元;否则，这基本上会选择 Translucent Primitives。
  * </p>
  *
- * @param {Cartesian2} windowPosition Window coordinates to perform picking on.
- * @param {Cartesian3} [result] The object on which to restore the result.
- * @returns {Cartesian3} The cartesian position.
+ * @param {Cartesian2} windowPosition 窗口坐标以执行选取。
+ * @param {Cartesian3} [result] 要恢复结果的对象。
+ * @returns {Cartesian3} 笛卡尔位置。
  *
  * @exception {DeveloperError} Picking from the depth buffer is not supported. Check pickPositionSupported.
  */
@@ -4303,16 +4303,16 @@ Scene.prototype.pickPosition = function (windowPosition, result) {
 };
 
 /**
- * Returns a list of objects, each containing a `primitive` property, for all primitives at
- * a particular window coordinate position. Other properties may also be set depending on the
- * type of primitive and may be used to further identify the picked object. The primitives in
- * the list are ordered by their visual order in the scene (front to back).
+ * 返回一个对象列表，每个对象都包含一个 'primitive' 属性，用于
+ * 特定的窗口坐标位置。还可以根据
+ * 类型，可用于进一步标识选取的对象。中的
+ * 列表按它们在场景中的视觉顺序（从前到后）排序。
  *
- * @param {Cartesian2} windowPosition Window coordinates to perform picking on.
- * @param {number} [limit] If supplied, stop drilling after collecting this many picks.
- * @param {number} [width=3] Width of the pick rectangle.
- * @param {number} [height=3] Height of the pick rectangle.
- * @returns {any[]} Array of objects, each containing 1 picked primitives.
+ * @param {Cartesian2} windowPosition 窗口坐标以执行选取。
+ * @param {number} [limit] 如果提供，请在收集这么多镐后停止钻孔。
+ * @param {number} [width=3] 拾取矩形的宽度。
+ * @param {number} [height=3] 选取矩形的高度。
+ * @returns {any[]} 对象数组，每个对象包含 1 个选取的基元。
  *
  * @exception {DeveloperError} windowPosition is undefined.
  *
@@ -4358,21 +4358,21 @@ function updateRequestRenderModeDeferCheckPass(scene) {
 }
 
 /**
- * Returns an object containing the first object intersected by the ray and the position of intersection,
- * or <code>undefined</code> if there were no intersections. The intersected object has a <code>primitive</code>
- * property that contains the intersected primitive. Other properties may be set depending on the type of primitive
- * and may be used to further identify the picked object. The ray must be given in world coordinates.
+ * 返回一个对象，其中包含与射线相交的第一个对象和交点位置，
+ * 或 <code>undefined</code>，如果没有交叉点。相交对象具有<code>基元</code>
+ * 属性。可以根据基元的类型设置其他属性
+ * ，并可用于进一步识别选取的对象。射线必须以世界坐标给出。
  * <p>
- * This function only picks globe tiles and 3D Tiles that are rendered in the current view. Picks all other
- * primitives regardless of their visibility.
+ * 此功能仅选取在当前视图中渲染的地球瓦片和 3D 瓦片。选取所有其他
+ * 基元，而不管其可见性如何。
  * </p>
  *
  * @private
  *
- * @param {Ray} ray The ray.
- * @param {Object[]} [objectsToExclude] A list of primitives, entities, or 3D Tiles features to exclude from the ray intersection.
- * @param {number} [width=0.1] Width of the intersection volume in meters.
- * @returns {object} An object containing the object and position of the first intersection.
+ * @param {Ray} ray 射线。
+ * @param {Object[]} [objectsToExclude] 要从光线交集中排除的基元、实体或 3D 平铺特征的列表。
+ * @param {number} [width=0.1] 交叉口体积的宽度，以米为单位。
+ * @returns {object} 包含第一个交集的对象和位置的对象。
  *
  * @exception {DeveloperError} Ray intersections are only supported in 3D mode.
  */
@@ -4381,23 +4381,23 @@ Scene.prototype.pickFromRay = function (ray, objectsToExclude, width) {
 };
 
 /**
- * Returns a list of objects, each containing the object intersected by the ray and the position of intersection.
- * The intersected object has a <code>primitive</code> property that contains the intersected primitive. Other
- * properties may also be set depending on the type of primitive and may be used to further identify the picked object.
- * The primitives in the list are ordered by first intersection to last intersection. The ray must be given in
- * world coordinates.
+ * 返回对象列表，每个对象都包含与光线相交的对象和交集位置。
+ * 相交对象具有包含相交基元的 <code>primitive</code> 属性。其他
+ * 属性也可以根据基元的类型进行设置，并可用于进一步标识拾取的对象。
+ * 列表中的基元按第一个交集到最后一个交集排序。射线必须在
+ * 世界坐标。
  * <p>
- * This function only picks globe tiles and 3D Tiles that are rendered in the current view. Picks all other
- * primitives regardless of their visibility.
+ * 此功能仅选取在当前视图中渲染的地球瓦片和 3D 瓦片。选取所有其他
+ * 基元，而不管其可见性如何。
  * </p>
  *
  * @private
  *
- * @param {Ray} ray The ray.
- * @param {number} [limit=Number.MAX_VALUE] If supplied, stop finding intersections after this many intersections.
- * @param {Object[]} [objectsToExclude] A list of primitives, entities, or 3D Tiles features to exclude from the ray intersection.
- * @param {number} [width=0.1] Width of the intersection volume in meters.
- * @returns {Object[]} List of objects containing the object and position of each intersection.
+ * @param {Ray} ray 射线。
+ * @param {number} [limit=Number.MAX_VALUE] 如果提供，则在此之后停止查找交叉点many intersections.
+ * @param {Object[]} [objectsToExclude] 要添加的基元、实体或 3D 瓦片特征的列表 exclude from the ray intersection.
+ * @param {number} [width=0.1] 交叉口体积的宽度，以米为单位。
+ * @returns {Object[]} 包含每个交集的对象和位置的对象列表。
  *
  * @exception {DeveloperError} Ray intersections are only supported in 3D mode.
  */
@@ -4417,15 +4417,15 @@ Scene.prototype.drillPickFromRay = function (
 };
 
 /**
- * Initiates an asynchronous {@link Scene#pickFromRay} request using the maximum level of detail for 3D Tilesets
- * regardless of visibility.
+ * 使用 3D 瓦片集的最大细节级别启动异步 {@link Scene#pickFromRay} 请求
+ * 无论可见性如何。
  *
  * @private
  *
- * @param {Ray} ray The ray.
- * @param {Object[]} [objectsToExclude] A list of primitives, entities, or 3D Tiles features to exclude from the ray intersection.
- * @param {number} [width=0.1] Width of the intersection volume in meters.
- * @returns {Promise<object>} A promise that resolves to an object containing the object and position of the first intersection.
+ * @param {ray} ray 射线。
+ * @param {Object[]} [objectsToExclude] 要从光线交集中排除的基元、实体或 3D 平铺特征的列表。
+ * @param {number} [width=0.1] 交叉口体积的宽度，以米为单位。
+ * @returns {Promise<object>} 一个 Promise，它解析为包含第一个交集的对象和位置的对象。
  *
  * @exception {DeveloperError} Ray intersections are only supported in 3D mode.
  */
@@ -4443,16 +4443,16 @@ Scene.prototype.pickFromRayMostDetailed = function (
 };
 
 /**
- * Initiates an asynchronous {@link Scene#drillPickFromRay} request using the maximum level of detail for 3D Tilesets
- * regardless of visibility.
+ * 使用 3D 瓦片集的最大细节级别启动异步 {@link Scene#drillPickFromRay} 请求
+ * 无论可见性如何。
  *
  * @private
  *
- * @param {Ray} ray The ray.
- * @param {number} [limit=Number.MAX_VALUE] If supplied, stop finding intersections after this many intersections.
- * @param {Object[]} [objectsToExclude] A list of primitives, entities, or 3D Tiles features to exclude from the ray intersection.
- * @param {number} [width=0.1] Width of the intersection volume in meters.
- * @returns {Promise<Object[]>} A promise that resolves to a list of objects containing the object and position of each intersection.
+ * @param {Ray} ray 射线。
+ * @param {number} [limit=Number.MAX_VALUE] 如果提供，请在这么多个交叉点之后停止查找交叉点。
+ * @param {Object[]} [objectsToExclude] 要从光线交集中排除的基元、实体或 3D 平铺特征的列表。
+ * @param {number} [width=0.1] 交叉口体积的宽度，以米为单位。
+ * @returns {Promise<Object[]>} 一个 Promise，它解析为包含每个交集的对象和位置的对象列表。
  *
  * @exception {DeveloperError} Ray intersections are only supported in 3D mode.
  */
@@ -4472,18 +4472,18 @@ Scene.prototype.drillPickFromRayMostDetailed = function (
 };
 
 /**
- * Returns the height of scene geometry at the given cartographic position or <code>undefined</code> if there was no
- * scene geometry to sample height from. The height of the input position is ignored. May be used to clamp objects to
- * the globe, 3D Tiles, or primitives in the scene.
+ * 返回给定制图位置处场景几何图形的高度，如果没有，<code>则返回 undefined</code>
+ * 要从中采样高度的场景几何体。将忽略输入位置的高度。可用于将对象固定到
+ * 场景中的地球、3D 瓦片或基元。
  * <p>
- * This function only samples height from globe tiles and 3D Tiles that are rendered in the current view. Samples height
- * from all other primitives regardless of their visibility.
+ * 此功能仅对当前视图中渲染的地球瓦片和 3D 瓦片的高度进行采样。样品高度
+ * 从所有其他基元开始，而不管它们的可见性如何。
  * </p>
  *
- * @param {Cartographic} position The cartographic position to sample height from.
- * @param {Object[]} [objectsToExclude] A list of primitives, entities, or 3D Tiles features to not sample height from.
- * @param {number} [width=0.1] Width of the intersection volume in meters.
- * @returns {number} The height. This may be <code>undefined</code> if there was no scene geometry to sample height from.
+ * @param {Cartographic} position 要从中采样高度的制图位置。
+ * @param {Object[]} [objectsToExclude] 不从中采样高度的基元、实体或 3D 瓦片特征的列表。
+ * @param {number} [width=0.1] 交叉口体积的宽度，以米为单位。
+ * @returns {number} 高度。如果没有要从中采样高度的场景几何体，则此字段可能<code>未定义</code>。
  *
  * @example
  * const position = new Cesium.Cartographic(-1.31968, 0.698874);
@@ -4502,19 +4502,19 @@ Scene.prototype.sampleHeight = function (position, objectsToExclude, width) {
 };
 
 /**
- * Clamps the given cartesian position to the scene geometry along the geodetic surface normal. Returns the
- * clamped position or <code>undefined</code> if there was no scene geometry to clamp to. May be used to clamp
- * objects to the globe, 3D Tiles, or primitives in the scene.
+ * 沿大地测量表面法线将给定的笛卡尔位置钳制到场景几何体。返回
+ * clamped position 或 <code>undefined</code> 如果没有要固定的场景几何体。可用于夹紧
+ * 对象添加到场景中的地球、3D 瓦片或基元。
  * <p>
- * This function only clamps to globe tiles and 3D Tiles that are rendered in the current view. Clamps to
- * all other primitives regardless of their visibility.
+ * 此功能仅钳制到在当前视图中渲染的地球瓦片和 3D 瓦片。Clamps 到
+ * 所有其他基元，无论其可见性如何。
  * </p>
  *
- * @param {Cartesian3} cartesian The cartesian position.
- * @param {Object[]} [objectsToExclude] A list of primitives, entities, or 3D Tiles features to not clamp to.
- * @param {number} [width=0.1] Width of the intersection volume in meters.
- * @param {Cartesian3} [result] An optional object to return the clamped position.
- * @returns {Cartesian3} 修改后的结果参数 or a new Cartesian3 instance if one was not provided. This may be <code>undefined</code> if there was no scene geometry to clamp to.
+ * @param {Cartesian3} cartesian 笛卡尔位置。
+ * @param {Object[]} [objectsToExclude] 不固定到的基元、实体或 3D 瓦片特征的列表。
+ * @param {number} [width=0.1] 交叉口体积的宽度，以米为单位。
+ * @param {Cartesian3} [result] 一个可选的对象，用于返回被固定的位置。
+ * @returns {Cartesian3} 修改后的结果参数或新的 Cartesian3 实例（如果未提供）。如果没有要钳制的场景几何体，则此字段可能<code>未定义</code>。
  *
  * @example
  * // Clamp an entity to the underlying scene geometry
@@ -4544,16 +4544,16 @@ Scene.prototype.clampToHeight = function (
 };
 
 /**
- * Initiates an asynchronous {@link Scene#sampleHeight} query for an array of {@link Cartographic} positions
- * using the maximum level of detail for 3D Tilesets in the scene. The height of the input positions is ignored.
- * Returns a promise that is resolved when the query completes. Each point height is modified in place.
- * If a height cannot be determined because no geometry can be sampled at that location, or another error occurs,
- * the height is set to undefined.
+ * 对 {@link Cartographic} 位置数组启动异步 {@link Scene#sampleHeight} 查询
+ * 使用场景中 3D 瓦片集的最大细节级别。将忽略输入位置的高度。
+ * 返回在查询完成时解析的 Promise。每个点高度都已就地修改。
+ * 如果由于无法在该位置对几何体进行采样而无法确定高度，或者发生其他错误，
+ * 高度设置为 undefined。
  *
- * @param {Cartographic[]} positions The cartographic positions to update with sampled heights.
- * @param {Object[]} [objectsToExclude] A list of primitives, entities, or 3D Tiles features to not sample height from.
- * @param {number} [width=0.1] Width of the intersection volume in meters.
- * @returns {Promise<Cartographic[]>} A promise that resolves to the provided list of positions when the query has completed.
+ * @param {Cartographic[]} positions 要使用采样高度更新的制图位置。
+ * @param {Object[]} [objectsToExclude] 不从中采样高度的基元、实体或 3D 瓦片特征的列表。
+ * @param {number} [width=0.1] 交叉口体积的宽度，以米为单位。
+ * @returns {Promise<Cartographic[]>} 一个 Promise，当查询完成时，它解析为提供的位置列表。
  *
  * @example
  * const positions = [
@@ -4585,15 +4585,15 @@ Scene.prototype.sampleHeightMostDetailed = function (
 };
 
 /**
- * Initiates an asynchronous {@link Scene#clampToHeight} query for an array of {@link Cartesian3} positions
- * using the maximum level of detail for 3D Tilesets in the scene. Returns a promise that is resolved when
- * the query completes. Each position is modified in place. If a position cannot be clamped because no geometry
- * can be sampled at that location, or another error occurs, the element in the array is set to undefined.
+ * 对 {@link Cartesian3} 位置数组启动异步 {@link Scene#clampToHeight} 查询
+ * 使用场景中 3D 瓦片集的最大细节级别。返回一个 Promise，该 Promise 在
+ * 查询完成。每个位置都进行了就地修改。如果由于没有几何体而无法夹紧位置
+ * 可以在该位置采样，否则会发生其他错误，则数组中的元素将设置为 undefined。
  *
- * @param {Cartesian3[]} cartesians The cartesian positions to update with clamped positions.
- * @param {Object[]} [objectsToExclude] A list of primitives, entities, or 3D Tiles features to not clamp to.
- * @param {number} [width=0.1] Width of the intersection volume in meters.
- * @returns {Promise<Cartesian3[]>} A promise that resolves to the provided list of positions when the query has completed.
+ * @param {Cartesian3[]} cartesian 笛卡尔位置，以使用夹紧位置进行更新。
+ * @param {Object[]} [objectsToExclude] 不固定到的基元、实体或 3D 瓦片特征的列表。
+ * @param {number} [width=0.1] 交叉口体积的宽度，以米为单位。
+ * @returns {Promise<Cartesian3[]>} 当查询完成时，解析为提供的位置列表的 Promise。
  *
  * @example
  * const cartesians = [
@@ -4625,12 +4625,12 @@ Scene.prototype.clampToHeightMostDetailed = function (
 };
 
 /**
- * Transforms a position in cartesian coordinates to canvas coordinates.  This is commonly used to place an
- * HTML element at the same screen position as an object in the scene.
+ * 将笛卡尔坐标中的位置转换为画布坐标。 这通常用于将
+ * HTML 元素与场景中的对象位于相同的屏幕位置。
  *
- * @param {Cartesian3} position The position in cartesian coordinates.
- * @param {Cartesian2} [result] An optional object to return the input position transformed to canvas coordinates.
- * @returns {Cartesian2} 如果没有提供新的Cartesian2实例，则使用修改后的结果参数。  This may be <code>undefined</code> if the input position is near the center of the ellipsoid.
+ * @param {Cartesian3} position 笛卡尔坐标中的位置。
+ * @param {Cartesian2} [result] 一个可选对象，用于返回转换为画布坐标的输入位置。
+ * @returns {Cartesian2} 如果没有提供新的Cartesian2实例，则使用修改后的结果参数。 如果输入位置靠近椭球体的中心，则此字段可能<code>未定义</code>。
  *
  * @example
  * // Output the canvas position of longitude/latitude (0, 0) every time the mouse moves.
@@ -4646,15 +4646,15 @@ Scene.prototype.cartesianToCanvasCoordinates = function (position, result) {
 };
 
 /**
- * Instantly completes an active transition.
+ * 立即完成活动过渡。
  */
 Scene.prototype.completeMorph = function () {
   this._transitioner.completeMorph();
 };
 
 /**
- * Asynchronously transitions the scene to 2D.
- * @param {number} [duration=2.0] The amount of time, in seconds, for transition animations to complete.
+ * 异步将场景转换为 2D。
+ * @param {number} [duration=2.0] 过渡动画完成的时间（以秒为单位）。
  */
 Scene.prototype.morphTo2D = function (duration) {
   duration = defaultValue(duration, 2.0);
@@ -4662,8 +4662,8 @@ Scene.prototype.morphTo2D = function (duration) {
 };
 
 /**
- * Asynchronously transitions the scene to Columbus View.
- * @param {number} [duration=2.0] The amount of time, in seconds, for transition animations to complete.
+ * 异步将场景转换为 Columbus 视图。
+ * @param {number} [duration=2.0] 过渡动画完成的时间量（以秒为单位）。
  */
 Scene.prototype.morphToColumbusView = function (duration) {
   duration = defaultValue(duration, 2.0);
@@ -4671,8 +4671,8 @@ Scene.prototype.morphToColumbusView = function (duration) {
 };
 
 /**
- * Asynchronously transitions the scene to 3D.
- * @param {number} [duration=2.0] The amount of time, in seconds, for transition animations to complete.
+ * 异步将场景转换为 3D。
+ * @param {number} [duration=2.0] 过渡动画完成的时间量（以秒为单位）。
  */
 Scene.prototype.morphTo3D = function (duration) {
   duration = defaultValue(duration, 2.0);
@@ -4706,10 +4706,10 @@ function setTerrain(scene, terrain) {
 }
 
 /**
- * Update the terrain providing surface geometry for the globe.
+ * 更新地形，为地球提供表面几何图形。
  *
- * @param {Terrain} terrain The terrain provider async helper
- * @returns {Terrain} terrain The terrain provider async helper
+ * @param {Terrain} terrain 地形提供程序异步帮助程序
+ * @returns {Terrain} terrain 地形提供程序异步辅助函数
  *
  * @example
  * // Use Cesium World Terrain
@@ -4735,12 +4735,12 @@ Scene.prototype.setTerrain = function (terrain) {
 };
 
 /**
- * Returns true if this object was destroyed; otherwise, false.
+ * 如果此对象已销毁，则返回 true;否则为 false。
  * <br /><br />
- * If this object was destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.
+ * 如果此对象已销毁，则不应使用;调用
+ *  <code>isDestroyed</code> 将导致 {@link DeveloperError} 异常。
  *
- * @returns {boolean} <code>true</code> if this object was destroyed; otherwise, <code>false</code>.
+ * @returns {boolean} <code>true</code>，如果此对象被销毁;否则为 <code>false</code>。
  *
  * @see Scene#destroy
  */
@@ -4749,12 +4749,12 @@ Scene.prototype.isDestroyed = function () {
 };
 
 /**
- * Destroys the WebGL resources held by this object.  Destroying an object allows for deterministic
- * release of WebGL resources, instead of relying on the garbage collector to destroy this object.
+ * 销毁此对象持有的 WebGL 资源。 销毁对象允许确定性
+ * 释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。
  * <br /><br />
- * Once an object is destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.  Therefore,
- * assign the return value (<code>undefined</code>) to the object as done in the example.
+ * 一旦对象被销毁，就不应该使用它;调用
+ * <code>isDestroyed</code> 将导致 {@link DeveloperError} 异常。 因此
+ * 将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
  *
  * @exception {DeveloperError} 这个物体被摧毁了,destroy().
  *

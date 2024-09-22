@@ -13,7 +13,7 @@ import Transforms from "../Core/Transforms.js";
 import SceneMode from "./SceneMode.js";
 
 /**
- * Functions that do scene-dependent transforms between rendering-related coordinate systems.
+ * 在与渲染相关的坐标系之间执行场景相关转换的函数。
  *
  * @namespace SceneTransforms
  */
@@ -27,13 +27,13 @@ const scratchWindowCoord0 = new Cartesian2();
 const scratchWindowCoord1 = new Cartesian2();
 
 /**
- * Transforms a position in world (WGS84 or alternative ellipsoid) coordinates to window coordinates.  This is commonly used to place an
- * HTML element at the same screen position as an object in the scene.
+ * 将世界（WGS84 或替代椭球体）坐标中的位置转换为窗口坐标。 这通常用于将
+ * HTML 元素与场景中的对象位于相同的屏幕位置。
  *
- * @param {Scene} scene The scene.
- * @param {Cartesian3} position The position in world (WGS84 or alternative ellipsoid) coordinates.
- * @param {Cartesian2} [result] An optional object to return the input position transformed to window coordinates.
- * @returns {Cartesian2|undefined} 如果没有提供新的Cartesian2实例，则使用修改后的结果参数。  This may be <code>undefined</code> if the input position is near the center of the ellipsoid.
+ * @param {Scene} scene 场景。
+ * @param {Cartesian3} position 在世界（WGS84 或替代椭球体）坐标中的位置。
+ * @param {Cartesian2} [result] 一个可选对象，用于返回转换为窗口坐标的输入位置。
+ * @returns {Cartesian2|undefined} 如果没有提供新的Cartesian2实例，则使用修改后的结果参数。如果输入位置靠近椭球体的中心，则此字段可能<code>未定义</code>。
  *
  * @example
  * // Output the window position of longitude/latitude (0, 0) every time the mouse moves.
@@ -263,13 +263,13 @@ SceneTransforms.worldWithEyeOffsetToWindowCoordinates = function (
 };
 
 /**
- * Transforms a position in world coordinates to drawing buffer coordinates.  This may produce different
- * results from SceneTransforms.worldToWindowCoordinates when the browser zoom is not 100%, or on high-DPI displays.
+ * 将世界坐标中的位置转换为绘图缓冲区坐标。 这可能会产生不同的
+ * 当浏览器缩放不是 100% 时或在高 DPI 显示器上，则由 SceneTransforms.worldToWindowCoordinates 生成。
  *
- * @param {Scene} scene The scene.
- * @param {Cartesian3} position The position in world (WGS84 or alternative ellipsoid) coordinates.
- * @param {Cartesian2} [result] An optional object to return the input position transformed to window coordinates.
- * @returns {Cartesian2|undefined} 如果没有提供新的Cartesian2实例，则使用修改后的结果参数。  This may be <code>undefined</code> if the input position is near the center of the ellipsoid.
+ * @param {Scene} scene 场景。
+ * @param {Cartesian3} position 在世界（WGS84 或替代椭球体）坐标中的位置。
+ * @param {Cartesian2} [result] 一个可选对象，用于返回转换为窗口坐标的输入位置。
+ * @returns {Cartesian2|undefined} 如果没有提供新的Cartesian2实例，则使用修改后的结果参数。 如果输入位置靠近椭球体的中心，则此字段可能<code>未定义</code>。
  *
  * @example
  * // Output the window position of longitude/latitude (0, 0) every time the mouse moves.

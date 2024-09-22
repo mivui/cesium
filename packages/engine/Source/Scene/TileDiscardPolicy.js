@@ -1,8 +1,8 @@
 import DeveloperError from "../Core/DeveloperError.js";
 
 /**
- * A policy for discarding tile images according to some criteria.  This type describes an
- * interface and is not intended to be instantiated directly.
+ * 根据某些标准丢弃磁贴图像的策略。 此类型描述
+ * 接口，并且不打算直接实例化。
  *
  * @alias TileDiscardPolicy
  * @constructor
@@ -15,19 +15,19 @@ function TileDiscardPolicy(options) {
 }
 
 /**
- * Determines if the discard policy is ready to process images.
+ * 确定丢弃策略是否已准备好处理映像。
  * @function
  *
- * @returns {boolean} True if the discard policy is ready to process images; otherwise, false.
+ * @returns {boolean} 如果丢弃策略已准备好处理图像，则为 True;否则为 false。
  */
 TileDiscardPolicy.prototype.isReady = DeveloperError.throwInstantiationError;
 
 /**
- * Given a tile image, decide whether to discard that image.
+ * 给定一个平铺图像，决定是否丢弃该图像。
  * @function
  *
- * @param {HTMLImageElement} image An image to test.
- * @returns {boolean} True if the image should be discarded; otherwise, false.
+ * @param {HTMLImageElement} image 要测试的图像。
+ * @returns {boolean} 如果应该丢弃图像，则为 True;否则为 false。
  */
 TileDiscardPolicy.prototype.shouldDiscardImage =
   DeveloperError.throwInstantiationError;

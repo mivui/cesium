@@ -1,12 +1,12 @@
 /**
- * Specifies whether the object casts or receives shadows from light sources when
- * shadows are enabled.
+ * 指定在以下情况下，对象是投射还是接收来自光源的阴影
+ * 启用阴影。
  *
  * @enum {number}
  */
 const ShadowMode = {
   /**
-   * The object does not cast or receive shadows.
+   * 对象不投射或接收阴影。
    *
    * @type {number}
    * @constant
@@ -14,7 +14,7 @@ const ShadowMode = {
   DISABLED: 0,
 
   /**
-   * The object casts and receives shadows.
+   * 对象投射和接收阴影。
    *
    * @type {number}
    * @constant
@@ -22,7 +22,7 @@ const ShadowMode = {
   ENABLED: 1,
 
   /**
-   * The object casts shadows only.
+   * 对象仅投射阴影。
    *
    * @type {number}
    * @constant
@@ -30,7 +30,7 @@ const ShadowMode = {
   CAST_ONLY: 2,
 
   /**
-   * The object receives shadows only.
+   * 对象仅接收阴影。
    *
    * @type {number}
    * @constant

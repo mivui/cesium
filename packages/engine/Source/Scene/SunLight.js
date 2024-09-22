@@ -2,7 +2,7 @@ import Color from "../Core/Color.js";
 import defaultValue from "../Core/defaultValue.js";
 
 /**
- * A directional light source that originates from the Sun.
+ * 源自太阳的定向光源。
  *
  * @param {object} [options] 对象，具有以下属性:
  * @param {Color} [options.color=Color.WHITE] The light's color.
@@ -14,14 +14,14 @@ import defaultValue from "../Core/defaultValue.js";
 function SunLight(options) {
   options = defaultValue(options, defaultValue.EMPTY_OBJECT);
   /**
-   * The color of the light.
+   * 光的颜色。
    * @type {Color}
    * @default Color.WHITE
    */
   this.color = Color.clone(defaultValue(options.color, Color.WHITE));
 
   /**
-   * The intensity of the light.
+   * 光线的强度。
    * @type {number}
    * @default 2.0
    */

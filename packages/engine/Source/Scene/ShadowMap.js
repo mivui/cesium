@@ -47,32 +47,32 @@ import ShadowMapShader from "./ShadowMapShader.js";
 
 /**
  * <div class="notice">
- * Use {@link Viewer#shadowMap} to get the scene's shadow map. Do not construct this directly.
+ * 使用 {@link Viewer#shadowMap} 获取场景的阴影贴图。不要直接构造它。
  * </div>
  *
  * <p>
- * The normalOffset bias pushes the shadows forward slightly, and may be disabled
- * for applications that require ultra precise shadows.
+ * normalOffset 偏差将阴影略微向前推，并且可能会被禁用
+ * 适用于需要超精确阴影的应用程序。
  * </p>
  *
  * @alias ShadowMap
  * @internalConstructor
  * @class
  *
- * @privateParam {object} options An object containing the following properties:
- * @privateParam {Context} options.context The context
- * @privateParam {Camera} options.lightCamera A camera representing the light source.
- * @privateParam {boolean} [options.enabled=true] Whether the shadow map is enabled.
- * @privateParam {boolean} [options.isPointLight=false] Whether the light source is a point light. Point light shadows do not use cascades.
- * @privateParam {number} [options.pointLightRadius=100.0] Radius of the point light.
- * @privateParam {boolean} [options.cascadesEnabled=true] Use multiple shadow maps to cover different partitions of the view frustum.
- * @privateParam {number} [options.numberOfCascades=4] The number of cascades to use for the shadow map. Supported values are one and four.
- * @privateParam {number} [options.maximumDistance=5000.0] The maximum distance used for generating cascaded shadows. Lower values improve shadow quality.
- * @privateParam {number} [options.size=2048] The width and height, in pixels, of each shadow map.
- * @privateParam {boolean} [options.softShadows=false] Whether percentage-closer-filtering is enabled for producing softer shadows.
- * @privateParam {number} [options.darkness=0.3] The shadow darkness.
- * @privateParam {boolean} [options.normalOffset=true] Whether a normal bias is applied to shadows.
- * @privateParam {boolean} [options.fadingEnabled=true] Whether shadows start to fade out once the light gets closer to the horizon.
+ * @privateParam {object} options 包含以下属性的对象：
+ * @privateParam {Context} options.context 上下文
+ * @privateParam {Camera} options.lightCamera 表示光源的相机。
+ * @privateParam {boolean} [options.enabled=true] 是否启用阴影贴图。
+ * @privateParam {boolean} [options.isPointLight=false] 光源是否为点光源。点光源阴影不使用级联。
+ * @privateParam {number} [options.pointLightRadius=100.0] 点光源的半径。
+ * @privateParam {boolean} [options.cascadesEnabled=true] 使用多个阴影贴图来覆盖视锥体的不同分区。
+ * @privateParam {number} [options.numberOfCascades=4] 用于阴影贴图的级联数量。支持的值为 1 和 4。
+ * @privateParam {number} [options.maximumDistance=5000.0] 用于生成级联阴影的最大距离。较低的值会提高阴影质量。
+ * @privateParam {number} [options.size=2048] 每个阴影贴图的宽度和高度，以像素为单位。
+ * @privateParam {boolean} [options.softShadows=false] 是否启用百分比接近过滤以产生更柔和的阴影。
+ * @privateParam {number} [options.darkness=0.3] 阴影黑暗。
+ * @privateParam {boolean} [options.normalOffset=true] 是否对阴影应用法线偏差。
+ * @privateParam {boolean} [options.fadingEnabled=true] 当光线靠近地平线时，阴影是否开始淡出。
  *
  * @exception {DeveloperError} Only one or four cascades are supported.
  *
@@ -104,15 +104,15 @@ function ShadowMap(options) {
   this.dirty = true;
 
   /**
-   * Specifies whether the shadow map originates from a light source. Shadow maps that are used for analytical
-   * purposes should set this to false so as not to affect scene rendering.
+   * 指定阴影贴图是否源自光源。用于分析的阴影贴图
+   * purpose 应将此设置为 false，以免影响场景渲染。
    *
    * @private
    */
   this.fromLightSource = defaultValue(options.fromLightSource, true);
 
   /**
-   * Determines the darkness of the shadows.
+   * 确定阴影的暗度。
    *
    * @type {number}
    * @default 0.3
@@ -121,7 +121,7 @@ function ShadowMap(options) {
   this._darkness = this.darkness;
 
   /**
-   * Determines whether shadows start to fade out once the light gets closer to the horizon.
+   * 确定当光线更接近地平线时，阴影是否开始淡出。
    *
    * @type {boolean}
    * @default true
@@ -129,7 +129,7 @@ function ShadowMap(options) {
   this.fadingEnabled = defaultValue(options.fadingEnabled, true);
 
   /**
-   * Determines the maximum distance of the shadow map. Only applicable for cascaded shadows. Larger distances may result in lower quality shadows.
+   * 确定阴影贴图的最大距离。仅适用于级联阴影。较大的距离可能会导致阴影质量较低。
    *
    * @type {number}
    * @default 5000.0
@@ -286,8 +286,8 @@ function ShadowMap(options) {
 }
 
 /**
- * Global maximum shadow distance used to prevent far off receivers from extending
- * the shadow far plane. This helps set a tighter near/far when viewing objects from space.
+ * 用于防止远距离接收器扩展的全局最大阴影距离
+ * 阴影远平面。这有助于在从太空查看对象时设置更严格的近/远。
  *
  * @private
  */
@@ -352,7 +352,7 @@ ShadowMap.prototype.debugCreateRenderStates = function () {
 
 Object.defineProperties(ShadowMap.prototype, {
   /**
-   * Determines if the shadow map will be shown.
+   * 确定是否显示阴影贴图。
    *
    * @memberof ShadowMap.prototype
    * @type {boolean}
@@ -369,7 +369,7 @@ Object.defineProperties(ShadowMap.prototype, {
   },
 
   /**
-   * Determines if a normal bias will be applied to shadows.
+   * 确定是否将法线偏移应用于阴影。
    *
    * @memberof ShadowMap.prototype
    * @type {boolean}
@@ -389,7 +389,7 @@ Object.defineProperties(ShadowMap.prototype, {
   },
 
   /**
-   * Determines if soft shadows are enabled. Uses pcf filtering which requires more texture reads and may hurt performance.
+   * 确定是否启用柔和阴影。使用 pcf 过滤，这需要更多的纹理读取，并且可能会损害性能。
    *
    * @memberof ShadowMap.prototype
    * @type {boolean}
@@ -406,7 +406,7 @@ Object.defineProperties(ShadowMap.prototype, {
   },
 
   /**
-   * The width and height, in pixels, of each shadow map.
+   * 每个阴影贴图的宽度和高度（以像素为单位）。
    *
    * @memberof ShadowMap.prototype
    * @type {number}
@@ -422,7 +422,7 @@ Object.defineProperties(ShadowMap.prototype, {
   },
 
   /**
-   * Whether the shadow map is out of view of the scene camera.
+   * 阴影贴图是否超出场景摄像机的视野。
    *
    * @memberof ShadowMap.prototype
    * @type {boolean}
@@ -436,7 +436,7 @@ Object.defineProperties(ShadowMap.prototype, {
   },
 
   /**
-   * The culling volume of the shadow frustum.
+   * 阴影视锥体的剔除体积。
    *
    * @memberof ShadowMap.prototype
    * @type {CullingVolume}
@@ -450,7 +450,7 @@ Object.defineProperties(ShadowMap.prototype, {
   },
 
   /**
-   * The passes used for rendering shadows. Each face of a point light or each cascade for a cascaded shadow map is a separate pass.
+   * 用于渲染阴影的通道。点光源的每个面或级联阴影贴图的每个级联都是一个单独的过程。
    *
    * @memberof ShadowMap.prototype
    * @type {ShadowPass[]}
@@ -464,7 +464,7 @@ Object.defineProperties(ShadowMap.prototype, {
   },
 
   /**
-   * Whether the light source is a point light.
+   * 光源是否为点光源。
    *
    * @memberof ShadowMap.prototype
    * @type {boolean}
@@ -478,7 +478,7 @@ Object.defineProperties(ShadowMap.prototype, {
   },
 
   /**
-   * Debug option for visualizing the cascades by color.
+   * 用于按颜色可视化级联的 Debug 选项。
    *
    * @memberof ShadowMap.prototype
    * @type {boolean}

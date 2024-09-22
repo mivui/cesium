@@ -7,16 +7,16 @@ import Request from "../Core/Request.js";
 import RequestType from "../Core/RequestType.js";
 
 /**
- * Provides functionality for ImageryProviders that have time dynamic imagery
+ * 为具有时间动态影像的 ImageryProvider 提供功能
  *
  * @alias TimeDynamicImagery
  * @constructor
  *
  * @param {object} options 对象，具有以下属性:
- * @param {Clock} options.clock A Clock instance that is used when determining the value for the time dimension. Required when <code>options.times</code> is specified.
- * @param {TimeIntervalCollection} options.times TimeIntervalCollection with its <code>data</code> property being an object containing time dynamic dimension and their values.
- * @param {Function} options.requestImageFunction A function that will request imagery tiles.
- * @param {Function} options.reloadFunction A function that will be called when all imagery tiles need to be reloaded.
+ * @param {Clock} options.clock 确定时间维度值时使用的 Clock 实例。指定 <code>options.times</code> 时是必需的。
+ * @param {TimeIntervalCollection} options.times TimeIntervalCollection，其 <code>data</code> 属性是一个包含时间动态维度及其值的对象。
+ * @param {Function} options.requestImageFunction 请求图像图块的函数。
+ * @param {Function} options.reloadFunction 当需要重新加载所有影像图块时将调用的函数。
  */
 function TimeDynamicImagery(options) {
   options = defaultValue(options, defaultValue.EMPTY_OBJECT);
@@ -46,7 +46,7 @@ function TimeDynamicImagery(options) {
 
 Object.defineProperties(TimeDynamicImagery.prototype, {
   /**
-   * Gets or sets a clock that is used to get keep the time used for time dynamic parameters.
+   * 获取或设置一个 clock，该 clock 用于 get keep time used for time 动态参数。
    * @memberof TimeDynamicImagery.prototype
    * @type {Clock}
    */
@@ -69,7 +69,7 @@ Object.defineProperties(TimeDynamicImagery.prototype, {
     },
   },
   /**
-   * Gets or sets a time interval collection.
+   * 获取或设置时间间隔集合。
    * @memberof TimeDynamicImagery.prototype
    * @type {TimeIntervalCollection}
    */
@@ -92,7 +92,7 @@ Object.defineProperties(TimeDynamicImagery.prototype, {
     },
   },
   /**
-   * Gets the current interval.
+   * 获取当前间隔。
    * @memberof TimeDynamicImagery.prototype
    * @type {TimeInterval}
    */
@@ -104,15 +104,15 @@ Object.defineProperties(TimeDynamicImagery.prototype, {
 });
 
 /**
- * Gets the tile from the cache if its available.
+ * 从缓存中获取切片（如果可用）。
  *
- * @param {number} x The tile X coordinate.
- * @param {number} y The tile Y coordinate.
- * @param {number} level The tile level.
+ * @param {number} x 瓦片 X 坐标。
+ * @param {number} y 瓦片 Y 坐标。
+ * @param {number} level 瓦片级别。
  * @param {Request} [request] 请求对象。仅供内部使用。
  *
- * @returns {Promise<HTMLImageElement>|undefined} A promise for the image that will resolve when the image is available, or
- *          undefined if the tile is not in the cache.
+ * @returns {Promise<HTMLImageElement>|undefined} 映像的 Promise，该 Promise 将在映像可用时解析，或者
+ * undefined 如果切片不在缓存中。
  */
 TimeDynamicImagery.prototype.getFromCache = function (x, y, level, request) {
   const key = getKey(x, y, level);
@@ -132,12 +132,12 @@ TimeDynamicImagery.prototype.getFromCache = function (x, y, level, request) {
 };
 
 /**
- * Checks if the next interval is approaching and will start preload the tile if necessary. Otherwise it will
- * just add the tile to a list to preload when we approach the next interval.
+ * 检查下一个间隔是否即将到来，并在必要时开始预加载磁贴。否则它将
+ * 只需将瓦片添加到列表中，以便在我们接近下一个间隔时预加载。
  *
- * @param {number} x The tile X coordinate.
- * @param {number} y The tile Y coordinate.
- * @param {number} level The tile level.
+ * @param {number} x 瓦片 X 坐标。
+ * @param {number} y 瓦片 Y 坐标。
+ * @param {number} level 瓦片级别。
  * @param {Request} [request] 请求对象。仅供内部使用。
  */
 TimeDynamicImagery.prototype.checkApproachingInterval = function (

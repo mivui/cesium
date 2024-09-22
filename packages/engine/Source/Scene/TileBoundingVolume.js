@@ -1,8 +1,8 @@
 import DeveloperError from "../Core/DeveloperError.js";
 
 /**
- * Defines a bounding volume for a tile. This type describes an interface
- * and is not intended to be instantiated directly.
+ * 定义平铺的边界体积。此类型描述接口
+ * ，并且不打算直接实例化。
  *
  * @alias TileBoundingVolume
  * @constructor
@@ -16,7 +16,7 @@ import DeveloperError from "../Core/DeveloperError.js";
 function TileBoundingVolume() {}
 
 /**
- * The underlying bounding volume.
+ * 底层边界体积。
  *
  * @type {object}
  * @readonly
@@ -24,7 +24,7 @@ function TileBoundingVolume() {}
 TileBoundingVolume.prototype.boundingVolume = undefined;
 
 /**
- * The underlying bounding sphere.
+ * 底层边界球体。
  *
  * @type {BoundingSphere}
  * @readonly
@@ -32,34 +32,34 @@ TileBoundingVolume.prototype.boundingVolume = undefined;
 TileBoundingVolume.prototype.boundingSphere = undefined;
 
 /**
- * Calculates the distance between the tile and the camera.
+ * 计算图块和相机之间的距离。
  *
- * @param {FrameState} frameState The frame state.
- * @return {number} The distance between the tile and the camera, in meters.
- *                  Returns 0.0 if the camera is inside the tile.
+ * @param {FrameState} frameState 帧状态。
+ * @return {number} 瓦片与相机之间的距离，以米为单位。
+ * 如果摄像机位于平铺内，则返回 0.0。
  */
 TileBoundingVolume.prototype.distanceToCamera = function (frameState) {
   DeveloperError.throwInstantiationError();
 };
 
 /**
- * Determines which side of a plane this volume is located.
+ * 确定此卷位于平面的哪一侧。
  *
  * @param {Plane} plane 要测试的飞机。
- * @returns {Intersect} {@link Intersect.INSIDE} if the entire volume is on the side of the plane
- *                      the normal is pointing, {@link Intersect.OUTSIDE} if the entire volume is
- *                      on the opposite side, 和 {@link Intersect.INTERSECTING} if the volume
- *                      intersects the plane.
+ * @returns {Intersect} {@link Intersect.INSIDE} 如果整个体积位于平面的一侧
+ * 法线指向，@link如果整个体积为
+ * 在另一侧，@link如果体积
+ * 与平面相交。
  */
 TileBoundingVolume.prototype.intersectPlane = function (plane) {
   DeveloperError.throwInstantiationError();
 };
 
 /**
- * Creates a debug primitive that shows the outline of the tile bounding
- * volume.
+ * 创建显示平铺边界轮廓的调试基元
+ *卷。
  *
- * @param {Color} color The desired color of the primitive's mesh
+ * @param {Color} color 基元网格的所需颜色
  * @return {Primitive}
  */
 TileBoundingVolume.prototype.createDebugVolume = function (color) {

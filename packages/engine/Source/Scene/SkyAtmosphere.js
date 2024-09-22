@@ -24,16 +24,16 @@ import CullFace from "./CullFace.js";
 import SceneMode from "./SceneMode.js";
 
 /**
- * An atmosphere drawn around the limb of the provided ellipsoid. Based on
- * {@link http://nishitalab.org/user/nis/cdrom/sig93_nis.pdf|Display of The Earth Taking Into Account Atmospheric Scattering}.
+ * 在提供的椭球体的肢体周围绘制的大气。基于
+ * {@link http://nishitalab.org/user/nis/cdrom/sig93_nis.pdf|考虑大气散射的地球显示}。
  * <p>
- * This is only supported in 3D. Atmosphere is faded out when morphing to 2D or Columbus view.
+ * 这仅在 3D 中受支持。当变形为 2D 或哥伦布视图时，大气层会淡出。
  * </p>
  *
  * @alias SkyAtmosphere
  * @constructor
  *
- * @param {Ellipsoid} [ellipsoid=Ellipsoid.WGS84] The ellipsoid that the atmosphere is drawn around.
+ * @param {Ellipsoid} [ellipsoid=Ellipsoid.WGS84] 大气围绕绘制的椭球体。
  *
  * @example
  * scene.skyAtmosphere = new Cesium.SkyAtmosphere();
@@ -52,8 +52,8 @@ function SkyAtmosphere(ellipsoid) {
   this.show = true;
 
   /**
-   * Compute atmosphere per-fragment instead of per-vertex.
-   * This produces better looking atmosphere with a slight performance penalty.
+   * 计算每个片段的大气，而不是每个顶点的大气。
+   * 这会产生更好看的氛围，但性能会略有下降。
    *
    * @type {boolean}
    * @default false
@@ -81,7 +81,7 @@ function SkyAtmosphere(ellipsoid) {
   this._flags = undefined;
 
   /**
-   * The intensity of the light that is used for computing the sky atmosphere color.
+   * 用于计算天空大气颜色的光的强度。
    *
    * @type {number}
    * @default 50.0
@@ -89,7 +89,7 @@ function SkyAtmosphere(ellipsoid) {
   this.atmosphereLightIntensity = 50.0;
 
   /**
-   * The Rayleigh scattering coefficient used in the atmospheric scattering equations for the sky atmosphere.
+   * 天空大气的大气散射方程中使用的瑞利散射系数。
    *
    * @type {Cartesian3}
    * @default Cartesian3(5.5e-6, 13.0e-6, 28.4e-6)
@@ -97,7 +97,7 @@ function SkyAtmosphere(ellipsoid) {
   this.atmosphereRayleighCoefficient = new Cartesian3(5.5e-6, 13.0e-6, 28.4e-6);
 
   /**
-   * The Mie scattering coefficient used in the atmospheric scattering equations for the sky atmosphere.
+   * 天空大气的大气散射方程中使用的 Mie 散射系数。
    *
    * @type {Cartesian3}
    * @default Cartesian3(21e-6, 21e-6, 21e-6)
@@ -105,7 +105,7 @@ function SkyAtmosphere(ellipsoid) {
   this.atmosphereMieCoefficient = new Cartesian3(21e-6, 21e-6, 21e-6);
 
   /**
-   * The Rayleigh scale height used in the atmospheric scattering equations for the sky atmosphere, in meters.
+   * 天空大气的大气散射方程中使用的瑞利标尺高度，以米为单位。
    *
    * @type {number}
    * @default 10000.0
@@ -113,7 +113,7 @@ function SkyAtmosphere(ellipsoid) {
   this.atmosphereRayleighScaleHeight = 10000.0;
 
   /**
-   * The Mie scale height used in the atmospheric scattering equations for the sky atmosphere, in meters.
+   * 天空大气的大气散射方程中使用的 Mie 比例高度，以米为单位。
    *
    * @type {number}
    * @default 3200.0
@@ -121,9 +121,9 @@ function SkyAtmosphere(ellipsoid) {
   this.atmosphereMieScaleHeight = 3200.0;
 
   /**
-   * The anisotropy of the medium to consider for Mie scattering.
+   * 米氏散射要考虑的介质的各向异性。
    * <p>
-   * Valid values are between -1.0 and 1.0.
+   * 有效值介于 -1.0 和 1.0 之间。
    * </p>
    * @type {number}
    * @default 0.9
@@ -131,24 +131,24 @@ function SkyAtmosphere(ellipsoid) {
   this.atmosphereMieAnisotropy = 0.9;
 
   /**
-   * The hue shift to apply to the atmosphere. Defaults to 0.0 (no shift).
-   * A hue shift of 1.0 indicates a complete rotation of the hues available.
+   * 应用于大气的色相偏移。默认为 0.0（无偏移）。
+   * 色相偏移 1.0 表示可用色相完全旋转。
    * @type {number}
    * @default 0.0
    */
   this.hueShift = 0.0;
 
   /**
-   * The saturation shift to apply to the atmosphere. Defaults to 0.0 (no shift).
-   * A saturation shift of -1.0 is monochrome.
+   * 应用于大气的饱和度偏移。默认为 0.0（无偏移）。
+   * -1.0 的饱和度偏移为单色。
    * @type {number}
    * @default 0.0
    */
   this.saturationShift = 0.0;
 
   /**
-   * The brightness shift to apply to the atmosphere. Defaults to 0.0 (no shift).
-   * A brightness shift of -1.0 is complete darkness, which will let space show through.
+   * 应用于大气的亮度偏移。默认为 0.0（无偏移）。
+   * -1.0 的亮度偏移是完全黑暗的，这将使空间透出。
    * @type {number}
    * @default 0.0
    */
@@ -203,7 +203,7 @@ function SkyAtmosphere(ellipsoid) {
 
 Object.defineProperties(SkyAtmosphere.prototype, {
   /**
-   * Gets the ellipsoid the atmosphere is drawn around.
+   * 获取绘制大气所围绕的椭球体。
    * @memberof SkyAtmosphere.prototype
    *
    * @type {Ellipsoid}
@@ -217,8 +217,8 @@ Object.defineProperties(SkyAtmosphere.prototype, {
 });
 
 /**
- * Set the dynamic lighting enum value for the shader
- * @param {DynamicAtmosphereLightingType} lightingEnum The enum that determines the dynamic atmosphere light source
+ * 设置着色器的动态照明枚举值
+ * @param {DynamicAtmosphereLightingType} lightingEnum 确定动态大气光源的枚举
  *
  * @private
  */
@@ -362,12 +362,12 @@ function hasColorCorrection(skyAtmosphere) {
 }
 
 /**
- * Returns true if this object was destroyed; otherwise, false.
+ * 如果此对象已销毁，则返回 true;否则为 false。
  * <br /><br />
- * If this object was destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.
+ * 如果此对象已销毁，则不应使用;调用
+ *  <code>isDestroyed</code> 将导致 {@link DeveloperError} 异常。
  *
- * @returns {boolean} <code>true</code> if this object was destroyed; otherwise, <code>false</code>.
+ * @returns {boolean} <code>true</code>，如果此对象被销毁;否则为 <code>false</code>。
  *
  * @see SkyAtmosphere#destroy
  */
@@ -376,12 +376,12 @@ SkyAtmosphere.prototype.isDestroyed = function () {
 };
 
 /**
- * Destroys the WebGL resources held by this object.  Destroying an object allows for deterministic
- * release of WebGL resources, instead of relying on the garbage collector to destroy this object.
+ * 销毁此对象持有的 WebGL 资源。 销毁对象允许确定性
+ * 释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。
  * <br /><br />
- * Once an object is destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.  Therefore,
- * assign the return value (<code>undefined</code>) to the object as done in the example.
+ * 一旦对象被销毁，就不应该使用它;调用
+ *  <code>isDestroyed</code> 将导致 {@link DeveloperError} 异常。 因此
+ * 将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
  *
  * @exception {DeveloperError} 这个物体被摧毁了,destroy().
  *

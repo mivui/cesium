@@ -13,20 +13,20 @@ import ImageryProvider from "./ImageryProvider.js";
 /**
  * @typedef {object} SingleTileImageryProvider.ConstructorOptions
  *
- * Initialization options for the SingleTileImageryProvider constructor
+ * SingleTileImageryProvider 构造函数的初始化选项
  *
- * @property {Resource|string} url The url for the tile.
- * @property {number} [tileWidth] 宽度 tile, in pixels.
- * @property {number} [tileHeight] 高度 tile, in pixels.
- * @property {Rectangle} [rectangle=Rectangle.MAX_VALUE] The rectangle, in radians, covered by the image.
- * @property {Credit|string} [credit] A credit for the data source, which is displayed on the canvas.
- * @property {Ellipsoid} [ellipsoid] The ellipsoid.  If not specified, the WGS84 ellipsoid is used.
+ * @property {Resource|string} url 磁贴的 URL。
+ * @property {number} [tileWidth] 宽度 tile，以像素为单位。
+ * @property {number} [tileHeight] 高度 tile，以像素为单位。
+ * @property {Rectangle} [rectangle=Rectangle.MAX_VALUE] 图像覆盖的矩形，以弧度为单位。
+ * @property {Credit|string} [credit] 数据源的积分，显示在画布上。
+ * @property {Ellipsoid} [ellipsoid] 椭球体。 如果未指定，则使用 WGS84 椭球体。
  */
 
 /**
- * Provides a single, top-level imagery tile.  The single image is assumed to be in
- * the Geographic projection (i.e. WGS84 / EPSG:4326),
- * and will be rendered using a {@link GeographicTilingScheme}.
+ * 提供单个顶级图像模块。 假定单个图像位于
+ * 地理投影（即 WGS84 / EPSG：4326），
+ * 并将使用 {@link GeographicTilingScheme} 进行渲染。
  *
  * @alias SingleTileImageryProvider
  * @constructor
@@ -94,7 +94,7 @@ function SingleTileImageryProvider(options) {
 
 Object.defineProperties(SingleTileImageryProvider.prototype, {
   /**
-   * Gets the URL of the single, top-level imagery tile.
+   * 获取单个顶级图像图块的 URL。
    * @memberof SingleTileImageryProvider.prototype
    * @type {string}
    * @readonly
@@ -106,7 +106,7 @@ Object.defineProperties(SingleTileImageryProvider.prototype, {
   },
 
   /**
-   * Gets the proxy used by this provider.
+   * 获取此提供程序使用的代理。
    * @memberof SingleTileImageryProvider.prototype
    * @type {Proxy}
    * @readonly
@@ -118,7 +118,7 @@ Object.defineProperties(SingleTileImageryProvider.prototype, {
   },
 
   /**
-   * Gets the width of each tile, in pixels.
+   * 获取每个图块的宽度（以像素为单位）。
    * @memberof SingleTileImageryProvider.prototype
    * @type {number}
    * @readonly
@@ -130,7 +130,7 @@ Object.defineProperties(SingleTileImageryProvider.prototype, {
   },
 
   /**
-   * Gets the height of each tile, in pixels.
+   * 获取每个图块的高度（以像素为单位）。
    * @memberof SingleTileImageryProvider.prototype
    * @type {number}
    * @readonly
@@ -142,7 +142,7 @@ Object.defineProperties(SingleTileImageryProvider.prototype, {
   },
 
   /**
-   * Gets the maximum level-of-detail that can be requested.
+   * 获取可请求的最大详细级别。
    * @memberof SingleTileImageryProvider.prototype
    * @type {number|undefined}
    * @readonly
@@ -154,7 +154,7 @@ Object.defineProperties(SingleTileImageryProvider.prototype, {
   },
 
   /**
-   * Gets the minimum level-of-detail that can be requested.
+   * 获取可请求的最小详细级别。
    * @memberof SingleTileImageryProvider.prototype
    * @type {number}
    * @readonly
@@ -166,7 +166,7 @@ Object.defineProperties(SingleTileImageryProvider.prototype, {
   },
 
   /**
-   * Gets the tiling scheme used by this provider.
+   * 获取此提供程序使用的切片方案。
    * @memberof SingleTileImageryProvider.prototype
    * @type {TilingScheme}
    * @readonly
@@ -178,7 +178,7 @@ Object.defineProperties(SingleTileImageryProvider.prototype, {
   },
 
   /**
-   * Gets the rectangle, in radians, of the imagery provided by this instance.
+   * 获取此实例提供的图像的矩形（以弧度为单位）。
    * @memberof SingleTileImageryProvider.prototype
    * @type {Rectangle}
    * @readonly
@@ -190,9 +190,9 @@ Object.defineProperties(SingleTileImageryProvider.prototype, {
   },
 
   /**
-   * Gets the tile discard policy.  If not undefined, the discard policy is responsible
-   * for filtering out "missing" tiles via its shouldDiscardImage function.  If this function
-   * returns undefined, no tiles are filtered.
+   * 获取瓦片丢弃策略。 如果未 undefined，则 discard 策略负责
+   * 用于通过其 shouldDiscardImage 函数过滤掉“缺失”的瓦片。 如果此功能
+   * 返回 undefined，不过滤任何图块。
    * @memberof SingleTileImageryProvider.prototype
    * @type {TileDiscardPolicy}
    * @readonly
@@ -204,9 +204,9 @@ Object.defineProperties(SingleTileImageryProvider.prototype, {
   },
 
   /**
-   * Gets an event that is raised when the imagery provider encounters an asynchronous error.  By subscribing
-   * to the event, you will be notified of the error and can potentially recover from it.  Event listeners
-   * are passed an instance of {@link TileProviderError}.
+   * 获取在影像提供程序遇到异步错误时引发的事件。 通过订阅
+   * 时，您将收到错误通知，并可能从中恢复。 事件侦听器
+   * 将传递 {@link TileProviderError} 的实例。
    * @memberof SingleTileImageryProvider.prototype
    * @type {Event}
    * @readonly
@@ -218,8 +218,8 @@ Object.defineProperties(SingleTileImageryProvider.prototype, {
   },
 
   /**
-   * Gets the credit to display when this imagery provider is active.  Typically this is used to credit
-   * the source of the imagery.
+   * 获取此影像提供程序处于活动状态时要显示的点数。 通常，这用于贷记
+   * 图像的来源。
    * @memberof SingleTileImageryProvider.prototype
    * @type {Credit}
    * @readonly
@@ -231,11 +231,11 @@ Object.defineProperties(SingleTileImageryProvider.prototype, {
   },
 
   /**
-   * Gets a value indicating whether or not the images provided by this imagery provider
-   * include an alpha channel.  If this property is false, an alpha channel, if present, will
-   * be ignored.  If this property is true, any images without an alpha channel will be treated
-   * as if their alpha is 1.0 everywhere.  When this property is false, memory usage
-   * and texture upload time are reduced.
+   * 获取一个值，该值指示此图像提供程序是否提供图像
+   * 包括 Alpha 通道。 如果此属性为 false，则 Alpha 通道（如果存在）将
+   * 被忽略。 如果此属性为 true，则将处理任何没有 Alpha 通道的图像
+   * 就好像它们的 alpha 在所有地方都是 1.0 一样。 当此属性为 false 时，内存使用情况
+   * 和纹理上传时间缩短。
    * @memberof SingleTileImageryProvider.prototype
    * @type {boolean}
    * @readonly
@@ -285,18 +285,18 @@ async function doRequest(resource, provider, previousError) {
 /**
  * @typedef {Object} SingleTileImageryProvider.fromUrlOptions
  *
- * Initialization options for the SingleTileImageryProvider constructor when using SingleTileImageryProvider.fromUrl
+ * 使用 SingleTileImageryProvider.fromUrl 时 SingleTileImageryProvider 构造函数的初始化选项
  *
- * @property {Rectangle} [rectangle=Rectangle.MAX_VALUE] The rectangle, in radians, covered by the image.
- * @property {Credit|String} [credit] A credit for the data source, which is displayed on the canvas.
- * @property {Ellipsoid} [ellipsoid] The ellipsoid.  If not specified, the WGS84 ellipsoid is used.
+ * @property {Rectangle} [rectangle=Rectangle.MAX_VALUE] 图像覆盖的矩形，以弧度为单位。
+ * @property {Credit|String} [credit] 数据源的积分，显示在画布上。
+ * @property {Ellipsoid} [ellipsoid] 椭球体。 如果未指定，则使用 WGS84 椭球体。
  */
 
 /**
- * Creates a provider for a single, top-level imagery tile.  The single image is assumed to use a
- * @param {Resource|String} url The url for the tile
+ * 为单个顶级影像切片创建提供程序。 假定单个图像使用
+ * @param {Resource|String} url 磁贴的 URL
  * @param {SingleTileImageryProvider.fromUrlOptions} [options] 描述初始化选项的对象.
- * @returns {Promise.<SingleTileImageryProvider>} The resolved SingleTileImageryProvider.
+ * @returns {Promise.<SingleTileImageryProvider>} 解析的 SingleTileImageryProvider。
  *
  * @example
  * const provider = await SingleTileImageryProvider.fromUrl("https://yoururl.com/image.png");
@@ -321,25 +321,25 @@ SingleTileImageryProvider.fromUrl = async function (url, options) {
 };
 
 /**
- * Gets the credits to be displayed when a given tile is displayed.
+ * 获取在显示给定磁贴时要显示的制作者名单。
  *
- * @param {number} x The tile X coordinate.
- * @param {number} y The tile Y coordinate.
- * @param {number} level The tile level;
- * @returns {Credit[]} The credits to be displayed when the tile is displayed.
+ * @param {number} x 瓦片 X 坐标。
+ * @param {number} y 瓦片 Y 坐标。
+ * @param {number} level 瓦片级别;
+ * @returns {Credit[]} 显示磁贴时要显示的制作者名单。
  */
 SingleTileImageryProvider.prototype.getTileCredits = function (x, y, level) {
   return undefined;
 };
 
 /**
- * Requests the image for a given tile.
+ * 请求给定磁贴的图像。
  *
- * @param {number} x The tile X coordinate.
- * @param {number} y The tile Y coordinate.
- * @param {number} level The tile level.
+ * @param {number} x 瓦片 X 坐标。
+ * @param {number} y 瓦片 Y 坐标。
+ * @param {number} level 瓦片级别。
  * @param {Request} [request] 请求对象。仅供内部使用。
- * @returns {Promise.<ImageryTypes>|undefined} The resolved image
+ * @returns {Promise.<ImageryTypes>|undefined} 解析的镜像
  */
 SingleTileImageryProvider.prototype.requestImage = async function (
   x,
@@ -358,15 +358,15 @@ SingleTileImageryProvider.prototype.requestImage = async function (
 };
 
 /**
- * Picking features is not currently supported by this imagery provider, so this function simply returns
- * undefined.
+ * 此图像提供程序目前不支持选取功能，因此此函数仅返回
+ *定义。
  *
- * @param {number} x The tile X coordinate.
- * @param {number} y The tile Y coordinate.
- * @param {number} level The tile level.
- * @param {number} longitude The longitude at which to pick features.
- * @param {number} latitude  The latitude at which to pick features.
- * @return {undefined} Undefined since picking is not supported.
+ * @param {number} x 瓦片 X 坐标。
+ * @param {number} y 瓦片 Y 坐标。
+ * @param {number} level 瓦片级别。
+ * @param {number} longitude 选取特征的经度。
+ * @param {number} latitude 选取特征的纬度。
+ * @return {undefined} Undefined，因为不支持拣选。
  */
 SingleTileImageryProvider.prototype.pickFeatures = function (
   x,

@@ -7,21 +7,21 @@ import GeographicTilingScheme from "../Core/GeographicTilingScheme.js";
 /**
  * @typedef {object} TileCoordinatesImageryProvider.ConstructorOptions
  *
- * Initialization options for the TileCoordinatesImageryProvider constructor
+ * TileCoordinatesImageryProvider 构造函数的初始化选项
  *
- * @property {TilingScheme} [tilingScheme=new GeographicTilingScheme()] The tiling scheme for which to draw tiles.
- * @property {Ellipsoid} [ellipsoid] The ellipsoid.  If the tilingScheme is specified,
- *                    this parameter is ignored and the tiling scheme's ellipsoid is used instead. If neither
- *                    parameter is specified, the WGS84 ellipsoid is used.
- * @property {Color} [color=Color.YELLOW] The color to draw the tile box and label.
- * @property {number} [tileWidth=256] 宽度 tile for level-of-detail selection purposes.
- * @property {number} [tileHeight=256] 高度 tile for level-of-detail selection purposes.
+ * @property {TilingScheme} [tilingScheme=new GeographicTilingScheme()] 要为其绘制瓦片的平铺方案。
+ * @property {Ellipsoid} [ellipsoid] 椭球体。 如果指定了 tilingScheme，则
+ * 此参数将被忽略，而使用切片方案的椭球体。如果两者都不是
+ * 参数，则使用 WGS84 椭球体。
+ * @property {Color} [color=Color.YELLOW] 绘制瓦片框和标签的颜色。
+ * @property {number} [tileWidth=256] 宽度 tile 用于细节层次选择。
+ * @property {number} [tileHeight=256] 高度图块，用于细节层次选择。
  */
 
 /**
- * An {@link ImageryProvider} that draws a box around every rendered tile in the tiling scheme, and draws
- * a label inside it indicating the X, Y, Level coordinates of the tile.  This is mostly useful for
- * debugging terrain and imagery rendering problems.
+ * 一个 {@link ImageryProvider}，用于在平铺方案中的每个渲染图块周围绘制一个框，并绘制
+ * 内部的标签，指示图块的 X、Y、Level 坐标。 这主要适用于
+ * 调试地形和图像渲染问题。
  *
  * @alias TileCoordinatesImageryProvider
  * @constructor
@@ -53,7 +53,7 @@ function TileCoordinatesImageryProvider(options) {
 
 Object.defineProperties(TileCoordinatesImageryProvider.prototype, {
   /**
-   * Gets the proxy used by this provider.
+   * 获取此提供程序使用的代理。
    * @memberof TileCoordinatesImageryProvider.prototype
    * @type {Proxy}
    * @readonly
@@ -65,7 +65,7 @@ Object.defineProperties(TileCoordinatesImageryProvider.prototype, {
   },
 
   /**
-   * Gets the width of each tile, in pixels.
+   * 获取每个图块的宽度（以像素为单位）。
    * @memberof TileCoordinatesImageryProvider.prototype
    * @type {number}
    * @readonly
@@ -77,7 +77,7 @@ Object.defineProperties(TileCoordinatesImageryProvider.prototype, {
   },
 
   /**
-   * Gets the height of each tile, in pixels.
+   * 获取每个图块的高度（以像素为单位）。
    * @memberof TileCoordinatesImageryProvider.prototype
    * @type {number}
    * @readonly
@@ -89,7 +89,7 @@ Object.defineProperties(TileCoordinatesImageryProvider.prototype, {
   },
 
   /**
-   * Gets the maximum level-of-detail that can be requested.
+   * 获取可请求的最大详细级别。
    * @memberof TileCoordinatesImageryProvider.prototype
    * @type {number|undefined}
    * @readonly
@@ -101,7 +101,7 @@ Object.defineProperties(TileCoordinatesImageryProvider.prototype, {
   },
 
   /**
-   * Gets the minimum level-of-detail that can be requested.
+   * 获取可请求的最小详细级别。
    * @memberof TileCoordinatesImageryProvider.prototype
    * @type {number}
    * @readonly
@@ -113,7 +113,7 @@ Object.defineProperties(TileCoordinatesImageryProvider.prototype, {
   },
 
   /**
-   * Gets the tiling scheme used by this provider.
+   * 获取此提供程序使用的切片方案。
    * @memberof TileCoordinatesImageryProvider.prototype
    * @type {TilingScheme}
    * @readonly
@@ -125,7 +125,7 @@ Object.defineProperties(TileCoordinatesImageryProvider.prototype, {
   },
 
   /**
-   * Gets the rectangle, in radians, of the imagery provided by this instance.
+   * 获取此实例提供的图像的矩形（以弧度为单位）。
    * @memberof TileCoordinatesImageryProvider.prototype
    * @type {Rectangle}
    * @readonly
@@ -137,9 +137,9 @@ Object.defineProperties(TileCoordinatesImageryProvider.prototype, {
   },
 
   /**
-   * Gets the tile discard policy.  If not undefined, the discard policy is responsible
-   * for filtering out "missing" tiles via its shouldDiscardImage function.  If this function
-   * returns undefined, no tiles are filtered.
+   * 获取瓦片丢弃策略。 如果未 undefined，则 discard 策略负责
+   * 用于通过其 shouldDiscardImage 函数过滤掉“缺失”的瓦片。 如果此功能
+   * 返回 undefined，不过滤任何图块。
    * @memberof TileCoordinatesImageryProvider.prototype
    * @type {TileDiscardPolicy}
    * @readonly
@@ -151,9 +151,9 @@ Object.defineProperties(TileCoordinatesImageryProvider.prototype, {
   },
 
   /**
-   * Gets an event that is raised when the imagery provider encounters an asynchronous error.  By subscribing
-   * to the event, you will be notified of the error and can potentially recover from it.  Event listeners
-   * are passed an instance of {@link TileProviderError}.
+   * 获取在影像提供程序遇到异步错误时引发的事件。 通过订阅
+   * 时，您将收到错误通知，并可能从中恢复。 事件侦听器
+   * 将传递 {@link TileProviderError} 的实例。
    * @memberof TileCoordinatesImageryProvider.prototype
    * @type {Event}
    * @readonly
@@ -165,8 +165,8 @@ Object.defineProperties(TileCoordinatesImageryProvider.prototype, {
   },
 
   /**
-   * Gets the credit to display when this imagery provider is active.  Typically this is used to credit
-   * the source of the imagery.
+   * 获取此影像提供程序处于活动状态时要显示的点数。 通常，这用于贷记
+   * 图像的来源。
    * @memberof TileCoordinatesImageryProvider.prototype
    * @type {Credit}
    * @readonly
@@ -178,11 +178,11 @@ Object.defineProperties(TileCoordinatesImageryProvider.prototype, {
   },
 
   /**
-   * Gets a value indicating whether or not the images provided by this imagery provider
-   * include an alpha channel.  If this property is false, an alpha channel, if present, will
-   * be ignored.  If this property is true, any images without an alpha channel will be treated
-   * as if their alpha is 1.0 everywhere.  Setting this property to false reduces memory usage
-   * and texture upload time.
+   * 获取一个值，该值指示此图像提供程序是否提供图像
+   * 包括 Alpha 通道。 如果此属性为 false，则 Alpha 通道（如果存在）将
+   * 被忽略。 如果此属性为 true，则将处理任何没有 Alpha 通道的图像
+   * 就好像它们的 alpha 在所有地方都是 1.0 一样。 将此属性设置为 false 可减少内存使用量
+   * 和纹理上传时间。
    * @memberof TileCoordinatesImageryProvider.prototype
    * @type {boolean}
    * @readonly
@@ -195,12 +195,12 @@ Object.defineProperties(TileCoordinatesImageryProvider.prototype, {
 });
 
 /**
- * Gets the credits to be displayed when a given tile is displayed.
+ * 获取在显示给定磁贴时要显示的制作者名单。
  *
- * @param {number} x The tile X coordinate.
- * @param {number} y The tile Y coordinate.
- * @param {number} level The tile level;
- * @returns {Credit[]} The credits to be displayed when the tile is displayed.
+ * @param {number} x 瓦片 X 坐标。
+ * @param {number} y 瓦片 Y 坐标。
+ * @param {number} level 瓦片级别;
+ * @returns {Credit[]} 显示磁贴时要显示的制作者名单。
  */
 TileCoordinatesImageryProvider.prototype.getTileCredits = function (
   x,
@@ -211,13 +211,13 @@ TileCoordinatesImageryProvider.prototype.getTileCredits = function (
 };
 
 /**
- * Requests the image for a given tile.
+ * 请求给定磁贴的图像。
  *
- * @param {number} x The tile X coordinate.
- * @param {number} y The tile Y coordinate.
- * @param {number} level The tile level.
+ * @param {number} x 瓦片 X 坐标。
+ * @param {number} y 瓦片 Y 坐标。
+ * @param {number} level 瓦片级别。
  * @param {Request} [request] 请求对象。仅供内部使用。
- * @returns {Promise<HTMLCanvasElement>} The resolved image as a Canvas DOM object.
+ * @returns {Promise<HTMLCanvasElement>} 解析为 Canvas DOM 对象的图像。
  */
 TileCoordinatesImageryProvider.prototype.requestImage = function (
   x,
@@ -247,15 +247,15 @@ TileCoordinatesImageryProvider.prototype.requestImage = function (
 };
 
 /**
- * Picking features is not currently supported by this imagery provider, so this function simply returns
- * undefined.
+ * 此图像提供程序目前不支持选取功能，因此此函数仅返回
+ *定义。
  *
- * @param {number} x The tile X coordinate.
- * @param {number} y The tile Y coordinate.
- * @param {number} level The tile level.
- * @param {number} longitude The longitude at which to pick features.
- * @param {number} latitude  The latitude at which to pick features.
- * @return {undefined} Undefined since picking is not supported.
+ * @param {number} x 瓦片 X 坐标。
+ * @param {number} y 瓦片 Y 坐标。
+ * @param {number} level 瓦片级别。
+ * @param {number} longitude 选取特征的经度。
+ * @param {number} latitude 选取特征的纬度。
+ * @return {undefined} Undefined，因为不支持拣选。
  */
 TileCoordinatesImageryProvider.prototype.pickFeatures = function (
   x,

@@ -27,8 +27,8 @@ import SceneMode from "./SceneMode.js";
 import SceneTransforms from "./SceneTransforms.js";
 
 /**
- * Draws a sun billboard.
- * <p>This is only supported in 3D and Columbus view.</p>
+ * 绘制太阳广告牌。
+ * <p>这仅在 3D 和 Columbus 视图中受支持。</p>
  *
  * @alias Sun
  * @constructor
@@ -41,7 +41,7 @@ import SceneTransforms from "./SceneTransforms.js";
  */
 function Sun() {
   /**
-   * Determines if the sun will be shown.
+   * 确定是否显示太阳。
    *
    * @type {boolean}
    * @default true
@@ -84,9 +84,9 @@ function Sun() {
 
 Object.defineProperties(Sun.prototype, {
   /**
-   * Gets or sets a number that controls how "bright" the Sun's lens flare appears
-   * to be.  Zero shows just the Sun's disc without any flare.
-   * Use larger values for a more pronounced flare around the Sun.
+   * 获取或设置一个数字，该数字控制太阳镜头光晕的“亮度”显示
+   * 将要成为。 Zero 只显示太阳的圆盘，没有任何耀斑。
+   * 使用较大的值可获得更明显的太阳周围耀斑。
    *
    * @memberof Sun.prototype
    * @type {number}
@@ -317,12 +317,12 @@ Sun.prototype.update = function (frameState, passState, useHdr) {
 };
 
 /**
- * Returns true if this object was destroyed; otherwise, false.
+ * 如果此对象已销毁，则返回 true;否则为 false。
  * <br /><br />
- * If this object was destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.
+ * 如果此对象已销毁，则不应使用;调用
+ * <code>isDestroyed</code> 将导致 {@link DeveloperError} 异常。
  *
- * @returns {boolean} <code>true</code> if this object was destroyed; otherwise, <code>false</code>.
+ * @returns {boolean} <code>true</code>，如果此对象被销毁;否则为 <code>false</code>。
  *
  * @see Sun#destroy
  */
@@ -332,11 +332,11 @@ Sun.prototype.isDestroyed = function () {
 
 /**
  * Destroys the WebGL resources held by this object.  Destroying an object allows for deterministic
- * release of WebGL resources, instead of relying on the garbage collector to destroy this object.
+ * 释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。
  * <br /><br />
- * Once an object is destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.  Therefore,
- * assign the return value (<code>undefined</code>) to the object as done in the example.
+ * 一旦对象被销毁，就不应该使用它;调用
+ * <code>isDestroyed</code> 将导致 {@link DeveloperError} 异常。 因此
+ * 将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
  *
  * @exception {DeveloperError} 这个物体被摧毁了,destroy().
  *

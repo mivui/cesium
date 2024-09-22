@@ -1,11 +1,11 @@
 import defaultValue from "../Core/defaultValue.js";
 
 /**
- * Image formats supported by the browser.
+ * 浏览器支持的图像格式。
  *
  * @param {object} [options] 对象，具有以下属性:
- * @param {boolean} [options.webp=false] Whether the browser supports WebP images.
- * @param {boolean} [options.basis=false] Whether the browser supports compressed textures required to view KTX2 + Basis Universal images.
+ * @param {boolean} [options.webp=false] 浏览器是否支持 WebP 图片。
+ * @param {boolean} [options.basis=false] 浏览器是否支持查看 KTX2 + Basis Universal 图片所需的压缩纹理。
  *
  * @private
  */

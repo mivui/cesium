@@ -4,13 +4,13 @@ import defaultValue from "../Core/defaultValue.js";
 import CesiumMath from "../Core/Math.js";
 
 /**
- * A ParticleEmitter that emits particles within a sphere.
- * Particles will be positioned randomly within the sphere and have initial velocities emanating from the center of the sphere.
+ * 一个 ParticleEmitter，用于在球体内发射粒子。
+ * 粒子将在球体内随机定位，并具有从球体中心发出的初始速度。
  *
  * @alias SphereEmitter
  * @constructor
  *
- * @param {number} [radius=1.0] The radius of the sphere in meters.
+ * @param {number} [radius=1.0] 球体的半径，以米为单位。
  */
 function SphereEmitter(radius) {
   radius = defaultValue(radius, 1.0);
@@ -24,7 +24,7 @@ function SphereEmitter(radius) {
 
 Object.defineProperties(SphereEmitter.prototype, {
   /**
-   * The radius of the sphere in meters.
+   * 球体的半径（以米为单位）。
    * @memberof SphereEmitter.prototype
    * @type {number}
    * @default 1.0
@@ -43,10 +43,10 @@ Object.defineProperties(SphereEmitter.prototype, {
 });
 
 /**
- * Initializes the given {Particle} by setting it's position and velocity.
+ * 通过设置给定的 {Particle} 的位置和速度来初始化它。
  *
  * @private
- * @param {Particle} particle The particle to initialize
+ * @param {Particle} particle 要初始化的粒子
  */
 SphereEmitter.prototype.emit = function (particle) {
   const theta = CesiumMath.randomBetween(0.0, CesiumMath.TWO_PI);

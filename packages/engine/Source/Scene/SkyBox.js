@@ -23,18 +23,18 @@ import BlendingState from "./BlendingState.js";
 import SceneMode from "./SceneMode.js";
 
 /**
- * A sky box around the scene to draw stars.  The sky box is defined using the True Equator Mean Equinox (TEME) axes.
+ * 场景周围的天空框用于绘制星星。 天空盒使用真赤道平均分 （TEME） 轴定义。
  * <p>
- * This is only supported in 3D.  The sky box is faded out when morphing to 2D or Columbus view.  The size of
- * the sky box must not exceed {@link Scene#maximumCubeMapSize}.
+ * 这仅在 3D 中受支持。 天空盒在变形为 2D 或哥伦布视图时淡出。 的大小
+ * 天空盒不得超过 {@link Scene#maximumCubeMapSize}。
  * </p>
  *
  * @alias SkyBox
  * @constructor
  *
  * @param {object} options 对象，具有以下属性:
- * @param {object} [options.sources] The source URL or <code>Image</code> object for each of the six cube map faces.  See the example below.
- * @param {boolean} [options.show=true] Determines if this primitive will be shown.
+ * @param {object} [options.sources] 六个立方体贴图面中每个面的源 URL 或 <code>Image</code> 对象。 请参阅下面的示例。
+ * @param {boolean} [options.show=true] 决定是否显示此基元。
  *
  *
  * @example
@@ -54,10 +54,10 @@ import SceneMode from "./SceneMode.js";
  */
 function SkyBox(options) {
   /**
-   * The sources used to create the cube map faces: an object
-   * with <code>positiveX</code>, <code>negativeX</code>, <code>positiveY</code>,
-   * <code>negativeY</code>, <code>positiveZ</code>, and <code>negativeZ</code> properties.
-   * These can be either URLs or <code>Image</code> objects.
+   * 用于创建立方体贴图面的源：对象
+   * 与 <code>positiveX</code>、<code>negativeX</code>、<code>positiveY</code>、
+   * <code>negativeY</code>、<code>positiveZ</code> 和 <code>negativeZ</code> 属性。
+   * 这些可以是 URL 或 <code>Image</code> 对象。
    *
    * @type {object}
    * @default undefined
@@ -66,7 +66,7 @@ function SkyBox(options) {
   this._sources = undefined;
 
   /**
-   * Determines if the sky box will be shown.
+   * 确定是否显示天空框。
    *
    * @type {boolean}
    * @default true
@@ -84,11 +84,11 @@ function SkyBox(options) {
 }
 
 /**
- * Called when {@link Viewer} or {@link CesiumWidget} render the scene to
- * get the draw commands needed to render this primitive.
+ * 当 {@link Viewer} 或 {@link CesiumWidget} 将场景渲染到
+ * 获取渲染此基元所需的绘制命令。
  * <p>
- * Do not call this function directly.  This is documented just to
- * list the exceptions that may be propagated when the scene is rendered:
+ * 请勿直接调用此函数。 这记录下来只是为了
+ * 列出渲染场景时可能传播的异常：
  * </p>
  *
  * @exception {DeveloperError} this.sources is required and must have positiveX, negativeX, positiveY, negativeY, positiveZ, and negativeZ properties.
@@ -207,12 +207,12 @@ SkyBox.prototype.update = function (frameState, useHdr) {
 };
 
 /**
- * Returns true if this object was destroyed; otherwise, false.
+ * 如果此对象已销毁，则返回 true;否则为 false。
  * <br /><br />
- * If this object was destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.
+ * 如果此对象已销毁，则不应使用;调用
+ *  <code>isDestroyed</code> 将导致 {@link DeveloperError} 异常。
  *
- * @returns {boolean} <code>true</code> if this object was destroyed; otherwise, <code>false</code>.
+ * @returns {boolean} <code>true</code>，如果此对象被销毁;否则为 <code>false</code>。
  *
  * @see SkyBox#destroy
  */
@@ -221,12 +221,12 @@ SkyBox.prototype.isDestroyed = function () {
 };
 
 /**
- * Destroys the WebGL resources held by this object.  Destroying an object allows for deterministic
- * release of WebGL resources, instead of relying on the garbage collector to destroy this object.
+ * 销毁此对象持有的 WebGL 资源。 销毁对象允许确定性
+ * 释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。
  * <br /><br />
- * Once an object is destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.  Therefore,
- * assign the return value (<code>undefined</code>) to the object as done in the example.
+ * 一旦对象被销毁，就不应该使用它;调用
+ * <code>isDestroyed</code> 将导致 {@link DeveloperError} 异常。 因此
+ * 将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
  *
  * @exception {DeveloperError} 这个物体被摧毁了,destroy().
  *
@@ -250,8 +250,8 @@ function getDefaultSkyBoxUrl(suffix) {
 }
 
 /**
- * Creates a skybox instance with the default starmap for the Earth.
- * @return {SkyBox} The default skybox for the Earth
+ * 使用地球的默认星图创建天空盒实例。
+ * @return {SkyBox} 地球的默认天空盒
  *
  * @example
  * viewer.scene.skyBox = Cesium.SkyBox.createEarthSkyBox();

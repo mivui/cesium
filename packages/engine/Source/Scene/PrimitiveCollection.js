@@ -6,16 +6,16 @@ import DeveloperError from "../Core/DeveloperError.js";
 import Event from "../Core/Event.js";
 
 /**
- * A collection of primitives.  This is most often used with {@link Scene#primitives},
- * but <code>PrimitiveCollection</code> is also a primitive itself so collections can
- * be added to collections forming a hierarchy.
+ * 基元的集合。 这最常与 {@link Scene#primitives} 一起使用。
+ * 但 <code>PrimitiveCollection</code> 本身也是一个基元，因此集合可以
+ * 添加到形成层次结构的集合中。
  *
  * @alias PrimitiveCollection
  * @constructor
  *
  * @param {object} [options] 对象，具有以下属性:
- * @param {boolean} [options.show=true] Determines if the primitives in the collection will be shown.
- * @param {boolean} [options.destroyPrimitives=true] Determines if primitives in the collection are destroyed when they are removed.
+ * @param {boolean} [options.show=true] 确定是否显示集合中的基元。
+ * @param {boolean} [options.destroyPrimitives=true] 确定集合中的基元在被删除时是否被销毁。
  *
  * @example
  * const billboards = new Cesium.BillboardCollection();
@@ -39,7 +39,7 @@ function PrimitiveCollection(options) {
   this._zIndex = undefined;
 
   /**
-   * Determines if primitives in this collection will be shown.
+   * 确定是否显示此集合中的基元。
    *
    * @type {boolean}
    * @default true
@@ -47,9 +47,9 @@ function PrimitiveCollection(options) {
   this.show = defaultValue(options.show, true);
 
   /**
-   * Determines if primitives in the collection are destroyed when they are removed by
-   * {@link PrimitiveCollection#destroy} or  {@link PrimitiveCollection#remove} or implicitly
-   * by {@link PrimitiveCollection#removeAll}.
+   * 确定集合中的基元在被
+   * {@link PrimitiveCollection#destroy} 或 {@link PrimitiveCollection#remove} 或隐式
+   * 由 {@link PrimitiveCollection#removeAll} 提供。
    *
    * @type {boolean}
    * @default true
@@ -75,7 +75,7 @@ function PrimitiveCollection(options) {
 
 Object.defineProperties(PrimitiveCollection.prototype, {
   /**
-   * Gets the number of primitives in the collection.
+   * 获取集合中的基元数。
    *
    * @memberof PrimitiveCollection.prototype
    *
@@ -89,8 +89,8 @@ Object.defineProperties(PrimitiveCollection.prototype, {
   },
 
   /**
-   * An event that is raised when a primitive is added to the collection.
-   * Event handlers are passed the primitive that was added.
+   * 将基元添加到集合时引发的事件。
+   * 事件处理程序将传递已添加的原语。
    * @memberof PrimitiveCollection.prototype
    * @type {Event}
    * @readonly
@@ -102,10 +102,10 @@ Object.defineProperties(PrimitiveCollection.prototype, {
   },
 
   /**
-   * An event that is raised when a primitive is removed from the collection.
-   * Event handlers are passed the primitive that was removed.
+   * 从集合中删除原语时引发的事件。
+   * 事件处理程序将传递已删除的原语。
    * <p>
-   * Note: Depending on the destroyPrimitives constructor option, the primitive may already be destroyed.
+   * 注意：根据 destroyPrimitives 构造函数选项，基元可能已经被销毁。
    * </p>
    * @memberof PrimitiveCollection.prototype
    * @type {Event}
@@ -119,11 +119,11 @@ Object.defineProperties(PrimitiveCollection.prototype, {
 });
 
 /**
- * Adds a primitive to the collection.
+ * 向集合中添加基元。
  *
- * @param {object} primitive The primitive to add.
- * @param {number} [index] The index to add the layer at.  If omitted, the primitive will be added at the bottom of all existing primitives.
- * @returns {object} The primitive added to the collection.
+ * @param {object} primitive 要添加的基元。
+ * @param {number} [index] 要添加层的索引。 如果省略，则基元将添加到所有现有基元的底部。
+ * @returns {object} 添加到集合中的基元。
  *
  * @exception {DeveloperError} 这个物体被摧毁了,destroy().
  *
@@ -166,10 +166,10 @@ PrimitiveCollection.prototype.add = function (primitive, index) {
 };
 
 /**
- * Removes a primitive from the collection.
+ * 从集合中删除基元。
  *
- * @param {object} [primitive] The primitive to remove.
- * @returns {boolean} <code>true</code> if the primitive was removed; <code>false</code> if the primitive is <code>undefined</code> or was not found in the collection.
+ * @param {object} [primitive] 要删除的基元。
+ * @returns {boolean} <code>true</code>（如果基元已被删除）;<code>如果</code>基元<code>未定义</code>或在集合中找不到，则为 false。
  *
  * @exception {DeveloperError} 这个物体被摧毁了,destroy().
  *
@@ -204,7 +204,7 @@ PrimitiveCollection.prototype.remove = function (primitive) {
 };
 
 /**
- * Removes and destroys a primitive, regardless of destroyPrimitives setting.
+ * 删除并销毁基元，而不管 destroyPrimitives 设置如何。
  * @private
  */
 PrimitiveCollection.prototype.removeAndDestroy = function (primitive) {
@@ -216,7 +216,7 @@ PrimitiveCollection.prototype.removeAndDestroy = function (primitive) {
 };
 
 /**
- * Removes all primitives in the collection.
+ * 删除集合中的所有基元。
  *
  * @exception {DeveloperError} 这个物体被摧毁了,destroy().
  *
@@ -238,10 +238,10 @@ PrimitiveCollection.prototype.removeAll = function () {
 };
 
 /**
- * Determines if this collection contains a primitive.
+ * 确定此集合是否包含基元。
  *
- * @param {object} [primitive] The primitive to check for.
- * @returns {boolean} <code>true</code> if the primitive is in the collection; <code>false</code> if the primitive is <code>undefined</code> or was not found in the collection.
+ * @param {object} [primitive] 要检查的原语。
+ * @returns {boolean} <code>true</code>，如果原语在集合中;<code>如果</code>基元<code>未定义</code>或在集合中找不到，则为 false。
  *
  * @exception {DeveloperError} 这个物体被摧毁了,destroy().
  *
@@ -267,12 +267,12 @@ function getPrimitiveIndex(compositePrimitive, primitive) {
 }
 
 /**
- * Raises a primitive "up one" in the collection.  If all primitives in the collection are drawn
- * on the globe surface, this visually moves the primitive up one.
+ * 在集合中提升一个原始变量 “up one”。 如果集合中的所有基元都已绘制
+ * 在地球表面上，这会在视觉上将基元向上移动 1。
  *
- * @param {object} [primitive] The primitive to raise.
+ * @param {object} [primitive] 要引发的原语。
  *
- * @exception {DeveloperError} primitive is not in this collection.
+ * @exception {DeveloperError} 原语不在此集合中。
  * @exception {DeveloperError} 这个物体被摧毁了,destroy().
  *
  * @see PrimitiveCollection#raiseToTop
@@ -293,10 +293,10 @@ PrimitiveCollection.prototype.raise = function (primitive) {
 };
 
 /**
- * Raises a primitive to the "top" of the collection.  If all primitives in the collection are drawn
- * on the globe surface, this visually moves the primitive to the top.
+ * 将原语提升到集合的 “top” 位置。 如果集合中的所有基元都已绘制
+ * 在地球曲面上，这会在视觉上将基元移动到顶部。
  *
- * @param {object} [primitive] The primitive to raise the top.
+ * @param {object} [primitive] 用于抬高顶部的基元。
  *
  * @exception {DeveloperError} primitive is not in this collection.
  * @exception {DeveloperError} 这个物体被摧毁了,destroy().
@@ -319,10 +319,10 @@ PrimitiveCollection.prototype.raiseToTop = function (primitive) {
 };
 
 /**
- * Lowers a primitive "down one" in the collection.  If all primitives in the collection are drawn
- * on the globe surface, this visually moves the primitive down one.
+ * 降低集合中的基元 “down one”。 如果集合中的所有基元都已绘制
+ * 在地球表面上，这会在视觉上将基元向下移动 1。
  *
- * @param {object} [primitive] The primitive to lower.
+ * @param {object} [primitive] 要降低的原语。
  *
  * @exception {DeveloperError} primitive is not in this collection.
  * @exception {DeveloperError} 这个物体被摧毁了,destroy().
@@ -345,10 +345,10 @@ PrimitiveCollection.prototype.lower = function (primitive) {
 };
 
 /**
- * Lowers a primitive to the "bottom" of the collection.  If all primitives in the collection are drawn
- * on the globe surface, this visually moves the primitive to the bottom.
+ * 将基元降低到集合的 “bottom”。 如果集合中的所有基元都已绘制
+ * 在地球表面上，这会在视觉上将基元移动到底部。
  *
- * @param {object} [primitive] The primitive to lower to the bottom.
+ * @param {object} [primitive] 要降低到底部的基元。
  *
  * @exception {DeveloperError} primitive is not in this collection.
  * @exception {DeveloperError} 这个物体被摧毁了,destroy().
@@ -371,10 +371,10 @@ PrimitiveCollection.prototype.lowerToBottom = function (primitive) {
 };
 
 /**
- * Returns the primitive in the collection at the specified index.
+ * 返回集合中指定索引处的基元。
  *
- * @param {number} index The zero-based index of the primitive to return.
- * @returns {object} The primitive at the <code>index</code>.
+ * @param {number} index 要返回的基元的从零开始的索引。
+ * @returns {object} <code>索引</code>处的原语。
  *
  * @exception {DeveloperError} 这个物体被摧毁了,destroy().
  *
@@ -466,12 +466,12 @@ PrimitiveCollection.prototype.postPassesUpdate = function (frameState) {
 };
 
 /**
- * Returns true if this object was destroyed; otherwise, false.
+ * 如果此对象已销毁，则返回 true;否则为 false。
  * <br /><br />
- * If this object was destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.
+ * 如果此对象已销毁，则不应使用;调用
+ *  <code>isDestroyed</code> 将导致 {@link DeveloperError} 异常。
  *
- * @returns {boolean} True if this object was destroyed; otherwise, false.
+ * @returns {boolean} 如果此对象被销毁，则为 True;否则为 false。
  *
  * @see PrimitiveCollection#destroy
  */
@@ -480,16 +480,16 @@ PrimitiveCollection.prototype.isDestroyed = function () {
 };
 
 /**
- * Destroys the WebGL resources held by each primitive in this collection.  Explicitly destroying this
- * collection allows for deterministic release of WebGL resources, instead of relying on the garbage
- * collector to destroy this collection.
+ * 销毁此集合中每个基元所持有的 WebGL 资源。 显式销毁此
+ * collection 允许确定性地释放 WebGL 资源，而不是依赖垃圾
+ * collector 销毁此集合。
  * <br /><br />
- * Since destroying a collection destroys all the contained primitives, only destroy a collection
- * when you are sure no other code is still using any of the contained primitives.
+ * 由于销毁集合会销毁所有包含的原语，因此只销毁集合
+ * 当您确定没有其他代码仍在使用任何包含的基元时。
  * <br /><br />
- * Once this collection is destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.  Therefore,
- * assign the return value (<code>undefined</code>) to the object as done in the example.
+ * 此集合一旦销毁，就不应使用;调用
+ * <code>isDestroyed</code> 将导致 {@link DeveloperError} 异常。 因此
+ * 将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
  *
  * @exception {DeveloperError} 这个物体被摧毁了,destroy().
  *
