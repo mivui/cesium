@@ -1,12 +1,12 @@
 import CesiumMath from "./Math.js";
 
 /**
- * Resizes an image to ensure both width and height are powers of 2.
- * NOTE: The input image is resampled larger, rather than padded.
- * The aspect ratio of the image may change.
+ * 调整图像大小以确保宽度和高度均为 2 的幂。
+ * 注意：输入图像的重新采样更大，而不是填充。
+ * 图像的纵横比可能会发生变化。
  *
- * @param {HTMLImageElement|HTMLCanvasElement} image The image to be resized
- * @returns {HTMLCanvasElement} A new canvas with the resized image drawn to it
+ * @param {HTMLImageElement|HTMLCanvasElement} image 要调整大小的图片
+ * @returns {HTMLCanvasElement} 绘制了调整大小后的图像的新画布
  *
  * @private
  */

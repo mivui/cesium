@@ -4,21 +4,21 @@ import RequestState from "./RequestState.js";
 import RequestType from "./RequestType.js";
 
 /**
- * Stores information for making a request. In general this does not need to be constructed directly.
+* 存储用于发出请求的信息。通常，这不需要直接构造。
  *
  * @alias Request
  * @constructor
 
  * @param {object} [options]  对象，具有以下属性:
- * @param {string} [options.url] The url to request.
- * @param {Request.RequestCallback} [options.requestFunction] The function that makes the actual data request.
- * @param {Request.CancelCallback} [options.cancelFunction] The function that is called when the request is cancelled.
- * @param {Request.PriorityCallback} [options.priorityFunction] The function that is called to update the request's priority, which occurs once per frame.
- * @param {number} [options.priority=0.0] The initial priority of the request.
- * @param {boolean} [options.throttle=false] Whether to throttle and prioritize the request. If false, the request will be sent immediately. If true, the request will be throttled and sent based on priority.
- * @param {boolean} [options.throttleByServer=false] Whether to throttle the request by server.
- * @param {RequestType} [options.type=RequestType.OTHER] The type of request.
- * @param {string} [options.serverKey] A key used to identify the server that a request is going to.
+* @param {string} [options.url] 要请求的 URL。
+ * @param {Request.RequestCallback} [options.requestFunction] 发出实际数据请求的函数。
+ * @param {Request.CancelCallback} [options.cancelFunction] 取消请求时调用的函数。
+ * @param {Request.PriorityCallback} [options.priorityFunction] 为更新请求的优先级而调用的函数，每帧发生一次。
+ * @param {number} [options.priority=0.0] 请求的初始优先级。
+ * @param {boolean} [options.throttle=false] 是否限制请求并确定其优先级。如果为 false，则会立即发送请求。如果为 true，则请求将被限制并根据优先级发送。
+ * @param {boolean} [options.throttleByServer=false] 是否按服务器限制请求。
+ * @param {RequestType} [options.type=RequestType.OTHER] 请求的类型。
+ * @param {string} [options.serverKey] 用于标识请求将要发送到的服务器的键。
  */
 function Request(options) {
   options = defaultValue(options, defaultValue.EMPTY_OBJECT);
@@ -27,39 +27,39 @@ function Request(options) {
   const throttle = defaultValue(options.throttle, false);
 
   /**
-   * The URL to request.
+   * 要请求的 URL。
    *
    * @type {string}
    */
   this.url = options.url;
 
   /**
-   * The function that makes the actual data request.
+   * 发出实际数据请求的函数。
    *
    * @type {Request.RequestCallback}
    */
   this.requestFunction = options.requestFunction;
 
   /**
-   * The function that is called when the request is cancelled.
+   * 取消请求时调用的函数。
    *
    * @type {Request.CancelCallback}
    */
   this.cancelFunction = options.cancelFunction;
 
   /**
-   * The function that is called to update the request's priority, which occurs once per frame.
+   * 为更新请求的优先级而调用的函数，每帧发生一次。
    *
    * @type {Request.PriorityCallback}
    */
   this.priorityFunction = options.priorityFunction;
 
   /**
-   * Priority is a unit-less value where lower values represent higher priority.
-   * For world-based objects, this is usually the distance from the camera.
-   * A request that does not have a priority function defaults to a priority of 0.
+   * 优先级是无单位的值，其中较低的值表示较高的优先级。
+   * 对于基于世界的对象，这通常是与摄像机的距离。
+   * 没有优先级函数的请求默认为优先级 0。
    *
-   * If priorityFunction is defined, this value is updated every frame with the result of that call.
+   * 如果定义了 priorityFunction，则使用该调用的结果在每一帧中更新此值。
    *
    * @type {number}
    * @default 0.0
@@ -67,8 +67,8 @@ function Request(options) {
   this.priority = defaultValue(options.priority, 0.0);
 
   /**
-   * Whether to throttle and prioritize the request. If false, the request will be sent immediately. If true, the
-   * request will be throttled and sent based on priority.
+   * 是否限制请求并确定请求的优先级。如果为 false，则会立即发送请求。如果为 true，则
+   * 请求将受到限制，并根据优先级发送。
    *
    * @type {boolean}
    * @readonly
@@ -78,9 +78,9 @@ function Request(options) {
   this.throttle = throttle;
 
   /**
-   * Whether to throttle the request by server. Browsers typically support about 6-8 parallel connections
-   * for HTTP/1 servers, and an unlimited amount of connections for HTTP/2 servers. Setting this value
-   * to <code>true</code> is preferable for requests going through HTTP/1 servers.
+   * 是否按服务器限制请求。浏览器通常支持大约 6-8 个并行连接
+   * 对于 HTTP/1 服务器，对于 HTTP/2 服务器，连接数量不受限制。设置此值
+   * 对于通过 HTTP/1 服务器的请求，最好设置为 <code>true</code>。
    *
    * @type {boolean}
    * @readonly
@@ -100,7 +100,7 @@ function Request(options) {
   this.type = defaultValue(options.type, RequestType.OTHER);
 
   /**
-   * A key used to identify the server that a request is going to. It is derived from the url's authority and scheme.
+   * 用于标识请求将要发送到的服务器的密钥。它派生自 url 的 authority 和 scheme。
    *
    * @type {string}
    *
@@ -109,7 +109,7 @@ function Request(options) {
   this.serverKey = options.serverKey;
 
   /**
-   * The current state of the request.
+   * 请求的当前状态。
    *
    * @type {RequestState}
    * @readonly
@@ -117,7 +117,7 @@ function Request(options) {
   this.state = RequestState.UNISSUED;
 
   /**
-   * The requests's deferred promise.
+   * 请求的延迟承诺。
    *
    * @type {object}
    *
@@ -126,7 +126,7 @@ function Request(options) {
   this.deferred = undefined;
 
   /**
-   * Whether the request was explicitly cancelled.
+   * 请求是否已明确取消。
    *
    * @type {boolean}
    *
@@ -136,7 +136,7 @@ function Request(options) {
 }
 
 /**
- * Mark the request as cancelled.
+ * 将请求标记为已取消。
  *
  * @private
  */
@@ -145,11 +145,11 @@ Request.prototype.cancel = function () {
 };
 
 /**
- * 复制Request instance.
+ * 复制Request实例。
  *
  * @param {Request} [result] 要在其上存储结果的对象。
  *
- * @returns {Request} 修改后的结果参数 or a new Resource instance if one was not provided.
+ * @returns {Request} 修改后的结果参数或者新的 Resource 实例（如果未提供）。
  */
 Request.prototype.clone = function (result) {
   if (!defined(result)) {
@@ -175,19 +175,19 @@ Request.prototype.clone = function (result) {
 };
 
 /**
- * The function that makes the actual data request.
+ * 发出实际数据请求的函数。
  * @callback Request.RequestCallback
- * @returns {Promise<void>} A promise for the requested data.
+ * @returns {Promise<void>} 请求数据的 Promise。
  */
 
 /**
- * The function that is called when the request is cancelled.
+ * 在 the request is cancelled.
  * @callback Request.CancelCallback
  */
 
 /**
- * The function that is called to update the request's priority, which occurs once per frame.
+ * 为更新请求的优先级而调用的函数，每帧发生一次。
  * @callback Request.PriorityCallback
- * @returns {number} The updated priority value.
+ * @returns {number} 更新的优先级值。
  */
 export default Request;

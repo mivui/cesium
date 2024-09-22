@@ -1,11 +1,11 @@
 /**
- * Constants for identifying well-known reference frames.
+ * 用于识别已知参考系的常量。
  *
  * @enum {number}
  */
 const ReferenceFrame = {
   /**
-   * The fixed frame.
+   * 固定框架。
    *
    * @type {number}
    * @constant
@@ -13,7 +13,7 @@ const ReferenceFrame = {
   FIXED: 0,
 
   /**
-   * The inertial frame.
+   * 惯性系。
    *
    * @type {number}
    * @constant
