@@ -6,11 +6,11 @@ import Rectangle from "./Rectangle.js";
 import Resource from "./Resource.js";
 
 /**
- * Provides geocoding via a {@link https://pelias.io/|Pelias} server.
+ * 通过 {@link https://pelias.io/|Pelias} 服务器。
  * @alias PeliasGeocoderService
  * @constructor
  *
- * @param {Resource|string} url The endpoint to the Pelias server.
+ * @param {Resource|string} url Pelias 服务器的终端节点。
  *
  * @example
  * // Configure a Viewer to use the Pelias server hosted by https://geocode.earth/
@@ -34,7 +34,7 @@ function PeliasGeocoderService(url) {
 
 Object.defineProperties(PeliasGeocoderService.prototype, {
   /**
-   * The Resource used to access the Pelias endpoint.
+   * 用于访问 Pelias 端点的 Resource。
    * @type {Resource}
    * @memberof PeliasGeocoderService.prototype
    * @readonly
@@ -62,7 +62,7 @@ Object.defineProperties(PeliasGeocoderService.prototype, {
  * @function
  *
  * @param {string} query 要发送到地理编码器服务的查询
- * @param {GeocodeType} [type=GeocodeType.SEARCH] The type of geocode to perform.
+ * @param {GeocodeType} [type=GeocodeType.SEARCH] 要执行的地理编码类型。
  * @returns {Promise<GeocoderService.Result[]>}
  */
 PeliasGeocoderService.prototype.geocode = async function (query, type) {

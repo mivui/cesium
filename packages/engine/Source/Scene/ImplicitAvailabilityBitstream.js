@@ -11,7 +11,7 @@ import RuntimeError from "../Core/RuntimeError.js";
  * @alias ImplicitAvailabilityBitstream
  * @constructor
  *
- * @param {object} options An 对象，具有以下属性:
+ * @param {object} options  对象，具有以下属性:
  * @param {number} options.lengthBits The length of the bitstream in bits
  * @param {boolean} [options.constant] A single boolean value indicating the value of all the bits in the bitstream if they are all the same
  * @param {Uint8Array} [options.bitstream] An array of bytes storing the bitstream in binary

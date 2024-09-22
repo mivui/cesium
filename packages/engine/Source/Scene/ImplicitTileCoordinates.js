@@ -38,7 +38,7 @@ import ImplicitSubdivisionScheme from "./ImplicitSubdivisionScheme.js";
  * @alias ImplicitTileCoordinates
  * @constructor
  *
- * @param {object} options An 对象，具有以下属性:
+ * @param {object} options  对象，具有以下属性:
  * @param {ImplicitSubdivisionScheme} options.subdivisionScheme Whether the coordinates are for a quadtree or octree
  * @param {number} options.subtreeLevels The number of distinct levels within the coordinate's subtree
  * @param {number} options.level The level of a tile relative to the tile with the extension

@@ -8,21 +8,21 @@ import CesiumMath from "./Math.js";
 import Matrix4 from "./Matrix4.js";
 
 /**
- * The viewing frustum is defined by 6 planes.
- * Each plane is represented by a {@link Cartesian4} object, where the x, y, and z components
- * define the unit vector normal to the plane, and the w component is the distance of the
- * plane from the origin/camera position.
+ * 视锥体由 6 个平面定义。
+ * 每个平面都由一个 {@link Cartesian4} 对象表示，其中 x、y 和 z 分量
+ * 定义垂直于平面的单位向量，w 分量是
+ * 从原点/相机位置开始的平面。
  *
  * @alias OrthographicOffCenterFrustum
  * @constructor
  *
- * @param {object} [options] An 对象，具有以下属性:
- * @param {number} [options.left] The left clipping plane distance.
- * @param {number} [options.right] The right clipping plane distance.
- * @param {number} [options.top] The top clipping plane distance.
- * @param {number} [options.bottom] The bottom clipping plane distance.
- * @param {number} [options.near=1.0] The near clipping plane distance.
- * @param {number} [options.far=500000000.0] The far clipping plane distance.
+ * @param {object} [options]  对象，具有以下属性:
+ * @param {number} [options.left] 左剪切平面距离。
+ * @param {number} [options.right] 右剪切平面距离。
+ * @param {number} [options.top] 顶部剪切平面距离。
+ * @param {number} [options.bottom] 底部剪切平面距离。
+ * @param {number} [options.near=1.0] 近裁剪平面距离。
+ * @param {number} [options.far=500000000.0] 远裁剪平面距离。
  *
  * @example
  * const maxRadii = ellipsoid.maximumRadius;
@@ -39,7 +39,7 @@ function OrthographicOffCenterFrustum(options) {
   options = defaultValue(options, defaultValue.EMPTY_OBJECT);
 
   /**
-   * The left clipping plane.
+   * 左剪切平面。
    * @type {number|undefined}
    * @default undefined
    */
@@ -47,7 +47,7 @@ function OrthographicOffCenterFrustum(options) {
   this._left = undefined;
 
   /**
-   * The right clipping plane.
+   * 正确的剪切平面。
    * @type {number|undefined}
    * @default undefined
    */
@@ -55,7 +55,7 @@ function OrthographicOffCenterFrustum(options) {
   this._right = undefined;
 
   /**
-   * The top clipping plane.
+   * 顶部剪切平面。
    * @type {number|undefined}
    * @default undefined
    */
@@ -63,7 +63,7 @@ function OrthographicOffCenterFrustum(options) {
   this._top = undefined;
 
   /**
-   * The bottom clipping plane.
+   * 底部剪切平面。
    * @type {number|undefined}
    * @default undefined
    */
@@ -71,7 +71,7 @@ function OrthographicOffCenterFrustum(options) {
   this._bottom = undefined;
 
   /**
-   * The distance of the near plane.
+   * 近平面的距离。
    * @type {number}
    * @default 1.0
    */
@@ -79,7 +79,7 @@ function OrthographicOffCenterFrustum(options) {
   this._near = this.near;
 
   /**
-   * The distance of the far plane.
+   * 远平面的距离。
    * @type {number}
    * @default 500000000.0;
    */
@@ -148,7 +148,7 @@ function update(frustum) {
 
 Object.defineProperties(OrthographicOffCenterFrustum.prototype, {
   /**
-   * Gets the orthographic projection matrix computed from the view frustum.
+   * 获取从视图视锥体计算的正交投影矩阵。
    * @memberof OrthographicOffCenterFrustum.prototype
    * @type {Matrix4}
    * @readonly
@@ -167,12 +167,12 @@ const getPlanesPoint = new Cartesian3();
 const negateScratch = new Cartesian3();
 
 /**
- * Creates a culling volume for this frustum.
+ * 为此视锥体创建剔除体积。
  *
- * @param {Cartesian3} position The eye position.
- * @param {Cartesian3} direction The view direction.
- * @param {Cartesian3} up The up direction.
- * @returns {CullingVolume} A culling volume at the given position and orientation.
+ * @param {Cartesian3} position 眼睛位置。
+ * @param {Cartesian3} direction 视图方向。
+ * @param {Cartesian3} up 向上方向。
+ * @returns {CullingVolume} 给定位置和方向的剔除体积。
  *
  * @example
  * // Check if a bounding volume intersects the frustum.
@@ -291,14 +291,14 @@ OrthographicOffCenterFrustum.prototype.computeCullingVolume = function (
 };
 
 /**
- * Returns the pixel's width and height in meters.
+ * 返回像素的宽度和高度（以米为单位）。
  *
- * @param {number} drawingBufferWidth The width of the drawing buffer.
- * @param {number} drawingBufferHeight The height of the drawing buffer.
- * @param {number} distance The distance to the near plane in meters.
- * @param {number} pixelRatio The scaling factor from pixel space to coordinate space.
+ * @param {number} drawingBufferWidth 绘图缓冲区的宽度。
+ * @param {number} drawingBufferHeight 绘图缓冲区的高度。
+ * @param {number} distance 到近平面的距离，以米为单位。
+ * @param {number} pixelRatio 从像素空间到坐标空间的缩放因子。
  * @param {Cartesian2} result 要在其上存储结果的对象。
- * @returns {Cartesian2} 修改后的结果参数 or a new instance of {@link Cartesian2} with the pixel's width and height in the x and y properties, respectively.
+ * @returns {Cartesian2} 修改后的结果参数 或 {@link Cartesian2} 的新实例，像素的宽度和高度分别位于 x 和 y 属性中。
  *
  * @exception {DeveloperError} drawingBufferWidth must be greater than zero.
  * @exception {DeveloperError} drawingBufferHeight must be greater than zero.
@@ -355,10 +355,10 @@ OrthographicOffCenterFrustum.prototype.getPixelDimensions = function (
 };
 
 /**
- * Returns a duplicate of a OrthographicOffCenterFrustum instance.
+ * 返回 OrthographicOffCenterFrustum 实例的副本。
  *
  * @param {OrthographicOffCenterFrustum} [result] 要在其上存储结果的对象。
- * @returns {OrthographicOffCenterFrustum} 修改后的结果参数 or a new OrthographicOffCenterFrustum instance if one was not provided.
+ * @returns {OrthographicOffCenterFrustum} 修改后的结果参数或者一个新的 OrthographicOffCenterFrustum 实例（如果未提供）。
  */
 OrthographicOffCenterFrustum.prototype.clone = function (result) {
   if (!defined(result)) {
@@ -384,7 +384,7 @@ OrthographicOffCenterFrustum.prototype.clone = function (result) {
 };
 
 /**
- * Compares the provided OrthographicOffCenterFrustum componentwise and returns
+ * 按组件比较提供的 OrthographicOffCenterFrustum 并返回
  * <code>true</code>，否则为<code>false</code>。
  *
  * @param {OrthographicOffCenterFrustum} [other] 右边 OrthographicOffCenterFrustum.
@@ -404,14 +404,14 @@ OrthographicOffCenterFrustum.prototype.equals = function (other) {
 };
 
 /**
- * Compares the provided OrthographicOffCenterFrustum componentwise and returns
+ * 按组件比较提供的 OrthographicOffCenterFrustum 并返回
  * <code>true</code> 如果它们通过了绝对或相对耐受性测试，
  * <code>false</code> 否则。
  *
  * @param {OrthographicOffCenterFrustum} other 右边 OrthographicOffCenterFrustum.
  * @param {number} relativeEpsilon 用于相等性检验的相对容差。
  * @param {number} [absoluteEpsilon=relativeEpsilon] 用于相等性检验的绝对公差。
- * @returns {boolean} <code>true</code> if this and other are within the provided epsilon, <code>false</code> 否则。
+ * @returns {boolean} <code>true</code> 如果 this 和其他都在提供的 epsilon 内, <code>false</code> 否则。
  */
 OrthographicOffCenterFrustum.prototype.equalsEpsilon = function (
   other,

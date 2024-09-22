@@ -766,7 +766,7 @@ function GpxDataSource() {
  * Creates a Promise to a new instance loaded with the provided GPX data.
  *
  * @param {string|Document|Blob} data A url, parsed GPX document, or Blob containing binary GPX data.
- * @param {object} [options] An 对象，具有以下属性:
+ * @param {object} [options]  对象，具有以下属性:
  * @param {boolean} [options.clampToGround] True if the symbols should be rendered at the same height as the terrain
  * @param {string} [options.waypointImage] Image to use for waypoint billboards.
  * @param {string} [options.trackImage] Image to use for track billboards.
@@ -934,7 +934,7 @@ GpxDataSource.prototype.update = function (time) {
  * Asynchronously loads the provided GPX data, replacing any existing data.
  *
  * @param {string|Document|Blob} data A url, parsed GPX document, or Blob containing binary GPX data or a parsed GPX document.
- * @param {object} [options] An 对象，具有以下属性:
+ * @param {object} [options]  对象，具有以下属性:
  * @param {boolean} [options.clampToGround] True if the symbols should be rendered at the same height as the terrain
  * @param {string} [options.waypointImage] Image to use for waypoint billboards.
  * @param {string} [options.trackImage] Image to use for track billboards.

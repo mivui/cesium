@@ -9,14 +9,14 @@ import Rectangle from "./Rectangle.js";
 import Visibility from "./Visibility.js";
 
 /**
- * Creates an Occluder derived from an object's position and radius, as well as the camera position.
- * The occluder can be used to determine whether or not other objects are visible or hidden behind the
- * visible horizon defined by the occluder and camera position.
+ * 创建从对象的位置和半径以及摄像机位置派生的 Occluder。
+ * 遮挡物可用于确定其他对象是否可见或隐藏在
+ * 由 Occluder 和 Camera Position 定义的可见地平线。
  *
  * @alias Occluder
  *
- * @param {BoundingSphere} occluderBoundingSphere The bounding sphere surrounding the occluder.
- * @param {Cartesian3} cameraPosition The coordinate of the viewer/camera.
+ * @param {BoundingSphere} occluderBoundingSphere 围绕遮挡物的边界球体。
+ * @param {Cartesian3} cameraPosition 查看器/相机的坐标。
  *
  * @constructor
  *
@@ -52,7 +52,7 @@ const scratchCartesian3 = new Cartesian3();
 
 Object.defineProperties(Occluder.prototype, {
   /**
-   * The position of the occluder.
+   * 遮挡物的位置。
    * @memberof Occluder.prototype
    * @type {Cartesian3}
    */
@@ -63,7 +63,7 @@ Object.defineProperties(Occluder.prototype, {
   },
 
   /**
-   * The radius of the occluder.
+   * 遮挡物的半径。
    * @memberof Occluder.prototype
    * @type {number}
    */
@@ -74,7 +74,7 @@ Object.defineProperties(Occluder.prototype, {
   },
 
   /**
-   * The position of the camera.
+   * 相机的位置。
    * @memberof Occluder.prototype
    * @type {Cartesian3}
    */
@@ -136,12 +136,12 @@ Object.defineProperties(Occluder.prototype, {
 });
 
 /**
- * Creates an occluder from a bounding sphere and the camera position.
+ * 从边界球体和相机位置创建遮挡物。
  *
- * @param {BoundingSphere} occluderBoundingSphere The bounding sphere surrounding the occluder.
- * @param {Cartesian3} cameraPosition The coordinate of the viewer/camera.
+ * @param {BoundingSphere} occluderBoundingSphere 围绕遮挡物的边界球体。
+ * @param {Cartesian3} cameraPosition 查看器/相机的坐标。
  * @param {Occluder} [result] 要在其上存储结果的对象。
- * @returns {Occluder} The occluder derived from an object's position and radius, as well as the camera position.
+ * @returns {Occluder} 从对象的位置和半径以及相机位置派生的遮挡物。
  */
 Occluder.fromBoundingSphere = function (
   occluderBoundingSphere,
@@ -208,10 +208,10 @@ Occluder.prototype.isPointVisible = function (occludee) {
 const occludeePositionScratch = new Cartesian3();
 
 /**
- * Determines whether or not a sphere, the <code>occludee</code>, is hidden from view by the occluder.
+ * 确定球体（<code>被遮挡</code>物）是否被遮挡物隐藏。
  *
  * @param {BoundingSphere} occludee 包围被遮挡物体的边界球。
- * @returns {boolean} <code>true</code> if the occludee is visible; otherwise <code>false</code>.
+ * @returns {boolean} 如果 occludee 可见，则为<code> true</code>;否则<code>为 false</code>。
  *
  *
  * @example
@@ -287,12 +287,12 @@ Occluder.prototype.isBoundingSphereVisible = function (occludee) {
 
 const tempScratch = new Cartesian3();
 /**
- * Determine to what extent an occludee is visible (not visible, partially visible,  or fully visible).
+ * 确定被遮挡对象的可见程度 （不可见、部分可见或完全可见）。
  *
- * @param {BoundingSphere} occludeeBS The bounding sphere of the occludee.
- * @returns {Visibility} Visibility.NONE if the occludee is not visible,
- *                       Visibility.PARTIAL if the occludee is partially visible, or
- *                       Visibility.FULL if the occludee is fully visible.
+ * @param {BoundingSphere} occludeeBS 被遮挡对象的边界球体。
+ * @returns {Visibility} Visibility.NONE 如果被遮挡对象不可见，
+ * Visibility.PARTIAL（如果被遮挡对象部分可见），或者
+ * Visibility.FULL（如果被遮挡对象完全可见）。
  *
  *
  * @example
@@ -378,19 +378,19 @@ Occluder.prototype.computeVisibility = function (occludeeBS) {
 
 const occludeePointScratch = new Cartesian3();
 /**
- * Computes a point that can be used as the occludee position to the visibility functions.
- * Use a radius of zero for the occludee radius.  Typically, a user computes a bounding sphere around
- * an object that is used for visibility; however it is also possible to compute a point that if
- * seen/not seen would also indicate if an object is visible/not visible.  This function is better
- * called for objects that do not move relative to the occluder and is large, such as a chunk of
- * terrain.  You are better off not calling this and using the object's bounding sphere for objects
- * such as a satellite or ground vehicle.
+ * 计算可用作可见性函数的遮挡位置的点。
+ * 对遮挡对象半径使用零的半径。 通常，用户会计算一个围绕
+ * 用于可见性的对象;但是，也可以计算一个点，如果
+ * seen/not seen 还将指示对象是否可见/不可见。 这个功能比较好
+ * 适用于不相对于遮挡物移动且较大的对象，例如
+ *地形。 最好不要调用此函数，而是将对象的边界球体用于对象
+ * 例如卫星或地面车辆。
  *
- * @param {BoundingSphere} occluderBoundingSphere The bounding sphere surrounding the occluder.
- * @param {Cartesian3} occludeePosition The point where the occludee (bounding sphere of radius 0) is located.
- * @param {Cartesian3[]} positions List of altitude points on the horizon near the surface of the occluder.
- * @returns {object} An object containing two attributes: <code>occludeePoint</code> and <code>valid</code>
- * which is a boolean value.
+ * @param {BoundingSphere} occluderBoundingSphere 围绕遮挡物的边界球体。
+ * @param {Cartesian3} occludeePosition 被遮挡物（半径为 0 的边界球体）所在的点。
+ * @param {Cartesian3[]} positions 遮挡物表面附近地平线上的高度点列表。
+ * @returns {object} 包含两个属性的对象：<code>occludeePoint</code> 和 <code>valid</code>
+ * 的 Boolean 值。
  *
  * @exception {DeveloperError} <code>positions</code> must contain at least one element.
  * @exception {DeveloperError} <code>occludeePosition</code> must have a value other than <code>occluderBoundingSphere.center</code>.
@@ -496,12 +496,12 @@ Occluder.computeOccludeePoint = function (
 
 const computeOccludeePointFromRectangleScratch = [];
 /**
- * Computes a point that can be used as the occludee position to the visibility functions from a rectangle.
+ * 计算一个点，该点可用作矩形中可见性函数的遮挡位置。
  *
- * @param {Rectangle} rectangle The rectangle used to create a bounding sphere.
- * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] The ellipsoid used to determine positions of the rectangle.
- * @returns {object} An object containing two attributes: <code>occludeePoint</code> and <code>valid</code>
- * which is a boolean value.
+ * @param {Rectangle} rectangle 用于创建边界球体的矩形。
+ * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] 用于确定矩形位置的椭球体。
+ * @returns {object} 包含两个属性的对象：<code>occludeePoint</code> 和 <code>valid</code>
+ * 的 Boolean 值。
  */
 Occluder.computeOccludeePointFromRectangle = function (rectangle, ellipsoid) {
   //>>includeStart('debug', pragmas.debug);

@@ -12,7 +12,7 @@ const defaultSize = new Cartesian2(1.0, 1.0);
  * @alias Particle
  * @constructor
  *
- * @param {object} options An 对象，具有以下属性:
+ * @param {object} options  对象，具有以下属性:
  * @param {number} [options.mass=1.0] The mass of the particle in kilograms.
  * @param {Cartesian3} [options.position=Cartesian3.ZERO] The initial position of the particle in world coordinates.
  * @param {Cartesian3} [options.velocity=Cartesian3.ZERO] The velocity vector of the particle in world coordinates.

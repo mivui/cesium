@@ -16,7 +16,7 @@ import destroyObject from "../Core/destroyObject.js";
  * @alias PostProcessStageComposite
  * @constructor
  *
- * @param {object} options An 对象，具有以下属性:
+ * @param {object} options  对象，具有以下属性:
  * @param {Array} options.stages An array of {@link PostProcessStage}s or composites to be executed in order.
  * @param {boolean} [options.inputPreviousStageTexture=true] Whether to execute each post-process stage where the input to one stage is the output of the previous. Otherwise, the input to each contained stage is the output of the stage that executed before the composite.
  * @param {string} [options.name=createGuid()] The unique name of this post-process stage for reference by other composites. If a name is not supplied, a GUID will be generated.

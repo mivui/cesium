@@ -8,26 +8,26 @@ import Rectangle from "./Rectangle.js";
 import Resource from "./Resource.js";
 
 /**
- * Provides geocoding via a {@link https://opencagedata.com/|OpenCage} server.
+ * 通过 {@link https://opencagedata.com/|OpenCage} 服务器。
  * @alias OpenCageGeocoderService
  * @constructor
  *
- * @param {Resource|string} url The endpoint to the OpenCage server.
- * @param {string} apiKey The OpenCage API Key.
- * @param {object} [params] An object with the following properties (See https://opencagedata.com/api#forward-opt):
- * @param {number} [params.abbrv] When set to 1 we attempt to abbreviate and shorten the formatted string we return.
- * @param {number} [options.add_request] When set to 1 the various request parameters are added to the response for ease of debugging.
- * @param {string} [options.bounds] Provides the geocoder with a hint to the region that the query resides in.
- * @param {string} [options.countrycode] Restricts the results to the specified country or countries (as defined by the ISO 3166-1 Alpha 2 standard).
- * @param {string} [options.jsonp] Wraps the returned JSON with a function name.
- * @param {string} [options.language] An IETF format language code.
- * @param {number} [options.limit] The maximum number of results we should return.
- * @param {number} [options.min_confidence] An integer from 1-10. Only results with at least this confidence will be returned.
- * @param {number} [options.no_annotations] When set to 1 results will not contain annotations.
- * @param {number} [options.no_dedupe] When set to 1 results will not be deduplicated.
- * @param {number} [options.no_record] When set to 1 the query contents are not logged.
- * @param {number} [options.pretty] When set to 1 results are 'pretty' printed for easier reading. Useful for debugging.
- * @param {string} [options.proximity] Provides the geocoder with a hint to bias results in favour of those closer to the specified location (For example: 41.40139,2.12870).
+ * @param {Resource|string} url OpenCage 服务器的端点。
+ * @param {string} apiKey OpenCage API 密钥。
+ * @param {object} [params] 具有以下属性的对象（参见 https://opencagedata.com/api#forward-opt）：
+ * @param {number} [params.abbrv] 当设置为 1 时，我们尝试缩写和缩短我们返回的格式化字符串。
+ * @param {number} [options.add_request] 当设置为 1 时，各种请求参数将添加到响应中，以便于调试。
+ * @param {string} [options.bounds] 为地理编码器提供查询所在区域的提示。
+ * @param {string} [options.countrycode] 将结果限制为指定的一个或多个国家/地区（如 ISO 3166-1 Alpha 2 标准所定义）。
+ * @param {string} [options.jsonp] 用函数名称包装返回的 JSON。
+ * @param {string} [options.language] IETF 格式的语言代码。
+ * @param {number} [options.limit] 我们应该返回的最大结果数。
+ * @param {number} [options.min_confidence] 1-10 之间的整数。只会返回至少具有此置信度的结果。
+ * @param {number} [options.no_annotations] 设置为 1 时，结果将不包含注释。
+ * @param {number} [options.no_dedupe] 设置为 1 时，不会对结果进行重复数据删除。
+ * @param {number} [options.no_record] 设置为 1 时，不记录查询内容。
+ * @param {number} [options.pretty] 当设置为 1 时，结果将打印为 'pretty' 以便于阅读。用于调试。
+ * @param {string} [options.proximity] 为地理编码器提供提示，使结果偏向于更靠近指定位置的结果（例如：41.40139,2.12870）。
  *
  * @example
  * // Configure a Viewer to use the OpenCage Geocoder
@@ -57,7 +57,7 @@ function OpenCageGeocoderService(url, apiKey, params) {
 
 Object.defineProperties(OpenCageGeocoderService.prototype, {
   /**
-   * The Resource used to access the OpenCage endpoint.
+   * 用于访问 OpenCage 终端节点的 Resource。
    * @type {Resource}
    * @memberof OpenCageGeocoderService.prototype
    * @readonly
@@ -68,7 +68,7 @@ Object.defineProperties(OpenCageGeocoderService.prototype, {
     },
   },
   /**
-   * Optional params passed to OpenCage in order to customize geocoding
+   * 传递给 OpenCage 的可选参数，用于自定义地理编码
    * @type {object}
    * @memberof OpenCageGeocoderService.prototype
    * @readonly

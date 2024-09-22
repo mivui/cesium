@@ -4,7 +4,7 @@ import defaultValue from "./defaultValue.js";
 import defined from "./defined.js";
 
 /**
- * Value and type information for per-instance geometry attribute that determines the geometry instance offset
+ * 用于确定几何实例偏移的每实例几何属性的值和类型信息
  *
  * @alias OffsetGeometryInstanceAttribute
  * @constructor
@@ -24,7 +24,7 @@ function OffsetGeometryInstanceAttribute(x, y, z) {
   z = defaultValue(z, 0);
 
   /**
-   * The values for the attributes stored in a typed array.
+   * 存储在类型化数组中的属性的值。
    *
    * @type Float32Array
    */
@@ -33,7 +33,7 @@ function OffsetGeometryInstanceAttribute(x, y, z) {
 
 Object.defineProperties(OffsetGeometryInstanceAttribute.prototype, {
   /**
-   * The datatype of each component in the attribute, e.g., individual elements in
+   * 属性中每个组件的数据类型，例如，其中的单个元素
    * {@link OffsetGeometryInstanceAttribute#value}.
    *
    * @memberof OffsetGeometryInstanceAttribute.prototype
@@ -50,7 +50,7 @@ Object.defineProperties(OffsetGeometryInstanceAttribute.prototype, {
   },
 
   /**
-   * The number of components in the attributes, i.e., {@link OffsetGeometryInstanceAttribute#value}.
+   * 属性中的组件数，即 {@link OffsetGeometryInstanceAttribute#value}。
    *
    * @memberof OffsetGeometryInstanceAttribute.prototype
    *
@@ -66,9 +66,9 @@ Object.defineProperties(OffsetGeometryInstanceAttribute.prototype, {
   },
 
   /**
-   * When <code>true</code> and <code>componentDatatype</code> is an integer format,
-   * indicate that the components should be mapped to the range [0, 1] (unsigned)
-   * or [-1, 1] (signed) when they are accessed as floating-point for rendering.
+   * 当 <code>true</code> 且 <code>componentDatatype</code> 为整数格式时，
+   * 表示组件应映射到范围 [0， 1]（无符号）
+   * 或 [-1， 1]（带符号）当它们作为浮点进行访问以进行渲染时。
    *
    * @memberof OffsetGeometryInstanceAttribute.prototype
    *
@@ -85,10 +85,10 @@ Object.defineProperties(OffsetGeometryInstanceAttribute.prototype, {
 });
 
 /**
- * Creates a new {@link OffsetGeometryInstanceAttribute} instance given the provided an enabled flag and {@link DistanceDisplayCondition}.
+ * 在给定提供的已启用标志和 {@link DistanceDisplayCondition} 的情况下，创建新的 {@link OffsetGeometryInstanceAttribute} 实例。
  *
- * @param {Cartesian3} offset The cartesian offset
- * @returns {OffsetGeometryInstanceAttribute} The new {@link OffsetGeometryInstanceAttribute} instance.
+ * @param {Cartesian3} offset 笛卡尔偏移量
+ * @returns {OffsetGeometryInstanceAttribute} 新的 {@link OffsetGeometryInstanceAttribute} 实例。
  */
 OffsetGeometryInstanceAttribute.fromCartesian3 = function (offset) {
   //>>includeStart('debug', pragmas.debug);
@@ -99,11 +99,11 @@ OffsetGeometryInstanceAttribute.fromCartesian3 = function (offset) {
 };
 
 /**
- * Converts a distance display condition to a typed array that can be used to assign a distance display condition attribute.
+ * 将距离显示条件转换为可用于分配距离显示条件属性的类型化数组。
  *
- * @param {Cartesian3} offset The cartesian offset
- * @param {Float32Array} [result] The array to store the result in, if undefined a new instance will be created.
- * @returns {Float32Array} 修改后的结果参数 or a new instance if result was undefined.
+ * @param {Cartesian3} offset 笛卡尔偏移量
+ * @param {Float32Array} [result] 用于存储结果的数组，如果未定义，将创建一个新实例。
+ * @returns {Float32Array} 修改后的结果参数或新实例（如果 result 未定义）。
  *
  * @example
  * const attributes = primitive.getGeometryInstanceAttributes('an id');

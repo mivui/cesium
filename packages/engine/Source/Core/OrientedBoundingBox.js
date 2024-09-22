@@ -17,15 +17,15 @@ import Plane from "./Plane.js";
 import Rectangle from "./Rectangle.js";
 
 /**
- * Creates an instance of an OrientedBoundingBox.
- * An OrientedBoundingBox of some object is a closed and convex rectangular cuboid. It can provide a tighter bounding volume than {@link BoundingSphere} or {@link AxisAlignedBoundingBox} in many cases.
+ * 创建 OrientedBoundingBox 的实例。
+ * 某个对象的 OrientedBoundingBox 是一个闭合的凸面矩形长方体。在许多情况下，它可以提供比 {@link BoundingSphere} 或 {@link AxisAlignedBoundingBox} 更紧密的边界体积。
  * @alias OrientedBoundingBox
  * @constructor
  *
- * @param {Cartesian3} [center=Cartesian3.ZERO] The center of the box.
- * @param {Matrix3} [halfAxes=Matrix3.ZERO] The three orthogonal half-axes of the bounding box.
- *                                          Equivalently, the transformation matrix, to rotate and scale a 2x2x2
- *                                          cube centered at the origin.
+ * @param {Cartesian3} [center=Cartesian3.ZERO] 盒子的中心。
+ * @param {Matrix3} [halfAxes=Matrix3.ZERO] 边界框的三个正交半轴。
+ * 等效于变换矩阵，用于旋转和缩放 2x2x2
+ * 立方体以原点为中心。
  *
  *
  * @example
@@ -40,15 +40,15 @@ import Rectangle from "./Rectangle.js";
  */
 function OrientedBoundingBox(center, halfAxes) {
   /**
-   * The center of the box.
+   * 框的中心。
    * @type {Cartesian3}
    * @default {@link Cartesian3.ZERO}
    */
   this.center = Cartesian3.clone(defaultValue(center, Cartesian3.ZERO));
   /**
-   * The three orthogonal half-axes of the bounding box. Equivalently, the
-   * transformation matrix, to rotate and scale a 2x2x2 cube centered at the
-   * origin.
+   * 边界框的三个正交半轴。等效地，
+   * 变换矩阵，旋转和缩放以
+   * 起源。
    * @type {Matrix3}
    * @default {@link Matrix3.ZERO}
    */
@@ -126,13 +126,13 @@ const scratchEigenResult = {
 };
 
 /**
- * Computes an instance of an OrientedBoundingBox of the given positions.
- * This is an implementation of Stefan Gottschalk's Collision Queries using Oriented Bounding Boxes solution (PHD thesis).
+ * 计算给定位置的 OrientedBoundingBox 实例。
+ * 这是 Stefan Gottschalk 的 Collision Queries using Oriented Bounding Boxes 解决方案（博士论文）的实现。
  * Reference: http://gamma.cs.unc.edu/users/gottschalk/main.pdf
  *
- * @param {Cartesian3[]} [positions] List of {@link Cartesian3} points that the bounding box will enclose.
+ * @param {Cartesian3[]} [positions] 边界框将包含的 {@link 个 Cartesian3} 点的列表。
  * @param {OrientedBoundingBox} [result] 要在其上存储结果的对象。
- * @returns {OrientedBoundingBox} 修改后的结果参数 or a new OrientedBoundingBox instance if one was not provided.
+ * @returns {OrientedBoundingBox} 修改后的结果参数 或者一个新的 OrientedBoundingBox 实例（如果未提供）。
  *
  * @example
  * // Compute an object oriented bounding box enclosing two points.
@@ -326,15 +326,15 @@ const scratchZ = new Cartesian3();
 const scratchPlane = new Plane(Cartesian3.UNIT_X, 0.0);
 
 /**
- * Computes an OrientedBoundingBox that bounds a {@link Rectangle} on the surface of an {@link Ellipsoid}.
- * There are no guarantees about the orientation of the bounding box.
+ * 计算一个 OrientedBoundingBox，该 BoundingBox 将 {@link Rectangle} 限定在 {@link Ellipsoid} 的表面上。
+ * 无法保证边界框的方向。
  *
- * @param {Rectangle} rectangle The cartographic rectangle on the surface of the ellipsoid.
- * @param {number} [minimumHeight=0.0] The minimum height (elevation) within the tile.
- * @param {number} [maximumHeight=0.0] The maximum height (elevation) within the tile.
- * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] The ellipsoid on which the rectangle is defined.
+ * @param {Rectangle} rectangle 椭球体曲面上的制图矩形。
+ * @param {number} [minimumHeight=0.0] 瓦片内的最小高度（高度）。
+ * @param {number} [maximumHeight=0.0] 瓦片内的最大高度（海拔）。
+ * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] 定义矩形的椭球体。
  * @param {OrientedBoundingBox} [result] 要在其上存储结果的对象。
- * @returns {OrientedBoundingBox} 修改后的结果参数 or a new OrientedBoundingBox instance if none was provided.
+ * @returns {OrientedBoundingBox} 修改后的结果参数或新的 OrientedBoundingBox 实例（如果未提供）。
  *
  * @exception {DeveloperError} rectangle.width must be between 0 and 2 * pi.
  * @exception {DeveloperError} rectangle.height must be between 0 and pi.
@@ -611,11 +611,11 @@ OrientedBoundingBox.fromRectangle = function (
 };
 
 /**
- * Computes an OrientedBoundingBox that bounds an affine transformation.
+ * 计算一个 OrientedBoundingBox，它限制了一个仿射变换。
  *
- * @param {Matrix4} transformation The affine transformation.
+ * @param {Matrix4} transformation 仿射变换。
  * @param {OrientedBoundingBox} [result] 要在其上存储结果的对象。
- * @returns {OrientedBoundingBox} 修改后的结果参数 or a new OrientedBoundingBox instance if none was provided.
+ * @returns {OrientedBoundingBox} 修改后的结果参数或者一个新的 OrientedBoundingBox 实例（如果未提供）。
  */
 OrientedBoundingBox.fromTransformation = function (transformation, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -637,9 +637,9 @@ OrientedBoundingBox.fromTransformation = function (transformation, result) {
 };
 
 /**
- * 复制OrientedBoundingBox instance.
+ * 复制BoundingBox实例。
  *
- * @param {OrientedBoundingBox} box The bounding box to duplicate.
+ * @param {OrientedBoundingBox} box 要复制的边界框。
  * @param {OrientedBoundingBox} [result] 要在其上存储结果的对象。
  * @returns {OrientedBoundingBox} 修改后的结果参数 or a new OrientedBoundingBox instance if none was provided. (Returns undefined if box is undefined)
  */
@@ -659,9 +659,9 @@ OrientedBoundingBox.clone = function (box, result) {
 };
 
 /**
- * Determines which side of a plane the oriented bounding box is located.
+ * 确定定向边界框位于平面的哪一侧。
  *
- * @param {OrientedBoundingBox} box The oriented bounding box to test.
+ * @param {OrientedBoundingBox} box 要测试的定向边界框。
  * @param {Plane} plane 要测试的飞机。
  * @returns {Intersect} {@link Intersect.INSIDE} 如果整个盒子都在飞机的一侧
  *                      法线指向 {@link Intersect.OUTSIDE} 如果整个盒子
@@ -722,11 +722,11 @@ const scratchValidAxis3 = new Cartesian3();
 const scratchPPrime = new Cartesian3();
 
 /**
- * Computes the estimated distance squared from the closest point on a bounding box to a point.
+ * 计算从边界框上最近的点到某个点的估计平方距离。
  *
- * @param {OrientedBoundingBox} box The box.
- * @param {Cartesian3} cartesian The point
- * @returns {number} The distance squared from the oriented bounding box to the point. Returns 0 if the point is inside the box.
+ * @param {OrientedBoundingBox} box 框。
+ * @param {Cartesian3} cartesian 点
+ * @returns {number} 从定向边界框到该点的平方距离。如果点位于框内，则返回 0。
  *
  * @example
  * // Sort bounding boxes from back to front
@@ -878,16 +878,16 @@ const scratchCorner = new Cartesian3();
 const scratchToCenter = new Cartesian3();
 
 /**
- * The distances calculated by the vector from the center of the bounding box to position projected onto direction.
+ * 由向量计算出从边界框中心到投影到方向上的位置的距离。
  * <br>
  * 如果你想象有无限个法线方向的平面，这计算出到
- * closest and farthest planes from position that intersect the bounding box.
+ * 与边界框相交的位置最近和最远的平面。
  *
- * @param {OrientedBoundingBox} box The bounding box to calculate the distance to.
+ * @param {OrientedBoundingBox} box 要计算距离的边界框。
  * @param {Cartesian3} position 要计算距离的位置。
- * @param {Cartesian3} direction The direction from position.
+ * @param {Cartesian3} direction 起始位置的方向。
  * @param {Interval} [result] 存储最近和最远距离的间隔。
- * @returns {Interval} The nearest and farthest distances on the bounding box from position in direction.
+ * @returns {Interval} 边界框上距 direction 位置最近的和最远的距离。
  */
 OrientedBoundingBox.computePlaneDistances = function (
   box,
@@ -1021,11 +1021,11 @@ const scratchYAxis = new Cartesian3();
 const scratchZAxis = new Cartesian3();
 
 /**
- * Computes the eight corners of an oriented bounding box. The corners are ordered by (-X, -Y, -Z), (-X, -Y, +Z), (-X, +Y, -Z), (-X, +Y, +Z), (+X, -Y, -Z), (+X, -Y, +Z), (+X, +Y, -Z), (+X, +Y, +Z).
+ * 计算定向边界框的八个角。角按 （-X， -Y， -Z）、（-X， -Y， +Z）、（-X， +Y， -Z）、（-X， +Y， +Z）、（+X， -Y， -Z）、（+X、-Y、-Z）、（+X、-Y、+Z）、（+X、+Y、+Z） 排序。
  *
- * @param {OrientedBoundingBox} box The oriented bounding box.
- * @param {Cartesian3[]} [result] An array of eight {@link Cartesian3} instances onto which to store the corners.
- * @returns {Cartesian3[]} 修改后的结果参数 or a new array if none was provided.
+ * @param {OrientedBoundingBox} box 定向边界框。
+ * @param {Cartesian3[]} [result] 一个包含八个 {@link Cartesian3} 实例的数组，用于存储角。
+ * @returns {Cartesian3[]} 修改后的结果参数或新数组（如果未提供）。
  */
 OrientedBoundingBox.computeCorners = function (box, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -1097,11 +1097,11 @@ OrientedBoundingBox.computeCorners = function (box, result) {
 const scratchRotationScale = new Matrix3();
 
 /**
- * Computes a transformation matrix from an oriented bounding box.
+ * 从定向边界框计算变换矩阵。
  *
- * @param {OrientedBoundingBox} box The oriented bounding box.
+ * @param {OrientedBoundingBox} box 定向边界框。
  * @param {Matrix4} result 要在其上存储结果的对象。
- * @returns {Matrix4} 修改后的结果参数 or a new {@link Matrix4} instance if none was provided.
+ * @returns {Matrix4} 修改后的结果参数 或者一个新的 {@link Matrix4} 实例（如果未提供）。
  */
 OrientedBoundingBox.computeTransformation = function (box, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -1124,11 +1124,11 @@ OrientedBoundingBox.computeTransformation = function (box, result) {
 const scratchBoundingSphere = new BoundingSphere();
 
 /**
- * Determines whether or not a bounding box is hidden from view by the occluder.
+ * 确定遮挡物是否在视图中隐藏边界框。
  *
- * @param {OrientedBoundingBox} box The bounding box surrounding the occludee object.
+ * @param {OrientedBoundingBox} box 围绕被遮挡对象的边界框。
  * @param {Occluder} occluder The occluder.
- * @returns {boolean} <code>true</code> if the box is not visible; otherwise <code>false</code>.
+ * @returns {boolean} <code>true</code> 如果框不可见;否则<code>为 false</code>。
  */
 OrientedBoundingBox.isOccluded = function (box, occluder) {
   //>>includeStart('debug', pragmas.debug);
@@ -1149,7 +1149,7 @@ OrientedBoundingBox.isOccluded = function (box, occluder) {
 };
 
 /**
- * Determines which side of a plane the oriented bounding box is located.
+ * 确定定向边界框位于平面的哪一侧。
  *
  * @param {Plane} plane 要测试的飞机。
  * @returns {Intersect} {@link Intersect.INSIDE} 如果整个盒子都在飞机的一侧
@@ -1162,9 +1162,9 @@ OrientedBoundingBox.prototype.intersectPlane = function (plane) {
 };
 
 /**
- * Computes the estimated distance squared from the closest point on a bounding box to a point.
+ * 计算从边界框上最近的点到某个点的估计平方距离。
  *
- * @param {Cartesian3} cartesian The point
+ * @param {Cartesian3} cartesian 点
  * @returns {number} 从边界球到该点的估计距离的平方。
  *
  * @example
@@ -1178,15 +1178,15 @@ OrientedBoundingBox.prototype.distanceSquaredTo = function (cartesian) {
 };
 
 /**
- * The distances calculated by the vector from the center of the bounding box to position projected onto direction.
+ * 由向量计算出从边界框中心到投影到方向上的位置的距离。
  * <br>
  * 如果你想象有无限个法线方向的平面，这计算出到
- * closest and farthest planes from position that intersect the bounding box.
+ * 与边界框相交的位置最近和最远的平面。
  *
  * @param {Cartesian3} position 要计算距离的位置。
- * @param {Cartesian3} direction The direction from position.
+ * @param {Cartesian3} direction 起始位置的方向。
  * @param {Interval} [result] 存储最近和最远距离的间隔。
- * @returns {Interval} The nearest and farthest distances on the bounding box from position in direction.
+ * @returns {Interval} 边界框上距 direction 位置最近的和最远的距离。
  */
 OrientedBoundingBox.prototype.computePlaneDistances = function (
   position,
@@ -1202,29 +1202,29 @@ OrientedBoundingBox.prototype.computePlaneDistances = function (
 };
 
 /**
- * Computes the eight corners of an oriented bounding box. The corners are ordered by (-X, -Y, -Z), (-X, -Y, +Z), (-X, +Y, -Z), (-X, +Y, +Z), (+X, -Y, -Z), (+X, -Y, +Z), (+X, +Y, -Z), (+X, +Y, +Z).
+ * 计算定向边界框的八个角。角按 (-X, -Y, -Z), (-X, -Y, +Z), (-X, +Y, -Z), (-X, +Y, +Z), (+X, -Y, -Z), (+X, -Y, +Z), (+X, +Y, -Z), (+X, +Y, +Z).
  *
- * @param {Cartesian3[]} [result] An array of eight {@link Cartesian3} instances onto which to store the corners.
- * @returns {Cartesian3[]} 修改后的结果参数 or a new array if none was provided.
+ * @param {Cartesian3[]} [result] 一个包含八个 {@link Cartesian3} 实例的数组，用于存储角。
+ * @returns {Cartesian3[]} 修改后的结果参数或者一个新数组（如果未提供）。
  */
 OrientedBoundingBox.prototype.computeCorners = function (result) {
   return OrientedBoundingBox.computeCorners(this, result);
 };
 
 /**
- * Computes a transformation matrix from an oriented bounding box.
+ * 从定向边界框计算变换矩阵。
  *
  * @param {Matrix4} result 要在其上存储结果的对象。
- * @returns {Matrix4} 修改后的结果参数 or a new {@link Matrix4} instance if none was provided.
+ * @returns {Matrix4} 修改后的结果参数 或者一个新的 {@link Matrix4} 实例（如果未提供）。
  */
 OrientedBoundingBox.prototype.computeTransformation = function (result) {
   return OrientedBoundingBox.computeTransformation(this, result);
 };
 
 /**
- * Determines whether or not a bounding box is hidden from view by the occluder.
+ * 确定遮挡物是否在视图中隐藏边界框。
  *
- * @param {Occluder} occluder The occluder.
+ * @param {Occluder} occluder 遮挡物。
  * @returns {boolean} <code>true</code>如果球体不可见;否则<code>false</code>。
  */
 OrientedBoundingBox.prototype.isOccluded = function (occluder) {
@@ -1232,11 +1232,11 @@ OrientedBoundingBox.prototype.isOccluded = function (occluder) {
 };
 
 /**
- * Compares the provided OrientedBoundingBox componentwise and returns
+ * 对提供的 OrientedBoundingBox 组件进行比较，并返回
  * <code>true</code>，否则为<code>false</code>。
  *
- * @param {OrientedBoundingBox} left The first OrientedBoundingBox.
- * @param {OrientedBoundingBox} right The second OrientedBoundingBox.
+ * @param {OrientedBoundingBox} left 第一个 OrientedBoundingBox。
+ * @param {OrientedBoundingBox} right 第二个 OrientedBoundingBox。
  * @returns {boolean} <code>true</code>如果左和右相等，否则<code>false</code>。
  */
 OrientedBoundingBox.equals = function (left, right) {
@@ -1250,17 +1250,17 @@ OrientedBoundingBox.equals = function (left, right) {
 };
 
 /**
- * 复制OrientedBoundingBox instance.
+ * 复制OrientedBoundingBox实例。
  *
  * @param {OrientedBoundingBox} [result] 要在其上存储结果的对象。
- * @returns {OrientedBoundingBox} 修改后的结果参数 or a new OrientedBoundingBox instance if one was not provided.
+ * @returns {OrientedBoundingBox} 修改后的结果参数 或者一个新的 OrientedBoundingBox 实例（如果未提供）。
  */
 OrientedBoundingBox.prototype.clone = function (result) {
   return OrientedBoundingBox.clone(this, result);
 };
 
 /**
- * Compares this OrientedBoundingBox against the provided OrientedBoundingBox componentwise and returns
+ * 将此 OrientedBoundingBox 与提供的 OrientedBoundingBox 组件进行比较，并返回
  * <code>true</code>，否则为<code>false</code>。
  *
  * @param {OrientedBoundingBox} [right] 右边 OrientedBoundingBox.

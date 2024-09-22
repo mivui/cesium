@@ -313,7 +313,7 @@ TaskProcessor.prototype.scheduleTask = function (
  * and compiling a web assembly module asynchronously, as well as an optional
  * fallback JavaScript module to use if Web Assembly is not supported.
  *
- * @param {object} [webAssemblyOptions] An 对象，具有以下属性:
+ * @param {object} [webAssemblyOptions]  对象，具有以下属性:
  * @param {string} [webAssemblyOptions.modulePath] The path of the web assembly JavaScript wrapper module.
  * @param {string} [webAssemblyOptions.wasmBinaryFile] The path of the web assembly binary file.
  * @param {string} [webAssemblyOptions.fallbackModulePath] The path of the fallback JavaScript module to use if web assembly is not supported.

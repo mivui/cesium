@@ -1,9 +1,9 @@
 import DeveloperError from "./DeveloperError.js";
 
 /**
- * Static interface for types which can store their values as packed
- * elements in an array.  These methods and properties are expected to be
- * defined on a constructor function.
+ * 静态接口，用于类型，可以将其值存储为 packed
+ * 元素。 这些方法和属性应为
+ * 在构造函数上定义。
  *
  * @interface Packable
  *
@@ -33,7 +33,7 @@ const Packable = {
    * @param {number[]} array 打包数组。
    * @param {number} [startingIndex=0] 要解压缩的元素的起始索引。
    * @param {object} [result] 要在其中存储结果的对象。
-   * @returns {object} 修改后的结果参数 or a new Object instance if one was not provided.
+   * @returns {object} 修改后的结果参数或者一个新的 Object 实例（如果未提供）。
    */
   unpack: DeveloperError.throwInstantiationError,
 };

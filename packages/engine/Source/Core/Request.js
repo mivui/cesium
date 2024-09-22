@@ -9,7 +9,7 @@ import RequestType from "./RequestType.js";
  * @alias Request
  * @constructor
 
- * @param {object} [options] An 对象，具有以下属性:
+ * @param {object} [options]  对象，具有以下属性:
  * @param {string} [options.url] The url to request.
  * @param {Request.RequestCallback} [options.requestFunction] The function that makes the actual data request.
  * @param {Request.CancelCallback} [options.cancelFunction] The function that is called when the request is cancelled.

@@ -1,9 +1,9 @@
 import DeveloperError from "./DeveloperError.js";
 
 /**
- * Static interface for {@link Packable} types which are interpolated in a
- * different representation than their packed value.  These methods and
- * properties are expected to be defined on a constructor function.
+ * 用于 {@link Packable} 类型的静态接口，这些类型在
+ * 与其打包值不同的表示形式。 这些方法和
+ * 应在构造函数上定义属性。
  *
  * @namespace PackableForInterpolation
  *
@@ -11,13 +11,13 @@ import DeveloperError from "./DeveloperError.js";
  */
 const PackableForInterpolation = {
   /**
-   * The number of elements used to store the object into an array in its interpolatable form.
+   * 用于将对象以可插值形式存储到数组中的元素数。
    * @type {number}
    */
   packedInterpolationLength: undefined,
 
   /**
-   * Converts a packed array into a form suitable for interpolation.
+   * 将打包数组转换为适合插值的形式。
    * @function
    *
    * @param {number[]} packedArray 打包数组。
@@ -28,15 +28,15 @@ const PackableForInterpolation = {
   convertPackedArrayForInterpolation: DeveloperError.throwInstantiationError,
 
   /**
-   * Retrieves an instance from a packed array converted with {@link PackableForInterpolation.convertPackedArrayForInterpolation}.
+   * 从使用 {@link PackableForInterpolation.convertPackedArrayForInterpolation}.
    * @function
    *
-   * @param {number[]} array The array previously packed for interpolation.
-   * @param {number[]} sourceArray The original packed array.
-   * @param {number} [startingIndex=0] The startingIndex used to convert the array.
-   * @param {number} [lastIndex=packedArray.length] The lastIndex used to convert the array.
+   * @param {number[]} array 先前打包用于插值的数组。
+   * @param {number[]} sourceArray 原始打包数组。
+   * @param {number} [startingIndex=0] 用于转换数组的 startingIndex。
+   * @param {number} [lastIndex=packedArray.length] 用于转换数组的 lastIndex。
    * @param {object} [result] 要在其中存储结果的对象。
-   * @returns {object} 修改后的结果参数 or a new Object instance if one was not provided.
+   * @returns {object} 修改后的结果参数或者一个新的 Object 实例（如果未提供）。
    */
   unpackInterpolationResult: DeveloperError.throwInstantiationError,
 };

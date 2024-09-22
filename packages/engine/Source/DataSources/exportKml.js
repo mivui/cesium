@@ -247,7 +247,7 @@ IdManager.prototype.get = function (id) {
  *
  * @function exportKml
  *
- * @param {object} options An 对象，具有以下属性:
+ * @param {object} options  对象，具有以下属性:
  * @param {EntityCollection} options.entities The EntityCollection to export as KML.
  * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] The ellipsoid for the output file.
  * @param {exportKmlModelCallback} [options.modelCallback] A callback that will be called with a {@link ModelGraphics} instance and should return the URI to use in the KML. Required if a model exists in the entity collection.
