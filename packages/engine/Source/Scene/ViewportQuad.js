@@ -11,13 +11,13 @@ import BlendingState from "./BlendingState.js";
 import Material from "./Material.js";
 
 /**
- * A viewport aligned quad.
+ * 视口对齐的四边形。
  *
  * @alias ViewportQuad
  * @constructor
  *
- * @param {BoundingRectangle} [rectangle] The {@link BoundingRectangle} defining the quad's position within the viewport.
- * @param {Material} [material] The {@link Material} defining the surface appearance of the viewport quad.
+ * @param {BoundingRectangle} [rectangle] 定义四边形在视区中位置的 {@link BoundingRectangle}。
+ * @param {Material} [material] 定义四边形视口表面外观的 {@link Material}。
  *
  * @example
  * const viewportQuad = new Cesium.ViewportQuad(new Cesium.BoundingRectangle(0, 0, 80, 40));
@@ -25,7 +25,7 @@ import Material from "./Material.js";
  */
 function ViewportQuad(rectangle, material) {
   /**
-   * Determines if the viewport quad primitive will be shown.
+   * 确定是否显示视口四边形基元。
    *
    * @type {boolean}
    * @default true
@@ -37,7 +37,7 @@ function ViewportQuad(rectangle, material) {
   }
 
   /**
-   * The BoundingRectangle defining the quad's position within the viewport.
+   * 定义四边形在视区中的位置的 BoundingRectangle。
    *
    * @type {BoundingRectangle}
    *
@@ -53,10 +53,10 @@ function ViewportQuad(rectangle, material) {
   }
 
   /**
-   * The surface appearance of the viewport quad.  This can be one of several built-in {@link Material} objects or a custom material, scripted with
-   * {@link https://github.com/CesiumGS/cesium/wiki/Fabric|Fabric}.
+   * 四边形视区的曲面外观。 这可以是几个内置 {@link Material} 对象之一，也可以是自定义材质，脚本中使用
+   * {@link https://github.com/CesiumGS/cesium/wiki/Fabric|Fabric} 的 Fabric。
    * <p>
-   * The default material is <code>Material.ColorType</code>.
+   * 默认材质为 <code>Material.ColorType</code>。
    * </p>
    *
    * @type Material
@@ -78,11 +78,11 @@ function ViewportQuad(rectangle, material) {
 }
 
 /**
- * Called when {@link Viewer} or {@link CesiumWidget} render the scene to
- * get the draw commands needed to render this primitive.
+ * 当 {@link Viewer} 或 {@link CesiumWidget} 将场景渲染到
+ * 获取渲染此基元所需的绘制命令。
  * <p>
- * Do not call this function directly.  This is documented just to
- * list the exceptions that may be propagated when the scene is rendered:
+ * 请勿直接调用此函数。 这记录下来只是为了
+ * 列出渲染场景时可能传播的异常：
  * </p>
  *
  * @exception {DeveloperError} this.material must be defined.
@@ -142,12 +142,12 @@ ViewportQuad.prototype.update = function (frameState) {
 };
 
 /**
- * Returns true if this object was destroyed; otherwise, false.
+* 如果此对象已销毁，则返回 true;否则为 false。
  * <br /><br />
- * If this object was destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.
+ * 如果此对象已销毁，则不应使用;调用
+ <code>* isDestroyed</code> 将导致 {@link DeveloperError} 异常。
  *
- * @returns {boolean} True if this object was destroyed; otherwise, false.
+ * @returns {boolean} 如果此对象被销毁，则为 True;否则为 false。
  *
  * @see ViewportQuad#destroy
  */
@@ -156,12 +156,12 @@ ViewportQuad.prototype.isDestroyed = function () {
 };
 
 /**
- * Destroys the WebGL resources held by this object.  Destroying an object allows for deterministic
- * release of WebGL resources, instead of relying on the garbage collector to destroy this object.
+ * 销毁此对象持有的 WebGL 资源。 销毁对象允许确定性
+ * 释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。
  * <br /><br />
- * Once an object is destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.  Therefore,
- * assign the return value (<code>undefined</code>) to the object as done in the example.
+ * 一旦对象被销毁，就不应该使用它;调用
+ * <code>isDestroyed</code> 将导致 {@link DeveloperError} 异常。 因此
+ * 将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
  *
  * @exception {DeveloperError} 这个物体被摧毁了,destroy().
  *

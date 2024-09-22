@@ -27,22 +27,22 @@ import Ellipsoid from "../Core/Ellipsoid.js";
 import VerticalExaggeration from "../Core/VerticalExaggeration.js";
 
 /**
- * A primitive that renders voxel data from a {@link VoxelProvider}.
+ * 一个基元，用于呈现来自 {@link VoxelProvider} 的体素数据。
  *
  * @alias VoxelPrimitive
  * @constructor
  *
  * @param {object} [options] 对象，具有以下属性:
- * @param {VoxelProvider} [options.provider] The voxel provider that supplies the primitive with tile data.
- * @param {Matrix4} [options.modelMatrix=Matrix4.IDENTITY] The model matrix used to transform the primitive.
- * @param {CustomShader} [options.customShader] The custom shader used to style the primitive.
- * @param {Clock} [options.clock] The clock used to control time dynamic behavior.
+ * @param {VoxelProvider} [options.provider] 为基元提供图块数据的体素提供程序。
+ * @param {Matrix4} [options.modelMatrix=Matrix4.IDENTITY] 用于变换基元的模型矩阵。
+ * @param {CustomShader} [options.customShader] 用于设置基元样式的自定义着色器。
+ * @param {Clock} [options.clock] 用于控制时间动态行为的时钟。
  *
  * @see VoxelProvider
  * @see Cesium3DTilesVoxelProvider
  * @see VoxelShapeType
  *
- * @experimental This feature is not final and is subject to change without Cesium's standard deprecation policy.
+ * @experimental 此功能不是最终的，在没有 Cesium 的标准弃用政策的情况下可能会发生变化。
  */
 function VoxelPrimitive(options) {
   options = defaultValue(options, defaultValue.EMPTY_OBJECT);
@@ -63,7 +63,7 @@ function VoxelPrimitive(options) {
   );
 
   /**
-   * This member is not created until the provider and shape are ready.
+   * 在提供程序和形状准备就绪之前，不会创建此成员。
    *
    * @type {VoxelTraversal}
    * @private
@@ -71,7 +71,7 @@ function VoxelPrimitive(options) {
   this._traversal = undefined;
 
   /**
-   * This member is not created until the provider is ready.
+   * 在提供程序准备就绪之前，不会创建此成员。
    *
    * @type {VoxelShape}
    * @private
@@ -85,7 +85,7 @@ function VoxelPrimitive(options) {
   this._shapeVisible = false;
 
   /**
-   * This member is not created until the provider is ready.
+   * 在提供程序准备就绪之前，不会创建此成员。
    *
    * @type {Cartesian3}
    * @private
@@ -93,7 +93,7 @@ function VoxelPrimitive(options) {
   this._paddingBefore = new Cartesian3();
 
   /**
-   * This member is not created until the provider is ready.
+   * 在提供程序准备就绪之前，不会创建此成员。
    *
    * @type {Cartesian3}
    * @private
@@ -101,7 +101,7 @@ function VoxelPrimitive(options) {
   this._paddingAfter = new Cartesian3();
 
   /**
-   * This member is not known until the provider is ready.
+   * 在提供程序准备就绪之前，此成员是未知的.
    *
    * @type {Cartesian3}
    * @private
@@ -109,8 +109,8 @@ function VoxelPrimitive(options) {
   this._minBounds = new Cartesian3();
 
   /**
-   * Used to detect if the shape is dirty.
-   * This member is not known until the provider is ready.
+   * 用于检测形状是否脏污。
+   * 在提供商准备好之前，此成员是未知的。
    *
    * @type {Cartesian3}
    * @private

@@ -5,20 +5,20 @@ import MetadataType from "./MetadataType.js";
 import OrientedBoundingBox from "../Core/OrientedBoundingBox.js";
 
 /**
- * A cell from a {@link VoxelPrimitive}.
+ * 来自 {@link VoxelPrimitive} 的单元格。
  * <p>
- * Provides access to properties associated with one cell of a voxel primitive.
+ * 提供对与体素基元的一个单元格关联的属性的访问。
  * </p>
  * <p>
- * Do not construct this directly.  Access it through picking using {@link Scene#pickVoxel}.
+ * 不要直接构造它。 通过使用 {@link Scene#pickVoxel} 进行选取来访问它。
  * </p>
  *
  * @alias VoxelCell
  * @constructor
  *
- * @param {VoxelPrimitive} primitive The voxel primitive containing the cell
- * @param {number} tileIndex The index of the tile
- * @param {number} sampleIndex The index of the sample within the tile, containing metadata for this cell
+ * @param {VoxelPrimitive} primitive 包含单元格的体素基元
+ * @param {number} tileIndex 瓦片的索引
+ * @param {number} sampleIndex 瓦片中样本的索引，包含此单元格的元数据
  *
  * @example
  * // On left click, display all the properties for a voxel cell in the console log.
@@ -34,7 +34,7 @@ import OrientedBoundingBox from "../Core/OrientedBoundingBox.js";
  *   }
  * }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
  *
- * @experimental This feature is not final and is subject to change without Cesium's standard deprecation policy.
+ * @experimental 此功能不是最终的，在没有 Cesium 的标准弃用政策的情况下可能会发生变化。
  */
 function VoxelCell(primitive, tileIndex, sampleIndex) {
   this._primitive = primitive;
@@ -45,17 +45,17 @@ function VoxelCell(primitive, tileIndex, sampleIndex) {
 }
 
 /**
- * Construct a VoxelCell, and update the metadata and bounding box using the properties
- * of a supplied keyframe node.
+ * 构造一个 VoxelCell，并使用属性更新元数据和边界框
+ * 提供的关键帧节点。
  *
  * @private
- * @param {VoxelPrimitive} primitive The voxel primitive containing the cell.
- * @param {number} tileIndex The index of the tile.
- * @param {number} sampleIndex The index of the sample within the tile, containing metadata for this cell.
- * @param {KeyframeNode} keyframeNode The keyframe node containing information about the tile.
+ * @param {VoxelPrimitive} primitive 包含单元格的体素基元。
+ * @param {number} tileIndex 瓦片的索引。
+ * @param {number} sampleIndex 磁贴中样本的索引，包含此单元格的元数据。
+ * @param {KeyframeNode} keyframeNode 包含有关图块信息的关键帧节点。
  * @returns {VoxelCell}
  *
- * @experimental This feature is not final and is subject to change without Cesium's standard deprecation policy.
+ * @experimental 此功能不是最终的，在没有 Cesium 的标准弃用政策的情况下可能会发生变化。
  */
 VoxelCell.fromKeyframeNode = function (
   primitive,
@@ -156,7 +156,7 @@ function getOrientedBoundingBox(primitive, spatialNode, sampleIndex, result) {
 
 Object.defineProperties(VoxelCell.prototype, {
   /**
-   * Gets an object of the metadata values for this cell. The object's keys are the metadata names.
+   * 获取此单元格的元数据值的对象。对象的键是元数据名称。
    *
    * @memberof VoxelCell.prototype
    *
@@ -172,8 +172,8 @@ Object.defineProperties(VoxelCell.prototype, {
   },
 
   /**
-   * All objects returned by {@link Scene#pick} have a <code>primitive</code> property. This returns
-   * the VoxelPrimitive containing the cell.
+   * {@link Scene#pick} 返回的所有对象都具有 <code>primitive</code> 属性。这将返回
+   * 包含单元格的 VoxelPrimitive。
    *
    * @memberof VoxelCell.prototype
    *
@@ -188,7 +188,7 @@ Object.defineProperties(VoxelCell.prototype, {
   },
 
   /**
-   * Get the sample index of the cell.
+   * 获取单元格的样本索引。
    *
    * @memberof VoxelCell.prototype
    *
@@ -203,7 +203,7 @@ Object.defineProperties(VoxelCell.prototype, {
   },
 
   /**
-   * Get the index of the tile containing the cell.
+   * 获取包含单元格的磁贴的索引。
    *
    * @memberof VoxelCell.prototype
    *
@@ -218,7 +218,7 @@ Object.defineProperties(VoxelCell.prototype, {
   },
 
   /**
-   * Get a copy of the oriented bounding box containing the cell.
+   * 获取包含单元格的定向边界框的副本。
    *
    * @memberof VoxelCell.prototype
    *
@@ -234,29 +234,29 @@ Object.defineProperties(VoxelCell.prototype, {
 });
 
 /**
- * Returns <code>true</code> if the feature contains this property.
+ * 如果功能包含此属性，则返回 <code>true</code>。
  *
- * @param {string} name The case-sensitive name of the property.
- * @returns {boolean} Whether the feature contains this property.
+ * @param {string} name 属性的区分大小写的名称。
+ * @returns {boolean} 特征是否包含此属性。
  */
 VoxelCell.prototype.hasProperty = function (name) {
   return defined(this._metadata[name]);
 };
 
 /**
- * Returns an array of metadata property names for the feature.
+ * 返回功能的元数据属性名称数组。
  *
- * @returns {string[]} The IDs of the feature's properties.
+ * @returns {string[]} 功能属性的 ID。
  */
 VoxelCell.prototype.getNames = function () {
   return Object.keys(this._metadata);
 };
 
 /**
- * Returns a copy of the value of the metadata in the cell with the given name.
+ * 返回具有给定名称的单元格中元数据值的副本。
  *
- * @param {string} name The case-sensitive name of the property.
- * @returns {*} The value of the property or <code>undefined</code> if the feature does not have this property.
+ * @param {string} name 属性的区分大小写的名称。
+ * @returns {*} 属性的值，如果特征没有此属性，<code>则为 undefined</code>。
  *
  * @example
  * // Display all the properties for a voxel cell in the console log.

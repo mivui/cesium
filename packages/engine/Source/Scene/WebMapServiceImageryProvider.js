@@ -9,7 +9,7 @@ import TimeDynamicImagery from "./TimeDynamicImagery.js";
 import UrlTemplateImageryProvider from "./UrlTemplateImageryProvider.js";
 
 /**
- * EPSG codes known to include reverse axis orders, but are not within 4000-5000.
+ *已知 EPSG 代码包含反向轴顺序，但不在 4000-5000 之间。
  *
  * @type {number[]}
  */
@@ -22,7 +22,7 @@ const includesReverseAxis = [
 ];
 
 /**
- * EPSG codes known to not include reverse axis orders, and are within 4000-5000.
+ * 已知 EPSG 代码不包括反向轴顺序，并且在 4000-5000 之间。
  *
  * @type {number[]}
  */
@@ -34,45 +34,45 @@ const excludesReverseAxis = [
 /**
  * @typedef {object} WebMapServiceImageryProvider.ConstructorOptions
  *
- * Initialization options for the WebMapServiceImageryProvider constructor
+ * WebMapServiceImageryProvider 构造函数的初始化选项
  *
- * @property {Resource|string} url The URL of the WMS service. The URL supports the same keywords as the {@link UrlTemplateImageryProvider}.
- * @property {string} layers The layers to include, separated by commas.
- * @property {object} [parameters=WebMapServiceImageryProvider.DefaultParameters] Additional parameters to pass to the WMS server in the GetMap URL.
- * @property {object} [getFeatureInfoParameters=WebMapServiceImageryProvider.GetFeatureInfoDefaultParameters] Additional parameters to pass to the WMS server in the GetFeatureInfo URL.
- * @property {boolean} [enablePickFeatures=true] If true, {@link WebMapServiceImageryProvider#pickFeatures} will invoke
- *        the GetFeatureInfo operation on the WMS server and return the features included in the response.  If false,
- *        {@link WebMapServiceImageryProvider#pickFeatures} will immediately return undefined (indicating no pickable features)
- *        without communicating with the server.  Set this property to false if you know your WMS server does not support
- *        GetFeatureInfo or if you don't want this provider's features to be pickable. Note that this can be dynamically
- *        overridden by modifying the WebMapServiceImageryProvider#enablePickFeatures property.
- * @property {GetFeatureInfoFormat[]} [getFeatureInfoFormats=WebMapServiceImageryProvider.DefaultGetFeatureInfoFormats] The formats
- *        in which to try WMS GetFeatureInfo requests.
- * @property {Rectangle} [rectangle=Rectangle.MAX_VALUE] The rectangle of the layer.
- * @property {TilingScheme} [tilingScheme=new GeographicTilingScheme()] The tiling scheme to use to divide the world into tiles.
- * @property {Ellipsoid} [ellipsoid] The ellipsoid.  If the tilingScheme is specified,
- *        this parameter is ignored and the tiling scheme's ellipsoid is used instead. If neither
- *        parameter is specified, the WGS84 ellipsoid is used.
- * @property {number} [tileWidth=256] The width of each tile in pixels.
- * @property {number} [tileHeight=256] The height of each tile in pixels.
- * @property {number} [minimumLevel=0] The minimum level-of-detail supported by the imagery provider.  Take care when
- *        specifying this that the number of tiles at the minimum level is small, such as four or less.  A larger number is
- *        likely to result in rendering problems.
- * @property {number} [maximumLevel] The maximum level-of-detail supported by the imagery provider, or undefined if there is no limit.
- *        If not specified, there is no limit.
- * @property {string} [crs] CRS specification, for use with WMS specification >= 1.3.0.
- * @property {string} [srs] SRS specification, for use with WMS specification 1.1.0 or 1.1.1
- * @property {Credit|string} [credit] A credit for the data source, which is displayed on the canvas.
- * @property {string|string[]} [subdomains='abc'] The subdomains to use for the <code>{s}</code> placeholder in the URL template.
- *                          If this parameter is a single string, each character in the string is a subdomain.  If it is
- *                          an array, each element in the array is a subdomain.
- * @property {Clock} [clock] A Clock instance that is used when determining the value for the time dimension. Required when `times` is specified.
- * @property {TimeIntervalCollection} [times] TimeIntervalCollection with its data property being an object containing time dynamic dimension and their values.
- * @property {Resource|string} [getFeatureInfoUrl] The getFeatureInfo URL of the WMS service. If the property is not defined then we use the property value of url.
+ * @property {Resource|string} url WMS 服务的 URL。该 URL 支持与 {@link UrlTemplateImageryProvider} 相同的关键字。
+ * @property {string} layers 要包含的图层，用逗号分隔。
+ * @property {object} [parameters=WebMapServiceImageryProvider.DefaultParameters] 在 GetMap URL 中传递给 WMS 服务器的其他参数。
+ * @property {object} [getFeatureInfoParameters=WebMapServiceImageryProvider.GetFeatureInfoDefaultParameters] 在 GetFeatureInfo URL 中传递给 WMS 服务器的其他参数。
+ * @property {boolean} [enablePickFeatures=true] 如果为 true，则 {@link WebMapServiceImageryProvider#pickFeatures} 将调用
+ * 在 WMS 服务器上执行 GetFeatureInfo 操作，并返回响应中包含的要素。 如果为 false，则
+ * {@link WebMapServiceImageryProvider#pickFeatures} 将立即返回 undefined（表示没有可选取的特征）
+ * 而不与服务器通信。 如果您知道 WMS 服务器不支持，请将此属性设置为 false
+ * GetFeatureInfo 或者您不希望此提供商的功能是可选择的。请注意，这可以是动态的
+ * 通过修改 WebMapServiceImageryProvider#enablePickFeatures 属性进行覆盖。
+ * @property {GetFeatureInfoFormat[]} [getFeatureInfoFormats=WebMapServiceImageryProvider.DefaultGetFeatureInfoFormats] 格式
+ * 在其中尝试 WMS GetFeatureInfo 请求。
+ * @property {Rectangle} [rectangle=Rectangle.MAX_VALUE] 图层的矩形。
+ * @property {TilingScheme} [tilingScheme=new GeographicTilingScheme（）] 用于将世界划分为多个图块的平铺方案。
+ * @property {Ellipsoid} [ellipsoid] 椭球体。 如果指定了 tilingScheme，则
+ * 此参数将被忽略，而使用切片方案的椭球体。如果两者都不是
+ * 参数，则使用 WGS84 椭球体。
+ * @property {number} [tileWidth=256] 每个图块的宽度（以像素为单位）。
+ * @property {number} [tileHeight=256] 每个图块的高度（以像素为单位）。
+ * @property {number} [minimumLevel=0] 图像提供商支持的最低细节层次。 当
+ * 指定最低级别的瓦片数量较少，例如 4 或更少。 更大的数字是
+ * 可能会导致渲染问题。
+ * @property {number} [maximumLevel] 图像提供商支持的最大细节层次，如果没有限制，则为 undefined。
+ * 如果未指定，则没有限制。
+ * @property {string} [crs] CRS 规范，用于 WMS 规范 >= 1.3.0。
+ * @property {string} [srs] SRS 规范，用于 WMS 规范 1.1.0 或 1.1.1
+ * @property {Credit|string} [credit] 数据源的积分，显示在画布上。
+ * @property {string|string[]} [subdomains='abc'] 用于 URL 模板中 <code>{s}</code> 占位符的子域。
+ * 如果此参数是单个字符串，则字符串中的每个字符都是一个子域。 如果是
+ * 一个数组，数组中的每个元素都是一个子域。
+ * @property {Clock} [clock] 确定时间维度值时使用的 Clock 实例。指定 'times' 时是必需的。
+ * @property {TimeIntervalCollection} [times] TimeIntervalCollection，其 data 属性是一个包含时间动态维度及其值的对象。
+ * @property {Resource|string} [getFeatureInfoUrl] WMS 服务的 getFeatureInfo URL。如果未定义属性，则我们使用 url 的属性值。
  */
 
 /**
- * Provides tiled imagery hosted by a Web Map Service (WMS) server.
+ *提供由 Web 地图服务 （WMS） 服务器托管的切片影像。
  *
  * @alias WebMapServiceImageryProvider
  * @constructor
@@ -299,7 +299,7 @@ function pickFeatures(
 
 Object.defineProperties(WebMapServiceImageryProvider.prototype, {
   /**
-   * Gets the URL of the WMS server.
+   * 获取 WMS 服务器的 URL。
    * @memberof WebMapServiceImageryProvider.prototype
    * @type {string}
    * @readonly
@@ -311,7 +311,7 @@ Object.defineProperties(WebMapServiceImageryProvider.prototype, {
   },
 
   /**
-   * Gets the proxy used by this provider.
+   * 获取此提供程序使用的代理。
    * @memberof WebMapServiceImageryProvider.prototype
    * @type {Proxy}
    * @readonly
@@ -323,7 +323,7 @@ Object.defineProperties(WebMapServiceImageryProvider.prototype, {
   },
 
   /**
-   * 获取名称 WMS layers, separated by commas.
+   * 获取名称WMS 图层，以逗号分隔。
    * @memberof WebMapServiceImageryProvider.prototype
    * @type {string}
    * @readonly
@@ -335,7 +335,7 @@ Object.defineProperties(WebMapServiceImageryProvider.prototype, {
   },
 
   /**
-   * Gets the width of each tile, in pixels.
+   * 获取每个图块的宽度（以像素为单位）。
    * @memberof WebMapServiceImageryProvider.prototype
    * @type {number}
    * @readonly
@@ -347,7 +347,7 @@ Object.defineProperties(WebMapServiceImageryProvider.prototype, {
   },
 
   /**
-   * Gets the height of each tile, in pixels.
+   * 获取每个图块的高度（以像素为单位）。
    * @memberof WebMapServiceImageryProvider.prototype
    * @type {number}
    * @readonly
@@ -359,7 +359,7 @@ Object.defineProperties(WebMapServiceImageryProvider.prototype, {
   },
 
   /**
-   * Gets the maximum level-of-detail that can be requested.
+   * 获取可请求的最大详细级别。
    * @memberof WebMapServiceImageryProvider.prototype
    * @type {number|undefined}
    * @readonly
@@ -371,7 +371,7 @@ Object.defineProperties(WebMapServiceImageryProvider.prototype, {
   },
 
   /**
-   * Gets the minimum level-of-detail that can be requested.
+   * 获取可请求的最小详细级别。
    * @memberof WebMapServiceImageryProvider.prototype
    * @type {number}
    * @readonly
@@ -383,7 +383,7 @@ Object.defineProperties(WebMapServiceImageryProvider.prototype, {
   },
 
   /**
-   * Gets the tiling scheme used by this provider.
+   * 获取此提供程序使用的切片方案。
    * @memberof WebMapServiceImageryProvider.prototype
    * @type {TilingScheme}
    * @readonly
@@ -395,7 +395,7 @@ Object.defineProperties(WebMapServiceImageryProvider.prototype, {
   },
 
   /**
-   * Gets the rectangle, in radians, of the imagery provided by this instance.
+   * 获取此实例提供的图像的矩形（以弧度为单位）。
    * @memberof WebMapServiceImageryProvider.prototype
    * @type {Rectangle}
    * @readonly
@@ -407,9 +407,9 @@ Object.defineProperties(WebMapServiceImageryProvider.prototype, {
   },
 
   /**
-   * Gets the tile discard policy.  If not undefined, the discard policy is responsible
-   * for filtering out "missing" tiles via its shouldDiscardImage function.  If this function
-   * returns undefined, no tiles are filtered.
+   * 获取瓦片丢弃策略。 如果未 undefined，则 discard 策略负责
+   * 用于通过其 shouldDiscardImage 函数过滤掉“缺失”的瓦片。 如果此功能
+   * 返回 undefined，不过滤任何图块。
    * @memberof WebMapServiceImageryProvider.prototype
    * @type {TileDiscardPolicy}
    * @readonly
@@ -421,9 +421,9 @@ Object.defineProperties(WebMapServiceImageryProvider.prototype, {
   },
 
   /**
-   * Gets an event that is raised when the imagery provider encounters an asynchronous error.  By subscribing
-   * to the event, you will be notified of the error and can potentially recover from it.  Event listeners
-   * are passed an instance of {@link TileProviderError}.
+   * 获取在影像提供程序遇到异步错误时引发的事件。 通过订阅
+   * 时，您将收到错误通知，并可能从中恢复。 事件侦听器
+   * 将传递 {@link TileProviderError} 的实例。
    * @memberof WebMapServiceImageryProvider.prototype
    * @type {Event}
    * @readonly
@@ -435,8 +435,8 @@ Object.defineProperties(WebMapServiceImageryProvider.prototype, {
   },
 
   /**
-   * Gets the credit to display when this imagery provider is active.  Typically this is used to credit
-   * the source of the imagery.
+   * 获取此影像提供程序处于活动状态时要显示的点数。 通常，这用于贷记
+   * 图像的来源。
    * @memberof WebMapServiceImageryProvider.prototype
    * @type {Credit}
    * @readonly
@@ -448,11 +448,11 @@ Object.defineProperties(WebMapServiceImageryProvider.prototype, {
   },
 
   /**
-   * Gets a value indicating whether or not the images provided by this imagery provider
-   * include an alpha channel.  If this property is false, an alpha channel, if present, will
-   * be ignored.  If this property is true, any images without an alpha channel will be treated
-   * as if their alpha is 1.0 everywhere.  When this property is false, memory usage
-   * and texture upload time are reduced.
+   * 获取一个值，该值指示此图像提供程序是否提供图像
+   * 包括 Alpha 通道。 如果此属性为 false，则 Alpha 通道（如果存在）将
+   * 被忽略。 如果此属性为 true，则将处理任何没有 Alpha 通道的图像
+   * 就好像它们的 alpha 在所有地方都是 1.0 一样。 当此属性为 false 时，内存使用情况
+   * 和纹理上传时间缩短。
    * @memberof WebMapServiceImageryProvider.prototype
    * @type {boolean}
    * @readonly
@@ -464,11 +464,11 @@ Object.defineProperties(WebMapServiceImageryProvider.prototype, {
   },
 
   /**
-   * Gets or sets a value indicating whether feature picking is enabled.  If true, {@link WebMapServiceImageryProvider#pickFeatures} will
-   * invoke the <code>GetFeatureInfo</code> service on the WMS server and attempt to interpret the features included in the response.  If false,
-   * {@link WebMapServiceImageryProvider#pickFeatures} will immediately return undefined (indicating no pickable
-   * features) without communicating with the server.  Set this property to false if you know your data
-   * source does not support picking features or if you don't want this provider's features to be pickable.
+   * 获取或设置一个值，该值指示是否启用功能选取。 如果为 true，则 {@link WebMapServiceImageryProvider#pickFeatures} 将
+   * 调用 WMS 服务器上的 <code>GetFeatureInfo</code> 服务，并尝试解释响应中包含的功能。 如果为 false，则
+   * {@link WebMapServiceImageryProvider#pickFeatures} 将立即返回 undefined（表示没有可选取的
+   * 功能），而无需与服务器通信。 如果您知道您的数据，请将此属性设置为 false
+   * Source 不支持选取功能，或者您不希望此提供程序的功能可选取。
    * @memberof WebMapServiceImageryProvider.prototype
    * @type {boolean}
    * @default true
@@ -483,7 +483,7 @@ Object.defineProperties(WebMapServiceImageryProvider.prototype, {
   },
 
   /**
-   * Gets or sets a clock that is used to get keep the time used for time dynamic parameters.
+   * 获取或设置一个 clock，该 clock 用于 get keep time used for time 动态参数。
    * @memberof WebMapServiceImageryProvider.prototype
    * @type {Clock}
    */
@@ -496,9 +496,9 @@ Object.defineProperties(WebMapServiceImageryProvider.prototype, {
     },
   },
   /**
-   * Gets or sets a time interval collection that is used to get time dynamic parameters. The data of each
-   * TimeInterval is an object containing the keys and values of the properties that are used during
-   * tile requests.
+   * 获取或设置用于获取时间动态参数的时间间隔集合。每个
+   * TimeInterval 是一个对象，其中包含在
+   * 磁贴请求。
    * @memberof WebMapServiceImageryProvider.prototype
    * @type {TimeIntervalCollection}
    */
@@ -512,7 +512,7 @@ Object.defineProperties(WebMapServiceImageryProvider.prototype, {
   },
 
   /**
-   * Gets the getFeatureInfo URL of the WMS server.
+   * 获取 WMS 服务器的 getFeatureInfo URL。
    * @memberof WebMapServiceImageryProvider.prototype
    * @type {Resource|string}
    * @readonly
@@ -525,26 +525,26 @@ Object.defineProperties(WebMapServiceImageryProvider.prototype, {
 });
 
 /**
- * Gets the credits to be displayed when a given tile is displayed.
+ * 获取在显示给定磁贴时要显示的积分。
  *
- * @param {number} x The tile X coordinate.
- * @param {number} y The tile Y coordinate.
- * @param {number} level The tile level;
- * @returns {Credit[]} The credits to be displayed when the tile is displayed.
+ * @param {number} x 瓦片 X 坐标。
+ * @param {number} y 瓦片 Y 坐标。
+ * @param {number} level 瓦片级别;
+ * @returns {Credit[]} 显示磁贴时要显示的制作者名单。
  */
 WebMapServiceImageryProvider.prototype.getTileCredits = function (x, y, level) {
   return this._tileProvider.getTileCredits(x, y, level);
 };
 
 /**
- * Requests the image for a given tile.
+ * 请求给定磁贴的图像。
  *
- * @param {number} x The tile X coordinate.
- * @param {number} y The tile Y coordinate.
- * @param {number} level The tile level.
+ * @param {number} x 瓦片 X 坐标。
+ * @param {number} y 瓦片 Y 坐标。
+ * @param {number} level 瓦片级别。
  * @param {Request} [request] 请求对象。仅供内部使用。
- * @returns {Promise<ImageryTypes>|undefined} A promise for the image that will resolve when the image is available, or
- *          undefined if there are too many active requests to the server, and the request should be retried later.
+ * @returns {Promise<ImageryTypes>|undefined} 当镜像可用时将解析的镜像的 Promise，或者
+ * undefined 如果对服务器的活动请求过多，则应稍后重试该请求。
  */
 WebMapServiceImageryProvider.prototype.requestImage = function (
   x,
@@ -576,17 +576,17 @@ WebMapServiceImageryProvider.prototype.requestImage = function (
 };
 
 /**
- * Asynchronously determines what features, if any, are located at a given longitude and latitude within
- * a tile.
+ * 异步确定哪些要素（如果有）位于给定的经度和纬度
+ * 一个图块。
  *
- * @param {number} x The tile X coordinate.
- * @param {number} y The tile Y coordinate.
- * @param {number} level The tile level.
- * @param {number} longitude The longitude at which to pick features.
- * @param {number} latitude  The latitude at which to pick features.
- * @return {Promise<ImageryLayerFeatureInfo[]>|undefined} A promise for the picked features that will resolve when the asynchronous
- *                   picking completes.  The resolved value is an array of {@link ImageryLayerFeatureInfo}
- *                   instances.  The array may be empty if no features are found at the given location.
+ * @param {number} x 瓦片 X 坐标。
+ * @param {number} y 瓦片 Y 坐标。
+ * @param {number} level 瓦片级别。
+ * @param {number} longitude 选取特征的经度。
+ * @param {number} latitude 选取特征的纬度。
+ * @return {Promise<ImageryLayerFeatureInfo[]>|undefined} 对所选特征的 Promise，当异步
+ * 拣选完成。 解析的值是 {@link ImageryLayerFeatureInfo} 的数组
+ * 实例。 如果在给定位置未找到要素，则数组可能为空。
  */
 WebMapServiceImageryProvider.prototype.pickFeatures = function (
   x,
@@ -604,7 +604,7 @@ WebMapServiceImageryProvider.prototype.pickFeatures = function (
 };
 
 /**
- * The default parameters to include in the WMS URL to obtain images.  The values are as follows:
+ * WMS URL 中用于获取图像的默认参数。 值如下所示：
  *    service=WMS
  *    version=1.1.1
  *    request=GetMap
@@ -623,7 +623,7 @@ WebMapServiceImageryProvider.DefaultParameters = Object.freeze({
 });
 
 /**
- * The default parameters to include in the WMS URL to get feature information.  The values are as follows:
+ * 要包含在 WMS URL 中以获取要素信息的默认参数。 值如下所示：
  *     service=WMS
  *     version=1.1.1
  *     request=GetFeatureInfo

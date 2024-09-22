@@ -4,15 +4,15 @@ import VoxelCylinderShape from "./VoxelCylinderShape.js";
 import VoxelEllipsoidShape from "./VoxelEllipsoidShape.js";
 
 /**
- * An enum of voxel shapes. The shape controls how the voxel grid is mapped to 3D space.
+ * 体素形状的枚举。形状控制体素网格映射到 3D 空间的方式。
  *
  * @enum {string}
  *
- * @experimental This feature is not final and is subject to change without Cesium's standard deprecation policy.
+ * @experimental 此功能不是最终功能，在没有 Cesium 的标准弃用政策的情况下可能会发生变化。
  */
 const VoxelShapeType = {
   /**
-   * A box shape.
+   * 一个盒子形状。
    *
    * @type {string}
    * @constant
@@ -20,7 +20,7 @@ const VoxelShapeType = {
    */
   BOX: "BOX",
   /**
-   * An ellipsoid shape.
+   * 椭球体形状。
    *
    * @type {string}
    * @constant
@@ -28,7 +28,7 @@ const VoxelShapeType = {
    */
   ELLIPSOID: "ELLIPSOID",
   /**
-   * A cylinder shape.
+   * 圆柱体形状。
    *
    * @type {string}
    * @constant
@@ -38,9 +38,9 @@ const VoxelShapeType = {
 };
 
 /**
- * Gets the minimum bounds.
- * @param {VoxelShapeType} shapeType The voxel shape type.
- * @returns {Cartesian3} The minimum bounds.
+ * 获取最小边界。
+ * @param {VoxelShapeType} shapeType 体素形状类型。
+ * @returns {Cartesian3} 最小边界。
  */
 VoxelShapeType.getMinBounds = function (shapeType) {
   switch (shapeType) {
@@ -58,9 +58,9 @@ VoxelShapeType.getMinBounds = function (shapeType) {
 };
 
 /**
- * Gets the maximum bounds.
- * @param {VoxelShapeType} shapeType The voxel shape type.
- * @returns {Cartesian3} The maximum bounds.
+ * 获取最大边界。
+ * @param {VoxelShapeType} shapeType 体素形状类型。
+ * @returns {Cartesian3} 最大边界。
  */
 VoxelShapeType.getMaxBounds = function (shapeType) {
   switch (shapeType) {
@@ -78,12 +78,12 @@ VoxelShapeType.getMaxBounds = function (shapeType) {
 };
 
 /**
- * Converts a shape type to a constructor that can be used to create a shape
- * object or get per-shape properties like DefaultMinBounds and
- * DefaultMaxBounds.
+ * 将形状类型转换为可用于创建形状的构造函数
+ * 对象或获取每个形状的属性，如 DefaultMinBounds 和
+ * DefaultMaxBounds 的
  *
- * @param {VoxelShapeType} shapeType The shape type.
- * @returns {Function} The shape's constructor.
+ * @param {VoxelShapeType} shapeType 形状类型。
+ * @returns {Function} 形状的构造函数。
  *
  * @private
  */
