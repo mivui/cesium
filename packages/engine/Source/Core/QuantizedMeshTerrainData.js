@@ -15,50 +15,50 @@ import TerrainEncoding from "./TerrainEncoding.js";
 import TerrainMesh from "./TerrainMesh.js";
 
 /**
- * Terrain data for a single tile where the terrain data is represented as a quantized mesh.  A quantized
- * mesh consists of three vertex attributes, longitude, latitude, and height.  All attributes are expressed
- * as 16-bit values in the range 0 to 32767.  Longitude and latitude are zero at the southwest corner
- * of the tile and 32767 at the northeast corner.  Height is zero at the minimum height in the tile
- * and 32767 at the maximum height in the tile.
+ * 单个瓦片的地形数据，其中地形数据表示为量化网格。 量化的
+ * 网格由三个顶点属性组成，即 Longitude、latitude 和 Height。 所有属性都表示
+ * 作为 0 到 32767 范围内的 16 位值。 经度和纬度在西南角为零
+ * 的瓦片和 32767 在东北角。 在磁贴的最小高度处，Height 为零
+ * 和 32767 位于瓦片中的最大高度。
  *
  * @alias QuantizedMeshTerrainData
  * @constructor
  *
  * @param {object} options 对象，具有以下属性:
- * @param {Uint16Array} options.quantizedVertices The buffer containing the quantized mesh.
- * @param {Uint16Array|Uint32Array} options.indices The indices specifying how the quantized vertices are linked
- *                      together into triangles.  Each three indices specifies one triangle.
- * @param {number} options.minimumHeight The minimum terrain height within the tile, in meters above the ellipsoid.
- * @param {number} options.maximumHeight The maximum terrain height within the tile, in meters above the ellipsoid.
- * @param {BoundingSphere} options.boundingSphere A sphere bounding all of the vertices in the mesh.
- * @param {OrientedBoundingBox} [options.orientedBoundingBox] An OrientedBoundingBox bounding all of the vertices in the mesh.
- * @param {Cartesian3} options.horizonOcclusionPoint The horizon occlusion point of the mesh.  If this point
- *                      is below the horizon, the entire tile is assumed to be below the horizon as well.
- *                      The point is expressed in ellipsoid-scaled coordinates.
- * @param {number[]} options.westIndices The indices of the vertices on the western edge of the tile.
- * @param {number[]} options.southIndices The indices of the vertices on the southern edge of the tile.
- * @param {number[]} options.eastIndices The indices of the vertices on the eastern edge of the tile.
- * @param {number[]} options.northIndices The indices of the vertices on the northern edge of the tile.
- * @param {number} options.westSkirtHeight The height of the skirt to add on the western edge of the tile.
- * @param {number} options.southSkirtHeight The height of the skirt to add on the southern edge of the tile.
- * @param {number} options.eastSkirtHeight The height of the skirt to add on the eastern edge of the tile.
- * @param {number} options.northSkirtHeight The height of the skirt to add on the northern edge of the tile.
- * @param {number} [options.childTileMask=15] A bit mask indicating which of this tile's four children exist.
- *                 If a child's bit is set, geometry will be requested for that tile as well when it
- *                 is needed.  If the bit is cleared, the child tile is not requested and geometry is
- *                 instead upsampled from the parent.  The bit values are as follows:
- *                 <table>
- *                  <tr><th>Bit Position</th><th>Bit Value</th><th>Child Tile</th></tr>
- *                  <tr><td>0</td><td>1</td><td>Southwest</td></tr>
- *                  <tr><td>1</td><td>2</td><td>Southeast</td></tr>
- *                  <tr><td>2</td><td>4</td><td>Northwest</td></tr>
- *                  <tr><td>3</td><td>8</td><td>Northeast</td></tr>
- *                 </table>
- * @param {boolean} [options.createdByUpsampling=false] True if this instance was created by upsampling another instance;
- *                  otherwise, false.
- * @param {Uint8Array} [options.encodedNormals] The buffer containing per vertex normals, encoded using 'oct' encoding
- * @param {Uint8Array} [options.waterMask] The buffer containing the watermask.
- * @param {Credit[]} [options.credits] Array of credits for this tile.
+ * @param {Uint16Array} options.quantizedVertices 包含量化网格的缓冲区。
+ * @param {Uint16Array|Uint32Array} options.indices 指定量化顶点如何链接的索引
+ * 一起组成三角形。 每三个索引指定一个三角形。
+ * @param {number} options.minimumHeight 瓦片内的最小地形高度，以椭球体上方的米为单位。
+ * @param {number} options.maximumHeight 瓦片内的最大地形高度，以米为单位，位于椭球体上方。
+ * @param {BoundingSphere} options.boundingSphere 一个包围网格中所有顶点的球体。
+ * @param {OrientedBoundingBox} [options.orientedBoundingBox] 一个 OrientedBoundingBox，用于边界网格中的所有顶点。
+ * @param {Cartesian3} options.horizonOcclusionPoint 网格的水平线遮挡点。 如果此时
+ * 低于地平线，则假定整个图块也低于地平线。
+ * 该点以椭球标度坐标表示。
+ * @param {number[]} options.westIndices 瓦片西边顶点的索引。
+ * @param {number[]} options.southIndices 瓦片南边上顶点的索引。
+ * @param {number[]} options.eastIndices 瓦片东边顶点的索引。
+ * @param {number[]} options.northIndices 瓦片北边上顶点的索引。
+ * @param {number} options.westSkirtHeight 要在图块西边添加的裙子的高度。
+ * @param {number} options.southSkirtHeight 要在瓦片南边添加的裙子的高度。
+ * @param {number} options.eastSkirtHeight 要在瓦片东边添加的裙子的高度。
+ * @param {number} options.northSkirtHeight 要在瓦片北边添加的裙子的高度。
+ * @param {number} [options.childTileMask=15] 一个位掩码，指示此图块的四个子图块中存在哪一个。
+ * 如果设置了子位，则当该图块
+ * 是必需的。 如果清除该位，则不会请求子平铺，并且 geometry 为
+ * 而是从父级进行上采样。 位值如下所示：
+ * <table>
+ * <tr><th>Bit Position</th><th>位值</th><th>子平铺</th></tr>
+ * <tr><td>0</td><td>1</td><td>西南</td></tr>
+ * <tr><td>1</td><td>2</td><td>东南</td></tr>
+ * <tr><td>2</td><td>4</td><td>西北</td></tr>
+ * <tr><td>3</td><td>8</td><td>东北</td></tr>
+ * </table>
+ * @param {boolean} [options.createdByUpsampling=false] 如果此实例是通过对另一个实例进行上采样创建的，则为 True;
+ * 否则为 false。
+ * @param {Uint8Array} [options.encodedNormals] 包含每个顶点法线的缓冲区，使用 'oct' 编码编码
+ * @param {Uint8Array} [options.waterMask] 包含水掩码的缓冲区。
+ * @param {Credit[]} [options.credits] 此图块的积分数组。
  *
  *
  * @example
@@ -209,7 +209,7 @@ function QuantizedMeshTerrainData(options) {
 
 Object.defineProperties(QuantizedMeshTerrainData.prototype, {
   /**
-   * An array of credits for this tile.
+   * 此磁贴的制作人员名单数组。
    * @memberof QuantizedMeshTerrainData.prototype
    * @type {Credit[]}
    */
@@ -219,9 +219,9 @@ Object.defineProperties(QuantizedMeshTerrainData.prototype, {
     },
   },
   /**
-   * The water mask included in this terrain data, if any.  A water mask is a rectangular
-   * Uint8Array or image where a value of 255 indicates water and a value of 0 indicates land.
-   * Values in between 0 and 255 are allowed as well to smoothly blend between land and water.
+   * 此地形数据中包含的水面罩（如果有）。 水面罩是矩形的
+   * Uint8Array 或图像，其中值 255 表示水，值 0 表示陆地。
+   * 允许介于 0 和 255 之间的值，以便在陆地和水之间平滑混合。
    * @memberof QuantizedMeshTerrainData.prototype
    * @type {Uint8Array|HTMLImageElement|HTMLCanvasElement}
    */
@@ -271,21 +271,21 @@ const createMeshTaskProcessorThrottle = new TaskProcessor(
 );
 
 /**
- * Creates a {@link TerrainMesh} from this terrain data.
+ * 从此地形数据创建 {@link TerrainMesh}。
  *
  * @private
  *
  * @param {object} options 对象，具有以下属性:
- * @param {TilingScheme} options.tilingScheme The tiling scheme to which this tile belongs.
- * @param {number} options.x x坐标  tile for which to create the terrain data.
- * @param {number} options.y y坐标 tile for which to create the terrain data.
- * @param {number} options.level The level of the tile for which to create the terrain data.
- * @param {number} [options.exaggeration=1.0] The scale used to exaggerate the terrain.
- * @param {number} [options.exaggerationRelativeHeight=0.0] The height relative to which terrain is exaggerated.
- * @param {boolean} [options.throttle=true] If true, indicates that this operation will need to be retried if too many asynchronous mesh creations are already in progress.
- * @returns {Promise<TerrainMesh>|undefined} A promise for the terrain mesh, or undefined if too many
- *          asynchronous mesh creations are already in progress and the operation should
- *          be retried later.
+ * @param {TilingScheme} options.tilingScheme 此瓦片所属的平铺方案。
+ * @param {number} options.x x坐标 瓦片，为其创建地形数据。
+ * @param {number} options.y y坐标 瓦片，为其创建 terrain 数据。
+ * @param {number} options.level 要为其创建 terrain 数据的瓦片的级别。
+ * @param {number} [options.exaggeration=1.0] 用于夸大地形的比例尺。
+ * @param {number} [options.exaggerationRelativeHeight=0.0] 地形被夸大的相对高度。
+ * @param {boolean} [options.throttle=true] 如果为 true，则表示如果正在进行的异步网格创建太多，则需要重试此操作。
+ * @returns {Promise<TerrainMesh>|undefined} 地形网格的 Promise，如果太多，则为 undefined
+ * 异步网格创建已在进行中，操作应
+ * 稍后重试。
  */
 QuantizedMeshTerrainData.prototype.createMesh = function (options) {
   options = defaultValue(options, defaultValue.EMPTY_OBJECT);
@@ -414,19 +414,19 @@ const upsampleTaskProcessor = new TaskProcessor(
 );
 
 /**
- * Upsamples this terrain data for use by a descendant tile.  The resulting instance will contain a subset of the
- * vertices in this instance, interpolated if necessary.
+ * 对此地形数据进行上采样，以供后代瓦片使用。 生成的实例将包含
+ * 顶点，必要时进行插值。
  *
- * @param {TilingScheme} tilingScheme The tiling scheme of this terrain data.
- * @param {number} thisX The X coordinate of this tile in the tiling scheme.
- * @param {number} thisY The Y coordinate of this tile in the tiling scheme.
- * @param {number} thisLevel The level of this tile in the tiling scheme.
- * @param {number} descendantX The X coordinate within the tiling scheme of the descendant tile for which we are upsampling.
- * @param {number} descendantY The Y coordinate within the tiling scheme of the descendant tile for which we are upsampling.
- * @param {number} descendantLevel The level within the tiling scheme of the descendant tile for which we are upsampling.
- * @returns {Promise<QuantizedMeshTerrainData>|undefined} A promise for upsampled heightmap terrain data for the descendant tile,
- *          or undefined if too many asynchronous upsample operations are in progress and the request has been
- *          deferred.
+ * @param {TilingScheme} tilingScheme 此地形数据的平铺方案。
+ * @param {number} thisX 平铺方案中此瓦片的 X 坐标。
+ * @param {number} thisY 此瓦片在切片方案中的 Y 坐标。
+ * @param {number} thisLevel 此瓦片在平铺方案中的级别。
+ * @param {number} descendantX 我们正在上采样的后代瓦片的平铺方案中的 X 坐标。
+ * @param {number} descendantY 我们正在进行上采样的后代瓦片的平铺方案中的 Y 坐标。
+ * @param {number} descendantLevel 我们正在上采样的后代瓦片的平铺方案中的级别。
+ * @returns {Promise<QuantizedMeshTerrainData>|undefined} 为后代瓦片的上采样高度贴图地形数据的承诺，
+ * 或 undefined 如果正在进行的异步 Upsample 操作过多，并且请求已被
+ *递 延。
  */
 QuantizedMeshTerrainData.prototype.upsample = function (
   tilingScheme,
@@ -560,13 +560,13 @@ const maxShort = 32767;
 const barycentricCoordinateScratch = new Cartesian3();
 
 /**
- * Computes the terrain height at a specified longitude and latitude.
+ * 计算指定经纬度处的地形高度。
  *
- * @param {Rectangle} rectangle The rectangle covered by this terrain data.
- * @param {number} longitude The longitude in radians.
- * @param {number} latitude The latitude in radians.
- * @returns {number} The terrain height at the specified position.  The position is clamped to
- *          the rectangle, so expect incorrect results for positions far outside the rectangle.
+ * @param {Rectangle} rectangle 此地形数据覆盖的矩形。
+ * @param {number} longitude 以弧度为单位的经度。
+ * @param {number} latitude 以弧度为单位的纬度。
+ * @returns {number} 指定位置的地形高度。 位置被钳制到
+ * 矩形，因此对于远在矩形之外的位置，预期结果会不正确。
  */
 QuantizedMeshTerrainData.prototype.interpolateHeight = function (
   rectangle,
@@ -715,16 +715,16 @@ function interpolateHeight(terrainData, u, v) {
 }
 
 /**
- * Determines if a given child tile is available, based on the
- * {@link HeightmapTerrainData.childTileMask}.  The given child tile coordinates are assumed
- * to be one of the four children of this tile.  If non-child tile coordinates are
- * given, the availability of the southeast child tile is returned.
+ * 根据
+ * {@link HeightmapTerrainData.childTileMask} 中。 假定给定的子图块坐标
+ * 成为此牌的四个子牌之一。 如果非子图块坐标为
+ * 给定，则返回 southeast child tile 的可用性。
  *
- * @param {number} thisX The tile X coordinate of this (the parent) tile.
- * @param {number} thisY The tile Y coordinate of this (the parent) tile.
- * @param {number} childX The tile X coordinate of the child tile to check for availability.
- * @param {number} childY The tile Y coordinate of the child tile to check for availability.
- * @returns {boolean} True if the child tile is available; otherwise, false.
+ * @param {number} thisX 此（父）瓦片的瓦片 X 坐标。
+ * @param {number} thisY 此（父）瓦片的瓦片 Y 坐标。
+ * @param {number} childX 用于检查可用性的子磁贴的磁贴 X 坐标。
+ * @param {number} childY 要检查可用性的子磁贴的磁贴 Y 坐标。
+ * @returns {boolean} 如果子磁贴可用，则为 True;否则为 false。
  */
 QuantizedMeshTerrainData.prototype.isChildAvailable = function (
   thisX,
@@ -759,12 +759,12 @@ QuantizedMeshTerrainData.prototype.isChildAvailable = function (
 };
 
 /**
- * Gets a value indicating whether or not this terrain data was created by upsampling lower resolution
- * terrain data.  If this value is false, the data was obtained from some other source, such
- * as by downloading it from a remote server.  This method should return true for instances
- * returned from a call to {@link HeightmapTerrainData#upsample}.
+ * 获取一个值，该值指示此地形数据是否是通过对较低分辨率的上采样创建的
+ * 地形数据。 如果此值为 false，则数据是从其他来源获取的，例如
+ * 从远程服务器下载。 对于实例，此方法应返回 true
+ * 从调用 {@link HeightmapTerrainData#upsample} 返回。
  *
- * @returns {boolean} True if this instance was created by upsampling; otherwise, false.
+ * @returns {boolean} 如果此实例是通过上采样创建的，则为 True;否则为 false。
  */
 QuantizedMeshTerrainData.prototype.wasCreatedByUpsampling = function () {
   return this._createdByUpsampling;

@@ -1,7 +1,7 @@
 import DeveloperError from "./DeveloperError.js";
 
 /**
- * Base class for proxying requested made by {@link Resource}.
+ * {@link Resource} 发出的代理请求的基类。
  *
  * @alias Proxy
  * @constructor
@@ -13,10 +13,10 @@ function Proxy() {
 }
 
 /**
- * Get the final URL to use to request a given resource.
+ * 获取用于请求给定资源的最终 URL。
  *
- * @param {string} resource The resource to request.
- * @returns {string} proxied resource
+ * @param {string} resource 要请求的资源。
+ * @returns {string} 代理资源
  * @function
  */
 Proxy.prototype.getURL = DeveloperError.throwInstantiationError;

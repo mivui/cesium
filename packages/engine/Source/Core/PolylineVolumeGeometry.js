@@ -375,9 +375,9 @@ PolylineVolumeGeometry.unpack = function (array, startingIndex, result) {
 const brScratch = new BoundingRectangle();
 
 /**
- * Computes the geometric representation of a polyline with a volume, including its vertices, indices, and a bounding sphere.
+ * 计算具有体积的折线的几何表示，包括其顶点、索引和边界球体。
  *
- * @param {PolylineVolumeGeometry} polylineVolumeGeometry A description of the polyline volume.
+ * @param {PolylineVolumeGeometry} polylineVolumeGeometry 多段线体积的描述。
  * @returns {Geometry|undefined} 计算的顶点和索引。
  */
 PolylineVolumeGeometry.createGeometry = function (polylineVolumeGeometry) {

@@ -181,15 +181,15 @@ function generateCartesianRhumbArc(
 }
 
 /**
- * Breaks a {@link Polyline} into segments such that it does not cross the &plusmn;180 degree meridian of an ellipsoid.
+ * 将 {@link Polyline} 打断为段，使其不会越过椭球体的 ±180 度子午线。
  *
- * @param {Cartesian3[]} positions The polyline's Cartesian positions.
- * @param {Matrix4} [modelMatrix=Matrix4.IDENTITY] The polyline's model matrix. Assumed to be an affine
- * transformation matrix, where the upper left 3x3 elements are a rotation matrix, and
- * the upper three elements in the fourth column are the translation.  The bottom row is assumed to be [0, 0, 0, 1].
- * The matrix is not verified to be in the proper form.
- * @returns {object} An object with a <code>positions</code> property that is an array of positions and a
- * <code>segments</code> property.
+ * @param {Cartesian3[]} positions 折线的笛卡尔位置。
+ * @param {Matrix4} [modelMatrix=Matrix4.IDENTITY] 折线的模型矩阵。假定为仿射
+ * 变换矩阵，其中左上角的 3x3 元素是旋转矩阵，并且
+ * 第四列中的上三个元素是翻译。 底行假定为 [0， 0， 0， 1]。
+ * 未验证矩阵的格式是否正确。
+ * @returns {object} 一个具有 <code>positions</code> 属性的对象，该属性是一个 positions 数组和一个
+ * <code>segments</code> 属性。
  *
  *
  * @example
@@ -306,13 +306,13 @@ PolylinePipeline.wrapLongitude = function (positions, modelMatrix) {
 };
 
 /**
- * Subdivides polyline and raises all points to the specified height.  Returns an array of numbers to represent the positions.
+ * 细分多段线并将所有点升高到指定高度。 返回一个数字数组来表示位置。
  * @param {object} options 对象，具有以下属性:
- * @param {Cartesian3[]} options.positions The array of type {Cartesian3} representing positions.
- * @param {number|number[]} [options.height=0.0] A number or array of numbers representing the heights of each position.
- * @param {number} [options.granularity = CesiumMath.RADIANS_PER_DEGREE] The distance, in radians, between each latitude and longitude. Determines the number of positions in the buffer.
- * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] The ellipsoid on which the positions lie.
- * @returns {number[]} A new array of positions of type {number} that have been subdivided and raised to the surface of the ellipsoid.
+ * @param {Cartesian3[]} options.positions {Cartesian3} 类型的数组，表示位置。
+ * @param {number|number[]} [options.height=0.0] 一个数字或数字数组，代表每个位置的高度。
+ * @param {number} [options.granularity = CesiumMath.RADIANS_PER_DEGREE] 每个纬度和经度之间的距离（以弧度为单位）。确定缓冲区中的位置数。
+ * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] 位置所在的椭球体。
+ * @returns {number[]} 类型的新位置数组，已被细分并提升到椭球体的表面。
  *
  * @example
  * const positions = Cesium.Cartesian3.fromDegreesArray([
@@ -413,13 +413,13 @@ const scratchCartographic0 = new Cartographic();
 const scratchCartographic1 = new Cartographic();
 
 /**
- * Subdivides polyline and raises all points to the specified height using Rhumb lines.  Returns an array of numbers to represent the positions.
+ * 细分多段线并使用 Rhumb 线将所有点升高到指定高度。 返回一个数字数组来表示位置。
  * @param {object} options 对象，具有以下属性:
- * @param {Cartesian3[]} options.positions The array of type {Cartesian3} representing positions.
- * @param {number|number[]} [options.height=0.0] A number or array of numbers representing the heights of each position.
- * @param {number} [options.granularity = CesiumMath.RADIANS_PER_DEGREE] The distance, in radians, between each latitude and longitude. Determines the number of positions in the buffer.
- * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] The ellipsoid on which the positions lie.
- * @returns {number[]} A new array of positions of type {number} that have been subdivided and raised to the surface of the ellipsoid.
+ * @param {Cartesian3[]} options.positions {Cartesian3} 类型的数组，表示位置。
+ * @param {number|number[]} [options.height=0.0] 一个数字或数字数组，代表每个位置的高度。
+ * @param {number} [options.granularity = CesiumMath.RADIANS_PER_DEGREE] 每个纬度和经度之间的距离（以弧度为单位）。确定缓冲区中的位置数。
+ * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] 位置所在的椭球体。
+ * @returns {number[]} 类型的新位置数组，已被细分并提升到椭球体的表面。
  *
  * @example
  * const positions = Cesium.Cartesian3.fromDegreesArray([
@@ -519,13 +519,13 @@ PolylinePipeline.generateRhumbArc = function (options) {
 };
 
 /**
- * Subdivides polyline and raises all points to the specified height. Returns an array of new {Cartesian3} positions.
+ * 细分多段线并将所有点升高到指定高度。返回新 {Cartesian3} 位置的数组。
  * @param {object} options 对象，具有以下属性:
- * @param {Cartesian3[]} options.positions The array of type {Cartesian3} representing positions.
- * @param {number|number[]} [options.height=0.0] A number or array of numbers representing the heights of each position.
- * @param {number} [options.granularity = CesiumMath.RADIANS_PER_DEGREE] The distance, in radians, between each latitude and longitude. Determines the number of positions in the buffer.
- * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] The ellipsoid on which the positions lie.
- * @returns {Cartesian3[]} A new array of cartesian3 positions that have been subdivided and raised to the surface of the ellipsoid.
+ * @param {Cartesian3[]} options.positions {Cartesian3} 类型的数组，表示位置。
+ * @param {number|number[]} [options.height=0.0] 一个数字或数字数组，代表每个位置的高度。
+ * @param {number} [options.granularity = CesiumMath.RADIANS_PER_DEGREE] 每个纬度和经度之间的距离（以弧度为单位）。确定缓冲区中的位置数。
+ * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] 位置所在的椭球体。
+ * @returns {Cartesian3[]} 一个新的笛卡尔 3 位置数组，已被细分并提升到椭球体的表面。
  *
  * @example
  * const positions = Cesium.Cartesian3.fromDegreesArray([
@@ -549,13 +549,13 @@ PolylinePipeline.generateCartesianArc = function (options) {
 };
 
 /**
- * Subdivides polyline and raises all points to the specified height using Rhumb Lines. Returns an array of new {Cartesian3} positions.
+ * 使用 Rhumb Lines 细分多段线并将所有点升高到指定高度。返回新 {Cartesian3} 位置的数组。
  * @param {object} options 对象，具有以下属性:
- * @param {Cartesian3[]} options.positions The array of type {Cartesian3} representing positions.
- * @param {number|number[]} [options.height=0.0] A number or array of numbers representing the heights of each position.
- * @param {number} [options.granularity = CesiumMath.RADIANS_PER_DEGREE] The distance, in radians, between each latitude and longitude. Determines the number of positions in the buffer.
- * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] The ellipsoid on which the positions lie.
- * @returns {Cartesian3[]} A new array of cartesian3 positions that have been subdivided and raised to the surface of the ellipsoid.
+ * @param {Cartesian3[]} options.positions {Cartesian3} 类型的数组，表示位置。
+ * @param {number|number[]} [options.height=0.0] 一个数字或数字数组，代表每个位置的高度。
+ * @param {number} [options.granularity = CesiumMath.RADIANS_PER_DEGREE] 每个纬度和经度之间的距离（以弧度为单位）。确定缓冲区中的位置数。
+ * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] 位置所在的椭球体。
+ * @returns {Cartesian3[]} 一个新的笛卡尔 3 位置数组，已被细分并提升到椭球体的表面。
  *
  * @example
  * const positions = Cesium.Cartesian3.fromDegreesArray([

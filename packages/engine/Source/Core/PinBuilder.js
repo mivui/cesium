@@ -6,11 +6,11 @@ import Resource from "./Resource.js";
 import writeTextToCanvas from "./writeTextToCanvas.js";
 
 /**
- * A utility class for generating custom map pins as canvas elements.
+ * 一个实用程序类，用于将自定义地图图钉生成为 canvas 元素。
  * <br /><br />
  * <div align='center'>
  * <img src='Images/PinBuilder.png' width='500'/><br />
- * Example pins generated using both the maki icon set, which ships with Cesium, and single character text.
+ * 使用 Cesium 附带的 maki 图标集和单字符文本生成的示例图钉。
  * </div>
  *
  * @alias PinBuilder
@@ -23,11 +23,11 @@ function PinBuilder() {
 }
 
 /**
- * Creates an empty pin of the specified color and size.
+ * 创建指定颜色和大小的空图钉。
  *
- * @param {Color} color The color of the pin.
- * @param {number} size The size of the pin, in pixels.
- * @returns {HTMLCanvasElement} The canvas element that represents the generated pin.
+ * @param {Color} color 图钉的颜色。
+ * @param {number} size 引脚的大小（以像素为单位）。
+ * @returns {HTMLCanvasElement} 表示生成的图钉的 canvas 元素。
  */
 PinBuilder.prototype.fromColor = function (color, size) {
   //>>includeStart('debug', pragmas.debug);
@@ -42,12 +42,12 @@ PinBuilder.prototype.fromColor = function (color, size) {
 };
 
 /**
- * Creates a pin with the specified icon, color, and size.
+ * 创建具有指定图标、颜色和大小的图钉。
  *
- * @param {Resource|string} url The url of the image to be stamped onto the pin.
- * @param {Color} color The color of the pin.
- * @param {number} size The size of the pin, in pixels.
- * @returns {HTMLCanvasElement|Promise<HTMLCanvasElement>} The canvas element or a Promise to the canvas element that represents the generated pin.
+ * @param {Resource|string} url 要标记到图钉上的图像的 URL。
+ * @param {Color} color 图钉的颜色。
+ * @param {number} size 引脚的大小（以像素为单位）。
+ * @returns {HTMLCanvasElement|Promise<HTMLCanvasElement>} 表示生成的图钉的 canvas 元素的 canvas 元素的 Promise。
  */
 PinBuilder.prototype.fromUrl = function (url, color, size) {
   //>>includeStart('debug', pragmas.debug);
@@ -65,12 +65,12 @@ PinBuilder.prototype.fromUrl = function (url, color, size) {
 };
 
 /**
- * Creates a pin with the specified {@link https://www.mapbox.com/maki/|maki} icon identifier, color, and size.
+ * 创建具有指定 {@link https://www.mapbox.com/maki/|maki} 图标标识符、颜色和大小的图钉。
  *
- * @param {string} id The id of the maki icon to be stamped onto the pin.
- * @param {Color} color The color of the pin.
- * @param {number} size The size of the pin, in pixels.
- * @returns {HTMLCanvasElement|Promise<HTMLCanvasElement>} The canvas element or a Promise to the canvas element that represents the generated pin.
+ * @param {string} id 要压印到图钉上的 maki 图标的 ID。
+ * @param {Color} color 图钉的颜色。
+ * @param {number} size 引脚的大小（以像素为单位）。
+ * @returns {HTMLCanvasElement|Promise<HTMLCanvasElement>} 表示生成的图钉的 canvas 元素的 canvas 元素的 Promise。
  */
 PinBuilder.prototype.fromMakiIconId = function (id, color, size) {
   //>>includeStart('debug', pragmas.debug);
@@ -94,13 +94,13 @@ PinBuilder.prototype.fromMakiIconId = function (id, color, size) {
 };
 
 /**
- * Creates a pin with the specified text, color, and size.  The text will be sized to be as large as possible
- * while still being contained completely within the pin.
+ * 创建具有指定文本、颜色和大小的图钉。 文本的大小将尽可能大
+ * 同时仍完全包含在 pin 中。
  *
- * @param {string} text The text to be stamped onto the pin.
- * @param {Color} color The color of the pin.
- * @param {number} size The size of the pin, in pixels.
- * @returns {HTMLCanvasElement} The canvas element that represents the generated pin.
+ * @param {string} text 要盖章到图钉上的文本。
+ * @param {Color} color 图钉的颜色。
+ * @param {number} size 引脚的大小（以像素为单位）。
+ * @returns {HTMLCanvasElement} 表示生成的图钉的 canvas 元素。
  */
 PinBuilder.prototype.fromText = function (text, color, size) {
   //>>includeStart('debug', pragmas.debug);

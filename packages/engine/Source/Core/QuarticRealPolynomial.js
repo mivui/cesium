@@ -4,21 +4,21 @@ import CesiumMath from "./Math.js";
 import QuadraticRealPolynomial from "./QuadraticRealPolynomial.js";
 
 /**
- * Defines functions for 4th order polynomial functions of one variable with only real coefficients.
+ * 定义一个变量的 4 阶多项式函数的函数，其中只有实系数。
  *
  * @namespace QuarticRealPolynomial
  */
 const QuarticRealPolynomial = {};
 
 /**
- * Provides the discriminant of the quartic equation from the supplied coefficients.
+ * 提供四次方程与提供的系数的判别式。
  *
- * @param {number} a The coefficient of the 4th order monomial.
- * @param {number} b The coefficient of the 3rd order monomial.
- * @param {number} c The coefficient of the 2nd order monomial.
- * @param {number} d The coefficient of the 1st order monomial.
- * @param {number} e The coefficient of the 0th order monomial.
- * @returns {number} The value of the discriminant.
+ * @param {number} a 4 阶单项式的系数。
+ * @param {number} b 三阶单项式的系数。
+ * @param {number} c 二阶单项式的系数。
+ * @param {number} d 一阶单项式的系数。
+ * @param {number} e 0 阶单项式的系数。
+ * @returns {number} 判别值。
  */
 QuarticRealPolynomial.computeDiscriminant = function (a, b, c, d, e) {
   //>>includeStart('debug', pragmas.debug);
@@ -261,14 +261,14 @@ function neumark(a3, a2, a1, a0) {
 }
 
 /**
- * Provides the real valued roots of the quartic polynomial with the provided coefficients.
+ * 提供四次多项式的实值根和提供的系数。
  *
- * @param {number} a The coefficient of the 4th order monomial.
- * @param {number} b The coefficient of the 3rd order monomial.
- * @param {number} c The coefficient of the 2nd order monomial.
- * @param {number} d The coefficient of the 1st order monomial.
- * @param {number} e The coefficient of the 0th order monomial.
- * @returns {number[]} The real valued roots.
+ * @param {number} a 4 阶单项式的系数。
+ * @param {number} b 三阶单项式的系数。
+ * @param {number} c 二阶单项式的系数。
+ * @param {number} d 一阶单项式的系数。
+ * @param {number} e 0 阶单项式的系数。
+ * @returns {number[]} 实值根。
  */
 QuarticRealPolynomial.computeRealRoots = function (a, b, c, d, e) {
   //>>includeStart('debug', pragmas.debug);

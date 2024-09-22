@@ -263,20 +263,20 @@ function createGeometryFromPositionsExtruded(
 }
 
 /**
- * A description of the outline of a polygon on the ellipsoid. The polygon is defined by a polygon hierarchy.
+ * 椭球体上多边形轮廓的描述。多边形由多边形层次结构定义。
  *
  * @alias PolygonOutlineGeometry
  * @constructor
  *
- * @param {object} options 对象，具有以下属性:
- * @param {PolygonHierarchy} options.polygonHierarchy A polygon hierarchy that can include holes.
- * @param {number} [options.height=0.0] The distance in meters between the polygon and the ellipsoid surface.
- * @param {number} [options.extrudedHeight] The distance in meters between the polygon's extruded face and the ellipsoid surface.
+ * @param {object} options 对象，具有以下属性：
+ * @param {PolygonHierarchy} options.polygonHierarchy 可以包含孔洞的多边形层次结构。
+ * @param {number} [options.height=0.0] 多边形和椭球体表面之间的距离（以米为单位）。
+ * @param {number} [options.extrudedHeight] 多边形的挤出面与椭球体表面之间的距离（以米为单位）。
  * @param {VertexFormat} [options.vertexFormat=VertexFormat.DEFAULT] 要计算的顶点属性。
- * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] The ellipsoid to be used as a reference.
- * @param {number} [options.granularity=CesiumMath.RADIANS_PER_DEGREE] The distance, in radians, between each latitude and longitude. Determines the number of positions in the buffer.
- * @param {boolean} [options.perPositionHeight=false] Use the height of options.positions for each position instead of using options.height to determine the height.
- * @param {ArcType} [options.arcType=ArcType.GEODESIC] The type of path the outline must follow. Valid options are {@link ArcType.GEODESIC} and {@link ArcType.RHUMB}.
+ * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] 要用作参考的椭球体。
+ * @param {number} [options.granularity=CesiumMath.RADIANS_PER_DEGREE] 每个纬度和经度之间的距离，以弧度为单位。确定缓冲区中的位置数。
+ * @param {boolean} [options.perPositionHeight=false] 为每个位置使用 options.positions 的高度，而不是使用 options.height 来确定高度。
+ * @param {ArcType} [options.arcType=ArcType.GEODESIC] 轮廓必须遵循的路径类型。有效选项为 {@link ArcType.GEODESIC} 和 {@link ArcType.RHUMB}。
  *
  * @see PolygonOutlineGeometry#createGeometry
  * @see PolygonOutlineGeometry#fromPositions
@@ -463,7 +463,7 @@ const dummyOptions = {
  * @param {number[]} array 打包数组。
  * @param {number} [startingIndex=0] 要解压缩的元素的起始索引。
  * @param {PolygonOutlineGeometry} [result] 要在其中存储结果的对象。
- * @returns {PolygonOutlineGeometry} 修改后的结果参数 or a new PolygonOutlineGeometry instance if one was not provided.
+ * @returns {PolygonOutlineGeometry} 修改后的结果参数或新的 PolygonOutlineGeometry 实例（如果未提供）。
  */
 PolygonOutlineGeometry.unpack = function (array, startingIndex, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -512,16 +512,16 @@ PolygonOutlineGeometry.unpack = function (array, startingIndex, result) {
 };
 
 /**
- * A description of a polygon outline from an array of positions.
+ * 来自位置数组的多边形轮廓的描述。
  *
  * @param {object} options 对象，具有以下属性:
- * @param {Cartesian3[]} options.positions An array of positions that defined the corner points of the polygon.
- * @param {number} [options.height=0.0] 高度 polygon.
- * @param {number} [options.extrudedHeight] 高度 polygon extrusion.
- * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] The ellipsoid to be used as a reference.
- * @param {number} [options.granularity=CesiumMath.RADIANS_PER_DEGREE] The distance, in radians, between each latitude and longitude. Determines the number of positions in the buffer.
- * @param {boolean} [options.perPositionHeight=false] Use the height of options.positions for each position instead of using options.height to determine the height.
- * @param {ArcType} [options.arcType=ArcType.GEODESIC] The type of path the outline must follow. Valid options are {@link LinkType.GEODESIC} and {@link ArcType.RHUMB}.
+ * @param {Cartesian3[]} options.positions 定义多边形的角点的位置数组。
+ * @param {number} [options.height=0.0] polygon 高度 .
+ * @param {number} [options.extrudedHeight] 高度多边形拉伸。
+ * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] 要用作参考的椭球体。
+ * @param {number} [options.granularity=CesiumMath.RADIANS_PER_DEGREE] 每个纬度和经度之间的距离，以弧度为单位。确定缓冲区中的位置数。
+ * @param {boolean} [options.perPositionHeight=false] 为每个位置使用 options.positions 的高度，而不是使用 options.height 来确定高度。
+ * @param {ArcType} [options.arcType=ArcType.GEODESIC] 轮廓必须遵循的路径类型。有效选项为 {@link LinkType.GEODESIC} 和 {@link ArcType.RHUMB}。
  * @returns {PolygonOutlineGeometry}
  *
  *
@@ -563,9 +563,9 @@ PolygonOutlineGeometry.fromPositions = function (options) {
 };
 
 /**
- * Computes the geometric representation of a polygon outline, including its vertices, indices, and a bounding sphere.
+ * 计算多边形轮廓的几何表示，包括其顶点、索引和边界球体。
  *
- * @param {PolygonOutlineGeometry} polygonGeometry A description of the polygon outline.
+ * @param {PolygonOutlineGeometry} polygonGeometry 多边形轮廓的描述。
  * @returns {Geometry|undefined} 计算的顶点和索引。
  */
 PolygonOutlineGeometry.createGeometry = function (polygonGeometry) {

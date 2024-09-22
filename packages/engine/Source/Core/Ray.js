@@ -4,7 +4,7 @@ import defaultValue from "./defaultValue.js";
 import defined from "./defined.js";
 
 /**
- * Represents a ray that extends infinitely from the provided origin in the provided direction.
+ * 表示从提供的原点沿给定方向无限延伸的射线。
  * @alias Ray
  * @constructor
  *
@@ -18,25 +18,25 @@ function Ray(origin, direction) {
   }
 
   /**
-   * The origin of the ray.
+   * 射线的原点。
    * @type {Cartesian3}
    * @default {@link Cartesian3.ZERO}
    */
   this.origin = Cartesian3.clone(defaultValue(origin, Cartesian3.ZERO));
 
   /**
-   * The direction of the ray.
+   * 光线的方向。
    * @type {Cartesian3}
    */
   this.direction = direction;
 }
 
 /**
- * 复制Ray instance.
+ * 复制Ray实例。
  *
- * @param {Ray} ray The ray to duplicate.
+ * @param {Ray} ray 要复制的光线。
  * @param {Ray} [result] 要在其上存储结果的对象。
- * @returns {Ray} 修改后的结果参数 or a new Ray instance if one was not provided. (Returns undefined if ray is undefined)
+ * @returns {Ray} 修改后的结果参数或者新的 Ray 实例（如果未提供）。（如果 ray 未定义，则返回 undefined）
  */
 Ray.clone = function (ray, result) {
   if (!defined(ray)) {
@@ -51,13 +51,13 @@ Ray.clone = function (ray, result) {
 };
 
 /**
- * Computes the point along the ray given by r(t) = o + t*d,
- * where o is the origin of the ray and d is the direction.
+ * 计算沿射线的点，由 r（t） = o + t*d，
+ * 其中 o 是射线的原点，d 是方向。
  *
- * @param {Ray} ray The ray.
- * @param {number} t A scalar value.
- * @param {Cartesian3} [result] The object in which the result will be stored.
- * @returns {Cartesian3} 修改后的结果参数, or a new instance if none was provided.
+ * @param {Ray} ray 射线。
+ * @param {number} t 一个标量值。
+ * @param {Cartesian3} [result] 将存储结果的对象。
+ * @returns {Cartesian3} 修改后的结果参数,或者如果未提供任何实例，则为新实例。
  *
  * @example
  * //Get the first intersection point of a ray and an ellipsoid.

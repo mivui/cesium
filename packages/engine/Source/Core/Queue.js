@@ -1,5 +1,5 @@
 /**
- * A queue that can enqueue items at the end, and dequeue items from the front.
+ * 一个队列，可以在末尾将项目排入队列，并从前面取消项目排队。
  *
  * @alias Queue
  * @constructor
@@ -12,7 +12,7 @@ function Queue() {
 
 Object.defineProperties(Queue.prototype, {
   /**
-   * The length of the queue.
+   * 队列的长度。
    *
    * @memberof Queue.prototype
    *
@@ -27,9 +27,9 @@ Object.defineProperties(Queue.prototype, {
 });
 
 /**
- * Enqueues the specified item.
+ * 将指定项排入队列。
  *
- * @param {*} item The item to enqueue.
+ * @param {*} item 要入队的项目。
  */
 Queue.prototype.enqueue = function (item) {
   this._array.push(item);
@@ -37,9 +37,9 @@ Queue.prototype.enqueue = function (item) {
 };
 
 /**
- * Dequeues an item.  Returns undefined if the queue is empty.
+ * 取消项目排队。 如果队列为空，则返回 undefined。
  *
- * @returns {*} The the dequeued item.
+ * @returns {*} 已取消排队的项目。
  */
 Queue.prototype.dequeue = function () {
   if (this._length === 0) {
@@ -65,9 +65,9 @@ Queue.prototype.dequeue = function () {
 };
 
 /**
- * Returns the item at the front of the queue.  Returns undefined if the queue is empty.
+ * 返回队列前面的项目。 如果队列为空，则返回 undefined。
  *
- * @returns {*} The item at the front of the queue.
+ * @returns {*} 队列前面的项目。
  */
 Queue.prototype.peek = function () {
   if (this._length === 0) {
@@ -78,25 +78,25 @@ Queue.prototype.peek = function () {
 };
 
 /**
- * Check whether this queue contains the specified item.
+ * 检查此队列是否包含指定项。
  *
- * @param {*} item The item to search for.
+ * @param {*} item 要搜索的项目。
  */
 Queue.prototype.contains = function (item) {
   return this._array.indexOf(item) !== -1;
 };
 
 /**
- * Remove all items from the queue.
+ * 从队列中删除所有项目。
  */
 Queue.prototype.clear = function () {
   this._array.length = this._offset = this._length = 0;
 };
 
 /**
- * Sort the items in the queue in-place.
+ * 就地对队列中的项目进行排序。
  *
- * @param {Queue.Comparator} compareFunction A function that defines the sort order.
+ * @param {Queue.Comparator} compareFunction 定义排序顺序的函数。
  */
 Queue.prototype.sort = function (compareFunction) {
   if (this._offset > 0) {
@@ -109,14 +109,14 @@ Queue.prototype.sort = function (compareFunction) {
 };
 
 /**
- * A function used to compare two items while sorting a queue.
+ * 用于在对队列进行排序时比较两个项目的函数。
  * @callback Queue.Comparator
  *
  * @param {*} a 数组中的一项。
  * @param {*} b 数组中的一项。
- * @returns {number} Returns a negative value if <code>a</code> is less than <code>b</code>,
- *          a positive value if <code>a</code> is greater than <code>b</code>, or
- *          0 if <code>a</code> is equal to <code>b</code>.
+ * @returns {number}如果 <code>a</code> 小于 <code>b</code>，则返回负值，
+ * 如果 <code>a</code> 大于 <code>b</code>，则为正值，或
+ * 如果 <code>a</code> 等于 <code>b</code>，则为 0。
  *
  * @example
  * function compareNumbers(a, b) {

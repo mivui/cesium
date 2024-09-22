@@ -11,7 +11,7 @@ import PrimitiveType from "./PrimitiveType.js";
 import VertexFormat from "./VertexFormat.js";
 
 /**
- * Describes geometry representing a plane centered at the origin, with a unit width and length.
+ * 描述表示以原点为中心的平面的几何图形，具有单位宽度和长度。
  *
  * @alias PlaneGeometry
  * @constructor
@@ -72,7 +72,7 @@ const scratchOptions = {
  * @param {number[]} array 打包数组。
  * @param {number} [startingIndex=0] 要解压缩的元素的起始索引。
  * @param {PlaneGeometry} [result] 要在其中存储结果的对象。
- * @returns {PlaneGeometry} 修改后的结果参数 or a new PlaneGeometry instance if one was not provided.
+ * @returns {PlaneGeometry} 修改后的结果参数或新的 PlaneGeometry 实例（如果未提供）。
  */
 PlaneGeometry.unpack = function (array, startingIndex, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -100,9 +100,9 @@ const min = new Cartesian3(-0.5, -0.5, 0.0);
 const max = new Cartesian3(0.5, 0.5, 0.0);
 
 /**
- * Computes the geometric representation of a plane, including its vertices, indices, and a bounding sphere.
+ * 计算平面的几何表示，包括其顶点、索引和边界球体。
  *
- * @param {PlaneGeometry} planeGeometry A description of the plane.
+ * @param {PlaneGeometry} planeGeometry 平面的描述。
  * @returns {Geometry|undefined} 计算的顶点和索引。
  */
 PlaneGeometry.createGeometry = function (planeGeometry) {
