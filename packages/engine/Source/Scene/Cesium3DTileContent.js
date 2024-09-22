@@ -1,13 +1,13 @@
 import DeveloperError from "../Core/DeveloperError.js";
 
 /**
- * The content of a tile in a {@link Cesium3DTileset}.
+ * {@link Cesium3DTileset} 中瓦片的内容。
  * <p>
- * Derived classes of this interface provide access to individual features in the tile.
- * Access derived objects through {@link Cesium3DTile#content}.
+ * 此接口的派生类提供对磁贴中各个功能的访问。
+ * 通过 {@link Cesium3DTile#content} 访问派生对象。
  * </p>
  * <p>
- * This type describes an interface and is not intended to be instantiated directly.
+ * 此类型描述接口，不打算直接实例化。
  * </p>
  *
  * @alias Cesium3DTileContent
@@ -15,11 +15,11 @@ import DeveloperError from "../Core/DeveloperError.js";
  */
 function Cesium3DTileContent() {
   /**
-   * Gets or sets if any feature's property changed.  Used to
-   * optimized applying a style when a feature's property changed.
+   * 获取或设置任何功能的属性是否更改。 用于
+   * 优化了在特征属性更改时应用样式的功能。
    * <p>
-   * This is used to implement the <code>Cesium3DTileContent</code> interface, but is
-   * not part of the public Cesium API.
+   * 这用于实现 <code>Cesium3DTileContent</code> 接口，但
+   * 不是公共 Cesium API 的一部分。
    * </p>
    *
    * @type {boolean}
@@ -31,7 +31,7 @@ function Cesium3DTileContent() {
 
 Object.defineProperties(Cesium3DTileContent.prototype, {
   /**
-   * Gets the number of features in the tile.
+   * 获取瓦片中的要素数。
    *
    * @memberof Cesium3DTileContent.prototype
    *
@@ -46,10 +46,10 @@ Object.defineProperties(Cesium3DTileContent.prototype, {
   },
 
   /**
-   * Gets the number of points in the tile.
+   * 获取瓦片中的点数。
    * <p>
-   * Only applicable for tiles with Point Cloud content. This is different than {@link Cesium3DTileContent#featuresLength} which
-   * equals the number of groups of points as distinguished by the <code>BATCH_ID</code> feature table semantic.
+   * 仅适用于包含点云内容的瓦片。这与 {@link Cesium3DTileContent#featuresLength} 不同，后者
+   * 等于 <code>BATCH_ID</code> 特征表语义区分的点组数。
    * </p>
    *
    * @see {@link https://github.com/CesiumGS/3d-tiles/tree/main/specification/TileFormats/PointCloud#batched-points}
@@ -67,7 +67,7 @@ Object.defineProperties(Cesium3DTileContent.prototype, {
   },
 
   /**
-   * Gets the number of triangles in the tile.
+   * 获取平铺中的三角形数。
    *
    * @memberof Cesium3DTileContent.prototype
    *
@@ -82,7 +82,7 @@ Object.defineProperties(Cesium3DTileContent.prototype, {
   },
 
   /**
-   * Gets the tile's geometry memory in bytes.
+   * 获取图块的几何内存（以字节为单位）。
    *
    * @memberof Cesium3DTileContent.prototype
    *
@@ -97,7 +97,7 @@ Object.defineProperties(Cesium3DTileContent.prototype, {
   },
 
   /**
-   * Gets the tile's texture memory in bytes.
+   * 获取平铺的纹理内存（以字节为单位）。
    *
    * @memberof Cesium3DTileContent.prototype
    *
@@ -112,9 +112,9 @@ Object.defineProperties(Cesium3DTileContent.prototype, {
   },
 
   /**
-   * Gets the amount of memory used by the batch table textures and any binary
-   * metadata properties not accounted for in geometryByteLength or
-   * texturesByteLength
+   * 获取批处理表纹理和任何二进制文件使用的内存量
+   * geometryByteLength 中未考虑元数据属性，或者
+   * textures字节长度
    *
    * @memberof Cesium3DTileContent.prototype
    *
@@ -129,7 +129,7 @@ Object.defineProperties(Cesium3DTileContent.prototype, {
   },
 
   /**
-   * Gets the array of {@link Cesium3DTileContent} objects for contents that contain other contents, such as composite tiles. The inner contents may in turn have inner contents, such as a composite tile that contains a composite tile.
+   * 获取包含其他内容（如复合磁贴）的内容的 {@link Cesium3DTileContent} 对象的数组。内部内容可能又具有内部内容，例如包含复合切片的复合切片。
    *
    * @see {@link https://github.com/CesiumGS/3d-tiles/tree/main/specification/TileFormats/Composite|Composite specification}
    *
@@ -146,7 +146,7 @@ Object.defineProperties(Cesium3DTileContent.prototype, {
   },
 
   /**
-   * Returns true when the tile's content is ready to render; otherwise false
+   * 当磁贴的内容准备好呈现时，返回 true;否则为 false
    *
    * @memberof Cesium3DTileContent.prototype
    *
@@ -161,7 +161,7 @@ Object.defineProperties(Cesium3DTileContent.prototype, {
   },
 
   /**
-   * Gets the tileset for this tile.
+   * 获取此图块的图块集。
    *
    * @memberof Cesium3DTileContent.prototype
    *
@@ -176,7 +176,7 @@ Object.defineProperties(Cesium3DTileContent.prototype, {
   },
 
   /**
-   * Gets the tile containing this content.
+   * 获取包含此内容的磁贴。
    *
    * @memberof Cesium3DTileContent.prototype
    *
@@ -191,7 +191,7 @@ Object.defineProperties(Cesium3DTileContent.prototype, {
   },
 
   /**
-   * Gets the url of the tile's content.
+   * 获取磁贴内容的 URL。
    * @memberof Cesium3DTileContent.prototype
    *
    * @type {string}
@@ -205,10 +205,10 @@ Object.defineProperties(Cesium3DTileContent.prototype, {
   },
 
   /**
-   * Gets the batch table for this content.
+   * 获取此内容的 batch 表。
    * <p>
-   * This is used to implement the <code>Cesium3DTileContent</code> interface, but is
-   * not part of the public Cesium API.
+   * 这用于实现 <code>Cesium3DTileContent</code> 接口，但
+   * 不是公共 Cesium API 的一部分。
    * </p>
    *
    * @type {Cesium3DTileBatchTable}
@@ -224,17 +224,17 @@ Object.defineProperties(Cesium3DTileContent.prototype, {
   },
 
   /**
-   * Gets the metadata for this content, whether it is available explicitly or via
-   * implicit tiling. If there is no metadata, this property should be undefined.
+   * 获取此内容的元数据，无论它是显式可用的还是通过
+   * 隐式平铺。如果没有元数据，则应为“undefined”此属性。
    * <p>
-   * This is used to implement the <code>Cesium3DTileContent</code> interface, but is
-   * not part of the public Cesium API.
+   * 这用于实现 <code>Cesium3DTileContent</code> 接口，但
+   * 不是公共 Cesium API 的一部分。
    * </p>
    *
    * @type {ImplicitMetadataView|undefined}
    *
    * @private
-   * @experimental This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.
+   * @experimental 此功能使用的是 3D Tiles 规范的一部分，该规范不是最终版本，并且可能会在没有 Cesium 标准弃用策略的情况下进行更改。
    */
   metadata: {
     // eslint-disable-next-line getter-return
@@ -247,18 +247,18 @@ Object.defineProperties(Cesium3DTileContent.prototype, {
   },
 
   /**
-   * Gets the group for this content if the content has metadata (3D Tiles 1.1) or
-   * if it uses the <code>3DTILES_metadata</code> extension. If neither are present,
-   * this property should be undefined.
+   * 如果内容具有元数据 （3D Tiles 1.1），则获取此内容的组，或者
+   * 如果它使用 <code>3DTILES_metadata</code> 扩展。如果两者都不存在，
+   * 此属性应为 undefined。
    * <p>
-   * This is used to implement the <code>Cesium3DTileContent</code> interface, but is
-   * not part of the public Cesium API.
+   * 这用于实现 <code>Cesium3DTileContent</code> 接口，但
+   * 不是公共 Cesium API 的一部分。
    * </p>
    *
    * @type {Cesium3DTileContentGroup|undefined}
    *
    * @private
-   * @experimental This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.
+   * @experimental 此功能使用的是 3D Tiles 规范的一部分，该规范不是最终版本，并且可能会在没有 Cesium 标准弃用策略的情况下进行更改。
    */
   group: {
     // eslint-disable-next-line getter-return
@@ -272,28 +272,28 @@ Object.defineProperties(Cesium3DTileContent.prototype, {
 });
 
 /**
- * Returns whether the feature has this property.
+ * 返回功能是否具有此属性。
  *
- * @param {number} batchId The batchId for the feature.
- * @param {string} name The case-sensitive name of the property.
- * @returns {boolean} <code>true</code> if the feature has this property; otherwise, <code>false</code>.
+ * @param {number} batchId 特征的 batchId。
+ * @param {string} name 属性的区分大小写的名称。
+ * @returns {boolean} <code>true</code>，如果特征具有此属性;否则为 <code>false</code>。
  */
 Cesium3DTileContent.prototype.hasProperty = function (batchId, name) {
   DeveloperError.throwInstantiationError();
 };
 
 /**
- * Returns the {@link Cesium3DTileFeature} object for the feature with the
- * given <code>batchId</code>.  This object is used to get and modify the
- * feature's properties.
+ * 返回 {@link Cesium3DTileFeature} 对象的
+ * 给定 <code>batchId</code>。 此对象用于获取和修改
+ * 功能的属性。
  * <p>
- * Features in a tile are ordered by <code>batchId</code>, an index used to retrieve their metadata from the batch table.
+ * 瓦片中的要素按 <code>batchId 排序，batchId</code> 是用于从批处理表中检索其元数据的索引。
  * </p>
  *
  * @see {@link https://github.com/CesiumGS/3d-tiles/tree/main/specification/TileFormats/BatchTable}.
  *
- * @param {number} batchId The batchId for the feature.
- * @returns {Cesium3DTileFeature} The corresponding {@link Cesium3DTileFeature} object.
+ * @param {number} batchId 特征的 batchId。
+ * @returns {Cesium3DTileFeature} 对应的 {@link Cesium3DTileFeature} 对象。
  *
  * @exception {DeveloperError} batchId must be between zero and {@link Cesium3DTileContent#featuresLength} - 1.
  */
@@ -302,14 +302,14 @@ Cesium3DTileContent.prototype.getFeature = function (batchId) {
 };
 
 /**
-     * Called when {@link Cesium3DTileset#debugColorizeTiles} changes.
+     * 在 {@link Cesium3DTileset#debugColorizeTiles} 更改时调用。
      * <p>
-     * This is used to implement the <code>Cesium3DTileContent</code> interface, but is
-     * not part of the public Cesium API.
+     * 这用于实现 <code>Cesium3DTileContent</code> 接口，但
+     * 不是公共 Cesium API 的一部分。
      * </p>
      *
-     * @param {boolean} enabled Whether to enable or disable debug settings.
-     * @returns {Cesium3DTileFeature} The corresponding {@link Cesium3DTileFeature} object.
+     * @param {boolean} enabled 是启用还是禁用调试设置。
+     * @returns {Cesium3DTileFeature} 相应的 {@link Cesium3DTileFeature} 对象。
 
      * @private
      */
@@ -318,13 +318,13 @@ Cesium3DTileContent.prototype.applyDebugSettings = function (enabled, color) {
 };
 
 /**
- * Apply a style to the content
+ * 将样式应用于内容
  * <p>
- * This is used to implement the <code>Cesium3DTileContent</code> interface, but is
- * not part of the public Cesium API.
+ * 这用于实现 <code>Cesium3DTileContent</code> 接口，但
+ * 不是公共 Cesium API 的一部分。
  * </p>
  *
- * @param {Cesium3DTileStyle} style The style.
+ * @param {Cesium3DTileStyle} style 风格。
  *
  * @private
  */
@@ -333,16 +333,16 @@ Cesium3DTileContent.prototype.applyStyle = function (style) {
 };
 
 /**
- * Called by the tile during tileset traversal to get the draw commands needed to render this content.
- * When the tile's content is in the PROCESSING state, this creates WebGL resources to ultimately
- * move to the READY state.
+ * 在图块集遍历期间由瓦片调用，以获取渲染此内容所需的绘制命令。
+ * 当瓦片的内容处于 PROCESSING 状态时，这将创建 WebGL 资源，最终
+ * 移至 READY 状态。
  * <p>
- * This is used to implement the <code>Cesium3DTileContent</code> interface, but is
- * not part of the public Cesium API.
+ * 这用于实现 <code>Cesium3DTileContent</code> 接口，但
+ * 不是公共 Cesium API 的一部分。
  * </p>
  *
- * @param {Cesium3DTileset} tileset The tileset containing this tile.
- * @param {FrameState} frameState The frame state.
+ * @param {Cesium3DTileset} tileset 包含此图块的图块集。
+ * @param {FrameState} frameState 帧状态。
  *
  * @private
  */
@@ -351,12 +351,12 @@ Cesium3DTileContent.prototype.update = function (tileset, frameState) {
 };
 
 /**
- * Find an intersection between a ray and the tile content surface that was rendered. The ray must be given in world coordinates.
+ * 查找光线与渲染的平铺内容表面之间的交集。射线必须以世界坐标给出。
  *
- * @param {Ray} ray The ray to test for intersection.
- * @param {FrameState} frameState The frame state.
- * @param {Cartesian3|undefined} [result] The intersection or <code>undefined</code> if none was found.
- * @returns {Cartesian3|undefined} The intersection or <code>undefined</code> if none was found.
+ * @param {Ray} ray 用于测试交集的射线。
+ * @param {FrameState} frameState 帧状态。
+ * @param {Cartesian3|undefined} [result] 交集或 <code>undefined</code>，如果未找到。
+ * @returns {Cartesian3|undefined} 交集或 <code>undefined</code>（如果未找到）。
  *
  * @private
  */
@@ -365,16 +365,16 @@ Cesium3DTileContent.prototype.pick = function (ray, frameState, result) {
 };
 
 /**
- * Returns true if this object was destroyed; otherwise, false.
+ * 如果此对象已销毁，则返回 true;否则为 false。
  * <br /><br />
- * If this object was destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.
+ * 如果此对象已销毁，则不应使用;调用
+ <code>* isDestroyed</code> 将导致 {@link DeveloperError} 异常。
  * <p>
- * This is used to implement the <code>Cesium3DTileContent</code> interface, but is
- * not part of the public Cesium API.
+ * 这用于实现 <code>Cesium3DTileContent</code> 接口，但
+ * 不是公共 Cesium API 的一部分。
  * </p>
  *
- * @returns {boolean} <code>true</code> if this object was destroyed; otherwise, <code>false</code>.
+ * @returns {boolean} <code>true</code>，如果此对象被销毁;否则为 <code>false</code>。
  *
  * @see Cesium3DTileContent#destroy
  *
@@ -385,18 +385,18 @@ Cesium3DTileContent.prototype.isDestroyed = function () {
 };
 
 /**
- * Destroys the WebGL resources held by this object.  Destroying an object allows for deterministic
- * release of WebGL resources, instead of relying on the garbage collector to destroy this object.
+ * 销毁此对象持有的 WebGL 资源。 销毁对象允许确定性
+ * 释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。
  * <br /><br />
- * Once an object is destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.  Therefore,
- * assign the return value (<code>undefined</code>) to the object as done in the example.
+ * 一旦对象被销毁，就不应该使用它;调用
+ <code>* isDestroyed</code> 将导致 {@link DeveloperError} 异常。 因此
+ * 将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
  * <p>
- * This is used to implement the <code>Cesium3DTileContent</code> interface, but is
- * not part of the public Cesium API.
+ * 这用于实现 <code>Cesium3DTileContent</code> 接口，但
+ * 不是公共 Cesium API 的一部分。
  * </p>
  *
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 这个物体被摧毁了,destroy().
  *
  * @example
  * content = content && content.destroy();

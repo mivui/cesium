@@ -7,10 +7,10 @@ import ConditionsExpression from "./ConditionsExpression.js";
 import Expression from "./Expression.js";
 
 /**
- * A style that is applied to a {@link Cesium3DTileset}.
+ * 应用于 {@link Cesium3DTileset} 的样式。
  * <p>
- * Evaluates an expression defined using the
- * {@link https://github.com/CesiumGS/3d-tiles/tree/main/specification/Styling|3D Tiles Styling language}.
+ * 计算使用
+ * {@link https://github.com/CesiumGS/3d-tiles/tree/main/specification/Styling|3D 瓦片样式语言}。
  * </p>
  *
  * @alias Cesium3DTileStyle
@@ -161,7 +161,7 @@ function getJsonFromExpression(expression) {
 
 Object.defineProperties(Cesium3DTileStyle.prototype, {
   /**
-   * Gets the object defining the style using the
+   * 使用
    * {@link https://github.com/CesiumGS/3d-tiles/tree/main/specification/Styling|3D Tiles Styling language}.
    *
    * @memberof Cesium3DTileStyle.prototype
@@ -178,13 +178,13 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
   },
 
   /**
-   * 获取或设置{@link StyleExpression} object used to evaluate the style's <code>show</code> property. Alternatively a boolean, string, or object defining a show style can be used.
-   * The getter will return the internal {@link Expression} or {@link ConditionsExpression}, which may differ from the value provided to the setter.
+   * 获取或设置{@link StyleExpression} 用于评估样式的 <code>show</code> 属性的对象。或者，可以使用定义显示样式的布尔值、字符串或对象。
+   * getter 将返回内部 {@link Expression} 或 {@link ConditionsExpression}，这可能与提供给 setter 的值不同。
    * <p>
-   * The expression must return or convert to a <code>Boolean</code>.
+   * 表达式必须返回或转换为<code>布尔值</code>。
    * </p>
    * <p>
-   * This expression is applicable to all tile formats.
+   * 此表达式适用于所有磁贴格式。
    * </p>
    *
    * @memberof Cesium3DTileStyle.prototype
@@ -240,13 +240,13 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
   },
 
   /**
-   * 获取或设置{@link StyleExpression} object used to evaluate the style's <code>color</code> property. Alternatively a string or object defining a color style can be used.
-   * The getter will return the internal {@link Expression} or {@link ConditionsExpression}, which may differ from the value provided to the setter.
+   * 获取或设置{@link StyleExpression}对象，用于评估样式的 <code>color</code> 属性。或者，可以使用定义颜色样式的字符串或对象。
+   * getter 将返回内部 {@link Expression} 或 {@link ConditionsExpression}，这可能与提供给 setter 的值不同。
    * <p>
-   * The expression must return a <code>Color</code>.
+   * 表达式必须返回 <code>Color</code>。
    * </p>
    * <p>
-   * This expression is applicable to all tile formats.
+   * 此表达式适用于所有磁贴格式。
    * </p>
    *
    * @memberof Cesium3DTileStyle.prototype
@@ -295,13 +295,13 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
   },
 
   /**
-   * 获取或设置{@link StyleExpression} object used to evaluate the style's <code>pointSize</code> property. Alternatively a string or object defining a point size style can be used.
-   * The getter will return the internal {@link Expression} or {@link ConditionsExpression}, which may differ from the value provided to the setter.
+   * 获取或设置{@link StyleExpression}对象，用于评估样式的 <code>pointSize</code> 属性。或者，可以使用定义磅值样式的字符串或对象。
+   * getter 将返回内部 {@link Expression} 或 {@link ConditionsExpression}，这可能与提供给 setter 的值不同。
    * <p>
-   * The expression must return a <code>Number</code>.
+   * 表达式必须返回 <code>Number</code>。
    * </p>
    * <p>
-   * This expression is only applicable to point features in a Vector tile or a Point Cloud tile.
+   * 此表达式仅适用于矢量瓦片或点云瓦片中的点要素。
    * </p>
    *
    * @memberof Cesium3DTileStyle.prototype
@@ -355,20 +355,20 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
   },
 
   /**
-   * 获取或设置{@link StyleExpression} object used to evaluate the style's <code>pointOutlineColor</code> property. Alternatively a string or object defining a color style can be used.
-   * The getter will return the internal {@link Expression} or {@link ConditionsExpression}, which may differ from the value provided to the setter.
+   * 获取或设置{@link StyleExpression}对象，用于计算样式的 <code>pointOutlineColor</code> 属性。或者，可以使用定义颜色样式的字符串或对象。
+   * getter 将返回内部 {@link Expression} 或 {@link ConditionsExpression}，这可能与提供给 setter 的值不同。
    * <p>
-   * The expression must return a <code>Color</code>.
+   * 表达式必须返回 <code>Color</code>。
    * </p>
    * <p>
-   * This expression is only applicable to point features in a Vector tile.
+   * 此表达式仅适用于矢量瓦片中的点要素。
    * </p>
    *
    * @memberof Cesium3DTileStyle.prototype
    *
    * @type {StyleExpression}
    *
-   * @experimental This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.
+   * @experimental 此功能使用的是 3D Tiles 规范的一部分，该规范不是最终版本，并且可能会在没有 Cesium 标准弃用策略的情况下进行更改。
    *
    * @example
    * const style = new Cesium.Cesium3DTileStyle();
@@ -398,20 +398,20 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
   },
 
   /**
-   * 获取或设置{@link StyleExpression} object used to evaluate the style's <code>pointOutlineWidth</code> property. Alternatively a string or object defining a number style can be used.
-   * The getter will return the internal {@link Expression} or {@link ConditionsExpression}, which may differ from the value provided to the setter.
+   * 获取或设置{@link StyleExpression} 对象，用于评估样式的 <code>pointOutlineWidth</code> 属性。或者，可以使用定义数字样式的字符串或对象。
+   * getter 将返回内部 {@link Expression} 或 {@link ConditionsExpression}，这可能与提供给 setter 的值不同。
    * <p>
-   * The expression must return a <code>Number</code>.
+   * 表达式必须返回 <code>Number</code>。
    * </p>
    * <p>
-   * This expression is only applicable to point features in a Vector tile.
+   * 此表达式仅适用于矢量瓦片中的点要素。
    * </p>
    *
    * @memberof Cesium3DTileStyle.prototype
    *
    * @type {StyleExpression}
    *
-   * @experimental This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.
+   * @experimental 此功能使用的是 3D Tiles 规范的一部分，该规范不是最终版本，并且可能会在没有 Cesium 标准弃用策略的情况下进行更改。
    *
    * @example
    * const style = new Cesium.Cesium3DTileStyle();
@@ -441,20 +441,20 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
   },
 
   /**
-   * 获取或设置{@link StyleExpression} object used to evaluate the style's <code>labelColor</code> property. Alternatively a string or object defining a color style can be used.
-   * The getter will return the internal {@link Expression} or {@link ConditionsExpression}, which may differ from the value provided to the setter.
+   * 获取或设置{@link StyleExpression} 对象，用于评估样式的 <code>labelColor</code> 属性。或者，可以使用定义颜色样式的字符串或对象。
+   * getter 将返回内部 {@link Expression} 或 {@link ConditionsExpression}，这可能与提供给 setter 的值不同。
    * <p>
-   * The expression must return a <code>Color</code>.
+   * 表达式必须返回 <code>Color</code>。
    * </p>
    * <p>
-   * This expression is only applicable to point features in a Vector tile.
+   * 此表达式仅适用于矢量瓦片中的点要素。
    * </p>
    *
    * @memberof Cesium3DTileStyle.prototype
    *
    * @type {StyleExpression}
    *
-   * @experimental This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.
+   * @experimental 此功能使用的是 3D Tiles 规范的一部分，该规范不是最终版本，并且可能会在没有 Cesium 标准弃用策略的情况下进行更改。
    *
    * @example
    * const style = new Cesium.Cesium3DTileStyle();
@@ -482,20 +482,20 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
   },
 
   /**
-   * 获取或设置{@link StyleExpression} object used to evaluate the style's <code>labelOutlineColor</code> property. Alternatively a string or object defining a color style can be used.
-   * The getter will return the internal {@link Expression} or {@link ConditionsExpression}, which may differ from the value provided to the setter.
+   * 获取或设置{@link StyleExpression} 对象，用于计算样式的 <code>labelOutlineColor</code> 属性。或者，可以使用定义颜色样式的字符串或对象。
+   * getter 将返回内部 {@link Expression} 或 {@link ConditionsExpression}，这可能与提供给 setter 的值不同。
    * <p>
-   * The expression must return a <code>Color</code>.
+   * 表达式必须返回 <code>Color</code>。
    * </p>
    * <p>
-   * This expression is only applicable to point features in a Vector tile.
+   * 此表达式仅适用于矢量瓦片中的点要素。
    * </p>
    *
    * @memberof Cesium3DTileStyle.prototype
    *
    * @type {StyleExpression}
    *
-   * @experimental This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.
+   * @experimental 此功能使用的是 3D Tiles 规范的一部分，该规范不是最终版本，并且可能会在没有 Cesium 标准弃用策略的情况下进行更改。
    *
    * @example
    * const style = new Cesium.Cesium3DTileStyle();
@@ -525,20 +525,20 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
   },
 
   /**
-   * 获取或设置{@link StyleExpression} object used to evaluate the style's <code>labelOutlineWidth</code> property. Alternatively a string or object defining a number style can be used.
-   * The getter will return the internal {@link Expression} or {@link ConditionsExpression}, which may differ from the value provided to the setter.
+   * 获取或设置{@link StyleExpression} 对象，用于计算样式的 <code>labelOutlineWidth</code> 属性。或者，可以使用定义数字样式的字符串或对象。
+   * getter 将返回内部 {@link Expression} 或 {@link ConditionsExpression}，这可能与提供给 setter 的值不同。
    * <p>
-   * The expression must return a <code>Number</code>.
+   * 表达式必须返回 <code>Number</code>。
    * </p>
    * <p>
-   * This expression is only applicable to point features in a Vector tile.
+   * 此表达式仅适用于矢量瓦片中的点要素。
    * </p>
    *
    * @memberof Cesium3DTileStyle.prototype
    *
    * @type {StyleExpression}
    *
-   * @experimental This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.
+   * @experimental 此功能使用的是 3D Tiles 规范的一部分，该规范不是最终版本，并且可能会在没有 Cesium 标准弃用策略的情况下进行更改。
    *
    * @example
    * const style = new Cesium.Cesium3DTileStyle();
@@ -568,20 +568,20 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
   },
 
   /**
-   * 获取或设置{@link StyleExpression} object used to evaluate the style's <code>font</code> property. Alternatively a string or object defining a string style can be used.
-   * The getter will return the internal {@link Expression} or {@link ConditionsExpression}, which may differ from the value provided to the setter.
+   * 获取或设置{@link StyleExpression} 对象，用于评估样式的 <code>font</code> 属性。或者，可以使用定义字符串样式的字符串或对象。
+   * getter 将返回内部 {@link Expression} 或 {@link ConditionsExpression}，这可能与提供给 setter 的值不同。
    * <p>
-   * The expression must return a <code>String</code>.
+   * 表达式必须返回 <code>String</code>。
    * </p>
    * <p>
-   * This expression is only applicable to point features in a Vector tile.
+   * 此表达式仅适用于矢量瓦片中的点要素。
    * </p>
    *
    * @memberof Cesium3DTileStyle.prototype
    *
    * @type {StyleExpression}
    *
-   * @experimental This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.
+   * @experimental 此功能使用的是 3D Tiles 规范的一部分，该规范不是最终版本，并且可能会在没有 Cesium 标准弃用策略的情况下进行更改。
    *
    * @example
    * const style = new Cesium3DTileStyle({
@@ -609,20 +609,20 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
   },
 
   /**
-   * 获取或设置{@link StyleExpression} object used to evaluate the style's <code>label style</code> property. Alternatively a string or object defining a number style can be used.
-   * The getter will return the internal {@link Expression} or {@link ConditionsExpression}, which may differ from the value provided to the setter.
+   * 获取或设置{@link StyleExpression} 对象，用于评估样式的 <code>Label Style</code> 属性。或者，可以使用定义数字样式的字符串或对象。
+   * getter 将返回内部 {@link Expression} 或 {@link ConditionsExpression}，这可能与提供给 setter 的值不同。
    * <p>
-   * The expression must return a <code>LabelStyle</code>.
+   * 表达式必须返回 <code>LabelStyle</code>。
    * </p>
    * <p>
-   * This expression is only applicable to point features in a Vector tile.
+   * 此表达式仅适用于矢量瓦片中的点要素。
    * </p>
    *
    * @memberof Cesium3DTileStyle.prototype
    *
    * @type {StyleExpression}
    *
-   * @experimental This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.
+   * @experimental 此功能使用的是 3D Tiles 规范的一部分，该规范不是最终版本，并且可能会在没有 Cesium 标准弃用策略的情况下进行更改。
    *
    * @example
    * const style = new Cesium3DTileStyle({
@@ -650,20 +650,20 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
   },
 
   /**
-   * 获取或设置{@link StyleExpression} object used to evaluate the style's <code>labelText</code> property. Alternatively a string or object defining a string style can be used.
-   * The getter will return the internal {@link Expression} or {@link ConditionsExpression}, which may differ from the value provided to the setter.
+   * 获取或设置{@link StyleExpression} 对象，用于评估样式的 <code>labelText</code> 属性。或者，可以使用定义字符串样式的字符串或对象。
+   * getter 将返回内部 {@link Expression} 或 {@link ConditionsExpression}，这可能与提供给 setter 的值不同。
    * <p>
-   * The expression must return a <code>String</code>.
+   * 表达式必须返回 <code>String</code>。
    * </p>
    * <p>
-   * This expression is only applicable to point features in a Vector tile.
+   * 此表达式仅适用于矢量瓦片中的点要素。
    * </p>
    *
    * @memberof Cesium3DTileStyle.prototype
    *
    * @type {StyleExpression}
    *
-   * @experimental This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.
+   * @experimental 此功能使用的是 3D Tiles 规范的一部分，该规范不是最终版本，并且可能会在没有 Cesium 标准弃用策略的情况下进行更改。
    *
    * @example
    * const style = new Cesium3DTileStyle({
@@ -691,20 +691,20 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
   },
 
   /**
-   * 获取或设置{@link StyleExpression} object used to evaluate the style's <code>backgroundColor</code> property. Alternatively a string or object defining a color style can be used.
-   * The getter will return the internal {@link Expression} or {@link ConditionsExpression}, which may differ from the value provided to the setter.
+   * 获取或设置{@link StyleExpression} 对象，用于评估样式的 <code>backgroundColor</code> 属性。或者，可以使用定义颜色样式的字符串或对象。
+   * getter 将返回内部 {@link Expression} 或 {@link ConditionsExpression}，这可能与提供给 setter 的值不同。
    * <p>
-   * The expression must return a <code>Color</code>.
+   * 表达式必须返回 <code>Color</code>。
    * </p>
    * <p>
-   * This expression is only applicable to point features in a Vector tile.
+   * 此表达式仅适用于矢量瓦片中的点要素。
    * </p>
    *
    * @memberof Cesium3DTileStyle.prototype
    *
    * @type {StyleExpression}
    *
-   * @experimental This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.
+   * @experimental 此功能使用的是 3D Tiles 规范的一部分，该规范不是最终版本，并且可能会在没有 Cesium 标准弃用策略的情况下进行更改。
    *
    * @example
    * const style = new Cesium.Cesium3DTileStyle();
@@ -734,20 +734,20 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
   },
 
   /**
-   * 获取或设置{@link StyleExpression} object used to evaluate the style's <code>backgroundPadding</code> property. Alternatively a string or object defining a vec2 style can be used.
-   * The getter will return the internal {@link Expression} or {@link ConditionsExpression}, which may differ from the value provided to the setter.
+   * 获取或设置{@link StyleExpression} 对象，用于评估样式的 <code>backgroundPadding</code> 属性。或者，可以使用定义 vec2 样式的字符串或对象。
+   * getter 将返回内部 {@link Expression} 或 {@link ConditionsExpression}，这可能与提供给 setter 的值不同。
    * <p>
-   * The expression must return a <code>Cartesian2</code>.
+   * 表达式必须返回 <code>Cartesian2</code>。
    * </p>
    * <p>
-   * This expression is only applicable to point features in a Vector tile.
+   * 此表达式仅适用于矢量瓦片中的点要素。
    * </p>
    *
    * @memberof Cesium3DTileStyle.prototype
    *
    * @type {StyleExpression}
    *
-   * @experimental This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.
+   * @experimental 此功能使用的是 3D Tiles 规范的一部分，该规范不是最终版本，并且可能会在没有 Cesium 标准弃用策略的情况下进行更改。
    *
    * @example
    * const style = new Cesium.Cesium3DTileStyle();
@@ -768,20 +768,20 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
   },
 
   /**
-   * 获取或设置{@link StyleExpression} object used to evaluate the style's <code>backgroundEnabled</code> property. Alternatively a string or object defining a boolean style can be used.
-   * The getter will return the internal {@link Expression} or {@link ConditionsExpression}, which may differ from the value provided to the setter.
+   * 获取或设置{@link StyleExpression} 对象，用于评估样式的 <code>backgroundEnabled</code> 属性。或者，可以使用定义布尔样式的字符串或对象。
+   * getter 将返回内部 {@link Expression} 或 {@link ConditionsExpression}，这可能与提供给 setter 的值不同。
    * <p>
-   * The expression must return a <code>Boolean</code>.
+   * 表达式必须返回<code>布尔值</code>。
    * </p>
    * <p>
-   * This expression is only applicable to point features in a Vector tile.
+   * 此表达式仅适用于矢量瓦片中的点要素。
    * </p>
    *
    * @memberof Cesium3DTileStyle.prototype
    *
    * @type {StyleExpression}
    *
-   * @experimental This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.
+   * @experimental 此功能使用的是 3D Tiles 规范的一部分，该规范不是最终版本，并且可能会在没有 Cesium 标准弃用策略的情况下进行更改。
    *
    * @example
    * const style = new Cesium.Cesium3DTileStyle();
@@ -811,20 +811,20 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
   },
 
   /**
-   * 获取或设置{@link StyleExpression} object used to evaluate the style's <code>scaleByDistance</code> property. Alternatively a string or object defining a vec4 style can be used.
-   * The getter will return the internal {@link Expression} or {@link ConditionsExpression}, which may differ from the value provided to the setter.
+   * 获取或设置{@link StyleExpression} 对象，用于评估样式的 <code>scaleByDistance</code> 属性。或者，可以使用定义 vec4 样式的字符串或对象。
+   * getter 将返回内部 {@link Expression} 或 {@link ConditionsExpression}，这可能与提供给 setter 的值不同。
    * <p>
-   * The expression must return a <code>Cartesian4</code>.
+   * 表达式必须返回 <code>Cartesian4</code>。
    * </p>
    * <p>
-   * This expression is only applicable to point features in a Vector tile.
+   * 此表达式仅适用于矢量瓦片中的点要素。
    * </p>
    *
    * @memberof Cesium3DTileStyle.prototype
    *
    * @type {StyleExpression}
    *
-   * @experimental This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.
+   * @experimental 此功能使用的是 3D Tiles 规范的一部分，该规范不是最终版本，并且可能会在没有 Cesium 标准弃用策略的情况下进行更改。
    *
    * @example
    * const style = new Cesium.Cesium3DTileStyle();
@@ -845,20 +845,20 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
   },
 
   /**
-   * 获取或设置{@link StyleExpression} object used to evaluate the style's <code>translucencyByDistance</code> property. Alternatively a string or object defining a vec4 style can be used.
-   * The getter will return the internal {@link Expression} or {@link ConditionsExpression}, which may differ from the value provided to the setter.
+   * 获取或设置{@link StyleExpression} 对象，用于评估样式的 <code>translucencyByDistance</code> 属性。或者，可以使用定义 vec4 样式的字符串或对象。
+   * getter 将返回内部 {@link Expression} 或 {@link ConditionsExpression}，这可能与提供给 setter 的值不同。
    * <p>
-   * The expression must return a <code>Cartesian4</code>.
+   * 表达式必须返回 <code>Cartesian4</code>。
    * </p>
    * <p>
-   * This expression is only applicable to point features in a Vector tile.
+   * 此表达式仅适用于矢量瓦片中的点要素。
    * </p>
    *
    * @memberof Cesium3DTileStyle.prototype
    *
    * @type {StyleExpression}
    *
-   * @experimental This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.
+   * @experimental 此功能使用的是 3D Tiles 规范的一部分，该规范不是最终版本，并且可能会在没有 Cesium 标准弃用策略的情况下进行更改。
    *
    * @example
    * const style = new Cesium.Cesium3DTileStyle();
@@ -879,20 +879,20 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
   },
 
   /**
-   * 获取或设置{@link StyleExpression} object used to evaluate the style's <code>distanceDisplayCondition</code> property. Alternatively a string or object defining a vec2 style can be used.
-   * The getter will return the internal {@link Expression} or {@link ConditionsExpression}, which may differ from the value provided to the setter.
+   * 获取或设置{@link StyleExpression} 对象，用于评估样式的 <code>distanceDisplayCondition</code> 属性。或者，可以使用定义 vec2 样式的字符串或对象。
+   * getter 将返回内部 {@link Expression} 或 {@link ConditionsExpression}，这可能与提供给 setter 的值不同。
    * <p>
-   * The expression must return a <code>Cartesian2</code>.
+   * 表达式必须返回 <code>Cartesian2</code>。
    * </p>
    * <p>
-   * This expression is only applicable to point features in a Vector tile.
+   * 此表达式仅适用于矢量瓦片中的点要素。
    * </p>
    *
    * @memberof Cesium3DTileStyle.prototype
    *
    * @type {StyleExpression}
    *
-   * @experimental This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.
+   * @experimental 此功能使用的是 3D Tiles 规范的一部分，该规范不是最终版本，并且可能会在没有 Cesium 标准弃用策略的情况下进行更改。
    *
    * @example
    * const style = new Cesium.Cesium3DTileStyle();
@@ -913,20 +913,20 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
   },
 
   /**
-   * 获取或设置{@link StyleExpression} object used to evaluate the style's <code>heightOffset</code> property. Alternatively a string or object defining a number style can be used.
-   * The getter will return the internal {@link Expression} or {@link ConditionsExpression}, which may differ from the value provided to the setter.
+   * 获取或设置{@link StyleExpression} 对象，用于评估样式的 <code>heightOffset</code> 属性。或者，可以使用定义数字样式的字符串或对象。
+   * getter 将返回内部 {@link Expression} 或 {@link ConditionsExpression}，这可能与提供给 setter 的值不同。
    * <p>
-   * The expression must return a <code>Number</code>.
+   * 表达式必须返回 <code>Number</code>。
    * </p>
    * <p>
-   * This expression is only applicable to point features in a Vector tile.
+   * 此表达式仅适用于矢量瓦片中的点要素。
    * </p>
    *
    * @memberof Cesium3DTileStyle.prototype
    *
    * @type {StyleExpression}
    *
-   * @experimental This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.
+   * @experimental 此功能使用的是 3D Tiles 规范的一部分，该规范不是最终版本，并且可能会在没有 Cesium 标准弃用策略的情况下进行更改。
    *
    * @example
    * const style = new Cesium.Cesium3DTileStyle();
@@ -954,20 +954,20 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
   },
 
   /**
-   * 获取或设置{@link StyleExpression} object used to evaluate the style's <code>anchorLineEnabled</code> property. Alternatively a string or object defining a boolean style can be used.
-   * The getter will return the internal {@link Expression} or {@link ConditionsExpression}, which may differ from the value provided to the setter.
+   * 获取或设置{@link StyleExpression} 对象，用于评估样式的 <code>anchorLineEnabled</code> 属性。或者，可以使用定义布尔样式的字符串或对象。
+   * getter 将返回内部 {@link Expression} 或 {@link ConditionsExpression}，这可能与提供给 setter 的值不同。
    * <p>
-   * The expression must return a <code>Boolean</code>.
+   * 表达式必须返回<code>布尔值</code>。
    * </p>
    * <p>
-   * This expression is only applicable to point features in a Vector tile.
+   * 此表达式仅适用于矢量瓦片中的点要素。
    * </p>
    *
    * @memberof Cesium3DTileStyle.prototype
    *
    * @type {StyleExpression}
    *
-   * @experimental This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.
+   * @experimental 此功能使用的是 3D Tiles 规范的一部分，该规范不是最终版本，并且可能会在没有 Cesium 标准弃用策略的情况下进行更改。
    *
    * @example
    * const style = new Cesium.Cesium3DTileStyle();
@@ -997,20 +997,20 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
   },
 
   /**
-   * 获取或设置{@link StyleExpression} object used to evaluate the style's <code>anchorLineColor</code> property. Alternatively a string or object defining a color style can be used.
-   * The getter will return the internal {@link Expression} or {@link ConditionsExpression}, which may differ from the value provided to the setter.
+   * 获取或设置{@link StyleExpression} 对象，用于评估样式的 <code>anchorLineColor</code> 属性。或者，可以使用定义颜色样式的字符串或对象。
+   * getter 将返回内部 {@link Expression} 或 {@link ConditionsExpression}，这可能与提供给 setter 的值不同。
    * <p>
-   * The expression must return a <code>Color</code>.
+   * 表达式必须返回 <code>Color</code>。
    * </p>
    * <p>
-   * This expression is only applicable to point features in a Vector tile.
+   * 此表达式仅适用于矢量瓦片中的点要素。
    * </p>
    *
    * @memberof Cesium3DTileStyle.prototype
    *
    * @type {StyleExpression}
    *
-   * @experimental This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.
+   * @experimental 此功能使用的是 3D Tiles 规范的一部分，该规范不是最终版本，并且可能会在没有 Cesium 标准弃用策略的情况下进行更改。
    *
    * @example
    * const style = new Cesium.Cesium3DTileStyle();
@@ -1040,20 +1040,20 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
   },
 
   /**
-   * 获取或设置{@link StyleExpression} object used to evaluate the style's <code>image</code> property. Alternatively a string or object defining a string style can be used.
-   * The getter will return the internal {@link Expression} or {@link ConditionsExpression}, which may differ from the value provided to the setter.
+   * 获取或设置{@link StyleExpression} 对象，用于评估样式的 <code>image</code> 属性。或者，可以使用定义字符串样式的字符串或对象。
+   * getter 将返回内部 {@link Expression} 或 {@link ConditionsExpression}，这可能与提供给 setter 的值不同。
    * <p>
-   * The expression must return a <code>String</code>.
+   * 表达式必须返回 <code>String</code>。
    * </p>
    * <p>
-   * This expression is only applicable to point features in a Vector tile.
+   * 此表达式仅适用于矢量瓦片中的点要素。
    * </p>
    *
    * @memberof Cesium3DTileStyle.prototype
    *
    * @type {StyleExpression}
    *
-   * @experimental This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.
+   * @experimental 此功能使用的是 3D Tiles 规范的一部分，该规范不是最终版本，并且可能会在没有 Cesium 标准弃用策略的情况下进行更改。
    *
    * @example
    * const style = new Cesium3DTileStyle({
@@ -1081,20 +1081,20 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
   },
 
   /**
-   * 获取或设置{@link StyleExpression} object used to evaluate the style's <code>disableDepthTestDistance</code> property. Alternatively a string or object defining a number style can be used.
-   * The getter will return the internal {@link Expression} or {@link ConditionsExpression}, which may differ from the value provided to the setter.
+   * 获取或设置{@link StyleExpression} 对象，用于评估样式的 <code>disableDepthTestDistance</code> 属性。或者，可以使用定义数字样式的字符串或对象。
+   * getter 将返回内部 {@link Expression} 或 {@link ConditionsExpression}，这可能与提供给 setter 的值不同。
    * <p>
-   * The expression must return a <code>Number</code>.
+   * 表达式必须返回 <code>Number</code>。
    * </p>
    * <p>
-   * This expression is only applicable to point features in a Vector tile.
+   * 此表达式仅适用于矢量瓦片中的点要素。
    * </p>
    *
    * @memberof Cesium3DTileStyle.prototype
    *
    * @type {StyleExpression}
    *
-   * @experimental This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.
+   * @experimental 此功能使用的是 3D Tiles 规范的一部分，该规范不是最终版本，并且可能会在没有 Cesium 标准弃用策略的情况下进行更改。
    *
    * @example
    * const style = new Cesium.Cesium3DTileStyle();
@@ -1115,20 +1115,20 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
   },
 
   /**
-   * 获取或设置{@link StyleExpression} object used to evaluate the style's <code>horizontalOrigin</code> property. Alternatively a string or object defining a number style can be used.
-   * The getter will return the internal {@link Expression} or {@link ConditionsExpression}, which may differ from the value provided to the setter.
+   * 获取或设置{@link StyleExpression} 对象，用于评估样式的 <code>horizontalOrigin</code> 属性。或者，可以使用定义数字样式的字符串或对象。
+   * getter 将返回内部 {@link Expression} 或 {@link ConditionsExpression}，这可能与提供给 setter 的值不同。
    * <p>
-   * The expression must return a <code>HorizontalOrigin</code>.
+   * 表达式必须返回 <code>HorizontalOrigin</code>。
    * </p>
    * <p>
-   * This expression is only applicable to point features in a Vector tile.
+   * 此表达式仅适用于矢量瓦片中的点要素。
    * </p>
    *
    * @memberof Cesium3DTileStyle.prototype
    *
    * @type {StyleExpression}
    *
-   * @experimental This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.
+   * @experimental 此功能使用的是 3D Tiles 规范的一部分，该规范不是最终版本，并且可能会在没有 Cesium 标准弃用策略的情况下进行更改。
    *
    * @example
    * const style = new Cesium3DTileStyle({
@@ -1158,20 +1158,20 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
   },
 
   /**
-   * 获取或设置{@link StyleExpression} object used to evaluate the style's <code>verticalOrigin</code> property. Alternatively a string or object defining a number style can be used.
-   * The getter will return the internal {@link Expression} or {@link ConditionsExpression}, which may differ from the value provided to the setter.
+   * 获取或设置{@link StyleExpression} 对象，用于评估样式的 <code>verticalOrigin</code> 属性。或者，可以使用定义数字样式的字符串或对象。
+   * getter 将返回内部 {@link Expression} 或 {@link ConditionsExpression}，这可能与提供给 setter 的值不同。
    * <p>
-   * The expression must return a <code>VerticalOrigin</code>.
+   * 表达式必须返回 <code>VerticalOrigin</code>。
    * </p>
    * <p>
-   * This expression is only applicable to point features in a Vector tile.
+   * 此表达式仅适用于矢量瓦片中的点要素。
    * </p>
    *
    * @memberof Cesium3DTileStyle.prototype
    *
    * @type {StyleExpression}
    *
-   * @experimental This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.
+   * @experimental 此功能使用的是 3D Tiles 规范的一部分，该规范不是最终版本，并且可能会在没有 Cesium 标准弃用策略的情况下进行更改。
    *
    * @example
    * const style = new Cesium3DTileStyle({
@@ -1199,20 +1199,20 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
   },
 
   /**
-   获取或设置{@link StyleExpression} object used to evaluate the style's <code>labelHorizontalOrigin</code> property. Alternatively a string or object defining a number style can be used.
-    * The getter will return the internal {@link Expression} or {@link ConditionsExpression}, which may differ from the value provided to the setter.
+   获取或设置{@link StyleExpression} 对象，用于评估样式的 <code>labelHorizontalOrigin</code> 属性。或者，可以使用定义数字样式的字符串或对象。
+    * getter 将返回内部 {@link Expression} 或 {@link ConditionsExpression}，这可能与提供给 setter 的值不同。
     * <p>
-    * The expression must return a <code>HorizontalOrigin</code>.
+    * 表达式必须返回 <code>HorizontalOrigin</code>。
     * </p>
     * <p>
-    * This expression is only applicable to point features in a Vector tile.
+    * 此表达式仅适用于矢量瓦片中的点要素。
     * </p>
     *
     * @memberof Cesium3DTileStyle.prototype
     *
     * @type {StyleExpression}
     *
-    * @experimental This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.
+    * @experimental 此功能使用的是 3D Tiles 规范的一部分，该规范不是最终版本，并且可能会在没有 Cesium 标准弃用策略的情况下进行更改。
     *
     * @example
     * const style = new Cesium3DTileStyle({
@@ -1242,20 +1242,20 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
   },
 
   /**
-   * 获取或设置{@link StyleExpression} object used to evaluate the style's <code>labelVerticalOrigin</code> property. Alternatively a string or object defining a number style can be used.
-   * The getter will return the internal {@link Expression} or {@link ConditionsExpression}, which may differ from the value provided to the setter.
+   * 获取或设置{@link StyleExpression} 对象，用于评估样式的 <code>labelVerticalOrigin</code> 属性。或者，可以使用定义数字样式的字符串或对象。
+   * getter 将返回内部 {@link Expression} 或 {@link ConditionsExpression}，这可能与提供给 setter 的值不同。
    * <p>
-   * The expression must return a <code>VerticalOrigin</code>.
+   * 表达式必须返回 <code>VerticalOrigin</code>。
    * </p>
    * <p>
-   * This expression is only applicable to point features in a Vector tile.
+   * 此表达式仅适用于矢量瓦片中的点要素。
    * </p>
    *
    * @memberof Cesium3DTileStyle.prototype
    *
    * @type {StyleExpression}
    *
-   * @experimental This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.
+   * @experimental 此功能使用的是 3D Tiles 规范的一部分，该规范不是最终版本，并且可能会在没有 Cesium 标准弃用策略的情况下进行更改。
    *
    * @example
    * const style = new Cesium3DTileStyle({
@@ -1285,8 +1285,8 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
   },
 
   /**
-   * 获取或设置object containing application-specific expression that can be explicitly
-   * evaluated, e.g., for display in a UI.
+   * 获取或设置对象，该对象包含特定于应用程序的表达式，该表达式可以显式地
+   * 评估，例如，用于在 UI 中显示。
    *
    * @memberof Cesium3DTileStyle.prototype
    *
@@ -1311,11 +1311,11 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
 });
 
 /**
- * Asynchronously creates a Cesium3DTileStyle from a url.
+ * 从 url 异步创建 Cesium3DTileStyle。
  *
- * @param {Resource|string} url The url of the style to be loaded.
+ * @param {Resource|string} url 需要加载的样式的 url。
  *
- * @returns {Promise<Cesium3DTileStyle>} A promise which resolves to the created style
+ * @returns {Promise<Cesium3DTileStyle>} 解析为创建的样式的 Promise
  *
  * @private
  */
@@ -1333,13 +1333,13 @@ Cesium3DTileStyle.fromUrl = function (url) {
 };
 
 /**
- * Gets the color shader function for this style.
+ * 获取此样式的颜色着色器函数。
  *
- * @param {string} functionSignature Signature of the generated function.
- * @param {object} variableSubstitutionMap Maps variable names to shader variable names.
- * @param {object} shaderState Stores information about the generated shader function, including whether it is translucent.
+ * @param {string} functionSignature 生成的函数的签名。
+ * @param {object} variableSubstitutionMap 将变量名称映射到着色器变量名称。
+ * @param {object} shaderState 存储有关生成的着色器函数的信息，包括它是否为半透明函数。
  *
- * @returns {string} The shader function.
+ * @returns {string} 着色器函数。
  *
  * @private
  */
@@ -1371,13 +1371,13 @@ Cesium3DTileStyle.prototype.getColorShaderFunction = function (
 };
 
 /**
- * Gets the show shader function for this style.
+ * 获取此样式的 show shader 函数。
  *
- * @param {string} functionSignature Signature of the generated function.
- * @param {object} variableSubstitutionMap Maps variable names to shader variable names.
- * @param {object} shaderState Stores information about the generated shader function, including whether it is translucent.
+ * @param {string} functionSignature 生成的函数的签名。
+ * @param {object} variableSubstitutionMap 将变量名称映射到着色器变量名称。
+ * @param {object} shaderState 存储有关生成的着色器函数的信息，包括它是否为半透明函数。
  *
- * @returns {string} The shader function.
+ * @returns {string} 着色器函数。
  *
  * @private
  */
@@ -1407,13 +1407,13 @@ Cesium3DTileStyle.prototype.getShowShaderFunction = function (
 };
 
 /**
- * Gets the pointSize shader function for this style.
+ * 获取此样式的 pointSize 着色器函数。
  *
- * @param {string} functionSignature Signature of the generated function.
- * @param {object} variableSubstitutionMap Maps variable names to shader variable names.
- * @param {object} shaderState Stores information about the generated shader function, including whether it is translucent.
+ * @param {string} functionSignature 生成的函数的签名。
+ * @param {object} variableSubstitutionMap 将变量名称映射到着色器变量名称。
+ * @param {object} shaderState 存储有关生成的着色器函数的信息，包括它是否为半透明函数。
  *
- * @returns {string} The shader function.
+ * @returns {string} 着色器函数。
  *
  * @private
  */
@@ -1443,9 +1443,9 @@ Cesium3DTileStyle.prototype.getPointSizeShaderFunction = function (
 };
 
 /**
- * Gets the variables used by the style.
+ * 获取样式使用的变量。
  *
- * @returns {string[]} The variables used by the style.
+ * @returns {string[]} 样式使用的变量。
  *
  * @private
  */

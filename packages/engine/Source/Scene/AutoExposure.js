@@ -7,9 +7,9 @@ import FramebufferManager from "../Renderer/FramebufferManager.js";
 import PixelDatatype from "../Renderer/PixelDatatype.js";
 
 /**
- * A post process stage that will get the luminance value at each pixel and
- * uses parallel reduction to compute the average luminance in a 1x1 texture.
- * This texture can be used as input for tone mapping.
+ * 一个后期处理阶段，它将获取每个像素的亮度值，并且
+ * 使用 Parallel Reduction 来计算 1x1 纹理中的平均亮度。
+ * 此纹理可用作色调映射的输入。
  *
  * @constructor
  * @private
@@ -37,7 +37,7 @@ function AutoExposure() {
   this._minMaxLuminance = new Cartesian2();
 
   /**
-   * Whether or not to execute this post-process stage when ready.
+   * 准备就绪时是否执行此后处理阶段。
    *
    * @type {boolean}
    */
@@ -45,7 +45,7 @@ function AutoExposure() {
   this._enabled = true;
 
   /**
-   * The minimum value used to clamp the luminance.
+   * 用于限制明亮度的最小值。
    *
    * @type {number}
    * @default 0.1
@@ -53,7 +53,7 @@ function AutoExposure() {
   this.minimumLuminance = 0.1;
 
   /**
-   * The maximum value used to clamp the luminance.
+   * 用于限制明亮度的最大值。
    *
    * @type {number}
    * @default 10.0
@@ -63,9 +63,9 @@ function AutoExposure() {
 
 Object.defineProperties(AutoExposure.prototype, {
   /**
-   * Determines if this post-process stage is ready to be executed. A stage is only executed when both <code>ready</code>
-   * and {@link AutoExposure#enabled} are <code>true</code>. A stage will not be ready while it is waiting on textures
-   * to load.
+   * 确定此后处理阶段是否已准备好执行。仅当两个<code>阶段都准备就绪</code>时，才会执行 stage
+   * 和 {@link AutoExposure#enabled} 为 <code>true</code>。阶段在等待纹理时将未准备就绪
+   * 加载。
    *
    * @memberof AutoExposure.prototype
    * @type {boolean}
@@ -77,7 +77,7 @@ Object.defineProperties(AutoExposure.prototype, {
     },
   },
   /**
-   * The unique name of this post-process stage for reference by other stages.
+   * 此后处理阶段的唯一名称，供其他阶段参考。
    *
    * @memberof AutoExposure.prototype
    * @type {string}
@@ -90,7 +90,7 @@ Object.defineProperties(AutoExposure.prototype, {
   },
 
   /**
-   * A reference to the texture written to when executing this post process stage.
+   * 对执行此后期处理阶段时写入的纹理的引用。
    *
    * @memberof AutoExposure.prototype
    * @type {Texture}
@@ -274,8 +274,8 @@ function createCommands(autoexposure, context) {
 }
 
 /**
- * A function that will be called before execute. Used to clear any textures attached to framebuffers.
- * @param {Context} context The context.
+ * 将在执行之前调用的函数。用于清除附加到 framebuffer 的任何纹理。
+ * @param {Context} context 上下文。
  * @private
  */
 AutoExposure.prototype.clear = function (context) {
@@ -299,8 +299,8 @@ AutoExposure.prototype.clear = function (context) {
 };
 
 /**
- * A function that will be called before execute. Used to create WebGL resources and load any textures.
- * @param {Context} context The context.
+ * 将在执行之前调用的函数。用于创建 WebGL 资源和加载任何纹理。
+ * @param {Context} context 上下文。
  * @private
  */
 AutoExposure.prototype.update = function (context) {
@@ -332,9 +332,9 @@ AutoExposure.prototype.update = function (context) {
 };
 
 /**
- * Executes the post-process stage. The color texture is the texture rendered to by the scene or from the previous stage.
- * @param {Context} context The context.
- * @param {Texture} colorTexture The input color texture.
+ * 执行后处理阶段。颜色纹理是由场景或上一阶段渲染的纹理。
+ * @param {Context} context 上下文。
+ * @param {Texture} colorTexture 输入颜色纹理。
  * @private
  */
 AutoExposure.prototype.execute = function (context, colorTexture) {
@@ -352,10 +352,10 @@ AutoExposure.prototype.execute = function (context, colorTexture) {
 };
 
 /**
- * Returns true if this object was destroyed; otherwise, false.
+ * 如果此对象已销毁，则返回 true;否则为 false。
  * <p>
- * If this object was destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.
+ * 如果此对象已销毁，则不应使用;调用
+ * <code>isDestroyed</code> 将导致 {@link DeveloperError} 异常。
  * </p>
  *
  * @returns {boolean} <code>true</code> if this object was destroyed; otherwise, <code>false</code>.
@@ -367,15 +367,15 @@ AutoExposure.prototype.isDestroyed = function () {
 };
 
 /**
- * Destroys the WebGL resources held by this object.  Destroying an object allows for deterministic
- * release of WebGL resources, instead of relying on the garbage collector to destroy this object.
+ * 销毁此对象持有的 WebGL 资源。 销毁对象允许确定性
+ * 释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。
  * <p>
- * Once an object is destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.  Therefore,
- * assign the return value (<code>undefined</code>) to the object as done in the example.
+ * 一旦对象被销毁，就不应该使用它;调用
+ * <code>isDestroyed</code> 将导致 {@link DeveloperError} 异常。  Therefore,
+ * 将 return value （<code>undefined</code>） 分配给对象，如示例中所示。
  * </p>
  *
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 这个物体被摧毁了,destroy().
  *
  * @see AutoExposure#isDestroyed
  */

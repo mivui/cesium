@@ -2,18 +2,18 @@ import Check from "../Core/Check.js";
 import defaultValue from "../Core/defaultValue.js";
 
 /**
- * Simple abstraction for a group. This class exists to make the metadata API
- * more consistent, i.e. metadata can be accessed via
- * <code>content.group.metadata</code> much like tile metadata is accessed as
- * <code>tile.metadata</code>.
+ * 组的简单抽象。这个类的存在是为了制作元数据 API
+ * 更一致，即元数据可以通过
+ * <code>content.group.metadata</code> 与 tile 元数据非常相似，它是作为
+ * <code>tile.metadata</code> 的
  *
  * @param {object} options 对象，具有以下属性:
- * @param {GroupMetadata} options.metadata The metadata associated with this group.
+ * @param {GroupMetadata} options.metadata 与此组关联的元数据。
  *
  * @alias Cesium3DContentGroup
  * @constructor
  * @private
- * @experimental This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.
+ * @experimental 此功能使用的是 3D Tiles 规范的一部分，该规范不是最终版本，并且可能会在没有 Cesium 标准弃用策略的情况下进行更改。
  */
 function Cesium3DContentGroup(options) {
   options = defaultValue(options, defaultValue.EMPTY_OBJECT);
@@ -26,7 +26,7 @@ function Cesium3DContentGroup(options) {
 
 Object.defineProperties(Cesium3DContentGroup.prototype, {
   /**
-   * Get the metadata for this group
+   * 获取此组的元数据
    *
    * @memberof Cesium3DContentGroup.prototype
    *

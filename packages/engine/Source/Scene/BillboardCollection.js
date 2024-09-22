@@ -93,35 +93,35 @@ const attributeLocationsInstanced = {
 };
 
 /**
- * A renderable collection of billboards.  Billboards are viewport-aligned
- * images positioned in the 3D scene.
+ * 可渲染的广告牌集合。 公告板与视区对齐
+ * 位于 3D 场景中的图像。
  * <br /><br />
  * <div align='center'>
- * <img src='Images/Billboard.png' width='400' height='300' /><br />
- * Example billboards
+ * <img src='图片/Billboard.png' width='400' height='300' /><br />
+ * 广告牌示例
  * </div>
  * <br /><br />
- * Billboards are added and removed from the collection using {@link BillboardCollection#add}
- * and {@link BillboardCollection#remove}.  Billboards in a collection automatically share textures
- * for images with the same identifier.
+ * 使用 {@link BillboardCollection#add} 在集合中添加和删除公告牌
+ * 和 {@link BillboardCollection#remove}。 集合中的公告板会自动共享纹理
+ * 表示具有相同标识符的图像。
  *
  * @alias BillboardCollection
  * @constructor
  *
  * @param {object} [options] 对象，具有以下属性:
- * @param {Matrix4} [options.modelMatrix=Matrix4.IDENTITY] The 4x4 transformation matrix that transforms each billboard from model to world coordinates.
- * @param {boolean} [options.debugShowBoundingVolume=false] For debugging only. Determines if this primitive's commands' bounding spheres are shown.
- * @param {Scene} [options.scene] Must be passed in for billboards that use the height reference property or will be depth tested against the globe.
- * @param {BlendOption} [options.blendOption=BlendOption.OPAQUE_AND_TRANSLUCENT] The billboard blending option. The default
- * is used for rendering both opaque and translucent billboards. However, if either all of the billboards are completely opaque or all are completely translucent,
- * setting the technique to BlendOption.OPAQUE or BlendOption.TRANSLUCENT can improve performance by up to 2x.
- * @param {boolean} [options.show=true] Determines if the billboards in the collection will be shown.
+ * @param {Matrix4} [options.modelMatrix=Matrix4.IDENTITY] 将每个广告牌从模型转换为世界坐标的 4x4 变换矩阵。
+ * @param {boolean} [options.debugShowBoundingVolume=false] 仅用于调试。确定是否显示此基本体的命令的边界球体。
+ * @param {Scene} [options.scene] 对于使用高度引用属性的广告牌，必须传入，否则将针对全球进行深度测试。
+ * @param {BlendOption} [options.blendOption=BlendOption.OPAQUE_AND_TRANSLUCENT] 公告牌混合选项。默认的
+ * 用于渲染不透明和半透明广告牌。但是，如果所有广告牌都是完全不透明的，或者所有广告牌都是完全半透明的，
+ * 将技术设置为 BlendOption.OPAQUE 或 BlendOption.TRANSLUCENT 可以将性能提高多达 2 倍。
+ * @param {boolean} [options.show=true] 确定是否显示集合中的公告牌。
  *
- * @performance For best performance, prefer a few collections, each with many billboards, to
- * many collections with only a few billboards each.  Organize collections so that billboards
- * with the same update frequency are in the same collection, i.e., billboards that do not
- * change should be in one collection; billboards that change every frame should be in another
- * collection; and so on.
+ * @performance 为了获得最佳性能，最好使用几个集合，每个集合都有许多广告牌，而不是
+ * 许多收藏，每个收藏只有几个广告牌。 组织集合，以便 billboards
+ * 具有相同更新频率的 billboard 位于同一集合中，即
+ * 更改应在一个集合中;更改每个帧的广告牌应该在另一个
+ *收集;等等。
  *
  * @see BillboardCollection#add
  * @see BillboardCollection#remove
@@ -206,7 +206,7 @@ function BillboardCollection(options) {
   this._colorCommands = [];
 
   /**
-   * Determines if billboards in this collection will be shown.
+   * 确定是否显示此集合中的公告板。
    *
    * @type {boolean}
    * @default true
@@ -214,10 +214,10 @@ function BillboardCollection(options) {
   this.show = defaultValue(options.show, true);
 
   /**
-   * The 4x4 transformation matrix that transforms each billboard in this collection from model to world coordinates.
-   * When this is the identity matrix, the billboards are drawn in world coordinates, i.e., Earth's WGS84 coordinates.
-   * Local reference frames can be used by providing a different transformation matrix, like that returned
-   * by {@link Transforms.eastNorthUpToFixedFrame}.
+   * 4x4 转换矩阵，用于将此集合中的每个 billboard 从模型转换为世界坐标。
+   * 当这是单位矩阵时，广告牌以世界坐标（即地球的 WGS84 坐标）绘制。
+   * 可以通过提供不同的转换矩阵来使用本地参考帧，就像返回的矩阵一样
+   * 由 {@link Transforms.eastNorthUpToFixedFrame}.
    *
    * @type {Matrix4}
    * @default {@link Matrix4.IDENTITY}
@@ -251,9 +251,9 @@ function BillboardCollection(options) {
   this._modelMatrix = Matrix4.clone(Matrix4.IDENTITY);
 
   /**
-   * This property is for debugging only; it is not for production use nor is it optimized.
+   * 此属性仅用于调试;它不用于生产用途，也未进行优化。
    * <p>
-   * Draws the bounding sphere for each draw command in the primitive.
+   * 为基元中的每个绘制命令绘制边界球体。
    * </p>
    *
    * @type {boolean}
@@ -266,9 +266,9 @@ function BillboardCollection(options) {
   );
 
   /**
-   * This property is for debugging only; it is not for production use nor is it optimized.
+   * 此属性仅用于调试;它不用于生产用途，也未进行优化。
    * <p>
-   * Draws the texture atlas for this BillboardCollection as a fullscreen quad.
+   * 将此 BillboardCollection 的纹理图集绘制为全屏四边形。
    * </p>
    *
    * @type {boolean}
@@ -281,10 +281,10 @@ function BillboardCollection(options) {
   );
 
   /**
-   * The billboard blending option. The default is used for rendering both opaque and translucent billboards.
-   * However, if either all of the billboards are completely opaque or all are completely translucent,
-   * setting the technique to BlendOption.OPAQUE or BlendOption.TRANSLUCENT can improve
-   * performance by up to 2x.
+   * 公告牌混合选项。默认设置用于渲染不透明和半透明公告板。
+   * 但是，如果所有广告牌都是完全不透明的，或者所有广告牌都是完全半透明的，
+   * 将技术设置为 BlendOption.OPAQUE 或 BlendOption.TRANSLUCENT 可以提高
+   * 性能提升高达 2 倍。
    * @type {BlendOption}
    * @default BlendOption.OPAQUE_AND_TRANSLUCENT
    */
@@ -348,9 +348,9 @@ function BillboardCollection(options) {
 
 Object.defineProperties(BillboardCollection.prototype, {
   /**
-   * Returns the number of billboards in this collection.  This is commonly used with
-   * {@link BillboardCollection#get} to iterate over all the billboards
-   * in the collection.
+   * 返回此集合中的 billboard 数量。 这通常与
+   * {@link BillboardCollection#get} 迭代所有公告牌
+   * 在集合中。
    * @memberof BillboardCollection.prototype
    * @type {number}
    */
@@ -384,11 +384,11 @@ Object.defineProperties(BillboardCollection.prototype, {
   },
 
   /**
-   * Gets or sets a value which determines if the texture atlas is
-   * destroyed when the collection is destroyed.
+   * 获取或设置一个值，该值确定纹理图集是否为
+   * 销毁集合时销毁。
    *
-   * If the texture atlas is used by more than one collection, set this to <code>false</code>,
-   * and explicitly destroy the atlas to avoid attempting to destroy it multiple times.
+   * 如果纹理图集被多个集合使用，请将其设置为 <code>false</code>，
+   * 并显式销毁图集，以避免多次尝试销毁它。
    *
    * @memberof BillboardCollection.prototype
    * @type {boolean}
@@ -427,17 +427,17 @@ function destroyBillboards(billboards) {
 }
 
 /**
- * Creates and adds a billboard with the specified initial properties to the collection.
- * The added billboard is returned so it can be modified or removed from the collection later.
+ * 创建具有指定初始属性的广告牌并将其添加到集合中。
+ * 将返回添加的公告牌，以便以后可以对其进行修改或从集合中删除它。
  *
- * @param {Billboard.ConstructorOptions}[options] A template describing the billboard's properties as shown in Example 1.
- * @returns {Billboard} The billboard that was added to the collection.
+ * @param {Billboard.ConstructorOptions}[options] 描述公告牌属性的模板，如示例 1 所示。
+ * @returns {Billboard} 已添加到集合中的 billboard。
  *
- * @performance Calling <code>add</code> is expected constant time.  However, the collection's vertex buffer
- * is rewritten - an <code>O(n)</code> operation that also incurs CPU to GPU overhead.  For
- * best performance, add as many billboards as possible before calling <code>update</code>.
+ * @performance 调用 <code>add</code> 是预期的常数时间。 但是，集合的顶点缓冲区
+ * 被重写 - 一个 <code>O（n）</code> 操作，也会产生 CPU 到 GPU 的开销。 为
+ * 最佳性能，在调用 <code>update</code> 之前添加尽可能多的 billboard。
  *
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 这个物体被摧毁了,destroy().
  *
  *
  * @example
@@ -486,18 +486,18 @@ BillboardCollection.prototype.add = function (options) {
 };
 
 /**
- * Removes a billboard from the collection.
+ * 从集合中删除公告牌。
  *
- * @param {Billboard} billboard The billboard to remove.
- * @returns {boolean} <code>true</code> if the billboard was removed; <code>false</code> if the billboard was not found in the collection.
+ * @param {Billboard} billboard 要移除的广告牌。
+ * @returns {boolean} <code>true</code>（如果广告牌被删除）;如果在集合中找不到 Billboard，<code>则为 false</code>。
  *
- * @performance Calling <code>remove</code> is expected constant time.  However, the collection's vertex buffer
- * is rewritten - an <code>O(n)</code> operation that also incurs CPU to GPU overhead.  For
- * best performance, remove as many billboards as possible before calling <code>update</code>.
- * If you intend to temporarily hide a billboard, it is usually more efficient to call
- * {@link Billboard#show} instead of removing and re-adding the billboard.
+ * @performance 调用 <code>remove</code> 是预期的常数时间。 但是，集合的顶点缓冲区
+ * 被重写 - 一个 <code>O（n）</code> 操作，也会产生 CPU 到 GPU 的开销。 为
+ * 最佳性能，在调用 <code>update</code> 之前尽可能多地移除 billboard。
+ * 如果您打算暂时隐藏公告牌，通常调用
+ * {@link Billboard#show}，而不是删除并重新添加公告牌。
  *
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 这个物体被摧毁了,destroy().
  *
  *
  * @example
@@ -521,12 +521,12 @@ BillboardCollection.prototype.remove = function (billboard) {
 };
 
 /**
- * Removes all billboards from the collection.
+ * 从集合中删除所有公告牌。
  *
- * @performance <code>O(n)</code>.  It is more efficient to remove all the billboards
- * from a collection and then add new ones than to create a new collection entirely.
+ * @performance <code>O(n)</code> 移除所有广告牌效率更高
+ * 从集合中，然后添加新的集合，而不是完全创建一个新集合。
  *
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 这个物体被摧毁了,destroy().
  *
  *
  * @example
@@ -590,20 +590,20 @@ BillboardCollection.prototype.contains = function (billboard) {
 };
 
 /**
- * Returns the billboard in the collection at the specified index.  Indices are zero-based
- * and increase as billboards are added.  Removing a billboard shifts all billboards after
- * it to the left, changing their indices.  This function is commonly used with
- * {@link BillboardCollection#length} to iterate over all the billboards
- * in the collection.
+ * 返回集合中指定索引处的 billboard。 索引从 0 开始
+ * 并随着广告牌的添加而增加。 删除公告牌后，所有公告牌都会移动
+ * 它向左移动，更改其索引。 此功能通常用于
+ * {@link BillboardCollection#length} 迭代所有公告牌
+ * 在集合中。
  *
- * @param {number} index The zero-based index of the billboard.
- * @returns {Billboard} The billboard at the specified index.
+ * @param {number} index 公告牌的从零开始的索引。
+ * @returns {Billboard} 位于指定索引的公告牌。
  *
- * @performance Expected constant time.  If billboards were removed from the collection and
- * {@link BillboardCollection#update} was not called, an implicit <code>O(n)</code>
- * operation is performed.
+ * @performance 预期恒定时间。 如果从集合中删除了 billboard，并且
+ * {@link BillboardCollection#update} 未调用，隐式 <code>O（n）</code>
+ * 执行操作。
  *
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 这个物体被摧毁了,destroy().
  *
  *
  * @example
@@ -1854,11 +1854,11 @@ function createDebugCommand(billboardCollection, context) {
 const scratchWriterArray = [];
 
 /**
- * Called when {@link Viewer} or {@link CesiumWidget} render the scene to
- * get the draw commands needed to render this primitive.
+ * 当 {@link Viewer} 或 {@link CesiumWidget} 将场景渲染到
+ * 获取渲染此基元所需的绘制命令。
  * <p>
- * Do not call this function directly.  This is documented just to
- * list the exceptions that may be propagated when the scene is rendered:
+ * 请勿直接调用此函数。 这记录下来只是为了
+ * 列出渲染场景时可能传播的异常：
  * </p>
  *
  * @exception {RuntimeError} image with id must be in the atlas.
@@ -2417,12 +2417,12 @@ BillboardCollection.prototype.update = function (frameState) {
 };
 
 /**
- * Returns true if this object was destroyed; otherwise, false.
+* 如果此对象已销毁，则返回 true;否则为 false。
  * <br /><br />
- * If this object was destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.
+ * 如果此对象已销毁，则不应使用;调用
+ <code>* isDestroyed</code> 将导致 {@link DeveloperError} 异常。
  *
- * @returns {boolean} <code>true</code> if this object was destroyed; otherwise, <code>false</code>.
+ * @returns {boolean} <code>true</code>，如果此对象被销毁;否则为 <code>false</code>。
  *
  * @see BillboardCollection#destroy
  */
@@ -2431,14 +2431,14 @@ BillboardCollection.prototype.isDestroyed = function () {
 };
 
 /**
- * Destroys the WebGL resources held by this object.  Destroying an object allows for deterministic
- * release of WebGL resources, instead of relying on the garbage collector to destroy this object.
+ * 销毁此对象持有的 WebGL 资源。 销毁对象允许确定性
+ * 释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。
  * <br /><br />
- * Once an object is destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.  Therefore,
- * assign the return value (<code>undefined</code>) to the object as done in the example.
+ * 一旦对象被销毁，就不应该使用它;调用
+ * <code>isDestroyed</code> 将导致 {@link DeveloperError} 异常。 因此
+ * 将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
  *
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 这个物体被摧毁了，即,  destroy().
  *
  *
  * @example

@@ -754,7 +754,7 @@ function setupSampler(texture, sampler) {
  * @exception {DeveloperError} yOffset must be greater than or equal to zero.
  * @exception {DeveloperError} xOffset + source.width must be less than or equal to width.
  * @exception {DeveloperError} yOffset + source.height must be less than or equal to height.
- * @exception {DeveloperError} This texture was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} This texture was destroyed, i.e.,  destroy().
  *
  * @example
  * texture.copyFrom({
@@ -947,7 +947,7 @@ Texture.prototype.copyFrom = function (options) {
  * @exception {DeveloperError} Cannot call copyFromFramebuffer when the texture pixel data type is FLOAT.
  * @exception {DeveloperError} Cannot call copyFromFramebuffer when the texture pixel data type is HALF_FLOAT.
  * @exception {DeveloperError} Cannot call copyFrom with a compressed texture pixel format.
- * @exception {DeveloperError} This texture was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} This texture was destroyed, i.e.,  destroy().
  * @exception {DeveloperError} xOffset must be greater than or equal to zero.
  * @exception {DeveloperError} yOffset must be greater than or equal to zero.
  * @exception {DeveloperError} framebufferXOffset must be greater than or equal to zero.
@@ -1043,7 +1043,7 @@ Texture.prototype.copyFromFramebuffer = function (
  * @exception {DeveloperError} hint is invalid.
  * @exception {DeveloperError} This texture's width must be a power of two to call generateMipmap() in a WebGL1 context.
  * @exception {DeveloperError} This texture's height must be a power of two to call generateMipmap() in a WebGL1 context.
- * @exception {DeveloperError} This texture was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} This texture was destroyed, i.e.,  destroy().
  */
 Texture.prototype.generateMipmap = function (hint) {
   hint = defaultValue(hint, MipmapHint.DONT_CARE);

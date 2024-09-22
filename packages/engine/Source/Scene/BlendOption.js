@@ -1,25 +1,25 @@
 /**
- * Determines how opaque and translucent parts of billboards, points, and labels are blended with the scene.
+ * 确定公告牌、点和标签的不透明和半透明部分如何与场景混合。
  *
  * @enum {number}
  */
 const BlendOption = {
   /**
-   * The billboards, points, or labels in the collection are completely opaque.
+   * 集合中的广告牌、点或标签是完全不透明的。
    * @type {number}
    * @constant
    */
   OPAQUE: 0,
 
   /**
-   * The billboards, points, or labels in the collection are completely translucent.
+   * 集合中的广告牌、点或标签是完全透明的。
    * @type {number}
    * @constant
    */
   TRANSLUCENT: 1,
 
   /**
-   * The billboards, points, or labels in the collection are both opaque and translucent.
+   * 集合中的广告牌、点或标签既不透明又半透明。
    * @type {number}
    * @constant
    */

@@ -263,7 +263,7 @@ function destroyPointPrimitives(pointPrimitives) {
  * is rewritten - an <code>O(n)</code> operation that also incurs CPU to GPU overhead.  For
  * best performance, add as many pointPrimitives as possible before calling <code>update</code>.
  *
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 这个物体被摧毁了,destroy().
  *
  *
  * @example
@@ -309,7 +309,7 @@ PointPrimitiveCollection.prototype.add = function (options) {
  * If you intend to temporarily hide a point, it is usually more efficient to call
  * {@link PointPrimitive#show} instead of removing and re-adding the point.
  *
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 这个物体被摧毁了,destroy().
  *
  *
  * @example
@@ -338,7 +338,7 @@ PointPrimitiveCollection.prototype.remove = function (pointPrimitive) {
  * @performance <code>O(n)</code>.  It is more efficient to remove all the points
  * from a collection and then add new ones than to create a new collection entirely.
  *
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 这个物体被摧毁了,destroy().
  *
  *
  * @example
@@ -419,7 +419,7 @@ PointPrimitiveCollection.prototype.contains = function (pointPrimitive) {
  * {@link PointPrimitiveCollection#update} was not called, an implicit <code>O(n)</code>
  * operation is performed.
  *
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 这个物体被摧毁了,destroy().
  *
  *
  * @example
@@ -1210,7 +1210,7 @@ PointPrimitiveCollection.prototype.isDestroyed = function () {
  * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.  Therefore,
  * assign the return value (<code>undefined</code>) to the object as done in the example.
  *
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 这个物体被摧毁了,destroy().
  *
  *
  * @example

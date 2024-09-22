@@ -20,26 +20,26 @@ import Texture from "../Renderer/Texture.js";
 import ClippingPlane from "./ClippingPlane.js";
 
 /**
- * Specifies a set of clipping planes. Clipping planes selectively disable rendering in a region on the
- * outside of the specified list of {@link ClippingPlane} objects for a single gltf model, 3D Tileset, or the globe.
+ * 指定一组剪切平面。剪切平面选择性地禁用
+ * 超出单个 gltf 模型、3D 瓦片集或地球的指定 {@link ClippingPlane} 对象列表。
  * <p>
- * In general the clipping planes' coordinates are relative to the object they're attached to, so a plane with distance set to 0 will clip
- * through the center of the object.
+ * 通常，裁剪平面的坐标是相对于它们所附加到的对象而言的，因此距离设置为 0 的平面将进行裁剪
+ * 通过对象的中心。
  * </p>
  * <p>
- * For 3D Tiles, the root tile's transform is used to position the clipping planes. If a transform is not defined, the root tile's {@link Cesium3DTile#boundingSphere} is used instead.
+ * 对于 3D 瓦片，根瓦片的变换用于定位剪切平面。如果未定义变换，则改用根图块的 {@link Cesium3DTile#boundingSphere}。
  * </p>
  *
  * @alias ClippingPlaneCollection
  * @constructor
  *
  * @param {object} [options] 对象，具有以下属性:
- * @param {ClippingPlane[]} [options.planes=[]] An array of {@link ClippingPlane} objects used to selectively disable rendering on the outside of each plane.
- * @param {boolean} [options.enabled=true] Determines whether the clipping planes are active.
- * @param {Matrix4} [options.modelMatrix=Matrix4.IDENTITY] The 4x4 transformation matrix specifying an additional transform relative to the clipping planes original coordinate system.
- * @param {boolean} [options.unionClippingRegions=false] If true, a region will be clipped if it is on the outside of any plane in the collection. Otherwise, a region will only be clipped if it is on the outside of every plane.
- * @param {Color} [options.edgeColor=Color.WHITE] The color applied to highlight the edge along which an object is clipped.
- * @param {number} [options.edgeWidth=0.0] The width, in pixels, of the highlight applied to the edge along which an object is clipped.
+ * @param {ClippingPlane[]} [options.planes=[]] 一个 {@link ClippingPlane} 对象的数组，用于选择性地禁用每个平面外部的渲染。
+ * @param {boolean} [options.enabled=true] 确定剪切平面是否处于活动状态。
+ * @param {Matrix4} [options.modelMatrix=Matrix4.IDENTITY] 4x4 变换矩阵，指定相对于剪切平面原始坐标系的附加变换。
+ * @param {boolean} [options.unionClippingRegions=false] 如果为 true，则如果某个区域位于集合中任何平面的外部，则该区域将被剪切。否则，只有当一个区域位于每个平面的外部时，它才会被剪切。
+ * @param {Color} [options.edgeColor=Color.WHITE] 用于高亮显示对象剪切沿的边缘的颜色。
+ * @param {number} [options.edgeWidth=0.0] 应用于剪切对象所沿的边缘的高光的宽度（以像素为单位）。
  *
  * @demo {@link https://sandcastle.cesium.com/?src=3D%20Tiles%20Clipping%20Planes.html|Clipping 3D Tiles and glTF models.}
  * @demo {@link https://sandcastle.cesium.com/?src=Terrain%20Clipping%20Planes.html|Clipping the Globe.}
@@ -78,8 +78,8 @@ function ClippingPlaneCollection(options) {
   this._enabled = defaultValue(options.enabled, true);
 
   /**
-   * The 4x4 transformation matrix specifying an additional transform relative to the clipping planes
-   * original coordinate system.
+   * 指定相对于剪切平面的其他转换的 4x4 转换矩阵
+   * 原始坐标系。
    *
    * @type {Matrix4}
    * @default Matrix4.IDENTITY
@@ -89,7 +89,7 @@ function ClippingPlaneCollection(options) {
   );
 
   /**
-   * The color applied to highlight the edge along which an object is clipped.
+   * 用于高亮显示剪切对象时所沿的边缘的颜色。
    *
    * @type {Color}
    * @default Color.WHITE
@@ -97,7 +97,7 @@ function ClippingPlaneCollection(options) {
   this.edgeColor = Color.clone(defaultValue(options.edgeColor, Color.WHITE));
 
   /**
-   * The width, in pixels, of the highlight applied to the edge along which an object is clipped.
+   * 应用于剪切对象所沿的边缘的高光的宽度（以像素为单位）。
    *
    * @type {number}
    * @default 0.0
@@ -105,16 +105,16 @@ function ClippingPlaneCollection(options) {
   this.edgeWidth = defaultValue(options.edgeWidth, 0.0);
 
   /**
-   * An event triggered when a new clipping plane is added to the collection.  Event handlers
-   * are passed the new plane and the index at which it was added.
+   * 将新的剪切平面添加到集合时触发的事件。 事件处理程序
+   * 将传递新平面和添加它的索引。
    * @type {Event}
    * @default Event()
    */
   this.planeAdded = new Event();
 
   /**
-   * An event triggered when a new clipping plane is removed from the collection.  Event handlers
-   * are passed the new plane and the index from which it was removed.
+   * 从集合中删除新的剪切平面时触发的事件。 事件处理程序
+   * 将传递新平面和从中删除它的索引。
    * @type {Event}
    * @default Event()
    */
@@ -158,9 +158,9 @@ function defaultIntersectFunction(value) {
 
 Object.defineProperties(ClippingPlaneCollection.prototype, {
   /**
-   * Returns the number of planes in this collection.  This is commonly used with
-   * {@link ClippingPlaneCollection#get} to iterate over all the planes
-   * in the collection.
+   * 返回此集合中的平面数。 这通常与
+   * {@link ClippingPlaneCollection#get} 遍历所有平面
+   * 在集合中。
    *
    * @memberof ClippingPlaneCollection.prototype
    * @type {number}
@@ -173,9 +173,9 @@ Object.defineProperties(ClippingPlaneCollection.prototype, {
   },
 
   /**
-   * If true, a region will be clipped if it is on the outside of any plane in the
-   * collection. Otherwise, a region will only be clipped if it is on the
-   * outside of every plane.
+   * 如果为 true，则如果区域位于
+   *收集。否则，只有当区域位于
+   * 在每个平面之外。
    *
    * @memberof ClippingPlaneCollection.prototype
    * @type {boolean}
@@ -197,7 +197,7 @@ Object.defineProperties(ClippingPlaneCollection.prototype, {
   },
 
   /**
-   * If true, clipping will be enabled.
+   * 如果为 true，则将启用剪辑。
    *
    * @memberof ClippingPlaneCollection.prototype
    * @type {boolean}
@@ -216,7 +216,7 @@ Object.defineProperties(ClippingPlaneCollection.prototype, {
   },
 
   /**
-   * Returns a texture containing packed, untransformed clipping planes.
+   * 返回包含打包的、未变换的剪切平面的纹理。
    *
    * @memberof ClippingPlaneCollection.prototype
    * @type {Texture}
@@ -230,7 +230,7 @@ Object.defineProperties(ClippingPlaneCollection.prototype, {
   },
 
   /**
-   * A reference to the ClippingPlaneCollection's owner, if any.
+   * 对 ClippingPlaneCollection 的所有者的引用（如果有）。
    *
    * @memberof ClippingPlaneCollection.prototype
    * @readonly
@@ -243,13 +243,13 @@ Object.defineProperties(ClippingPlaneCollection.prototype, {
   },
 
   /**
-   * Returns a Number encapsulating the state for this ClippingPlaneCollection.
+   * 返回一个 Number，用于封装此 ClippingPlaneCollection 的状态。
    *
-   * Clipping mode is encoded in the sign of the number, which is just the plane count.
-   * If this value changes, then shader regeneration is necessary.
+   * 削波模式以数字的符号编码，这只是平面数。
+   * 如果此值更改，则需要着色器重新生成。
    *
    * @memberof ClippingPlaneCollection.prototype
-   * @returns {number} A Number that describes the ClippingPlaneCollection's state.
+   * @returns {number} 描述 ClippingPlaneCollection 状态的 Number。
    * @readonly
    * @private
    */
@@ -272,11 +272,11 @@ function setIndexDirty(collection, index) {
 }
 
 /**
- * Adds the specified {@link ClippingPlane} to the collection to be used to selectively disable rendering
- * on the outside of each plane. Use {@link ClippingPlaneCollection#unionClippingRegions} to modify
- * how modify the clipping behavior of multiple planes.
+ * 将指定的 {@link ClippingPlane} 添加到集合中，以用于选择性地禁用渲染
+ * 在每个平面的外侧。使用 {@link ClippingPlaneCollection#unionClippingRegions} 修改
+ * 如何修改多个基准面的裁剪行为。
  *
- * @param {ClippingPlane} plane The ClippingPlane to add to the collection.
+ * @param {ClippingPlane} plane 要添加到集合的 ClippingPlane。
  *
  * @see ClippingPlaneCollection#unionClippingRegions
  * @see ClippingPlaneCollection#remove
@@ -297,14 +297,14 @@ ClippingPlaneCollection.prototype.add = function (plane) {
 };
 
 /**
- * Returns the plane in the collection at the specified index.  Indices are zero-based
- * and increase as planes are added.  Removing a plane shifts all planes after
- * it to the left, changing their indices.  This function is commonly used with
- * {@link ClippingPlaneCollection#length} to iterate over all the planes
- * in the collection.
+ * 返回集合中指定索引处的平面。 索引从 0 开始
+ * 并随着平面的添加而增加。 移除基准面时，所有基准面都会移动
+ * 它向左移动，更改其索引。 此功能通常用于
+ * {@link ClippingPlaneCollection#length} 迭代所有平面
+ * 在集合中。
  *
- * @param {number} index The zero-based index of the plane.
- * @returns {ClippingPlane} The ClippingPlane at the specified index.
+ * @param {number} index 平面的从零开始的索引。
+ * @returns {ClippingPlane} 指定索引处的 ClippingPlane。
  *
  * @see ClippingPlaneCollection#length
  */
@@ -328,10 +328,10 @@ function indexOf(planes, plane) {
 }
 
 /**
- * Checks whether this collection contains a ClippingPlane equal to the given ClippingPlane.
+ * 检查此集合是否包含等于给定 ClippingPlane 的 ClippingPlane。
  *
- * @param {ClippingPlane} [clippingPlane] The ClippingPlane to check for.
- * @returns {boolean} true if this collection contains the ClippingPlane, false 否则。
+ * @param {ClippingPlane} [clippingPlane] 要检查的 ClippingPlane。
+ * @returns {boolean}  如果此集合包含 ClippingPlane，则 true， 否则为 false。
  *
  * @see ClippingPlaneCollection#get
  */
@@ -340,10 +340,10 @@ ClippingPlaneCollection.prototype.contains = function (clippingPlane) {
 };
 
 /**
- * Removes the first occurrence of the given ClippingPlane from the collection.
+ * 从集合中删除给定 ClippingPlane 的第一个匹配项。
  *
  * @param {ClippingPlane} clippingPlane
- * @returns {boolean} <code>true</code> if the plane was removed; <code>false</code> if the plane was not found in the collection.
+ * @returns {boolean} 如果飞机被移除，<code>则为 true</code>;如果在集合中找不到该平面，<code>则为 false</code>。
  *
  * @see ClippingPlaneCollection#add
  * @see ClippingPlaneCollection#contains
@@ -383,7 +383,7 @@ ClippingPlaneCollection.prototype.remove = function (clippingPlane) {
 };
 
 /**
- * Removes all planes from the collection.
+ * 从集合中删除所有平面。
  *
  * @see ClippingPlaneCollection#add
  * @see ClippingPlaneCollection#remove
@@ -463,10 +463,10 @@ function computeTextureResolution(pixelsNeeded, result) {
 
 const textureResolutionScratch = new Cartesian2();
 /**
- * Called when {@link Viewer} or {@link CesiumWidget} render the scene to
- * build the resources for clipping planes.
+ * 当 {@link Viewer} 或 {@link CesiumWidget} 将场景渲染到
+ * 构建用于剪切平面的资源。
  * <p>
- * Do not call this function directly.
+ * 请勿直接调用此函数。
  * </p>
  */
 ClippingPlaneCollection.prototype.update = function (frameState) {
@@ -609,15 +609,15 @@ ClippingPlaneCollection.prototype.update = function (frameState) {
 const scratchMatrix = new Matrix4();
 const scratchPlane = new Plane(Cartesian3.UNIT_X, 0.0);
 /**
- * Determines the type intersection with the planes of this ClippingPlaneCollection instance and the specified {@link TileBoundingVolume}.
+ * 确定与此 ClippingPlaneCollection 实例的平面和指定的 {@link TileBoundingVolume} 的交集类型。
  * @private
  *
- * @param {object} tileBoundingVolume The volume to determine the intersection with the planes.
- * @param {Matrix4} [transform] An optional, additional matrix to transform the plane to world coordinates.
- * @returns {Intersect} {@link Intersect.INSIDE} if the entire volume is on the side of the planes
- *                      the normal is pointing and should be entirely rendered, {@link Intersect.OUTSIDE}
- *                      if the entire volume is on the opposite side and should be clipped, and
- *                      {@link Intersect.INTERSECTING} if the volume intersects the planes.
+ * @param {object} tileBoundingVolume 用于确定与平面相交的体积。
+ * @param {Matrix4} [transform] 一个可选的附加矩阵，用于将平面转换为世界坐标。
+ * @returns {Intersect} {@link Intersect.INSIDE} 如果整个体积位于平面的一侧
+ * 法线指向，应完全渲染，{@link Intersect.OUTSIDE}
+ * 如果整个体积位于另一侧并且应该被削波，并且
+ * {@link Intersect.INTERSECTING} 如果体积与平面相交。
  */
 ClippingPlaneCollection.prototype.computeIntersectionWithBoundingVolume = function (
   tileBoundingVolume,
@@ -657,12 +657,12 @@ ClippingPlaneCollection.prototype.computeIntersectionWithBoundingVolume = functi
 };
 
 /**
- * Sets the owner for the input ClippingPlaneCollection if there wasn't another owner.
- * Destroys the owner's previous ClippingPlaneCollection if setting is successful.
+ * 如果没有其他所有者，则设置输入 ClippingPlaneCollection 的所有者。
+ * 如果设置成功，则销毁所有者之前的 ClippingPlaneCollection。
  *
- * @param {ClippingPlaneCollection} [clippingPlaneCollection] A ClippingPlaneCollection (or undefined) being attached to an object
- * @param {object} owner An Object that should receive the new ClippingPlaneCollection
- * @param {string} key The Key for the Object to reference the ClippingPlaneCollection
+ * @param {ClippingPlaneCollection} [clippingPlaneCollection] 附加到对象的 ClippingPlaneCollection（或未定义）
+ * @param {object} owner 应接收新 ClippingPlaneCollection 的对象
+ * @param {string} key 对象引用 ClippingPlaneCollection 的 Key
  * @private
  */
 ClippingPlaneCollection.setOwner = function (
@@ -690,10 +690,10 @@ ClippingPlaneCollection.setOwner = function (
 };
 
 /**
- * Function for checking if the context will allow clipping planes with floating point textures.
+ * 用于检查上下文是否允许使用浮点纹理的剪切平面的函数。
  *
- * @param {Context} context The Context that will contain clipped objects and clipping textures.
- * @returns {boolean} <code>true</code> if floating point textures can be used for clipping planes.
+ * @param {Context} context 将包含剪切对象和剪切纹理的 Context。
+ * @returns {boolean} <code>true</code>，如果浮点纹理可用于剪切平面。
  * @private
  */
 ClippingPlaneCollection.useFloatTexture = function (context) {
@@ -701,14 +701,14 @@ ClippingPlaneCollection.useFloatTexture = function (context) {
 };
 
 /**
- * Function for getting the clipping plane collection's texture resolution.
- * If the ClippingPlaneCollection hasn't been updated, returns the resolution that will be
- * allocated based on the current plane count.
+ * 用于获取剪切平面集合的纹理分辨率的函数。
+ * 如果 ClippingPlaneCollection 尚未更新，则返回
+ * 根据当前平面计数分配。
  *
- * @param {ClippingPlaneCollection} clippingPlaneCollection The clipping plane collection
- * @param {Context} context The rendering context
- * @param {Cartesian2} result A Cartesian2 for the result.
- * @returns {Cartesian2} The required resolution.
+ * @param {ClippingPlaneCollection} clippingPlaneCollection 剪切平面集合
+ * @param {context} context 渲染上下文
+ * @param {Cartesian2} result  Cartesian2 为结果。
+ * @returns {Cartesian2} 所需的分辨率。
  * @private
  */
 ClippingPlaneCollection.getTextureResolution = function (
@@ -734,12 +734,12 @@ ClippingPlaneCollection.getTextureResolution = function (
 };
 
 /**
- * Returns true if this object was destroyed; otherwise, false.
+* 如果此对象已销毁，则返回 true;否则为 false。
  * <br /><br />
- * If this object was destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.
+ * 如果此对象已销毁，则不应使用;调用
+ <code>* isDestroyed</code> 将导致 {@link DeveloperError} 异常。
  *
- * @returns {boolean} <code>true</code> if this object was destroyed; otherwise, <code>false</code>.
+ * @returns {boolean} <code>true</code>，如果此对象被销毁;否则为 <code>false</code>。
  *
  * @see ClippingPlaneCollection#destroy
  */
@@ -748,14 +748,14 @@ ClippingPlaneCollection.prototype.isDestroyed = function () {
 };
 
 /**
- * Destroys the WebGL resources held by this object.  Destroying an object allows for deterministic
- * release of WebGL resources, instead of relying on the garbage collector to destroy this object.
+ * 销毁此对象持有的 WebGL 资源。 销毁对象允许确定性
+ * 释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。
  * <br /><br />
- * Once an object is destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.  Therefore,
- * assign the return value (<code>undefined</code>) to the object as done in the example.
+ * 一旦对象被销毁，就不应该使用它;调用
+ * <code> isDestroyed</code> 将导致 {@link DeveloperError} 异常。 因此
+ * 将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
  *
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 这个物体被摧毁了,destroy().
  *
  *
  * @example

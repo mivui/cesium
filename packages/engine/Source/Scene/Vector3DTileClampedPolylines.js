@@ -774,7 +774,7 @@ Vector3DTileClampedPolylines.prototype.isDestroyed = function () {
  * assign the return value (<code>undefined</code>) to the object as done in the example.
  * </p>
  *
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 这个物体被摧毁了,destroy().
  */
 Vector3DTileClampedPolylines.prototype.destroy = function () {
   this._va = this._va && this._va.destroy();

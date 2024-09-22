@@ -1,13 +1,13 @@
 import WebGLConstants from "../Core/WebGLConstants.js";
 
 /**
- * Determines how blending factors are computed.
+ * 确定如何计算混合因子。
  *
  * @enum {number}
  */
 const BlendFunction = {
   /**
-   * The blend factor is zero.
+   * 混合因子为零。
    *
    * @type {number}
    * @constant
@@ -15,7 +15,7 @@ const BlendFunction = {
   ZERO: WebGLConstants.ZERO,
 
   /**
-   * The blend factor is one.
+   * 混合因子为 1。
    *
    * @type {number}
    * @constant
@@ -39,7 +39,7 @@ const BlendFunction = {
   ONE_MINUS_SOURCE_COLOR: WebGLConstants.ONE_MINUS_SRC_COLOR,
 
   /**
-   * The blend factor is the destination color.
+   * 混合因子是目标颜色。
    *
    * @type {number}
    * @constant
@@ -47,7 +47,7 @@ const BlendFunction = {
   DESTINATION_COLOR: WebGLConstants.DST_COLOR,
 
   /**
-   * The blend factor is one minus the destination color.
+   * 混合系数为 1 减去目标颜色。
    *
    * @type {number}
    * @constant
@@ -55,7 +55,7 @@ const BlendFunction = {
   ONE_MINUS_DESTINATION_COLOR: WebGLConstants.ONE_MINUS_DST_COLOR,
 
   /**
-   * The blend factor is the source alpha.
+   * 混合因子是源 Alpha。
    *
    * @type {number}
    * @constant
@@ -63,7 +63,7 @@ const BlendFunction = {
   SOURCE_ALPHA: WebGLConstants.SRC_ALPHA,
 
   /**
-   * The blend factor is one minus the source alpha.
+   * 混合系数为 1 减去源 Alpha。
    *
    * @type {number}
    * @constant
@@ -71,7 +71,7 @@ const BlendFunction = {
   ONE_MINUS_SOURCE_ALPHA: WebGLConstants.ONE_MINUS_SRC_ALPHA,
 
   /**
-   * The blend factor is the destination alpha.
+   * 混合因子是目标 Alpha。
    *
    * @type {number}
    * @constant
@@ -79,7 +79,7 @@ const BlendFunction = {
   DESTINATION_ALPHA: WebGLConstants.DST_ALPHA,
 
   /**
-   * The blend factor is one minus the destination alpha.
+   * 混合因子是 1 减去目标 Alpha。
    *
    * @type {number}
    * @constant
@@ -87,7 +87,7 @@ const BlendFunction = {
   ONE_MINUS_DESTINATION_ALPHA: WebGLConstants.ONE_MINUS_DST_ALPHA,
 
   /**
-   * The blend factor is the constant color.
+   * 混合因子是恒定颜色。
    *
    * @type {number}
    * @constant
@@ -95,7 +95,7 @@ const BlendFunction = {
   CONSTANT_COLOR: WebGLConstants.CONSTANT_COLOR,
 
   /**
-   * The blend factor is one minus the constant color.
+   * 混合因子为 1 减去常数颜色。
    *
    * @type {number}
    * @constant
@@ -103,7 +103,7 @@ const BlendFunction = {
   ONE_MINUS_CONSTANT_COLOR: WebGLConstants.ONE_MINUS_CONSTANT_COLOR,
 
   /**
-   * The blend factor is the constant alpha.
+   * 混合因子是常数 alpha。
    *
    * @type {number}
    * @constant
@@ -111,7 +111,7 @@ const BlendFunction = {
   CONSTANT_ALPHA: WebGLConstants.CONSTANT_ALPHA,
 
   /**
-   * The blend factor is one minus the constant alpha.
+   * 混合因子是 1 减去常数 alpha。
    *
    * @type {number}
    * @constant
@@ -119,7 +119,7 @@ const BlendFunction = {
   ONE_MINUS_CONSTANT_ALPHA: WebGLConstants.ONE_MINUS_CONSTANT_ALPHA,
 
   /**
-   * The blend factor is the saturated source alpha.
+   * 混合因子是饱和的源 Alpha。
    *
    * @type {number}
    * @constant

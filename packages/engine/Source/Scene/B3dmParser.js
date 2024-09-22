@@ -5,7 +5,7 @@ import getJsonFromTypedArray from "../Core/getJsonFromTypedArray.js";
 import RuntimeError from "../Core/RuntimeError.js";
 
 /**
- * Handles parsing of a Batched 3D Model.
+ * 处理批处理 3D 模型的解析。
  *
  * @namespace B3dmParser
  * @private
@@ -16,13 +16,13 @@ B3dmParser._deprecationWarning = deprecationWarning;
 const sizeOfUint32 = Uint32Array.BYTES_PER_ELEMENT;
 
 /**
- * Parses the contents of a {@link https://github.com/CesiumGS/3d-tiles/tree/main/specification/TileFormats/Batched3DModel|Batched 3D Model}.
+ * 解析 {@link https://github.com/CesiumGS/3d-tiles/tree/main/specification/TileFormats/Batched3DModel|批处理 3D 模型}。
  *
  * @private
  *
- * @param {ArrayBuffer} arrayBuffer The array buffer containing the b3dm.
- * @param {number} [byteOffset=0] The byte offset of the beginning of the b3dm in the array buffer.
- * @returns {object} Returns an object with the batch length, feature table (binary and json), batch table (binary and json) and glTF parts of the b3dm.
+ * @param {ArrayBuffer} arrayBuffer 包含 b3dm.
+ * @param {number} [byteOffset=0] 数组缓冲区中 b3dm 开头的字节偏移量。
+ * @returns {object} 返回一个对象，其中包含 b3dm 的批处理长度、特征表（binary 和 json）、批处理表（binary 和 json）和 glTF 部分。
  */
 B3dmParser.parse = function (arrayBuffer, byteOffset) {
   const byteStart = defaultValue(byteOffset, 0);

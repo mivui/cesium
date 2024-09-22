@@ -557,7 +557,7 @@ CubeMap.prototype.loadMipmaps = function (source, skipColorSpaceConversion) {
  * @exception {DeveloperError} hint is invalid.
  * @exception {DeveloperError} This CubeMap's width must be a power of two to call generateMipmap().
  * @exception {DeveloperError} This CubeMap's height must be a power of two to call generateMipmap().
- * @exception {DeveloperError} This CubeMap was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} This CubeMap was destroyed, i.e.,  destroy().
  *
  * @example
  * // Generate mipmaps, and then set the sampler so mipmaps are used for

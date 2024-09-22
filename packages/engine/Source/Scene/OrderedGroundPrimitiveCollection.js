@@ -133,7 +133,7 @@ OrderedGroundPrimitiveCollection.prototype.remove = function (
 /**
  * Removes all primitives in the collection.
  *
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 这个物体被摧毁了,destroy().
  *
  * @see OrderedGroundPrimitiveCollection#destroyPrimitives
  */
@@ -204,7 +204,7 @@ OrderedGroundPrimitiveCollection.prototype.isDestroyed = function () {
  * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.  Therefore,
  * assign the return value (<code>undefined</code>) to the object as done in the example.
  *
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 这个物体被摧毁了,destroy().
  *
  *
  * @example

@@ -2,18 +2,18 @@ import BlendEquation from "./BlendEquation.js";
 import BlendFunction from "./BlendFunction.js";
 
 /**
- * The blending state combines {@link BlendEquation} and {@link BlendFunction} and the
- * <code>enabled</code> flag to define the full blending state for combining source and
- * destination fragments when rendering.
+ * 混合状态结合了 {@link BlendEquation} 和 {@link BlendFunction} 以及
+ * <code>enabled</code> 标志来定义将 source 和
+ * 渲染时的目标片段。
  * <p>
- * This is a helper when using custom render states with {@link Appearance#renderState}.
+ * 当使用 {@link Appearance#renderState} 的自定义渲染状态时，这是一个帮助程序。
  * </p>
  *
  * @namespace
  */
 const BlendingState = {
   /**
-   * Blending is disabled.
+   * 混合已禁用。
    *
    * @type {object}
    * @constant
@@ -23,7 +23,7 @@ const BlendingState = {
   }),
 
   /**
-   * Blending is enabled using alpha blending, <code>source(source.alpha) + destination(1 - source.alpha)</code>.
+   * 使用 alpha 混合 <code>source（source.alpha） + destination（1 - source.alpha）</code> 启用混合。
    *
    * @type {object}
    * @constant
@@ -39,7 +39,7 @@ const BlendingState = {
   }),
 
   /**
-   * Blending is enabled using alpha blending with premultiplied alpha, <code>source + destination(1 - source.alpha)</code>.
+   * 使用预乘 Alpha 的 alpha 混合启用 <code>source + destination（1 - source.alpha）</code> 的混合。
    *
    * @type {object}
    * @constant
@@ -55,7 +55,7 @@ const BlendingState = {
   }),
 
   /**
-   * Blending is enabled using additive blending, <code>source(source.alpha) + destination</code>.
+   * 使用加法混合 <code>source（source.alpha） + destination</code> 启用混合。
    *
    * @type {object}
    * @constant

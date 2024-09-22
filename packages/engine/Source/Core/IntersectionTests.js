@@ -179,7 +179,7 @@ IntersectionTests.rayTriangleParametric = function (
  * @param {Cartesian3} p2 三角形的第三个顶点。
  * @param {boolean} [cullBackFaces=false] 如果<code>为 true</code>，则仅计算与三角形正面的交点
  * 并返回 undefined 表示与背面的交集。
- * @param {Cartesian3} [result] 存储结果的<code>笛卡尔 3</code>。
+ * @param {Cartesian3} [result] 存储结果的<code>Cartesian3</code>。
  * @returns {Cartesian3} 交点，如果没有交集，则为 undefined。
  */
 IntersectionTests.rayTriangle = function (
@@ -222,7 +222,7 @@ const scratchLineSegmentTriangleRay = new Ray();
  * @param {Cartesian3} p2 三角形的第三个顶点。
  * @param {boolean} [cullBackFaces=false] 如果<code>为 true</code>，则仅计算与三角形正面的交点
  * 并返回 undefined 表示与背面的交集。
- * @param {Cartesian3} [result] 存储结果的<code>笛卡尔 3</code>。
+ * @param {Cartesian3} [result] 存储结果的<code>Cartesian3</code>。
  * @returns {Cartesian3} 交点，如果没有交集，则为 undefined。
  */
 IntersectionTests.lineSegmentTriangle = function (

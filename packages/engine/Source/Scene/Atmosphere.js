@@ -2,13 +2,13 @@ import Cartesian3 from "../Core/Cartesian3.js";
 import DynamicAtmosphereLightingType from "./DynamicAtmosphereLightingType.js";
 
 /**
- * Common atmosphere settings used by 3D Tiles and models for rendering sky atmosphere, ground atmosphere, and fog.
+ * 3D 瓦片和模型用于渲染天空大气、地面大气和雾的常见大气设置。
  *
  * <p>
- * This class is not to be confused with {@link SkyAtmosphere}, which is responsible for rendering the sky.
+ * 不要将此类与负责渲染天空的 {@link SkyAtmosphere} 混淆。
  * </p>
  * <p>
- * While the atmosphere settings affect the color of fog, see {@link Fog} to control how fog is rendered.
+ * 虽然大气设置会影响雾的颜色，请参阅 {@link Fog} 来控制雾的渲染方式。
  * </p>
  *
  * @alias Atmosphere
@@ -37,7 +37,7 @@ import DynamicAtmosphereLightingType from "./DynamicAtmosphereLightingType.js";
  */
 function Atmosphere() {
   /**
-   * The intensity of the light that is used for computing the ground atmosphere color.
+   * 用于计算地面大气颜色的光的强度。
    *
    * @type {number}
    * @default 10.0
@@ -45,7 +45,7 @@ function Atmosphere() {
   this.lightIntensity = 10.0;
 
   /**
-   * The Rayleigh scattering coefficient used in the atmospheric scattering equations for the ground atmosphere.
+   * 地面大气的大气散射方程中使用的瑞利散射系数。
    *
    * @type {Cartesian3}
    * @default Cartesian3(5.5e-6, 13.0e-6, 28.4e-6)
@@ -53,7 +53,7 @@ function Atmosphere() {
   this.rayleighCoefficient = new Cartesian3(5.5e-6, 13.0e-6, 28.4e-6);
 
   /**
-   * The Mie scattering coefficient used in the atmospheric scattering equations for the ground atmosphere.
+   * 地面大气的大气散射方程中使用的 Mie 散射系数。
    *
    * @type {Cartesian3}
    * @default Cartesian3(21e-6, 21e-6, 21e-6)
@@ -61,7 +61,7 @@ function Atmosphere() {
   this.mieCoefficient = new Cartesian3(21e-6, 21e-6, 21e-6);
 
   /**
-   * The Rayleigh scale height used in the atmospheric scattering equations for the ground atmosphere, in meters.
+   * 地面大气的大气散射方程中使用的瑞利标尺高度，以米为单位。
    *
    * @type {number}
    * @default 10000.0
@@ -69,7 +69,7 @@ function Atmosphere() {
   this.rayleighScaleHeight = 10000.0;
 
   /**
-   * The Mie scale height used in the atmospheric scattering equations for the ground atmosphere, in meters.
+   * 地面大气的大气散射方程中使用的 Mie 标尺高度，以米为单位。
    *
    * @type {number}
    * @default 3200.0
@@ -77,9 +77,9 @@ function Atmosphere() {
   this.mieScaleHeight = 3200.0;
 
   /**
-   * The anisotropy of the medium to consider for Mie scattering.
+   * 米氏散射要考虑的介质的各向异性。
    * <p>
-   * Valid values are between -1.0 and 1.0.
+   * 有效值介于 -1.0 和 1.0 之间。
    * </p>
    *
    * @type {number}
@@ -88,8 +88,8 @@ function Atmosphere() {
   this.mieAnisotropy = 0.9;
 
   /**
-   * The hue shift to apply to the atmosphere. Defaults to 0.0 (no shift).
-   * A hue shift of 1.0 indicates a complete rotation of the hues available.
+   * 应用于大气的色相偏移。默认为 0.0（无偏移）。
+   * 色相偏移 1.0 表示可用色相完全旋转。
    *
    * @type {number}
    * @default 0.0
@@ -97,8 +97,8 @@ function Atmosphere() {
   this.hueShift = 0.0;
 
   /**
-   * The saturation shift to apply to the atmosphere. Defaults to 0.0 (no shift).
-   * A saturation shift of -1.0 is monochrome.
+   * 应用于大气的饱和度偏移。默认为 0.0（无偏移）。
+   * -1.0 的饱和度偏移为单色。
    *
    * @type {number}
    * @default 0.0
@@ -106,8 +106,8 @@ function Atmosphere() {
   this.saturationShift = 0.0;
 
   /**
-   * The brightness shift to apply to the atmosphere. Defaults to 0.0 (no shift).
-   * A brightness shift of -1.0 is complete darkness, which will let space show through.
+   * 应用于大气的亮度偏移。默认为 0.0（无偏移）。
+   * -1.0 的亮度偏移是完全黑暗的，这将使空间透出。
    *
    * @type {number}
    * @default 0.0
@@ -115,8 +115,8 @@ function Atmosphere() {
   this.brightnessShift = 0.0;
 
   /**
-   * When not DynamicAtmosphereLightingType.NONE, the selected light source will
-   * be used for dynamically lighting all atmosphere-related rendering effects.
+   * 当不是 DynamicAtmosphereLightingType.NONE 时，所选光源将会
+   * 用于动态照亮所有与大气相关的渲染效果。
    *
    * @type {DynamicAtmosphereLightingType}
    * @default DynamicAtmosphereLightingType.NONE

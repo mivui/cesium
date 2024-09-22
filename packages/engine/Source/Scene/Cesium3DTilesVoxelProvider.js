@@ -23,12 +23,12 @@ import VoxelCylinderShape from "./VoxelCylinderShape.js";
 import VoxelShapeType from "./VoxelShapeType.js";
 
 /**
- * A {@link VoxelProvider} that fetches voxel data from a 3D Tiles tileset.
+ * 一个 {@link VoxelProvider}，用于从 3D 瓦片图块集中获取体素数据。
  * <p>
- * Implements the {@link VoxelProvider} interface.
+ * 实现 {@link VoxelProvider} 接口。
  * </p>
- * <div class="notice">
- * This object is normally not instantiated directly, use {@link Cesium3DTilesVoxelProvider.fromUrl}.
+ * <div class=“notice”>
+ * 此对象通常不直接实例化，请使用 {@link Cesium3DTilesVoxelProvider.fromUrl}。
  * </div>
  *
  * @alias Cesium3DTilesVoxelProvider
@@ -42,7 +42,7 @@ import VoxelShapeType from "./VoxelShapeType.js";
  * @see VoxelPrimitive
  * @see VoxelShapeType
  *
- * @experimental This feature is not final and is subject to change without Cesium's standard deprecation policy.
+ * @experimental 此功能不是最终的，在没有 Cesium 的标准弃用政策的情况下可能会发生变化。
  */
 function Cesium3DTilesVoxelProvider(options) {
   options = defaultValue(options, defaultValue.EMPTY_OBJECT);
@@ -94,16 +94,16 @@ function Cesium3DTilesVoxelProvider(options) {
 }
 
 /**
- * Creates a {@link VoxelProvider} that fetches voxel data from a 3D Tiles tileset.
+ * 创建一个 {@link VoxelProvider}，用于从 3D 瓦片图块集中获取体素数据。
  *
- * @param {Resource|string} url The URL to a tileset JSON file
- * @returns {Promise<Cesium3DTilesVoxelProvider>} The created provider
+ * @param {Resource|string} url 瓦片集 JSON 文件的 URL
+ * @returns {Promise<Cesium3DTilesVoxelProvider>} 创建的 provider
  *
- * @exception {RuntimeException} Root must have content
- * @exception {RuntimeException} Root tile content must have 3DTILES_content_voxels extension
- * @exception {RuntimeException} Root tile must have implicit tiling
- * @exception {RuntimeException} Tileset must have a metadata schema
- * @exception {RuntimeException} Only box, region and 3DTILES_bounding_volume_cylinder are supported in Cesium3DTilesVoxelProvider
+ * @exception {RuntimeException} 根必须包含内容
+ * @exception {RuntimeException} 根磁贴内容必须具有3DTILES_content_voxels扩展名
+ * @exception {RuntimeException} 根平铺必须具有隐式平铺
+ * @exception {RuntimeException} 瓦片集必须具有元数据架构
+ * @exception {RuntimeException} Cesium3DTilesVoxelProvider 仅支持 box、region 和 3DTILES_bounding_volume_cylinder
  */
 Cesium3DTilesVoxelProvider.fromUrl = async function (url) {
   //>>includeStart('debug', pragmas.debug);

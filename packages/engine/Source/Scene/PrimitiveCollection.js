@@ -125,7 +125,7 @@ Object.defineProperties(PrimitiveCollection.prototype, {
  * @param {number} [index] The index to add the layer at.  If omitted, the primitive will be added at the bottom of all existing primitives.
  * @returns {object} The primitive added to the collection.
  *
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 这个物体被摧毁了,destroy().
  *
  * @example
  * const billboards = scene.primitives.add(new Cesium.BillboardCollection());
@@ -171,7 +171,7 @@ PrimitiveCollection.prototype.add = function (primitive, index) {
  * @param {object} [primitive] The primitive to remove.
  * @returns {boolean} <code>true</code> if the primitive was removed; <code>false</code> if the primitive is <code>undefined</code> or was not found in the collection.
  *
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 这个物体被摧毁了,destroy().
  *
  *
  * @example
@@ -218,7 +218,7 @@ PrimitiveCollection.prototype.removeAndDestroy = function (primitive) {
 /**
  * Removes all primitives in the collection.
  *
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 这个物体被摧毁了,destroy().
  *
  * @see PrimitiveCollection#destroyPrimitives
  */
@@ -243,7 +243,7 @@ PrimitiveCollection.prototype.removeAll = function () {
  * @param {object} [primitive] The primitive to check for.
  * @returns {boolean} <code>true</code> if the primitive is in the collection; <code>false</code> if the primitive is <code>undefined</code> or was not found in the collection.
  *
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 这个物体被摧毁了,destroy().
  *
  * @see PrimitiveCollection#get
  */
@@ -273,7 +273,7 @@ function getPrimitiveIndex(compositePrimitive, primitive) {
  * @param {object} [primitive] The primitive to raise.
  *
  * @exception {DeveloperError} primitive is not in this collection.
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 这个物体被摧毁了,destroy().
  *
  * @see PrimitiveCollection#raiseToTop
  * @see PrimitiveCollection#lower
@@ -299,7 +299,7 @@ PrimitiveCollection.prototype.raise = function (primitive) {
  * @param {object} [primitive] The primitive to raise the top.
  *
  * @exception {DeveloperError} primitive is not in this collection.
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 这个物体被摧毁了,destroy().
  *
  * @see PrimitiveCollection#raise
  * @see PrimitiveCollection#lower
@@ -325,7 +325,7 @@ PrimitiveCollection.prototype.raiseToTop = function (primitive) {
  * @param {object} [primitive] The primitive to lower.
  *
  * @exception {DeveloperError} primitive is not in this collection.
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 这个物体被摧毁了,destroy().
  *
  * @see PrimitiveCollection#lowerToBottom
  * @see PrimitiveCollection#raise
@@ -351,7 +351,7 @@ PrimitiveCollection.prototype.lower = function (primitive) {
  * @param {object} [primitive] The primitive to lower to the bottom.
  *
  * @exception {DeveloperError} primitive is not in this collection.
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 这个物体被摧毁了,destroy().
  *
  * @see PrimitiveCollection#lower
  * @see PrimitiveCollection#raise
@@ -376,7 +376,7 @@ PrimitiveCollection.prototype.lowerToBottom = function (primitive) {
  * @param {number} index The zero-based index of the primitive to return.
  * @returns {object} The primitive at the <code>index</code>.
  *
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 这个物体被摧毁了,destroy().
  *
  *
  * @example
@@ -491,7 +491,7 @@ PrimitiveCollection.prototype.isDestroyed = function () {
  * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.  Therefore,
  * assign the return value (<code>undefined</code>) to the object as done in the example.
  *
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 这个物体被摧毁了,destroy().
  *
  *
  * @example

@@ -24,45 +24,45 @@ import DeveloperError from "../Core/DeveloperError.js";
 /**
  * @typedef {object} ArcGisMapServerImageryProvider.ConstructorOptions
  *
- * Initialization options for the ArcGisMapServerImageryProvider constructor
+ * ArcGisMapServerImageryProvider 构造函数的初始化选项
  *
- * @property {TileDiscardPolicy} [tileDiscardPolicy] The policy that determines if a tile
- *        is invalid and should be discarded.  If this value is not specified, a default
- *        {@link DiscardMissingTileImagePolicy} is used for tiled map servers, and a
- *        {@link NeverTileDiscardPolicy} is used for non-tiled map servers.  In the former case,
- *        we request tile 0,0 at the maximum tile level and check pixels (0,0), (200,20), (20,200),
- *        (80,110), and (160, 130).  If all of these pixels are transparent, the discard check is
- *        disabled and no tiles are discarded.  If any of them have a non-transparent color, any
- *        tile that has the same values in these pixel locations is discarded.  The end result of
- *        these defaults should be correct tile discarding for a standard ArcGIS Server.  To ensure
- *        that no tiles are discarded, construct and pass a {@link NeverTileDiscardPolicy} for this
- *        parameter.
- * @property {boolean} [usePreCachedTilesIfAvailable=true] If true, the server's pre-cached
- *        tiles are used if they are available. Exporting Tiles is only supported with deprecated APIs.
- * @property {string} [layers] A comma-separated list of the layers to show, or undefined if all layers should be shown.
- * @property {boolean} [enablePickFeatures=true] If true, {@link ArcGisMapServerImageryProvider#pickFeatures} will invoke
- *        the Identify service on the MapServer and return the features included in the response.  If false,
- *        {@link ArcGisMapServerImageryProvider#pickFeatures} will immediately return undefined (indicating no pickable features)
- *        without communicating with the server.  Set this property to false if you don't want this provider's features to
- *        be pickable. Can be overridden by setting the {@link ArcGisMapServerImageryProvider#enablePickFeatures} property on the object.
- * @property {Rectangle} [rectangle=Rectangle.MAX_VALUE] The rectangle of the layer.  This parameter is ignored when accessing
- *                    a tiled layer.
- * @property {TilingScheme} [tilingScheme=new GeographicTilingScheme()] The tiling scheme to use to divide the world into tiles.
- *                       This parameter is ignored when accessing a tiled server.
- * @property {Ellipsoid} [ellipsoid=Ellipsoid.default] The ellipsoid.  If the tilingScheme is specified and used,
- *                    this parameter is ignored and the tiling scheme's ellipsoid is used instead. If neither
- *                    parameter is specified, the default ellipsoid is used.
- * @property {Credit|string} [credit] A credit for the data source, which is displayed on the canvas.  This parameter is ignored when accessing a tiled server.
- * @property {number} [tileWidth=256] The width of each tile in pixels.  This parameter is ignored when accessing a tiled server.
- * @property {number} [tileHeight=256] The height of each tile in pixels.  This parameter is ignored when accessing a tiled server.
- * @property {number} [maximumLevel] The maximum tile level to request, or undefined if there is no maximum.  This parameter is ignored when accessing
- *                                        a tiled server.
+ * @property {TileDiscardPolicy} [tileDiscardPolicy] 确定瓦片是否
+ * 无效，应丢弃。 如果未指定此值，则默认为
+ * {@link DiscardMissingTileImagePolicy} 用于平铺地图服务器，而
+ * {@link NeverTileDiscardPolicy} 用于非平铺地图服务器。 在前一种情况下，
+ * 我们在最大瓦片级别请求瓦片 0,0 并检查像素 （0,0）、（200,20）、（20,200）、
+ * （80,110） 和 （160， 130）。 如果所有这些像素都是透明的，则丢弃校验为
+ * 禁用且不会丢弃任何牌。 如果其中任何一个具有不透明的颜色，则任何
+ * 在这些像素位置具有相同值的瓦片将被丢弃。 的最终结果
+ * 对于标准 ArcGIS Server，这些默认值应该是正确的切片丢弃。 为了确保
+ * 没有丢弃任何图块，为此构造并传递一个 {@link NeverTileDiscardPolicy}
+ *参数。
+ * @property {boolean} [usePreCachedTilesIfAvailable=true] 如果为 true，则服务器的预缓存
+ * 如果有瓦片，则使用瓦片。只有已弃用的 API 才支持导出切片。
+ * @property {string} [layers] 要显示的图层的逗号分隔列表，如果应显示所有图层，则为 undefined。
+ * @property {boolean} [enablePickFeatures=true] 如果为 true，则 {@link ArcGisMapServerImageryProvider#pickFeatures} 将调用
+ * MapServer 上的 Identify 服务并返回响应中包含的要素。 如果为 false，则
+ * {@link ArcGisMapServerImageryProvider#pickFeatures} 将立即返回 undefined（表示没有可选取的要素）
+ * 而不与服务器通信。 如果不希望此提供程序的功能
+ * 是可挑选的。可以通过在对象上设置 {@link ArcGisMapServerImageryProvider#enablePickFeatures} 属性来覆盖。
+ * @property {Rectangle} [rectangle=Rectangle.MAX_VALUE] 图层的矩形。 访问
+ * 平铺层。
+ * @property {TilingScheme} [tilingScheme=new GeographicTilingScheme（）] 用于将世界划分为多个图块的平铺方案。
+ * 访问平铺服务器时，将忽略此参数。
+ * @property {Ellipsoid} [ellipsoid=Ellipsoid.default] 椭球体。 如果指定并使用了 tilingScheme，则
+ * 此参数将被忽略，而使用切片方案的椭球体。如果两者都不是
+ * 参数，则使用默认椭球。
+ * @property {Credit|string} [credit] 数据源的积分，显示在画布上。 访问平铺服务器时，将忽略此参数。
+ * @property {number} [tileWidth=256] 每个图块的宽度（以像素为单位）。 访问平铺服务器时，将忽略此参数。
+ * @property {number} [tileHeight=256] 每个图块的高度（以像素为单位）。 访问平铺服务器时，将忽略此参数。
+ * @property {number} [maximumLevel] 要请求的最大图块级别，如果没有最大值，则为 undefined。 访问
+ * 平铺服务器。
  *
  *
  */
 
 /**
- * Used to track creation details while fetching initial metadata
+ * 用于在获取初始元数据时跟踪创建详细信息
  *
  * @constructor
  * @private
@@ -94,7 +94,7 @@ function ImageryProviderBuilder(options) {
 }
 
 /**
- * Complete ArcGisMapServerImageryProvider creation based on builder values.
+ * 根据构建器值完成 ArcGisMapServerImageryProvider 创建。
  *
  * @private
  *
@@ -255,17 +255,17 @@ async function requestMetadata(resource, imageryProviderBuilder) {
 
 /**
  * <div class="notice">
- * This object is normally not instantiated directly, use {@link ArcGisMapServerImageryProvider.fromBasemapType} or {@link ArcGisMapServerImageryProvider.fromUrl}.
+ * 此对象通常不直接实例化，请使用 {@link ArcGisMapServerImageryProvider.fromBasemapType} 或 {@link ArcGisMapServerImageryProvider.fromUrl}。
  * </div>
  *
- * Provides tiled imagery hosted by an ArcGIS MapServer.  By default, the server's pre-cached tiles are
- * used, if available.
+ * 提供由 ArcGIS MapServer 托管的切片影像。 默认情况下，服务器的预缓存切片为
+ * 二手（如果有）。
  * 
  * <br/>
  * 
- * An {@link https://developers.arcgis.com/documentation/mapping-apis-and-services/security| ArcGIS Access Token } is required to authenticate requests to an ArcGIS Image Tile service.
- * To access secure ArcGIS resources, it's required to create an ArcGIS developer
- * account or an ArcGIS online account, then implement an authentication method to obtain an access token.
+ *  {@link https://developers.arcgis.com/documentation/mapping-apis-and-services/security| ArcGIS Access Token } 需要对 ArcGIS Image Tile 服务的请求进行身份验证。
+ * 要访问安全的 ArcGIS 资源，需要创建 ArcGIS 开发人员
+ * 帐户或 ArcGIS Online 帐户，然后实施身份验证方法以获取访问令牌。
  *
  * @alias ArcGisMapServerImageryProvider
  * @constructor
@@ -336,10 +336,10 @@ function ArcGisMapServerImageryProvider(options) {
   }
 
   /**
-   * Gets or sets a value indicating whether feature picking is enabled.  If true, {@link ArcGisMapServerImageryProvider#pickFeatures} will
-   * invoke the "identify" operation on the ArcGIS server and return the features included in the response.  If false,
-   * {@link ArcGisMapServerImageryProvider#pickFeatures} will immediately return undefined (indicating no pickable features)
-   * without communicating with the server.
+   * 获取或设置一个值，该值指示是否启用功能选取。 如果为 true，则 {@link ArcGisMapServerImageryProvider#pickFeatures} 将
+   * 在 ArcGIS 服务器上调用 “identify” 操作并返回响应中包含的要素。 如果为 false，则
+   * {@link ArcGisMapServerImageryProvider#pickFeatures} 将立即返回 undefined（表示没有可选取的要素）
+   * 而不与服务器通信。
    * @type {boolean}
    * @default true
    */
@@ -349,10 +349,10 @@ function ArcGisMapServerImageryProvider(options) {
 }
 
 /**
- * Creates an {@link ImageryProvider} which provides tiled imagery from an ArcGIS base map.
- * @param {ArcGisBaseMapType} style The style of the ArcGIS base map imagery. Valid options are {@link ArcGisBaseMapType.SATELLITE}, {@link ArcGisBaseMapType.OCEANS}, and {@link ArcGisBaseMapType.HILLSHADE}.
+ * 创建一个 {@link ImageryProvider}，用于提供来自 ArcGIS 底图的切片影像。
+ * @param {ArcGisBaseMapType} 样式 ArcGIS 底图影像的样式。有效选项为 {@link ArcGisBaseMapType.SATELLITE}、{@link ArcGisBaseMapType.OCEANS} 和 {@link ArcGisBaseMapType.HILLSHADE}。
  * @param {ArcGisMapServerImageryProvider.ConstructorOptions} [options] 描述初始化选项的对象.
- * @returns {Promise<ArcGisMapServerImageryProvider>} A promise that resolves to the created ArcGisMapServerImageryProvider.
+ * @returns {Promise<ArcGisMapServerImageryProvider>} 解析为创建的 ArcGisMapServerImageryProvider 的 Promise。
  *
  * @example
  * // Set the default access token for accessing ArcGIS Image Tile service
@@ -503,7 +503,7 @@ function buildImageResource(imageryProvider, x, y, level, request) {
 
 Object.defineProperties(ArcGisMapServerImageryProvider.prototype, {
   /**
-   * Gets the URL of the ArcGIS MapServer.
+   * 获取 ArcGIS MapServer 的 URL。
    * @memberof ArcGisMapServerImageryProvider.prototype
    * @type {string}
    * @readonly
@@ -515,7 +515,7 @@ Object.defineProperties(ArcGisMapServerImageryProvider.prototype, {
   },
 
   /**
-   * Gets the ArcGIS token used to authenticate with the ArcGis MapServer service.
+   * 获取用于对 ArcGis MapServer 服务进行身份验证的 ArcGIS 令牌。
    * @memberof ArcGisMapServerImageryProvider.prototype
    * @type {string}
    * @readonly
@@ -527,7 +527,7 @@ Object.defineProperties(ArcGisMapServerImageryProvider.prototype, {
   },
 
   /**
-   * Gets the proxy used by this provider.
+   * 获取此提供程序使用的代理。
    * @memberof ArcGisMapServerImageryProvider.prototype
    * @type {Proxy}
    * @readonly
@@ -539,7 +539,7 @@ Object.defineProperties(ArcGisMapServerImageryProvider.prototype, {
   },
 
   /**
-   * Gets the width of each tile, in pixels.
+   * 获取每个图块的宽度（以像素为单位）。
    * @memberof ArcGisMapServerImageryProvider.prototype
    * @type {number}
    * @readonly
@@ -551,7 +551,7 @@ Object.defineProperties(ArcGisMapServerImageryProvider.prototype, {
   },
 
   /**
-   * Gets the height of each tile, in pixels.
+   * 获取每个图块的高度（以像素为单位）。
    * @memberof ArcGisMapServerImageryProvider.prototype
    * @type {number}
    * @readonly
@@ -563,7 +563,7 @@ Object.defineProperties(ArcGisMapServerImageryProvider.prototype, {
   },
 
   /**
-   * Gets the maximum level-of-detail that can be requested.
+   * 获取可请求的最大详细级别。
    * @memberof ArcGisMapServerImageryProvider.prototype
    * @type {number|undefined}
    * @readonly
@@ -575,7 +575,7 @@ Object.defineProperties(ArcGisMapServerImageryProvider.prototype, {
   },
 
   /**
-   * Gets the minimum level-of-detail that can be requested.
+   * 获取可请求的最小详细级别。
    * @memberof ArcGisMapServerImageryProvider.prototype
    * @type {number}
    * @readonly
@@ -587,7 +587,7 @@ Object.defineProperties(ArcGisMapServerImageryProvider.prototype, {
   },
 
   /**
-   * Gets the tiling scheme used by this provider.
+   * 获取此提供程序使用的切片方案。
    * @memberof ArcGisMapServerImageryProvider.prototype
    * @type {TilingScheme}
    * @readonly
@@ -599,7 +599,7 @@ Object.defineProperties(ArcGisMapServerImageryProvider.prototype, {
   },
 
   /**
-   * Gets the rectangle, in radians, of the imagery provided by this instance.
+   * 获取此实例提供的图像的矩形（以弧度为单位）。
    * @memberof ArcGisMapServerImageryProvider.prototype
    * @type {Rectangle}
    * @readonly
@@ -611,9 +611,9 @@ Object.defineProperties(ArcGisMapServerImageryProvider.prototype, {
   },
 
   /**
-   * Gets the tile discard policy.  If not undefined, the discard policy is responsible
-   * for filtering out "missing" tiles via its shouldDiscardImage function.  If this function
-   * returns undefined, no tiles are filtered.
+   * 获取瓦片丢弃策略。 如果未 undefined，则 discard 策略负责
+   * 用于通过其 shouldDiscardImage 函数过滤掉“缺失”的瓦片。 如果此功能
+   * 返回 undefined，不过滤任何图块。
    * @memberof ArcGisMapServerImageryProvider.prototype
    * @type {TileDiscardPolicy}
    * @readonly
@@ -625,9 +625,9 @@ Object.defineProperties(ArcGisMapServerImageryProvider.prototype, {
   },
 
   /**
-   * Gets an event that is raised when the imagery provider encounters an asynchronous error.  By subscribing
-   * to the event, you will be notified of the error and can potentially recover from it.  Event listeners
-   * are passed an instance of {@link TileProviderError}.
+   * 获取在影像提供程序遇到异步错误时引发的事件。 通过订阅
+   * 时，您将收到错误通知，并可能从中恢复。 事件侦听器
+   * 将传递 {@link TileProviderError} 的实例。
    * @memberof ArcGisMapServerImageryProvider.prototype
    * @type {Event}
    * @readonly
@@ -639,8 +639,8 @@ Object.defineProperties(ArcGisMapServerImageryProvider.prototype, {
   },
 
   /**
-   * Gets the credit to display when this imagery provider is active.  Typically this is used to credit
-   * the source of the imagery.
+   * 获取此影像提供程序处于活动状态时要显示的点数。 通常，这用于贷记
+   * 图像的来源。
    * @memberof ArcGisMapServerImageryProvider.prototype
    * @type {Credit}
    * @readonly
@@ -652,8 +652,8 @@ Object.defineProperties(ArcGisMapServerImageryProvider.prototype, {
   },
 
   /**
-   * Gets a value indicating whether this imagery provider is using pre-cached tiles from the
-   * ArcGIS MapServer.
+   * 获取一个值，该值指示此影像提供商是否正在使用
+   * ArcGIS 地图服务器。
    * @memberof ArcGisMapServerImageryProvider.prototype
    *
    * @type {boolean}
@@ -667,11 +667,11 @@ Object.defineProperties(ArcGisMapServerImageryProvider.prototype, {
   },
 
   /**
-   * Gets a value indicating whether or not the images provided by this imagery provider
-   * include an alpha channel.  If this property is false, an alpha channel, if present, will
-   * be ignored.  If this property is true, any images without an alpha channel will be treated
-   * as if their alpha is 1.0 everywhere.  When this property is false, memory usage
-   * and texture upload time are reduced.
+   * 获取一个值，该值指示此图像提供程序是否提供图像
+   * 包括 Alpha 通道。 如果此属性为 false，则 Alpha 通道（如果存在）将
+   * 被忽略。 如果此属性为 true，则将处理任何没有 Alpha 通道的图像
+   * 就好像它们的 alpha 在所有地方都是 1.0 一样。 当此属性为 false 时，内存使用情况
+   * 和纹理上传时间缩短。
    * @memberof ArcGisMapServerImageryProvider.prototype
    *
    * @type {boolean}
@@ -685,7 +685,7 @@ Object.defineProperties(ArcGisMapServerImageryProvider.prototype, {
   },
 
   /**
-   * Gets the comma-separated list of layer IDs to show.
+   * 获取要显示的图层 ID 的逗号分隔列表。
    * @memberof ArcGisMapServerImageryProvider.prototype
    *
    * @type {string}
@@ -698,12 +698,12 @@ Object.defineProperties(ArcGisMapServerImageryProvider.prototype, {
 });
 
 /**
- * Creates an {@link ImageryProvider} which provides tiled imagery hosted by an ArcGIS MapServer.  By default, the server's pre-cached tiles are
- * used, if available.
+ * 创建一个 {@link ImageryProvider}，该提供商由 ArcGIS MapServer 托管的切片影像。 默认情况下，服务器的预缓存切片为
+ * 二手（如果有）。
  *
- * @param {Resource|String} url The URL of the ArcGIS MapServer service.
+ * @param {Resource|String} url ArcGIS MapServer 服务的 URL。
  * @param {ArcGisMapServerImageryProvider.ConstructorOptions} [options] 描述初始化选项的对象.
- * @returns {Promise<ArcGisMapServerImageryProvider>} A promise that resolves to the created ArcGisMapServerImageryProvider.
+ * @returns {Promise<ArcGisMapServerImageryProvider>} 解析为创建的 ArcGisMapServerImageryProvider 的 Promise。
  *
  * @example
  * const esri = await Cesium.ArcGisMapServerImageryProvider.fromUrl(
@@ -742,12 +742,12 @@ ArcGisMapServerImageryProvider.fromUrl = async function (url, options) {
 };
 
 /**
- * Gets the credits to be displayed when a given tile is displayed.
+ * 获取在显示给定磁贴时要显示的制作者名单。
  *
- * @param {number} x The tile X coordinate.
- * @param {number} y The tile Y coordinate.
- * @param {number} level The tile level;
- * @returns {Credit[]} The credits to be displayed when the tile is displayed.
+ * @param {number} x 瓦片 X 坐标。
+ * @param {number} y 瓦片 Y 坐标。
+ * @param {number} level 瓦片级别;
+ * @returns {Credit[]} 显示磁贴时要显示的制作者名单。
  */
 ArcGisMapServerImageryProvider.prototype.getTileCredits = function (
   x,
@@ -758,14 +758,14 @@ ArcGisMapServerImageryProvider.prototype.getTileCredits = function (
 };
 
 /**
- * Requests the image for a given tile.
+ * 请求给定磁贴的图像。
  *
- * @param {number} x The tile X coordinate.
- * @param {number} y The tile Y coordinate.
- * @param {number} level The tile level.
+ * @param {number} x 瓦片 X 坐标。
+ * @param {number} y 瓦片 Y 坐标。
+ * @param {number} level 瓦片级别。
  * @param {Request} [request] 请求对象。仅供内部使用。
- * @returns {Promise<ImageryTypes>|undefined} A promise for the image that will resolve when the image is available, or
- *          undefined if there are too many active requests to the server, and the request should be retried later.
+ * @returns {Promise<ImageryTypes>|undefined} 映像的 Promise，该 Promise 将在映像可用时解析，或者
+ * undefined 如果对服务器的活动请求过多，则应稍后重试该请求。
  */
 ArcGisMapServerImageryProvider.prototype.requestImage = function (
   x,
@@ -780,19 +780,18 @@ ArcGisMapServerImageryProvider.prototype.requestImage = function (
 };
 
 /**
-    /**
-     * Asynchronously determines what features, if any, are located at a given longitude and latitude within
-     * a tile.
-     *
-     * @param {number} x The tile X coordinate.
-     * @param {number} y The tile Y coordinate.
-     * @param {number} level The tile level.
-     * @param {number} longitude The longitude at which to pick features.
-     * @param {number} latitude  The latitude at which to pick features.
-     * @return {Promise<ImageryLayerFeatureInfo[]>|undefined} A promise for the picked features that will resolve when the asynchronous
-     *                   picking completes.  The resolved value is an array of {@link ImageryLayerFeatureInfo}
-     *                   instances.  The array may be empty if no features are found at the given location.
-     */
+ * 异步确定哪些要素（如果有）位于给定的经度和纬度
+ * 一个图块。
+ *
+ * @param {number} x 瓦片 X 坐标。
+ * @param {number} y 瓦片 Y 坐标。
+ * @param {number} level 瓦片级别。
+ * @param {number} longitude 选取特征的经度。
+ * @param {number} latitude 选取特征的纬度。
+ * @return {Promise<ImageryLayerFeatureInfo[]>|undefined} 对所选特征的 Promise，当异步
+ * 拣选完成。 解析的值是 {@link ImageryLayerFeatureInfo} 的数组
+ *实例。 如果在给定位置未找到要素，则数组可能为空。
+ */
 ArcGisMapServerImageryProvider.prototype.pickFeatures = function (
   x,
   y,

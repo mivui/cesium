@@ -64,7 +64,7 @@ Object.defineProperties(CubeMapFace.prototype, {
  * @exception {DeveloperError} yOffset must be greater than or equal to zero.
  * @exception {DeveloperError} xOffset + source.width must be less than or equal to width.
  * @exception {DeveloperError} yOffset + source.height must be less than or equal to height.
- * @exception {DeveloperError} This CubeMap was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} This CubeMap was destroyed, i.e.,  destroy().
  *
  * @example
  * // Create a cubemap with 1x1 faces, and make the +x face red.
@@ -255,14 +255,14 @@ CubeMapFace.prototype.copyFrom = function (options) {
  *
  * @exception {DeveloperError} Cannot call copyFromFramebuffer when the texture pixel data type is FLOAT.
  * @exception {DeveloperError} Cannot call copyFromFramebuffer when the texture pixel data type is HALF_FLOAT.
- * @exception {DeveloperError} This CubeMap was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} This CubeMap was destroyed, i.e.,  destroy().
  * @exception {DeveloperError} xOffset must be greater than or equal to zero.
  * @exception {DeveloperError} yOffset must be greater than or equal to zero.
  * @exception {DeveloperError} framebufferXOffset must be greater than or equal to zero.
  * @exception {DeveloperError} framebufferYOffset must be greater than or equal to zero.
  * @exception {DeveloperError} xOffset + source.width must be less than or equal to width.
  * @exception {DeveloperError} yOffset + source.height must be less than or equal to height.
- * @exception {DeveloperError} This CubeMap was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} This CubeMap was destroyed, i.e.,  destroy().
  *
  * @example
  * // Copy the framebuffer contents to the +x cube map face.

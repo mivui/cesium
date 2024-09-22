@@ -11,9 +11,9 @@ import PerspectiveOffCenterFrustum from "../Core/PerspectiveOffCenterFrustum.js"
 import SceneMode from "./SceneMode.js";
 
 /**
- * Creates tweens for camera flights.
+ * 为相机飞行创建补间。
  * <br /><br />
- * Mouse interaction is disabled during flights.
+ * 飞行期间禁用鼠标交互。
  *
  * @private
  */

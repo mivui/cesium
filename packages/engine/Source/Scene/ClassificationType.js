@@ -1,25 +1,25 @@
 /**
- * Whether a classification affects terrain, 3D Tiles or both.
+ * 分类是否影响地形、3D 瓦片或两者。
  *
  * @enum {number}
  */
 const ClassificationType = {
   /**
-   * Only terrain will be classified.
+   * 仅对地形进行分类。
    *
    * @type {number}
    * @constant
    */
   TERRAIN: 0,
   /**
-   * Only 3D Tiles will be classified.
+   * 仅对 3D 图块进行分类。
    *
    * @type {number}
    * @constant
    */
   CESIUM_3D_TILE: 1,
   /**
-   * Both terrain and 3D Tiles will be classified.
+   * 地形和 3D 瓦片都将被分类。
    *
    * @type {number}
    * @constant

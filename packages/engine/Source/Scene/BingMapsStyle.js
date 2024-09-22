@@ -1,5 +1,5 @@
 /**
- * The types of imagery provided by Bing Maps.
+ * 必应地图提供的图像类型。
  *
  * @enum {number}
  *
@@ -7,7 +7,7 @@
  */
 const BingMapsStyle = {
   /**
-   * Aerial imagery.
+   * 航拍图像。
    *
    * @type {string}
    * @constant
@@ -15,17 +15,17 @@ const BingMapsStyle = {
   AERIAL: "Aerial",
 
   /**
-   * Aerial imagery with a road overlay.
+   * 带有道路叠加层的航拍图像。
    *
    * @type {string}
    * @constant
-   * @deprecated See https://github.com/CesiumGS/cesium/issues/7128.
-   * Use `BingMapsStyle.AERIAL_WITH_LABELS_ON_DEMAND` instead
+   * @deprecated 参见 https://github.com/CesiumGS/cesium/issues/7128。
+   * 改用 'BingMapsStyle.AERIAL_WITH_LABELS_ON_DEMAND'
    */
   AERIAL_WITH_LABELS: "AerialWithLabels",
 
   /**
-   * Aerial imagery with a road overlay.
+   * 带有道路叠加层的航拍图像。
    *
    * @type {string}
    * @constant
@@ -33,17 +33,17 @@ const BingMapsStyle = {
   AERIAL_WITH_LABELS_ON_DEMAND: "AerialWithLabelsOnDemand",
 
   /**
-   * Roads without additional imagery.
+   * 没有额外图像的道路。
    *
    * @type {string}
    * @constant
-   * @deprecated See https://github.com/CesiumGS/cesium/issues/7128.
-   * Use `BingMapsStyle.ROAD_ON_DEMAND` instead
+   * @deprecated 参见 https://github.com/CesiumGS/cesium/issues/7128。
+   * 改用 'BingMapsStyle.ROAD_ON_DEMAND'
    */
   ROAD: "Road",
 
   /**
-   * Roads without additional imagery.
+   * 没有额外图像的道路。
    *
    * @type {string}
    * @constant
@@ -51,7 +51,7 @@ const BingMapsStyle = {
   ROAD_ON_DEMAND: "RoadOnDemand",
 
   /**
-   * A dark version of the road maps.
+   * 路线图的黑暗版本。
    *
    * @type {string}
    * @constant
@@ -59,7 +59,7 @@ const BingMapsStyle = {
   CANVAS_DARK: "CanvasDark",
 
   /**
-   * A lighter version of the road maps.
+   * 路线图的轻量级版本。
    *
    * @type {string}
    * @constant
@@ -67,7 +67,7 @@ const BingMapsStyle = {
   CANVAS_LIGHT: "CanvasLight",
 
   /**
-   * A grayscale version of the road maps.
+   * 路线图的灰度版本。
    *
    * @type {string}
    * @constant
@@ -75,7 +75,7 @@ const BingMapsStyle = {
   CANVAS_GRAY: "CanvasGray",
 
   /**
-   * Ordnance Survey imagery. This imagery is visible only for the London, UK area.
+   * 地形测量局图像。此影像仅在英国伦敦地区可见。
    *
    * @type {string}
    * @constant
@@ -83,7 +83,7 @@ const BingMapsStyle = {
   ORDNANCE_SURVEY: "OrdnanceSurvey",
 
   /**
-   * Collins Bart imagery.
+   * 柯林斯·巴特图像。
    *
    * @type {string}
    * @constant

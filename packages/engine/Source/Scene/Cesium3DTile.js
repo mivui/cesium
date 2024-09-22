@@ -46,18 +46,18 @@ import Pass from "../Renderer/Pass.js";
 import VerticalExaggeration from "../Core/VerticalExaggeration.js";
 
 /**
- * A tile in a {@link Cesium3DTileset}.  When a tile is first created, its content is not loaded;
- * the content is loaded on-demand when needed based on the view.
+ * {@link Cesium3DTileset} 中的瓦片。 首次创建磁贴时，不会加载其内容;
+ * 内容在需要时根据视图按需加载。
  * <p>
- * Do not construct this directly, instead access tiles through {@link Cesium3DTileset#tileVisible}.
+ * 不要直接构造它，而是通过 {@link Cesium3DTileset#tileVisible} 访问瓦片。
  * </p>
  *
  * @alias Cesium3DTile
  * @constructor
- * @param {Cesium3DTileset} tileset The tileset
- * @param {Resource} baseResource The base resource for the tileset
- * @param {object} header The JSON header for the tile
- * @param {Cesium3DTile} parent The parent tile of the new tile
+ * @param {Cesium3DTileset} tileset
+ * @param {Resource} baseResource 瓦片集的基础资源
+ * @param {object} header 磁贴的 JSON 标头
+ * @param {Cesium3DTile} parent 新瓦片的父瓦片
  */
 function Cesium3DTile(tileset, baseResource, header, parent) {
   this._tileset = tileset;
@@ -77,7 +77,7 @@ function Cesium3DTile(tileset, baseResource, header, parent) {
   this._contentHeader = contentHeader;
 
   /**
-   * The local transform of this tile.
+   * 此图块的本地转换。
    * @type {Matrix4}
    */
   this.transform = defined(header.transform)
@@ -103,20 +103,20 @@ function Cesium3DTile(tileset, baseResource, header, parent) {
   );
 
   /**
-   * The final computed transform of this tile.
+   * 此图块的最终计算转换。
    * @type {Matrix4}
    * @readonly
    */
   this.computedTransform = computedTransform;
 
   /**
-   * When tile metadata is present (3D Tiles 1.1) or the <code>3DTILES_metadata</code> extension is used,
-   * this stores a {@link TileMetadata} object for accessing tile metadata.
+   * 当存在切片元数据 （3D Tiles 1.1） 或使用 <code>3DTILES_metadata</code> 扩展时，
+   * 这将存储一个用于访问切片元数据的 {@link TileMetadata} 对象。
    *
    * @type {TileMetadata}
    * @readonly
    * @private
-   * @experimental This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.
+   * @experimental 此功能使用的是 3D Tiles 规范的一部分，该规范不是最终版本，并且可能会在没有 Cesium 标准弃用策略的情况下进行更改。
    */
   this.metadata = findTileMetadata(tileset, header);
 
@@ -158,8 +158,8 @@ function Cesium3DTile(tileset, baseResource, header, parent) {
   this._viewerRequestVolume = viewerRequestVolume;
 
   /**
-   * The error, in meters, introduced if this tile is rendered and its children are not.
-   * This is used to compute screen space error, i.e., the error measured in pixels.
+   * 如果渲染此图块而未渲染其子项，则引入错误（以米为单位）。
+   * 这用于计算屏幕空间误差，即以像素为单位的误差。
    *
    * @type {number}
    * @readonly
@@ -201,7 +201,7 @@ function Cesium3DTile(tileset, baseResource, header, parent) {
   }
 
   /**
-   * Specifies the type of refinement that is used when traversing this tile for rendering.
+   * 指定遍历此平铺进行渲染时使用的优化类型。
    *
    * @type {Cesium3DTileRefine}
    * @readonly
@@ -218,11 +218,11 @@ function Cesium3DTile(tileset, baseResource, header, parent) {
   this.children = [];
 
   /**
-   * This tile's parent or <code>undefined</code> if this tile is the root.
+   * 此磁贴的父级或 <code>undefined</code>（如果此磁贴是根）。
    * <p>
-   * When a tile's content points to an external tileset JSON file, the external tileset's
-   * root tile's parent is not <code>undefined</code>; instead, the parent references
-   * the tile (with its content pointing to an external tileset JSON file) as if the two tilesets were merged.
+   * 当瓦片的内容指向外部瓦片集 JSON 文件时，外部瓦片集的
+   * 根图块的父级不是<code>未定义的</code>;相反，父级引用
+   * 瓦片（其内容指向外部瓦片集 JSON 文件），就像两个瓦片集已合并一样。
    * </p>
    *
    * @type {Cesium3DTile}
@@ -283,7 +283,7 @@ function Cesium3DTile(tileset, baseResource, header, parent) {
   this._serverKey = serverKey;
 
   /**
-   * When <code>true</code>, the tile has no content.
+   * 如果<code>为 true</code>，则磁贴没有内容。
    *
    * @type {boolean}
    * @readonly
@@ -293,9 +293,9 @@ function Cesium3DTile(tileset, baseResource, header, parent) {
   this.hasEmptyContent = hasEmptyContent;
 
   /**
-   * When <code>true</code>, the tile's content points to an external tileset.
+   *如果<code>为 true</code>，则磁贴的内容指向外部图块集。
    * <p>
-   * This is <code>false</code> until the tile's content is loaded.
+   * 在加载磁贴的内容之前，此字段为 <code>false</code>。
    * </p>
    *
    * @type {boolean}
@@ -306,37 +306,37 @@ function Cesium3DTile(tileset, baseResource, header, parent) {
   this.hasTilesetContent = false;
 
   /**
-   * When <code>true</code>, the tile's content is an implicit tileset.
+   * 如果为 <code>true</code>，则磁贴的内容是隐式磁贴集。
    * <p>
-   * This is <code>false</code> until the tile's implicit content is loaded.
+   * 在加载磁贴的隐式内容之前，此值为 <code>false</code>。
    * </p>
    *
    * @type {boolean}
    * @readonly
    *
    * @private
-   * @experimental This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.
+   * @experimental 此功能使用的是 3D Tiles 规范的一部分，该规范不是最终版本，并且可能会在没有 Cesium 标准弃用策略的情况下进行更改。
    */
   this.hasImplicitContent = false;
 
   /**
-   * When <code>true</code>, the tile contains content metadata from implicit tiling. This flag is set
-   * for tiles transcoded by <code>Implicit3DTileContent</code>.
+   * 如果<code>为 true</code>，则磁贴包含来自隐式平铺的内容元数据。此标志已设置
+   * 表示由 <code>Implicit3DTileContent</code> 转码的磁贴。
    * <p>
-   * This is <code>false</code> until the tile's content is loaded.
+   * 在加载磁贴的内容之前，此字段为 <code>false</code>。
    * </p>
    *
    * @type {boolean}
    * @readonly
    *
    * @private
-   * @experimental This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.
+   * @experimental 此功能使用的是 3D Tiles 规范的一部分，该规范不是最终版本，并且可能会在没有 Cesium 标准弃用策略的情况下进行更改。
    */
   this.hasImplicitContentMetadata = false;
 
   /**
-   * When <code>true</code>, the tile has multiple contents, either in the tile JSON (3D Tiles 1.1)
-   * or via the <code>3DTILES_multiple_contents</code> extension.
+   * 如果<code>为 true</code>，则瓦片具有多个内容，要么在瓦片 JSON （3D Tiles 1.1） 中
+   * 或通过 <code>3DTILES_multiple_contents</code> 扩展。
    *
    * @see {@link https://github.com/CesiumGS/3d-tiles/tree/main/extensions/3DTILES_multiple_contents|3DTILES_multiple_contents extension}
    *
@@ -348,7 +348,7 @@ function Cesium3DTile(tileset, baseResource, header, parent) {
   this.hasMultipleContents = hasMultipleContents;
 
   /**
-   * The node in the tileset's LRU cache, used to determine when to unload a tile's content.
+   * 瓦片集的 LRU 缓存中的节点，用于确定何时卸载瓦片的内容。
    *
    * See {@link Cesium3DTilesetCache}
    *
@@ -370,21 +370,21 @@ function Cesium3DTile(tileset, baseResource, header, parent) {
   }
 
   /**
-   * The time in seconds after the tile's content is ready when the content expires and new content is requested.
+   * 磁贴内容准备就绪后内容过期并请求新内容的时间（以秒为单位）。
    *
    * @type {number}
    */
   this.expireDuration = expireDuration;
 
   /**
-   * The date when the content expires and new content is requested.
+   * 内容过期并请求新内容的日期。
    *
    * @type {JulianDate}
    */
   this.expireDate = expireDate;
 
   /**
-   * The time when a style was last applied to this tile.
+   * 上次将样式应用于此磁贴的时间。
    *
    * @type {number}
    *
@@ -402,8 +402,8 @@ function Cesium3DTile(tileset, baseResource, header, parent) {
   this._optimChildrenWithinParent = Cesium3DTileOptimizationHint.NOT_COMPUTED;
 
   /**
-   * Tracks if the tile's relationship with a ClippingPlaneCollection has changed with regards
-   * to the ClippingPlaneCollection's state.
+   * 跟踪瓦片与 ClippingPlaneCollection 的关系是否发生了变化
+   * 设置为 ClippingPlaneCollection 的状态。
    *
    * @type {boolean}
    *
@@ -412,8 +412,8 @@ function Cesium3DTile(tileset, baseResource, header, parent) {
   this.clippingPlanesDirty = false;
 
   /**
-   * Tracks if the tile's relationship with a ClippingPolygonCollection has changed with regards
-   * to the ClippingPolygonCollection's state.
+   * 跟踪瓦片与 ClippingPolygonCollection 的关系是否发生了变化
+   * 设置为 ClippingPolygonCollection 的状态。
    *
    * @type {boolean}
    *
@@ -422,8 +422,8 @@ function Cesium3DTile(tileset, baseResource, header, parent) {
   this.clippingPolygonsDirty = false;
 
   /**
-   * Tracks if the tile's request should be deferred until all non-deferred
-   * tiles load.
+   * 跟踪是否应延迟磁贴的请求，直到所有请求都未延迟
+   * 瓦片加载。
    *
    * @type {boolean}
    *
@@ -432,37 +432,37 @@ function Cesium3DTile(tileset, baseResource, header, parent) {
   this.priorityDeferred = false;
 
   /**
-   * For implicit tiling, an ImplicitTileset object will be attached to a
-   * placeholder tile with either implicit tiling in the JSON (3D Tiles 1.1)
-   * or the <code>3DTILES_implicit_tiling</code> extension.
-   * This way the {@link Implicit3DTileContent} can access the tile later once the content is fetched.
+   * 对于隐式平铺，ImplicitTileset 对象将附加到
+   * 在 JSON 中具有隐式平铺的占位符瓦片 （3D Tiles 1.1）
+   * 或 <code>3DTILES_implicit_tiling</code> 扩展。
+   * 这样，{@link Implicit3DTileContent} 可以在以后获取内容后访问磁贴。
    *
    * @type {ImplicitTileset|undefined}
    *
    * @private
-   * @experimental This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.
+   * @experimental 此功能使用的是 3D Tiles 规范的一部分，该规范并非最终版本，并且可能会在没有 Cesium 标准弃用政策的情况下进行更改。
    */
   this.implicitTileset = undefined;
 
   /**
-   * For implicit tiling, the (level, x, y, [z]) coordinates within the
-   * implicit tileset are stored in the tile.
+   * 对于隐式平铺，（level， x， y， [z]） 中的 （level， x， y， [z]） 坐标
+   * 隐式图块集存储在图块中。
    *
    * @type {ImplicitTileCoordinates|undefined}
    *
    * @private
-   * @experimental This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.
+   * @experimental 此功能使用的是 3D Tiles 规范的一部分，该规范并非最终版本，并且可能会在没有 Cesium 标准弃用政策的情况下进行更改。
    */
   this.implicitCoordinates = undefined;
 
   /**
-   * For implicit tiling, each transcoded tile will hold a weak reference to
-   * the {@link ImplicitSubtree}.
+   * 对于隐式平铺，每个转码的切片都将包含一个对
+   * {@link ImplicitSubtree} 的
    *
    * @type {ImplicitSubtree|undefined}
    *
    * @private
-   * @experimental This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.
+   * @experimental 此功能使用的是 3D Tiles 规范的一部分，该规范不是最终版本，并且可能会在没有 Cesium 标准弃用策略的情况下进行更改。
    */
   this.implicitSubtree = undefined;
 
@@ -523,7 +523,7 @@ Cesium3DTile._deprecationWarning = deprecationWarning;
 
 Object.defineProperties(Cesium3DTile.prototype, {
   /**
-   * The tileset containing this tile.
+   * 包含此瓦片的瓦片集。
    *
    * @memberof Cesium3DTile.prototype
    *
@@ -537,8 +537,8 @@ Object.defineProperties(Cesium3DTile.prototype, {
   },
 
   /**
-   * The tile's content.  This represents the actual tile's payload,
-   * not the content's metadata in the tileset JSON file.
+   * 磁贴的内容。 这表示实际磁贴的有效负载
+   * 不是图块集 JSON 文件中的内容元数据。
    *
    * @memberof Cesium3DTile.prototype
    *
@@ -552,7 +552,7 @@ Object.defineProperties(Cesium3DTile.prototype, {
   },
 
   /**
-   * Get the tile's bounding volume.
+   * 获取图块的边界体积。
    *
    * @memberof Cesium3DTile.prototype
    *
@@ -567,9 +567,9 @@ Object.defineProperties(Cesium3DTile.prototype, {
   },
 
   /**
-   * Get the bounding volume of the tile's contents.  This defaults to the
-   * tile's bounding volume when the content's bounding volume is
-   * <code>undefined</code>.
+   * 获取瓦片内容的边界体积。 这默认为
+   * 当内容的 bounding volume （内容边界体积）
+   * <code>未定义</code>。
    *
    * @memberof Cesium3DTile.prototype
    *
@@ -584,7 +584,7 @@ Object.defineProperties(Cesium3DTile.prototype, {
   },
 
   /**
-   * Get the bounding sphere derived from the tile's bounding volume.
+   * 获取从图块的边界体积派生的边界球体。
    *
    * @memberof Cesium3DTile.prototype
    *
@@ -598,7 +598,7 @@ Object.defineProperties(Cesium3DTile.prototype, {
   },
 
   /**
-   * Determines if the tile is visible within the current field of view
+   * 确定平铺在当前视野中是否可见
    *
    * @memberof Cesium3DTile.prototype
    *
@@ -614,8 +614,8 @@ Object.defineProperties(Cesium3DTile.prototype, {
   },
 
   /**
-   * Returns the <code>extras</code> property in the tileset JSON for this tile, which contains application specific metadata.
-   * Returns <code>undefined</code> if <code>extras</code> does not exist.
+   * 返回此图块的图块集 JSON 中的 <code>extras</code> 属性，其中包含特定于应用程序的元数据。
+   * 如果 <code>extras</code> 不存在，则返回 <code>undefined</code>。
    *
    * @memberof Cesium3DTile.prototype
    *
@@ -630,7 +630,7 @@ Object.defineProperties(Cesium3DTile.prototype, {
   },
 
   /**
-   * 获取或设置tile's highlight color.
+   * 获取或设置Tile 的 highlight color （高亮颜色）。
    *
    * @memberof Cesium3DTile.prototype
    *
@@ -654,8 +654,8 @@ Object.defineProperties(Cesium3DTile.prototype, {
   },
 
   /**
-   * Determines if the tile's content is renderable. <code>false</code> if the
-   * tile has empty content or if it points to an external tileset or implicit content
+   * 确定瓦片的内容是否可渲染。<code>如果</code>
+   * 图块包含空内容，或者它指向外部图块集或隐式内容
    *
    * @memberof Cesium3DTile.prototype
    *
@@ -675,9 +675,9 @@ Object.defineProperties(Cesium3DTile.prototype, {
   },
 
   /**
-   * Determines if the tile has available content to render.  <code>true</code> if the tile's
-   * content is ready or if it has expired content that renders while new content loads; otherwise,
-   * <code>false</code>.
+   * 确定瓦片是否有要渲染的可用内容。 <code>true</code>，如果图块的
+   * 内容已准备就绪，或者内容已过期，则在新内容加载时呈现的内容;否则
+   * <code>false</code>。
    *
    * @memberof Cesium3DTile.prototype
    *
@@ -696,8 +696,8 @@ Object.defineProperties(Cesium3DTile.prototype, {
   },
 
   /**
-   * Determines if the tile's content is ready. This is automatically <code>true</code> for
-   * tile's with empty content.
+   * 确定磁贴的内容是否已准备就绪。这<code>自动适用于</code>
+   * 内容为空的磁贴。
    *
    * @memberof Cesium3DTile.prototype
    *
@@ -713,8 +713,8 @@ Object.defineProperties(Cesium3DTile.prototype, {
   },
 
   /**
-   * Determines if the tile's content has not be requested. <code>true</code> if tile's
-   * content has not be requested; otherwise, <code>false</code>.
+   * 确定是否尚未请求磁贴的内容。<code>true</code>，如果瓦片的
+   * 内容未被请求;否则为 <code>false</code>。
    *
    * @memberof Cesium3DTile.prototype
    *
@@ -730,7 +730,7 @@ Object.defineProperties(Cesium3DTile.prototype, {
   },
 
   /**
-   * Determines if the tile has renderable content which is unloaded
+   * 确定瓦片是否具有已卸载的可渲染内容
    *
    * @memberof Cesium3DTile.prototype
    *
@@ -746,8 +746,8 @@ Object.defineProperties(Cesium3DTile.prototype, {
   },
 
   /**
-   * Determines if the tile's content is expired. <code>true</code> if tile's
-   * content is expired; otherwise, <code>false</code>.
+   * 确定磁贴的内容是否已过期。<code>true</code>，如果瓦片的
+   * 内容已过期;否则为 <code>false</code>。
    *
    * @memberof Cesium3DTile.prototype
    *
@@ -763,8 +763,8 @@ Object.defineProperties(Cesium3DTile.prototype, {
   },
 
   /**
-   * Determines if the tile's content failed to load.  <code>true</code> if the tile's
-   * content failed to load; otherwise, <code>false</code>.
+   * 确定磁贴的内容是否加载失败。 <code>true</code>，如果图块的
+   * 内容加载失败;否则为 <code>false</code>。
    *
    * @memberof Cesium3DTile.prototype
    *
@@ -780,7 +780,7 @@ Object.defineProperties(Cesium3DTile.prototype, {
   },
 
   /**
-   * Returns the number of draw commands used by this tile.
+   * 返回此磁贴使用的绘制命令数。
    *
    * @readonly
    *
@@ -1017,7 +1017,7 @@ function getPriorityReverseScreenSpaceError(tileset, tile) {
 }
 
 /**
- * Update the tile's visibility.
+ * 更新磁贴的可见性。
  *
  * @private
  * @param {FrameState} frameState
@@ -1064,7 +1064,7 @@ Cesium3DTile.prototype.updateVisibility = function (frameState) {
 };
 
 /**
- * Update whether the tile has expired.
+ * 更新磁贴是否已过期。
  *
  * @private
  */
@@ -1119,12 +1119,12 @@ function createPriorityFunction(tile) {
 }
 
 /**
- * Requests the tile's content.
+ * 请求磁贴的内容。
  * <p>
- * The request may not be made if the Cesium Request Scheduler can't prioritize it.
+ * 如果 Cesium Request Scheduler 无法确定请求的优先级，则可能无法发出请求。
  * </p>
  *
- * @return {Promise<Cesium3DTileContent>|undefined} A promise that resolves when the request completes, or undefined if there is no request needed, or the request cannot be scheduled.
+ * @return {Promise<Cesium3DTileContent>|undefined} 一个 Promise，该 Promise 在请求完成时解析，如果不需要请求，或者无法计划请求，则为 undefined。
  * @private
  */
 Cesium3DTile.prototype.requestContent = function () {
@@ -1141,18 +1141,18 @@ Cesium3DTile.prototype.requestContent = function () {
 };
 
 /**
- * Multiple {@link Cesium3DTileContent}s are allowed within a single tile either through
- * the tile JSON (3D Tiles 1.1) or the <code>3DTILES_multiple_contents</code> extension.
- * Due to differences in request scheduling, this is handled separately.
+ * 单个图块中允许多个 {@link Cesium3DTileContent}
+ * 图块 JSON （3D Tiles 1.1） 或 <code>3DTILES_multiple_contents</code> 扩展。
+ * 由于请求计划存在差异，这将单独处理。
  * <p>
- * This implementation of multiple contents does not
- * support tile expiry like requestSingleContent does. If this changes,
- * note that the resource.setQueryParameters() details must go inside {@link Multiple3DTileContent} since that is per-request.
+ * 此实现多个内容不
+ * 像 requestSingleContent 一样支持磁贴过期。如果此情况发生变化，
+ * 请注意，resource.setQueryParameters（） 详细信息必须位于 {@link Multiple3DTileContent} 中，因为这是按请求提供的。
  * </p>
  *
  * @private
  * @param {Cesium3DTile} tile
- * @returns {Promise<Cesium3DTileContent>|Promise<undefined>|undefined} A promise that resolves to the tile content once loaded, or a promise that resolves to undefined if the request was cancelled mid-flight, or undefined if the request cannot be scheduled this frame
+ * @returns {Promise<Cesium3DTileContent>|Promise<undefined>|undefined} 加载后解析为磁贴内容的 Promise，如果请求在飞行中途取消，则 Promise 解析为 undefined，如果无法在此帧安排请求，则解析为 undefined
  */
 function requestMultipleContents(tile) {
   let multipleContents = tile._content;
@@ -1321,14 +1321,14 @@ function requestSingleContent(tile) {
 }
 
 /**
- * Given a downloaded content payload, construct a {@link Cesium3DTileContent}.
+ * 给定一个下载的内容负载，构造一个 {@link Cesium3DTileContent}。
  * <p>
- * This is only used for single contents.
+ * 这仅用于单个内容。
  * </p>
  *
- * @param {Cesium3DTile} tile The tile
- * @param {ArrayBuffer} arrayBuffer The downloaded payload containing data for the content
- * @return {Promise<Cesium3DTileContent>} A content object
+ * @param {Cesium3DTile} tile 瓦片
+ * @param {ArrayBuffer} arrayBuffer 包含内容数据的已下载有效负载
+ * @return {Promise<Cesium3DTileContent>} 内容对象
  * @private
  */
 async function makeContent(tile, arrayBuffer) {
@@ -1401,8 +1401,8 @@ async function makeContent(tile, arrayBuffer) {
 }
 
 /**
- * Cancel requests for the tile's contents. This is called when the tile
- * goes out of view.
+ * 取消对磁贴内容的请求。当瓦片
+ * 退出视野。
  *
  * @private
  */
@@ -1415,7 +1415,7 @@ Cesium3DTile.prototype.cancelRequests = function () {
 };
 
 /**
- * Unloads the tile's content.
+ * 卸载瓦片的内容。
  *
  * @private
  */
@@ -1502,11 +1502,11 @@ function getContentBoundingVolume(tile, frameState) {
 }
 
 /**
- * Determines whether the tile's bounding volume intersects the culling volume.
+ * 确定图块的边界体积是否与剔除体积相交。
  *
- * @param {FrameState} frameState The frame state.
- * @param {number} parentVisibilityPlaneMask The parent's plane mask to speed up the visibility check.
- * @returns {number} A plane mask as described above in {@link CullingVolume#computeVisibilityWithPlaneMask}.
+ * @param {FrameState} frameState 帧状态。
+ * @param {number} parentVisibilityPlaneMask 父级的平面遮罩，以加快可见性检查速度。
+ * @returns {number} 如上所述 {@link CullingVolume#computeVisibilityWithPlaneMask} 中所述的平面掩码。
  *
  * @private
  */
@@ -1548,11 +1548,11 @@ Cesium3DTile.prototype.visibility = function (
 };
 
 /**
- * Assuming the tile's bounding volume intersects the culling volume, determines
- * whether the tile's content's bounding volume intersects the culling volume.
+ * 假设瓦片的边界体积与剔除体积相交，则确定
+ * 瓦片内容的边界体积是否与剔除体积相交。
  *
- * @param {FrameState} frameState The frame state.
- * @returns {Intersect} The result of the intersection: the tile's content is completely outside, completely inside, or intersecting the culling volume.
+ * @param {FrameState} frameState 帧状态。
+ * @returns {Intersect} 交集的结果：图块的内容完全位于剔除体积的外部、完全内部或与剔除体积相交。
  *
  * @private
  */
@@ -1602,10 +1602,10 @@ Cesium3DTile.prototype.contentVisibility = function (frameState) {
 };
 
 /**
- * Computes the (potentially approximate) distance from the closest point of the tile's bounding volume to the camera.
+ * 计算从图块的包围体的最近点到摄像机的 （可能是近似的） 距离。
  *
- * @param {FrameState} frameState The frame state.
- * @returns {number} The distance, in meters, or zero if the camera is inside the bounding volume.
+ * @param {FrameState} frameState 帧状态。
+ * @returns {number} 距离（以米为单位），如果摄像机位于包围体内，则为零。
  *
  * @private
  */
@@ -1617,10 +1617,10 @@ Cesium3DTile.prototype.distanceToTile = function (frameState) {
 const scratchToTileCenter = new Cartesian3();
 
 /**
- * Computes the distance from the center of the tile's bounding volume to the camera's plane defined by its position and view direction.
+ * 计算从图块的边界体积中心到摄像机平面的距离，该距离由其位置和视图方向定义。
  *
- * @param {FrameState} frameState The frame state.
- * @returns {number} The distance, in meters.
+ * @param {FrameState} frameState 帧状态。
+ * @returns {number} 距离，以米为单位。
  *
  * @private
  */
@@ -1636,10 +1636,10 @@ Cesium3DTile.prototype.distanceToTileCenter = function (frameState) {
 };
 
 /**
- * Checks if the camera is inside the viewer request volume.
+ * 检查摄像机是否在查看器请求卷内。
  *
- * @param {FrameState} frameState The frame state.
- * @returns {boolean} Whether the camera is inside the volume.
+ * @param {FrameState} frameState 帧状态。
+ * @returns {boolean} 摄像机是否在体积内。
  *
  * @private
  */
@@ -1684,7 +1684,7 @@ function createBox(box, transform, result) {
 
 /**
  * @private
- * @param {Array} region An array of six numbers that define a bounding geographic region in EPSG:4979 coordinates with the order [west, south, east, north, minimum height, maximum height]
+ * @param {Array} region 一个由 6 个数字组成的数组，用于定义 EPSG：4979 中的边界地理区域，与顺序坐标 [west, south, east, north, minimum height, maximum height]
  * @param {Matrix4} transform
  * @param {Matrix4} initialTransform
  * @param {TileOrientedBoundingBox} [result]
@@ -1732,7 +1732,7 @@ function createBoxFromTransformedRegion(
 
 /**
  * @private
- * @param {Array} region An array of six numbers that define a bounding geographic region in EPSG:4979 coordinates with the order [west, south, east, north, minimum height, maximum height]
+ * @param {Array} region 一个由 6 个数字组成的数组，用于定义 EPSG：4979 中的边界地理区域，与顺序坐标 [west, south, east, north, minimum height, maximum height]
  * @param {Matrix4} transform
  * @param {Matrix4} initialTransform
  * @param {TileBoundingVolume} [result]
@@ -1771,7 +1771,7 @@ function createRegion(region, transform, initialTransform, result) {
 
 /**
  * @private
- * @param {Array} sphere An array of four numbers that define a bounding sphere
+ * @param {Array} sphere 定义边界球体的四个数字的数组
  * @param {Matrix4} transform
  * @param {TileBoundingVolume} [result]
  * @returns {TileBoundingSphere}
@@ -1799,13 +1799,13 @@ function createSphere(sphere, transform, result) {
 }
 
 /**
- * Create a bounding volume from the tile's bounding volume header.
+ * 从磁贴的边界卷标头创建边界卷。
  *
- * @param {object} boundingVolumeHeader The tile's bounding volume header.
- * @param {Matrix4} transform The transform to apply to the bounding volume.
+ * @param {object} boundingVolumeHeader 磁贴的边界卷标头。
+ * @param {Matrix4} transform 要应用于边界体积的变换。
  * @param {TileBoundingVolume} [result] 要在其上存储结果的对象。
  *
- * @returns {TileBoundingVolume} 修改后的结果参数 or a new TileBoundingVolume instance if none was provided.
+ * @returns {TileBoundingVolume} 修改后的结果参数或者一个新的 TileBoundingVolume 实例（如果未提供）。
  *
  * @private
  */
@@ -1907,12 +1907,12 @@ const scratchExaggeratedCorners = Cartesian3.unpackArray(
 );
 
 /**
- * Exaggerates the bounding box of a tile based on the provided exaggeration factors.
+ * 根据提供的夸大系数夸大瓦片的边界框。
  *
  * @private
- * @param {TileOrientedBoundingBox} tileOrientedBoundingBox - The oriented bounding box of the tile.
- * @param {number} exaggeration - The exaggeration factor to apply to the tile's bounding box.
- * @param {number} exaggerationRelativeHeight - The height relative to which exaggeration will be applied.
+ * @param {TileOrientedBoundingBox} tileOrientedBoundingBox - 瓦片的定向边界框。
+ * @param {number} exaggeration - 应用于图块边界框的夸大系数。
+ * @param {number} exaggerationRelativeHeight - 将应用夸大的相对高度。
  */
 function exaggerateBoundingBox(
   tileOrientedBoundingBox,
@@ -1941,7 +1941,7 @@ function exaggerateBoundingBox(
 }
 
 /**
- * Update the tile's transform. The transform is applied to the tile's bounding volumes.
+ * 更新磁贴的转换。变换将应用于图块的边界体积。
  *
  * @private
  * @param {Matrix4} parentTransform
@@ -2164,10 +2164,10 @@ function updateContent(tile, tileset, frameState) {
 }
 
 /**
- * Compute and compare ClippingPlanes state:
- *  - enabled-ness - are clipping planes enabled? is this tile clipped?
- *  - clipping plane count
- *  - clipping function (union v. intersection)
+ * 计算和比较 ClippingPlanes 状态：
+ * - enabled-ness - 是否启用了剪切平面？此磁贴是否已剪切？
+ * - 剪切平面计数
+ * - 裁剪函数（并集 v. 交集）
 
  * @private
  * @param {Cesium3DTile} tile
@@ -2187,10 +2187,10 @@ function updateClippingPlanes(tile, tileset) {
 }
 
 /**
- * Compute and compare ClippingPolygons state:
- *  - enabled-ness - are clipping polygons enabled? is this tile clipped?
- *  - clipping polygon count & position count
- *  - clipping function (inverse)
+ * 计算并比较 ClippingPolygons 状态：
+ * - enabled-ness - 是否启用了剪切多边形？此磁贴是否已剪切？
+ * - 剪切多边形计数和位置计数
+ * - 裁剪函数（逆）
 
  * @private
  * @param {Cesium3DTile} tile
@@ -2214,7 +2214,7 @@ function updateClippingPolygons(tile, tileset) {
 }
 
 /**
- * Get the draw commands needed to render this tile.
+ * 获取渲染此瓦片所需的绘制命令。
  *
  * @private
  * @param {Cesium3DTileset} tileset
@@ -2246,10 +2246,10 @@ Cesium3DTile.prototype.update = function (tileset, frameState, passOptions) {
 const scratchCommandList = [];
 
 /**
- * Processes the tile's content, e.g., create WebGL resources, to move from the PROCESSING to READY state.
+ * 处理瓦片的内容，例如，创建 WebGL 资源，以从 PROCESSING 状态变为 READY 状态。
  *
- * @param {Cesium3DTileset} tileset The tileset containing this tile.
- * @param {FrameState} frameState The frame state.
+ * @param {Cesium3DTileset} tileset 包含此图块的图块集。
+ * @param {FrameState} frameState 帧状态。
  *
  * @private
  */
@@ -2319,7 +2319,7 @@ function priorityNormalizeAndClamp(value, minimum, maximum) {
 }
 
 /**
- * Sets the priority of the tile based on distance and depth
+ * 根据距离和深度设置图块的优先级
  * @private
  */
 Cesium3DTile.prototype.updatePriority = function () {

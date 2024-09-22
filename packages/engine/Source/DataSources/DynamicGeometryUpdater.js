@@ -258,7 +258,7 @@ DynamicGeometryUpdater.prototype.isDestroyed = function () {
  * @memberof DynamicGeometryUpdater
  * @function
  *
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 这个物体被摧毁了,destroy().
  */
 DynamicGeometryUpdater.prototype.destroy = function () {
   const primitives = this._primitives;

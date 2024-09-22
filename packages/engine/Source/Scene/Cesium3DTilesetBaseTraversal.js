@@ -4,9 +4,9 @@ import Cesium3DTileRefine from "./Cesium3DTileRefine.js";
 import Cesium3DTilesetTraversal from "./Cesium3DTilesetTraversal.js";
 
 /**
- * Depth-first traversal that traverses all visible tiles and marks tiles for selection.
- * A tile does not refine until all children are loaded.
- * This is the traditional replacement refinement approach and is called the base traversal.
+ * 深度优先遍历，遍历所有可见的瓦片并标记要选择的瓦片。
+ * 在加载所有子项之前，磁贴不会优化。
+ * 这是传统的替换优化方法，称为 base 遍历。
  *
  * @alias Cesium3DTilesetBaseTraversal
  * @constructor
@@ -26,7 +26,7 @@ const emptyTraversal = {
 };
 
 /**
- * Traverses a {@link Cesium3DTileset} to determine which tiles to load and render.
+ * 遍历 {@link Cesium3DTileset} 以确定要加载和渲染的图块。
  *
  * @private
  * @param {Cesium3DTileset} tileset
@@ -72,7 +72,7 @@ Cesium3DTilesetBaseTraversal.selectTiles = function (tileset, frameState) {
 };
 
 /**
- * Mark a tile as selected if it has content available.
+ * 如果磁贴有可用内容，则将其标记为已选中。
  *
  * @private
  * @param {Cesium3DTile} tile
@@ -178,9 +178,9 @@ function updateAndPushChildren(tile, stack, frameState) {
 }
 
 /**
- * Depth-first traversal that traverses all visible tiles and marks tiles for selection.
- * A tile does not refine until all children are loaded.
- * This is the traditional replacement refinement approach and is called the base traversal.
+ * 深度优先遍历，遍历所有可见的瓦片并标记要选择的瓦片。
+ * 在加载所有子项之前，磁贴不会优化。
+ * 这是传统的替换优化方法，称为 base 遍历。
  *
  * @private
  * @param {Cesium3DTile} root
@@ -240,8 +240,8 @@ function executeTraversal(root, frameState) {
 }
 
 /**
- * Depth-first traversal that checks if all nearest descendants with content are loaded.
- * Ignores visibility.
+ * 深度优先遍历，检查是否加载了所有最近的包含内容的后代。
+ * 忽略可见性。
  *
  * @private
  * @param {Cesium3DTile} root

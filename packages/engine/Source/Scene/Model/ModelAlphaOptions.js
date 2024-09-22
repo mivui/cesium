@@ -10,7 +10,7 @@ function ModelAlphaOptions() {
   /**
    * 哪个渲染通道将渲染模型。
    *
-   * @type {通行证}
+   * @type {Pass}
    * @private
    */
   this.pass = undefined;

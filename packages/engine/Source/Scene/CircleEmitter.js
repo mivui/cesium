@@ -4,13 +4,13 @@ import defaultValue from "../Core/defaultValue.js";
 import CesiumMath from "../Core/Math.js";
 
 /**
- * A ParticleEmitter that emits particles from a circle.
- * Particles will be positioned within a circle and have initial velocities going along the z vector.
+ * 从圆圈发射粒子的 ParticleEmitter。
+ * 粒子将位于一个圆内，并具有沿 z 向量的初始速度。
  *
  * @alias CircleEmitter
  * @constructor
  *
- * @param {number} [radius=1.0] The radius of the circle in meters.
+ * @param {number} [radius=1.0] 圆的半径，以米为单位。
  */
 function CircleEmitter(radius) {
   radius = defaultValue(radius, 1.0);
@@ -24,7 +24,7 @@ function CircleEmitter(radius) {
 
 Object.defineProperties(CircleEmitter.prototype, {
   /**
-   * The radius of the circle in meters.
+   * 圆的半径（以米为单位）。
    * @memberof CircleEmitter.prototype
    * @type {number}
    * @default 1.0
@@ -43,10 +43,10 @@ Object.defineProperties(CircleEmitter.prototype, {
 });
 
 /**
- * Initializes the given {@link Particle} by setting it's position and velocity.
+ * 通过设置给定 {@link Particle} 的位置和速度来初始化它。
  *
  * @private
- * @param {Particle} particle The particle to initialize.
+ * @param {Particle} particle 要初始化的粒子。
  */
 CircleEmitter.prototype.emit = function (particle) {
   const theta = CesiumMath.randomBetween(0.0, CesiumMath.TWO_PI);

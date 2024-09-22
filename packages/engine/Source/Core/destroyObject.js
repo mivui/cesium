@@ -33,10 +33,7 @@ function returnTrue() {
  * @see DeveloperError
  */
 function destroyObject(object, message) {
-  message = defaultValue(
-    message,
-    "This object was destroyed, i.e., destroy() was called."
-  );
+  message = defaultValue(message, "这个物体被摧毁了,destroy().");
 
   function throwOnDestroyed() {
     //>>includeStart('debug', pragmas.debug);

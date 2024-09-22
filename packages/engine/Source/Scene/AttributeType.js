@@ -8,7 +8,7 @@ import Matrix3 from "../Core/Matrix3.js";
 import Matrix4 from "../Core/Matrix4.js";
 
 /**
- * An enum describing the attribute type for glTF and 3D Tiles.
+ * 描述 glTF 和 3D 瓦片的属性类型的枚举。
  *
  * @enum {string}
  *
@@ -16,7 +16,7 @@ import Matrix4 from "../Core/Matrix4.js";
  */
 const AttributeType = {
   /**
-   * The attribute is a single component.
+   * 该属性是单个组件。
    *
    * @type {string}
    * @constant
@@ -24,7 +24,7 @@ const AttributeType = {
   SCALAR: "SCALAR",
 
   /**
-   * The attribute is a two-component vector.
+   * 该属性是一个双分量向量。
    *
    * @type {string}
    * @constant
@@ -32,7 +32,7 @@ const AttributeType = {
   VEC2: "VEC2",
 
   /**
-   * The attribute is a three-component vector.
+   * 该属性是一个三分量向量。
    *
    * @type {string}
    * @constant
@@ -40,7 +40,7 @@ const AttributeType = {
   VEC3: "VEC3",
 
   /**
-   * The attribute is a four-component vector.
+   * 该属性是一个四分量向量。
    *
    * @type {string}
    * @constant
@@ -48,7 +48,7 @@ const AttributeType = {
   VEC4: "VEC4",
 
   /**
-   * The attribute is a 2x2 matrix.
+   * 属性是一个 2x2 矩阵。
    *
    * @type {string}
    * @constant
@@ -56,7 +56,7 @@ const AttributeType = {
   MAT2: "MAT2",
 
   /**
-   * The attribute is a 3x3 matrix.
+   * 属性为 3x3 矩阵。
    *
    * @type {string}
    * @constant
@@ -64,7 +64,7 @@ const AttributeType = {
   MAT3: "MAT3",
 
   /**
-   * The attribute is a 4x4 matrix.
+   * 属性为 4x4 矩阵。
    *
    * @type {string}
    * @constant
@@ -73,10 +73,10 @@ const AttributeType = {
 };
 
 /**
- * Gets the scalar, vector, or matrix type for the attribute type.
+ * 获取属性类型的标量、向量或矩阵类型。
  *
- * @param {AttributeType} attributeType The attribute type.
- * @returns {*} The math type.
+ * @param {AttributeType} attributeType 属性类型。
+ * @returns {*} 数学类型。
  *
  * @private
  */
@@ -104,10 +104,10 @@ AttributeType.getMathType = function (attributeType) {
 };
 
 /**
- * Gets the number of components per attribute.
+ * 获取每个属性的组件数。
  *
- * @param {AttributeType} attributeType The attribute type.
- * @returns {number} The number of components.
+ * @param {AttributeType} attributeType 属性类型。
+ * @returns {number} 组件的数量。
  *
  * @private
  */
@@ -134,11 +134,11 @@ AttributeType.getNumberOfComponents = function (attributeType) {
 };
 
 /**
- * Get the number of attribute locations needed to fit this attribute. Most
- * types require one, but matrices require multiple attribute locations.
+ * 获取适合此属性所需的属性位置数。最
+ * 类型需要一个属性位置，但矩阵需要多个属性位置。
  *
- * @param {AttributeType} attributeType The attribute type.
- * @returns {number} The number of attribute locations needed in the shader
+ * @param {AttributeType} attributeType 属性类型。
+ * @returns {number} 着色器中所需的属性位置数
  *
  * @private
  */
@@ -163,10 +163,10 @@ AttributeType.getAttributeLocationCount = function (attributeType) {
 };
 
 /**
- * Gets the GLSL type for the attribute type.
+ * 获取属性类型的 GLSL 类型。
  *
- * @param {AttributeType} attributeType The attribute type.
- * @returns {string} The GLSL type for the attribute type.
+ * @param {AttributeType} attributeType 属性类型。
+ * @returns {string} 属性类型的 GLSL 类型。
  *
  * @private
  */

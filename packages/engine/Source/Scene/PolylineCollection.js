@@ -221,7 +221,7 @@ Object.defineProperties(PolylineCollection.prototype, {
      * the collection's vertex buffer is rewritten - an <code>O(n)</code> operation that also incurs CPU to GPU overhead.
      * For best performance, add as many polylines as possible before calling <code>update</code>.
      *
-     * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+     * @exception {DeveloperError} 这个物体被摧毁了,destroy().
      *
      *
      * @example
@@ -259,7 +259,7 @@ PolylineCollection.prototype.add = function (options) {
  * If you intend to temporarily hide a polyline, it is usually more efficient to call
  * {@link Polyline#show} instead of removing and re-adding the polyline.
  *
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 这个物体被摧毁了,destroy().
  *
  *
  * @example
@@ -294,7 +294,7 @@ PolylineCollection.prototype.remove = function (polyline) {
  * @performance <code>O(n)</code>.  It is more efficient to remove all the polylines
  * from a collection and then add new ones than to create a new collection entirely.
  *
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 这个物体被摧毁了,destroy().
  *
  *
  * @example
@@ -342,7 +342,7 @@ PolylineCollection.prototype.contains = function (polyline) {
  * {@link PolylineCollection#update} was not called, an implicit <code>O(n)</code>
  * operation is performed.
  *
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 这个物体被摧毁了,destroy().
  *
  * @example
  * // Toggle the show property of every polyline in the collection
@@ -802,7 +802,7 @@ PolylineCollection.prototype.isDestroyed = function () {
  * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.  Therefore,
  * assign the return value (<code>undefined</code>) to the object as done in the example.
  *
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 这个物体被摧毁了,destroy().
  *
  *
  * @example

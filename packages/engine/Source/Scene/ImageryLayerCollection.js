@@ -280,7 +280,7 @@ function swapLayers(collection, i, j) {
  * @param {ImageryLayer} layer the layer to move.
  *
  * @exception {DeveloperError} layer is not in this collection.
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 这个物体被摧毁了,destroy().
  */
 ImageryLayerCollection.prototype.raise = function (layer) {
   const index = getLayerIndex(this._layers, layer);
@@ -293,7 +293,7 @@ ImageryLayerCollection.prototype.raise = function (layer) {
  * @param {ImageryLayer} layer the layer to move.
  *
  * @exception {DeveloperError} layer is not in this collection.
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 这个物体被摧毁了,destroy().
  */
 ImageryLayerCollection.prototype.lower = function (layer) {
   const index = getLayerIndex(this._layers, layer);
@@ -306,7 +306,7 @@ ImageryLayerCollection.prototype.lower = function (layer) {
  * @param {ImageryLayer} layer the layer to move.
  *
  * @exception {DeveloperError} layer is not in this collection.
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 这个物体被摧毁了,destroy().
  */
 ImageryLayerCollection.prototype.raiseToTop = function (layer) {
   const index = getLayerIndex(this._layers, layer);
@@ -327,7 +327,7 @@ ImageryLayerCollection.prototype.raiseToTop = function (layer) {
  * @param {ImageryLayer} layer the layer to move.
  *
  * @exception {DeveloperError} layer is not in this collection.
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 这个物体被摧毁了,destroy().
  */
 ImageryLayerCollection.prototype.lowerToBottom = function (layer) {
   const index = getLayerIndex(this._layers, layer);
@@ -595,7 +595,7 @@ ImageryLayerCollection.prototype.isDestroyed = function () {
  * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.  Therefore,
  * assign the return value (<code>undefined</code>) to the object as done in the example.
  *
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 这个物体被摧毁了,destroy().
  *
  *
  * @example

@@ -22,18 +22,18 @@ import ComputeCommand from "../Renderer/ComputeCommand.js";
 import PolygonSignedDistanceFS from "../Shaders/PolygonSignedDistanceFS.js";
 
 /**
- * Specifies a set of clipping polygons. Clipping polygons selectively disable rendering in a region
- * inside or outside the specified list of {@link ClippingPolygon} objects for a single glTF model, 3D Tileset, or the globe.
+ * 指定一组剪切多边形。剪切多边形有选择地禁用区域中的渲染
+ * 单个 glTF 模型、3D 瓦片集或地球的指定 {@link ClippingPolygon} 对象列表的内部或外部。
  *
- * Clipping Polygons are only supported in WebGL 2 contexts.
+ * 仅在 WebGL 2 上下文中支持剪切多边形。
  *
  * @alias ClippingPolygonCollection
  * @constructor
  *
  * @param {object} [options] 对象，具有以下属性:
- * @param {ClippingPolygon[]} [options.polygons=[]] An array of {@link ClippingPolygon} objects used to selectively disable rendering on the inside of each polygon.
- * @param {boolean} [options.enabled=true] Determines whether the clipping polygons are active.
- * @param {boolean} [options.inverse=false] If true, a region will be clipped if it is outside of every polygon in the collection. Otherwise, a region will only be clipped if it is on the inside of any polygon.
+ * @param {ClippingPolygon[]} [options.polygons=[]] 一个 {@link ClippingPolygon} 对象数组，用于选择性地禁用每个多边形内部的渲染。
+ * @param {boolean} [options.enabled=true] 确定裁剪多边形是否处于活动状态。
+ * @param {boolean} [options.inverse=false] 如果为 true，则如果区域位于集合中的每个多边形之外，则该区域将被裁剪。否则，仅当区域位于任何多边形的内部时，才会对其进行裁剪。
  *
  * @example
  * const positions = Cesium.Cartesian3.fromRadiansArray([
@@ -64,7 +64,7 @@ function ClippingPolygonCollection(options) {
   this._totalPositions = 0;
 
   /**
-   * If true, clipping will be enabled.
+   * 如果为 true，则将启用剪辑。
    *
    * @memberof ClippingPolygonCollection.prototype
    * @type {boolean}
@@ -73,9 +73,9 @@ function ClippingPolygonCollection(options) {
   this.enabled = defaultValue(options.enabled, true);
 
   /**
-   * If true, a region will be clipped if it is outside of every polygon in the
-   * collection. Otherwise, a region will only be clipped if it is
-   * inside of any polygon.
+   * 如果为 true，则如果区域位于
+   *收集。否则，仅当区域
+   * 在任何多边形内。
    *
    * @memberof ClippingPolygonCollection.prototype
    * @type {boolean}
@@ -84,16 +84,16 @@ function ClippingPolygonCollection(options) {
   this.inverse = defaultValue(options.inverse, false);
 
   /**
-   * An event triggered when a new clipping polygon is added to the collection.  Event handlers
-   * are passed the new polygon and the index at which it was added.
+   * 将新的剪切多边形添加到集合时触发的事件。 事件处理程序
+   * 的 Bean Bean Bean 的 Bean Bean S Bean 的 Polygon 和添加该 Polygon 的索引。
    * @type {Event}
    * @default Event()
    */
   this.polygonAdded = new Event();
 
   /**
-   * An event triggered when a new clipping polygon is removed from the collection.  Event handlers
-   * are passed the new polygon and the index from which it was removed.
+   * 从集合中删除新的剪切多边形时触发的事件。 事件处理程序
+   * 将传递新多边形和从中删除该多边形的索引。
    * @type {Event}
    * @default Event()
    */
@@ -125,9 +125,9 @@ function ClippingPolygonCollection(options) {
 
 Object.defineProperties(ClippingPolygonCollection.prototype, {
   /**
-   * Returns the number of polygons in this collection.  This is commonly used with
-   * {@link ClippingPolygonCollection#get} to iterate over all the polygons
-   * in the collection.
+   * 返回此集合中的多边形数。 这通常与
+   * {@link ClippingPolygonCollection#get} 迭代所有多边形
+   * 在集合中。
    *
    * @memberof ClippingPolygonCollection.prototype
    * @type {number}
@@ -140,7 +140,7 @@ Object.defineProperties(ClippingPolygonCollection.prototype, {
   },
 
   /**
-   * Returns the total number of positions in all polygons in the collection.
+   * 返回集合中所有多边形中位置的总数。
    *
    * @memberof ClippingPolygonCollection.prototype
    * @type {number}
@@ -154,7 +154,7 @@ Object.defineProperties(ClippingPolygonCollection.prototype, {
   },
 
   /**
-   * Returns a texture containing the packed computed spherical extents for each polygon
+   * 返回一个纹理，其中包含每个多边形的打包计算球形范围
    *
    * @memberof ClippingPolygonCollection.prototype
    * @type {Texture}
@@ -168,7 +168,7 @@ Object.defineProperties(ClippingPolygonCollection.prototype, {
   },
 
   /**
-   * Returns the number of packed extents, which can be fewer than the number of polygons.
+   * 返回打包的扩展数据块数，该数目可以小于多边形数。
    *
    * @memberof ClippingPolygonCollection.prototype
    * @type {number}
@@ -182,7 +182,7 @@ Object.defineProperties(ClippingPolygonCollection.prototype, {
   },
 
   /**
-   * Returns the number of pixels needed in the texture containing the packed computed spherical extents for each polygon.
+   * 返回包含每个多边形的压缩计算球形范围的纹理中所需的像素数。
    *
    * @memberof ClippingPolygonCollection.prototype
    * @type {number}
@@ -196,7 +196,7 @@ Object.defineProperties(ClippingPolygonCollection.prototype, {
   },
 
   /**
-   * Returns the number of pixels needed in the texture containing the packed polygon positions.
+   * 返回包含紧缩多边形位置的纹理中所需的像素数。
    *
    * @memberof ClippingPolygonCollection.prototype
    * @type {number}
@@ -212,7 +212,7 @@ Object.defineProperties(ClippingPolygonCollection.prototype, {
   },
 
   /**
-   * Returns a texture containing the computed signed distance of each polygon.
+   *返回包含每个多边形的计算有向距离的纹理。
    *
    * @memberof ClippingPolygonCollection.prototype
    * @type {Texture}
@@ -226,7 +226,7 @@ Object.defineProperties(ClippingPolygonCollection.prototype, {
   },
 
   /**
-   * A reference to the ClippingPolygonCollection's owner, if any.
+   * 对 ClippingPolygonCollection 的所有者的引用（如果有）。
    *
    * @memberof ClippingPolygonCollection.prototype
    * @readonly
@@ -239,13 +239,13 @@ Object.defineProperties(ClippingPolygonCollection.prototype, {
   },
 
   /**
-   * Returns a number encapsulating the state for this ClippingPolygonCollection.
+   * 返回一个数字，该数字封装了此 ClippingPolygonCollection 的状态。
    *
-   * Clipping mode is encoded in the sign of the number, which is just the total position count.
-   * If this value changes, then shader regeneration is necessary.
+   * 削波模式以数字的符号编码，这只是总位置计数。
+   * 如果此值更改，则需要着色器重新生成。
    *
    * @memberof ClippingPolygonCollection.prototype
-   * @returns {number} A Number that describes the ClippingPolygonCollection's state.
+   * @returns {number} 描述 ClippingPolygonCollection 状态的 Number。
    * @readonly
    * @private
    */
@@ -257,12 +257,12 @@ Object.defineProperties(ClippingPolygonCollection.prototype, {
 });
 
 /**
- * Adds the specified {@link ClippingPolygon} to the collection to be used to selectively disable rendering
- * on the inside of each polygon. Use {@link ClippingPolygonCollection#unionClippingRegions} to modify
- * how modify the clipping behavior of multiple polygons.
+ * 将指定的 {@link ClippingPolygon} 添加到集合中，以用于选择性地禁用渲染
+ * 在每个多边形的内部。使用 {@link ClippingPolygonCollection#unionClippingRegions} 修改
+ * 如何修改多个多边形的裁剪行为。
  *
- * @param {ClippingPolygon} polygon The ClippingPolygon to add to the collection.
- * @returns {ClippingPolygon} The added ClippingPolygon.
+ * @param {ClippingPolygon} polygon 要添加到集合的 ClippingPolygon。
+ * @returns {ClippingPolygon} 添加的 ClippingPolygon。
  *
  * @example
  * const polygons = new Cesium.ClippingPolygonCollection();
@@ -301,14 +301,14 @@ ClippingPolygonCollection.prototype.add = function (polygon) {
 };
 
 /**
- * Returns the clipping polygon in the collection at the specified index.  Indices are zero-based
- * and increase as polygons are added.  Removing a polygon polygon all polygons after
- * it to the left, changing their indices.  This function is commonly used with
- * {@link ClippingPolygonCollection#length} to iterate over all the polygons
- * in the collection.
+ * 返回集合中指定索引处的剪切多边形。 索引从 0 开始
+ * 并随着多边形的添加而增加。 移除 Polygon Faces 之后的所有多边形
+ * 它向左移动，更改其索引。 此功能通常用于
+ * {@link ClippingPolygonCollection#length} 迭代所有多边形
+ * 在集合中。
  *
- * @param {number} index The zero-based index of the polygon.
- * @returns {ClippingPolygon} The ClippingPolygon at the specified index.
+ * @param {number} index 多边形的从零开始的索引。
+ * @returns {ClippingPolygon} 指定索引处的 ClippingPolygon。
  *
  * @see ClippingPolygonCollection#length
  */
@@ -321,10 +321,10 @@ ClippingPolygonCollection.prototype.get = function (index) {
 };
 
 /**
- * Checks whether this collection contains a ClippingPolygon equal to the given ClippingPolygon.
+ * 检查此集合是否包含等于给定 ClippingPolygon 的 ClippingPolygon。
  *
- * @param {ClippingPolygon} polygon The ClippingPolygon to check for.
- * @returns {boolean} true if this collection contains the ClippingPolygon, false 否则。
+ * @param {ClippingPolygon} polygon 要检查的 ClippingPolygon。
+ * @returns {boolean} 如果此集合包含 ClippingPolygon，则 true， false 否则。
  *
  * @see ClippingPolygonCollection#get
  */
@@ -337,10 +337,10 @@ ClippingPolygonCollection.prototype.contains = function (polygon) {
 };
 
 /**
- * Removes the first occurrence of the given ClippingPolygon from the collection.
+ * 从集合中删除给定 ClippingPolygon 的第一个匹配项。
  *
  * @param {ClippingPolygon} polygon
- * @returns {boolean} <code>true</code> if the polygon was removed; <code>false</code> if the polygon was not found in the collection.
+ * @returns {boolean} <code>如果</code>删除了多边形，则为 true;<code>如果在</code>集合中找不到多边形，则为 false。
  *
  * @see ClippingPolygonCollection#add
  * @see ClippingPolygonCollection#contains
@@ -452,7 +452,7 @@ function getExtents(polygons) {
 }
 
 /**
- * Removes all polygons from the collection.
+ * 从集合中删除所有多边形。
  *
  * @see ClippingPolygonCollection#add
  * @see ClippingPolygonCollection#remove
@@ -521,13 +521,13 @@ function packPolygonsAsFloats(clippingPolygonCollection) {
 
 const textureResolutionScratch = new Cartesian2();
 /**
- * Called when {@link Viewer} or {@link CesiumWidget} render the scene to
- * build the resources for clipping polygons.
+ * 当 {@link Viewer} 或 {@link CesiumWidget} 将场景渲染到
+ * 构建用于剪切多边形的资源。
  * <p>
- * Do not call this function directly.
+ * 请勿直接调用此函数。
  * </p>
  * @private
- * @throws {RuntimeError} ClippingPolygonCollections are only supported for WebGL 2
+ * @throws {RuntimeError} ClippingPolygonCollections 仅支持 WebGL 2
  */
 ClippingPolygonCollection.prototype.update = function (frameState) {
   const context = frameState.context;
@@ -687,10 +687,10 @@ ClippingPolygonCollection.prototype.update = function (frameState) {
 };
 
 /**
- * Called when {@link Viewer} or {@link CesiumWidget} render the scene to
- * build the resources for clipping polygons.
+ * 当 {@link Viewer} 或 {@link CesiumWidget} 将场景渲染到
+ * 构建用于剪切多边形的资源。
  * <p>
- * Do not call this function directly.
+ * 请勿直接调用此函数。
  * </p>
  * @private
  * @param {FrameState} frameState
@@ -733,13 +733,13 @@ function createSignedDistanceTextureCommand(collection) {
 const scratchRectangleTile = new Rectangle();
 const scratchRectangleIntersection = new Rectangle();
 /**
- * Determines the type intersection with the polygons of this ClippingPolygonCollection instance and the specified {@link TileBoundingVolume}.
+ * 确定与此 ClippingPolygonCollection 实例的多边形和指定的 {@link TileBoundingVolume} 的交集类型。
  * @private
  *
- * @param {object} tileBoundingVolume The volume to determine the intersection with the polygons.
- * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] The ellipsoid on which the bounding volumes are defined.
- * @returns {Intersect} The intersection type: {@link Intersect.OUTSIDE} if the entire volume is not clipped, {@link Intersect.INSIDE}
- *                      if the entire volume should be clipped, 和 {@link Intersect.INTERSECTING} if the volume intersects the polygons and will partially clipped.
+ * @param {object} tileBoundingVolume 用于确定与多边形交集的体积。
+ * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] 定义边界体积的椭球体。
+ * @returns {Intersect} 交点类型：{@link Intersect.OUTSIDE} 如果未剪切整个体积，则为 {@link Intersect.INSIDE}
+ * 如果应剪切整个体积，则为 {@link Intersect.INTERSECTING} 如果体积与多边形相交并将部分剪切。
  */
 ClippingPolygonCollection.prototype.computeIntersectionWithBoundingVolume = function (
   tileBoundingVolume,
@@ -793,12 +793,12 @@ ClippingPolygonCollection.prototype.computeIntersectionWithBoundingVolume = func
 };
 
 /**
- * Sets the owner for the input ClippingPolygonCollection if there wasn't another owner.
- * Destroys the owner's previous ClippingPolygonCollection if setting is successful.
+ * 如果没有其他所有者，则设置输入 ClippingPolygonCollection 的所有者。
+ * 如果设置成功，则销毁所有者之前的 ClippingPolygonCollection。
  *
- * @param {ClippingPolygonCollection} [clippingPolygonsCollection] A ClippingPolygonCollection (or undefined) being attached to an object
- * @param {object} owner An Object that should receive the new ClippingPolygonCollection
- * @param {string} key The Key for the Object to reference the ClippingPolygonCollection
+ * @param {ClippingPolygonCollection} [clippingPolygonsCollection] 附加到对象的 ClippingPolygonCollection（或未定义）
+ * @param {object} owner 应接收新 ClippingPolygonCollection 的对象
+ * @param {string} key 对象引用 ClippingPolygonCollection 的 Key
  * @private
  */
 ClippingPolygonCollection.setOwner = function (
@@ -826,24 +826,24 @@ ClippingPolygonCollection.setOwner = function (
 };
 
 /**
- * Function for checking if the context will allow clipping polygons, which require floating point textures.
+ * 用于检查上下文是否允许剪切多边形的函数，这需要浮点纹理。
  *
- * @param {Scene|object} scene The scene that will contain clipped objects and clipping textures.
- * @returns {boolean} <code>true</code> if the context supports clipping polygons.
+ * @param {Scene|object} scene 将包含剪切对象和剪切纹理的场景。
+ * @returns {boolean} <code>true</code>，如果上下文支持剪切多边形。
  */
 ClippingPolygonCollection.isSupported = function (scene) {
   return scene?.context.webgl2;
 };
 
 /**
- * Function for getting packed texture resolution.
- * If the ClippingPolygonCollection hasn't been updated, returns the resolution that will be
- * allocated based on the provided needed pixels.
+ * 用于获取打包纹理分辨率的功能。
+ * 如果 ClippingPolygonCollection 尚未更新，则返回将
+ * 根据提供的所需像素分配。
  *
- * @param {Texture} texture The texture to be packed.
- * @param {number} pixelsNeeded The number of pixels needed based on the current polygon count.
- * @param {Cartesian2} result A Cartesian2 for the result.
- * @returns {Cartesian2} The required resolution.
+ * @param {Texture} texture 要打包的纹理。
+ * @param {number} pixelsNeeded 根据当前多边形数量所需的像素数。
+ * @param {Cartesian2} result Cartesian2 为结果。
+ * @returns {Cartesian2} 所需的分辨率。
  * @private
  */
 ClippingPolygonCollection.getTextureResolution = function (
@@ -868,13 +868,13 @@ ClippingPolygonCollection.getTextureResolution = function (
 };
 
 /**
- * Function for getting the clipping collection's signed distance texture resolution.
- * If the ClippingPolygonCollection hasn't been updated, returns the resolution that will be
- * allocated based on the current settings
+ * 用于获取裁剪集合的有向距离纹理分辨率的函数。
+ * 如果 ClippingPolygonCollection 尚未更新，则返回将
+ * 根据当前设置分配
  *
- * @param {ClippingPolygonCollection} clippingPolygonCollection The clipping polygon collection
- * @param {Cartesian2} result A Cartesian2 for the result.
- * @returns {Cartesian2} The required resolution.
+ * @param {ClippingPolygonCollection} clippingPolygonCollection 裁剪多边形集合
+ * @param {Cartesian2} result Cartesian2 为结果。
+ * @returns {Cartesian2} 所需的分辨率。
  * @private
  */
 ClippingPolygonCollection.getClippingDistanceTextureResolution = function (
@@ -895,13 +895,13 @@ ClippingPolygonCollection.getClippingDistanceTextureResolution = function (
 };
 
 /**
- * Function for getting the clipping collection's extents texture resolution.
- * If the ClippingPolygonCollection hasn't been updated, returns the resolution that will be
- * allocated based on the current polygon count.
+ * 用于获取剪辑集合的范围纹理分辨率的函数。
+ * 如果 ClippingPolygonCollection 尚未更新，则返回将
+ * 根据当前多边形计数分配。
  *
- * @param {ClippingPolygonCollection} clippingPolygonCollection The clipping polygon collection
- * @param {Cartesian2} result A Cartesian2 for the result.
- * @returns {Cartesian2} The required resolution.
+ * @param {ClippingPolygonCollection} clippingPolygonCollection 裁剪多边形集合
+ * @param {Cartesian2} result Cartesian2 为结果。
+ * @returns {Cartesian2} 所需的分辨率。
  * @private
  */
 ClippingPolygonCollection.getClippingExtentsTextureResolution = function (
@@ -923,12 +923,12 @@ ClippingPolygonCollection.getClippingExtentsTextureResolution = function (
 };
 
 /**
- * Returns true if this object was destroyed; otherwise, false.
+ * 如果此对象已销毁，则返回 true;否则为 false。
  * <br /><br />
- * If this object was destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.
+ * 如果此对象已销毁，则不应使用;调用
+ * <code> isDestroyed</code> 将导致 {@link DeveloperError} 异常。
  *
- * @returns {boolean} <code>true</code> if this object was destroyed; otherwise, <code>false</code>.
+ * @returns {boolean} 如果此对象被销毁，<code>则为 true</code>;否则为 <code>false</code>。
  *
  * @see ClippingPolygonCollection#destroy
  */
@@ -937,14 +937,14 @@ ClippingPolygonCollection.prototype.isDestroyed = function () {
 };
 
 /**
- * Destroys the WebGL resources held by this object.  Destroying an object allows for deterministic
- * release of WebGL resources, instead of relying on the garbage collector to destroy this object.
+ * 销毁此对象持有的 WebGL 资源。 销毁对象允许确定性
+ * 释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。
  * <br /><br />
- * Once an object is destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.  Therefore,
- * assign the return value (<code>undefined</code>) to the object as done in the example.
+ * 一旦对象被销毁，就不应该使用它;调用
+ * <code> isDestroyed</code> 将导致 {@link DeveloperError} 异常。 因此
+ * 将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
  *
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 这个物体被摧毁了,destroy().
  *
  *
  * @example

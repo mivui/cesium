@@ -6,12 +6,12 @@ let defaultTokenCredit;
 const defaultAccessToken =
   "AAPTxy8BH1VEsoebNVZXo8HurEOF051kAEKlhkOhBEc9BmSXu8_pRnGhnW6yZLct-ukUzbJaZRAVfnmUrxDcAu_FaFDIC3M57EwfRm_DuTw9D5oHdLBTYIMD3tpUeFsNDjHHqar5fb1FGIN9KIV1Gk64dNBmhHhuOHY8cq2IhI0XFLj2qnAlqtKnM-lLsO6JpHuHPVD799V1o9VFm9vMW6a66vEi8-e--2QzKQecPYiaq98.AT1_p4pHwb3n";
 /**
- * Default options for accessing the ArcGIS image tile service.
+ * 用于访问 ArcGIS 图像切片服务的默认选项。
  *
- * An ArcGIS access token is required to access ArcGIS image tile layers.
- * A default token is provided for evaluation purposes only.
- * To obtain an access token, go to {@link https://developers.arcgis.com} and create a free account.
- * More info can be found in the {@link https://developers.arcgis.com/documentation/mapping-apis-and-services/security/ | ArcGIS developer guide}.
+ * 访问 ArcGIS 图像切片图层需要 ArcGIS 访问令牌。
+ * 默认令牌仅用于评估目的。
+ * 要获取访问令牌，请转到 {@link https://developers.arcgis.com} 并创建一个免费帐户。
+ * 更多信息可以在{@link https://developers.arcgis.com/documentation/mapping-apis-and-services/security/ | ArcGIS developer guide}.
  *
  * @see ArcGisMapServerImageryProvider
  * @namespace ArcGisMapService
@@ -19,14 +19,14 @@ const defaultAccessToken =
 
 const ArcGisMapService = {};
 /**
- * 获取或设置default ArcGIS access token.
+ * 获取或设置默认 ArcGIS 访问令牌。
  *
  * @type {string}
  */
 ArcGisMapService.defaultAccessToken = defaultAccessToken;
 
 /**
- * 获取或设置URL of the ArcGIS World Imagery tile service.
+ * 获取或设置ArcGIS World Imagery 切片服务的 URL。
  *
  * @type {string|Resource}
  * @default https://ibasemaps-api.arcgis.com/arcgis/rest/services/World_Imagery/MapServer
@@ -37,7 +37,7 @@ ArcGisMapService.defaultWorldImageryServer = new Resource({
 });
 
 /**
- * 获取或设置URL of the ArcGIS World Hillshade tile service.
+ * 获取或设置ArcGIS World Hillshade 切片服务的 URL。
  *
  * @type {string|Resource}
  * @default https://ibasemaps-api.arcgis.com/arcgis/rest/services/Elevation/World_Hillshade/MapServer
@@ -48,7 +48,7 @@ ArcGisMapService.defaultWorldHillshadeServer = new Resource({
 });
 
 /**
- * 获取或设置URL of the ArcGIS World Oceans tile service.
+ * 获取或设置ArcGIS World Oceans 切片服务的 URL。
  *
  * @type {string|Resource}
  * @default https://ibasemaps-api.arcgis.com/arcgis/rest/services/Ocean/World_Ocean_Base/MapServer

@@ -78,8 +78,8 @@ import CustomShaderTranslucencyMode from "./CustomShaderTranslucencyMode.js";
  * @param {CustomShaderMode} [options.mode=CustomShaderMode.MODIFY_MATERIAL] 自定义着色器模式，用于确定如何将自定义着色器代码插入到片段着色器中。
  * @param {LightingModel} [options.lightingModel] 照明模型（例如 PBR 或无光照）。如果存在，这将覆盖模型的默认照明。
  * @param {CustomShaderTranslucencyMode} [options.translucencyMode=CustomShaderTranslucencyMode.INHERIT] 半透明模式，用于确定自定义着色器的应用方式。如果值为 CustomShaderTransulcencyMode.OPAQUE 或 CustomShaderTransulcencyMode.TRANSLUCENT，则自定义着色器将覆盖模型材质的设置。如果值为 CustomShaderTransulcencyMode.INHERIT，则自定义着色器将渲染为不透明或半透明，具体取决于基元的材质设置。
- * @param {Object<string， UniformSpecifier>} [options.uniforms] 用户定义的 uniform 的字典。key 是将出现在 GLSL 代码中的统一名称。该值是描述 uniform 类型和初始值的对象
- * @param {Object<string， VaryingType>} [options.varyings] 用于声明着色器中使用的其他 GLSL 变体的字典。关键是将出现在 GLSL 代码中的不同名称。该值是 varying 的数据类型。对于每个变化，声明将自动添加到着色器的顶部。调用方负责在顶点着色器中分配值，并在片段着色器中使用该值。
+ * @param {Object<string, UniformSpecifier>} [options.uniforms] 用户定义的 uniform 的字典。key 是将出现在 GLSL 代码中的统一名称。该值是描述 uniform 类型和初始值的对象
+ * @param {Object<string, VaryingType>} [options.varyings] 用于声明着色器中使用的其他 GLSL 变体的字典。关键是将出现在 GLSL 代码中的不同名称。该值是 varying 的数据类型。对于每个变化，声明将自动添加到着色器的顶部。调用方负责在顶点着色器中分配值，并在片段着色器中使用该值。
  * @param {string} [options.vertexShaderText] 自定义顶点着色器，作为 GLSL 代码字符串。它必须包含一个名为 vertexMain 的 GLSL 函数。有关预期签名，请参阅示例。如果未指定，将在计算的顶点着色器中跳过自定义顶点着色器步骤。
  * @param {string} [options.fragmentShaderText] 作为 GLSL 代码字符串的自定义片段着色器。它必须包含一个名为 fragmentMain 的 GLSL 函数。有关预期签名，请参阅示例。如果未指定，则将在计算的片段着色器中跳过自定义片段着色器步骤。
  *

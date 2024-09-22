@@ -65,78 +65,78 @@ import Ray from "../Core/Ray.js";
 /**
  * @typedef {Object} Cesium3DTileset.ConstructorOptions
  *
- * Initialization options for the Cesium3DTileset constructor
+ * Cesium3DTileset 构造函数的初始化选项
  *
- * @property {boolean} [show=true] Determines if the tileset will be shown.
- * @property {Matrix4} [modelMatrix=Matrix4.IDENTITY] A 4x4 transformation matrix that transforms the tileset's root tile.
- * @property {Axis} [modelUpAxis=Axis.Y] Which axis is considered up when loading models for tile contents.
- * @property {Axis} [modelForwardAxis=Axis.X] Which axis is considered forward when loading models for tile contents.
- * @property {ShadowMode} [shadows=ShadowMode.ENABLED] Determines whether the tileset casts or receives shadows from light sources.
- * @property {number} [maximumScreenSpaceError=16] The maximum screen space error used to drive level of detail refinement.
- * @property {number} [cacheBytes=536870912] The size (in bytes) to which the tile cache will be trimmed, if the cache contains tiles not needed for the current view.
- * @property {number} [maximumCacheOverflowBytes=536870912] The maximum additional memory (in bytes) to allow for cache headroom, if more than {@link Cesium3DTileset#cacheBytes} are needed for the current view.
- * @property {boolean} [cullWithChildrenBounds=true] Optimization option. Whether to cull tiles using the union of their children bounding volumes.
- * @property {boolean} [cullRequestsWhileMoving=true] Optimization option. Don't request tiles that will likely be unused when they come back because of the camera's movement. This optimization only applies to stationary tilesets.
- * @property {number} [cullRequestsWhileMovingMultiplier=60.0] Optimization option. Multiplier used in culling requests while moving. Larger is more aggressive culling, smaller less aggressive culling.
- * @property {boolean} [preloadWhenHidden=false] Preload tiles when <code>tileset.show</code> is <code>false</code>. Loads tiles as if the tileset is visible but does not render them.
- * @property {boolean} [preloadFlightDestinations=true] Optimization option. Preload tiles at the camera's flight destination while the camera is in flight.
- * @property {boolean} [preferLeaves=false] Optimization option. Prefer loading of leaves first.
- * @property {boolean} [dynamicScreenSpaceError=true] Optimization option. For street-level horizon views, use lower resolution tiles far from the camera. This reduces the amount of data loaded and improves tileset loading time with a slight drop in visual quality in the distance.
- * @property {number} [dynamicScreenSpaceErrorDensity=2.0e-4] Similar to {@link Fog#density}, this option controls the camera distance at which the {@link Cesium3DTileset#dynamicScreenSpaceError} optimization applies. Larger values will cause tiles closer to the camera to be affected.
- * @property {number} [dynamicScreenSpaceErrorFactor=24.0] A parameter that controls the intensity of the {@link Cesium3DTileset#dynamicScreenSpaceError} optimization for tiles on the horizon. Larger values cause lower resolution tiles to load, improving runtime performance at a slight reduction of visual quality.
- * @property {number} [dynamicScreenSpaceErrorHeightFalloff=0.25] A ratio of the tileset's height that determines where "street level" camera views occur. When the camera is below this height, the {@link Cesium3DTileset#dynamicScreenSpaceError} optimization will have the maximum effect, and it will roll off above this value.
- * @property {number} [progressiveResolutionHeightFraction=0.3] Optimization option. If between (0.0, 0.5], tiles at or above the screen space error for the reduced screen resolution of <code>progressiveResolutionHeightFraction*screenHeight</code> will be prioritized first. This can help get a quick layer of tiles down while full resolution tiles continue to load.
- * @property {boolean} [foveatedScreenSpaceError=true] Optimization option. Prioritize loading tiles in the center of the screen by temporarily raising the screen space error for tiles around the edge of the screen. Screen space error returns to normal once all the tiles in the center of the screen as determined by the {@link Cesium3DTileset#foveatedConeSize} are loaded.
- * @property {number} [foveatedConeSize=0.1] Optimization option. Used when {@link Cesium3DTileset#foveatedScreenSpaceError} is true to control the cone size that determines which tiles are deferred. Tiles that are inside this cone are loaded immediately. Tiles outside the cone are potentially deferred based on how far outside the cone they are and their screen space error. This is controlled by {@link Cesium3DTileset#foveatedInterpolationCallback} and {@link Cesium3DTileset#foveatedMinimumScreenSpaceErrorRelaxation}. Setting this to 0.0 means the cone will be the line formed by the camera position and its view direction. Setting this to 1.0 means the cone encompasses the entire field of view of the camera, disabling the effect.
- * @property {number} [foveatedMinimumScreenSpaceErrorRelaxation=0.0] Optimization option. Used when {@link Cesium3DTileset#foveatedScreenSpaceError} is true to control the starting screen space error relaxation for tiles outside the foveated cone. The screen space error will be raised starting with tileset value up to {@link Cesium3DTileset#maximumScreenSpaceError} based on the provided {@link Cesium3DTileset#foveatedInterpolationCallback}.
- * @property {Cesium3DTileset.foveatedInterpolationCallback} [foveatedInterpolationCallback=Math.lerp] Optimization option. Used when {@link Cesium3DTileset#foveatedScreenSpaceError} is true to control how much to raise the screen space error for tiles outside the foveated cone, interpolating between {@link Cesium3DTileset#foveatedMinimumScreenSpaceErrorRelaxation} and {@link Cesium3DTileset#maximumScreenSpaceError}
- * @property {number} [foveatedTimeDelay=0.2] Optimization option. Used when {@link Cesium3DTileset#foveatedScreenSpaceError} is true to control how long in seconds to wait after the camera stops moving before deferred tiles start loading in. This time delay prevents requesting tiles around the edges of the screen when the camera is moving. Setting this to 0.0 will immediately request all tiles in any given view.
- * @property {boolean} [skipLevelOfDetail=false] Optimization option. Determines if level of detail skipping should be applied during the traversal.
- * @property {number} [baseScreenSpaceError=1024] When <code>skipLevelOfDetail</code> is <code>true</code>, the screen space error that must be reached before skipping levels of detail.
- * @property {number} [skipScreenSpaceErrorFactor=16] When <code>skipLevelOfDetail</code> is <code>true</code>, a multiplier defining the minimum screen space error to skip. Used in conjunction with <code>skipLevels</code> to determine which tiles to load.
- * @property {number} [skipLevels=1] When <code>skipLevelOfDetail</code> is <code>true</code>, a constant defining the minimum number of levels to skip when loading tiles. When it is 0, no levels are skipped. Used in conjunction with <code>skipScreenSpaceErrorFactor</code> to determine which tiles to load.
- * @property {boolean} [immediatelyLoadDesiredLevelOfDetail=false] When <code>skipLevelOfDetail</code> is <code>true</code>, only tiles that meet the maximum screen space error will ever be downloaded. Skipping factors are ignored and just the desired tiles are loaded.
- * @property {boolean} [loadSiblings=false] When <code>skipLevelOfDetail</code> is <code>true</code>, determines whether siblings of visible tiles are always downloaded during traversal.
- * @property {ClippingPlaneCollection} [clippingPlanes] The {@link ClippingPlaneCollection} used to selectively disable rendering the tileset.
- * @property {ClippingPolygonCollection} [clippingPolygons] The {@link ClippingPolygonCollection} used to selectively disable rendering the tileset.
- * @property {ClassificationType} [classificationType] Determines whether terrain, 3D Tiles or both will be classified by this tileset. See {@link Cesium3DTileset#classificationType} for details about restrictions and limitations.
- * @property {Ellipsoid} [ellipsoid=Ellipsoid.WGS84] The ellipsoid determining the size and shape of the globe.
- * @property {object} [pointCloudShading] Options for constructing a {@link PointCloudShading} object to control point attenuation based on geometric error and lighting.
- * @property {Cartesian3} [lightColor] The light color when shading models. When <code>undefined</code> the scene's light color is used instead.
- * @property {ImageBasedLighting} [imageBasedLighting] The properties for managing image-based lighting for this tileset.
- * @property {boolean} [backFaceCulling=true] Whether to cull back-facing geometry. When true, back face culling is determined by the glTF material's doubleSided property; when false, back face culling is disabled.
- * @property {boolean} [enableShowOutline=true] Whether to enable outlines for models using the {@link https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/CESIUM_primitive_outline|CESIUM_primitive_outline} extension. This can be set to false to avoid the additional processing of geometry at load time. When false, the showOutlines and outlineColor options are ignored.
- * @property {boolean} [showOutline=true] Whether to display the outline for models using the {@link https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/CESIUM_primitive_outline|CESIUM_primitive_outline} extension. When true, outlines are displayed. When false, outlines are not displayed.
- * @property {Color} [outlineColor=Color.BLACK] The color to use when rendering outlines.
- * @property {boolean} [vectorClassificationOnly=false] Indicates that only the tileset's vector tiles should be used for classification.
- * @property {boolean} [vectorKeepDecodedPositions=false] Whether vector tiles should keep decoded positions in memory. This is used with {@link Cesium3DTileFeature.getPolylinePositions}.
- * @property {string|number} [featureIdLabel="featureId_0"] Label of the feature ID set to use for picking and styling. For EXT_mesh_features, this is the feature ID's label property, or "featureId_N" (where N is the index in the featureIds array) when not specified. EXT_feature_metadata did not have a label field, so such feature ID sets are always labeled "featureId_N" where N is the index in the list of all feature Ids, where feature ID attributes are listed before feature ID textures. If featureIdLabel is an integer N, it is converted to the string "featureId_N" automatically. If both per-primitive and per-instance feature IDs are present, the instance feature IDs take priority.
- * @property {string|number} [instanceFeatureIdLabel="instanceFeatureId_0"] Label of the instance feature ID set used for picking and styling. If instanceFeatureIdLabel is set to an integer N, it is converted to the string "instanceFeatureId_N" automatically. If both per-primitive and per-instance feature IDs are present, the instance feature IDs take priority.
- * @property {boolean} [showCreditsOnScreen=false] Whether to display the credits of this tileset on screen.
- * @property {SplitDirection} [splitDirection=SplitDirection.NONE] The {@link SplitDirection} split to apply to this tileset.
- * @property {boolean} [enableCollision=false] When <code>true</code>, enables collisions for camera or CPU picking. While this is <code>true</code> the camera will be prevented from going below the tileset surface if {@link ScreenSpaceCameraController#enableCollisionDetection} is true.
- * @property {boolean} [projectTo2D=false] Whether to accurately project the tileset to 2D. If this is true, the tileset will be projected accurately to 2D, but it will use more memory to do so. If this is false, the tileset will use less memory and will still render in 2D / CV mode, but its projected positions may be inaccurate. This cannot be set after the tileset has been created.
- * @property {boolean} [enablePick=false] Whether to allow collision and CPU picking with <code>pick</code> when using WebGL 1. If using WebGL 2 or above, this option will be ignored. If using WebGL 1 and this is true, the <code>pick</code> operation will work correctly, but it will use more memory to do so. If running with WebGL 1 and this is false, the model will use less memory, but <code>pick</code> will always return <code>undefined</code>. This cannot be set after the tileset has loaded.
- * @property {string} [debugHeatmapTilePropertyName] The tile variable to colorize as a heatmap. All rendered tiles will be colorized relative to each other's specified variable value.
- * @property {boolean} [debugFreezeFrame=false] For debugging only. Determines if only the tiles from last frame should be used for rendering.
- * @property {boolean} [debugColorizeTiles=false] For debugging only. When true, assigns a random color to each tile.
- * @property {boolean} [enableDebugWireframe=false] For debugging only. This must be true for debugWireframe to work in WebGL1. This cannot be set after the tileset has been created.
- * @property {boolean} [debugWireframe=false] For debugging only. When true, render's each tile's content as a wireframe.
- * @property {boolean} [debugShowBoundingVolume=false] For debugging only. When true, renders the bounding volume for each tile.
- * @property {boolean} [debugShowContentBoundingVolume=false] For debugging only. When true, renders the bounding volume for each tile's content.
- * @property {boolean} [debugShowViewerRequestVolume=false] For debugging only. When true, renders the viewer request volume for each tile.
- * @property {boolean} [debugShowGeometricError=false] For debugging only. When true, draws labels to indicate the geometric error of each tile.
- * @property {boolean} [debugShowRenderingStatistics=false] For debugging only. When true, draws labels to indicate the number of commands, points, triangles and features for each tile.
- * @property {boolean} [debugShowMemoryUsage=false] For debugging only. When true, draws labels to indicate the texture and geometry memory in megabytes used by each tile.
- * @property {boolean} [debugShowUrl=false] For debugging only. When true, draws labels to indicate the url of each tile.
+ * @property {boolean} [show=true] 确定是否显示图块集。
+ * @property {Matrix4} [modelMatrix=Matrix4.IDENTITY] 一个 4x4 变换矩阵，用于变换瓦片集的根瓦片。
+ * @property {Axis} [modelUpAxis=Axis.Y] 在加载瓦片内容的模型时，哪个轴被认为是向上的。
+ * @property {Axis} [modelForwardAxis=Axis.X] 在加载瓦片内容的模型时，哪个轴被视为向前。
+ * @property {ShadowMode} [shadows=ShadowMode.ENABLED] 确定图块集是投射还是接收来自光源的阴影。
+ * @property {number} [maximumScreenSpaceError=16] 用于驱动细节层次细化的最大屏幕空间误差。
+ * @property {number} [cacheBytes=536870912] 如果缓存包含当前视图不需要的切片，则切片缓存将被修剪到的大小（以字节为单位）。
+ * @property {number} [maximumCacheOverflowBytes=536870912] 如果当前视图需要超过 {@link Cesium3DTileset#cacheBytes}，则允许缓存空间的最大额外内存（以字节为单位）。
+ * @property {boolean} [cullWithChildrenBounds=true] 优化选项。是否使用其子边界体积的并集来剔除平铺。
+ * @property {boolean} [cullRequestsWhileMoving=true] 优化选项。不要请求由于摄像机移动而返回时可能未使用的图块。此优化仅适用于固定图块集。
+ * @property {number} [cullRequestsWhileMovingMultiplier=60.0] 优化选项。移动时剔除请求中使用的乘数。较大的剔除较为激进，较小的剔除较不激进。
+ * @property {boolean} [preloadWhenHidden=false] 当 <code>tileset.show</code> 为 <code>false</code> 时预加载瓦片。加载瓦片，就好像瓦片集可见一样，但不渲染它们。
+ * @property {boolean} [preloadFlightDestinations=true] 优化选项。当摄像机正在飞行时，在摄像机的飞行目的地预加载切片。
+ * @property {boolean} [preferLeaves=false] 优化选项。喜欢先加载叶子。
+ * @property {boolean} [dynamicScreenSpaceError=true] 优化选项。对于街道级别的地平线视图，请使用远离摄像机的较低分辨率图块。这减少了加载的数据量并缩短了图块集加载时间，但远处的视觉质量会略有下降。
+ * @property {number} [dynamicScreenSpaceErrorDensity=2.0e-4] 与 {@link Fog#density} 类似，此选项控制应用 {@link Cesium3DTileset#dynamicScreenSpaceError} 优化的摄像机距离。较大的值将导致靠近摄像机的图块受到影响。
+ * @property {number} [dynamicScreenSpaceErrorFactor=24.0] 一个参数，用于控制地平线上图格的 {@link Cesium3DTileset#dynamicScreenSpaceError} 优化强度。较大的值会导致加载较低分辨率的图块，从而提高运行时性能，但会降低视觉质量。
+ * @property {number} [dynamicScreenSpaceErrorHeightFalloff=0.25] 图块集高度的比率，它决定了“街道级别”摄像机视图的位置。当摄像机低于此高度时，{@link Cesium3DTileset#dynamicScreenSpaceError} 优化将产生最大效果，并且它将在此值以上滚降。
+ * @property {number} [progressiveResolutionHeightFraction=0.3] 优化选项。如果介于 （0.0， 0.5） 之间，则 <code>progressiveResolutionHeightFraction*screenHeight</code> 的降低屏幕分辨率误差等于或高于或更高的磁贴将首先优先处理。这有助于在继续加载全分辨率图块的同时快速关闭图块层。
+ * @property {boolean} [foveatedScreenSpaceError=true] 优化选项。通过暂时提高屏幕边缘图块的屏幕空间误差，优先在屏幕中心加载图块。一旦加载了由 {@link Cesium3DTileset#foveatedConeSize} 确定的屏幕中心的所有图块，屏幕空间错误就会恢复正常。
+ * @property {number} [foveatedConeSize=0.1] 优化选项。当 {@link Cesium3DTileset#foveatedScreenSpaceError} 为 true 时使用，以控制确定延迟哪些图块的圆锥体大小。此圆锥体内的切片将立即加载。圆锥体外的图块可能会根据它们在圆锥体外的距离及其屏幕空间误差而延迟。这由 {@link Cesium3DTileset#foveatedInterpolationCallback} 和 {@link Cesium3DTileset#foveatedMinimumScreenSpaceErrorRelaxation} 控制。将此设置为 0.0 意味着圆锥体将是摄像机位置及其视图方向形成的线。将此设置为 1.0 意味着圆锥体包含摄像机的整个视野，从而禁用该效果。
+ * @property {number} [foveatedMinimumScreenSpaceErrorRelaxation=0.0] 优化选项。当 {@link Cesium3DTileset#foveatedScreenSpaceError} 为 true 时使用，以控制凹圆锥体外磁贴的起始屏幕空间误差松弛。根据提供的 {@link@link Cesium3DTileset#foveatedInterpolationCallback}，将从图块集值开始引发屏幕空间错误，最高为 { Cesium3DTileset#maximumScreenSpaceError}。
+ * @property {Cesium3DTileset.foveatedInterpolationCallback} [foveatedInterpolationCallback=Math.lerp] 优化选项。当 {@link Cesium3DTileset#foveatedScreenSpaceError} 为 true 时使用，以控制在注视点圆锥体之外的图块的屏幕空间误差增加多少，在 {@link Cesium3DTileset#foveatedMinimumScreenSpaceErrorRelaxation} 和 {@link Cesium3DTileset#maximumScreenSpaceError} 之间插值
+ * @property {number} [foveatedTimeDelay=0.2] 优化选项。当 {@link Cesium3DTileset#foveatedScreenSpaceError} 为 true 时使用，以控制在摄像机停止移动后，延迟图块开始加载之前等待多长时间（以秒为单位）。此时间延迟可防止在摄像机移动时请求屏幕边缘周围的图块。将此设置为 0.0 将立即请求任何给定视图中的所有图块。
+ * @property {boolean} [skipLevelOfDetail=false] 优化选项。确定在遍历期间是否应应用细节级别跳过。
+ * @property {number} [baseScreenSpaceError=1024] 当 <code>skipLevelOfDetail</code> 为 <code>true</code> 时，在跳过细节级别之前必须达到的屏幕空间错误。
+ * @property {number} [skipScreenSpaceErrorFactor=16] 当 <code>skipLevelOfDetail</code> 为 <code>true</code> 时，定义要跳过的最小屏幕空间误差的乘数。与 <code>skipLevels</code> 结合使用，以确定要加载的图块。
+ * @property {number} [skipLevels=1] 当 <code>skipLevelOfDetail</code> 为 <code>true</code> 时，一个常量，用于定义加载瓦片时要跳过的最小级别数。当它为 0 时，不会跳过任何级别。与 <code>skipScreenSpaceErrorFactor</code> 结合使用，以确定要加载的图块。
+ * @property {boolean} [immediatelyLoadDesiredLevelOfDetail=false] 当 <code>skipLevelOfDetail</code> 为 <code>true</code> 时，将仅下载满足最大屏幕空间错误的磁贴。跳过因素将被忽略，仅加载所需的切片。
+ * @property {boolean} [loadSiblings=false] 当 <code>skipLevelOfDetail</code> 为 <code>true</code> 时，确定在遍历期间是否始终下载可见瓦片的同级。
+ * @property {ClippingPlaneCollection} [clippingPlanes] 用于选择性地禁用图块集渲染的 {@link ClippingPlaneCollection}。
+ * @property {ClippingPolygonCollection} [clippingPolygons] 用于选择性地禁用渲染图块集的 {@link ClippingPolygonCollection}。
+ * @property {ClassificationType} [classificationType] 确定地形和/或 3D 瓦片是否由此瓦片集进行分类。请参阅 {@link Cesium3DTileset#classificationType} 了解有关限制和限制的详细信息。
+ * @property {Ellipsoid} [ellipsoid=Ellipsoid.WGS84] 决定地球大小和形状的椭球体。
+ * @property {object} [pointCloudShading] 用于构建 {@link PointCloudShading} 对象的选项，以根据几何误差和照明控制点衰减。
+ * @property {Cartesian3} [lightColor] 对模型进行着色时的光色。<code>如果未定义</code>，则使用场景的 light 颜色。
+ * @property {ImageBasedLighting} [imageBasedLighting] 用于管理此图块集的基于图像的光照的属性。
+ * @property {boolean} [backFaceCulling=true] 是否剔除背面的几何体。如果为 true，则背面剔除由 glTF 材质的 doubleSided 属性确定;如果为 false，则禁用背面剔除。
+ * @property {boolean} [enableShowOutline=true] 是否为使用 {@link https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/CESIUM_primitive_outline|CESIUM_primitive_outline} 扩展。可以将其设置为 false，以避免在加载时对几何体进行额外处理。如果为 false，则忽略 showOutlines 和 outlineColor 选项。
+ * @property {boolean} [showOutline=true] 是否显示使用 {@link https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/CESIUM_primitive_outline|CESIUM_primitive_outline} 扩展。如果为 true，则显示轮廓。如果为 false，则不显示轮廓。
+ * @property {Color} [outlineColor=Color.BLACK] 渲染轮廓时要使用的颜色。
+ * @property {boolean} [vectorClassificationOnly=false] 表示只应使用瓦片集的矢量瓦片进行分类。
+ * @property {boolean} [vectorKeepDecodedPositions=false] 矢量瓦片是否应在内存中保留解码的位置。这与 {@link Cesium3DTileFeature.getPolylinePositions} 一起使用。
+ * @property {string|number} [featureIdLabel=“featureId_0”] 用于选取和样式的特征 ID 集的标签。对于 EXT_mesh_features，这是特征 ID 的 label 属性，如果未指定，则为 “featureId_N”（其中 N 是 featureIds 数组中的索引）。EXT_feature_metadata没有标注字段，因此此类要素 ID 集始终标记为“featureId_N”，其中 N 是所有要素 ID 列表中的索引，其中要素 ID 属性列在要素 ID 纹理之前。如果 featureIdLabel 是整数 N，则会自动转换为字符串 featureId_N。如果每个基元和每个实例的特征 ID 都存在，则实例特征 ID 优先。
+ * @property {string|number} [instanceFeatureIdLabel=“instanceFeatureId_0”] 用于选取和样式的实例特征 ID 集的标签。如果 instanceFeatureIdLabel 设置为整数 N，则会自动转换为字符串 instanceFeatureId_N。如果每个基元和每个实例的特征 ID 都存在，则实例特征 ID 优先。
+ * @property {boolean} [showCreditsOnScreen=false] 是否在屏幕上显示此图块集的制作人员名单。
+ * @property {SplitDirection} [splitDirection=SplitDirection.NONE] 应用于此图块集的 {@link SplitDirection} 分割。
+ * @property {boolean} [enableCollision=false] 如果<code>为 true</code>，则为摄像机或 CPU 拾取启用碰撞。虽然这是<code>真的</code>，但如果 {@link ScreenSpaceCameraController#enableCollisionDetection} 为 true，则相机将无法低于图块集表面。
+ * @property {boolean} [projectTo2D=false] 是否将瓦片集精确投影为 2D。如果为 true，则图块集将精确投影到 2D，但会使用更多内存来执行此操作。如果为 false，则图块集将使用较少的内存，并且仍将以 2D / CV 模式渲染，但其投影位置可能不准确。创建图块集后，无法设置此项。
+ * @property {boolean} [enablePick=false] 在使用 WebGL 1 时，是否允许使用 <code>pick</code> 进行碰撞和 CPU 拾取。如果使用 WebGL 2 或更高版本，则此选项将被忽略。如果使用 WebGL 1 并且这是真的，<code>则 pick</code> 操作将正常工作，但它会使用更多内存来执行此操作。如果使用 WebGL 1 运行并且为 false，则模型将使用更少的内存，但 <code>pick</code> 将始终返回 <code>undefined</code>。加载图块集后无法设置此项。
+ * @property {string} [debugHeatmapTilePropertyName] 要作为热图着色的图块变量。所有渲染的瓦片都将相对于彼此的指定变量值进行着色。
+ * @property {boolean} [debugFreezeFrame=false] 仅用于调试。确定是否只应使用上一帧中的平铺进行渲染。
+ * @property {boolean} [debugColorizeTiles=false] 仅用于调试。如果为 true，则为每个平铺分配随机颜色。
+ * @property {boolean} [enableDebugWireframe=false] 仅用于调试。要使 debugWireframe 在 WebGL1 中工作，必须如此。创建图块集后，无法设置此项。
+ * @property {boolean} [debugWireframe=false] 仅用于调试。如果为 true，则将每个图块的内容渲染为线框。
+ * @property {boolean} [debugShowBoundingVolume=false] 仅用于调试。如果为 true，则渲染每个图块的边界体积。
+ * @property {boolean} [debugShowContentBoundingVolume=false] 仅用于调试。如果为 true，则渲染每个图块内容的边界体积。
+ * @property {boolean} [debugShowViewerRequestVolume=false] 仅用于调试。如果为 true，则呈现每个图块的查看器请求量。
+ * @property {boolean} [debugShowGeometricError=false] 仅用于调试。如果为 true，则绘制标签以指示每个图块的几何误差。
+ * @property {boolean} [debugShowRenderingStatistics=false] 仅用于调试。如果为 true，则绘制标签以指示每个图块的命令、点、三角形和功能的数量。
+ * @property {boolean} [debugShowMemoryUsage=false] 仅用于调试。如果为 true，则绘制标签以指示每个图块使用的纹理和几何内存（以 MB 为单位）。
+ * @property {boolean} [debugShowUrl=false] 仅用于调试。如果为 true，则绘制标签以指示每个图块的 URL。
  */
 
 /**
- * A {@link https://github.com/CesiumGS/3d-tiles/tree/main/specification|3D Tiles tileset},
- * used for streaming massive heterogeneous 3D geospatial datasets.
+ * 一个 {@link https://github.com/CesiumGS/3d-tiles/tree/main/specification|3D Tiles tileset}，
+ * 用于流式传输大量异构 3D 地理空间数据集。
  *
  * <div class="notice">
- * This object is normally not instantiated directly, use {@link Cesium3DTileset.fromUrl}.
+ * 此对象通常不会直接实例化，请使用 {@link Cesium3DTileset.fromUrl}.
  * </div>
  *
  * @alias Cesium3DTileset
@@ -298,7 +298,7 @@ function Cesium3DTileset(options) {
   );
 
   /**
-   * Optimization option. Don't request tiles that will likely be unused when they come back because of the camera's movement. This optimization only applies to stationary tilesets.
+   * 优化选项。不要请求由于摄像机移动而返回时可能未使用的图块。此优化仅适用于固定图块集。
    *
    * @type {boolean}
    * @default true
@@ -310,7 +310,7 @@ function Cesium3DTileset(options) {
   this._cullRequestsWhileMoving = false;
 
   /**
-   * Optimization option. Multiplier used in culling requests while moving. Larger is more aggressive culling, smaller less aggressive culling.
+   * 优化选项。移动时剔除请求中使用的乘数。较大的剔除较为激进，较小的剔除较不激进。
    *
    * @type {number}
    * @default 60.0
@@ -321,7 +321,7 @@ function Cesium3DTileset(options) {
   );
 
   /**
-   * Optimization option. If between (0.0, 0.5], tiles at or above the screen space error for the reduced screen resolution of <code>progressiveResolutionHeightFraction*screenHeight</code> will be prioritized first. This can help get a quick layer of tiles down while full resolution tiles continue to load.
+   * 优化选项。如果介于 （0.0， 0.5） 之间，则 <code>progressiveResolutionHeightFraction*screenHeight</code> 的降低屏幕分辨率误差等于或高于或更高的磁贴将首先优先处理。这有助于在继续加载全分辨率图块的同时快速关闭图块层。
    *
    * @type {number}
    * @default 0.3
@@ -333,7 +333,7 @@ function Cesium3DTileset(options) {
   );
 
   /**
-   * Optimization option. Prefer loading of leaves first.
+   * 优化选项。喜欢先加载叶子。
    *
    * @type {boolean}
    * @default false
@@ -364,7 +364,7 @@ function Cesium3DTileset(options) {
   );
 
   /**
-   * Preload tiles when <code>tileset.show</code> is <code>false</code>. Loads tiles as if the tileset is visible but does not render them.
+   * 当 <code>tileset.show</code> 为 <code>false</code> 时预加载瓦片。加载瓦片，就好像瓦片集可见一样，但不渲染它们。
    *
    * @type {boolean}
    * @default false
@@ -372,7 +372,7 @@ function Cesium3DTileset(options) {
   this.preloadWhenHidden = defaultValue(options.preloadWhenHidden, false);
 
   /**
-   * Optimization option. Fetch tiles at the camera's flight destination while the camera is in flight.
+   * 优化选项。当摄像机正在飞行时，在摄像机的飞行目的地获取切片。
    *
    * @type {boolean}
    * @default true
@@ -384,11 +384,11 @@ function Cesium3DTileset(options) {
   this._pass = undefined; // Cesium3DTilePass
 
   /**
-   * Optimization option. For street-level horizon views, use lower resolution tiles far from the camera. This reduces
-   * the amount of data loaded and improves tileset loading time with a slight drop in visual quality in the distance.
+   * 优化选项。对于街道级别的地平线视图，请使用远离摄像机的较低分辨率图块。这减少了
+   * 加载的数据量并缩短了图块集加载时间，但远处的视觉质量略有下降。
    * <p>
-   * This optimization is strongest when the camera is close to the ground plane of the tileset and looking at the
-   * horizon. Furthermore, the results are more accurate for tightly fitting bounding volumes like box and region.
+   * 当相机靠近图块集的地平面并查看
+   *地平线。此外，对于紧密拟合的边界体积（如框和区域），结果更加准确。
    *
    * @type {boolean}
    * @default true
@@ -399,9 +399,9 @@ function Cesium3DTileset(options) {
   );
 
   /**
-   * Optimization option. Prioritize loading tiles in the center of the screen by temporarily raising the
-   * screen space error for tiles around the edge of the screen. Screen space error returns to normal once all
-   * the tiles in the center of the screen as determined by the {@link Cesium3DTileset#foveatedConeSize} are loaded.
+   * 优化选项。通过暂时提高
+   * 屏幕边缘图块的屏幕空间错误。屏幕空间错误在全部
+   * 加载由 {@link Cesium3DTileset#foveatedConeSize} 确定的屏幕中央的图块。
    *
    * @type {boolean}
    * @default true
@@ -417,8 +417,8 @@ function Cesium3DTileset(options) {
   );
 
   /**
-   * Gets or sets a callback to control how much to raise the screen space error for tiles outside the foveated cone,
-   * interpolating between {@link Cesium3DTileset#foveatedMinimumScreenSpaceErrorRelaxation} and {@link Cesium3DTileset#maximumScreenSpaceError}.
+   * 获取或设置回调以控制在注视点圆锥体之外的图块的屏幕空间误差的提高程度，
+   * 在 {@link Cesium3DTileset#foveatedMinimumScreenSpaceErrorRelaxation} 和 {@link Cesium3DTileset#maximumScreenSpaceError} 之间插值。
    *
    * @type {Cesium3DTileset.foveatedInterpolationCallback}
    */
@@ -428,10 +428,10 @@ function Cesium3DTileset(options) {
   );
 
   /**
-   * Optimization option. Used when {@link Cesium3DTileset#foveatedScreenSpaceError} is true to control
-   * how long in seconds to wait after the camera stops moving before deferred tiles start loading in.
-   * This time delay prevents requesting tiles around the edges of the screen when the camera is moving.
-   * Setting this to 0.0 will immediately request all tiles in any given view.
+   * 优化选项。当 {@link Cesium3DTileset#foveatedScreenSpaceError} 为 true 时用于控制
+   * 在相机停止移动后，延迟图块开始加载之前要等待多长时间（以秒为单位）。
+   * 此时间延迟可防止在摄像机移动时请求屏幕边缘的磁贴。
+   * 将此设置为 0.0 将立即请求任何给定视图中的所有图块。
    *
    * @type {number}
    * @default 0.2
@@ -439,21 +439,21 @@ function Cesium3DTileset(options) {
   this.foveatedTimeDelay = defaultValue(options.foveatedTimeDelay, 0.2);
 
   /**
-   * Similar to {@link Fog#density}, this option controls the camera distance at which the {@link Cesium3DTileset#dynamicScreenSpaceError}
-   * optimization applies. Larger values will cause tiles closer to the camera to be affected. This value must be
-   * non-negative.
+   * 与 {@link Fog#density} 类似，此选项控制 {@link Cesium3DTileset#dynamicScreenSpaceError} 的摄像机距离
+   * 优化适用。较大的值将导致靠近摄像机的图块受到影响。此值必须为
+   * 非负数。
    * <p>
-   * This optimization works by rolling off the tile screen space error (SSE) with camera distance like a bell curve.
-   * This has the effect of selecting lower resolution tiles far from the camera. Near the camera, no adjustment is
-   * made. For tiles further away, the SSE is reduced by up to {@link Cesium3DTileset#dynamicScreenSpaceErrorFactor}
-   * (measured in pixels of error).
+   * 此优化的工作原理是消除像钟形曲线一样的相机距离的平铺屏幕空间误差 （SSE）。
+   * 这具有选择远离摄像机的低分辨率图块的效果。在相机附近，不进行调整
+   * 䍬。对于较远的图块，SSE 最多可降低 {@link Cesium3DTileset#dynamicScreenSpaceErrorFactor}
+   *（以误差像素为单位）。
    * </p>
    * <p>
-   * Increasing the density makes the bell curve narrower so tiles closer to the camera are affected. This is analagous
-   * to moving fog closer to the camera.
+   * 增加密度会使钟形曲线变窄，因此更靠近摄像机的平铺会受到影响。这是类比的
+   * 将雾移近摄像机。
    * </p>
    * <p>
-   * When the density is 0, the optimization will have no effect on the tileset.
+   * 当密度为 0 时，优化对瓦片集没有影响。
    * </p>
    *
    * @type {number}
@@ -465,16 +465,16 @@ function Cesium3DTileset(options) {
   );
 
   /**
-   * A parameter that controls the intensity of the {@link Cesium3DTileset#dynamicScreenSpaceError} optimization for
-   * tiles on the horizon. Larger values cause lower resolution tiles to load, improving runtime performance at a slight
-   * reduction of visual quality. The value must be non-negative.
+   * 一个参数，用于控制 {@link Cesium3DTileset#dynamicScreenSpaceError} 的优化强度
+   * 地平线上的瓷砖。较大的值会导致加载较低分辨率的图块，从而略微提高运行时性能
+   * 降低视觉质量。该值必须为非负数。
    * <p>
-   * More specifically, this parameter represents the maximum adjustment to screen space error (SSE) in pixels for tiles
-   * far away from the camera. See {@link Cesium3DTileset#dynamicScreenSpaceErrorDensity} for more details about how
-   * this optimization works.
+   * 更具体地说，此参数表示磁贴的屏幕空间误差 （SSE） 的最大调整值（以像素为单位）
+   * 远离相机。有关如何操作的更多详细信息，请参阅 {@link Cesium3DTileset#dynamicScreenSpaceErrorDensity}
+   * 此优化有效。
    * </p>
    * <p>
-   * When the SSE factor is set to 0, the optimization will have no effect on the tileset.
+   * 当 SSE 因子设置为 0 时，优化将对图块集没有影响。
    * </p>
    *
    * @type {number}
@@ -486,9 +486,9 @@ function Cesium3DTileset(options) {
   );
 
   /**
-   * A ratio of the tileset's height that determines "street level" for the {@link Cesium3DTileset#dynamicScreenSpaceError}
-   * optimization. When the camera is below this height, the dynamic screen space error optimization will have the maximum
-   * effect, and it will roll off above this value. Valid values are between 0.0 and 1.0.
+   * 确定 {@link Cesium3DTileset#dynamicScreenSpaceError} 的“街道级别”的图块集高度比率
+   *优化。当摄像头低于此高度时，动态屏幕空间误差优化将具有最大值
+   * 效果，并且它将在此值以上滚降。有效值介于 0.0 和 1.0 之间。
    * <p>
    *
    * @type {number}
@@ -503,12 +503,12 @@ function Cesium3DTileset(options) {
   this._dynamicScreenSpaceErrorComputedDensity = 0.0;
 
   /**
-   * Determines whether the tileset casts or receives shadows from light sources.
+   * 确定图块集是投射还是接收来自光源的阴影。
    * <p>
-   * Enabling shadows has a performance impact. A tileset that casts shadows must be rendered twice, once from the camera and again from the light's point of view.
+   * 启用阴影会影响性能。投射阴影的图块集必须渲染两次，一次从摄像机渲染，另一次从光源的角度渲染。
    * </p>
    * <p>
-   * Shadows are rendered only when {@link Viewer#shadows} is <code>true</code>.
+   * 仅当 {@link Viewer#shadows} 为 <code>true</code> 时，才会渲染阴影。
    * </p>
    *
    * @type {ShadowMode}
@@ -517,7 +517,7 @@ function Cesium3DTileset(options) {
   this.shadows = defaultValue(options.shadows, ShadowMode.ENABLED);
 
   /**
-   * Determines if the tileset will be shown.
+   * 确定是否显示图块集。
    *
    * @type {boolean}
    * @default true
@@ -525,8 +525,8 @@ function Cesium3DTileset(options) {
   this.show = defaultValue(options.show, true);
 
   /**
-   * Defines how per-feature colors set from the Cesium API or declarative styling blend with the source colors from
-   * the original feature, e.g. glTF material or per-point color in the tile.
+   * 定义从 Cesium API 或声明式样式设置的每个特征颜色如何与
+   * 原始特征，例如 glTF 材质或瓦片中的每点颜色。
    *
    * @type {Cesium3DTileColorBlendMode}
    * @default Cesium3DTileColorBlendMode.HIGHLIGHT
@@ -534,9 +534,9 @@ function Cesium3DTileset(options) {
   this.colorBlendMode = Cesium3DTileColorBlendMode.HIGHLIGHT;
 
   /**
-   * Defines the value used to linearly interpolate between the source color and feature color when the {@link Cesium3DTileset#colorBlendMode} is <code>MIX</code>.
-   * A value of 0.0 results in the source color while a value of 1.0 results in the feature color, with any value in-between
-   * resulting in a mix of the source color and feature color.
+   * 定义当 {@link Cesium3DTileset#colorBlendMode} 为 <code>MIX</code> 时，用于在源颜色和特征颜色之间线性插值的值。
+   * 值为 0.0 时，将生成源颜色，而值为 1.0 时，将生成特征颜色，介于两者之间的任何值
+   * 导致源颜色和特征颜色的混合。
    *
    * @type {number}
    * @default 0.5
@@ -547,15 +547,15 @@ function Cesium3DTileset(options) {
   this._pointCloudEyeDomeLighting = new PointCloudEyeDomeLighting();
 
   /**
-   * The event fired to indicate progress of loading new tiles.  This event is fired when a new tile
-   * is requested, when a requested tile is finished downloading, and when a downloaded tile has been
-   * processed and is ready to render.
+   * 触发事件以指示加载新图块的进度。 当新瓦片
+   * 是请求的，当请求的磁贴完成下载，并且下载的磁贴已
+   * 已处理并准备好渲染。
    * <p>
-   * The number of pending tile requests, <code>numberOfPendingRequests</code>, and number of tiles
-   * processing, <code>numberOfTilesProcessing</code> are passed to the event listener.
+   * 待处理磁贴请求的数量、<code>numberOfPendingRequests</code> 和磁贴数量
+   * <code>processing，numberOfTilesProcessing</code> 将传递给事件侦听器。
    * </p>
    * <p>
-   * This event is fired at the end of the frame after the scene is rendered.
+   * 此事件在场景渲染后的帧结束时触发。
    * </p>
    *
    * @type {Event}
@@ -574,10 +574,10 @@ function Cesium3DTileset(options) {
   this.loadProgress = new Event();
 
   /**
-   * The event fired to indicate that all tiles that meet the screen space error this frame are loaded. The tileset
-   * is completely loaded for this view.
+   * 触发事件以指示加载此帧中符合屏幕空间错误的所有图块。图块集
+   * 已完全加载此视图。
    * <p>
-   * This event is fired at the end of the frame after the scene is rendered.
+   * 此事件在场景渲染后的帧结束时触发。
    * </p>
    *
    * @type {Event}
@@ -593,10 +593,10 @@ function Cesium3DTileset(options) {
   this.allTilesLoaded = new Event();
 
   /**
-   * The event fired to indicate that all tiles that meet the screen space error this frame are loaded. This event
-   * is fired once when all tiles in the initial view are loaded.
+   * 触发事件以指示加载此帧中符合屏幕空间错误的所有图块。此活动
+   * 在加载初始视图中的所有图块时触发一次。
    * <p>
-   * This event is fired at the end of the frame after the scene is rendered.
+   * 此事件在场景渲染后的帧结束时触发。
    * </p>
    *
    * @type {Event}
@@ -612,14 +612,14 @@ function Cesium3DTileset(options) {
   this.initialTilesLoaded = new Event();
 
   /**
-   * The event fired to indicate that a tile's content was loaded.
+   * 触发事件以指示磁贴的内容已加载。
    * <p>
-   * The loaded {@link Cesium3DTile} is passed to the event listener.
+   * 加载的 {@link Cesium3DTile} 将传递给事件侦听器。
    * </p>
    * <p>
-   * This event is fired during the tileset traversal while the frame is being rendered
-   * so that updates to the tile take effect in the same frame.  Do not create or modify
-   * Cesium entities or primitives during the event listener.
+   * 此事件在图块集遍历期间触发，同时渲染帧
+   * 以便对图块的更新在同一帧中生效。 请勿创建或修改
+   * 事件侦听器期间的 Cesium 实体或基元。
    * </p>
    *
    * @type {Event}
@@ -633,14 +633,14 @@ function Cesium3DTileset(options) {
   this.tileLoad = new Event();
 
   /**
-   * The event fired to indicate that a tile's content was unloaded.
+   * 触发事件以指示磁贴的内容已卸载。
    * <p>
-   * The unloaded {@link Cesium3DTile} is passed to the event listener.
+   * 将卸载的 {@link Cesium3DTile} 传递给事件侦听器。
    * </p>
    * <p>
-   * This event is fired immediately before the tile's content is unloaded while the frame is being
-   * rendered so that the event listener has access to the tile's content.  Do not create
-   * or modify Cesium entities or primitives during the event listener.
+   * 此事件在帧被卸载之前立即触发
+   * rendered 的 Alpha S Interface，以便事件侦听器可以访问瓦片的内容。 不创建
+   * 或在事件侦听器期间修改 Cesium 实体或基元。
    * </p>
    *
    * @type {Event}
@@ -657,18 +657,18 @@ function Cesium3DTileset(options) {
   this.tileUnload = new Event();
 
   /**
-   * The event fired to indicate that a tile's content failed to load.
+   * 触发事件以指示磁贴的内容无法加载。
    * <p>
-   * If there are no event listeners, error messages will be logged to the console.
+   * 如果没有事件侦听器，错误消息将记录到控制台。
    * </p>
    * <p>
-   * The error object passed to the listener contains two properties:
+   * 传递给侦听器的 error 对象包含两个属性：
    * <ul>
-   * <li><code>url</code>: the url of the failed tile.</li>
-   * <li><code>message</code>: the error message.</li>
+   * <li><code>URL</code>：失败磁贴的 URL。</li>
+   * <li><code>message</code>：错误消息。</li>
    * </ul>
    * <p>
-   * If multiple contents are present, this event is raised once per inner content with errors.
+   * 如果存在多个内容，则每个内部内容都会引发一次此事件，并出现错误。
    * </p>
    *
    * @type {Event}
@@ -683,15 +683,15 @@ function Cesium3DTileset(options) {
   this.tileFailed = new Event();
 
   /**
-   * This event fires once for each visible tile in a frame.  This can be used to manually
-   * style a tileset.
+   * 此事件对帧中的每个可见图块触发一次。 这可以手动用于
+   * 设置图块集的样式。
    * <p>
-   * The visible {@link Cesium3DTile} is passed to the event listener.
+   * 可见的 {@link Cesium3DTile} 被传递给事件侦听器。
    * </p>
    * <p>
-   * This event is fired during the tileset traversal while the frame is being rendered
-   * so that updates to the tile take effect in the same frame.  Do not create or modify
-   * Cesium entities or primitives during the event listener.
+   * 此事件在图块集遍历期间触发，同时渲染帧
+   * 以便对图块的更新在同一帧中生效。 请勿创建或修改
+   * 事件侦听器期间的 Cesium 实体或基元。
    * </p>
    *
    * @type {Event}
@@ -720,12 +720,12 @@ function Cesium3DTileset(options) {
   this.tileVisible = new Event();
 
   /**
-   * Optimization option. Determines if level of detail skipping should be applied during the traversal.
+   * 优化选项。确定在遍历期间是否应应用细节级别跳过。
    * <p>
-   * The common strategy for replacement-refinement traversal is to store all levels of the tree in memory and require
-   * all children to be loaded before the parent can refine. With this optimization levels of the tree can be skipped
-   * entirely and children can be rendered alongside their parents. The tileset requires significantly less memory when
-   * using this optimization.
+   * 替换优化遍历的常见策略是将树的所有级别存储在内存中，并且需要
+   * 在父项可以优化之前加载所有子项。通过此优化，可以跳过树的级别
+   * 完全，子项可以与父项一起呈现。在以下情况下，瓦片集需要的内存要少得多
+   * 使用此优化。
    * </p>
    *
    * @type {boolean}
@@ -736,9 +736,9 @@ function Cesium3DTileset(options) {
   this._disableSkipLevelOfDetail = false;
 
   /**
-   * The screen space error that must be reached before skipping levels of detail.
+   * 在跳过细节级别之前必须达到的屏幕空间错误。
    * <p>
-   * Only used when {@link Cesium3DTileset#skipLevelOfDetail} is <code>true</code>.
+   * 仅在 {@link Cesium3DTileset#skipLevelOfDetail} 为 <code>true</code> 时使用。
    * </p>
    *
    * @type {number}
@@ -747,11 +747,11 @@ function Cesium3DTileset(options) {
   this.baseScreenSpaceError = defaultValue(options.baseScreenSpaceError, 1024);
 
   /**
-   * Multiplier defining the minimum screen space error to skip.
-   * For example, if a tile has screen space error of 100, no tiles will be loaded unless they
-   * are leaves or have a screen space error <code><= 100 / skipScreenSpaceErrorFactor</code>.
+   * 定义要跳过的最小屏幕空间误差的乘数。
+   * 例如，如果磁贴的屏幕空间误差为 100，则不会加载任何磁贴，除非它们
+   * 是叶子或有屏幕空间错误 <code><= 100 / skipScreenSpaceErrorFactor</code>。
    * <p>
-   * Only used when {@link Cesium3DTileset#skipLevelOfDetail} is <code>true</code>.
+   * 仅在 {@link Cesium3DTileset#skipLevelOfDetail} 为 <code>true</code> 时使用。
    * </p>
    *
    * @type {number}
@@ -763,10 +763,10 @@ function Cesium3DTileset(options) {
   );
 
   /**
-   * Constant defining the minimum number of levels to skip when loading tiles. When it is 0, no levels are skipped.
-   * For example, if a tile is level 1, no tiles will be loaded unless they are at level greater than 2.
+   * 常量定义加载图块时要跳过的最小级别数。当它为 0 时，不会跳过任何级别。
+   * 例如，如果图块的级别为 1，则不会加载任何图块，除非它们位于大于 2 的级别。
    * <p>
-   * Only used when {@link Cesium3DTileset#skipLevelOfDetail} is <code>true</code>.
+   * 仅在 {@link Cesium3DTileset#skipLevelOfDetail} 为 <code>true</code> 时使用。
    * </p>
    *
    * @type {number}
@@ -775,10 +775,10 @@ function Cesium3DTileset(options) {
   this.skipLevels = defaultValue(options.skipLevels, 1);
 
   /**
-   * When true, only tiles that meet the maximum screen space error will ever be downloaded.
-   * Skipping factors are ignored and just the desired tiles are loaded.
+   * 如果为 true，则只会下载满足最大屏幕空间误差的磁贴。
+   * 跳过因素将被忽略，仅加载所需的图块。
    * <p>
-   * Only used when {@link Cesium3DTileset#skipLevelOfDetail} is <code>true</code>.
+   * 仅在 {@link Cesium3DTileset#skipLevelOfDetail} 为 <code>true</code> 时使用。
    * </p>
    *
    * @type {boolean}
@@ -790,10 +790,10 @@ function Cesium3DTileset(options) {
   );
 
   /**
-   * Determines whether siblings of visible tiles are always downloaded during traversal.
-   * This may be useful for ensuring that tiles are already available when the viewer turns left/right.
+   * 确定在遍历期间是否始终下载可见切片的同级。
+   * 这对于确保观看者向左/向右转动时磁贴已经可用可能很有用。
    * <p>
-   * Only used when {@link Cesium3DTileset#skipLevelOfDetail} is <code>true</code>.
+   * 仅在 {@link Cesium3DTileset#skipLevelOfDetail} 为 <code>true</code> 时使用。
    * </p>
    *
    * @type {boolean}
@@ -828,11 +828,11 @@ function Cesium3DTileset(options) {
   }
 
   /**
-   * The light color when shading models. When <code>undefined</code> the scene's light color is used instead.
+   * 为模型着色时的光色。<code>如果未定义</code>，则使用场景的 light 颜色。
    * <p>
-   * For example, disabling additional light sources by setting
-   * <code>tileset.imageBasedLighting.imageBasedLightingFactor = new Cartesian2(0.0, 0.0)</code>
-   * will make the tileset much darker. Here, increasing the intensity of the light source will make the tileset brighter.
+   * 例如，通过设置
+   * <code>tileset.imageBasedLighting.imageBasedLightingFactor = 新笛卡尔2（0.0， 0.0）</code>
+   * 会使图块集更暗。在这里，增加光源的强度将使图块集更亮。
    * </p>
    *
    * @type {Cartesian3}
@@ -841,8 +841,8 @@ function Cesium3DTileset(options) {
   this.lightColor = options.lightColor;
 
   /**
-   * Whether to cull back-facing geometry. When true, back face culling is determined
-   * by the glTF material's doubleSided property; when false, back face culling is disabled.
+   * 是否剔除背面的几何体。如果为 true，则确定背面剔除
+   * 通过 glTF 材质的 doubleSided 属性;如果为 false，则禁用背面剔除。
    *
    * @type {boolean}
    * @default true
@@ -852,9 +852,9 @@ function Cesium3DTileset(options) {
   this._enableShowOutline = defaultValue(options.enableShowOutline, true);
 
   /**
-   * Whether to display the outline for models using the
-   * {@link https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/CESIUM_primitive_outline|CESIUM_primitive_outline} extension.
-   * When true, outlines are displayed. When false, outlines are not displayed.
+   * 是否显示使用
+   * {@link https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/CESIUM_primitive_outline|CESIUM_primitive_outline} 扩展。
+   * 如果为 true，则显示轮廓。如果为 false，则不显示轮廓。
    *
    * @type {boolean}
    * @default true
@@ -862,7 +862,7 @@ function Cesium3DTileset(options) {
   this.showOutline = defaultValue(options.showOutline, true);
 
   /**
-   * The color to use when rendering outlines.
+   * 渲染轮廓时使用的颜色。
    *
    * @type {Color}
    * @default Color.BLACK
@@ -870,7 +870,7 @@ function Cesium3DTileset(options) {
   this.outlineColor = defaultValue(options.outlineColor, Color.BLACK);
 
   /**
-   * The {@link SplitDirection} to apply to this tileset.
+   * 要应用于此图块集的 {@link SplitDirection}。
    *
    * @type {SplitDirection}
    * @default {@link SplitDirection.NONE}
@@ -881,7 +881,7 @@ function Cesium3DTileset(options) {
   );
 
   /**
-   * If <code>true</code>, allows collisions for camera collisions or picking. While this is  <code>true</code> the camera will be prevented from going in or below the tileset surface if {@link ScreenSpaceCameraController#enableCollisionDetection} is true. This can have performance implecations if the tileset contains tile with a larger number of vertices.
+   * 如果<code>为 true</code>，则允许摄像机碰撞或拾取的碰撞。虽然这是<code>真的</code>，但如果 {@link ScreenSpaceCameraController#enableCollisionDetection} 为 true，则相机将被阻止进入或低于图块集表面。如果图块集包含具有大量顶点的图块，则这可能会对性能产生影响。
    *
    * @type {boolean}
    * @default false
@@ -891,11 +891,11 @@ function Cesium3DTileset(options) {
   this._enablePick = defaultValue(options.enablePick, false);
 
   /**
-   * This property is for debugging only; it is not optimized for production use.
+   * 此属性仅用于调试;它未针对生产使用进行优化。
    * <p>
-   * Determines if only the tiles from last frame should be used for rendering.  This
-   * effectively "freezes" the tileset to the previous frame so it is possible to zoom
-   * out and see what was rendered.
+   * 确定是否只应使用上一帧中的平铺进行渲染。 这
+   * 有效地将 tileset “冻结”到前一帧，以便可以缩放
+   * 出来，看看渲染了什么。
    * </p>
    *
    * @type {boolean}
@@ -904,11 +904,11 @@ function Cesium3DTileset(options) {
   this.debugFreezeFrame = defaultValue(options.debugFreezeFrame, false);
 
   /**
-   * This property is for debugging only; it is not optimized for production use.
+   * 此属性仅用于调试;它未针对生产使用进行优化。
    * <p>
-   * When true, assigns a random color to each tile.  This is useful for visualizing
-   * what features belong to what tiles, especially with additive refinement where features
-   * from parent tiles may be interleaved with features from child tiles.
+   * 如果为 true，则为每个平铺分配随机颜色。 这对于可视化
+   * 哪些特征属于哪些瓦片，尤其是使用加法细化 WHERE 特征
+   * 来自父切片的要素可以与来自子切片的要素交错。
    * </p>
    *
    * @type {boolean}
@@ -922,9 +922,9 @@ function Cesium3DTileset(options) {
   );
 
   /**
-   * This property is for debugging only; it is not optimized for production use.
+   * 此属性仅用于调试;它未针对生产使用进行优化。
    * <p>
-   * When true, renders each tile's content as a wireframe.
+   * 如果为 true，则将每个瓦片的内容呈现为线框。
    * </p>
    *
    * @type {boolean}
@@ -941,11 +941,11 @@ function Cesium3DTileset(options) {
   }
 
   /**
-   * This property is for debugging only; it is not optimized for production use.
+   * 此属性仅用于调试;它未针对生产使用进行优化。
    * <p>
-   * When true, renders the bounding volume for each visible tile.  The bounding volume is
-   * white if the tile has a content bounding volume or is empty; otherwise, it is red.  Tiles that don't meet the
-   * screen space error and are still refining to their descendants are yellow.
+   * 如果为 true，则渲染每个可见瓦片的边界体积。 边界体积为
+   * 如果磁贴具有内容边界卷或为空，则为白色;否则，它将变为红色。 不符合
+   * 屏幕空间错误，并且仍在优化其后代是黄色的。
    * </p>
    *
    * @type {boolean}
@@ -957,10 +957,10 @@ function Cesium3DTileset(options) {
   );
 
   /**
-   * This property is for debugging only; it is not optimized for production use.
+   * 此属性仅用于调试;它未针对生产使用进行优化。
    * <p>
-   * When true, renders the bounding volume for each visible tile's content. The bounding volume is
-   * blue if the tile has a content bounding volume; otherwise it is red.
+   * 如果为 true，则渲染每个可见图块内容的边界体积。边界体积为
+   * 如果磁贴具有内容边界体积，则为蓝色;否则为红色。
    * </p>
    *
    * @type {boolean}
@@ -972,9 +972,9 @@ function Cesium3DTileset(options) {
   );
 
   /**
-   * This property is for debugging only; it is not optimized for production use.
+   * 此属性仅用于调试;它未针对生产使用进行优化。
    * <p>
-   * When true, renders the viewer request volume for each tile.
+   * 如果为 true，则呈现每个图块的查看器请求量。
    * </p>
    *
    * @type {boolean}
@@ -995,9 +995,9 @@ function Cesium3DTileset(options) {
   this.debugPickPosition = undefined;
 
   /**
-   * This property is for debugging only; it is not optimized for production use.
+   * 此属性仅用于调试;它未针对生产使用进行优化。
    * <p>
-   * When true, draws labels to indicate the geometric error of each tile.
+   * 如果为 true，则绘制标签以指示每个图块的几何误差。
    * </p>
    *
    * @type {boolean}
@@ -1009,9 +1009,9 @@ function Cesium3DTileset(options) {
   );
 
   /**
-   * This property is for debugging only; it is not optimized for production use.
+   * 此属性仅用于调试;它未针对生产使用进行优化。
    * <p>
-   * When true, draws labels to indicate the number of commands, points, triangles and features of each tile.
+   * 如果为 true，则绘制标签以指示每个图块的命令、点、三角形和功能的数量。
    * </p>
    *
    * @type {boolean}
@@ -1023,9 +1023,9 @@ function Cesium3DTileset(options) {
   );
 
   /**
-   * This property is for debugging only; it is not optimized for production use.
+   * 此属性仅用于调试;它未针对生产使用进行优化。
    * <p>
-   * When true, draws labels to indicate the geometry and texture memory usage of each tile.
+   * 如果为 true，则绘制标签以指示每个瓦片的几何图形和纹理内存使用情况。
    * </p>
    *
    * @type {boolean}
@@ -1034,9 +1034,9 @@ function Cesium3DTileset(options) {
   this.debugShowMemoryUsage = defaultValue(options.debugShowMemoryUsage, false);
 
   /**
-   * This property is for debugging only; it is not optimized for production use.
+   * 此属性仅用于调试;它未针对生产使用进行优化。
    * <p>
-   * When true, draws labels to indicate the url of each tile.
+   * 如果为 true，则绘制标签以指示每个图块的 URL。
    * </p>
    *
    * @type {boolean}
@@ -1045,9 +1045,9 @@ function Cesium3DTileset(options) {
   this.debugShowUrl = defaultValue(options.debugShowUrl, false);
 
   /**
-   * Function for examining vector lines as they are being streamed.
+   * 用于在流式时检查矢量线的函数。
    *
-   * @experimental This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.
+   * @experimental 此功能使用的是 3D Tiles 规范的一部分，该规范并非最终版本，并且可能会在没有 Cesium 标准弃用政策的情况下进行更改。
    *
    * @type {Function}
    */
@@ -1078,9 +1078,9 @@ function Cesium3DTileset(options) {
 
 Object.defineProperties(Cesium3DTileset.prototype, {
   /**
-   * NOTE: This getter exists so that `Picking.js` can differentiate between
-   *       PrimitiveCollection and Cesium3DTileset objects without inflating
-   *       the size of the module via `instanceof Cesium3DTileset`
+   * 注意：这个 getter 的存在是为了让 'Picking.js' 可以区分
+   * PrimitiveCollection 和 Cesium3DTileset 对象，无需膨胀
+   * 通过 'instanceof Cesium3DTileset' 的模块大小
    * @private
    */
   isCesium3DTileset: {
@@ -1090,10 +1090,10 @@ Object.defineProperties(Cesium3DTileset.prototype, {
   },
 
   /**
-   * Gets the tileset's asset object property, which contains metadata about the tileset.
+   * 获取图块集的 asset object 属性，其中包含有关图块集的元数据。
    * <p>
-   * See the {@link https://github.com/CesiumGS/3d-tiles/tree/main/specification#reference-asset|asset schema reference}
-   * in the 3D Tiles spec for the full set of properties.
+   * 请参阅 {@link https://github.com/CesiumGS/3d-tiles/tree/main/specification#reference-asset|asset schema reference}
+   * 在 3D Tiles 规范中了解完整的属性集。
    * </p>
    *
    * @memberof Cesium3DTileset.prototype
@@ -1108,7 +1108,7 @@ Object.defineProperties(Cesium3DTileset.prototype, {
   },
 
   /**
-   * Gets the tileset's extensions object property.
+   * 获取图块集的 extensions 对象属性。
    *
    * @memberof Cesium3DTileset.prototype
    *
@@ -1122,7 +1122,7 @@ Object.defineProperties(Cesium3DTileset.prototype, {
   },
 
   /**
-   * The {@link ClippingPlaneCollection} used to selectively disable rendering the tileset.
+   * 用于选择性地禁用图块集渲染的 {@link ClippingPlaneCollection}。
    *
    * @memberof Cesium3DTileset.prototype
    *
@@ -1138,7 +1138,7 @@ Object.defineProperties(Cesium3DTileset.prototype, {
   },
 
   /**
-   * The {@link ClippingPolygonCollection} used to selectively disable rendering the tileset.
+   * 用于选择性地禁用图块集渲染的 {@link ClippingPolygonCollection}。
    *
    * @memberof Cesium3DTileset.prototype
    *
@@ -1154,10 +1154,10 @@ Object.defineProperties(Cesium3DTileset.prototype, {
   },
 
   /**
-   * Gets the tileset's properties dictionary object, which contains metadata about per-feature properties.
+   * 获取图块集的 properties 字典对象，其中包含有关每个特征属性的元数据。
    * <p>
-   * See the {@link https://github.com/CesiumGS/3d-tiles/tree/main/specification#reference-properties|properties schema reference}
-   * in the 3D Tiles spec for the full set of properties.
+   * 请参阅 {@link https://github.com/CesiumGS/3d-tiles/tree/main/specification#reference-properties|properties 架构参考}
+   * 在 3D Tiles 规范中了解完整的属性集。
    * </p>
    *
    * @memberof Cesium3DTileset.prototype
@@ -1179,8 +1179,8 @@ Object.defineProperties(Cesium3DTileset.prototype, {
   },
 
   /**
-   * When <code>true</code>, all tiles that meet the screen space error this frame are loaded. The tileset is
-   * completely loaded for this view.
+   * 如果<code>为 true</code>，则加载满足此帧的屏幕空间错误的所有图块。图块集为
+   * 完全加载此视图。
    *
    * @memberof Cesium3DTileset.prototype
    *
@@ -1198,7 +1198,7 @@ Object.defineProperties(Cesium3DTileset.prototype, {
   },
 
   /**
-   * The resource used to fetch the tileset JSON file
+   * 用于获取瓦片集 JSON 文件的资源
    *
    * @memberof Cesium3DTileset.prototype
    *
@@ -1212,7 +1212,7 @@ Object.defineProperties(Cesium3DTileset.prototype, {
   },
 
   /**
-   * The base path that non-absolute paths in tileset JSON file are relative to.
+   * 瓦片集 JSON 文件中非绝对路径的相对基本路径。
    *
    * @memberof Cesium3DTileset.prototype
    *
@@ -1231,25 +1231,25 @@ Object.defineProperties(Cesium3DTileset.prototype, {
   },
 
   /**
-   * The style, defined using the
-   * {@link https://github.com/CesiumGS/3d-tiles/tree/main/specification/Styling|3D Tiles Styling language},
-   * applied to each feature in the tileset.
+   * 样式，使用
+   * {@link https://github.com/CesiumGS/3d-tiles/tree/main/specification/Styling|3D 瓦片样式语言}，
+   * 应用于图块集中的每个功能。
    * <p>
-   * Assign <code>undefined</code> to remove the style, which will restore the visual
-   * appearance of the tileset to its default when no style was applied.
+   * 分配 <code>undefined</code> 以删除样式，这将恢复视觉效果
+   * 未应用样式时，图块集的外观为默认值。
    * </p>
    * <p>
-   * The style is applied to a tile before the {@link Cesium3DTileset#tileVisible}
-   * event is raised, so code in <code>tileVisible</code> can manually set a feature's
-   * properties (e.g. color and show) after the style is applied. When
-   * a new style is assigned any manually set properties are overwritten.
+   * 样式应用于 {@link Cesium3DTileset#tileVisible} 之前的瓦片
+   * 事件，因此 <code>tileVisible</code> 中的代码可以手动设置特征的
+   * 属性（例如 color 和 show）。什么时候
+   * 为新样式分配任何手动设置的属性都将被覆盖。
    * </p>
    * <p>
-   * Use an always "true" condition to specify the Color for all objects that are not
-   * overridden by pre-existing conditions. Otherwise, the default color Cesium.Color.White
-   * will be used. Similarly, use an always "true" condition to specify the show property
-   * for all objects that are not overridden by pre-existing conditions. Otherwise, the
-   * default show value true will be used.
+   * 使用始终为 “true” 的条件为所有不是 “true” 的对象指定 Color
+   * 被原有疾病覆盖。否则，默认颜色 Cesium.Color.White
+   * 将被使用。同样，使用始终为 “true” 条件来指定 show 属性
+   * 对于未被预先存在的条件覆盖的所有对象。否则，
+   * 将使用默认的显示值 true。
    * </p>
    *
    * @memberof Cesium3DTileset.prototype
@@ -1285,9 +1285,9 @@ Object.defineProperties(Cesium3DTileset.prototype, {
   },
 
   /**
-   * A custom shader to apply to all tiles in the tileset. Only used for
-   * contents that use {@link Model}. Using custom shaders with a
-   * {@link Cesium3DTileStyle} may lead to undefined behavior.
+   * 应用于图块集中所有图块的自定义着色器。仅用于
+   * 使用 {@link Model} 的内容。将自定义着色器与
+   * {@link Cesium3DTileStyle} 可能会导致未定义的行为。
    *
    * @memberof Cesium3DTileset.prototype
    *
@@ -1295,7 +1295,7 @@ Object.defineProperties(Cesium3DTileset.prototype, {
    *
    * @default undefined
    *
-   * @experimental This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.
+   * @experimental 此功能使用的是 3D Tiles 规范的一部分，该规范并非最终版本，并且可能会在没有 Cesium 标准弃用政策的情况下进行更改。
    */
   customShader: {
     get: function () {
@@ -1307,8 +1307,8 @@ Object.defineProperties(Cesium3DTileset.prototype, {
   },
 
   /**
-   * Whether the tileset is rendering different levels of detail in the same view.
-   * Only relevant if {@link Cesium3DTileset.isSkippingLevelOfDetail} is true.
+   * 瓦片集是否在同一视图中渲染不同级别的细节。
+   * 仅当 {@link Cesium3DTileset.isSkippingLevelOfDetail} 为 true 时才相关。
    *
    * @memberof Cesium3DTileset.prototype
    *
@@ -1329,9 +1329,9 @@ Object.defineProperties(Cesium3DTileset.prototype, {
   },
 
   /**
-   * Whether this tileset is actually skipping levels of detail.
-   * The user option may have been disabled if all tiles are using additive refinement,
-   * or if some tiles have a content type for which rendering does not support skipping
+   * 此图块集是否实际上跳过了细节级别。
+   * 如果所有图块都使用加法细化，则用户选项可能已被禁用，
+   * 或者，如果某些磁贴具有渲染不支持跳过的内容类型
    *
    * @memberof Cesium3DTileset.prototype
    *
@@ -1351,16 +1351,16 @@ Object.defineProperties(Cesium3DTileset.prototype, {
   },
 
   /**
-   * The tileset's schema, groups, tileset metadata and other details from the
-   * 3DTILES_metadata extension or a 3D Tiles 1.1 tileset JSON. This getter is
-   * for internal use by other classes.
+   * 图块集的架构、组、图块集元数据和其他详细信息，来自
+   * 3DTILES_metadata扩展或 3D Tiles 1.1 图块集 JSON。这个 getter 是
+   * 供其他类内部使用。
    *
    * @memberof Cesium3DTileset.prototype
    * @type {Cesium3DTilesetMetadata}
    * @private
    * @readonly
    *
-   * @experimental This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.
+   * @experimental 此功能使用的是 3D Tiles 规范的一部分，该规范不是最终版本，并且可能会在没有 Cesium 标准弃用策略的情况下进行更改。
    */
   metadataExtension: {
     get: function () {
@@ -1369,7 +1369,7 @@ Object.defineProperties(Cesium3DTileset.prototype, {
   },
 
   /**
-   * The metadata properties attached to the tileset as a whole.
+   * 附加到整个图块集的元数据属性。
    *
    * @memberof Cesium3DTileset.prototype
    *
@@ -1377,7 +1377,7 @@ Object.defineProperties(Cesium3DTileset.prototype, {
    * @private
    * @readonly
    *
-   * @experimental This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.
+   * @experimental 此功能使用的是 3D Tiles 规范的一部分，该规范不是最终版本，并且可能会在没有 Cesium 标准弃用策略的情况下进行更改。
    */
   metadata: {
     get: function () {
@@ -1390,7 +1390,7 @@ Object.defineProperties(Cesium3DTileset.prototype, {
   },
 
   /**
-   * The metadata schema used in this tileset. Shorthand for
+   * 此图块集中使用的元数据架构。的简写
    * <code>tileset.metadataExtension.schema</code>
    *
    * @memberof Cesium3DTileset.prototype
@@ -1399,7 +1399,7 @@ Object.defineProperties(Cesium3DTileset.prototype, {
    * @private
    * @readonly
    *
-   * @experimental This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.
+   * @experimental 此功能使用的是 3D Tiles 规范的一部分，该规范不是最终版本，并且可能会在没有 Cesium 标准弃用策略的情况下进行更改。
    */
   schema: {
     get: function () {
@@ -1412,16 +1412,16 @@ Object.defineProperties(Cesium3DTileset.prototype, {
   },
 
   /**
-   * The maximum screen space error used to drive level of detail refinement.  This value helps determine when a tile
-   * refines to its descendants, and therefore plays a major role in balancing performance with visual quality.
+   * 用于驱动细节层次优化的最大屏幕空间误差。 此值有助于确定何时显示
+   * 优化到其后代，因此在平衡性能与视觉质量方面发挥着重要作用。
    * <p>
-   * A tile's screen space error is roughly equivalent to the number of pixels wide that would be drawn if a sphere with a
-   * radius equal to the tile's <b>geometric error</b> were rendered at the tile's position. If this value exceeds
-   * <code>maximumScreenSpaceError</code> the tile refines to its descendants.
+   * 瓦片的屏幕空间误差大致相当于如果
+   * 半径等于瓦片的<b>几何误差</b>，则在瓦片的位置渲染。如果此值超过
+   * <code>maximumScreenSpaceError</code> 磁贴细化为其后代。
    * </p>
    * <p>
-   * Depending on the tileset, <code>maximumScreenSpaceError</code> may need to be tweaked to achieve the right balance.
-   * Higher values provide better performance but lower visual quality.
+   * 根据图块集，可能需要调整 <code>maximumScreenSpaceError</code> 以实现适当的平衡。
+   * 值越高，性能越好，但视觉质量越低。
    * </p>
    *
    * @memberof Cesium3DTileset.prototype
@@ -1450,24 +1450,24 @@ Object.defineProperties(Cesium3DTileset.prototype, {
   },
 
   /**
-   * The amount of GPU memory (in bytes) used to cache tiles. This memory usage is estimated from
-   * geometry, textures, and batch table textures of loaded tiles. For point clouds, this value also
-   * includes per-point metadata.
+   * 用于缓存切片的 GPU 内存量（以字节为单位）。此内存使用量的估计公式为
+   * 加载的图块的几何图形、纹理和批处理表纹理。对于点云，此值还
+   * 包括每个点的元数据。
    * <p>
-   * Tiles not in view are unloaded to enforce this.
+   * 未在视图中的图块将被卸载以强制执行此操作。
    * </p>
    * <p>
-   * If decreasing this value results in unloading tiles, the tiles are unloaded the next frame.
+   * 如果减小此值导致卸载图块，则会在下一帧卸载图块。
    * </p>
    * <p>
-   * If tiles sized more than <code>cacheBytes</code> are needed to meet the
-   * desired screen space error, determined by {@link Cesium3DTileset#maximumScreenSpaceError},
-   * for the current view, then the memory usage of the tiles loaded will exceed
-   * <code>cacheBytes</code> by up to <code>maximumCacheOverflowBytes</code>.
-   * For example, if <code>cacheBytes</code> is 500000, but 600000 bytes
-   * of tiles are needed to meet the screen space error, then 600000 bytes of tiles
-   * may be loaded (if <code>maximumCacheOverflowBytes</code> is at least 100000).
-   * When these tiles go out of view, they will be unloaded.
+   * 如果需要大小大于 <code>cacheBytes</code> 的切片才能满足
+   * 所需屏幕空间误差，由 {@link Cesium3DTileset#maximumScreenSpaceError} 确定，
+   * 对于当前视图，则加载的瓦片的内存使用量将超过
+   * <code>cacheBytes</code> 最多增加 <code>maximumCacheOverflowBytes</code>。
+   * 例如，如果 <code>cacheBytes</code> 为 500000，但为 600000 字节
+   * 的瓦片需要满足屏幕空间错误，则 600000 字节的瓦片
+   * 可能会加载（如果 <code>maximumCacheOverflowBytes</code> 至少为 100000）。
+   * 当这些图块离开视野时，它们将被卸载。
    * </p>
    *
    * @memberof Cesium3DTileset.prototype
@@ -1492,14 +1492,14 @@ Object.defineProperties(Cesium3DTileset.prototype, {
   },
 
   /**
-   * The maximum additional amount of GPU memory (in bytes) that will be used to cache tiles.
+   * 将用于缓存切片的最大额外 GPU 内存量（以字节为单位）。
    * <p>
-   * If tiles sized more than <code>cacheBytes</code> plus <code>maximumCacheOverflowBytes</code>
-   * are needed to meet the desired screen space error, determined by
-   * {@link Cesium3DTileset#maximumScreenSpaceError} for the current view, then
-   * {@link Cesium3DTileset#memoryAdjustedScreenSpaceError} will be adjusted
-   * until the tiles required to meet the adjusted screen space error use less
-   * than <code>cacheBytes</code> plus <code>maximumCacheOverflowBytes</code>.
+   * 如果切片大小大于 <code>cacheBytes</code> 加上 <code>maximumCacheOverflowBytes</code>
+   * 需要满足所需的屏幕空间误差，由
+   * {@link Cesium3DTileset#maximumScreenSpaceError} 表示当前视图，则
+   * {@link Cesium3DTileset#memoryAdjustedScreenSpaceError} 将被调整
+   * 直到平铺所需的满足调整后的屏幕空间误差 使用较少
+   * 大于 <code>cacheBytes</code> 加上 <code>maximumCacheOverflowBytes</code>。
    * </p>
    *
    * @memberof Cesium3DTileset.prototype
@@ -1524,11 +1524,11 @@ Object.defineProperties(Cesium3DTileset.prototype, {
   },
 
   /**
-   * If loading the level of detail required by @{link Cesium3DTileset#maximumScreenSpaceError}
-   * results in the memory usage exceeding @{link Cesium3DTileset#cacheBytes}
-   * plus @{link Cesium3DTileset#maximumCacheOverflowBytes}, level of detail refinement
-   * will instead use this (larger) adjusted screen space error to achieve the
-   * best possible visual quality within the available memory
+   * 如果加载 @{link Cesium3DTileset#maximumScreenSpaceError} 所需的细节级别
+   * 导致内存使用量超过 @{link Cesium3DTileset#cacheBytes}
+   * 加上 @{link Cesium3DTileset#maximumCacheOverflowBytes}，详细程度优化
+   * 将改用这个（更大）调整的屏幕空间误差来实现
+   * 在可用内存内实现最佳视觉质量
    *
    * @memberof Cesium3DTileset.prototype
    *
@@ -1544,7 +1544,7 @@ Object.defineProperties(Cesium3DTileset.prototype, {
   },
 
   /**
-   * Options for controlling point size based on geometric error and eye dome lighting.
+   * 用于根据几何误差和 Eye Dome 照明控制点大小的选项。
    *
    * @memberof Cesium3DTileset.prototype
    *
@@ -1563,7 +1563,7 @@ Object.defineProperties(Cesium3DTileset.prototype, {
   },
 
   /**
-   * The root tile.
+   * 根磁贴。
    *
    * @memberOf Cesium3DTileset.prototype
    *
@@ -1577,7 +1577,7 @@ Object.defineProperties(Cesium3DTileset.prototype, {
   },
 
   /**
-   * The tileset's bounding sphere.
+   * 图块集的边界球体。
    *
    * @memberof Cesium3DTileset.prototype
    *
@@ -1600,7 +1600,7 @@ Object.defineProperties(Cesium3DTileset.prototype, {
   },
 
   /**
-   * A 4x4 transformation matrix that transforms the entire tileset.
+   * 一个 4x4 转换矩阵，用于转换整个图块集。
    *
    * @memberof Cesium3DTileset.prototype
    *
@@ -1627,7 +1627,7 @@ Object.defineProperties(Cesium3DTileset.prototype, {
   },
 
   /**
-   * Returns the time, in milliseconds, since the tileset was loaded and first updated.
+   * 返回自加载和首次更新图块集以来的时间（以毫秒为单位）。
    *
    * @memberof Cesium3DTileset.prototype
    *
@@ -1641,8 +1641,8 @@ Object.defineProperties(Cesium3DTileset.prototype, {
   },
 
   /**
-   * The total amount of GPU memory in bytes used by the tileset. This value is estimated from
-   * geometry, texture, batch table textures, and binary metadata of loaded tiles.
+   * 图块集使用的 GPU 内存总量（以字节为单位）。该值的估算公式为
+   * 加载的图块的几何图形、纹理、批处理表纹理和二进制元数据。
    *
    * @memberof Cesium3DTileset.prototype
    *
@@ -1703,32 +1703,32 @@ Object.defineProperties(Cesium3DTileset.prototype, {
   },
 
   /**
-   * Determines whether terrain, 3D Tiles, or both will be classified by this tileset.
+   * 确定地形、3D 瓦片还是按此瓦片集对两者进行分类。
    * <p>
-   * This option is only applied to tilesets containing batched 3D models,
-   * glTF content, geometry data, or vector data. Even when undefined, vector
-   * and geometry data must render as classifications and will default to
-   * rendering on both terrain and other 3D Tiles tilesets.
+   * 此选项仅适用于包含批处理 3D 模型的瓦片集，
+   * glTF 内容、几何数据或矢量数据。即使未定义，vector
+   * 和几何数据必须呈现为分类，并将默认为
+   * 在地形和其他 3D 瓦片集上渲染。
    * </p>
    * <p>
-   * When enabled for batched 3D model and glTF tilesets, there are a few
-   * requirements/limitations on the glTF:
+   * 当为批处理 3D 模型和 glTF 瓦片集启用时，有一些
+   * glTF 的要求/限制：
    * <ul>
-   *     <li>The glTF cannot contain morph targets, skins, or animations.</li>
-   *     <li>The glTF cannot contain the <code>EXT_mesh_gpu_instancing</code> extension.</li>
-   *     <li>Only meshes with TRIANGLES can be used to classify other assets.</li>
-   *     <li>The meshes must be watertight.</li>
-   *     <li>The <code>POSITION</code> semantic is required.</li>
-   *     <li>If <code>_BATCHID</code>s and an index buffer are both present, all indices with the same batch id must occupy contiguous sections of the index buffer.</li>
-   *     <li>If <code>_BATCHID</code>s are present with no index buffer, all positions with the same batch id must occupy contiguous sections of the position buffer.</li>
+   * <li>glTF 不能包含变形目标、皮肤或动画。</li>
+   * <li>glTF 不能包含 <code>EXT_mesh_gpu_instancing</code> 扩展。</li>
+   * <li>只有带有 TRIANGLES 的网格才能用于对其他资产进行分类。</li>
+   * <li>网格必须防水。</li>
+   * <li>需要 <code>POSITION</code> 语义。</li>
+   * <li>如果 <code>_BATCHID</code>秒和索引缓冲区都存在，则具有相同批处理 ID 的所有索引必须占据索引缓冲区的连续部分。</li>
+   * <li>如果存在没有索引缓冲区的 <code>_BATCHID</code>个，则具有相同批处理 ID 的所有位置必须占据位置缓冲区的连续部分。</li>
    * </ul>
    * </p>
    * <p>
-   * Additionally, classification is not supported for points or instanced 3D
-   * models.
+   * 此外，点或实例化 3D 不支持分类
+   *模型。
    * </p>
    * <p>
-   * The 3D Tiles or terrain receiving the classification must be opaque.
+   * 接受分类的 3D 瓦片或地形必须是不透明的。
    * </p>
    *
    * @memberof Cesium3DTileset.prototype
@@ -1736,7 +1736,7 @@ Object.defineProperties(Cesium3DTileset.prototype, {
    * @type {ClassificationType}
    * @default undefined
    *
-   * @experimental This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.
+   * @experimental 此功能使用的是 3D Tiles 规范的一部分，该规范不是最终版本，并且可能会在没有 Cesium 标准弃用策略的情况下进行更改。
    * @readonly
    */
   classificationType: {
@@ -1746,7 +1746,7 @@ Object.defineProperties(Cesium3DTileset.prototype, {
   },
 
   /**
-   * Gets an ellipsoid describing the shape of the globe.
+   * 获取描述地球形状的椭球体。
    *
    * @memberof Cesium3DTileset.prototype
    *
@@ -1760,9 +1760,9 @@ Object.defineProperties(Cesium3DTileset.prototype, {
   },
 
   /**
-   * Optimization option. Used when {@link Cesium3DTileset#foveatedScreenSpaceError} is true to control the cone size that determines which tiles are deferred.
-   * Tiles that are inside this cone are loaded immediately. Tiles outside the cone are potentially deferred based on how far outside the cone they are and {@link Cesium3DTileset#foveatedInterpolationCallback} and {@link Cesium3DTileset#foveatedMinimumScreenSpaceErrorRelaxation}.
-   * Setting this to 0.0 means the cone will be the line formed by the camera position and its view direction. Setting this to 1.0 means the cone encompasses the entire field of view of the camera, essentially disabling the effect.
+   * 优化选项。当 {@link Cesium3DTileset#foveatedScreenSpaceError} 为 true 时使用，以控制确定延迟哪些图块的圆锥体大小。
+   * 此圆锥体内的图块会立即加载。圆锥体外的图块可能会根据它们在圆锥体外的距离以及 {@link Cesium3DTileset#foveatedInterpolationCallback} 和 {@link Cesium3DTileset#foveatedMinimumScreenSpaceErrorRelaxation} 进行延迟。
+   * 将此设置为 0.0 意味着圆锥体将是摄像机位置及其视图方向形成的线。将此设置为 1.0 意味着圆锥体包含摄像机的整个视野，实质上会禁用该效果。
    *
    * @memberof Cesium3DTileset.prototype
    *
@@ -1784,8 +1784,8 @@ Object.defineProperties(Cesium3DTileset.prototype, {
   },
 
   /**
-   * Optimization option. Used when {@link Cesium3DTileset#foveatedScreenSpaceError} is true to control the starting screen space error relaxation for tiles outside the foveated cone.
-   * The screen space error will be raised starting with this value up to {@link Cesium3DTileset#maximumScreenSpaceError} based on the provided {@link Cesium3DTileset#foveatedInterpolationCallback}.
+   * 优化选项。当 {@link Cesium3DTileset#foveatedScreenSpaceError} 为 true 时使用，以控制凹圆锥体外磁贴的起始屏幕空间误差松弛。
+   * 根据提供的 {@link Cesium3DTileset#foveatedInterpolationCallback}，从此值开始，将引发屏幕空间错误，直到 {@link Cesium3DTileset#maximumScreenSpaceError}。
    *
    * @memberof Cesium3DTileset.prototype
    *
@@ -1815,8 +1815,8 @@ Object.defineProperties(Cesium3DTileset.prototype, {
   },
 
   /**
-   * Returns the <code>extras</code> property at the top-level of the tileset JSON, which contains application specific metadata.
-   * Returns <code>undefined</code> if <code>extras</code> does not exist.
+   * 返回图块集 JSON 顶层的 <code>extras</code> 属性，其中包含特定于应用程序的元数据。
+   * 如果 <code>extras</code> 不存在，则返回 <code>undefined</code>。
    *
    * @memberof Cesium3DTileset.prototype
    *
@@ -1832,7 +1832,7 @@ Object.defineProperties(Cesium3DTileset.prototype, {
   },
 
   /**
-   * The properties for managing image-based lighting on this tileset.
+   * 用于管理此图块集上基于图像的光照的属性。
    *
    * @memberof Cesium3DTileset.prototype
    *
@@ -1860,11 +1860,11 @@ Object.defineProperties(Cesium3DTileset.prototype, {
   },
 
   /**
-   * Indicates that only the tileset's vector tiles should be used for classification.
+   * 指示只应使用瓦片集的矢量瓦片进行分类。
    *
    * @memberof Cesium3DTileset.prototype
    *
-   * @experimental This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.
+   * @experimental 此功能使用的是 3D Tiles 规范的一部分，该规范不是最终版本，并且可能会在没有 Cesium 标准弃用策略的情况下进行更改。
    *
    * @type {boolean}
    * @default false
@@ -1876,12 +1876,12 @@ Object.defineProperties(Cesium3DTileset.prototype, {
   },
 
   /**
-   * Whether vector tiles should keep decoded positions in memory.
-   * This is used with {@link Cesium3DTileFeature.getPolylinePositions}.
+   * 矢量瓦片是否应在内存中保留解码的位置。
+   * 此用于 {@link Cesium3DTileFeature.getPolylinePositions}.
    *
    * @memberof Cesium3DTileset.prototype
    *
-   * @experimental This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.
+   * @experimental 此功能使用的是 3D Tiles 规范的一部分，该规范不是最终版本，并且可能会在没有 Cesium 标准弃用策略的情况下进行更改。
    *
    * @type {boolean}
    * @default false
@@ -1893,7 +1893,7 @@ Object.defineProperties(Cesium3DTileset.prototype, {
   },
 
   /**
-   * Determines whether the credits of the tileset will be displayed on the screen
+   * 确定是否在屏幕上显示图块集的积分
    *
    * @memberof Cesium3DTileset.prototype
    *
@@ -1911,26 +1911,26 @@ Object.defineProperties(Cesium3DTileset.prototype, {
   },
 
   /**
-   * Label of the feature ID set to use for picking and styling.
+   * 用于拾取和样式设置的特征 ID 的标签。
    * <p>
-   * For EXT_mesh_features, this is the feature ID's label property, or
-   * "featureId_N" (where N is the index in the featureIds array) when not
-   * specified. EXT_feature_metadata did not have a label field, so such
-   * feature ID sets are always labeled "featureId_N" where N is the index in
-   * the list of all feature Ids, where feature ID attributes are listed before
-   * feature ID textures.
+   * 对于EXT_mesh_features，这是要素 ID 的 label 属性，或者
+   * “featureId_N”（其中 N 是 featureIds 数组中的索引），否则
+   *指定。EXT_feature_metadata没有 label 字段，因此
+   * 要素 ID 集始终标记为“featureId_N”，其中 N 是
+   * 所有特征 ID 的列表，其中特征 ID 属性列在前面
+   * 特征 ID 纹理。
    * </p>
    * <p>
-   * If featureIdLabel is set to an integer N, it is converted to
-   * the string "featureId_N" automatically. If both per-primitive and
-   * per-instance feature IDs are present, the instance feature IDs take
-   * priority.
+   * 如果 featureIdLabel 设置为整数 N，则将其转换为
+   * 字符串 “featureId_N” 自动。如果每个基元和
+   * 存在每个实例的功能 ID，实例功能 ID 采用
+   *优先权。
    * </p>
    *
    * @memberof Cesium3DTileset.prototype
    *
    * @type {string}
-   * @experimental This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.
+   * @experimental 此功能使用的是 3D Tiles 规范的一部分，该规范不是最终版本，并且可能会在没有 Cesium 标准弃用策略的情况下进行更改。
    */
   featureIdLabel: {
     get: function () {
@@ -1951,18 +1951,18 @@ Object.defineProperties(Cesium3DTileset.prototype, {
   },
 
   /**
-   * Label of the instance feature ID set used for picking and styling.
+   * 用于选取和设置样式的实例特征 ID 集的标签。
    * <p>
-   * If instanceFeatureIdLabel is set to an integer N, it is converted to
-   * the string "instanceFeatureId_N" automatically.
-   * If both per-primitive and per-instance feature IDs are present, the
-   * instance feature IDs take priority.
+   * 如果 instanceFeatureIdLabel 设置为整数 N，则将其转换为
+   * 字符串 “instanceFeatureId_N” 自动。
+   * 如果每个基元和每个实例的特征 ID 都存在，则
+   * 实例功能 ID 优先。
    * </p>
    *
    * @memberof Cesium3DTileset.prototype
    *
    * @type {string}
-   * @experimental This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.
+   * @experimental 此功能使用的是 3D Tiles 规范的一部分，该规范不是最终版本，并且可能会在没有 Cesium 标准弃用策略的情况下进行更改。
    */
   instanceFeatureIdLabel: {
     get: function () {
@@ -1984,11 +1984,11 @@ Object.defineProperties(Cesium3DTileset.prototype, {
 });
 
 /**
- * Creates a {@link https://github.com/CesiumGS/3d-tiles/tree/main/specification|3D Tiles tileset},
- * used for streaming massive heterogeneous 3D geospatial datasets, from a Cesium ion asset ID.
+ * 创建一个 {@link https://github.com/CesiumGS/3d-tiles/tree/main/specification|3D Tiles 图块集}，
+ * 用于从 Cesium 离子资产 ID 流式传输大量异构 3D 地理空间数据集。
  *
- * @param {number} assetId The Cesium ion asset id.
- * @param {Cesium3DTileset.ConstructorOptions} [options] An 描述初始化选项的对象
+ * @param {number} assetId 铯离子资产 ID。
+ * @param {Cesium3DTileset.ConstructorOptions} [options] 一个描述初始化选项的对象
  * @returns {Promise<Cesium3DTileset>}
  *
  * @exception {RuntimeError} When the tileset asset version is not 0.0, 1.0, or 1.1,
@@ -2015,11 +2015,11 @@ Cesium3DTileset.fromIonAssetId = async function (assetId, options) {
 };
 
 /**
- * Creates a {@link https://github.com/CesiumGS/3d-tiles/tree/main/specification|3D Tiles tileset},
- * used for streaming massive heterogeneous 3D geospatial datasets.
+ * 创建一个 {@link https://github.com/CesiumGS/3d-tiles/tree/main/specification|3D Tiles 图块集}，
+ * 用于流式传输大量异构 3D 地理空间数据集。
  *
- * @param {Resource|string} url The url to a tileset JSON file.
- * @param {Cesium3DTileset.ConstructorOptions} [options] An 描述初始化选项的对象
+ * @param {Resource|string} url 图块集 JSON 文件的 URL。
+ * @param {Cesium3DTileset.ConstructorOptions} [options] 一个描述初始化选项的对象
  * @returns {Promise<Cesium3DTileset>}
  *
  * @exception {RuntimeError} When the tileset asset version is not 0.0, 1.0, or 1.1,
@@ -2145,10 +2145,10 @@ Cesium3DTileset.fromUrl = async function (url, options) {
 };
 
 /**
- * Provides a hook to override the method used to request the tileset json
- * useful when fetching tilesets from remote servers
- * @param {Resource|string} tilesetUrl The url of the json file to be fetched
- * @returns {Promise<object>} A promise that resolves with the fetched json data
+ * 提供一个钩子来覆盖用于请求图块集 json 的方法
+ * 从远程服务器获取瓦片集时很有用
+ * @param {Resource|string} tilesetUrl 需要获取的 json 文件的 url
+ * @returns {Promise<object>} 使用获取的 json 数据进行 resolve 的 promise
  */
 Cesium3DTileset.loadJson = function (tilesetUrl) {
   const resource = Resource.createIfNeeded(tilesetUrl);
@@ -2156,18 +2156,18 @@ Cesium3DTileset.loadJson = function (tilesetUrl) {
 };
 
 /**
- * Marks the tileset's {@link Cesium3DTileset#style} as dirty, which forces all
- * features to re-evaluate the style in the next frame each is visible.
+ * 将图块集的 {@link Cesium3DTileset#style} 标记为 dirty，这将强制所有
+ * 功能重新评估样式，在下一帧中每个都是可见的。
  */
 Cesium3DTileset.prototype.makeStyleDirty = function () {
   this._styleEngine.makeDirty();
 };
 
 /**
- * Loads the main tileset JSON file or a tileset JSON file referenced from a tile.
+ * 加载主图块集 JSON 文件或从图块引用的图块集 JSON 文件。
  *
- * @exception {RuntimeError} When the tileset asset version is not 0.0, 1.0, or 1.1,
- * or when the tileset contains a required extension that is not supported.
+ * @exception {RuntimeError} 当图块集资源版本不是 0.0、1.0 或 1.1 时，
+ * 或当图块集包含不受支持的必需扩展时。
  *
  * @private
  */
@@ -2243,15 +2243,15 @@ Cesium3DTileset.prototype.loadTileset = function (
 };
 
 /**
- * Make a {@link Cesium3DTile} for a specific tile. If the tile's header has implicit
- * tiling (3D Tiles 1.1) or uses the <code>3DTILES_implicit_tiling</code> extension,
- * it creates a placeholder tile instead for lazy evaluation of the implicit tileset.
+ * 为特定图块制作 {@link Cesium3DTile}。如果磁贴的标题具有隐式
+ * 平铺 （3D Tiles 1.1） 或使用 <code>3DTILES_implicit_tiling</code> 扩展，
+ * 它会创建一个占位符图块，而不是用于隐式图块集的延迟计算。
  *
- * @param {Cesium3DTileset} tileset The tileset
- * @param {Resource} baseResource The base resource for the tileset
- * @param {object} tileHeader The JSON header for the tile
- * @param {Cesium3DTile} [parentTile] The parent tile of the new tile
- * @returns {Cesium3DTile} The newly created tile
+ * @param {Cesium3DTileset} 瓦片集
+ * @param {Resource} baseResource 瓦片集的基础资源
+ * @param {object} tileHeader 瓦片的 JSON 标头
+ * @param {Cesium3DTile} [parentTile] 新瓦片的父瓦片
+ * @returns {Cesium3DTile} 新创建的瓦片
  *
  * @private
  */
@@ -2310,12 +2310,12 @@ function makeTile(tileset, baseResource, tileHeader, parentTile) {
 }
 
 /**
- * If tileset metadata is present, initialize the {@link Cesium3DTilesetMetadata}
- * instance. This is asynchronous since metadata schemas may be external.
+ * 如果存在图块集元数据，则初始化 {@link Cesium3DTilesetMetadata}
+ *实例。这是异步的，因为元数据架构可能是外部的。
  *
- * @param {Cesium3DTileset} tileset The tileset
- * @param {object} tilesetJson The tileset JSON
- * @return {Promise<Cesium3DTilesetMetadata>} The loaded Cesium3DTilesetMetadata
+ * @param {Cesium3DTileset} 瓦片集
+ * @param {object} tilesetJson 瓦片集 JSON
+ * @return {Promise<Cesium3DTilesetMetadata>} 加载的 Cesium3DTilesetMetadata
  * @private
  */
 async function processMetadataExtension(resource, tilesetJson) {
@@ -2534,7 +2534,7 @@ Cesium3DTileset.prototype.postPassesUpdate = function (frameState) {
 };
 
 /**
- * Perform any pass invariant tasks here. Called before any passes are executed.
+ * 在此处执行任何传递不变任务。在执行任何传递之前调用。
  * @private
  * @param {FrameState} frameState
  */
@@ -2608,8 +2608,8 @@ function cancelOutOfViewRequests(tileset, frameState) {
 }
 
 /**
- * Sort requests by priority before making any requests.
- * This makes it less likely that requests will be cancelled after being issued.
+ * 在提出任何请求之前，按优先级对请求进行排序。
+ * 这样可以降低请求在发出后被取消的可能性。
  * @private
  * @param {Cesium3DTileset} tileset
  */
@@ -2727,7 +2727,7 @@ function processUpdateHeight(tileset, tile, frameState) {
 }
 
 /**
- * Process tiles in the PROCESSING state so they will eventually move to the READY state.
+ * 处理处于 PROCESSING 状态的磁贴，以便它们最终移动到 READY 状态。
  * @private
  * @param {Cesium3DTileset} tileset
  * @param {Cesium3DTile} tile
@@ -3136,12 +3136,12 @@ function destroyTile(tileset, tile) {
 }
 
 /**
- * Unloads all tiles that weren't selected the previous frame.  This can be used to
- * explicitly manage the tile cache and reduce the total number of tiles loaded below
+ * 卸载上一帧未选择的所有瓦片。 这可用于
+ * 显式管理切片缓存并减少下面加载的切片总数
  * {@link Cesium3DTileset#cacheBytes}.
  * <p>
- * Tile unloads occur at the next frame to keep all the WebGL delete calls
- * within the render loop.
+ * 图块卸载发生在下一帧，以保留所有 WebGL 删除调用
+ * 在渲染循环中。
  * </p>
  */
 Cesium3DTileset.prototype.trimLoadedTiles = function () {
@@ -3439,10 +3439,10 @@ Cesium3DTileset.prototype.updateForPass = function (
 };
 
 /**
- * <code>true</code> if the tileset JSON file lists the extension in extensionsUsed; otherwise, <code>false</code>.
- * @param {string} extensionName The name of the extension to check.
+ * 如果图块集 JSON 文件在 extensionsUsed 中列出扩展名，<code>则为 true</code>;否则为 <code>false</code>。
+ * @param {string} extensionName 要检查的扩展名。
  *
- * @returns {boolean} <code>true</code> if the tileset JSON file lists the extension in extensionsUsed; otherwise, <code>false</code>.
+ * @returns {boolean} <code>true</code>，如果图块集 JSON 文件在 extensionsUsed 中列出扩展名;否则为 <code>false</code>。
  */
 Cesium3DTileset.prototype.hasExtension = function (extensionName) {
   if (!defined(this._extensionsUsed)) {
@@ -3453,12 +3453,12 @@ Cesium3DTileset.prototype.hasExtension = function (extensionName) {
 };
 
 /**
- * Returns true if this object was destroyed; otherwise, false.
+ * 如果此对象已销毁，则返回 true;否则为 false。
  * <br /><br />
- * If this object was destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.
+ * 如果此对象已销毁，则不应使用;调用
+ *  <code>isDestroyed</code> 将导致 {@link DeveloperError} 异常。
  *
- * @returns {boolean} <code>true</code> if this object was destroyed; otherwise, <code>false</code>.
+ * @returns {boolean} <code>true</code>，如果此对象被销毁;否则为 <code>false</code>。
  *
  * @see Cesium3DTileset#destroy
  */
@@ -3467,14 +3467,14 @@ Cesium3DTileset.prototype.isDestroyed = function () {
 };
 
 /**
- * Destroys the WebGL resources held by this object.  Destroying an object allows for deterministic
- * release of WebGL resources, instead of relying on the garbage collector to destroy this object.
+ * 销毁此对象持有的 WebGL 资源。 销毁对象允许确定性
+ * 释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。
  * <br /><br />
- * Once an object is destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.  Therefore,
- * assign the return value (<code>undefined</code>) to the object as done in the example.
+ * 一旦对象被销毁，就不应该使用它;调用
+ *  <code>isDestroyed</code> 将导致 {@link DeveloperError} 异常。 因此
+ * 将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
  *
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 这个物体被摧毁了,destroy().
  *
  * @example
  * tileset = tileset && tileset.destroy();
@@ -3528,10 +3528,10 @@ Cesium3DTileset.supportedExtensions = {
 };
 
 /**
- * Checks to see if a given extension is supported by Cesium3DTileset. If
- * the extension is not supported by Cesium3DTileset, it throws a RuntimeError.
+ * 检查 Cesium3DTileset 是否支持给定的扩展。如果
+ * Cesium3DTileset 不支持该扩展，它会引发 RuntimeError。
  *
- * @param {object} extensionsRequired The extensions we wish to check
+ * @param {object} extensionsRequired 我们要检查的扩展
  *
  * @private
  */
@@ -3550,11 +3550,11 @@ const scratchIntersection = new Cartesian3();
 const scratchGetHeightCartographic = new Cartographic();
 
 /**
- * Get the height of the loaded surface at a given cartographic. This function will only take into account meshes for loaded tiles, not neccisarily the most detailed tiles available for a tileset. This function will always return undefined when sampling a point cloud.
+ * 获取给定制图处加载表面的高度。此函数将仅考虑已加载图块的网格，而不一定考虑图块集可用的最详细图块。对点云进行采样时，此函数将始终返回 undefined。
  *
- * @param {Cartographic} cartographic The cartographic for which to find the height.
- * @param {Scene} scene The scene where visualization is taking place.
- * @returns {number|undefined} The height of the cartographic or undefined if it could not be found.
+ * @param {Cartographic} cartographic 要为其查找高度的制图。
+ * @param {Scene} scene 正在进行可视化的场景。
+ * @returns {number|undefined} 制图的高度，如果找不到，则为 undefined。
  *
  * @example
  * const tileset = await Cesium.Cesium3DTileset.fromIonAssetId(124624234);
@@ -3600,16 +3600,16 @@ Cesium3DTileset.prototype.getHeight = function (cartographic, scene) {
 };
 
 /**
- * Calls the callback when a new tile is rendered that contains the given cartographic. The only parameter
- * is the cartographic position on the tile.
+ * 在渲染包含给定制图的新瓦片时调用回调。唯一的参数
+ * 是切片上的制图位置。
  *
  * @private
  *
- * @param {Scene} scene The scene where visualization is taking place.
- * @param {Cartographic} cartographic The cartographic position.
- * @param {Function} callback The function to be called when a new tile is loaded.
- * @param {Ellipsoid} [ellipsoid=Ellipsoid.WGS84] The ellipsoid to use.
- * @returns {Function} The function to remove this callback from the quadtree.
+ * @param {Scene} scene 正在进行可视化的场景。
+ * @param {Cartographic} cartographic 制图位置。
+ * @param {Function} callback 加载新瓦片时要调用的函数。
+ * @param {Ellipsoid} [ellipsoid=Ellipsoid.WGS84] 要使用的椭球体。
+ * @returns {Function} 从四叉树中删除此回调的函数。
  */
 Cesium3DTileset.prototype.updateHeight = function (
   cartographic,
@@ -3648,12 +3648,12 @@ const scratchSphereIntersection = new Interval();
 const scratchPickIntersection = new Cartesian3();
 
 /**
- * Find an intersection between a ray and the tileset surface that was rendered. The ray must be given in world coordinates.
+ * 查找光线与渲染的图块集表面之间的交集。射线必须为 given in world coordinates.
  *
- * @param {Ray} ray The ray to test for intersection.
- * @param {FrameState} frameState The frame state.
- * @param {Cartesian3|undefined} [result] The intersection or <code>undefined</code> if none was found.
- * @returns {Cartesian3|undefined} The intersection or <code>undefined</code> if none was found.
+ * @param {Ray} ray 用于测试交集的射线。
+ * @param {FrameState} frameState 帧状态。
+ * @param {Cartesian3|undefined} [result] 交集或 <code>undefined</code>，如果没有 found.
+ * @returns {Cartesian3|undefined} 交集或 <code>undefined</code>（如果未找到）。
  *
  * @private
  */
@@ -3711,15 +3711,15 @@ Cesium3DTileset.prototype.pick = function (ray, frameState, result) {
 };
 
 /**
- * Optimization option. Used as a callback when {@link Cesium3DTileset#foveatedScreenSpaceError} is true to control how much to raise the screen space error for tiles outside the foveated cone,
- * interpolating between {@link Cesium3DTileset#foveatedMinimumScreenSpaceErrorRelaxation} and {@link Cesium3DTileset#maximumScreenSpaceError}.
+ * 优化选项。当 {@link Cesium3DTileset#foveatedScreenSpaceError} 为 true 时用作回调，以控制在注视点圆锥体之外的图块的屏幕空间误差的提高程度，
+ * 在 {@link Cesium3DTileset#foveatedMinimumScreenSpaceErrorRelaxation} 和 {@link Cesium3DTileset#maximumScreenSpaceError} 之间插值。
  *
  * @callback Cesium3DTileset.foveatedInterpolationCallback
  * @default Math.lerp
  *
- * @param {number} p The start value to interpolate.
- * @param {number} q The end value to interpolate.
- * @param {number} time The time of interpolation generally in the range <code>[0.0, 1.0]</code>.
- * @returns {number} The interpolated value.
+ * @param {number} p 要插值的起始值。
+ * @param {number} q 要插值的结束值。
+ * @param {number} time 插值时间一般在 <code>[0.0， 1.0]</code> 范围内。
+ * @returns {number} 内插值。
  */
 export default Cesium3DTileset;

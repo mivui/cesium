@@ -26,54 +26,54 @@ import SplitDirection from "./SplitDirection.js";
 /**
  * @typedef {object} Billboard.ConstructorOptions
  *
- * Initialization options for the first param of Billboard constructor
+ * Billboard 构造函数的第一个参数的初始化选项
  *
- * @property {Cartesian3} position The cartesian position of the billboard.
- * @property {*} [id] A user-defined object to return when the billboard is picked with {@link Scene#pick}.
- * @property {boolean} [show=true] Determines if this billboard will be shown.
- * @property {string | HTMLCanvasElement} [image] A loaded HTMLImageElement, ImageData, or a url to an image to use for the billboard.
- * @property {number} [scale=1.0] A number specifying the uniform scale that is multiplied with the billboard's image size in pixels.
- * @property {Cartesian2} [pixelOffset=Cartesian2.ZERO] A {@link Cartesian2} Specifying the pixel offset in screen space from the origin of this billboard.
- * @property {Cartesian3} [eyeOffset=Cartesian3.ZERO] A {@link Cartesian3} Specifying the 3D Cartesian offset applied to this billboard in eye coordinates.
- * @property {HorizontalOrigin} [horizontalOrigin=HorizontalOrigin.CENTER] A {@link HorizontalOrigin} Specifying the horizontal origin of this billboard.
- * @property {VerticalOrigin} [verticalOrigin=VerticalOrigin.CENTER] A {@link VerticalOrigin} Specifying the vertical origin of this billboard.
- * @property {HeightReference} [heightReference=HeightReference.NONE] A {@link HeightReference} Specifying the height reference of this billboard.
- * @property {Color} [color=Color.WHITE] A {@link Color} Specifying the color that is multiplied with the billboard's texture.
- * @property {number} [rotation=0] A number specifying the rotation angle in radians.
- * @property {Cartesian3} [alignedAxis=Cartesian3.ZERO] A {@link Cartesian3} Specifying the aligned axis in world space.
- * @property {boolean} [sizeInMeters] A boolean specifying if the billboard size is in meters or pixels.
- * @property {number} [width] A number specifying the width of the billboard. If undefined, the image width will be used.
- * @property {number} [height] A number specifying the height of the billboard. If undefined, the image height will be used.
- * @property {NearFarScalar} [scaleByDistance] A {@link NearFarScalar} Specifying near and far scaling properties of a Billboard based on the billboard's distance from the camera.
- * @property {NearFarScalar} [translucencyByDistance] A {@link NearFarScalar} Specifying near and far translucency properties of a Billboard based on the billboard's distance from the camera.
- * @property {NearFarScalar} [pixelOffsetScaleByDistance] A {@link NearFarScalar} Specifying near and far pixel offset scaling properties of a Billboard based on the billboard's distance from the camera.
- * @property {BoundingRectangle} [imageSubRegion] A {@link BoundingRectangle} Specifying the sub-region of the image to use for the billboard, rather than the entire image.
- * @property {DistanceDisplayCondition} [distanceDisplayCondition] A {@link DistanceDisplayCondition} Specifying the distance from the camera at which this billboard will be displayed.
- * @property {number} [disableDepthTestDistance] A number specifying the distance from the camera at which to disable the depth test to, for example, prevent clipping against terrain.
- * @property {SplitDirection} [splitDirection] A {@link SplitDirection} Specifying the split property of the billboard.
+ * @property {Cartesian3} position 广告牌的笛卡尔位置。
+ * @property {*} [id] 使用 {@link Scene#pick} 选取公告牌时返回的用户定义对象。
+ * @property {boolean} [show=true] 确定是否显示此公告板。
+ * @property {string |HTMLCanvasElement} [image] 一个加载的 HTMLImageElement、ImageData 或用于广告牌的图像的 URL。
+ * @property {number} [scale=1.0] 一个数字，用于指定均匀缩放比例，该比例乘以公告牌的图像大小（以像素为单位）。
+ * @property {Cartesian2} [pixelOffset=Cartesian2.ZERO] A {@link Cartesian2} 指定屏幕空间中与此广告牌原点的像素偏移量。
+ * @property {Cartesian3} [eyeOffset=Cartesian3.ZERO] A {@link Cartesian3} 指定在眼坐标中应用于此广告牌的 3D 笛卡尔偏移量。
+ * @property {HorizontalOrigin} [horizontalOrigin=HorizontalOrigin.CENTER] A {@link HorizontalOrigin} 指定此广告牌的水平原点。
+ * @property {VerticalOrigin} [verticalOrigin=VerticalOrigin.CENTER] A {@link VerticalOrigin} 指定此广告牌的垂直原点。
+ * @property {HeightReference} [heightReference=HeightReference.NONE] A {@link HeightReference} 指定此公告牌的高度参考。
+ * @property {Color} [color=Color.WHITE] A {@link Color} 指定与公告牌纹理相乘的颜色。
+ * @property {number} [rotation=0] 一个数字，指定以弧度为单位的旋转角度。
+ * @property {Cartesian3} [alignedAxis=Cartesian3.ZERO] A {@link Cartesian3} 指定世界空间中对齐的轴。
+ * @property {boolean} [sizeInMeters] 一个布尔值，指定广告牌的大小是以米为单位还是以像素为单位。
+ * @property {number} [width] 指定公告牌宽度的数字。如果未定义，则将使用图像宽度。
+ * @property {number} [height] 指定公告牌高度的数字。如果未定义，则将使用图像高度。
+ * @property {NearFarScalar} [scaleByDistance] A {@link NearFarScalar} 根据公告牌与摄像机的距离指定公告牌的近距和远距缩放属性。
+ * @property {NearFarScalar} [translucencyByDistance] A {@link NearFarScalar} 根据公告牌与摄像机的距离指定公告牌的近距和远距半透明属性。
+ * @property {NearFarScalar} [pixelOffsetScaleByDistance] A {@link NearFarScalar} 根据公告牌与摄像机的距离指定公告牌的近距和远距像素偏移缩放属性。
+ * @property {BoundingRectangle} [imageSubRegion] A {@link BoundingRectangle} 指定要用于公告牌的图像子区域，而不是整个图像。
+ * @property {DistanceDisplayCondition} [distanceDisplayCondition] A {@link DistanceDisplayCondition} 指定显示此公告牌的摄像机的距离。
+ * @property {number} [disableDepthTestDistance] 一个数字，用于指定与摄像机的距离，在该距离处禁用深度测试，例如，防止针对地形进行裁剪。
+ * @property {SplitDirection} [splitDirection] A {@link SplitDirection} 指定公告牌的 split 属性。
  */
 
 /**
  * <div class="notice">
- * A billboard is created and its initial
- * properties are set by calling {@link BillboardCollection#add}. 不要直接调用构造函数。
+ * 将创建一个公告板，其初始
+ * 属性通过调用{@link BillboardCollection#add}. 不要直接调用构造函数。
  * </div>
- * A viewport-aligned image positioned in the 3D scene, that is created
- * and rendered using a {@link BillboardCollection}.
+ * 位于 3D 场景中的与视口对齐的图像，该图像是创建的
+ * 并使用 {@link BillboardCollection} 进行渲染。
  * <br /><br />
  * <div align='center'>
  * <img src='Images/Billboard.png' width='400' height='300' /><br />
- * Example billboards
+ * 广告牌示例
  * </div>
  *
  * @alias Billboard
  *
- * @performance Reading a property, e.g., {@link Billboard#show}, is constant time.
- * Assigning to a property is constant time but results in
- * CPU to GPU traffic when {@link BillboardCollection#update} is called.  The per-billboard traffic is
- * the same regardless of how many properties were updated.  If most billboards in a collection need to be
- * updated, it may be more efficient to clear the collection with {@link BillboardCollection#removeAll}
- * and add new billboards instead of modifying each one.
+ * @performance 读取属性（例如 {@link Billboard#show}）是恒定时间。
+ * 分配给属性是恒定时间，但会导致
+ * 调用 {@link BillboardCollection#update} 时的 CPU 到 GPU 流量。 每个公告牌的流量为
+ * 无论更新了多少个属性，都是相同的。 如果集合中的大多数广告牌都需要
+ * 更新，使用 {@link BillboardCollection#removeAll} 清除收藏可能会更有效。
+ * 并添加新的广告牌，而不是修改每个广告牌。
  *
  * @exception {DeveloperError} scaleByDistance.far must be greater than scaleByDistance.near
  * @exception {DeveloperError} translucencyByDistance.far must be greater than translucencyByDistance.near
@@ -290,8 +290,8 @@ function makeDirty(billboard, propertyChanged) {
 
 Object.defineProperties(Billboard.prototype, {
   /**
-   * Determines if this billboard will be shown.  Use this to hide or show a billboard, instead
-   * of removing it and re-adding it to the collection.
+   * 确定是否显示此公告牌。 使用它来隐藏或显示公告牌
+   * 将其删除并重新添加到集合中。
    * @memberof Billboard.prototype
    * @type {boolean}
    * @default true
@@ -313,7 +313,7 @@ Object.defineProperties(Billboard.prototype, {
   },
 
   /**
-   * 获取或设置Cartesian position of this billboard.
+   * 获取或设置此广告牌的笛卡尔位置。
    * @memberof Billboard.prototype
    * @type {Cartesian3}
    */
@@ -337,7 +337,7 @@ Object.defineProperties(Billboard.prototype, {
   },
 
   /**
-   * 获取或设置height reference of this billboard.
+   * 获取或设置高度参考。
    * @memberof Billboard.prototype
    * @type {HeightReference}
    * @default HeightReference.NONE
@@ -361,17 +361,17 @@ Object.defineProperties(Billboard.prototype, {
   },
 
   /**
-   * 获取或设置pixel offset in screen space from the origin of this billboard.  This is commonly used
-   * to align multiple billboards and labels at the same position, e.g., an image and text.  The
-   * screen space origin is the top, left corner of the canvas; <code>x</code> increases from
-   * left to right, and <code>y</code> increases from top to bottom.
+   * 获取或设置屏幕空间中与此公告牌原点的像素偏移。 这是常用的
+   * 将多个广告牌和标签对齐在同一位置，例如，图像和文本。 这
+   * 屏幕空间原点是画布的左上角;<code>x</code> 从
+   * 从左到右，<code>y</code> 从上到下增加。
    * <br /><br />
    * <div align='center'>
    * <table border='0' cellpadding='5'><tr>
    * <td align='center'><code>default</code><br/><img src='Images/Billboard.setPixelOffset.default.png' width='250' height='188' /></td>
    * <td align='center'><code>b.pixeloffset = new Cartesian2(50, 25);</code><br/><img src='Images/Billboard.setPixelOffset.x50y-25.png' width='250' height='188' /></td>
    * </tr></table>
-   * The billboard's origin is indicated by the yellow point.
+   *  公告牌的原点由黄点表示。
    * </div>
    * @memberof Billboard.prototype
    * @type {Cartesian2}
@@ -394,12 +394,12 @@ Object.defineProperties(Billboard.prototype, {
   },
 
   /**
-   * Gets or sets near and far scaling properties of a Billboard based on the billboard's distance from the camera.
-   * A billboard's scale will interpolate between the {@link NearFarScalar#nearValue} and
-   * {@link NearFarScalar#farValue} while the camera distance falls within the lower and upper bounds
-   * of the specified {@link NearFarScalar#near} and {@link NearFarScalar#far}.
-   * Outside of these ranges the billboard's scale remains clamped to the nearest bound.  If undefined,
-   * scaleByDistance will be disabled.
+   * 根据公告板与摄像机的距离获取或设置公告牌的近距和远距缩放属性。
+   * 公告牌的比例将在 {@link NearFarScalar#nearValue} 和
+   * {@link NearFarScalar#farValue} 当摄像机距离落在下限和上限内时
+   * 指定的 {@link NearFarScalar#near} 和 {@link NearFarScalar#far} 的。
+   * 在这些范围之外，公告牌的刻度仍会限制在最近的边界上。 如果未定义，则
+   * scaleByDistance 将被禁用。
    * @memberof Billboard.prototype
    * @type {NearFarScalar}
    *
@@ -440,12 +440,12 @@ Object.defineProperties(Billboard.prototype, {
   },
 
   /**
-   * Gets or sets near and far translucency properties of a Billboard based on the billboard's distance from the camera.
-   * A billboard's translucency will interpolate between the {@link NearFarScalar#nearValue} and
-   * {@link NearFarScalar#farValue} while the camera distance falls within the lower and upper bounds
-   * of the specified {@link NearFarScalar#near} and {@link NearFarScalar#far}.
-   * Outside of these ranges the billboard's translucency remains clamped to the nearest bound.  If undefined,
-   * translucencyByDistance will be disabled.
+   * 根据公告板与摄像机的距离获取或设置公告牌的近距和远距半透明属性。
+   * 公告牌的半透明性将在 {@link NearFarScalar#nearValue} 和 之间插值
+   * {@link NearFarScalar#farValue} 当摄像机距离落在下限和上限内时
+   * 指定的 {@link NearFarScalar#near} 和 {@link NearFarScalar#far} 的 。
+   * 在这些范围之外，公告牌的半透明性仍然被限制在最近的边界上。 如果未定义，则
+   * translucencyByDistance 将被禁用。
    * @memberof Billboard.prototype
    * @type {NearFarScalar}
    *
@@ -489,12 +489,12 @@ Object.defineProperties(Billboard.prototype, {
   },
 
   /**
-   * Gets or sets near and far pixel offset scaling properties of a Billboard based on the billboard's distance from the camera.
-   * A billboard's pixel offset will be scaled between the {@link NearFarScalar#nearValue} and
-   * {@link NearFarScalar#farValue} while the camera distance falls within the lower and upper bounds
-   * of the specified {@link NearFarScalar#near} and {@link NearFarScalar#far}.
-   * Outside of these ranges the billboard's pixel offset scale remains clamped to the nearest bound.  If undefined,
-   * pixelOffsetScaleByDistance will be disabled.
+   * 根据公告板与摄像机的距离获取或设置公告牌的近像素偏移和远像素偏移缩放属性。
+   * 公告牌的像素偏移将在 {@link NearFarScalar#nearValue} 和
+   * {@link NearFarScalar#farValue} 当摄像机距离落在下限和上限内时
+   * 指定的 {@link NearFarScalar#near} 和 {@link NearFarScalar#far} 的 。
+   * 超出这些范围时，公告牌的像素偏移比例将保持限制在最近的边界上。 如果未定义，则
+   * pixelOffsetScaleByDistance 将被禁用。
    * @memberof Billboard.prototype
    * @type {NearFarScalar}
    *
@@ -539,16 +539,16 @@ Object.defineProperties(Billboard.prototype, {
   },
 
   /**
-   * 获取或设置3D Cartesian offset applied to this billboard in eye coordinates.  Eye coordinates is a left-handed
-   * coordinate system, where <code>x</code> points towards the viewer's right, <code>y</code> points up, and
-   * <code>z</code> points into the screen.  Eye coordinates use the same scale as world and model coordinates,
-   * which is typically meters.
+   * 获取或设置在眼睛坐标中应用于此广告牌的 3D 笛卡尔偏移。 眼睛坐标是左撇子
+   * 坐标系，其中 <code>x</code> 指向查看器的右侧，<code>y</code> 指向上方，并且
+   * <code>z</code> 指向屏幕。 眼睛坐标使用与世界和模型坐标相同的比例。
+   * 通常为 meters。
    * <br /><br />
-   * An eye offset is commonly used to arrange multiple billboards or objects at the same position, e.g., to
-   * arrange a billboard above its corresponding 3D model.
+   * 眼动偏移通常用于将多个广告牌或对象排列在同一位置，例如，将
+   * 在其相应的 3D 模型上方布置广告牌。
    * <br /><br />
-   * Below, the billboard is positioned at the center of the Earth but an eye offset makes it always
-   * appear on top of the Earth regardless of the viewer's or Earth's orientation.
+   * 在下面，广告牌位于地球的中心，但眼睛偏移使其始终
+   * 显示在地球顶部，无论观看者或地球的方向如何。
    * <br /><br />
    * <div align='center'>
    * <table border='0' cellpadding='5'><tr>
@@ -578,8 +578,8 @@ Object.defineProperties(Billboard.prototype, {
   },
 
   /**
-   * 获取或设置horizontal origin of this billboard, which determines if the billboard is
-   * to the left, center, or right of its anchor position.
+   * 获取或设置此公告板的水平原点，用于确定公告板是否为
+   * 拖动到其锚点位置的左侧、中间或右侧。
    * <br /><br />
    * <div align='center'>
    * <img src='Images/Billboard.setHorizontalOrigin.png' width='648' height='196' /><br />
@@ -608,8 +608,8 @@ Object.defineProperties(Billboard.prototype, {
   },
 
   /**
-   * 获取或设置vertical origin of this billboard, which determines if the billboard is
-   * to the above, below, or at the center of its anchor position.
+   * 获取或设置此公告板的垂直原点，用于确定公告板是否为
+   * 拖动到其锚点位置的上方、下方或中心。
    * <br /><br />
    * <div align='center'>
    * <img src='Images/Billboard.setVerticalOrigin.png' width='695' height='175' /><br />
@@ -638,15 +638,15 @@ Object.defineProperties(Billboard.prototype, {
   },
 
   /**
-   * 获取或设置uniform scale that is multiplied with the billboard's image size in pixels.
-   * A scale of <code>1.0</code> does not change the size of the billboard; a scale greater than
-   * <code>1.0</code> enlarges the billboard; a positive scale less than <code>1.0</code> shrinks
-   * the billboard.
+   * 获取或设置Uniform Scale （均匀缩放），乘以公告牌的图像大小（以像素为单位）。
+   * <code>1.0</code> 的比例不会改变广告牌的大小;大于
+   * <code>1.0</code> 放大广告牌;小于 <code>1.0</code> 的正比例会收缩
+   * 广告牌。
    * <br /><br />
    * <div align='center'>
    * <img src='Images/Billboard.setScale.png' width='400' height='300' /><br/>
-   * From left to right in the above image, the scales are <code>0.5</code>, <code>1.0</code>,
-   * and <code>2.0</code>.
+   * 在上图中，比例尺从左到右依次为 <code>0.5</code>, <code>1.0</code>,
+   * 和 <code>2.0</code>.
    * </div>
    * @memberof Billboard.prototype
    * @type {number}
@@ -668,10 +668,10 @@ Object.defineProperties(Billboard.prototype, {
   },
 
   /**
-   * 获取或设置color that is multiplied with the billboard's texture.  This has two common use cases.  First,
-   * the same white texture may be used by many different billboards, each with a different color, to create
-   * colored billboards.  Second, the color's alpha component can be used to make the billboard translucent as shown below.
-   * An alpha of <code>0.0</code> makes the billboard transparent, and <code>1.0</code> makes the billboard opaque.
+   * 获取或设置与 Billboard 的纹理相乘的颜色。 这有两个常见的用例。 第一
+   * 相同的白色纹理可以被许多不同的广告牌使用，每个广告牌都有不同的颜色，以创建
+   * 彩色广告牌。 其次，颜色的 Alpha 分量可用于使公告牌半透明，如下所示。
+   * Alpha 值为 <code>0.0</code> 时，广告牌透明，<code>Alpha 值为 1.0</code> 时，广告牌不透明。
    * <br /><br />
    * <div align='center'>
    * <table border='0' cellpadding='5'><tr>
@@ -680,9 +680,9 @@ Object.defineProperties(Billboard.prototype, {
    * </tr></table>
    * </div>
    * <br />
-   * The red, green, blue, and alpha values are indicated by <code>value</code>'s <code>red</code>, <code>green</code>,
-   * <code>blue</code>, and <code>alpha</code> properties as shown in Example 1.  These components range from <code>0.0</code>
-   * (no intensity) to <code>1.0</code> (full intensity).
+   * 红色、绿色、蓝色和 alpha 值由<code>值的</code> <code>red</code>、<code>green</code>、
+   * <code>blue</code> 和 <code>alpha</code> 属性，如示例 1 所示。 这些组件的范围从 <code>0.0</code>
+   *（无强度）到 <code>1.0</code>（全强度）。
    * @memberof Billboard.prototype
    * @type {Color}
    *
@@ -712,7 +712,7 @@ Object.defineProperties(Billboard.prototype, {
   },
 
   /**
-   * 获取或设置rotation angle in radians.
+   * 获取或设置旋转角度（以弧度为单位）。
    * @memberof Billboard.prototype
    * @type {number}
    */
@@ -733,8 +733,8 @@ Object.defineProperties(Billboard.prototype, {
   },
 
   /**
-   * 获取或设置aligned axis in world space. The aligned axis is the unit vector that the billboard up vector points towards.
-   * The default is the zero vector, which means the billboard is aligned to the screen up vector.
+   * 获取或设置世界空间中的 aligned axis （对齐轴）。对齐轴是公告牌向上矢量指向的单位向量。
+   * 默认值为零矢量，这意味着公告牌与屏幕向上矢量对齐。
    * @memberof Billboard.prototype
    * @type {Cartesian3}
    * @example
@@ -771,7 +771,7 @@ Object.defineProperties(Billboard.prototype, {
   },
 
   /**
-   * Gets or sets a width for the billboard. If undefined, the image width will be used.
+   * 获取或设置公告板的宽度。如果未定义，则将使用图像宽度。
    * @memberof Billboard.prototype
    * @type {number}
    */
@@ -793,7 +793,7 @@ Object.defineProperties(Billboard.prototype, {
   },
 
   /**
-   * Gets or sets a height for the billboard. If undefined, the image height will be used.
+   * 获取或设置公告板的高度。如果未定义，则将使用图像高度。
    * @memberof Billboard.prototype
    * @type {number}
    */
@@ -815,8 +815,8 @@ Object.defineProperties(Billboard.prototype, {
   },
 
   /**
-   * 获取或设置是否 billboard size is in meters or pixels. <code>true</code> to size the billboard in meters;
-   * otherwise, the size is in pixels.
+   * 获取或设置是否公告牌大小以米或像素为单位。<code>true</code> 以米为单位调整广告牌的大小;
+   * 否则，大小以像素为单位。
    * @memberof Billboard.prototype
    * @type {boolean}
    * @default false
@@ -837,7 +837,7 @@ Object.defineProperties(Billboard.prototype, {
   },
 
   /**
-   * 获取或设置condition specifying at what distance from the camera that this billboard will be displayed.
+   * 获取或设置条件 指定此公告牌将在距离摄像机多远处显示。
    * @memberof Billboard.prototype
    * @type {DistanceDisplayCondition}
    * @default undefined
@@ -870,8 +870,8 @@ Object.defineProperties(Billboard.prototype, {
   },
 
   /**
-   * 获取或设置distance from the camera at which to disable the depth test to, for example, prevent clipping against terrain.
-   * When set to zero, the depth test is always applied. When set to Number.POSITIVE_INFINITY, the depth test is never applied.
+   * 获取或设置与摄像机的距离，以禁用深度测试，以防止根据地形进行裁剪。
+   * 当设置为零时，始终应用深度测试。设置为 Number.POSITIVE_INFINITY 时，从不应用深度测试。
    * @memberof Billboard.prototype
    * @type {number}
    */
@@ -898,7 +898,7 @@ Object.defineProperties(Billboard.prototype, {
   },
 
   /**
-   * 获取或设置user-defined object returned when the billboard is picked.
+   * 获取或设置选取 Billboard 时返回的 User-defined 对象。
    * @memberof Billboard.prototype
    * @type {*}
    */
@@ -915,7 +915,7 @@ Object.defineProperties(Billboard.prototype, {
   },
 
   /**
-   * The primitive to return when picking this billboard.
+   * 拾取此公告板时要返回的基元。
    * @memberof Billboard.prototype
    * @private
    */
@@ -942,12 +942,12 @@ Object.defineProperties(Billboard.prototype, {
 
   /**
    * <p>
-   * 获取或设置image to be used for this billboard.  If a texture has already been created for the
-   * given image, the existing texture is used.
+   * 获取或设置图像。 如果已为
+   * 给定图像，则使用现有纹理。
    * </p>
    * <p>
-   * This property can be set to a loaded Image, a URL which will be loaded as an Image automatically,
-   * a canvas, or another billboard's image property (from the same billboard collection).
+   * 此属性可以设置为加载的 Image，该 URL 将自动加载为 Image，
+   * 画布或其他 Billboard 的图像属性（来自同一 Billboard 集合）。
    * </p>
    *
    * @memberof Billboard.prototype
@@ -985,8 +985,8 @@ Object.defineProperties(Billboard.prototype, {
   },
 
   /**
-   * When <code>true</code>, this billboard is ready to render, i.e., the image
-   * has been downloaded and the WebGL resources are created.
+   * 如果<code>为 true</code>，则此公告牌已准备好进行渲染，即图像
+   * 已下载，并且 WebGL 资源已创建。
    *
    * @memberof Billboard.prototype
    *
@@ -1002,7 +1002,7 @@ Object.defineProperties(Billboard.prototype, {
   },
 
   /**
-   * Keeps track of the position of the billboard based on the height reference.
+   * 根据高度参考跟踪公告板的位置。
    * @memberof Billboard.prototype
    * @type {Cartesian3}
    * @private
@@ -1021,7 +1021,7 @@ Object.defineProperties(Billboard.prototype, {
   },
 
   /**
-   * Determines whether or not this billboard will be shown or hidden because it was clustered.
+   * 确定此公告板是显示还是隐藏，因为它是群集的。
    * @memberof Billboard.prototype
    * @type {boolean}
    * @private
@@ -1039,7 +1039,7 @@ Object.defineProperties(Billboard.prototype, {
   },
 
   /**
-   * The outline color of this Billboard.  Effective only for SDF billboards like Label glyphs.
+   * 此公告牌的轮廓颜色。 仅对 SDF 广告牌（如标签字形）有效。
    * @memberof Billboard.prototype
    * @type {Color}
    * @private
@@ -1064,7 +1064,7 @@ Object.defineProperties(Billboard.prototype, {
   },
 
   /**
-   * The outline width of this Billboard in pixels.  Effective only for SDF billboards like Label glyphs.
+   * 此公告牌的轮廓宽度（以像素为单位）。 仅对 SDF 广告牌（如标签字形）有效。
    * @memberof Billboard.prototype
    * @type {number}
    * @private
@@ -1082,7 +1082,7 @@ Object.defineProperties(Billboard.prototype, {
   },
 
   /**
-   * 获取或设置{@link SplitDirection} of this billboard.
+   * 获取或设置{@link SplitDirection}这个广告牌。
    * @memberof Billboard.prototype
    * @type {SplitDirection}
    * @default {@link SplitDirection.NONE}
@@ -1265,22 +1265,22 @@ Billboard.prototype._loadImage = function () {
 
 /**
  * <p>
- * Sets the image to be used for this billboard.  If a texture has already been created for the
- * given id, the existing texture is used.
+ * 设置用于此公告牌的图像。 如果已为
+ * 给定 id，则使用现有纹理。
  * </p>
  * <p>
- * This function is useful for dynamically creating textures that are shared across many billboards.
- * Only the first billboard will actually call the function and create the texture, while subsequent
- * billboards created with the same id will simply re-use the existing texture.
+ * 此功能可用于动态创建在多个公告牌之间共享的纹理。
+ * 只有第一个公告牌会实际调用该函数并创建纹理，而后续的
+ * 使用相同 ID 创建的公告板将简单地重复使用现有纹理。
  * </p>
  * <p>
- * To load an image from a URL, setting the {@link Billboard#image} property is more convenient.
+ * 要从 URL 加载图像，设置 {@link Billboard#image} 属性会更方便。
  * </p>
  *
- * @param {string} id The id of the image.  This can be any string that uniquely identifies the image.
- * @param {HTMLImageElement|HTMLCanvasElement|string|Resource|Billboard.CreateImageCallback} image The image to load.  This parameter
- *        can either be a loaded Image or Canvas, a URL which will be loaded as an Image automatically,
- *        or a function which will be called to create the image if it hasn't been loaded already.
+ * @param {string} id 图像的 ID。 这可以是唯一标识图像的任何字符串。
+ * @param {HTMLImageElement|HTMLCanvasElement|string|Resource|Billboard.CreateImageCallback} image 要加载的图像。 此参数
+ * 可以是加载的 Image 或 Canvas，一个将自动作为 Image 加载的 URL，
+ * 或将调用该函数来创建图像（如果尚未加载）。
  * @example
  * // create a billboard image dynamically
  * function drawImage(id) {
@@ -1322,11 +1322,11 @@ Billboard.prototype.setImage = function (id, image) {
 };
 
 /**
- * Uses a sub-region of the image with the given id as the image for this billboard,
- * measured in pixels from the bottom-left.
+ * 使用具有给定 id 的图像子区域作为此公告牌的图像，
+ * 以左下角的像素为单位。
  *
- * @param {string} id The id of the image to use.
- * @param {BoundingRectangle} subRegion The sub-region of the image.
+ * @param {string} id 要使用的图像的 ID。
+ * @param {BoundingRectangle} subRegion 图像的子区域。
  *
  * @exception {RuntimeError} image with id must be in the atlas
  */
@@ -1444,13 +1444,13 @@ Billboard._computeScreenSpacePosition = function (
 const scratchPixelOffset = new Cartesian2(0.0, 0.0);
 
 /**
- * Computes the screen-space position of the billboard's origin, taking into account eye and pixel offsets.
- * The screen space origin is the top, left corner of the canvas; <code>x</code> increases from
- * left to right, and <code>y</code> increases from top to bottom.
+ * 计算公告牌原点的屏幕空间位置，同时考虑眼睛和像素偏移。
+ * 屏幕空间原点是画布的左上角;<code>x</code> 从
+ * 从左到右，<code>y</code> 从上到下增加。
  *
- * @param {Scene} scene The scene.
+ * @param {Scene} scene 场景。
  * @param {Cartesian2} [result] 要在其上存储结果的对象。
- * @returns {Cartesian2} The screen-space position of the billboard.
+ * @returns {Cartesian2} 公告牌的屏幕空间位置。
  *
  * @exception {DeveloperError} Billboard must be in a collection.
  *
@@ -1507,11 +1507,11 @@ Billboard.prototype.computeScreenSpacePosition = function (scene, result) {
 };
 
 /**
- * Gets a billboard's screen space bounding box centered around screenSpacePosition.
- * @param {Billboard} billboard The billboard to get the screen space bounding box for.
- * @param {Cartesian2} screenSpacePosition The screen space center of the label.
+ * 获取以 screenSpacePosition 为中心的公告牌的屏幕空间边界框。
+ * @param {Billboard} billboard 要获取其屏幕空间边界框的公告牌。
+ * @param {Cartesian2} screenSpacePosition 标签的屏幕空间中心。
  * @param {BoundingRectangle} [result] 要在其上存储结果的对象。
- * @returns {BoundingRectangle} The screen space bounding box.
+ * @returns {BoundingRectangle} 屏幕空间边界框。
  *
  * @private
  */
@@ -1557,11 +1557,11 @@ Billboard.getScreenSpaceBoundingBox = function (
 };
 
 /**
- * Determines if this billboard equals another billboard.  Billboards are equal if all their properties
- * are equal.  Billboards in different collections can be equal.
+ * 确定此公告牌是否等于另一个公告牌。 如果广告牌都是平等的ties
+ * 相等。 不同集合中的广告牌可以相等。
  *
- * @param {Billboard} other The billboard to compare for equality.
- * @returns {boolean} <code>true</code> if the billboards are equal; otherwise, <code>false</code>.
+ * @param {Billboard} other 要比较相等性的广告牌。
+ * 如果广告牌相等，则@returns {boolean} <code>true</code>;否则为 <code>false</code>。
  */
 Billboard.prototype.equals = function (other) {
   return (
@@ -1617,9 +1617,9 @@ Billboard.prototype._destroy = function () {
 };
 
 /**
- * A function that creates an image.
+ * 创建图像的函数。
  * @callback Billboard.CreateImageCallback
- * @param {string} id The identifier of the image to load.
- * @returns {HTMLImageElement|HTMLCanvasElement|Promise<HTMLImageElement|HTMLCanvasElement>} The image, or a promise that will resolve to an image.
+ * @param {string} id 要加载的图像的标识符。
+ * @returns {HTMLImageElement|HTMLCanvasElement|Promise<HTMLImageElement|HTMLCanvasElement>} 镜像或将解析为镜像的 Promise。
  */
 export default Billboard;

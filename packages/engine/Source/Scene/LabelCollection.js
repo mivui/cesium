@@ -718,7 +718,7 @@ Object.defineProperties(LabelCollection.prototype, {
  * CPU to GPU overhead.  For best performance, add as many billboards as possible before
  * calling <code>update</code>.
  *
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 这个物体被摧毁了,destroy().
  *
  *
  * @example
@@ -780,7 +780,7 @@ LabelCollection.prototype.add = function (options) {
  * If you intend to temporarily hide a label, it is usually more efficient to call
  * {@link Label#show} instead of removing and re-adding the label.
  *
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 这个物体被摧毁了,destroy().
  *
  *
  * @example
@@ -809,7 +809,7 @@ LabelCollection.prototype.remove = function (label) {
  * @performance <code>O(n)</code>.  It is more efficient to remove all the labels
  * from a collection and then add new ones than to create a new collection entirely.
  *
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 这个物体被摧毁了,destroy().
  *
  *
  * @example
@@ -858,7 +858,7 @@ LabelCollection.prototype.contains = function (label) {
  * {@link Scene#render} was not called, an implicit <code>O(n)</code>
  * operation is performed.
  *
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 这个物体被摧毁了,destroy().
  *
  *
  * @example
@@ -978,7 +978,7 @@ LabelCollection.prototype.isDestroyed = function () {
  * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.  Therefore,
  * assign the return value (<code>undefined</code>) to the object as done in the example.
  *
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 这个物体被摧毁了,destroy().
  *
  *
  * @example

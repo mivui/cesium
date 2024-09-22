@@ -3,13 +3,13 @@ import Matrix3 from "../Core/Matrix3.js";
 import Matrix4 from "../Core/Matrix4.js";
 
 /**
- * An enum describing the x, y, and z axes and helper conversion functions.
+ * 描述 x、y 和 z 轴以及帮助程序转换函数的枚举。
  *
  * @enum {number}
  */
 const Axis = {
   /**
-   * Denotes the x-axis.
+   * 表示 x 轴。
    *
    * @type {number}
    * @constant
@@ -17,7 +17,7 @@ const Axis = {
   X: 0,
 
   /**
-   * Denotes the y-axis.
+   * 表示 y 轴。
    *
    * @type {number}
    * @constant
@@ -25,7 +25,7 @@ const Axis = {
   Y: 1,
 
   /**
-   * Denotes the z-axis.
+   * 表示 z 轴。
    *
    * @type {number}
    * @constant
@@ -34,7 +34,7 @@ const Axis = {
 };
 
 /**
- * Matrix used to convert from y-up to z-up
+ * 用于从 y 轴向上转换为 z 轴向上的矩阵
  *
  * @type {Matrix4}
  * @constant
@@ -45,7 +45,7 @@ Axis.Y_UP_TO_Z_UP = Matrix4.fromRotationTranslation(
 );
 
 /**
- * Matrix used to convert from z-up to y-up
+ * 用于将 z 轴向上转换为 y 轴向上的矩阵
  *
  * @type {Matrix4}
  * @constant
@@ -56,7 +56,7 @@ Axis.Z_UP_TO_Y_UP = Matrix4.fromRotationTranslation(
 );
 
 /**
- * Matrix used to convert from x-up to z-up
+ * 用于从 x-up 转换为 z-up 的矩阵
  *
  * @type {Matrix4}
  * @constant
@@ -67,7 +67,7 @@ Axis.X_UP_TO_Z_UP = Matrix4.fromRotationTranslation(
 );
 
 /**
- * Matrix used to convert from z-up to x-up
+ * 用于从 z-up 转换为 x-up 的矩阵
  *
  * @type {Matrix4}
  * @constant
@@ -78,7 +78,7 @@ Axis.Z_UP_TO_X_UP = Matrix4.fromRotationTranslation(
 );
 
 /**
- * Matrix used to convert from x-up to y-up
+ * 用于从 x-up 转换为 y-up 的矩阵
  *
  * @type {Matrix4}
  * @constant
@@ -89,7 +89,7 @@ Axis.X_UP_TO_Y_UP = Matrix4.fromRotationTranslation(
 );
 
 /**
- * Matrix used to convert from y-up to x-up
+ * 用于从 y-up 转换为 x-up 的矩阵
  *
  * @type {Matrix4}
  * @constant
@@ -100,10 +100,10 @@ Axis.Y_UP_TO_X_UP = Matrix4.fromRotationTranslation(
 );
 
 /**
- * Gets the axis by name
+ * 按名称获取轴
  *
- * @param {string} name The name of the axis.
- * @returns {number} The axis enum.
+ * @param {string} name 轴的名称。
+ * @returns {number} 轴枚举。
  */
 Axis.fromName = function (name) {
   //>>includeStart('debug', pragmas.debug);

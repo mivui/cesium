@@ -468,7 +468,7 @@ PolylineGeometryUpdater.prototype.isDestroyed = function () {
 /**
  * 销毁对象使用的资源。 一旦对象被销毁，就不应该使用它。
  *
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 这个物体被摧毁了,destroy().
  */
 PolylineGeometryUpdater.prototype.destroy = function () {
   this._entitySubscription();
