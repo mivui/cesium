@@ -47,7 +47,7 @@
 
 
         
-            <div class="description">Constants to determine how much time advances with each callto <a href="Clock.html#tick"><code>Clock#tick</code></a>.</div>
+            <div class="description">用于确定每次调用前进多少时间的常量更改为 <a href="Clock.html#tick"><code>Clock#tick</code></a>。</div>
         
 
         
@@ -96,7 +96,7 @@
 
             
 
-            <td class="description last"><a href="Clock.html#tick"><code>Clock#tick</code></a> advances the current time by a fixed step,which is the number of seconds specified by <a href="Clock.html#multiplier"><code>Clock#multiplier</code></a>.</td>
+            <td class="description last"><a href="Clock.html#tick"><code>Clock#tick</code></a> 将当前时间提前固定步长，，这是 <a href="Clock.html#multiplier"><code>Clock#multiplier</code></a> 指定的秒数。</td>
         </tr>
 
     
@@ -119,7 +119,7 @@
 
             
 
-            <td class="description last"><a href="Clock.html#tick"><code>Clock#tick</code></a> advances the current time by the amount of systemtime elapsed since the previous call multiplied by <a href="Clock.html#multiplier"><code>Clock#multiplier</code></a>.</td>
+            <td class="description last"><a href="Clock.html#tick"><code>Clock#tick</code></a> 将当前时间提前系统的数量自上次调用以来经过的时间乘以 <a href="Clock.html#multiplier"><code>Clock#multiplier</code></a>。</td>
         </tr>
 
     
@@ -142,7 +142,7 @@
 
             
 
-            <td class="description last"><a href="Clock.html#tick"><code>Clock#tick</code></a> sets the clock to the current system time;ignoring all other settings.</td>
+            <td class="description last"><a href="Clock.html#tick"><code>Clock#tick</code></a> 将时钟设置为当前系统时间;忽略所有其他设置。</td>
         </tr>
 
     
@@ -223,7 +223,7 @@
 
 
 <div class="description">
-    <a href="Clock.html#tick"><code>Clock#tick</code></a> sets the clock to the current system time;ignoring all other settings.
+    <a href="Clock.html#tick"><code>Clock#tick</code></a> 将时钟设置为当前系统时间;忽略所有其他设置。
 </div>
 
 
@@ -286,7 +286,7 @@
 
 
 <div class="description">
-    <a href="Clock.html#tick"><code>Clock#tick</code></a> advances the current time by the amount of systemtime elapsed since the previous call multiplied by <a href="Clock.html#multiplier"><code>Clock#multiplier</code></a>.
+    <a href="Clock.html#tick"><code>Clock#tick</code></a> 将当前时间提前系统的数量自上次调用以来经过的时间乘以 <a href="Clock.html#multiplier"><code>Clock#multiplier</code></a>。
 </div>
 
 
@@ -349,7 +349,7 @@
 
 
 <div class="description">
-    <a href="Clock.html#tick"><code>Clock#tick</code></a> advances the current time by a fixed step,which is the number of seconds specified by <a href="Clock.html#multiplier"><code>Clock#multiplier</code></a>.
+    <a href="Clock.html#tick"><code>Clock#tick</code></a> 将当前时间提前固定步长，，这是 <a href="Clock.html#multiplier"><code>Clock#multiplier</code></a> 指定的秒数。
 </div>
 
 

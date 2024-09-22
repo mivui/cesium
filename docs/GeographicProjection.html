@@ -58,7 +58,7 @@
 
 
 <div class="description">
-    A simple map projection where longitude and latitude are linearly mapped to X and Y by multiplyingthem by the <a href="Ellipsoid.html#maximumRadius"><code>Ellipsoid#maximumRadius</code></a>.  This projectionis commonly known as geographic, equirectangular, equidistant cylindrical, or plate carrée. When using the WGS84 ellipsoid, itis also known as EPSG:4326.
+    一种简单的地图投影，其中经度和纬度通过乘以线性映射到 X 和 Y它们按 <a href="Ellipsoid.html#maximumRadius"><code>Ellipsoid#maximumRadius</code></a> 分配。 此投影通常称为地理、等距矩形、等距圆柱形或板状圆柱形。使用 WGS84 椭球体时，它也称为 EPSG：4326。
 </div>
 
 
@@ -124,7 +124,7 @@
 
                 
             
-                The ellipsoid.</td>
+                ellipsoid.</td>
         </tr>
 
     
@@ -219,7 +219,7 @@
 
 
 <div class="description">
-    Gets the <a href="Ellipsoid.html"><code>Ellipsoid</code></a>.
+    获取 <a href="Ellipsoid.html"><code>Ellipsoid</code></a>。
 </div>
 
 
@@ -286,7 +286,7 @@
 
 
 <div class="description">
-    Projects a set of <a href="Cartographic.html"><code>Cartographic</code></a> coordinates, in radians, to map coordinates, in meters.X and Y are the longitude and latitude, respectively, multiplied by the maximum radius of theellipsoid.  Z is the unmodified height.
+    投影一组 <a href="Cartographic.html"><code>Cartographic</code></a> 坐标（以弧度为单位）以映射坐标（以米为单位）。X 和 Y 分别是经度和纬度乘以椭圆体。 Z 是未修改的高度。
 </div>
 
 
@@ -342,7 +342,7 @@
 
                 
             
-                The coordinates to project.</td>
+                要投影的坐标。</td>
         </tr>
 
     
@@ -372,7 +372,7 @@
 
                 
             
-                An instance into which to copy the result.  If this parameter is       undefined, a new instance is created and returned.</td>
+                要将结果复制到的实例。 如果该参数为undefined，则创建并返回一个新实例。</td>
         </tr>
 
     
@@ -393,7 +393,7 @@
 
         
 <div class="param-desc">
-    The projected coordinates.  If the result parameter is not undefined, the         coordinates are copied there and that instance is returned.  Otherwise, a new instance is         created and returned.
+    投影坐标。 如果 result 参数不是 undefined，则坐标将复制到那里，并返回该实例。 否则，新实例为created 并返回。
 </div>
 
 
@@ -440,7 +440,7 @@
     <div class="nameContainer">
     <h4 class="name" id="unproject">
         <a href="#unproject" class="doc-link"></a>
-        unproject<span class="signature">(cartesian, <span class="optional">result</span>)</span> &rarr; <span class="type-signature returnType"><a href="Cartographic.html">Cartographic</a></span>
+        unproject<span class="signature">(笛卡尔, <span class="optional">result</span>)</span> &rarr; <span class="type-signature returnType"><a href="Cartographic.html">Cartographic</a></span>
         
 
 <div class="source-link rightLinks">
@@ -456,7 +456,7 @@
 
 
 <div class="description">
-    Unprojects a set of projected <a href="Cartesian3.html"><code>Cartesian3</code></a> coordinates, in meters, to <a href="Cartographic.html"><code>Cartographic</code></a>coordinates, in radians.  Longitude and Latitude are the X and Y coordinates, respectively,divided by the maximum radius of the ellipsoid.  Height is the unmodified Z coordinate.
+    将一组投影的 <a href="Cartesian3.html"><code>Cartesian3</code></a> 坐标（以米为单位）取消投影到 <a href="Cartographic.html"><code>Cartographic</code></a>坐标，以弧度为单位。 Longitude 和 Latitude 分别是 X 和 Y 坐标。除以椭球体的最大半径。 Height 是未修改的 Z 坐标。
 </div>
 
 
@@ -491,7 +491,7 @@
 
         <tr>
             
-                <td class="name"><code>cartesian</code></td>
+                <td class="name"><code>笛卡尔</code></td>
             
 
             <td class="type">
@@ -512,7 +512,7 @@
 
                 
             
-                The Cartesian position to unproject with height (z) in meters.</td>
+                高度 （z） 取消投影的笛卡尔位置，以米为单位。</td>
         </tr>
 
     
@@ -542,7 +542,7 @@
 
                 
             
-                An instance into which to copy the result.  If this parameter is       undefined, a new instance is created and returned.</td>
+                要将结果复制到其中的实例。 如果该参数为undefined，则创建并返回一个新实例。</td>
         </tr>
 
     
@@ -563,7 +563,7 @@
 
         
 <div class="param-desc">
-    The unprojected coordinates.  If the result parameter is not undefined, the         coordinates are copied there and that instance is returned.  Otherwise, a new instance is         created and returned.
+    未投影的坐标。 如果 result 参数不是 undefined，则坐标将复制到那里，并返回该实例。 否则，新实例为created 并返回。
 </div>
 
 

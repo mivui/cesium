@@ -58,7 +58,7 @@
 
 
 <div class="description">
-    Geometry instancing allows one <a href="Geometry.html"><code>Geometry</code></a> object to be positions in severaldifferent locations and colored uniquely.  For example, one <a href="BoxGeometry.html"><code>BoxGeometry</code></a> canbe instanced several times, each with a different <code>modelMatrix</code> to changeits position, rotation, and scale.
+    几何实例化允许一个 <a href="Geometry.html"><code>Geometry</code></a> 对象位于多个不同的位置和独特的颜色。 例如，一个 <a href="BoxGeometry.html"><code>BoxGeometry</code></a> 可以实例化多次，每次实例化都有不同的 <code>modelMatrix</code> 进行更改它的位置、旋转和缩放。
 </div>
 
 
@@ -109,7 +109,7 @@
 
             <td class="description last">
             
-                对象，具有以下属性:
+                对象，具有以下属性：
                 
 
 <table class="params">
@@ -162,7 +162,7 @@
 
                 
             
-                The geometry to instance.</td>
+                要实例的几何体。</td>
         </tr>
 
     
@@ -198,7 +198,7 @@
 
                 
             
-                The model matrix that transforms to transform the geometry from model to world coordinates.</td>
+                转换以将几何体从模型坐标转换为世界坐标的模型矩阵。</td>
         </tr>
 
     
@@ -232,7 +232,7 @@
 
                 
             
-                A user-defined object to return when the instance is picked with <a href="Scene.html#pick"><code>Scene#pick</code></a> or get/set per-instance attributes with <a href="Primitive.html#getGeometryInstanceAttributes"><code>Primitive#getGeometryInstanceAttributes</code></a>.</td>
+                使用 <a href="Scene.html#pick"><code>Scene#pick</code></a> 选取实例或使用 <a href="Primitive.html#getGeometryInstanceAttributes"><code>Primitive#getGeometryInstanceAttributes</code></a> 获取/设置每个实例的属性时返回的用户定义对象。</td>
         </tr>
 
     
@@ -266,7 +266,7 @@
 
                 
             
-                Per-instance attributes like a show or color attribute shown in the example below.</td>
+                每个实例的属性，如以下示例中所示的 show 或 color 属性。</td>
         </tr>
 
     
@@ -372,7 +372,7 @@
 
 
 <div class="description">
-    Per-instance attributes like <a href="ColorGeometryInstanceAttribute.html"><code>ColorGeometryInstanceAttribute</code></a> or <a href="ShowGeometryInstanceAttribute.html"><code>ShowGeometryInstanceAttribute</code></a>.<a href="Geometry.html"><code>Geometry</code></a> attributes varying per vertex; these attributes are constant for the entire instance.
+    每个实例的属性，如 <a href="ColorGeometryInstanceAttribute.html"><code>ColorGeometryInstanceAttribute</code></a> 或 <a href="ShowGeometryInstanceAttribute.html"><code>ShowGeometryInstanceAttribute</code></a>。<a href="Geometry.html"><code>Geometry</code></a> 属性因顶点而异;这些属性对于整个实例都是常量。
 </div>
 
 
@@ -435,7 +435,7 @@
 
 
 <div class="description">
-    The geometry being instanced.
+    正在实例化的几何体。
 </div>
 
 
@@ -495,7 +495,7 @@
 
 
 <div class="description">
-    User-defined object returned when the instance is picked or used to get/set per-instance attributes.
+    选取实例或用于获取/设置每个实例属性时返回的用户定义对象。
 </div>
 
 
@@ -565,7 +565,7 @@
 
 
 <div class="description">
-    The 4x4 transformation matrix that transforms the geometry from model to world coordinates.When this is the identity matrix, the geometry is drawn in world coordinates, i.e., Earth's WGS84 coordinates.Local reference frames can be used by providing a different transformation matrix, like that returnedby <a href="Transforms.html#.eastNorthUpToFixedFrame"><code>Transforms.eastNorthUpToFixedFrame</code></a>.
+    将几何体从模型转换为世界坐标的 4x4 转换矩阵。当这是单位矩阵时，几何图形在世界坐标中绘制，即地球的 WGS84 坐标。可以通过提供不同的转换矩阵来使用本地参考帧，就像返回的矩阵一样by <a href="Transforms.html#.eastNorthUpToFixedFrame"><code>Transforms.eastNorthUpToFixedFrame</code></a>.
 </div>
 
 

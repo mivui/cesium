@@ -47,7 +47,7 @@
 
 
         
-            <div class="description">Contains functions for operating on 2D triangles.</div>
+            <div class="description">包含用于操作 2D 三角形的函数。</div>
         
 
         
@@ -122,7 +122,9 @@
 
 
 <div class="description">
-    Splits a 2D triangle at given axis-aligned threshold value and returns the resultingpolygon on a given side of the threshold.  The resulting polygon may have 0, 1, 2,3, or 4 vertices.
+    在给定的轴对齐阈值处分割 2D 三角形，并返回结果
+阈值给定一侧的多边形。 生成的多边形可能具有 0、1、2、
+3 或 4 个顶点。
 </div>
 
 
@@ -178,7 +180,7 @@
 
                 
             
-                The threshold coordinate value at which to clip the triangle.</td>
+                剪切三角形的阈值坐标值。</td>
         </tr>
 
     
@@ -206,7 +208,8 @@
 
                 
             
-                true to keep the portion of the triangle above the threshold, or false                           to keep the portion below.</td>
+                true 保持三角形的部分高于阈值，或 false
+保留以下部分。</td>
         </tr>
 
     
@@ -234,7 +237,7 @@
 
                 
             
-                The coordinate of the first vertex in the triangle, in counter-clockwise order.</td>
+                三角形中第一个顶点的坐标，按逆时针顺序排列。</td>
         </tr>
 
     
@@ -262,7 +265,7 @@
 
                 
             
-                The coordinate of the second vertex in the triangle, in counter-clockwise order.</td>
+                三角形中第二个顶点的坐标，按逆时针顺序排列。</td>
         </tr>
 
     
@@ -290,7 +293,7 @@
 
                 
             
-                The coordinate of the third vertex in the triangle, in counter-clockwise order.</td>
+                三角形中第三个顶点的坐标，按逆时针顺序排列。</td>
         </tr>
 
     
@@ -320,7 +323,8 @@
 
                 
             
-                The array into which to copy the result.  If this parameter is not supplied,                           a new array is constructed and returned.</td>
+                要将结果复制到其中的数组。 如果未提供此参数，则
+构造并返回一个新数组。</td>
         </tr>
 
     
@@ -341,7 +345,14 @@
 
         
 <div class="param-desc">
-    The polygon that results after the clip, specified as a list of                    vertices.  The vertices are specified in counter-clockwise order.                    Each vertex is either an index from the existing list (identified as                    a 0, 1, or 2) or -1 indicating a new vertex not in the original triangle.                    For new vertices, the -1 is followed by three additional numbers: the                    index of each of the two original vertices forming the line segment that                    the new vertex lies on, and the fraction of the distance from the first                    vertex to the second one.
+    剪辑后生成的多边形，指定为
+顶点。 顶点按逆时针顺序指定。
+每个顶点都是现有列表中的索引（标识为
+0、1 或 2）或 -1 表示不在原始三角形中的新顶点。
+对于新顶点，-1 后跟三个附加数字：
+两个原始顶点中每个顶点的索引，该索引构成线段
+新顶点位于 上，与第一个顶点的距离分数
+顶点分配给第二个。
 </div>
 
 
@@ -372,7 +383,8 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const result = Cesium.Intersections2D.clipTriangleAtAxisAlignedThreshold(0.5, false, 0.2, 0.6, 0.4);// result === [2, 0, -1, 1, 0, 0.25, -1, 1, 2, 0.5]</code></pre>
+    <pre><code class="language-javascript">const result = Cesium.Intersections2D.clipTriangleAtAxisAlignedThreshold(0.5, false, 0.2, 0.6, 0.4);
+// result === [2, 0, -1, 1, 0, 0.25, -1, 1, 2, 0.5]</code></pre>
 
     
 
@@ -409,7 +421,7 @@
 
 
 <div class="description">
-    Compute the barycentric coordinates of a 2D position within a 2D triangle.
+    计算 2D 三角形内 2D 位置的重心坐标。
 </div>
 
 
@@ -465,7 +477,7 @@
 
                 
             
-                x坐标  position for which to find the barycentric coordinates.</td>
+                x坐标位置，以找到其重心坐标。</td>
         </tr>
 
     
@@ -493,7 +505,7 @@
 
                 
             
-                y坐标 position for which to find the barycentric coordinates.</td>
+                y坐标位置，以查找其重心坐标。</td>
         </tr>
 
     
@@ -521,7 +533,7 @@
 
                 
             
-                x坐标  triangle's first vertex.</td>
+                x坐标 三角形的第一个顶点。</td>
         </tr>
 
     
@@ -549,7 +561,7 @@
 
                 
             
-                y坐标 triangle's first vertex.</td>
+                y坐标 三角形的第一个顶点。</td>
         </tr>
 
     
@@ -577,7 +589,7 @@
 
                 
             
-                x坐标  triangle's second vertex.</td>
+                x坐标 三角形的第二个顶点。</td>
         </tr>
 
     
@@ -605,7 +617,7 @@
 
                 
             
-                y坐标 triangle's second vertex.</td>
+                y坐标 三角形的第二个顶点。</td>
         </tr>
 
     
@@ -633,7 +645,7 @@
 
                 
             
-                x坐标  triangle's third vertex.</td>
+                x坐标 三角形的第三个顶点。</td>
         </tr>
 
     
@@ -661,7 +673,7 @@
 
                 
             
-                y坐标 triangle's third vertex.</td>
+                y坐标 三角形的第三个顶点。</td>
         </tr>
 
     
@@ -691,7 +703,8 @@
 
                 
             
-                The instance into to which to copy the result.  If this parameter                    is undefined, a new instance is created and returned.</td>
+                要将结果复制到的实例。 如果此参数
+未定义，则会创建并返回一个新实例。</td>
         </tr>
 
     
@@ -712,7 +725,7 @@
 
         
 <div class="param-desc">
-    The barycentric coordinates of the position within the triangle.
+    三角形内位置的重心坐标。
 </div>
 
 
@@ -743,7 +756,8 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const result = Cesium.Intersections2D.computeBarycentricCoordinates(0.0, 0.0, 0.0, 1.0, -1, -0.5, 1, -0.5);// result === new Cesium.Cartesian3(1.0 / 3.0, 1.0 / 3.0, 1.0 / 3.0);</code></pre>
+    <pre><code class="language-javascript">const result = Cesium.Intersections2D.computeBarycentricCoordinates(0.0, 0.0, 0.0, 1.0, -1, -0.5, 1, -0.5);
+// result === new Cesium.Cartesian3(1.0 / 3.0, 1.0 / 3.0, 1.0 / 3.0);</code></pre>
 
     
 
@@ -780,7 +794,7 @@
 
 
 <div class="description">
-    Compute the intersection between 2 line segments
+    计算 2 条线段之间的交点
 </div>
 
 
@@ -836,7 +850,7 @@
 
                 
             
-                x坐标  first line's first vertex.</td>
+                x坐标 第一行的第一个顶点。</td>
         </tr>
 
     
@@ -864,7 +878,7 @@
 
                 
             
-                y坐标 first line's first vertex.</td>
+                y坐标 第一行的第一个顶点。</td>
         </tr>
 
     
@@ -892,7 +906,7 @@
 
                 
             
-                x坐标  first line's second vertex.</td>
+                x坐标 第一行的第二个顶点。</td>
         </tr>
 
     
@@ -920,7 +934,7 @@
 
                 
             
-                y坐标 first line's second vertex.</td>
+                y坐标 第一行的第二个顶点。</td>
         </tr>
 
     
@@ -948,7 +962,7 @@
 
                 
             
-                x坐标  second line's first vertex.</td>
+                x坐标 第二行的第一个顶点。</td>
         </tr>
 
     
@@ -976,7 +990,7 @@
 
                 
             
-                y坐标 second line's first vertex.</td>
+                y坐标 第二行的第一个顶点。</td>
         </tr>
 
     
@@ -1004,7 +1018,7 @@
 
                 
             
-                x坐标  second line's second vertex.</td>
+                x坐标 第二行的第二个顶点。</td>
         </tr>
 
     
@@ -1032,7 +1046,7 @@
 
                 
             
-                y坐标 second line's second vertex.</td>
+                y坐标 第二行的第二个顶点。</td>
         </tr>
 
     
@@ -1062,7 +1076,8 @@
 
                 
             
-                The instance into to which to copy the result. If this parameter                    is undefined, a new instance is created and returned.</td>
+                要将结果复制到的实例。如果此参数
+未定义，则会创建并返回一个新实例。</td>
         </tr>
 
     
@@ -1083,7 +1098,7 @@
 
         
 <div class="param-desc">
-    The intersection point, undefined if there is no intersection point or lines are coincident.
+    交点，如果没有交点或线条重合，则未定义。
 </div>
 
 
@@ -1114,7 +1129,8 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const result = Cesium.Intersections2D.computeLineSegmentLineSegmentIntersection(0.0, 0.0, 0.0, 2.0, -1, 1, 1, 1);// result === new Cesium.Cartesian2(0.0, 1.0);</code></pre>
+    <pre><code class="language-javascript">const result = Cesium.Intersections2D.computeLineSegmentLineSegmentIntersection(0.0, 0.0, 0.0, 2.0, -1, 1, 1, 1);
+// result === new Cesium.Cartesian2(0.0, 1.0);</code></pre>
 
     
 

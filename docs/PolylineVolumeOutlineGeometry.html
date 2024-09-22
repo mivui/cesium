@@ -58,7 +58,7 @@
 
 
 <div class="description">
-    A description of a polyline with a volume (a 2D shape extruded along a polyline).
+    具有体积的多段线（沿多段线拉伸的 2D 形状）的描述。
 </div>
 
 
@@ -159,7 +159,7 @@
 
                 
             
-                An array of positions that define the center of the polyline volume.</td>
+                定义多段线体积中心的位置数组。</td>
         </tr>
 
     
@@ -191,7 +191,7 @@
 
                 
             
-                An array of positions that define the shape to be extruded along the polyline</td>
+                定义要沿多段线拉伸的形状的位置数组</td>
         </tr>
 
     
@@ -227,7 +227,7 @@
 
                 
             
-                The ellipsoid to be used as a reference.</td>
+                要用作参考的椭球体。</td>
         </tr>
 
     
@@ -263,7 +263,7 @@
 
                 
             
-                The distance, in radians, between each latitude and longitude. Determines the number of positions in the buffer.</td>
+                每个纬度和经度之间的距离，以弧度为单位。确定缓冲区中的位置数。</td>
         </tr>
 
     
@@ -299,7 +299,7 @@
 
                 
             
-                Determines the style of the corners.</td>
+                确定角的样式。</td>
         </tr>
 
     
@@ -348,7 +348,22 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">function computeCircle(radius) {  const positions = [];  for (let i = 0; i &lt; 360; i++) {    const radians = Cesium.Math.toRadians(i);    positions.push(new Cesium.Cartesian2(radius * Math.cos(radians), radius * Math.sin(radians)));  }  return positions;}const volumeOutline = new Cesium.PolylineVolumeOutlineGeometry({  polylinePositions : Cesium.Cartesian3.fromDegreesArray([    -72.0, 40.0,    -70.0, 35.0  ]),  shapePositions : computeCircle(100000.0)});</code></pre>
+    <pre><code class="language-javascript">function computeCircle(radius) {
+  const positions = [];
+  for (let i = 0; i &lt; 360; i++) {
+    const radians = Cesium.Math.toRadians(i);
+    positions.push(new Cesium.Cartesian2(radius * Math.cos(radians), radius * Math.sin(radians)));
+  }
+  return positions;
+}
+
+const volumeOutline = new Cesium.PolylineVolumeOutlineGeometry({
+  polylinePositions : Cesium.Cartesian3.fromDegreesArray([
+    -72.0, 40.0,
+    -70.0, 35.0
+  ]),
+  shapePositions : computeCircle(100000.0)
+});</code></pre>
 
     
 
@@ -472,7 +487,7 @@
 
 
 <div class="description">
-    Computes the geometric representation of the outline of a polyline with a volume, including its vertices, indices, and a bounding sphere.
+    计算具有体积的折线轮廓的几何表示，包括其顶点、索引和边界球体。
 </div>
 
 
@@ -523,7 +538,7 @@
 
             <td class="description last">
             
-                A description of the polyline volume outline.</td>
+                多段线体积轮廓的描述。</td>
         </tr>
 
     
@@ -974,7 +989,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数 or a new PolylineVolumeOutlineGeometry instance if one was not provided.
+    修改后的结果参数或新的 PolylineVolumeOutlineGeometry 实例（如果未提供）。
 </div>
 
 

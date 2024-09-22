@@ -58,7 +58,7 @@
 
 
 <div class="description">
-    A plane tangent to the provided ellipsoid at the provided origin.If origin is not on the surface of the ellipsoid, it's surface projection will be used.If origin is at the center of the ellipsoid, an exception will be thrown.
+    在提供的原点处与提供的椭球体相切的平面。如果原点不在椭球体的表面上，则将使用它的表面投影。如果 origin 位于椭球体的中心，则会引发异常。
 </div>
 
 
@@ -120,7 +120,7 @@
 
                 
             
-                The point on the surface of the ellipsoid where the tangent plane touches.</td>
+                椭球体曲面上切平面接触的点。</td>
         </tr>
 
     
@@ -156,7 +156,7 @@
 
                 
             
-                The ellipsoid to use.</td>
+                要使用的椭球体。</td>
         </tr>
 
     
@@ -260,7 +260,7 @@
 
 
 <div class="description">
-    Gets the ellipsoid.
+    获取椭球体。
 </div>
 
 
@@ -320,7 +320,7 @@
 
 
 <div class="description">
-    Gets the origin.
+    获取源。
 </div>
 
 
@@ -380,7 +380,7 @@
 
 
 <div class="description">
-    Gets the plane which is tangent to the ellipsoid.
+    获取与椭球体相切的平面。
 </div>
 
 
@@ -440,7 +440,7 @@
 
 
 <div class="description">
-    Gets the local X-axis (east) of the tangent plane.
+    获取切线平面的局部 X 轴（东）。
 </div>
 
 
@@ -500,7 +500,7 @@
 
 
 <div class="description">
-    Gets the local Y-axis (north) of the tangent plane.
+    获取切线平面的局部 Y 轴（北）。
 </div>
 
 
@@ -560,7 +560,7 @@
 
 
 <div class="description">
-    Gets the local Z-axis (up) of the tangent plane.
+    获取切线平面的局部 Z 轴（向上）。
 </div>
 
 
@@ -611,7 +611,7 @@
     <div class="nameContainer">
     <h4 class="name" id=".fromPoints">
         <a href="#.fromPoints" class="doc-link"></a>
-        <span class="type-signature attribute-static">static</span> Cesium.EllipsoidTangentPlane.fromPoints<span class="signature">(cartesians, <span class="optional">ellipsoid</span>)</span> &rarr; <span class="type-signature returnType"><a href="EllipsoidTangentPlane.html">EllipsoidTangentPlane</a></span>
+        <span class="type-signature attribute-static">static</span> Cesium.EllipsoidTangentPlane.fromPoints<span class="signature">(笛卡尔, <span class="optional">ellipsoid</span>)</span> &rarr; <span class="type-signature returnType"><a href="EllipsoidTangentPlane.html">EllipsoidTangentPlane</a></span>
         
 
 <div class="source-link rightLinks">
@@ -627,7 +627,7 @@
 
 
 <div class="description">
-    Creates a new instance from the provided ellipsoid and the centerpoint of the provided Cartesians.
+    从提供的椭球体和中心提供的笛卡尔点。
 </div>
 
 
@@ -664,7 +664,7 @@
 
         <tr>
             
-                <td class="name"><code>cartesians</code></td>
+                <td class="name"><code>笛卡尔</code></td>
             
 
             <td class="type">
@@ -689,7 +689,7 @@
 
                 
             
-                The list of positions surrounding the center point.</td>
+                围绕中心点的位置列表。</td>
         </tr>
 
     
@@ -725,7 +725,7 @@
 
                 
             
-                The ellipsoid to use.</td>
+                要使用的椭球体。</td>
         </tr>
 
     
@@ -746,7 +746,7 @@
 
         
 <div class="param-desc">
-    The new instance of EllipsoidTangentPlane.
+    EllipsoidTangentPlane 的新实例。
 </div>
 
 
@@ -793,7 +793,7 @@
     <div class="nameContainer">
     <h4 class="name" id="projectPointOntoEllipsoid">
         <a href="#projectPointOntoEllipsoid" class="doc-link"></a>
-        projectPointOntoEllipsoid<span class="signature">(cartesian, <span class="optional">result</span>)</span> &rarr; <span class="type-signature returnType"><a href="Cartesian3.html">Cartesian3</a></span>
+        projectPointOntoEllipsoid<span class="signature">(笛卡尔, <span class="optional">result</span>)</span> &rarr; <span class="type-signature returnType"><a href="Cartesian3.html">Cartesian3</a></span>
         
 
 <div class="source-link rightLinks">
@@ -809,7 +809,7 @@
 
 
 <div class="description">
-    Computes the projection of the provided 2D position onto the 3D ellipsoid.
+    计算提供的 2D 位置在 3D 椭球体上的投影。
 </div>
 
 
@@ -844,7 +844,7 @@
 
         <tr>
             
-                <td class="name"><code>cartesian</code></td>
+                <td class="name"><code>笛卡尔</code></td>
             
 
             <td class="type">
@@ -865,7 +865,7 @@
 
                 
             
-                The points to project.</td>
+                指向投影的点。</td>
         </tr>
 
     
@@ -895,7 +895,7 @@
 
                 
             
-                The Cartesian3 instance to store result.</td>
+                用于存储结果的 Cartesian3 实例。</td>
         </tr>
 
     
@@ -916,7 +916,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数 or a new Cartesian3 instance if none was provided.
+    修改后的结果参数或新的 Cartesian3 实例（如果未提供）。
 </div>
 
 
@@ -963,7 +963,7 @@
     <div class="nameContainer">
     <h4 class="name" id="projectPointOntoPlane">
         <a href="#projectPointOntoPlane" class="doc-link"></a>
-        projectPointOntoPlane<span class="signature">(cartesian, <span class="optional">result</span>)</span> &rarr; <span class="type-signature returnType"><a href="Cartesian2.html">Cartesian2</a></span>
+        projectPointOntoPlane<span class="signature">(笛卡尔, <span class="optional">result</span>)</span> &rarr; <span class="type-signature returnType"><a href="Cartesian2.html">Cartesian2</a></span>
         
 
 <div class="source-link rightLinks">
@@ -979,7 +979,7 @@
 
 
 <div class="description">
-    Computes the projection of the provided 3D position onto the 2D plane, radially outward from the <code>EllipsoidTangentPlane.ellipsoid</code> coordinate system origin.
+    计算提供的 3D 位置在 2D 平面上的投影，从 <code>EllipsoidTangentPlane.ellipsoid</code> 坐标系原点向外径向投影。
 </div>
 
 
@@ -1014,7 +1014,7 @@
 
         <tr>
             
-                <td class="name"><code>cartesian</code></td>
+                <td class="name"><code>笛卡尔</code></td>
             
 
             <td class="type">
@@ -1035,7 +1035,7 @@
 
                 
             
-                The point to project.</td>
+                投影点。</td>
         </tr>
 
     
@@ -1086,7 +1086,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数 or a new Cartesian2 instance if none was provided. Undefined if there is no intersection point
+    修改后的结果参数或新的 Cartesian2 实例（如果未提供）。如果没有交点，则为 Undefined
 </div>
 
 
@@ -1133,7 +1133,7 @@
     <div class="nameContainer">
     <h4 class="name" id="projectPointsOntoEllipsoid">
         <a href="#projectPointsOntoEllipsoid" class="doc-link"></a>
-        projectPointsOntoEllipsoid<span class="signature">(cartesians, <span class="optional">result</span>)</span> &rarr; <span class="type-signature returnType">Array.&lt;<a href="Cartesian3.html">Cartesian3</a>></span>
+        projectPointsOntoEllipsoid<span class="signature">(笛卡尔, <span class="optional">result</span>)</span> &rarr; <span class="type-signature returnType">Array.&lt;<a href="Cartesian3.html">Cartesian3</a>></span>
         
 
 <div class="source-link rightLinks">
@@ -1149,7 +1149,7 @@
 
 
 <div class="description">
-    Computes the projection of the provided 2D positions onto the 3D ellipsoid.
+    计算提供的 2D 位置在 3D 椭球体上的投影。
 </div>
 
 
@@ -1184,7 +1184,7 @@
 
         <tr>
             
-                <td class="name"><code>cartesians</code></td>
+                <td class="name"><code>笛卡尔</code></td>
             
 
             <td class="type">
@@ -1205,7 +1205,7 @@
 
                 
             
-                The array of points to project.</td>
+                要投影的点数组。</td>
         </tr>
 
     
@@ -1235,7 +1235,7 @@
 
                 
             
-                The array of Cartesian3 instances onto which to store results.</td>
+                用于存储结果的 Cartesian3 实例的数组。</td>
         </tr>
 
     
@@ -1256,7 +1256,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数 or a new array of Cartesian3 instances if none was provided.
+    修改后的结果参数或新的 Cartesian3 实例数组（如果未提供）。
 </div>
 
 
@@ -1303,7 +1303,7 @@
     <div class="nameContainer">
     <h4 class="name" id="projectPointsOntoPlane">
         <a href="#projectPointsOntoPlane" class="doc-link"></a>
-        projectPointsOntoPlane<span class="signature">(cartesians, <span class="optional">result</span>)</span> &rarr; <span class="type-signature returnType">Array.&lt;<a href="Cartesian2.html">Cartesian2</a>></span>
+        projectPointsOntoPlane<span class="signature">(笛卡尔, <span class="optional">result</span>)</span> &rarr; <span class="type-signature returnType">Array.&lt;<a href="Cartesian2.html">Cartesian2</a>></span>
         
 
 <div class="source-link rightLinks">
@@ -1319,7 +1319,7 @@
 
 
 <div class="description">
-    Computes the projection of the provided 3D positions onto the 2D plane (where possible), radially outward from the global origin.The resulting array may be shorter than the input array - if a single projection is impossible it will not be included.
+    计算提供的 3D 位置在 2D 平面上的投影（如果可能），从全局原点径向向外投影。结果数组可能比输入数组短 - 如果无法进行单个投影，则不会包含该数组。
 </div>
 
 
@@ -1354,7 +1354,7 @@
 
         <tr>
             
-                <td class="name"><code>cartesians</code></td>
+                <td class="name"><code>笛卡尔</code></td>
             
 
             <td class="type">
@@ -1375,7 +1375,7 @@
 
                 
             
-                The array of points to project.</td>
+                要投影的点数组。</td>
         </tr>
 
     
@@ -1405,7 +1405,7 @@
 
                 
             
-                The array of Cartesian2 instances onto which to store results.</td>
+                用于存储结果的 Cartesian2 实例的数组。</td>
         </tr>
 
     
@@ -1426,7 +1426,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数 or a new array of Cartesian2 instances if none was provided.
+    修改后的结果参数或新的 Cartesian2 实例数组（如果未提供）。
 </div>
 
 
@@ -1478,7 +1478,7 @@
     <div class="nameContainer">
     <h4 class="name" id="projectPointsToNearestOnPlane">
         <a href="#projectPointsToNearestOnPlane" class="doc-link"></a>
-        projectPointsToNearestOnPlane<span class="signature">(cartesians, <span class="optional">result</span>)</span> &rarr; <span class="type-signature returnType">Array.&lt;<a href="Cartesian2.html">Cartesian2</a>></span>
+        projectPointsToNearestOnPlane<span class="signature">(笛卡尔, <span class="optional">result</span>)</span> &rarr; <span class="type-signature returnType">Array.&lt;<a href="Cartesian2.html">Cartesian2</a>></span>
         
 
 <div class="source-link rightLinks">
@@ -1494,7 +1494,7 @@
 
 
 <div class="description">
-    Computes the projection of the provided 3D positions onto the 2D plane, along the plane normal.
+    计算提供的 3D 位置沿平面法线在 2D 平面上的投影。
 </div>
 
 
@@ -1529,7 +1529,7 @@
 
         <tr>
             
-                <td class="name"><code>cartesians</code></td>
+                <td class="name"><code>笛卡尔</code></td>
             
 
             <td class="type">
@@ -1550,7 +1550,7 @@
 
                 
             
-                The array of points to project.</td>
+                要投影的点数组。</td>
         </tr>
 
     
@@ -1580,7 +1580,7 @@
 
                 
             
-                The array of Cartesian2 instances onto which to store results.</td>
+                用于存储结果的 Cartesian2 实例的数组。</td>
         </tr>
 
     
@@ -1601,7 +1601,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数 or a new array of Cartesian2 instances if none was provided. This will have the same length as <code>cartesians</code>.
+    修改后的结果参数或新的 Cartesian2 实例数组（如果未提供）。这将具有与 <code>cardesian</code> 相同的长度。
 </div>
 
 
@@ -1653,7 +1653,7 @@
     <div class="nameContainer">
     <h4 class="name" id="projectPointToNearestOnPlane">
         <a href="#projectPointToNearestOnPlane" class="doc-link"></a>
-        projectPointToNearestOnPlane<span class="signature">(cartesian, <span class="optional">result</span>)</span> &rarr; <span class="type-signature returnType"><a href="Cartesian2.html">Cartesian2</a></span>
+        projectPointToNearestOnPlane<span class="signature">(笛卡尔, <span class="optional">result</span>)</span> &rarr; <span class="type-signature returnType"><a href="Cartesian2.html">Cartesian2</a></span>
         
 
 <div class="source-link rightLinks">
@@ -1669,7 +1669,7 @@
 
 
 <div class="description">
-    Computes the projection of the provided 3D position onto the 2D plane, along the plane normal.
+    计算提供的 3D 位置沿平面法线在 2D 平面上的投影。
 </div>
 
 
@@ -1704,7 +1704,7 @@
 
         <tr>
             
-                <td class="name"><code>cartesian</code></td>
+                <td class="name"><code>笛卡尔</code></td>
             
 
             <td class="type">
@@ -1725,7 +1725,7 @@
 
                 
             
-                The point to project.</td>
+                投影点。</td>
         </tr>
 
     
@@ -1776,7 +1776,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数 or a new Cartesian2 instance if none was provided.
+    修改后的结果参数或新的 Cartesian2 实例（如果未提供）。
 </div>
 
 

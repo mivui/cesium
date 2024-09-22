@@ -47,7 +47,9 @@
 
 
         
-            <div class="description">Converts an object representing a set of name/value pairs into a query string,with names and values encoded properly for use in a URL.  Values that are arrayswill produce multiple values with the same name.</div>
+            <div class="description">将表示一组名称/值对的对象转换为查询字符串，
+对名称和值进行正确编码，以便在 URL 中使用。 数组值
+将生成多个具有相同名称的值。</div>
         
 
         
@@ -73,7 +75,11 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const str = Cesium.objectToQuery({    key1 : 'some value',    key2 : 'a/b',    key3 : ['x', 'y']});</code></pre>
+    <pre><code class="language-javascript">const str = Cesium.objectToQuery({
+    key1 : 'some value',
+    key2 : 'a/b',
+    key3 : ['x', 'y']
+});</code></pre>
 
     
 
@@ -86,7 +92,9 @@
     
     <h5>See:</h5>
     <ul class="see-list">
-        <li>queryToObject// str will be:// 'key1=some%20value&key2=a%2Fb&key3=x&key3=y'</li>
+        <li>queryToObject
+// str will be:
+// 'key1=some%20value&key2=a%2Fb&key3=x&key3=y'</li>
     </ul>
     
 

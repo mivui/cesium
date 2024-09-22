@@ -58,7 +58,7 @@
 
 
 <div class="description">
-    Provides details about an error that occurred in an <a href="ImageryProvider.html"><code>ImageryProvider</code></a> or a <a href="TerrainProvider.html"><code>TerrainProvider</code></a>.
+    提供有关 <a href="ImageryProvider.html"><code>ImageryProvider</code></a> 或 <a href="TerrainProvider.html"><code>TerrainProvider</code></a> 中发生的错误的详细信息。
 </div>
 
 
@@ -123,7 +123,7 @@
 
                 
             
-                The imagery or terrain provider that experienced the error.</td>
+                遇到错误的影像或 terrain 提供程序。</td>
         </tr>
 
     
@@ -155,7 +155,7 @@
 
                 
             
-                A message describing the error.</td>
+                描述错误的消息。</td>
         </tr>
 
     
@@ -189,7 +189,7 @@
 
                 
             
-                x坐标  tile that experienced the error, or undefined if the error       is not specific to a particular tile.</td>
+                x坐标 磁贴，如果出现错误，则为 undefined并不特定于特定磁贴。</td>
         </tr>
 
     
@@ -223,7 +223,7 @@
 
                 
             
-                y坐标 tile that experienced the error, or undefined if the error       is not specific to a particular tile.</td>
+                y坐标 磁贴，如果出现错误，则为 undefined并不特定于特定磁贴。</td>
         </tr>
 
     
@@ -257,7 +257,7 @@
 
                 
             
-                The level of the tile that experienced the error, or undefined if the error       is not specific to a particular tile.</td>
+                遇到错误的磁贴的级别，如果出现错误，则为 undefined并不特定于特定磁贴。</td>
         </tr>
 
     
@@ -293,7 +293,7 @@
 
                 
             
-                The number of times this operation has been retried.</td>
+                此操作已重试的次数。</td>
         </tr>
 
     
@@ -327,7 +327,7 @@
 
                 
             
-                The error or exception that occurred, if any.</td>
+                发生的错误或异常（如果有）。</td>
         </tr>
 
     
@@ -477,7 +477,7 @@
 
 
 <div class="description">
-    The level-of-detail of the tile that experienced the error.  If the error is not specificto a particular tile, this property will be undefined.
+    遇到错误的磁贴的详细程度。 如果错误不具体添加到特定磁贴时，此属性将为 undefined。
 </div>
 
 
@@ -537,7 +537,7 @@
 
 
 <div class="description">
-    The message describing the error.
+    描述错误的消息。
 </div>
 
 
@@ -597,7 +597,7 @@
 
 
 <div class="description">
-    The <a href="ImageryProvider.html"><code>ImageryProvider</code></a> or <a href="TerrainProvider.html"><code>TerrainProvider</code></a> that experienced the error.
+    遇到错误的 <a href="ImageryProvider.html"><code>ImageryProvider</code></a> 或 <a href="TerrainProvider.html"><code>TerrainProvider</code></a>。
 </div>
 
 
@@ -657,7 +657,7 @@
 
 
 <div class="description">
-    True if the failed operation should be retried; otherwise, false.  The imagery or terrain providerwill set the initial value of this property before raising the event, but any listenerscan change it.  The value after the last listener is invoked will be acted upon.
+    如果应重试失败的操作，则为 True;否则为 false。 影像或 terrain 提供商将在引发事件之前设置此属性的初始值，但任何侦听器可以更改它。 调用最后一个侦听器后的值将执行操作。
 </div>
 
 
@@ -720,7 +720,7 @@
 
 
 <div class="description">
-    The number of times this operation has been retried.
+    此操作已重试的次数。
 </div>
 
 
@@ -783,7 +783,7 @@
 
 
 <div class="description">
-    x坐标  tile that experienced the error.  If the error is not specificto a particular tile, this property will be undefined.
+    x坐标 磁贴。 如果错误不具体添加到特定磁贴时，此属性将为 undefined。
 </div>
 
 
@@ -843,7 +843,7 @@
 
 
 <div class="description">
-    y坐标 tile that experienced the error.  If the error is not specificto a particular tile, this property will be undefined.
+    y坐标 磁贴。 如果错误不具体添加到特定磁贴时，此属性将为 undefined。
 </div>
 
 
@@ -910,7 +910,7 @@
 
 
 <div class="description">
-    Reports an error in an <a href="ImageryProvider.html"><code>ImageryProvider</code></a> or <a href="TerrainProvider.html"><code>TerrainProvider</code></a> by raising an event if it has any listeners, or bylogging the error to the console if the event has no listeners.  This method also tracks the numberof times the operation has been retried.
+    报告 <a href="ImageryProvider.html"><code>ImageryProvider</code></a> 或 <a href="TerrainProvider.html"><code>TerrainProvider</code></a> 中的错误，如果它有任何侦听器，则引发事件，或者通过如果事件没有侦听器，则将错误记录到控制台。 此方法还会跟踪数字重试操作的次数。
 </div>
 
 
@@ -966,7 +966,7 @@
 
                 
             
-                The error instance returned by this function the last       time it was called for this error, or undefined if this is the first time this error has       occurred.</td>
+                此函数返回的最后一个错误实例为此错误调用的时间，如果这是此错误第一次调用，则为 undefined发生。</td>
         </tr>
 
     
@@ -999,7 +999,7 @@
 
                 
             
-                The imagery or terrain provider that encountered the error.</td>
+                遇到错误的影像或 terrain provider。</td>
         </tr>
 
     
@@ -1029,7 +1029,7 @@
 
                 
             
-                The event to raise to inform listeners of the error.</td>
+                为通知侦听器错误而引发的事件。</td>
         </tr>
 
     
@@ -1059,7 +1059,7 @@
 
                 
             
-                The message describing the error.</td>
+                描述错误的消息。</td>
         </tr>
 
     
@@ -1089,7 +1089,7 @@
 
                 
             
-                x坐标  tile that experienced the error, or undefined if the       error is not specific to a particular tile.</td>
+                x坐标 瓦片，或者 undefined 如果错误并非特定于特定磁贴。</td>
         </tr>
 
     
@@ -1119,7 +1119,7 @@
 
                 
             
-                y坐标 tile that experienced the error, or undefined if the       error is not specific to a particular tile.</td>
+                y坐标 tile 遇到错误，或者 undefined 如果错误并非特定于特定磁贴。</td>
         </tr>
 
     
@@ -1149,7 +1149,7 @@
 
                 
             
-                The level-of-detail of the tile that experienced the error, or undefined if the       error is not specific to a particular tile.</td>
+                遇到错误的图块的详细程度，如果错误并非特定于特定磁贴。</td>
         </tr>
 
     
@@ -1179,7 +1179,7 @@
 
                 
             
-                The error or exception that occurred, if any.</td>
+                发生的错误或异常（如果有）。</td>
         </tr>
 
     
@@ -1200,7 +1200,7 @@
 
         
 <div class="param-desc">
-    The error instance that was passed to the event listeners and that         should be passed to this function the next time it is called for the same error in order         to track retry counts.
+    传递给事件侦听器的错误实例，并且应该在下次针对相同的错误调用时按顺序传递给此函数跟踪重试计数。
 </div>
 
 
@@ -1263,7 +1263,7 @@
 
 
 <div class="description">
-    Reports success of an operation by resetting the retry count of a previous error, if any.  This way,if the error occurs again in the future, the listeners will be informed that it has not yet been retried.
+    通过重置上一个错误的重试计数（如果有）来报告操作成功。 这边如果将来再次发生该错误，将通知侦听器尚未重试该错误。
 </div>
 
 
@@ -1314,7 +1314,7 @@
 
             <td class="description last">
             
-                The previous error, or undefined if this operation has       not previously resulted in an error.</td>
+                上一个错误，如果此操作具有 undefined以前未导致错误。</td>
         </tr>
 
     
@@ -1395,7 +1395,7 @@
 
 
 <div class="description">
-    A function that will be called to retry the operation.
+    将调用以重试操作的函数。
 </div>
 
 

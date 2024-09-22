@@ -58,7 +58,7 @@
 
 
 <div class="description">
-    Stores information for making a request. In general this does not need to be constructed directly.
+    存储用于发出请求的信息。通常，这不需要直接构造。
 </div>
 
 
@@ -116,7 +116,7 @@
 
                 
             
-                An 对象，具有以下属性:
+                对象，具有以下属性:
                 
 
 <table class="params">
@@ -168,7 +168,7 @@
 
                 
             
-                The url to request.</td>
+                要请求的 URL。</td>
         </tr>
 
     
@@ -202,7 +202,7 @@
 
                 
             
-                The function that makes the actual data request.</td>
+                发出实际数据请求的函数。</td>
         </tr>
 
     
@@ -236,7 +236,7 @@
 
                 
             
-                The function that is called when the request is cancelled.</td>
+                取消请求时调用的函数。</td>
         </tr>
 
     
@@ -270,7 +270,7 @@
 
                 
             
-                The function that is called to update the request's priority, which occurs once per frame.</td>
+                为更新请求的优先级而调用的函数，每帧发生一次。</td>
         </tr>
 
     
@@ -306,7 +306,7 @@
 
                 
             
-                The initial priority of the request.</td>
+                请求的初始优先级。</td>
         </tr>
 
     
@@ -342,7 +342,7 @@
 
                 
             
-                Whether to throttle and prioritize the request. If false, the request will be sent immediately. If true, the request will be throttled and sent based on priority.</td>
+                是否限制请求并确定其优先级。如果为 false，则会立即发送请求。如果为 true，则请求将被限制并根据优先级发送。</td>
         </tr>
 
     
@@ -378,7 +378,7 @@
 
                 
             
-                Whether to throttle the request by server.</td>
+                是否按服务器限制请求。</td>
         </tr>
 
     
@@ -414,7 +414,7 @@
 
                 
             
-                The type of request.</td>
+                请求的类型。</td>
         </tr>
 
     
@@ -448,7 +448,7 @@
 
                 
             
-                A key used to identify the server that a request is going to.</td>
+                用于标识请求将要发送到的服务器的键。</td>
         </tr>
 
     
@@ -544,7 +544,7 @@
 
 
 <div class="description">
-    The function that is called when the request is cancelled.
+    取消请求时调用的函数。
 </div>
 
 
@@ -604,7 +604,11 @@
 
 
 <div class="description">
-    Priority is a unit-less value where lower values represent higher priority.For world-based objects, this is usually the distance from the camera.A request that does not have a priority function defaults to a priority of 0.If priorityFunction is defined, this value is updated every frame with the result of that call.
+    优先级是无单位的值，其中较低的值表示较高的优先级。
+对于基于世界的对象，这通常是与摄像机的距离。
+没有优先级函数的请求默认为优先级 0。
+
+如果定义了 priorityFunction，则使用该调用的结果在每一帧中更新此值。
 </div>
 
 
@@ -667,7 +671,7 @@
 
 
 <div class="description">
-    The function that is called to update the request's priority, which occurs once per frame.
+    为更新请求的优先级而调用的函数，每帧发生一次。
 </div>
 
 
@@ -727,7 +731,7 @@
 
 
 <div class="description">
-    The function that makes the actual data request.
+    发出实际数据请求的函数。
 </div>
 
 
@@ -787,7 +791,7 @@
 
 
 <div class="description">
-    The current state of the request.
+    请求的当前状态。
 </div>
 
 
@@ -847,7 +851,8 @@
 
 
 <div class="description">
-    Whether to throttle and prioritize the request. If false, the request will be sent immediately. If true, therequest will be throttled and sent based on priority.
+    是否限制请求并确定请求的优先级。如果为 false，则会立即发送请求。如果为 true，则
+请求将受到限制，并根据优先级发送。
 </div>
 
 
@@ -910,7 +915,9 @@
 
 
 <div class="description">
-    Whether to throttle the request by server. Browsers typically support about 6-8 parallel connectionsfor HTTP/1 servers, and an unlimited amount of connections for HTTP/2 servers. Setting this valueto <code>true</code> is preferable for requests going through HTTP/1 servers.
+    是否按服务器限制请求。浏览器通常支持大约 6-8 个并行连接
+对于 HTTP/1 服务器，对于 HTTP/2 服务器，连接数量不受限制。设置此值
+对于通过 HTTP/1 服务器的请求，最好设置为 <code>true</code>。
 </div>
 
 
@@ -1036,7 +1043,7 @@
 
 
 <div class="description">
-    The URL to request.
+    要请求的 URL。
 </div>
 
 
@@ -1103,7 +1110,7 @@
 
 
 <div class="description">
-    复制Request instance.
+    复制Request实例。
 </div>
 
 
@@ -1182,7 +1189,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数 or a new Resource instance if one was not provided.
+    修改后的结果参数或者新的 Resource 实例（如果未提供）。
 </div>
 
 
@@ -1251,7 +1258,7 @@
 
 
 <div class="description">
-    The function that is called when the request is cancelled.
+    在 the request is cancelled.
 </div>
 
 
@@ -1332,7 +1339,7 @@
 
 
 <div class="description">
-    The function that is called to update the request's priority, which occurs once per frame.
+    为更新请求的优先级而调用的函数，每帧发生一次。
 </div>
 
 
@@ -1359,7 +1366,7 @@
 
         
 <div class="param-desc">
-    The updated priority value.
+    更新的优先级值。
 </div>
 
 
@@ -1422,7 +1429,7 @@
 
 
 <div class="description">
-    The function that makes the actual data request.
+    发出实际数据请求的函数。
 </div>
 
 
@@ -1449,7 +1456,7 @@
 
         
 <div class="param-desc">
-    A promise for the requested data.
+    请求数据的 Promise。
 </div>
 
 

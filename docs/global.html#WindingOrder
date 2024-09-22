@@ -47,7 +47,7 @@
 
 
         
-            <div class="description">Winding order defines the order of vertices for a triangle to be considered front-facing.</div>
+            <div class="description">缠绕顺序 定义将三角形视为正面的顶点顺序。</div>
         
 
         
@@ -96,7 +96,7 @@
 
             
 
-            <td class="description last">Vertices are in clockwise order.</td>
+            <td class="description last">顶点按顺时针顺序排列。</td>
         </tr>
 
     
@@ -119,7 +119,7 @@
 
             
 
-            <td class="description last">Vertices are in counter-clockwise order.</td>
+            <td class="description last">顶点按逆时针顺序排列。</td>
         </tr>
 
     
@@ -193,7 +193,7 @@
 
 
 <div class="description">
-    Vertices are in clockwise order.
+    顶点按顺时针顺序排列。
 </div>
 
 
@@ -256,7 +256,7 @@
 
 
 <div class="description">
-    Vertices are in counter-clockwise order.
+    顶点按逆时针顺序排列。
 </div>
 
 

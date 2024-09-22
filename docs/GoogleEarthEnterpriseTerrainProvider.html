@@ -58,7 +58,7 @@
 
 
 <div class="description">
-    <div class="notice">To construct a GoogleEarthEnterpriseTerrainProvider, call <a href="GoogleEarthEnterpriseTerrainProvider.html#.fromMetadata"><code>GoogleEarthEnterpriseTerrainProvider.fromMetadata</code></a>. 不要直接调用构造函数。</div>Provides tiled terrain using the Google Earth Enterprise REST API.
+    <div class="notice">要构造 GoogleEarthEnterpriseTerrainProvider，请调用 <a href="GoogleEarthEnterpriseTerrainProvider.html#.fromMetadata"><code>GoogleEarthEnterpriseTerrainProvider.fromMetadata</code></a>. 不要直接调用构造函数。</div>使用 Google Earth Enterprise REST API 提供平铺地形。
 </div>
 
 
@@ -116,7 +116,7 @@
 
                 
             
-                An 描述初始化选项的对象</td>
+                描述初始化选项的对象</td>
         </tr>
 
     
@@ -224,7 +224,7 @@
 
 
 <div class="description">
-    Gets an object that can be used to determine availability of terrain from this provider, such asat points and in rectangles. This property may be undefined if availabilityinformation is not available.
+    获取一个对象，该对象可用于确定此提供程序提供的地形的可用性，例如在点和矩形中。如果可用性信息不可用。
 </div>
 
 
@@ -284,7 +284,7 @@
 
 
 <div class="description">
-    Gets the credit to display when this terrain provider is active.  Typically this is used to creditthe source of the terrain.
+    获取此地形提供程序处于活动状态时要显示的信用额度。 通常，这用于贷记地形的源。
 </div>
 
 
@@ -344,7 +344,7 @@
 
 
 <div class="description">
-    Gets an event that is raised when the imagery provider encounters an asynchronous error.  By subscribingto the event, you will be notified of the error and can potentially recover from it.  Event listenersare passed an instance of <a href="TileProviderError.html"><code>TileProviderError</code></a>.
+    获取在影像提供程序遇到异步错误时引发的事件。 通过订阅时，您将收到错误通知，并可能从中恢复。 事件侦听器将传递 <a href="TileProviderError.html"><code>TileProviderError</code></a> 的实例。
 </div>
 
 
@@ -404,7 +404,7 @@
 
 
 <div class="description">
-    Gets a value indicating whether or not the requested tiles include vertex normals.
+    获取一个值，该值指示请求的图块是否包含顶点法线。
 </div>
 
 
@@ -464,7 +464,7 @@
 
 
 <div class="description">
-    Gets a value indicating whether or not the provider includes a water mask.  The water maskindicates which areas of the globe are water rather than land, so they can be renderedas a reflective surface with animated waves.
+    获取一个值，该值指示提供程序是否包含水面罩。 水面罩表示地球上的哪些区域是水面而不是陆地，因此可以渲染它们作为具有动画波形的反射表面。
 </div>
 
 
@@ -524,7 +524,7 @@
 
 
 <div class="description">
-    Gets the proxy used by this provider.
+    获取此提供程序使用的代理。
 </div>
 
 
@@ -584,7 +584,7 @@
 
 
 <div class="description">
-    Gets the tiling scheme used by this provider.
+    获取此提供程序使用的平铺方案。
 </div>
 
 
@@ -644,7 +644,7 @@
 
 
 <div class="description">
-    Gets the name of the Google Earth Enterprise server url hosting the imagery.
+    获取托管图像的 Google Earth Enterprise 服务器网址的名称。
 </div>
 
 
@@ -695,7 +695,7 @@
     <div class="nameContainer">
     <h4 class="name" id=".fromMetadata">
         <a href="#.fromMetadata" class="doc-link"></a>
-        <span class="type-signature attribute-static">static</span> Cesium.GoogleEarthEnterpriseTerrainProvider.fromMetadata<span class="signature">(metadata, options)</span> &rarr; <span class="type-signature returnType"><a href="GoogleEarthEnterpriseTerrainProvider.html">GoogleEarthEnterpriseTerrainProvider</a></span>
+        <span class="type-signature attribute-static">static</span> Cesium.GoogleEarthEnterpriseTerrainProvider.fromMetadata<span class="signature">(元数据, options)</span> &rarr; <span class="type-signature returnType"><a href="GoogleEarthEnterpriseTerrainProvider.html">GoogleEarthEnterpriseTerrainProvider</a></span>
         
 
 <div class="source-link rightLinks">
@@ -711,7 +711,7 @@
 
 
 <div class="description">
-    Creates a GoogleEarthTerrainProvider from GoogleEarthEnterpriseMetadata
+    从 GoogleEarthEnterpriseMetadata 创建 GoogleEarthTerrainProvider
 </div>
 
 
@@ -746,7 +746,7 @@
 
         <tr>
             
-                <td class="name"><code>metadata</code></td>
+                <td class="name"><code>元数据</code></td>
             
 
             <td class="type">
@@ -762,7 +762,7 @@
 
             <td class="description last">
             
-                A metadata object that can be used to share metadata requests with a GoogleEarthEnterpriseImageryProvider.</td>
+                可用于与 GoogleEarthEnterpriseImageryProvider 共享元数据请求的元数据对象。</td>
         </tr>
 
     
@@ -1382,7 +1382,7 @@
 
 
 <div class="description">
-    Requests the geometry for a given tile.   The result must include terrain data andmay optionally include a water mask and an indication of which child tiles are available.
+    请求给定图块的几何图形。  结果必须包括 terrain data 和可以选择包括水面罩和哪些子图块可用的指示。
 </div>
 
 
@@ -1613,7 +1613,7 @@
 
 
 <div class="description">
-    Initialization options for GoogleEarthEnterpriseTerrainProvider constructor
+    GoogleEarthEnterpriseTerrainProvider 构造函数的初始化选项
 </div>
 
 
@@ -1683,7 +1683,7 @@
                 </td>
             
 
-            <td class="description last">The ellipsoid.  If not specified, the default ellipsoid is used.</td>
+            <td class="description last">椭球体。 如果未指定，则使用默认椭球体。</td>
         </tr>
 
     
@@ -1721,7 +1721,7 @@
                 </td>
             
 
-            <td class="description last">A credit for the data source, which is displayed on the canvas.</td>
+            <td class="description last">数据源的积分，显示在画布上。</td>
         </tr>
 
     

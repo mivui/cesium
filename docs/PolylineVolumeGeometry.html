@@ -384,7 +384,23 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">function computeCircle(radius) {  const positions = [];  for (let i = 0; i &lt; 360; i++) {    const radians = Cesium.Math.toRadians(i);    positions.push(new Cesium.Cartesian2(radius * Math.cos(radians), radius * Math.sin(radians)));  }  return positions;}const volume = new Cesium.PolylineVolumeGeometry({  vertexFormat : Cesium.VertexFormat.POSITION_ONLY,  polylinePositions : Cesium.Cartesian3.fromDegreesArray([    -72.0, 40.0,    -70.0, 35.0  ]),  shapePositions : computeCircle(100000.0)});</code></pre>
+    <pre><code class="language-javascript">function computeCircle(radius) {
+  const positions = [];
+  for (let i = 0; i &lt; 360; i++) {
+    const radians = Cesium.Math.toRadians(i);
+    positions.push(new Cesium.Cartesian2(radius * Math.cos(radians), radius * Math.sin(radians)));
+  }
+  return positions;
+}
+
+const volume = new Cesium.PolylineVolumeGeometry({
+  vertexFormat : Cesium.VertexFormat.POSITION_ONLY,
+  polylinePositions : Cesium.Cartesian3.fromDegreesArray([
+    -72.0, 40.0,
+    -70.0, 35.0
+  ]),
+  shapePositions : computeCircle(100000.0)
+});</code></pre>
 
     
 
@@ -513,7 +529,7 @@
 
 
 <div class="description">
-    Computes the geometric representation of a polyline with a volume, including its vertices, indices, and a bounding sphere.
+    计算具有体积的折线的几何表示，包括其顶点、索引和边界球体。
 </div>
 
 
@@ -564,7 +580,7 @@
 
             <td class="description last">
             
-                A description of the polyline volume.</td>
+                多段线体积的描述。</td>
         </tr>
 
     

@@ -47,7 +47,7 @@
 
 
         
-            <div class="description">Constants for identifying well-known reference frames.</div>
+            <div class="description">用于识别已知参考系的常量。</div>
         
 
         
@@ -96,7 +96,7 @@
 
             
 
-            <td class="description last">The fixed frame.</td>
+            <td class="description last">固定框架。</td>
         </tr>
 
     
@@ -119,7 +119,7 @@
 
             
 
-            <td class="description last">The inertial frame.</td>
+            <td class="description last">惯性系。</td>
         </tr>
 
     
@@ -193,7 +193,7 @@
 
 
 <div class="description">
-    The fixed frame.
+    固定框架。
 </div>
 
 
@@ -253,7 +253,7 @@
 
 
 <div class="description">
-    The inertial frame.
+    惯性系。
 </div>
 
 

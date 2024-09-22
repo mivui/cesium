@@ -58,7 +58,8 @@
 
 
 <div class="description">
-    A spline that uses spherical linear (slerp) interpolation to create a quaternion curve.The generated curve is in the class C<sup>1</sup>.
+    使用球形线性 （slerp） 插值创建四元数曲线的样条曲线。
+生成的曲线属于 C<sup>类 1</sup>。
 </div>
 
 
@@ -148,7 +149,8 @@
 
             <td class="description last">
             
-                An array of strictly increasing, unit-less, floating-point times at each point.               The values are in no way connected to the clock time. They are the parameterization for the curve.</td>
+                每个点的严格递增、无单位的浮点时间数组。
+这些值与 clock time 无关。它们是曲线的参数化。</td>
         </tr>
 
     
@@ -171,7 +173,9 @@
 
             <td class="description last">
             
-                The array of <a href="Quaternion.html"><code>Quaternion</code></a> control points.</td>
+                <code>个四元数</code> 个控制点的数组。
+
+需要 @exception {DeveloperError} 个时间点和时间</td>
         </tr>
 
     
@@ -204,7 +208,7 @@
         
 <span class="param-type"><a href="DeveloperError.html">DeveloperError</a></span>
 
-: points and times are required
+: points.length 必须大于或等于 2。
     </div>
 
 </li>
@@ -215,18 +219,7 @@
         
 <span class="param-type"><a href="DeveloperError.html">DeveloperError</a></span>
 
-: points.length must be greater than or equal to 2.
-    </div>
-
-</li>
-    
-        <li>
-
-    <div class="param-desc">
-        
-<span class="param-type"><a href="DeveloperError.html">DeveloperError</a></span>
-
-: times.length must be equal to points.length.
+: times.length 必须等于 points.length。
     </div>
 
 </li>
@@ -318,7 +311,7 @@
 
 
 <div class="description">
-    An array of <a href="Quaternion.html"><code>Quaternion</code></a> control points.
+    <a href="Quaternion.html"><code>Quaternion</code></a> 个控制点的数组。
 </div>
 
 
@@ -378,7 +371,7 @@
 
 
 <div class="description">
-    An array of times for the control points.
+    控制点的时间数组。
 </div>
 
 
@@ -445,7 +438,7 @@
 
 
 <div class="description">
-    Clamps the given time to the period covered by the spline.
+    将给定时间限制为样条所覆盖的时间段。
 </div>
 
 
@@ -496,7 +489,7 @@
 
             <td class="description last">
             
-                The time.</td>
+                时间。</td>
         </tr>
 
     
@@ -517,7 +510,7 @@
 
         
 <div class="param-desc">
-    The time, clamped to the animation period.
+    时间，固定到动画周期。
 </div>
 
 
@@ -580,7 +573,7 @@
 
 
 <div class="description">
-    Evaluates the curve at a given time.
+    在给定时间计算曲线。
 </div>
 
 
@@ -636,7 +629,7 @@
 
                 
             
-                The time at which to evaluate the curve.</td>
+                评估曲线的时间。</td>
         </tr>
 
     
@@ -687,7 +680,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数 or a new instance of the point on the curve at the given time.
+    修改后的结果参数或给定时间曲线上点的新实例。
 </div>
 
 
@@ -702,7 +695,9 @@
         
 <span class="param-type"><a href="DeveloperError.html">DeveloperError</a></span>
 
-: time must be in the range <code>[t<sub>0</sub>, t<sub>n</sub>]</code>, where <code>t<sub>0</sub></code>                            is the first element in the array <code>times</code> and <code>t<sub>n</sub></code> is the last element                            in the array <code>times</code>.
+: time must be in the range <code>[t<sub>0</sub>, t<sub>n</sub>]</code>, where <code>t<sub>0</sub></code>
+                            is the first element in the array <code>times</code> and <code>t<sub>n</sub></code> is the last element
+                            in the array <code>times</code>.
     </div>
 
 </li>
@@ -764,7 +759,8 @@
 
 
 <div class="description">
-    Finds an index <code>i</code> in <code>times</code> such that the parameter<code>time</code> is in the interval <code>[times[i], times[i + 1]]</code>.
+    在<code>times</code>中查找索引 <code>i</code>，使得参数
+<code>times</code>在区间 <code>[times[i]， times[i + 1]]</code> 中。
 </div>
 
 
@@ -815,7 +811,7 @@
 
             <td class="description last">
             
-                The time.</td>
+                时间。</td>
         </tr>
 
     
@@ -836,7 +832,7 @@
 
         
 <div class="param-desc">
-    The index for the element at the start of the interval.
+    区间开始时元素的索引。
 </div>
 
 
@@ -851,7 +847,9 @@
         
 <span class="param-type"><a href="DeveloperError.html">DeveloperError</a></span>
 
-: time must be in the range <code>[t<sub>0</sub>, t<sub>n</sub>]</code>, where <code>t<sub>0</sub></code>                            is the first element in the array <code>times</code> and <code>t<sub>n</sub></code> is the last element                            in the array <code>times</code>.
+: 时间必须在 <code>[t<sub>0</sub>， t<sub>n</sub>]</code> 范围内，其中 <code>t<sub>0</sub></code>
+是数组中的第一个元素 <code>times</code> 和 <code>t<sub>n</sub></code> 是最后一个元素
+在数组<code>times</code>。
     </div>
 
 </li>
@@ -913,7 +911,7 @@
 
 
 <div class="description">
-    Wraps the given time to the period covered by the spline.
+    将给定时间环绕到样条所覆盖的时间段。
 </div>
 
 
@@ -964,7 +962,7 @@
 
             <td class="description last">
             
-                The time.</td>
+                时间。</td>
         </tr>
 
     
@@ -985,7 +983,7 @@
 
         
 <div class="param-desc">
-    The time, wrapped around to the updated animation.
+    时间，环绕到更新的动画。
 </div>
 
 

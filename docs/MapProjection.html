@@ -58,7 +58,8 @@
 
 
 <div class="description">
-    Defines how geodetic ellipsoid coordinates (<a href="Cartographic.html"><code>Cartographic</code></a>) project to aflat map like Cesium's 2D and Columbus View modes.
+    定义大地椭球体坐标 （<a href="Cartographic.html"><code>Cartographic</code></a>） 如何投影到
+平面地图，如 Cesium 的 2D 和 Columbus View 模式。
 </div>
 
 
@@ -161,7 +162,7 @@
 
 
 <div class="description">
-    Gets the <a href="Ellipsoid.html"><code>Ellipsoid</code></a>.
+    获取 <a href="Ellipsoid.html"><code>Ellipsoid</code></a>。
 </div>
 
 
@@ -228,7 +229,7 @@
 
 
 <div class="description">
-    Projects <a href="Cartographic.html"><code>Cartographic</code></a> coordinates, in radians, to projection-specific map coordinates, in meters.
+    将 <a href="Cartographic.html"><code>Cartographic</code></a> 坐标（以弧度为单位）投影到特定于投影的地图坐标（以米为单位）。
 </div>
 
 
@@ -284,7 +285,7 @@
 
                 
             
-                The coordinates to project.</td>
+                要投影的坐标。</td>
         </tr>
 
     
@@ -314,7 +315,8 @@
 
                 
             
-                An instance into which to copy the result.  If this parameter is       undefined, a new instance is created and returned.</td>
+                要将结果复制到的实例。 如果该参数为
+undefined，则创建并返回一个新实例。</td>
         </tr>
 
     
@@ -335,7 +337,9 @@
 
         
 <div class="param-desc">
-    The projected coordinates.  If the result parameter is not undefined, the         coordinates are copied there and that instance is returned.  Otherwise, a new instance is         created and returned.
+    投影坐标。 如果 result 参数不是 undefined，则
+坐标将复制到那里，并返回该实例。 否则，新实例为
+created 并返回。
 </div>
 
 
@@ -382,7 +386,7 @@
     <div class="nameContainer">
     <h4 class="name" id="unproject">
         <a href="#unproject" class="doc-link"></a>
-        unproject<span class="signature">(cartesian, <span class="optional">result</span>)</span> &rarr; <span class="type-signature returnType"><a href="Cartographic.html">Cartographic</a></span>
+        unproject<span class="signature">(笛卡尔, <span class="optional">result</span>)</span> &rarr; <span class="type-signature returnType"><a href="Cartographic.html">Cartographic</a></span>
         
 
 <div class="source-link rightLinks">
@@ -398,7 +402,8 @@
 
 
 <div class="description">
-    Unprojects projection-specific map <a href="Cartesian3.html"><code>Cartesian3</code></a> coordinates, in meters, to <a href="Cartographic.html"><code>Cartographic</code></a>coordinates, in radians.
+    取消投影特定地图 <a href="Cartesian3.html"><code>Cartesian3</code></a> 坐标（以米为单位）到 <a href="Cartographic.html"><code>Cartographic</code></a>
+坐标，以弧度为单位。
 </div>
 
 
@@ -433,7 +438,7 @@
 
         <tr>
             
-                <td class="name"><code>cartesian</code></td>
+                <td class="name"><code>笛卡尔</code></td>
             
 
             <td class="type">
@@ -454,7 +459,7 @@
 
                 
             
-                The Cartesian position to unproject with height (z) in meters.</td>
+                高度 （z） 取消投影的笛卡尔位置，以米为单位。</td>
         </tr>
 
     
@@ -484,7 +489,8 @@
 
                 
             
-                An instance into which to copy the result.  If this parameter is       undefined, a new instance is created and returned.</td>
+                要将结果复制到其中的实例。 如果该参数为
+undefined，则创建并返回一个新实例。</td>
         </tr>
 
     
@@ -505,7 +511,9 @@
 
         
 <div class="param-desc">
-    The unprojected coordinates.  If the result parameter is not undefined, the         coordinates are copied there and that instance is returned.  Otherwise, a new instance is         created and returned.
+    未投影的坐标。 如果 result 参数不是 undefined，则
+坐标将复制到那里，并返回该实例。 否则，新实例为
+created 并返回。
 </div>
 
 

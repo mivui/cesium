@@ -47,7 +47,7 @@
 
 
         
-            <div class="description">Provides the type of time standards which JulianDate can take as input.</div>
+            <div class="description">提供 JulianDate 可以用作 input 的时间标准类型。</div>
         
 
         
@@ -96,7 +96,7 @@
 
             
 
-            <td class="description last">Represents the coordinated Universal Time (UTC) time standard.UTC is related to TAI according to the relationship<code>UTC = TAI - deltaT</code> where <code>deltaT</code> is the number of leapseconds which have been introduced as of the time in TAI.</td>
+            <td class="description last">表示协调世界时 （UTC） 时间标准。UTC 与 TAI 的关系根据关系<code>UTC = TAI - deltaT</code>，其中 <code>deltaT</code> 是跳跃数秒数，这些秒数已引入 TAI 中。</td>
         </tr>
 
     
@@ -119,7 +119,7 @@
 
             
 
-            <td class="description last">Represents the International Atomic Time (TAI) time standard.TAI is the principal time standard to which the other time standards are related.</td>
+            <td class="description last">表示国际原子时 （TAI） 时间标准。TAI 是与其他时间标准相关的主要时间标准。</td>
         </tr>
 
     
@@ -198,7 +198,7 @@
 
 
 <div class="description">
-    Represents the International Atomic Time (TAI) time standard.TAI is the principal time standard to which the other time standards are related.
+    表示国际原子时 （TAI） 时间标准。TAI 是与其他时间标准相关的主要时间标准。
 </div>
 
 
@@ -261,7 +261,7 @@
 
 
 <div class="description">
-    Represents the coordinated Universal Time (UTC) time standard.UTC is related to TAI according to the relationship<code>UTC = TAI - deltaT</code> where <code>deltaT</code> is the number of leapseconds which have been introduced as of the time in TAI.
+    表示协调世界时 （UTC） 时间标准。UTC 与 TAI 的关系根据关系<code>UTC = TAI - deltaT</code>，其中 <code>deltaT</code> 是跳跃数秒数，这些秒数已引入 TAI 中。
 </div>
 
 

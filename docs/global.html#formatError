@@ -47,7 +47,7 @@
 
 
         
-            <div class="description">Formats an error object into a String.  If available, uses name, message, and stackproperties, otherwise, falls back on toString().</div>
+            <div class="description">将错误对象格式化为 String。 如果可用，则使用 name、message 和 stack属性，否则将回退到 toString（） 上。</div>
         
 
         

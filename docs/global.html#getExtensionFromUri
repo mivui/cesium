@@ -47,7 +47,7 @@
 
 
         
-            <div class="description">Given a URI, returns the extension of the URI.</div>
+            <div class="description">给定 URI，返回 URI 的扩展名。</div>
         
 
         

@@ -58,7 +58,11 @@
 
 
 <div class="description">
-    Terrain data for a single tile where the terrain data is represented as a quantized mesh.  A quantizedmesh consists of three vertex attributes, longitude, latitude, and height.  All attributes are expressedas 16-bit values in the range 0 to 32767.  Longitude and latitude are zero at the southwest cornerof the tile and 32767 at the northeast corner.  Height is zero at the minimum height in the tileand 32767 at the maximum height in the tile.
+    单个瓦片的地形数据，其中地形数据表示为量化网格。 量化的
+网格由三个顶点属性组成，即 Longitude、latitude 和 Height。 所有属性都表示
+作为 0 到 32767 范围内的 16 位值。 经度和纬度在西南角为零
+的瓦片和 32767 在东北角。 在磁贴的最小高度处，Height 为零
+和 32767 位于瓦片中的最大高度。
 </div>
 
 
@@ -159,7 +163,7 @@
 
                 
             
-                The buffer containing the quantized mesh.</td>
+                包含量化网格的缓冲区。</td>
         </tr>
 
     
@@ -194,7 +198,8 @@
 
                 
             
-                The indices specifying how the quantized vertices are linked                     together into triangles.  Each three indices specifies one triangle.</td>
+                指定量化顶点如何链接的索引
+一起组成三角形。 每三个索引指定一个三角形。</td>
         </tr>
 
     
@@ -226,7 +231,7 @@
 
                 
             
-                The minimum terrain height within the tile, in meters above the ellipsoid.</td>
+                瓦片内的最小地形高度，以椭球体上方的米为单位。</td>
         </tr>
 
     
@@ -258,7 +263,7 @@
 
                 
             
-                The maximum terrain height within the tile, in meters above the ellipsoid.</td>
+                瓦片内的最大地形高度，以米为单位，位于椭球体上方。</td>
         </tr>
 
     
@@ -290,7 +295,7 @@
 
                 
             
-                A sphere bounding all of the vertices in the mesh.</td>
+                一个包围网格中所有顶点的球体。</td>
         </tr>
 
     
@@ -324,7 +329,7 @@
 
                 
             
-                An OrientedBoundingBox bounding all of the vertices in the mesh.</td>
+                一个 OrientedBoundingBox，用于边界网格中的所有顶点。</td>
         </tr>
 
     
@@ -356,7 +361,9 @@
 
                 
             
-                The horizon occlusion point of the mesh.  If this point                     is below the horizon, the entire tile is assumed to be below the horizon as well.                     The point is expressed in ellipsoid-scaled coordinates.</td>
+                网格的水平线遮挡点。 如果此时
+低于地平线，则假定整个图块也低于地平线。
+该点以椭球标度坐标表示。</td>
         </tr>
 
     
@@ -388,7 +395,7 @@
 
                 
             
-                The indices of the vertices on the western edge of the tile.</td>
+                瓦片西边顶点的索引。</td>
         </tr>
 
     
@@ -420,7 +427,7 @@
 
                 
             
-                The indices of the vertices on the southern edge of the tile.</td>
+                瓦片南边上顶点的索引。</td>
         </tr>
 
     
@@ -452,7 +459,7 @@
 
                 
             
-                The indices of the vertices on the eastern edge of the tile.</td>
+                瓦片东边顶点的索引。</td>
         </tr>
 
     
@@ -484,7 +491,7 @@
 
                 
             
-                The indices of the vertices on the northern edge of the tile.</td>
+                瓦片北边上顶点的索引。</td>
         </tr>
 
     
@@ -516,7 +523,7 @@
 
                 
             
-                The height of the skirt to add on the western edge of the tile.</td>
+                要在图块西边添加的裙子的高度。</td>
         </tr>
 
     
@@ -548,7 +555,7 @@
 
                 
             
-                The height of the skirt to add on the southern edge of the tile.</td>
+                要在瓦片南边添加的裙子的高度。</td>
         </tr>
 
     
@@ -580,7 +587,7 @@
 
                 
             
-                The height of the skirt to add on the eastern edge of the tile.</td>
+                要在瓦片东边添加的裙子的高度。</td>
         </tr>
 
     
@@ -612,7 +619,7 @@
 
                 
             
-                The height of the skirt to add on the northern edge of the tile.</td>
+                要在瓦片北边添加的裙子的高度。</td>
         </tr>
 
     
@@ -648,7 +655,17 @@
 
                 
             
-                A bit mask indicating which of this tile's four children exist.                If a child's bit is set, geometry will be requested for that tile as well when it                is needed.  If the bit is cleared, the child tile is not requested and geometry is                instead upsampled from the parent.  The bit values are as follows:                <table>                 <tr><th>Bit Position</th><th>Bit Value</th><th>Child Tile</th></tr>                 <tr><td>0</td><td>1</td><td>Southwest</td></tr>                 <tr><td>1</td><td>2</td><td>Southeast</td></tr>                 <tr><td>2</td><td>4</td><td>Northwest</td></tr>                 <tr><td>3</td><td>8</td><td>Northeast</td></tr>                </table></td>
+                一个位掩码，指示此图块的四个子图块中存在哪一个。
+如果设置了子位，则当该图块
+是必需的。 如果清除该位，则不会请求子平铺，并且 geometry 为
+而是从父级进行上采样。 位值如下所示：
+<table>
+<tr><th>Bit Position</th><th>位值</th><th>子平铺</th></tr>
+<tr><td>0</td><td>1</td><td>西南</td></tr>
+<tr><td>1</td><td>2</td><td>东南</td></tr>
+<tr><td>2</td><td>4</td><td>西北</td></tr>
+<tr><td>3</td><td>8</td><td>东北</td></tr>
+</table></td>
         </tr>
 
     
@@ -684,7 +701,8 @@
 
                 
             
-                True if this instance was created by upsampling another instance;                 otherwise, false.</td>
+                如果此实例是通过对另一个实例进行上采样创建的，则为 True;
+否则为 false。</td>
         </tr>
 
     
@@ -718,7 +736,7 @@
 
                 
             
-                The buffer containing per vertex normals, encoded using 'oct' encoding</td>
+                包含每个顶点法线的缓冲区，使用 'oct' 编码编码</td>
         </tr>
 
     
@@ -752,7 +770,7 @@
 
                 
             
-                The buffer containing the watermask.</td>
+                包含水掩码的缓冲区。</td>
         </tr>
 
     
@@ -786,7 +804,7 @@
 
                 
             
-                Array of credits for this tile.</td>
+                此图块的积分数组。</td>
         </tr>
 
     
@@ -835,7 +853,30 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const data = new Cesium.QuantizedMeshTerrainData({    minimumHeight : -100,    maximumHeight : 2101,    quantizedVertices : new Uint16Array([// order is SW NW SE NE                                         // longitude                                         0, 0, 32767, 32767,                                         // latitude                                         0, 32767, 0, 32767,                                         // heights                                         16384, 0, 32767, 16384]),    indices : new Uint16Array([0, 3, 1,                               0, 2, 3]),    boundingSphere : new Cesium.BoundingSphere(new Cesium.Cartesian3(1.0, 2.0, 3.0), 10000),    orientedBoundingBox : new Cesium.OrientedBoundingBox(new Cesium.Cartesian3(1.0, 2.0, 3.0), Cesium.Matrix3.fromRotationX(Cesium.Math.PI, new Cesium.Matrix3())),    horizonOcclusionPoint : new Cesium.Cartesian3(3.0, 2.0, 1.0),    westIndices : [0, 1],    southIndices : [0, 1],    eastIndices : [2, 3],    northIndices : [1, 3],    westSkirtHeight : 1.0,    southSkirtHeight : 1.0,    eastSkirtHeight : 1.0,    northSkirtHeight : 1.0});</code></pre>
+    <pre><code class="language-javascript">const data = new Cesium.QuantizedMeshTerrainData({
+    minimumHeight : -100,
+    maximumHeight : 2101,
+    quantizedVertices : new Uint16Array([// order is SW NW SE NE
+                                         // longitude
+                                         0, 0, 32767, 32767,
+                                         // latitude
+                                         0, 32767, 0, 32767,
+                                         // heights
+                                         16384, 0, 32767, 16384]),
+    indices : new Uint16Array([0, 3, 1,
+                               0, 2, 3]),
+    boundingSphere : new Cesium.BoundingSphere(new Cesium.Cartesian3(1.0, 2.0, 3.0), 10000),
+    orientedBoundingBox : new Cesium.OrientedBoundingBox(new Cesium.Cartesian3(1.0, 2.0, 3.0), Cesium.Matrix3.fromRotationX(Cesium.Math.PI, new Cesium.Matrix3())),
+    horizonOcclusionPoint : new Cesium.Cartesian3(3.0, 2.0, 1.0),
+    westIndices : [0, 1],
+    southIndices : [0, 1],
+    eastIndices : [2, 3],
+    northIndices : [1, 3],
+    westSkirtHeight : 1.0,
+    southSkirtHeight : 1.0,
+    eastSkirtHeight : 1.0,
+    northSkirtHeight : 1.0
+});</code></pre>
 
     
 
@@ -896,7 +937,7 @@
 
 
 <div class="description">
-    An array of credits for this tile.
+    此磁贴的制作人员名单数组。
 </div>
 
 
@@ -956,7 +997,9 @@
 
 
 <div class="description">
-    The water mask included in this terrain data, if any.  A water mask is a rectangularUint8Array or image where a value of 255 indicates water and a value of 0 indicates land.Values in between 0 and 255 are allowed as well to smoothly blend between land and water.
+    此地形数据中包含的水面罩（如果有）。 水面罩是矩形的
+Uint8Array 或图像，其中值 255 表示水，值 0 表示陆地。
+允许介于 0 和 255 之间的值，以便在陆地和水之间平滑混合。
 </div>
 
 
@@ -1023,7 +1066,7 @@
 
 
 <div class="description">
-    Computes the terrain height at a specified longitude and latitude.
+    计算指定经纬度处的地形高度。
 </div>
 
 
@@ -1074,7 +1117,7 @@
 
             <td class="description last">
             
-                The rectangle covered by this terrain data.</td>
+                此地形数据覆盖的矩形。</td>
         </tr>
 
     
@@ -1097,7 +1140,7 @@
 
             <td class="description last">
             
-                The longitude in radians.</td>
+                以弧度为单位的经度。</td>
         </tr>
 
     
@@ -1120,7 +1163,7 @@
 
             <td class="description last">
             
-                The latitude in radians.</td>
+                以弧度为单位的纬度。</td>
         </tr>
 
     
@@ -1141,7 +1184,8 @@
 
         
 <div class="param-desc">
-    The terrain height at the specified position.  The position is clamped to         the rectangle, so expect incorrect results for positions far outside the rectangle.
+    指定位置的地形高度。 位置被钳制到
+矩形，因此对于远在矩形之外的位置，预期结果会不正确。
 </div>
 
 
@@ -1204,7 +1248,10 @@
 
 
 <div class="description">
-    Determines if a given child tile is available, based on the<code>HeightmapTerrainData.childTileMask</code>.  The given child tile coordinates are assumedto be one of the four children of this tile.  If non-child tile coordinates aregiven, the availability of the southeast child tile is returned.
+    根据
+<code>HeightmapTerrainData.childTileMask</code> 中。 假定给定的子图块坐标
+成为此牌的四个子牌之一。 如果非子图块坐标为
+给定，则返回 southeast child tile 的可用性。
 </div>
 
 
@@ -1255,7 +1302,7 @@
 
             <td class="description last">
             
-                The tile X coordinate of this (the parent) tile.</td>
+                此（父）瓦片的瓦片 X 坐标。</td>
         </tr>
 
     
@@ -1278,7 +1325,7 @@
 
             <td class="description last">
             
-                The tile Y coordinate of this (the parent) tile.</td>
+                此（父）瓦片的瓦片 Y 坐标。</td>
         </tr>
 
     
@@ -1301,7 +1348,7 @@
 
             <td class="description last">
             
-                The tile X coordinate of the child tile to check for availability.</td>
+                用于检查可用性的子磁贴的磁贴 X 坐标。</td>
         </tr>
 
     
@@ -1324,7 +1371,7 @@
 
             <td class="description last">
             
-                The tile Y coordinate of the child tile to check for availability.</td>
+                要检查可用性的子磁贴的磁贴 Y 坐标。</td>
         </tr>
 
     
@@ -1345,7 +1392,7 @@
 
         
 <div class="param-desc">
-    True if the child tile is available; otherwise, false.
+    如果子磁贴可用，则为 True;否则为 false。
 </div>
 
 
@@ -1408,7 +1455,8 @@
 
 
 <div class="description">
-    Upsamples this terrain data for use by a descendant tile.  The resulting instance will contain a subset of thevertices in this instance, interpolated if necessary.
+    对此地形数据进行上采样，以供后代瓦片使用。 生成的实例将包含
+顶点，必要时进行插值。
 </div>
 
 
@@ -1459,7 +1507,7 @@
 
             <td class="description last">
             
-                The tiling scheme of this terrain data.</td>
+                此地形数据的平铺方案。</td>
         </tr>
 
     
@@ -1482,7 +1530,7 @@
 
             <td class="description last">
             
-                The X coordinate of this tile in the tiling scheme.</td>
+                平铺方案中此瓦片的 X 坐标。</td>
         </tr>
 
     
@@ -1505,7 +1553,7 @@
 
             <td class="description last">
             
-                The Y coordinate of this tile in the tiling scheme.</td>
+                此瓦片在切片方案中的 Y 坐标。</td>
         </tr>
 
     
@@ -1528,7 +1576,7 @@
 
             <td class="description last">
             
-                The level of this tile in the tiling scheme.</td>
+                此瓦片在平铺方案中的级别。</td>
         </tr>
 
     
@@ -1551,7 +1599,7 @@
 
             <td class="description last">
             
-                The X coordinate within the tiling scheme of the descendant tile for which we are upsampling.</td>
+                我们正在上采样的后代瓦片的平铺方案中的 X 坐标。</td>
         </tr>
 
     
@@ -1574,7 +1622,7 @@
 
             <td class="description last">
             
-                The Y coordinate within the tiling scheme of the descendant tile for which we are upsampling.</td>
+                我们正在进行上采样的后代瓦片的平铺方案中的 Y 坐标。</td>
         </tr>
 
     
@@ -1597,7 +1645,7 @@
 
             <td class="description last">
             
-                The level within the tiling scheme of the descendant tile for which we are upsampling.</td>
+                我们正在上采样的后代瓦片的平铺方案中的级别。</td>
         </tr>
 
     
@@ -1618,7 +1666,9 @@
 
         
 <div class="param-desc">
-    A promise for upsampled heightmap terrain data for the descendant tile,         or undefined if too many asynchronous upsample operations are in progress and the request has been         deferred.
+    为后代瓦片的上采样高度贴图地形数据的承诺，
+或 undefined 如果正在进行的异步 Upsample 操作过多，并且请求已被
+递 延。
 </div>
 
 
@@ -1681,7 +1731,10 @@
 
 
 <div class="description">
-    Gets a value indicating whether or not this terrain data was created by upsampling lower resolutionterrain data.  If this value is false, the data was obtained from some other source, suchas by downloading it from a remote server.  This method should return true for instancesreturned from a call to <a href="HeightmapTerrainData.html#upsample"><code>HeightmapTerrainData#upsample</code></a>.
+    获取一个值，该值指示此地形数据是否是通过对较低分辨率的上采样创建的
+地形数据。 如果此值为 false，则数据是从其他来源获取的，例如
+从远程服务器下载。 对于实例，此方法应返回 true
+从调用 <a href="HeightmapTerrainData.html#upsample"><code>HeightmapTerrainData#upsample</code></a> 返回。
 </div>
 
 
@@ -1708,7 +1761,7 @@
 
         
 <div class="param-desc">
-    True if this instance was created by upsampling; otherwise, false.
+    如果此实例是通过上采样创建的，则为 True;否则为 false。
 </div>
 
 

@@ -47,7 +47,7 @@
 
 
         
-            <div class="description">Given a URI, returns the last segment of the URI, removing any path or query information.</div>
+            <div class="description">给定 URI，返回 URI 的最后一段，删除任何路径或查询信息。</div>
         
 
         

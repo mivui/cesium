@@ -47,7 +47,7 @@
 
 
         
-            <div class="description">Creates a <a href="CesiumTerrainProvider.html"><code>CesiumTerrainProvider</code></a> instance for the <a href="https://cesium.com/content/#cesium-world-bathymetry">Cesium World Bathymetry</a>.</div>
+            <div class="description">创建一个 <a href="CesiumTerrainProvider.html"><code>CesiumTerrainProvider</code></a> instance 的<a href="https://cesium.com/content/#cesium-world-bathymetry">Cesium World Bathymetry</a>.</div>
         
 
         

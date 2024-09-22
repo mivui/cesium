@@ -58,7 +58,8 @@
 
 
 <div class="description">
-    Creates an instance of an OrientedBoundingBox.An OrientedBoundingBox of some object is a closed and convex rectangular cuboid. It can provide a tighter bounding volume than <a href="BoundingSphere.html"><code>BoundingSphere</code></a> or <a href="AxisAlignedBoundingBox.html"><code>AxisAlignedBoundingBox</code></a> in many cases.
+    创建 OrientedBoundingBox 的实例。
+某个对象的 OrientedBoundingBox 是一个闭合的凸面矩形长方体。在许多情况下，它可以提供比 <a href="BoundingSphere.html"><code>BoundingSphere</code></a> 或 <a href="AxisAlignedBoundingBox.html"><code>AxisAlignedBoundingBox</code></a> 更紧密的边界体积。
 </div>
 
 
@@ -124,7 +125,7 @@
 
                 
             
-                The center of the box.</td>
+                盒子的中心。</td>
         </tr>
 
     
@@ -160,7 +161,9 @@
 
                 
             
-                The three orthogonal half-axes of the bounding box.                                         Equivalently, the transformation matrix, to rotate and scale a 2x2x2                                         cube centered at the origin.</td>
+                边界框的三个正交半轴。
+等效于变换矩阵，用于旋转和缩放 2x2x2
+立方体以原点为中心。</td>
         </tr>
 
     
@@ -203,7 +206,11 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Create an OrientedBoundingBox using a transformation matrix, a position where the box will be translated, and a scale.const center = new Cesium.Cartesian3(1.0, 0.0, 0.0);const halfAxes = Cesium.Matrix3.fromScale(new Cesium.Cartesian3(1.0, 3.0, 2.0), new Cesium.Matrix3());const obb = new Cesium.OrientedBoundingBox(center, halfAxes);</code></pre>
+    <pre><code class="language-javascript">// Create an OrientedBoundingBox using a transformation matrix, a position where the box will be translated, and a scale.
+const center = new Cesium.Cartesian3(1.0, 0.0, 0.0);
+const halfAxes = Cesium.Matrix3.fromScale(new Cesium.Cartesian3(1.0, 3.0, 2.0), new Cesium.Matrix3());
+
+const obb = new Cesium.OrientedBoundingBox(center, halfAxes);</code></pre>
 
     
 
@@ -322,7 +329,7 @@
 
 
 <div class="description">
-    The center of the box.
+    框的中心。
 </div>
 
 
@@ -385,7 +392,9 @@
 
 
 <div class="description">
-    The three orthogonal half-axes of the bounding box. Equivalently, thetransformation matrix, to rotate and scale a 2x2x2 cube centered at theorigin.
+    边界框的三个正交半轴。等效地，
+变换矩阵，旋转和缩放以
+起源。
 </div>
 
 
@@ -455,7 +464,7 @@
 
 
 <div class="description">
-    复制OrientedBoundingBox instance.
+    复制BoundingBox实例。
 </div>
 
 
@@ -511,7 +520,7 @@
 
                 
             
-                The bounding box to duplicate.</td>
+                要复制的边界框。</td>
         </tr>
 
     
@@ -625,7 +634,7 @@
 
 
 <div class="description">
-    Computes the eight corners of an oriented bounding box. The corners are ordered by (-X, -Y, -Z), (-X, -Y, +Z), (-X, +Y, -Z), (-X, +Y, +Z), (+X, -Y, -Z), (+X, -Y, +Z), (+X, +Y, -Z), (+X, +Y, +Z).
+    计算定向边界框的八个角。角按 （-X， -Y， -Z）、（-X， -Y， +Z）、（-X， +Y， -Z）、（-X， +Y， +Z）、（+X， -Y， -Z）、（+X、-Y、-Z）、（+X、-Y、+Z）、（+X、+Y、+Z） 排序。
 </div>
 
 
@@ -681,7 +690,7 @@
 
                 
             
-                The oriented bounding box.</td>
+                定向边界框。</td>
         </tr>
 
     
@@ -711,7 +720,7 @@
 
                 
             
-                An array of eight <a href="Cartesian3.html"><code>Cartesian3</code></a> instances onto which to store the corners.</td>
+                一个包含八个 <a href="Cartesian3.html"><code>Cartesian3</code></a> 实例的数组，用于存储角。</td>
         </tr>
 
     
@@ -732,7 +741,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数 or a new array if none was provided.
+    修改后的结果参数或新数组（如果未提供）。
 </div>
 
 
@@ -795,7 +804,10 @@
 
 
 <div class="description">
-    The distances calculated by the vector from the center of the bounding box to position projected onto direction.<br>如果你想象有无限个法线方向的平面，这计算出到closest and farthest planes from position that intersect the bounding box.
+    由向量计算出从边界框中心到投影到方向上的位置的距离。
+<br>
+如果你想象有无限个法线方向的平面，这计算出到
+与边界框相交的位置最近和最远的平面。
 </div>
 
 
@@ -851,7 +863,7 @@
 
                 
             
-                The bounding box to calculate the distance to.</td>
+                要计算距离的边界框。</td>
         </tr>
 
     
@@ -907,7 +919,7 @@
 
                 
             
-                The direction from position.</td>
+                起始位置的方向。</td>
         </tr>
 
     
@@ -958,7 +970,7 @@
 
         
 <div class="param-desc">
-    The nearest and farthest distances on the bounding box from position in direction.
+    边界框上距 direction 位置最近的和最远的距离。
 </div>
 
 
@@ -1021,7 +1033,7 @@
 
 
 <div class="description">
-    Computes a transformation matrix from an oriented bounding box.
+    从定向边界框计算变换矩阵。
 </div>
 
 
@@ -1072,7 +1084,7 @@
 
             <td class="description last">
             
-                The oriented bounding box.</td>
+                定向边界框。</td>
         </tr>
 
     
@@ -1116,7 +1128,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数 or a new <a href="Matrix4.html"><code>Matrix4</code></a> instance if none was provided.
+    修改后的结果参数 或者一个新的 <a href="Matrix4.html"><code>Matrix4</code></a> 实例（如果未提供）。
 </div>
 
 
@@ -1179,7 +1191,7 @@
 
 
 <div class="description">
-    Computes the estimated distance squared from the closest point on a bounding box to a point.
+    计算从边界框上最近的点到某个点的估计平方距离。
 </div>
 
 
@@ -1230,7 +1242,7 @@
 
             <td class="description last">
             
-                The box.</td>
+                框。</td>
         </tr>
 
     
@@ -1253,7 +1265,7 @@
 
             <td class="description last">
             
-                The point</td>
+                点</td>
         </tr>
 
     
@@ -1274,7 +1286,7 @@
 
         
 <div class="param-desc">
-    The distance squared from the oriented bounding box to the point. Returns 0 if the point is inside the box.
+    从定向边界框到该点的平方距离。如果点位于框内，则返回 0。
 </div>
 
 
@@ -1305,7 +1317,10 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Sort bounding boxes from back to frontboxes.sort(function(a, b) {    return Cesium.OrientedBoundingBox.distanceSquaredTo(b, camera.positionWC) - Cesium.OrientedBoundingBox.distanceSquaredTo(a, camera.positionWC);});</code></pre>
+    <pre><code class="language-javascript">// Sort bounding boxes from back to front
+boxes.sort(function(a, b) {
+    return Cesium.OrientedBoundingBox.distanceSquaredTo(b, camera.positionWC) - Cesium.OrientedBoundingBox.distanceSquaredTo(a, camera.positionWC);
+});</code></pre>
 
     
 
@@ -1342,7 +1357,8 @@
 
 
 <div class="description">
-    Compares the provided OrientedBoundingBox componentwise and returns<code>true</code>，否则为<code>false</code>。
+    对提供的 OrientedBoundingBox 组件进行比较，并返回
+<code>true</code>，否则为<code>false</code>。
 </div>
 
 
@@ -1393,7 +1409,7 @@
 
             <td class="description last">
             
-                The first OrientedBoundingBox.</td>
+                第一个 OrientedBoundingBox。</td>
         </tr>
 
     
@@ -1416,7 +1432,7 @@
 
             <td class="description last">
             
-                The second OrientedBoundingBox.</td>
+                第二个 OrientedBoundingBox。</td>
         </tr>
 
     
@@ -1500,7 +1516,9 @@
 
 
 <div class="description">
-    Computes an instance of an OrientedBoundingBox of the given positions.This is an implementation of Stefan Gottschalk's Collision Queries using Oriented Bounding Boxes solution (PHD thesis).Reference: http://gamma.cs.unc.edu/users/gottschalk/main.pdf
+    计算给定位置的 OrientedBoundingBox 实例。
+这是 Stefan Gottschalk 的 Collision Queries using Oriented Bounding Boxes 解决方案（博士论文）的实现。
+Reference: http://gamma.cs.unc.edu/users/gottschalk/main.pdf
 </div>
 
 
@@ -1558,7 +1576,7 @@
 
                 
             
-                List of <a href="Cartesian3.html"><code>Cartesian3</code></a> points that the bounding box will enclose.</td>
+                边界框将包含的 <code>Cartesian3</code> 点的列表。</td>
         </tr>
 
     
@@ -1609,7 +1627,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数 or a new OrientedBoundingBox instance if one was not provided.
+    修改后的结果参数 或者一个新的 OrientedBoundingBox 实例（如果未提供）。
 </div>
 
 
@@ -1640,7 +1658,8 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Compute an object oriented bounding box enclosing two points.const box = Cesium.OrientedBoundingBox.fromPoints([new Cesium.Cartesian3(2, 0, 0), new Cesium.Cartesian3(-2, 0, 0)]);</code></pre>
+    <pre><code class="language-javascript">// Compute an object oriented bounding box enclosing two points.
+const box = Cesium.OrientedBoundingBox.fromPoints([new Cesium.Cartesian3(2, 0, 0), new Cesium.Cartesian3(-2, 0, 0)]);</code></pre>
 
     
 
@@ -1677,7 +1696,8 @@
 
 
 <div class="description">
-    Computes an OrientedBoundingBox that bounds a <a href="Rectangle.html"><code>Rectangle</code></a> on the surface of an <a href="Ellipsoid.html"><code>Ellipsoid</code></a>.There are no guarantees about the orientation of the bounding box.
+    计算一个 OrientedBoundingBox，该 BoundingBox 将 <a href="Rectangle.html"><code>Rectangle</code></a> 限定在 <a href="Ellipsoid.html"><code>Ellipsoid</code></a> 的表面上。
+无法保证边界框的方向。
 </div>
 
 
@@ -1739,7 +1759,7 @@
 
                 
             
-                The cartographic rectangle on the surface of the ellipsoid.</td>
+                椭球体曲面上的制图矩形。</td>
         </tr>
 
     
@@ -1775,7 +1795,7 @@
 
                 
             
-                The minimum height (elevation) within the tile.</td>
+                瓦片内的最小高度（高度）。</td>
         </tr>
 
     
@@ -1811,7 +1831,7 @@
 
                 
             
-                The maximum height (elevation) within the tile.</td>
+                瓦片内的最大高度（海拔）。</td>
         </tr>
 
     
@@ -1847,7 +1867,7 @@
 
                 
             
-                The ellipsoid on which the rectangle is defined.</td>
+                定义矩形的椭球体。</td>
         </tr>
 
     
@@ -1902,7 +1922,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数 or a new OrientedBoundingBox instance if none was provided.
+    修改后的结果参数或新的 OrientedBoundingBox 实例（如果未提供）。
 </div>
 
 
@@ -2001,7 +2021,7 @@
 
 
 <div class="description">
-    Computes an OrientedBoundingBox that bounds an affine transformation.
+    计算一个 OrientedBoundingBox，它限制了一个仿射变换。
 </div>
 
 
@@ -2057,7 +2077,7 @@
 
                 
             
-                The affine transformation.</td>
+                仿射变换。</td>
         </tr>
 
     
@@ -2108,7 +2128,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数 or a new OrientedBoundingBox instance if none was provided.
+    修改后的结果参数或者一个新的 OrientedBoundingBox 实例（如果未提供）。
 </div>
 
 
@@ -2171,7 +2191,7 @@
 
 
 <div class="description">
-    Determines which side of a plane the oriented bounding box is located.
+    确定定向边界框位于平面的哪一侧。
 </div>
 
 
@@ -2222,7 +2242,7 @@
 
             <td class="description last">
             
-                The oriented bounding box to test.</td>
+                要测试的定向边界框。</td>
         </tr>
 
     
@@ -2266,7 +2286,10 @@
 
         
 <div class="param-desc">
-    <a href="global.html#Intersect#.INSIDE"><code>Intersect.INSIDE</code></a> 如果整个盒子都在飞机的一侧                     法线指向 <a href="global.html#Intersect#.OUTSIDE"><code>Intersect.OUTSIDE</code></a> 如果整个盒子                     在反面， 和 <a href="global.html#Intersect#.INTERSECTING"><code>Intersect.INTERSECTING</code></a>  如果盒子                     与平面相交。
+    <a href="global.html#Intersect#.INSIDE"><code>Intersect.INSIDE</code></a> 如果整个盒子都在飞机的一侧
+                     法线指向 <a href="global.html#Intersect#.OUTSIDE"><code>Intersect.OUTSIDE</code></a> 如果整个盒子
+                     在反面， 和 <a href="global.html#Intersect#.INTERSECTING"><code>Intersect.INTERSECTING</code></a>  如果盒子
+                     与平面相交。
 </div>
 
 
@@ -2329,7 +2352,7 @@
 
 
 <div class="description">
-    Determines whether or not a bounding box is hidden from view by the occluder.
+    确定遮挡物是否在视图中隐藏边界框。
 </div>
 
 
@@ -2380,7 +2403,7 @@
 
             <td class="description last">
             
-                The bounding box surrounding the occludee object.</td>
+                围绕被遮挡对象的边界框。</td>
         </tr>
 
     
@@ -2424,7 +2447,7 @@
 
         
 <div class="param-desc">
-    <code>true</code> if the box is not visible; otherwise <code>false</code>.
+    <code>true</code> 如果框不可见;否则<code>为 false</code>。
 </div>
 
 
@@ -2917,7 +2940,7 @@
 
 
 <div class="description">
-    复制OrientedBoundingBox instance.
+    复制OrientedBoundingBox实例。
 </div>
 
 
@@ -2996,7 +3019,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数 or a new OrientedBoundingBox instance if one was not provided.
+    修改后的结果参数 或者一个新的 OrientedBoundingBox 实例（如果未提供）。
 </div>
 
 
@@ -3059,7 +3082,7 @@
 
 
 <div class="description">
-    Computes the eight corners of an oriented bounding box. The corners are ordered by (-X, -Y, -Z), (-X, -Y, +Z), (-X, +Y, -Z), (-X, +Y, +Z), (+X, -Y, -Z), (+X, -Y, +Z), (+X, +Y, -Z), (+X, +Y, +Z).
+    计算定向边界框的八个角。角按 (-X, -Y, -Z), (-X, -Y, +Z), (-X, +Y, -Z), (-X, +Y, +Z), (+X, -Y, -Z), (+X, -Y, +Z), (+X, +Y, -Z), (+X, +Y, +Z).
 </div>
 
 
@@ -3117,7 +3140,7 @@
 
                 
             
-                An array of eight <a href="Cartesian3.html"><code>Cartesian3</code></a> instances onto which to store the corners.</td>
+                一个包含八个 <a href="Cartesian3.html"><code>Cartesian3</code></a> 实例的数组，用于存储角。</td>
         </tr>
 
     
@@ -3138,7 +3161,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数 or a new array if none was provided.
+    修改后的结果参数或者一个新数组（如果未提供）。
 </div>
 
 
@@ -3201,7 +3224,10 @@
 
 
 <div class="description">
-    The distances calculated by the vector from the center of the bounding box to position projected onto direction.<br>如果你想象有无限个法线方向的平面，这计算出到closest and farthest planes from position that intersect the bounding box.
+    由向量计算出从边界框中心到投影到方向上的位置的距离。
+<br>
+如果你想象有无限个法线方向的平面，这计算出到
+与边界框相交的位置最近和最远的平面。
 </div>
 
 
@@ -3285,7 +3311,7 @@
 
                 
             
-                The direction from position.</td>
+                起始位置的方向。</td>
         </tr>
 
     
@@ -3336,7 +3362,7 @@
 
         
 <div class="param-desc">
-    The nearest and farthest distances on the bounding box from position in direction.
+    边界框上距 direction 位置最近的和最远的距离。
 </div>
 
 
@@ -3399,7 +3425,7 @@
 
 
 <div class="description">
-    Computes a transformation matrix from an oriented bounding box.
+    从定向边界框计算变换矩阵。
 </div>
 
 
@@ -3471,7 +3497,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数 or a new <a href="Matrix4.html"><code>Matrix4</code></a> instance if none was provided.
+    修改后的结果参数 或者一个新的 <a href="Matrix4.html"><code>Matrix4</code></a> 实例（如果未提供）。
 </div>
 
 
@@ -3534,7 +3560,7 @@
 
 
 <div class="description">
-    Computes the estimated distance squared from the closest point on a bounding box to a point.
+    计算从边界框上最近的点到某个点的估计平方距离。
 </div>
 
 
@@ -3585,7 +3611,7 @@
 
             <td class="description last">
             
-                The point</td>
+                点</td>
         </tr>
 
     
@@ -3637,7 +3663,10 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Sort bounding boxes from back to frontboxes.sort(function(a, b) {    return b.distanceSquaredTo(camera.positionWC) - a.distanceSquaredTo(camera.positionWC);});</code></pre>
+    <pre><code class="language-javascript">// Sort bounding boxes from back to front
+boxes.sort(function(a, b) {
+    return b.distanceSquaredTo(camera.positionWC) - a.distanceSquaredTo(camera.positionWC);
+});</code></pre>
 
     
 
@@ -3674,7 +3703,8 @@
 
 
 <div class="description">
-    Compares this OrientedBoundingBox against the provided OrientedBoundingBox componentwise and returns<code>true</code>，否则为<code>false</code>。
+    将此 OrientedBoundingBox 与提供的 OrientedBoundingBox 组件进行比较，并返回
+<code>true</code>，否则为<code>false</code>。
 </div>
 
 
@@ -3816,7 +3846,7 @@
 
 
 <div class="description">
-    Determines which side of a plane the oriented bounding box is located.
+    确定定向边界框位于平面的哪一侧。
 </div>
 
 
@@ -3888,7 +3918,10 @@
 
         
 <div class="param-desc">
-    <a href="global.html#Intersect#.INSIDE"><code>Intersect.INSIDE</code></a> 如果整个盒子都在飞机的一侧                     法线指向 <a href="global.html#Intersect#.OUTSIDE"><code>Intersect.OUTSIDE</code></a> 如果整个盒子                     在反面， 和 <a href="global.html#Intersect#.INTERSECTING"><code>Intersect.INTERSECTING</code></a>  如果盒子                     与平面相交。
+    <a href="global.html#Intersect#.INSIDE"><code>Intersect.INSIDE</code></a> 如果整个盒子都在飞机的一侧
+                     法线指向 <a href="global.html#Intersect#.OUTSIDE"><code>Intersect.OUTSIDE</code></a> 如果整个盒子
+                     在反面， 和 <a href="global.html#Intersect#.INTERSECTING"><code>Intersect.INTERSECTING</code></a>  如果盒子
+                     与平面相交。
 </div>
 
 
@@ -3951,7 +3984,7 @@
 
 
 <div class="description">
-    Determines whether or not a bounding box is hidden from view by the occluder.
+    确定遮挡物是否在视图中隐藏边界框。
 </div>
 
 
@@ -4002,7 +4035,7 @@
 
             <td class="description last">
             
-                The occluder.</td>
+                遮挡物。</td>
         </tr>
 
     

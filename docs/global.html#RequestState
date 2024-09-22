@@ -47,7 +47,7 @@
 
 
         
-            <div class="description">State of the request.</div>
+            <div class="description">请求的状态。</div>
         
 
         
@@ -96,7 +96,7 @@
 
             
 
-            <td class="description last">Initial unissued state.</td>
+            <td class="description last">初始未颁发状态。</td>
         </tr>
 
     
@@ -119,7 +119,7 @@
 
             
 
-            <td class="description last">Issued but not yet active. Will become active when open slots are available.</td>
+            <td class="description last">已发布但尚未激活。当空位可用时，将变为激活状态。</td>
         </tr>
 
     
@@ -142,7 +142,7 @@
 
             
 
-            <td class="description last">Actual http request has been sent.</td>
+            <td class="description last">实际的 http 请求已发送。</td>
         </tr>
 
     
@@ -165,7 +165,7 @@
 
             
 
-            <td class="description last">Request completed successfully.</td>
+            <td class="description last">请求已成功完成。</td>
         </tr>
 
     
@@ -188,7 +188,7 @@
 
             
 
-            <td class="description last">Request was cancelled, either explicitly or automatically because of low priority.</td>
+            <td class="description last">由于优先级低，请求已显式或自动取消。</td>
         </tr>
 
     
@@ -211,7 +211,7 @@
 
             
 
-            <td class="description last">Request failed.</td>
+            <td class="description last">请求失败。</td>
         </tr>
 
     
@@ -285,7 +285,7 @@
 
 
 <div class="description">
-    Actual http request has been sent.
+    实际的 http 请求已发送。
 </div>
 
 
@@ -348,7 +348,7 @@
 
 
 <div class="description">
-    Request was cancelled, either explicitly or automatically because of low priority.
+    由于优先级低，请求已显式或自动取消。
 </div>
 
 
@@ -411,7 +411,7 @@
 
 
 <div class="description">
-    Request failed.
+    请求失败。
 </div>
 
 
@@ -474,7 +474,7 @@
 
 
 <div class="description">
-    Issued but not yet active. Will become active when open slots are available.
+    已发布但尚未激活。当空位可用时，将变为激活状态。
 </div>
 
 
@@ -537,7 +537,7 @@
 
 
 <div class="description">
-    Request completed successfully.
+    请求已成功完成。
 </div>
 
 
@@ -600,7 +600,7 @@
 
 
 <div class="description">
-    Initial unissued state.
+    初始未颁发状态。
 </div>
 
 

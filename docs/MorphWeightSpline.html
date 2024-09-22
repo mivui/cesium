@@ -148,7 +148,8 @@
 
             <td class="description last">
             
-                An array of strictly increasing, unit-less, floating-point times at each point.               The values are in no way connected to the clock time. They are the parameterization for the curve.</td>
+                An array of strictly increasing, unit-less, floating-point times at each point.
+               The values are in no way connected to the clock time. They are the parameterization for the curve.</td>
         </tr>
 
     
@@ -171,7 +172,10 @@
 
             <td class="description last">
             
-                The array of floating-point control weights given. The weights are ordered such               that all weights for the targets are given in chronological order and order in which they appear in               the glTF from which the morph targets come. This means for 2 targets, weights = [w(0,0), w(0,1), w(1,0), w(1,1) ...]               where i and j in w(i,j) are the time indices and target indices, respectively.</td>
+                The array of floating-point control weights given. The weights are ordered such
+               that all weights for the targets are given in chronological order and order in which they appear in
+               the glTF from which the morph targets come. This means for 2 targets, weights = [w(0,0), w(0,1), w(1,0), w(1,1) ...]
+               where i and j in w(i,j) are the time indices and target indices, respectively.</td>
         </tr>
 
     
@@ -245,7 +249,14 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const times = [ 0.0, 1.5, 3.0, 4.5, 6.0 ];const weights = [0.0, 1.0, 0.25, 0.75, 0.5, 0.5, 0.75, 0.25, 1.0, 0.0]; //Two targetsconst spline = new Cesium.WeightSpline({    times : times,    weights : weights});const p0 = spline.evaluate(times[0]);</code></pre>
+    <pre><code class="language-javascript">const times = [ 0.0, 1.5, 3.0, 4.5, 6.0 ];
+const weights = [0.0, 1.0, 0.25, 0.75, 0.5, 0.5, 0.75, 0.25, 1.0, 0.0]; //Two targets
+const spline = new Cesium.WeightSpline({
+    times : times,
+    weights : weights
+});
+
+const p0 = spline.evaluate(times[0]);</code></pre>
 
     
 
@@ -315,7 +326,7 @@
 
 
 <div class="description">
-    Clamps the given time to the period covered by the spline.
+    将给定时间限制为样条所覆盖的时间段。
 </div>
 
 
@@ -366,7 +377,7 @@
 
             <td class="description last">
             
-                The time.</td>
+                时间。</td>
         </tr>
 
     
@@ -387,7 +398,7 @@
 
         
 <div class="param-desc">
-    The time, clamped to the animation period.
+    时间，固定到动画周期。
 </div>
 
 
@@ -450,7 +461,7 @@
 
 
 <div class="description">
-    Evaluates the curve at a given time.
+    在给定时间计算曲线。
 </div>
 
 
@@ -506,7 +517,7 @@
 
                 
             
-                The time at which to evaluate the curve.</td>
+                评估曲线的时间。</td>
         </tr>
 
     
@@ -557,7 +568,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数 or a new instance of the point on the curve at the given time.
+    修改后的结果参数 或给定时间曲线上点的新实例。
 </div>
 
 
@@ -572,7 +583,9 @@
         
 <span class="param-type"><a href="DeveloperError.html">DeveloperError</a></span>
 
-: time must be in the range <code>[t<sub>0</sub>, t<sub>n</sub>]</code>, where <code>t<sub>0</sub></code>                            is the first element in the array <code>times</code> and <code>t<sub>n</sub></code> is the last element                            in the array <code>times</code>.
+: 时间必须在 <code>[t<sub>0</sub>， t<sub>n</sub>]</code> 范围内，其中 <code>t<sub>0</sub></code>
+是数组中的第一个元素 <code>times</code> 和 <code>t<sub>n</sub></code> 是最后一个元素
+在数组<code>times</code>。
     </div>
 
 </li>
@@ -634,7 +647,8 @@
 
 
 <div class="description">
-    Finds an index <code>i</code> in <code>times</code> such that the parameter<code>time</code> is in the interval <code>[times[i], times[i + 1]]</code>.
+    在<code>times</code>中查找索引 <code>i</code>，使得参数
+<code>times</code>在区间 <code>[times[i]， times[i + 1]]</code> 中。
 </div>
 
 
@@ -685,7 +699,7 @@
 
             <td class="description last">
             
-                The time.</td>
+                时间。</td>
         </tr>
 
     
@@ -706,7 +720,7 @@
 
         
 <div class="param-desc">
-    The index for the element at the start of the interval.
+    区间开始时元素的索引。
 </div>
 
 
@@ -721,7 +735,9 @@
         
 <span class="param-type"><a href="DeveloperError.html">DeveloperError</a></span>
 
-: time must be in the range <code>[t<sub>0</sub>, t<sub>n</sub>]</code>, where <code>t<sub>0</sub></code>                            is the first element in the array <code>times</code> and <code>t<sub>n</sub></code> is the last element                            in the array <code>times</code>.
+: 时间必须在 <code>[t<sub>0</sub>， t<sub>n</sub>]</code> 范围内，其中 <code>t<sub>0</sub></code>
+是数组中的第一个元素 <code>times</code> 和 <code>t<sub>n</sub></code> 是最后一个元素
+在数组<code>times</code>。
     </div>
 
 </li>
@@ -783,7 +799,7 @@
 
 
 <div class="description">
-    Wraps the given time to the period covered by the spline.
+    将给定时间环绕到样条所覆盖的时间段。
 </div>
 
 
@@ -834,7 +850,7 @@
 
             <td class="description last">
             
-                The time.</td>
+                时间。</td>
         </tr>
 
     
@@ -855,7 +871,7 @@
 
         
 <div class="param-desc">
-    The time, wrapped around to the updated animation.
+    时间，环绕到更新的动画。
 </div>
 
 

@@ -58,7 +58,7 @@
 
 
 <div class="description">
-    A vertex format defines what attributes make up a vertex.  A VertexFormat can be providedto a <a href="Geometry.html"><code>Geometry</code></a> to request that certain properties be computed, e.g., just position,position and normal, etc.
+    顶点格式定义构成顶点的属性。 可以提供 VertexFormat更改为 <a href="Geometry.html"><code>Geometry</code></a> 以请求计算某些属性，例如，仅计算 position，位置和法线等。
 </div>
 
 
@@ -116,7 +116,7 @@
 
                 
             
-                An object with boolean properties corresponding to VertexFormat properties as shown in the code example.</td>
+                一个具有布尔属性的对象，对应于 VertexFormat 属性，如代码示例所示。</td>
         </tr>
 
     
@@ -218,7 +218,7 @@
 
 
 <div class="description">
-    An immutable vertex format with well-known attributes: position, normal, st, tangent, and bitangent.
+    具有已知属性的不可变顶点格式：position、normal、st、tangent 和 bitangent。
 </div>
 
 
@@ -291,7 +291,7 @@
 
 
 <div class="description">
-    An immutable vertex format with position, normal, and st attributes.This is compatible with most appearances and materials; howevernormal and st attributes are not always required.  When this isknown in advance, another <code>VertexFormat</code> should be used.
+    具有 position、normal 和 st 属性的不可变顶点格式。这与大多数外观和材料兼容;然而normal 和 st 属性并不总是必需的。 当这是事先知道，应该使用另一个 <code>VertexFormat</code>。
 </div>
 
 
@@ -418,7 +418,7 @@
 
 
 <div class="description">
-    An immutable vertex format with position and color attributes.
+    具有 position 和 color 属性的不可变顶点格式。
 </div>
 
 
@@ -485,7 +485,7 @@
 
 
 <div class="description">
-    An immutable vertex format with position and normal attributes.This is compatible with per-instance color appearances like <a href="PerInstanceColorAppearance.html"><code>PerInstanceColorAppearance</code></a>.
+    具有 position 和 normal 属性的不可变顶点格式。这与每个实例的颜色外观兼容，例如 <a href="PerInstanceColorAppearance.html"><code>PerInstanceColorAppearance</code></a>。
 </div>
 
 
@@ -552,7 +552,7 @@
 
 
 <div class="description">
-    An immutable vertex format with position and st attributes.This is compatible with <a href="EllipsoidSurfaceAppearance.html"><code>EllipsoidSurfaceAppearance</code></a>.
+    具有 position 和 st 属性的不可变顶点格式。这与 <a href="EllipsoidSurfaceAppearance.html"><code>EllipsoidSurfaceAppearance</code></a> 兼容。
 </div>
 
 
@@ -619,7 +619,7 @@
 
 
 <div class="description">
-    An immutable vertex format with position, normal, and st attributes.This is compatible with <a href="MaterialAppearance.html"><code>MaterialAppearance</code></a> when <a href="MaterialAppearance.html#materialSupport"><code>MaterialAppearance#materialSupport</code></a>is <code>TEXTURED/code>.
+    具有 position、normal 和 st 属性的不可变顶点格式。这与 <a href="MaterialAppearance.html"><code>MaterialAppearance</code></a> 兼容，当 <a href="MaterialAppearance.html#materialSupport"><code>MaterialAppearance#materialSupport</code></a>为 <code>TEXTURED/code>。
 </div>
 
 
@@ -688,7 +688,7 @@
 
 
 <div class="description">
-    An immutable vertex format with only a position attribute.
+    仅具有 position 属性的不可变顶点格式。
 </div>
 
 
@@ -753,7 +753,7 @@
 
 
 <div class="description">
-    When <code>true</code>, the vertex has a bitangent attribute (normalized), which is used for tangent-space effects like bump mapping.<p>32-bit floating-point.  3 components per attribute.</p>
+    如果为 <code>true</code>，则顶点具有双切线属性 （规格化），该属性用于凹凸贴图等切线空间效果。<p>32 位浮点。 每个属性 3 个组件。</p>
 </div>
 
 
@@ -816,7 +816,7 @@
 
 
 <div class="description">
-    When <code>true</code>, the vertex has an RGB color attribute.<p>8-bit unsigned byte.  3 components per attribute.</p>
+    如果<code>为 true</code>，则顶点具有 RGB 颜色属性。<p>8 位无符号字节。 每个属性 3 个组件。</p>
 </div>
 
 
@@ -879,7 +879,7 @@
 
 
 <div class="description">
-    When <code>true</code>, the vertex has a normal attribute (normalized), which is commonly used for lighting.<p>32-bit floating-point.  3 components per attribute.</p>
+    如果<code>为 true</code>，则顶点具有 normal 属性（规格化），该属性通常用于照明。<p>32 位浮点。 每个属性 3 个组件。</p>
 </div>
 
 
@@ -942,7 +942,7 @@
 
 
 <div class="description">
-    When <code>true</code>, the vertex has a 3D position attribute.<p>64-bit floating-point (for precision).  3 components per attribute.</p>
+    如果<code>为 true</code>，则顶点具有 3D 位置属性。<p>64 位浮点（用于精度）。 每个属性 3 个组件。</p>
 </div>
 
 
@@ -1005,7 +1005,7 @@
 
 
 <div class="description">
-    When <code>true</code>, the vertex has a 2D texture coordinate attribute.<p>32-bit floating-point.  2 components per attribute</p>
+    如果<code>为 true</code>，则顶点具有 2D 纹理坐标属性。<p>32 位浮点。 每个属性 2 个组件</p>
 </div>
 
 
@@ -1068,7 +1068,7 @@
 
 
 <div class="description">
-    When <code>true</code>, the vertex has a tangent attribute (normalized), which is used for tangent-space effects like bump mapping.<p>32-bit floating-point.  3 components per attribute.</p>
+    如果为 <code>true</code>，则顶点具有切线属性（规格化），该属性用于凹凸贴图等切线空间效果。<p>32 位浮点。 每个属性 3 个组件。</p>
 </div>
 
 
@@ -1138,7 +1138,7 @@
 
 
 <div class="description">
-    复制VertexFormat instance.
+    复制VertexFormat实例。
 </div>
 
 
@@ -1245,7 +1245,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数 or a new VertexFormat instance if one was not provided. (Returns undefined if vertexFormat is undefined)
+    修改后的结果参数或者一个新的 VertexFormat 实例（如果未提供）。（如果 vertexFormat 未定义，则返回 undefined）
 </div>
 
 
@@ -1675,7 +1675,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数 or a new VertexFormat instance if one was not provided.
+    修改后的结果参数或者一个新的 VertexFormat 实例（如果未提供）。
 </div>
 
 

@@ -47,7 +47,7 @@
 
 
         
-            <div class="description">Represents a point in stereographic coordinates, which can be obtained by projecting a cartesian coordinate from one pole onto a tangent plane at the other pole.The stereographic projection faithfully represents the relative directions of all great circles passing through its center point.To faithfully represents angles everywhere, this is a conformal projection, which means points are projected onto an arbrary sphere.</div>
+            <div class="description">表示立体坐标中的点，可以通过将笛卡尔坐标从一个极点投影到另一个极点的切平面上来获得。立体投影忠实地表示通过其中心点的所有大圆的相对方向。为了忠实地表示所有位置的角度，这是一种等角投影，这意味着点被投影到任意球体上。</div>
         
 
         
@@ -119,7 +119,7 @@
 
 
 <div class="description">
-    An Ellipsoid instance initialized to radii of (0.5, 0.5, 0.5).
+    初始化为 radius 为 (0.5, 0.5, 0.5).
 </div>
 
 
@@ -179,7 +179,7 @@
 
 
 <div class="description">
-    Computes the conformal latitude, or the ellipsoidal latitude projected onto an arbitrary sphere.
+    计算等角纬度，或投影到任意球体上的椭球体纬度。
 </div>
 
 
@@ -239,7 +239,7 @@
 
 
 <div class="description">
-    Gets the ellipsoid.
+    获取椭球体。
 </div>
 
 
@@ -299,7 +299,7 @@
 
 
 <div class="description">
-    Computes the longitude
+    计算经度
 </div>
 
 
@@ -359,7 +359,7 @@
 
 
 <div class="description">
-    Gets the x coordinate
+    获取 x 坐标
 </div>
 
 
@@ -419,7 +419,7 @@
 
 
 <div class="description">
-    Gets the y coordinate
+    获取 y 坐标
 </div>
 
 
@@ -486,7 +486,7 @@
 
 
 <div class="description">
-    复制Stereographic instance.
+    复制Stereographic实例。
 </div>
 
 
@@ -542,7 +542,7 @@
 
                 
             
-                The Stereographic to duplicate.</td>
+                要复制的 Stereographic。</td>
         </tr>
 
     
@@ -593,7 +593,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数 or a new Stereographic instance if one was not provided. (Returns undefined if stereographic is undefined)
+    修改后的结果参数或者一个新的 Stereographic 实例（如果未提供）。（如果立体图像未定义，则返回 undefined）
 </div>
 
 
@@ -656,7 +656,7 @@
 
 
 <div class="description">
-    Computes the projection of the provided 3D position onto the 2D polar plane, radially outward from the provided origin.
+    计算提供的 3D 位置在 2D 极平面上的投影，从提供的原点向外径向投影。
 </div>
 
 
@@ -712,7 +712,7 @@
 
                 
             
-                The point to project.</td>
+                投影点。</td>
         </tr>
 
     
@@ -763,7 +763,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数 or a new Sterographic instance if none was provided.
+    修改后的结果参数或新的 Sterographic 实例（如果未提供）。
 </div>
 
 
@@ -826,7 +826,7 @@
 
 
 <div class="description">
-    Computes the projection of the provided 3D positions onto the 2D polar plane, radially outward from the provided origin.
+    计算提供的 3D 位置在 2D 极平面上的投影，从提供的原点向外径向投影。
 </div>
 
 
@@ -882,7 +882,7 @@
 
                 
             
-                The points to project.</td>
+                指向投影的点。</td>
         </tr>
 
     
@@ -933,7 +933,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数 or a new Sterographic instance if none was provided.
+    修改后的结果参数或新的 Sterographic 实例（如果未提供）。
 </div>
 
 
@@ -996,7 +996,7 @@
 
 
 <div class="description">
-    Computes the latitude based on an ellipsoid.
+    根据椭球体计算纬度。
 </div>
 
 
@@ -1062,7 +1062,7 @@
 
                 
             
-                The ellipsoid on which to compute the longitude.</td>
+                计算经度的椭球体。</td>
         </tr>
 
     
@@ -1083,7 +1083,7 @@
 
         
 <div class="param-desc">
-    The latitude
+    纬度
 </div>
 
 

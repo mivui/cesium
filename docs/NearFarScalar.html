@@ -58,7 +58,7 @@
 
 
 <div class="description">
-    Represents a scalar value's lower and upper bound at a near distance and far distance in eye space.
+    表示标量值在眼空间中近距离和远距离的下限和上限。
 </div>
 
 
@@ -124,7 +124,7 @@
 
                 
             
-                The lower bound of the camera range.</td>
+                相机范围的下限。</td>
         </tr>
 
     
@@ -160,7 +160,7 @@
 
                 
             
-                The value at the lower bound of the camera range.</td>
+                相机范围下限的值。</td>
         </tr>
 
     
@@ -196,7 +196,7 @@
 
                 
             
-                The upper bound of the camera range.</td>
+                相机范围的上限。</td>
         </tr>
 
     
@@ -232,7 +232,7 @@
 
                 
             
-                The value at the upper bound of the camera range.</td>
+                相机范围上限的值。</td>
         </tr>
 
     
@@ -283,7 +283,7 @@
     
     <h5>See:</h5>
     <ul class="see-list">
-        <li><a href="Packable.html">Packable</a></li>
+        <li>可打包</li>
     </ul>
     
 
@@ -387,7 +387,7 @@
 
 
 <div class="description">
-    The upper bound of the camera range.
+    相机范围的上限。
 </div>
 
 
@@ -450,7 +450,7 @@
 
 
 <div class="description">
-    The value at the upper bound of the camera range.
+    摄像机范围上限的值。
 </div>
 
 
@@ -513,7 +513,7 @@
 
 
 <div class="description">
-    The lower bound of the camera range.
+    相机范围的下限。
 </div>
 
 
@@ -576,7 +576,7 @@
 
 
 <div class="description">
-    The value at the lower bound of the camera range.
+    相机范围下限的值。
 </div>
 
 
@@ -646,7 +646,7 @@
 
 
 <div class="description">
-    复制NearFarScalar instance.
+    复制NearFarScalar实例。
 </div>
 
 
@@ -702,7 +702,7 @@
 
                 
             
-                The NearFarScalar to duplicate.</td>
+                要复制的 NearFarScalar。</td>
         </tr>
 
     
@@ -753,7 +753,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数 or a new NearFarScalar instance if one was not provided. (Returns undefined if nearFarScalar is undefined)
+    修改后的结果参数或者一个新的 NearFarScalar 实例（如果未提供）。（如果 nearFarScalar 未定义，则返回 undefined）
 </div>
 
 
@@ -800,7 +800,7 @@
     <div class="nameContainer">
     <h4 class="name" id=".equals">
         <a href="#.equals" class="doc-link"></a>
-        <span class="type-signature attribute-static">static</span> Cesium.NearFarScalar.equals<span class="signature">(<span class="optional">left</span>, <span class="optional">right</span>)</span> &rarr; <span class="type-signature returnType">boolean</span>
+        <span class="type-signature attribute-static">static</span> Cesium.NearFarScalar.equals<span class="signature">(<span class="optional">left</span>, <span class="optional">right</span>)</span>
         
 
 <div class="source-link rightLinks">
@@ -816,7 +816,8 @@
 
 
 <div class="description">
-    Compares the provided NearFarScalar and returns <code>true</code> if they are equal,<code>false</code> 否则。
+    比较提供的 NearFarScalar，如果它们相等，则返回 <code>true</code>，
+<code>false</code> 否则。
 </div>
 
 
@@ -904,7 +905,8 @@
 
                 
             
-                第二个 NearFarScalar.</td>
+                第二个 NearFarScalar.
+如果 left 和 right 相等，则 @returns {boolean} <code>true</code>;否则<code>为 false</code>。</td>
         </tr>
 
     
@@ -921,15 +923,6 @@
 
 
 
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    <code>true</code> if left and right are equal; otherwise <code>false</code>.
-</div>
-
-
-    
 
 
 
@@ -1355,7 +1348,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数 or a new NearFarScalar instance if one was not provided.
+    修改后的结果参数 或者一个新的 NearFarScalar 实例（如果未提供）。
 </div>
 
 
@@ -1497,7 +1490,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数 or a new NearFarScalar instance if one was not provided.
+    修改后的结果参数 或者一个新的 NearFarScalar 实例（如果未提供）。
 </div>
 
 
@@ -1544,7 +1537,7 @@
     <div class="nameContainer">
     <h4 class="name" id="equals">
         <a href="#equals" class="doc-link"></a>
-        equals<span class="signature">(<span class="optional">right</span>)</span> &rarr; <span class="type-signature returnType">boolean</span>
+        equals<span class="signature">(<span class="optional">right</span>)</span>
         
 
 <div class="source-link rightLinks">
@@ -1560,7 +1553,8 @@
 
 
 <div class="description">
-    Compares this instance to the provided NearFarScalar and returns <code>true</code> if they are equal,<code>false</code> 否则。
+    将此实例与提供的 NearFarScalar 进行比较，如果它们相等，则返回 <code>true</code>，
+<code>false</code> 否则。
 </div>
 
 
@@ -1618,7 +1612,8 @@
 
                 
             
-                右边 NearFarScalar.</td>
+                右边 NearFarScalar.
+如果 left 和 right 相等，则 @returns {boolean} <code>true</code>;否则<code>为 false</code>。</td>
         </tr>
 
     
@@ -1635,15 +1630,6 @@
 
 
 
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    <code>true</code> if left and right are equal; otherwise <code>false</code>.
-</div>
-
-
-    
 
 
 

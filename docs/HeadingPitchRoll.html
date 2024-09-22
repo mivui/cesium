@@ -58,7 +58,7 @@
 
 
 <div class="description">
-    A rotation expressed as a heading, pitch, and roll. Heading is the rotation about thenegative z axis. Pitch is the rotation about the negative y axis. Roll is the rotation aboutthe positive x axis.
+    以航向、俯仰和滚动表示的旋转。heading 是围绕负 Z 轴。Pitch 是绕负 y 轴的旋转。Roll 是旋转正 x 轴。
 </div>
 
 
@@ -124,7 +124,7 @@
 
                 
             
-                The heading component in radians.</td>
+                以弧度为单位的航向分量。</td>
         </tr>
 
     
@@ -160,7 +160,7 @@
 
                 
             
-                The pitch component in radians.</td>
+                以弧度为单位的音高分量。</td>
         </tr>
 
     
@@ -196,7 +196,7 @@
 
                 
             
-                The roll component in radians.</td>
+                以弧度为单位的滚动分量。</td>
         </tr>
 
     
@@ -482,7 +482,7 @@
 
 
 <div class="description">
-    复制HeadingPitchRoll instance.
+    复制HeadingPitchRoll 实例。
 </div>
 
 
@@ -538,7 +538,7 @@
 
                 
             
-                The HeadingPitchRoll to duplicate.</td>
+                要复制的 HeadingPitchRoll 中。</td>
         </tr>
 
     
@@ -589,7 +589,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数 or a new HeadingPitchRoll instance if one was not provided. (Returns undefined if headingPitchRoll is undefined)
+    修改后的结果参数 或者一个新的 HeadingPitchRoll 实例（如果未提供）。（如果 headingPitchRoll 未定义，则返回 undefined）
 </div>
 
 
@@ -652,7 +652,7 @@
 
 
 <div class="description">
-    Compares the provided HeadingPitchRolls componentwise and returns<code>true</code>，否则为<code>false</code>。
+    对提供的 HeadingPitchRolls 组件进行比较，并返回<code>true</code>，否则为<code>false</code>。
 </div>
 
 
@@ -824,7 +824,7 @@
 
 
 <div class="description">
-    Compares the provided HeadingPitchRolls componentwise and returns<code>true</code> 如果它们通过了绝对或相对耐受性测试，<code>false</code> 否则。
+    对提供的 HeadingPitchRolls 组件进行比较，并返回<code>true</code> 如果它们通过了绝对或相对耐受性测试，<code>false</code> 否则。
 </div>
 
 
@@ -1062,7 +1062,7 @@
     <div class="nameContainer">
     <h4 class="name" id=".fromDegrees">
         <a href="#.fromDegrees" class="doc-link"></a>
-        <span class="type-signature attribute-static">static</span> Cesium.HeadingPitchRoll.fromDegrees<span class="signature">(heading, pitch, roll, <span class="optional">result</span>)</span> &rarr; <span class="type-signature returnType"><a href="HeadingPitchRoll.html">HeadingPitchRoll</a></span>
+        <span class="type-signature attribute-static">static</span> Cesium.HeadingPitchRoll.fromDegrees<span class="signature">(以度为单位的标题, 以度为单位调整音高, 以度为单位滚动航向, <span class="optional">result</span>)</span> &rarr; <span class="type-signature returnType"><a href="HeadingPitchRoll.html">HeadingPitchRoll</a></span>
         
 
 <div class="source-link rightLinks">
@@ -1078,7 +1078,7 @@
 
 
 <div class="description">
-    Returns a new HeadingPitchRoll instance from angles given in degrees.
+    从以度为单位给出的角度返回一个新的 HeadingPitchRoll 实例。
 </div>
 
 
@@ -1113,7 +1113,7 @@
 
         <tr>
             
-                <td class="name"><code>heading</code></td>
+                <td class="name"><code>以度为单位的标题</code></td>
             
 
             <td class="type">
@@ -1134,14 +1134,14 @@
 
                 
             
-                the heading in degrees</td>
+                </td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>pitch</code></td>
+                <td class="name"><code>以度为单位调整音高</code></td>
             
 
             <td class="type">
@@ -1162,14 +1162,14 @@
 
                 
             
-                the pitch in degrees</td>
+                </td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>roll</code></td>
+                <td class="name"><code>以度为单位滚动航向</code></td>
             
 
             <td class="type">
@@ -1190,7 +1190,7 @@
 
                 
             
-                the heading in degrees</td>
+                </td>
         </tr>
 
     
@@ -1220,7 +1220,7 @@
 
                 
             
-                The object in which to store the result. If not provided, a new instance is created and returned.</td>
+                存储结果的对象。如果未提供，则创建并返回一个新实例。</td>
         </tr>
 
     
@@ -1241,7 +1241,7 @@
 
         
 <div class="param-desc">
-    A new HeadingPitchRoll instance
+    一个新的 HeadingPitchRoll 实例
 </div>
 
 
@@ -1304,7 +1304,7 @@
 
 
 <div class="description">
-    Computes the heading, pitch and roll from a quaternion (see http://en.wikipedia.org/wiki/Conversion_between_quaternions_and_Euler_angles )
+    从四元数开始计算航向、俯仰和滚动（见 http://en.wikipedia.org/wiki/Conversion_between_quaternions_and_Euler_angles ）
 </div>
 
 
@@ -1360,7 +1360,7 @@
 
                 
             
-                The quaternion from which to retrieve heading, pitch, and roll, all expressed in radians.</td>
+                从中检索航向、俯仰和滚动的四元数，全部以弧度表示。</td>
         </tr>
 
     
@@ -1390,7 +1390,7 @@
 
                 
             
-                The object in which to store the result. If not provided, a new instance is created and returned.</td>
+                存储结果的对象。如果未提供，则创建并返回一个新实例。</td>
         </tr>
 
     
@@ -1411,7 +1411,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数 or a new HeadingPitchRoll instance if one was not provided.
+    修改后的结果参数或新的 HeadingPitchRoll 实例（如果未提供）。
 </div>
 
 
@@ -1616,7 +1616,7 @@
 
 
 <div class="description">
-    Compares this HeadingPitchRoll against the provided HeadingPitchRoll componentwise and returns<code>true</code>，否则为<code>false</code>。
+    将此 HeadingPitchRoll 与提供的 HeadingPitchRoll 组件进行比较，并返回<code>true</code>，否则为<code>false</code>。
 </div>
 
 
@@ -1758,7 +1758,7 @@
 
 
 <div class="description">
-    Compares this HeadingPitchRoll against the provided HeadingPitchRoll componentwise and returns<code>true</code> 如果它们通过了绝对或相对耐受性测试，<code>false</code> 否则。
+    将此 HeadingPitchRoll 与提供的 HeadingPitchRoll 组件进行比较，并返回<code>true</code> 如果它们通过了绝对或相对耐受性测试，<code>false</code> 否则。
 </div>
 
 
@@ -1978,7 +1978,7 @@
 
 
 <div class="description">
-    Creates a string representing this HeadingPitchRoll in the format '(heading, pitch, roll)' in radians.
+    创建一个字符串，表示此 HeadingPitchRoll，格式为 '（heading， pitch， roll）'，以弧度为单位。
 </div>
 
 
@@ -2005,7 +2005,7 @@
 
         
 <div class="param-desc">
-    A string representing the provided HeadingPitchRoll in the format '(heading, pitch, roll)'.
+    一个字符串，表示提供的 HeadingPitchRoll，格式为 '（heading， pitch， roll）'。
 </div>
 
 

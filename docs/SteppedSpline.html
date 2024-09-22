@@ -58,7 +58,7 @@
 
 
 <div class="description">
-    A spline that is composed of piecewise constants representing a step function.
+    由表示阶跃函数的分段常量组成的样条。
 </div>
 
 
@@ -148,7 +148,7 @@
 
             <td class="description last">
             
-                An array of strictly increasing, unit-less, floating-point times at each point. The values are in no way connected to the clock time. They are the parameterization for the curve.</td>
+                每个点的严格递增、无单位的浮点时间数组。这些值与 clock time 没有任何关系。它们是曲线的参数化。</td>
         </tr>
 
     
@@ -177,7 +177,7 @@
 
             <td class="description last">
             
-                The array of control points.</td>
+                控制点数组。</td>
         </tr>
 
     
@@ -210,7 +210,7 @@
         
 <span class="param-type"><a href="DeveloperError.html">DeveloperError</a></span>
 
-: points.length must be greater than or equal to 2.
+: points.length 必须大于或等于 2。
     </div>
 
 </li>
@@ -221,7 +221,7 @@
         
 <span class="param-type"><a href="DeveloperError.html">DeveloperError</a></span>
 
-: times.length must be equal to points.length.
+: times.length 必须等于 points.length。
     </div>
 
 </li>
@@ -318,7 +318,7 @@
 
 
 <div class="description">
-    An array of control points.
+    控制点数组。
 </div>
 
 
@@ -378,7 +378,7 @@
 
 
 <div class="description">
-    An array of times for the control points.
+    控制点的时间数组。
 </div>
 
 
@@ -445,7 +445,7 @@
 
 
 <div class="description">
-    Clamps the given time to the period covered by the spline.
+    将给定时间限制为样条所覆盖的时间段。
 </div>
 
 
@@ -496,7 +496,7 @@
 
             <td class="description last">
             
-                The time.</td>
+                时间。</td>
         </tr>
 
     
@@ -517,7 +517,7 @@
 
         
 <div class="param-desc">
-    The time, clamped to the animation period.
+    时间，固定到动画周期。
 </div>
 
 
@@ -580,7 +580,7 @@
 
 
 <div class="description">
-    Evaluates the curve at a given time.
+    在给定时间计算曲线。
 </div>
 
 
@@ -636,7 +636,7 @@
 
                 
             
-                The time at which to evaluate the curve.</td>
+                评估曲线的时间。</td>
         </tr>
 
     
@@ -690,7 +690,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数 or a new instance of the point on the curve at the given time.
+    修改后的结果参数或给定时间曲线上点的新实例。
 </div>
 
 
@@ -705,7 +705,7 @@
         
 <span class="param-type"><a href="DeveloperError.html">DeveloperError</a></span>
 
-: time must be in the range <code>[t<sub>0</sub>, t<sub>n</sub>]</code>, where <code>t<sub>0</sub></code>                            is the first element in the array <code>times</code> and <code>t<sub>n</sub></code> is the last element                            in the array <code>times</code>.
+: 时间必须在 <code>[t<sub>0</sub>， t<sub>n</sub>]</code> 范围内，其中 <code>t<sub>0</sub></code>是数组中的第一个元素 <code>times</code> 和 <code>t<sub>n</sub></code> 是最后一个元素在数组<code>时间</code>。
     </div>
 
 </li>
@@ -767,7 +767,7 @@
 
 
 <div class="description">
-    Finds an index <code>i</code> in <code>times</code> such that the parameter<code>time</code> is in the interval <code>[times[i], times[i + 1]]</code>.
+    在<code>times</code>中查找索引 <code>i</code>，使得参数<code>times</code>在区间 <code>[times[i]， times[i + 1]]</code> 中。
 </div>
 
 
@@ -818,7 +818,7 @@
 
             <td class="description last">
             
-                The time.</td>
+                时间。</td>
         </tr>
 
     
@@ -841,7 +841,7 @@
 
             <td class="description last">
             
-                The index from which to start the search.</td>
+                开始搜索的索引。</td>
         </tr>
 
     
@@ -862,7 +862,7 @@
 
         
 <div class="param-desc">
-    The index for the element at the start of the interval.
+    区间开始时元素的索引。
 </div>
 
 
@@ -877,7 +877,7 @@
         
 <span class="param-type"><a href="DeveloperError.html">DeveloperError</a></span>
 
-: time must be in the range <code>[t<sub>0</sub>, t<sub>n</sub>]</code>, where <code>t<sub>0</sub></code>                            is the first element in the array <code>times</code> and <code>t<sub>n</sub></code> is the last element                            in the array <code>times</code>.
+: 时间必须在 <code>[t<sub>0</sub>， t<sub>n</sub>]</code> 范围内，其中 <code>t<sub>0</sub></code>是数组中的第一个元素 <code>times</code> 和 <code>t<sub>n</sub></code> 是最后一个元素在数组<code>时间</code>。
     </div>
 
 </li>
@@ -939,7 +939,7 @@
 
 
 <div class="description">
-    Wraps the given time to the period covered by the spline.
+    将给定时间环绕到样条所覆盖的时间段。
 </div>
 
 
@@ -990,7 +990,7 @@
 
             <td class="description last">
             
-                The time.</td>
+                时间。</td>
         </tr>
 
     
@@ -1011,7 +1011,7 @@
 
         
 <div class="param-desc">
-    The time, wrapped around to the updated animation.
+    时间，环绕到更新的动画。
 </div>
 
 

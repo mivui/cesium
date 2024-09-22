@@ -47,7 +47,7 @@
 
 
         
-            <div class="description">The type of a geometric primitive, i.e., points, lines, and triangles.</div>
+            <div class="description">几何基元的类型，即点、线和三角形。</div>
         
 
         
@@ -96,7 +96,7 @@
 
             
 
-            <td class="description last">Points primitive where each vertex (or index) is a separate point.</td>
+            <td class="description last">每个顶点（或索引）都是单独点的基元点。</td>
         </tr>
 
     
@@ -119,7 +119,7 @@
 
             
 
-            <td class="description last">Lines primitive where each two vertices (or indices) is a line segment.  Line segments are not necessarily connected.</td>
+            <td class="description last">线基元，其中每两个顶点（或索引）是一个线段。 线段不一定相连。</td>
         </tr>
 
     
@@ -142,7 +142,8 @@
 
             
 
-            <td class="description last">Line loop primitive where each vertex (or index) after the first connects a line tothe previous vertex, and the last vertex implicitly connects to the first.</td>
+            <td class="description last">Line loop 基元，其中第一个顶点（或索引）之后的每个顶点（或索引）将一条线连接到
+前一个顶点，最后一个顶点隐式连接到第一个顶点。</td>
         </tr>
 
     
@@ -165,7 +166,7 @@
 
             
 
-            <td class="description last">Line strip primitive where each vertex (or index) after the first connects a line to the previous vertex.</td>
+            <td class="description last">线带基元，其中第一个顶点（或索引）之后的每个顶点（或索引）将一条线连接到前一个顶点。</td>
         </tr>
 
     
@@ -188,7 +189,7 @@
 
             
 
-            <td class="description last">Triangles primitive where each three vertices (or indices) is a triangle.  Triangles do not necessarily share edges.</td>
+            <td class="description last">三角形基元，其中每三个顶点（或索引）是一个三角形。 三角形不一定共享边缘。</td>
         </tr>
 
     
@@ -211,7 +212,8 @@
 
             
 
-            <td class="description last">Triangle strip primitive where each vertex (or index) after the first two connect tothe previous two vertices forming a triangle.  For example, this can be used to model a wall.</td>
+            <td class="description last">三角形条带基元，其中前两个顶点（或索引）之后的每个顶点（或索引）都连接到其中
+前两个顶点形成一个三角形。 例如，这可用于对墙进行建模。</td>
         </tr>
 
     
@@ -234,7 +236,9 @@
 
             
 
-            <td class="description last">Triangle fan primitive where each vertex (or index) after the first two connect tothe previous vertex and the first vertex forming a triangle.  For example, this can be usedto model a cone or circle.</td>
+            <td class="description last">三角形扇形基元，其中前两个顶点（或索引）之后的每个顶点（或索引）都连接到其中
+前一个顶点和第一个顶点形成一个三角形。 例如，this can be used
+对圆锥体或圆进行建模。</td>
         </tr>
 
     
@@ -308,7 +312,8 @@
 
 
 <div class="description">
-    Line loop primitive where each vertex (or index) after the first connects a line tothe previous vertex, and the last vertex implicitly connects to the first.
+    Line loop 基元，其中第一个顶点（或索引）之后的每个顶点（或索引）将一条线连接到
+前一个顶点，最后一个顶点隐式连接到第一个顶点。
 </div>
 
 
@@ -371,7 +376,7 @@
 
 
 <div class="description">
-    Line strip primitive where each vertex (or index) after the first connects a line to the previous vertex.
+    线带基元，其中第一个顶点（或索引）之后的每个顶点（或索引）将一条线连接到前一个顶点。
 </div>
 
 
@@ -434,7 +439,7 @@
 
 
 <div class="description">
-    Lines primitive where each two vertices (or indices) is a line segment.  Line segments are not necessarily connected.
+    线基元，其中每两个顶点（或索引）是一个线段。 线段不一定相连。
 </div>
 
 
@@ -497,7 +502,7 @@
 
 
 <div class="description">
-    Points primitive where each vertex (or index) is a separate point.
+    每个顶点（或索引）都是单独点的基元点。
 </div>
 
 
@@ -560,7 +565,9 @@
 
 
 <div class="description">
-    Triangle fan primitive where each vertex (or index) after the first two connect tothe previous vertex and the first vertex forming a triangle.  For example, this can be usedto model a cone or circle.
+    三角形扇形基元，其中前两个顶点（或索引）之后的每个顶点（或索引）都连接到其中
+前一个顶点和第一个顶点形成一个三角形。 例如，this can be used
+对圆锥体或圆进行建模。
 </div>
 
 
@@ -623,7 +630,8 @@
 
 
 <div class="description">
-    Triangle strip primitive where each vertex (or index) after the first two connect tothe previous two vertices forming a triangle.  For example, this can be used to model a wall.
+    三角形条带基元，其中前两个顶点（或索引）之后的每个顶点（或索引）都连接到其中
+前两个顶点形成一个三角形。 例如，这可用于对墙进行建模。
 </div>
 
 
@@ -686,7 +694,7 @@
 
 
 <div class="description">
-    Triangles primitive where each three vertices (or indices) is a triangle.  Triangles do not necessarily share edges.
+    三角形基元，其中每三个顶点（或索引）是一个三角形。 三角形不一定共享边缘。
 </div>
 
 

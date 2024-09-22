@@ -58,7 +58,7 @@
 
 
 <div class="description">
-    A tiling scheme for geometry referenced to a <a href="WebMercatorProjection.html"><code>WebMercatorProjection</code></a>, EPSG:3857.  This isthe tiling scheme used by Google Maps, Microsoft Bing Maps, and most of ESRI ArcGIS Online.
+    引用 <a href="WebMercatorProjection.html"><code>WebMercatorProjection</code></a> 的几何图形的平铺方案，EPSG：3857。 这是Google 地图、Microsoft Bing 地图和大多数 ESRI ArcGIS Online 使用的切片方案。
 </div>
 
 
@@ -170,7 +170,7 @@
 
                 
             
-                The ellipsoid whose surface is being tiled. Defaults tothe default ellipsoid.</td>
+                其表面正在平铺的椭球体。默认为默认椭球体。</td>
         </tr>
 
     
@@ -206,7 +206,7 @@
 
                 
             
-                The number of tiles in the X direction at level zero of       the tile tree.</td>
+                在零级瓦片树。</td>
         </tr>
 
     
@@ -242,7 +242,7 @@
 
                 
             
-                The number of tiles in the Y direction at level zero of       the tile tree.</td>
+                在零级瓦片树。</td>
         </tr>
 
     
@@ -276,7 +276,7 @@
 
                 
             
-                The southwest corner of the rectangle covered by the       tiling scheme, in meters.  If this parameter or rectangleNortheastInMeters is not specified, the entire       globe is covered in the longitude direction and an equal distance is covered in the latitude       direction, resulting in a square projection.</td>
+                矩形的西南角被平铺方案，以米为单位。 如果未指定此参数或 rectangleNortheastInMeters，则整个地球仪在经度方向上覆盖，在纬度上覆盖相等的距离方向，从而产生方形投影。</td>
         </tr>
 
     
@@ -310,7 +310,7 @@
 
                 
             
-                The northeast corner of the rectangle covered by the       tiling scheme, in meters.  If this parameter or rectangleSouthwestInMeters is not specified, the entire       globe is covered in the longitude direction and an equal distance is covered in the latitude       direction, resulting in a square projection.</td>
+                矩形的东北角被平铺方案，以米为单位。 如果未指定此参数或 rectangleSouthwestInMeters，则整个地球仪在经度方向上覆盖，在纬度上覆盖相等的距离方向，从而产生方形投影。</td>
         </tr>
 
     
@@ -406,7 +406,7 @@
 
 
 <div class="description">
-    Gets the ellipsoid that is tiled by this tiling scheme.
+    获取此平铺方案平铺的椭球体。
 </div>
 
 
@@ -466,7 +466,7 @@
 
 
 <div class="description">
-    Gets the map projection used by this tiling scheme.
+    获取此切片方案使用的地图投影。
 </div>
 
 
@@ -526,7 +526,7 @@
 
 
 <div class="description">
-    Gets the rectangle, in radians, covered by this tiling scheme.
+    获取此平铺方案覆盖的矩形（以弧度为单位）。
 </div>
 
 
@@ -593,7 +593,7 @@
 
 
 <div class="description">
-    Gets the total number of tiles in the X direction at a specified level-of-detail.
+    获取指定细节级别 X 方向的图块总数。
 </div>
 
 
@@ -644,7 +644,7 @@
 
             <td class="description last">
             
-                The level-of-detail.</td>
+                细节级别。</td>
         </tr>
 
     
@@ -665,7 +665,7 @@
 
         
 <div class="param-desc">
-    The number of tiles in the X direction at the given level.
+    给定级别 X 方向的图块数量。
 </div>
 
 
@@ -728,7 +728,7 @@
 
 
 <div class="description">
-    Gets the total number of tiles in the Y direction at a specified level-of-detail.
+    获取指定细节级别 Y 方向的平铺总数。
 </div>
 
 
@@ -779,7 +779,7 @@
 
             <td class="description last">
             
-                The level-of-detail.</td>
+                细节级别。</td>
         </tr>
 
     
@@ -800,7 +800,7 @@
 
         
 <div class="param-desc">
-    The number of tiles in the Y direction at the given level.
+    给定级别上 Y 方向的图块数量。
 </div>
 
 
@@ -863,7 +863,7 @@
 
 
 <div class="description">
-    Calculates the tile x, y coordinates of the tile containinga given cartographic position.
+    计算包含给定的制图位置。
 </div>
 
 
@@ -919,7 +919,7 @@
 
                 
             
-                The position.</td>
+                位置。</td>
         </tr>
 
     
@@ -947,7 +947,7 @@
 
                 
             
-                The tile level-of-detail.  Zero is the least detailed.</td>
+                瓦片细节级别。 零是最不详细的。</td>
         </tr>
 
     
@@ -977,7 +977,7 @@
 
                 
             
-                The instance to which to copy the result, or undefined if a new instance       should be created.</td>
+                要将结果复制到的实例，如果是新实例，则为 undefined应创建。</td>
         </tr>
 
     
@@ -998,7 +998,7 @@
 
         
 <div class="param-desc">
-    The specified 'result', or a new object containing the tile x, y coordinates         if 'result' is undefined.
+    指定的 'result'，或包含图块 x、y 坐标的新对象如果 'result' 未定义。
 </div>
 
 
@@ -1061,7 +1061,7 @@
 
 
 <div class="description">
-    Transforms a rectangle specified in geodetic radians to the native coordinate systemof this tiling scheme.
+    将以大地弧度中指定的矩形转换为本地坐标系的 Package。
 </div>
 
 
@@ -1117,7 +1117,7 @@
 
                 
             
-                The rectangle to transform.</td>
+                要转换的矩形。</td>
         </tr>
 
     
@@ -1147,7 +1147,7 @@
 
                 
             
-                The instance to which to copy the result, or undefined if a new instance       should be created.</td>
+                要将结果复制到的实例，如果是新实例，则为 undefined应创建。</td>
         </tr>
 
     
@@ -1168,7 +1168,7 @@
 
         
 <div class="param-desc">
-    The specified 'result', or a new object containing the native rectangle if 'result'         is undefined.
+    指定的 'result'，或者包含 'result' 的原生矩形的新对象未定义。
 </div>
 
 
@@ -1231,7 +1231,7 @@
 
 
 <div class="description">
-    Converts tile x, y coordinates and level to a rectangle expressed in the native coordinatesof the tiling scheme.
+    将图块 x、y 坐标和标高转换为以本机坐标表示的矩形的平铺方案。
 </div>
 
 
@@ -1287,7 +1287,7 @@
 
                 
             
-                The integer x coordinate of the tile.</td>
+                瓦片的整数 x 坐标。</td>
         </tr>
 
     
@@ -1315,7 +1315,7 @@
 
                 
             
-                The integer y coordinate of the tile.</td>
+                瓦片的整数 y 坐标。</td>
         </tr>
 
     
@@ -1343,7 +1343,7 @@
 
                 
             
-                The tile level-of-detail.  Zero is the least detailed.</td>
+                瓦片细节级别。 零是最不详细的。</td>
         </tr>
 
     
@@ -1373,7 +1373,7 @@
 
                 
             
-                The instance to which to copy the result, or undefined if a new instance       should be created.</td>
+                要将结果复制到的实例，如果是新实例，则为 undefined应创建。</td>
         </tr>
 
     
@@ -1394,7 +1394,7 @@
 
         
 <div class="param-desc">
-    The specified 'result', or a new object containing the rectangle         if 'result' is undefined.
+    指定的 'result'，或包含矩形的新对象如果 'result' 未定义。
 </div>
 
 
@@ -1457,7 +1457,7 @@
 
 
 <div class="description">
-    Converts tile x, y coordinates and level to a cartographic rectangle in radians.
+    将平铺 x、y 坐标和级别转换为以弧度为单位的制图矩形。
 </div>
 
 
@@ -1513,7 +1513,7 @@
 
                 
             
-                The integer x coordinate of the tile.</td>
+                瓦片的整数 x 坐标。</td>
         </tr>
 
     
@@ -1541,7 +1541,7 @@
 
                 
             
-                The integer y coordinate of the tile.</td>
+                瓦片的整数 y 坐标。</td>
         </tr>
 
     
@@ -1569,7 +1569,7 @@
 
                 
             
-                The tile level-of-detail.  Zero is the least detailed.</td>
+                瓦片细节级别。 零是最不详细的。</td>
         </tr>
 
     
@@ -1599,7 +1599,7 @@
 
                 
             
-                The instance to which to copy the result, or undefined if a new instance       should be created.</td>
+                要将结果复制到的实例，如果是新实例，则为 undefined应创建。</td>
         </tr>
 
     
@@ -1620,7 +1620,7 @@
 
         
 <div class="param-desc">
-    The specified 'result', or a new object containing the rectangle         if 'result' is undefined.
+    指定的 'result'，或包含矩形的新对象如果 'result' 未定义。
 </div>
 
 

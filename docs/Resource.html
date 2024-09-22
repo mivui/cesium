@@ -58,7 +58,7 @@
 
 
 <div class="description">
-    A resource that includes the location and any other parameters we need to retrieve it or create derived resources. It also provides the ability to retry requests.
+    一个资源，其中包括位置以及我们检索它或创建派生资源所需的任何其他参数。它还提供重试请求的功能。
 </div>
 
 
@@ -112,7 +112,7 @@
 
             <td class="description last">
             
-                A url or an 描述初始化选项的对象</td>
+                url 或 描述初始化选项的对象</td>
         </tr>
 
     
@@ -155,7 +155,34 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">function refreshTokenRetryCallback(resource, error) {  if (error.statusCode === 403) {    // 403 status code means a new token should be generated    return getNewAccessToken()      .then(function(token) {        resource.queryParameters.access_token = token;        return true;      })      .catch(function() {        return false;      });  }  return false;}const resource = new Resource({   url: 'http://server.com/path/to/resource.json',   proxy: new DefaultProxy('/proxy/'),   headers: {     'X-My-Header': 'valueOfHeader'   },   queryParameters: {     'access_token': '123-435-456-000'   },   retryCallback: refreshTokenRetryCallback,   retryAttempts: 1});</code></pre>
+    <pre><code class="language-javascript">function refreshTokenRetryCallback(resource, error) {
+  if (error.statusCode === 403) {
+    // 403 status code means a new token should be generated
+    return getNewAccessToken()
+      .then(function(token) {
+        resource.queryParameters.access_token = token;
+        return true;
+      })
+      .catch(function() {
+        return false;
+      });
+  }
+
+  return false;
+}
+
+const resource = new Resource({
+   url: 'http://server.com/path/to/resource.json',
+   proxy: new DefaultProxy('/proxy/'),
+   headers: {
+     'X-My-Header': 'valueOfHeader'
+   },
+   queryParameters: {
+     'access_token': '123-435-456-000'
+   },
+   retryCallback: refreshTokenRetryCallback,
+   retryAttempts: 1
+});</code></pre>
 
     
 
@@ -207,7 +234,7 @@
 
 
 <div class="description">
-    A resource instance initialized to the current browser location
+    初始化为当前浏览器位置的资源实例
 </div>
 
 
@@ -267,7 +294,7 @@
 
 
 <div class="description">
-    Returns true if blobs are supported.
+    如果支持 blob，则返回 true。
 </div>
 
 
@@ -327,7 +354,7 @@
 
 
 <div class="description">
-    The file extension of the resource.
+    资源的文件扩展名。
 </div>
 
 
@@ -387,7 +414,7 @@
 
 
 <div class="description">
-    True if the Resource has request headers. This is equivalent to checking if the headers property has any keys.
+    如果 Resource 具有请求标头，则为 True。这等效于检查 headers 属性是否有任何键。
 </div>
 
 
@@ -447,7 +474,7 @@
 
 
 <div class="description">
-    Additional HTTP headers that will be sent with the request.
+    将与请求一起发送的其他 HTTP 标头。
 </div>
 
 
@@ -507,7 +534,7 @@
 
 
 <div class="description">
-    True if the Resource refers to a blob URI.
+    如果 Resource 引用 blob URI，则为 True。
 </div>
 
 
@@ -567,7 +594,7 @@
 
 
 <div class="description">
-    True if the Resource refers to a cross origin URL.
+    如果 Resource 引用跨源 URL，则为 True。
 </div>
 
 
@@ -627,7 +654,7 @@
 
 
 <div class="description">
-    True if the Resource refers to a data URI.
+    如果 Resource 引用数据 URI，则为 True。
 </div>
 
 
@@ -687,7 +714,7 @@
 
 
 <div class="description">
-    A proxy to be used when loading the resource.
+    加载资源时使用的代理。
 </div>
 
 
@@ -747,7 +774,7 @@
 
 
 <div class="description">
-    Query parameters appended to the url.
+    附加到 URL 的查询参数。
 </div>
 
 
@@ -807,7 +834,7 @@
 
 
 <div class="description">
-    A Request object that will be used. Intended for internal use only.
+    将使用的 Request 对象。仅供内部使用。
 </div>
 
 
@@ -867,7 +894,7 @@
 
 
 <div class="description">
-    The number of times the retryCallback should be called before giving up.
+    在放弃之前应调用 retryCallback 的次数。
 </div>
 
 
@@ -927,7 +954,7 @@
 
 
 <div class="description">
-    Function to call when a request for this resource fails. If it returns true or a Promise that resolves to true, the request will be retried.
+    请求此资源失败时调用的函数。如果返回 true 或 Promise 解析为 true，则将重试请求。
 </div>
 
 
@@ -987,7 +1014,7 @@
 
 
 <div class="description">
-    The key/value pairs used to replace template parameters in the url.
+    用于替换 url 中的模板参数的键/值对。
 </div>
 
 
@@ -1047,7 +1074,7 @@
 
 
 <div class="description">
-    The url to the resource with template values replaced, query string appended and encoded by proxy if one was set.
+    替换了模板值的资源的 URL，附加了查询字符串，并由代理编码（如果已设置）。
 </div>
 
 
@@ -1114,7 +1141,7 @@
 
 
 <div class="description">
-    Creates a Resource from a URL and calls delete() on it.
+    从 URL 创建 Resource 并对其调用 delete（）。
 </div>
 
 
@@ -1168,7 +1195,7 @@
 
             <td class="description last">
             
-                A url or an object with the following properties
+                具有以下属性的 url 或对象
                 
 
 <table class="params">
@@ -1218,7 +1245,7 @@
 
                 
             
-                The url of the resource.</td>
+                资源的 URL。</td>
         </tr>
 
     
@@ -1252,7 +1279,7 @@
 
                 
             
-                Data that is posted with the resource.</td>
+                与资源一起发布的数据。</td>
         </tr>
 
     
@@ -1286,7 +1313,7 @@
 
                 
             
-                An object containing query parameters that will be sent when retrieving the resource.</td>
+                一个包含查询参数的对象，将在检索资源时发送。</td>
         </tr>
 
     
@@ -1320,7 +1347,7 @@
 
                 
             
-                Key/Value pairs that are used to replace template values (eg. {x}).</td>
+                用于替换模板值的键/值对（例如。{x}）。</td>
         </tr>
 
     
@@ -1356,7 +1383,7 @@
 
                 
             
-                Additional HTTP headers that will be sent.</td>
+                将发送的其他 HTTP 标头。</td>
         </tr>
 
     
@@ -1390,7 +1417,7 @@
 
                 
             
-                A proxy to be used when loading the resource.</td>
+                加载资源时使用的代理。</td>
         </tr>
 
     
@@ -1424,7 +1451,7 @@
 
                 
             
-                The Function to call when a request for this resource fails. If it returns true, the request will be retried.</td>
+                当对此资源的请求失败时要调用的函数。如果返回 true，则将重试该请求。</td>
         </tr>
 
     
@@ -1460,7 +1487,7 @@
 
                 
             
-                The number of times the retryCallback should be called before giving up.</td>
+                在放弃之前应该调用 retryCallback 的次数。</td>
         </tr>
 
     
@@ -1494,7 +1521,7 @@
 
                 
             
-                A Request object that will be used. Intended for internal use only.</td>
+                将使用的 Request 对象。仅供内部使用。</td>
         </tr>
 
     
@@ -1528,7 +1555,7 @@
 
                 
             
-                The type of response.  This controls the type of item returned.</td>
+                响应的类型。 这控制返回的项的类型。</td>
         </tr>
 
     
@@ -1562,7 +1589,7 @@
 
                 
             
-                Overrides the MIME type returned by the server.</td>
+                覆盖服务器返回的 MIME 类型。</td>
         </tr>
 
     
@@ -1589,7 +1616,7 @@
 
         
 <div class="param-desc">
-    a promise that will resolve to the requested data when loaded. Returns undefined if <code>request.throttle</code> is true and the request does not have high enough priority.
+    一个 Promise，该 Promise 将在加载时解析为请求的数据。如果 <code>request.throttle</code> 为 true，并且请求的优先级不够高，则返回 undefined。
 </div>
 
 
@@ -1652,7 +1679,7 @@
 
 
 <div class="description">
-    Creates a Resource from a URL and calls fetch() on it.
+    从 URL 创建一个 Resource 并对其调用 fetch（）。
 </div>
 
 
@@ -1706,7 +1733,7 @@
 
             <td class="description last">
             
-                A url or an object with the following properties
+                具有以下属性的 url 或对象
                 
 
 <table class="params">
@@ -1756,7 +1783,7 @@
 
                 
             
-                The url of the resource.</td>
+                资源的 URL。</td>
         </tr>
 
     
@@ -1790,7 +1817,7 @@
 
                 
             
-                An object containing query parameters that will be sent when retrieving the resource.</td>
+                一个包含查询参数的对象，将在检索资源时发送。</td>
         </tr>
 
     
@@ -1824,7 +1851,7 @@
 
                 
             
-                Key/Value pairs that are used to replace template values (eg. {x}).</td>
+                用于替换模板值的键/值对（例如。{x}）。</td>
         </tr>
 
     
@@ -1860,7 +1887,7 @@
 
                 
             
-                Additional HTTP headers that will be sent.</td>
+                将发送的其他 HTTP 标头。</td>
         </tr>
 
     
@@ -1894,7 +1921,7 @@
 
                 
             
-                A proxy to be used when loading the resource.</td>
+                加载资源时使用的代理。</td>
         </tr>
 
     
@@ -1928,7 +1955,7 @@
 
                 
             
-                The Function to call when a request for this resource fails. If it returns true, the request will be retried.</td>
+                当对此资源的请求失败时要调用的函数。如果返回 true，则将重试该请求。</td>
         </tr>
 
     
@@ -1964,7 +1991,7 @@
 
                 
             
-                The number of times the retryCallback should be called before giving up.</td>
+                在放弃之前应该调用 retryCallback 的次数。</td>
         </tr>
 
     
@@ -1998,7 +2025,7 @@
 
                 
             
-                A Request object that will be used. Intended for internal use only.</td>
+                将使用的 Request 对象。仅供内部使用。</td>
         </tr>
 
     
@@ -2032,7 +2059,7 @@
 
                 
             
-                The type of response.  This controls the type of item returned.</td>
+                响应的类型。 这控制返回的项的类型。</td>
         </tr>
 
     
@@ -2066,7 +2093,7 @@
 
                 
             
-                Overrides the MIME type returned by the server.</td>
+                覆盖服务器返回的 MIME 类型。</td>
         </tr>
 
     
@@ -2093,7 +2120,7 @@
 
         
 <div class="param-desc">
-    a promise that will resolve to the requested data when loaded. Returns undefined if <code>request.throttle</code> is true and the request does not have high enough priority.
+    一个 Promise，该 Promise 将在加载时解析为请求的数据。如果 <code>request.throttle</code> 为 true，并且请求的优先级不够高，则返回 undefined。
 </div>
 
 
@@ -2156,7 +2183,7 @@
 
 
 <div class="description">
-    Creates a Resource and calls fetchArrayBuffer() on it.
+    创建一个 Resource 并对其调用 fetchArrayBuffer（）。
 </div>
 
 
@@ -2210,7 +2237,7 @@
 
             <td class="description last">
             
-                A url or an object with the following properties
+                具有以下属性的 url 或对象
                 
 
 <table class="params">
@@ -2260,7 +2287,7 @@
 
                 
             
-                The url of the resource.</td>
+                资源的 URL。</td>
         </tr>
 
     
@@ -2294,7 +2321,7 @@
 
                 
             
-                An object containing query parameters that will be sent when retrieving the resource.</td>
+                一个包含查询参数的对象，将在检索资源时发送。</td>
         </tr>
 
     
@@ -2328,7 +2355,7 @@
 
                 
             
-                Key/Value pairs that are used to replace template values (eg. {x}).</td>
+                用于替换模板值的键/值对（例如。{x}）。</td>
         </tr>
 
     
@@ -2364,7 +2391,7 @@
 
                 
             
-                Additional HTTP headers that will be sent.</td>
+                将发送的其他 HTTP 标头。</td>
         </tr>
 
     
@@ -2398,7 +2425,7 @@
 
                 
             
-                A proxy to be used when loading the resource.</td>
+                加载资源时使用的代理。</td>
         </tr>
 
     
@@ -2432,7 +2459,7 @@
 
                 
             
-                The Function to call when a request for this resource fails. If it returns true, the request will be retried.</td>
+                当对此资源的请求失败时要调用的函数。如果返回 true，则将重试该请求。</td>
         </tr>
 
     
@@ -2468,7 +2495,7 @@
 
                 
             
-                The number of times the retryCallback should be called before giving up.</td>
+                在放弃之前应该调用 retryCallback 的次数。</td>
         </tr>
 
     
@@ -2502,7 +2529,7 @@
 
                 
             
-                A Request object that will be used. Intended for internal use only.</td>
+                将使用的 Request 对象。仅供内部使用。</td>
         </tr>
 
     
@@ -2529,7 +2556,7 @@
 
         
 <div class="param-desc">
-    a promise that will resolve to the requested data when loaded. Returns undefined if <code>request.throttle</code> is true and the request does not have high enough priority.
+    一个 Promise，该 Promise 将在加载时解析为请求的数据。如果 <code>request.throttle</code> 为 true，并且请求的优先级不够高，则返回 undefined。
 </div>
 
 
@@ -2592,7 +2619,7 @@
 
 
 <div class="description">
-    Creates a Resource and calls fetchBlob() on it.
+    创建一个 Resource 并对其调用 fetchBlob（）。
 </div>
 
 
@@ -2646,7 +2673,7 @@
 
             <td class="description last">
             
-                A url or an object with the following properties
+                具有以下属性的 url 或对象
                 
 
 <table class="params">
@@ -2696,7 +2723,7 @@
 
                 
             
-                The url of the resource.</td>
+                资源的 URL。</td>
         </tr>
 
     
@@ -2730,7 +2757,7 @@
 
                 
             
-                An object containing query parameters that will be sent when retrieving the resource.</td>
+                一个包含查询参数的对象，将在检索资源时发送。</td>
         </tr>
 
     
@@ -2764,7 +2791,7 @@
 
                 
             
-                Key/Value pairs that are used to replace template values (eg. {x}).</td>
+                用于替换模板值的键/值对（例如。{x}）。</td>
         </tr>
 
     
@@ -2800,7 +2827,7 @@
 
                 
             
-                Additional HTTP headers that will be sent.</td>
+                将发送的其他 HTTP 标头。</td>
         </tr>
 
     
@@ -2834,7 +2861,7 @@
 
                 
             
-                A proxy to be used when loading the resource.</td>
+                加载资源时使用的代理。</td>
         </tr>
 
     
@@ -2868,7 +2895,7 @@
 
                 
             
-                The Function to call when a request for this resource fails. If it returns true, the request will be retried.</td>
+                当对此资源的请求失败时要调用的函数。如果返回 true，则将重试该请求。</td>
         </tr>
 
     
@@ -2904,7 +2931,7 @@
 
                 
             
-                The number of times the retryCallback should be called before giving up.</td>
+                在放弃之前应该调用 retryCallback 的次数。</td>
         </tr>
 
     
@@ -2938,7 +2965,7 @@
 
                 
             
-                A Request object that will be used. Intended for internal use only.</td>
+                将使用的 Request 对象。仅供内部使用。</td>
         </tr>
 
     
@@ -2965,7 +2992,7 @@
 
         
 <div class="param-desc">
-    a promise that will resolve to the requested data when loaded. Returns undefined if <code>request.throttle</code> is true and the request does not have high enough priority.
+    一个 Promise，该 Promise 将在加载时解析为请求的数据。如果 <code>request.throttle</code> 为 true，并且请求的优先级不够高，则返回 undefined。
 </div>
 
 
@@ -3028,7 +3055,7 @@
 
 
 <div class="description">
-    Creates a Resource and calls fetchImage() on it.
+    创建一个 Resource 并对其调用 fetchImage（）。
 </div>
 
 
@@ -3082,7 +3109,7 @@
 
             <td class="description last">
             
-                A url or an object with the following properties
+                具有以下属性的 url 或对象
                 
 
 <table class="params">
@@ -3132,7 +3159,7 @@
 
                 
             
-                The url of the resource.</td>
+                资源的 URL。</td>
         </tr>
 
     
@@ -3166,7 +3193,7 @@
 
                 
             
-                An object containing query parameters that will be sent when retrieving the resource.</td>
+                一个包含查询参数的对象，将在检索资源时发送。</td>
         </tr>
 
     
@@ -3200,7 +3227,7 @@
 
                 
             
-                Key/Value pairs that are used to replace template values (eg. {x}).</td>
+                用于替换模板值的键/值对（例如。{x}）。</td>
         </tr>
 
     
@@ -3236,7 +3263,7 @@
 
                 
             
-                Additional HTTP headers that will be sent.</td>
+                将发送的其他 HTTP 标头。</td>
         </tr>
 
     
@@ -3270,7 +3297,7 @@
 
                 
             
-                A proxy to be used when loading the resource.</td>
+                加载资源时使用的代理。</td>
         </tr>
 
     
@@ -3306,7 +3333,7 @@
 
                 
             
-                Whether to vertically flip the image during fetch and decode. Only applies when requesting an image and the browser supports <code>createImageBitmap</code>.</td>
+                是否在获取和解码时垂直翻转图像。仅在请求图像且浏览器支持 <code>createImageBitmap</code> 时适用。</td>
         </tr>
 
     
@@ -3340,7 +3367,7 @@
 
                 
             
-                The Function to call when a request for this resource fails. If it returns true, the request will be retried.</td>
+                当对此资源的请求失败时要调用的函数。如果返回 true，则将重试该请求。</td>
         </tr>
 
     
@@ -3376,7 +3403,7 @@
 
                 
             
-                The number of times the retryCallback should be called before giving up.</td>
+                在放弃之前应该调用 retryCallback 的次数。</td>
         </tr>
 
     
@@ -3410,7 +3437,7 @@
 
                 
             
-                A Request object that will be used. Intended for internal use only.</td>
+                将使用的 Request 对象。仅供内部使用。</td>
         </tr>
 
     
@@ -3446,7 +3473,7 @@
 
                 
             
-                If true, we will load the image via a blob.</td>
+                如果为 true，我们将通过 blob 加载图像。</td>
         </tr>
 
     
@@ -3482,7 +3509,7 @@
 
                 
             
-                If true, image will be decoded during fetch and an <code>ImageBitmap</code> is returned.</td>
+                如果为 true，则在获取过程中将对图像进行解码并返回 <code>ImageBitmap</code>。</td>
         </tr>
 
     
@@ -3518,7 +3545,7 @@
 
                 
             
-                If true, any custom gamma or color profiles in the image will be ignored. Only applies when requesting an image and the browser supports <code>createImageBitmap</code>.</td>
+                如果为 true，则图像中的任何自定义灰度系数或颜色配置文件都将被忽略。仅在请求图像且浏览器支持 <code>createImageBitmap</code> 时适用。</td>
         </tr>
 
     
@@ -3545,7 +3572,7 @@
 
         
 <div class="param-desc">
-    a promise that will resolve to the requested data when loaded. Returns undefined if <code>request.throttle</code> is true and the request does not have high enough priority.
+    一个 Promise，该 Promise 将在加载时解析为请求的数据。如果 <code>request.throttle</code> 为 true，并且请求的优先级不够高，则返回 undefined。
 </div>
 
 
@@ -3608,7 +3635,7 @@
 
 
 <div class="description">
-    Creates a Resource and calls fetchJson() on it.
+    创建一个 Resource 并对其调用 fetchJson（）。
 </div>
 
 
@@ -3662,7 +3689,7 @@
 
             <td class="description last">
             
-                A url or an object with the following properties
+                具有以下属性的 url 或对象
                 
 
 <table class="params">
@@ -3712,7 +3739,7 @@
 
                 
             
-                The url of the resource.</td>
+                资源的 URL。</td>
         </tr>
 
     
@@ -3746,7 +3773,7 @@
 
                 
             
-                An object containing query parameters that will be sent when retrieving the resource.</td>
+                一个包含查询参数的对象，将在检索资源时发送。</td>
         </tr>
 
     
@@ -3780,7 +3807,7 @@
 
                 
             
-                Key/Value pairs that are used to replace template values (eg. {x}).</td>
+                用于替换模板值的键/值对（例如。{x}）。</td>
         </tr>
 
     
@@ -3816,7 +3843,7 @@
 
                 
             
-                Additional HTTP headers that will be sent.</td>
+                将发送的其他 HTTP 标头。</td>
         </tr>
 
     
@@ -3850,7 +3877,7 @@
 
                 
             
-                A proxy to be used when loading the resource.</td>
+                加载资源时使用的代理。</td>
         </tr>
 
     
@@ -3884,7 +3911,7 @@
 
                 
             
-                The Function to call when a request for this resource fails. If it returns true, the request will be retried.</td>
+                当对此资源的请求失败时要调用的函数。如果返回 true，则将重试该请求。</td>
         </tr>
 
     
@@ -3920,7 +3947,7 @@
 
                 
             
-                The number of times the retryCallback should be called before giving up.</td>
+                在放弃之前应该调用 retryCallback 的次数。</td>
         </tr>
 
     
@@ -3954,7 +3981,7 @@
 
                 
             
-                A Request object that will be used. Intended for internal use only.</td>
+                将使用的 Request 对象。仅供内部使用。</td>
         </tr>
 
     
@@ -3981,7 +4008,7 @@
 
         
 <div class="param-desc">
-    a promise that will resolve to the requested data when loaded. Returns undefined if <code>request.throttle</code> is true and the request does not have high enough priority.
+    一个 Promise，该 Promise 将在加载时解析为请求的数据。如果 <code>request.throttle</code> 为 true，并且请求的优先级不够高，则返回 undefined。
 </div>
 
 
@@ -4044,7 +4071,7 @@
 
 
 <div class="description">
-    Creates a Resource from a URL and calls fetchJsonp() on it.
+    从 URL 创建一个 Resource 并对其调用 fetchJsonp（）。
 </div>
 
 
@@ -4098,7 +4125,7 @@
 
             <td class="description last">
             
-                A url or an object with the following properties
+                具有以下属性的 url 或对象
                 
 
 <table class="params">
@@ -4148,7 +4175,7 @@
 
                 
             
-                The url of the resource.</td>
+                资源的 URL。</td>
         </tr>
 
     
@@ -4182,7 +4209,7 @@
 
                 
             
-                An object containing query parameters that will be sent when retrieving the resource.</td>
+                一个包含查询参数的对象，将在检索资源时发送。</td>
         </tr>
 
     
@@ -4216,7 +4243,7 @@
 
                 
             
-                Key/Value pairs that are used to replace template values (eg. {x}).</td>
+                用于替换模板值的键/值对（例如。{x}）。</td>
         </tr>
 
     
@@ -4252,7 +4279,7 @@
 
                 
             
-                Additional HTTP headers that will be sent.</td>
+                将发送的其他 HTTP 标头。</td>
         </tr>
 
     
@@ -4286,7 +4313,7 @@
 
                 
             
-                A proxy to be used when loading the resource.</td>
+                加载资源时使用的代理。</td>
         </tr>
 
     
@@ -4320,7 +4347,7 @@
 
                 
             
-                The Function to call when a request for this resource fails. If it returns true, the request will be retried.</td>
+                当对此资源的请求失败时要调用的函数。如果返回 true，则将重试该请求。</td>
         </tr>
 
     
@@ -4356,7 +4383,7 @@
 
                 
             
-                The number of times the retryCallback should be called before giving up.</td>
+                在放弃之前应该调用 retryCallback 的次数。</td>
         </tr>
 
     
@@ -4390,7 +4417,7 @@
 
                 
             
-                A Request object that will be used. Intended for internal use only.</td>
+                将使用的 Request 对象。仅供内部使用。</td>
         </tr>
 
     
@@ -4426,7 +4453,7 @@
 
                 
             
-                The callback parameter name that the server expects.</td>
+                服务器期望的回调参数名称。</td>
         </tr>
 
     
@@ -4453,7 +4480,7 @@
 
         
 <div class="param-desc">
-    a promise that will resolve to the requested data when loaded. Returns undefined if <code>request.throttle</code> is true and the request does not have high enough priority.
+    一个 Promise，该 Promise 将在加载时解析为请求的数据。如果 <code>request.throttle</code> 为 true，并且请求的优先级不够高，则返回 undefined。
 </div>
 
 
@@ -4516,7 +4543,7 @@
 
 
 <div class="description">
-    Creates a Resource and calls fetchText() on it.
+    创建一个 Resource 并对其调用 fetchText（）。
 </div>
 
 
@@ -4570,7 +4597,7 @@
 
             <td class="description last">
             
-                A url or an object with the following properties
+                具有以下属性的 url 或对象
                 
 
 <table class="params">
@@ -4620,7 +4647,7 @@
 
                 
             
-                The url of the resource.</td>
+                资源的 URL。</td>
         </tr>
 
     
@@ -4654,7 +4681,7 @@
 
                 
             
-                An object containing query parameters that will be sent when retrieving the resource.</td>
+                一个包含查询参数的对象，将在检索资源时发送。</td>
         </tr>
 
     
@@ -4688,7 +4715,7 @@
 
                 
             
-                Key/Value pairs that are used to replace template values (eg. {x}).</td>
+                用于替换模板值的键/值对（例如。{x}）。</td>
         </tr>
 
     
@@ -4724,7 +4751,7 @@
 
                 
             
-                Additional HTTP headers that will be sent.</td>
+                将发送的其他 HTTP 标头。</td>
         </tr>
 
     
@@ -4758,7 +4785,7 @@
 
                 
             
-                A proxy to be used when loading the resource.</td>
+                加载资源时使用的代理。</td>
         </tr>
 
     
@@ -4792,7 +4819,7 @@
 
                 
             
-                The Function to call when a request for this resource fails. If it returns true, the request will be retried.</td>
+                当对此资源的请求失败时要调用的函数。如果返回 true，则将重试该请求。</td>
         </tr>
 
     
@@ -4828,7 +4855,7 @@
 
                 
             
-                The number of times the retryCallback should be called before giving up.</td>
+                在放弃之前应该调用 retryCallback 的次数。</td>
         </tr>
 
     
@@ -4862,7 +4889,7 @@
 
                 
             
-                A Request object that will be used. Intended for internal use only.</td>
+                将使用的 Request 对象。仅供内部使用。</td>
         </tr>
 
     
@@ -4889,7 +4916,7 @@
 
         
 <div class="param-desc">
-    a promise that will resolve to the requested data when loaded. Returns undefined if <code>request.throttle</code> is true and the request does not have high enough priority.
+    一个 Promise，该 Promise 将在加载时解析为请求的数据。如果 <code>request.throttle</code> 为 true，并且请求的优先级不够高，则返回 undefined。
 </div>
 
 
@@ -4952,7 +4979,7 @@
 
 
 <div class="description">
-    Creates a Resource and calls fetchXML() on it.
+    创建一个 Resource 并对其调用 fetchXML（）。
 </div>
 
 
@@ -5006,7 +5033,7 @@
 
             <td class="description last">
             
-                A url or an object with the following properties
+                具有以下属性的 url 或对象
                 
 
 <table class="params">
@@ -5056,7 +5083,7 @@
 
                 
             
-                The url of the resource.</td>
+                资源的 URL。</td>
         </tr>
 
     
@@ -5090,7 +5117,7 @@
 
                 
             
-                An object containing query parameters that will be sent when retrieving the resource.</td>
+                一个包含查询参数的对象，将在检索资源时发送。</td>
         </tr>
 
     
@@ -5124,7 +5151,7 @@
 
                 
             
-                Key/Value pairs that are used to replace template values (eg. {x}).</td>
+                用于替换模板值的键/值对（例如。{x}）。</td>
         </tr>
 
     
@@ -5160,7 +5187,7 @@
 
                 
             
-                Additional HTTP headers that will be sent.</td>
+                将发送的其他 HTTP 标头。</td>
         </tr>
 
     
@@ -5194,7 +5221,7 @@
 
                 
             
-                A proxy to be used when loading the resource.</td>
+                加载资源时使用的代理。</td>
         </tr>
 
     
@@ -5228,7 +5255,7 @@
 
                 
             
-                The Function to call when a request for this resource fails. If it returns true, the request will be retried.</td>
+                当对此资源的请求失败时要调用的函数。如果返回 true，则将重试该请求。</td>
         </tr>
 
     
@@ -5264,7 +5291,7 @@
 
                 
             
-                The number of times the retryCallback should be called before giving up.</td>
+                在放弃之前应该调用 retryCallback 的次数。</td>
         </tr>
 
     
@@ -5298,7 +5325,7 @@
 
                 
             
-                A Request object that will be used. Intended for internal use only.</td>
+                将使用的 Request 对象。仅供内部使用。</td>
         </tr>
 
     
@@ -5325,7 +5352,7 @@
 
         
 <div class="param-desc">
-    a promise that will resolve to the requested data when loaded. Returns undefined if <code>request.throttle</code> is true and the request does not have high enough priority.
+    一个 Promise，该 Promise 将在加载时解析为请求的数据。如果 <code>request.throttle</code> 为 true，并且请求的优先级不够高，则返回 undefined。
 </div>
 
 
@@ -5388,7 +5415,7 @@
 
 
 <div class="description">
-    Creates a Resource from a URL and calls head() on it.
+    从 URL 创建一个 Resource 并对其调用 head（）。
 </div>
 
 
@@ -5442,7 +5469,7 @@
 
             <td class="description last">
             
-                A url or an object with the following properties
+                具有以下属性的 url 或对象
                 
 
 <table class="params">
@@ -5492,7 +5519,7 @@
 
                 
             
-                The url of the resource.</td>
+                资源的 URL。</td>
         </tr>
 
     
@@ -5526,7 +5553,7 @@
 
                 
             
-                An object containing query parameters that will be sent when retrieving the resource.</td>
+                一个包含查询参数的对象，将在检索资源时发送。</td>
         </tr>
 
     
@@ -5560,7 +5587,7 @@
 
                 
             
-                Key/Value pairs that are used to replace template values (eg. {x}).</td>
+                用于替换模板值的键/值对（例如。{x}）。</td>
         </tr>
 
     
@@ -5596,7 +5623,7 @@
 
                 
             
-                Additional HTTP headers that will be sent.</td>
+                将发送的其他 HTTP 标头。</td>
         </tr>
 
     
@@ -5630,7 +5657,7 @@
 
                 
             
-                A proxy to be used when loading the resource.</td>
+                加载资源时使用的代理。</td>
         </tr>
 
     
@@ -5664,7 +5691,7 @@
 
                 
             
-                The Function to call when a request for this resource fails. If it returns true, the request will be retried.</td>
+                当对此资源的请求失败时要调用的函数。如果返回 true，则将重试该请求。</td>
         </tr>
 
     
@@ -5700,7 +5727,7 @@
 
                 
             
-                The number of times the retryCallback should be called before giving up.</td>
+                在放弃之前应该调用 retryCallback 的次数。</td>
         </tr>
 
     
@@ -5734,7 +5761,7 @@
 
                 
             
-                A Request object that will be used. Intended for internal use only.</td>
+                将使用的 Request 对象。仅供内部使用。</td>
         </tr>
 
     
@@ -5768,7 +5795,7 @@
 
                 
             
-                The type of response.  This controls the type of item returned.</td>
+                响应的类型。 这控制返回的项的类型。</td>
         </tr>
 
     
@@ -5802,7 +5829,7 @@
 
                 
             
-                Overrides the MIME type returned by the server.</td>
+                覆盖服务器返回的 MIME 类型。</td>
         </tr>
 
     
@@ -5829,7 +5856,7 @@
 
         
 <div class="param-desc">
-    a promise that will resolve to the requested data when loaded. Returns undefined if <code>request.throttle</code> is true and the request does not have high enough priority.
+    一个 Promise，该 Promise 将在加载时解析为请求的数据。如果 <code>request.throttle</code> 为 true，并且请求的优先级不够高，则返回 undefined。
 </div>
 
 
@@ -5892,7 +5919,7 @@
 
 
 <div class="description">
-    Creates a Resource from a URL and calls options() on it.
+    从 URL 创建一个 Resource 并对其调用 options（）。
 </div>
 
 
@@ -5946,7 +5973,7 @@
 
             <td class="description last">
             
-                A url or an object with the following properties
+                具有以下属性的 url 或对象
                 
 
 <table class="params">
@@ -5996,7 +6023,7 @@
 
                 
             
-                The url of the resource.</td>
+                资源的 URL。</td>
         </tr>
 
     
@@ -6030,7 +6057,7 @@
 
                 
             
-                An object containing query parameters that will be sent when retrieving the resource.</td>
+                一个包含查询参数的对象，将在检索资源时发送。</td>
         </tr>
 
     
@@ -6064,7 +6091,7 @@
 
                 
             
-                Key/Value pairs that are used to replace template values (eg. {x}).</td>
+                用于替换模板值的键/值对（例如。{x}）。</td>
         </tr>
 
     
@@ -6100,7 +6127,7 @@
 
                 
             
-                Additional HTTP headers that will be sent.</td>
+                将发送的其他 HTTP 标头。</td>
         </tr>
 
     
@@ -6134,7 +6161,7 @@
 
                 
             
-                A proxy to be used when loading the resource.</td>
+                加载资源时使用的代理。</td>
         </tr>
 
     
@@ -6168,7 +6195,7 @@
 
                 
             
-                The Function to call when a request for this resource fails. If it returns true, the request will be retried.</td>
+                当对此资源的请求失败时要调用的函数。如果返回 true，则将重试该请求。</td>
         </tr>
 
     
@@ -6204,7 +6231,7 @@
 
                 
             
-                The number of times the retryCallback should be called before giving up.</td>
+                在放弃之前应该调用 retryCallback 的次数。</td>
         </tr>
 
     
@@ -6238,7 +6265,7 @@
 
                 
             
-                A Request object that will be used. Intended for internal use only.</td>
+                将使用的 Request 对象。仅供内部使用。</td>
         </tr>
 
     
@@ -6272,7 +6299,7 @@
 
                 
             
-                The type of response.  This controls the type of item returned.</td>
+                响应的类型。 这控制返回的项的类型。</td>
         </tr>
 
     
@@ -6306,7 +6333,7 @@
 
                 
             
-                Overrides the MIME type returned by the server.</td>
+                覆盖服务器返回的 MIME 类型。</td>
         </tr>
 
     
@@ -6333,7 +6360,7 @@
 
         
 <div class="param-desc">
-    a promise that will resolve to the requested data when loaded. Returns undefined if <code>request.throttle</code> is true and the request does not have high enough priority.
+    一个 Promise，该 Promise 将在加载时解析为请求的数据。如果 <code>request.throttle</code> 为 true，并且请求的优先级不够高，则返回 undefined。
 </div>
 
 
@@ -6396,7 +6423,7 @@
 
 
 <div class="description">
-    Creates a Resource from a URL and calls patch() on it.
+    从 URL 创建一个 Resource 并对其调用 patch（）。
 </div>
 
 
@@ -6447,7 +6474,7 @@
 
             <td class="description last">
             
-                A url or an object with the following properties
+                具有以下属性的 url 或对象
                 
 
 <table class="params">
@@ -6497,7 +6524,7 @@
 
                 
             
-                The url of the resource.</td>
+                资源的 URL。</td>
         </tr>
 
     
@@ -6529,7 +6556,7 @@
 
                 
             
-                Data that is posted with the resource.</td>
+                与资源一起发布的数据。</td>
         </tr>
 
     
@@ -6563,7 +6590,7 @@
 
                 
             
-                An object containing query parameters that will be sent when retrieving the resource.</td>
+                一个包含查询参数的对象，将在检索资源时发送。</td>
         </tr>
 
     
@@ -6597,7 +6624,7 @@
 
                 
             
-                Key/Value pairs that are used to replace template values (eg. {x}).</td>
+                用于替换模板值的键/值对（例如。{x}）。</td>
         </tr>
 
     
@@ -6633,7 +6660,7 @@
 
                 
             
-                Additional HTTP headers that will be sent.</td>
+                将发送的其他 HTTP 标头。</td>
         </tr>
 
     
@@ -6667,7 +6694,7 @@
 
                 
             
-                A proxy to be used when loading the resource.</td>
+                加载资源时使用的代理。</td>
         </tr>
 
     
@@ -6701,7 +6728,7 @@
 
                 
             
-                The Function to call when a request for this resource fails. If it returns true, the request will be retried.</td>
+                当对此资源的请求失败时要调用的函数。如果返回 true，则将重试该请求。</td>
         </tr>
 
     
@@ -6737,7 +6764,7 @@
 
                 
             
-                The number of times the retryCallback should be called before giving up.</td>
+                在放弃之前应该调用 retryCallback 的次数。</td>
         </tr>
 
     
@@ -6771,7 +6798,7 @@
 
                 
             
-                A Request object that will be used. Intended for internal use only.</td>
+                将使用的 Request 对象。仅供内部使用。</td>
         </tr>
 
     
@@ -6805,7 +6832,7 @@
 
                 
             
-                The type of response.  This controls the type of item returned.</td>
+                响应的类型。 这控制返回的项的类型。</td>
         </tr>
 
     
@@ -6839,7 +6866,7 @@
 
                 
             
-                Overrides the MIME type returned by the server.</td>
+                覆盖服务器返回的 MIME 类型。</td>
         </tr>
 
     
@@ -6866,7 +6893,7 @@
 
         
 <div class="param-desc">
-    a promise that will resolve to the requested data when loaded. Returns undefined if <code>request.throttle</code> is true and the request does not have high enough priority.
+    一个 Promise，该 Promise 将在加载时解析为请求的数据。如果 <code>request.throttle</code> 为 true，并且请求的优先级不够高，则返回 undefined。
 </div>
 
 
@@ -6929,7 +6956,7 @@
 
 
 <div class="description">
-    Creates a Resource from a URL and calls post() on it.
+    从 URL 创建一个 Resource 并对其调用 post（）。
 </div>
 
 
@@ -6980,7 +7007,7 @@
 
             <td class="description last">
             
-                A url or an object with the following properties
+                具有以下属性的 url 或对象
                 
 
 <table class="params">
@@ -7030,7 +7057,7 @@
 
                 
             
-                The url of the resource.</td>
+                资源的 URL。</td>
         </tr>
 
     
@@ -7062,7 +7089,7 @@
 
                 
             
-                Data that is posted with the resource.</td>
+                与资源一起发布的数据。</td>
         </tr>
 
     
@@ -7096,7 +7123,7 @@
 
                 
             
-                An object containing query parameters that will be sent when retrieving the resource.</td>
+                一个包含查询参数的对象，将在检索资源时发送。</td>
         </tr>
 
     
@@ -7130,7 +7157,7 @@
 
                 
             
-                Key/Value pairs that are used to replace template values (eg. {x}).</td>
+                用于替换模板值的键/值对（例如。{x}）。</td>
         </tr>
 
     
@@ -7166,7 +7193,7 @@
 
                 
             
-                Additional HTTP headers that will be sent.</td>
+                将发送的其他 HTTP 标头。</td>
         </tr>
 
     
@@ -7200,7 +7227,7 @@
 
                 
             
-                A proxy to be used when loading the resource.</td>
+                加载资源时使用的代理。</td>
         </tr>
 
     
@@ -7234,7 +7261,7 @@
 
                 
             
-                The Function to call when a request for this resource fails. If it returns true, the request will be retried.</td>
+                当对此资源的请求失败时要调用的函数。如果返回 true，则将重试该请求。</td>
         </tr>
 
     
@@ -7270,7 +7297,7 @@
 
                 
             
-                The number of times the retryCallback should be called before giving up.</td>
+                在放弃之前应该调用 retryCallback 的次数。</td>
         </tr>
 
     
@@ -7304,7 +7331,7 @@
 
                 
             
-                A Request object that will be used. Intended for internal use only.</td>
+                将使用的 Request 对象。仅供内部使用。</td>
         </tr>
 
     
@@ -7338,7 +7365,7 @@
 
                 
             
-                The type of response.  This controls the type of item returned.</td>
+                响应的类型。 这控制返回的项的类型。</td>
         </tr>
 
     
@@ -7372,7 +7399,7 @@
 
                 
             
-                Overrides the MIME type returned by the server.</td>
+                覆盖服务器返回的 MIME 类型。</td>
         </tr>
 
     
@@ -7399,7 +7426,7 @@
 
         
 <div class="param-desc">
-    a promise that will resolve to the requested data when loaded. Returns undefined if <code>request.throttle</code> is true and the request does not have high enough priority.
+    一个 Promise，该 Promise 将在加载时解析为请求的数据。如果 <code>request.throttle</code> 为 true，并且请求的优先级不够高，则返回 undefined。
 </div>
 
 
@@ -7462,7 +7489,7 @@
 
 
 <div class="description">
-    Creates a Resource from a URL and calls put() on it.
+    从 URL 创建 Resource 并对其调用 put（）。
 </div>
 
 
@@ -7513,7 +7540,7 @@
 
             <td class="description last">
             
-                A url or an object with the following properties
+                具有以下属性的 url 或对象
                 
 
 <table class="params">
@@ -7563,7 +7590,7 @@
 
                 
             
-                The url of the resource.</td>
+                资源的 URL。</td>
         </tr>
 
     
@@ -7595,7 +7622,7 @@
 
                 
             
-                Data that is posted with the resource.</td>
+                与资源一起发布的数据。</td>
         </tr>
 
     
@@ -7629,7 +7656,7 @@
 
                 
             
-                An object containing query parameters that will be sent when retrieving the resource.</td>
+                一个包含查询参数的对象，将在检索资源时发送。</td>
         </tr>
 
     
@@ -7663,7 +7690,7 @@
 
                 
             
-                Key/Value pairs that are used to replace template values (eg. {x}).</td>
+                用于替换模板值的键/值对（例如。{x}）。</td>
         </tr>
 
     
@@ -7699,7 +7726,7 @@
 
                 
             
-                Additional HTTP headers that will be sent.</td>
+                将发送的其他 HTTP 标头。</td>
         </tr>
 
     
@@ -7733,7 +7760,7 @@
 
                 
             
-                A proxy to be used when loading the resource.</td>
+                加载资源时使用的代理。</td>
         </tr>
 
     
@@ -7767,7 +7794,7 @@
 
                 
             
-                The Function to call when a request for this resource fails. If it returns true, the request will be retried.</td>
+                当对此资源的请求失败时要调用的函数。如果返回 true，则将重试该请求。</td>
         </tr>
 
     
@@ -7803,7 +7830,7 @@
 
                 
             
-                The number of times the retryCallback should be called before giving up.</td>
+                在放弃之前应该调用 retryCallback 的次数。</td>
         </tr>
 
     
@@ -7837,7 +7864,7 @@
 
                 
             
-                A Request object that will be used. Intended for internal use only.</td>
+                将使用的 Request 对象。仅供内部使用。</td>
         </tr>
 
     
@@ -7871,7 +7898,7 @@
 
                 
             
-                The type of response.  This controls the type of item returned.</td>
+                响应的类型。 这控制返回的项的类型。</td>
         </tr>
 
     
@@ -7905,7 +7932,7 @@
 
                 
             
-                Overrides the MIME type returned by the server.</td>
+                覆盖服务器返回的 MIME 类型。</td>
         </tr>
 
     
@@ -7932,7 +7959,7 @@
 
         
 <div class="param-desc">
-    a promise that will resolve to the requested data when loaded. Returns undefined if <code>request.throttle</code> is true and the request does not have high enough priority.
+    一个 Promise，该 Promise 将在加载时解析为请求的数据。如果 <code>request.throttle</code> 为 true，并且请求的优先级不够高，则返回 undefined。
 </div>
 
 
@@ -7995,7 +8022,7 @@
 
 
 <div class="description">
-    Appends a forward slash to the URL.
+    在 URL 后附加一个正斜杠。
 </div>
 
 
@@ -8076,7 +8103,8 @@
 
 
 <div class="description">
-    Combines the specified object and the existing query parameters. This allows you to add many parameters at once, as opposed to adding them one at a time to the queryParameters property.
+    组合指定的对象和现有的查询参数。这允许您一次添加多个参数。
+而不是一次将它们添加到 queryParameters 属性中。
 </div>
 
 
@@ -8127,7 +8155,7 @@
 
             <td class="description last">
             
-                The query parameters</td>
+                查询参数</td>
         </tr>
 
     
@@ -8202,7 +8230,7 @@
 
 
 <div class="description">
-    复制Resource instance.
+    复制Resource实例。
 </div>
 
 
@@ -8281,7 +8309,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数 or a new Resource instance if one was not provided.
+    修改后的结果参数或者新的 Resource 实例（如果未提供）。
 </div>
 
 
@@ -8344,7 +8372,10 @@
 
 
 <div class="description">
-    Asynchronously deletes the given resource.  Returns a promise that will resolve tothe result once loaded, or reject if the resource failed to load.  The data is loadedusing XMLHttpRequest, which means that in order to make requests to another origin,the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
+    异步删除给定的资源。 返回一个 Promise，该 Promise 将解析为
+加载后的结果，如果资源加载失败，则为 reject。 数据已加载
+使用 XMLHttpRequest，这意味着为了向另一个源发出请求，
+服务器必须启用跨域资源共享 （CORS） 标头。
 </div>
 
 
@@ -8448,7 +8479,7 @@
 
                 
             
-                The type of response.  This controls the type of item returned.</td>
+                响应的类型。 这控制返回的项的类型。</td>
         </tr>
 
     
@@ -8478,7 +8509,7 @@
 
                 
             
-                Additional HTTP headers to send with the request, if any.</td>
+                与请求一起发送的其他 HTTP 标头（如果有）。</td>
         </tr>
 
     
@@ -8508,7 +8539,7 @@
 
                 
             
-                Overrides the MIME type returned by the server.</td>
+                覆盖服务器返回的 MIME 类型。</td>
         </tr>
 
     
@@ -8535,7 +8566,7 @@
 
         
 <div class="param-desc">
-    a promise that will resolve to the requested data when loaded. Returns undefined if <code>request.throttle</code> is true and the request does not have high enough priority.
+    一个 Promise，该 Promise 将在加载时解析为请求的数据。如果 <code>request.throttle</code> 为 true，并且请求的优先级不够高，则返回 undefined。
 </div>
 
 
@@ -8566,7 +8597,12 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">resource.delete()  .then(function(body) {      // use the data  }).catch(function(error) {      // an error occurred  });</code></pre>
+    <pre><code class="language-javascript">resource.delete()
+  .then(function(body) {
+      // use the data
+  }).catch(function(error) {
+      // an error occurred
+  });</code></pre>
 
     
 
@@ -8610,7 +8646,11 @@
 
 
 <div class="description">
-    Asynchronously loads the given resource.  Returns a promise that will resolve tothe result once loaded, or reject if the resource failed to load.  The data is loadedusing XMLHttpRequest, which means that in order to make requests to another origin,the server must have Cross-Origin Resource Sharing (CORS) headers enabled. It's recommended that you usethe more specific functions eg. fetchJson, fetchBlob, etc.
+    异步加载给定的资源。 返回一个 Promise，该 Promise 将解析为
+加载后的结果，如果资源加载失败，则为 reject。 数据已加载
+使用 XMLHttpRequest，这意味着为了向另一个源发出请求，
+服务器必须启用跨域资源共享 （CORS） 标头。建议您使用
+更具体的功能，例如。fetchJson、fetchBlob 等。
 </div>
 
 
@@ -8668,7 +8708,7 @@
 
                 
             
-                对象，具有以下属性:
+                对象，具有以下属性：
                 
 
 <table class="params">
@@ -8714,7 +8754,7 @@
 
                 
             
-                The type of response.  This controls the type of item returned.</td>
+                响应的类型。 这控制返回的项的类型。</td>
         </tr>
 
     
@@ -8744,7 +8784,7 @@
 
                 
             
-                Additional HTTP headers to send with the request, if any.</td>
+                与请求一起发送的其他 HTTP 标头（如果有）。</td>
         </tr>
 
     
@@ -8774,7 +8814,7 @@
 
                 
             
-                Overrides the MIME type returned by the server.</td>
+                覆盖服务器返回的 MIME 类型。</td>
         </tr>
 
     
@@ -8801,7 +8841,7 @@
 
         
 <div class="param-desc">
-    a promise that will resolve to the requested data when loaded. Returns undefined if <code>request.throttle</code> is true and the request does not have high enough priority.
+    一个 Promise，该 Promise 将在加载时解析为请求的数据。如果 <code>request.throttle</code> 为 true，并且请求的优先级不够高，则返回 undefined。
 </div>
 
 
@@ -8832,7 +8872,12 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">resource.fetch()  .then(function(body) {      // use the data  }).catch(function(error) {      // an error occurred  });</code></pre>
+    <pre><code class="language-javascript">resource.fetch()
+  .then(function(body) {
+      // use the data
+  }).catch(function(error) {
+      // an error occurred
+  });</code></pre>
 
     
 
@@ -8876,7 +8921,10 @@
 
 
 <div class="description">
-    Asynchronously loads the resource as raw binary data.  Returns a promise that will resolve toan ArrayBuffer once loaded, or reject if the resource failed to load.  The data is loadedusing XMLHttpRequest, which means that in order to make requests to another origin,the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
+    异步加载资源作为原始二进制数据。 返回一个 Promise，该 Promise 将解析为
+加载后为 ArrayBuffer，如果资源加载失败，则为 reject。 数据已加载
+使用 XMLHttpRequest，这意味着为了向另一个源发出请求，
+服务器必须启用跨域资源共享 （CORS） 标头。
 </div>
 
 
@@ -8903,7 +8951,7 @@
 
         
 <div class="param-desc">
-    a promise that will resolve to the requested data when loaded. Returns undefined if <code>request.throttle</code> is true and the request does not have high enough priority.
+    一个 Promise，该 Promise 将在加载时解析为请求的数据。如果 <code>request.throttle</code> 为 true，并且请求的优先级不够高，则返回 undefined。
 </div>
 
 
@@ -8934,7 +8982,12 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// load a single URL asynchronouslyresource.fetchArrayBuffer().then(function(arrayBuffer) {    // use the data}).catch(function(error) {    // an error occurred});</code></pre>
+    <pre><code class="language-javascript">// load a single URL asynchronously
+resource.fetchArrayBuffer().then(function(arrayBuffer) {
+    // use the data
+}).catch(function(error) {
+    // an error occurred
+});</code></pre>
 
     
 
@@ -8978,7 +9031,10 @@
 
 
 <div class="description">
-    Asynchronously loads the given resource as a blob.  Returns a promise that will resolve toa Blob once loaded, or reject if the resource failed to load.  The data is loadedusing XMLHttpRequest, which means that in order to make requests to another origin,the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
+    以异步方式将给定资源加载为 blob。 返回一个 Promise，该 Promise 将解析为
+加载后为 Blob，如果资源加载失败，则为 reject。 数据已加载
+使用 XMLHttpRequest，这意味着为了向另一个源发出请求，
+服务器必须启用跨域资源共享 （CORS） 标头。
 </div>
 
 
@@ -9005,7 +9061,7 @@
 
         
 <div class="param-desc">
-    a promise that will resolve to the requested data when loaded. Returns undefined if <code>request.throttle</code> is true and the request does not have high enough priority.
+    一个 Promise，该 Promise 将在加载时解析为请求的数据。如果 <code>request.throttle</code> 为 true，并且请求的优先级不够高，则返回 undefined。
 </div>
 
 
@@ -9036,7 +9092,12 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// load a single URL asynchronouslyresource.fetchBlob().then(function(blob) {    // use the data}).catch(function(error) {    // an error occurred});</code></pre>
+    <pre><code class="language-javascript">// load a single URL asynchronously
+resource.fetchBlob().then(function(blob) {
+    // use the data
+}).catch(function(error) {
+    // an error occurred
+});</code></pre>
 
     
 
@@ -9080,7 +9141,9 @@
 
 
 <div class="description">
-    Asynchronously loads the given image resource.  Returns a promise that will resolve toan <a href="https://developer.mozilla.org/en-US/docs/Web/API/ImageBitmap">ImageBitmap</a> if <code>preferImageBitmap</code> is true and the browser supports <code>createImageBitmap</code> or otherwise an<a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement">Image</a> once loaded, or reject if the image failed to load.
+    异步加载给定的图像资源。 返回一个 Promise，该 Promise 将解析为
+an <a href="https://developer.mozilla.org/en-US/docs/Web/API/ImageBitmap">ImageBitmap</a> 如果 <code>preferImageBitmap</code> 为 true，并且浏览器支持 <code>createImageBitmap</code> 或其他
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement">Image</a>，如果图像加载失败，则为 reject。
 </div>
 
 
@@ -9138,7 +9201,7 @@
 
                 
             
-                An object with the following properties.
+                具有以下属性的对象。
                 
 
 <table class="params">
@@ -9192,7 +9255,7 @@
 
                 
             
-                If true, we will load the image via a blob.</td>
+                如果为 true，我们将通过 blob 加载图像。</td>
         </tr>
 
     
@@ -9228,7 +9291,7 @@
 
                 
             
-                If true, image will be decoded during fetch and an <code>ImageBitmap</code> is returned.</td>
+                如果为 true，则在获取过程中将对图像进行解码并返回 <code>ImageBitmap</code>。</td>
         </tr>
 
     
@@ -9264,7 +9327,7 @@
 
                 
             
-                If true, image will be vertically flipped during decode. Only applies if the browser supports <code>createImageBitmap</code>.</td>
+                如果为 true，则图像将在解码过程中垂直翻转。仅当浏览器支持 <code>createImageBitmap</code> 时适用。</td>
         </tr>
 
     
@@ -9300,7 +9363,7 @@
 
                 
             
-                If true, any custom gamma or color profiles in the image will be ignored. Only applies if the browser supports <code>createImageBitmap</code>.</td>
+                如果为 true，则图像中的任何自定义灰度系数或颜色配置文件都将被忽略。仅当浏览器支持 <code>createImageBitmap</code> 时适用。</td>
         </tr>
 
     
@@ -9327,7 +9390,7 @@
 
         
 <div class="param-desc">
-    a promise that will resolve to the requested data when loaded. Returns undefined if <code>request.throttle</code> is true and the request does not have high enough priority.
+    一个 Promise，该 Promise 将在加载时解析为请求的数据。如果 <code>request.throttle</code> 为 true，并且请求的优先级不够高，则返回 undefined。
 </div>
 
 
@@ -9358,7 +9421,17 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// load a single image asynchronouslyresource.fetchImage().then(function(image) {    // use the loaded image}).catch(function(error) {    // an error occurred});// load several images in parallelPromise.all([resource1.fetchImage(), resource2.fetchImage()]).then(function(images) {    // images is an array containing all the loaded images});</code></pre>
+    <pre><code class="language-javascript">// load a single image asynchronously
+resource.fetchImage().then(function(image) {
+    // use the loaded image
+}).catch(function(error) {
+    // an error occurred
+});
+
+// load several images in parallel
+Promise.all([resource1.fetchImage(), resource2.fetchImage()]).then(function(images) {
+    // images is an array containing all the loaded images
+});</code></pre>
 
     
 
@@ -9402,7 +9475,12 @@
 
 
 <div class="description">
-    Asynchronously loads the given resource as JSON.  Returns a promise that will resolve toa JSON object once loaded, or reject if the resource failed to load.  The data is loadedusing XMLHttpRequest, which means that in order to make requests to another origin,the server must have Cross-Origin Resource Sharing (CORS) headers enabled. This functionadds 'Accept: application/json,&#42;&#47;&#42;;q=0.01' to the request headers, if notalready specified.
+    以 JSON 格式异步加载给定资源。 返回一个 Promise，该 Promise 将解析为
+JSON 对象，如果资源加载失败，则拒绝。 数据已加载
+使用 XMLHttpRequest，这意味着为了向另一个源发出请求，
+服务器必须启用跨域资源共享 （CORS） 标头。此功能
+添加 'Accept: application/json,&#42;&#47;&#42;;q=0.01' 添加到请求标头中，如果不是
+已指定。
 </div>
 
 
@@ -9429,7 +9507,7 @@
 
         
 <div class="param-desc">
-    a promise that will resolve to the requested data when loaded. Returns undefined if <code>request.throttle</code> is true and the request does not have high enough priority.
+    一个 Promise，该 Promise 将在加载时解析为请求的数据。如果 <code>request.throttle</code> 为 true，并且请求的优先级不够高，则返回 undefined。
 </div>
 
 
@@ -9460,7 +9538,11 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">resource.fetchJson().then(function(jsonData) {    // Do something with the JSON object}).catch(function(error) {    // an error occurred});</code></pre>
+    <pre><code class="language-javascript">resource.fetchJson().then(function(jsonData) {
+    // Do something with the JSON object
+}).catch(function(error) {
+    // an error occurred
+});</code></pre>
 
     
 
@@ -9504,7 +9586,7 @@
 
 
 <div class="description">
-    Requests a resource using JSONP.
+    使用 JSONP 请求资源。
 </div>
 
 
@@ -9570,7 +9652,7 @@
 
                 
             
-                The callback parameter name that the server expects.</td>
+                服务器期望的回调参数名称。</td>
         </tr>
 
     
@@ -9591,7 +9673,7 @@
 
         
 <div class="param-desc">
-    a promise that will resolve to the requested data when loaded. Returns undefined if <code>request.throttle</code> is true and the request does not have high enough priority.
+    一个 Promise，该 Promise 将在加载时解析为请求的数据。如果 <code>request.throttle</code> 为 true，并且请求的优先级不够高，则返回 undefined。
 </div>
 
 
@@ -9622,7 +9704,12 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// load a data asynchronouslyresource.fetchJsonp().then(function(data) {    // use the loaded data}).catch(function(error) {    // an error occurred});</code></pre>
+    <pre><code class="language-javascript">// load a data asynchronously
+resource.fetchJsonp().then(function(data) {
+    // use the loaded data
+}).catch(function(error) {
+    // an error occurred
+});</code></pre>
 
     
 
@@ -9664,7 +9751,10 @@
 
 
 <div class="description">
-    Asynchronously loads the given resource as text.  Returns a promise that will resolve toa String once loaded, or reject if the resource failed to load.  The data is loadedusing XMLHttpRequest, which means that in order to make requests to another origin,the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
+    异步加载给定的资源为文本。 返回一个 Promise，该 Promise 将解析为
+一个 String，如果资源加载失败，则为 reject。 数据已加载
+使用 XMLHttpRequest，这意味着为了向另一个源发出请求，
+服务器必须启用跨域资源共享 （CORS） 标头。
 </div>
 
 
@@ -9691,7 +9781,7 @@
 
         
 <div class="param-desc">
-    a promise that will resolve to the requested data when loaded. Returns undefined if <code>request.throttle</code> is true and the request does not have high enough priority.
+    一个 Promise，该 Promise 将在加载时解析为请求的数据。如果 <code>request.throttle</code> 为 true，并且请求的优先级不够高，则返回 undefined。
 </div>
 
 
@@ -9722,7 +9812,18 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// load text from a URL, setting a custom headerconst resource = new Resource({  url: 'http://someUrl.com/someJson.txt',  headers: {    'X-Custom-Header' : 'some value'  }});resource.fetchText().then(function(text) {    // Do something with the text}).catch(function(error) {    // an error occurred});</code></pre>
+    <pre><code class="language-javascript">// load text from a URL, setting a custom header
+const resource = new Resource({
+  url: 'http://someUrl.com/someJson.txt',
+  headers: {
+    'X-Custom-Header' : 'some value'
+  }
+});
+resource.fetchText().then(function(text) {
+    // Do something with the text
+}).catch(function(error) {
+    // an error occurred
+});</code></pre>
 
     
 
@@ -9768,7 +9869,10 @@
 
 
 <div class="description">
-    Asynchronously loads the given resource as XML.  Returns a promise that will resolve toan XML Document once loaded, or reject if the resource failed to load.  The data is loadedusing XMLHttpRequest, which means that in order to make requests to another origin,the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
+    以 XML 形式异步加载给定的资源。 返回一个 Promise，该 Promise 将解析为
+XML 文档，如果资源加载失败，则拒绝。 数据已加载
+使用 XMLHttpRequest，这意味着为了向另一个源发出请求，
+服务器必须启用跨域资源共享 （CORS） 标头。
 </div>
 
 
@@ -9795,7 +9899,7 @@
 
         
 <div class="param-desc">
-    a promise that will resolve to the requested data when loaded. Returns undefined if <code>request.throttle</code> is true and the request does not have high enough priority.
+    一个 Promise，该 Promise 将在加载时解析为请求的数据。如果 <code>request.throttle</code> 为 true，并且请求的优先级不够高，则返回 undefined。
 </div>
 
 
@@ -9826,7 +9930,14 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// load XML from a URL, setting a custom headerCesium.loadXML('http://someUrl.com/someXML.xml', {  'X-Custom-Header' : 'some value'}).then(function(document) {    // Do something with the document}).catch(function(error) {    // an error occurred});</code></pre>
+    <pre><code class="language-javascript">// load XML from a URL, setting a custom header
+Cesium.loadXML('http://someUrl.com/someXML.xml', {
+  'X-Custom-Header' : 'some value'
+}).then(function(document) {
+    // Do something with the document
+}).catch(function(error) {
+    // an error occurred
+});</code></pre>
 
     
 
@@ -9872,7 +9983,7 @@
 
 
 <div class="description">
-    Returns the base path of the Resource.
+    返回 Resource 的基路径。
 </div>
 
 
@@ -9938,7 +10049,7 @@
 
                 
             
-                Whether or not to include the query string and fragment form the uri</td>
+                是否在 uri 中包含查询字符串和片段</td>
         </tr>
 
     
@@ -9959,7 +10070,7 @@
 
         
 <div class="param-desc">
-    The base URI of the resource
+    资源的基 URI
 </div>
 
 
@@ -10022,7 +10133,7 @@
 
 
 <div class="description">
-    Returns a resource relative to the current instance. All properties remain the same as the current instance unless overridden in options.
+    返回相对于当前实例的资源。所有属性都与当前实例相同，除非在 options 中被覆盖。
 </div>
 
 
@@ -10073,7 +10184,7 @@
 
             <td class="description last">
             
-                An object with the following properties
+                具有以下属性的对象
                 
 
 <table class="params">
@@ -10125,7 +10236,7 @@
 
                 
             
-                The url that will be resolved relative to the url of the current instance.</td>
+                将相对于当前实例的 url 解析的 url。</td>
         </tr>
 
     
@@ -10159,7 +10270,7 @@
 
                 
             
-                An object containing query parameters that will be combined with those of the current instance.</td>
+                一个包含将与当前实例的查询参数合并的对象。</td>
         </tr>
 
     
@@ -10193,7 +10304,7 @@
 
                 
             
-                Key/Value pairs that are used to replace template values (eg. {x}). These will be combined with those of the current instance.</td>
+                用于替换模板值的键/值对（例如。这些将与当前实例的 API 合并。</td>
         </tr>
 
     
@@ -10229,7 +10340,7 @@
 
                 
             
-                Additional HTTP headers that will be sent.</td>
+                将发送的其他 HTTP 标头。</td>
         </tr>
 
     
@@ -10263,7 +10374,7 @@
 
                 
             
-                A proxy to be used when loading the resource.</td>
+                加载资源时使用的代理。</td>
         </tr>
 
     
@@ -10297,7 +10408,7 @@
 
                 
             
-                The function to call when loading the resource fails.</td>
+                加载资源失败时要调用的函数。</td>
         </tr>
 
     
@@ -10331,7 +10442,7 @@
 
                 
             
-                The number of times the retryCallback should be called before giving up.</td>
+                在放弃之前应该调用 retryCallback 的次数。</td>
         </tr>
 
     
@@ -10365,7 +10476,7 @@
 
                 
             
-                A Request object that will be used. Intended for internal use only.</td>
+                将使用的 Request 对象。仅供内部使用。</td>
         </tr>
 
     
@@ -10401,7 +10512,7 @@
 
                 
             
-                If true, this will keep all query parameters from the current resource and derived resource. If false, derived parameters will replace those of the current resource.</td>
+                如果为 true，则保留当前资源和派生资源中的所有查询参数。如果为 false，则派生参数将替换当前资源的参数。</td>
         </tr>
 
     
@@ -10428,7 +10539,7 @@
 
         
 <div class="param-desc">
-    The resource derived from the current one.
+    从当前资源派生的资源。
 </div>
 
 
@@ -10491,7 +10602,7 @@
 
 
 <div class="description">
-    Returns the url, optional with the query string and processed by a proxy.
+    返回 url（可选）与查询字符串相同，并由代理处理。
 </div>
 
 
@@ -10557,7 +10668,7 @@
 
                 
             
-                If true, the query string is included.</td>
+                如果为 true，则包含查询字符串。</td>
         </tr>
 
     
@@ -10593,7 +10704,7 @@
 
                 
             
-                If true, the url is processed by the proxy object, if defined.</td>
+                如果为 true，则 url 由代理对象（如果已定义）处理。</td>
         </tr>
 
     
@@ -10614,7 +10725,7 @@
 
         
 <div class="param-desc">
-    The url with all the requested components.
+    包含所有请求组件的 url。
 </div>
 
 
@@ -10677,7 +10788,10 @@
 
 
 <div class="description">
-    Asynchronously gets headers the given resource.  Returns a promise that will resolve tothe result once loaded, or reject if the resource failed to load.  The data is loadedusing XMLHttpRequest, which means that in order to make requests to another origin,the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
+    异步获取给定资源的标头。 返回一个 Promise，该 Promise 将解析为
+加载后的结果，如果资源加载失败，则为 reject。 数据已加载
+使用 XMLHttpRequest，这意味着为了向另一个源发出请求，
+服务器必须启用跨域资源共享 （CORS） 标头。
 </div>
 
 
@@ -10735,7 +10849,7 @@
 
                 
             
-                对象，具有以下属性:
+                对象，具有以下属性：
                 
 
 <table class="params">
@@ -10781,7 +10895,7 @@
 
                 
             
-                The type of response.  This controls the type of item returned.</td>
+                响应的类型。 这控制返回的项的类型。</td>
         </tr>
 
     
@@ -10811,7 +10925,7 @@
 
                 
             
-                Additional HTTP headers to send with the request, if any.</td>
+                与请求一起发送的其他 HTTP 标头（如果有）。</td>
         </tr>
 
     
@@ -10841,7 +10955,7 @@
 
                 
             
-                Overrides the MIME type returned by the server.</td>
+                覆盖服务器返回的 MIME 类型。</td>
         </tr>
 
     
@@ -10868,7 +10982,7 @@
 
         
 <div class="param-desc">
-    a promise that will resolve to the requested data when loaded. Returns undefined if <code>request.throttle</code> is true and the request does not have high enough priority.
+    一个 Promise，该 Promise 将在加载时解析为请求的数据。如果 <code>request.throttle</code> 为 true，并且请求的优先级不够高，则返回 undefined。
 </div>
 
 
@@ -10899,7 +11013,12 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">resource.head()  .then(function(headers) {      // use the data  }).catch(function(error) {      // an error occurred  });</code></pre>
+    <pre><code class="language-javascript">resource.head()
+  .then(function(headers) {
+      // use the data
+  }).catch(function(error) {
+      // an error occurred
+  });</code></pre>
 
     
 
@@ -10943,7 +11062,10 @@
 
 
 <div class="description">
-    Asynchronously gets options the given resource.  Returns a promise that will resolve tothe result once loaded, or reject if the resource failed to load.  The data is loadedusing XMLHttpRequest, which means that in order to make requests to another origin,the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
+    异步获取给定资源的 options。 返回一个 Promise，该 Promise 将解析为
+加载后的结果，如果资源加载失败，则为 reject。 数据已加载
+使用 XMLHttpRequest，这意味着为了向另一个源发出请求，
+服务器必须启用跨域资源共享 （CORS） 标头。
 </div>
 
 
@@ -11047,7 +11169,7 @@
 
                 
             
-                The type of response.  This controls the type of item returned.</td>
+                响应的类型。 这控制返回的项的类型。</td>
         </tr>
 
     
@@ -11077,7 +11199,7 @@
 
                 
             
-                Additional HTTP headers to send with the request, if any.</td>
+                与请求一起发送的其他 HTTP 标头（如果有）。</td>
         </tr>
 
     
@@ -11107,7 +11229,7 @@
 
                 
             
-                Overrides the MIME type returned by the server.</td>
+                覆盖服务器返回的 MIME 类型。</td>
         </tr>
 
     
@@ -11134,7 +11256,7 @@
 
         
 <div class="param-desc">
-    a promise that will resolve to the requested data when loaded. Returns undefined if <code>request.throttle</code> is true and the request does not have high enough priority.
+    一个 Promise，该 Promise 将在加载时解析为请求的数据。如果 <code>request.throttle</code> 为 true，并且请求的优先级不够高，则返回 undefined。
 </div>
 
 
@@ -11165,7 +11287,12 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">resource.options()  .then(function(headers) {      // use the data  }).catch(function(error) {      // an error occurred  });</code></pre>
+    <pre><code class="language-javascript">resource.options()
+  .then(function(headers) {
+      // use the data
+  }).catch(function(error) {
+      // an error occurred
+  });</code></pre>
 
     
 
@@ -11209,7 +11336,10 @@
 
 
 <div class="description">
-    Asynchronously patches data to the given resource.  Returns a promise that will resolve tothe result once loaded, or reject if the resource failed to load.  The data is loadedusing XMLHttpRequest, which means that in order to make requests to another origin,the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
+    异步将数据修补到给定资源。 返回一个 Promise，该 Promise 将解析为
+加载后的结果，如果资源加载失败，则为 reject。 数据已加载
+使用 XMLHttpRequest，这意味着为了向另一个源发出请求，
+服务器必须启用跨域资源共享 （CORS） 标头。
 </div>
 
 
@@ -11265,7 +11395,7 @@
 
                 
             
-                Data that is posted with the resource.</td>
+                与资源一起发布的数据。</td>
         </tr>
 
     
@@ -11295,7 +11425,7 @@
 
                 
             
-                对象，具有以下属性:
+                对象，具有以下属性：
                 
 
 <table class="params">
@@ -11341,7 +11471,7 @@
 
                 
             
-                The type of response.  This controls the type of item returned.</td>
+                响应的类型。 这控制返回的项的类型。</td>
         </tr>
 
     
@@ -11371,7 +11501,7 @@
 
                 
             
-                Additional HTTP headers to send with the request, if any.</td>
+                与请求一起发送的其他 HTTP 标头（如果有）。</td>
         </tr>
 
     
@@ -11401,7 +11531,7 @@
 
                 
             
-                Overrides the MIME type returned by the server.</td>
+                覆盖服务器返回的 MIME 类型。</td>
         </tr>
 
     
@@ -11428,7 +11558,7 @@
 
         
 <div class="param-desc">
-    a promise that will resolve to the requested data when loaded. Returns undefined if <code>request.throttle</code> is true and the request does not have high enough priority.
+    一个 Promise，该 Promise 将在加载时解析为请求的数据。如果 <code>request.throttle</code> 为 true，并且请求的优先级不够高，则返回 undefined。
 </div>
 
 
@@ -11459,7 +11589,12 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">resource.patch(data)  .then(function(result) {      // use the result  }).catch(function(error) {      // an error occurred  });</code></pre>
+    <pre><code class="language-javascript">resource.patch(data)
+  .then(function(result) {
+      // use the result
+  }).catch(function(error) {
+      // an error occurred
+  });</code></pre>
 
     
 
@@ -11503,7 +11638,10 @@
 
 
 <div class="description">
-    Asynchronously posts data to the given resource.  Returns a promise that will resolve tothe result once loaded, or reject if the resource failed to load.  The data is loadedusing XMLHttpRequest, which means that in order to make requests to another origin,the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
+    异步将数据发布到给定的资源。 返回一个 Promise，该 Promise 将解析为
+加载后的结果，如果资源加载失败，则为 reject。 数据已加载
+使用 XMLHttpRequest，这意味着为了向另一个源发出请求，
+服务器必须启用跨域资源共享 （CORS） 标头。
 </div>
 
 
@@ -11559,7 +11697,7 @@
 
                 
             
-                Data that is posted with the resource.</td>
+                与资源一起发布的数据。</td>
         </tr>
 
     
@@ -11589,7 +11727,7 @@
 
                 
             
-                对象，具有以下属性:
+                对象，具有以下属性：
                 
 
 <table class="params">
@@ -11635,7 +11773,7 @@
 
                 
             
-                Data that is posted with the resource.</td>
+                与资源一起发布的数据。</td>
         </tr>
 
     
@@ -11665,7 +11803,7 @@
 
                 
             
-                The type of response.  This controls the type of item returned.</td>
+                响应的类型。 这控制返回的项的类型。</td>
         </tr>
 
     
@@ -11695,7 +11833,7 @@
 
                 
             
-                Additional HTTP headers to send with the request, if any.</td>
+                与请求一起发送的其他 HTTP 标头（如果有）。</td>
         </tr>
 
     
@@ -11725,7 +11863,7 @@
 
                 
             
-                Overrides the MIME type returned by the server.</td>
+                覆盖服务器返回的 MIME 类型。</td>
         </tr>
 
     
@@ -11752,7 +11890,7 @@
 
         
 <div class="param-desc">
-    a promise that will resolve to the requested data when loaded. Returns undefined if <code>request.throttle</code> is true and the request does not have high enough priority.
+    一个 Promise，该 Promise 将在加载时解析为请求的数据。如果 <code>request.throttle</code> 为 true，并且请求的优先级不够高，则返回 undefined。
 </div>
 
 
@@ -11783,7 +11921,12 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">resource.post(data)  .then(function(result) {      // use the result  }).catch(function(error) {      // an error occurred  });</code></pre>
+    <pre><code class="language-javascript">resource.post(data)
+  .then(function(result) {
+      // use the result
+  }).catch(function(error) {
+      // an error occurred
+  });</code></pre>
 
     
 
@@ -11827,7 +11970,10 @@
 
 
 <div class="description">
-    Asynchronously puts data to the given resource.  Returns a promise that will resolve tothe result once loaded, or reject if the resource failed to load.  The data is loadedusing XMLHttpRequest, which means that in order to make requests to another origin,the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
+    异步将数据放入给定的资源。 返回一个 Promise，该 Promise 将解析为
+加载后的结果，如果资源加载失败，则为 reject。 数据已加载
+使用 XMLHttpRequest，这意味着为了向另一个源发出请求，
+服务器必须启用跨域资源共享 （CORS） 标头。
 </div>
 
 
@@ -11883,7 +12029,7 @@
 
                 
             
-                Data that is posted with the resource.</td>
+                与资源一起发布的数据。</td>
         </tr>
 
     
@@ -11913,7 +12059,7 @@
 
                 
             
-                对象，具有以下属性:
+                对象，具有以下属性：
                 
 
 <table class="params">
@@ -11959,7 +12105,7 @@
 
                 
             
-                The type of response.  This controls the type of item returned.</td>
+                响应的类型。 这控制返回的项的类型。</td>
         </tr>
 
     
@@ -11989,7 +12135,7 @@
 
                 
             
-                Additional HTTP headers to send with the request, if any.</td>
+                与请求一起发送的其他 HTTP 标头（如果有）。</td>
         </tr>
 
     
@@ -12019,7 +12165,7 @@
 
                 
             
-                Overrides the MIME type returned by the server.</td>
+                覆盖服务器返回的 MIME 类型。</td>
         </tr>
 
     
@@ -12046,7 +12192,7 @@
 
         
 <div class="param-desc">
-    a promise that will resolve to the requested data when loaded. Returns undefined if <code>request.throttle</code> is true and the request does not have high enough priority.
+    一个 Promise，该 Promise 将在加载时解析为请求的数据。如果 <code>request.throttle</code> 为 true，并且请求的优先级不够高，则返回 undefined。
 </div>
 
 
@@ -12077,7 +12223,12 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">resource.put(data)  .then(function(result) {      // use the result  }).catch(function(error) {      // an error occurred  });</code></pre>
+    <pre><code class="language-javascript">resource.put(data)
+  .then(function(result) {
+      // use the result
+  }).catch(function(error) {
+      // an error occurred
+  });</code></pre>
 
     
 
@@ -12121,7 +12272,8 @@
 
 
 <div class="description">
-    Combines the specified object and the existing query parameters. This allows you to add many parameters at once, as opposed to adding them one at a time to the queryParameters property. If a value is already set, it will be replaced with the new value.
+    组合指定的对象和现有的查询参数。这允许您一次添加多个参数。
+而不是一次将它们添加到 queryParameters 属性中。如果已设置值，则将其替换为新值。
 </div>
 
 
@@ -12183,7 +12335,7 @@
 
                 
             
-                The query parameters</td>
+                查询参数</td>
         </tr>
 
     
@@ -12219,7 +12371,7 @@
 
                 
             
-                If true the params will be used as the default values, so they will only be set if they are undefined.</td>
+                如果为 true，则参数将用作默认值，因此只有在未定义时才会设置它们。</td>
         </tr>
 
     
@@ -12294,7 +12446,8 @@
 
 
 <div class="description">
-    Combines the specified object and the existing template values. This allows you to add many values at once, as opposed to adding them one at a time to the templateValues property. If a value is already set, it will become an array and the new value will be appended.
+    合并指定的对象和现有模板值。这允许您一次添加多个值。
+而不是一次将它们添加到 templateValues 属性中。如果已设置值，它将变为数组，并附加新值。
 </div>
 
 
@@ -12356,7 +12509,7 @@
 
                 
             
-                The template values</td>
+                模板值</td>
         </tr>
 
     
@@ -12392,7 +12545,7 @@
 
                 
             
-                If true the values will be used as the default values, so they will only be set if they are undefined.</td>
+                如果为 true，则值将用作默认值，因此只有在未定义时才会设置它们。</td>
         </tr>
 
     
@@ -12467,7 +12620,8 @@
 
 
 <div class="description">
-    Override Object#toString so that implicit string conversion gives thecomplete URL represented by this Resource.
+    覆盖 Object#toString，以便隐式字符串转换给出
+此资源表示的完整 URL。
 </div>
 
 
@@ -12494,7 +12648,7 @@
 
         
 <div class="param-desc">
-    The URL represented by this Resource
+    此资源表示的 URL
 </div>
 
 
@@ -12562,7 +12716,7 @@
 
 
 <div class="description">
-    Initialization options for the Resource constructor
+    Resource 构造函数的初始化选项
 </div>
 
 
@@ -12628,7 +12782,7 @@
                 </td>
             
 
-            <td class="description last">The url of the resource.</td>
+            <td class="description last">资源的 URL。</td>
         </tr>
 
     
@@ -12663,7 +12817,7 @@
                 </td>
             
 
-            <td class="description last">An object containing query parameters that will be sent when retrieving the resource.</td>
+            <td class="description last">一个对象，其中包含检索资源时将发送的查询参数。</td>
         </tr>
 
     
@@ -12698,7 +12852,7 @@
                 </td>
             
 
-            <td class="description last">Key/Value pairs that are used to replace template values (eg. {x}).</td>
+            <td class="description last">用于替换模板值的键/值对（例如。{x}）。</td>
         </tr>
 
     
@@ -12735,7 +12889,7 @@
                 </td>
             
 
-            <td class="description last">Additional HTTP headers that will be sent.</td>
+            <td class="description last">将发送的其他 HTTP 标头。</td>
         </tr>
 
     
@@ -12770,7 +12924,7 @@
                 </td>
             
 
-            <td class="description last">A proxy to be used when loading the resource.</td>
+            <td class="description last">加载资源时使用的代理。</td>
         </tr>
 
     
@@ -12805,7 +12959,7 @@
                 </td>
             
 
-            <td class="description last">The Function to call when a request for this resource fails. If it returns true, the request will be retried.</td>
+            <td class="description last">当对此资源的请求失败时要调用的函数。如果返回 true，则将重试该请求。</td>
         </tr>
 
     
@@ -12842,7 +12996,7 @@
                 </td>
             
 
-            <td class="description last">The number of times the retryCallback should be called before giving up.</td>
+            <td class="description last">在放弃之前应调用 retryCallback 的次数。</td>
         </tr>
 
     
@@ -12877,7 +13031,7 @@
                 </td>
             
 
-            <td class="description last">A Request object that will be used. Intended for internal use only.</td>
+            <td class="description last">将使用的 Request 对象。仅供内部使用。</td>
         </tr>
 
     
@@ -12914,7 +13068,7 @@
                 </td>
             
 
-            <td class="description last">If true, parse the url for query parameters; otherwise store the url without change</td>
+            <td class="description last">如果为 true，则解析查询参数的 url;否则，将 URL 原封不动地存储</td>
         </tr>
 
     
@@ -12974,7 +13128,7 @@
 
 
 <div class="description">
-    A function that returns the value of the property.
+    返回属性值的函数。
 </div>
 
 
@@ -13032,7 +13186,7 @@
 
                 
             
-                The resource that failed to load.</td>
+                加载失败的资源。</td>
         </tr>
 
     
@@ -13062,7 +13216,7 @@
 
                 
             
-                The error that occurred during the loading of the resource.</td>
+                加载资源期间发生的错误。</td>
         </tr>
 
     
@@ -13083,7 +13237,7 @@
 
         
 <div class="param-desc">
-    If true or a promise that resolved to true, the resource will be retried. Otherwise the failure will be returned.
+    如果为 true 或解析为 true 的 Promise，则将重试资源。否则将返回失败。
 </div>
 
 

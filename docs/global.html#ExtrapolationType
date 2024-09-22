@@ -47,7 +47,7 @@
 
 
         
-            <div class="description">Constants to determine how an interpolated value is extrapolatedwhen querying outside the bounds of available data.</div>
+            <div class="description">用于确定如何外推内插值的常量当查询超出可用数据的边界时。</div>
         
 
         
@@ -96,7 +96,7 @@
 
             
 
-            <td class="description last">No extrapolation occurs.</td>
+            <td class="description last">不发生外推。</td>
         </tr>
 
     
@@ -119,7 +119,7 @@
 
             
 
-            <td class="description last">The first or last value is used when outside the range of sample data.</td>
+            <td class="description last">当超出样本数据范围时，将使用第一个或最后一个值。</td>
         </tr>
 
     
@@ -142,7 +142,7 @@
 
             
 
-            <td class="description last">The value is extrapolated.</td>
+            <td class="description last">该值是外推的。</td>
         </tr>
 
     
@@ -221,7 +221,7 @@
 
 
 <div class="description">
-    The value is extrapolated.
+    该值是外推的。
 </div>
 
 
@@ -284,7 +284,7 @@
 
 
 <div class="description">
-    The first or last value is used when outside the range of sample data.
+    当超出样本数据范围时，将使用第一个或最后一个值。
 </div>
 
 
@@ -347,7 +347,7 @@
 
 
 <div class="description">
-    No extrapolation occurs.
+    不发生外推。
 </div>
 
 

@@ -58,7 +58,7 @@
 
 
 <div class="description">
-    Provides geocoding via a <a href="https://opencagedata.com/">OpenCage</a> server.
+    通过 <a href="https://opencagedata.com/">OpenCage</a> 服务器。
 </div>
 
 
@@ -117,7 +117,7 @@
 
                 
             
-                The endpoint to the OpenCage server.</td>
+                OpenCage 服务器的端点。</td>
         </tr>
 
     
@@ -145,7 +145,7 @@
 
                 
             
-                The OpenCage API Key.</td>
+                OpenCage API 密钥。</td>
         </tr>
 
     
@@ -175,7 +175,7 @@
 
                 
             
-                An object with the following properties (See https://opencagedata.com/api#forward-opt):
+                具有以下属性的对象（参见 https://opencagedata.com/api#forward-opt）：
                 
 
 <table class="params">
@@ -221,7 +221,7 @@
 
                 
             
-                When set to 1 we attempt to abbreviate and shorten the formatted string we return.</td>
+                当设置为 1 时，我们尝试缩写和缩短我们返回的格式化字符串。</td>
         </tr>
 
     
@@ -257,7 +257,7 @@
 
                 
             
-                When set to 1 the various request parameters are added to the response for ease of debugging.</td>
+                当设置为 1 时，各种请求参数将添加到响应中，以便于调试。</td>
         </tr>
 
     
@@ -287,7 +287,7 @@
 
                 
             
-                Provides the geocoder with a hint to the region that the query resides in.</td>
+                为地理编码器提供查询所在区域的提示。</td>
         </tr>
 
     
@@ -317,7 +317,7 @@
 
                 
             
-                Restricts the results to the specified country or countries (as defined by the ISO 3166-1 Alpha 2 standard).</td>
+                将结果限制为指定的一个或多个国家/地区（如 ISO 3166-1 Alpha 2 标准所定义）。</td>
         </tr>
 
     
@@ -347,7 +347,7 @@
 
                 
             
-                Wraps the returned JSON with a function name.</td>
+                用函数名称包装返回的 JSON。</td>
         </tr>
 
     
@@ -377,7 +377,7 @@
 
                 
             
-                An IETF format language code.</td>
+                IETF 格式的语言代码。</td>
         </tr>
 
     
@@ -407,7 +407,7 @@
 
                 
             
-                The maximum number of results we should return.</td>
+                我们应该返回的最大结果数。</td>
         </tr>
 
     
@@ -437,7 +437,7 @@
 
                 
             
-                An integer from 1-10. Only results with at least this confidence will be returned.</td>
+                1-10 之间的整数。只会返回至少具有此置信度的结果。</td>
         </tr>
 
     
@@ -467,7 +467,7 @@
 
                 
             
-                When set to 1 results will not contain annotations.</td>
+                设置为 1 时，结果将不包含注释。</td>
         </tr>
 
     
@@ -497,7 +497,7 @@
 
                 
             
-                When set to 1 results will not be deduplicated.</td>
+                设置为 1 时，不会对结果进行重复数据删除。</td>
         </tr>
 
     
@@ -527,7 +527,7 @@
 
                 
             
-                When set to 1 the query contents are not logged.</td>
+                设置为 1 时，不记录查询内容。</td>
         </tr>
 
     
@@ -557,7 +557,7 @@
 
                 
             
-                When set to 1 results are 'pretty' printed for easier reading. Useful for debugging.</td>
+                当设置为 1 时，结果将打印为 'pretty' 以便于阅读。用于调试。</td>
         </tr>
 
     
@@ -587,7 +587,7 @@
 
                 
             
-                Provides the geocoder with a hint to bias results in favour of those closer to the specified location (For example: 41.40139,2.12870).</td>
+                为地理编码器提供提示，使结果偏向于更靠近指定位置的结果（例如：41.40139,2.12870）。</td>
         </tr>
 
     
@@ -630,7 +630,10 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Configure a Viewer to use the OpenCage Geocoderconst viewer = new Cesium.Viewer('cesiumContainer', {  geocoder: new Cesium.OpenCageGeocoderService('https://api.opencagedata.com/geocode/v1/', '&lt;API key>')});</code></pre>
+    <pre><code class="language-javascript">// Configure a Viewer to use the OpenCage Geocoder
+const viewer = new Cesium.Viewer('cesiumContainer', {
+  geocoder: new Cesium.OpenCageGeocoderService('https://api.opencagedata.com/geocode/v1/', '&lt;API key>')
+});</code></pre>
 
     
 
@@ -682,7 +685,8 @@
 
 
 <div class="description">
-    获取要在执行地理代码后显示的信用项。这通常用于信贷地理编码器服务。
+    获取要在执行地理代码后显示的信用项。这通常用于信贷
+地理编码器服务。
 </div>
 
 
@@ -742,7 +746,7 @@
 
 
 <div class="description">
-    Optional params passed to OpenCage in order to customize geocoding
+    传递给 OpenCage 的可选参数，用于自定义地理编码
 </div>
 
 
@@ -802,7 +806,7 @@
 
 
 <div class="description">
-    The Resource used to access the OpenCage endpoint.
+    用于访问 OpenCage 终端节点的 Resource。
 </div>
 
 

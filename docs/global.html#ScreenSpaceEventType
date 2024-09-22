@@ -47,7 +47,7 @@
 
 
         
-            <div class="description">This enumerated type is for classifying mouse events: down, up, click, double click, move and move while a button is held down.</div>
+            <div class="description">此枚举类型用于对鼠标事件进行分类：按下、向上、单击、双击、移动和按住按钮时的移动。</div>
         
 
         
@@ -96,7 +96,7 @@
 
             
 
-            <td class="description last">Represents a mouse left button down event.</td>
+            <td class="description last">表示鼠标左键按下事件。</td>
         </tr>
 
     
@@ -119,7 +119,7 @@
 
             
 
-            <td class="description last">Represents a mouse left button up event.</td>
+            <td class="description last">表示鼠标左键松开事件。</td>
         </tr>
 
     
@@ -142,7 +142,7 @@
 
             
 
-            <td class="description last">Represents a mouse left click event.</td>
+            <td class="description last">表示鼠标左键单击事件。</td>
         </tr>
 
     
@@ -165,7 +165,7 @@
 
             
 
-            <td class="description last">Represents a mouse left double click event.</td>
+            <td class="description last">表示鼠标左键双击事件。</td>
         </tr>
 
     
@@ -188,7 +188,7 @@
 
             
 
-            <td class="description last">Represents a mouse left button down event.</td>
+            <td class="description last">表示鼠标左键按下事件。</td>
         </tr>
 
     
@@ -211,7 +211,7 @@
 
             
 
-            <td class="description last">Represents a mouse right button up event.</td>
+            <td class="description last">表示鼠标右键松开事件。</td>
         </tr>
 
     
@@ -234,7 +234,7 @@
 
             
 
-            <td class="description last">Represents a mouse right click event.</td>
+            <td class="description last">表示鼠标右键单击事件。</td>
         </tr>
 
     
@@ -257,7 +257,7 @@
 
             
 
-            <td class="description last">Represents a mouse middle button down event.</td>
+            <td class="description last">表示鼠标中键按下事件。</td>
         </tr>
 
     
@@ -280,7 +280,7 @@
 
             
 
-            <td class="description last">Represents a mouse middle button up event.</td>
+            <td class="description last">表示鼠标中键向上事件。</td>
         </tr>
 
     
@@ -303,7 +303,7 @@
 
             
 
-            <td class="description last">Represents a mouse middle click event.</td>
+            <td class="description last">表示鼠标中键单击事件。</td>
         </tr>
 
     
@@ -326,7 +326,7 @@
 
             
 
-            <td class="description last">Represents a mouse move event.</td>
+            <td class="description last">表示鼠标移动事件。</td>
         </tr>
 
     
@@ -349,7 +349,7 @@
 
             
 
-            <td class="description last">Represents a mouse wheel event.</td>
+            <td class="description last">表示鼠标滚轮事件。</td>
         </tr>
 
     
@@ -372,7 +372,7 @@
 
             
 
-            <td class="description last">Represents the start of a two-finger event on a touch surface.</td>
+            <td class="description last">表示触摸表面上双指事件的开始。</td>
         </tr>
 
     
@@ -395,7 +395,7 @@
 
             
 
-            <td class="description last">Represents the end of a two-finger event on a touch surface.</td>
+            <td class="description last">表示触摸表面上的双指事件的结束。</td>
         </tr>
 
     
@@ -418,7 +418,7 @@
 
             
 
-            <td class="description last">Represents a change of a two-finger event on a touch surface.</td>
+            <td class="description last">表示触摸表面上的双指事件更改。</td>
         </tr>
 
     
@@ -492,7 +492,7 @@
 
 
 <div class="description">
-    Represents a mouse left click event.
+    表示鼠标左键单击事件。
 </div>
 
 
@@ -555,7 +555,7 @@
 
 
 <div class="description">
-    Represents a mouse left double click event.
+    表示鼠标左键双击事件。
 </div>
 
 
@@ -618,7 +618,7 @@
 
 
 <div class="description">
-    Represents a mouse left button down event.
+    表示鼠标左键按下事件。
 </div>
 
 
@@ -678,7 +678,7 @@
 
 
 <div class="description">
-    Represents a mouse left button up event.
+    表示鼠标左键松开事件。
 </div>
 
 
@@ -741,7 +741,7 @@
 
 
 <div class="description">
-    Represents a mouse middle click event.
+    表示鼠标中键单击事件。
 </div>
 
 
@@ -804,7 +804,7 @@
 
 
 <div class="description">
-    Represents a mouse middle button down event.
+    表示鼠标中键按下事件。
 </div>
 
 
@@ -867,7 +867,7 @@
 
 
 <div class="description">
-    Represents a mouse middle button up event.
+    表示鼠标中键向上事件。
 </div>
 
 
@@ -930,7 +930,7 @@
 
 
 <div class="description">
-    Represents a mouse move event.
+    表示鼠标移动事件。
 </div>
 
 
@@ -993,7 +993,7 @@
 
 
 <div class="description">
-    Represents the end of a two-finger event on a touch surface.
+    表示触摸表面上的双指事件的结束。
 </div>
 
 
@@ -1056,7 +1056,7 @@
 
 
 <div class="description">
-    Represents a change of a two-finger event on a touch surface.
+    表示触摸表面上的双指事件更改。
 </div>
 
 
@@ -1119,7 +1119,7 @@
 
 
 <div class="description">
-    Represents the start of a two-finger event on a touch surface.
+    表示触摸表面上双指事件的开始。
 </div>
 
 
@@ -1182,7 +1182,7 @@
 
 
 <div class="description">
-    Represents a mouse right click event.
+    表示鼠标右键单击事件。
 </div>
 
 
@@ -1245,7 +1245,7 @@
 
 
 <div class="description">
-    Represents a mouse left button down event.
+    表示鼠标左键按下事件。
 </div>
 
 
@@ -1308,7 +1308,7 @@
 
 
 <div class="description">
-    Represents a mouse right button up event.
+    表示鼠标右键松开事件。
 </div>
 
 
@@ -1371,7 +1371,7 @@
 
 
 <div class="description">
-    Represents a mouse wheel event.
+    表示鼠标滚轮事件。
 </div>
 
 

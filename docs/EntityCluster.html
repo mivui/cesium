@@ -116,7 +116,7 @@
 
                 
             
-                An 对象，具有以下属性:
+                对象，具有以下属性:
                 
 
 <table class="params">
@@ -977,7 +977,12 @@
 
 
 <div class="description">
-    Destroys the WebGL resources held by this object.  Destroying an object allows for deterministicrelease of WebGL resources, instead of relying on the garbage collector to destroy this object.<p>Unlike other objects that use WebGL resources, this object can be reused. For example, if a data source is removedfrom a data source collection and added to another.</p>
+    Destroys the WebGL resources held by this object.  Destroying an object allows for deterministic
+release of WebGL resources, instead of relying on the garbage collector to destroy this object.
+<p>
+Unlike other objects that use WebGL resources, this object can be reused. For example, if a data source is removed
+from a data source collection and added to another.
+</p>
 </div>
 
 
@@ -1138,7 +1143,8 @@
 
             <td class="description last">
             
-                An object containing the Billboard, Label, and Pointprimitives that represent this cluster of entities.
+                An object containing the Billboard, Label, and Point
+primitives that represent this cluster of entities.
                 
 
 <table class="params">
@@ -1272,7 +1278,11 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// The default cluster values.dataSource.clustering.clusterEvent.addEventListener(function(entities, cluster) {    cluster.label.show = true;    cluster.label.text = entities.length.toLocaleString();});</code></pre>
+    <pre><code class="language-javascript">// The default cluster values.
+dataSource.clustering.clusterEvent.addEventListener(function(entities, cluster) {
+    cluster.label.show = true;
+    cluster.label.text = entities.length.toLocaleString();
+});</code></pre>
 
     
 

@@ -47,7 +47,7 @@
 
 
         
-            <div class="description">Given a relative Uri and a base Uri, returns the absolute Uri of the relative Uri.</div>
+            <div class="description">给定相对 Uri 和基本 Uri，返回相对 Uri 的绝对 Uri。</div>
         
 
         

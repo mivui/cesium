@@ -58,7 +58,7 @@
 
 
 <div class="description">
-    Provides geocoding via a <a href="https://pelias.io/">Pelias</a> server.
+    通过 <a href="https://pelias.io/">Pelias</a> 服务器。
 </div>
 
 
@@ -112,7 +112,7 @@
 
             <td class="description last">
             
-                The endpoint to the Pelias server.</td>
+                Pelias 服务器的终端节点。</td>
         </tr>
 
     
@@ -155,7 +155,15 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Configure a Viewer to use the Pelias server hosted by https://geocode.earth/const viewer = new Cesium.Viewer('cesiumContainer', {  geocoder: new Cesium.PeliasGeocoderService(new Cesium.Resource({    url: 'https://api.geocode.earth/v1/',      queryParameters: {        api_key: '&lt;Your geocode.earth API key>'    }  }))});</code></pre>
+    <pre><code class="language-javascript">// Configure a Viewer to use the Pelias server hosted by https://geocode.earth/
+const viewer = new Cesium.Viewer('cesiumContainer', {
+  geocoder: new Cesium.PeliasGeocoderService(new Cesium.Resource({
+    url: 'https://api.geocode.earth/v1/',
+      queryParameters: {
+        api_key: '&lt;Your geocode.earth API key>'
+    }
+  }))
+});</code></pre>
 
     
 
@@ -207,7 +215,8 @@
 
 
 <div class="description">
-    获取要在执行地理代码后显示的信用项。这通常用于信贷地理编码器服务。
+    获取要在执行地理代码后显示的信用项。这通常用于信贷
+地理编码器服务。
 </div>
 
 
@@ -267,7 +276,7 @@
 
 
 <div class="description">
-    The Resource used to access the Pelias endpoint.
+    用于访问 Pelias 端点的 Resource。
 </div>
 
 
@@ -428,7 +437,7 @@
 
                 
             
-                The type of geocode to perform.</td>
+                要执行的地理编码类型。</td>
         </tr>
 
     

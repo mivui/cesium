@@ -58,7 +58,7 @@
 
 
 <div class="description">
-    A description of a cartographic rectangle on an ellipsoid centered at the origin. Rectangle geometry can be rendered with both <a href="Primitive.html"><code>Primitive</code></a> and <a href="GroundPrimitive.html"><code>GroundPrimitive</code></a>.
+    以原点为中心的椭球体上的制图矩形的描述。矩形几何体可以使用 <a href="Primitive.html"><code>Primitive</code></a> 和 <a href="GroundPrimitive.html"><code>GroundPrimitive</code></a> 进行渲染。
 </div>
 
 
@@ -109,7 +109,7 @@
 
             <td class="description last">
             
-                对象，具有以下属性:
+                对象，具有以下属性：
                 
 
 <table class="params">
@@ -159,7 +159,7 @@
 
                 
             
-                A cartographic rectangle with north, south, east and west properties in radians.</td>
+                具有弧度的北、南、东和西属性的制图矩形。</td>
         </tr>
 
     
@@ -231,7 +231,7 @@
 
                 
             
-                The ellipsoid on which the rectangle lies.</td>
+                矩形所在的椭球体。</td>
         </tr>
 
     
@@ -267,7 +267,7 @@
 
                 
             
-                The distance, in radians, between each latitude and longitude. Determines the number of positions in the buffer.</td>
+                每个纬度和经度之间的距离，以弧度为单位。确定缓冲区中的位置数。</td>
         </tr>
 
     
@@ -303,7 +303,7 @@
 
                 
             
-                The distance in meters between the rectangle and the ellipsoid surface.</td>
+                矩形和椭球体表面之间的距离（以米为单位）。</td>
         </tr>
 
     
@@ -339,7 +339,7 @@
 
                 
             
-                The rotation of the rectangle, in radians. A positive rotation is counter-clockwise.</td>
+                矩形的旋转量，以弧度为单位。正旋转是逆时针旋转。</td>
         </tr>
 
     
@@ -375,7 +375,7 @@
 
                 
             
-                The rotation of the texture coordinates, in radians. A positive rotation is counter-clockwise.</td>
+                纹理坐标的旋转，以弧度为单位。正旋转是逆时针旋转。</td>
         </tr>
 
     
@@ -409,7 +409,7 @@
 
                 
             
-                The distance in meters between the rectangle's extruded face and the ellipsoid surface.</td>
+                矩形的拉伸面与椭球体表面之间的距离（以米为单位）。</td>
         </tr>
 
     
@@ -442,7 +442,7 @@
         
 <span class="param-type"><a href="DeveloperError.html">DeveloperError</a></span>
 
-: <code>options.rectangle.north</code> must be in the interval [<code>-Pi/2</code>, <code>Pi/2</code>].
+: <code>options.rectangle.north</code> 必须在区间 [<code>-Pi/2</code>， <code>Pi/2</code>] 内。
     </div>
 
 </li>
@@ -453,7 +453,7 @@
         
 <span class="param-type"><a href="DeveloperError.html">DeveloperError</a></span>
 
-: <code>options.rectangle.south</code> must be in the interval [<code>-Pi/2</code>, <code>Pi/2</code>].
+: <code>options.rectangle.south</code> 必须在区间 [<code>-Pi/2</code>， <code>Pi/2</code>] 内。
     </div>
 
 </li>
@@ -464,7 +464,7 @@
         
 <span class="param-type"><a href="DeveloperError.html">DeveloperError</a></span>
 
-: <code>options.rectangle.east</code> must be in the interval [<code>-Pi</code>, <code>Pi</code>].
+: <code>options.rectangle.east</code> 必须在区间 [<code>-Pi</code>， <code>Pi</code>] 内。
     </div>
 
 </li>
@@ -475,7 +475,7 @@
         
 <span class="param-type"><a href="DeveloperError.html">DeveloperError</a></span>
 
-: <code>options.rectangle.west</code> must be in the interval [<code>-Pi</code>, <code>Pi</code>].
+: <code>options.rectangle.west</code> 必须在区间 [<code>-Pi</code>， <code>Pi</code>] 内。
     </div>
 
 </li>
@@ -486,7 +486,7 @@
         
 <span class="param-type"><a href="DeveloperError.html">DeveloperError</a></span>
 
-: <code>options.rectangle.north</code> must be greater than <code>options.rectangle.south</code>.
+: <code>options.rectangle.north</code> 必须大于 <code>options.rectangle.south</code>。
     </div>
 
 </li>
@@ -516,7 +516,22 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// 1. create a rectangleconst rectangle = new Cesium.RectangleGeometry({  ellipsoid : Cesium.Ellipsoid.default,  rectangle : Cesium.Rectangle.fromDegrees(-80.0, 39.0, -74.0, 42.0),  height : 10000.0});const geometry = Cesium.RectangleGeometry.createGeometry(rectangle);// 2. create an extruded rectangle without a topconst rectangle = new Cesium.RectangleGeometry({  ellipsoid : Cesium.Ellipsoid.default,  rectangle : Cesium.Rectangle.fromDegrees(-80.0, 39.0, -74.0, 42.0),  height : 10000.0,  extrudedHeight: 300000});const geometry = Cesium.RectangleGeometry.createGeometry(rectangle);</code></pre>
+    <pre><code class="language-javascript">// 1. create a rectangle
+const rectangle = new Cesium.RectangleGeometry({
+  ellipsoid : Cesium.Ellipsoid.default,
+  rectangle : Cesium.Rectangle.fromDegrees(-80.0, 39.0, -74.0, 42.0),
+  height : 10000.0
+});
+const geometry = Cesium.RectangleGeometry.createGeometry(rectangle);
+
+// 2. create an extruded rectangle without a top
+const rectangle = new Cesium.RectangleGeometry({
+  ellipsoid : Cesium.Ellipsoid.default,
+  rectangle : Cesium.Rectangle.fromDegrees(-80.0, 39.0, -74.0, 42.0),
+  height : 10000.0,
+  extrudedHeight: 300000
+});
+const geometry = Cesium.RectangleGeometry.createGeometry(rectangle);</code></pre>
 
     
 
@@ -645,7 +660,7 @@
 
 
 <div class="description">
-    Computes the bounding rectangle based on the provided options
+    根据提供的选项计算边界矩形
 </div>
 
 
@@ -751,7 +766,7 @@
 
                 
             
-                A cartographic rectangle with north, south, east and west properties in radians.</td>
+                具有弧度的北、南、东和西属性的制图矩形。</td>
         </tr>
 
     
@@ -787,7 +802,7 @@
 
                 
             
-                The ellipsoid on which the rectangle lies.</td>
+                矩形所在的椭球体。</td>
         </tr>
 
     
@@ -823,7 +838,7 @@
 
                 
             
-                The distance, in radians, between each latitude and longitude. Determines the number of positions in the buffer.</td>
+                每个纬度和经度之间的距离，以弧度为单位。确定缓冲区中的位置数。</td>
         </tr>
 
     
@@ -859,7 +874,7 @@
 
                 
             
-                The rotation of the rectangle, in radians. A positive rotation is counter-clockwise.</td>
+                矩形的旋转量，以弧度为单位。正旋转是逆时针旋转。</td>
         </tr>
 
     
@@ -895,7 +910,7 @@
 
                 
             
-                An object in which to store the result.</td>
+                用于存储结果的对象。</td>
         </tr>
 
     
@@ -916,7 +931,7 @@
 
         
 <div class="param-desc">
-    The result rectangle
+    结果 rectangle
 </div>
 
 
@@ -979,7 +994,7 @@
 
 
 <div class="description">
-    Computes the geometric representation of a rectangle, including its vertices, indices, and a bounding sphere.
+    计算矩形的几何表示，包括其顶点、索引和边界球体。
 </div>
 
 
@@ -1030,7 +1045,7 @@
 
             <td class="description last">
             
-                A description of the rectangle.</td>
+                矩形的描述。</td>
         </tr>
 
     
@@ -1066,7 +1081,7 @@
         
 <span class="param-type"><a href="DeveloperError.html">DeveloperError</a></span>
 
-: Rotated rectangle is invalid.
+: 旋转的矩形无效。
     </div>
 
 </li>
@@ -1495,7 +1510,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数 or a new RectangleGeometry instance if one was not provided.
+    修改后的结果参数或者新的 RectangleGeometry 实例（如果未提供）。
 </div>
 
 

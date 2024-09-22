@@ -47,7 +47,7 @@
 
 
         
-            <div class="description">A set of functions to detect whether the current browser supportsvarious features.</div>
+            <div class="description">一组函数，用于检测当前浏览器是否支持各种功能。</div>
         
 
         
@@ -106,7 +106,7 @@
     <div class="nameContainer">
     <h4 class="name" id=".supportsBasis">
         <a href="#.supportsBasis" class="doc-link"></a>
-        <span class="type-signature attribute-static">static</span> Cesium.FeatureDetection.supportsBasis<span class="signature">(scene)</span> &rarr; <span class="type-signature returnType">boolean</span>
+        <span class="type-signature attribute-static">static</span> Cesium.FeatureDetection.supportsBasis<span class="signature">(场景)</span>
         
 
 <div class="source-link rightLinks">
@@ -122,7 +122,7 @@
 
 
 <div class="description">
-    Detects whether the current browser supports Basis Universal textures and the web assembly modules needed to transcode them.
+    检测当前浏览器是否支持 Basis Universal 纹理以及转码这些纹理所需的 Web 组合模块。
 </div>
 
 
@@ -157,7 +157,7 @@
 
         <tr>
             
-                <td class="name"><code>scene</code></td>
+                <td class="name"><code>场景</code></td>
             
 
             <td class="type">
@@ -173,7 +173,7 @@
 
             <td class="description last">
             
-                </td>
+                如果浏览器支持 Web 程序集模块并且场景支持 Basis Universal 纹理，则@returns {boolean} true，否则为 false。</td>
         </tr>
 
     
@@ -190,15 +190,6 @@
 
 
 
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    true if the browser supports web assembly modules and the scene supports Basis Universal textures, false if not.
-</div>
-
-
-    
 
 
 
@@ -257,7 +248,7 @@
 
 
 <div class="description">
-    Detects whether the current browser supports BigInt.
+    检测当前浏览器是否支持 BigInt。
 </div>
 
 
@@ -284,7 +275,7 @@
 
         
 <div class="param-desc">
-    true if the browser supports BigInt, false if not.
+    如果浏览器支持 BigInt，则 true，如果不支持，则为 false。
 </div>
 
 
@@ -323,7 +314,7 @@
     
     <h5>See:</h5>
     <ul class="see-list">
-        <li><a href="https://tc39.es/ecma262/#sec-bigint-objects">BigInt Specification</a></li>
+        <li><a href="https://tc39.es/ecma262/#sec-bigint-objects">BigInt 规范</a></li>
     </ul>
     
 
@@ -352,7 +343,7 @@
 
 
 <div class="description">
-    Detects whether the current browser supports BigInt64Array typed arrays.
+    检测当前浏览器是否支持 BigInt64Array 类型化数组。
 </div>
 
 
@@ -379,7 +370,7 @@
 
         
 <div class="param-desc">
-    true if the browser supports BigInt64Array typed arrays, false if not.
+    如果浏览器支持 BigInt64Array 类型数组，则 true，否则为 false。
 </div>
 
 
@@ -418,7 +409,7 @@
     
     <h5>See:</h5>
     <ul class="see-list">
-        <li><a href="https://tc39.es/ecma262/#sec-typedarray-objects">Typed Array Specification</a></li>
+        <li><a href="https://tc39.es/ecma262/#sec-typedarray-objects">类型化数组规范</a></li>
     </ul>
     
 
@@ -447,7 +438,7 @@
 
 
 <div class="description">
-    Detects whether the current browser supports BigUint64Array typed arrays.
+    检测当前浏览器是否支持 BigUint64Array 类型数组。
 </div>
 
 
@@ -474,7 +465,7 @@
 
         
 <div class="param-desc">
-    true if the browser supports BigUint64Array typed arrays, false if not.
+    如果浏览器支持 BigUint64Array 类型数组，则 true，否则为 false。
 </div>
 
 
@@ -513,7 +504,7 @@
     
     <h5>See:</h5>
     <ul class="see-list">
-        <li><a href="https://tc39.es/ecma262/#sec-typedarray-objects">Typed Array Specification</a></li>
+        <li><a href="https://tc39.es/ecma262/#sec-typedarray-objects">类型化数组规范</a></li>
     </ul>
     
 
@@ -542,7 +533,7 @@
 
 
 <div class="description">
-    Detects whether the current browser supports ECMAScript modules in web workers.
+    检测当前浏览器是否支持 Web Worker 中的 ECMAScript 模块。
 </div>
 
 
@@ -569,7 +560,7 @@
 
         
 <div class="param-desc">
-    true if the browser supports ECMAScript modules in web workers.
+    如果浏览器在 Web Worker 中支持 ECMAScript 模块，则 true。
 </div>
 
 
@@ -608,7 +599,7 @@
     
     <h5>See:</h5>
     <ul class="see-list">
-        <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Worker">Worker</a></li>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Worker">工人</a></li>
     </ul>
     
 
@@ -637,7 +628,7 @@
 
 
 <div class="description">
-    Detects whether the current browser supports the full screen standard.
+    检测当前浏览器是否支持全屏标准。
 </div>
 
 
@@ -664,7 +655,7 @@
 
         
 <div class="param-desc">
-    true if the browser supports the full screen standard, false if not.
+    如果浏览器支持全屏标准，则 true，否则为 false。
 </div>
 
 
@@ -705,7 +696,7 @@
     <ul class="see-list">
         <li><a href="Fullscreen.html">Fullscreen</a></li>
     
-        <li><a href="http://dvcs.w3.org/hg/fullscreen/raw-file/tip/Overview.html">W3C Fullscreen Living Specification</a></li>
+        <li><a href="http://dvcs.w3.org/hg/fullscreen/raw-file/tip/Overview.html">W3C 全屏生活规范</a></li>
     </ul>
     
 
@@ -734,7 +725,7 @@
 
 
 <div class="description">
-    Detects whether the current browser supports typed arrays.
+    检测当前浏览器是否支持类型化数组。
 </div>
 
 
@@ -761,7 +752,7 @@
 
         
 <div class="param-desc">
-    true if the browser supports typed arrays, false if not.
+    如果浏览器支持类型化数组，则 true，否则为 false。
 </div>
 
 
@@ -800,7 +791,7 @@
     
     <h5>See:</h5>
     <ul class="see-list">
-        <li><a href="https://tc39.es/ecma262/#sec-typedarray-objects">Typed Array Specification</a></li>
+        <li><a href="https://tc39.es/ecma262/#sec-typedarray-objects">类型化数组规范</a></li>
     </ul>
     
 
@@ -813,7 +804,7 @@
     <div class="nameContainer">
     <h4 class="name" id=".supportsWebAssembly">
         <a href="#.supportsWebAssembly" class="doc-link"></a>
-        <span class="type-signature attribute-static">static</span> Cesium.FeatureDetection.supportsWebAssembly<span class="signature">()</span> &rarr; <span class="type-signature returnType">boolean</span>
+        <span class="type-signature attribute-static">static</span> Cesium.FeatureDetection.supportsWebAssembly<span class="signature">()</span>
         
 
 <div class="source-link rightLinks">
@@ -829,7 +820,7 @@
 
 
 <div class="description">
-    Detects whether the current browser supports Web Assembly.
+    检测当前浏览器是否支持 Web Assembly。如果浏览器支持 Web Assembly，则@returns {boolean} true，否则为 false。
 </div>
 
 
@@ -852,15 +843,6 @@
 
 
 
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    true if the browsers supports Web Assembly, false if not.
-</div>
-
-
-    
 
 
 
@@ -908,7 +890,7 @@
     <div class="nameContainer">
     <h4 class="name" id=".supportsWebgl2">
         <a href="#.supportsWebgl2" class="doc-link"></a>
-        <span class="type-signature attribute-static">static</span> Cesium.FeatureDetection.supportsWebgl2<span class="signature">(scene)</span> &rarr; <span class="type-signature returnType">boolean</span>
+        <span class="type-signature attribute-static">static</span> Cesium.FeatureDetection.supportsWebgl2<span class="signature">(scene)</span>
         
 
 <div class="source-link rightLinks">
@@ -924,7 +906,7 @@
 
 
 <div class="description">
-    Detects whether the current browser supports a WebGL2 rendering context for the specified scene.
+    检测当前浏览器是否支持指定场景的 WebGL2 渲染上下文。
 </div>
 
 
@@ -975,7 +957,7 @@
 
             <td class="description last">
             
-                the Cesium scene specifying the rendering context</td>
+                指定渲染上下文的 Cesium 场景如果浏览器支持 WebGL2 渲染上下文，则@returns {boolean} true，否则为 false。</td>
         </tr>
 
     
@@ -992,15 +974,6 @@
 
 
 
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    true if the browser supports a WebGL2 rendering context, false if not.
-</div>
-
-
-    
 
 
 
@@ -1064,7 +1037,7 @@
 
 
 <div class="description">
-    Detects whether the current browser supports Web Workers.
+    检测当前浏览器是否支持 Web Worker。
 </div>
 
 
@@ -1091,7 +1064,7 @@
 
         
 <div class="param-desc">
-    true if the browsers supports Web Workers, false if not.
+    如果浏览器支持 Web Worker，则true，否则为 false。
 </div>
 
 

@@ -58,7 +58,7 @@
 
 
 <div class="description">
-    A queue that can enqueue items at the end, and dequeue items from the front.
+    一个队列，可以在末尾将项目排入队列，并从前面取消项目排队。
 </div>
 
 
@@ -154,7 +154,7 @@
 
 
 <div class="description">
-    The length of the queue.
+    队列的长度。
 </div>
 
 
@@ -221,7 +221,7 @@
 
 
 <div class="description">
-    Remove all items from the queue.
+    从队列中删除所有项目。
 </div>
 
 
@@ -302,7 +302,7 @@
 
 
 <div class="description">
-    Check whether this queue contains the specified item.
+    检查此队列是否包含指定项。
 </div>
 
 
@@ -353,7 +353,7 @@
 
             <td class="description last">
             
-                The item to search for.</td>
+                要搜索的项目。</td>
         </tr>
 
     
@@ -428,7 +428,7 @@
 
 
 <div class="description">
-    Dequeues an item.  Returns undefined if the queue is empty.
+    取消项目排队。 如果队列为空，则返回 undefined。
 </div>
 
 
@@ -455,7 +455,7 @@
 
         
 <div class="param-desc">
-    The the dequeued item.
+    已取消排队的项目。
 </div>
 
 
@@ -518,7 +518,7 @@
 
 
 <div class="description">
-    Enqueues the specified item.
+    将指定项排入队列。
 </div>
 
 
@@ -569,7 +569,7 @@
 
             <td class="description last">
             
-                The item to enqueue.</td>
+                要入队的项目。</td>
         </tr>
 
     
@@ -644,7 +644,7 @@
 
 
 <div class="description">
-    Returns the item at the front of the queue.  Returns undefined if the queue is empty.
+    返回队列前面的项目。 如果队列为空，则返回 undefined。
 </div>
 
 
@@ -671,7 +671,7 @@
 
         
 <div class="param-desc">
-    The item at the front of the queue.
+    队列前面的项目。
 </div>
 
 
@@ -734,7 +734,7 @@
 
 
 <div class="description">
-    Sort the items in the queue in-place.
+    就地对队列中的项目进行排序。
 </div>
 
 
@@ -785,7 +785,7 @@
 
             <td class="description last">
             
-                A function that defines the sort order.</td>
+                定义排序顺序的函数。</td>
         </tr>
 
     
@@ -866,7 +866,7 @@
 
 
 <div class="description">
-    A function used to compare two items while sorting a queue.
+    用于在对队列进行排序时比较两个项目的函数。
 </div>
 
 
@@ -961,7 +961,9 @@
 
         
 <div class="param-desc">
-    Returns a negative value if <code>a</code> is less than <code>b</code>,         a positive value if <code>a</code> is greater than <code>b</code>, or         0 if <code>a</code> is equal to <code>b</code>.
+    如果 <code>a</code> 小于 <code>b</code>，则返回负值，
+如果 <code>a</code> 大于 <code>b</code>，则为正值，或
+如果 <code>a</code> 等于 <code>b</code>，则为 0。
 </div>
 
 
@@ -992,7 +994,9 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">function compareNumbers(a, b) {    return a - b;}</code></pre>
+    <pre><code class="language-javascript">function compareNumbers(a, b) {
+    return a - b;
+}</code></pre>
 
     
 

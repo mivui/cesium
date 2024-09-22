@@ -109,7 +109,7 @@
 
             <td class="description last">
             
-                An 对象，具有以下属性:
+                对象，具有以下属性:
                 
 
 <table class="params">
@@ -564,9 +564,50 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Simple stage to change the colorconst fs =`    uniform sampler2D colorTexture;    in vec2 v_textureCoordinates;    uniform float scale;    uniform vec3 offset;    void main() {        vec4 color = texture(colorTexture, v_textureCoordinates);        out_FragColor = vec4(color.rgb * scale + offset, 1.0);    }`;scene.postProcessStages.add(new Cesium.PostProcessStage({    fragmentShader : fs,    uniforms : {        scale : 1.1,        offset : function() {            return new Cesium.Cartesian3(0.1, 0.2, 0.3);        }    }}));</code></pre>
+    <pre><code class="language-javascript">// Simple stage to change the color
+const fs =`
+    uniform sampler2D colorTexture;
+    in vec2 v_textureCoordinates;
+    uniform float scale;
+    uniform vec3 offset;
+    void main() {
+        vec4 color = texture(colorTexture, v_textureCoordinates);
+        out_FragColor = vec4(color.rgb * scale + offset, 1.0);
+    }`;
+scene.postProcessStages.add(new Cesium.PostProcessStage({
+    fragmentShader : fs,
+    uniforms : {
+        scale : 1.1,
+        offset : function() {
+            return new Cesium.Cartesian3(0.1, 0.2, 0.3);
+        }
+    }
+}));</code></pre>
 
-    <pre><code class="language-javascript">// Simple stage to change the color of what is selected.// If czm_selected returns true, the current fragment belongs to geometry in the selected array.const fs =`    uniform sampler2D colorTexture;    in vec2 v_textureCoordinates;    uniform vec4 highlight;    void main() {        vec4 color = texture(colorTexture, v_textureCoordinates);        if (czm_selected()) {            vec3 highlighted = highlight.a * highlight.rgb + (1.0 - highlight.a) * color.rgb;            out_FragColor = vec4(highlighted, 1.0);        } else {            out_FragColor = color;        }    }`;const stage = scene.postProcessStages.add(new Cesium.PostProcessStage({    fragmentShader : fs,    uniforms : {        highlight : function() {            return new Cesium.Color(1.0, 0.0, 0.0, 0.5);        }    }}));stage.selected = [cesium3DTileFeature];</code></pre>
+    <pre><code class="language-javascript">// Simple stage to change the color of what is selected.
+// If czm_selected returns true, the current fragment belongs to geometry in the selected array.
+const fs =`
+    uniform sampler2D colorTexture;
+    in vec2 v_textureCoordinates;
+    uniform vec4 highlight;
+    void main() {
+        vec4 color = texture(colorTexture, v_textureCoordinates);
+        if (czm_selected()) {
+            vec3 highlighted = highlight.a * highlight.rgb + (1.0 - highlight.a) * color.rgb;
+            out_FragColor = vec4(highlighted, 1.0);
+        } else {
+            out_FragColor = color;
+        }
+    }`;
+const stage = scene.postProcessStages.add(new Cesium.PostProcessStage({
+    fragmentShader : fs,
+    uniforms : {
+        highlight : function() {
+            return new Cesium.Color(1.0, 0.0, 0.0, 0.5);
+        }
+    }
+}));
+stage.selected = [cesium3DTileFeature];</code></pre>
 
     
 
@@ -803,7 +844,15 @@
 
 
 <div class="description">
-    The fragment shader to use when execute this post-process stage.<p>The shader must contain a sampler uniform declaration for <code>colorTexture</code>, <code>depthTexture</code>,or both.</p><p>The shader must contain a <code>vec2</code> varying declaration for <code>v_textureCoordinates</code> for samplingthe texture uniforms.</p>
+    The fragment shader to use when execute this post-process stage.
+<p>
+The shader must contain a sampler uniform declaration for <code>colorTexture</code>, <code>depthTexture</code>,
+or both.
+</p>
+<p>
+The shader must contain a <code>vec2</code> varying declaration for <code>v_textureCoordinates</code> for sampling
+the texture uniforms.
+</p>
 </div>
 
 
@@ -1043,7 +1092,9 @@
 
 
 <div class="description">
-    Determines if this post-process stage is ready to be executed. A stage is only executed when both <code>ready</code>and <a href="PostProcessStage.html#enabled"><code>PostProcessStage#enabled</code></a> are <code>true</code>. A stage will not be ready while it is waiting on texturesto load.
+    Determines if this post-process stage is ready to be executed. A stage is only executed when both <code>ready</code>
+and <a href="PostProcessStage.html#enabled"><code>PostProcessStage#enabled</code></a> are <code>true</code>. A stage will not be ready while it is waiting on textures
+to load.
 </div>
 
 
@@ -1223,7 +1274,18 @@
 
 
 <div class="description">
-    The features selected for applying the post-process.<p>In the fragment shader, use <code>czm_selected</code> to determine whether or not to apply the post-processstage to that fragment. For example:<code>if (czm_selected(v_textureCoordinates)) {    // apply post-process stage} else {    out_FragColor = texture(colorTexture, v_textureCoordinates);}</code></p>
+    The features selected for applying the post-process.
+<p>
+In the fragment shader, use <code>czm_selected</code> to determine whether or not to apply the post-process
+stage to that fragment. For example:
+<code>
+if (czm_selected(v_textureCoordinates)) {
+    // apply post-process stage
+} else {
+    out_FragColor = texture(colorTexture, v_textureCoordinates);
+}
+</code>
+</p>
 </div>
 
 
@@ -1343,7 +1405,18 @@
 
 
 <div class="description">
-    An object whose properties are used to set the uniforms of the fragment shader.<p>The object property values can be either a constant or a function. The function will be calledeach frame before the post-process stage is executed.</p><p>A constant value can also be a URI to an image, a data URI, or an HTML element that can be used as a texture, such as HTMLImageElement or HTMLCanvasElement.</p><p>If this post-process stage is part of a <a href="PostProcessStageComposite.html"><code>PostProcessStageComposite</code></a> that does not execute in series, the constant value can also bethe name of another stage in a composite. This will set the uniform to the output texture the stage with that name.</p>
+    An object whose properties are used to set the uniforms of the fragment shader.
+<p>
+The object property values can be either a constant or a function. The function will be called
+each frame before the post-process stage is executed.
+</p>
+<p>
+A constant value can also be a URI to an image, a data URI, or an HTML element that can be used as a texture, such as HTMLImageElement or HTMLCanvasElement.
+</p>
+<p>
+If this post-process stage is part of a <a href="PostProcessStageComposite.html"><code>PostProcessStageComposite</code></a> that does not execute in series, the constant value can also be
+the name of another stage in a composite. This will set the uniform to the output texture the stage with that name.
+</p>
 </div>
 
 
@@ -1410,7 +1483,13 @@
 
 
 <div class="description">
-    Destroys the WebGL resources held by this object.  Destroying an object allows for deterministicrelease of WebGL resources, instead of relying on the garbage collector to destroy this object.<p>Once an object is destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.  Therefore,assign the return value (<code>undefined</code>) to the object as done in the example.</p>
+    Destroys the WebGL resources held by this object.  Destroying an object allows for deterministic
+release of WebGL resources, instead of relying on the garbage collector to destroy this object.
+<p>
+Once an object is destroyed, it should not be used; calling any function other than
+<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.  Therefore,
+assign the return value (<code>undefined</code>) to the object as done in the example.
+</p>
 </div>
 
 
@@ -1510,7 +1589,11 @@
 
 
 <div class="description">
-    Returns true if this object was destroyed; otherwise, false.<p>If this object was destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.</p>
+    Returns true if this object was destroyed; otherwise, false.
+<p>
+If this object was destroyed, it should not be used; calling any function other than
+<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.
+</p>
 </div>
 
 

@@ -47,7 +47,7 @@
 
 
         
-            <div class="description">Clones an object, returning a new object containing the same properties.</div>
+            <div class="description">克隆对象，返回包含相同属性的新对象。</div>
         
 
         

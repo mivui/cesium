@@ -47,7 +47,7 @@
 
 
         
-            <div class="description">A function used to compare two items while performing a merge sort.</div>
+            <div class="description">用于在执行归并排序时比较两个项目的函数。</div>
         
 
         
@@ -73,7 +73,9 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">function compareNumbers(a, b, userDefinedObject) {    return a - b;}</code></pre>
+    <pre><code class="language-javascript">function compareNumbers(a, b, userDefinedObject) {
+    return a - b;
+}</code></pre>
 
     
 

@@ -47,7 +47,7 @@
 
 
         
-            <div class="description">Initiates a sampleTerrain() request at the maximum available tile level for a terrain dataset.</div>
+            <div class="description">在 terrain 数据集的最大可用瓦片级别启动 sampleTerrain（） 请求。</div>
         
 
         

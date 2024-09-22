@@ -58,7 +58,10 @@
 
 
 <div class="description">
-    The viewing frustum is defined by 6 planes.Each plane is represented by a <a href="Cartesian4.html"><code>Cartesian4</code></a> object, where the x, y, and z componentsdefine the unit vector normal to the plane, and the w component is the distance of theplane from the origin/camera position.
+    视锥体由 6 个平面定义。
+每个平面都由一个 <a href="Cartesian4.html"><code>Cartesian4</code></a> 对象表示，其中 x、y 和 z 分量
+定义垂直于平面的单位向量，w 分量是
+从原点/相机位置开始的平面。
 </div>
 
 
@@ -116,7 +119,7 @@
 
                 
             
-                An 对象，具有以下属性:
+                对象，具有以下属性:
                 
 
 <table class="params">
@@ -168,7 +171,7 @@
 
                 
             
-                The angle of the field of view (FOV), in radians.</td>
+                视野角 （FOV），以弧度为单位。</td>
         </tr>
 
     
@@ -202,7 +205,7 @@
 
                 
             
-                The aspect ratio of the frustum's width to it's height.</td>
+                视锥体的宽度与高度的纵横比。</td>
         </tr>
 
     
@@ -238,7 +241,7 @@
 
                 
             
-                The distance of the near plane.</td>
+                近平面的距离。</td>
         </tr>
 
     
@@ -274,7 +277,7 @@
 
                 
             
-                The distance of the far plane.</td>
+                远平面的距离。</td>
         </tr>
 
     
@@ -310,7 +313,7 @@
 
                 
             
-                The offset in the x direction.</td>
+                x 方向的偏移量。</td>
         </tr>
 
     
@@ -346,7 +349,7 @@
 
                 
             
-                The offset in the y direction.</td>
+                y 方向的偏移量。</td>
         </tr>
 
     
@@ -395,7 +398,12 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const frustum = new Cesium.PerspectiveFrustum({    fov : Cesium.Math.PI_OVER_THREE,    aspectRatio : canvas.clientWidth / canvas.clientHeight    near : 1.0,    far : 1000.0});</code></pre>
+    <pre><code class="language-javascript">const frustum = new Cesium.PerspectiveFrustum({
+    fov : Cesium.Math.PI_OVER_THREE,
+    aspectRatio : canvas.clientWidth / canvas.clientHeight
+    near : 1.0,
+    far : 1000.0
+});</code></pre>
 
     
 
@@ -512,7 +520,7 @@
 
 
 <div class="description">
-    The aspect ratio of the frustum's width to it's height.
+    视锥体的宽度与高度的纵横比。
 </div>
 
 
@@ -575,7 +583,7 @@
 
 
 <div class="description">
-    The distance of the far plane.
+    远平面的距离。
 </div>
 
 
@@ -638,7 +646,9 @@
 
 
 <div class="description">
-    The angle of the field of view (FOV), in radians.  This angle will be usedas the horizontal FOV if the width is greater than the height, otherwiseit will be the vertical FOV.
+    视场角度 （FOV），以弧度为单位。 将使用这个角度
+如果宽度大于高度，则作为水平 FOV，否则
+这将是垂直 FOV。
 </div>
 
 
@@ -701,7 +711,7 @@
 
 
 <div class="description">
-    Gets the angle of the vertical field of view, in radians.
+    获取垂直视野的角度，以弧度为单位。
 </div>
 
 
@@ -764,7 +774,7 @@
 
 
 <div class="description">
-    The perspective projection matrix computed from the view frustum with an infinite far plane.
+    从具有无限远平面的视图视锥体计算的透视投影矩阵。
 </div>
 
 
@@ -829,7 +839,7 @@
 
 
 <div class="description">
-    The distance of the near plane.
+    近平面的距离。
 </div>
 
 
@@ -892,7 +902,7 @@
 
 
 <div class="description">
-    Gets the perspective projection matrix computed from the view frustum.
+    获取从视图视锥体计算的透视投影矩阵。
 </div>
 
 
@@ -957,7 +967,7 @@
 
 
 <div class="description">
-    Offsets the frustum in the x direction.
+    在 x 方向上偏移视锥体。
 </div>
 
 
@@ -1020,7 +1030,7 @@
 
 
 <div class="description">
-    Offsets the frustum in the y direction.
+    在 y 方向上偏移视锥体。
 </div>
 
 
@@ -1457,7 +1467,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数 or a new PerspectiveFrustum instance if one was not provided.
+    修改后的结果参数 或新的 PerspectiveFrustum 实例（如果未提供）。
 </div>
 
 
@@ -1520,7 +1530,7 @@
 
 
 <div class="description">
-    Returns a duplicate of a PerspectiveFrustum instance.
+    返回 PerspectiveFrustum 实例的副本。
 </div>
 
 
@@ -1599,7 +1609,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数 or a new PerspectiveFrustum instance if one was not provided.
+    修改后的结果参数或新的 PerspectiveFrustum 实例（如果未提供）。
 </div>
 
 
@@ -1662,7 +1672,7 @@
 
 
 <div class="description">
-    Creates a culling volume for this frustum.
+    为此视锥体创建剔除体积。
 </div>
 
 
@@ -1713,7 +1723,7 @@
 
             <td class="description last">
             
-                The eye position.</td>
+                眼睛位置。</td>
         </tr>
 
     
@@ -1736,7 +1746,7 @@
 
             <td class="description last">
             
-                The view direction.</td>
+                视图方向。</td>
         </tr>
 
     
@@ -1759,7 +1769,7 @@
 
             <td class="description last">
             
-                The up direction.</td>
+                向上方向。</td>
         </tr>
 
     
@@ -1780,7 +1790,7 @@
 
         
 <div class="param-desc">
-    A culling volume at the given position and orientation.
+    给定位置和方向的剔除体积。
 </div>
 
 
@@ -1811,7 +1821,9 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Check if a bounding volume intersects the frustum.const cullingVolume = frustum.computeCullingVolume(cameraPosition, cameraDirection, cameraUp);const intersect = cullingVolume.computeVisibility(boundingVolume);</code></pre>
+    <pre><code class="language-javascript">// Check if a bounding volume intersects the frustum.
+const cullingVolume = frustum.computeCullingVolume(cameraPosition, cameraDirection, cameraUp);
+const intersect = cullingVolume.computeVisibility(boundingVolume);</code></pre>
 
     
 
@@ -1848,7 +1860,8 @@
 
 
 <div class="description">
-    Compares the provided PerspectiveFrustum componentwise and returns<code>true</code>，否则为<code>false</code>。
+    对提供的 PerspectiveFrustum 组件进行比较，并返回
+<code>true</code>，否则为<code>false</code>。
 </div>
 
 
@@ -1990,7 +2003,9 @@
 
 
 <div class="description">
-    Compares the provided PerspectiveFrustum componentwise and returns<code>true</code> 如果它们通过了绝对或相对耐受性测试，<code>false</code> 否则。
+    对提供的 PerspectiveFrustum 组件进行比较，并返回
+<code>true</code> 如果它们通过了绝对或相对耐受性测试，
+<code>false</code> 否则。
 </div>
 
 
@@ -2141,7 +2156,7 @@
 
         
 <div class="param-desc">
-    <code>true</code> if this and other are within the provided epsilon, <code>false</code> 否则。
+    <code>true</code> 如果 this 和其他都在提供的 epsilon 内, <code>false</code> 否则。
 </div>
 
 
@@ -2204,7 +2219,7 @@
 
 
 <div class="description">
-    Returns the pixel's width and height in meters.
+    返回像素的宽度和高度（以米为单位）。
 </div>
 
 
@@ -2255,7 +2270,7 @@
 
             <td class="description last">
             
-                The width of the drawing buffer.</td>
+                绘图缓冲区的宽度。</td>
         </tr>
 
     
@@ -2278,7 +2293,7 @@
 
             <td class="description last">
             
-                The height of the drawing buffer.</td>
+                绘图缓冲区的高度。</td>
         </tr>
 
     
@@ -2301,7 +2316,7 @@
 
             <td class="description last">
             
-                The distance to the near plane in meters.</td>
+                到近平面的距离，以米为单位。</td>
         </tr>
 
     
@@ -2324,7 +2339,7 @@
 
             <td class="description last">
             
-                The scaling factor from pixel space to coordinate space.</td>
+                从像素空间到坐标空间的缩放因子。</td>
         </tr>
 
     
@@ -2368,7 +2383,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数 or a new instance of <a href="Cartesian2.html"><code>Cartesian2</code></a> with the pixel's width and height in the x and y properties, respectively.
+    修改后的结果参数或 <a href="Cartesian2.html"><code>Cartesian2</code></a> 的新实例，像素的宽度和高度分别位于 x 和 y 属性中。
 </div>
 
 
@@ -2435,9 +2450,19 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Example 1// Get the width and height of a pixel.const pixelSize = camera.frustum.getPixelDimensions(scene.drawingBufferWidth, scene.drawingBufferHeight, 1.0, scene.pixelRatio, new Cesium.Cartesian2());</code></pre>
+    <pre><code class="language-javascript">// Example 1
+// Get the width and height of a pixel.
+const pixelSize = camera.frustum.getPixelDimensions(scene.drawingBufferWidth, scene.drawingBufferHeight, 1.0, scene.pixelRatio, new Cesium.Cartesian2());</code></pre>
 
-    <pre><code class="language-javascript">// Example 2// Get the width and height of a pixel if the near plane was set to 'distance'.// For example, get the size of a pixel of an image on a billboard.const position = camera.position;const direction = camera.direction;const toCenter = Cesium.Cartesian3.subtract(primitive.boundingVolume.center, position, new Cesium.Cartesian3());      // vector from camera to a primitiveconst toCenterProj = Cesium.Cartesian3.multiplyByScalar(direction, Cesium.Cartesian3.dot(direction, toCenter), new Cesium.Cartesian3()); // project vector onto camera direction vectorconst distance = Cesium.Cartesian3.magnitude(toCenterProj);const pixelSize = camera.frustum.getPixelDimensions(scene.drawingBufferWidth, scene.drawingBufferHeight, distance, scene.pixelRatio, new Cesium.Cartesian2());</code></pre>
+    <pre><code class="language-javascript">// Example 2
+// Get the width and height of a pixel if the near plane was set to 'distance'.
+// For example, get the size of a pixel of an image on a billboard.
+const position = camera.position;
+const direction = camera.direction;
+const toCenter = Cesium.Cartesian3.subtract(primitive.boundingVolume.center, position, new Cesium.Cartesian3());      // vector from camera to a primitive
+const toCenterProj = Cesium.Cartesian3.multiplyByScalar(direction, Cesium.Cartesian3.dot(direction, toCenter), new Cesium.Cartesian3()); // project vector onto camera direction vector
+const distance = Cesium.Cartesian3.magnitude(toCenterProj);
+const pixelSize = camera.frustum.getPixelDimensions(scene.drawingBufferWidth, scene.drawingBufferHeight, distance, scene.pixelRatio, new Cesium.Cartesian2());</code></pre>
 
     
 

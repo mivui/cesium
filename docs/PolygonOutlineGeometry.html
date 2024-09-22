@@ -58,7 +58,7 @@
 
 
 <div class="description">
-    A description of the outline of a polygon on the ellipsoid. The polygon is defined by a polygon hierarchy.
+    椭球体上多边形轮廓的描述。多边形由多边形层次结构定义。
 </div>
 
 
@@ -109,7 +109,7 @@
 
             <td class="description last">
             
-                对象，具有以下属性:
+                对象，具有以下属性：
                 
 
 <table class="params">
@@ -159,7 +159,7 @@
 
                 
             
-                A polygon hierarchy that can include holes.</td>
+                可以包含孔洞的多边形层次结构。</td>
         </tr>
 
     
@@ -195,7 +195,7 @@
 
                 
             
-                The distance in meters between the polygon and the ellipsoid surface.</td>
+                多边形和椭球体表面之间的距离（以米为单位）。</td>
         </tr>
 
     
@@ -229,7 +229,7 @@
 
                 
             
-                The distance in meters between the polygon's extruded face and the ellipsoid surface.</td>
+                多边形的挤出面与椭球体表面之间的距离（以米为单位）。</td>
         </tr>
 
     
@@ -301,7 +301,7 @@
 
                 
             
-                The ellipsoid to be used as a reference.</td>
+                要用作参考的椭球体。</td>
         </tr>
 
     
@@ -337,7 +337,7 @@
 
                 
             
-                The distance, in radians, between each latitude and longitude. Determines the number of positions in the buffer.</td>
+                每个纬度和经度之间的距离，以弧度为单位。确定缓冲区中的位置数。</td>
         </tr>
 
     
@@ -373,7 +373,7 @@
 
                 
             
-                Use the height of options.positions for each position instead of using options.height to determine the height.</td>
+                为每个位置使用 options.positions 的高度，而不是使用 options.height 来确定高度。</td>
         </tr>
 
     
@@ -409,7 +409,7 @@
 
                 
             
-                The type of path the outline must follow. Valid options are <a href="global.html#ArcType#.GEODESIC"><code>ArcType.GEODESIC</code></a> and <a href="global.html#ArcType#.RHUMB"><code>ArcType.RHUMB</code></a>.</td>
+                轮廓必须遵循的路径类型。有效选项为 <a href="global.html#ArcType#.GEODESIC"><code>ArcType.GEODESIC</code></a> 和 <a href="global.html#ArcType#.RHUMB"><code>ArcType.RHUMB</code></a>。</td>
         </tr>
 
     
@@ -458,7 +458,71 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// 1. create a polygon outline from pointsconst polygon = new Cesium.PolygonOutlineGeometry({  polygonHierarchy : new Cesium.PolygonHierarchy(    Cesium.Cartesian3.fromDegreesArray([      -72.0, 40.0,      -70.0, 35.0,      -75.0, 30.0,      -70.0, 30.0,      -68.0, 40.0    ])  )});const geometry = Cesium.PolygonOutlineGeometry.createGeometry(polygon);// 2. create a nested polygon with holes outlineconst polygonWithHole = new Cesium.PolygonOutlineGeometry({  polygonHierarchy : new Cesium.PolygonHierarchy(    Cesium.Cartesian3.fromDegreesArray([      -109.0, 30.0,      -95.0, 30.0,      -95.0, 40.0,      -109.0, 40.0    ]),    [new Cesium.PolygonHierarchy(      Cesium.Cartesian3.fromDegreesArray([        -107.0, 31.0,        -107.0, 39.0,        -97.0, 39.0,        -97.0, 31.0      ]),      [new Cesium.PolygonHierarchy(        Cesium.Cartesian3.fromDegreesArray([          -105.0, 33.0,          -99.0, 33.0,          -99.0, 37.0,          -105.0, 37.0        ]),        [new Cesium.PolygonHierarchy(          Cesium.Cartesian3.fromDegreesArray([            -103.0, 34.0,            -101.0, 34.0,            -101.0, 36.0,            -103.0, 36.0          ])        )]      )]    )]  )});const geometry = Cesium.PolygonOutlineGeometry.createGeometry(polygonWithHole);// 3. create extruded polygon outlineconst extrudedPolygon = new Cesium.PolygonOutlineGeometry({  polygonHierarchy : new Cesium.PolygonHierarchy(    Cesium.Cartesian3.fromDegreesArray([      -72.0, 40.0,      -70.0, 35.0,      -75.0, 30.0,      -70.0, 30.0,      -68.0, 40.0    ])  ),  extrudedHeight: 300000});const geometry = Cesium.PolygonOutlineGeometry.createGeometry(extrudedPolygon);</code></pre>
+    <pre><code class="language-javascript">// 1. create a polygon outline from points
+const polygon = new Cesium.PolygonOutlineGeometry({
+  polygonHierarchy : new Cesium.PolygonHierarchy(
+    Cesium.Cartesian3.fromDegreesArray([
+      -72.0, 40.0,
+      -70.0, 35.0,
+      -75.0, 30.0,
+      -70.0, 30.0,
+      -68.0, 40.0
+    ])
+  )
+});
+const geometry = Cesium.PolygonOutlineGeometry.createGeometry(polygon);
+
+// 2. create a nested polygon with holes outline
+const polygonWithHole = new Cesium.PolygonOutlineGeometry({
+  polygonHierarchy : new Cesium.PolygonHierarchy(
+    Cesium.Cartesian3.fromDegreesArray([
+      -109.0, 30.0,
+      -95.0, 30.0,
+      -95.0, 40.0,
+      -109.0, 40.0
+    ]),
+    [new Cesium.PolygonHierarchy(
+      Cesium.Cartesian3.fromDegreesArray([
+        -107.0, 31.0,
+        -107.0, 39.0,
+        -97.0, 39.0,
+        -97.0, 31.0
+      ]),
+      [new Cesium.PolygonHierarchy(
+        Cesium.Cartesian3.fromDegreesArray([
+          -105.0, 33.0,
+          -99.0, 33.0,
+          -99.0, 37.0,
+          -105.0, 37.0
+        ]),
+        [new Cesium.PolygonHierarchy(
+          Cesium.Cartesian3.fromDegreesArray([
+            -103.0, 34.0,
+            -101.0, 34.0,
+            -101.0, 36.0,
+            -103.0, 36.0
+          ])
+        )]
+      )]
+    )]
+  )
+});
+const geometry = Cesium.PolygonOutlineGeometry.createGeometry(polygonWithHole);
+
+// 3. create extruded polygon outline
+const extrudedPolygon = new Cesium.PolygonOutlineGeometry({
+  polygonHierarchy : new Cesium.PolygonHierarchy(
+    Cesium.Cartesian3.fromDegreesArray([
+      -72.0, 40.0,
+      -70.0, 35.0,
+      -75.0, 30.0,
+      -70.0, 30.0,
+      -68.0, 40.0
+    ])
+  ),
+  extrudedHeight: 300000
+});
+const geometry = Cesium.PolygonOutlineGeometry.createGeometry(extrudedPolygon);</code></pre>
 
     
 
@@ -584,7 +648,7 @@
 
 
 <div class="description">
-    Computes the geometric representation of a polygon outline, including its vertices, indices, and a bounding sphere.
+    计算多边形轮廓的几何表示，包括其顶点、索引和边界球体。
 </div>
 
 
@@ -635,7 +699,7 @@
 
             <td class="description last">
             
-                A description of the polygon outline.</td>
+                多边形轮廓的描述。</td>
         </tr>
 
     
@@ -719,7 +783,7 @@
 
 
 <div class="description">
-    A description of a polygon outline from an array of positions.
+    来自位置数组的多边形轮廓的描述。
 </div>
 
 
@@ -820,7 +884,7 @@
 
                 
             
-                An array of positions that defined the corner points of the polygon.</td>
+                定义多边形的角点的位置数组。</td>
         </tr>
 
     
@@ -856,7 +920,7 @@
 
                 
             
-                高度 polygon.</td>
+                polygon 高度 .</td>
         </tr>
 
     
@@ -890,7 +954,7 @@
 
                 
             
-                高度 polygon extrusion.</td>
+                高度多边形拉伸。</td>
         </tr>
 
     
@@ -926,7 +990,7 @@
 
                 
             
-                The ellipsoid to be used as a reference.</td>
+                要用作参考的椭球体。</td>
         </tr>
 
     
@@ -962,7 +1026,7 @@
 
                 
             
-                The distance, in radians, between each latitude and longitude. Determines the number of positions in the buffer.</td>
+                每个纬度和经度之间的距离，以弧度为单位。确定缓冲区中的位置数。</td>
         </tr>
 
     
@@ -998,7 +1062,7 @@
 
                 
             
-                Use the height of options.positions for each position instead of using options.height to determine the height.</td>
+                为每个位置使用 options.positions 的高度，而不是使用 options.height 来确定高度。</td>
         </tr>
 
     
@@ -1034,7 +1098,7 @@
 
                 
             
-                The type of path the outline must follow. Valid options are <code>LinkType.GEODESIC</code> and <a href="global.html#ArcType#.RHUMB"><code>ArcType.RHUMB</code></a>.</td>
+                轮廓必须遵循的路径类型。有效选项为 <code>LinkType.GEODESIC</code> 和 <a href="global.html#ArcType#.RHUMB"><code>ArcType.RHUMB</code></a>。</td>
         </tr>
 
     
@@ -1088,7 +1152,17 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// create a polygon from pointsconst polygon = Cesium.PolygonOutlineGeometry.fromPositions({  positions : Cesium.Cartesian3.fromDegreesArray([    -72.0, 40.0,    -70.0, 35.0,    -75.0, 30.0,    -70.0, 30.0,    -68.0, 40.0  ])});const geometry = Cesium.PolygonOutlineGeometry.createGeometry(polygon);</code></pre>
+    <pre><code class="language-javascript">// create a polygon from points
+const polygon = Cesium.PolygonOutlineGeometry.fromPositions({
+  positions : Cesium.Cartesian3.fromDegreesArray([
+    -72.0, 40.0,
+    -70.0, 35.0,
+    -75.0, 30.0,
+    -70.0, 30.0,
+    -68.0, 40.0
+  ])
+});
+const geometry = Cesium.PolygonOutlineGeometry.createGeometry(polygon);</code></pre>
 
     
 
@@ -1497,7 +1571,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数 or a new PolygonOutlineGeometry instance if one was not provided.
+    修改后的结果参数或新的 PolygonOutlineGeometry 实例（如果未提供）。
 </div>
 
 

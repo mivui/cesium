@@ -58,7 +58,7 @@
 
 
 <div class="description">
-    A very simple <a href="TerrainProvider.html"><code>TerrainProvider</code></a> that produces geometry by tessellating an ellipsoidalsurface.
+    一个非常简单的 <a href="TerrainProvider.html"><code>TerrainProvider</code></a>，它通过分割椭球体来生成几何体表面。
 </div>
 
 
@@ -116,7 +116,7 @@
 
                 
             
-                对象，具有以下属性:
+                对象，具有以下属性：
                 
 
 <table class="params">
@@ -168,7 +168,7 @@
 
                 
             
-                The tiling scheme specifying how the ellipsoidalsurface is broken into tiles.  If this parameter is not provided, a <a href="GeographicTilingScheme.html"><code>GeographicTilingScheme</code></a>is used.</td>
+                指定椭球体如何表面被打碎成图块。 如果未提供此参数，则 <a href="GeographicTilingScheme.html"><code>GeographicTilingScheme</code></a>被使用。</td>
         </tr>
 
     
@@ -204,7 +204,7 @@
 
                 
             
-                The ellipsoid.  If the tilingScheme is specified,this parameter is ignored and the tiling scheme's ellipsoid is used instead. If neitherparameter is specified, the default ellipsoid is used.</td>
+                椭球体。 如果指定了 tilingScheme，则此参数将被忽略，而使用切片方案的椭球体。如果两者都不是参数，则使用默认椭球。</td>
         </tr>
 
     
@@ -305,7 +305,7 @@
 
 
 <div class="description">
-    Gets an object that can be used to determine availability of terrain from this provider, such asat points and in rectangles. This property may be undefined if availabilityinformation is not available.
+    获取一个对象，该对象可用于确定此提供程序提供的地形的可用性，例如在点和矩形中。如果可用性信息不可用。
 </div>
 
 
@@ -365,7 +365,7 @@
 
 
 <div class="description">
-    Gets the credit to display when this terrain provider is active.  Typically this is used to creditthe source of the terrain.
+    获取此地形提供程序处于活动状态时要显示的信用额度。 通常，这用于贷记地形的源。
 </div>
 
 
@@ -425,7 +425,7 @@
 
 
 <div class="description">
-    Gets an event that is raised when the terrain provider encounters an asynchronous error.  By subscribingto the event, you will be notified of the error and can potentially recover from it.  Event listenersare passed an instance of <a href="TileProviderError.html"><code>TileProviderError</code></a>.
+    获取 terrain 提供程序遇到异步错误时引发的事件。 通过订阅时，您将收到错误通知，并可能从中恢复。 事件侦听器将传递 <a href="TileProviderError.html"><code>TileProviderError</code></a> 的实例。
 </div>
 
 
@@ -485,7 +485,7 @@
 
 
 <div class="description">
-    Gets a value indicating whether or not the requested tiles include vertex normals.
+    获取一个值，该值指示请求的图块是否包含顶点法线。
 </div>
 
 
@@ -545,7 +545,7 @@
 
 
 <div class="description">
-    Gets a value indicating whether or not the provider includes a water mask.  The water maskindicates which areas of the globe are water rather than land, so they can be renderedas a reflective surface with animated waves.
+    获取一个值，该值指示提供程序是否包含水面罩。 水面罩表示地球上的哪些区域是水面而不是陆地，因此可以渲染它们作为具有动画波形的反射表面。
 </div>
 
 
@@ -605,7 +605,7 @@
 
 
 <div class="description">
-    Gets the tiling scheme used by this provider.
+    获取此提供程序使用的平铺方案。
 </div>
 
 
@@ -1169,7 +1169,7 @@
 
 
 <div class="description">
-    Requests the geometry for a given tile. The result includes terraindata and indicates that all child tiles are available.
+    请求给定图块的几何图形。结果包括 terrain数据，并指示所有子磁贴都可用。
 </div>
 
 

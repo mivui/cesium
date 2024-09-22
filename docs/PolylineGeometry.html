@@ -58,7 +58,9 @@
 
 
 <div class="description">
-    A description of a polyline modeled as a line strip; the first two positions define a line segment,and each additional position defines a line segment from the previous position. The polyline is capable ofdisplaying with a material.
+    建模为线带的多段线的描述;前两个位置定义线段
+，每个额外的位置定义从前一个位置开始的线段。多段线能够
+使用材质显示。
 </div>
 
 
@@ -159,7 +161,7 @@
 
                 
             
-                An array of <a href="Cartesian3.html"><code>Cartesian3</code></a> defining the positions in the polyline as a line strip.</td>
+                一个 <a href="Cartesian3.html"><code>Cartesian3</code></a> 数组，将折线中的位置定义为线带。</td>
         </tr>
 
     
@@ -195,7 +197,7 @@
 
                 
             
-                The width in pixels.</td>
+                以像素为单位的宽度。</td>
         </tr>
 
     
@@ -229,7 +231,7 @@
 
                 
             
-                An Array of <a href="Color.html"><code>Color</code></a> defining the per vertex or per segment colors.</td>
+                一个 <a href="Color.html"><code>Color</code></a> 数组，定义每个顶点或每个段的颜色。</td>
         </tr>
 
     
@@ -265,7 +267,7 @@
 
                 
             
-                A boolean that determines whether the colors will be flat across each segment of the line or interpolated across the vertices.</td>
+                一个布尔值，用于确定颜色是在线的每一段上是平坦的，还是在顶点上插值。</td>
         </tr>
 
     
@@ -301,7 +303,7 @@
 
                 
             
-                The type of line the polyline segments must follow.</td>
+                多段线段必须遵循的线类型。</td>
         </tr>
 
     
@@ -337,7 +339,7 @@
 
                 
             
-                The distance, in radians, between each latitude and longitude if options.arcType is not ArcType.NONE. Determines the number of positions in the buffer.</td>
+                如果 options.arcType 不是 ArcType.NONE，则每个纬度和经度之间的距离（以弧度为单位）。确定缓冲区中的位置数。</td>
         </tr>
 
     
@@ -409,7 +411,7 @@
 
                 
             
-                The ellipsoid to be used as a reference.</td>
+                要用作参考的椭球体。</td>
         </tr>
 
     
@@ -442,7 +444,7 @@
         
 <span class="param-type"><a href="DeveloperError.html">DeveloperError</a></span>
 
-: At least two positions are required.
+: 至少需要两个位置。
     </div>
 
 </li>
@@ -453,7 +455,7 @@
         
 <span class="param-type"><a href="DeveloperError.html">DeveloperError</a></span>
 
-: width must be greater than or equal to one.
+: 宽度必须大于或等于 1。
     </div>
 
 </li>
@@ -464,7 +466,7 @@
         
 <span class="param-type"><a href="DeveloperError.html">DeveloperError</a></span>
 
-: colors has an invalid length.
+: 颜色的长度无效。
     </div>
 
 </li>
@@ -494,7 +496,16 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// A polyline with two connected line segmentsconst polyline = new Cesium.PolylineGeometry({  positions : Cesium.Cartesian3.fromDegreesArray([    0.0, 0.0,    5.0, 0.0,    5.0, 5.0  ]),  width : 10.0});const geometry = Cesium.PolylineGeometry.createGeometry(polyline);</code></pre>
+    <pre><code class="language-javascript">// A polyline with two connected line segments
+const polyline = new Cesium.PolylineGeometry({
+  positions : Cesium.Cartesian3.fromDegreesArray([
+    0.0, 0.0,
+    5.0, 0.0,
+    5.0, 5.0
+  ]),
+  width : 10.0
+});
+const geometry = Cesium.PolylineGeometry.createGeometry(polyline);</code></pre>
 
     
 
@@ -623,7 +634,7 @@
 
 
 <div class="description">
-    Computes the geometric representation of a polyline, including its vertices, indices, and a bounding sphere.
+    计算多段线的几何表示，包括其顶点、索引和边界球体。
 </div>
 
 
@@ -674,7 +685,7 @@
 
             <td class="description last">
             
-                A description of the polyline.</td>
+                多段线的描述。</td>
         </tr>
 
     
@@ -1125,7 +1136,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数 or a new PolylineGeometry instance if one was not provided.
+    修改后的结果参数或新的 PolylineGeometry 实例（如果未提供）。
 </div>
 
 

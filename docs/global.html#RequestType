@@ -47,7 +47,7 @@
 
 
         
-            <div class="description">An enum identifying the type of request. Used for finer grained logging and priority sorting.</div>
+            <div class="description">标识请求类型的枚举。用于更精细的日志记录和优先级排序。</div>
         
 
         
@@ -96,7 +96,7 @@
 
             
 
-            <td class="description last">Terrain request.</td>
+            <td class="description last">地形请求。</td>
         </tr>
 
     
@@ -119,7 +119,7 @@
 
             
 
-            <td class="description last">Imagery request.</td>
+            <td class="description last">图像请求。</td>
         </tr>
 
     
@@ -142,7 +142,7 @@
 
             
 
-            <td class="description last">3D Tiles request.</td>
+            <td class="description last">3D 图块请求。</td>
         </tr>
 
     
@@ -165,7 +165,7 @@
 
             
 
-            <td class="description last">Other request.</td>
+            <td class="description last">其他请求。</td>
         </tr>
 
     
@@ -239,7 +239,7 @@
 
 
 <div class="description">
-    Imagery request.
+    图像请求。
 </div>
 
 
@@ -302,7 +302,7 @@
 
 
 <div class="description">
-    Other request.
+    其他请求。
 </div>
 
 
@@ -365,7 +365,7 @@
 
 
 <div class="description">
-    Terrain request.
+    地形请求。
 </div>
 
 
@@ -425,7 +425,7 @@
 
 
 <div class="description">
-    3D Tiles request.
+    3D 图块请求。
 </div>
 
 

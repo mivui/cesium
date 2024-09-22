@@ -47,7 +47,8 @@
 
 
         
-            <div class="description">Constants for WebGL index datatypes.  These corresponds to the<code>type</code> parameter of <a href="http://www.khronos.org/opengles/sdk/docs/man/xhtml/glDrawElements.xml">drawElements</a>.</div>
+            <div class="description">WebGL 索引数据类型的常量。 这些对应于
+<code>type</code> 参数的 <a href="http://www.khronos.org/opengles/sdk/docs/man/xhtml/glDrawElements.xml">drawElements</a> 的 intent 参数。</div>
         
 
         
@@ -96,7 +97,8 @@
 
             
 
-            <td class="description last">8-bit unsigned byte corresponding to <code>UNSIGNED_BYTE</code> and the typeof an element in <code>Uint8Array</code>.</td>
+            <td class="description last">8-bit unsigned 字节对应于 <code>UNSIGNED_BYTE</code> 和 类型
+的元素 <code>Uint8Array</code>.</td>
         </tr>
 
     
@@ -119,7 +121,8 @@
 
             
 
-            <td class="description last">16-bit unsigned short corresponding to <code>UNSIGNED_SHORT</code> and the typeof an element in <code>Uint16Array</code>.</td>
+            <td class="description last">16-bit unsigned short 对应于 <code>UNSIGNED_SHORT</code> 和 类型
+ 的元素<code>Uint16Array</code>.</td>
         </tr>
 
     
@@ -142,7 +145,8 @@
 
             
 
-            <td class="description last">32-bit unsigned int corresponding to <code>UNSIGNED_INT</code> and the typeof an element in <code>Uint32Array</code>.</td>
+            <td class="description last">32-bit unsigned int 对应于 <code>UNSIGNED_INT</code> 和类型
+ 的元素<code>Uint32Array</code>.</td>
         </tr>
 
     
@@ -216,7 +220,8 @@
 
 
 <div class="description">
-    8-bit unsigned byte corresponding to <code>UNSIGNED_BYTE</code> and the typeof an element in <code>Uint8Array</code>.
+    8-bit unsigned 字节对应于 <code>UNSIGNED_BYTE</code> 和 类型
+的元素 <code>Uint8Array</code>.
 </div>
 
 
@@ -279,7 +284,8 @@
 
 
 <div class="description">
-    32-bit unsigned int corresponding to <code>UNSIGNED_INT</code> and the typeof an element in <code>Uint32Array</code>.
+    32-bit unsigned int 对应于 <code>UNSIGNED_INT</code> 和类型
+ 的元素<code>Uint32Array</code>.
 </div>
 
 
@@ -342,7 +348,8 @@
 
 
 <div class="description">
-    16-bit unsigned short corresponding to <code>UNSIGNED_SHORT</code> and the typeof an element in <code>Uint16Array</code>.
+    16-bit unsigned short 对应于 <code>UNSIGNED_SHORT</code> 和 类型
+ 的元素<code>Uint16Array</code>.
 </div>
 
 
@@ -412,7 +419,8 @@
 
 
 <div class="description">
-    Creates a typed array that will store indices, using either <code><Uint16Array</code>or <code>Uint32Array</code> depending on the number of vertices.
+    使用 <code><Uint16Array</code> 创建将存储索引的类型化数组
+或 <code>Uint32Array</code>，具体取决于顶点的数量。
 </div>
 
 
@@ -463,7 +471,7 @@
 
             <td class="description last">
             
-                Number of vertices that the indices will reference.</td>
+                索引将引用的顶点数。</td>
         </tr>
 
     
@@ -489,7 +497,7 @@
 
             <td class="description last">
             
-                Passed through to the typed array constructor.</td>
+                传递给类型化数组构造函数。</td>
         </tr>
 
     
@@ -510,7 +518,7 @@
 
         
 <div class="param-desc">
-    A <code>Uint16Array</code> or <code>Uint32Array</code> constructed with <code>indicesLengthOrArray</code>.
+    使用 <code>indicesLengthOrArray</code> 构造的 <code>Uint16Array</code> 或 <code>Uint32Array</code>。
 </div>
 
 
@@ -578,7 +586,8 @@
 
 
 <div class="description">
-    Creates a typed array from a source array buffer.  The resulting typed array will store indices, using either <code><Uint16Array</code>or <code>Uint32Array</code> depending on the number of vertices.
+    从源数组缓冲区创建类型化数组。 生成的类型化数组将使用 <code><Uint16Array</code> 存储索引
+或 <code>Uint32Array</code>，具体取决于顶点的数量。
 </div>
 
 
@@ -629,7 +638,7 @@
 
             <td class="description last">
             
-                Number of vertices that the indices will reference.</td>
+                索引将引用的顶点数。</td>
         </tr>
 
     
@@ -652,7 +661,7 @@
 
             <td class="description last">
             
-                Passed through to the typed array constructor.</td>
+                传递给类型化数组构造函数。</td>
         </tr>
 
     
@@ -675,7 +684,7 @@
 
             <td class="description last">
             
-                Passed through to the typed array constructor.</td>
+                传递给类型化数组构造函数。</td>
         </tr>
 
     
@@ -698,7 +707,7 @@
 
             <td class="description last">
             
-                Passed through to the typed array constructor.</td>
+                传递给类型化数组构造函数。</td>
         </tr>
 
     
@@ -719,7 +728,7 @@
 
         
 <div class="param-desc">
-    A <code>Uint16Array</code> or <code>Uint32Array</code> constructed with <code>sourceArray</code>, <code>byteOffset</code>, and <code>length</code>.
+    使用 <code>sourceArray</code>、<code>byteOffset</code> 和 <code>length</code> 构造的 <code>Uint16Array</code> 或 <code>Uint32Array</code>。
 </div>
 
 
@@ -782,7 +791,7 @@
 
 
 <div class="description">
-    Gets the datatype with a given size in bytes.
+    获取具有给定大小（以字节为单位）的数据类型。
 </div>
 
 
@@ -833,7 +842,7 @@
 
             <td class="description last">
             
-                The size of a single index in bytes.</td>
+                单个索引的大小（以字节为单位）。</td>
         </tr>
 
     
@@ -854,7 +863,7 @@
 
         
 <div class="param-desc">
-    The index datatype with the given size.
+    具有给定大小的索引数据类型。
 </div>
 
 
@@ -917,7 +926,7 @@
 
 
 <div class="description">
-    Gets the <a href="global.html#IndexDatatype"><code>IndexDatatype</code></a> for the provided TypedArray instance.
+    获取提供的 TypedArray 实例的 <a href="global.html#IndexDatatype"><code>IndexDatatype</code></a>。
 </div>
 
 
@@ -964,7 +973,7 @@
 <span class="param-type">Uint16Array</span>
 |
 
-<span class="param-type">Uint32Array</span>
+<span class="param-type">uint32Array</span>
 
 
             
@@ -974,7 +983,7 @@
 
             <td class="description last">
             
-                The typed array.</td>
+                类型化数组。</td>
         </tr>
 
     
@@ -995,7 +1004,7 @@
 
         
 <div class="param-desc">
-    The IndexDatatype for the provided array, or undefined if the array is not a Uint8Array, Uint16Array, or Uint32Array.
+    所提供数组的 IndexDatatype，如果数组不是 Uint8Array、Uint16Array 或 Uint32Array，则为 undefined。
 </div>
 
 
@@ -1058,7 +1067,7 @@
 
 
 <div class="description">
-    Returns the size, in bytes, of the corresponding datatype.
+    返回相应数据类型的大小 （以字节为单位）。
 </div>
 
 
@@ -1109,7 +1118,7 @@
 
             <td class="description last">
             
-                The index datatype to get the size of.</td>
+                要获取其大小的索引数据类型。</td>
         </tr>
 
     
@@ -1130,7 +1139,7 @@
 
         
 <div class="param-desc">
-    The size in bytes.
+    大小（以字节为单位）。
 </div>
 
 
@@ -1161,7 +1170,8 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Returns 2const size = Cesium.IndexDatatype.getSizeInBytes(Cesium.IndexDatatype.UNSIGNED_SHORT);</code></pre>
+    <pre><code class="language-javascript">// Returns 2
+const size = Cesium.IndexDatatype.getSizeInBytes(Cesium.IndexDatatype.UNSIGNED_SHORT);</code></pre>
 
     
 
@@ -1198,7 +1208,7 @@
 
 
 <div class="description">
-    Validates that the provided index datatype is a valid <a href="global.html#IndexDatatype"><code>IndexDatatype</code></a>.
+    验证提供的索引数据类型是否为有效的 <a href="global.html#IndexDatatype"><code>IndexDatatype</code></a>。
 </div>
 
 
@@ -1249,7 +1259,7 @@
 
             <td class="description last">
             
-                The index datatype to validate.</td>
+                要验证的索引数据类型。</td>
         </tr>
 
     
@@ -1270,7 +1280,7 @@
 
         
 <div class="param-desc">
-    <code>true</code> if the provided index datatype is a valid value; otherwise, <code>false</code>.
+    <code>true</code>，如果提供的索引数据类型是有效值;否则为 <code>false</code>。
 </div>
 
 
@@ -1301,7 +1311,9 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">if (!Cesium.IndexDatatype.validate(indexDatatype)) {  throw new Cesium.DeveloperError('indexDatatype must be a valid value.');}</code></pre>
+    <pre><code class="language-javascript">if (!Cesium.IndexDatatype.validate(indexDatatype)) {
+  throw new Cesium.DeveloperError('indexDatatype must be a valid value.');
+}</code></pre>
 
     
 

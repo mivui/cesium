@@ -58,7 +58,7 @@
 
 
 <div class="description">
-    A generic utility class for managing subscribers for a particular event.This class is usually instantiated inside of a container class andexposed as a property for others to subscribe to.
+    用于管理特定事件的订阅者的通用实用程序类。这个类通常在容器类中实例化，并且作为属性公开，供其他人订阅。
 </div>
 
 
@@ -226,7 +226,7 @@
 
 
 <div class="description">
-    Registers a callback function to be executed whenever the event is raised.An optional scope can be provided to serve as the <code>this</code> pointerin which the function will execute.
+    注册一个回调函数，以便在引发事件时执行。可以提供一个可选的范围作为 <code>this</code> 指针函数将在其中执行。
 </div>
 
 
@@ -282,7 +282,7 @@
 
                 
             
-                The function to be executed when the event is raised.</td>
+                引发事件时要执行的函数。</td>
         </tr>
 
     
@@ -312,7 +312,7 @@
 
                 
             
-                An optional object scope to serve as the <code>this</code>       pointer in which the listener function will execute.</td>
+                一个可选的对象范围，用作 <code>this</code>侦听器函数将在其中执行的指针。</td>
         </tr>
 
     
@@ -333,7 +333,7 @@
 
         
 <div class="param-desc">
-    A function that will remove this event listener when invoked.
+    一个函数，该函数将在调用时删除此事件侦听器。
 </div>
 
 
@@ -387,7 +387,7 @@
     <div class="nameContainer">
     <h4 class="name" id="raiseEvent">
         <a href="#raiseEvent" class="doc-link"></a>
-        raiseEvent<span class="signature">(arguments)</span>
+        raiseEvent<span class="signature">(参数)</span>
         
 
 <div class="source-link rightLinks">
@@ -403,7 +403,7 @@
 
 
 <div class="description">
-    Raises the event by calling each registered listener with all supplied arguments.
+    通过使用提供的所有参数调用每个已注册的侦听器来引发事件。
 </div>
 
 
@@ -438,7 +438,7 @@
 
         <tr>
             
-                <td class="name"><code>arguments</code></td>
+                <td class="name"><code>参数</code></td>
             
 
             <td class="type">
@@ -461,7 +461,7 @@
                         <span class="repeatable">repeatable</span>
                 
             
-                This method takes any number of parameters and passes them through to the listener functions.</td>
+                此方法接受任意数量的参数并将它们传递给侦听器函数。</td>
         </tr>
 
     
@@ -543,7 +543,7 @@
 
 
 <div class="description">
-    Unregisters a previously registered callback.
+    取消注册之前注册的回调。
 </div>
 
 
@@ -599,7 +599,7 @@
 
                 
             
-                The function to be unregistered.</td>
+                要注销的函数。</td>
         </tr>
 
     
@@ -629,7 +629,7 @@
 
                 
             
-                The scope that was originally passed to addEventListener.</td>
+                最初传递给 addEventListener 的作用域。</td>
         </tr>
 
     
@@ -650,7 +650,7 @@
 
         
 <div class="param-desc">
-    <code>true</code> if the listener was removed; <code>false</code> if the listener and scope are not registered with the event.
+    <code>true</code>，如果监听器被删除;<code>如果</code>侦听器和范围未向事件注册，则为 false。
 </div>
 
 
@@ -726,7 +726,7 @@
 
 
 <div class="description">
-    A function that removes a listener.
+    删除侦听器的函数。
 </div>
 
 

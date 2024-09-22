@@ -47,7 +47,7 @@
 
 
         
-            <div class="description">The format of a pixel, i.e., the number of components it has and what they represent.</div>
+            <div class="description">像素的格式，即它所具有的组件数量及其所代表的内容。</div>
         
 
         
@@ -96,7 +96,7 @@
 
             
 
-            <td class="description last">A pixel format containing a depth value.</td>
+            <td class="description last">包含深度值的像素格式。</td>
         </tr>
 
     
@@ -119,7 +119,7 @@
 
             
 
-            <td class="description last">A pixel format containing a depth and stencil value, most often used with <a href="global.html#PixelDatatype#.UNSIGNED_INT_24_8"><code>PixelDatatype.UNSIGNED_INT_24_8</code></a>.</td>
+            <td class="description last">一种包含深度和模板值的像素格式，最常与 <a href="global.html#PixelDatatype#.UNSIGNED_INT_24_8"><code>PixelDatatype.UNSIGNED_INT_24_8</code></a> 一起使用。</td>
         </tr>
 
     
@@ -142,7 +142,7 @@
 
             
 
-            <td class="description last">A pixel format containing an alpha channel.</td>
+            <td class="description last">包含 Alpha 通道的像素格式。</td>
         </tr>
 
     
@@ -165,7 +165,7 @@
 
             
 
-            <td class="description last">A pixel format containing a red channel</td>
+            <td class="description last">包含红色通道的像素格式</td>
         </tr>
 
     
@@ -188,7 +188,7 @@
 
             
 
-            <td class="description last">A pixel format containing red and green channels.</td>
+            <td class="description last">包含红色和绿色通道的像素格式。</td>
         </tr>
 
     
@@ -211,7 +211,7 @@
 
             
 
-            <td class="description last">A pixel format containing red, green, and blue channels.</td>
+            <td class="description last">包含红色、绿色和蓝色通道的像素格式。</td>
         </tr>
 
     
@@ -234,7 +234,7 @@
 
             
 
-            <td class="description last">A pixel format containing red, green, blue, and alpha channels.</td>
+            <td class="description last">包含红色、绿色、蓝色和 Alpha 通道的像素格式。</td>
         </tr>
 
     
@@ -257,7 +257,7 @@
 
             
 
-            <td class="description last">A pixel format containing a luminance (intensity) channel.</td>
+            <td class="description last">包含明亮度（强度）通道的像素格式。</td>
         </tr>
 
     
@@ -280,7 +280,7 @@
 
             
 
-            <td class="description last">A pixel format containing luminance (intensity) and alpha channels.</td>
+            <td class="description last">包含明亮度（强度）和 Alpha 通道的像素格式。</td>
         </tr>
 
     
@@ -303,7 +303,7 @@
 
             
 
-            <td class="description last">A pixel format containing red, green, and blue channels that is DXT1 compressed.</td>
+            <td class="description last">一种包含红色、绿色和蓝色通道的像素格式，经过 DXT1 压缩。</td>
         </tr>
 
     
@@ -326,7 +326,7 @@
 
             
 
-            <td class="description last">A pixel format containing red, green, blue, and alpha channels that is DXT1 compressed.</td>
+            <td class="description last">一种包含红色、绿色、蓝色和 Alpha 通道的像素格式，经过 DXT1 压缩。</td>
         </tr>
 
     
@@ -349,7 +349,7 @@
 
             
 
-            <td class="description last">A pixel format containing red, green, blue, and alpha channels that is DXT3 compressed.</td>
+            <td class="description last">一种包含红色、绿色、蓝色和 Alpha 通道的像素格式，经过 DXT3 压缩。</td>
         </tr>
 
     
@@ -372,7 +372,7 @@
 
             
 
-            <td class="description last">A pixel format containing red, green, blue, and alpha channels that is DXT5 compressed.</td>
+            <td class="description last">一种像素格式，包含经过 DXT5 压缩的红色、绿色、蓝色和 Alpha 通道。</td>
         </tr>
 
     
@@ -395,7 +395,7 @@
 
             
 
-            <td class="description last">A pixel format containing red, green, and blue channels that is PVR 4bpp compressed.</td>
+            <td class="description last">一种包含红色、绿色和蓝色通道的像素格式，经过 PVR 4bpp 压缩。</td>
         </tr>
 
     
@@ -418,7 +418,7 @@
 
             
 
-            <td class="description last">A pixel format containing red, green, and blue channels that is PVR 2bpp compressed.</td>
+            <td class="description last">一种包含红色、绿色和蓝色通道的像素格式，经过 PVR 2bpp 压缩。</td>
         </tr>
 
     
@@ -441,7 +441,7 @@
 
             
 
-            <td class="description last">A pixel format containing red, green, blue, and alpha channels that is PVR 4bpp compressed.</td>
+            <td class="description last">一种包含红色、绿色、蓝色和 Alpha 通道的像素格式，经过 PVR 4bpp 压缩。</td>
         </tr>
 
     
@@ -464,7 +464,7 @@
 
             
 
-            <td class="description last">A pixel format containing red, green, blue, and alpha channels that is PVR 2bpp compressed.</td>
+            <td class="description last">一种像素格式，包含红色、绿色、蓝色和 Alpha 通道，经过 PVR 2bpp 压缩。</td>
         </tr>
 
     
@@ -487,7 +487,7 @@
 
             
 
-            <td class="description last">A pixel format containing red, green, blue, and alpha channels that is ASTC compressed.</td>
+            <td class="description last">一种包含 ASTC 压缩的红色、绿色、蓝色和 Alpha 通道的像素格式。</td>
         </tr>
 
     
@@ -510,7 +510,7 @@
 
             
 
-            <td class="description last">A pixel format containing red, green, and blue channels that is ETC1 compressed.</td>
+            <td class="description last">包含红色、绿色和蓝色通道的像素格式，经过 ETC1 压缩。</td>
         </tr>
 
     
@@ -533,7 +533,7 @@
 
             
 
-            <td class="description last">A pixel format containing red, green, and blue channels that is ETC2 compressed.</td>
+            <td class="description last">一种包含红色、绿色和蓝色通道的像素格式，经过 ETC2 压缩。</td>
         </tr>
 
     
@@ -556,7 +556,7 @@
 
             
 
-            <td class="description last">A pixel format containing red, green, blue, and alpha channels that is ETC2 compressed.</td>
+            <td class="description last">一种包含红色、绿色、蓝色和 Alpha 通道的像素格式，经过 ETC2 压缩。</td>
         </tr>
 
     
@@ -579,7 +579,7 @@
 
             
 
-            <td class="description last">A pixel format containing red, green, blue, and alpha channels that is BC7 compressed.</td>
+            <td class="description last">一种包含红色、绿色、蓝色和 Alpha 通道的像素格式，经过 BC7 压缩。</td>
         </tr>
 
     
@@ -653,7 +653,7 @@
 
 
 <div class="description">
-    A pixel format containing an alpha channel.
+    包含 Alpha 通道的像素格式。
 </div>
 
 
@@ -716,7 +716,7 @@
 
 
 <div class="description">
-    A pixel format containing a depth value.
+    包含深度值的像素格式。
 </div>
 
 
@@ -779,7 +779,7 @@
 
 
 <div class="description">
-    A pixel format containing a depth and stencil value, most often used with <a href="global.html#PixelDatatype#.UNSIGNED_INT_24_8"><code>PixelDatatype.UNSIGNED_INT_24_8</code></a>.
+    一种包含深度和模板值的像素格式，最常与 <a href="global.html#PixelDatatype#.UNSIGNED_INT_24_8"><code>PixelDatatype.UNSIGNED_INT_24_8</code></a> 一起使用。
 </div>
 
 
@@ -842,7 +842,7 @@
 
 
 <div class="description">
-    A pixel format containing a luminance (intensity) channel.
+    包含明亮度（强度）通道的像素格式。
 </div>
 
 
@@ -905,7 +905,7 @@
 
 
 <div class="description">
-    A pixel format containing luminance (intensity) and alpha channels.
+    包含明亮度（强度）和 Alpha 通道的像素格式。
 </div>
 
 
@@ -968,7 +968,7 @@
 
 
 <div class="description">
-    A pixel format containing a red channel
+    包含红色通道的像素格式
 </div>
 
 
@@ -1031,7 +1031,7 @@
 
 
 <div class="description">
-    A pixel format containing red and green channels.
+    包含红色和绿色通道的像素格式。
 </div>
 
 
@@ -1094,7 +1094,7 @@
 
 
 <div class="description">
-    A pixel format containing red, green, and blue channels.
+    包含红色、绿色和蓝色通道的像素格式。
 </div>
 
 
@@ -1157,7 +1157,7 @@
 
 
 <div class="description">
-    A pixel format containing red, green, and blue channels that is ETC2 compressed.
+    一种包含红色、绿色和蓝色通道的像素格式，经过 ETC2 压缩。
 </div>
 
 
@@ -1220,7 +1220,7 @@
 
 
 <div class="description">
-    A pixel format containing red, green, and blue channels that is DXT1 compressed.
+    一种包含红色、绿色和蓝色通道的像素格式，经过 DXT1 压缩。
 </div>
 
 
@@ -1283,7 +1283,7 @@
 
 
 <div class="description">
-    A pixel format containing red, green, and blue channels that is ETC1 compressed.
+    包含红色、绿色和蓝色通道的像素格式，经过 ETC1 压缩。
 </div>
 
 
@@ -1346,7 +1346,7 @@
 
 
 <div class="description">
-    A pixel format containing red, green, and blue channels that is PVR 2bpp compressed.
+    一种包含红色、绿色和蓝色通道的像素格式，经过 PVR 2bpp 压缩。
 </div>
 
 
@@ -1409,7 +1409,7 @@
 
 
 <div class="description">
-    A pixel format containing red, green, and blue channels that is PVR 4bpp compressed.
+    一种包含红色、绿色和蓝色通道的像素格式，经过 PVR 4bpp 压缩。
 </div>
 
 
@@ -1472,7 +1472,7 @@
 
 
 <div class="description">
-    A pixel format containing red, green, blue, and alpha channels.
+    包含红色、绿色、蓝色和 Alpha 通道的像素格式。
 </div>
 
 
@@ -1535,7 +1535,7 @@
 
 
 <div class="description">
-    A pixel format containing red, green, blue, and alpha channels that is ETC2 compressed.
+    一种包含红色、绿色、蓝色和 Alpha 通道的像素格式，经过 ETC2 压缩。
 </div>
 
 
@@ -1598,7 +1598,7 @@
 
 
 <div class="description">
-    A pixel format containing red, green, blue, and alpha channels that is ASTC compressed.
+    一种包含 ASTC 压缩的红色、绿色、蓝色和 Alpha 通道的像素格式。
 </div>
 
 
@@ -1661,7 +1661,7 @@
 
 
 <div class="description">
-    A pixel format containing red, green, blue, and alpha channels that is BC7 compressed.
+    一种包含红色、绿色、蓝色和 Alpha 通道的像素格式，经过 BC7 压缩。
 </div>
 
 
@@ -1724,7 +1724,7 @@
 
 
 <div class="description">
-    A pixel format containing red, green, blue, and alpha channels that is DXT1 compressed.
+    一种包含红色、绿色、蓝色和 Alpha 通道的像素格式，经过 DXT1 压缩。
 </div>
 
 
@@ -1787,7 +1787,7 @@
 
 
 <div class="description">
-    A pixel format containing red, green, blue, and alpha channels that is DXT3 compressed.
+    一种包含红色、绿色、蓝色和 Alpha 通道的像素格式，经过 DXT3 压缩。
 </div>
 
 
@@ -1850,7 +1850,7 @@
 
 
 <div class="description">
-    A pixel format containing red, green, blue, and alpha channels that is DXT5 compressed.
+    一种像素格式，包含经过 DXT5 压缩的红色、绿色、蓝色和 Alpha 通道。
 </div>
 
 
@@ -1913,7 +1913,7 @@
 
 
 <div class="description">
-    A pixel format containing red, green, blue, and alpha channels that is PVR 2bpp compressed.
+    一种像素格式，包含红色、绿色、蓝色和 Alpha 通道，经过 PVR 2bpp 压缩。
 </div>
 
 
@@ -1976,7 +1976,7 @@
 
 
 <div class="description">
-    A pixel format containing red, green, blue, and alpha channels that is PVR 4bpp compressed.
+    一种包含红色、绿色、蓝色和 Alpha 通道的像素格式，经过 PVR 4bpp 压缩。
 </div>
 
 

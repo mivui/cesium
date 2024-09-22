@@ -58,7 +58,7 @@
 
 
 <div class="description">
-    The map projection used by Google Maps, Bing Maps, and most of ArcGIS Online, EPSG:3857.  Thisprojection use longitude and latitude expressed with the WGS84 and transforms them to Mercator usingthe spherical (rather than ellipsoidal) equations.
+    Google 地图、Bing 地图和大多数 ArcGIS Online 使用的地图投影，EPSG：3857。 这投影使用用 WGS84 表示的经度和纬度，并使用球形（而不是椭球体）方程。
 </div>
 
 
@@ -219,7 +219,7 @@
 
 
 <div class="description">
-    The maximum latitude (both North and South) supported by a Web Mercator(EPSG:3857) projection.  Technically, the Mercator projection is definedfor any latitude up to (but not including) 90 degrees, but it makes senseto cut it off sooner because it grows exponentially with increasing latitude.The logic behind this particular cutoff value, which is the one used byGoogle Maps, Bing Maps, and Esri, is that it makes the projectionsquare.  That is, the rectangle is equal in the X and Y directions.The constant value is computed by calling:   WebMercatorProjection.mercatorAngleToGeodeticLatitude(Math.PI)
+    Web 墨卡托支持的最大纬度（北纬和南纬）（EPSG：3857） 预测。 从技术上讲，墨卡托投影是定义的对于任何纬度，最高可达（但不包括）90 度，但这是有道理的以更早地切断它，因为它随着纬度的增加呈指数增长。此特定截止值背后的逻辑，即Google Maps、Bing Maps 和 Esri 是它进行投影广场。 也就是说，矩形在 X 和 Y 方向上相等。常量值通过调用来计算：WebMercatorProjection.mercatorAngleToGeodeticLatitude （Math.PI）
 </div>
 
 
@@ -279,7 +279,7 @@
 
 
 <div class="description">
-    Gets the <a href="Ellipsoid.html"><code>Ellipsoid</code></a>.
+    获取 <a href="Ellipsoid.html"><code>Ellipsoid</code></a>。
 </div>
 
 
@@ -346,7 +346,7 @@
 
 
 <div class="description">
-    Converts a geodetic latitude in radians, in the range -PI/2 to PI/2, to a Mercatorangle in the range -PI to PI.
+    将 -PI/2 到 PI/2 范围内的弧度（以弧度为单位）转换为墨卡托角度在 -PI 到 PI 范围内。
 </div>
 
 
@@ -397,7 +397,7 @@
 
             <td class="description last">
             
-                The geodetic latitude in radians.</td>
+                以弧度为单位的大地纬度。</td>
         </tr>
 
     
@@ -418,7 +418,7 @@
 
         
 <div class="param-desc">
-    The Mercator angle.
+    墨卡托角。
 </div>
 
 
@@ -481,7 +481,7 @@
 
 
 <div class="description">
-    Converts a Mercator angle, in the range -PI to PI, to a geodetic latitudein the range -PI/2 to PI/2.
+    将 -PI 到 PI 范围内的墨卡托角转换为大地纬度在 -PI/2 到 PI/2 范围内。
 </div>
 
 
@@ -532,7 +532,7 @@
 
             <td class="description last">
             
-                The angle to convert.</td>
+                要转换的角度。</td>
         </tr>
 
     
@@ -553,7 +553,7 @@
 
         
 <div class="param-desc">
-    The geodetic latitude in radians.
+    以弧度为单位的大地纬度。
 </div>
 
 
@@ -616,7 +616,7 @@
 
 
 <div class="description">
-    Converts geodetic ellipsoid coordinates, in radians, to the equivalent Web MercatorX, Y, Z coordinates expressed in meters and returned in a <a href="Cartesian3.html"><code>Cartesian3</code></a>.  The heightis copied unmodified to z坐标。
+    将大地椭球坐标（以弧度为单位）转换为等效的 Web 墨卡托X、Y、Z 坐标以米表示，并以 <a href="Cartesian3.html"><code>Cartesian3</code></a> 返回。 高度将原封不动地复制到 z坐标。
 </div>
 
 
@@ -672,7 +672,7 @@
 
                 
             
-                The cartographic coordinates in radians.</td>
+                以弧度为单位的制图坐标。</td>
         </tr>
 
     
@@ -702,7 +702,7 @@
 
                 
             
-                The instance to which to copy the result, or undefined if a       new instance should be created.</td>
+                要将结果复制到的实例，如果应创建新实例。</td>
         </tr>
 
     
@@ -723,7 +723,7 @@
 
         
 <div class="param-desc">
-    The equivalent web mercator X, Y, Z coordinates, in meters.
+    等效的网页墨卡托 X、Y、Z 坐标，单位为米。
 </div>
 
 
@@ -786,7 +786,7 @@
 
 
 <div class="description">
-    Converts Web Mercator X, Y coordinates, expressed in meters, to a <a href="Cartographic.html"><code>Cartographic</code></a>containing geodetic ellipsoid coordinates.  The Z coordinate is copied unmodified to theheight.
+    将 Web 墨卡托 X、Y 坐标（以米表示）转换为 <code>制图</code>包含大地椭球体坐标。 Z 坐标将原封不动地复制到高度。
 </div>
 
 
@@ -842,7 +842,7 @@
 
                 
             
-                The web mercator Cartesian position to unrproject with height (z) in meters.</td>
+                Web 墨卡托笛卡尔位置与高度 （z） 展开投影，以米为单位。</td>
         </tr>
 
     
@@ -872,7 +872,7 @@
 
                 
             
-                The instance to which to copy the result, or undefined if a       new instance should be created.</td>
+                要将结果复制到的实例，如果应创建新实例。</td>
         </tr>
 
     
@@ -893,7 +893,7 @@
 
         
 <div class="param-desc">
-    The equivalent cartographic coordinates.
+    等效的制图坐标。
 </div>
 
 

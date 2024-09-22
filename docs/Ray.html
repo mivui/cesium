@@ -58,7 +58,7 @@
 
 
 <div class="description">
-    Represents a ray that extends infinitely from the provided origin in the provided direction.
+    表示从提供的原点沿给定方向无限延伸的射线。
 </div>
 
 
@@ -250,7 +250,7 @@
 
 
 <div class="description">
-    The direction of the ray.
+    光线的方向。
 </div>
 
 
@@ -310,7 +310,7 @@
 
 
 <div class="description">
-    The origin of the ray.
+    射线的原点。
 </div>
 
 
@@ -380,7 +380,7 @@
 
 
 <div class="description">
-    复制Ray instance.
+    复制Ray实例。
 </div>
 
 
@@ -436,7 +436,7 @@
 
                 
             
-                The ray to duplicate.</td>
+                要复制的光线。</td>
         </tr>
 
     
@@ -487,7 +487,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数 or a new Ray instance if one was not provided. (Returns undefined if ray is undefined)
+    修改后的结果参数或者新的 Ray 实例（如果未提供）。（如果 ray 未定义，则返回 undefined）
 </div>
 
 
@@ -550,7 +550,8 @@
 
 
 <div class="description">
-    Computes the point along the ray given by r(t) = o + t*d,where o is the origin of the ray and d is the direction.
+    计算沿射线的点，由 r（t） = o + t*d，
+其中 o 是射线的原点，d 是方向。
 </div>
 
 
@@ -606,7 +607,7 @@
 
                 
             
-                The ray.</td>
+                射线。</td>
         </tr>
 
     
@@ -634,7 +635,7 @@
 
                 
             
-                A scalar value.</td>
+                一个标量值。</td>
         </tr>
 
     
@@ -664,7 +665,7 @@
 
                 
             
-                The object in which the result will be stored.</td>
+                将存储结果的对象。</td>
         </tr>
 
     
@@ -685,7 +686,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数, or a new instance if none was provided.
+    修改后的结果参数,或者如果未提供任何实例，则为新实例。
 </div>
 
 
@@ -716,7 +717,9 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">//Get the first intersection point of a ray and an ellipsoid.const intersection = Cesium.IntersectionTests.rayEllipsoid(ray, ellipsoid);const point = Cesium.Ray.getPoint(ray, intersection.start);</code></pre>
+    <pre><code class="language-javascript">//Get the first intersection point of a ray and an ellipsoid.
+const intersection = Cesium.IntersectionTests.rayEllipsoid(ray, ellipsoid);
+const point = Cesium.Ray.getPoint(ray, intersection.start);</code></pre>
 
     
 

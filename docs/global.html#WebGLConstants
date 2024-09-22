@@ -47,7 +47,7 @@
 
 
         
-            <div class="description">Enum containing WebGL Constant values by name.for use without an active WebGL context, or in cases where certain constants are unavailable using the WebGL context(For example, in <a href="https://github.com/CesiumGS/cesium/issues/2989">Safari 9</a>).These match the constants from the <a href="https://www.khronos.org/registry/webgl/specs/latest/1.0/">WebGL 1.0</a>and <a href="https://www.khronos.org/registry/webgl/specs/latest/2.0/">WebGL 2.0</a>specifications.</div>
+            <div class="description">按名称包含 WebGL 常量值的枚举。在没有活动 WebGL 上下文的情况下使用，或者在使用 WebGL 上下文时某些常量不可用的情况下使用（例如，在 <a href="https://github.com/CesiumGS/cesium/issues/2989">Safari 9</a> 中）。这些与 <a href="https://www.khronos.org/registry/webgl/specs/latest/1.0/">WebGL 1.0</a> 中的常量匹配和 <a href="https://www.khronos.org/registry/webgl/specs/latest/2.0/">WebGL 2.0</a>规格。</div>
         
 
         

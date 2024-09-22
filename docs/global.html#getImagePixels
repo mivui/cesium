@@ -47,7 +47,7 @@
 
 
         
-            <div class="description">Extract a pixel array from a loaded image.  Draws the imageinto a canvas so it can read the pixels back.</div>
+            <div class="description">从加载的图像中提取像素数组。 绘制图像复制到 Canvas 中，以便它可以读回像素。</div>
         
 
         

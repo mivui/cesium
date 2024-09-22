@@ -58,7 +58,7 @@
 
 
 <div class="description">
-    A geometry representation with attributes forming vertices and optional index datadefining primitives.  Geometries and an <a href="Appearance.html"><code>Appearance</code></a>, which describes the shading,can be assigned to a <a href="Primitive.html"><code>Primitive</code></a> for visualization.  A <code>Primitive</code> canbe created from many heterogeneous - in many cases - geometries for performance.<p>Geometries can be transformed and optimized using functions in <a href="GeometryPipeline.html"><code>GeometryPipeline</code></a>.</p>
+    具有构成顶点的属性和可选索引数据的几何表示定义基元。 几何图形和 <code>外观</code>（描述阴影）、可以分配给 <a href="Primitive.html"><code>Primitive</code></a> 以进行可视化。 <code>Primitive</code> 可以由许多异构 - 在许多情况下 - 几何图形创建以提高性能。<p>可以使用 <a href="GeometryPipeline.html"><code>GeometryPipeline</code></a> 中的函数转换和优化几何图形。</p>
 </div>
 
 
@@ -159,7 +159,7 @@
 
                 
             
-                Attributes, which make up the geometry's vertices.</td>
+                属性，它们构成了几何体的顶点。</td>
         </tr>
 
     
@@ -195,7 +195,7 @@
 
                 
             
-                The type of primitives in the geometry.</td>
+                几何体中基元的类型。</td>
         </tr>
 
     
@@ -232,7 +232,7 @@
 
                 
             
-                Optional index data that determines the primitives in the geometry.</td>
+                确定几何体中基元的可选索引数据。</td>
         </tr>
 
     
@@ -266,7 +266,7 @@
 
                 
             
-                An optional bounding sphere that fully enclosed the geometry.</td>
+                一个完全封闭几何体的可选边界球体。</td>
         </tr>
 
     
@@ -391,7 +391,7 @@
 
 
 <div class="description">
-    Attributes, which make up the geometry's vertices.  Each property in this object corresponds to a<a href="GeometryAttribute.html"><code>GeometryAttribute</code></a> containing the attribute's data.<p>Attributes are always stored non-interleaved in a Geometry.</p><p>There are reserved attribute names with well-known semantics.  The following attributesare created by a Geometry (depending on the provided <a href="VertexFormat.html"><code>VertexFormat</code></a>.<ul>   <li><code>position</code> - 3D vertex position.  64-bit floating-point (for precision).  3 components per attribute.  See <a href="VertexFormat.html#position"><code>VertexFormat#position</code></a>.</li>   <li><code>normal</code> - Normal (normalized), commonly used for lighting.  32-bit floating-point.  3 components per attribute.  See <a href="VertexFormat.html#normal"><code>VertexFormat#normal</code></a>.</li>   <li><code>st</code> - 2D texture coordinate.  32-bit floating-point.  2 components per attribute.  See <a href="VertexFormat.html#st"><code>VertexFormat#st</code></a>.</li>   <li><code>bitangent</code> - Bitangent (normalized), used for tangent-space effects like bump mapping.  32-bit floating-point.  3 components per attribute.  See <a href="VertexFormat.html#bitangent"><code>VertexFormat#bitangent</code></a>.</li>   <li><code>tangent</code> - Tangent (normalized), used for tangent-space effects like bump mapping.  32-bit floating-point.  3 components per attribute.  See <a href="VertexFormat.html#tangent"><code>VertexFormat#tangent</code></a>.</li></ul></p><p>The following attribute names are generally not created by a Geometry, but are addedto a Geometry by a <a href="Primitive.html"><code>Primitive</code></a> or <a href="GeometryPipeline.html"><code>GeometryPipeline</code></a> functions to preparethe geometry for rendering.<ul>   <li><code>position3DHigh</code> - High 32 bits for encoded 64-bit position computed with <a href="GeometryPipeline.html#.encodeAttribute"><code>GeometryPipeline.encodeAttribute</code></a>.  32-bit floating-point.  4 components per attribute.</li>   <li><code>position3DLow</code> - Low 32 bits for encoded 64-bit position computed with <a href="GeometryPipeline.html#.encodeAttribute"><code>GeometryPipeline.encodeAttribute</code></a>.  32-bit floating-point.  4 components per attribute.</li>   <li><code>position2DHigh</code> - High 32 bits for encoded 64-bit 2D (Columbus view) position computed with <a href="GeometryPipeline.html#.encodeAttribute"><code>GeometryPipeline.encodeAttribute</code></a>.  32-bit floating-point.  4 components per attribute.</li>   <li><code>position2DLow</code> - Low 32 bits for encoded 64-bit 2D (Columbus view) position computed with <a href="GeometryPipeline.html#.encodeAttribute"><code>GeometryPipeline.encodeAttribute</code></a>.  32-bit floating-point.  4 components per attribute.</li>   <li><code>color</code> - RGBA color (normalized) usually from <code>GeometryInstance#color</code>.  32-bit floating-point.  4 components per attribute.</li>   <li><code>pickColor</code> - RGBA color used for picking.  32-bit floating-point.  4 components per attribute.</li></ul></p>
+    属性，构成几何体的顶点。 此对象中的每个属性都对应于一个<a href="GeometryAttribute.html"><code>GeometryAttribute</code></a> 包含属性的数据。<p>属性始终以非交错方式存储在 Geometry 中。</p><p>存在具有已知语义的保留属性名称。 以下属性由 Geometry 创建（取决于提供的 <a href="VertexFormat.html"><code>VertexFormat</code></a>）。<ul><li><code>position</code> - 3D 顶点位置。 64 位浮点（用于精度）。 每个属性 3 个组件。 参见 <a href="VertexFormat.html#position"><code>VertexFormat#position</code></a>。</li><li><code>normal</code> - 正常（标准化），通常用于照明。 32 位浮点。 每个属性 3 个组件。 参见 <a href="VertexFormat.html#normal"><code>VertexFormat#normal</code></a>。</li><li><code>st</code> - 2D 纹理坐标。 32 位浮点。 每个属性 2 个组件。 参见 <a href="VertexFormat.html#st"><code>VertexFormat#st</code></a>。</li><li><code>bitangent</code> - 双切线（标准化），用于凹凸贴图等切线空间效果。 32 位浮点。 每个属性 3 个组件。 参见 <a href="VertexFormat.html#bitangent"><code>VertexFormat#bitangent</code></a>。</li><li><code>tangent</code> - 切线（规格化），用于凹凸贴图等切线空间效果。 32 位浮点。 每个属性 3 个组件。 参见 <a href="VertexFormat.html#tangent"><code>VertexFormat#tangent</code></a>。</li></ul></p><p>以下属性名称通常不是由 Geometry 创建的，而是添加的通过 <a href="Primitive.html"><code>Primitive</code></a> 或 <a href="GeometryPipeline.html"><code>GeometryPipeline</code></a> 函数准备用于渲染的几何体。<ul><li><code>position3DHigh</code> - 使用 <a href="GeometryPipeline.html#.encodeAttribute"><code>GeometryPipeline.encodeAttribute</code></a> 计算的编码 64 位的高 32 位。 32 位浮点。 每个属性 4 个组件。</li><li><code>position3DLow</code> - 对于使用 <a href="GeometryPipeline.html#.encodeAttribute"><code>GeometryPipeline.encodeAttribute</code></a> 计算的编码 64 位位置，为低 32 位。 32 位浮点。 每个属性 4 个组件。</li><li><code>position2DHigh</code> - 使用 <a href="GeometryPipeline.html#.encodeAttribute"><code>GeometryPipeline.encodeAttribute</code></a> 计算的编码 64 位 2D（哥伦布视图）位置的高 32 位。 32 位浮点。 每个属性 4 个组件。</li><li><code>position2DLow</code> - 对于使用 <a href="GeometryPipeline.html#.encodeAttribute"><code>GeometryPipeline.encodeAttribute</code></a> 计算的编码 64 位 2D（哥伦布视图）位置，为低 32 位。 32 位浮点。 每个属性 4 个组件。</li><li><code>color</code> - RGBA 颜色（标准化），通常来自 <code>GeometryInstance#color</code>。 32 位浮点。 每个属性 4 个组件。</li><li><code>pickColor</code> - 用于拾取的 RGBA 颜色。 32 位浮点。 每个属性 4 个组件。</li></ul></p>
 </div>
 
 
@@ -463,7 +463,7 @@
 
 
 <div class="description">
-    An optional bounding sphere that fully encloses the geometry.  This iscommonly used for culling.
+    一个完全封闭几何体的可选边界球体。 这是通常用于剔除。
 </div>
 
 
@@ -526,7 +526,7 @@
 
 
 <div class="description">
-    Optional index data that - along with <a href="Geometry.html#primitiveType"><code>Geometry#primitiveType</code></a> -determines the primitives in the geometry.
+    可选的索引数据 - 以及 <a href="Geometry.html#primitiveType"><code>Geometry#primitiveType</code></a> -确定几何体中的基元。
 </div>
 
 
@@ -589,7 +589,7 @@
 
 
 <div class="description">
-    The type of primitives in the geometry.  This is most often <a href="global.html#PrimitiveType#.TRIANGLES"><code>PrimitiveType.TRIANGLES</code></a>,but can varying based on the specific geometry.
+    几何体中基元的类型。 这通常是 <a href="global.html#PrimitiveType#.TRIANGLES"><code>PrimitiveType.TRIANGLES</code></a>，但可以根据特定几何图形而变化。
 </div>
 
 
@@ -659,7 +659,7 @@
 
 
 <div class="description">
-    Computes the number of vertices in a geometry.  The runtime is linear withrespect to the number of attributes in a vertex, not the number of vertices.
+    计算几何图形中的顶点数。 运行时间与相对于顶点中的属性数，而不是顶点数。
 </div>
 
 
@@ -710,7 +710,7 @@
 
             <td class="description last">
             
-                The geometry.</td>
+                几何图形。</td>
         </tr>
 
     
@@ -731,7 +731,7 @@
 
         
 <div class="param-desc">
-    The number of vertices in the geometry.
+    几何体中的顶点数。
 </div>
 
 

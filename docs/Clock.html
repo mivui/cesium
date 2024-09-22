@@ -58,7 +58,7 @@
 
 
 <div class="description">
-    A simple clock for keeping track of simulated time.
+    用于跟踪模拟时间的简单时钟。
 </div>
 
 
@@ -168,7 +168,7 @@
 
                 
             
-                The start time of the clock.</td>
+                时钟的开始时间。</td>
         </tr>
 
     
@@ -202,7 +202,7 @@
 
                 
             
-                The stop time of the clock.</td>
+                时钟的停止时间。</td>
         </tr>
 
     
@@ -236,7 +236,7 @@
 
                 
             
-                The current time.</td>
+                当前时间。</td>
         </tr>
 
     
@@ -272,7 +272,7 @@
 
                 
             
-                Determines how much time advances when <a href="Clock.html#tick"><code>Clock#tick</code></a> is called, negative values allow for advancing backwards.</td>
+                确定调用 <a href="Clock.html#tick"><code>Clock#tick</code></a> 时前进多少时间，负值允许向后前进。</td>
         </tr>
 
     
@@ -308,7 +308,7 @@
 
                 
             
-                Determines if calls to <a href="Clock.html#tick"><code>Clock#tick</code></a> are frame dependent or system clock dependent.</td>
+                确定对 <a href="Clock.html#tick"><code>Clock#tick</code></a> 的调用是帧相关还是系统时钟相关。</td>
         </tr>
 
     
@@ -344,7 +344,7 @@
 
                 
             
-                Determines how the clock should behave when <a href="Clock.html#startTime"><code>Clock#startTime</code></a> or <a href="Clock.html#stopTime"><code>Clock#stopTime</code></a> is reached.</td>
+                确定当达到 <a href="Clock.html#startTime"><code>Clock#startTime</code></a> 或 <a href="Clock.html#stopTime"><code>Clock#stopTime</code></a> 时，时钟应该如何表现。</td>
         </tr>
 
     
@@ -380,7 +380,7 @@
 
                 
             
-                Indicates whether <a href="Clock.html#tick"><code>Clock#tick</code></a> can advance time.  This could be false if data is being buffered, for example.  The clock will only tick when both <a href="Clock.html#canAnimate"><code>Clock#canAnimate</code></a> and <a href="Clock.html#shouldAnimate"><code>Clock#shouldAnimate</code></a> are true.</td>
+                指示 <a href="Clock.html#tick"><code>Clock#tick</code></a> 是否可以提前时间。 例如，如果正在缓冲数据，则此值为 false。 只有当 <a href="Clock.html#canAnimate"><code>Clock#canAnimate</code></a> 和 <a href="Clock.html#shouldAnimate"><code>Clock#shouldAnimate</code></a> 都为 true 时，时钟才会滴答作响。</td>
         </tr>
 
     
@@ -416,7 +416,7 @@
 
                 
             
-                Indicates whether <a href="Clock.html#tick"><code>Clock#tick</code></a> should attempt to advance time.  The clock will only tick when both <a href="Clock.html#canAnimate"><code>Clock#canAnimate</code></a> and <a href="Clock.html#shouldAnimate"><code>Clock#shouldAnimate</code></a> are true.</td>
+                指示 <a href="Clock.html#tick"><code>Clock#tick</code></a> 是否应尝试提前时间。 只有当 <a href="Clock.html#canAnimate"><code>Clock#canAnimate</code></a> 和 <a href="Clock.html#shouldAnimate"><code>Clock#shouldAnimate</code></a> 都为 true 时，时钟才会滴答作响。</td>
         </tr>
 
     
@@ -449,7 +449,7 @@
         
 <span class="param-type"><a href="DeveloperError.html">DeveloperError</a></span>
 
-: startTime must come before stopTime.
+: startTime 必须位于 stopTime 之前。
     </div>
 
 </li>
@@ -540,7 +540,7 @@
 
 
 <div class="description">
-    Indicates whether <a href="Clock.html#tick"><code>Clock#tick</code></a> can advance time.  This could be false if data is being buffered,for example.  The clock will only advance time when both<a href="Clock.html#canAnimate"><code>Clock#canAnimate</code></a> and <a href="Clock.html#shouldAnimate"><code>Clock#shouldAnimate</code></a> are true.
+    指示 <a href="Clock.html#tick"><code>Clock#tick</code></a> 是否可以提前时间。 如果正在缓冲数据，则此字段可能为 false，例如。 clock 只会在两者<a href="Clock.html#canAnimate"><code>Clock#canAnimate</code></a> 和 <a href="Clock.html#shouldAnimate"><code>Clock#shouldAnimate</code></a> 为 true。
 </div>
 
 
@@ -603,7 +603,7 @@
 
 
 <div class="description">
-    Determines how the clock should behave when<a href="Clock.html#startTime"><code>Clock#startTime</code></a> or <a href="Clock.html#stopTime"><code>Clock#stopTime</code></a>is reached.
+    确定 clock 在<a href="Clock.html#startTime"><code>Clock#startTime</code></a> 或 <a href="Clock.html#stopTime"><code>Clock#stopTime</code></a>已到达。
 </div>
 
 
@@ -666,7 +666,7 @@
 
 
 <div class="description">
-    Determines if calls to <a href="Clock.html#tick"><code>Clock#tick</code></a> are frame dependent or system clock dependent.Changing this property to <a href="global.html#ClockStep#.SYSTEM_CLOCK"><code>ClockStep.SYSTEM_CLOCK</code></a> will set<a href="Clock.html#multiplier"><code>Clock#multiplier</code></a> to 1.0, <a href="Clock.html#shouldAnimate"><code>Clock#shouldAnimate</code></a> to true, and<a href="Clock.html#currentTime"><code>Clock#currentTime</code></a> to the current system clock time.
+    确定对 <a href="Clock.html#tick"><code>Clock#tick</code></a> 的调用是帧相关还是系统时钟相关。将此属性更改为 <a href="global.html#ClockStep#.SYSTEM_CLOCK"><code>ClockStep.SYSTEM_CLOCK</code></a> 将设置<a href="Clock.html#multiplier"><code>Clock#multiplier</code></a> 为 1.0，<a href="Clock.html#shouldAnimate"><code>Clock#shouldAnimate</code></a> 为 true，以及<a href="Clock.html#currentTime"><code>Clock#currentTime</code></a> 设置为当前系统时钟时间。
 </div>
 
 
@@ -729,7 +729,7 @@
 
 
 <div class="description">
-    The current time.Changing this property will change<a href="Clock.html#clockStep"><code>Clock#clockStep</code></a> from <a href="global.html#ClockStep#.SYSTEM_CLOCK"><code>ClockStep.SYSTEM_CLOCK</code></a> to<a href="global.html#ClockStep#.SYSTEM_CLOCK_MULTIPLIER"><code>ClockStep.SYSTEM_CLOCK_MULTIPLIER</code></a>.
+    当前时间。更改此属性将更改<a href="Clock.html#clockStep"><code>Clock#clockStep</code></a> from <a href="global.html#ClockStep#.SYSTEM_CLOCK"><code>ClockStep.SYSTEM_CLOCK</code></a> to<a href="global.html#ClockStep#.SYSTEM_CLOCK_MULTIPLIER"><code>ClockStep.SYSTEM_CLOCK_MULTIPLIER</code></a>.
 </div>
 
 
@@ -789,7 +789,7 @@
 
 
 <div class="description">
-    Gets or sets how much time advances when <a href="Clock.html#tick"><code>Clock#tick</code></a> is called. Negative values allow for advancing backwards.If <a href="Clock.html#clockStep"><code>Clock#clockStep</code></a> is set to <a href="global.html#ClockStep#.TICK_DEPENDENT"><code>ClockStep.TICK_DEPENDENT</code></a>, this is the number of seconds to advance.If <a href="Clock.html#clockStep"><code>Clock#clockStep</code></a> is set to <a href="global.html#ClockStep#.SYSTEM_CLOCK_MULTIPLIER"><code>ClockStep.SYSTEM_CLOCK_MULTIPLIER</code></a>, this value is multiplied by theelapsed system time since the last call to <a href="Clock.html#tick"><code>Clock#tick</code></a>.Changing this property will change<a href="Clock.html#clockStep"><code>Clock#clockStep</code></a> from <a href="global.html#ClockStep#.SYSTEM_CLOCK"><code>ClockStep.SYSTEM_CLOCK</code></a> to<a href="global.html#ClockStep#.SYSTEM_CLOCK_MULTIPLIER"><code>ClockStep.SYSTEM_CLOCK_MULTIPLIER</code></a>.
+    获取或设置调用 <a href="Clock.html#tick"><code>Clock#tick</code></a> 时前进的时间量。负值允许向后前进。如果 <a href="Clock.html#clockStep"><code>Clock#clockStep</code></a> 设置为 <a href="global.html#ClockStep#.TICK_DEPENDENT"><code>ClockStep.TICK_DEPENDENT</code></a>，则这是前进的秒数。如果 <a href="Clock.html#clockStep"><code>Clock#clockStep</code></a> 设置为 <a href="global.html#ClockStep#.SYSTEM_CLOCK_MULTIPLIER"><code>ClockStep.SYSTEM_CLOCK_MULTIPLIER</code></a>，则此值乘以自上次调用 <a href="Clock.html#tick"><code>Clock#tick</code></a> 以来经过的系统时间。更改此属性将更改<a href="Clock.html#clockStep"><code>Clock#clockStep</code></a> 从 <a href="global.html#ClockStep#.SYSTEM_CLOCK"><code>ClockStep.SYSTEM_CLOCK</code></a> 到<a href="global.html#ClockStep#.SYSTEM_CLOCK_MULTIPLIER"><code>ClockStep.SYSTEM_CLOCK_MULTIPLIER</code></a>。
 </div>
 
 
@@ -852,7 +852,7 @@
 
 
 <div class="description">
-    An <a href="Event.html"><code>Event</code></a> that is fired whenever <a href="Clock.html#stopTime"><code>Clock#stopTime</code></a> is reached.
+    每当达到 <a href="Clock.html#stopTime"><code>Clock#stopTime</code></a> 时触发的 <a href="Event.html"><code>Event</code></a>。
 </div>
 
 
@@ -912,7 +912,7 @@
 
 
 <div class="description">
-    An <a href="Event.html"><code>Event</code></a> that is fired whenever <a href="Clock.html#tick"><code>Clock#tick</code></a> is called.
+    每当调用 <a href="Clock.html#tick"><code>Clock#tick</code></a> 时触发的 <a href="Event.html"><code>Event</code></a>。
 </div>
 
 
@@ -972,7 +972,7 @@
 
 
 <div class="description">
-    Indicates whether <a href="Clock.html#tick"><code>Clock#tick</code></a> should attempt to advance time.The clock will only advance time when both<a href="Clock.html#canAnimate"><code>Clock#canAnimate</code></a> and <a href="Clock.html#shouldAnimate"><code>Clock#shouldAnimate</code></a> are true.Changing this property will change<a href="Clock.html#clockStep"><code>Clock#clockStep</code></a> from <a href="global.html#ClockStep#.SYSTEM_CLOCK"><code>ClockStep.SYSTEM_CLOCK</code></a> to<a href="global.html#ClockStep#.SYSTEM_CLOCK_MULTIPLIER"><code>ClockStep.SYSTEM_CLOCK_MULTIPLIER</code></a>.
+    指示 <a href="Clock.html#tick"><code>Clock#tick</code></a> 是否应尝试提前时间。只有当<a href="Clock.html#canAnimate"><code>Clock#canAnimate</code></a> 和 <a href="Clock.html#shouldAnimate"><code>Clock#shouldAnimate</code></a> 为 true。更改此属性将更改<a href="Clock.html#clockStep"><code>Clock#clockStep</code></a> 从 <a href="global.html#ClockStep#.SYSTEM_CLOCK"><code>ClockStep.SYSTEM_CLOCK</code></a> 到<a href="global.html#ClockStep#.SYSTEM_CLOCK_MULTIPLIER"><code>ClockStep.SYSTEM_CLOCK_MULTIPLIER</code></a>。
 </div>
 
 
@@ -1035,7 +1035,7 @@
 
 
 <div class="description">
-    The start time of the clock.
+    时钟的开始时间。
 </div>
 
 
@@ -1095,7 +1095,7 @@
 
 
 <div class="description">
-    The stop time of the clock.
+    时钟的停止时间。
 </div>
 
 
@@ -1162,7 +1162,7 @@
 
 
 <div class="description">
-    Advances the clock from the current time based on the current configuration options.tick should be called every frame, regardless of whether animation is taking placeor not.  To control animation, use the <a href="Clock.html#shouldAnimate"><code>Clock#shouldAnimate</code></a> property.
+    根据当前配置选项从当前时间前进时钟。无论是否正在发生动画，都应该每帧调用 tick或不。 要控制动画，请使用 <a href="Clock.html#shouldAnimate"><code>Clock#shouldAnimate</code></a> 属性。
 </div>
 
 
@@ -1189,7 +1189,7 @@
 
         
 <div class="param-desc">
-    The new value of the <a href="Clock.html#currentTime"><code>Clock#currentTime</code></a> property.
+    <a href="Clock.html#currentTime"><code>Clock#currentTime</code></a> 属性的新值。
 </div>
 
 

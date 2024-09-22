@@ -58,7 +58,7 @@
 
 
 <div class="description">
-    A spline that evaluates to a constant value. Although this follows the <a href="Spline.html"><code>Spline</code></a> interface,it does not maintain an internal array of times since its value never changes.
+    计算结果为常量值的样条曲线。虽然这遵循 <a href="Spline.html"><code>Spline</code></a> 接口，它不维护内部时间数组，因为它的值永远不会改变。
 </div>
 
 
@@ -115,7 +115,7 @@
 
             <td class="description last">
             
-                The constant value that the spline evaluates to.</td>
+                样条计算结果的常量值。</td>
         </tr>
 
     
@@ -223,7 +223,7 @@
 
 
 <div class="description">
-    The constant value that the spline evaluates to.
+    样条计算结果的常量值。
 </div>
 
 
@@ -278,7 +278,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.121.1/packages/engine/Source/Core/ConstantSpline.js#L88">engine/Source/Core/ConstantSpline.js 88</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.121.1/packages/engine/Source/Core/ConstantSpline.js#L89">engine/Source/Core/ConstantSpline.js 89</a>
 </div>
 
 
@@ -290,7 +290,7 @@
 
 
 <div class="description">
-    Clamps the given time to the period covered by the spline.
+    将给定时间限制为样条所覆盖的时间段。
 </div>
 
 
@@ -341,7 +341,7 @@
 
             <td class="description last">
             
-                The time.</td>
+                时间。</td>
         </tr>
 
     
@@ -362,7 +362,7 @@
 
         
 <div class="param-desc">
-    The time, clamped to the animation period.
+    时间，固定到动画周期。
 </div>
 
 
@@ -413,7 +413,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.121.1/packages/engine/Source/Core/ConstantSpline.js#L104">engine/Source/Core/ConstantSpline.js 104</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.121.1/packages/engine/Source/Core/ConstantSpline.js#L105">engine/Source/Core/ConstantSpline.js 105</a>
 </div>
 
 
@@ -425,7 +425,7 @@
 
 
 <div class="description">
-    Evaluates the curve at a given time.
+    在给定时间计算曲线。
 </div>
 
 
@@ -481,7 +481,7 @@
 
                 
             
-                The time at which to evaluate the curve.</td>
+                评估曲线的时间。</td>
         </tr>
 
     
@@ -535,7 +535,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数 or the value that the constant spline represents.
+    修改后的结果参数 或常量样条所表示的值。
 </div>
 
 
@@ -586,7 +586,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.121.1/packages/engine/Source/Core/ConstantSpline.js#L58">engine/Source/Core/ConstantSpline.js 58</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.121.1/packages/engine/Source/Core/ConstantSpline.js#L59">engine/Source/Core/ConstantSpline.js 59</a>
 </div>
 
 
@@ -598,7 +598,7 @@
 
 
 <div class="description">
-    Finds an index <code>i</code> in <code>times</code> such that the parameter<code>time</code> is in the interval <code>[times[i], times[i + 1]]</code>.Since a constant spline has no internal times array, this will throw an error.
+    在<code>times</code>中查找索引 <code>i</code>，使得参数<code>times</code>在区间 <code>[times[i]， times[i + 1]]</code> 中。由于常量样条没有内部 times 数组，这将引发错误。
 </div>
 
 
@@ -649,7 +649,7 @@
 
             <td class="description last">
             
-                The time.</td>
+                time.</td>
         </tr>
 
     
@@ -726,7 +726,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.121.1/packages/engine/Source/Core/ConstantSpline.js#L73">engine/Source/Core/ConstantSpline.js 73</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.121.1/packages/engine/Source/Core/ConstantSpline.js#L74">engine/Source/Core/ConstantSpline.js 74</a>
 </div>
 
 
@@ -738,7 +738,7 @@
 
 
 <div class="description">
-    Wraps the given time to the period covered by the spline.
+    将给定时间环绕到样条所覆盖的时间段。
 </div>
 
 
@@ -789,7 +789,7 @@
 
             <td class="description last">
             
-                The time.</td>
+                时间。</td>
         </tr>
 
     
@@ -810,7 +810,7 @@
 
         
 <div class="param-desc">
-    The time, wrapped around to the updated animation.
+    时间，环绕到更新的动画。
 </div>
 
 

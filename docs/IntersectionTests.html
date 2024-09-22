@@ -47,7 +47,7 @@
 
 
         
-            <div class="description">Functions for computing the intersection between geometries such as rays, planes, triangles, and ellipsoids.</div>
+            <div class="description">用于计算几何结构（如射线、平面、三角形和椭球体）之间的交集的函数。</div>
         
 
         
@@ -122,7 +122,7 @@
 
 
 <div class="description">
-    Provides the point along the ray which is nearest to the ellipsoid.
+    提供沿射线最接近椭球体的点。
 </div>
 
 
@@ -173,7 +173,7 @@
 
             <td class="description last">
             
-                The ray.</td>
+                射线。</td>
         </tr>
 
     
@@ -196,7 +196,7 @@
 
             <td class="description last">
             
-                The ellipsoid.</td>
+                椭球体。</td>
         </tr>
 
     
@@ -217,7 +217,7 @@
 
         
 <div class="param-desc">
-    The nearest planetodetic point on the ray.
+    射线上最近的行星点。
 </div>
 
 
@@ -280,7 +280,7 @@
 
 
 <div class="description">
-    Computes the intersection of a line segment and a plane.
+    计算线段和平面的交集。
 </div>
 
 
@@ -336,7 +336,7 @@
 
                 
             
-                An end point of the line segment.</td>
+                线段的终点。</td>
         </tr>
 
     
@@ -364,7 +364,7 @@
 
                 
             
-                The other end point of the line segment.</td>
+                线段的另一个端点。</td>
         </tr>
 
     
@@ -392,7 +392,7 @@
 
                 
             
-                The plane.</td>
+                该平面。</td>
         </tr>
 
     
@@ -443,7 +443,7 @@
 
         
 <div class="param-desc">
-    The intersection point or undefined if there is no intersection.
+    交点，如果没有交集，则为 undefined。
 </div>
 
 
@@ -474,7 +474,15 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const origin = Cesium.Cartesian3.fromDegrees(-75.59777, 40.03883);const normal = ellipsoid.geodeticSurfaceNormal(origin);const plane = Cesium.Plane.fromPointNormal(origin, normal);const p0 = new Cesium.Cartesian3(...);const p1 = new Cesium.Cartesian3(...);// find the intersection of the line segment from p0 to p1 and the tangent plane at origin.const intersection = Cesium.IntersectionTests.lineSegmentPlane(p0, p1, plane);</code></pre>
+    <pre><code class="language-javascript">const origin = Cesium.Cartesian3.fromDegrees(-75.59777, 40.03883);
+const normal = ellipsoid.geodeticSurfaceNormal(origin);
+const plane = Cesium.Plane.fromPointNormal(origin, normal);
+
+const p0 = new Cesium.Cartesian3(...);
+const p1 = new Cesium.Cartesian3(...);
+
+// find the intersection of the line segment from p0 to p1 and the tangent plane at origin.
+const intersection = Cesium.IntersectionTests.lineSegmentPlane(p0, p1, plane);</code></pre>
 
     
 
@@ -511,7 +519,7 @@
 
 
 <div class="description">
-    Computes the intersection points of a line segment with a sphere.
+    计算线段与球体的交点。
 </div>
 
 
@@ -567,7 +575,7 @@
 
                 
             
-                An end point of the line segment.</td>
+                线段的终点。</td>
         </tr>
 
     
@@ -595,7 +603,7 @@
 
                 
             
-                The other end point of the line segment.</td>
+                线段的另一个端点。</td>
         </tr>
 
     
@@ -623,7 +631,7 @@
 
                 
             
-                The sphere.</td>
+                球体。</td>
         </tr>
 
     
@@ -653,7 +661,7 @@
 
                 
             
-                The result onto which to store the result.</td>
+                存储结果的结果。</td>
         </tr>
 
     
@@ -674,7 +682,7 @@
 
         
 <div class="param-desc">
-    The interval containing scalar points along the ray or undefined if there are no intersections.
+    包含沿射线的标量点的区间，如果没有交集，则为 undefined。
 </div>
 
 
@@ -737,7 +745,7 @@
 
 
 <div class="description">
-    Computes the intersection of a line segment and a triangle.
+    计算线段和三角形的交集。
 </div>
 
 
@@ -799,7 +807,7 @@
 
                 
             
-                The an end point of the line segment.</td>
+                线段的终点。</td>
         </tr>
 
     
@@ -831,7 +839,7 @@
 
                 
             
-                The other end point of the line segment.</td>
+                线段的另一个端点。</td>
         </tr>
 
     
@@ -863,7 +871,7 @@
 
                 
             
-                The first vertex of the triangle.</td>
+                三角形的第一个顶点。</td>
         </tr>
 
     
@@ -895,7 +903,7 @@
 
                 
             
-                The second vertex of the triangle.</td>
+                三角形的第二个顶点。</td>
         </tr>
 
     
@@ -927,7 +935,7 @@
 
                 
             
-                The third vertex of the triangle.</td>
+                三角形的第三个顶点。</td>
         </tr>
 
     
@@ -963,7 +971,8 @@
 
                 
             
-                If <code>true</code>, will only compute an intersection with the front face of the triangle                 and return undefined for intersections with the back face.</td>
+                如果<code>为 true</code>，则仅计算与三角形正面的交点
+并返回 undefined 表示与背面的交集。</td>
         </tr>
 
     
@@ -997,7 +1006,7 @@
 
                 
             
-                The <code>Cartesian3</code> onto which to store the result.</td>
+                存储结果的<code>笛卡尔 3</code>。</td>
         </tr>
 
     
@@ -1018,7 +1027,7 @@
 
         
 <div class="param-desc">
-    The intersection point or undefined if there is no intersections.
+    交点，如果没有交集，则为 undefined。
 </div>
 
 
@@ -1081,7 +1090,7 @@
 
 
 <div class="description">
-    Computes the intersection points of a ray with an ellipsoid.
+    计算射线与椭球体的交点。
 </div>
 
 
@@ -1132,7 +1141,7 @@
 
             <td class="description last">
             
-                The ray.</td>
+                射线。</td>
         </tr>
 
     
@@ -1155,7 +1164,7 @@
 
             <td class="description last">
             
-                The ellipsoid.</td>
+                椭球体。</td>
         </tr>
 
     
@@ -1176,7 +1185,7 @@
 
         
 <div class="param-desc">
-    The interval containing scalar points along the ray or undefined if there are no intersections.
+    包含沿射线的标量点的区间，如果没有交集，则为 undefined。
 </div>
 
 
@@ -1239,7 +1248,7 @@
 
 
 <div class="description">
-    Computes the intersection of a ray and a plane.
+    计算射线和平面的交集。
 </div>
 
 
@@ -1295,7 +1304,7 @@
 
                 
             
-                The ray.</td>
+                射线。</td>
         </tr>
 
     
@@ -1323,7 +1332,7 @@
 
                 
             
-                The plane.</td>
+                该平面。</td>
         </tr>
 
     
@@ -1374,7 +1383,7 @@
 
         
 <div class="param-desc">
-    The intersection point or undefined if there is no intersections.
+    交点，如果没有交集，则为 undefined。
 </div>
 
 
@@ -1437,7 +1446,7 @@
 
 
 <div class="description">
-    Computes the intersection points of a ray with a sphere.
+    计算射线与球体的交点。
 </div>
 
 
@@ -1493,7 +1502,7 @@
 
                 
             
-                The ray.</td>
+                射线。</td>
         </tr>
 
     
@@ -1521,7 +1530,7 @@
 
                 
             
-                The sphere.</td>
+                球体。</td>
         </tr>
 
     
@@ -1551,7 +1560,7 @@
 
                 
             
-                The result onto which to store the result.</td>
+                存储结果的结果。</td>
         </tr>
 
     
@@ -1572,7 +1581,7 @@
 
         
 <div class="param-desc">
-    The interval containing scalar points along the ray or undefined if there are no intersections.
+    包含沿射线的标量点的区间，如果没有交集，则为 undefined。
 </div>
 
 
@@ -1635,7 +1644,9 @@
 
 
 <div class="description">
-    Computes the intersection of a ray and a triangle as a Cartesian3 coordinate.Implements {@link https://cadxfem.org/inf/Fast%20MinimumStorage%20RayTriangle%20Intersection.pdf|Fast Minimum Storage Ray/Triangle Intersection} by Tomas Moller and Ben Trumbore.
+    将射线和三角形的交点计算为 Cartesian3 坐标。
+
+实现 <a href="https://cadxfem.org/inf/Fast%2520MinimumStorage%2520RayTriangle%2520Intersection.pdf"> Fast Minimum Storage Ray/Triangle Intersection</a> by Tomas Moller and Ben Trumbore.
 </div>
 
 
@@ -1697,7 +1708,7 @@
 
                 
             
-                The ray.</td>
+                射线。</td>
         </tr>
 
     
@@ -1729,7 +1740,7 @@
 
                 
             
-                The first vertex of the triangle.</td>
+                三角形的第一个顶点。</td>
         </tr>
 
     
@@ -1761,7 +1772,7 @@
 
                 
             
-                The second vertex of the triangle.</td>
+                三角形的第二个顶点。</td>
         </tr>
 
     
@@ -1793,7 +1804,7 @@
 
                 
             
-                The third vertex of the triangle.</td>
+                三角形的第三个顶点。</td>
         </tr>
 
     
@@ -1829,7 +1840,8 @@
 
                 
             
-                If <code>true</code>, will only compute an intersection with the front face of the triangle                 and return undefined for intersections with the back face.</td>
+                如果<code>为 true</code>，则仅计算与三角形正面的交点
+并返回 undefined 表示与背面的交集。</td>
         </tr>
 
     
@@ -1863,7 +1875,7 @@
 
                 
             
-                The <code>Cartesian3</code> onto which to store the result.</td>
+                存储结果的<code>笛卡尔 3</code>。</td>
         </tr>
 
     
@@ -1884,7 +1896,7 @@
 
         
 <div class="param-desc">
-    The intersection point or undefined if there is no intersections.
+    交点，如果没有交集，则为 undefined。
 </div>
 
 
@@ -1947,7 +1959,9 @@
 
 
 <div class="description">
-    Computes the intersection of a ray and a triangle as a parametric distance along the input ray. The result is negative when the triangle is behind the ray.Implements {@link https://cadxfem.org/inf/Fast%20MinimumStorage%20RayTriangle%20Intersection.pdf|Fast Minimum Storage Ray/Triangle Intersection} by Tomas Moller and Ben Trumbore.
+    将射线和三角形的交点计算为沿输入射线的参数化距离。当三角形位于射线后面时，结果为负数。
+
+实现 <a href="https://cadxfem.org/inf/Fast%2520MinimumStorage%2520RayTriangle%2520Intersection.pdf"> Fast Minimum Storage Ray/Triangle Intersection</a> 作者：Tomas Moller 和 Ben Trumbore。
 </div>
 
 
@@ -2009,7 +2023,7 @@
 
                 
             
-                The ray.</td>
+                射线。</td>
         </tr>
 
     
@@ -2041,7 +2055,7 @@
 
                 
             
-                The first vertex of the triangle.</td>
+                三角形的第一个顶点。</td>
         </tr>
 
     
@@ -2073,7 +2087,7 @@
 
                 
             
-                The second vertex of the triangle.</td>
+                三角形的第二个顶点。</td>
         </tr>
 
     
@@ -2105,7 +2119,7 @@
 
                 
             
-                The third vertex of the triangle.</td>
+                三角形的第三个顶点。</td>
         </tr>
 
     
@@ -2141,7 +2155,8 @@
 
                 
             
-                If <code>true</code>, will only compute an intersection with the front face of the triangle                 and return undefined for intersections with the back face.</td>
+                如果<code>为 true</code>，则仅计算与三角形正面的交点
+并返回 undefined 表示与背面的交集。</td>
         </tr>
 
     
@@ -2162,7 +2177,7 @@
 
         
 <div class="param-desc">
-    The intersection as a parametric distance along the ray, or undefined if there is no intersection.
+    交点作为沿射线的参数化距离，如果没有交点，则为 undefined。
 </div>
 
 
@@ -2225,7 +2240,7 @@
 
 
 <div class="description">
-    Computes the intersection of a triangle and a plane
+    计算三角形和平面的交集
 </div>
 
 
@@ -2276,7 +2291,7 @@
 
             <td class="description last">
             
-                First point of the triangle</td>
+                三角形的第一个点</td>
         </tr>
 
     
@@ -2299,7 +2314,7 @@
 
             <td class="description last">
             
-                Second point of the triangle</td>
+                三角形的第二点</td>
         </tr>
 
     
@@ -2322,7 +2337,7 @@
 
             <td class="description last">
             
-                Third point of the triangle</td>
+                三角形的第三个点</td>
         </tr>
 
     
@@ -2345,7 +2360,7 @@
 
             <td class="description last">
             
-                Intersection plane</td>
+                相交平面</td>
         </tr>
 
     
@@ -2366,7 +2381,7 @@
 
         
 <div class="param-desc">
-    An object with properties <code>positions</code> and <code>indices</code>, which are arrays that represent three triangles that do not cross the plane. (Undefined if no intersection exists)
+    具有 <code>positions</code> 和 <code>indices</code> 属性的对象，它们是表示不穿过平面的三个三角形的数组。（如果不存在交集，则为 Undefined）
 </div>
 
 
@@ -2397,7 +2412,16 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const origin = Cesium.Cartesian3.fromDegrees(-75.59777, 40.03883);const normal = ellipsoid.geodeticSurfaceNormal(origin);const plane = Cesium.Plane.fromPointNormal(origin, normal);const p0 = new Cesium.Cartesian3(...);const p1 = new Cesium.Cartesian3(...);const p2 = new Cesium.Cartesian3(...);// convert the triangle composed of points (p0, p1, p2) to three triangles that don't cross the planeconst triangles = Cesium.IntersectionTests.trianglePlaneIntersection(p0, p1, p2, plane);</code></pre>
+    <pre><code class="language-javascript">const origin = Cesium.Cartesian3.fromDegrees(-75.59777, 40.03883);
+const normal = ellipsoid.geodeticSurfaceNormal(origin);
+const plane = Cesium.Plane.fromPointNormal(origin, normal);
+
+const p0 = new Cesium.Cartesian3(...);
+const p1 = new Cesium.Cartesian3(...);
+const p2 = new Cesium.Cartesian3(...);
+
+// convert the triangle composed of points (p0, p1, p2) to three triangles that don't cross the plane
+const triangles = Cesium.IntersectionTests.trianglePlaneIntersection(p0, p1, p2, plane);</code></pre>
 
     
 

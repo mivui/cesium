@@ -58,7 +58,13 @@
 
 
 <div class="description">
-    A plane in Hessian Normal Form defined by<pre>ax + by + cz + d = 0</pre>where (a, b, c) is the plane's <code>normal</code>, d is the signed<code>distance</code> to the plane, and (x, y, z) is any point onthe plane.
+    由
+<pre>
+ax + by + cz + d = 0
+</pre>
+其中 （a， b， c） 是平面的<code>法线</code>，d 是有符号
+<code>到平面的距离</code>，并且 （x， y， z） 是 上的任意点
+飞机。
 </div>
 
 
@@ -109,7 +115,7 @@
 
             <td class="description last">
             
-                The plane's normal (normalized).</td>
+                平面的法线（归一化）。</td>
         </tr>
 
     
@@ -132,7 +138,11 @@
 
             <td class="description last">
             
-                The shortest distance from the origin to the plane.  The sign of<code>distance</code> determines which side of the plane the originis on.  If <code>distance</code> is positive, the origin is in the half-spacein the direction of the normal; if negative, the origin is in the half-spaceopposite to the normal; if zero, the plane passes through the origin.</td>
+                从原点到平面的最短距离。 的标志
+<code>距离</code> 确定平面的哪一侧为原点
+为打开。 如果 <code>distance</code> 为正数，则原点位于半空间中
+沿法线方向;如果为负数，则原点位于半空间
+与正常相反;如果为零，则平面通过原点。</td>
         </tr>
 
     
@@ -189,7 +199,8 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// The plane x=0const plane = new Cesium.Plane(Cesium.Cartesian3.UNIT_X, 0.0);</code></pre>
+    <pre><code class="language-javascript">// The plane x=0
+const plane = new Cesium.Plane(Cesium.Cartesian3.UNIT_X, 0.0);</code></pre>
 
     
 
@@ -241,7 +252,7 @@
 
 
 <div class="description">
-    A constant initialized to the XY plane passing through the origin, with normal in positive Z.
+    初始化为通过原点的 XY 平面的常量，法线为正 Z。
 </div>
 
 
@@ -301,7 +312,7 @@
 
 
 <div class="description">
-    A constant initialized to the YZ plane passing through the origin, with normal in positive X.
+    初始化为通过原点的 YZ 平面的常数，法线为正 X。
 </div>
 
 
@@ -361,7 +372,7 @@
 
 
 <div class="description">
-    A constant initialized to the ZX plane passing through the origin, with normal in positive Y.
+    初始化为通过原点的 ZX 平面的常数，法线为正 Y。
 </div>
 
 
@@ -421,7 +432,11 @@
 
 
 <div class="description">
-    The shortest distance from the origin to the plane.  The sign of<code>distance</code> determines which side of the plane the originis on.  If <code>distance</code> is positive, the origin is in the half-spacein the direction of the normal; if negative, the origin is in the half-spaceopposite to the normal; if zero, the plane passes through the origin.
+    从原点到平面的最短距离。 的标志
+<code>距离</code> 确定平面的哪一侧为原点
+为打开。 如果 <code>distance</code> 为正数，则原点位于半空间中
+沿法线方向;如果为负数，则原点位于半空间
+与正常相反;如果为零，则平面通过原点。
 </div>
 
 
@@ -481,7 +496,7 @@
 
 
 <div class="description">
-    The plane's normal.
+    飞机正常。
 </div>
 
 
@@ -548,7 +563,7 @@
 
 
 <div class="description">
-    复制Plane instance.
+    复制Plane实例。
 </div>
 
 
@@ -604,7 +619,7 @@
 
                 
             
-                The plane to duplicate.</td>
+                要复制的平面。</td>
         </tr>
 
     
@@ -655,7 +670,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数 or a new Plane instance if one was not provided.
+    修改后的结果参数或者新的 Plane 实例（如果未提供）。
 </div>
 
 
@@ -718,7 +733,8 @@
 
 
 <div class="description">
-    Compares the provided Planes by normal and distance and returns<code>true</code>，否则为<code>false</code>。
+    按法线和距离比较提供的 Planes 并返回
+<code>true</code>，否则为 <code>false</code>。
 </div>
 
 
@@ -769,7 +785,7 @@
 
             <td class="description last">
             
-                The first plane.</td>
+                第一个平面。</td>
         </tr>
 
     
@@ -792,7 +808,7 @@
 
             <td class="description last">
             
-                The second plane.</td>
+                第二个平面。</td>
         </tr>
 
     
@@ -876,7 +892,7 @@
 
 
 <div class="description">
-    Creates a plane from the general equation
+    从一般方程式创建平面
 </div>
 
 
@@ -932,7 +948,7 @@
 
                 
             
-                The plane's normal (normalized).</td>
+                平面的法线（归一化）。</td>
         </tr>
 
     
@@ -983,7 +999,7 @@
 
         
 <div class="param-desc">
-    A new plane instance or 修改后的结果参数。
+    新的 plane 实例或 修改后的结果参数。
 </div>
 
 
@@ -1060,7 +1076,7 @@
 
 
 <div class="description">
-    Creates a plane from a normal and a point on the plane.
+    从法线和平面上的点创建平面。
 </div>
 
 
@@ -1116,7 +1132,7 @@
 
                 
             
-                The point on the plane.</td>
+                平面上的点。</td>
         </tr>
 
     
@@ -1144,7 +1160,7 @@
 
                 
             
-                The plane's normal (normalized).</td>
+                平面的法线（归一化）。</td>
         </tr>
 
     
@@ -1195,7 +1211,7 @@
 
         
 <div class="param-desc">
-    A new plane instance or 修改后的结果参数。
+    一个新的平面实例或更改后的结果参数。
 </div>
 
 
@@ -1240,7 +1256,9 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const point = Cesium.Cartesian3.fromDegrees(-72.0, 40.0);const normal = ellipsoid.geodeticSurfaceNormal(point);const tangentPlane = Cesium.Plane.fromPointNormal(point, normal);</code></pre>
+    <pre><code class="language-javascript">const point = Cesium.Cartesian3.fromDegrees(-72.0, 40.0);
+const normal = ellipsoid.geodeticSurfaceNormal(point);
+const tangentPlane = Cesium.Plane.fromPointNormal(point, normal);</code></pre>
 
     
 
@@ -1277,7 +1295,11 @@
 
 
 <div class="description">
-    Computes the signed shortest distance of a point to a plane.The sign of the distance determines which side of the plane the pointis on.  If the distance is positive, the point is in the half-spacein the direction of the normal; if negative, the point is in the half-spaceopposite to the normal; if zero, the plane passes through the point.
+    计算点到平面的有符号最短距离。
+距离的符号确定点是平面的哪一侧
+为打开。 如果距离为正，则点位于半空间中
+沿法线方向;如果为负数，则该点位于半空间中
+与正常相反;如果为零，则平面通过该点。
 </div>
 
 
@@ -1328,7 +1350,7 @@
 
             <td class="description last">
             
-                The plane.</td>
+                该平面。</td>
         </tr>
 
     
@@ -1351,7 +1373,7 @@
 
             <td class="description last">
             
-                The point.</td>
+                点。</td>
         </tr>
 
     
@@ -1372,7 +1394,7 @@
 
         
 <div class="param-desc">
-    The signed shortest distance of the point to the plane.
+    点到平面的有符号最短距离。
 </div>
 
 
@@ -1435,7 +1457,7 @@
 
 
 <div class="description">
-    Projects a point onto the plane.
+    将点投影到平面上。
 </div>
 
 
@@ -1491,7 +1513,7 @@
 
                 
             
-                The plane to project the point onto</td>
+                要将点投影到的平面</td>
         </tr>
 
     
@@ -1519,7 +1541,7 @@
 
                 
             
-                The point to project onto the plane</td>
+                要投影到平面上的点</td>
         </tr>
 
     
@@ -1549,7 +1571,7 @@
 
                 
             
-                The result point.  If undefined, a new Cartesian3 will be created.</td>
+                结果点。 如果未定义，将创建一个新的 Cartesian3。</td>
         </tr>
 
     
@@ -1570,7 +1592,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数 or a new Cartesian3 instance if one was not provided.
+    修改后的结果参数或新的 Cartesian3 实例（如果未提供）。
 </div>
 
 
@@ -1633,7 +1655,7 @@
 
 
 <div class="description">
-    Transforms the plane by the given transformation matrix.
+    按给定的变换矩阵变换平面。
 </div>
 
 
@@ -1689,7 +1711,7 @@
 
                 
             
-                The plane.</td>
+                该平面。</td>
         </tr>
 
     
@@ -1717,7 +1739,7 @@
 
                 
             
-                The transformation matrix.</td>
+                变换矩阵。</td>
         </tr>
 
     
@@ -1768,7 +1790,7 @@
 
         
 <div class="param-desc">
-    The plane transformed by the given transformation matrix.
+    由给定变换矩阵变换的平面。
 </div>
 
 

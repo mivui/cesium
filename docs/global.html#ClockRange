@@ -47,7 +47,7 @@
 
 
         
-            <div class="description">Constants used by <a href="Clock.html#tick"><code>Clock#tick</code></a> to determine behaviorwhen <a href="Clock.html#startTime"><code>Clock#startTime</code></a> or <a href="Clock.html#stopTime"><code>Clock#stopTime</code></a> is reached.</div>
+            <div class="description"><a href="Clock.html#tick"><code>Clock#tick</code></a> 用于确定行为的常量当达到 <a href="Clock.html#startTime"><code>Clock#startTime</code></a> 或 <a href="Clock.html#stopTime"><code>Clock#stopTime</code></a> 时。</div>
         
 
         
@@ -96,7 +96,7 @@
 
             
 
-            <td class="description last"><a href="Clock.html#tick"><code>Clock#tick</code></a> will always advances the clock in its current direction.</td>
+            <td class="description last"><a href="Clock.html#tick"><code>Clock#tick</code></a> 将始终将时钟向前推进其当前方向。</td>
         </tr>
 
     
@@ -119,7 +119,7 @@
 
             
 
-            <td class="description last">When <a href="Clock.html#startTime"><code>Clock#startTime</code></a> or <a href="Clock.html#stopTime"><code>Clock#stopTime</code></a> is reached,<a href="Clock.html#tick"><code>Clock#tick</code></a> will not advance <a href="Clock.html#currentTime"><code>Clock#currentTime</code></a> any further.</td>
+            <td class="description last">当达到 <a href="Clock.html#startTime"><code>Clock#startTime</code></a> 或 <a href="Clock.html#stopTime"><code>Clock#stopTime</code></a> 时，<a href="Clock.html#tick"><code>Clock#tick</code></a> 不会进一步推进 <a href="Clock.html#currentTime"><code>Clock#currentTime</code></a>。</td>
         </tr>
 
     
@@ -142,7 +142,7 @@
 
             
 
-            <td class="description last">When <a href="Clock.html#stopTime"><code>Clock#stopTime</code></a> is reached, <a href="Clock.html#tick"><code>Clock#tick</code></a> will advance<a href="Clock.html#currentTime"><code>Clock#currentTime</code></a> to the opposite end of the interval.  Whentime is moving backwards, <a href="Clock.html#tick"><code>Clock#tick</code></a> will not advance past<a href="Clock.html#startTime"><code>Clock#startTime</code></a></td>
+            <td class="description last">当达到 <a href="Clock.html#stopTime"><code>Clock#stopTime</code></a> 时，<a href="Clock.html#tick"><code>Clock#tick</code></a> 将前进<a href="Clock.html#currentTime"><code>Clock#currentTime</code></a> 到间隔的另一端。 什么时候时间向后移动，<a href="Clock.html#tick"><code>Clock#tick</code></a> 不会过去<code>时钟#startTime</code></td>
         </tr>
 
     
@@ -223,7 +223,7 @@
 
 
 <div class="description">
-    When <a href="Clock.html#startTime"><code>Clock#startTime</code></a> or <a href="Clock.html#stopTime"><code>Clock#stopTime</code></a> is reached,<a href="Clock.html#tick"><code>Clock#tick</code></a> will not advance <a href="Clock.html#currentTime"><code>Clock#currentTime</code></a> any further.
+    当达到 <a href="Clock.html#startTime"><code>Clock#startTime</code></a> 或 <a href="Clock.html#stopTime"><code>Clock#stopTime</code></a> 时，<a href="Clock.html#tick"><code>Clock#tick</code></a> 不会进一步推进 <a href="Clock.html#currentTime"><code>Clock#currentTime</code></a>。
 </div>
 
 
@@ -286,7 +286,7 @@
 
 
 <div class="description">
-    When <a href="Clock.html#stopTime"><code>Clock#stopTime</code></a> is reached, <a href="Clock.html#tick"><code>Clock#tick</code></a> will advance<a href="Clock.html#currentTime"><code>Clock#currentTime</code></a> to the opposite end of the interval.  Whentime is moving backwards, <a href="Clock.html#tick"><code>Clock#tick</code></a> will not advance past<a href="Clock.html#startTime"><code>Clock#startTime</code></a>
+    当达到 <a href="Clock.html#stopTime"><code>Clock#stopTime</code></a> 时，<a href="Clock.html#tick"><code>Clock#tick</code></a> 将前进<a href="Clock.html#currentTime"><code>Clock#currentTime</code></a> 到间隔的另一端。 什么时候时间向后移动，<a href="Clock.html#tick"><code>Clock#tick</code></a> 不会过去<code>时钟#startTime</code>
 </div>
 
 
@@ -349,7 +349,7 @@
 
 
 <div class="description">
-    <a href="Clock.html#tick"><code>Clock#tick</code></a> will always advances the clock in its current direction.
+    <a href="Clock.html#tick"><code>Clock#tick</code></a> 将始终将时钟向前推进其当前方向。
 </div>
 
 

@@ -47,7 +47,7 @@
 
 
         
-            <div class="description">An <a href="InterpolationAlgorithm.html"><code>InterpolationAlgorithm</code></a> for performing linear interpolation.</div>
+            <div class="description">用于执行线性插值的 <a href="InterpolationAlgorithm.html"><code>InterpolationAlgorithm</code></a>。</div>
         
 
         
@@ -122,7 +122,9 @@
 
 
 <div class="description">
-    Given the desired degree, returns the number of data points required for interpolation.Since linear interpolation can only generate a first degree polynomial, this functionalways returns 2.
+    给定所需的度数，返回插值所需的数据点数。
+由于线性插值只能生成一阶多项式，因此此函数
+始终返回 2。
 </div>
 
 
@@ -173,7 +175,7 @@
 
             <td class="description last">
             
-                The desired degree of interpolation.</td>
+                所需的插值度数。</td>
         </tr>
 
     
@@ -194,7 +196,7 @@
 
         
 <div class="param-desc">
-    This function always returns 2.
+    此函数始终返回 2。
 </div>
 
 
@@ -257,7 +259,7 @@
 
 
 <div class="description">
-    Interpolates values using linear approximation.
+    使用线性近似法对值进行插值。
 </div>
 
 
@@ -313,7 +315,7 @@
 
                 
             
-                The independent variable for which the dependent variables will be interpolated.</td>
+                将为其插值因变量的自变量。</td>
         </tr>
 
     
@@ -341,7 +343,8 @@
 
                 
             
-                The array of independent variables to use to interpolate.  The valuesin this array must be in increasing order and the same value must not occur twice in the array.</td>
+                用于插值的自变量数组。 值
+必须按递增顺序排列，并且相同的值不得在数组中出现两次。</td>
         </tr>
 
     
@@ -369,7 +372,8 @@
 
                 
             
-                The array of dependent variables to use to interpolate.  For a set of threedependent values (p,q,w) at time 1 and time 2 this should be as follows: {p1, q1, w1, p2, q2, w2}.</td>
+                用于插值的因变量数组。 一套三件
+时间 1 和时间 2 的依赖值 （p，q，w） 应如下所示：{p1， q1， w1， p2， q2， w2}。</td>
         </tr>
 
     
@@ -397,7 +401,8 @@
 
                 
             
-                The number of dependent variable values in yTable corresponding toeach independent variable value in xTable.</td>
+                yTable 中对应的因变量值的数量
+xTable 中的每个自变量值。</td>
         </tr>
 
     
@@ -427,7 +432,7 @@
 
                 
             
-                An existing array into which to store the result.</td>
+                存储结果的现有数组。</td>
         </tr>
 
     
@@ -448,7 +453,7 @@
 
         
 <div class="param-desc">
-    The array of interpolated values, or the result parameter if one was provided.
+    插值数组，或 result 参数（如果提供了）。
 </div>
 
 

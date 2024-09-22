@@ -47,7 +47,8 @@
 
 
         
-            <div class="description">This enumerated type is for representing keyboard modifiers. These are keysthat are held down in addition to other event types.</div>
+            <div class="description">此枚举类型用于表示键盘修饰符。这些是键
+以及其他事件类型一起被按住。</div>
         
 
         
@@ -96,7 +97,7 @@
 
             
 
-            <td class="description last">Represents the shift key being held down.</td>
+            <td class="description last">表示按住 Shift 键。</td>
         </tr>
 
     
@@ -119,7 +120,7 @@
 
             
 
-            <td class="description last">Represents the control key being held down.</td>
+            <td class="description last">表示按住 control 键。</td>
         </tr>
 
     
@@ -142,7 +143,7 @@
 
             
 
-            <td class="description last">Represents the alt key being held down.</td>
+            <td class="description last">表示按住的 alt 键。</td>
         </tr>
 
     
@@ -216,7 +217,7 @@
 
 
 <div class="description">
-    Represents the alt key being held down.
+    表示按住的 alt 键。
 </div>
 
 
@@ -279,7 +280,7 @@
 
 
 <div class="description">
-    Represents the control key being held down.
+    表示按住 control 键。
 </div>
 
 
@@ -342,7 +343,7 @@
 
 
 <div class="description">
-    Represents the shift key being held down.
+    表示按住 Shift 键。
 </div>
 
 
