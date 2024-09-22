@@ -47,7 +47,7 @@
 
 
         
-            <div class="description">Represents the position relative to the terrain.</div>
+            <div class="description">表示相对于地形的位置。</div>
         
 
         
@@ -96,7 +96,7 @@
 
             
 
-            <td class="description last">The position is absolute.</td>
+            <td class="description last">立场是绝对的。</td>
         </tr>
 
     
@@ -119,7 +119,7 @@
 
             
 
-            <td class="description last">The position is clamped to the terrain and 3D Tiles.</td>
+            <td class="description last">位置与地形和 3D 瓦片固定。</td>
         </tr>
 
     
@@ -142,7 +142,7 @@
 
             
 
-            <td class="description last">The position height is the height above the terrain and 3D Tiles.</td>
+            <td class="description last">位置高度是 terrain 和 3D 瓦片上方的高度。</td>
         </tr>
 
     
@@ -165,7 +165,7 @@
 
             
 
-            <td class="description last">The position is clamped to terain.</td>
+            <td class="description last">位置被夹紧到 terain。</td>
         </tr>
 
     
@@ -188,7 +188,7 @@
 
             
 
-            <td class="description last">The position height is the height above terrain.</td>
+            <td class="description last">位置高度是 terrain 以上的高度。</td>
         </tr>
 
     
@@ -211,7 +211,7 @@
 
             
 
-            <td class="description last">The position is clamped to 3D Tiles.</td>
+            <td class="description last">位置被钳制到 3D 瓦片。</td>
         </tr>
 
     
@@ -234,7 +234,7 @@
 
             
 
-            <td class="description last">The position height is the height above 3D Tiles.</td>
+            <td class="description last">位置高度是 3D 瓦片上方的高度。</td>
         </tr>
 
     
@@ -308,7 +308,7 @@
 
 
 <div class="description">
-    The position is clamped to 3D Tiles.
+    位置被钳制到 3D 瓦片。
 </div>
 
 
@@ -371,7 +371,7 @@
 
 
 <div class="description">
-    The position is clamped to the terrain and 3D Tiles.
+    位置与地形和 3D 瓦片固定。
 </div>
 
 
@@ -434,7 +434,7 @@
 
 
 <div class="description">
-    The position is clamped to terain.
+    位置被夹紧到 terain。
 </div>
 
 
@@ -497,7 +497,7 @@
 
 
 <div class="description">
-    The position is absolute.
+    立场是绝对的。
 </div>
 
 
@@ -557,7 +557,7 @@
 
 
 <div class="description">
-    The position height is the height above 3D Tiles.
+    位置高度是 3D 瓦片上方的高度。
 </div>
 
 
@@ -620,7 +620,7 @@
 
 
 <div class="description">
-    The position height is the height above the terrain and 3D Tiles.
+    位置高度是 terrain 和 3D 瓦片上方的高度。
 </div>
 
 
@@ -683,7 +683,7 @@
 
 
 <div class="description">
-    The position height is the height above terrain.
+    位置高度是 terrain 以上的高度。
 </div>
 
 

@@ -47,7 +47,9 @@
 
 
         
-            <div class="description">Atmosphere lighting effects (sky atmosphere, ground atmosphere, fog) can befurther modified with dynamic lighting from the sun or other light sourcethat changes over time. This enum determines which light source to use.</div>
+            <div class="description">氛围灯光效果（天空氛围、地面氛围、雾）可以
+使用来自太阳或其他光源的动态照明进一步修改
+随时间变化。此枚举确定要使用的光源。</div>
         
 
         
@@ -96,7 +98,8 @@
 
             
 
-            <td class="description last">Do not use dynamic atmosphere lighting. Atmosphere lighting effects willbe lit from directly above rather than using the scene's light source.</td>
+            <td class="description last">请勿使用动态氛围照明。氛围灯效将
+从正上方照亮，而不是使用场景的光源。</td>
         </tr>
 
     
@@ -119,7 +122,7 @@
 
             
 
-            <td class="description last">Use the scene's current light source for dynamic atmosphere lighting.</td>
+            <td class="description last">将场景的当前光源用于动态氛围照明。</td>
         </tr>
 
     
@@ -142,7 +145,8 @@
 
             
 
-            <td class="description last">Force the dynamic atmosphere lighting to always use the sunlight direction,even if the scene uses a different light source.</td>
+            <td class="description last">强制动态氛围照明始终使用阳光方向，
+即使场景使用不同的光源。</td>
         </tr>
 
     
@@ -216,7 +220,8 @@
 
 
 <div class="description">
-    Do not use dynamic atmosphere lighting. Atmosphere lighting effects willbe lit from directly above rather than using the scene's light source.
+    请勿使用动态氛围照明。氛围灯效将
+从正上方照亮，而不是使用场景的光源。
 </div>
 
 
@@ -276,7 +281,7 @@
 
 
 <div class="description">
-    Use the scene's current light source for dynamic atmosphere lighting.
+    将场景的当前光源用于动态氛围照明。
 </div>
 
 
@@ -339,7 +344,8 @@
 
 
 <div class="description">
-    Force the dynamic atmosphere lighting to always use the sunlight direction,even if the scene uses a different light source.
+    强制动态氛围照明始终使用阳光方向，
+即使场景使用不同的光源。
 </div>
 
 

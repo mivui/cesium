@@ -58,7 +58,10 @@
 
 
 <div class="description">
-    A GroundPolylinePrimitive represents a polyline draped over the terrain or 3D Tiles in the <a href="Scene.html"><code>Scene</code></a>.<p>Only to be used with GeometryInstances containing <a href="GroundPolylineGeometry.html"><code>GroundPolylineGeometry</code></a>.</p>
+    GroundPolylinePrimitive 表示覆盖在 <a href="Scene.html"><code>Scene</code></a> 中的 terrain 或 3D 瓦片上的多段线。
+<p>
+仅用于包含 <a href="GroundPolylineGeometry.html"><code>GroundPolylineGeometry</code></a> 的 GeometryInstances。
+</p>
 </div>
 
 
@@ -171,7 +174,7 @@
 
                 
             
-                GeometryInstances containing GroundPolylineGeometry</td>
+                包含 GroundPolylineGeometry 的 GeometryInstance</td>
         </tr>
 
     
@@ -205,7 +208,7 @@
 
                 
             
-                The Appearance used to render the polyline. Defaults to a white color <a href="Material.html"><code>Material</code></a> on a <a href="PolylineMaterialAppearance.html"><code>PolylineMaterialAppearance</code></a>.</td>
+                用于渲染多段线的 Appearance。默认为 <a href="PolylineMaterialAppearance.html"><code>PolylineMaterialAppearance</code></a> 上的白色 <a href="Material.html"><code>Material</code></a>。</td>
         </tr>
 
     
@@ -241,7 +244,7 @@
 
                 
             
-                Determines if this primitive will be shown.</td>
+                决定是否显示此基元。</td>
         </tr>
 
     
@@ -277,7 +280,7 @@
 
                 
             
-                When <code>true</code>, geometry vertex attributes are interleaved, which can slightly improve rendering performance but increases load time.</td>
+                如果<code>为 true</code>，则几何顶点属性是交错的，这可以略微提高渲染性能，但会增加加载时间。</td>
         </tr>
 
     
@@ -313,7 +316,7 @@
 
                 
             
-                When <code>true</code>, the primitive does not keep a reference to the input <code>geometryInstances</code> to save memory.</td>
+                如果为 <code>true</code>，则基元不会保留对输入 <code>geometryInstances</code> 的引用以节省内存。</td>
         </tr>
 
     
@@ -349,7 +352,7 @@
 
                 
             
-                When <code>true</code>, each geometry instance will only be pickable with <a href="Scene.html#pick"><code>Scene#pick</code></a>.  When <code>false</code>, GPU memory is saved.</td>
+                如果<code>为 true</code>，则每个几何体实例只能使用 <a href="Scene.html#pick"><code>Scene#pick</code></a> 进行拾取。 如果<code>为 false</code>，则保存 GPU 内存。</td>
         </tr>
 
     
@@ -385,7 +388,7 @@
 
                 
             
-                Determines if the primitive will be created asynchronously or block until ready. If false initializeTerrainHeights() must be called first.</td>
+                确定原语是异步创建还是阻塞直到准备就绪。如果为 false，则必须先调用 initializeTerrainHeights（）。</td>
         </tr>
 
     
@@ -421,7 +424,7 @@
 
                 
             
-                Determines whether terrain, 3D Tiles or both will be classified.</td>
+                确定是否对地形、3D 瓦片或两者进行分类。</td>
         </tr>
 
     
@@ -457,7 +460,7 @@
 
                 
             
-                For debugging only. Determines if this primitive's commands' bounding spheres are shown.</td>
+                仅用于调试。确定是否显示此基本体的命令的边界球体。</td>
         </tr>
 
     
@@ -493,7 +496,7 @@
 
                 
             
-                For debugging only. Determines if the shadow volume for each geometry in the primitive is drawn. Must be <code>true</code> on creation to have effect.</td>
+                仅用于调试。确定是否绘制基本体中每个几何体的阴影体积。必须在创建时为 <code>true</code> 才能生效。</td>
         </tr>
 
     
@@ -542,7 +545,49 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// 1. Draw a polyline on terrain with a basic color materialconst instance = new Cesium.GeometryInstance({  geometry : new Cesium.GroundPolylineGeometry({     positions : Cesium.Cartesian3.fromDegreesArray([         -112.1340164450331, 36.05494287836128,         -112.08821010582645, 36.097804071380715     ]),     width : 4.0  }),  id : 'object returned when this instance is picked and to get/set per-instance attributes'});scene.groundPrimitives.add(new Cesium.GroundPolylinePrimitive({  geometryInstances : instance,  appearance : new Cesium.PolylineMaterialAppearance()}));// 2. Draw a looped polyline on terrain with per-instance color and a distance display condition.// Distance display conditions for polylines on terrain are based on an approximate terrain height// instead of true terrain height.const instance2 = new Cesium.GeometryInstance({  geometry : new Cesium.GroundPolylineGeometry({     positions : Cesium.Cartesian3.fromDegreesArray([         -112.1340164450331, 36.05494287836128,         -112.08821010582645, 36.097804071380715,         -112.13296079730024, 36.168769146801104     ]),     loop : true,     width : 4.0  }),  attributes : {     color : Cesium.ColorGeometryInstanceAttribute.fromColor(Cesium.Color.fromCssColorString('green').withAlpha(0.7)),     distanceDisplayCondition : new Cesium.DistanceDisplayConditionGeometryInstanceAttribute(1000, 30000)  },  id : 'object returned when this instance is picked and to get/set per-instance attributes'});scene.groundPrimitives.add(new Cesium.GroundPolylinePrimitive({  geometryInstances : instance2,  appearance : new Cesium.PolylineColorAppearance()}));</code></pre>
+    <pre><code class="language-javascript">// 1. Draw a polyline on terrain with a basic color material
+
+const instance = new Cesium.GeometryInstance({
+  geometry : new Cesium.GroundPolylineGeometry({
+     positions : Cesium.Cartesian3.fromDegreesArray([
+         -112.1340164450331, 36.05494287836128,
+         -112.08821010582645, 36.097804071380715
+     ]),
+     width : 4.0
+  }),
+  id : 'object returned when this instance is picked and to get/set per-instance attributes'
+});
+
+scene.groundPrimitives.add(new Cesium.GroundPolylinePrimitive({
+  geometryInstances : instance,
+  appearance : new Cesium.PolylineMaterialAppearance()
+}));
+
+// 2. Draw a looped polyline on terrain with per-instance color and a distance display condition.
+// Distance display conditions for polylines on terrain are based on an approximate terrain height
+// instead of true terrain height.
+
+const instance2 = new Cesium.GeometryInstance({
+  geometry : new Cesium.GroundPolylineGeometry({
+     positions : Cesium.Cartesian3.fromDegreesArray([
+         -112.1340164450331, 36.05494287836128,
+         -112.08821010582645, 36.097804071380715,
+         -112.13296079730024, 36.168769146801104
+     ]),
+     loop : true,
+     width : 4.0
+  }),
+  attributes : {
+     color : Cesium.ColorGeometryInstanceAttribute.fromColor(Cesium.Color.fromCssColorString('green').withAlpha(0.7)),
+     distanceDisplayCondition : new Cesium.DistanceDisplayConditionGeometryInstanceAttribute(1000, 30000)
+  },
+  id : 'object returned when this instance is picked and to get/set per-instance attributes'
+});
+
+scene.groundPrimitives.add(new Cesium.GroundPolylinePrimitive({
+  geometryInstances : instance2,
+  appearance : new Cesium.PolylineColorAppearance()
+}));</code></pre>
 
     
 
@@ -594,7 +639,7 @@
 
 
 <div class="description">
-    When <code>true</code>, each geometry instance will only be pickable with <a href="Scene.html#pick"><code>Scene#pick</code></a>.  When <code>false</code>, GPU memory is saved.
+    如果<code>为 true</code>，则每个几何体实例只能使用 <a href="Scene.html#pick"><code>Scene#pick</code></a> 进行拾取。 如果<code>为 false</code>，则保存 GPU 内存。
 </div>
 
 
@@ -657,7 +702,10 @@
 
 
 <div class="description">
-    The <a href="Appearance.html"><code>Appearance</code></a> used to shade this primitive. Each geometryinstance is shaded with the same appearance.  Some appearances, like<a href="PolylineColorAppearance.html"><code>PolylineColorAppearance</code></a> allow giving each instance uniqueproperties.
+    用于对此基元进行着色的 <a href="Appearance.html"><code>Appearance</code></a>。每个几何体
+实例以相同的外观进行着色。 一些外观，如
+<a href="PolylineColorAppearance.html"><code>PolylineColorAppearance</code></a> 允许为每个实例指定唯一的
+性能。
 </div>
 
 
@@ -720,7 +768,7 @@
 
 
 <div class="description">
-    Determines if the geometry instances will be created and batched on a web worker.
+    确定是否将在 Web Worker 上创建和批处理 geometry 实例。
 </div>
 
 
@@ -783,7 +831,7 @@
 
 
 <div class="description">
-    Determines whether terrain, 3D Tiles or both will be classified.
+    确定是否对地形、3D 瓦片或两者进行分类。
 </div>
 
 
@@ -846,7 +894,10 @@
 
 
 <div class="description">
-    This property is for debugging only; it is not for production use nor is it optimized.<p>Draws the bounding sphere for each draw command in the primitive.</p>
+    此属性仅用于调试;它不用于生产用途，也未进行优化。
+<p>
+为基元中的每个绘制命令绘制边界球体。
+</p>
 </div>
 
 
@@ -909,7 +960,10 @@
 
 
 <div class="description">
-    This property is for debugging only; it is not for production use nor is it optimized.<p>If true, draws the shadow volume for each geometry in the primitive.</p>
+    此属性仅用于调试;它不用于生产用途，也未进行优化。
+<p>
+如果为 true，则为基元中的每个几何体绘制阴影体积。
+</p>
 </div>
 
 
@@ -972,7 +1026,12 @@
 
 
 <div class="description">
-    The geometry instances rendered with this primitive. This maybe <code>undefined</code> if <code>options.releaseGeometryInstances</code>is <code>true</code> when the primitive is constructed.<p>Changing this property after the primitive is rendered has no effect.</p>
+    使用此基元渲染的几何体实例。这可能会
+如果 <code>options.releaseGeometryInstances</code> 为 <code>undefined</code>
+在构造基元时为 <code>true</code>。
+<p>
+在渲染基元后更改此属性不起作用。
+</p>
 </div>
 
 
@@ -1035,7 +1094,7 @@
 
 
 <div class="description">
-    Determines if geometry vertex attributes are interleaved, which can slightly improve rendering performance.
+    确定几何体顶点属性是否交错，这可以略微提高渲染性能。
 </div>
 
 
@@ -1098,7 +1157,9 @@
 
 
 <div class="description">
-    Determines if the primitive is complete and ready to render.  If this property istrue, the primitive will be rendered the next time that <a href="GroundPolylinePrimitive.html#update"><code>GroundPolylinePrimitive#update</code></a>is called.
+    确定基元是否完整并准备好进行渲染。 如果此属性为
+true，则基元将在下次 <a href="GroundPolylinePrimitive.html#update"><code>GroundPolylinePrimitive#update</code></a> 时渲染
+被调用。
 </div>
 
 
@@ -1158,7 +1219,7 @@
 
 
 <div class="description">
-    When <code>true</code>, the primitive does not keep a reference to the input <code>geometryInstances</code> to save memory.
+    如果为 <code>true</code>，则基元不会保留对输入 <code>geometryInstances</code> 的引用以节省内存。
 </div>
 
 
@@ -1221,7 +1282,8 @@
 
 
 <div class="description">
-    Determines if the primitive will be shown.  This affects all geometryinstances in the primitive.
+    确定是否显示基元。 这会影响所有几何体
+实例。
 </div>
 
 
@@ -1291,7 +1353,8 @@
 
 
 <div class="description">
-    Initializes the minimum and maximum terrain heights. This only needs to be called if you are creating theGroundPolylinePrimitive synchronously.
+    初始化最小和最大地形高度。仅当您正在创建
+GroundPolylinePrimitive 同步。
 </div>
 
 
@@ -1318,7 +1381,7 @@
 
         
 <div class="param-desc">
-    A promise that will resolve once the terrain heights have been loaded.
+    一个 Promise，一旦地形高度被加载，它就会被解析。
 </div>
 
 
@@ -1381,7 +1444,8 @@
 
 
 <div class="description">
-    Checks if the given Scene supports GroundPolylinePrimitives.GroundPolylinePrimitives require support for the WEBGL_depth_texture extension.
+    检查给定的 Scene 是否支持 GroundPolylinePrimitives。
+GroundPolylinePrimitives 需要支持 WEBGL_depth_texture 扩展。
 </div>
 
 
@@ -1432,7 +1496,7 @@
 
             <td class="description last">
             
-                The current scene.</td>
+                当前场景。</td>
         </tr>
 
     
@@ -1453,7 +1517,7 @@
 
         
 <div class="param-desc">
-    Whether or not the current scene supports GroundPolylinePrimitives.
+    当前场景是否支持 GroundPolylinePrimitives。
 </div>
 
 
@@ -1516,7 +1580,13 @@
 
 
 <div class="description">
-    Destroys the WebGL resources held by this object.  Destroying an object allows for deterministicrelease of WebGL resources, instead of relying on the garbage collector to destroy this object.<p>Once an object is destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.  Therefore,assign the return value (<code>undefined</code>) to the object as done in the example.</p>
+    销毁此对象持有的 WebGL 资源。 销毁对象允许确定性
+释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。
+<p>
+一旦对象被销毁，就不应该使用它;调用
+ <code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。 因此
+将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
+</p>
 </div>
 
 
@@ -1549,7 +1619,7 @@
         
 <span class="param-type"><a href="DeveloperError.html">DeveloperError</a></span>
 
-: This object was destroyed, i.e., destroy() was called.
+: 这个物体被摧毁了,destroy().
     </div>
 
 </li>
@@ -1621,7 +1691,7 @@
 
 
 <div class="description">
-    Returns the modifiable per-instance attributes for a <a href="GeometryInstance.html"><code>GeometryInstance</code></a>.
+    返回 <a href="GeometryInstance.html"><code>GeometryInstance</code></a> 的可修改的每实例属性。
 </div>
 
 
@@ -1672,7 +1742,7 @@
 
             <td class="description last">
             
-                The id of the <a href="GeometryInstance.html"><code>GeometryInstance</code></a>.</td>
+                <a href="GeometryInstance.html"><code>GeometryInstance</code></a> 的 ID。</td>
         </tr>
 
     
@@ -1693,7 +1763,7 @@
 
         
 <div class="param-desc">
-    The typed array in the attribute's format or undefined if the is no instance with id.
+    属性格式的类型化数组，如果没有 id 的实例，则为 undefined。
 </div>
 
 
@@ -1708,7 +1778,7 @@
         
 <span class="param-type"><a href="DeveloperError.html">DeveloperError</a></span>
 
-: must call update before calling getGeometryInstanceAttributes.
+: 必须在调用 getGeometryInstanceAttributes 之前调用 update。
     </div>
 
 </li>
@@ -1738,7 +1808,9 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const attributes = primitive.getGeometryInstanceAttributes('an id');attributes.color = Cesium.ColorGeometryInstanceAttribute.toValue(Cesium.Color.AQUA);attributes.show = Cesium.ShowGeometryInstanceAttribute.toValue(true);</code></pre>
+    <pre><code class="language-javascript">const attributes = primitive.getGeometryInstanceAttributes('an id');
+attributes.color = Cesium.ColorGeometryInstanceAttribute.toValue(Cesium.Color.AQUA);
+attributes.show = Cesium.ShowGeometryInstanceAttribute.toValue(true);</code></pre>
 
     
 
@@ -1775,7 +1847,11 @@
 
 
 <div class="description">
-    Returns true if this object was destroyed; otherwise, false.<p>If this object was destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.</p>
+    如果此对象已销毁，则返回 true;否则为 false。
+<p>
+如果此对象已销毁，则不应使用;调用
+ <code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。
+</p>
 </div>
 
 
@@ -1802,7 +1878,7 @@
 
         
 <div class="param-desc">
-    <code>true</code> if this object was destroyed; otherwise, <code>false</code>.
+    <code>true</code>，如果此对象被销毁;否则为 <code>false</code>。
 </div>
 
 
@@ -1870,7 +1946,12 @@
 
 
 <div class="description">
-    Called when <a href="Viewer.html"><code>Viewer</code></a> or <a href="CesiumWidget.html"><code>CesiumWidget</code></a> render the scene toget the draw commands needed to render this primitive.<p>Do not call this function directly.  This is documented just tolist the exceptions that may be propagated when the scene is rendered:</p>
+    当 <a href="Viewer.html"><code>Viewer</code></a> 或 <a href="CesiumWidget.html"><code>CesiumWidget</code></a> 将场景渲染到
+获取渲染此基元所需的绘制命令。
+<p>
+请勿直接调用此函数。 这记录下来只是为了
+列出渲染场景时可能传播的异常：
+</p>
 </div>
 
 
@@ -1903,7 +1984,7 @@
         
 <span class="param-type"><a href="DeveloperError.html">DeveloperError</a></span>
 
-: For synchronous GroundPolylinePrimitives, you must call GroundPolylinePrimitives.initializeTerrainHeights() and wait for the returned promise to resolve.
+: 对于同步 GroundPolylinePrimitives，您必须调用 GroundPolylinePrimitives.initializeTerrainHeights（） 并等待返回的 Promise 解析。
     </div>
 
 </li>
@@ -1914,7 +1995,7 @@
         
 <span class="param-type"><a href="DeveloperError.html">DeveloperError</a></span>
 
-: All GeometryInstances must have color attributes to use PolylineColorAppearance with GroundPolylinePrimitive.
+: 所有 GeometryInstances 都必须具有颜色属性，才能将 PolylineColorAppearance 与 GroundPolylinePrimitive 一起使用。
     </div>
 
 </li>

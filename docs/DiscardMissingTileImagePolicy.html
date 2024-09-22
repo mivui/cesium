@@ -58,7 +58,8 @@
 
 
 <div class="description">
-    A policy for discarding tile images that match a known image containing a"missing" image.
+    用于丢弃与已知图像匹配的切片图像的策略，该图像包含
+“缺失”图像。
 </div>
 
 
@@ -162,7 +163,7 @@
 
                 
             
-                The URL of the known missing image.</td>
+                已知缺失图像的 URL。</td>
         </tr>
 
     
@@ -194,7 +195,8 @@
 
                 
             
-                An array of <a href="Cartesian2.html"><code>Cartesian2</code></a> pixel positions to       compare against the missing image.</td>
+                一个 <a href="Cartesian2.html"><code>Cartesian2</code></a> 像素位置的数组，以
+与缺失的图像进行比较。</td>
         </tr>
 
     
@@ -230,7 +232,9 @@
 
                 
             
-                If true, the discard check will be disabled                 if all of the pixelsToCheck in the missingImageUrl have an alpha value of 0.  If false, the                 discard check will proceed no matter the values of the pixelsToCheck.</td>
+                如果为 true，则丢弃检查将被禁用
+如果 missingImageUrl 中的所有 pixelsToCheck 的 alpha 值为 0。 如果为 false，则
+无论 pixelsToCheck 的值是多少，放弃检查都会继续进行。</td>
         </tr>
 
     
@@ -329,7 +333,7 @@
 
 
 <div class="description">
-    Determines if the discard policy is ready to process images.
+    确定丢弃策略是否已准备好处理映像。
 </div>
 
 
@@ -356,7 +360,7 @@
 
         
 <div class="param-desc">
-    True if the discard policy is ready to process images; otherwise, false.
+    如果丢弃策略已准备好处理图像，则为 True;否则为 false。
 </div>
 
 
@@ -419,7 +423,7 @@
 
 
 <div class="description">
-    Given a tile image, decide whether to discard that image.
+    给定一个平铺图像，决定是否丢弃该图像。
 </div>
 
 
@@ -470,7 +474,7 @@
 
             <td class="description last">
             
-                An image to test.</td>
+                要测试的图像。</td>
         </tr>
 
     
@@ -491,7 +495,7 @@
 
         
 <div class="param-desc">
-    True if the image should be discarded; otherwise, false.
+    如果应该丢弃图像，则为 True;否则为 false。
 </div>
 
 
@@ -506,7 +510,7 @@
         
 <span class="param-type"><a href="DeveloperError.html">DeveloperError</a></span>
 
-: <code>shouldDiscardImage</code> must not be called before the discard policy is ready.
+: 在丢弃策略准备就绪之前，不得调用  <code>shouldDiscardImage</code>。
     </div>
 
 </li>

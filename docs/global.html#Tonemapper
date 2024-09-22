@@ -47,7 +47,7 @@
 
 
         
-            <div class="description">A tonemapping algorithm when rendering with high dynamic range.</div>
+            <div class="description">使用高动态范围渲染时的色调映射算法。</div>
         
 
         
@@ -96,7 +96,7 @@
 
             
 
-            <td class="description last">Use the Reinhard tonemapping.</td>
+            <td class="description last">使用 Reinhard 色调映射。</td>
         </tr>
 
     
@@ -119,7 +119,7 @@
 
             
 
-            <td class="description last">Use the modified Reinhard tonemapping.</td>
+            <td class="description last">使用修改后的 Reinhard 色调映射。</td>
         </tr>
 
     
@@ -142,7 +142,7 @@
 
             
 
-            <td class="description last">Use the Filmic tonemapping.</td>
+            <td class="description last">使用 Filmic 色调映射。</td>
         </tr>
 
     
@@ -165,7 +165,7 @@
 
             
 
-            <td class="description last">Use the ACES tonemapping.</td>
+            <td class="description last">使用 ACES 色调映射。</td>
         </tr>
 
     
@@ -188,7 +188,7 @@
 
             
 
-            <td class="description last">Use the PBR Neutral tonemapping <a href="https://github.com/KhronosGroup/ToneMapping/tree/main/PBR_Neutral">from Khronos</a>.</td>
+            <td class="description last">使用 PBR 中性色调映射 <a href="https://github.com/KhronosGroup/ToneMapping/tree/main/PBR_Neutral">from Khronos</a>。</td>
         </tr>
 
     
@@ -262,7 +262,7 @@
 
 
 <div class="description">
-    Use the ACES tonemapping.
+    使用 ACES 色调映射。
 </div>
 
 
@@ -325,7 +325,7 @@
 
 
 <div class="description">
-    Use the Filmic tonemapping.
+    使用 Filmic 色调映射。
 </div>
 
 
@@ -388,7 +388,7 @@
 
 
 <div class="description">
-    Use the modified Reinhard tonemapping.
+    使用修改后的 Reinhard 色调映射。
 </div>
 
 
@@ -451,7 +451,7 @@
 
 
 <div class="description">
-    Use the PBR Neutral tonemapping <a href="https://github.com/KhronosGroup/ToneMapping/tree/main/PBR_Neutral">from Khronos</a>.
+    使用 PBR 中性色调映射 <a href="https://github.com/KhronosGroup/ToneMapping/tree/main/PBR_Neutral">from Khronos</a>。
 </div>
 
 
@@ -514,7 +514,7 @@
 
 
 <div class="description">
-    Use the Reinhard tonemapping.
+    使用 Reinhard 色调映射。
 </div>
 
 

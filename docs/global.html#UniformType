@@ -47,7 +47,8 @@
 
 
         
-            <div class="description">An enum of the basic GLSL uniform types. These can be used with<a href="CustomShader.html"><code>CustomShader</code></a> to declare user-defined uniforms.</div>
+            <div class="description">基本 GLSL uniform 类型的枚举。这些可与
+<a href="CustomShader.html"><code>CustomShader</code></a> 来声明用户定义的 uniform。</div>
         
 
         
@@ -96,7 +97,7 @@
 
             
 
-            <td class="description last">A single floating point value.</td>
+            <td class="description last">单个浮点值。</td>
         </tr>
 
     
@@ -119,7 +120,7 @@
 
             
 
-            <td class="description last">A vector of 2 floating point values.</td>
+            <td class="description last">2 个浮点值的向量。</td>
         </tr>
 
     
@@ -142,7 +143,7 @@
 
             
 
-            <td class="description last">A vector of 3 floating point values.</td>
+            <td class="description last">3 个浮点值的向量。</td>
         </tr>
 
     
@@ -165,7 +166,7 @@
 
             
 
-            <td class="description last">A vector of 4 floating point values.</td>
+            <td class="description last">4 个浮点值的向量。</td>
         </tr>
 
     
@@ -188,7 +189,7 @@
 
             
 
-            <td class="description last">A single integer value</td>
+            <td class="description last">单个整数值</td>
         </tr>
 
     
@@ -211,7 +212,7 @@
 
             
 
-            <td class="description last">A vector of 2 integer values.</td>
+            <td class="description last">一个 2 个整数值的向量。</td>
         </tr>
 
     
@@ -234,7 +235,7 @@
 
             
 
-            <td class="description last">A vector of 3 integer values.</td>
+            <td class="description last">3 个整数值的向量。</td>
         </tr>
 
     
@@ -257,7 +258,7 @@
 
             
 
-            <td class="description last">A vector of 4 integer values.</td>
+            <td class="description last">4 个整数值的向量。</td>
         </tr>
 
     
@@ -280,7 +281,7 @@
 
             
 
-            <td class="description last">A single boolean value.</td>
+            <td class="description last">单个布尔值。</td>
         </tr>
 
     
@@ -303,7 +304,7 @@
 
             
 
-            <td class="description last">A vector of 2 boolean values.</td>
+            <td class="description last">包含 2 个布尔值的向量。</td>
         </tr>
 
     
@@ -326,7 +327,7 @@
 
             
 
-            <td class="description last">A vector of 3 boolean values.</td>
+            <td class="description last">包含 3 个布尔值的向量。</td>
         </tr>
 
     
@@ -349,7 +350,7 @@
 
             
 
-            <td class="description last">A vector of 4 boolean values.</td>
+            <td class="description last">4 个布尔值的向量。</td>
         </tr>
 
     
@@ -372,7 +373,7 @@
 
             
 
-            <td class="description last">A 2x2 matrix of floating point values.</td>
+            <td class="description last">浮点值的 2x2 矩阵。</td>
         </tr>
 
     
@@ -395,7 +396,7 @@
 
             
 
-            <td class="description last">A 3x3 matrix of floating point values.</td>
+            <td class="description last">浮点值的 3x3 矩阵。</td>
         </tr>
 
     
@@ -418,7 +419,7 @@
 
             
 
-            <td class="description last">A 3x3 matrix of floating point values.</td>
+            <td class="description last">浮点值的 3x3 矩阵。</td>
         </tr>
 
     
@@ -441,7 +442,7 @@
 
             
 
-            <td class="description last">A 2D sampled texture.</td>
+            <td class="description last">2D 采样纹理。</td>
         </tr>
 
     
@@ -499,7 +500,7 @@
     <div class="tag-experimental">
         <h5>Experimental</h5>
         
-            <p>This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.</p>
+            <p>此功能使用的是 3D Tiles 规范的一部分，该规范并非最终版本，并且可能会在没有 Cesium 标准弃用政策的情况下进行更改。</p>
         
     </div>
     
@@ -545,7 +546,7 @@
 
 
 <div class="description">
-    A single boolean value.
+    单个布尔值。
 </div>
 
 
@@ -608,7 +609,7 @@
 
 
 <div class="description">
-    A vector of 2 boolean values.
+    包含 2 个布尔值的向量。
 </div>
 
 
@@ -671,7 +672,7 @@
 
 
 <div class="description">
-    A vector of 3 boolean values.
+    包含 3 个布尔值的向量。
 </div>
 
 
@@ -734,7 +735,7 @@
 
 
 <div class="description">
-    A vector of 4 boolean values.
+    4 个布尔值的向量。
 </div>
 
 
@@ -797,7 +798,7 @@
 
 
 <div class="description">
-    A single floating point value.
+    单个浮点值。
 </div>
 
 
@@ -860,7 +861,7 @@
 
 
 <div class="description">
-    A single integer value
+    单个整数值
 </div>
 
 
@@ -923,7 +924,7 @@
 
 
 <div class="description">
-    A vector of 2 integer values.
+    一个 2 个整数值的向量。
 </div>
 
 
@@ -986,7 +987,7 @@
 
 
 <div class="description">
-    A vector of 3 integer values.
+    3 个整数值的向量。
 </div>
 
 
@@ -1049,7 +1050,7 @@
 
 
 <div class="description">
-    A vector of 4 integer values.
+    4 个整数值的向量。
 </div>
 
 
@@ -1112,7 +1113,7 @@
 
 
 <div class="description">
-    A 2x2 matrix of floating point values.
+    浮点值的 2x2 矩阵。
 </div>
 
 
@@ -1175,7 +1176,7 @@
 
 
 <div class="description">
-    A 3x3 matrix of floating point values.
+    浮点值的 3x3 矩阵。
 </div>
 
 
@@ -1238,7 +1239,7 @@
 
 
 <div class="description">
-    A 3x3 matrix of floating point values.
+    浮点值的 3x3 矩阵。
 </div>
 
 
@@ -1301,7 +1302,7 @@
 
 
 <div class="description">
-    A 2D sampled texture.
+    2D 采样纹理。
 </div>
 
 
@@ -1423,7 +1424,7 @@
 
 
 <div class="description">
-    A vector of 2 floating point values.
+    2 个浮点值的向量。
 </div>
 
 
@@ -1486,7 +1487,7 @@
 
 
 <div class="description">
-    A vector of 3 floating point values.
+    3 个浮点值的向量。
 </div>
 
 
@@ -1549,7 +1550,7 @@
 
 
 <div class="description">
-    A vector of 4 floating point values.
+    4 个浮点值的向量。
 </div>
 
 

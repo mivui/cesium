@@ -47,7 +47,7 @@
 
 
         
-            <div class="description">Determines how opaque and translucent parts of billboards, points, and labels are blended with the scene.</div>
+            <div class="description">确定公告牌、点和标签的不透明和半透明部分如何与场景混合。</div>
         
 
         
@@ -96,7 +96,7 @@
 
             
 
-            <td class="description last">The billboards, points, or labels in the collection are completely opaque.</td>
+            <td class="description last">集合中的广告牌、点或标签是完全不透明的。</td>
         </tr>
 
     
@@ -119,7 +119,7 @@
 
             
 
-            <td class="description last">The billboards, points, or labels in the collection are completely translucent.</td>
+            <td class="description last">集合中的广告牌、点或标签是完全透明的。</td>
         </tr>
 
     
@@ -142,7 +142,7 @@
 
             
 
-            <td class="description last">The billboards, points, or labels in the collection are both opaque and translucent.</td>
+            <td class="description last">集合中的广告牌、点或标签既不透明又半透明。</td>
         </tr>
 
     
@@ -216,7 +216,7 @@
 
 
 <div class="description">
-    The billboards, points, or labels in the collection are completely opaque.
+    集合中的广告牌、点或标签是完全不透明的。
 </div>
 
 
@@ -276,7 +276,7 @@
 
 
 <div class="description">
-    The billboards, points, or labels in the collection are both opaque and translucent.
+    集合中的广告牌、点或标签既不透明又半透明。
 </div>
 
 
@@ -339,7 +339,7 @@
 
 
 <div class="description">
-    The billboards, points, or labels in the collection are completely translucent.
+    集合中的广告牌、点或标签是完全透明的。
 </div>
 
 

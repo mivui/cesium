@@ -47,7 +47,7 @@
 
 
         
-            <div class="description">The types of imagery provided by <code>createWorldImagery</code>.</div>
+            <div class="description">由 <code>createWorldImagery</code> 提供的图像类型。</div>
         
 
         
@@ -96,7 +96,7 @@
 
             
 
-            <td class="description last">Aerial imagery.</td>
+            <td class="description last">航拍图像。</td>
         </tr>
 
     
@@ -119,7 +119,7 @@
 
             
 
-            <td class="description last">Aerial imagery with a road overlay.</td>
+            <td class="description last">带有道路叠加层的航拍图像。</td>
         </tr>
 
     
@@ -142,7 +142,7 @@
 
             
 
-            <td class="description last">Roads without additional imagery.</td>
+            <td class="description last">没有额外图像的道路。</td>
         </tr>
 
     
@@ -216,7 +216,7 @@
 
 
 <div class="description">
-    Aerial imagery.
+    航拍图像。
 </div>
 
 
@@ -279,7 +279,7 @@
 
 
 <div class="description">
-    Aerial imagery with a road overlay.
+    带有道路叠加层的航拍图像。
 </div>
 
 
@@ -342,7 +342,7 @@
 
 
 <div class="description">
-    Roads without additional imagery.
+    没有额外图像的道路。
 </div>
 
 

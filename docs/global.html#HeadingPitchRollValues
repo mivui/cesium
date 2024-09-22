@@ -47,7 +47,7 @@
 
 
         
-            <div class="description">An orientation given by numeric heading, pitch, and roll</div>
+            <div class="description">由数字标题、俯仰和滚动给出的方向</div>
         
 
         
@@ -114,7 +114,7 @@
                 </td>
             
 
-            <td class="description last">The heading in radians</td>
+            <td class="description last">以弧度为单位的航向</td>
         </tr>
 
     
@@ -151,7 +151,7 @@
                 </td>
             
 
-            <td class="description last">The pitch in radians</td>
+            <td class="description last">以弧度为单位的螺距</td>
         </tr>
 
     
@@ -188,7 +188,7 @@
                 </td>
             
 
-            <td class="description last">The roll in radians</td>
+            <td class="description last">以弧度为单位的滚动</td>
         </tr>
 
     

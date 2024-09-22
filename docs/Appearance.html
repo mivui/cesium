@@ -58,7 +58,9 @@
 
 
 <div class="description">
-    外观定义了完整的GLSL顶点和片段着色器用于绘制的渲染状态 <a href="Primitive.html"><code>Primitive</code></a>.  所有外观实现基本这个<code>Appearance</code>接口。
+    外观定义了完整的GLSL顶点和片段着色器
+用于绘制的渲染状态 <a href="Primitive.html"><code>Primitive</code></a>.  所有外观实现
+基本这个<code>Appearance</code>接口。
 </div>
 
 
@@ -170,7 +172,7 @@
 
                 
             
-                When <code>true</code>, the geometry is expected to appear translucent so <a href="Appearance.html#renderState"><code>Appearance#renderState</code></a> has alpha blending enabled.</td>
+                如果<code>为 true</code>，则几何体应显示为半透明，因此 <a href="Appearance.html#renderState"><code>Appearance#renderState</code></a> 启用了 Alpha 混合。</td>
         </tr>
 
     
@@ -206,7 +208,7 @@
 
                 
             
-                When <code>true</code>, the geometry is expected to be closed so <a href="Appearance.html#renderState"><code>Appearance#renderState</code></a> has backface culling enabled.</td>
+                如果<code>为 true</code>，则预计几何体将被关闭，因此 <a href="Appearance.html#renderState"><code>Appearance#renderState</code></a> 启用了背面剔除。</td>
         </tr>
 
     
@@ -242,7 +244,7 @@
 
                 
             
-                The material used to determine the fragment color.</td>
+                用于确定片段颜色的材质。</td>
         </tr>
 
     
@@ -276,7 +278,7 @@
 
                 
             
-                Optional GLSL vertex shader source to override the default vertex shader.</td>
+                可选的 GLSL 顶点着色器源，用于覆盖默认顶点着色器。</td>
         </tr>
 
     
@@ -310,7 +312,7 @@
 
                 
             
-                Optional GLSL fragment shader source to override the default fragment shader.</td>
+                可选的 GLSL 片段着色器源，用于覆盖默认片段着色器。</td>
         </tr>
 
     
@@ -344,7 +346,7 @@
 
                 
             
-                Optional render state to override the default render state.</td>
+                可选的渲染状态来覆盖默认的渲染状态。</td>
         </tr>
 
     
@@ -460,7 +462,7 @@
 
 
 <div class="description">
-    When <code>true</code>, the geometry is expected to be closed.
+    如果<code>为 true</code>，则几何图形应为闭合。
 </div>
 
 
@@ -523,7 +525,9 @@
 
 
 <div class="description">
-    The GLSL source code for the fragment shader.  The full fragment shadersource is built procedurally taking into account the <a href="Appearance.html#material"><code>Appearance#material</code></a>.Use <a href="Appearance.html#getFragmentShaderSource"><code>Appearance#getFragmentShaderSource</code></a> to get the full source.
+    片段着色器的 GLSL 源代码。 完整的片段着色器
+source 是按照程序构建的，考虑了 <a href="Appearance.html#material"><code>Appearance#material</code></a>。
+使用 <a href="Appearance.html#getFragmentShaderSource"><code>Appearance#getFragmentShaderSource</code></a> 获取完整源代码。
 </div>
 
 
@@ -583,7 +587,8 @@
 
 
 <div class="description">
-    The material used to determine the fragment color.  Unlike other <a href="Appearance.html"><code>Appearance</code></a>properties, this is not read-only, so an appearance's material can change on the fly.
+    用于确定片段颜色的材料。 与其他 <code>外观</code> 不同
+属性，这不是只读的，因此外观的材质可以动态更改。
 </div>
 
 
@@ -648,7 +653,7 @@
 
 
 <div class="description">
-    The WebGL fixed-function state to use when rendering the geometry.
+    渲染几何体时使用的 WebGL 固定函数状态。
 </div>
 
 
@@ -708,7 +713,7 @@
 
 
 <div class="description">
-    When <code>true</code>, the geometry is expected to appear translucent.
+    <code>如果为 true</code>，则几何体应显示为半透明。
 </div>
 
 
@@ -771,7 +776,7 @@
 
 
 <div class="description">
-    The GLSL source code for the vertex shader.
+    顶点着色器的 GLSL 源代码。
 </div>
 
 
@@ -838,7 +843,8 @@
 
 
 <div class="description">
-    Procedurally creates the full GLSL fragment shader source for this appearancetaking into account <a href="Appearance.html#fragmentShaderSource"><code>Appearance#fragmentShaderSource</code></a> and <a href="Appearance.html#material"><code>Appearance#material</code></a>.
+    以程序方式为此外观创建完整的 GLSL 片段着色器源
+考虑到 <a href="Appearance.html#fragmentShaderSource"><code>Appearance#fragmentShaderSource</code></a> 和 <a href="Appearance.html#material"><code>Appearance#material</code></a>。
 </div>
 
 
@@ -865,7 +871,7 @@
 
         
 <div class="param-desc">
-    The full GLSL fragment shader source.
+    完整的 GLSL 片段着色器源。
 </div>
 
 
@@ -928,7 +934,9 @@
 
 
 <div class="description">
-    Creates a render state.  This is not the final render state instance; instead,it can contain a subset of render state properties identical to the render statecreated in the context.
+    创建渲染状态。 这不是最终的渲染状态实例;相反
+它可以包含与渲染状态相同的渲染状态属性的子集
+在上下文中创建。
 </div>
 
 
@@ -955,7 +963,7 @@
 
         
 <div class="param-desc">
-    The render state.
+    渲染状态。
 </div>
 
 
@@ -1018,7 +1026,7 @@
 
 
 <div class="description">
-    Determines if the geometry is translucent based on <a href="Appearance.html#translucent"><code>Appearance#translucent</code></a> and <a href="Material.html#isTranslucent"><code>Material#isTranslucent</code></a>.
+    根据 <a href="Appearance.html#translucent"><code>Appearance#translucent</code></a> 和 <a href="Material.html#isTranslucent"><code>Material#isTranslucent</code></a> 确定几何体是否为半透明。
 </div>
 
 
@@ -1045,7 +1053,7 @@
 
         
 <div class="param-desc">
-    <code>true</code> if the appearance is translucent.
+    <code>true</code>，如果外观是半透明的。
 </div>
 
 

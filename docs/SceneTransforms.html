@@ -47,7 +47,7 @@
 
 
         
-            <div class="description">Functions that do scene-dependent transforms between rendering-related coordinate systems.</div>
+            <div class="description">在与渲染相关的坐标系之间执行场景相关转换的函数。</div>
         
 
         
@@ -122,7 +122,8 @@
 
 
 <div class="description">
-    Transforms a position in world coordinates to drawing buffer coordinates.  This may produce differentresults from SceneTransforms.worldToWindowCoordinates when the browser zoom is not 100%, or on high-DPI displays.
+    将世界坐标中的位置转换为绘图缓冲区坐标。 这可能会产生不同的
+当浏览器缩放不是 100% 时或在高 DPI 显示器上，则由 SceneTransforms.worldToWindowCoordinates 生成。
 </div>
 
 
@@ -178,7 +179,7 @@
 
                 
             
-                The scene.</td>
+                场景。</td>
         </tr>
 
     
@@ -206,7 +207,7 @@
 
                 
             
-                The position in world (WGS84 or alternative ellipsoid) coordinates.</td>
+                在世界（WGS84 或替代椭球体）坐标中的位置。</td>
         </tr>
 
     
@@ -236,7 +237,7 @@
 
                 
             
-                An optional object to return the input position transformed to window coordinates.</td>
+                一个可选对象，用于返回转换为窗口坐标的输入位置。</td>
         </tr>
 
     
@@ -257,7 +258,7 @@
 
         
 <div class="param-desc">
-    如果没有提供新的Cartesian2实例，则使用修改后的结果参数。  This may be <code>undefined</code> if the input position is near the center of the ellipsoid.
+    如果没有提供新的Cartesian2实例，则使用修改后的结果参数。 如果输入位置靠近椭球体的中心，则此字段可能<code>未定义</code>。
 </div>
 
 
@@ -288,7 +289,12 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Output the window position of longitude/latitude (0, 0) every time the mouse moves.const position = Cesium.Cartesian3.fromDegrees(0.0, 0.0);const handler = new Cesium.ScreenSpaceEventHandler(scene.canvas);handler.setInputAction(function(movement) {    console.log(Cesium.SceneTransforms.worldToDrawingBufferCoordinates(scene, position));}, Cesium.ScreenSpaceEventType.MOUSE_MOVE);</code></pre>
+    <pre><code class="language-javascript">// Output the window position of longitude/latitude (0, 0) every time the mouse moves.
+const position = Cesium.Cartesian3.fromDegrees(0.0, 0.0);
+const handler = new Cesium.ScreenSpaceEventHandler(scene.canvas);
+handler.setInputAction(function(movement) {
+    console.log(Cesium.SceneTransforms.worldToDrawingBufferCoordinates(scene, position));
+}, Cesium.ScreenSpaceEventType.MOUSE_MOVE);</code></pre>
 
     
 
@@ -325,7 +331,8 @@
 
 
 <div class="description">
-    Transforms a position in world (WGS84 or alternative ellipsoid) coordinates to window coordinates.  This is commonly used to place anHTML element at the same screen position as an object in the scene.
+    将世界（WGS84 或替代椭球体）坐标中的位置转换为窗口坐标。 这通常用于将
+HTML 元素与场景中的对象位于相同的屏幕位置。
 </div>
 
 
@@ -381,7 +388,7 @@
 
                 
             
-                The scene.</td>
+                场景。</td>
         </tr>
 
     
@@ -409,7 +416,7 @@
 
                 
             
-                The position in world (WGS84 or alternative ellipsoid) coordinates.</td>
+                在世界（WGS84 或替代椭球体）坐标中的位置。</td>
         </tr>
 
     
@@ -439,7 +446,7 @@
 
                 
             
-                An optional object to return the input position transformed to window coordinates.</td>
+                一个可选对象，用于返回转换为窗口坐标的输入位置。</td>
         </tr>
 
     
@@ -460,7 +467,7 @@
 
         
 <div class="param-desc">
-    如果没有提供新的Cartesian2实例，则使用修改后的结果参数。  This may be <code>undefined</code> if the input position is near the center of the ellipsoid.
+    如果没有提供新的Cartesian2实例，则使用修改后的结果参数。如果输入位置靠近椭球体的中心，则此字段可能<code>未定义</code>。
 </div>
 
 
@@ -491,7 +498,12 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Output the window position of longitude/latitude (0, 0) every time the mouse moves.const position = Cesium.Cartesian3.fromDegrees(0.0, 0.0);const handler = new Cesium.ScreenSpaceEventHandler(scene.canvas);handler.setInputAction(function(movement) {    console.log(Cesium.SceneTransforms.worldToWindowCoordinates(scene, position));}, Cesium.ScreenSpaceEventType.MOUSE_MOVE);</code></pre>
+    <pre><code class="language-javascript">// Output the window position of longitude/latitude (0, 0) every time the mouse moves.
+const position = Cesium.Cartesian3.fromDegrees(0.0, 0.0);
+const handler = new Cesium.ScreenSpaceEventHandler(scene.canvas);
+handler.setInputAction(function(movement) {
+    console.log(Cesium.SceneTransforms.worldToWindowCoordinates(scene, position));
+}, Cesium.ScreenSpaceEventType.MOUSE_MOVE);</code></pre>
 
     
 

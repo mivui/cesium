@@ -47,7 +47,7 @@
 
 
         
-            <div class="description">Determines how input texture to a <a href="PostProcessStage.html"><code>PostProcessStage</code></a> is sampled.</div>
+            <div class="description">确定如何对 <a href="PostProcessStage.html"><code>PostProcessStage</code></a> 的输入纹理进行采样。</div>
         
 
         
@@ -96,7 +96,7 @@
 
             
 
-            <td class="description last">Samples the texture by returning the closest texel.</td>
+            <td class="description last">通过返回最近的纹素对纹理进行采样。</td>
         </tr>
 
     
@@ -119,7 +119,7 @@
 
             
 
-            <td class="description last">Samples the texture through bi-linear interpolation of the four nearest texels.</td>
+            <td class="description last">通过对四个最近的纹素进行双线性插值对纹理进行采样。</td>
         </tr>
 
     
@@ -193,7 +193,7 @@
 
 
 <div class="description">
-    Samples the texture through bi-linear interpolation of the four nearest texels.
+    通过对四个最近的纹素进行双线性插值对纹理进行采样。
 </div>
 
 
@@ -256,7 +256,7 @@
 
 
 <div class="description">
-    Samples the texture by returning the closest texel.
+    通过返回最近的纹素对纹理进行采样。
 </div>
 
 

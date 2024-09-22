@@ -58,7 +58,14 @@
 
 
 <div class="description">
-    An expression for a style applied to a <a href="Cesium3DTileset.html"><code>Cesium3DTileset</code></a>.<p>Derived classes of this interface evaluate expressions in the<a href="https://github.com/CesiumGS/3d-tiles/tree/main/specification/Styling">3D Tiles Styling language</a>.</p><p>This type describes an interface and is not intended to be instantiated directly.</p>
+    应用于 <a href="Cesium3DTileset.html"><code>Cesium3DTileset</code></a> 的样式的表达式。
+<p>
+此接口的派生类评估
+<a href="https://github.com/CesiumGS/3d-tiles/tree/main/specification/Styling">3D 瓦片样式语言</a>。
+</p>
+<p>
+此类型描述接口，不打算直接实例化。
+</p>
 </div>
 
 
@@ -164,7 +171,14 @@
 
 
 <div class="description">
-    Evaluates the result of an expression, optionally using the provided feature's properties. If the result ofthe expression in the<a href="https://github.com/CesiumGS/3d-tiles/tree/main/specification/Styling">3D Tiles Styling language</a>is of type <code>Boolean</code>, <code>Number</code>, or <code>String</code>, the corresponding JavaScriptprimitive type will be returned. If the result is a <code>RegExp</code>, a Javascript <code>RegExp</code>object will be returned. If the result is a <code>Cartesian2</code>, <code>Cartesian3</code>, or <code>Cartesian4</code>,a <a href="Cartesian2.html"><code>Cartesian2</code></a>, <a href="Cartesian3.html"><code>Cartesian3</code></a>, or <a href="Cartesian4.html"><code>Cartesian4</code></a> object will be returned. If the <code>result</code> argument isa <a href="Color.html"><code>Color</code></a>, the <a href="Cartesian4.html"><code>Cartesian4</code></a> value is converted to a <a href="Color.html"><code>Color</code></a> and then returned.
+    计算表达式的结果，可选择使用提供的特性的属性。如果
+中的
+<a href="https://github.com/CesiumGS/3d-tiles/tree/main/specification/Styling">3D 瓦片样式语言</a>
+的类型为 <code>Boolean</code>、<code>Number</code> 或 <code>String</code>，对应的 JavaScript
+原始类型。如果结果是 <code>RegExp</code>，则为 Javascript <code>RegExp</code>
+对象。如果结果是 <code>Cartesian2</code>、<code>Cartesian3</code> 或 <code>Cartesian4</code>，
+将返回 <a href="Cartesian2.html"><code>Cartesian2</code></a>、<a href="Cartesian3.html"><code>Cartesian3</code></a> 或 <a href="Cartesian4.html"><code>Cartesian4</code></a> 对象。如果 <code>result</code> 参数为
+<a href="Color.html"><code>Color</code></a>，则 <a href="Cartesian4.html"><code>Cartesian4</code></a> 值将转换为 <a href="Color.html"><code>Color</code></a>，然后返回。
 </div>
 
 
@@ -220,7 +234,7 @@
 
                 
             
-                The feature whose properties may be used as variables in the expression.</td>
+                其属性可用作表达式中的变量的特征。</td>
         </tr>
 
     
@@ -271,7 +285,7 @@
 
         
 <div class="param-desc">
-    The result of evaluating the expression.
+    计算表达式的结果。
 </div>
 
 
@@ -334,7 +348,10 @@
 
 
 <div class="description">
-    Evaluates the result of a Color expression, optionally using the provided feature's properties.<p>This is equivalent to <a href="StyleExpression.html#evaluate"><code>StyleExpression#evaluate</code></a> but always returns a <a href="Color.html"><code>Color</code></a> object.</p>
+    计算 Color 表达式的结果，可选择使用提供的特性的属性。
+<p>
+这等效于 <a href="StyleExpression.html#evaluate"><code>StyleExpression#evaluate</code></a>，但始终返回 <a href="Color.html"><code>Color</code></a> 对象。
+</p>
 </div>
 
 
@@ -390,7 +407,7 @@
 
                 
             
-                The feature whose properties may be used as variables in the expression.</td>
+                其属性可用作表达式中的变量的特征。</td>
         </tr>
 
     
@@ -420,7 +437,7 @@
 
                 
             
-                The object in which to store the result.</td>
+                要在其中存储结果的对象。</td>
         </tr>
 
     
@@ -441,7 +458,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数 or a new Color instance if one was not provided.
+    修改后的结果参数或者新的 Color 实例（如果未提供）。
 </div>
 
 

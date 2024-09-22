@@ -47,7 +47,7 @@
 
 
         
-            <div class="description">Constants used to indicated what part of the sensor volume to display.</div>
+            <div class="description">用于指示要显示传感器体积的哪一部分的常量。</div>
         
 
         
@@ -119,7 +119,7 @@
 
             
 
-            <td class="description last">0x0001.  Display the portion of the sensor volume that lies below the true horizon of the ellipsoid.</td>
+            <td class="description last">0x0001.  显示传感器体积中位于椭球体真实水平线以下的部分。</td>
         </tr>
 
     
@@ -142,7 +142,7 @@
 
             
 
-            <td class="description last">0x0002.  Display the portion of the sensor volume that lies above the true horizon of the ellipsoid.</td>
+            <td class="description last">0x0002. 显示位于椭球体真实水平上方的传感器体积部分。</td>
         </tr>
 
     
@@ -216,7 +216,7 @@
 
 
 <div class="description">
-    0x0002.  Display the portion of the sensor volume that lies above the true horizon of the ellipsoid.
+    0x0002. 显示位于椭球体真实水平上方的传感器体积部分。
 </div>
 
 
@@ -279,7 +279,7 @@
 
 
 <div class="description">
-    0x0001.  Display the portion of the sensor volume that lies below the true horizon of the ellipsoid.
+    0x0001.  显示传感器体积中位于椭球体真实水平线以下的部分。
 </div>
 
 
@@ -409,7 +409,7 @@
 
 
 <div class="description">
-    Converts the provided value to its corresponding enumeration string.
+    将提供的值转换为其相应的枚举字符串。
 </div>
 
 
@@ -460,7 +460,7 @@
 
             <td class="description last">
             
-                The value to be converted to its corresponding enumeration string.</td>
+                要转换为其相应枚举字符串的值。</td>
         </tr>
 
     
@@ -481,7 +481,7 @@
 
         
 <div class="param-desc">
-    The enumeration string corresponding to the value.
+    与值对应的枚举字符串。
 </div>
 
 
@@ -544,7 +544,7 @@
 
 
 <div class="description">
-    Validates that the provided value is a valid <a href="global.html#SensorVolumePortionToDisplay"><code>SensorVolumePortionToDisplay</code></a> enumeration value.
+    验证提供的值是否为有效的 <a href="global.html#SensorVolumePortionToDisplay"><code>SensorVolumePortionToDisplay</code></a> 枚举值。
 </div>
 
 
@@ -595,7 +595,7 @@
 
             <td class="description last">
             
-                The value to validate.</td>
+                要验证的值。</td>
         </tr>
 
     
@@ -616,7 +616,7 @@
 
         
 <div class="param-desc">
-    <code>true</code> if the provided value is a valid enumeration value; otherwise, <code>false</code>.
+    如果提供的值是有效的枚举值，<code>则为 true</code>;否则为 <code>false</code>。
 </div>
 
 

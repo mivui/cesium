@@ -47,7 +47,7 @@
 
 
         
-            <div class="description">Determines the action taken based on the result of the stencil test.</div>
+            <div class="description">根据模板测试的结果确定所采取的操作。</div>
         
 
         
@@ -96,7 +96,7 @@
 
             
 
-            <td class="description last">Sets the stencil buffer value to zero.</td>
+            <td class="description last">将模板缓冲区值设置为零。</td>
         </tr>
 
     
@@ -119,7 +119,7 @@
 
             
 
-            <td class="description last">Does not change the stencil buffer.</td>
+            <td class="description last">不更改模板缓冲区。</td>
         </tr>
 
     
@@ -142,7 +142,7 @@
 
             
 
-            <td class="description last">Replaces the stencil buffer value with the reference value.</td>
+            <td class="description last">将模板缓冲区值替换为参考值。</td>
         </tr>
 
     
@@ -165,7 +165,7 @@
 
             
 
-            <td class="description last">Increments the stencil buffer value, clamping to unsigned byte.</td>
+            <td class="description last">递增模板缓冲区值，钳制到无符号字节。</td>
         </tr>
 
     
@@ -188,7 +188,7 @@
 
             
 
-            <td class="description last">Decrements the stencil buffer value, clamping to zero.</td>
+            <td class="description last">递减模板缓冲区值，钳制为零。</td>
         </tr>
 
     
@@ -211,7 +211,7 @@
 
             
 
-            <td class="description last">Bitwise inverts the existing stencil buffer value.</td>
+            <td class="description last">按位反转现有模板缓冲区值。</td>
         </tr>
 
     
@@ -234,7 +234,7 @@
 
             
 
-            <td class="description last">Increments the stencil buffer value, wrapping to zero when exceeding the unsigned byte range.</td>
+            <td class="description last">递增模板缓冲区值，当超出无符号字节范围时换行为零。</td>
         </tr>
 
     
@@ -257,7 +257,7 @@
 
             
 
-            <td class="description last">Decrements the stencil buffer value, wrapping to the maximum unsigned byte instead of going below zero.</td>
+            <td class="description last">递减模具缓冲区值，换行到最大无符号字节，而不是低于零。</td>
         </tr>
 
     
@@ -331,7 +331,7 @@
 
 
 <div class="description">
-    Decrements the stencil buffer value, clamping to zero.
+    递减模板缓冲区值，钳制为零。
 </div>
 
 
@@ -394,7 +394,7 @@
 
 
 <div class="description">
-    Decrements the stencil buffer value, wrapping to the maximum unsigned byte instead of going below zero.
+    递减模具缓冲区值，换行到最大无符号字节，而不是低于零。
 </div>
 
 
@@ -457,7 +457,7 @@
 
 
 <div class="description">
-    Increments the stencil buffer value, clamping to unsigned byte.
+    递增模板缓冲区值，钳制到无符号字节。
 </div>
 
 
@@ -520,7 +520,7 @@
 
 
 <div class="description">
-    Increments the stencil buffer value, wrapping to zero when exceeding the unsigned byte range.
+    递增模板缓冲区值，当超出无符号字节范围时换行为零。
 </div>
 
 
@@ -583,7 +583,7 @@
 
 
 <div class="description">
-    Bitwise inverts the existing stencil buffer value.
+    按位反转现有模板缓冲区值。
 </div>
 
 
@@ -646,7 +646,7 @@
 
 
 <div class="description">
-    Does not change the stencil buffer.
+    不更改模板缓冲区。
 </div>
 
 
@@ -709,7 +709,7 @@
 
 
 <div class="description">
-    Replaces the stencil buffer value with the reference value.
+    将模板缓冲区值替换为参考值。
 </div>
 
 
@@ -772,7 +772,7 @@
 
 
 <div class="description">
-    Sets the stencil buffer value to zero.
+    将模板缓冲区值设置为零。
 </div>
 
 

@@ -47,7 +47,8 @@
 
 
         
-            <div class="description">An enum of metadata types. These metadata types are containers containingone or more components of type <a href="global.html#MetadataComponentType"><code>MetadataComponentType</code></a></div>
+            <div class="description">元数据类型的枚举。这些元数据类型是包含
+一个或多个 <a href="global.html#MetadataComponentType"><code>MetadataComponentType</code></a> 类型的组件</div>
         
 
         
@@ -96,7 +97,7 @@
 
             
 
-            <td class="description last">A single component</td>
+            <td class="description last">单个组件</td>
         </tr>
 
     
@@ -119,7 +120,7 @@
 
             
 
-            <td class="description last">A vector with two components</td>
+            <td class="description last">具有两个分量的向量</td>
         </tr>
 
     
@@ -142,7 +143,7 @@
 
             
 
-            <td class="description last">A vector with three components</td>
+            <td class="description last">具有三个分量的向量</td>
         </tr>
 
     
@@ -165,7 +166,7 @@
 
             
 
-            <td class="description last">A vector with four components</td>
+            <td class="description last">具有四个分量的向量</td>
         </tr>
 
     
@@ -188,7 +189,7 @@
 
             
 
-            <td class="description last">A 2x2 matrix, stored in column-major format.</td>
+            <td class="description last">一个 2x2 矩阵，以列优先格式存储。</td>
         </tr>
 
     
@@ -211,7 +212,7 @@
 
             
 
-            <td class="description last">A 3x3 matrix, stored in column-major format.</td>
+            <td class="description last">一个 3x3 矩阵，以列优先格式存储。</td>
         </tr>
 
     
@@ -234,7 +235,7 @@
 
             
 
-            <td class="description last">A 4x4 matrix, stored in column-major format.</td>
+            <td class="description last">一个 4x4 矩阵，以列优先格式存储。</td>
         </tr>
 
     
@@ -257,7 +258,7 @@
 
             
 
-            <td class="description last">A boolean (true/false) value</td>
+            <td class="description last">布尔值 （true/false）</td>
         </tr>
 
     
@@ -280,7 +281,7 @@
 
             
 
-            <td class="description last">A UTF-8 encoded string value</td>
+            <td class="description last">UTF-8 编码的字符串值</td>
         </tr>
 
     
@@ -303,7 +304,7 @@
 
             
 
-            <td class="description last">An enumerated value. This type is used in conjunction with a <a href="MetadataEnum.html"><code>MetadataEnum</code></a> to describe the valid values.</td>
+            <td class="description last">枚举值。此类型与 <a href="MetadataEnum.html"><code>MetadataEnum</code></a> 结合使用来描述有效值。</td>
         </tr>
 
     
@@ -338,7 +339,7 @@
     <div class="tag-experimental">
         <h5>Experimental</h5>
         
-            <p>This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.</p>
+            <p>此功能使用的是 3D Tiles 规范的一部分，该规范并非最终版本，并且可能会在没有 Cesium 标准弃用政策的情况下进行更改。</p>
         
     </div>
     
@@ -384,7 +385,7 @@
 
 
 <div class="description">
-    A boolean (true/false) value
+    布尔值 （true/false）
 </div>
 
 
@@ -447,7 +448,7 @@
 
 
 <div class="description">
-    An enumerated value. This type is used in conjunction with a <a href="MetadataEnum.html"><code>MetadataEnum</code></a> to describe the valid values.
+    枚举值。此类型与 <a href="MetadataEnum.html"><code>MetadataEnum</code></a> 结合使用来描述有效值。
 </div>
 
 
@@ -515,7 +516,7 @@
 
 
 <div class="description">
-    A 2x2 matrix, stored in column-major format.
+    一个 2x2 矩阵，以列优先格式存储。
 </div>
 
 
@@ -578,7 +579,7 @@
 
 
 <div class="description">
-    A 3x3 matrix, stored in column-major format.
+    一个 3x3 矩阵，以列优先格式存储。
 </div>
 
 
@@ -641,7 +642,7 @@
 
 
 <div class="description">
-    A 4x4 matrix, stored in column-major format.
+    一个 4x4 矩阵，以列优先格式存储。
 </div>
 
 
@@ -704,7 +705,7 @@
 
 
 <div class="description">
-    A single component
+    单个组件
 </div>
 
 
@@ -767,7 +768,7 @@
 
 
 <div class="description">
-    A UTF-8 encoded string value
+    UTF-8 编码的字符串值
 </div>
 
 
@@ -830,7 +831,7 @@
 
 
 <div class="description">
-    A vector with two components
+    具有两个分量的向量
 </div>
 
 
@@ -893,7 +894,7 @@
 
 
 <div class="description">
-    A vector with three components
+    具有三个分量的向量
 </div>
 
 
@@ -956,7 +957,7 @@
 
 
 <div class="description">
-    A vector with four components
+    具有四个分量的向量
 </div>
 
 

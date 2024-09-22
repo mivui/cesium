@@ -58,7 +58,17 @@
 
 
 <div class="description">
-    A collection of <a href="PostProcessStage.html"><code>PostProcessStage</code></a>s and/or <a href="PostProcessStageComposite.html"><code>PostProcessStageComposite</code></a>s.<p>The input texture for each post-process stage is the texture rendered to by the scene or the texture renderedto by the previous stage in the collection.</p><p>If the ambient occlusion or bloom stages are enabled, they will execute before all other stages.</p><p>If the FXAA stage is enabled, it will execute after all other stages.</p>
+    <a href="PostProcessStage.html"><code>PostProcessStage</code></a> 和/或 <a href="PostProcessStageComposite.html"><code>PostProcessStageComposite</code></a> 的集合。
+<p>
+每个后期处理阶段的输入纹理是场景渲染的纹理或渲染的纹理
+到集合中的上一阶段。
+</p>
+<p>
+如果启用了 Ambient Occlusion 或 Bloom 阶段，它们将在所有其他阶段之前执行。
+</p>
+<p>
+如果启用了 FXAA 阶段，它将在所有其他阶段之后执行。
+</p>
 </div>
 
 
@@ -154,7 +164,40 @@
 
 
 <div class="description">
-    A post-process stage that applies Horizon-based Ambient Occlusion (HBAO) to the input texture.<p>Ambient occlusion simulates shadows from ambient light. These shadows would always be present when thesurface receives light and regardless of the light's position.</p><p>The uniforms have the following properties: <code>intensity</code>, <code>bias</code>, <code>lengthCap</code>,<code>stepSize</code>, <code>frustumLength</code>, <code>ambientOcclusionOnly</code>,<code>delta</code>, <code>sigma</code>, and <code>blurStepSize</code>.</p><ul><li><code>intensity</code> is a scalar value used to lighten or darken the shadows exponentially. Higher values make the shadows darker. The default value is <code>3.0</code>.</li><li><code>bias</code> is a scalar value representing an angle in radians. If the dot product between the normal of the sample and the vector to the camera is less than this value,sampling stops in the current direction. This is used to remove shadows from near planar edges. The default value is <code>0.1</code>.</li><li><code>lengthCap</code> is a scalar value representing a length in meters. If the distance from the current sample to first sample is greater than this value,sampling stops in the current direction. The default value is <code>0.26</code>.</li><li><code>stepSize</code> is a scalar value indicating the distance to the next texel sample in the current direction. The default value is <code>1.95</code>.</li><li><code>frustumLength</code> is a scalar value in meters. If the current fragment has a distance from the camera greater than this value, ambient occlusion is not computed for the fragment.The default value is <code>1000.0</code>.</li><li><code>ambientOcclusionOnly</code> is a boolean value. When <code>true</code>, only the shadows generated are written to the output. When <code>false</code>, the input texture is modulatedwith the ambient occlusion. This is a useful debug option for seeing the effects of changing the uniform values. The default value is <code>false</code>.</li></ul><p><code>delta</code>, <code>sigma</code>, and <code>blurStepSize</code> are the same properties as <code>PostProcessStageLibrary#createBlurStage</code>.The blur is applied to the shadows generated from the image to make them smoother.</p><p>When enabled, this stage will execute before all others.</p>
+    将基于地平线的环境光遮蔽 （HBAO） 应用于输入纹理的后处理阶段。
+<p>
+环境光遮挡模拟环境光的阴影。当
+表面接收光线，无论光线的位置如何。
+</p>
+<p>
+uniforms 具有以下属性：<code>intensity</code>、<code>bias</code>、<code>lengthCap</code>、
+<code>stepSize</code>、<code>frustumLength</code>、<code>ambientOcclusionOnly</code>、
+<code>delta</code>、<code>sigma</code> 和 <code>blurStepSize</code> 的
+</p>
+<ul>
+<li><code>强度</code> 是用于以指数方式使阴影变亮或变暗的标量值。较高的值会使阴影更暗。默认值为 <code>3.0</code>。</li>
+
+<li><code>bias</code> 是表示以弧度为单位的角度的标量值。如果样本法线与相机向量之间的点积小于此值，则
+采样在当前方向停止。这用于从附近的平面边缘移除阴影。默认值为 <code>0.1</code>。</li>
+
+<li><code>lengthCap</code> 是一个标量值，表示以米为单位的长度。如果从当前样本到第一个样本的距离大于此值，则
+采样在当前方向停止。默认值为 <code>0.26</code>。</li>
+
+<li><code>stepSize</code> 是一个标量值，指示在当前方向上到下一个纹素样本的距离。默认值为 <code>1.95</code>。</li>
+
+<li><code>frustumLength</code> 是以米为单位的标量值。如果当前片段与摄像机的距离大于此值，则不会计算该片段的环境光遮蔽。
+默认值为 <code>1000.0</code>。</li>
+
+<li><code>ambientOcclusionOnly</code> 是一个布尔值。如果<code>为 true</code>，则仅将生成的阴影写入输出。当 <code>false</code> 时，将调制输入纹理
+替换为环境光遮蔽。这是一个有用的调试选项，用于查看更改 uniform 值的效果。默认值为 <code>false</code>。</li>
+</ul>
+<p>
+<code>delta</code>、<code>sigma</code> 和 <code>blurStepSize</code> 是与 <code>PostProcessStageLibrary#createBlurStage</code> 相同的属性。
+模糊应用于图像生成的阴影，以使其更平滑。
+</p>
+<p>
+启用后，此阶段将先于所有其他阶段执行。
+</p>
 </div>
 
 
@@ -214,7 +257,30 @@
 
 
 <div class="description">
-    A post-process stage for a bloom effect.<p>A bloom effect adds glow effect, makes bright areas brighter, and dark areas darker.</p><p>This stage has the following uniforms: <code>contrast</code>, <code>brightness</code>, <code>glowOnly</code>,<code>delta</code>, <code>sigma</code>, and <code>stepSize</code>.</p><ul><li><code>contrast</code> is a scalar value in the range [-255.0, 255.0] and affects the contract of the effect. The default value is <code>128.0</code>.</li><li><code>brightness</code> is a scalar value. The input texture RGB value is converted to hue, saturation, and brightness (HSB) then this value isadded to the brightness. The default value is <code>-0.3</code>.</li><li><code>glowOnly</code> is a boolean value. When <code>true</code>, only the glow effect will be shown. When <code>false</code>, the glow will be added to the input texture.The default value is <code>false</code>. This is a debug option for viewing the effects when changing the other uniform values.</li></ul><p><code>delta</code>, <code>sigma</code>, and <code>stepSize</code> are the same properties as <code>PostProcessStageLibrary#createBlurStage</code>.The blur is applied to the shadows generated from the image to make them smoother.</p><p>When enabled, this stage will execute before all others.</p>
+    泛光效果的后处理阶段。
+<p>
+泛光效果可添加发光效果，使明亮区域更亮，使黑暗区域更暗。
+</p>
+<p>
+此阶段有以下 uniforms：<code>contrast</code>、<code>brightness</code>、<code>glowOnly</code>、
+<code>delta</code>、<code>sigma</code> 和 <code>stepSize</code>。
+</p>
+<ul>
+<li><code>contrast</code> 是 [-255.0， 255.0] 范围内的标量值，会影响效果的收缩。默认值为 <code>128.0</code>。</li>
+
+<li><code>brightness</code> 是一个标量值。输入纹理 RGB 值转换为色相、饱和度和亮度 （HSB），则该值为
+添加到亮度。默认值为 <code>-0.3</code>。</li>
+
+   <li><code>glowOnly</code> 是一个布尔值。如果<code>为 true</code>，则仅显示发光效果。如果<code>为 false</code>，则发光将添加到输入纹理中。
+默认值为 <code>false</code>。这是一个调试选项，用于在更改其他 uniform 值时查看效果。</li>
+</ul>
+<p>
+<code>delta</code>、<code>sigma</code> 和 <code>stepSize</code> 是与 <code>PostProcessStageLibrary#createBlurStage</code> 相同的属性。
+模糊应用于图像生成的阴影，以使其更平滑。
+</p>
+<p>
+启用后，此阶段将先于所有其他阶段执行。
+</p>
 </div>
 
 
@@ -274,7 +340,7 @@
 
 
 <div class="description">
-    Control the exposure when HDR is on. Less than 1.0 makes the tonemapping darker while greater than 1.0 makes it brighter.
+    在 HDR 开启时控制曝光。小于 1.0 会使色调映射更暗，而大于 1.0 会使色调映射更亮。
 </div>
 
 
@@ -342,7 +408,10 @@
 
 
 <div class="description">
-    A post-process stage for Fast Approximate Anti-aliasing.<p>When enabled, this stage will execute after all others.</p>
+    快速近似抗锯齿的后期处理阶段。
+<p>
+启用后，此阶段将在所有其他阶段之后执行。
+</p>
 </div>
 
 
@@ -402,7 +471,7 @@
 
 
 <div class="description">
-    The number of post-process stages in this collection.
+    此集合中的后处理阶段数。
 </div>
 
 
@@ -462,7 +531,7 @@
 
 
 <div class="description">
-    Determines if all of the post-process stages in the collection are ready to be executed.
+    确定集合中的所有后处理阶段是否都已准备好执行。
 </div>
 
 
@@ -522,7 +591,8 @@
 
 
 <div class="description">
-    Specifies the tonemapping algorithm used when rendering with high dynamic range.<a href="https://sandcastle.cesium.com/?src=High%2520Dynamic%2520Range.html">Sandcastle Demo</a>
+    指定使用高动态范围渲染时使用的色调映射算法。
+<a href="https://sandcastle.cesium.com/?src=High%2520Dynamic%2520Range.html">Sandcastle Demo</a>
 </div>
 
 
@@ -581,7 +651,7 @@
     <div class="nameContainer">
     <h4 class="name" id="add">
         <a href="#add" class="doc-link"></a>
-        add<span class="signature">(stage)</span> &rarr; <span class="type-signature returnType"><a href="PostProcessStage.html">PostProcessStage</a>|<a href="PostProcessStageComposite.html">PostProcessStageComposite</a></span>
+        add<span class="signature">(stage)</span>
         
 
 <div class="source-link rightLinks">
@@ -597,7 +667,7 @@
 
 
 <div class="description">
-    Adds the post-process stage to the collection.
+    将后期处理阶段添加到集合中。
 </div>
 
 
@@ -651,7 +721,7 @@
 
             <td class="description last">
             
-                The post-process stage to add to the collection.</td>
+                要添加到集合中的后处理阶段。</td>
         </tr>
 
     
@@ -672,7 +742,7 @@
 
         
 <div class="param-desc">
-    The post-process stage that was added to the collection.
+    {PostProcessStage|已添加到集合的后处理阶段。
 </div>
 
 
@@ -749,7 +819,7 @@
 
 
 <div class="description">
-    Returns whether the collection contains a post-process stage.
+    返回集合是否包含后处理阶段。
 </div>
 
 
@@ -803,7 +873,7 @@
 
             <td class="description last">
             
-                The post-process stage.</td>
+                后处理阶段。</td>
         </tr>
 
     
@@ -824,7 +894,7 @@
 
         
 <div class="param-desc">
-    Whether the collection contains the post-process stage.
+    集合是否包含后处理阶段。
 </div>
 
 
@@ -887,7 +957,13 @@
 
 
 <div class="description">
-    Destroys the WebGL resources held by this object.  Destroying an object allows for deterministicrelease of WebGL resources, instead of relying on the garbage collector to destroy this object.<p>Once an object is destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.  Therefore,assign the return value (<code>undefined</code>) to the object as done in the example.</p>
+    销毁此对象持有的 WebGL 资源。 销毁对象允许确定性
+释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。
+<p>
+一旦对象被销毁，就不应该使用它;调用
+<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。 因此
+将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
+</p>
 </div>
 
 
@@ -920,7 +996,7 @@
         
 <span class="param-type"><a href="DeveloperError.html">DeveloperError</a></span>
 
-: This object was destroyed, i.e., destroy() was called.
+: 这个物体被摧毁了,destroy().
     </div>
 
 </li>
@@ -987,7 +1063,7 @@
 
 
 <div class="description">
-    Gets the post-process stage at <code>index</code>.
+    获取 <code>index</code> 处的后处理阶段。
 </div>
 
 
@@ -1038,7 +1114,7 @@
 
             <td class="description last">
             
-                The index of the post-process stage.</td>
+                后处理阶段的索引。</td>
         </tr>
 
     
@@ -1059,7 +1135,7 @@
 
         
 <div class="param-desc">
-    The post-process stage at index.
+    索引处的后处理阶段。
 </div>
 
 
@@ -1122,7 +1198,11 @@
 
 
 <div class="description">
-    Returns true if this object was destroyed; otherwise, false.<p>If this object was destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.</p>
+    如果此对象已销毁，则返回 true;否则为 false。
+<p>
+如果此对象已销毁，则不应使用;调用
+<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。
+</p>
 </div>
 
 
@@ -1149,7 +1229,7 @@
 
         
 <div class="param-desc">
-    <code>true</code> if this object was destroyed; otherwise, <code>false</code>.
+    <code>true</code>，如果此对象被销毁;否则为 <code>false</code>。
 </div>
 
 
@@ -1217,7 +1297,7 @@
 
 
 <div class="description">
-    Removes a post-process stage from the collection and destroys it.
+    从集合中删除后处理阶段并将其销毁。
 </div>
 
 
@@ -1271,7 +1351,7 @@
 
             <td class="description last">
             
-                The post-process stage to remove from the collection.</td>
+                要从集合中删除的后处理阶段。</td>
         </tr>
 
     
@@ -1292,7 +1372,7 @@
 
         
 <div class="param-desc">
-    Whether the post-process stage was removed.
+    是否删除了后处理阶段。
 </div>
 
 
@@ -1355,7 +1435,7 @@
 
 
 <div class="description">
-    Removes all post-process stages from the collection and destroys them.
+    从集合中删除所有后处理阶段并销毁它们。
 </div>
 
 

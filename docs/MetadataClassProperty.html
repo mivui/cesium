@@ -58,7 +58,10 @@
 
 
 <div class="description">
-    A metadata property, as part of a <a href="MetadataClass.html"><code>MetadataClass</code></a>.<p>See the <a href="https://github.com/CesiumGS/3d-tiles/tree/main/specification/Metadata">3D Metadata Specification</a> for 3D Tiles</p>
+    元数据属性，作为 <a href="MetadataClass.html"><code>MetadataClass</code></a> 的一部分。
+<p>
+请参阅 <a href="https://github.com/CesiumGS/3d-tiles/tree/main/specification/Metadata">3D 元数据规范</a> 了解 3D 瓦片
+</p>
 </div>
 
 
@@ -159,7 +162,7 @@
 
                 
             
-                The ID of the property.</td>
+                属性的 ID。</td>
         </tr>
 
     
@@ -191,7 +194,7 @@
 
                 
             
-                The type of the property such as SCALAR, VEC2, VEC3.</td>
+                属性的类型，例如 SCALAR、VEC2、VEC3。</td>
         </tr>
 
     
@@ -225,7 +228,7 @@
 
                 
             
-                The component type of the property. This includes integer (e.g. INT8 or UINT16), and floating point (FLOAT32 and FLOAT64) values.</td>
+                属性的组件类型。这包括整数（例如 INT8 或 UINT16）和浮点（FLOAT32 和 FLOAT64）值。</td>
         </tr>
 
     
@@ -259,7 +262,7 @@
 
                 
             
-                The enum type of the property. Only defined when type is ENUM.</td>
+                属性的枚举类型。仅当 type 为 ENUM 时定义。</td>
         </tr>
 
     
@@ -295,7 +298,7 @@
 
                 
             
-                True if a property is an array (either fixed length or variable length), false 否则。</td>
+                如果属性是数组（固定长度或可变长度），则为 True，否则为 false。</td>
         </tr>
 
     
@@ -331,7 +334,7 @@
 
                 
             
-                True if a property is a variable length array, false 否则。</td>
+                如果属性是可变长度数组，则为 True， 否则为 false。</td>
         </tr>
 
     
@@ -365,7 +368,7 @@
 
                 
             
-                The number of array elements. Only defined for fixed length arrays.</td>
+                数组元素的数量。仅针对固定长度数组定义。</td>
         </tr>
 
     
@@ -401,7 +404,7 @@
 
                 
             
-                Whether the property is normalized.</td>
+                属性是否被归一化。</td>
         </tr>
 
     
@@ -441,7 +444,7 @@
 
                 
             
-                A number or an array of numbers storing the minimum allowable value of this property. Only defined when type is a numeric type.</td>
+                一个数字或一个数字数组，存储此属性的最小允许值。仅当 type 为数字类型时定义。</td>
         </tr>
 
     
@@ -481,7 +484,7 @@
 
                 
             
-                A number or an array of numbers storing the maximum allowable value of this property. Only defined when type is a numeric type.</td>
+                存储此属性的最大允许值的数字或数字数组。仅当 type 为数字类型时定义。</td>
         </tr>
 
     
@@ -521,7 +524,7 @@
 
                 
             
-                The offset to be added to property values as part of the value transform.</td>
+                作为值转换的一部分要添加到属性值的偏移量。</td>
         </tr>
 
     
@@ -561,7 +564,7 @@
 
                 
             
-                The scale to be multiplied to property values as part of the value transform.</td>
+                作为值转换的一部分，要乘以属性值的比例。</td>
         </tr>
 
     
@@ -604,7 +607,7 @@
 
                 
             
-                The no-data sentinel value that represents null values.</td>
+                表示 null 值的 no-data sentinel 值。</td>
         </tr>
 
     
@@ -647,7 +650,7 @@
 
                 
             
-                A default value to use when an entity's property value is not defined.</td>
+                未定义实体的属性值时使用的默认值。</td>
         </tr>
 
     
@@ -683,7 +686,7 @@
 
                 
             
-                Whether the property is required.</td>
+                属性是否为必填项。</td>
         </tr>
 
     
@@ -717,7 +720,7 @@
 
                 
             
-                The name of the property.</td>
+                属性的名称。</td>
         </tr>
 
     
@@ -751,7 +754,7 @@
 
                 
             
-                The description of the property.</td>
+                属性的描述。</td>
         </tr>
 
     
@@ -785,7 +788,7 @@
 
                 
             
-                An identifier that describes how this property should be interpreted.</td>
+                描述应如何解释此属性的标识符。</td>
         </tr>
 
     
@@ -819,7 +822,7 @@
 
                 
             
-                Extra user-defined properties.</td>
+                额外的用户定义属性。</td>
         </tr>
 
     
@@ -853,7 +856,7 @@
 
                 
             
-                An object containing extensions.</td>
+                包含扩展的对象。</td>
         </tr>
 
     
@@ -909,7 +912,7 @@
     <div class="tag-experimental">
         <h5>Experimental</h5>
         
-            <p>This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.</p>
+            <p>此功能使用的是 3D Tiles 规范的一部分，该规范不是最终版本，并且可能会在没有 Cesium 标准弃用策略的情况下进行更改。</p>
         
     </div>
     
@@ -956,7 +959,8 @@
 
 
 <div class="description">
-    The number of array elements. Only defined for fixed-sizearrays.
+    数组元素的数量。仅针对 fixed-size 定义
+阵列。
 </div>
 
 
@@ -1016,7 +1020,8 @@
 
 
 <div class="description">
-    The component type of the property. This includes integer(e.g. INT8 or UINT16), and floating point (FLOAT32 and FLOAT64) values
+    属性的组件类型。这包括 integer
+（例如 INT8 或 UINT16）和浮点（FLOAT32 和 FLOAT64）值
 </div>
 
 
@@ -1076,7 +1081,7 @@
 
 
 <div class="description">
-    A default value to use when an entity's property value is not defined.
+    未定义实体的属性值时使用的默认值。
 </div>
 
 
@@ -1136,7 +1141,7 @@
 
 
 <div class="description">
-    The description of the property.
+    属性的描述。
 </div>
 
 
@@ -1196,7 +1201,7 @@
 
 
 <div class="description">
-    The enum type of the property. Only defined when type is ENUM.
+    属性的枚举类型。仅当 type 为 ENUM 时定义。
 </div>
 
 
@@ -1256,7 +1261,7 @@
 
 
 <div class="description">
-    An object containing extensions.
+    包含扩展的对象。
 </div>
 
 
@@ -1316,7 +1321,7 @@
 
 
 <div class="description">
-    Extra user-defined properties.
+    额外的用户定义属性。
 </div>
 
 
@@ -1376,7 +1381,7 @@
 
 
 <div class="description">
-    The ID of the property.
+    属性的 ID。
 </div>
 
 
@@ -1436,7 +1441,8 @@
 
 
 <div class="description">
-    True if a property is an array (either fixed length or variable length),false 否则。
+    如果属性是数组（固定长度或可变长度），则为 True，
+false 否则。
 </div>
 
 
@@ -1496,7 +1502,7 @@
 
 
 <div class="description">
-    True if a property is a variable length array, false 否则。
+    如果属性是可变长度数组，则为 True，否则为 false。
 </div>
 
 
@@ -1556,7 +1562,7 @@
 
 
 <div class="description">
-    A number or an array of numbers storing the maximum allowable value of this property. Only defined when type is a numeric type.
+    一个数字或数字数组，用于存储此属性的最大允许值。仅当 type 为数字类型时定义。
 </div>
 
 
@@ -1616,7 +1622,7 @@
 
 
 <div class="description">
-    A number or an array of numbers storing the minimum allowable value of this property. Only defined when type is a numeric type.
+    一个数字或数字数组，用于存储此属性的最小允许值。仅当 type 为数字类型时定义。
 </div>
 
 
@@ -1676,7 +1682,7 @@
 
 
 <div class="description">
-    The name of the property.
+    属性的名称。
 </div>
 
 
@@ -1736,7 +1742,7 @@
 
 
 <div class="description">
-    The no-data sentinel value that represents null values
+    表示 null 值的 no-data sentinel 值
 </div>
 
 
@@ -1796,7 +1802,7 @@
 
 
 <div class="description">
-    Whether the property is normalized.
+    属性是否已规范化。
 </div>
 
 
@@ -1856,7 +1862,7 @@
 
 
 <div class="description">
-    The offset to be added to property values as part of the value transform.
+    作为值转换的一部分添加到属性值的偏移量。
 </div>
 
 
@@ -1916,7 +1922,7 @@
 
 
 <div class="description">
-    Whether the property is required.
+    属性是否为必填项。
 </div>
 
 
@@ -1976,7 +1982,7 @@
 
 
 <div class="description">
-    The scale to be multiplied to property values as part of the value transform.
+    作为值转换的一部分，要乘以属性值的比例。
 </div>
 
 
@@ -2036,7 +2042,7 @@
 
 
 <div class="description">
-    An identifier that describes how this property should be interpreted.
+    描述应如何解释此属性的标识符。
 </div>
 
 
@@ -2096,7 +2102,7 @@
 
 
 <div class="description">
-    The type of the property such as SCALAR, VEC2, VEC3
+    属性的类型，例如 SCALAR、VEC2、VEC3
 </div>
 
 

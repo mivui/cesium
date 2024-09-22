@@ -58,7 +58,11 @@
 
 
 <div class="description">
-    <div class="notice">Create this by calling <a href="PolylineCollection.html#add"><code>PolylineCollection#add</code></a>. 不要直接调用构造函数。</div>A renderable polyline.
+    <div class="notice">
+通过调用 <a href="PolylineCollection.html#add"><code>PolylineCollection#add</code></a> 创建此函数。 不要直接调用构造函数。
+</div>
+
+可渲染的多段线。
 </div>
 
 
@@ -159,7 +163,7 @@
 
 
 <div class="description">
-    获取或设置condition specifying at what distance from the camera that this polyline will be displayed.
+    获取或设置条件 指定此多段线将在距摄像机多远处显示。
 </div>
 
 
@@ -222,7 +226,7 @@
 
 
 <div class="description">
-    获取或设置user-defined value returned when the polyline is picked.
+    获取或设置选取多段线时返回的 User-defined 值。
 </div>
 
 
@@ -282,7 +286,7 @@
 
 
 <div class="description">
-    Gets or sets whether a line segment will be added between the first and last polyline positions.
+    获取或设置是否在第一个和最后一个折线位置之间添加线段。
 </div>
 
 
@@ -342,7 +346,8 @@
 
 
 <div class="description">
-    获取或设置surface appearance of the polyline.  This can be one of several built-in <a href="Material.html"><code>Material</code></a> objects or a custom material, scripted with<a href="https://github.com/CesiumGS/cesium/wiki/Fabric">Fabric</a>.
+    获取或设置多段线的表面外观。 这可以是几个内置 <a href="Material.html"><code>Material</code></a> 对象之一，也可以是自定义材质，脚本中使用
+<a href="https://github.com/CesiumGS/cesium/wiki/Fabric">Fabric</a>.
 </div>
 
 
@@ -402,7 +407,7 @@
 
 
 <div class="description">
-    获取或设置positions of the polyline.
+    获取或设置多段线的位置。
 </div>
 
 
@@ -431,7 +436,11 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">polyline.positions = Cesium.Cartesian3.fromDegreesArray([    0.0, 0.0,    10.0, 0.0,    0.0, 20.0]);</code></pre>
+    <pre><code class="language-javascript">polyline.positions = Cesium.Cartesian3.fromDegreesArray([
+    0.0, 0.0,
+    10.0, 0.0,
+    0.0, 20.0
+]);</code></pre>
 
     
 
@@ -467,7 +476,8 @@
 
 
 <div class="description">
-    Determines if this polyline will be shown.  Use this to hide or show a polyline, insteadof removing it and re-adding it to the collection.
+    Determines if this polyline will be shown.  Use this to hide or show a polyline, instead
+of removing it and re-adding it to the collection.
 </div>
 
 

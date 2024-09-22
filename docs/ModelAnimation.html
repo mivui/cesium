@@ -58,7 +58,15 @@
 
 
 <div class="description">
-    <div class="notice">Create animations by calling <a href="ModelAnimationCollection.html#add"><code>ModelAnimationCollection#add</code></a>. 不要直接调用构造函数。</div>An active animation derived from a glTF asset. An active animation is ananimation that is either currently playing or scheduled to be played due tobeing added to a model's <a href="ModelAnimationCollection.html"><code>ModelAnimationCollection</code></a>. An active animationis an instance of an animation; for example, there can be multiple activeanimations for the same glTF animation, each with a different start time.
+    <div class="notice">
+通过调用 <a href="ModelAnimationCollection.html#add"><code>ModelAnimationCollection#add</code></a> 创建动画。 不要直接调用构造函数。
+</div>
+
+从 glTF 资源派生的活动动画。活动动画是
+当前正在播放或计划播放的动画，因为
+被添加到模型的 <a href="ModelAnimationCollection.html"><code>ModelAnimationCollection</code></a> 中。活动动画
+是动画的实例;例如，可以有多个活动
+同一 glTF 动画的动画，每个动画具有不同的开始时间。
 </div>
 
 
@@ -159,7 +167,8 @@
 
 
 <div class="description">
-    If this is defined, it will be used to compute the local animation timeinstead of the scene's time.
+    如果已定义，它将用于计算本地动画时间
+而不是场景的时间。
 </div>
 
 
@@ -222,7 +231,7 @@
 
 
 <div class="description">
-    The delay, in seconds, from <a href="ModelAnimation.html#startTime"><code>ModelAnimation#startTime</code></a> to start playing.
+    从 <a href="ModelAnimation.html#startTime"><code>ModelAnimation#startTime</code></a> 开始播放的延迟（以秒为单位）。
 </div>
 
 
@@ -285,7 +294,7 @@
 
 
 <div class="description">
-    Determines if and how the animation is looped.
+    确定是否以及如何循环播放动画。
 </div>
 
 
@@ -348,7 +357,11 @@
 
 
 <div class="description">
-    Values greater than <code>1.0</code> increase the speed that the animation is played relativeto the scene clock speed; values less than <code>1.0</code> decrease the speed.  A value of<code>1.0</code> plays the animation at the speed in the glTF animation mapped to the sceneclock speed.  For example, if the scene is played at 2x real-time, a two-second glTF animationwill play in one second even if <code>multiplier</code> is <code>1.0</code>.
+    大于 <code>1.0</code> 的值会增加动画的相对播放速度
+到场景时钟速度;小于 <code>1.0</code> 的值会降低速度。 值
+<code>1.0</code> 以映射到场景的 glTF 动画中的速度播放动画
+时钟速度。 例如，如果场景以 2 倍实时播放，则 2 秒的 glTF 动画
+即使<code>乘数</code>为 <code>1.0</code>，也会在 1 秒内播放。
 </div>
 
 
@@ -411,7 +424,7 @@
 
 
 <div class="description">
-    The name that identifies this animation in the model, if it exists.
+    在模型中标识此动画的名称 （如果存在）。
 </div>
 
 
@@ -471,7 +484,9 @@
 
 
 <div class="description">
-    When <code>true</code>, the animation is removed after it stops playing.This is slightly more efficient that not removing it, but if, for example,time is reversed, the animation is not played again.
+    如果为 <code>true</code>，则动画在停止播放后将被删除。
+这比不删除它的效率略高，但如果，例如，
+时间倒转，动画不再播放。
 </div>
 
 
@@ -534,7 +549,7 @@
 
 
 <div class="description">
-    When <code>true</code>, the animation is played in reverse.
+    如果<code>为 true</code>，则动画将反向播放。
 </div>
 
 
@@ -597,7 +612,11 @@
 
 
 <div class="description">
-    The event fired when this animation is started.  This can be used, forexample, to play a sound or start a particle system, when the animation starts.<p>This event is fired at the end of the frame after the scene is rendered.</p>
+    启动此动画时触发的事件。 这可用于
+例如，在动画开始时播放声音或启动粒子系统。
+<p>
+此事件在场景渲染后的帧结束时触发。
+</p>
 </div>
 
 
@@ -629,7 +648,9 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">animation.start.addEventListener(function(model, animation) {  console.log(`Animation started: ${animation.name}`);});</code></pre>
+    <pre><code class="language-javascript">animation.start.addEventListener(function(model, animation) {
+  console.log(`Animation started: ${animation.name}`);
+});</code></pre>
 
     
 
@@ -665,7 +686,8 @@
 
 
 <div class="description">
-    The scene time to start playing this animation. When this is <code>undefined</code>,the animation starts at the next frame.
+    开始播放此动画的场景时间。当 this<code> undefined</code>时，
+动画从下一帧开始。
 </div>
 
 
@@ -728,7 +750,11 @@
 
 
 <div class="description">
-    The event fired when this animation is stopped.  This can be used, forexample, to play a sound or start a particle system, when the animation stops.<p>This event is fired at the end of the frame after the scene is rendered.</p>
+    此动画停止时触发的事件。 这可用于
+例如，在动画停止时播放声音或启动粒子系统。
+<p>
+此事件在场景渲染后的帧结束时触发。
+</p>
 </div>
 
 
@@ -760,7 +786,9 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">animation.stop.addEventListener(function(model, animation) {  console.log(`Animation stopped: ${animation.name}`);});</code></pre>
+    <pre><code class="language-javascript">animation.stop.addEventListener(function(model, animation) {
+  console.log(`Animation stopped: ${animation.name}`);
+});</code></pre>
 
     
 
@@ -796,7 +824,9 @@
 
 
 <div class="description">
-    The scene time to stop playing this animation. When this is <code>undefined</code>,the animation is played for its full duration and perhaps repeated depending on<a href="ModelAnimation.html#loop"><code>ModelAnimation#loop</code></a>.
+    停止播放此动画的场景时间。当 <code>this 未定义</code>时，
+动画将在整个持续时间内播放，并且可能会重复播放，具体取决于
+<a href="ModelAnimation.html#loop"><code>ModelAnimation#loop</code></a>.
 </div>
 
 
@@ -859,7 +889,13 @@
 
 
 <div class="description">
-    The event fired when on each frame when this animation is updated.  Thecurrent time of the animation, relative to the glTF animation time span, ispassed to the event, which allows, for example, starting new animations at aspecific time relative to a playing animation.<p>This event is fired at the end of the frame after the scene is rendered.</p>
+    更新此动画时，在每一帧上触发的事件。 这
+动画的当前时间（相对于 glTF 动画时间跨度）为
+传递给事件，例如，它允许在
+相对于播放动画的特定时间。
+<p>
+此事件在场景渲染后的帧结束时触发。
+</p>
 </div>
 
 
@@ -891,7 +927,9 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">animation.update.addEventListener(function(model, animation, time) {  console.log(`Animation updated: ${animation.name}. glTF animation time: ${time}`);});</code></pre>
+    <pre><code class="language-javascript">animation.update.addEventListener(function(model, animation, time) {
+  console.log(`Animation updated: ${animation.name}. glTF animation time: ${time}`);
+});</code></pre>
 
     
 
@@ -936,7 +974,7 @@
 
 
 <div class="description">
-    A function used to compute the local animation time for a ModelAnimation.
+    用于计算 ModelAnimation 的本地动画时间的函数。
 </div>
 
 
@@ -987,7 +1025,7 @@
 
             <td class="description last">
             
-                The animation's original duration in seconds.</td>
+                动画的原始持续时间（以秒为单位）。</td>
         </tr>
 
     
@@ -1010,7 +1048,7 @@
 
             <td class="description last">
             
-                The seconds since the animation started, in scene time.</td>
+                自动画开始以来的秒数（以场景时间表示）。</td>
         </tr>
 
     
@@ -1031,7 +1069,7 @@
 
         
 <div class="param-desc">
-    Returns the local animation time.
+    返回本地动画时间。
 </div>
 
 
@@ -1062,9 +1100,15 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Use real time for model animation (assuming animateWhilePaused was set to true)function animationTime(duration) {    return Date.now() / 1000 / duration;}</code></pre>
+    <pre><code class="language-javascript">// Use real time for model animation (assuming animateWhilePaused was set to true)
+function animationTime(duration) {
+    return Date.now() / 1000 / duration;
+}</code></pre>
 
-    <pre><code class="language-javascript">// Offset the phase of the animation, so it starts halfway through its cycle.function animationTime(duration, seconds) {    return seconds / duration + 0.5;}</code></pre>
+    <pre><code class="language-javascript">// Offset the phase of the animation, so it starts halfway through its cycle.
+function animationTime(duration, seconds) {
+    return seconds / duration + 0.5;
+}</code></pre>
 
     
 

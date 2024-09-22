@@ -58,7 +58,13 @@
 
 
 <div class="description">
-    A collection of <a href="PostProcessStage.html"><code>PostProcessStage</code></a>s or other post-process composite stages that execute together logically.<p>All stages are executed in the order of the array. The input texture changes based on the value of <code>inputPreviousStageTexture</code>.If <code>inputPreviousStageTexture</code> is <code>true</code>, the input to each stage is the output texture rendered to by the scene or of the stage that executed before it.If <code>inputPreviousStageTexture</code> is <code>false</code>, the input texture is the same for each stage in the composite. The input texture is the texture rendered to by the sceneor the output texture of the previous stage.</p>
+    <a href="PostProcessStage.html"><code>PostProcessStage</code></a> 或其他逻辑上一起执行的后处理复合阶段的集合。
+<p>
+所有阶段都按数组的顺序执行。输入纹理根据 <code>inputPreviousStageTexture</code> 的值而变化。
+如果 <code>inputPreviousStageTexture</code> 为 <code>true</code>，则每个阶段的输入是场景或之前执行的阶段渲染的输出纹理。
+如果 <code>inputPreviousStageTexture</code> 为 <code>false</code>，则合成中每个阶段的输入纹理都相同。输入纹理是场景渲染到的纹理
+或上一阶段的输出纹理。
+</p>
 </div>
 
 
@@ -159,7 +165,7 @@
 
                 
             
-                An array of <a href="PostProcessStage.html"><code>PostProcessStage</code></a>s or composites to be executed in order.</td>
+                要按顺序执行的 <code>PostProcessStage</code> 或复合数组。</td>
         </tr>
 
     
@@ -195,7 +201,7 @@
 
                 
             
-                Whether to execute each post-process stage where the input to one stage is the output of the previous. Otherwise, the input to each contained stage is the output of the stage that executed before the composite.</td>
+                是否执行每个后处理阶段，其中一个阶段的输入是前一个阶段的输出。否则，每个包含的阶段的输入是在合成之前执行的阶段的输出。</td>
         </tr>
 
     
@@ -217,7 +223,7 @@
             
                 <td class="default">
                 
-                    <code class="language-javascript">createGuid()</code>
+                    <code class="language-javascript">createGuid（）</code>
                 
                 </td>
             
@@ -231,7 +237,7 @@
 
                 
             
-                The unique name of this post-process stage for reference by other composites. If a name is not supplied, a GUID will be generated.</td>
+                此后处理阶段的唯一名称，供其他合成引用。如果未提供名称，将生成 GUID。</td>
         </tr>
 
     
@@ -265,7 +271,7 @@
 
                 
             
-                An alias to the uniforms of post-process stages.</td>
+                后处理阶段的 uniform 的别名。</td>
         </tr>
 
     
@@ -328,11 +334,49 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Example 1: separable blur filter// The input to blurXDirection is the texture rendered to by the scene or the output of the previous stage.// The input to blurYDirection is the texture rendered to by blurXDirection.scene.postProcessStages.add(new Cesium.PostProcessStageComposite({    stages : [blurXDirection, blurYDirection]}));</code></pre>
+    <pre><code class="language-javascript">// Example 1: separable blur filter
+// The input to blurXDirection is the texture rendered to by the scene or the output of the previous stage.
+// The input to blurYDirection is the texture rendered to by blurXDirection.
+scene.postProcessStages.add(new Cesium.PostProcessStageComposite({
+    stages : [blurXDirection, blurYDirection]
+}));</code></pre>
 
-    <pre><code class="language-javascript">// Example 2: referencing the output of another post-process stagescene.postProcessStages.add(new Cesium.PostProcessStageComposite({    inputPreviousStageTexture : false,    stages : [        // The same as Example 1.        new Cesium.PostProcessStageComposite({            inputPreviousStageTexture : true            stages : [blurXDirection, blurYDirection],            name : 'blur'        }),        // The input texture for this stage is the same input texture to blurXDirection since inputPreviousStageTexture is false        new Cesium.PostProcessStage({            fragmentShader : compositeShader,            uniforms : {                blurTexture : 'blur' // The output of the composite with name 'blur' (the texture that blurYDirection rendered to).            }        })    ]});</code></pre>
+    <pre><code class="language-javascript">// Example 2: referencing the output of another post-process stage
+scene.postProcessStages.add(new Cesium.PostProcessStageComposite({
+    inputPreviousStageTexture : false,
+    stages : [
+        // The same as Example 1.
+        new Cesium.PostProcessStageComposite({
+            inputPreviousStageTexture : true
+            stages : [blurXDirection, blurYDirection],
+            name : 'blur'
+        }),
+        // The input texture for this stage is the same input texture to blurXDirection since inputPreviousStageTexture is false
+        new Cesium.PostProcessStage({
+            fragmentShader : compositeShader,
+            uniforms : {
+                blurTexture : 'blur' // The output of the composite with name 'blur' (the texture that blurYDirection rendered to).
+            }
+        })
+    ]
+});</code></pre>
 
-    <pre><code class="language-javascript">// Example 3: create a uniform aliasconst uniforms = {};Cesium.defineProperties(uniforms, {    filterSize : {        get : function() {            return blurXDirection.uniforms.filterSize;        },        set : function(value) {            blurXDirection.uniforms.filterSize = blurYDirection.uniforms.filterSize = value;        }    }});scene.postProcessStages.add(new Cesium.PostProcessStageComposite({    stages : [blurXDirection, blurYDirection],    uniforms : uniforms}));</code></pre>
+    <pre><code class="language-javascript">// Example 3: create a uniform alias
+const uniforms = {};
+Cesium.defineProperties(uniforms, {
+    filterSize : {
+        get : function() {
+            return blurXDirection.uniforms.filterSize;
+        },
+        set : function(value) {
+            blurXDirection.uniforms.filterSize = blurYDirection.uniforms.filterSize = value;
+        }
+    }
+});
+scene.postProcessStages.add(new Cesium.PostProcessStageComposite({
+    stages : [blurXDirection, blurYDirection],
+    uniforms : uniforms
+}));</code></pre>
 
     
 
@@ -389,7 +433,7 @@
 
 
 <div class="description">
-    Whether or not to execute this post-process stage when ready.
+    准备就绪时是否执行此后处理阶段。
 </div>
 
 
@@ -449,7 +493,10 @@
 
 
 <div class="description">
-    All post-process stages are executed in the order of the array. The input texture changes based on the value of <code>inputPreviousStageTexture</code>.If <code>inputPreviousStageTexture</code> is <code>true</code>, the input to each stage is the output texture rendered to by the scene or of the stage that executed before it.If <code>inputPreviousStageTexture</code> is <code>false</code>, the input texture is the same for each stage in the composite. The input texture is the texture rendered to by the sceneor the output texture of the previous stage.
+    所有后处理阶段都按数组的顺序执行。输入纹理根据 <code>inputPreviousStageTexture</code> 的值而变化。
+如果 <code>inputPreviousStageTexture</code> 为 <code>true</code>，则每个阶段的输入是场景或之前执行的阶段渲染的输出纹理。
+如果 <code>inputPreviousStageTexture</code> 为 <code>false</code>，则合成中每个阶段的输入纹理都相同。输入纹理是场景渲染到的纹理
+或上一阶段的输出纹理。
 </div>
 
 
@@ -509,7 +556,7 @@
 
 
 <div class="description">
-    The number of post-process stages in this composite.
+    此合成中的后处理阶段数。
 </div>
 
 
@@ -569,7 +616,7 @@
 
 
 <div class="description">
-    The unique name of this post-process stage for reference by other stages in a PostProcessStageComposite.
+    此后处理阶段的唯一名称，供 PostProcessStageComposite 中的其他阶段引用。
 </div>
 
 
@@ -629,7 +676,7 @@
 
 
 <div class="description">
-    Determines if this post-process stage is ready to be executed.
+    确定此后处理阶段是否已准备好执行。
 </div>
 
 
@@ -689,7 +736,7 @@
 
 
 <div class="description">
-    The features selected for applying the post-process.
+    为应用后处理而选择的特征。
 </div>
 
 
@@ -749,7 +796,7 @@
 
 
 <div class="description">
-    An alias to the uniform values of the post-process stages. May be <code>undefined</code>; in which case, get each stage to set uniform values.
+    后处理阶段的 uniform 值的别名。可能是<code>未定义的</code>;在这种情况下，请获取每个阶段以设置 uniform 值。
 </div>
 
 
@@ -816,7 +863,13 @@
 
 
 <div class="description">
-    Destroys the WebGL resources held by this object.  Destroying an object allows for deterministicrelease of WebGL resources, instead of relying on the garbage collector to destroy this object.<p>Once an object is destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.  Therefore,assign the return value (<code>undefined</code>) to the object as done in the example.</p>
+    销毁此对象持有的 WebGL 资源。 销毁对象允许确定性
+释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。
+<p>
+一旦对象被销毁，就不应该使用它;调用
+<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。 因此
+将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
+</p>
 </div>
 
 
@@ -849,7 +902,7 @@
         
 <span class="param-type"><a href="DeveloperError.html">DeveloperError</a></span>
 
-: This object was destroyed, i.e., destroy() was called.
+: 这个物体被摧毁了,destroy().
     </div>
 
 </li>
@@ -916,7 +969,7 @@
 
 
 <div class="description">
-    Gets the post-process stage at <code>index</code>
+    获取<code>索引</code>处的后处理阶段
 </div>
 
 
@@ -967,7 +1020,7 @@
 
             <td class="description last">
             
-                The index of the post-process stage or composite.</td>
+                后处理阶段或复合的索引。</td>
         </tr>
 
     
@@ -988,7 +1041,7 @@
 
         
 <div class="param-desc">
-    The post-process stage or composite at index.
+    索引处的后处理阶段或合成。
 </div>
 
 
@@ -1003,7 +1056,7 @@
         
 <span class="param-type"><a href="DeveloperError.html">DeveloperError</a></span>
 
-: index must be greater than or equal to 0.
+: 索引必须大于或等于 0。
     </div>
 
 </li>
@@ -1014,7 +1067,7 @@
         
 <span class="param-type"><a href="DeveloperError.html">DeveloperError</a></span>
 
-: index must be less than <a href="PostProcessStageComposite.html#length"><code>PostProcessStageComposite#length</code></a>.
+: 索引必须小于 <a href="PostProcessStageComposite.html#length"><code>PostProcessStageComposite#length</code></a>。
     </div>
 
 </li>
@@ -1076,7 +1129,11 @@
 
 
 <div class="description">
-    Returns true if this object was destroyed; otherwise, false.<p>If this object was destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.</p>
+    如果此对象已销毁，则返回 true;否则为 false。
+<p>
+如果此对象已销毁，则不应使用;调用
+<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。
+</p>
 </div>
 
 
@@ -1103,7 +1160,7 @@
 
         
 <div class="param-desc">
-    <code>true</code> if this object was destroyed; otherwise, <code>false</code>.
+    如果此对象被销毁，<code>则为 true</code>;否则为 <code>false</code>。
 </div>
 
 

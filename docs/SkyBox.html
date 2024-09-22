@@ -58,7 +58,11 @@
 
 
 <div class="description">
-    A sky box around the scene to draw stars.  The sky box is defined using the True Equator Mean Equinox (TEME) axes.<p>This is only supported in 3D.  The sky box is faded out when morphing to 2D or Columbus view.  The size ofthe sky box must not exceed <a href="Scene.html#maximumCubeMapSize"><code>Scene#maximumCubeMapSize</code></a>.</p>
+    场景周围的天空框用于绘制星星。 天空盒使用真赤道平均分 （TEME） 轴定义。
+<p>
+这仅在 3D 中受支持。 天空盒在变形为 2D 或哥伦布视图时淡出。 的大小
+天空盒不得超过 <a href="Scene.html#maximumCubeMapSize"><code>Scene#maximumCubeMapSize</code></a>。
+</p>
 </div>
 
 
@@ -161,7 +165,7 @@
 
                 
             
-                The source URL or <code>Image</code> object for each of the six cube map faces.  See the example below.</td>
+                六个立方体贴图面中每个面的源 URL 或 <code>Image</code> 对象。 请参阅下面的示例。</td>
         </tr>
 
     
@@ -197,7 +201,7 @@
 
                 
             
-                Determines if this primitive will be shown.</td>
+                决定是否显示此基元。</td>
         </tr>
 
     
@@ -246,7 +250,16 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">scene.skyBox = new Cesium.SkyBox({  sources : {    positiveX : 'skybox_px.png',    negativeX : 'skybox_nx.png',    positiveY : 'skybox_py.png',    negativeY : 'skybox_ny.png',    positiveZ : 'skybox_pz.png',    negativeZ : 'skybox_nz.png'  }});</code></pre>
+    <pre><code class="language-javascript">scene.skyBox = new Cesium.SkyBox({
+  sources : {
+    positiveX : 'skybox_px.png',
+    negativeX : 'skybox_nx.png',
+    positiveY : 'skybox_py.png',
+    negativeY : 'skybox_ny.png',
+    positiveZ : 'skybox_pz.png',
+    negativeZ : 'skybox_nz.png'
+  }
+});</code></pre>
 
     
 
@@ -305,7 +318,7 @@
 
 
 <div class="description">
-    Determines if the sky box will be shown.
+    确定是否显示天空框。
 </div>
 
 
@@ -368,7 +381,10 @@
 
 
 <div class="description">
-    The sources used to create the cube map faces: an objectwith <code>positiveX</code>, <code>negativeX</code>, <code>positiveY</code>,<code>negativeY</code>, <code>positiveZ</code>, and <code>negativeZ</code> properties.These can be either URLs or <code>Image</code> objects.
+    用于创建立方体贴图面的源：对象
+与 <code>positiveX</code>、<code>negativeX</code>、<code>positiveY</code>、
+<code>negativeY</code>、<code>positiveZ</code> 和 <code>negativeZ</code> 属性。
+这些可以是 URL 或 <code>Image</code> 对象。
 </div>
 
 
@@ -438,7 +454,7 @@
 
 
 <div class="description">
-    Creates a skybox instance with the default starmap for the Earth.
+    使用地球的默认星图创建天空盒实例。
 </div>
 
 
@@ -465,7 +481,7 @@
 
         
 <div class="param-desc">
-    The default skybox for the Earth
+    地球的默认天空盒
 </div>
 
 
@@ -533,7 +549,12 @@
 
 
 <div class="description">
-    Destroys the WebGL resources held by this object.  Destroying an object allows for deterministicrelease of WebGL resources, instead of relying on the garbage collector to destroy this object.<br /><br />Once an object is destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.  Therefore,assign the return value (<code>undefined</code>) to the object as done in the example.
+    销毁此对象持有的 WebGL 资源。 销毁对象允许确定性
+释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。
+<br /><br />
+一旦对象被销毁，就不应该使用它;调用
+<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。 因此
+将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
 </div>
 
 
@@ -566,7 +587,7 @@
         
 <span class="param-type"><a href="DeveloperError.html">DeveloperError</a></span>
 
-: This object was destroyed, i.e., destroy() was called.
+: 这个物体被摧毁了,destroy().
     </div>
 
 </li>
@@ -638,7 +659,10 @@
 
 
 <div class="description">
-    Returns true if this object was destroyed; otherwise, false.<br /><br />If this object was destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.
+    如果此对象已销毁，则返回 true;否则为 false。
+<br /><br />
+如果此对象已销毁，则不应使用;调用
+ <code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。
 </div>
 
 
@@ -665,7 +689,7 @@
 
         
 <div class="param-desc">
-    <code>true</code> if this object was destroyed; otherwise, <code>false</code>.
+    <code>true</code>，如果此对象被销毁;否则为 <code>false</code>。
 </div>
 
 
@@ -733,7 +757,12 @@
 
 
 <div class="description">
-    Called when <a href="Viewer.html"><code>Viewer</code></a> or <a href="CesiumWidget.html"><code>CesiumWidget</code></a> render the scene toget the draw commands needed to render this primitive.<p>Do not call this function directly.  This is documented just tolist the exceptions that may be propagated when the scene is rendered:</p>
+    当 <a href="Viewer.html"><code>Viewer</code></a> 或 <a href="CesiumWidget.html"><code>CesiumWidget</code></a> 将场景渲染到
+获取渲染此基元所需的绘制命令。
+<p>
+请勿直接调用此函数。 这记录下来只是为了
+列出渲染场景时可能传播的异常：
+</p>
 </div>
 
 

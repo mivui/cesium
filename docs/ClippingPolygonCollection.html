@@ -58,7 +58,10 @@
 
 
 <div class="description">
-    Specifies a set of clipping polygons. Clipping polygons selectively disable rendering in a regioninside or outside the specified list of <a href="ClippingPolygon.html"><code>ClippingPolygon</code></a> objects for a single glTF model, 3D Tileset, or the globe.Clipping Polygons are only supported in WebGL 2 contexts.
+    指定一组剪切多边形。剪切多边形有选择地禁用区域中的渲染
+单个 glTF 模型、3D 瓦片集或地球的指定 <a href="ClippingPolygon.html"><code>ClippingPolygon</code></a> 对象列表的内部或外部。
+
+仅在 WebGL 2 上下文中支持剪切多边形。
 </div>
 
 
@@ -170,7 +173,7 @@
 
                 
             
-                An array of <a href="ClippingPolygon.html"><code>ClippingPolygon</code></a> objects used to selectively disable rendering on the inside of each polygon.</td>
+                一个 <a href="ClippingPolygon.html"><code>ClippingPolygon</code></a> 对象数组，用于选择性地禁用每个多边形内部的渲染。</td>
         </tr>
 
     
@@ -206,7 +209,7 @@
 
                 
             
-                Determines whether the clipping polygons are active.</td>
+                确定裁剪多边形是否处于活动状态。</td>
         </tr>
 
     
@@ -242,7 +245,7 @@
 
                 
             
-                If true, a region will be clipped if it is outside of every polygon in the collection. Otherwise, a region will only be clipped if it is on the inside of any polygon.</td>
+                如果为 true，则如果区域位于集合中的每个多边形之外，则该区域将被裁剪。否则，仅当区域位于任何多边形的内部时，才会对其进行裁剪。</td>
         </tr>
 
     
@@ -291,7 +294,26 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const positions = Cesium.Cartesian3.fromRadiansArray([    -1.3194369277314022,    0.6988062530900625,    -1.31941,    0.69879,    -1.3193955980204217,    0.6988091578771254,    -1.3193931220959367,    0.698743632490865,    -1.3194358224045408,    0.6987471965556998,]);const polygon = new Cesium.ClippingPolygon({    positions: positions});const polygons = new Cesium.ClippingPolygonCollection({   polygons: [ polygon ]});</code></pre>
+    <pre><code class="language-javascript">const positions = Cesium.Cartesian3.fromRadiansArray([
+    -1.3194369277314022,
+    0.6988062530900625,
+    -1.31941,
+    0.69879,
+    -1.3193955980204217,
+    0.6988091578771254,
+    -1.3193931220959367,
+    0.698743632490865,
+    -1.3194358224045408,
+    0.6987471965556998,
+]);
+
+const polygon = new Cesium.ClippingPolygon({
+    positions: positions
+});
+
+const polygons = new Cesium.ClippingPolygonCollection({
+   polygons: [ polygon ]
+});</code></pre>
 
     
 
@@ -343,7 +365,9 @@
 
 
 <div class="description">
-    Returns the number of polygons in this collection.  This is commonly used with<a href="ClippingPolygonCollection.html#get"><code>ClippingPolygonCollection#get</code></a> to iterate over all the polygonsin the collection.
+    返回此集合中的多边形数。 这通常与
+<a href="ClippingPolygonCollection.html#get"><code>ClippingPolygonCollection#get</code></a> 迭代所有多边形
+在集合中。
 </div>
 
 
@@ -403,7 +427,8 @@
 
 
 <div class="description">
-    An event triggered when a new clipping polygon is added to the collection.  Event handlersare passed the new polygon and the index at which it was added.
+    将新的剪切多边形添加到集合时触发的事件。 事件处理程序
+的 Bean Bean Bean 的 Bean Bean S Bean 的 Polygon 和添加该 Polygon 的索引。
 </div>
 
 
@@ -466,7 +491,8 @@
 
 
 <div class="description">
-    An event triggered when a new clipping polygon is removed from the collection.  Event handlersare passed the new polygon and the index from which it was removed.
+    从集合中删除新的剪切多边形时触发的事件。 事件处理程序
+将传递新多边形和从中删除该多边形的索引。
 </div>
 
 
@@ -536,7 +562,7 @@
 
 
 <div class="description">
-    Function for checking if the context will allow clipping polygons, which require floating point textures.
+    用于检查上下文是否允许剪切多边形的函数，这需要浮点纹理。
 </div>
 
 
@@ -590,7 +616,7 @@
 
             <td class="description last">
             
-                The scene that will contain clipped objects and clipping textures.</td>
+                将包含剪切对象和剪切纹理的场景。</td>
         </tr>
 
     
@@ -611,7 +637,7 @@
 
         
 <div class="param-desc">
-    <code>true</code> if the context supports clipping polygons.
+    <code>true</code>，如果上下文支持剪切多边形。
 </div>
 
 
@@ -674,7 +700,9 @@
 
 
 <div class="description">
-    Adds the specified <a href="ClippingPolygon.html"><code>ClippingPolygon</code></a> to the collection to be used to selectively disable renderingon the inside of each polygon. Use <code>ClippingPolygonCollection#unionClippingRegions</code> to modifyhow modify the clipping behavior of multiple polygons.
+    将指定的 <a href="ClippingPolygon.html"><code>ClippingPolygon</code></a> 添加到集合中，以用于选择性地禁用渲染
+在每个多边形的内部。使用 <code>ClippingPolygonCollection#unionClippingRegions</code> 修改
+如何修改多个多边形的裁剪行为。
 </div>
 
 
@@ -725,7 +753,7 @@
 
             <td class="description last">
             
-                The ClippingPolygon to add to the collection.</td>
+                要添加到集合的 ClippingPolygon。</td>
         </tr>
 
     
@@ -746,7 +774,7 @@
 
         
 <div class="param-desc">
-    The added ClippingPolygon.
+    添加的 ClippingPolygon。
 </div>
 
 
@@ -777,7 +805,24 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const polygons = new Cesium.ClippingPolygonCollection();const positions = Cesium.Cartesian3.fromRadiansArray([    -1.3194369277314022,    0.6988062530900625,    -1.31941,    0.69879,    -1.3193955980204217,    0.6988091578771254,    -1.3193931220959367,    0.698743632490865,    -1.3194358224045408,    0.6987471965556998,]);polygons.add(new Cesium.ClippingPolygon({    positions: positions}));</code></pre>
+    <pre><code class="language-javascript">const polygons = new Cesium.ClippingPolygonCollection();
+
+const positions = Cesium.Cartesian3.fromRadiansArray([
+    -1.3194369277314022,
+    0.6988062530900625,
+    -1.31941,
+    0.69879,
+    -1.3193955980204217,
+    0.6988091578771254,
+    -1.3193931220959367,
+    0.698743632490865,
+    -1.3194358224045408,
+    0.6987471965556998,
+]);
+
+polygons.add(new Cesium.ClippingPolygon({
+    positions: positions
+}));</code></pre>
 
     
 
@@ -821,7 +866,7 @@
 
 
 <div class="description">
-    Checks whether this collection contains a ClippingPolygon equal to the given ClippingPolygon.
+    检查此集合是否包含等于给定 ClippingPolygon 的 ClippingPolygon。
 </div>
 
 
@@ -872,7 +917,7 @@
 
             <td class="description last">
             
-                The ClippingPolygon to check for.</td>
+                要检查的 ClippingPolygon。</td>
         </tr>
 
     
@@ -893,7 +938,7 @@
 
         
 <div class="param-desc">
-    true if this collection contains the ClippingPolygon, false 否则。
+    如果此集合包含 ClippingPolygon，则 true， false 否则。
 </div>
 
 
@@ -961,7 +1006,12 @@
 
 
 <div class="description">
-    Destroys the WebGL resources held by this object.  Destroying an object allows for deterministicrelease of WebGL resources, instead of relying on the garbage collector to destroy this object.<br /><br />Once an object is destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.  Therefore,assign the return value (<code>undefined</code>) to the object as done in the example.
+    销毁此对象持有的 WebGL 资源。 销毁对象允许确定性
+释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。
+<br /><br />
+一旦对象被销毁，就不应该使用它;调用
+<code> isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。 因此
+将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
 </div>
 
 
@@ -994,7 +1044,7 @@
         
 <span class="param-type"><a href="DeveloperError.html">DeveloperError</a></span>
 
-: This object was destroyed, i.e., destroy() was called.
+: 这个物体被摧毁了,destroy().
     </div>
 
 </li>
@@ -1066,7 +1116,11 @@
 
 
 <div class="description">
-    Returns the clipping polygon in the collection at the specified index.  Indices are zero-basedand increase as polygons are added.  Removing a polygon polygon all polygons afterit to the left, changing their indices.  This function is commonly used with<a href="ClippingPolygonCollection.html#length"><code>ClippingPolygonCollection#length</code></a> to iterate over all the polygonsin the collection.
+    返回集合中指定索引处的剪切多边形。 索引从 0 开始
+并随着多边形的添加而增加。 移除 Polygon Faces 之后的所有多边形
+它向左移动，更改其索引。 此功能通常用于
+<a href="ClippingPolygonCollection.html#length"><code>ClippingPolygonCollection#length</code></a> 迭代所有多边形
+在集合中。
 </div>
 
 
@@ -1117,7 +1171,7 @@
 
             <td class="description last">
             
-                The zero-based index of the polygon.</td>
+                多边形的从零开始的索引。</td>
         </tr>
 
     
@@ -1138,7 +1192,7 @@
 
         
 <div class="param-desc">
-    The ClippingPolygon at the specified index.
+    指定索引处的 ClippingPolygon。
 </div>
 
 
@@ -1206,7 +1260,10 @@
 
 
 <div class="description">
-    Returns true if this object was destroyed; otherwise, false.<br /><br />If this object was destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.
+    如果此对象已销毁，则返回 true;否则为 false。
+<br /><br />
+如果此对象已销毁，则不应使用;调用
+<code> isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。
 </div>
 
 
@@ -1233,7 +1290,7 @@
 
         
 <div class="param-desc">
-    <code>true</code> if this object was destroyed; otherwise, <code>false</code>.
+    如果此对象被销毁，<code>则为 true</code>;否则为 <code>false</code>。
 </div>
 
 
@@ -1301,7 +1358,7 @@
 
 
 <div class="description">
-    Removes the first occurrence of the given ClippingPolygon from the collection.
+    从集合中删除给定 ClippingPolygon 的第一个匹配项。
 </div>
 
 
@@ -1373,7 +1430,7 @@
 
         
 <div class="param-desc">
-    <code>true</code> if the polygon was removed; <code>false</code> if the polygon was not found in the collection.
+    <code>如果</code>删除了多边形，则为 true;<code>如果在</code>集合中找不到多边形，则为 false。
 </div>
 
 
@@ -1445,7 +1502,7 @@
 
 
 <div class="description">
-    Removes all polygons from the collection.
+    从集合中删除所有多边形。
 </div>
 
 

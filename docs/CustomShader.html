@@ -58,7 +58,26 @@
 
 
 <div class="description">
-    A user defined GLSL shader used with <a href="Model.html"><code>Model</code></a> as wellas <a href="Cesium3DTileset.html"><code>Cesium3DTileset</code></a>.<p>If texture uniforms are used, additional resource management must be done:</p><ul>  <li>     The <code>update</code> function must be called each frame. When a     custom shader is passed to a <a href="Model.html"><code>Model</code></a> or a     <a href="Cesium3DTileset.html"><code>Cesium3DTileset</code></a>, this step is handled automaticaly  </li>  <li>     <code>CustomShader#destroy</code> must be called when the custom shader is     no longer needed to clean up GPU resources properly. The application     is responsible for calling this method.  </li></ul><p>See the <a href="https://github.com/CesiumGS/cesium/tree/main/Documentation/CustomShaderGuide">Custom Shader Guide</a> for more detailed documentation.</p>
+    用户定义的 GLSL 着色器也与 <a href="Model.html"><code>Model</code></a> 一起使用
+为 <a href="Cesium3DTileset.html"><code>Cesium3DTileset</code></a>。
+<p>
+如果使用纹理 uniform，则必须进行额外的资源管理：
+</p>
+<ul>
+  <li>
+    必须每帧调用 <code>update</code> 函数。当
+     自定义着色器传递给 <a href="Model.html"><code>Model</code></a> 或
+    <a href="Cesium3DTileset.html"><code>Cesium3DTileset</code></a>，此步骤会自动处理
+  </li>
+  <li>
+     <code>CustomShader#destroy</code> 当自定义着色器为
+     不再需要正确清理 GPU 资源。应用
+     负责调用该方法。
+  </li>
+</ul>
+<p>
+See the <a href="https://github.com/CesiumGS/cesium/tree/main/Documentation/CustomShaderGuide">Custom Shader Guide</a> for more detailed documentation.
+</p>
 </div>
 
 
@@ -109,7 +128,7 @@
 
             <td class="description last">
             
-                An object with the following options
+                具有以下选项的对象
                 
 
 <table class="params">
@@ -163,7 +182,7 @@
 
                 
             
-                The custom shader mode, which determines how the custom shader code is inserted into the fragment shader.</td>
+                自定义着色器模式，用于确定如何将自定义着色器代码插入到片段着色器中。</td>
         </tr>
 
     
@@ -197,7 +216,7 @@
 
                 
             
-                The lighting model (e.g. PBR or unlit). If present, this overrides the default lighting for the model.</td>
+                照明模型（例如 PBR 或无光照）。如果存在，这将覆盖模型的默认照明。</td>
         </tr>
 
     
@@ -233,7 +252,7 @@
 
                 
             
-                The translucency mode, which determines how the custom shader will be applied. If the value is CustomShaderTransulcencyMode.OPAQUE or CustomShaderTransulcencyMode.TRANSLUCENT, the custom shader will override settings from the model's material. If the value is CustomShaderTransulcencyMode.INHERIT, the custom shader will render as either opaque or translucent depending on the primitive's material settings.</td>
+                半透明模式，用于确定自定义着色器的应用方式。如果值为 CustomShaderTransulcencyMode.OPAQUE 或 CustomShaderTransulcencyMode.TRANSLUCENT，则自定义着色器将覆盖模型材质的设置。如果值为 CustomShaderTransulcencyMode.INHERIT，则自定义着色器将渲染为不透明或半透明，具体取决于基元的材质设置。</td>
         </tr>
 
     
@@ -267,7 +286,7 @@
 
                 
             
-                A dictionary for user-defined uniforms. The key is the uniform name that will appear in the GLSL code. The value is an object that describes the uniform type and initial value</td>
+                用户定义的 uniform 的字典。key 是将出现在 GLSL 代码中的统一名称。该值是描述 uniform 类型和初始值的对象</td>
         </tr>
 
     
@@ -301,7 +320,7 @@
 
                 
             
-                A dictionary for declaring additional GLSL varyings used in the shader. The key is the varying name that will appear in the GLSL code. The value is the data type of the varying. For each varying, the declaration will be added to the top of the shader automatically. The caller is responsible for assigning a value in the vertex shader and using the value in the fragment shader.</td>
+                用于声明着色器中使用的其他 GLSL 变体的字典。关键是将出现在 GLSL 代码中的不同名称。该值是 varying 的数据类型。对于每个变化，声明将自动添加到着色器的顶部。调用方负责在顶点着色器中分配值，并在片段着色器中使用该值。</td>
         </tr>
 
     
@@ -335,7 +354,7 @@
 
                 
             
-                The custom vertex shader as a string of GLSL code. It must include a GLSL function called vertexMain. See the example for the expected signature. If not specified, the custom vertex shader step will be skipped in the computed vertex shader.</td>
+                自定义顶点着色器，作为 GLSL 代码字符串。它必须包含一个名为 vertexMain 的 GLSL 函数。有关预期签名，请参阅示例。如果未指定，将在计算的顶点着色器中跳过自定义顶点着色器步骤。</td>
         </tr>
 
     
@@ -369,7 +388,7 @@
 
                 
             
-                The custom fragment shader as a string of GLSL code. It must include a GLSL function called fragmentMain. See the example for the expected signature. If not specified, the custom fragment shader step will be skipped in the computed fragment shader.</td>
+                作为 GLSL 代码字符串的自定义片段着色器。它必须包含一个名为 fragmentMain 的 GLSL 函数。有关预期签名，请参阅示例。如果未指定，则将在计算的片段着色器中跳过自定义片段着色器步骤。</td>
         </tr>
 
     
@@ -418,7 +437,35 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const customShader = new CustomShader({  uniforms: {    u_colorIndex: {      type: Cesium.UniformType.FLOAT,      value: 1.0    },    u_normalMap: {      type: Cesium.UniformType.SAMPLER_2D,      value: new Cesium.TextureUniform({        url: "http://example.com/normal.png"      })    }  },  varyings: {    v_selectedColor: Cesium.VaryingType.VEC3  },  vertexShaderText: `  void vertexMain(VertexInput vsInput, inout czm_modelVertexOutput vsOutput) {    v_selectedColor = mix(vsInput.attributes.color_0, vsInput.attributes.color_1, u_colorIndex);    vsOutput.positionMC += 0.1 * vsInput.attributes.normal;  }  `,  fragmentShaderText: `  void fragmentMain(FragmentInput fsInput, inout czm_modelMaterial material) {    material.normal = texture(u_normalMap, fsInput.attributes.texCoord_0);    material.diffuse = v_selectedColor;  }  `});</code></pre>
+    <pre><code class="language-javascript">const customShader = new CustomShader({
+  uniforms: {
+    u_colorIndex: {
+      type: Cesium.UniformType.FLOAT,
+      value: 1.0
+    },
+    u_normalMap: {
+      type: Cesium.UniformType.SAMPLER_2D,
+      value: new Cesium.TextureUniform({
+        url: "http://example.com/normal.png"
+      })
+    }
+  },
+  varyings: {
+    v_selectedColor: Cesium.VaryingType.VEC3
+  },
+  vertexShaderText: `
+  void vertexMain(VertexInput vsInput, inout czm_modelVertexOutput vsOutput) {
+    v_selectedColor = mix(vsInput.attributes.color_0, vsInput.attributes.color_1, u_colorIndex);
+    vsOutput.positionMC += 0.1 * vsInput.attributes.normal;
+  }
+  `,
+  fragmentShaderText: `
+  void fragmentMain(FragmentInput fsInput, inout czm_modelMaterial material) {
+    material.normal = texture(u_normalMap, fsInput.attributes.texCoord_0);
+    material.diffuse = v_selectedColor;
+  }
+  `
+});</code></pre>
 
     
 
@@ -430,7 +477,7 @@
     <div class="tag-experimental">
         <h5>Experimental</h5>
         
-            <p>This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.</p>
+            <p>此功能使用的是 3D Tiles 规范的一部分，该规范并非最终版本，并且可能会在没有 Cesium 标准弃用政策的情况下进行更改。</p>
         
     </div>
     
@@ -477,7 +524,7 @@
 
 
 <div class="description">
-    The user-defined GLSL code for the fragment shader
+    用户定义的片段着色器的 GLSL 代码
 </div>
 
 
@@ -537,7 +584,8 @@
 
 
 <div class="description">
-    The lighting model to use when using the custom shader.This is used by <code>CustomShaderPipelineStage</code>
+    使用自定义着色器时要使用的照明模型。
+这由 <code>CustomShaderPipelineStage</code> 使用
 </div>
 
 
@@ -597,7 +645,8 @@
 
 
 <div class="description">
-    A value determining how the custom shader interacts with the overallfragment shader. This is used by <code>CustomShaderPipelineStage</code>
+    一个值，用于确定自定义着色器如何与整体
+片段着色器。它由 <code>CustomShaderPipelineStage</code> 使用
 </div>
 
 
@@ -657,7 +706,10 @@
 
 
 <div class="description">
-    The translucency mode, which determines how the custom shader will be applied. If the value isCustomShaderTransulcencyMode.OPAQUE or CustomShaderTransulcencyMode.TRANSLUCENT, the custom shaderwill override settings from the model's material. If the value isCustomShaderTransulcencyMode.INHERIT,the custom shader will render as either opaque or translucent depending on the primitive's material settings.
+    半透明模式，用于确定如何应用自定义着色器。如果值为
+CustomShaderTransulcencyMode.OPAQUE 或 CustomShaderTransulcencyMode.TRANSLUCENT，自定义着色器
+将覆盖模型材质的设置。如果值为 CustomShaderTransulcencyMode.INHERIT，则
+自定义着色器将渲染为 Opaque 或 Translucent，具体取决于图元的材质设置。
 </div>
 
 
@@ -720,7 +772,7 @@
 
 
 <div class="description">
-    Additional uniforms as declared by the user.
+    用户声明的额外制服。
 </div>
 
 
@@ -780,7 +832,8 @@
 
 
 <div class="description">
-    Additional varyings as declared by the user.This is used by <code>CustomShaderPipelineStage</code>
+    用户声明的其他变化。
+这由 <code>CustomShaderPipelineStage</code> 使用
 </div>
 
 
@@ -840,7 +893,7 @@
 
 
 <div class="description">
-    The user-defined GLSL code for the vertex shader
+    顶点着色器的用户定义 GLSL 代码
 </div>
 
 
@@ -907,7 +960,7 @@
 
 
 <div class="description">
-    Update the value of a uniform declared in the shader
+    更新着色器中声明的 uniform 的值
 </div>
 
 
@@ -958,7 +1011,7 @@
 
             <td class="description last">
             
-                The GLSL name of the uniform. This must match one of the uniforms declared in the constructor</td>
+                制服的 GLSL 名称。这必须与构造函数中声明的 uniform 之一匹配</td>
         </tr>
 
     
@@ -1011,7 +1064,7 @@
 
             <td class="description last">
             
-                The new value of the uniform.</td>
+                uniform 的新值。</td>
         </tr>
 
     

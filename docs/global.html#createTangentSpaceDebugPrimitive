@@ -47,7 +47,10 @@
 
 
         
-            <div class="description">Creates a <a href="Primitive.html"><code>Primitive</code></a> to visualize well-known vector vertex attributes:<code>normal</code>, <code>tangent</code>, and <code>bitangent</code>.  Normalis red; tangent is green; and bitangent is blue.  If an attribute is notpresent, it is not drawn.</div>
+            <div class="description">创建一个 <a href="Primitive.html"><code>Primitive</code></a> 来可视化已知的向量顶点属性：
+<code>法线</code>、<code>切线</code>和<code>双切线</code>。 正常
+为红色;tangent 为绿色;Bitangent 是蓝色的。 如果属性不是
+present，则不绘制。</div>
         
 
         
@@ -73,7 +76,11 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">scene.primitives.add(Cesium.createTangentSpaceDebugPrimitive({   geometry : instance.geometry,   length : 100000.0,   modelMatrix : instance.modelMatrix}));</code></pre>
+    <pre><code class="language-javascript">scene.primitives.add(Cesium.createTangentSpaceDebugPrimitive({
+   geometry : instance.geometry,
+   length : 100000.0,
+   modelMatrix : instance.modelMatrix
+}));</code></pre>
 
     
 

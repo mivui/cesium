@@ -58,7 +58,8 @@
 
 
 <div class="description">
-    The container for all 3D graphical objects and state in a Cesium virtual scene.  Generally,a scene is not created directly; instead, it is implicitly created by <a href="CesiumWidget.html"><code>CesiumWidget</code></a>.
+    Cesium 虚拟场景中所有 3D 图形对象和状态的容器。 一般
+场景不是直接创建的;相反，它是由 <a href="CesiumWidget.html"><code>CesiumWidget</code></a> 隐式创建的。
 </div>
 
 
@@ -159,7 +160,7 @@
 
                 
             
-                The HTML canvas element to create the scene for.</td>
+                要为其创建场景的 HTML 画布元素。</td>
         </tr>
 
     
@@ -193,7 +194,7 @@
 
                 
             
-                Context and WebGL creation properties.</td>
+                上下文和 WebGL 创建属性。</td>
         </tr>
 
     
@@ -227,7 +228,7 @@
 
                 
             
-                The HTML element in which the credits will be displayed.</td>
+                将在其中显示演职员表的 HTML 元素。</td>
         </tr>
 
     
@@ -261,7 +262,7 @@
 
                 
             
-                The HTML element in which to display the credit popup.  If not specified, the viewport will be a added as a sibling of the canvas.</td>
+                用于显示信用弹出窗口的 HTML 元素。 如果未指定，则视口将添加为画布的同级。</td>
         </tr>
 
     
@@ -297,7 +298,7 @@
 
                 
             
-                The default ellipsoid. If not specified, the default ellipsoid is used.</td>
+                默认的椭球体。如果未指定，则使用默认椭球体。</td>
         </tr>
 
     
@@ -319,7 +320,7 @@
             
                 <td class="default">
                 
-                    <code class="language-javascript">new GeographicProjection(options.ellipsoid)</code>
+                    <code class="language-javascript">new GeographicProjection（options.ellipsoid）</code>
                 
                 </td>
             
@@ -333,7 +334,7 @@
 
                 
             
-                The map projection to use in 2D and Columbus View modes.</td>
+                在 2D 和 Columbus View 模式下使用的地图投影。</td>
         </tr>
 
     
@@ -369,7 +370,7 @@
 
                 
             
-                If true and the configuration supports it, use order independent translucency.</td>
+                如果为 true 且配置支持，则使用顺序无关的半透明。</td>
         </tr>
 
     
@@ -405,7 +406,7 @@
 
                 
             
-                If true, optimizes memory use and performance for 3D mode but disables the ability to use 2D or Columbus View.</td>
+                如果为 true，则优化 3D 模式的内存使用和性能，但禁用使用 2D 或哥伦布视图的功能。</td>
         </tr>
 
     
@@ -441,7 +442,7 @@
 
                 
             
-                Determines if shadows are cast by light sources.</td>
+                确定阴影是否由光源投射。</td>
         </tr>
 
     
@@ -477,7 +478,7 @@
 
                 
             
-                Determines if the 2D map is rotatable or can be scrolled infinitely in the horizontal direction.</td>
+                确定 2D 地图是可旋转的，还是可以在水平方向上无限滚动。</td>
         </tr>
 
     
@@ -513,7 +514,7 @@
 
                 
             
-                If true, rendering a frame will only occur when needed as determined by changes within the scene. Enabling improves performance of the application, but requires using <a href="Scene.html#requestRender"><code>Scene#requestRender</code></a> to render a new frame explicitly in this mode. This will be necessary in many cases after making changes to the scene in other parts of the API. See <a href="https://cesium.com/blog/2018/01/24/cesium-scene-rendering-performance/">Improving Performance with Explicit Rendering</a>.</td>
+                如果为 true，则仅在需要时渲染帧，具体取决于场景中的变化。启用可以提高应用程序的性能，但需要使用 <a href="Scene.html#requestRender"><code>Scene#requestRender</code></a> 在此模式下显式渲染新帧。在 API 的其他部分对场景进行更改后，这在许多情况下是必需的。参见 <a href="https://cesium.com/blog/2018/01/24/cesium-scene-rendering-performance/">通过显式渲染提高性能</a>。</td>
         </tr>
 
     
@@ -549,7 +550,7 @@
 
                 
             
-                If requestRenderMode is true, this value defines the maximum change in simulation time allowed before a render is requested. See <a href="https://cesium.com/blog/2018/01/24/cesium-scene-rendering-performance/">Improving Performance with Explicit Rendering</a>.</td>
+                如果 requestRenderMode 为 true，则此值定义在请求渲染之前允许的模拟时间的最大变化。参见 <a href="https://cesium.com/blog/2018/01/24/cesium-scene-rendering-performance/">通过显式渲染提高性能</a>。</td>
         </tr>
 
     
@@ -585,7 +586,7 @@
 
                 
             
-                Adjust the DepthPlane to address rendering artefacts below ellipsoid zero elevation.</td>
+                调整 DepthPlane，以解决低于椭球零高程的渲染伪影。</td>
         </tr>
 
     
@@ -621,7 +622,7 @@
 
                 
             
-                If provided, this value controls the rate of multisample antialiasing. Typical multisampling rates are 2, 4, and sometimes 8 samples per pixel. Higher sampling rates of MSAA may impact performance in exchange for improved visual quality. This value only applies to WebGL2 contexts that support multisample render targets. Set to 1 to disable MSAA.</td>
+                如果提供，此值将控制多重采样抗锯齿的速率。典型的多重采样率为每像素 2 个、4 个样本，有时甚至 8 个样本。较高的 MSAA 采样率可能会影响性能，以换取提高的视觉质量。此值仅适用于支持多重采样渲染目标的 WebGL2 上下文。设置为 1 可禁用 MSAA。</td>
         </tr>
 
     
@@ -684,7 +685,13 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Create scene without anisotropic texture filteringconst scene = new Cesium.Scene({  canvas : canvas,  contextOptions : {    allowTextureFilterAnisotropic : false  }});</code></pre>
+    <pre><code class="language-javascript">// Create scene without anisotropic texture filtering
+const scene = new Cesium.Scene({
+  canvas : canvas,
+  contextOptions : {
+    allowTextureFilterAnisotropic : false
+  }
+});</code></pre>
 
     
 
@@ -743,7 +750,8 @@
 
 
 <div class="description">
-    Use this to set the default value for <a href="Scene.html#logarithmicDepthBuffer"><code>Scene#logarithmicDepthBuffer</code></a> in newly constructed ScenesThis property relies on fragmentDepth being supported.
+    使用此函数可设置新构建的场景中 <a href="Scene.html#logarithmicDepthBuffer"><code>Scene#logarithmicDepthBuffer</code></a> 的默认值
+此属性依赖于受支持的 fragmentDepth。
 </div>
 
 
@@ -803,7 +811,8 @@
 
 
 <div class="description">
-    Settings for atmosphere lighting effects affecting 3D Tiles and model rendering. This is not to be confused with<a href="Scene.html#skyAtmosphere"><code>Scene#skyAtmosphere</code></a> which is responsible for rendering the sky.
+    影响 3D 瓦片和模型渲染的气氛照明效果的设置。这不要与
+<a href="Scene.html#skyAtmosphere"><code>Scene#skyAtmosphere</code></a> 负责渲染天空。
 </div>
 
 
@@ -863,7 +872,7 @@
 
 
 <div class="description">
-    The background color, which is only visible if there is no sky box, i.e., <a href="Scene.html#skyBox"><code>Scene#skyBox</code></a> is undefined.
+    背景颜色，仅在没有天空盒时可见，即 <a href="Scene.html#skyBox"><code>Scene#skyBox</code></a> 未定义。
 </div>
 
 
@@ -991,7 +1000,7 @@
 
 
 <div class="description">
-    Whether or not the camera is underneath the globe.
+    相机是否位于地球仪下方。
 </div>
 
 
@@ -1054,7 +1063,7 @@
 
 
 <div class="description">
-    Gets the canvas element to which this scene is bound.
+    获取此场景绑定到的 canvas 元素。
 </div>
 
 
@@ -1114,7 +1123,7 @@
 
 
 <div class="description">
-    Returns <code>true</code> if the <a href="Scene.html#clampToHeight"><code>Scene#clampToHeight</code></a> and <a href="Scene.html#clampToHeightMostDetailed"><code>Scene#clampToHeightMostDetailed</code></a> functions are supported.
+    如果支持 <a href="Scene.html#clampToHeight"><code>Scene#clampToHeight</code></a> 和 <a href="Scene.html#clampToHeightMostDetailed"><code>Scene#clampToHeightMostDetailed</code></a> 函数，则返回 <code>true</code>。
 </div>
 
 
@@ -1181,7 +1190,8 @@
 
 
 <div class="description">
-    Determines whether or not to instantly complete thescene transition animation on user input.
+    确定是否立即完成
+用户输入的场景过渡动画。
 </div>
 
 
@@ -1244,7 +1254,15 @@
 
 
 <div class="description">
-    This property is for debugging only; it is not for production use.<p>A function that determines what commands are executed.  As shown in the examples below,the function receives the command's <code>owner</code> as an argument, and returns a boolean indicating if thecommand should be executed.</p><p>The default is <code>undefined</code>, indicating that all commands are executed.</p>
+    此属性仅用于调试;它不用于生产用途。
+<p>
+确定执行哪些命令的函数。 如以下示例所示，
+该函数接收命令的 <code>owner</code> 作为参数，并返回一个布尔值，指示
+命令。
+</p>
+<p>
+默认为 <code>undefined</code>，表示执行所有命令。
+</p>
 </div>
 
 
@@ -1276,7 +1294,16 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Do not execute any commands.scene.debugCommandFilter = function(command) {    return false;};// Execute only the billboard's commands.  That is, only draw the billboard.const billboards = new Cesium.BillboardCollection();scene.debugCommandFilter = function(command) {    return command.owner === billboards;};</code></pre>
+    <pre><code class="language-javascript">// Do not execute any commands.
+scene.debugCommandFilter = function(command) {
+    return false;
+};
+
+// Execute only the billboard's commands.  That is, only draw the billboard.
+const billboards = new Cesium.BillboardCollection();
+scene.debugCommandFilter = function(command) {
+    return command.owner === billboards;
+};</code></pre>
 
     
 
@@ -1312,7 +1339,15 @@
 
 
 <div class="description">
-    This property is for debugging only; it is not for production use.<p>When <code>Scene.debugShowFrustums</code> is <code>true</code>, this containsproperties with statistics about the number of command execute per frustum.<code>totalCommands</code> is the total number of commands executed, ignoringoverlap. <code>commandsInFrustums</code> is an array with the number of timescommands are executed redundantly, e.g., how many commands overlap two orthree frustums.</p>
+    此属性仅用于调试;它不用于生产用途。
+<p>
+当 <code>Scene.debugShowFrustums</code> 为 <code>true</code> 时，此包含
+属性，其中包含有关每个视锥体执行的命令数的统计信息。
+<code>totalCommands</code> 是执行的命令总数，忽略
+重叠。<code>commandsInFrustums</code> 是一个数组，其次数
+命令是冗余执行的，例如，有多少命令重叠 2 或
+三个平截体。
+</p>
 </div>
 
 
@@ -1375,7 +1410,12 @@
 
 
 <div class="description">
-    This property is for debugging only; it is not for production use.<p>When <code>true</code>, commands are randomly shaded.  This is usefulfor performance analysis to see what parts of a scene or model arecommand-dense and could benefit from batching.</p>
+    此属性仅用于调试;它不用于生产用途。
+<p>
+如果<code>为 true</code>，则命令会随机着色。 这很有用
+用于性能分析，以查看场景或模型的哪些部分是
+command-dense，并且可以从批处理中受益。
+</p>
 </div>
 
 
@@ -1438,7 +1478,10 @@
 
 
 <div class="description">
-    This property is for debugging only; it is not for production use.<p>Indicates which frustum will have depth information displayed.</p>
+    此属性仅用于调试;它不用于生产用途。
+<p>
+指示哪个视锥体将显示深度信息。
+</p>
 </div>
 
 
@@ -1501,7 +1544,10 @@
 
 
 <div class="description">
-    This property is for debugging only; it is not for production use.<p>Displays frames per second and time between frames.</p>
+    此属性仅用于调试;它不用于生产用途。
+<p>
+显示每秒帧数和帧之间的时间。
+</p>
 </div>
 
 
@@ -1564,7 +1610,10 @@
 
 
 <div class="description">
-    This property is for debugging only; it is not for production use.<p>When <code>true</code>, draws outlines to 显示boundaries of the camera frustums</p>
+    此属性仅用于调试;它不用于生产用途。
+<p>
+如果<code>为 true</code>，则绘制轮廓以显示摄像机视锥体的边界
+</p>
 </div>
 
 
@@ -1627,7 +1676,15 @@
 
 
 <div class="description">
-    This property is for debugging only; it is not for production use.<p>When <code>true</code>, commands are shaded based on the frustums theyoverlap.  Commands in the closest frustum are tinted red, commands inthe next closest are green, and commands in the farthest frustum areblue.  If a command overlaps more than one frustum, the color componentsare combined, e.g., a command overlapping the first two frustums is tintedyellow.</p>
+    此属性仅用于调试;它不用于生产用途。
+<p>
+如果<code>为 true</code>，则命令根据 frustums 进行着色
+重叠。 最接近的 frustum 中的命令呈红色，命令
+次近的命令为绿色，最远的视锥体中的命令为
+蓝。 如果命令与多个视锥体重叠，则颜色分量
+组合在一起，例如，与前两个视锥体重叠的命令会带有颜色
+黄色。
+</p>
 </div>
 
 
@@ -1690,7 +1747,7 @@
 
 
 <div class="description">
-    The drawingBufferHeight of the underlying GL context.
+    基础 GL 上下文的 drawingBufferHeight。
 </div>
 
 
@@ -1755,7 +1812,7 @@
 
 
 <div class="description">
-    The drawingBufferWidth of the underlying GL context.
+    基础 GL 上下文的 drawingBufferWidth。
 </div>
 
 
@@ -1820,7 +1877,7 @@
 
 
 <div class="description">
-    The ellipsoid.  If not specified, the default ellipsoid is used.
+    椭球体。 如果未指定，则使用默认椭球体。
 </div>
 
 
@@ -1880,7 +1937,7 @@
 
 
 <div class="description">
-    The eye separation distance in meters for use with cardboard or WebVR.
+    用于 cardboard 或 WebVR 的眼距（以米为单位）。
 </div>
 
 
@@ -1940,7 +1997,12 @@
 
 
 <div class="description">
-    The far-to-near ratio of the multi-frustum when using a normal depth buffer.<p>This value is used to create the near and far values for each frustum of the multi-frustum. It is only usedwhen <a href="Scene.html#logarithmicDepthBuffer"><code>Scene#logarithmicDepthBuffer</code></a> is <code>false</code>. When <code>logarithmicDepthBuffer</code> is<code>true</code>, use <a href="Scene.html#logarithmicDepthFarToNearRatio"><code>Scene#logarithmicDepthFarToNearRatio</code></a>.</p>
+    使用正常深度缓冲区时多视锥体的远近比。
+<p>
+此值用于为多视锥体的每个视锥体创建 near 和 far 值。它只被使用
+当 <a href="Scene.html#logarithmicDepthBuffer"><code>Scene#logarithmicDepthBuffer</code></a> 为 <code>false</code> 时。当 <code>logarithmicDepthBuffer</code> 为
+<code>true</code>，请使用 <a href="Scene.html#logarithmicDepthFarToNearRatio"><code>Scene#logarithmicDepthFarToNearRatio</code></a>。
+</p>
 </div>
 
 
@@ -2003,7 +2065,7 @@
 
 
 <div class="description">
-    The focal length for use when with cardboard or WebVR.
+    与 Cardboard 或 WebVR 一起使用时使用的焦距。
 </div>
 
 
@@ -2063,7 +2125,10 @@
 
 
 <div class="description">
-    Blends the atmosphere to geometry far from the camera for horizon views. Allows for additionalperformance improvements by rendering less geometry and dispatching less terrain requests.Disbaled by default if an ellipsoid other than WGS84 is used.
+    将大气与远离摄像机的几何体混合，以获得地平线视图。允许额外的
+通过渲染更少的几何体和调度更少的地形请求来提高性能。
+
+如果使用 WGS84 以外的椭球体，则默认取消。
 </div>
 
 
@@ -2123,7 +2188,7 @@
 
 
 <div class="description">
-    The value used for gamma correction. This is only used when rendering with high dynamic range.
+    用于 Gamma 校正的值。这仅在使用高动态范围渲染时使用。
 </div>
 
 
@@ -2186,7 +2251,7 @@
 
 
 <div class="description">
-    获取或设置depth-test ellipsoid.
+    获取或设置深度测试椭球体。
 </div>
 
 
@@ -2246,7 +2311,7 @@
 
 
 <div class="description">
-    Gets the collection of ground primitives.
+    获取地面基元的集合。
 </div>
 
 
@@ -2306,7 +2371,7 @@
 
 
 <div class="description">
-    Whether or not to use high dynamic range rendering.
+    是否使用高动态范围渲染。
 </div>
 
 
@@ -2369,7 +2434,7 @@
 
 
 <div class="description">
-    Whether or not high dynamic range rendering is supported.
+    是否支持高动态范围渲染。
 </div>
 
 
@@ -2432,7 +2497,7 @@
 
 
 <div class="description">
-    Gets the unique identifier for this scene.
+    获取此场景的唯一标识符。
 </div>
 
 
@@ -2492,7 +2557,7 @@
 
 
 <div class="description">
-    Gets the collection of image layers that will be rendered on the globe.
+    获取将在地球上渲染的图像图层的集合。
 </div>
 
 
@@ -2552,7 +2617,8 @@
 
 
 <div class="description">
-    When <code>false</code>, 3D Tiles will render normally. When <code>true</code>, classified 3D Tile geometry will render normally andunclassified 3D Tile geometry will render with the color multiplied by <a href="Scene.html#invertClassificationColor"><code>Scene#invertClassificationColor</code></a>.
+    如果<code>为 false</code>，则 3D 瓦片将正常渲染。如果<code>为 true</code>，则分类的 3D 瓦片几何体将正常渲染，并且
+未分类的 3D 瓦片几何体将使用颜色乘以 <a href="Scene.html#invertClassificationColor"><code>Scene#invertClassificationColor</code></a> 进行渲染。
 </div>
 
 
@@ -2615,7 +2681,9 @@
 
 
 <div class="description">
-    The highlight color of unclassified 3D Tile geometry when <a href="Scene.html#invertClassification"><code>Scene#invertClassification</code></a> is <code>true</code>.<p>When the color's alpha is less than 1.0, the unclassified portions of the 3D Tiles will not blend correctly with the classified positions of the 3D Tiles.</p><p>Also, when the color's alpha is less than 1.0, the WEBGL_depth_texture and EXT_frag_depth WebGL extensions must be supported.</p>
+    当 <a href="Scene.html#invertClassification"><code>Scene#invertClassification</code></a> 为 <code>true</code> 时，未分类的 3D 瓦片几何体的高亮颜色。
+<p>当颜色的 Alpha 小于 1.0 时，3D 瓦片的未分类部分将无法与 3D 瓦片的分类位置正确混合。</p>
+<p>此外，当颜色的 Alpha 小于 1.0 时，必须支持 WEBGL_depth_texture 和 EXT_frag_depth WebGL 扩展。</p>
 </div>
 
 
@@ -2678,7 +2746,7 @@
 
 
 <div class="description">
-    Returns <code>true</code> if the <a href="Scene.html#invertClassification"><code>Scene#invertClassification</code></a> is supported.
+    如果支持 <a href="Scene.html#invertClassification"><code>Scene#invertClassification</code></a>，则返回 <code>true</code>。
 </div>
 
 
@@ -2743,7 +2811,8 @@
 
 
 <div class="description">
-    Gets the simulation time when the scene was last rendered. Returns undefined if the scene has not yet beenrendered.
+    获取上次渲染场景时的模拟时间。如果场景尚未
+呈现。
 </div>
 
 
@@ -2803,7 +2872,7 @@
 
 
 <div class="description">
-    The light source for shading. Defaults to a directional light from the Sun.
+    用于着色的光源。默认为来自太阳的平行光。
 </div>
 
 
@@ -2863,7 +2932,8 @@
 
 
 <div class="description">
-    Whether or not to use a logarithmic depth buffer. Enabling this option will allow for less frustums in the multi-frustum,increasing performance. This property relies on fragmentDepth being supported.
+    是否使用对数深度缓冲区。启用此选项将允许多视锥体中的视锥体减少。
+提高性能。此属性依赖于受支持的 fragmentDepth。
 </div>
 
 
@@ -2923,7 +2993,12 @@
 
 
 <div class="description">
-    The far-to-near ratio of the multi-frustum when using a logarithmic depth buffer.<p>This value is used to create the near and far values for each frustum of the multi-frustum. It is only usedwhen <a href="Scene.html#logarithmicDepthBuffer"><code>Scene#logarithmicDepthBuffer</code></a> is <code>true</code>. When <code>logarithmicDepthBuffer</code> is<code>false</code>, use <a href="Scene.html#farToNearRatio"><code>Scene#farToNearRatio</code></a>.</p>
+    使用对数深度缓冲区时多视锥体的远近比。
+<p>
+此值用于为多视锥体的每个视锥体创建 near 和 far 值。它只被使用
+当 <a href="Scene.html#logarithmicDepthBuffer"><code>Scene#logarithmicDepthBuffer</code></a> 为 <code>true</code> 时。当 <code>logarithmicDepthBuffer</code> 为
+<code>false</code>，请使用 <a href="Scene.html#farToNearRatio"><code>Scene#farToNearRatio</code></a>。
+</p>
 </div>
 
 
@@ -2986,7 +3061,7 @@
 
 
 <div class="description">
-    Determines if the 2D map is rotatable or can be scrolled infinitely in the horizontal direction.
+    确定 2D 贴图是可旋转的还是可以在水平方向上无限滚动的。
 </div>
 
 
@@ -3046,7 +3121,7 @@
 
 
 <div class="description">
-    Get the map projection to use in 2D and Columbus View modes.
+    获取地图投影以在 2D 和 Columbus View 模式下使用。
 </div>
 
 
@@ -3109,7 +3184,7 @@
 
 
 <div class="description">
-    The maximum aliased line width, in pixels, supported by this WebGL implementation.  It will be at least one.
+    此 WebGL 实现支持的最大锯齿线宽（以像素为单位）。 至少会是 1 个。
 </div>
 
 
@@ -3174,7 +3249,7 @@
 
 
 <div class="description">
-    The maximum length in pixels of one edge of a cube map, supported by this WebGL implementation.  It will be at least 16.
+    此 WebGL 实现支持的立方体贴图一条边的最大长度（以像素为单位）。 至少是 16 岁。
 </div>
 
 
@@ -3239,7 +3314,12 @@
 
 
 <div class="description">
-    If <a href="Scene.html#requestRenderMode"><code>Scene#requestRenderMode</code></a> is <code>true</code>, this value defines the maximum change insimulation time allowed before a render is requested. Lower values increase the number of frames renderedand higher values decrease the number of frames rendered. If <code>undefined</code>, changes tothe simulation time will never request a render.This value impacts the rate of rendering for changes in the scene like lighting, entity property updates,and animations.
+    如果 <a href="Scene.html#requestRenderMode"><code>Scene#requestRenderMode</code></a> 为 <code>true</code>，则此值定义
+在请求渲染之前允许的模拟时间。较低的值会增加渲染的帧数
+的值越高，渲染的帧数就越少。<code>如果未定义</code>，则更改为
+模拟时间永远不会请求渲染。
+此值会影响场景中更改的渲染速率，例如光照、实体属性更新、
+和动画。
 </div>
 
 
@@ -3309,7 +3389,10 @@
 
 
 <div class="description">
-    The distance from the camera at which to disable the depth test of billboards, labels and pointsto, for example, prevent clipping against terrain. When set to zero, the depth test should alwaysbe applied. When less than zero, the depth test should never be applied. Setting the disableDepthTestDistanceproperty of a billboard, label or point will override this value.
+    禁用广告牌、标签和点的深度测试时与相机的距离
+以防止与地形进行剪裁。当设置为零时，深度测试应始终
+被应用。当小于零时，绝不应用深度测试。设置 disableDepthTestDistance
+Billboard、Label 或 Point 的属性将覆盖此值。
 </div>
 
 
@@ -3372,7 +3455,7 @@
 
 
 <div class="description">
-    获取或设置current mode of the scene.
+    获取或设置场景的当前模式。
 </div>
 
 
@@ -3498,7 +3581,7 @@
 
 
 <div class="description">
-    The event fired at the completion of a scene transition.
+    该事件在场景转换完成时触发。
 </div>
 
 
@@ -3561,7 +3644,7 @@
 
 
 <div class="description">
-    The event fired at the beginning of a scene transition.
+    该事件在场景转换开始时触发。
 </div>
 
 
@@ -3624,7 +3707,8 @@
 
 
 <div class="description">
-    The current morph transition time between 2D/Columbus View and 3D,with 0.0 being 2D or Columbus View and 1.0 being 3D.
+    2D/Columbus View 和 3D 之间的当前变形过渡时间，
+0.0 为 2D 或哥伦布视图，1.0 为 3D。
 </div>
 
 
@@ -3687,7 +3771,7 @@
 
 
 <div class="description">
-    The sample rate of multisample antialiasing (values greater than 1 enable MSAA).
+    多重采样抗锯齿的采样率（大于 1 的值将启用 MSAA）。
 </div>
 
 
@@ -3750,7 +3834,7 @@
 
 
 <div class="description">
-    Returns <code>true</code> if the Scene's context supports MSAA.
+    如果场景的上下文支持 MSAA，则返回 <code>true</code>。
 </div>
 
 
@@ -3810,7 +3894,9 @@
 
 
 <div class="description">
-    Determines the uniform depth size in meters of each frustum of the multifrustum in 2D. If a primitive or model closeto the surface shows z-fighting, decreasing this will eliminate the artifact, but decrease performance. On theother hand, increasing this will increase performance but may cause z-fighting among primitives close to the surface.
+    确定 2D 中多重视锥体的每个视锥体的统一深度大小（以米为单位）。如果基元或模型关闭
+显示 Z 冲突，减少此选项将消除伪影，但会降低性能。在
+另一方面，增加此值将提高性能，但可能会导致靠近表面的基元之间出现 Z 冲突。
 </div>
 
 
@@ -3873,7 +3959,9 @@
 
 
 <div class="description">
-    获取是否 the scene has order independent translucency enabled.Note that this only reflects the original construction option, and there areother factors that could prevent OIT from functioning on a given system configuration.
+    获取是否场景启用了 Order Independent Translucency。
+请注意，这仅反映了原始构造选项，并且有
+可能阻止 OIT 在给定系统配置上运行的其他因素。
 </div>
 
 
@@ -3933,7 +4021,7 @@
 
 
 <div class="description">
-    Returns <code>true</code> if the <a href="Scene.html#pickPosition"><code>Scene#pickPosition</code></a> function is supported.
+    如果支持 <a href="Scene.html#pickPosition"><code>Scene#pickPosition</code></a> 函数，则返回 <code>true</code>。
 </div>
 
 
@@ -3998,7 +4086,12 @@
 
 
 <div class="description">
-    When <code>true</code>, enables picking translucent geometry using the depth buffer. Note that <a href="Scene.html#useDepthPicking"><code>Scene#useDepthPicking</code></a> must also be true for enabling this to work.<p>There is a decrease in performance when enabled. There are extra draw calls to write depth fortranslucent geometry.</p>
+    如果<code>为 true</code>，则启用使用深度缓冲区拾取半透明几何体。请注意，<a href="Scene.html#useDepthPicking"><code>Scene#useDepthPicking</code></a> 也必须为 true，才能使其正常工作。
+
+<p>
+启用后性能会下降。有额外的绘制调用可以写入深度
+半透明几何体。
+</p>
 </div>
 
 
@@ -4030,7 +4123,15 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// picking the position of a translucent primitiveviewer.screenSpaceEventHandler.setInputAction(function onLeftClick(movement) {     const pickedFeature = viewer.scene.pick(movement.position);     if (!Cesium.defined(pickedFeature)) {         // nothing picked         return;     }     const worldPosition = viewer.scene.pickPosition(movement.position);}, Cesium.ScreenSpaceEventType.LEFT_CLICK);</code></pre>
+    <pre><code class="language-javascript">// picking the position of a translucent primitive
+viewer.screenSpaceEventHandler.setInputAction(function onLeftClick(movement) {
+     const pickedFeature = viewer.scene.pick(movement.position);
+     if (!Cesium.defined(pickedFeature)) {
+         // nothing picked
+         return;
+     }
+     const worldPosition = viewer.scene.pickPosition(movement.position);
+}, Cesium.ScreenSpaceEventType.LEFT_CLICK);</code></pre>
 
     
 
@@ -4066,7 +4167,7 @@
 
 
 <div class="description">
-    Post processing effects applied to the final render.
+    应用于最终渲染的后处理效果。
 </div>
 
 
@@ -4126,7 +4227,8 @@
 
 
 <div class="description">
-    Gets the event that will be raised immediately after the scene is rendered.  Subscribers to the eventreceive the Scene instance as the first parameter and the current time as the second parameter.
+    获取将在场景渲染后立即引发的事件。 事件的订阅者
+接收 Scene 实例作为第一个参数，接收当前时间作为第二个参数。
 </div>
 
 
@@ -4197,7 +4299,9 @@
 
 
 <div class="description">
-    Gets the event that will be raised immediately after the scene is updated and before the scene is rendered.Subscribers to the event receive the Scene instance as the first parameter and the current time as the secondparameter.
+    获取在更新场景后和渲染场景之前将立即引发的事件。
+事件的订阅者接收 Scene 实例作为第一个参数，当前时间作为第二个参数
+参数。
 </div>
 
 
@@ -4268,7 +4372,9 @@
 
 
 <div class="description">
-    Gets the event that will be raised after the scene is updated and immediately before the scene is rendered.Subscribers to the event receive the Scene instance as the first parameter and the current time as the secondparameter.
+    获取在更新场景后和渲染场景之前将引发的事件。
+事件的订阅者接收 Scene 实例作为第一个参数，当前时间作为第二个参数
+参数。
 </div>
 
 
@@ -4339,7 +4445,8 @@
 
 
 <div class="description">
-    Gets the event that will be raised before the scene is updated or rendered.  Subscribers to the eventreceive the Scene instance as the first parameter and the current time as the second parameter.
+    获取在更新或渲染场景之前将引发的事件。 事件的订阅者
+接收 Scene 实例作为第一个参数，接收当前时间作为第二个参数。
 </div>
 
 
@@ -4410,7 +4517,7 @@
 
 
 <div class="description">
-    Gets the collection of primitives.
+    获取基元的集合。
 </div>
 
 
@@ -4470,7 +4577,10 @@
 
 
 <div class="description">
-    Gets the event that will be raised when an error is thrown inside the <code>render</code> function.The Scene instance and the thrown error are the only two parameters passed to the event handler.By default, errors are not rethrown after this event is raised, but that can be changed by settingthe <code>rethrowRenderErrors</code> property.
+    获取在 <code>render</code> 函数中引发错误时将引发的事件。
+Scene 实例和引发的错误是传递给事件处理程序的仅有的两个参数。
+默认情况下，在引发此事件后不会重新引发错误，但可以通过设置
+<code>rethrowRenderErrors</code> 属性。
 </div>
 
 
@@ -4530,7 +4640,10 @@
 
 
 <div class="description">
-    When <code>true</code>, rendering a frame will only occur when needed as determined by changes within the scene.Enabling improves performance of the application, but requires using <a href="Scene.html#requestRender"><code>Scene#requestRender</code></a>to render a new frame explicitly in this mode. This will be necessary in many cases after making changesto the scene in other parts of the API.
+    如果<code>为 true</code>，则仅在需要时渲染帧，具体取决于场景中的更改。
+启用可以提高应用程序的性能，但需要使用 <a href="Scene.html#requestRender"><code>Scene#requestRender</code></a>
+在此模式下显式渲染新帧。在进行更改后，这在许多情况下是必要的
+添加到 API 其他部分的场景。
 </div>
 
 
@@ -4602,7 +4715,10 @@
 
 
 <div class="description">
-    Exceptions occurring in <code>render</code> are always caught in order to raise the<code>renderError</code> event.  If this property is true, the error is rethrownafter the event is raised.  If this property is false, the <code>render</code> functionreturns normally after raising the event.
+    始终捕获 <code>render</code> 中发生的异常，以便引发
+<code>renderError</code> 事件。 如果此属性为 true，则重新引发错误
+在引发事件后。 如果此属性为 false，<code>则 render</code> 函数
+在引发事件后正常返回。
 </div>
 
 
@@ -4665,7 +4781,7 @@
 
 
 <div class="description">
-    Returns <code>true</code> if the <a href="Scene.html#sampleHeight"><code>Scene#sampleHeight</code></a> and <a href="Scene.html#sampleHeightMostDetailed"><code>Scene#sampleHeightMostDetailed</code></a> functions are supported.
+    如果支持 <a href="Scene.html#sampleHeight"><code>Scene#sampleHeight</code></a> 和 <a href="Scene.html#sampleHeightMostDetailed"><code>Scene#sampleHeightMostDetailed</code></a> 函数，则返回 <code>true</code>。
 </div>
 
 
@@ -4732,7 +4848,7 @@
 
 
 <div class="description">
-    获取是否 the scene is optimized for 3D only viewing.
+    获取是否该场景已针对仅 3D 查看进行了优化。
 </div>
 
 
@@ -4792,7 +4908,7 @@
 
 
 <div class="description">
-    Gets the controller for camera input handling.
+    获取用于摄像机输入处理的控制器。
 </div>
 
 
@@ -4852,7 +4968,7 @@
 
 
 <div class="description">
-    The shadow map for the scene's light source. When enabled, models, primitives, and the globe may cast and receive shadows.
+    场景光源的阴影贴图。启用后，模型、基元和地球可能会投射和接收阴影。
 </div>
 
 
@@ -4975,7 +5091,7 @@
 
 
 <div class="description">
-    The <a href="SkyBox.html"><code>SkyBox</code></a> used to draw the stars.
+    用于绘制星星的 <a href="SkyBox.html"><code>SkyBox</code></a> 。
 </div>
 
 
@@ -5043,7 +5159,7 @@
 
 
 <div class="description">
-    The url to the KTX2 file containing the specular environment map and convoluted mipmaps for image-based lighting of PBR models.
+    KTX2 文件的 URL，其中包含镜面反射环境映射和用于 PBR 模型基于图像的照明的复杂 mipmap。
 </div>
 
 
@@ -5103,7 +5219,7 @@
 
 
 <div class="description">
-    Returns <code>true</code> if specular environment maps are supported.
+    如果支持镜面反射环境贴图，则返回 <code>true</code>。
 </div>
 
 
@@ -5168,7 +5284,7 @@
 
 
 <div class="description">
-    The spherical harmonic coefficients for image-based lighting of PBR models.
+    PBR 模型基于图像的照明的球谐系数。
 </div>
 
 
@@ -5228,7 +5344,7 @@
 
 
 <div class="description">
-    获取或设置position of the splitter within the viewport.  Valid values are between 0.0 and 1.0.
+    获取或设置Splitter 在视区中的位置。 有效值介于 0.0 和 1.0 之间。
 </div>
 
 
@@ -5351,7 +5467,7 @@
 
 
 <div class="description">
-    Uses a bloom filter on the sun when enabled.
+    启用后，在太阳上使用泛光过滤器。
 </div>
 
 
@@ -5414,7 +5530,7 @@
 
 
 <div class="description">
-    The terrain provider providing surface geometry for the globe.
+    提供地球表面几何图形的 terrain 提供程序。
 </div>
 
 
@@ -5474,7 +5590,7 @@
 
 
 <div class="description">
-    Gets an event that's raised when the terrain provider is changed
+    获取在更改 terrain 提供程序时引发的事件
 </div>
 
 
@@ -5534,7 +5650,7 @@
 
 
 <div class="description">
-    When <code>true</code>, enables picking using the depth buffer.
+    如果<code>为 true</code>，则启用使用深度缓冲区的拾取。
 </div>
 
 
@@ -5597,7 +5713,8 @@
 
 
 <div class="description">
-    When <code>true</code>, splits the scene into two viewports with steroscopic views for the left and right eyes.Used for cardboard and WebVR.
+    如果<code>为 true</code>，则将场景分割为两个视口，分别具有左眼和右眼的立体视图。
+用于 cardboard 和 WebVR。
 </div>
 
 
@@ -5660,7 +5777,8 @@
 
 
 <div class="description">
-    The vertical exaggeration of the scene.When set to 1.0, no exaggeration is applied.
+    场景的垂直夸大。
+设置为 1.0 时，不应用夸大。
 </div>
 
 
@@ -5723,7 +5841,8 @@
 
 
 <div class="description">
-    The reference height for vertical exaggeration of the scene.When set to 0.0, the exaggeration is applied relative to the ellipsoid surface.
+    场景垂直夸大的参考高度。
+设置为 0.0 时，将相对于椭球体表面应用夸大。
 </div>
 
 
@@ -5793,7 +5912,8 @@
 
 
 <div class="description">
-    Transforms a position in cartesian coordinates to canvas coordinates.  This is commonly used to place anHTML element at the same screen position as an object in the scene.
+    将笛卡尔坐标中的位置转换为画布坐标。 这通常用于将
+HTML 元素与场景中的对象位于相同的屏幕位置。
 </div>
 
 
@@ -5849,7 +5969,7 @@
 
                 
             
-                The position in cartesian coordinates.</td>
+                笛卡尔坐标中的位置。</td>
         </tr>
 
     
@@ -5879,7 +5999,7 @@
 
                 
             
-                An optional object to return the input position transformed to canvas coordinates.</td>
+                一个可选对象，用于返回转换为画布坐标的输入位置。</td>
         </tr>
 
     
@@ -5900,7 +6020,7 @@
 
         
 <div class="param-desc">
-    如果没有提供新的Cartesian2实例，则使用修改后的结果参数。  This may be <code>undefined</code> if the input position is near the center of the ellipsoid.
+    如果没有提供新的Cartesian2实例，则使用修改后的结果参数。 如果输入位置靠近椭球体的中心，则此字段可能<code>未定义</code>。
 </div>
 
 
@@ -5931,7 +6051,13 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Output the canvas position of longitude/latitude (0, 0) every time the mouse moves.const scene = widget.scene;const position = Cesium.Cartesian3.fromDegrees(0.0, 0.0);const handler = new Cesium.ScreenSpaceEventHandler(scene.canvas);handler.setInputAction(function(movement) {    console.log(scene.cartesianToCanvasCoordinates(position));}, Cesium.ScreenSpaceEventType.MOUSE_MOVE);</code></pre>
+    <pre><code class="language-javascript">// Output the canvas position of longitude/latitude (0, 0) every time the mouse moves.
+const scene = widget.scene;
+const position = Cesium.Cartesian3.fromDegrees(0.0, 0.0);
+const handler = new Cesium.ScreenSpaceEventHandler(scene.canvas);
+handler.setInputAction(function(movement) {
+    console.log(scene.cartesianToCanvasCoordinates(position));
+}, Cesium.ScreenSpaceEventType.MOUSE_MOVE);</code></pre>
 
     
 
@@ -5968,7 +6094,13 @@
 
 
 <div class="description">
-    Clamps the given cartesian position to the scene geometry along the geodetic surface normal. Returns theclamped position or <code>undefined</code> if there was no scene geometry to clamp to. May be used to clampobjects to the globe, 3D Tiles, or primitives in the scene.<p>This function only clamps to globe tiles and 3D Tiles that are rendered in the current view. Clamps toall other primitives regardless of their visibility.</p>
+    沿大地测量表面法线将给定的笛卡尔位置钳制到场景几何体。返回
+clamped position 或 <code>undefined</code> 如果没有要固定的场景几何体。可用于夹紧
+对象添加到场景中的地球、3D 瓦片或基元。
+<p>
+此功能仅钳制到在当前视图中渲染的地球瓦片和 3D 瓦片。Clamps 到
+所有其他基元，无论其可见性如何。
+</p>
 </div>
 
 
@@ -6030,7 +6162,7 @@
 
                 
             
-                The cartesian position.</td>
+                笛卡尔位置。</td>
         </tr>
 
     
@@ -6064,7 +6196,7 @@
 
                 
             
-                A list of primitives, entities, or 3D Tiles features to not clamp to.</td>
+                不固定到的基元、实体或 3D 瓦片特征的列表。</td>
         </tr>
 
     
@@ -6100,7 +6232,7 @@
 
                 
             
-                Width of the intersection volume in meters.</td>
+                交叉口体积的宽度，以米为单位。</td>
         </tr>
 
     
@@ -6134,7 +6266,7 @@
 
                 
             
-                An optional object to return the clamped position.</td>
+                一个可选的对象，用于返回被固定的位置。</td>
         </tr>
 
     
@@ -6155,7 +6287,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数 or a new Cartesian3 instance if one was not provided. This may be <code>undefined</code> if there was no scene geometry to clamp to.
+    修改后的结果参数或新的 Cartesian3 实例（如果未提供）。如果没有要钳制的场景几何体，则此字段可能<code>未定义</code>。
 </div>
 
 
@@ -6211,7 +6343,9 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Clamp an entity to the underlying scene geometryconst position = entity.position.getValue(Cesium.JulianDate.now());entity.position = viewer.scene.clampToHeight(position);</code></pre>
+    <pre><code class="language-javascript">// Clamp an entity to the underlying scene geometry
+const position = entity.position.getValue(Cesium.JulianDate.now());
+entity.position = viewer.scene.clampToHeight(position);</code></pre>
 
     
 
@@ -6241,7 +6375,7 @@
     <div class="nameContainer">
     <h4 class="name" id="clampToHeightMostDetailed">
         <a href="#clampToHeightMostDetailed" class="doc-link"></a>
-        clampToHeightMostDetailed<span class="signature">(cartesians, <span class="optional">objectsToExclude</span>, <span class="optional">width</span>)</span> &rarr; <span class="type-signature returnType">Promise.&lt;Array.&lt;<a href="Cartesian3.html">Cartesian3</a>>></span>
+        clampToHeightMostDetailed<span class="signature">(cartesian, <span class="optional">objectsToExclude</span>, <span class="optional">width</span>)</span> &rarr; <span class="type-signature returnType">Promise.&lt;Array.&lt;<a href="Cartesian3.html">Cartesian3</a>>></span>
         
 
 <div class="source-link rightLinks">
@@ -6257,7 +6391,10 @@
 
 
 <div class="description">
-    Initiates an asynchronous <a href="Scene.html#clampToHeight"><code>Scene#clampToHeight</code></a> query for an array of <a href="Cartesian3.html"><code>Cartesian3</code></a> positionsusing the maximum level of detail for 3D Tilesets in the scene. Returns a promise that is resolved whenthe query completes. Each position is modified in place. If a position cannot be clamped because no geometrycan be sampled at that location, or another error occurs, the element in the array is set to undefined.
+    对 <a href="Cartesian3.html"><code>Cartesian3</code></a> 位置数组启动异步 <a href="Scene.html#clampToHeight"><code>Scene#clampToHeight</code></a> 查询
+使用场景中 3D 瓦片集的最大细节级别。返回一个 Promise，该 Promise 在
+查询完成。每个位置都进行了就地修改。如果由于没有几何体而无法夹紧位置
+可以在该位置采样，否则会发生其他错误，则数组中的元素将设置为 undefined。
 </div>
 
 
@@ -6294,7 +6431,7 @@
 
         <tr>
             
-                <td class="name"><code>cartesians</code></td>
+                <td class="name"><code>cartesian</code></td>
             
 
             <td class="type">
@@ -6319,7 +6456,7 @@
 
                 
             
-                The cartesian positions to update with clamped positions.</td>
+                笛卡尔位置，以使用夹紧位置进行更新。</td>
         </tr>
 
     
@@ -6353,7 +6490,7 @@
 
                 
             
-                A list of primitives, entities, or 3D Tiles features to not clamp to.</td>
+                不固定到的基元、实体或 3D 瓦片特征的列表。</td>
         </tr>
 
     
@@ -6389,7 +6526,7 @@
 
                 
             
-                Width of the intersection volume in meters.</td>
+                交叉口体积的宽度，以米为单位。</td>
         </tr>
 
     
@@ -6410,7 +6547,7 @@
 
         
 <div class="param-desc">
-    A promise that resolves to the provided list of positions when the query has completed.
+    当查询完成时，解析为提供的位置列表的 Promise。
 </div>
 
 
@@ -6466,7 +6603,15 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const cartesians = [    entities[0].position.getValue(Cesium.JulianDate.now()),    entities[1].position.getValue(Cesium.JulianDate.now())];const promise = viewer.scene.clampToHeightMostDetailed(cartesians);promise.then(function(updatedCartesians) {    entities[0].position = updatedCartesians[0];    entities[1].position = updatedCartesians[1];}</code></pre>
+    <pre><code class="language-javascript">const cartesians = [
+    entities[0].position.getValue(Cesium.JulianDate.now()),
+    entities[1].position.getValue(Cesium.JulianDate.now())
+];
+const promise = viewer.scene.clampToHeightMostDetailed(cartesians);
+promise.then(function(updatedCartesians) {
+    entities[0].position = updatedCartesians[0];
+    entities[1].position = updatedCartesians[1];
+}</code></pre>
 
     
 
@@ -6508,7 +6653,7 @@
 
 
 <div class="description">
-    Instantly completes an active transition.
+    立即完成活动过渡。
 </div>
 
 
@@ -6589,7 +6734,12 @@
 
 
 <div class="description">
-    Destroys the WebGL resources held by this object.  Destroying an object allows for deterministicrelease of WebGL resources, instead of relying on the garbage collector to destroy this object.<br /><br />Once an object is destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.  Therefore,assign the return value (<code>undefined</code>) to the object as done in the example.
+    销毁此对象持有的 WebGL 资源。 销毁对象允许确定性
+释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。
+<br /><br />
+一旦对象被销毁，就不应该使用它;调用
+<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。 因此
+将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
 </div>
 
 
@@ -6622,7 +6772,7 @@
         
 <span class="param-type"><a href="DeveloperError.html">DeveloperError</a></span>
 
-: This object was destroyed, i.e., destroy() was called.
+: 这个物体被摧毁了,destroy().
     </div>
 
 </li>
@@ -6694,7 +6844,10 @@
 
 
 <div class="description">
-    Returns a list of objects, each containing a `primitive` property, for all primitives ata particular window coordinate position. Other properties may also be set depending on thetype of primitive and may be used to further identify the picked object. The primitives inthe list are ordered by their visual order in the scene (front to back).
+    返回一个对象列表，每个对象都包含一个 'primitive' 属性，用于
+特定的窗口坐标位置。还可以根据
+类型，可用于进一步标识选取的对象。中的
+列表按它们在场景中的视觉顺序（从前到后）排序。
 </div>
 
 
@@ -6756,7 +6909,7 @@
 
                 
             
-                Window coordinates to perform picking on.</td>
+                窗口坐标以执行选取。</td>
         </tr>
 
     
@@ -6790,7 +6943,7 @@
 
                 
             
-                If supplied, stop drilling after collecting this many picks.</td>
+                如果提供，请在收集这么多镐后停止钻孔。</td>
         </tr>
 
     
@@ -6826,7 +6979,7 @@
 
                 
             
-                Width of the pick rectangle.</td>
+                拾取矩形的宽度。</td>
         </tr>
 
     
@@ -6862,7 +7015,7 @@
 
                 
             
-                Height of the pick rectangle.</td>
+                选取矩形的高度。</td>
         </tr>
 
     
@@ -6883,7 +7036,7 @@
 
         
 <div class="param-desc">
-    Array of objects, each containing 1 picked primitives.
+    对象数组，每个对象包含 1 个选取的基元。
 </div>
 
 
@@ -6970,7 +7123,7 @@
 
 
 <div class="description">
-    Determines if a compressed texture format is supported.
+    确定是否支持压缩纹理格式。
 </div>
 
 
@@ -7021,7 +7174,7 @@
 
             <td class="description last">
             
-                The texture format. May be the name of the format or the WebGL extension name, e.g. s3tc or WEBGL_compressed_texture_s3tc.</td>
+                纹理格式。可以是格式名称或 WebGL 扩展名，例如 s3tc 或 WEBGL_compressed_texture_s3tc。</td>
         </tr>
 
     
@@ -7042,7 +7195,7 @@
 
         
 <div class="param-desc">
-    Whether or not the format is supported.
+    是否支持该格式。
 </div>
 
 
@@ -7105,7 +7258,10 @@
 
 
 <div class="description">
-    Returns true if this object was destroyed; otherwise, false.<br /><br />If this object was destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.
+    如果此对象已销毁，则返回 true;否则为 false。
+<br /><br />
+如果此对象已销毁，则不应使用;调用
+ <code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。
 </div>
 
 
@@ -7132,7 +7288,7 @@
 
         
 <div class="param-desc">
-    <code>true</code> if this object was destroyed; otherwise, <code>false</code>.
+    <code>true</code>，如果此对象被销毁;否则为 <code>false</code>。
 </div>
 
 
@@ -7200,7 +7356,7 @@
 
 
 <div class="description">
-    Asynchronously transitions the scene to 2D.
+    异步将场景转换为 2D。
 </div>
 
 
@@ -7266,7 +7422,7 @@
 
                 
             
-                The amount of time, in seconds, for transition animations to complete.</td>
+                过渡动画完成的时间（以秒为单位）。</td>
         </tr>
 
     
@@ -7341,7 +7497,7 @@
 
 
 <div class="description">
-    Asynchronously transitions the scene to 3D.
+    异步将场景转换为 3D。
 </div>
 
 
@@ -7407,7 +7563,7 @@
 
                 
             
-                The amount of time, in seconds, for transition animations to complete.</td>
+                过渡动画完成的时间量（以秒为单位）。</td>
         </tr>
 
     
@@ -7482,7 +7638,7 @@
 
 
 <div class="description">
-    Asynchronously transitions the scene to Columbus View.
+    异步将场景转换为 Columbus 视图。
 </div>
 
 
@@ -7548,7 +7704,7 @@
 
                 
             
-                The amount of time, in seconds, for transition animations to complete.</td>
+                过渡动画完成的时间量（以秒为单位）。</td>
         </tr>
 
     
@@ -7623,7 +7779,12 @@
 
 
 <div class="description">
-    Returns an object with a `primitive` property that contains the first (top) primitive in the sceneat a particular window coordinate or undefined if nothing is at the location. Other properties maypotentially be set depending on the type of primitive and may be used to further identify the picked object.<p>When a feature of a 3D Tiles tileset is picked, <code>pick</code> returns a <a href="Cesium3DTileFeature.html"><code>Cesium3DTileFeature</code></a> object.</p>
+    返回具有 'primitive' 属性的对象，该属性包含场景中的第一个（顶部）基元
+在特定窗口坐标处，如果该位置没有任何内容，则为 undefined。其他属性可能
+可能根据基元的类型进行设置，并可用于进一步标识拾取的对象。
+<p>
+选取 3D 瓦片集的特征时，<code>pick</code> 返回 <a href="Cesium3DTileFeature.html"><code>Cesium3DTileFeature</code></a> 对象。
+</p>
 </div>
 
 
@@ -7809,7 +7970,13 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// On mouse over, color the feature yellow.handler.setInputAction(function(movement) {    const feature = scene.pick(movement.endPosition);    if (feature instanceof Cesium.Cesium3DTileFeature) {        feature.color = Cesium.Color.YELLOW;    }}, Cesium.ScreenSpaceEventType.MOUSE_MOVE);</code></pre>
+    <pre><code class="language-javascript">// On mouse over, color the feature yellow.
+handler.setInputAction(function(movement) {
+    const feature = scene.pick(movement.endPosition);
+    if (feature instanceof Cesium.Cesium3DTileFeature) {
+        feature.color = Cesium.Color.YELLOW;
+    }
+}, Cesium.ScreenSpaceEventType.MOUSE_MOVE);</code></pre>
 
     
 
@@ -7846,7 +8013,16 @@
 
 
 <div class="description">
-    Returns the cartesian position reconstructed from the depth buffer and window position.<p>The position reconstructed from the depth buffer in 2D may be slightly different from thosereconstructed in 3D and Columbus view. This is caused by the difference in the distributionof depth values of perspective and orthographic projection.</p><p>Set <a href="Scene.html#pickTranslucentDepth"><code>Scene#pickTranslucentDepth</code></a> to <code>true</code> to include the depth oftranslucent primitives; otherwise, this essentially picks through translucent primitives.</p>
+    返回从深度缓冲区和窗口位置重建的笛卡尔位置。
+<p>
+从 2D 深度缓冲区重建的位置可能与
+以 3D 和哥伦布视图重建。这是由分布的差异引起的
+透视和正交投影的深度值。
+</p>
+<p>
+将 <a href="Scene.html#pickTranslucentDepth"><code>Scene#pickTranslucentDepth</code></a> 设置为 <code>true</code>，以包含
+半透明基元;否则，这基本上会选择 Translucent Primitives。
+</p>
 </div>
 
 
@@ -7902,7 +8078,7 @@
 
                 
             
-                Window coordinates to perform picking on.</td>
+                窗口坐标以执行选取。</td>
         </tr>
 
     
@@ -7932,7 +8108,7 @@
 
                 
             
-                The object on which to restore the result.</td>
+                要恢复结果的对象。</td>
         </tr>
 
     
@@ -7953,7 +8129,7 @@
 
         
 <div class="param-desc">
-    The cartesian position.
+    笛卡尔位置。
 </div>
 
 
@@ -8030,7 +8206,8 @@
 
 
 <div class="description">
-    Returns a <a href="VoxelCell.html"><code>VoxelCell</code></a> for the voxel sample rendered at a particular window coordinate,or undefined if no voxel is rendered at that position.
+    返回在特定窗口坐标处渲染的体素样本的 <a href="VoxelCell.html"><code>VoxelCell</code></a>，
+或 undefined（如果在该位置未渲染体素）。
 </div>
 
 
@@ -8216,7 +8393,13 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">On left click, report the value of the "color" property at that voxel sample.handler.setInputAction(function(movement) {  const voxelCell = scene.pickVoxel(movement.position);  if (defined(voxelCell)) {    console.log(voxelCell.getProperty("color"));  }}, Cesium.ScreenSpaceEventType.LEFT_CLICK);</code></pre>
+    <pre><code class="language-javascript">On left click, report the value of the "color" property at that voxel sample.
+handler.setInputAction(function(movement) {
+  const voxelCell = scene.pickVoxel(movement.position);
+  if (defined(voxelCell)) {
+    console.log(voxelCell.getProperty("color"));
+  }
+}, Cesium.ScreenSpaceEventType.LEFT_CLICK);</code></pre>
 
     
 
@@ -8260,7 +8443,8 @@
 
 
 <div class="description">
-    Update and render the scene. It is usually not necessary to call this functiondirectly because <a href="CesiumWidget.html"><code>CesiumWidget</code></a> will do it automatically.
+    更新并渲染场景。通常不需要调用此函数
+直接执行此操作，因为 <a href="CesiumWidget.html"><code>CesiumWidget</code></a> 会自动执行此操作。
 </div>
 
 
@@ -8318,7 +8502,7 @@
 
                 
             
-                The simulation time at which to render.</td>
+                渲染的模拟时间。</td>
         </tr>
 
     
@@ -8393,7 +8577,8 @@
 
 
 <div class="description">
-    Requests a new rendered frame when <a href="Scene.html#requestRenderMode"><code>Scene#requestRenderMode</code></a> is set to <code>true</code>.The render rate will not exceed the <a href="CesiumWidget.html#targetFrameRate"><code>CesiumWidget#targetFrameRate</code></a>.
+    当 <a href="Scene.html#requestRenderMode"><code>Scene#requestRenderMode</code></a> 设置为 <code>true</code> 时，请求新的渲染帧。
+渲染速率不会超过 <a href="CesiumWidget.html#targetFrameRate"><code>CesiumWidget#targetFrameRate</code></a>。
 </div>
 
 
@@ -8479,7 +8664,13 @@
 
 
 <div class="description">
-    Returns the height of scene geometry at the given cartographic position or <code>undefined</code> if there was noscene geometry to sample height from. The height of the input position is ignored. May be used to clamp objects tothe globe, 3D Tiles, or primitives in the scene.<p>This function only samples height from globe tiles and 3D Tiles that are rendered in the current view. Samples heightfrom all other primitives regardless of their visibility.</p>
+    返回给定制图位置处场景几何图形的高度，如果没有，<code>则返回 undefined</code>
+要从中采样高度的场景几何体。将忽略输入位置的高度。可用于将对象固定到
+场景中的地球、3D 瓦片或基元。
+<p>
+此功能仅对当前视图中渲染的地球瓦片和 3D 瓦片的高度进行采样。样品高度
+从所有其他基元开始，而不管它们的可见性如何。
+</p>
 </div>
 
 
@@ -8541,7 +8732,7 @@
 
                 
             
-                The cartographic position to sample height from.</td>
+                要从中采样高度的制图位置。</td>
         </tr>
 
     
@@ -8575,7 +8766,7 @@
 
                 
             
-                A list of primitives, entities, or 3D Tiles features to not sample height from.</td>
+                不从中采样高度的基元、实体或 3D 瓦片特征的列表。</td>
         </tr>
 
     
@@ -8611,7 +8802,7 @@
 
                 
             
-                Width of the intersection volume in meters.</td>
+                交叉口体积的宽度，以米为单位。</td>
         </tr>
 
     
@@ -8632,7 +8823,7 @@
 
         
 <div class="param-desc">
-    The height. This may be <code>undefined</code> if there was no scene geometry to sample height from.
+    高度。如果没有要从中采样高度的场景几何体，则此字段可能<code>未定义</code>。
 </div>
 
 
@@ -8688,7 +8879,9 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const position = new Cesium.Cartographic(-1.31968, 0.698874);const height = viewer.scene.sampleHeight(position);console.log(height);</code></pre>
+    <pre><code class="language-javascript">const position = new Cesium.Cartographic(-1.31968, 0.698874);
+const height = viewer.scene.sampleHeight(position);
+console.log(height);</code></pre>
 
     
 
@@ -8734,7 +8927,11 @@
 
 
 <div class="description">
-    Initiates an asynchronous <a href="Scene.html#sampleHeight"><code>Scene#sampleHeight</code></a> query for an array of <a href="Cartographic.html"><code>Cartographic</code></a> positionsusing the maximum level of detail for 3D Tilesets in the scene. The height of the input positions is ignored.Returns a promise that is resolved when the query completes. Each point height is modified in place.If a height cannot be determined because no geometry can be sampled at that location, or another error occurs,the height is set to undefined.
+    对 <a href="Cartographic.html"><code>Cartographic</code></a> 位置数组启动异步 <a href="Scene.html#sampleHeight"><code>Scene#sampleHeight</code></a> 查询
+使用场景中 3D 瓦片集的最大细节级别。将忽略输入位置的高度。
+返回在查询完成时解析的 Promise。每个点高度都已就地修改。
+如果由于无法在该位置对几何体进行采样而无法确定高度，或者发生其他错误，
+高度设置为 undefined。
 </div>
 
 
@@ -8796,7 +8993,7 @@
 
                 
             
-                The cartographic positions to update with sampled heights.</td>
+                要使用采样高度更新的制图位置。</td>
         </tr>
 
     
@@ -8830,7 +9027,7 @@
 
                 
             
-                A list of primitives, entities, or 3D Tiles features to not sample height from.</td>
+                不从中采样高度的基元、实体或 3D 瓦片特征的列表。</td>
         </tr>
 
     
@@ -8866,7 +9063,7 @@
 
                 
             
-                Width of the intersection volume in meters.</td>
+                交叉口体积的宽度，以米为单位。</td>
         </tr>
 
     
@@ -8887,7 +9084,7 @@
 
         
 <div class="param-desc">
-    A promise that resolves to the provided list of positions when the query has completed.
+    一个 Promise，当查询完成时，它解析为提供的位置列表。
 </div>
 
 
@@ -8943,7 +9140,15 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const positions = [    new Cesium.Cartographic(-1.31968, 0.69887),    new Cesium.Cartographic(-1.10489, 0.83923)];const promise = viewer.scene.sampleHeightMostDetailed(positions);promise.then(function(updatedPosition) {    // positions[0].height and positions[1].height have been updated.    // updatedPositions is just a reference to positions.}</code></pre>
+    <pre><code class="language-javascript">const positions = [
+    new Cesium.Cartographic(-1.31968, 0.69887),
+    new Cesium.Cartographic(-1.10489, 0.83923)
+];
+const promise = viewer.scene.sampleHeightMostDetailed(positions);
+promise.then(function(updatedPosition) {
+    // positions[0].height and positions[1].height have been updated.
+    // updatedPositions is just a reference to positions.
+}</code></pre>
 
     
 
@@ -8985,7 +9190,7 @@
 
 
 <div class="description">
-    Update the terrain providing surface geometry for the globe.
+    更新地形，为地球提供表面几何图形。
 </div>
 
 
@@ -9036,7 +9241,7 @@
 
             <td class="description last">
             
-                The terrain provider async helper</td>
+                地形提供程序异步帮助程序</td>
         </tr>
 
     
@@ -9057,7 +9262,7 @@
 
         
 <div class="param-desc">
-    terrain The terrain provider async helper
+    terrain 地形提供程序异步辅助函数
 </div>
 
 
@@ -9088,9 +9293,16 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Use Cesium World Terrainscene.setTerrain(Cesium.Terrain.fromWorldTerrain());</code></pre>
+    <pre><code class="language-javascript">// Use Cesium World Terrain
+scene.setTerrain(Cesium.Terrain.fromWorldTerrain());</code></pre>
 
-    <pre><code class="language-javascript">// Use a custom terrain providerconst terrain = new Cesium.Terrain(Cesium.CesiumTerrainProvider.fromUrl("https://myTestTerrain.com"));scene.setTerrain(terrain);terrain.errorEvent.addEventListener(error => {  alert(`Encountered an error while creating terrain! ${error}`);});</code></pre>
+    <pre><code class="language-javascript">// Use a custom terrain provider
+const terrain = new Cesium.Terrain(Cesium.CesiumTerrainProvider.fromUrl("https://myTestTerrain.com"));
+scene.setTerrain(terrain);
+
+terrain.errorEvent.addEventListener(error => {
+  alert(`Encountered an error while creating terrain! ${error}`);
+});</code></pre>
 
     
 

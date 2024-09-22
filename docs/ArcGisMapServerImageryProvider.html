@@ -58,7 +58,18 @@
 
 
 <div class="description">
-    <div class="notice">This object is normally not instantiated directly, use <a href="ArcGisMapServerImageryProvider.html#.fromBasemapType"><code>ArcGisMapServerImageryProvider.fromBasemapType</code></a> or <a href="ArcGisMapServerImageryProvider.html#.fromUrl"><code>ArcGisMapServerImageryProvider.fromUrl</code></a>.</div>Provides tiled imagery hosted by an ArcGIS MapServer.  By default, the server's pre-cached tiles areused, if available.<br/>An <a href="https://developers.arcgis.com/documentation/mapping-apis-and-services/security"> ArcGIS Access Token </a> is required to authenticate requests to an ArcGIS Image Tile service.To access secure ArcGIS resources, it's required to create an ArcGIS developeraccount or an ArcGIS online account, then implement an authentication method to obtain an access token.
+    <div class="notice">
+此对象通常不直接实例化，请使用 <a href="ArcGisMapServerImageryProvider.html#.fromBasemapType"><code>ArcGisMapServerImageryProvider.fromBasemapType</code></a> 或 <a href="ArcGisMapServerImageryProvider.html#.fromUrl"><code>ArcGisMapServerImageryProvider.fromUrl</code></a>。
+</div>
+
+提供由 ArcGIS MapServer 托管的切片影像。 默认情况下，服务器的预缓存切片为
+二手（如果有）。
+
+<br/>
+
+ <a href="https://developers.arcgis.com/documentation/mapping-apis-and-services/security"> ArcGIS Access Token </a> 需要对 ArcGIS Image Tile 服务的请求进行身份验证。
+要访问安全的 ArcGIS 资源，需要创建 ArcGIS 开发人员
+帐户或 ArcGIS Online 帐户，然后实施身份验证方法以获取访问令牌。
 </div>
 
 
@@ -159,9 +170,23 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Set the default access token for accessing ArcGIS Image Tile serviceCesium.ArcGisMapService.defaultAccessToken = "&lt;ArcGIS Access Token>";// Add a base layer from a default ArcGIS basemapconst viewer = new Cesium.Viewer("cesiumContainer", {  baseLayer: Cesium.ImageryLayer.fromProviderAsync(    Cesium.ArcGisMapServerImageryProvider.fromBasemapType(      Cesium.ArcGisBaseMapType.SATELLITE    )  ),});</code></pre>
+    <pre><code class="language-javascript">// Set the default access token for accessing ArcGIS Image Tile service
+Cesium.ArcGisMapService.defaultAccessToken = "&lt;ArcGIS Access Token>";
 
-    <pre><code class="language-javascript">// Create an imagery provider from the url directlyconst esri = await Cesium.ArcGisMapServerImageryProvider.fromUrl(  "https://ibasemaps-api.arcgis.com/arcgis/rest/services/World_Imagery/MapServer", {    token: "&lt;ArcGIS Access Token>"});</code></pre>
+// Add a base layer from a default ArcGIS basemap
+const viewer = new Cesium.Viewer("cesiumContainer", {
+  baseLayer: Cesium.ImageryLayer.fromProviderAsync(
+    Cesium.ArcGisMapServerImageryProvider.fromBasemapType(
+      Cesium.ArcGisBaseMapType.SATELLITE
+    )
+  ),
+});</code></pre>
+
+    <pre><code class="language-javascript">// Create an imagery provider from the url directly
+const esri = await Cesium.ArcGisMapServerImageryProvider.fromUrl(
+  "https://ibasemaps-api.arcgis.com/arcgis/rest/services/World_Imagery/MapServer", {
+    token: "&lt;ArcGIS Access Token>"
+});</code></pre>
 
     
 
@@ -224,7 +249,8 @@
 
 
 <div class="description">
-    Gets the credit to display when this imagery provider is active.  Typically this is used to creditthe source of the imagery.
+    获取此影像提供程序处于活动状态时要显示的点数。 通常，这用于贷记
+图像的来源。
 </div>
 
 
@@ -284,7 +310,10 @@
 
 
 <div class="description">
-    Gets or sets a value indicating whether feature picking is enabled.  If true, <a href="ArcGisMapServerImageryProvider.html#pickFeatures"><code>ArcGisMapServerImageryProvider#pickFeatures</code></a> willinvoke the "identify" operation on the ArcGIS server and return the features included in the response.  If false,<a href="ArcGisMapServerImageryProvider.html#pickFeatures"><code>ArcGisMapServerImageryProvider#pickFeatures</code></a> will immediately return undefined (indicating no pickable features)without communicating with the server.
+    获取或设置一个值，该值指示是否启用功能选取。 如果为 true，则 <a href="ArcGisMapServerImageryProvider.html#pickFeatures"><code>ArcGisMapServerImageryProvider#pickFeatures</code></a> 将
+在 ArcGIS 服务器上调用 “identify” 操作并返回响应中包含的要素。 如果为 false，则
+<a href="ArcGisMapServerImageryProvider.html#pickFeatures"><code>ArcGisMapServerImageryProvider#pickFeatures</code></a> 将立即返回 undefined（表示没有可选取的要素）
+而不与服务器通信。
 </div>
 
 
@@ -347,7 +376,9 @@
 
 
 <div class="description">
-    Gets an event that is raised when the imagery provider encounters an asynchronous error.  By subscribingto the event, you will be notified of the error and can potentially recover from it.  Event listenersare passed an instance of <a href="TileProviderError.html"><code>TileProviderError</code></a>.
+    获取在影像提供程序遇到异步错误时引发的事件。 通过订阅
+时，您将收到错误通知，并可能从中恢复。 事件侦听器
+将传递 <a href="TileProviderError.html"><code>TileProviderError</code></a> 的实例。
 </div>
 
 
@@ -407,7 +438,11 @@
 
 
 <div class="description">
-    Gets a value indicating whether or not the images provided by this imagery providerinclude an alpha channel.  If this property is false, an alpha channel, if present, willbe ignored.  If this property is true, any images without an alpha channel will be treatedas if their alpha is 1.0 everywhere.  When this property is false, memory usageand texture upload time are reduced.
+    获取一个值，该值指示此图像提供程序是否提供图像
+包括 Alpha 通道。 如果此属性为 false，则 Alpha 通道（如果存在）将
+被忽略。 如果此属性为 true，则将处理任何没有 Alpha 通道的图像
+就好像它们的 alpha 在所有地方都是 1.0 一样。 当此属性为 false 时，内存使用情况
+和纹理上传时间缩短。
 </div>
 
 
@@ -470,7 +505,7 @@
 
 
 <div class="description">
-    Gets the comma-separated list of layer IDs to show.
+    获取要显示的图层 ID 的逗号分隔列表。
 </div>
 
 
@@ -530,7 +565,7 @@
 
 
 <div class="description">
-    Gets the maximum level-of-detail that can be requested.
+    获取可请求的最大详细级别。
 </div>
 
 
@@ -590,7 +625,7 @@
 
 
 <div class="description">
-    Gets the minimum level-of-detail that can be requested.
+    获取可请求的最小详细级别。
 </div>
 
 
@@ -650,7 +685,7 @@
 
 
 <div class="description">
-    Gets the proxy used by this provider.
+    获取此提供程序使用的代理。
 </div>
 
 
@@ -710,7 +745,7 @@
 
 
 <div class="description">
-    Gets the rectangle, in radians, of the imagery provided by this instance.
+    获取此实例提供的图像的矩形（以弧度为单位）。
 </div>
 
 
@@ -770,7 +805,9 @@
 
 
 <div class="description">
-    Gets the tile discard policy.  If not undefined, the discard policy is responsiblefor filtering out "missing" tiles via its shouldDiscardImage function.  If this functionreturns undefined, no tiles are filtered.
+    获取瓦片丢弃策略。 如果未 undefined，则 discard 策略负责
+用于通过其 shouldDiscardImage 函数过滤掉“缺失”的瓦片。 如果此功能
+返回 undefined，不过滤任何图块。
 </div>
 
 
@@ -830,7 +867,7 @@
 
 
 <div class="description">
-    Gets the height of each tile, in pixels.
+    获取每个图块的高度（以像素为单位）。
 </div>
 
 
@@ -890,7 +927,7 @@
 
 
 <div class="description">
-    Gets the width of each tile, in pixels.
+    获取每个图块的宽度（以像素为单位）。
 </div>
 
 
@@ -950,7 +987,7 @@
 
 
 <div class="description">
-    Gets the tiling scheme used by this provider.
+    获取此提供程序使用的切片方案。
 </div>
 
 
@@ -1010,7 +1047,7 @@
 
 
 <div class="description">
-    Gets the ArcGIS token used to authenticate with the ArcGis MapServer service.
+    获取用于对 ArcGis MapServer 服务进行身份验证的 ArcGIS 令牌。
 </div>
 
 
@@ -1070,7 +1107,7 @@
 
 
 <div class="description">
-    Gets the URL of the ArcGIS MapServer.
+    获取 ArcGIS MapServer 的 URL。
 </div>
 
 
@@ -1130,7 +1167,8 @@
 
 
 <div class="description">
-    Gets a value indicating whether this imagery provider is using pre-cached tiles from theArcGIS MapServer.
+    获取一个值，该值指示此影像提供商是否正在使用
+ArcGIS 地图服务器。
 </div>
 
 
@@ -1184,7 +1222,7 @@
     <div class="nameContainer">
     <h4 class="name" id=".fromBasemapType">
         <a href="#.fromBasemapType" class="doc-link"></a>
-        <span class="type-signature attribute-static">static</span> Cesium.ArcGisMapServerImageryProvider.fromBasemapType<span class="signature">(style, <span class="optional">options</span>)</span> &rarr; <span class="type-signature returnType">Promise.&lt;<a href="ArcGisMapServerImageryProvider.html">ArcGisMapServerImageryProvider</a>></span>
+        <span class="type-signature attribute-static">static</span> Cesium.ArcGisMapServerImageryProvider.fromBasemapType<span class="signature">(样式, <span class="optional">options</span>)</span> &rarr; <span class="type-signature returnType">Promise.&lt;<a href="ArcGisMapServerImageryProvider.html">ArcGisMapServerImageryProvider</a>></span>
         
 
 <div class="source-link rightLinks">
@@ -1200,7 +1238,7 @@
 
 
 <div class="description">
-    Creates an <a href="ImageryProvider.html"><code>ImageryProvider</code></a> which provides tiled imagery from an ArcGIS base map.
+    创建一个 <a href="ImageryProvider.html"><code>ImageryProvider</code></a>，用于提供来自 ArcGIS 底图的切片影像。
 </div>
 
 
@@ -1235,7 +1273,7 @@
 
         <tr>
             
-                <td class="name"><code>style</code></td>
+                <td class="name"><code>样式</code></td>
             
 
             <td class="type">
@@ -1256,7 +1294,7 @@
 
                 
             
-                The style of the ArcGIS base map imagery. Valid options are <a href="global.html#ArcGisBaseMapType#.SATELLITE"><code>ArcGisBaseMapType.SATELLITE</code></a>, <a href="global.html#ArcGisBaseMapType#.OCEANS"><code>ArcGisBaseMapType.OCEANS</code></a>, and <a href="global.html#ArcGisBaseMapType#.HILLSHADE"><code>ArcGisBaseMapType.HILLSHADE</code></a>.</td>
+                ArcGIS 底图影像的样式。有效选项为 <a href="global.html#ArcGisBaseMapType#.SATELLITE"><code>ArcGisBaseMapType.SATELLITE</code></a>、<a href="global.html#ArcGisBaseMapType#.OCEANS"><code>ArcGisBaseMapType.OCEANS</code></a> 和 <a href="global.html#ArcGisBaseMapType#.HILLSHADE"><code>ArcGisBaseMapType.HILLSHADE</code></a>。</td>
         </tr>
 
     
@@ -1307,7 +1345,7 @@
 
         
 <div class="param-desc">
-    A promise that resolves to the created ArcGisMapServerImageryProvider.
+    解析为创建的 ArcGisMapServerImageryProvider 的 Promise。
 </div>
 
 
@@ -1338,9 +1376,23 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Set the default access token for accessing ArcGIS Image Tile serviceCesium.ArcGisMapService.defaultAccessToken = "&lt;ArcGIS Access Token>";// Add a base layer from a default ArcGIS basemapconst provider = await Cesium.ArcGisMapServerImageryProvider.fromBasemapType(  Cesium.ArcGisBaseMapType.SATELLITE);</code></pre>
+    <pre><code class="language-javascript">// Set the default access token for accessing ArcGIS Image Tile service
+Cesium.ArcGisMapService.defaultAccessToken = "&lt;ArcGIS Access Token>";
 
-    <pre><code class="language-javascript">// Add a base layer from a default ArcGIS Basemapconst viewer = new Cesium.Viewer("cesiumContainer", {  baseLayer: Cesium.ImageryLayer.fromProviderAsync(    Cesium.ArcGisMapServerImageryProvider.fromBasemapType(      Cesium.ArcGisBaseMapType.HILLSHADE, {        token: "&lt;ArcGIS Access Token>"      }    )  ),});</code></pre>
+// Add a base layer from a default ArcGIS basemap
+const provider = await Cesium.ArcGisMapServerImageryProvider.fromBasemapType(
+  Cesium.ArcGisBaseMapType.SATELLITE);</code></pre>
+
+    <pre><code class="language-javascript">// Add a base layer from a default ArcGIS Basemap
+const viewer = new Cesium.Viewer("cesiumContainer", {
+  baseLayer: Cesium.ImageryLayer.fromProviderAsync(
+    Cesium.ArcGisMapServerImageryProvider.fromBasemapType(
+      Cesium.ArcGisBaseMapType.HILLSHADE, {
+        token: "&lt;ArcGIS Access Token>"
+      }
+    )
+  ),
+});</code></pre>
 
     
 
@@ -1377,7 +1429,8 @@
 
 
 <div class="description">
-    Creates an <a href="ImageryProvider.html"><code>ImageryProvider</code></a> which provides tiled imagery hosted by an ArcGIS MapServer.  By default, the server's pre-cached tiles areused, if available.
+    创建一个 <a href="ImageryProvider.html"><code>ImageryProvider</code></a>，该提供商由 ArcGIS MapServer 托管的切片影像。 默认情况下，服务器的预缓存切片为
+二手（如果有）。
 </div>
 
 
@@ -1436,7 +1489,7 @@
 
                 
             
-                The URL of the ArcGIS MapServer service.</td>
+                ArcGIS MapServer 服务的 URL。</td>
         </tr>
 
     
@@ -1487,7 +1540,7 @@
 
         
 <div class="param-desc">
-    A promise that resolves to the created ArcGisMapServerImageryProvider.
+    解析为创建的 ArcGisMapServerImageryProvider 的 Promise。
 </div>
 
 
@@ -1543,7 +1596,9 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const esri = await Cesium.ArcGisMapServerImageryProvider.fromUrl(    "https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer");</code></pre>
+    <pre><code class="language-javascript">const esri = await Cesium.ArcGisMapServerImageryProvider.fromUrl(
+    "https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer"
+);</code></pre>
 
     
 
@@ -1580,7 +1635,7 @@
 
 
 <div class="description">
-    Gets the credits to be displayed when a given tile is displayed.
+    获取在显示给定磁贴时要显示的制作者名单。
 </div>
 
 
@@ -1631,7 +1686,7 @@
 
             <td class="description last">
             
-                The tile X coordinate.</td>
+                瓦片 X 坐标。</td>
         </tr>
 
     
@@ -1654,7 +1709,7 @@
 
             <td class="description last">
             
-                The tile Y coordinate.</td>
+                瓦片 Y 坐标。</td>
         </tr>
 
     
@@ -1677,7 +1732,7 @@
 
             <td class="description last">
             
-                The tile level;</td>
+                瓦片级别;</td>
         </tr>
 
     
@@ -1698,7 +1753,7 @@
 
         
 <div class="param-desc">
-    The credits to be displayed when the tile is displayed.
+    显示磁贴时要显示的制作者名单。
 </div>
 
 
@@ -1749,7 +1804,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.121.1/packages/engine/Source/Scene/ArcGisMapServerImageryProvider.js#L796">engine/Source/Scene/ArcGisMapServerImageryProvider.js 796</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.121.1/packages/engine/Source/Scene/ArcGisMapServerImageryProvider.js#L795">engine/Source/Scene/ArcGisMapServerImageryProvider.js 795</a>
 </div>
 
 
@@ -1761,7 +1816,8 @@
 
 
 <div class="description">
-    /**Asynchronously determines what features, if any, are located at a given longitude and latitude withina tile.
+    异步确定哪些要素（如果有）位于给定的经度和纬度
+一个图块。
 </div>
 
 
@@ -1812,7 +1868,7 @@
 
             <td class="description last">
             
-                The tile X coordinate.</td>
+                瓦片 X 坐标。</td>
         </tr>
 
     
@@ -1835,7 +1891,7 @@
 
             <td class="description last">
             
-                The tile Y coordinate.</td>
+                瓦片 Y 坐标。</td>
         </tr>
 
     
@@ -1858,7 +1914,7 @@
 
             <td class="description last">
             
-                The tile level.</td>
+                瓦片级别。</td>
         </tr>
 
     
@@ -1881,7 +1937,7 @@
 
             <td class="description last">
             
-                The longitude at which to pick features.</td>
+                选取特征的经度。</td>
         </tr>
 
     
@@ -1904,7 +1960,7 @@
 
             <td class="description last">
             
-                The latitude at which to pick features.</td>
+                选取特征的纬度。</td>
         </tr>
 
     
@@ -1925,7 +1981,9 @@
 
         
 <div class="param-desc">
-    A promise for the picked features that will resolve when the asynchronous                  picking completes.  The resolved value is an array of <a href="ImageryLayerFeatureInfo.html"><code>ImageryLayerFeatureInfo</code></a>                  instances.  The array may be empty if no features are found at the given location.
+    对所选特征的 Promise，当异步
+拣选完成。 解析的值是 <a href="ImageryLayerFeatureInfo.html"><code>ImageryLayerFeatureInfo</code></a> 的数组
+实例。 如果在给定位置未找到要素，则数组可能为空。
 </div>
 
 
@@ -1988,7 +2046,7 @@
 
 
 <div class="description">
-    Requests the image for a given tile.
+    请求给定磁贴的图像。
 </div>
 
 
@@ -2044,7 +2102,7 @@
 
                 
             
-                The tile X coordinate.</td>
+                瓦片 X 坐标。</td>
         </tr>
 
     
@@ -2072,7 +2130,7 @@
 
                 
             
-                The tile Y coordinate.</td>
+                瓦片 Y 坐标。</td>
         </tr>
 
     
@@ -2100,7 +2158,7 @@
 
                 
             
-                The tile level.</td>
+                瓦片级别。</td>
         </tr>
 
     
@@ -2151,7 +2209,8 @@
 
         
 <div class="param-desc">
-    A promise for the image that will resolve when the image is available, or         undefined if there are too many active requests to the server, and the request should be retried later.
+    映像的 Promise，该 Promise 将在映像可用时解析，或者
+undefined 如果对服务器的活动请求过多，则应稍后重试该请求。
 </div>
 
 
@@ -2219,7 +2278,7 @@
 
 
 <div class="description">
-    Initialization options for the ArcGisMapServerImageryProvider constructor
+    ArcGisMapServerImageryProvider 构造函数的初始化选项
 </div>
 
 
@@ -2287,7 +2346,17 @@
                 </td>
             
 
-            <td class="description last">The policy that determines if a tile       is invalid and should be discarded.  If this value is not specified, a default       <a href="DiscardMissingTileImagePolicy.html"><code>DiscardMissingTileImagePolicy</code></a> is used for tiled map servers, and a       <a href="NeverTileDiscardPolicy.html"><code>NeverTileDiscardPolicy</code></a> is used for non-tiled map servers.  In the former case,       we request tile 0,0 at the maximum tile level and check pixels (0,0), (200,20), (20,200),       (80,110), and (160, 130).  If all of these pixels are transparent, the discard check is       disabled and no tiles are discarded.  If any of them have a non-transparent color, any       tile that has the same values in these pixel locations is discarded.  The end result of       these defaults should be correct tile discarding for a standard ArcGIS Server.  To ensure       that no tiles are discarded, construct and pass a <a href="NeverTileDiscardPolicy.html"><code>NeverTileDiscardPolicy</code></a> for this       parameter.</td>
+            <td class="description last">确定瓦片是否
+无效，应丢弃。 如果未指定此值，则默认为
+<a href="DiscardMissingTileImagePolicy.html"><code>DiscardMissingTileImagePolicy</code></a> 用于平铺地图服务器，而
+<a href="NeverTileDiscardPolicy.html"><code>NeverTileDiscardPolicy</code></a> 用于非平铺地图服务器。 在前一种情况下，
+我们在最大瓦片级别请求瓦片 0,0 并检查像素 （0,0）、（200,20）、（20,200）、
+（80,110） 和 （160， 130）。 如果所有这些像素都是透明的，则丢弃校验为
+禁用且不会丢弃任何牌。 如果其中任何一个具有不透明的颜色，则任何
+在这些像素位置具有相同值的瓦片将被丢弃。 的最终结果
+对于标准 ArcGIS Server，这些默认值应该是正确的切片丢弃。 为了确保
+没有丢弃任何图块，为此构造并传递一个 <a href="NeverTileDiscardPolicy.html"><code>NeverTileDiscardPolicy</code></a>
+参数。</td>
         </tr>
 
     
@@ -2324,7 +2393,8 @@
                 </td>
             
 
-            <td class="description last">If true, the server's pre-cached       tiles are used if they are available. Exporting Tiles is only supported with deprecated APIs.</td>
+            <td class="description last">如果为 true，则服务器的预缓存
+如果有瓦片，则使用瓦片。只有已弃用的 API 才支持导出切片。</td>
         </tr>
 
     
@@ -2359,7 +2429,7 @@
                 </td>
             
 
-            <td class="description last">A comma-separated list of the layers to show, or undefined if all layers should be shown.</td>
+            <td class="description last">要显示的图层的逗号分隔列表，如果应显示所有图层，则为 undefined。</td>
         </tr>
 
     
@@ -2396,7 +2466,11 @@
                 </td>
             
 
-            <td class="description last">If true, <a href="ArcGisMapServerImageryProvider.html#pickFeatures"><code>ArcGisMapServerImageryProvider#pickFeatures</code></a> will invoke       the Identify service on the MapServer and return the features included in the response.  If false,       <a href="ArcGisMapServerImageryProvider.html#pickFeatures"><code>ArcGisMapServerImageryProvider#pickFeatures</code></a> will immediately return undefined (indicating no pickable features)       without communicating with the server.  Set this property to false if you don't want this provider's features to       be pickable. Can be overridden by setting the <a href="ArcGisMapServerImageryProvider.html#enablePickFeatures"><code>ArcGisMapServerImageryProvider#enablePickFeatures</code></a> property on the object.</td>
+            <td class="description last">如果为 true，则 <a href="ArcGisMapServerImageryProvider.html#pickFeatures"><code>ArcGisMapServerImageryProvider#pickFeatures</code></a> 将调用
+MapServer 上的 Identify 服务并返回响应中包含的要素。 如果为 false，则
+<a href="ArcGisMapServerImageryProvider.html#pickFeatures"><code>ArcGisMapServerImageryProvider#pickFeatures</code></a> 将立即返回 undefined（表示没有可选取的要素）
+而不与服务器通信。 如果不希望此提供程序的功能
+是可挑选的。可以通过在对象上设置 <a href="ArcGisMapServerImageryProvider.html#enablePickFeatures"><code>ArcGisMapServerImageryProvider#enablePickFeatures</code></a> 属性来覆盖。</td>
         </tr>
 
     
@@ -2433,7 +2507,8 @@
                 </td>
             
 
-            <td class="description last">The rectangle of the layer.  This parameter is ignored when accessing                   a tiled layer.</td>
+            <td class="description last">图层的矩形。 访问
+平铺层。</td>
         </tr>
 
     
@@ -2465,12 +2540,13 @@
             
                 <td class="default">
                 
-                    new GeographicTilingScheme()
+                    new GeographicTilingScheme（）
                 
                 </td>
             
 
-            <td class="description last">The tiling scheme to use to divide the world into tiles.                      This parameter is ignored when accessing a tiled server.</td>
+            <td class="description last">用于将世界划分为多个图块的平铺方案。
+访问平铺服务器时，将忽略此参数。</td>
         </tr>
 
     
@@ -2507,7 +2583,9 @@
                 </td>
             
 
-            <td class="description last">The ellipsoid.  If the tilingScheme is specified and used,                   this parameter is ignored and the tiling scheme's ellipsoid is used instead. If neither                   parameter is specified, the default ellipsoid is used.</td>
+            <td class="description last">椭球体。 如果指定并使用了 tilingScheme，则
+此参数将被忽略，而使用切片方案的椭球体。如果两者都不是
+参数，则使用默认椭球。</td>
         </tr>
 
     
@@ -2545,7 +2623,7 @@
                 </td>
             
 
-            <td class="description last">A credit for the data source, which is displayed on the canvas.  This parameter is ignored when accessing a tiled server.</td>
+            <td class="description last">数据源的积分，显示在画布上。 访问平铺服务器时，将忽略此参数。</td>
         </tr>
 
     
@@ -2582,7 +2660,7 @@
                 </td>
             
 
-            <td class="description last">The width of each tile in pixels.  This parameter is ignored when accessing a tiled server.</td>
+            <td class="description last">每个图块的宽度（以像素为单位）。 访问平铺服务器时，将忽略此参数。</td>
         </tr>
 
     
@@ -2619,7 +2697,7 @@
                 </td>
             
 
-            <td class="description last">The height of each tile in pixels.  This parameter is ignored when accessing a tiled server.</td>
+            <td class="description last">每个图块的高度（以像素为单位）。 访问平铺服务器时，将忽略此参数。</td>
         </tr>
 
     
@@ -2654,7 +2732,8 @@
                 </td>
             
 
-            <td class="description last">The maximum tile level to request, or undefined if there is no maximum.  This parameter is ignored when accessing                                       a tiled server.</td>
+            <td class="description last">要请求的最大图块级别，如果没有最大值，则为 undefined。 访问
+平铺服务器。</td>
         </tr>
 
     

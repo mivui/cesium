@@ -58,7 +58,7 @@
 
 
 <div class="description">
-    A geodesic polygon to be used with <a href="ClippingPlaneCollection.html"><code>ClippingPlaneCollection</code></a> for selectively hiding regions in a model, a 3D tileset, or the globe.
+    与 <a href="ClippingPlaneCollection.html"><code>ClippingPlaneCollection</code></a> 一起使用的测地线多边形，用于选择性地隐藏模型、3D 图块集或地球中的区域。
 </div>
 
 
@@ -159,7 +159,7 @@
 
                 
             
-                A list of three or more Cartesian coordinates defining the outer ring of the clipping polygon.</td>
+                定义剪切多边形外环的三个或多个笛卡尔坐标的列表。</td>
         </tr>
 
     
@@ -244,7 +244,22 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const positions = Cesium.Cartesian3.fromRadiansArray([    -1.3194369277314022,    0.6988062530900625,    -1.31941,    0.69879,    -1.3193955980204217,    0.6988091578771254,    -1.3193931220959367,    0.698743632490865,    -1.3194358224045408,    0.6987471965556998,]);const polygon = new Cesium.ClippingPolygon({    positions: positions});</code></pre>
+    <pre><code class="language-javascript">const positions = Cesium.Cartesian3.fromRadiansArray([
+    -1.3194369277314022,
+    0.6988062530900625,
+    -1.31941,
+    0.69879,
+    -1.3193955980204217,
+    0.6988091578771254,
+    -1.3193931220959367,
+    0.698743632490865,
+    -1.3194358224045408,
+    0.6987471965556998,
+]);
+
+const polygon = new Cesium.ClippingPolygon({
+    positions: positions
+});</code></pre>
 
     
 
@@ -296,7 +311,7 @@
 
 
 <div class="description">
-    Returns the ellipsoid used to project the polygon onto surfaces when clipping.
+    返回在裁剪时用于将多边形投影到曲面上的椭球体。
 </div>
 
 
@@ -356,7 +371,7 @@
 
 
 <div class="description">
-    Returns the total number of positions in the polygon, include any holes.
+    返回多边形中的位置总数，包括任何孔。
 </div>
 
 
@@ -416,7 +431,7 @@
 
 
 <div class="description">
-    Returns the outer ring of positions.
+    返回位置的外环。
 </div>
 
 
@@ -483,7 +498,7 @@
 
 
 <div class="description">
-    Clones the ClippingPolygon without setting its ownership.
+    克隆 ClippingPolygon 而不设置其所有权。
 </div>
 
 
@@ -539,7 +554,7 @@
 
                 
             
-                The ClippingPolygon to be cloned</td>
+                需要克隆的 ClippingPolygon</td>
         </tr>
 
     
@@ -569,7 +584,7 @@
 
                 
             
-                The object on which to store the cloned parameters.</td>
+                存储克隆参数的对象。</td>
         </tr>
 
     
@@ -590,7 +605,7 @@
 
         
 <div class="param-desc">
-    a clone of the input ClippingPolygon
+    输入 ClippingPolygon 的克隆
 </div>
 
 
@@ -653,7 +668,8 @@
 
 
 <div class="description">
-    Compares the provided ClippingPolygons and returns<code>true</code>，否则为<code>false</code>。
+    将提供的 ClippingPolygons 与nd returns
+<code>true</code>，否则为<code>false</code>。
 </div>
 
 
@@ -704,7 +720,7 @@
 
             <td class="description last">
             
-                The first polygon.</td>
+                第一个多边形。</td>
         </tr>
 
     
@@ -727,7 +743,7 @@
 
             <td class="description last">
             
-                The second polygon.</td>
+                第二个多边形。</td>
         </tr>
 
     
@@ -811,7 +827,7 @@
 
 
 <div class="description">
-    Computes a cartographic rectangle which encloses the polygon defined by the list of positions, including cases over the international date line and the poles.
+    计算一个制图矩形，该矩形包含由位置列表定义的多边形，包括国际日期变更线和极点上的情况。
 </div>
 
 
@@ -869,7 +885,7 @@
 
                 
             
-                An object in which to store the result.</td>
+                用于存储结果的对象。</td>
         </tr>
 
     
@@ -890,7 +906,7 @@
 
         
 <div class="param-desc">
-    The result rectangle
+    结果 rectangle
 </div>
 
 

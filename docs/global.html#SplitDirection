@@ -47,7 +47,7 @@
 
 
         
-            <div class="description">The direction to display a primitive or ImageryLayer relative to the <a href="Scene.html#splitPosition"><code>Scene#splitPosition</code></a>.</div>
+            <div class="description">相对于 <a href="Scene.html#splitPosition"><code>Scene#splitPosition</code></a> 显示基元或 ImageryLayer 的方向。</div>
         
 
         
@@ -96,7 +96,7 @@
 
             
 
-            <td class="description last">Display the primitive or ImageryLayer to the left of the <a href="Scene.html#splitPosition"><code>Scene#splitPosition</code></a>.</td>
+            <td class="description last">在 <a href="Scene.html#splitPosition"><code>Scene#splitPosition</code></a> 的左侧显示基元或 ImageryLayer。</td>
         </tr>
 
     
@@ -119,7 +119,7 @@
 
             
 
-            <td class="description last">Always display the primitive or ImageryLayer.</td>
+            <td class="description last">始终显示基元或 ImageryLayer。</td>
         </tr>
 
     
@@ -142,7 +142,7 @@
 
             
 
-            <td class="description last">Display the primitive or ImageryLayer to the right of the <a href="Scene.html#splitPosition"><code>Scene#splitPosition</code></a>.</td>
+            <td class="description last">在 <a href="Scene.html#splitPosition"><code>Scene#splitPosition</code></a> 的右侧显示基元或 ImageryLayer。</td>
         </tr>
 
     
@@ -223,7 +223,7 @@
 
 
 <div class="description">
-    Display the primitive or ImageryLayer to the left of the <a href="Scene.html#splitPosition"><code>Scene#splitPosition</code></a>.
+    在 <a href="Scene.html#splitPosition"><code>Scene#splitPosition</code></a> 的左侧显示基元或 ImageryLayer。
 </div>
 
 
@@ -286,7 +286,7 @@
 
 
 <div class="description">
-    Always display the primitive or ImageryLayer.
+    始终显示基元或 ImageryLayer。
 </div>
 
 
@@ -346,7 +346,7 @@
 
 
 <div class="description">
-    Display the primitive or ImageryLayer to the right of the <a href="Scene.html#splitPosition"><code>Scene#splitPosition</code></a>.
+    在 <a href="Scene.html#splitPosition"><code>Scene#splitPosition</code></a> 的右侧显示基元或 ImageryLayer。
 </div>
 
 

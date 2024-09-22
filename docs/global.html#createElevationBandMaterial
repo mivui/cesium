@@ -47,7 +47,10 @@
 
 
         
-            <div class="description">Creates a <a href="Material.html"><code>Material</code></a> that combines multiple layers of color/gradient bands and maps them to terrain heights.The shader does a binary search over all the heights to find out which colors are above and below a given height, andinterpolates between them for the final color. This material supports hundreds of entries relatively cheaply.</div>
+            <div class="description">创建一个 <a href="Material.html"><code>Material</code></a>，该材质将多个颜色/渐变带层组合在一起，并将它们映射到地形高度。
+
+着色器对所有高度进行二进制搜索，以找出哪些颜色高于和低于给定高度，并且
+在它们之间插值以获得最终颜色。此材料以相对便宜的价格支持数百个条目。</div>
         
 
         
@@ -73,7 +76,28 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">scene.globe.material = Cesium.createElevationBandMaterial({    scene : scene,    layers : [{        entries : [{            height : 4200.0,            color : new Cesium.Color(0.0, 0.0, 0.0, 1.0)        }, {            height : 8848.0,            color : new Cesium.Color(1.0, 1.0, 1.0, 1.0)        }],        extendDownwards : true,        extendUpwards : true,    }, {        entries : [{            height : 7000.0,            color : new Cesium.Color(1.0, 0.0, 0.0, 0.5)        }, {            height : 7100.0,            color : new Cesium.Color(1.0, 0.0, 0.0, 0.5)        }]    }]});</code></pre>
+    <pre><code class="language-javascript">scene.globe.material = Cesium.createElevationBandMaterial({
+    scene : scene,
+    layers : [{
+        entries : [{
+            height : 4200.0,
+            color : new Cesium.Color(0.0, 0.0, 0.0, 1.0)
+        }, {
+            height : 8848.0,
+            color : new Cesium.Color(1.0, 1.0, 1.0, 1.0)
+        }],
+        extendDownwards : true,
+        extendUpwards : true,
+    }, {
+        entries : [{
+            height : 7000.0,
+            color : new Cesium.Color(1.0, 0.0, 0.0, 0.5)
+        }, {
+            height : 7100.0,
+            color : new Cesium.Color(1.0, 0.0, 0.0, 0.5)
+        }]
+    }]
+});</code></pre>
 
     
 

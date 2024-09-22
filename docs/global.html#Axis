@@ -47,7 +47,7 @@
 
 
         
-            <div class="description">An enum describing the x, y, and z axes and helper conversion functions.</div>
+            <div class="description">描述 x、y 和 z 轴以及帮助程序转换函数的枚举。</div>
         
 
         
@@ -96,7 +96,7 @@
 
             
 
-            <td class="description last">Denotes the x-axis.</td>
+            <td class="description last">表示 x 轴。</td>
         </tr>
 
     
@@ -119,7 +119,7 @@
 
             
 
-            <td class="description last">Denotes the y-axis.</td>
+            <td class="description last">表示 y 轴。</td>
         </tr>
 
     
@@ -142,7 +142,7 @@
 
             
 
-            <td class="description last">Denotes the z-axis.</td>
+            <td class="description last">表示 z 轴。</td>
         </tr>
 
     
@@ -216,7 +216,7 @@
 
 
 <div class="description">
-    Denotes the x-axis.
+    表示 x 轴。
 </div>
 
 
@@ -276,7 +276,7 @@
 
 
 <div class="description">
-    Matrix used to convert from x-up to y-up
+    用于从 x-up 转换为 y-up 的矩阵
 </div>
 
 
@@ -336,7 +336,7 @@
 
 
 <div class="description">
-    Matrix used to convert from x-up to z-up
+    用于从 x-up 转换为 z-up 的矩阵
 </div>
 
 
@@ -396,7 +396,7 @@
 
 
 <div class="description">
-    Denotes the y-axis.
+    表示 y 轴。
 </div>
 
 
@@ -459,7 +459,7 @@
 
 
 <div class="description">
-    Matrix used to convert from y-up to x-up
+    用于从 y-up 转换为 x-up 的矩阵
 </div>
 
 
@@ -519,7 +519,7 @@
 
 
 <div class="description">
-    Matrix used to convert from y-up to z-up
+    用于从 y 轴向上转换为 z 轴向上的矩阵
 </div>
 
 
@@ -579,7 +579,7 @@
 
 
 <div class="description">
-    Denotes the z-axis.
+    表示 z 轴。
 </div>
 
 
@@ -642,7 +642,7 @@
 
 
 <div class="description">
-    Matrix used to convert from z-up to x-up
+    用于从 z-up 转换为 x-up 的矩阵
 </div>
 
 
@@ -702,7 +702,7 @@
 
 
 <div class="description">
-    Matrix used to convert from z-up to y-up
+    用于将 z 轴向上转换为 y 轴向上的矩阵
 </div>
 
 
@@ -769,7 +769,7 @@
 
 
 <div class="description">
-    Gets the axis by name
+    按名称获取轴
 </div>
 
 
@@ -820,7 +820,7 @@
 
             <td class="description last">
             
-                The name of the axis.</td>
+                轴的名称。</td>
         </tr>
 
     
@@ -841,7 +841,7 @@
 
         
 <div class="param-desc">
-    The axis enum.
+    轴枚举。
 </div>
 
 

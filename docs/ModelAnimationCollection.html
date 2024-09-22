@@ -58,7 +58,11 @@
 
 
 <div class="description">
-    <div class="notice">Access a model's animations <a href="Model.html#activeAnimations"><code>Model#activeAnimations</code></a>. Do not call the constructor directly</div>A collection of active model animations.
+    <div class="notice">
+访问模型的动画 <a href="Model.html#activeAnimations"><code>Model#activeAnimations</code></a>。不要直接调用构造函数
+</div>
+
+活动模型动画的集合。
 </div>
 
 
@@ -159,7 +163,10 @@
 
 
 <div class="description">
-    When true, the animation will play even when the scene time is paused. However,whether animation takes place will depend on the animationTime functions assignedto the model's animations. By default, this is based on scene time, so models usingthe default will not animate regardless of this setting.
+    如果为 true，则即使场景时间暂停，动画也会播放。然而
+是否发生动画将取决于分配的 animationTime 函数
+添加到模型的动画中。默认情况下，这是基于场景时间的，因此使用
+无论此设置如何，默认值都不会设置动画。
 </div>
 
 
@@ -222,7 +229,8 @@
 
 
 <div class="description">
-    The event fired when an animation is added to the collection.  This can be used, forexample, to keep a UI in sync.
+    将动画添加到集合时触发的事件。 这可用于
+示例，以保持 UI 同步。
 </div>
 
 
@@ -254,7 +262,9 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">model.activeAnimations.animationAdded.addEventListener(function(model, animation) {  console.log(`Animation added: ${animation.name}`);});</code></pre>
+    <pre><code class="language-javascript">model.activeAnimations.animationAdded.addEventListener(function(model, animation) {
+  console.log(`Animation added: ${animation.name}`);
+});</code></pre>
 
     
 
@@ -290,7 +300,8 @@
 
 
 <div class="description">
-    The event fired when an animation is removed from the collection.  This can be used, forexample, to keep a UI in sync.
+    从集合中删除动画时触发的事件。 这可用于
+示例，以保持 UI 同步。
 </div>
 
 
@@ -322,7 +333,9 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">model.activeAnimations.animationRemoved.addEventListener(function(model, animation) {  console.log(`Animation removed: ${animation.name}`);});</code></pre>
+    <pre><code class="language-javascript">model.activeAnimations.animationRemoved.addEventListener(function(model, animation) {
+  console.log(`Animation removed: ${animation.name}`);
+});</code></pre>
 
     
 
@@ -358,7 +371,7 @@
 
 
 <div class="description">
-    The number of animations in the collection.
+    集合中的动画数。
 </div>
 
 
@@ -418,7 +431,7 @@
 
 
 <div class="description">
-    The model that owns this animation collection.
+    拥有此动画集合的模型。
 </div>
 
 
@@ -485,7 +498,10 @@
 
 
 <div class="description">
-    Creates and adds an animation with the specified initial properties to the collection.<p>This raises the <a href="ModelAnimationCollection.html#animationAdded"><code>ModelAnimationCollection#animationAdded</code></a> event so, for example, a UI can stay in sync.</p>
+    创建具有指定初始属性的动画并将其添加到集合中。
+<p>
+这将引发 <a href="ModelAnimationCollection.html#animationAdded"><code>ModelAnimationCollection#animationAdded</code></a> 事件，因此，例如，UI 可以保持同步。
+</p>
 </div>
 
 
@@ -588,7 +604,7 @@
 
                 
             
-                The glTF animation name that identifies the animation. Must be defined if <code>options.index</code> is <code>undefined</code>.</td>
+                标识动画的 glTF 动画名称。如果 <code>options.index</code> <code>未定义</code>，则必须定义。</td>
         </tr>
 
     
@@ -622,7 +638,7 @@
 
                 
             
-                The glTF animation index that identifies the animation. Must be defined if <code>options.name</code> is <code>undefined</code>.</td>
+                标识动画的 glTF 动画索引。如果未<code>定义</code> <code>options.name</code> 则必须定义。</td>
         </tr>
 
     
@@ -656,7 +672,7 @@
 
                 
             
-                The scene time to start playing the animation.  When this is <code>undefined</code>, the animation starts at the next frame.</td>
+                开始播放动画的场景时间。 <code>如果未定义</code>，则动画将从下一帧开始。</td>
         </tr>
 
     
@@ -692,7 +708,7 @@
 
                 
             
-                The delay, in seconds, from <code>startTime</code> to start playing. This will only affect the animation if <code>options.loop</code> is ModelAnimationLoop.NONE.</td>
+                从 <code>startTime</code> 到开始播放的延迟，以秒为单位。这只会在 <code>options.loop</code> 为 ModelAnimationLoop.NONE 时影响动画。</td>
         </tr>
 
     
@@ -726,7 +742,7 @@
 
                 
             
-                The scene time to stop playing the animation.  When this is <code>undefined</code>, the animation is played for its full duration.</td>
+                停止播放动画的场景时间。 <code>如果未定义</code>，则动画将在其整个持续时间内播放。</td>
         </tr>
 
     
@@ -762,7 +778,7 @@
 
                 
             
-                When <code>true</code>, the animation is removed after it stops playing. This will only affect the animation if <code>options.loop</code> is ModelAnimationLoop.NONE.</td>
+                如果<code>为 true</code>，则动画在停止播放后将被删除。这只会在 <code>options.loop</code> 为 ModelAnimationLoop.NONE 时影响动画。</td>
         </tr>
 
     
@@ -798,7 +814,7 @@
 
                 
             
-                Values greater than <code>1.0</code> increase the speed that the animation is played relative to the scene clock speed; values less than <code>1.0</code> decrease the speed.</td>
+                大于 <code>1.0</code> 的值会增加动画相对于场景时钟速度的播放速度;小于 <code>1.0</code> 的值会降低速度。</td>
         </tr>
 
     
@@ -834,7 +850,7 @@
 
                 
             
-                When <code>true</code>, the animation is played in reverse.</td>
+                如果<code>为 true</code>，则动画将反向播放。</td>
         </tr>
 
     
@@ -870,7 +886,7 @@
 
                 
             
-                Determines if and how the animation is looped.</td>
+                确定是否以及如何循环动画。</td>
         </tr>
 
     
@@ -904,7 +920,7 @@
 
                 
             
-                If defined, computes the local animation time for this animation.</td>
+                如果已定义，则计算此动画的本地动画时间。</td>
         </tr>
 
     
@@ -931,7 +947,7 @@
 
         
 <div class="param-desc">
-    The animation that was added to the collection.
+    已添加到集合中的动画。
 </div>
 
 
@@ -1020,11 +1036,39 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Example 1. Add an animation by namemodel.activeAnimations.add({  name : 'animation name'});</code></pre>
+    <pre><code class="language-javascript">// Example 1. Add an animation by name
+model.activeAnimations.add({
+  name : 'animation name'
+});</code></pre>
 
-    <pre><code class="language-javascript">// Example 2. Add an animation by indexmodel.activeAnimations.add({  index : 0});</code></pre>
+    <pre><code class="language-javascript">// Example 2. Add an animation by index
+model.activeAnimations.add({
+  index : 0
+});</code></pre>
 
-    <pre><code class="language-javascript">// Example 3. Add an animation and provide all properties and eventsconst startTime = Cesium.JulianDate.now();const animation = model.activeAnimations.add({  name : 'another animation name',  startTime : startTime,  delay : 0.0,                                 // Play at startTime (default)  stopTime : Cesium.JulianDate.addSeconds(startTime, 4.0, new Cesium.JulianDate()),  removeOnStop : false,                        // Do not remove when animation stops (default)  multiplier : 2.0,                            // Play at double speed  reverse : true,                              // Play in reverse  loop : Cesium.ModelAnimationLoop.REPEAT      // Loop the animation});animation.start.addEventListener(function(model, animation) {  console.log(`Animation started: ${animation.name}`);});animation.update.addEventListener(function(model, animation, time) {  console.log(`Animation updated: ${animation.name}. glTF animation time: ${time}`);});animation.stop.addEventListener(function(model, animation) {  console.log(`Animation stopped: ${animation.name}`);});</code></pre>
+    <pre><code class="language-javascript">// Example 3. Add an animation and provide all properties and events
+const startTime = Cesium.JulianDate.now();
+
+const animation = model.activeAnimations.add({
+  name : 'another animation name',
+  startTime : startTime,
+  delay : 0.0,                                 // Play at startTime (default)
+  stopTime : Cesium.JulianDate.addSeconds(startTime, 4.0, new Cesium.JulianDate()),
+  removeOnStop : false,                        // Do not remove when animation stops (default)
+  multiplier : 2.0,                            // Play at double speed
+  reverse : true,                              // Play in reverse
+  loop : Cesium.ModelAnimationLoop.REPEAT      // Loop the animation
+});
+
+animation.start.addEventListener(function(model, animation) {
+  console.log(`Animation started: ${animation.name}`);
+});
+animation.update.addEventListener(function(model, animation, time) {
+  console.log(`Animation updated: ${animation.name}. glTF animation time: ${time}`);
+});
+animation.stop.addEventListener(function(model, animation) {
+  console.log(`Animation stopped: ${animation.name}`);
+});</code></pre>
 
     
 
@@ -1061,7 +1105,11 @@
 
 
 <div class="description">
-    Creates and adds animations with the specified initial properties to the collectionfor all animations in the model.<p>This raises the <a href="ModelAnimationCollection.html#animationAdded"><code>ModelAnimationCollection#animationAdded</code></a> event for each model so, for example, a UI can stay in sync.</p>
+    创建具有指定初始属性的动画并将其添加到集合中
+对于模型中的所有动画。
+<p>
+这会为每个模型引发 <a href="ModelAnimationCollection.html#animationAdded"><code>ModelAnimationCollection#animationAdded</code></a> 事件，因此，例如，UI 可以保持同步。
+</p>
 </div>
 
 
@@ -1171,7 +1219,7 @@
 
                 
             
-                The scene time to start playing the animations. When this is <code>undefined</code>, the animations starts at the next frame.</td>
+                开始播放动画的场景时间。<code>如果未定义</code>，则动画将从下一帧开始。</td>
         </tr>
 
     
@@ -1207,7 +1255,7 @@
 
                 
             
-                The delay, in seconds, from <code>startTime</code> to start playing. This will only affect the animation if <code>options.loop</code> is ModelAnimationLoop.NONE.</td>
+                从 <code>startTime</code> 到开始播放的延迟，以秒为单位。这只会在 <code>options.loop</code> 为 ModelAnimationLoop.NONE 时影响动画。</td>
         </tr>
 
     
@@ -1241,7 +1289,7 @@
 
                 
             
-                The scene time to stop playing the animations. When this is <code>undefined</code>, the animations are played for its full duration.</td>
+                停止播放动画的场景时间。<code>如果未定义</code>，则动画将在其整个持续时间内播放。</td>
         </tr>
 
     
@@ -1277,7 +1325,7 @@
 
                 
             
-                When <code>true</code>, the animations are removed after they stop playing. This will only affect the animation if <code>options.loop</code> is ModelAnimationLoop.NONE.</td>
+                如果为 <code>true</code>，则动画在停止播放后将被删除。这只会在 <code>options.loop</code> 为 ModelAnimationLoop.NONE 时影响动画。</td>
         </tr>
 
     
@@ -1313,7 +1361,7 @@
 
                 
             
-                Values greater than <code>1.0</code> increase the speed that the animations play relative to the scene clock speed; values less than <code>1.0</code> decrease the speed.</td>
+                大于 <code>1.0</code> 的值会增加动画相对于场景时钟速度的播放速度;小于 <code>1.0</code> 的值会降低速度。</td>
         </tr>
 
     
@@ -1349,7 +1397,7 @@
 
                 
             
-                When <code>true</code>, the animations are played in reverse.</td>
+                如果为 <code>true</code>，则动画将反向播放。</td>
         </tr>
 
     
@@ -1385,7 +1433,7 @@
 
                 
             
-                Determines if and how the animations are looped.</td>
+                确定是否以及如何循环动画。</td>
         </tr>
 
     
@@ -1419,7 +1467,7 @@
 
                 
             
-                If defined, computes the local animation time for all of the animations.</td>
+                如果已定义，则计算所有动画的本地动画时间。</td>
         </tr>
 
     
@@ -1446,7 +1494,7 @@
 
         
 <div class="param-desc">
-    An array of <a href="ModelAnimation.html"><code>ModelAnimation</code></a> objects, one for each animation added to the collection.  If there are no glTF animations, the array is empty.
+    一个 <a href="ModelAnimation.html"><code>ModelAnimation</code></a> 对象的数组，每个对象对应添加到集合中的每个动画。 如果没有 glTF 动画，则数组为空。
 </div>
 
 
@@ -1461,7 +1509,7 @@
         
 <span class="param-type"><a href="DeveloperError.html">DeveloperError</a></span>
 
-: Animations are not loaded. Wait for the <a href="Model.html#ready"><code>Model#ready</code></a> to return true.
+: 动画未加载。等待 <a href="Model.html#ready"><code>Model#ready</code></a> 返回 true。
     </div>
 
 </li>
@@ -1472,7 +1520,7 @@
         
 <span class="param-type"><a href="DeveloperError.html">DeveloperError</a></span>
 
-: options.multiplier must be greater than zero.
+: options.multiplier 必须大于零。
     </div>
 
 </li>
@@ -1502,7 +1550,10 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">model.activeAnimations.addAll({  multiplier : 0.5,                            // Play at half-speed  loop : Cesium.ModelAnimationLoop.REPEAT      // Loop the animations});</code></pre>
+    <pre><code class="language-javascript">model.activeAnimations.addAll({
+  multiplier : 0.5,                            // Play at half-speed
+  loop : Cesium.ModelAnimationLoop.REPEAT      // Loop the animations
+});</code></pre>
 
     
 
@@ -1539,7 +1590,7 @@
 
 
 <div class="description">
-    Determines whether this collection contains a given animation.
+    确定此集合是否包含给定的动画。
 </div>
 
 
@@ -1590,7 +1641,7 @@
 
             <td class="description last">
             
-                The runtime animation to check for.</td>
+                要检查的运行时动画。</td>
         </tr>
 
     
@@ -1611,7 +1662,7 @@
 
         
 <div class="param-desc">
-    <code>true</code> if this collection contains the animation, <code>false</code> 否则。
+    如果此集合包含 animation，则为 <code> true</code>，否则为<code> false</code>。
 </div>
 
 
@@ -1674,7 +1725,10 @@
 
 
 <div class="description">
-    Returns the animation in the collection at the specified index.  Indices are zero-basedand increase as animations are added.  Removing an animation shifts all animations afterit to the left, changing their indices.  This function is commonly used to iterate overall the animations in the collection.
+    返回集合中指定索引处的动画。 索引从 0 开始
+并随着动画的添加而增加。 删除动画会在
+它向左移动，更改其索引。 此函数通常用于迭代
+集合中的所有动画。
 </div>
 
 
@@ -1725,7 +1779,7 @@
 
             <td class="description last">
             
-                The zero-based index of the animation.</td>
+                动画的从零开始的索引。</td>
         </tr>
 
     
@@ -1746,7 +1800,7 @@
 
         
 <div class="param-desc">
-    The runtime animation at the specified index.
+    指定索引处的运行时动画。
 </div>
 
 
@@ -1777,7 +1831,12 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Output the names of all the animations in the collection.const animations = model.activeAnimations;const length = animations.length;for (let i = 0; i &lt; length; ++i) {  console.log(animations.get(i).name);}</code></pre>
+    <pre><code class="language-javascript">// Output the names of all the animations in the collection.
+const animations = model.activeAnimations;
+const length = animations.length;
+for (let i = 0; i &lt; length; ++i) {
+  console.log(animations.get(i).name);
+}</code></pre>
 
     
 
@@ -1814,7 +1873,14 @@
 
 
 <div class="description">
-    Removes an animation from the collection.<p>This raises the <a href="ModelAnimationCollection.html#animationRemoved"><code>ModelAnimationCollection#animationRemoved</code></a> event so, for example, a UI can stay in sync.</p><p>An animation can also be implicitly removed from the collection by setting <code>ModelAnimationCollection#removeOnStop</code> to<code>true</code>.  The <a href="ModelAnimationCollection.html#animationRemoved"><code>ModelAnimationCollection#animationRemoved</code></a> event is still fired when the animation is removed.</p>
+    从集合中删除动画。
+<p>
+这会引发 <a href="ModelAnimationCollection.html#animationRemoved"><code>ModelAnimationCollection#animationRemoved</code></a> 事件，因此，例如，UI 可以保持同步。
+</p>
+<p>
+也可以通过将 <code>ModelAnimationCollection#removeOnStop</code> 设置为
+<code>true</code>。 删除动画时，仍会触发 <a href="ModelAnimationCollection.html#animationRemoved"><code>ModelAnimationCollection#animationRemoved</code></a> 事件。
+</p>
 </div>
 
 
@@ -1865,7 +1931,7 @@
 
             <td class="description last">
             
-                The runtime animation to remove.</td>
+                要删除的运行时动画。</td>
         </tr>
 
     
@@ -1886,7 +1952,7 @@
 
         
 <div class="param-desc">
-    <code>true</code> if the animation was removed; <code>false</code> if the animation was not found in the collection.
+    <code>true</code>（如果动画被删除）;如果在集合中找不到动画，<code>则为 false</code>。
 </div>
 
 
@@ -1917,7 +1983,10 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const a = model.activeAnimations.add({  name : 'animation name'});model.activeAnimations.remove(a); // Returns true</code></pre>
+    <pre><code class="language-javascript">const a = model.activeAnimations.add({
+  name : 'animation name'
+});
+model.activeAnimations.remove(a); // Returns true</code></pre>
 
     
 
@@ -1954,7 +2023,11 @@
 
 
 <div class="description">
-    Removes all animations from the collection.<p>This raises the <a href="ModelAnimationCollection.html#animationRemoved"><code>ModelAnimationCollection#animationRemoved</code></a> event for eachanimation so, for example, a UI can stay in sync.</p>
+    从集合中删除所有动画。
+<p>
+这会引发 <a href="ModelAnimationCollection.html#animationRemoved"><code>ModelAnimationCollection#animationRemoved</code></a> 事件
+动画，因此，例如，UI 可以保持同步。
+</p>
 </div>
 
 

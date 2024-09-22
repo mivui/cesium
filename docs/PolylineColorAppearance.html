@@ -58,7 +58,10 @@
 
 
 <div class="description">
-    An appearance for <a href="GeometryInstance.html"><code>GeometryInstance</code></a> instances with color attributes and<a href="PolylineGeometry.html"><code>PolylineGeometry</code></a> or <a href="GroundPolylineGeometry.html"><code>GroundPolylineGeometry</code></a>.This allows several geometry instances, each with a different color, tobe drawn with the same <a href="Primitive.html"><code>Primitive</code></a>.
+    具有颜色属性的 <a href="GeometryInstance.html"><code>GeometryInstance</code></a> 实例的外观，以及
+<a href="PolylineGeometry.html"><code>PolylineGeometry</code></a> 或 <a href="GroundPolylineGeometry.html"><code>GroundPolylineGeometry</code></a>。
+这允许多个几何体实例（每个实例具有不同的颜色）执行以下操作
+使用相同的 <a href="Primitive.html"><code>Primitive</code></a> 绘制。
 </div>
 
 
@@ -170,7 +173,7 @@
 
                 
             
-                When <code>true</code>, the geometry is expected to appear translucent so <a href="PolylineColorAppearance.html#renderState"><code>PolylineColorAppearance#renderState</code></a> has alpha blending enabled.</td>
+                如果<code>为 true</code>，则几何体应显示为半透明，因此 <a href="PolylineColorAppearance.html#renderState"><code>PolylineColorAppearance#renderState</code></a> 启用了 Alpha 混合。</td>
         </tr>
 
     
@@ -204,7 +207,7 @@
 
                 
             
-                Optional GLSL vertex shader source to override the default vertex shader.</td>
+                可选的 GLSL 顶点着色器源，用于覆盖默认顶点着色器。</td>
         </tr>
 
     
@@ -238,7 +241,7 @@
 
                 
             
-                Optional GLSL fragment shader source to override the default fragment shader.</td>
+                可选的 GLSL 片段着色器源，用于覆盖默认片段着色器。</td>
         </tr>
 
     
@@ -272,7 +275,7 @@
 
                 
             
-                Optional render state to override the default render state.</td>
+                可选的渲染状态来覆盖默认的渲染状态。</td>
         </tr>
 
     
@@ -321,7 +324,25 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// A solid white line segmentconst primitive = new Cesium.Primitive({  geometryInstances : new Cesium.GeometryInstance({    geometry : new Cesium.PolylineGeometry({      positions : Cesium.Cartesian3.fromDegreesArray([        0.0, 0.0,        5.0, 0.0      ]),      width : 10.0,      vertexFormat : Cesium.PolylineColorAppearance.VERTEX_FORMAT    }),    attributes : {      color : Cesium.ColorGeometryInstanceAttribute.fromColor(new Cesium.Color(1.0, 1.0, 1.0, 1.0))    }  }),  appearance : new Cesium.PolylineColorAppearance({    translucent : false  })});</code></pre>
+    <pre><code class="language-javascript">// A solid white line segment
+const primitive = new Cesium.Primitive({
+  geometryInstances : new Cesium.GeometryInstance({
+    geometry : new Cesium.PolylineGeometry({
+      positions : Cesium.Cartesian3.fromDegreesArray([
+        0.0, 0.0,
+        5.0, 0.0
+      ]),
+      width : 10.0,
+      vertexFormat : Cesium.PolylineColorAppearance.VERTEX_FORMAT
+    }),
+    attributes : {
+      color : Cesium.ColorGeometryInstanceAttribute.fromColor(new Cesium.Color(1.0, 1.0, 1.0, 1.0))
+    }
+  }),
+  appearance : new Cesium.PolylineColorAppearance({
+    translucent : false
+  })
+});</code></pre>
 
     
 
@@ -373,7 +394,8 @@
 
 
 <div class="description">
-    The <a href="VertexFormat.html"><code>VertexFormat</code></a> that all <a href="PolylineColorAppearance.html"><code>PolylineColorAppearance</code></a> instancesare compatible with. This requires only a <code>position</code> attribute.
+    所有 <a href="PolylineColorAppearance.html"><code>PolylineColorAppearance</code></a> 实例的 <a href="VertexFormat.html"><code>VertexFormat</code></a>
+兼容。这只需要 <code>position</code> 属性。
 </div>
 
 
@@ -433,7 +455,9 @@
 
 
 <div class="description">
-    When <code>true</code>, the geometry is expected to be closed so<a href="PolylineColorAppearance.html#renderState"><code>PolylineColorAppearance#renderState</code></a> has backface culling enabled.This is always <code>false</code> for <code>PolylineColorAppearance</code>.
+    如果<code>为 true</code>，则几何体应被关闭，因此
+<a href="PolylineColorAppearance.html#renderState"><code>PolylineColorAppearance#renderState</code></a> 已启用背面剔除。
+对于 <code>PolylineColorAppearance</code>，此参数始终为 <code>false</code>。
 </div>
 
 
@@ -496,7 +520,7 @@
 
 
 <div class="description">
-    The GLSL source code for the fragment shader.
+    片段着色器的 GLSL 源代码。
 </div>
 
 
@@ -556,7 +580,8 @@
 
 
 <div class="description">
-    This property is part of the <a href="Appearance.html"><code>Appearance</code></a> interface, but is notused by <a href="PolylineColorAppearance.html"><code>PolylineColorAppearance</code></a> since a fully custom fragment shader is used.
+    此属性是 <a href="Appearance.html"><code>Appearance</code></a> 接口的一部分，但不是
+由 <a href="PolylineColorAppearance.html"><code>PolylineColorAppearance</code></a> 使用，因为使用了完全自定义的片段着色器。
 </div>
 
 
@@ -619,7 +644,11 @@
 
 
 <div class="description">
-    The WebGL fixed-function state to use when rendering the geometry.<p>The render state can be explicitly defined when constructing a <a href="PolylineColorAppearance.html"><code>PolylineColorAppearance</code></a>instance, or it is set implicitly via <a href="PolylineColorAppearance.html#translucent"><code>PolylineColorAppearance#translucent</code></a>.</p>
+    渲染几何体时使用的 WebGL 固定函数状态。
+<p>
+在构造 <a href="PolylineColorAppearance.html"><code>PolylineColorAppearance</code></a> 时，可以显式定义渲染状态
+实例，或者通过 <a href="PolylineColorAppearance.html#translucent"><code>PolylineColorAppearance#translucent</code></a> 隐式设置。
+</p>
 </div>
 
 
@@ -679,7 +708,8 @@
 
 
 <div class="description">
-    When <code>true</code>, the geometry is expected to appear translucent so<a href="PolylineColorAppearance.html#renderState"><code>PolylineColorAppearance#renderState</code></a> has alpha blending enabled.
+    如果<code>为 true</code>，则几何体应显示为半透明，因此
+<a href="PolylineColorAppearance.html#renderState"><code>PolylineColorAppearance#renderState</code></a> 已启用 Alpha 混合。
 </div>
 
 
@@ -742,7 +772,9 @@
 
 
 <div class="description">
-    The <a href="VertexFormat.html"><code>VertexFormat</code></a> that this appearance instance is compatible with.A geometry can have more vertex attributes and still be compatible - at apotential performance cost - but it can't have less.
+    与此外观实例兼容的 <a href="VertexFormat.html"><code>VertexFormat</code></a>。
+几何体可以具有更多顶点属性，并且仍然兼容 - 在
+潜在的性能成本 - 但不能更少。
 </div>
 
 
@@ -805,7 +837,7 @@
 
 
 <div class="description">
-    The GLSL source code for the vertex shader.
+    顶点着色器的 GLSL 源代码。
 </div>
 
 
@@ -872,7 +904,7 @@
 
 
 <div class="description">
-    Procedurally creates the full GLSL fragment shader source.
+    以程序方式创建完整的 GLSL 片段着色器源。
 </div>
 
 
@@ -899,7 +931,7 @@
 
         
 <div class="param-desc">
-    The full GLSL fragment shader source.
+    完整的 GLSL 片段着色器源。
 </div>
 
 
@@ -962,7 +994,9 @@
 
 
 <div class="description">
-    Creates a render state.  This is not the final render state instance; instead,it can contain a subset of render state properties identical to the render statecreated in the context.
+    创建渲染状态。 这不是最终的渲染状态实例;相反
+它可以包含与渲染状态相同的渲染状态属性的子集
+在上下文中创建。
 </div>
 
 
@@ -989,7 +1023,7 @@
 
         
 <div class="param-desc">
-    The render state.
+    render 状态。
 </div>
 
 
@@ -1052,7 +1086,7 @@
 
 
 <div class="description">
-    Determines if the geometry is translucent based on <a href="PolylineColorAppearance.html#translucent"><code>PolylineColorAppearance#translucent</code></a>.
+    根据 <a href="PolylineColorAppearance.html#translucent"><code>PolylineColorAppearance#translucent</code></a> 确定几何体是否为半透明。
 </div>
 
 
@@ -1079,7 +1113,7 @@
 
         
 <div class="param-desc">
-    <code>true</code> if the appearance is translucent.
+    如果外观为半透明，<code>则为 true</code>。
 </div>
 
 

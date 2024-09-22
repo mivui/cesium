@@ -58,7 +58,8 @@
 
 
 <div class="description">
-    An imagery layer that displays tiled image data from a single imagery provideron a <a href="Globe.html"><code>Globe</code></a>.
+    显示来自单个影像提供商的平铺影像数据的图像图层
+在 <a href="Globe.html"><code>Globe</code></a> 上。
 </div>
 
 
@@ -189,11 +190,20 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Add an OpenStreetMaps layerconst imageryLayer = new Cesium.ImageryLayer(new Cesium.OpenStreetMapImageryProvider({  url: "https://tile.openstreetmap.org/"}));scene.imageryLayers.add(imageryLayer);</code></pre>
+    <pre><code class="language-javascript">// Add an OpenStreetMaps layer
+const imageryLayer = new Cesium.ImageryLayer(new Cesium.OpenStreetMapImageryProvider({
+  url: "https://tile.openstreetmap.org/"
+}));
+scene.imageryLayers.add(imageryLayer);</code></pre>
 
-    <pre><code class="language-javascript">// Add Cesium ion's default world imagery layerconst imageryLayer = Cesium.ImageryLayer.fromWorldImagery();scene.imageryLayers.add(imageryLayer);</code></pre>
+    <pre><code class="language-javascript">// Add Cesium ion's default world imagery layer
+const imageryLayer = Cesium.ImageryLayer.fromWorldImagery();
+scene.imageryLayers.add(imageryLayer);</code></pre>
 
-    <pre><code class="language-javascript">// Add a new transparent layer from Cesium ionconst imageryLayer = Cesium.ImageryLayer.fromProviderAsync(Cesium.IonImageryProvider.fromAssetId(3812));imageryLayer.alpha = 0.5;scene.imageryLayers.add(imageryLayer);</code></pre>
+    <pre><code class="language-javascript">// Add a new transparent layer from Cesium ion
+const imageryLayer = Cesium.ImageryLayer.fromProviderAsync(Cesium.IonImageryProvider.fromAssetId(3812));
+imageryLayer.alpha = 0.5;
+scene.imageryLayers.add(imageryLayer);</code></pre>
 
     
 
@@ -252,7 +262,8 @@
 
 
 <div class="description">
-    This value is used as the default threshold for color-to-alpha if one is not providedduring construction or by the imagery provider.
+    如果未提供颜色到 Alpha 的默认阈值，则此值将用作
+在施工期间或由影像提供商提供。
 </div>
 
 
@@ -315,7 +326,8 @@
 
 
 <div class="description">
-    This value is used as the default brightness for the imagery layer if one is not provided during constructionor by the imagery provider. This value does not modify the brightness of the imagery.
+    如果在构建过程中未提供图像图层的默认亮度，则此值将用作图像图层的默认亮度
+或由图像提供商提供。此值不会修改影像的亮度。
 </div>
 
 
@@ -378,7 +390,8 @@
 
 
 <div class="description">
-    This value is used as the default contrast for the imagery layer if one is not provided during constructionor by the imagery provider. This value does not modify the contrast of the imagery.
+    如果在构建过程中未提供图像图层的默认对比度，则此值将用作图像图层的默认对比度
+或由图像提供商提供。此值不会修改影像的对比度。
 </div>
 
 
@@ -441,7 +454,8 @@
 
 
 <div class="description">
-    This value is used as the default gamma for the imagery layer if one is not provided during constructionor by the imagery provider. This value does not modify the gamma of the imagery.
+    如果在构建过程中未提供影像图层，则此值将用作影像图层的默认灰度系数
+或由图像提供商提供。此值不会修改影像的 Gamma。
 </div>
 
 
@@ -504,7 +518,8 @@
 
 
 <div class="description">
-    This value is used as the default hue for the imagery layer if one is not provided during constructionor by the imagery provider. This value does not modify the hue of the imagery.
+    如果在构建过程中未提供图像图层的默认色调，则此值将用作图像图层的默认色调
+或由图像提供商提供。此值不会修改图像的色调。
 </div>
 
 
@@ -567,7 +582,8 @@
 
 
 <div class="description">
-    This value is used as the default texture magnification filter for the imagery layer if one is not providedduring construction or by the imagery provider.
+    如果未提供图像图层，则此值将用作图像图层的默认纹理放大滤镜
+在施工期间或由影像提供商提供。
 </div>
 
 
@@ -630,7 +646,8 @@
 
 
 <div class="description">
-    This value is used as the default texture minification filter for the imagery layer if one is not providedduring construction or by the imagery provider.
+    如果未提供，此值将用作影像图层的默认纹理缩小过滤器
+在施工期间或由影像提供商提供。
 </div>
 
 
@@ -693,7 +710,8 @@
 
 
 <div class="description">
-    This value is used as the default saturation for the imagery layer if one is not provided during constructionor by the imagery provider. This value does not modify the saturation of the imagery.
+    如果在构建过程中未提供图像图层的默认饱和度，则此值将用作图像图层的默认饱和度
+或由图像提供商提供。此值不会修改影像的饱和度。
 </div>
 
 
@@ -756,7 +774,8 @@
 
 
 <div class="description">
-    This value is used as the default split for the imagery layer if one is not provided during constructionor by the imagery provider.
+    如果在构建过程中未提供影像图层，则此值将用作影像图层的默认分割
+或由图像提供商提供。
 </div>
 
 
@@ -819,7 +838,8 @@
 
 
 <div class="description">
-    The alpha blending value of this layer, with 0.0 representing fully transparent and1.0 representing fully opaque.
+    此图层的 Alpha 混合值，其中 0.0 表示完全透明，而
+1.0 表示完全不透明。
 </div>
 
 
@@ -882,7 +902,8 @@
 
 
 <div class="description">
-    The brightness of this layer.  1.0 uses the unmodified imagery color.  Less than 1.0makes the imagery darker while greater than 1.0 makes it brighter.
+    该层的亮度。 1.0 使用未修改的图像颜色。 小于 1.0
+使图像更暗，而大于 1.0 则使图像更亮。
 </div>
 
 
@@ -945,7 +966,7 @@
 
 
 <div class="description">
-    Color value that should be set to transparent.
+    应设置为 transparent 的颜色值。
 </div>
 
 
@@ -1005,7 +1026,7 @@
 
 
 <div class="description">
-    Normalized (0-1) threshold for color-to-alpha.
+    颜色到 Alpha 的标准化 （0-1） 阈值。
 </div>
 
 
@@ -1065,7 +1086,8 @@
 
 
 <div class="description">
-    The contrast of this layer.  1.0 uses the unmodified imagery color.  Less than 1.0 reducesthe contrast while greater than 1.0 increases it.
+    这一层的对比。 1.0 使用未修改的图像颜色。 小于 1.0 会降低
+大于 1.0 时的对比度会增加它。
 </div>
 
 
@@ -1128,7 +1150,7 @@
 
 
 <div class="description">
-    Rectangle cutout in this layer of imagery.
+    此图像图层中的矩形剪切。
 </div>
 
 
@@ -1188,7 +1210,8 @@
 
 
 <div class="description">
-    The alpha blending value of this layer on the day side of the globe, with 0.0 representing fully transparent and1.0 representing fully opaque. This only takes effect when <a href="Globe.html#enableLighting"><code>Globe#enableLighting</code></a> is <code>true</code>.
+    此图层在地球的日侧的 Alpha 混合值，其中 0.0 表示完全透明，而
+1.0 表示完全不透明。这仅在 <a href="Globe.html#enableLighting"><code>Globe#enableLighting</code></a> 为 <code>true</code> 时生效。
 </div>
 
 
@@ -1251,7 +1274,7 @@
 
 
 <div class="description">
-    The gamma correction to apply to this layer.  1.0 uses the unmodified imagery color.
+    要应用于此图层的 Gamma 校正。 1.0 使用未修改的图像颜色。
 </div>
 
 
@@ -1314,7 +1337,7 @@
 
 
 <div class="description">
-    The hue of this layer in radians. 0.0 uses the unmodified imagery color.
+    此层的色调，以弧度为单位。0.0 使用未修改的影像颜色。
 </div>
 
 
@@ -1377,7 +1400,7 @@
 
 
 <div class="description">
-    Gets the imagery provider for this layer. This should not be called before <a href="ImageryLayer.html#ready"><code>ImageryLayer#ready</code></a> returns true.
+    获取此图层的图像提供程序。在 <a href="ImageryLayer.html#ready"><code>ImageryLayer#ready</code></a> 返回 true 之前，不应调用此函数。
 </div>
 
 
@@ -1437,7 +1460,12 @@
 
 
 <div class="description">
-    The <a href="global.html#TextureMagnificationFilter"><code>TextureMagnificationFilter</code></a> to apply to this layer.Possible values are <a href="global.html#TextureMagnificationFilter#.LINEAR"><code>TextureMagnificationFilter.LINEAR</code></a> (the default)and <a href="global.html#TextureMagnificationFilter#.NEAREST"><code>TextureMagnificationFilter.NEAREST</code></a>.To take effect, this property must be set immediately after adding the imagery layer.Once a texture is loaded it won't be possible to change the texture filter used.
+    要应用于此图层的 <a href="global.html#TextureMagnificationFilter"><code>TextureMagnificationFilter</code></a>。
+可能的值为 <a href="global.html#TextureMagnificationFilter#.LINEAR"><code>TextureMagnificationFilter.LINEAR</code></a>（默认值）
+和 <a href="global.html#TextureMagnificationFilter#.NEAREST"><code>TextureMagnificationFilter.NEAREST</code></a> 进行转换。
+
+要生效，必须在添加影像图层后立即设置此属性。
+加载纹理后，将无法更改使用的纹理过滤器。
 </div>
 
 
@@ -1500,7 +1528,12 @@
 
 
 <div class="description">
-    The <a href="global.html#TextureMinificationFilter"><code>TextureMinificationFilter</code></a> to apply to this layer.Possible values are <a href="global.html#TextureMinificationFilter#.LINEAR"><code>TextureMinificationFilter.LINEAR</code></a> (the default)and <a href="global.html#TextureMinificationFilter#.NEAREST"><code>TextureMinificationFilter.NEAREST</code></a>.To take effect, this property must be set immediately after adding the imagery layer.Once a texture is loaded it won't be possible to change the texture filter used.
+    要应用于此图层的 <a href="global.html#TextureMinificationFilter"><code>TextureMinificationFilter</code></a>。
+可能的值为 <a href="global.html#TextureMinificationFilter#.LINEAR"><code>TextureMinificationFilter.LINEAR</code></a>（默认值）
+和 <a href="global.html#TextureMinificationFilter#.NEAREST"><code>TextureMinificationFilter.NEAREST</code></a> 的 TextureMinificationFilter.NEAREST} 中。
+
+要生效，必须在添加影像图层后立即设置此属性。
+加载纹理后，将无法更改使用的纹理过滤器。
 </div>
 
 
@@ -1563,7 +1596,8 @@
 
 
 <div class="description">
-    The alpha blending value of this layer on the night side of the globe, with 0.0 representing fully transparent and1.0 representing fully opaque. This only takes effect when <a href="Globe.html#enableLighting"><code>Globe#enableLighting</code></a> is <code>true</code>.
+    此图层在地球的夜间一侧的 Alpha 混合值，其中 0.0 表示完全透明，并且
+1.0 表示完全不透明。这仅在 <a href="Globe.html#enableLighting"><code>Globe#enableLighting</code></a> 为 <code>true</code> 时生效。
 </div>
 
 
@@ -1626,7 +1660,7 @@
 
 
 <div class="description">
-    Returns true when the terrain provider has been successfully created. Otherwise, returns false.
+    成功创建 terrain 提供程序后返回 true。否则，返回 false。
 </div>
 
 
@@ -1686,7 +1720,8 @@
 
 
 <div class="description">
-    Gets an event that is raised when the imagery provider has been successfully created. Event listenersare passed the created instance of <a href="ImageryProvider.html"><code>ImageryProvider</code></a>.
+    获取在成功创建影像提供程序时引发的事件。事件侦听器
+将传递创建的 <a href="ImageryProvider.html"><code>ImageryProvider</code></a> 实例。
 </div>
 
 
@@ -1746,7 +1781,8 @@
 
 
 <div class="description">
-    Gets the rectangle of this layer.  If this rectangle is smaller than the rectangle of the<a href="ImageryProvider.html"><code>ImageryProvider</code></a>, only a portion of the imagery provider is shown.
+    获取此层的矩形。 如果此矩形小于
+<a href="ImageryProvider.html"><code>ImageryProvider</code></a>，则仅显示影像提供程序的一部分。
 </div>
 
 
@@ -1806,7 +1842,8 @@
 
 
 <div class="description">
-    The saturation of this layer. 1.0 uses the unmodified imagery color. Less than 1.0 reduces thesaturation while greater than 1.0 increases it.
+    此图层的饱和度。1.0 使用未修改的图像颜色。小于 1.0 会降低
+饱和度 大于 1.0 时，饱和度会增加 Saturation。
 </div>
 
 
@@ -1869,7 +1906,7 @@
 
 
 <div class="description">
-    Determines if this layer is shown.
+    确定是否显示此图层。
 </div>
 
 
@@ -2002,7 +2039,7 @@
 
 
 <div class="description">
-    Create a new imagery layer from an asynchronous imagery provider. The layer will handle any asynchronous loads or errors, and begin rendering the imagery layer once ready.
+    从异步影像提供商创建新的影像图层。该图层将处理任何异步加载或错误，并在准备就绪后开始渲染影像图层。
 </div>
 
 
@@ -2053,7 +2090,7 @@
 
             <td class="description last">
             
-                A promise which resolves to a imagery provider</td>
+                解析为图像提供商的 Promise</td>
         </tr>
 
     
@@ -2076,7 +2113,7 @@
 
             <td class="description last">
             
-                An 描述初始化选项的对象</td>
+                描述初始化选项的对象</td>
         </tr>
 
     
@@ -2097,7 +2134,7 @@
 
         
 <div class="param-desc">
-    The created imagery layer.
+    创建的影像图层。
 </div>
 
 
@@ -2128,11 +2165,29 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Create a new base layerconst viewer = new Cesium.Viewer("cesiumContainer", {  baseLayer: Cesium.ImageryLayer.fromProviderAsync(Cesium.IonImageryProvider.fromAssetId(3812));});</code></pre>
+    <pre><code class="language-javascript">// Create a new base layer
+const viewer = new Cesium.Viewer("cesiumContainer", {
+  baseLayer: Cesium.ImageryLayer.fromProviderAsync(Cesium.IonImageryProvider.fromAssetId(3812));
+});</code></pre>
 
-    <pre><code class="language-javascript">// Add a new transparent layerconst imageryLayer = Cesium.ImageryLayer.fromProviderAsync(Cesium.IonImageryProvider.fromAssetId(3812));imageryLayer.alpha = 0.5;viewer.imageryLayers.add(imageryLayer);</code></pre>
+    <pre><code class="language-javascript">// Add a new transparent layer
+const imageryLayer = Cesium.ImageryLayer.fromProviderAsync(Cesium.IonImageryProvider.fromAssetId(3812));
+imageryLayer.alpha = 0.5;
+viewer.imageryLayers.add(imageryLayer);</code></pre>
 
-    <pre><code class="language-javascript">// Handle loading eventsconst imageryLayer = Cesium.ImageryLayer.fromProviderAsync(Cesium.IonImageryProvider.fromAssetId(3812));viewer.imageryLayers.add(imageryLayer);imageryLayer.readyEvent.addEventListener(provider => {  imageryLayer.provider.errorEvent.addEventListener(error => {    alert(`Encountered an error while loading imagery tiles! ${error}`);  });});imageryLayer.errorEvent.addEventListener(error => {  alert(`Encountered an error while creating an imagery layer! ${error}`);});</code></pre>
+    <pre><code class="language-javascript">// Handle loading events
+const imageryLayer = Cesium.ImageryLayer.fromProviderAsync(Cesium.IonImageryProvider.fromAssetId(3812));
+viewer.imageryLayers.add(imageryLayer);
+
+imageryLayer.readyEvent.addEventListener(provider => {
+  imageryLayer.provider.errorEvent.addEventListener(error => {
+    alert(`Encountered an error while loading imagery tiles! ${error}`);
+  });
+});
+
+imageryLayer.errorEvent.addEventListener(error => {
+  alert(`Encountered an error while creating an imagery layer! ${error}`);
+});</code></pre>
 
     
 
@@ -2180,7 +2235,7 @@
 
 
 <div class="description">
-    Create a new imagery layer for ion's default global base imagery layer, currently Bing Maps. The layer will handle any asynchronous loads or errors, and begin rendering the imagery layer once ready.
+    为 ion 的默认全局基础图像图层（当前为 Bing 地图）创建一个新的图像图层。该图层将处理任何异步加载或错误，并在准备就绪后开始渲染影像图层。
 </div>
 
 
@@ -2231,7 +2286,7 @@
 
             <td class="description last">
             
-                An 描述初始化选项的对象</td>
+                描述初始化选项的对象</td>
         </tr>
 
     
@@ -2252,7 +2307,13 @@
 
         
 <div class="param-desc">
-    The created imagery layer.* @example// Create a new base layerconst viewer = new Cesium.Viewer("cesiumContainer", {  baseLayer: Cesium.ImageryLayer.fromWorldImagery();});
+    创建的影像图层。
+
+* @example
+// Create a new base layer
+const viewer = new Cesium.Viewer("cesiumContainer", {
+  baseLayer: Cesium.ImageryLayer.fromWorldImagery();
+});
 </div>
 
 
@@ -2283,9 +2344,24 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Add a new transparent layerconst imageryLayer = Cesium.ImageryLayer.fromWorldImagery();imageryLayer.alpha = 0.5;viewer.imageryLayers.add(imageryLayer);</code></pre>
+    <pre><code class="language-javascript">// Add a new transparent layer
+const imageryLayer = Cesium.ImageryLayer.fromWorldImagery();
+imageryLayer.alpha = 0.5;
+viewer.imageryLayers.add(imageryLayer);</code></pre>
 
-    <pre><code class="language-javascript">// Handle loading eventsconst imageryLayer = Cesium.ImageryLayer.fromWorldImagery();viewer.imageryLayers.add(imageryLayer);imageryLayer.readyEvent.addEventListener(provider => {  imageryLayer.provider.errorEvent.addEventListener(error => {    alert(`Encountered an error while loading imagery tiles! ${error}`);  });});imageryLayer.errorEvent.addEventListener(error => {  alert(`Encountered an error while creating an imagery layer! ${error}`);});</code></pre>
+    <pre><code class="language-javascript">// Handle loading events
+const imageryLayer = Cesium.ImageryLayer.fromWorldImagery();
+viewer.imageryLayers.add(imageryLayer);
+
+imageryLayer.readyEvent.addEventListener(provider => {
+  imageryLayer.provider.errorEvent.addEventListener(error => {
+    alert(`Encountered an error while loading imagery tiles! ${error}`);
+  });
+});
+
+imageryLayer.errorEvent.addEventListener(error => {
+  alert(`Encountered an error while creating an imagery layer! ${error}`);
+});</code></pre>
 
     
 
@@ -2331,7 +2407,12 @@
 
 
 <div class="description">
-    Destroys the WebGL resources held by this object.  Destroying an object allows for deterministicrelease of WebGL resources, instead of relying on the garbage collector to destroy this object.<br /><br />Once an object is destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.  Therefore,assign the return value (<code>undefined</code>) to the object as done in the example.
+    销毁此对象持有的 WebGL 资源。 销毁对象允许确定性
+释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。
+<br /><br />
+一旦对象被销毁，就不应该使用它;调用
+<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。 因此
+将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
 </div>
 
 
@@ -2364,7 +2445,7 @@
         
 <span class="param-type"><a href="DeveloperError.html">DeveloperError</a></span>
 
-: This object was destroyed, i.e., destroy() was called.
+: 这个物体被摧毁了,destroy().
     </div>
 
 </li>
@@ -2436,7 +2517,8 @@
 
 
 <div class="description">
-    Computes the intersection of this layer's rectangle with the imagery provider's availability rectangle,producing the overall bounds of imagery that can be produced by this layer.
+    计算此图层的矩形与影像提供商的可用性矩形的交集，
+生成此图层可生成的影像的总体边界。
 </div>
 
 
@@ -2463,7 +2545,7 @@
 
         
 <div class="param-desc">
-    A rectangle which defines the overall bounds of imagery that can be produced by this layer.
+    一个矩形，用于定义此图层可以生成的图像的总体边界。
 </div>
 
 
@@ -2494,7 +2576,11 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Zoom to an imagery layer.const imageryRectangle = imageryLayer.getImageryRectangle();scene.camera.flyTo({    destination: rectangle});</code></pre>
+    <pre><code class="language-javascript">// Zoom to an imagery layer.
+const imageryRectangle = imageryLayer.getImageryRectangle();
+scene.camera.flyTo({
+    destination: rectangle
+});</code></pre>
 
     
 
@@ -2531,7 +2617,11 @@
 
 
 <div class="description">
-    Gets a value indicating whether this layer is the base layer in the<a href="ImageryLayerCollection.html"><code>ImageryLayerCollection</code></a>.  The base layer is the one that underlies allothers.  It is special in that it is treated as if it has global rectangle, even ifit actually does not, by stretching the texels at the edges over the entireglobe.
+    获取一个值，该值指示此图层是否为
+<a href="ImageryLayerCollection.html"><code>ImageryLayerCollection</code></a> 的 ImageryLayerCollection} 中。 Base Layer 是所有
+别人。 它的特殊之处在于，即使
+实际上并非如此，方法是将边缘的纹素拉伸到整个
+球。
 </div>
 
 
@@ -2558,7 +2648,7 @@
 
         
 <div class="param-desc">
-    true if this is the base layer; otherwise, false.
+    true，如果这是基础层;否则为 false。
 </div>
 
 
@@ -2621,7 +2711,10 @@
 
 
 <div class="description">
-    Returns true if this object was destroyed; otherwise, false.<br /><br />If this object was destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.
+    如果此对象已销毁，则返回 true;否则为 false。
+<br /><br />
+如果此对象已销毁，则不应使用;调用
+<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。
 </div>
 
 
@@ -2648,7 +2741,7 @@
 
         
 <div class="param-desc">
-    True if this object was destroyed; otherwise, false.
+    如果此对象被销毁，则为 True;否则为 false。
 </div>
 
 
@@ -2721,7 +2814,7 @@
 
 
 <div class="description">
-    Initialization options for the ImageryLayer constructor.
+    ImageryLayer 构造函数的初始化选项。
 </div>
 
 
@@ -2791,7 +2884,8 @@
                 </td>
             
 
-            <td class="description last">The rectangle of the layer.  This rectangle       can limit the visible portion of the imagery provider.</td>
+            <td class="description last">图层的矩形。 这个矩形
+可以限制图像提供程序的可见部分。</td>
         </tr>
 
     
@@ -2831,7 +2925,12 @@
                 </td>
             
 
-            <td class="description last">The alpha blending value of this layer, from 0.0 to 1.0.                         This can either be a simple number or a function with the signature                         <code>function(frameState, layer, x, y, level)</code>.  The function is passed the                         current frame state, this layer, and the x, y, and level coordinates of the                         imagery tile for which the alpha is required, and it is expected to return                         the alpha value to use for the tile.</td>
+            <td class="description last">此图层的 Alpha 混合值，范围为 0.0 到 1.0。
+这可以是一个简单的数字，也可以是带有签名的函数
+<code>function（frameState， layer， x， y， level）</code> 的 该函数将
+当前帧状态、此图层以及
+需要 Alpha 且应返回的图像模块
+用于图块的 Alpha 值。</td>
         </tr>
 
     
@@ -2871,7 +2970,12 @@
                 </td>
             
 
-            <td class="description last">The alpha blending value of this layer on the night side of the globe, from 0.0 to 1.0.                         This can either be a simple number or a function with the signature                         <code>function(frameState, layer, x, y, level)</code>.  The function is passed the                         current frame state, this layer, and the x, y, and level coordinates of the                         imagery tile for which the alpha is required, and it is expected to return                         the alpha value to use for the tile. This only takes effect when <code>enableLighting</code> is <code>true</code>.</td>
+            <td class="description last">此图层在地球的夜间一侧的 Alpha 混合值，从 0.0 到 1.0。
+这可以是一个简单的数字，也可以是带有签名的函数
+<code>function（frameState， layer， x， y， level）</code> 的 该函数将
+当前帧状态、此图层以及
+需要 Alpha 且应返回的图像模块
+用于图块的 Alpha 值。这仅在 <code>enableLighting</code> 为 <code>true</code> 时生效。</td>
         </tr>
 
     
@@ -2911,7 +3015,12 @@
                 </td>
             
 
-            <td class="description last">The alpha blending value of this layer on the day side of the globe, from 0.0 to 1.0.                         This can either be a simple number or a function with the signature                         <code>function(frameState, layer, x, y, level)</code>.  The function is passed the                         current frame state, this layer, and the x, y, and level coordinates of the                         imagery tile for which the alpha is required, and it is expected to return                         the alpha value to use for the tile. This only takes effect when <code>enableLighting</code> is <code>true</code>.</td>
+            <td class="description last">此图层在地球的昼侧的 Alpha 混合值，从 0.0 到 1.0。
+这可以是一个简单的数字，也可以是带有签名的函数
+<code>function（frameState， layer， x， y， level）</code> 的 该函数将
+当前帧状态、此图层以及
+需要 Alpha 且应返回的图像模块
+用于图块的 Alpha 值。这仅在 <code>enableLighting</code> 为 <code>true</code> 时生效。</td>
         </tr>
 
     
@@ -2951,7 +3060,14 @@
                 </td>
             
 
-            <td class="description last">The brightness of this layer.  1.0 uses the unmodified imagery                         color.  Less than 1.0 makes the imagery darker while greater than 1.0 makes it brighter.                         This can either be a simple number or a function with the signature                         <code>function(frameState, layer, x, y, level)</code>.  The function is passed the                         current frame state, this layer, and the x, y, and level coordinates of the                         imagery tile for which the brightness is required, and it is expected to return                         the brightness value to use for the tile.  The function is executed for every                         frame and for every tile, so it must be fast.</td>
+            <td class="description last">该图层的亮度。 1.0 使用未修改的图像
+颜色。 小于 1.0 会使图像更暗，而大于 1.0 会使图像更亮。
+这可以是一个简单的数字，也可以是带有签名的函数
+<code>function（frameState， layer， x， y， level）</code> 的 该函数将
+当前帧状态、此图层以及
+需要亮度且应返回的图像模块
+用于图块的亮度值。 该函数对每个
+帧和每个图块，因此它必须很快。</td>
         </tr>
 
     
@@ -2991,7 +3107,14 @@
                 </td>
             
 
-            <td class="description last">The contrast of this layer.  1.0 uses the unmodified imagery color.                         Less than 1.0 reduces the contrast while greater than 1.0 increases it.                         This can either be a simple number or a function with the signature                         <code>function(frameState, layer, x, y, level)</code>.  The function is passed the                         current frame state, this layer, and the x, y, and level coordinates of the                         imagery tile for which the contrast is required, and it is expected to return                         the contrast value to use for the tile.  The function is executed for every                         frame and for every tile, so it must be fast.</td>
+            <td class="description last">该层的对比度。 1.0 使用未修改的图像颜色。
+小于 1.0 会降低对比度，而大于 1.0 会增加对比度。
+这可以是一个简单的数字，也可以是带有签名的函数
+<code>function（frameState， layer， x， y， level）</code> 的 该函数将
+当前帧状态、此图层以及
+需要对比度且应返回的图像模块
+用于磁贴的 contrast 值。 该函数对每个
+帧和每个图块，因此它必须很快。</td>
         </tr>
 
     
@@ -3031,7 +3154,13 @@
                 </td>
             
 
-            <td class="description last">The hue of this layer.  0.0 uses the unmodified imagery color.                         This can either be a simple number or a function with the signature                         <code>function(frameState, layer, x, y, level)</code>.  The function is passed the                         current frame state, this layer, and the x, y, and level coordinates                         of the imagery tile for which the hue is required, and it is expected to return                         the contrast value to use for the tile.  The function is executed for every                         frame and for every tile, so it must be fast.</td>
+            <td class="description last">该图层的色调。 0.0 使用未修改的影像颜色。
+这可以是一个简单的数字，也可以是带有签名的函数
+<code>function（frameState， layer， x， y， level）</code> 的 该函数将
+当前帧状态、此图层以及 X、Y 和 Level 坐标
+需要色调的图像图块，并且它应返回
+用于磁贴的 contrast 值。 该函数对每个
+帧和每个图块，因此它必须很快。</td>
         </tr>
 
     
@@ -3071,7 +3200,14 @@
                 </td>
             
 
-            <td class="description last">The saturation of this layer.  1.0 uses the unmodified imagery color.                         Less than 1.0 reduces the saturation while greater than 1.0 increases it.                         This can either be a simple number or a function with the signature                         <code>function(frameState, layer, x, y, level)</code>.  The function is passed the                         current frame state, this layer, and the x, y, and level coordinates                         of the imagery tile for which the saturation is required, and it is expected to return                         the contrast value to use for the tile.  The function is executed for every                         frame and for every tile, so it must be fast.</td>
+            <td class="description last">该层的饱和度。 1.0 使用未修改的图像颜色。
+小于 1.0 会降低饱和度，而大于 1.0 会增加饱和度。
+这可以是一个简单的数字，也可以是带有签名的函数
+<code>function（frameState， layer， x， y， level）</code> 的 该函数将
+当前帧状态、此图层以及 X、Y 和 Level 坐标
+需要饱和度的影像瓦片，并且应返回
+用于磁贴的 contrast 值。 该函数对每个
+帧和每个图块，因此它必须很快。</td>
         </tr>
 
     
@@ -3111,7 +3247,13 @@
                 </td>
             
 
-            <td class="description last">The gamma correction to apply to this layer.  1.0 uses the unmodified imagery color.                         This can either be a simple number or a function with the signature                         <code>function(frameState, layer, x, y, level)</code>.  The function is passed the                         current frame state, this layer, and the x, y, and level coordinates of the                         imagery tile for which the gamma is required, and it is expected to return                         the gamma value to use for the tile.  The function is executed for every                         frame and for every tile, so it must be fast.</td>
+            <td class="description last">要应用于此图层的 Gamma 校正。 1.0 使用未修改的图像颜色。
+这可以是一个简单的数字，也可以是带有签名的函数
+<code>function（frameState， layer， x， y， level）</code> 的 该函数将
+当前帧状态、此图层以及
+需要 Gamma 且应返回的图像模块
+用于图块的 Gamma 值。 该函数对每个
+帧和每个图块，因此它必须很快。</td>
         </tr>
 
     
@@ -3151,7 +3293,7 @@
                 </td>
             
 
-            <td class="description last">The <a href="global.html#SplitDirection"><code>SplitDirection</code></a> split to apply to this layer.</td>
+            <td class="description last">要应用于此图层的 <a href="global.html#SplitDirection"><code>SplitDirection</code></a> 分割。</td>
         </tr>
 
     
@@ -3188,7 +3330,10 @@
                 </td>
             
 
-            <td class="description last">The                                   texture minification filter to apply to this layer. Possible values                                   are <code>TextureMinificationFilter.LINEAR</code> and                                   <code>TextureMinificationFilter.NEAREST</code>.</td>
+            <td class="description last">的
+纹理缩小滤镜以应用于此图层。可能的值
+是 <code>TextureMinificationFilter.LINEAR</code> 和
+<code>TextureMinificationFilter.NEAREST的 TextureMinificationFilter.NEAREST。</code></td>
         </tr>
 
     
@@ -3225,7 +3370,10 @@
                 </td>
             
 
-            <td class="description last">The                                    texture minification filter to apply to this layer. Possible values                                    are <code>TextureMagnificationFilter.LINEAR</code> and                                    <code>TextureMagnificationFilter.NEAREST</code>.</td>
+            <td class="description last">的
+纹理缩小滤镜以应用于此图层。可能的值
+是 <code>TextureMagnificationFilter.LINEAR</code> 和
+<code>TextureMagnificationFilter.NEAREST的 TextureMagnificationFilter.NEAREST.</code></td>
         </tr>
 
     
@@ -3262,7 +3410,7 @@
                 </td>
             
 
-            <td class="description last">True if the layer is shown; otherwise, false.</td>
+            <td class="description last">如果显示图层，则为 True;否则为 false。</td>
         </tr>
 
     
@@ -3299,7 +3447,10 @@
                 </td>
             
 
-            <td class="description last">The maximum anisotropy level to use       for texture filtering.  If this parameter is not specified, the maximum anisotropy supported       by the WebGL stack will be used.  Larger values make the imagery look better in horizon       views.</td>
+            <td class="description last">要使用的最大各向异性级别
+用于纹理筛选。 如果未指定此参数，则支持的最大各向异性
+将使用 WebGL 堆栈。 较大的值会使影像在地平线中看起来更好
+视图。</td>
         </tr>
 
     
@@ -3334,7 +3485,8 @@
                 </td>
             
 
-            <td class="description last">The minimum terrain level-of-detail at which to show this imagery layer,                or undefined to show it at all levels.  Level zero is the least-detailed level.</td>
+            <td class="description last">显示此图像图层的最小地形细节级别，
+或 undefined 在所有级别显示它。 级别 0 是最不详细的级别。</td>
         </tr>
 
     
@@ -3369,7 +3521,8 @@
                 </td>
             
 
-            <td class="description last">The maximum terrain level-of-detail at which to show this imagery layer,                or undefined to show it at all levels.  Level zero is the least-detailed level.</td>
+            <td class="description last">显示此图像图层的最大地形细节级别，
+或 undefined 在所有级别显示它。 级别 0 是最不详细的级别。</td>
         </tr>
 
     
@@ -3404,14 +3557,14 @@
                 </td>
             
 
-            <td class="description last">Cartographic rectangle for cutting out a portion of this ImageryLayer.</td>
+            <td class="description last">用于剪切此 ImageryLayer 的一部分的制图矩形。</td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>colorToAlpha</code></td>
+                <td class="name"><code>要用作</code></td>
             
 
             <td class="type">
@@ -3426,8 +3579,6 @@
             
                 <td class="attributes">
                 
-                    &lt;optional><br>
-                
 
                 
                 </td>
@@ -3439,7 +3590,7 @@
                 </td>
             
 
-            <td class="description last">Color to be used as alpha.</td>
+            <td class="description last">Alpha 的  [colorToAlpha] 颜色。</td>
         </tr>
 
     
@@ -3476,7 +3627,7 @@
                 </td>
             
 
-            <td class="description last">Threshold for color-to-alpha.</td>
+            <td class="description last">颜色到 Alpha 的阈值。</td>
         </tr>
 
     
@@ -3536,7 +3687,7 @@
 
 
 <div class="description">
-    A function that is called when an error occurs.
+    发生错误时调用的函数。
 </div>
 
 
@@ -3590,7 +3741,7 @@
 
             <td class="description last">
             
-                An object holding details about the error that occurred.</td>
+                一个对象，其中包含有关所发生错误的详细信息。</td>
         </tr>
 
     
@@ -3665,7 +3816,7 @@
 
 
 <div class="description">
-    A function that is called when the provider has been created
+    在创建提供程序时调用的函数
 </div>
 
 
@@ -3719,7 +3870,7 @@
 
             <td class="description last">
             
-                The created imagery provider.</td>
+                创建的影像提供程序。</td>
         </tr>
 
     
@@ -3793,7 +3944,7 @@
 
 
 <div class="description">
-    Initialization options for ImageryLayer.fromWorldImagery
+    ImageryLayer.fromWorldImagery 的初始化选项
 </div>
 
 
@@ -3863,7 +4014,7 @@
                 </td>
             
 
-            <td class="description last">The style of base imagery, only AERIAL, AERIAL_WITH_LABELS, and ROAD are currently supported.</td>
+            <td class="description last">基础图像的样式，目前仅支持 AERIAL、AERIAL_WITH_LABELS 和 ROAD。</td>
         </tr>
 
     

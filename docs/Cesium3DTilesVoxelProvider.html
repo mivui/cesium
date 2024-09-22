@@ -58,7 +58,13 @@
 
 
 <div class="description">
-    A <a href="VoxelProvider.html"><code>VoxelProvider</code></a> that fetches voxel data from a 3D Tiles tileset.<p>Implements the <a href="VoxelProvider.html"><code>VoxelProvider</code></a> interface.</p><div class="notice">This object is normally not instantiated directly, use <a href="Cesium3DTilesVoxelProvider.html#.fromUrl"><code>Cesium3DTilesVoxelProvider.fromUrl</code></a>.</div>
+    一个 <a href="VoxelProvider.html"><code>VoxelProvider</code></a>，用于从 3D 瓦片图块集中获取体素数据。
+<p>
+实现 <a href="VoxelProvider.html"><code>VoxelProvider</code></a> 接口。
+</p>
+<div class=“notice”>
+此对象通常不直接实例化，请使用 <a href="Cesium3DTilesVoxelProvider.html#.fromUrl"><code>Cesium3DTilesVoxelProvider.fromUrl</code></a>。
+</div>
 </div>
 
 
@@ -159,7 +165,7 @@
     <div class="tag-experimental">
         <h5>Experimental</h5>
         
-            <p>This feature is not final and is subject to change without Cesium's standard deprecation policy.</p>
+            <p>此功能不是最终的，在没有 Cesium 的标准弃用政策的情况下可能会发生变化。</p>
         
     </div>
     
@@ -1145,7 +1151,7 @@
 
 
 <div class="description">
-    Creates a <a href="VoxelProvider.html"><code>VoxelProvider</code></a> that fetches voxel data from a 3D Tiles tileset.
+    创建一个 <a href="VoxelProvider.html"><code>VoxelProvider</code></a>，用于从 3D 瓦片图块集中获取体素数据。
 </div>
 
 
@@ -1199,7 +1205,7 @@
 
             <td class="description last">
             
-                The URL to a tileset JSON file</td>
+                瓦片集 JSON 文件的 URL</td>
         </tr>
 
     
@@ -1220,7 +1226,7 @@
 
         
 <div class="param-desc">
-    The created provider
+    创建的 provider
 </div>
 
 
@@ -1235,7 +1241,7 @@
         
 <span class="param-type">RuntimeException</span>
 
-: Root must have content
+: 根必须包含内容
     </div>
 
 </li>
@@ -1246,7 +1252,7 @@
         
 <span class="param-type">RuntimeException</span>
 
-: Root tile content must have 3DTILES_content_voxels extension
+: 根磁贴内容必须具有3DTILES_content_voxels扩展名
     </div>
 
 </li>
@@ -1257,7 +1263,7 @@
         
 <span class="param-type">RuntimeException</span>
 
-: Root tile must have implicit tiling
+: 根平铺必须具有隐式平铺
     </div>
 
 </li>
@@ -1268,7 +1274,7 @@
         
 <span class="param-type">RuntimeException</span>
 
-: Tileset must have a metadata schema
+: 瓦片集必须具有元数据架构
     </div>
 
 </li>
@@ -1279,7 +1285,7 @@
         
 <span class="param-type">RuntimeException</span>
 
-: Only box, region and 3DTILES_bounding_volume_cylinder are supported in Cesium3DTilesVoxelProvider
+: Cesium3DTilesVoxelProvider 仅支持 box、region 和 3DTILES_bounding_volume_cylinder
     </div>
 
 </li>

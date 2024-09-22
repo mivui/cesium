@@ -47,7 +47,7 @@
 
 
         
-            <div class="description">An enum of metadata component types.</div>
+            <div class="description">元数据组件类型的枚举。</div>
         
 
         
@@ -96,7 +96,7 @@
 
             
 
-            <td class="description last">An 8-bit signed integer</td>
+            <td class="description last">一个 8 位有符号整数</td>
         </tr>
 
     
@@ -119,7 +119,7 @@
 
             
 
-            <td class="description last">An 8-bit unsigned integer</td>
+            <td class="description last">一个 8 位无符号整数</td>
         </tr>
 
     
@@ -142,7 +142,7 @@
 
             
 
-            <td class="description last">A 16-bit signed integer</td>
+            <td class="description last">一个 16 位有符号整数</td>
         </tr>
 
     
@@ -165,7 +165,7 @@
 
             
 
-            <td class="description last">A 16-bit unsigned integer</td>
+            <td class="description last">一个 16 位无符号整数</td>
         </tr>
 
     
@@ -188,7 +188,7 @@
 
             
 
-            <td class="description last">A 32-bit signed integer</td>
+            <td class="description last">一个 32 位有符号整数</td>
         </tr>
 
     
@@ -211,7 +211,7 @@
 
             
 
-            <td class="description last">A 32-bit unsigned integer</td>
+            <td class="description last">一个 32 位无符号整数</td>
         </tr>
 
     
@@ -234,7 +234,7 @@
 
             
 
-            <td class="description last">A 64-bit signed integer. This type requires BigInt support.</td>
+            <td class="description last">一个 64 位有符号整数。此类型需要 BigInt 支持。</td>
         </tr>
 
     
@@ -257,7 +257,7 @@
 
             
 
-            <td class="description last">A 64-bit signed integer. This type requires BigInt support</td>
+            <td class="description last">一个 64 位有符号整数。此类型需要 BigInt 支持</td>
         </tr>
 
     
@@ -280,7 +280,7 @@
 
             
 
-            <td class="description last">A 32-bit (single precision) floating point number</td>
+            <td class="description last">一个 32 位（单精度）浮点数</td>
         </tr>
 
     
@@ -303,7 +303,7 @@
 
             
 
-            <td class="description last">A 64-bit (double precision) floating point number</td>
+            <td class="description last">一个 64 位（双精度）浮点数</td>
         </tr>
 
     
@@ -338,7 +338,7 @@
     <div class="tag-experimental">
         <h5>Experimental</h5>
         
-            <p>This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.</p>
+            <p>此功能使用的是 3D Tiles 规范的一部分，该规范并非最终版本，并且可能会在没有 Cesium 标准弃用政策的情况下进行更改。</p>
         
     </div>
     
@@ -384,7 +384,7 @@
 
 
 <div class="description">
-    A 32-bit (single precision) floating point number
+    一个 32 位（单精度）浮点数
 </div>
 
 
@@ -447,7 +447,7 @@
 
 
 <div class="description">
-    A 64-bit (double precision) floating point number
+    一个 64 位（双精度）浮点数
 </div>
 
 
@@ -510,7 +510,7 @@
 
 
 <div class="description">
-    An 8-bit signed integer
+    一个 8 位有符号整数
 </div>
 
 
@@ -573,7 +573,7 @@
 
 
 <div class="description">
-    A 16-bit signed integer
+    一个 16 位有符号整数
 </div>
 
 
@@ -636,7 +636,7 @@
 
 
 <div class="description">
-    A 32-bit signed integer
+    一个 32 位有符号整数
 </div>
 
 
@@ -699,7 +699,7 @@
 
 
 <div class="description">
-    A 64-bit signed integer. This type requires BigInt support.
+    一个 64 位有符号整数。此类型需要 BigInt 支持。
 </div>
 
 
@@ -767,7 +767,7 @@
 
 
 <div class="description">
-    An 8-bit unsigned integer
+    一个 8 位无符号整数
 </div>
 
 
@@ -830,7 +830,7 @@
 
 
 <div class="description">
-    A 16-bit unsigned integer
+    一个 16 位无符号整数
 </div>
 
 
@@ -893,7 +893,7 @@
 
 
 <div class="description">
-    A 32-bit unsigned integer
+    一个 32 位无符号整数
 </div>
 
 
@@ -956,7 +956,7 @@
 
 
 <div class="description">
-    A 64-bit signed integer. This type requires BigInt support
+    一个 64 位有符号整数。此类型需要 BigInt 支持
 </div>
 
 

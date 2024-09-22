@@ -58,13 +58,20 @@
 
 
 <div class="description">
-    A renderable collection of points.<br /><br />Points are added and removed from the collection using <a href="PointPrimitiveCollection.html#add"><code>PointPrimitiveCollection#add</code></a>and <a href="PointPrimitiveCollection.html#remove"><code>PointPrimitiveCollection#remove</code></a>.
+    可渲染的点集合。
+<br /><br />
+使用 <a href="PointPrimitiveCollection.html#add"><code>PointPrimitiveCollection#add</code></a> 在集合中添加和删除点
+and <a href="PointPrimitiveCollection.html#remove"><code>PointPrimitiveCollection#remove</code></a>.
 </div>
 
 
 
     <h5>Performance:</h5>
-    <p class="description">For best performance, prefer a few collections, each with many points, tomany collections with only a few points each.  Organize collections so that pointswith the same update frequency are in the same collection, i.e., points that do notchange should be in one collection; points that change every frame should be in anothercollection; and so on.</p>
+    <p class="description">为了获得最佳性能，请首选几个集合，每个集合都有很多点，以
+许多集合，每个集合只有几个点。 组织集合，以便指向
+具有相同更新频率的点位于同一集合中，即
+更改应在一个集合中;更改每一帧的点应该在另一个
+收集;等等。</p>
 
 
 
@@ -173,7 +180,7 @@
 
                 
             
-                The 4x4 transformation matrix that transforms each point from model to world coordinates.</td>
+                将每个点从模型转换为世界坐标的 4x4 变换矩阵。</td>
         </tr>
 
     
@@ -209,7 +216,7 @@
 
                 
             
-                For debugging only. Determines if this primitive's commands' bounding spheres are shown.</td>
+                仅用于调试。确定是否显示此基本体的命令的边界球体。</td>
         </tr>
 
     
@@ -245,7 +252,9 @@
 
                 
             
-                The point blending option. The defaultis used for rendering both opaque and translucent points. However, if either all of the points are completely opaque or all are completely translucent,setting the technique to BlendOption.OPAQUE or BlendOption.TRANSLUCENT can improve performance by up to 2x.</td>
+                点混合选项。默认的
+用于渲染不透明点和半透明点。但是，如果所有点都完全不透明或全部完全透明，则
+将技术设置为 BlendOption.OPAQUE 或 BlendOption.TRANSLUCENT 可以将性能提高多达 2 倍。</td>
         </tr>
 
     
@@ -281,7 +290,7 @@
 
                 
             
-                Determines if the primitives in the collection will be shown.</td>
+                确定是否显示集合中的基元。</td>
         </tr>
 
     
@@ -330,7 +339,16 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Create a pointPrimitive collection with two pointsconst points = scene.primitives.add(new Cesium.PointPrimitiveCollection());points.add({  position : new Cesium.Cartesian3(1.0, 2.0, 3.0),  color : Cesium.Color.YELLOW});points.add({  position : new Cesium.Cartesian3(4.0, 5.0, 6.0),  color : Cesium.Color.CYAN});</code></pre>
+    <pre><code class="language-javascript">// Create a pointPrimitive collection with two points
+const points = scene.primitives.add(new Cesium.PointPrimitiveCollection());
+points.add({
+  position : new Cesium.Cartesian3(1.0, 2.0, 3.0),
+  color : Cesium.Color.YELLOW
+});
+points.add({
+  position : new Cesium.Cartesian3(4.0, 5.0, 6.0),
+  color : Cesium.Color.CYAN
+});</code></pre>
 
     
 
@@ -391,7 +409,10 @@
 
 
 <div class="description">
-    The point blending option. The default is used for rendering both opaque and translucent points.However, if either all of the points are completely opaque or all are completely translucent,setting the technique to BlendOption.OPAQUE or BlendOption.TRANSLUCENT can improveperformance by up to 2x.
+    点混合选项。默认值用于渲染不透明点和半透明点。
+但是，如果所有点都是完全不透明的，或者所有点都是完全半透明的，
+将技术设置为 BlendOption.OPAQUE 或 BlendOption.TRANSLUCENT 可以提高
+性能提升高达 2 倍。
 </div>
 
 
@@ -454,7 +475,10 @@
 
 
 <div class="description">
-    This property is for debugging only; it is not for production use nor is it optimized.<p>Draws the bounding sphere for each draw command in the primitive.</p>
+    此属性仅用于调试;它不用于生产用途，也未进行优化。
+<p>
+为基元中的每个绘制命令绘制边界球体。
+</p>
 </div>
 
 
@@ -517,7 +541,9 @@
 
 
 <div class="description">
-    Returns the number of points in this collection.  This is commonly used with<a href="PointPrimitiveCollection.html#get"><code>PointPrimitiveCollection#get</code></a> to iterate over all the pointsin the collection.
+    返回此集合中的点数。 这通常与
+<a href="PointPrimitiveCollection.html#get"><code>PointPrimitiveCollection#get</code></a> 遍历所有点
+在集合中。
 </div>
 
 
@@ -577,7 +603,10 @@
 
 
 <div class="description">
-    The 4x4 transformation matrix that transforms each point in this collection from model to world coordinates.When this is the identity matrix, the pointPrimitives are drawn in world coordinates, i.e., Earth's WGS84 coordinates.Local reference frames can be used by providing a different transformation matrix, like that returnedby <a href="Transforms.html#.eastNorthUpToFixedFrame"><code>Transforms.eastNorthUpToFixedFrame</code></a>.
+    将此集合中的每个点从模型转换为世界坐标的 4x4 转换矩阵。
+当这是单位矩阵时，pointPrimitives 在世界坐标（即地球的 WGS84 坐标）中绘制。
+可以通过提供不同的转换矩阵来使用本地参考帧，就像返回的矩阵一样
+by <a href="Transforms.html#.eastNorthUpToFixedFrame"><code>Transforms.eastNorthUpToFixedFrame</code></a>.
 </div>
 
 
@@ -609,7 +638,24 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const center = Cesium.Cartesian3.fromDegrees(-75.59777, 40.03883);pointPrimitives.modelMatrix = Cesium.Transforms.eastNorthUpToFixedFrame(center);pointPrimitives.add({  color : Cesium.Color.ORANGE,  position : new Cesium.Cartesian3(0.0, 0.0, 0.0) // center});pointPrimitives.add({  color : Cesium.Color.YELLOW,  position : new Cesium.Cartesian3(1000000.0, 0.0, 0.0) // east});pointPrimitives.add({  color : Cesium.Color.GREEN,  position : new Cesium.Cartesian3(0.0, 1000000.0, 0.0) // north});pointPrimitives.add({  color : Cesium.Color.CYAN,  position : new Cesium.Cartesian3(0.0, 0.0, 1000000.0) // up});</code></pre>
+    <pre><code class="language-javascript">const center = Cesium.Cartesian3.fromDegrees(-75.59777, 40.03883);
+pointPrimitives.modelMatrix = Cesium.Transforms.eastNorthUpToFixedFrame(center);
+pointPrimitives.add({
+  color : Cesium.Color.ORANGE,
+  position : new Cesium.Cartesian3(0.0, 0.0, 0.0) // center
+});
+pointPrimitives.add({
+  color : Cesium.Color.YELLOW,
+  position : new Cesium.Cartesian3(1000000.0, 0.0, 0.0) // east
+});
+pointPrimitives.add({
+  color : Cesium.Color.GREEN,
+  position : new Cesium.Cartesian3(0.0, 1000000.0, 0.0) // north
+});
+pointPrimitives.add({
+  color : Cesium.Color.CYAN,
+  position : new Cesium.Cartesian3(0.0, 0.0, 1000000.0) // up
+});</code></pre>
 
     
 
@@ -720,13 +766,16 @@
 
 
 <div class="description">
-    Creates and adds a point with the specified initial properties to the collection.The added point is returned so it can be modified or removed from the collection later.
+    创建具有指定初始属性的点并将其添加到集合中。
+将返回添加的点，以便以后可以对其进行修改或从集合中删除。
 </div>
 
 
 
     <h5>Performance:</h5>
-    <p class="description">Calling <code>add</code> is expected constant time.  However, the collection's vertex bufferis rewritten - an <code>O(n)</code> operation that also incurs CPU to GPU overhead.  Forbest performance, add as many pointPrimitives as possible before calling <code>update</code>.</p>
+    <p class="description">调用 <code>add</code> 是预期的常数时间。 但是，集合的顶点缓冲区
+被重写 - 一个 <code>O(n)</code> 操作，也会产生 CPU 到 GPU 的开销。 为
+最佳性能，在调用 <code>update</code> 之前添加尽可能多的 pointPrimitives。</p>
 
 
 
@@ -781,7 +830,7 @@
 
                 
             
-                A template describing the point's properties as shown in Example 1.</td>
+                描述点属性的模板，如示例 1 所示。</td>
         </tr>
 
     
@@ -802,7 +851,7 @@
 
         
 <div class="param-desc">
-    The point that was added to the collection.
+    已添加到集合中的点。
 </div>
 
 
@@ -817,7 +866,7 @@
         
 <span class="param-type"><a href="DeveloperError.html">DeveloperError</a></span>
 
-: This object was destroyed, i.e., destroy() was called.
+: 这个物体被摧毁了,destroy().
     </div>
 
 </li>
@@ -847,9 +896,21 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Example 1:  Add a point, specifying all the default values.const p = pointPrimitives.add({  show : true,  position : Cesium.Cartesian3.ZERO,  pixelSize : 10.0,  color : Cesium.Color.WHITE,  outlineColor : Cesium.Color.TRANSPARENT,  outlineWidth : 0.0,  id : undefined});</code></pre>
+    <pre><code class="language-javascript">// Example 1:  Add a point, specifying all the default values.
+const p = pointPrimitives.add({
+  show : true,
+  position : Cesium.Cartesian3.ZERO,
+  pixelSize : 10.0,
+  color : Cesium.Color.WHITE,
+  outlineColor : Cesium.Color.TRANSPARENT,
+  outlineWidth : 0.0,
+  id : undefined
+});</code></pre>
 
-    <pre><code class="language-javascript">// Example 2:  Specify only the point's cartographic position.const p = pointPrimitives.add({  position : Cesium.Cartesian3.fromDegrees(longitude, latitude, height)});</code></pre>
+    <pre><code class="language-javascript">// Example 2:  Specify only the point's cartographic position.
+const p = pointPrimitives.add({
+  position : Cesium.Cartesian3.fromDegrees(longitude, latitude, height)
+});</code></pre>
 
     
 
@@ -893,7 +954,7 @@
 
 
 <div class="description">
-    Check whether this collection contains a given point.
+    检查此集合是否包含给定的点。
 </div>
 
 
@@ -951,7 +1012,7 @@
 
                 
             
-                The point to check for.</td>
+                要检查的点。</td>
         </tr>
 
     
@@ -972,7 +1033,7 @@
 
         
 <div class="param-desc">
-    true if this collection contains the point, false 否则。
+    true（如果此集合包含点），否则 false。
 </div>
 
 
@@ -1040,7 +1101,12 @@
 
 
 <div class="description">
-    Destroys the WebGL resources held by this object.  Destroying an object allows for deterministicrelease of WebGL resources, instead of relying on the garbage collector to destroy this object.<br /><br />Once an object is destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.  Therefore,assign the return value (<code>undefined</code>) to the object as done in the example.
+    销毁此对象持有的 WebGL 资源。 销毁对象允许确定性
+释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。
+<br /><br />
+一旦对象被销毁，就不应该使用它;调用
+<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。 因此
+将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
 </div>
 
 
@@ -1073,7 +1139,7 @@
         
 <span class="param-type"><a href="DeveloperError.html">DeveloperError</a></span>
 
-: This object was destroyed, i.e., destroy() was called.
+: 这个物体被摧毁了,destroy().
     </div>
 
 </li>
@@ -1145,13 +1211,19 @@
 
 
 <div class="description">
-    Returns the point in the collection at the specified index.  Indices are zero-basedand increase as points are added.  Removing a point shifts all points afterit to the left, changing their indices.  This function is commonly used with<a href="PointPrimitiveCollection.html#length"><code>PointPrimitiveCollection#length</code></a> to iterate over all the pointsin the collection.
+    返回集合中指定索引处的点。 索引从 0 开始
+并随着积分的增加而增加。 移除点会移动
+它向左移动，更改其索引。 此功能通常用于
+<a href="PointPrimitiveCollection.html#length"><code>PointPrimitiveCollection#length</code></a> 遍历所有点
+在集合中。
 </div>
 
 
 
     <h5>Performance:</h5>
-    <p class="description">Expected constant time.  If points were removed from the collection and<code>PointPrimitiveCollection#update</code> was not called, an implicit <code>O(n)</code>operation is performed.</p>
+    <p class="description">预期恒定时间。 如果从集合中删除了点，并且
+<code>PointPrimitiveCollection#update</code> 未调用，则隐式<code>O(n)</code>
+执行操作。</p>
 
 
 
@@ -1199,7 +1271,7 @@
 
             <td class="description last">
             
-                The zero-based index of the point.</td>
+                该点的从零开始的索引。</td>
         </tr>
 
     
@@ -1220,7 +1292,7 @@
 
         
 <div class="param-desc">
-    The point at the specified index.
+    位于指定索引处的点。
 </div>
 
 
@@ -1235,7 +1307,7 @@
         
 <span class="param-type"><a href="DeveloperError.html">DeveloperError</a></span>
 
-: This object was destroyed, i.e., destroy() was called.
+: 这个物体被摧毁了,destroy().
     </div>
 
 </li>
@@ -1265,7 +1337,12 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Toggle the show property of every point in the collectionconst len = pointPrimitives.length;for (let i = 0; i &lt; len; ++i) {  const p = pointPrimitives.get(i);  p.show = !p.show;}</code></pre>
+    <pre><code class="language-javascript">// Toggle the show property of every point in the collection
+const len = pointPrimitives.length;
+for (let i = 0; i &lt; len; ++i) {
+  const p = pointPrimitives.get(i);
+  p.show = !p.show;
+}</code></pre>
 
     
 
@@ -1307,7 +1384,10 @@
 
 
 <div class="description">
-    Returns true if this object was destroyed; otherwise, false.<br /><br />If this object was destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.
+    如果此对象已销毁，则返回 true;否则为 false。
+<br /><br />
+如果此对象已销毁，则不应使用;调用
+<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。
 </div>
 
 
@@ -1334,7 +1414,7 @@
 
         
 <div class="param-desc">
-    <code>true</code> if this object was destroyed; otherwise, <code>false</code>.
+    <code>true</code>，如果此对象被销毁;否则为 <code>false</code>。
 </div>
 
 
@@ -1402,13 +1482,17 @@
 
 
 <div class="description">
-    Removes a point from the collection.
+    从集合中删除一个点。
 </div>
 
 
 
     <h5>Performance:</h5>
-    <p class="description">Calling <code>remove</code> is expected constant time.  However, the collection's vertex bufferis rewritten - an <code>O(n)</code> operation that also incurs CPU to GPU overhead.  Forbest performance, remove as many points as possible before calling <code>update</code>.If you intend to temporarily hide a point, it is usually more efficient to call<a href="PointPrimitive.html#show"><code>PointPrimitive#show</code></a> instead of removing and re-adding the point.</p>
+    <p class="description">调用 <code>remove</code> 是预期的常数时间。 但是，集合的顶点缓冲区
+被重写 一个 <code>O(n)</code> 操作，也会产生 CPU 到 GPU 的开销。 为
+最佳性能，在调用 <code>update</code> 之前尽可能多地删除点。
+如果您打算暂时隐藏某个点，通常调用
+<a href="PointPrimitive.html#show"><code>PointPrimitive#show</code></a> 而不是删除并重新添加点。</p>
 
 
 
@@ -1456,7 +1540,7 @@
 
             <td class="description last">
             
-                The point to remove.</td>
+                要删除的点。</td>
         </tr>
 
     
@@ -1477,7 +1561,7 @@
 
         
 <div class="param-desc">
-    <code>true</code> if the point was removed; <code>false</code> if the point was not found in the collection.
+    <code>true</code>（如果该点被删除）;如果在集合中找不到该点，<code>则为 false</code>。
 </div>
 
 
@@ -1492,7 +1576,7 @@
         
 <span class="param-type"><a href="DeveloperError.html">DeveloperError</a></span>
 
-: This object was destroyed, i.e., destroy() was called.
+: 这个物体被摧毁了,destroy().
     </div>
 
 </li>
@@ -1522,7 +1606,8 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const p = pointPrimitives.add(...);pointPrimitives.remove(p);  // Returns true</code></pre>
+    <pre><code class="language-javascript">const p = pointPrimitives.add(...);
+pointPrimitives.remove(p);  // Returns true</code></pre>
 
     
 
@@ -1568,13 +1653,14 @@
 
 
 <div class="description">
-    Removes all points from the collection.
+    从集合中删除所有点。
 </div>
 
 
 
     <h5>Performance:</h5>
-    <p class="description"><code>O(n)</code>.  It is more efficient to remove all the pointsfrom a collection and then add new ones than to create a new collection entirely.</p>
+    <p class="description"><code>O(n)</code>.  删除所有点更有效
+从集合中，然后添加新的集合，而不是完全创建一个新集合。</p>
 
 
 
@@ -1604,7 +1690,7 @@
         
 <span class="param-type"><a href="DeveloperError.html">DeveloperError</a></span>
 
-: This object was destroyed, i.e., destroy() was called.
+: 这个物体被摧毁了,destroy().
     </div>
 
 </li>
@@ -1634,7 +1720,9 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">pointPrimitives.add(...);pointPrimitives.add(...);pointPrimitives.removeAll();</code></pre>
+    <pre><code class="language-javascript">pointPrimitives.add(...);
+pointPrimitives.add(...);
+pointPrimitives.removeAll();</code></pre>
 
     
 

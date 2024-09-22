@@ -58,7 +58,14 @@
 
 
 <div class="description">
-    Common atmosphere settings used by 3D Tiles and models for rendering sky atmosphere, ground atmosphere, and fog.<p>This class is not to be confused with <a href="SkyAtmosphere.html"><code>SkyAtmosphere</code></a>, which is responsible for rendering the sky.</p><p>While the atmosphere settings affect the color of fog, see <a href="Fog.html"><code>Fog</code></a> to control how fog is rendered.</p>
+    3D 瓦片和模型用于渲染天空大气、地面大气和雾的常见大气设置。
+
+<p>
+不要将此类与负责渲染天空的 <a href="SkyAtmosphere.html"><code>SkyAtmosphere</code></a> 混淆。
+</p>
+<p>
+虽然大气设置会影响雾的颜色，请参阅 <a href="Fog.html"><code>Fog</code></a> 来控制雾的渲染方式。
+</p>
 </div>
 
 
@@ -107,11 +114,19 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Turn on dynamic atmosphere lighting using the sun directionscene.atmosphere.dynamicLighting = Cesium.DynamicAtmosphereLightingType.SUNLIGHT;</code></pre>
+    <pre><code class="language-javascript">// Turn on dynamic atmosphere lighting using the sun direction
+scene.atmosphere.dynamicLighting = Cesium.DynamicAtmosphereLightingType.SUNLIGHT;</code></pre>
 
-    <pre><code class="language-javascript">// Turn on dynamic lighting using whatever light source is in the scenescene.light = new Cesium.DirectionalLight({  direction: new Cesium.Cartesian3(1, 0, 0)});scene.atmosphere.dynamicLighting = Cesium.DynamicAtmosphereLightingType.SCENE_LIGHT;</code></pre>
+    <pre><code class="language-javascript">// Turn on dynamic lighting using whatever light source is in the scene
+scene.light = new Cesium.DirectionalLight({
+  direction: new Cesium.Cartesian3(1, 0, 0)
+});
+scene.atmosphere.dynamicLighting = Cesium.DynamicAtmosphereLightingType.SCENE_LIGHT;</code></pre>
 
-    <pre><code class="language-javascript">// Adjust the color of the atmosphere effects.scene.atmosphere.hueShift = 0.4; // Cycle 40% around the color wheelscene.atmosphere.brightnessShift = 0.25; // Increase the brightnessscene.atmosphere.saturationShift = -0.1; // Desaturate the colors</code></pre>
+    <pre><code class="language-javascript">// Adjust the color of the atmosphere effects.
+scene.atmosphere.hueShift = 0.4; // Cycle 40% around the color wheel
+scene.atmosphere.brightnessShift = 0.25; // Increase the brightness
+scene.atmosphere.saturationShift = -0.1; // Desaturate the colors</code></pre>
 
     
 
@@ -172,7 +187,8 @@
 
 
 <div class="description">
-    The brightness shift to apply to the atmosphere. Defaults to 0.0 (no shift).A brightness shift of -1.0 is complete darkness, which will let space show through.
+    应用于大气的亮度偏移。默认为 0.0（无偏移）。
+-1.0 的亮度偏移是完全黑暗的，这将使空间透出。
 </div>
 
 
@@ -235,7 +251,8 @@
 
 
 <div class="description">
-    When not DynamicAtmosphereLightingType.NONE, the selected light source willbe used for dynamically lighting all atmosphere-related rendering effects.
+    当不是 DynamicAtmosphereLightingType.NONE 时，所选光源将会
+用于动态照亮所有与大气相关的渲染效果。
 </div>
 
 
@@ -298,7 +315,8 @@
 
 
 <div class="description">
-    The hue shift to apply to the atmosphere. Defaults to 0.0 (no shift).A hue shift of 1.0 indicates a complete rotation of the hues available.
+    应用于大气的色相偏移。默认为 0.0（无偏移）。
+色相偏移 1.0 表示可用色相完全旋转。
 </div>
 
 
@@ -361,7 +379,7 @@
 
 
 <div class="description">
-    The intensity of the light that is used for computing the ground atmosphere color.
+    用于计算地面大气颜色的光的强度。
 </div>
 
 
@@ -424,7 +442,10 @@
 
 
 <div class="description">
-    The anisotropy of the medium to consider for Mie scattering.<p>Valid values are between -1.0 and 1.0.</p>
+    米氏散射要考虑的介质的各向异性。
+<p>
+有效值介于 -1.0 和 1.0 之间。
+</p>
 </div>
 
 
@@ -487,7 +508,7 @@
 
 
 <div class="description">
-    The Mie scattering coefficient used in the atmospheric scattering equations for the ground atmosphere.
+    地面大气的大气散射方程中使用的 Mie 散射系数。
 </div>
 
 
@@ -550,7 +571,7 @@
 
 
 <div class="description">
-    The Mie scale height used in the atmospheric scattering equations for the ground atmosphere, in meters.
+    地面大气的大气散射方程中使用的 Mie 标尺高度，以米为单位。
 </div>
 
 
@@ -613,7 +634,7 @@
 
 
 <div class="description">
-    The Rayleigh scattering coefficient used in the atmospheric scattering equations for the ground atmosphere.
+    地面大气的大气散射方程中使用的瑞利散射系数。
 </div>
 
 
@@ -676,7 +697,7 @@
 
 
 <div class="description">
-    The Rayleigh scale height used in the atmospheric scattering equations for the ground atmosphere, in meters.
+    地面大气的大气散射方程中使用的瑞利标尺高度，以米为单位。
 </div>
 
 
@@ -739,7 +760,8 @@
 
 
 <div class="description">
-    The saturation shift to apply to the atmosphere. Defaults to 0.0 (no shift).A saturation shift of -1.0 is monochrome.
+    应用于大气的饱和度偏移。默认为 0.0（无偏移）。
+-1.0 的饱和度偏移为单色。
 </div>
 
 

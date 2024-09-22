@@ -108,7 +108,7 @@
                 </td>
             
 
-            <td class="description last">A list of elevation entries. They will automatically be sorted from lowest to highest. If there is only one entry and <code>extendsDownards</code> and <code>extendUpwards</code> are both <code>false</code>, they will both be set to <code>true</code>.</td>
+            <td class="description last">海拔条目列表。它们将自动从最低到最高排序。如果只有一个条目，并且 <code>extendsDownards</code> 和 <code>extendUpwards</code> 均为 <code>false</code>，则它们都将设置为 <code>true</code>。</td>
         </tr>
 
     
@@ -145,7 +145,7 @@
                 </td>
             
 
-            <td class="description last">If <code>true</code>, the band's minimum elevation color will extend infinitely downwards.</td>
+            <td class="description last">如果<code>为 true</code>，则波段的最小高程颜色将无限向下延伸。</td>
         </tr>
 
     
@@ -182,7 +182,7 @@
                 </td>
             
 
-            <td class="description last">If <code>true</code>, the band's maximum elevation color will extend infinitely upwards.</td>
+            <td class="description last">如果<code>为 true</code>，则波段的最大仰角颜色将无限向上延伸。</td>
         </tr>
 
     

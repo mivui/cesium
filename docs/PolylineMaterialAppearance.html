@@ -58,7 +58,7 @@
 
 
 <div class="description">
-    An appearance for <a href="PolylineGeometry.html"><code>PolylineGeometry</code></a> that supports shading with materials.
+    <a href="PolylineGeometry.html"><code>PolylineGeometry</code></a> 的外观，支持使用材质进行着色。
 </div>
 
 
@@ -170,7 +170,7 @@
 
                 
             
-                When <code>true</code>, the geometry is expected to appear translucent so <a href="PolylineMaterialAppearance.html#renderState"><code>PolylineMaterialAppearance#renderState</code></a> has alpha blending enabled.</td>
+                如果<code>为 true</code>，则几何体应显示为半透明，因此 <a href="PolylineMaterialAppearance.html#renderState"><code>PolylineMaterialAppearance#renderState</code></a> 启用了 Alpha 混合。</td>
         </tr>
 
     
@@ -206,7 +206,7 @@
 
                 
             
-                The material used to determine the fragment color.</td>
+                用于确定片段颜色的材质。</td>
         </tr>
 
     
@@ -240,7 +240,7 @@
 
                 
             
-                Optional GLSL vertex shader source to override the default vertex shader.</td>
+                可选的 GLSL 顶点着色器源，用于覆盖默认顶点着色器。</td>
         </tr>
 
     
@@ -274,7 +274,7 @@
 
                 
             
-                Optional GLSL fragment shader source to override the default fragment shader.</td>
+                可选的 GLSL 片段着色器源，用于覆盖默认片段着色器。</td>
         </tr>
 
     
@@ -308,7 +308,7 @@
 
                 
             
-                Optional render state to override the default render state.</td>
+                可选的渲染状态来覆盖默认的渲染状态。</td>
         </tr>
 
     
@@ -357,7 +357,21 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const primitive = new Cesium.Primitive({  geometryInstances : new Cesium.GeometryInstance({    geometry : new Cesium.PolylineGeometry({      positions : Cesium.Cartesian3.fromDegreesArray([        0.0, 0.0,        5.0, 0.0      ]),      width : 10.0,      vertexFormat : Cesium.PolylineMaterialAppearance.VERTEX_FORMAT    })  }),  appearance : new Cesium.PolylineMaterialAppearance({    material : Cesium.Material.fromType('Color')  })});</code></pre>
+    <pre><code class="language-javascript">const primitive = new Cesium.Primitive({
+  geometryInstances : new Cesium.GeometryInstance({
+    geometry : new Cesium.PolylineGeometry({
+      positions : Cesium.Cartesian3.fromDegreesArray([
+        0.0, 0.0,
+        5.0, 0.0
+      ]),
+      width : 10.0,
+      vertexFormat : Cesium.PolylineMaterialAppearance.VERTEX_FORMAT
+    })
+  }),
+  appearance : new Cesium.PolylineMaterialAppearance({
+    material : Cesium.Material.fromType('Color')
+  })
+});</code></pre>
 
     
 
@@ -414,7 +428,8 @@
 
 
 <div class="description">
-    The <a href="VertexFormat.html"><code>VertexFormat</code></a> that all <a href="PolylineMaterialAppearance.html"><code>PolylineMaterialAppearance</code></a> instancesare compatible with. This requires <code>position</code> and <code>st</code> attributes.
+    所有 <a href="PolylineMaterialAppearance.html"><code>PolylineMaterialAppearance</code></a> 实例的 <a href="VertexFormat.html"><code>VertexFormat</code></a>
+兼容。这需要 <code>position</code> 和 <code>st</code> 属性。
 </div>
 
 
@@ -474,7 +489,9 @@
 
 
 <div class="description">
-    When <code>true</code>, the geometry is expected to be closed so<a href="PolylineMaterialAppearance.html#renderState"><code>PolylineMaterialAppearance#renderState</code></a> has backface culling enabled.This is always <code>false</code> for <code>PolylineMaterialAppearance</code>.
+    如果<code>为 true</code>，则几何体应被关闭，因此
+<a href="PolylineMaterialAppearance.html#renderState"><code>PolylineMaterialAppearance#renderState</code></a> 启用了背面剔除。
+对于 <code>PolylineMaterialAppearance</code>，此参数始终为 <code>false</code>。
 </div>
 
 
@@ -537,7 +554,7 @@
 
 
 <div class="description">
-    The GLSL source code for the fragment shader.
+    片段着色器的 GLSL 源代码。
 </div>
 
 
@@ -597,7 +614,8 @@
 
 
 <div class="description">
-    The material used to determine the fragment color.  Unlike other <a href="PolylineMaterialAppearance.html"><code>PolylineMaterialAppearance</code></a>properties, this is not read-only, so an appearance's material can change on the fly.
+    用于确定片段颜色的材料。 与其他 <code>不同ialAppearance</code>
+属性，这不是只读的，因此外观的材质可以动态更改。
 </div>
 
 
@@ -665,7 +683,12 @@
 
 
 <div class="description">
-    The WebGL fixed-function state to use when rendering the geometry.<p>The render state can be explicitly defined when constructing a <a href="PolylineMaterialAppearance.html"><code>PolylineMaterialAppearance</code></a>instance, or it is set implicitly via <a href="PolylineMaterialAppearance.html#translucent"><code>PolylineMaterialAppearance#translucent</code></a>and <a href="PolylineMaterialAppearance.html#closed"><code>PolylineMaterialAppearance#closed</code></a>.</p>
+    渲染几何体时使用的 WebGL 固定函数状态。
+<p>
+在构造 <a href="PolylineMaterialAppearance.html"><code>PolylineMaterialAppearance</code></a> 时，可以显式定义渲染状态
+实例，或者通过 <a href="PolylineMaterialAppearance.html#translucent"><code>PolylineMaterialAppearance#translucent</code></a> 隐式设置
+和 <a href="PolylineMaterialAppearance.html#closed"><code>PolylineMaterialAppearance#closed</code></a> 的 Package。
+</p>
 </div>
 
 
@@ -725,7 +748,8 @@
 
 
 <div class="description">
-    When <code>true</code>, the geometry is expected to appear translucent so<a href="PolylineMaterialAppearance.html#renderState"><code>PolylineMaterialAppearance#renderState</code></a> has alpha blending enabled.
+    如果<code>为 true</code>，则几何体应显示为半透明，因此
+<a href="PolylineMaterialAppearance.html#renderState"><code>PolylineMaterialAppearance#renderState</code></a> 已启用 Alpha 混合。
 </div>
 
 
@@ -788,7 +812,9 @@
 
 
 <div class="description">
-    The <a href="VertexFormat.html"><code>VertexFormat</code></a> that this appearance instance is compatible with.A geometry can have more vertex attributes and still be compatible - at apotential performance cost - but it can't have less.
+    与此外观实例兼容的 <a href="VertexFormat.html"><code>VertexFormat</code></a>。
+几何体可以具有更多顶点属性，并且仍然兼容 - 在
+潜在的性能成本 - 但不能更少。
 </div>
 
 
@@ -851,7 +877,7 @@
 
 
 <div class="description">
-    The GLSL source code for the vertex shader.
+    顶点着色器的 GLSL 源代码。
 </div>
 
 
@@ -918,7 +944,8 @@
 
 
 <div class="description">
-    Procedurally creates the full GLSL fragment shader source.  For <a href="PolylineMaterialAppearance.html"><code>PolylineMaterialAppearance</code></a>,this is derived from <a href="PolylineMaterialAppearance.html#fragmentShaderSource"><code>PolylineMaterialAppearance#fragmentShaderSource</code></a> and <a href="PolylineMaterialAppearance.html#material"><code>PolylineMaterialAppearance#material</code></a>.
+    以程序方式创建完整的 GLSL 片段着色器源。 对于 <a href="PolylineMaterialAppearance.html"><code>PolylineMaterialAppearance</code></a>，
+此数据源自 <a href="PolylineMaterialAppearance.html#fragmentShaderSource"><code>PolylineMaterialAppearance#fragmentShaderSource</code></a> 和 <a href="PolylineMaterialAppearance.html#material"><code>PolylineMaterialAppearance#material</code></a>。
 </div>
 
 
@@ -945,7 +972,7 @@
 
         
 <div class="param-desc">
-    The full GLSL fragment shader source.
+    完整的 GLSL 片段着色器源。
 </div>
 
 
@@ -1008,7 +1035,9 @@
 
 
 <div class="description">
-    Creates a render state.  This is not the final render state instance; instead,it can contain a subset of render state properties identical to the render statecreated in the context.
+    创建渲染状态。 这不是最终的渲染状态实例;相反
+它可以包含与渲染状态相同的渲染状态属性的子集
+在上下文中创建。
 </div>
 
 
@@ -1035,7 +1064,7 @@
 
         
 <div class="param-desc">
-    The render state.
+    render 状态。
 </div>
 
 
@@ -1098,7 +1127,7 @@
 
 
 <div class="description">
-    Determines if the geometry is translucent based on <a href="PolylineMaterialAppearance.html#translucent"><code>PolylineMaterialAppearance#translucent</code></a> and <a href="Material.html#isTranslucent"><code>Material#isTranslucent</code></a>.
+    根据 <a href="PolylineMaterialAppearance.html#translucent"><code>PolylineMaterialAppearance#translucent</code></a> 和 <a href="Material.html#isTranslucent"><code>Material#isTranslucent</code></a> 确定几何体是否为半透明。
 </div>
 
 
@@ -1125,7 +1154,7 @@
 
         
 <div class="param-desc">
-    <code>true</code> if the appearance is translucent.
+    <code>true</code>，如果外观是半透明的。
 </div>
 
 

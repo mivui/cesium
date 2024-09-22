@@ -47,7 +47,7 @@
 
 
         
-            <div class="description">Determines how two pixels' values are combined.</div>
+            <div class="description">确定如何组合两个像素的值。</div>
         
 
         
@@ -96,7 +96,7 @@
 
             
 
-            <td class="description last">Pixel values are added componentwise.  This is used in additive blending for translucency.</td>
+            <td class="description last">像素值按组件添加。 这用于半透明的加法混合。</td>
         </tr>
 
     
@@ -119,7 +119,7 @@
 
             
 
-            <td class="description last">Pixel values are subtracted componentwise (source - destination).  This is used in alpha blending for translucency.</td>
+            <td class="description last">像素值按组件（源 - 目标）减去。 这用于半透明的 Alpha 混合。</td>
         </tr>
 
     
@@ -142,7 +142,7 @@
 
             
 
-            <td class="description last">Pixel values are subtracted componentwise (destination - source).</td>
+            <td class="description last">按组件减去像素值（目标 - 源）。</td>
         </tr>
 
     
@@ -165,7 +165,9 @@
 
             
 
-            <td class="description last">Pixel values are given to the minimum function (min(source, destination)).This equation operates on each pixel color component.</td>
+            <td class="description last">像素值为最小函数 （min（source， destination）） 提供。
+
+此方程式对每个像素颜色分量起作用。</td>
         </tr>
 
     
@@ -188,7 +190,9 @@
 
             
 
-            <td class="description last">Pixel values are given to the maximum function (max(source, destination)).This equation operates on each pixel color component.</td>
+            <td class="description last">像素值为最大函数 （max（source， destination）） 提供。
+
+此方程式对每个像素颜色分量起作用。</td>
         </tr>
 
     
@@ -262,7 +266,7 @@
 
 
 <div class="description">
-    Pixel values are added componentwise.  This is used in additive blending for translucency.
+    像素值按组件添加。 这用于半透明的加法混合。
 </div>
 
 
@@ -325,7 +329,9 @@
 
 
 <div class="description">
-    Pixel values are given to the maximum function (max(source, destination)).This equation operates on each pixel color component.
+    像素值为最大函数 （max（source， destination）） 提供。
+
+此方程式对每个像素颜色分量起作用。
 </div>
 
 
@@ -388,7 +394,9 @@
 
 
 <div class="description">
-    Pixel values are given to the minimum function (min(source, destination)).This equation operates on each pixel color component.
+    像素值为最小函数 （min（source， destination）） 提供。
+
+此方程式对每个像素颜色分量起作用。
 </div>
 
 
@@ -451,7 +459,7 @@
 
 
 <div class="description">
-    Pixel values are subtracted componentwise (destination - source).
+    按组件减去像素值（目标 - 源）。
 </div>
 
 
@@ -514,7 +522,7 @@
 
 
 <div class="description">
-    Pixel values are subtracted componentwise (source - destination).  This is used in alpha blending for translucency.
+    像素值按组件（源 - 目标）减去。 这用于半透明的 Alpha 混合。
 </div>
 
 

@@ -58,7 +58,12 @@
 
 
 <div class="description">
-    Visualizes a vertex attribute by displaying it as a color for debugging.<p>Components for well-known unit-length vectors, i.e., <code>normal</code>,<code>tangent</code>, and <code>bitangent</code>, are scaled and biasedfrom [-1.0, 1.0] to (-1.0, 1.0).</p>
+    通过将顶点属性显示为用于调试的颜色来可视化顶点属性。
+<p>
+已知单位长度向量的分量，即<code>法向</code>向量、
+<code>切线</code>和<code>双切线</code>是缩放和偏置的
+从[-1.0, 1.0] to (-1.0, 1.0).
+</p>
 </div>
 
 
@@ -159,7 +164,7 @@
 
                 
             
-                The name of the attribute to visualize.</td>
+                要可视化的属性的名称。</td>
         </tr>
 
     
@@ -195,7 +200,7 @@
 
                 
             
-                Boolean that determines whether this attribute is a per-instance geometry attribute.</td>
+                确定此属性是否为每个实例的几何属性的布尔值。</td>
         </tr>
 
     
@@ -231,7 +236,7 @@
 
                 
             
-                The GLSL datatype of the attribute.  Supported datatypes are <code>float</code>, <code>vec2</code>, <code>vec3</code>, and <code>vec4</code>.</td>
+                属性的 GLSL 数据类型。 支持的数据类型包括 <code>float</code>、<code>vec2</code>、<code>vec3</code> 和 <code>vec4</code>。</td>
         </tr>
 
     
@@ -265,7 +270,7 @@
 
                 
             
-                Optional GLSL vertex shader source to override the default vertex shader.</td>
+                可选的 GLSL 顶点着色器源，用于覆盖默认顶点着色器。</td>
         </tr>
 
     
@@ -299,7 +304,7 @@
 
                 
             
-                Optional GLSL fragment shader source to override the default fragment shader.</td>
+                可选的 GLSL 片段着色器源，用于覆盖默认片段着色器。</td>
         </tr>
 
     
@@ -333,7 +338,7 @@
 
                 
             
-                Optional render state to override the default render state.</td>
+                可选的渲染状态来覆盖默认的渲染状态。</td>
         </tr>
 
     
@@ -396,7 +401,12 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const primitive = new Cesium.Primitive({  geometryInstances : // ...  appearance : new Cesium.DebugAppearance({    attributeName : 'normal'  })});</code></pre>
+    <pre><code class="language-javascript">const primitive = new Cesium.Primitive({
+  geometryInstances : // ...
+  appearance : new Cesium.DebugAppearance({
+    attributeName : 'normal'
+  })
+});</code></pre>
 
     
 
@@ -448,7 +458,7 @@
 
 
 <div class="description">
-    The name of the attribute being visualized.
+    正在可视化的属性的名称。
 </div>
 
 
@@ -508,7 +518,7 @@
 
 
 <div class="description">
-    When <code>true</code>, the geometry is expected to be closed.
+    如果<code>为 true</code>，则几何图形应为闭合。
 </div>
 
 
@@ -571,7 +581,9 @@
 
 
 <div class="description">
-    The GLSL source code for the fragment shader.  The full fragment shadersource is built procedurally taking into account the <a href="DebugAppearance.html#material"><code>DebugAppearance#material</code></a>.Use <a href="DebugAppearance.html#getFragmentShaderSource"><code>DebugAppearance#getFragmentShaderSource</code></a> to get the full source.
+    片段着色器的 GLSL 源代码。 完整的片段着色器
+source 是按照程序构建的，考虑了 <a href="DebugAppearance.html#material"><code>DebugAppearance#material</code></a>。
+使用 <a href="DebugAppearance.html#getFragmentShaderSource"><code>DebugAppearance#getFragmentShaderSource</code></a> 获取完整源代码。
 </div>
 
 
@@ -631,7 +643,7 @@
 
 
 <div class="description">
-    The GLSL datatype of the attribute being visualized.
+    正在可视化的属性的 GLSL 数据类型。
 </div>
 
 
@@ -691,7 +703,8 @@
 
 
 <div class="description">
-    This property is part of the <a href="Appearance.html"><code>Appearance</code></a> interface, but is notused by <a href="DebugAppearance.html"><code>DebugAppearance</code></a> since a fully custom fragment shader is used.
+    此属性是 <a href="Appearance.html"><code>Appearance</code></a> 接口的一部分，但不是
+由 <a href="DebugAppearance.html"><code>DebugAppearance</code></a> 使用，因为使用的是完全自定义的片段着色器。
 </div>
 
 
@@ -754,7 +767,7 @@
 
 
 <div class="description">
-    The WebGL fixed-function state to use when rendering the geometry.
+    渲染几何体时使用的 WebGL 固定函数状态。
 </div>
 
 
@@ -814,7 +827,7 @@
 
 
 <div class="description">
-    When <code>true</code>, the geometry is expected to appear translucent.
+    <code>如果为 true</code>，则几何体应显示为半透明。
 </div>
 
 
@@ -877,7 +890,7 @@
 
 
 <div class="description">
-    The GLSL source code for the vertex shader.
+    顶点着色器的 GLSL 源代码。
 </div>
 
 
@@ -944,7 +957,8 @@
 
 
 <div class="description">
-    Returns the full GLSL fragment shader source, which for <a href="DebugAppearance.html"><code>DebugAppearance</code></a> is just<a href="DebugAppearance.html#fragmentShaderSource"><code>DebugAppearance#fragmentShaderSource</code></a>.
+    返回完整的 GLSL 片段着色器源，对于 <a href="DebugAppearance.html"><code>DebugAppearance</code></a>，它只是
+<a href="DebugAppearance.html#fragmentShaderSource"><code>DebugAppearance#fragmentShaderSource</code></a>.
 </div>
 
 
@@ -971,7 +985,7 @@
 
         
 <div class="param-desc">
-    The full GLSL fragment shader source.
+    完整的 GLSL 片段着色器源。
 </div>
 
 
@@ -1034,7 +1048,9 @@
 
 
 <div class="description">
-    Creates a render state.  This is not the final render state instance; instead,it can contain a subset of render state properties identical to the render statecreated in the context.
+    创建渲染状态。 这不是最终的渲染状态实例;相反
+它可以包含与渲染状态相同的渲染状态属性的子集
+在上下文中创建。
 </div>
 
 
@@ -1061,7 +1077,7 @@
 
         
 <div class="param-desc">
-    The render state.
+    渲染状态。
 </div>
 
 
@@ -1124,7 +1140,7 @@
 
 
 <div class="description">
-    Determines if the geometry is translucent based on <a href="DebugAppearance.html#translucent"><code>DebugAppearance#translucent</code></a>.
+    根据 <a href="DebugAppearance.html#translucent"><code>DebugAppearance#translucent</code></a> 确定几何体是否为半透明。
 </div>
 
 
@@ -1151,7 +1167,7 @@
 
         
 <div class="param-desc">
-    <code>true</code> if the appearance is translucent.
+    <code>true</code>，如果外观是半透明的。
 </div>
 
 

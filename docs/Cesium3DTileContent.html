@@ -58,7 +58,14 @@
 
 
 <div class="description">
-    The content of a tile in a <a href="Cesium3DTileset.html"><code>Cesium3DTileset</code></a>.<p>Derived classes of this interface provide access to individual features in the tile.Access derived objects through <a href="Cesium3DTile.html#content"><code>Cesium3DTile#content</code></a>.</p><p>This type describes an interface and is not intended to be instantiated directly.</p>
+    <a href="Cesium3DTileset.html"><code>Cesium3DTileset</code></a> 中瓦片的内容。
+<p>
+此接口的派生类提供对磁贴中各个功能的访问。
+通过 <a href="Cesium3DTile.html#content"><code>Cesium3DTile#content</code></a> 访问派生对象。
+</p>
+<p>
+此类型描述接口，不打算直接实例化。
+</p>
 </div>
 
 
@@ -154,7 +161,9 @@
 
 
 <div class="description">
-    Gets the amount of memory used by the batch table textures and any binarymetadata properties not accounted for in geometryByteLength ortexturesByteLength
+    获取批处理表纹理和任何二进制文件使用的内存量
+geometryByteLength 中未考虑元数据属性，或者
+textures字节长度
 </div>
 
 
@@ -214,7 +223,7 @@
 
 
 <div class="description">
-    Gets the number of features in the tile.
+    获取瓦片中的要素数。
 </div>
 
 
@@ -274,7 +283,7 @@
 
 
 <div class="description">
-    Gets the tile's geometry memory in bytes.
+    获取图块的几何内存（以字节为单位）。
 </div>
 
 
@@ -334,7 +343,7 @@
 
 
 <div class="description">
-    Gets the array of <a href="Cesium3DTileContent.html"><code>Cesium3DTileContent</code></a> objects for contents that contain other contents, such as composite tiles. The inner contents may in turn have inner contents, such as a composite tile that contains a composite tile.
+    获取包含其他内容（如复合磁贴）的内容的 <a href="Cesium3DTileContent.html"><code>Cesium3DTileContent</code></a> 对象的数组。内部内容可能又具有内部内容，例如包含复合切片的复合切片。
 </div>
 
 
@@ -399,7 +408,11 @@
 
 
 <div class="description">
-    Gets the number of points in the tile.<p>Only applicable for tiles with Point Cloud content. This is different than <a href="Cesium3DTileContent.html#featuresLength"><code>Cesium3DTileContent#featuresLength</code></a> whichequals the number of groups of points as distinguished by the <code>BATCH_ID</code> feature table semantic.</p>
+    获取瓦片中的点数。
+<p>
+仅适用于包含点云内容的瓦片。这与 <a href="Cesium3DTileContent.html#featuresLength"><code>Cesium3DTileContent#featuresLength</code></a> 不同，后者
+等于 <code>BATCH_ID</code> 特征表语义区分的点组数。
+</p>
 </div>
 
 
@@ -464,7 +477,7 @@
 
 
 <div class="description">
-    Returns true when the tile's content is ready to render; otherwise false
+    当磁贴的内容准备好呈现时，返回 true;否则为 false
 </div>
 
 
@@ -524,7 +537,7 @@
 
 
 <div class="description">
-    Gets the tile's texture memory in bytes.
+    获取平铺的纹理内存（以字节为单位）。
 </div>
 
 
@@ -584,7 +597,7 @@
 
 
 <div class="description">
-    Gets the tile containing this content.
+    获取包含此内容的磁贴。
 </div>
 
 
@@ -644,7 +657,7 @@
 
 
 <div class="description">
-    Gets the tileset for this tile.
+    获取此图块的图块集。
 </div>
 
 
@@ -704,7 +717,7 @@
 
 
 <div class="description">
-    Gets the number of triangles in the tile.
+    获取平铺中的三角形数。
 </div>
 
 
@@ -764,7 +777,7 @@
 
 
 <div class="description">
-    Gets the url of the tile's content.
+    获取磁贴内容的 URL。
 </div>
 
 
@@ -831,7 +844,12 @@
 
 
 <div class="description">
-    Returns the <a href="Cesium3DTileFeature.html"><code>Cesium3DTileFeature</code></a> object for the feature with thegiven <code>batchId</code>.  This object is used to get and modify thefeature's properties.<p>Features in a tile are ordered by <code>batchId</code>, an index used to retrieve their metadata from the batch table.</p>
+    返回 <a href="Cesium3DTileFeature.html"><code>Cesium3DTileFeature</code></a> 对象的
+给定 <code>batchId</code>。 此对象用于获取和修改
+功能的属性。
+<p>
+瓦片中的要素按 <code>batchId 排序，batchId</code> 是用于从批处理表中检索其元数据的索引。
+</p>
 </div>
 
 
@@ -882,7 +900,7 @@
 
             <td class="description last">
             
-                The batchId for the feature.</td>
+                特征的 batchId。</td>
         </tr>
 
     
@@ -903,7 +921,7 @@
 
         
 <div class="param-desc">
-    The corresponding <a href="Cesium3DTileFeature.html"><code>Cesium3DTileFeature</code></a> object.
+    对应的 <a href="Cesium3DTileFeature.html"><code>Cesium3DTileFeature</code></a> 对象。
 </div>
 
 
@@ -985,7 +1003,7 @@
 
 
 <div class="description">
-    Returns whether the feature has this property.
+    返回功能是否具有此属性。
 </div>
 
 
@@ -1036,7 +1054,7 @@
 
             <td class="description last">
             
-                The batchId for the feature.</td>
+                特征的 batchId。</td>
         </tr>
 
     
@@ -1059,7 +1077,7 @@
 
             <td class="description last">
             
-                The case-sensitive name of the property.</td>
+                属性的区分大小写的名称。</td>
         </tr>
 
     
@@ -1080,7 +1098,7 @@
 
         
 <div class="param-desc">
-    <code>true</code> if the feature has this property; otherwise, <code>false</code>.
+    <code>true</code>，如果特征具有此属性;否则为 <code>false</code>。
 </div>
 
 

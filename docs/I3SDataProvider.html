@@ -58,7 +58,14 @@
 
 
 <div class="description">
-    An I3SDataProvider is the main public class for I3S support. The url optionshould return a scene object. Currently supported I3S versions are 1.6 and1.7/1.8 (OGC I3S 1.2). I3SFeature and I3SNode classes implement theObject Model for I3S entities, with public interfaces.<div class="notice">This object is normally not instantiated directly, use <a href="I3SDataProvider.html#.fromUrl"><code>I3SDataProvider.fromUrl</code></a>.</div>
+    I3SDataProvider 是 I3S 支持的主要公共类。url 选项
+应返回一个 scene 对象。当前支持的 I3S 版本为 1.6 和
+1.7/1.8 （OGC I3S 1.2）。I3SFeature 和 I3SNode 类实现
+I3S 实体的对象模型，具有公共接口。
+
+<div class="notice">
+此对象通常不会直接实例化，请使用 <a href="I3SDataProvider.html#.fromUrl"><code>I3SDataProvider.fromUrl</code></a>.
+</div>
 </div>
 
 
@@ -152,9 +159,27 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">try {  const i3sData = await I3SDataProvider.fromUrl(    "https://tiles.arcgis.com/tiles/z2tnIkrLQ2BRzr6P/arcgis/rest/services/Frankfurt2017_vi3s_18/SceneServer/layers/0"  );  viewer.scene.primitives.add(i3sData);} catch (error) {  console.log(`There was an error creating the I3S Data Provider: ${error}`);}</code></pre>
+    <pre><code class="language-javascript">try {
+  const i3sData = await I3SDataProvider.fromUrl(
+    "https://tiles.arcgis.com/tiles/z2tnIkrLQ2BRzr6P/arcgis/rest/services/Frankfurt2017_vi3s_18/SceneServer/layers/0"
+  );
+  viewer.scene.primitives.add(i3sData);
+} catch (error) {
+  console.log(`There was an error creating the I3S Data Provider: ${error}`);
+}</code></pre>
 
-    <pre><code class="language-javascript">try {  const geoidService = await Cesium.ArcGISTiledElevationTerrainProvider.fromUrl(    "https://tiles.arcgis.com/tiles/z2tnIkrLQ2BRzr6P/arcgis/rest/services/EGM2008/ImageServer"  );  const i3sData = await I3SDataProvider.fromUrl(    "https://tiles.arcgis.com/tiles/z2tnIkrLQ2BRzr6P/arcgis/rest/services/Frankfurt2017_vi3s_18/SceneServer/layers/0", {      geoidTiledTerrainProvider: geoidService  });  viewer.scene.primitives.add(i3sData);} catch (error) {  console.log(`There was an error creating the I3S Data Provider: ${error}`);}</code></pre>
+    <pre><code class="language-javascript">try {
+  const geoidService = await Cesium.ArcGISTiledElevationTerrainProvider.fromUrl(
+    "https://tiles.arcgis.com/tiles/z2tnIkrLQ2BRzr6P/arcgis/rest/services/EGM2008/ImageServer"
+  );
+  const i3sData = await I3SDataProvider.fromUrl(
+    "https://tiles.arcgis.com/tiles/z2tnIkrLQ2BRzr6P/arcgis/rest/services/Frankfurt2017_vi3s_18/SceneServer/layers/0", {
+      geoidTiledTerrainProvider: geoidService
+  });
+  viewer.scene.primitives.add(i3sData);
+} catch (error) {
+  console.log(`There was an error creating the I3S Data Provider: ${error}`);
+}</code></pre>
 
     
 
@@ -213,7 +238,7 @@
 
 
 <div class="description">
-    Determines if the alpha mode of the material will be adjusted depending on the color vertex attribute.
+    确定是否根据颜色顶点属性调整材质的 Alpha 模式。
 </div>
 
 
@@ -273,7 +298,7 @@
 
 
 <div class="description">
-    Determines if the I3S symbology will be parsed and applied for the layers.
+    确定是否将解析 I3S 符号系统并将其应用于图层。
 </div>
 
 
@@ -333,7 +358,7 @@
 
 
 <div class="description">
-    Determines if the flat normals will be generated for I3S geometry without normals.
+    确定是否为没有法线的 I3S 几何体生成平坦法线。
 </div>
 
 
@@ -393,7 +418,7 @@
 
 
 <div class="description">
-    Gets the I3S data for this object.
+    获取此对象的 I3S 数据。
 </div>
 
 
@@ -453,7 +478,7 @@
 
 
 <div class="description">
-    Gets the extent covered by this I3S.
+    获取此 I3S 覆盖的范围。
 </div>
 
 
@@ -513,7 +538,7 @@
 
 
 <div class="description">
-    The terrain provider referencing the GEOID service to be used for orthometric to ellipsoidal conversion.
+    引用要用于正向椭球体转换的 GEOID 服务的 terrain 提供程序。
 </div>
 
 
@@ -573,7 +598,7 @@
 
 
 <div class="description">
-    Gets the collection of layers.
+    获取 layers 的集合。
 </div>
 
 
@@ -633,7 +658,7 @@
 
 
 <div class="description">
-    Gets a human-readable name for this dataset.
+    获取此数据集的用户可读名称。
 </div>
 
 
@@ -693,7 +718,7 @@
 
 
 <div class="description">
-    The resource used to fetch the I3S dataset.
+    用于获取 I3S 数据集的资源。
 </div>
 
 
@@ -753,7 +778,7 @@
 
 
 <div class="description">
-    Determines if the dataset will be shown.
+    确定是否显示数据集。
 </div>
 
 
@@ -813,7 +838,7 @@
 
 
 <div class="description">
-    Determines if the features will be shown.
+    确定是否显示要素。
 </div>
 
 
@@ -873,7 +898,7 @@
 
 
 <div class="description">
-    Gets the collection of building sublayers.
+    获取建筑物子图层的集合.
 </div>
 
 
@@ -940,7 +965,8 @@
 
 
 <div class="description">
-    Creates an I3SDataProvider. Currently supported I3S versions are 1.6 and1.7/1.8 (OGC I3S 1.2).
+    创建 I3SDataProvider。当前支持的 I3S 版本为 1.6 和
+1.7/1.8 （OGC I3S 1.2）。
 </div>
 
 
@@ -994,7 +1020,7 @@
 
             <td class="description last">
             
-                The url of the I3S dataset, which should return an I3S scene object</td>
+                I3S 数据集的 url，应返回 I3S 场景对象</td>
         </tr>
 
     
@@ -1017,7 +1043,7 @@
 
             <td class="description last">
             
-                An 描述初始化选项的对象</td>
+                描述初始化选项的对象</td>
         </tr>
 
     
@@ -1065,9 +1091,27 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">try {  const i3sData = await I3SDataProvider.fromUrl(    "https://tiles.arcgis.com/tiles/z2tnIkrLQ2BRzr6P/arcgis/rest/services/Frankfurt2017_vi3s_18/SceneServer/layers/0"  );  viewer.scene.primitives.add(i3sData);} catch (error) {  console.log(`There was an error creating the I3S Data Provider: ${error}`);}</code></pre>
+    <pre><code class="language-javascript">try {
+  const i3sData = await I3SDataProvider.fromUrl(
+    "https://tiles.arcgis.com/tiles/z2tnIkrLQ2BRzr6P/arcgis/rest/services/Frankfurt2017_vi3s_18/SceneServer/layers/0"
+  );
+  viewer.scene.primitives.add(i3sData);
+} catch (error) {
+  console.log(`There was an error creating the I3S Data Provider: ${error}`);
+}</code></pre>
 
-    <pre><code class="language-javascript">try {  const geoidService = await Cesium.ArcGISTiledElevationTerrainProvider.fromUrl(    "https://tiles.arcgis.com/tiles/z2tnIkrLQ2BRzr6P/arcgis/rest/services/EGM2008/ImageServer"  );  const i3sData = await I3SDataProvider.fromUrl(    "https://tiles.arcgis.com/tiles/z2tnIkrLQ2BRzr6P/arcgis/rest/services/Frankfurt2017_vi3s_18/SceneServer/layers/0", {      geoidTiledTerrainProvider: geoidService  });  viewer.scene.primitives.add(i3sData);} catch (error) {  console.log(`There was an error creating the I3S Data Provider: ${error}`);}</code></pre>
+    <pre><code class="language-javascript">try {
+  const geoidService = await Cesium.ArcGISTiledElevationTerrainProvider.fromUrl(
+    "https://tiles.arcgis.com/tiles/z2tnIkrLQ2BRzr6P/arcgis/rest/services/EGM2008/ImageServer"
+  );
+  const i3sData = await I3SDataProvider.fromUrl(
+    "https://tiles.arcgis.com/tiles/z2tnIkrLQ2BRzr6P/arcgis/rest/services/Frankfurt2017_vi3s_18/SceneServer/layers/0", {
+      geoidTiledTerrainProvider: geoidService
+  });
+  viewer.scene.primitives.add(i3sData);
+} catch (error) {
+  console.log(`There was an error creating the I3S Data Provider: ${error}`);
+}</code></pre>
 
     
 
@@ -1104,7 +1148,13 @@
 
 
 <div class="description">
-    Destroys the WebGL resources held by this object. Destroying an object allows for deterministicrelease of WebGL resources, instead of relying on the garbage collector to destroy this object.<p>Once an object is destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception. Therefore,assign the return value (<code>undefined</code>) to the object as done in the example.</p>
+    销毁此对象持有的 WebGL 资源。销毁对象允许确定性
+释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。
+<p>
+一旦对象被销毁，就不应该使用它;调用
+<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。因此
+将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
+</p>
 </div>
 
 
@@ -1137,7 +1187,7 @@
         
 <span class="param-type"><a href="DeveloperError.html">DeveloperError</a></span>
 
-: This object was destroyed, i.e., destroy() was called.
+: 这个物体被摧毁了,destroy().
     </div>
 
 </li>
@@ -1204,7 +1254,7 @@
 
 
 <div class="description">
-    Filters the drawn elements of a scene to specific attribute names and values
+    将场景的绘制元素过滤为特定的属性名称和值
 </div>
 
 
@@ -1270,7 +1320,7 @@
 
                 
             
-                The collection of attribute filters</td>
+                属性过滤器的集合</td>
         </tr>
 
     
@@ -1291,7 +1341,7 @@
 
         
 <div class="param-desc">
-    A promise that is resolved when the filter is applied
+    应用过滤器时解析的 Promise
 </div>
 
 
@@ -1354,7 +1404,7 @@
 
 
 <div class="description">
-    Returns the collection of names for all available attributes
+    返回所有可用属性的名称集合
 </div>
 
 
@@ -1381,7 +1431,7 @@
 
         
 <div class="param-desc">
-    The collection of attribute names
+    属性名称的集合
 </div>
 
 
@@ -1444,7 +1494,7 @@
 
 
 <div class="description">
-    Returns the collection of values for the attribute with the given name
+    返回具有给定名称的属性的值集合
 </div>
 
 
@@ -1495,7 +1545,7 @@
 
             <td class="description last">
             
-                The attribute name</td>
+                属性名称</td>
         </tr>
 
     
@@ -1516,7 +1566,7 @@
 
         
 <div class="param-desc">
-    The collection of attribute values
+    属性值的集合
 </div>
 
 
@@ -1579,7 +1629,11 @@
 
 
 <div class="description">
-    Returns true if this object was destroyed; otherwise, false.<p>If this object was destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.</p>
+    如果此对象已销毁，则返回 true;否则为 false。
+<p>
+如果此对象已销毁，则不应使用;调用
+<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。
+</p>
 </div>
 
 
@@ -1606,7 +1660,7 @@
 
         
 <div class="param-desc">
-    <code>true</code> if this object was destroyed; otherwise, <code>false</code>.
+    <code>true</code>，如果此对象被销毁;否则为 <code>false</code>。
 </div>
 
 
@@ -1679,7 +1733,7 @@
 
 
 <div class="description">
-    Initialization options for the I3SDataProvider constructor
+    I3SDataProvider 构造函数的初始化选项
 </div>
 
 
@@ -1747,7 +1801,7 @@
                 </td>
             
 
-            <td class="description last">The name of the I3S dataset.</td>
+            <td class="description last">I3S 数据集的名称。</td>
         </tr>
 
     
@@ -1784,7 +1838,7 @@
                 </td>
             
 
-            <td class="description last">Determines if the dataset will be shown.</td>
+            <td class="description last">确定是否显示数据集。</td>
         </tr>
 
     
@@ -1822,7 +1876,7 @@
                 </td>
             
 
-            <td class="description last">Tiled elevation provider describing an Earth Gravitational Model. If defined, geometry will be shifted based on the offsets given by this provider. Required to position I3S data sets with gravity-related height at the correct location.</td>
+            <td class="description last">描述地球引力模型的平铺高程提供者。如果已定义，则几何图形将根据此提供程序提供的偏移量进行移动。需要将具有重力相关高度的 I3S 数据集定位在正确的位置。</td>
         </tr>
 
     
@@ -1857,7 +1911,7 @@
                 </td>
             
 
-            <td class="description last">Object containing options to pass to an internally created <a href="Cesium3DTileset.html"><code>Cesium3DTileset</code></a>. See <a href="Cesium3DTileset.html"><code>Cesium3DTileset</code></a> for list of valid properties. All options can be used with the exception of <code>url</code> and <code>show</code> which are overridden by values from I3SDataProvider.</td>
+            <td class="description last">包含要传递给内部创建的 <a href="Cesium3DTileset.html"><code>Cesium3DTileset</code></a> 的选项的对象。请参阅 <a href="Cesium3DTileset.html"><code>Cesium3DTileset</code></a> 以获取有效属性的列表。可以使用除 <code>url</code> 和 <code>show</code> 之外的所有选项，这些选项被 I3SDataProvider 中的值覆盖。</td>
         </tr>
 
     
@@ -1894,7 +1948,7 @@
                 </td>
             
 
-            <td class="description last">Determines if the features will be shown.</td>
+            <td class="description last">确定是否显示特征。</td>
         </tr>
 
     
@@ -1931,7 +1985,7 @@
                 </td>
             
 
-            <td class="description last">The option to adjust the alpha mode of the material based on the transparency of the vertex color. When <code>true</code>, the alpha mode of the material (if not defined) will be set to BLEND for geometry with any transparency in the color vertex attribute.</td>
+            <td class="description last">根据顶点颜色的透明度调整材质的 Alpha 模式的选项。如果<code>为 true</code>，则材质的 Alpha 模式（如果未定义）将设置为 BLEND，用于颜色顶点属性中具有任何透明度的几何体。</td>
         </tr>
 
     
@@ -1968,7 +2022,7 @@
                 </td>
             
 
-            <td class="description last">Determines if the I3S symbology will be parsed and applied for the layers.</td>
+            <td class="description last">确定是否解析 I3S 符号并将其应用于图层。</td>
         </tr>
 
     
@@ -2005,7 +2059,7 @@
                 </td>
             
 
-            <td class="description last">Determines if the flat normals will be generated for I3S geometry without normals.</td>
+            <td class="description last">确定是否为没有法线的 I3S 几何体生成平坦法线。</td>
         </tr>
 
     
@@ -2033,9 +2087,22 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Increase LOD by reducing SSEconst cesium3dTilesetOptions = {  maximumScreenSpaceError: 1,};const i3sOptions = {  cesium3dTilesetOptions: cesium3dTilesetOptions,};</code></pre>
+    <pre><code class="language-javascript">// Increase LOD by reducing SSE
+const cesium3dTilesetOptions = {
+  maximumScreenSpaceError: 1,
+};
+const i3sOptions = {
+  cesium3dTilesetOptions: cesium3dTilesetOptions,
+};</code></pre>
 
-    <pre><code class="language-javascript">// Set a custom outline color to replace the color defined in I3S symbologyconst cesium3dTilesetOptions = {  outlineColor: Cesium.Color.BLUE,};const i3sOptions = {  cesium3dTilesetOptions: cesium3dTilesetOptions,  applySymbology: true,};</code></pre>
+    <pre><code class="language-javascript">// Set a custom outline color to replace the color defined in I3S symbology
+const cesium3dTilesetOptions = {
+  outlineColor: Cesium.Color.BLUE,
+};
+const i3sOptions = {
+  cesium3dTilesetOptions: cesium3dTilesetOptions,
+  applySymbology: true,
+};</code></pre>
 
     
 

@@ -47,7 +47,7 @@
 
 
         
-            <div class="description">Determines which triangles, if any, are culled.</div>
+            <div class="description">确定剔除哪些三角形（如果有）。</div>
         
 
         
@@ -96,7 +96,7 @@
 
             
 
-            <td class="description last">Front-facing triangles are culled.</td>
+            <td class="description last">正面三角形被剔除。</td>
         </tr>
 
     
@@ -119,7 +119,7 @@
 
             
 
-            <td class="description last">Back-facing triangles are culled.</td>
+            <td class="description last">背面三角形被剔除。</td>
         </tr>
 
     
@@ -142,7 +142,7 @@
 
             
 
-            <td class="description last">Both front-facing and back-facing triangles are culled.</td>
+            <td class="description last">正面和背面三角形都被剔除。</td>
         </tr>
 
     
@@ -216,7 +216,7 @@
 
 
 <div class="description">
-    Back-facing triangles are culled.
+    背面三角形被剔除。
 </div>
 
 
@@ -279,7 +279,7 @@
 
 
 <div class="description">
-    Front-facing triangles are culled.
+    正面三角形被剔除。
 </div>
 
 
@@ -342,7 +342,7 @@
 
 
 <div class="description">
-    Both front-facing and back-facing triangles are culled.
+    正面和背面三角形都被剔除。
 </div>
 
 

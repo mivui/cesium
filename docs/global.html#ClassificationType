@@ -47,7 +47,7 @@
 
 
         
-            <div class="description">Whether a classification affects terrain, 3D Tiles or both.</div>
+            <div class="description">分类是否影响地形、3D 瓦片或两者。</div>
         
 
         
@@ -96,7 +96,7 @@
 
             
 
-            <td class="description last">Only terrain will be classified.</td>
+            <td class="description last">仅对地形进行分类。</td>
         </tr>
 
     
@@ -119,7 +119,7 @@
 
             
 
-            <td class="description last">Only 3D Tiles will be classified.</td>
+            <td class="description last">仅对 3D 图块进行分类。</td>
         </tr>
 
     
@@ -142,7 +142,7 @@
 
             
 
-            <td class="description last">Both terrain and 3D Tiles will be classified.</td>
+            <td class="description last">地形和 3D 瓦片都将被分类。</td>
         </tr>
 
     
@@ -216,7 +216,7 @@
 
 
 <div class="description">
-    Both terrain and 3D Tiles will be classified.
+    地形和 3D 瓦片都将被分类。
 </div>
 
 
@@ -279,7 +279,7 @@
 
 
 <div class="description">
-    Only 3D Tiles will be classified.
+    仅对 3D 图块进行分类。
 </div>
 
 
@@ -342,7 +342,7 @@
 
 
 <div class="description">
-    Only terrain will be classified.
+    仅对地形进行分类。
 </div>
 
 

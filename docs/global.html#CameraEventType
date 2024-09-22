@@ -47,7 +47,7 @@
 
 
         
-            <div class="description">Enumerates the available input for interacting with the camera.</div>
+            <div class="description">列举用于与摄像机交互的可用输入。</div>
         
 
         
@@ -96,7 +96,7 @@
 
             
 
-            <td class="description last">A left mouse button press followed by moving the mouse and releasing the button.</td>
+            <td class="description last">按下鼠标左键，然后移动鼠标并释放按钮。</td>
         </tr>
 
     
@@ -119,7 +119,7 @@
 
             
 
-            <td class="description last">A right mouse button press followed by moving the mouse and releasing the button.</td>
+            <td class="description last">按下鼠标右键，然后移动鼠标并释放按钮。</td>
         </tr>
 
     
@@ -142,7 +142,7 @@
 
             
 
-            <td class="description last">A middle mouse button press followed by moving the mouse and releasing the button.</td>
+            <td class="description last">按下鼠标中键，然后移动鼠标并释放按钮。</td>
         </tr>
 
     
@@ -165,7 +165,7 @@
 
             
 
-            <td class="description last">Scrolling the middle mouse button.</td>
+            <td class="description last">滚动鼠标中键。</td>
         </tr>
 
     
@@ -188,7 +188,7 @@
 
             
 
-            <td class="description last">A two-finger touch on a touch surface.</td>
+            <td class="description last">双指触摸表面。</td>
         </tr>
 
     
@@ -262,7 +262,7 @@
 
 
 <div class="description">
-    A left mouse button press followed by moving the mouse and releasing the button.
+    按下鼠标左键，然后移动鼠标并释放按钮。
 </div>
 
 
@@ -322,7 +322,7 @@
 
 
 <div class="description">
-    A middle mouse button press followed by moving the mouse and releasing the button.
+    按下鼠标中键，然后移动鼠标并释放按钮。
 </div>
 
 
@@ -385,7 +385,7 @@
 
 
 <div class="description">
-    A two-finger touch on a touch surface.
+    双指触摸表面。
 </div>
 
 
@@ -448,7 +448,7 @@
 
 
 <div class="description">
-    A right mouse button press followed by moving the mouse and releasing the button.
+    按下鼠标右键，然后移动鼠标并释放按钮。
 </div>
 
 
@@ -511,7 +511,7 @@
 
 
 <div class="description">
-    Scrolling the middle mouse button.
+    滚动鼠标中键。
 </div>
 
 

@@ -58,7 +58,11 @@
 
 
 <div class="description">
-    A tile in a <a href="Cesium3DTileset.html"><code>Cesium3DTileset</code></a>.  When a tile is first created, its content is not loaded;the content is loaded on-demand when needed based on the view.<p>Do not construct this directly, instead access tiles through <a href="Cesium3DTileset.html#tileVisible"><code>Cesium3DTileset#tileVisible</code></a>.</p>
+    <a href="Cesium3DTileset.html"><code>Cesium3DTileset</code></a> 中的瓦片。 首次创建磁贴时，不会加载其内容;
+内容在需要时根据视图按需加载。
+<p>
+不要直接构造它，而是通过 <a href="Cesium3DTileset.html#tileVisible"><code>Cesium3DTileset#tileVisible</code></a> 访问瓦片。
+</p>
 </div>
 
 
@@ -109,7 +113,7 @@
 
             <td class="description last">
             
-                The tileset</td>
+                </td>
         </tr>
 
     
@@ -132,7 +136,7 @@
 
             <td class="description last">
             
-                The base resource for the tileset</td>
+                瓦片集的基础资源</td>
         </tr>
 
     
@@ -155,7 +159,7 @@
 
             <td class="description last">
             
-                The JSON header for the tile</td>
+                磁贴的 JSON 标头</td>
         </tr>
 
     
@@ -178,7 +182,7 @@
 
             <td class="description last">
             
-                The parent tile of the new tile</td>
+                新瓦片的父瓦片</td>
         </tr>
 
     
@@ -268,7 +272,7 @@
 
 
 <div class="description">
-    Get the bounding sphere derived from the tile's bounding volume.
+    获取从图块的边界体积派生的边界球体。
 </div>
 
 
@@ -388,7 +392,7 @@
 
 
 <div class="description">
-    The final computed transform of this tile.
+    此图块的最终计算转换。
 </div>
 
 
@@ -448,7 +452,8 @@
 
 
 <div class="description">
-    The tile's content.  This represents the actual tile's payload,not the content's metadata in the tileset JSON file.
+    磁贴的内容。 这表示实际磁贴的有效负载
+不是图块集 JSON 文件中的内容元数据。
 </div>
 
 
@@ -508,7 +513,7 @@
 
 
 <div class="description">
-    The date when the content expires and new content is requested.
+    内容过期并请求新内容的日期。
 </div>
 
 
@@ -568,7 +573,7 @@
 
 
 <div class="description">
-    The time in seconds after the tile's content is ready when the content expires and new content is requested.
+    磁贴内容准备就绪后内容过期并请求新内容的时间（以秒为单位）。
 </div>
 
 
@@ -628,7 +633,8 @@
 
 
 <div class="description">
-    Returns the <code>extras</code> property in the tileset JSON for this tile, which contains application specific metadata.Returns <code>undefined</code> if <code>extras</code> does not exist.
+    返回此图块的图块集 JSON 中的 <code>extras</code> 属性，其中包含特定于应用程序的元数据。
+如果 <code>extras</code> 不存在，则返回 <code>undefined</code>。
 </div>
 
 
@@ -693,7 +699,8 @@
 
 
 <div class="description">
-    The error, in meters, introduced if this tile is rendered and its children are not.This is used to compute screen space error, i.e., the error measured in pixels.
+    如果渲染此图块而未渲染其子项，则引入错误（以米为单位）。
+这用于计算屏幕空间误差，即以像素为单位的误差。
 </div>
 
 
@@ -753,7 +760,7 @@
 
 
 <div class="description">
-    Gets the I3S Node for the tile.
+    获取磁贴的 I3S 节点。
 </div>
 
 
@@ -813,7 +820,12 @@
 
 
 <div class="description">
-    This tile's parent or <code>undefined</code> if this tile is the root.<p>When a tile's content points to an external tileset JSON file, the external tileset'sroot tile's parent is not <code>undefined</code>; instead, the parent referencesthe tile (with its content pointing to an external tileset JSON file) as if the two tilesets were merged.</p>
+    此磁贴的父级或 <code>undefined</code>（如果此磁贴是根）。
+<p>
+当瓦片的内容指向外部瓦片集 JSON 文件时，外部瓦片集的
+根图块的父级不是<code>未定义的</code>;相反，父级引用
+瓦片（其内容指向外部瓦片集 JSON 文件），就像两个瓦片集已合并一样。
+</p>
 </div>
 
 
@@ -873,7 +885,7 @@
 
 
 <div class="description">
-    The tileset containing this tile.
+    包含此瓦片的瓦片集。
 </div>
 
 
@@ -933,7 +945,7 @@
 
 
 <div class="description">
-    The local transform of this tile.
+    此图块的本地转换。
 </div>
 
 

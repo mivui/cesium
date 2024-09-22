@@ -94,7 +94,7 @@
 
             
 
-            <td class="description last">The height.</td>
+            <td class="description last">高度。</td>
         </tr>
 
     
@@ -117,7 +117,7 @@
 
             
 
-            <td class="description last">The color at this height.</td>
+            <td class="description last">此高度处的颜色。</td>
         </tr>
 
     

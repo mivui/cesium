@@ -58,7 +58,11 @@
 
 
 <div class="description">
-    A style that is applied to a <a href="Cesium3DTileset.html"><code>Cesium3DTileset</code></a>.<p>Evaluates an expression defined using the<a href="https://github.com/CesiumGS/3d-tiles/tree/main/specification/Styling">3D Tiles Styling language</a>.</p>
+    应用于 <a href="Cesium3DTileset.html"><code>Cesium3DTileset</code></a> 的样式。
+<p>
+计算使用
+<a href="https://github.com/CesiumGS/3d-tiles/tree/main/specification/Styling">3D 瓦片样式语言</a>。
+</p>
 </div>
 
 
@@ -159,9 +163,24 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">tileset.style = new Cesium.Cesium3DTileStyle({    color : {        conditions : [            ['${Height} >= 100', 'color("purple", 0.5)'],            ['${Height} >= 50', 'color("red")'],            ['true', 'color("blue")']        ]    },    show : '${Height} > 0',    meta : {        description : '"Building id ${id} has height ${Height}."'    }});</code></pre>
+    <pre><code class="language-javascript">tileset.style = new Cesium.Cesium3DTileStyle({
+    color : {
+        conditions : [
+            ['${Height} >= 100', 'color("purple", 0.5)'],
+            ['${Height} >= 50', 'color("red")'],
+            ['true', 'color("blue")']
+        ]
+    },
+    show : '${Height} > 0',
+    meta : {
+        description : '"Building id ${id} has height ${Height}."'
+    }
+});</code></pre>
 
-    <pre><code class="language-javascript">tileset.style = new Cesium.Cesium3DTileStyle({    color : 'vec4(${Temperature})',    pointSize : '${Temperature} * 2.0'});</code></pre>
+    <pre><code class="language-javascript">tileset.style = new Cesium.Cesium3DTileStyle({
+    color : 'vec4(${Temperature})',
+    pointSize : '${Temperature} * 2.0'
+});</code></pre>
 
     
 
@@ -218,7 +237,14 @@
 
 
 <div class="description">
-    获取或设置<a href="StyleExpression.html"><code>StyleExpression</code></a> object used to evaluate the style's <code>anchorLineColor</code> property. Alternatively a string or object defining a color style can be used.The getter will return the internal <a href="Expression.html"><code>Expression</code></a> or <a href="ConditionsExpression.html"><code>ConditionsExpression</code></a>, which may differ from the value provided to the setter.<p>The expression must return a <code>Color</code>.</p><p>This expression is only applicable to point features in a Vector tile.</p>
+    获取或设置<a href="StyleExpression.html"><code>StyleExpression</code></a> 对象，用于评估样式的 <code>anchorLineColor</code> 属性。或者，可以使用定义颜色样式的字符串或对象。
+getter 将返回内部 <a href="Expression.html"><code>Expression</code></a> 或 <a href="ConditionsExpression.html"><code>ConditionsExpression</code></a>，这可能与提供给 setter 的值不同。
+<p>
+表达式必须返回 <code>Color</code>。
+</p>
+<p>
+此表达式仅适用于矢量瓦片中的点要素。
+</p>
 </div>
 
 
@@ -247,9 +273,18 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();// Override anchorLineColor expression with a stringstyle.anchorLineColor = 'color("blue")';</code></pre>
+    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();
+// Override anchorLineColor expression with a string
+style.anchorLineColor = 'color("blue")';</code></pre>
 
-    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();// Override anchorLineColor expression with a conditionstyle.anchorLineColor = {    conditions : [        ['${height} > 2', 'color("cyan")'],        ['true', 'color("blue")']    ]};</code></pre>
+    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();
+// Override anchorLineColor expression with a condition
+style.anchorLineColor = {
+    conditions : [
+        ['${height} > 2', 'color("cyan")'],
+        ['true', 'color("blue")']
+    ]
+};</code></pre>
 
     
 
@@ -261,7 +296,7 @@
     <div class="tag-experimental">
         <h5>Experimental</h5>
         
-            <p>This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.</p>
+            <p>此功能使用的是 3D Tiles 规范的一部分，该规范不是最终版本，并且可能会在没有 Cesium 标准弃用策略的情况下进行更改。</p>
         
     </div>
     
@@ -292,7 +327,14 @@
 
 
 <div class="description">
-    获取或设置<a href="StyleExpression.html"><code>StyleExpression</code></a> object used to evaluate the style's <code>anchorLineEnabled</code> property. Alternatively a string or object defining a boolean style can be used.The getter will return the internal <a href="Expression.html"><code>Expression</code></a> or <a href="ConditionsExpression.html"><code>ConditionsExpression</code></a>, which may differ from the value provided to the setter.<p>The expression must return a <code>Boolean</code>.</p><p>This expression is only applicable to point features in a Vector tile.</p>
+    获取或设置<a href="StyleExpression.html"><code>StyleExpression</code></a> 对象，用于评估样式的 <code>anchorLineEnabled</code> 属性。或者，可以使用定义布尔样式的字符串或对象。
+getter 将返回内部 <a href="Expression.html"><code>Expression</code></a> 或 <a href="ConditionsExpression.html"><code>ConditionsExpression</code></a>，这可能与提供给 setter 的值不同。
+<p>
+表达式必须返回<code>布尔值</code>。
+</p>
+<p>
+此表达式仅适用于矢量瓦片中的点要素。
+</p>
 </div>
 
 
@@ -321,9 +363,18 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();// Override anchorLineEnabled expression with a stringstyle.anchorLineEnabled = 'true';</code></pre>
+    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();
+// Override anchorLineEnabled expression with a string
+style.anchorLineEnabled = 'true';</code></pre>
 
-    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();// Override anchorLineEnabled expression with a conditionstyle.anchorLineEnabled = {    conditions : [        ['${height} > 2', 'true'],        ['true', 'false']    ]};</code></pre>
+    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();
+// Override anchorLineEnabled expression with a condition
+style.anchorLineEnabled = {
+    conditions : [
+        ['${height} > 2', 'true'],
+        ['true', 'false']
+    ]
+};</code></pre>
 
     
 
@@ -335,7 +386,7 @@
     <div class="tag-experimental">
         <h5>Experimental</h5>
         
-            <p>This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.</p>
+            <p>此功能使用的是 3D Tiles 规范的一部分，该规范不是最终版本，并且可能会在没有 Cesium 标准弃用策略的情况下进行更改。</p>
         
     </div>
     
@@ -366,7 +417,14 @@
 
 
 <div class="description">
-    获取或设置<a href="StyleExpression.html"><code>StyleExpression</code></a> object used to evaluate the style's <code>backgroundColor</code> property. Alternatively a string or object defining a color style can be used.The getter will return the internal <a href="Expression.html"><code>Expression</code></a> or <a href="ConditionsExpression.html"><code>ConditionsExpression</code></a>, which may differ from the value provided to the setter.<p>The expression must return a <code>Color</code>.</p><p>This expression is only applicable to point features in a Vector tile.</p>
+    获取或设置<a href="StyleExpression.html"><code>StyleExpression</code></a> 对象，用于评估样式的 <code>backgroundColor</code> 属性。或者，可以使用定义颜色样式的字符串或对象。
+getter 将返回内部 <a href="Expression.html"><code>Expression</code></a> 或 <a href="ConditionsExpression.html"><code>ConditionsExpression</code></a>，这可能与提供给 setter 的值不同。
+<p>
+表达式必须返回 <code>Color</code>。
+</p>
+<p>
+此表达式仅适用于矢量瓦片中的点要素。
+</p>
 </div>
 
 
@@ -395,9 +453,18 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();// Override backgroundColor expression with a stringstyle.backgroundColor = 'color("blue")';</code></pre>
+    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();
+// Override backgroundColor expression with a string
+style.backgroundColor = 'color("blue")';</code></pre>
 
-    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();// Override backgroundColor expression with a conditionstyle.backgroundColor = {    conditions : [        ['${height} > 2', 'color("cyan")'],        ['true', 'color("blue")']    ]};</code></pre>
+    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();
+// Override backgroundColor expression with a condition
+style.backgroundColor = {
+    conditions : [
+        ['${height} > 2', 'color("cyan")'],
+        ['true', 'color("blue")']
+    ]
+};</code></pre>
 
     
 
@@ -409,7 +476,7 @@
     <div class="tag-experimental">
         <h5>Experimental</h5>
         
-            <p>This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.</p>
+            <p>此功能使用的是 3D Tiles 规范的一部分，该规范不是最终版本，并且可能会在没有 Cesium 标准弃用策略的情况下进行更改。</p>
         
     </div>
     
@@ -440,7 +507,14 @@
 
 
 <div class="description">
-    获取或设置<a href="StyleExpression.html"><code>StyleExpression</code></a> object used to evaluate the style's <code>backgroundEnabled</code> property. Alternatively a string or object defining a boolean style can be used.The getter will return the internal <a href="Expression.html"><code>Expression</code></a> or <a href="ConditionsExpression.html"><code>ConditionsExpression</code></a>, which may differ from the value provided to the setter.<p>The expression must return a <code>Boolean</code>.</p><p>This expression is only applicable to point features in a Vector tile.</p>
+    获取或设置<a href="StyleExpression.html"><code>StyleExpression</code></a> 对象，用于评估样式的 <code>backgroundEnabled</code> 属性。或者，可以使用定义布尔样式的字符串或对象。
+getter 将返回内部 <a href="Expression.html"><code>Expression</code></a> 或 <a href="ConditionsExpression.html"><code>ConditionsExpression</code></a>，这可能与提供给 setter 的值不同。
+<p>
+表达式必须返回<code>布尔值</code>。
+</p>
+<p>
+此表达式仅适用于矢量瓦片中的点要素。
+</p>
 </div>
 
 
@@ -469,9 +543,18 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();// Override backgroundEnabled expression with a stringstyle.backgroundEnabled = 'true';</code></pre>
+    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();
+// Override backgroundEnabled expression with a string
+style.backgroundEnabled = 'true';</code></pre>
 
-    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();// Override backgroundEnabled expression with a conditionstyle.backgroundEnabled = {    conditions : [        ['${height} > 2', 'true'],        ['true', 'false']    ]};</code></pre>
+    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();
+// Override backgroundEnabled expression with a condition
+style.backgroundEnabled = {
+    conditions : [
+        ['${height} > 2', 'true'],
+        ['true', 'false']
+    ]
+};</code></pre>
 
     
 
@@ -483,7 +566,7 @@
     <div class="tag-experimental">
         <h5>Experimental</h5>
         
-            <p>This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.</p>
+            <p>此功能使用的是 3D Tiles 规范的一部分，该规范不是最终版本，并且可能会在没有 Cesium 标准弃用策略的情况下进行更改。</p>
         
     </div>
     
@@ -514,7 +597,14 @@
 
 
 <div class="description">
-    获取或设置<a href="StyleExpression.html"><code>StyleExpression</code></a> object used to evaluate the style's <code>backgroundPadding</code> property. Alternatively a string or object defining a vec2 style can be used.The getter will return the internal <a href="Expression.html"><code>Expression</code></a> or <a href="ConditionsExpression.html"><code>ConditionsExpression</code></a>, which may differ from the value provided to the setter.<p>The expression must return a <code>Cartesian2</code>.</p><p>This expression is only applicable to point features in a Vector tile.</p>
+    获取或设置<a href="StyleExpression.html"><code>StyleExpression</code></a> 对象，用于评估样式的 <code>backgroundPadding</code> 属性。或者，可以使用定义 vec2 样式的字符串或对象。
+getter 将返回内部 <a href="Expression.html"><code>Expression</code></a> 或 <a href="ConditionsExpression.html"><code>ConditionsExpression</code></a>，这可能与提供给 setter 的值不同。
+<p>
+表达式必须返回 <code>Cartesian2</code>。
+</p>
+<p>
+此表达式仅适用于矢量瓦片中的点要素。
+</p>
 </div>
 
 
@@ -543,7 +633,10 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();// Override backgroundPadding expression with a stringstyle.backgroundPadding = 'vec2(5.0, 7.0)';style.backgroundPadding.evaluate(feature); // returns a Cartesian2</code></pre>
+    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();
+// Override backgroundPadding expression with a string
+style.backgroundPadding = 'vec2(5.0, 7.0)';
+style.backgroundPadding.evaluate(feature); // returns a Cartesian2</code></pre>
 
     
 
@@ -555,7 +648,7 @@
     <div class="tag-experimental">
         <h5>Experimental</h5>
         
-            <p>This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.</p>
+            <p>此功能使用的是 3D Tiles 规范的一部分，该规范不是最终版本，并且可能会在没有 Cesium 标准弃用策略的情况下进行更改。</p>
         
     </div>
     
@@ -586,7 +679,14 @@
 
 
 <div class="description">
-    获取或设置<a href="StyleExpression.html"><code>StyleExpression</code></a> object used to evaluate the style's <code>color</code> property. Alternatively a string or object defining a color style can be used.The getter will return the internal <a href="Expression.html"><code>Expression</code></a> or <a href="ConditionsExpression.html"><code>ConditionsExpression</code></a>, which may differ from the value provided to the setter.<p>The expression must return a <code>Color</code>.</p><p>This expression is applicable to all tile formats.</p>
+    获取或设置<a href="StyleExpression.html"><code>StyleExpression</code></a>对象，用于评估样式的 <code>color</code> 属性。或者，可以使用定义颜色样式的字符串或对象。
+getter 将返回内部 <a href="Expression.html"><code>Expression</code></a> 或 <a href="ConditionsExpression.html"><code>ConditionsExpression</code></a>，这可能与提供给 setter 的值不同。
+<p>
+表达式必须返回 <code>Color</code>。
+</p>
+<p>
+此表达式适用于所有磁贴格式。
+</p>
 </div>
 
 
@@ -615,13 +715,31 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">const style = new Cesium3DTileStyle({    color : '(${Temperature} > 90) ? color("red") : color("white")'});style.color.evaluateColor(feature, result); // returns a Cesium.Color object</code></pre>
+    <pre><code class="language-javascript">const style = new Cesium3DTileStyle({
+    color : '(${Temperature} > 90) ? color("red") : color("white")'
+});
+style.color.evaluateColor(feature, result); // returns a Cesium.Color object</code></pre>
 
-    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();// Override color expression with a custom functionstyle.color = {    evaluateColor : function(feature, result) {        return Cesium.Color.clone(Cesium.Color.WHITE, result);    }};</code></pre>
+    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();
+// Override color expression with a custom function
+style.color = {
+    evaluateColor : function(feature, result) {
+        return Cesium.Color.clone(Cesium.Color.WHITE, result);
+    }
+};</code></pre>
 
-    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();// Override color expression with a stringstyle.color = 'color("blue")';</code></pre>
+    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();
+// Override color expression with a string
+style.color = 'color("blue")';</code></pre>
 
-    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();// Override color expression with a conditionstyle.color = {    conditions : [        ['${height} > 2', 'color("cyan")'],        ['true', 'color("blue")']    ]};</code></pre>
+    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();
+// Override color expression with a condition
+style.color = {
+    conditions : [
+        ['${height} > 2', 'color("cyan")'],
+        ['true', 'color("blue")']
+    ]
+};</code></pre>
 
     
 
@@ -657,7 +775,14 @@
 
 
 <div class="description">
-    获取或设置<a href="StyleExpression.html"><code>StyleExpression</code></a> object used to evaluate the style's <code>disableDepthTestDistance</code> property. Alternatively a string or object defining a number style can be used.The getter will return the internal <a href="Expression.html"><code>Expression</code></a> or <a href="ConditionsExpression.html"><code>ConditionsExpression</code></a>, which may differ from the value provided to the setter.<p>The expression must return a <code>Number</code>.</p><p>This expression is only applicable to point features in a Vector tile.</p>
+    获取或设置<a href="StyleExpression.html"><code>StyleExpression</code></a> 对象，用于评估样式的 <code>disableDepthTestDistance</code> 属性。或者，可以使用定义数字样式的字符串或对象。
+getter 将返回内部 <a href="Expression.html"><code>Expression</code></a> 或 <a href="ConditionsExpression.html"><code>ConditionsExpression</code></a>，这可能与提供给 setter 的值不同。
+<p>
+表达式必须返回 <code>Number</code>。
+</p>
+<p>
+此表达式仅适用于矢量瓦片中的点要素。
+</p>
 </div>
 
 
@@ -686,7 +811,10 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();// Override disableDepthTestDistance expression with a stringstyle.disableDepthTestDistance = '1000.0';style.disableDepthTestDistance.evaluate(feature); // returns a Number</code></pre>
+    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();
+// Override disableDepthTestDistance expression with a string
+style.disableDepthTestDistance = '1000.0';
+style.disableDepthTestDistance.evaluate(feature); // returns a Number</code></pre>
 
     
 
@@ -698,7 +826,7 @@
     <div class="tag-experimental">
         <h5>Experimental</h5>
         
-            <p>This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.</p>
+            <p>此功能使用的是 3D Tiles 规范的一部分，该规范不是最终版本，并且可能会在没有 Cesium 标准弃用策略的情况下进行更改。</p>
         
     </div>
     
@@ -729,7 +857,14 @@
 
 
 <div class="description">
-    获取或设置<a href="StyleExpression.html"><code>StyleExpression</code></a> object used to evaluate the style's <code>distanceDisplayCondition</code> property. Alternatively a string or object defining a vec2 style can be used.The getter will return the internal <a href="Expression.html"><code>Expression</code></a> or <a href="ConditionsExpression.html"><code>ConditionsExpression</code></a>, which may differ from the value provided to the setter.<p>The expression must return a <code>Cartesian2</code>.</p><p>This expression is only applicable to point features in a Vector tile.</p>
+    获取或设置<a href="StyleExpression.html"><code>StyleExpression</code></a> 对象，用于评估样式的 <code>distanceDisplayCondition</code> 属性。或者，可以使用定义 vec2 样式的字符串或对象。
+getter 将返回内部 <a href="Expression.html"><code>Expression</code></a> 或 <a href="ConditionsExpression.html"><code>ConditionsExpression</code></a>，这可能与提供给 setter 的值不同。
+<p>
+表达式必须返回 <code>Cartesian2</code>。
+</p>
+<p>
+此表达式仅适用于矢量瓦片中的点要素。
+</p>
 </div>
 
 
@@ -758,7 +893,10 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();// Override distanceDisplayCondition expression with a stringstyle.distanceDisplayCondition = 'vec2(0.0, 5.5e6)';style.distanceDisplayCondition.evaluate(feature); // returns a Cartesian2</code></pre>
+    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();
+// Override distanceDisplayCondition expression with a string
+style.distanceDisplayCondition = 'vec2(0.0, 5.5e6)';
+style.distanceDisplayCondition.evaluate(feature); // returns a Cartesian2</code></pre>
 
     
 
@@ -770,7 +908,7 @@
     <div class="tag-experimental">
         <h5>Experimental</h5>
         
-            <p>This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.</p>
+            <p>此功能使用的是 3D Tiles 规范的一部分，该规范不是最终版本，并且可能会在没有 Cesium 标准弃用策略的情况下进行更改。</p>
         
     </div>
     
@@ -801,7 +939,14 @@
 
 
 <div class="description">
-    获取或设置<a href="StyleExpression.html"><code>StyleExpression</code></a> object used to evaluate the style's <code>font</code> property. Alternatively a string or object defining a string style can be used.The getter will return the internal <a href="Expression.html"><code>Expression</code></a> or <a href="ConditionsExpression.html"><code>ConditionsExpression</code></a>, which may differ from the value provided to the setter.<p>The expression must return a <code>String</code>.</p><p>This expression is only applicable to point features in a Vector tile.</p>
+    获取或设置<a href="StyleExpression.html"><code>StyleExpression</code></a> 对象，用于评估样式的 <code>font</code> 属性。或者，可以使用定义字符串样式的字符串或对象。
+getter 将返回内部 <a href="Expression.html"><code>Expression</code></a> 或 <a href="ConditionsExpression.html"><code>ConditionsExpression</code></a>，这可能与提供给 setter 的值不同。
+<p>
+表达式必须返回 <code>String</code>。
+</p>
+<p>
+此表达式仅适用于矢量瓦片中的点要素。
+</p>
 </div>
 
 
@@ -830,9 +975,18 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">const style = new Cesium3DTileStyle({    font : '(${Temperature} > 90) ? "30px Helvetica" : "24px Helvetica"'});style.font.evaluate(feature); // returns a String</code></pre>
+    <pre><code class="language-javascript">const style = new Cesium3DTileStyle({
+    font : '(${Temperature} > 90) ? "30px Helvetica" : "24px Helvetica"'
+});
+style.font.evaluate(feature); // returns a String</code></pre>
 
-    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();// Override font expression with a custom functionstyle.font = {    evaluate : function(feature) {        return '24px Helvetica';    }};</code></pre>
+    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();
+// Override font expression with a custom function
+style.font = {
+    evaluate : function(feature) {
+        return '24px Helvetica';
+    }
+};</code></pre>
 
     
 
@@ -844,7 +998,7 @@
     <div class="tag-experimental">
         <h5>Experimental</h5>
         
-            <p>This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.</p>
+            <p>此功能使用的是 3D Tiles 规范的一部分，该规范不是最终版本，并且可能会在没有 Cesium 标准弃用策略的情况下进行更改。</p>
         
     </div>
     
@@ -875,7 +1029,14 @@
 
 
 <div class="description">
-    获取或设置<a href="StyleExpression.html"><code>StyleExpression</code></a> object used to evaluate the style's <code>heightOffset</code> property. Alternatively a string or object defining a number style can be used.The getter will return the internal <a href="Expression.html"><code>Expression</code></a> or <a href="ConditionsExpression.html"><code>ConditionsExpression</code></a>, which may differ from the value provided to the setter.<p>The expression must return a <code>Number</code>.</p><p>This expression is only applicable to point features in a Vector tile.</p>
+    获取或设置<a href="StyleExpression.html"><code>StyleExpression</code></a> 对象，用于评估样式的 <code>heightOffset</code> 属性。或者，可以使用定义数字样式的字符串或对象。
+getter 将返回内部 <a href="Expression.html"><code>Expression</code></a> 或 <a href="ConditionsExpression.html"><code>ConditionsExpression</code></a>，这可能与提供给 setter 的值不同。
+<p>
+表达式必须返回 <code>Number</code>。
+</p>
+<p>
+此表达式仅适用于矢量瓦片中的点要素。
+</p>
 </div>
 
 
@@ -904,9 +1065,18 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();// Override heightOffset expression with a stringstyle.heightOffset = '2.0';</code></pre>
+    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();
+// Override heightOffset expression with a string
+style.heightOffset = '2.0';</code></pre>
 
-    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();// Override heightOffset expression with a conditionstyle.heightOffset = {    conditions : [        ['${height} > 2', '4.0'],        ['true', '2.0']    ]};</code></pre>
+    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();
+// Override heightOffset expression with a condition
+style.heightOffset = {
+    conditions : [
+        ['${height} > 2', '4.0'],
+        ['true', '2.0']
+    ]
+};</code></pre>
 
     
 
@@ -918,7 +1088,7 @@
     <div class="tag-experimental">
         <h5>Experimental</h5>
         
-            <p>This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.</p>
+            <p>此功能使用的是 3D Tiles 规范的一部分，该规范不是最终版本，并且可能会在没有 Cesium 标准弃用策略的情况下进行更改。</p>
         
     </div>
     
@@ -949,7 +1119,14 @@
 
 
 <div class="description">
-    获取或设置<a href="StyleExpression.html"><code>StyleExpression</code></a> object used to evaluate the style's <code>horizontalOrigin</code> property. Alternatively a string or object defining a number style can be used.The getter will return the internal <a href="Expression.html"><code>Expression</code></a> or <a href="ConditionsExpression.html"><code>ConditionsExpression</code></a>, which may differ from the value provided to the setter.<p>The expression must return a <code>HorizontalOrigin</code>.</p><p>This expression is only applicable to point features in a Vector tile.</p>
+    获取或设置<a href="StyleExpression.html"><code>StyleExpression</code></a> 对象，用于评估样式的 <code>horizontalOrigin</code> 属性。或者，可以使用定义数字样式的字符串或对象。
+getter 将返回内部 <a href="Expression.html"><code>Expression</code></a> 或 <a href="ConditionsExpression.html"><code>ConditionsExpression</code></a>，这可能与提供给 setter 的值不同。
+<p>
+表达式必须返回 <code>HorizontalOrigin</code>。
+</p>
+<p>
+此表达式仅适用于矢量瓦片中的点要素。
+</p>
 </div>
 
 
@@ -978,9 +1155,18 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">const style = new Cesium3DTileStyle({    horizontalOrigin : HorizontalOrigin.LEFT});style.horizontalOrigin.evaluate(feature); // returns a HorizontalOrigin</code></pre>
+    <pre><code class="language-javascript">const style = new Cesium3DTileStyle({
+    horizontalOrigin : HorizontalOrigin.LEFT
+});
+style.horizontalOrigin.evaluate(feature); // returns a HorizontalOrigin</code></pre>
 
-    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();// Override horizontalOrigin expression with a custom functionstyle.horizontalOrigin = {    evaluate : function(feature) {        return HorizontalOrigin.CENTER;    }};</code></pre>
+    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();
+// Override horizontalOrigin expression with a custom function
+style.horizontalOrigin = {
+    evaluate : function(feature) {
+        return HorizontalOrigin.CENTER;
+    }
+};</code></pre>
 
     
 
@@ -992,7 +1178,7 @@
     <div class="tag-experimental">
         <h5>Experimental</h5>
         
-            <p>This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.</p>
+            <p>此功能使用的是 3D Tiles 规范的一部分，该规范不是最终版本，并且可能会在没有 Cesium 标准弃用策略的情况下进行更改。</p>
         
     </div>
     
@@ -1023,7 +1209,14 @@
 
 
 <div class="description">
-    获取或设置<a href="StyleExpression.html"><code>StyleExpression</code></a> object used to evaluate the style's <code>image</code> property. Alternatively a string or object defining a string style can be used.The getter will return the internal <a href="Expression.html"><code>Expression</code></a> or <a href="ConditionsExpression.html"><code>ConditionsExpression</code></a>, which may differ from the value provided to the setter.<p>The expression must return a <code>String</code>.</p><p>This expression is only applicable to point features in a Vector tile.</p>
+    获取或设置<a href="StyleExpression.html"><code>StyleExpression</code></a> 对象，用于评估样式的 <code>image</code> 属性。或者，可以使用定义字符串样式的字符串或对象。
+getter 将返回内部 <a href="Expression.html"><code>Expression</code></a> 或 <a href="ConditionsExpression.html"><code>ConditionsExpression</code></a>，这可能与提供给 setter 的值不同。
+<p>
+表达式必须返回 <code>String</code>。
+</p>
+<p>
+此表达式仅适用于矢量瓦片中的点要素。
+</p>
 </div>
 
 
@@ -1052,9 +1245,18 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">const style = new Cesium3DTileStyle({    image : '(${Temperature} > 90) ? "/url/to/image1" : "/url/to/image2"'});style.image.evaluate(feature); // returns a String</code></pre>
+    <pre><code class="language-javascript">const style = new Cesium3DTileStyle({
+    image : '(${Temperature} > 90) ? "/url/to/image1" : "/url/to/image2"'
+});
+style.image.evaluate(feature); // returns a String</code></pre>
 
-    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();// Override image expression with a custom functionstyle.image = {    evaluate : function(feature) {        return '/url/to/image';    }};</code></pre>
+    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();
+// Override image expression with a custom function
+style.image = {
+    evaluate : function(feature) {
+        return '/url/to/image';
+    }
+};</code></pre>
 
     
 
@@ -1066,7 +1268,7 @@
     <div class="tag-experimental">
         <h5>Experimental</h5>
         
-            <p>This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.</p>
+            <p>此功能使用的是 3D Tiles 规范的一部分，该规范不是最终版本，并且可能会在没有 Cesium 标准弃用策略的情况下进行更改。</p>
         
     </div>
     
@@ -1097,7 +1299,14 @@
 
 
 <div class="description">
-    获取或设置<a href="StyleExpression.html"><code>StyleExpression</code></a> object used to evaluate the style's <code>labelColor</code> property. Alternatively a string or object defining a color style can be used.The getter will return the internal <a href="Expression.html"><code>Expression</code></a> or <a href="ConditionsExpression.html"><code>ConditionsExpression</code></a>, which may differ from the value provided to the setter.<p>The expression must return a <code>Color</code>.</p><p>This expression is only applicable to point features in a Vector tile.</p>
+    获取或设置<a href="StyleExpression.html"><code>StyleExpression</code></a> 对象，用于评估样式的 <code>labelColor</code> 属性。或者，可以使用定义颜色样式的字符串或对象。
+getter 将返回内部 <a href="Expression.html"><code>Expression</code></a> 或 <a href="ConditionsExpression.html"><code>ConditionsExpression</code></a>，这可能与提供给 setter 的值不同。
+<p>
+表达式必须返回 <code>Color</code>。
+</p>
+<p>
+此表达式仅适用于矢量瓦片中的点要素。
+</p>
 </div>
 
 
@@ -1126,9 +1335,18 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();// Override labelColor expression with a stringstyle.labelColor = 'color("blue")';</code></pre>
+    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();
+// Override labelColor expression with a string
+style.labelColor = 'color("blue")';</code></pre>
 
-    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();// Override labelColor expression with a conditionstyle.labelColor = {    conditions : [        ['${height} > 2', 'color("cyan")'],        ['true', 'color("blue")']    ]};</code></pre>
+    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();
+// Override labelColor expression with a condition
+style.labelColor = {
+    conditions : [
+        ['${height} > 2', 'color("cyan")'],
+        ['true', 'color("blue")']
+    ]
+};</code></pre>
 
     
 
@@ -1140,7 +1358,7 @@
     <div class="tag-experimental">
         <h5>Experimental</h5>
         
-            <p>This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.</p>
+            <p>此功能使用的是 3D Tiles 规范的一部分，该规范不是最终版本，并且可能会在没有 Cesium 标准弃用策略的情况下进行更改。</p>
         
     </div>
     
@@ -1171,7 +1389,14 @@
 
 
 <div class="description">
-    获取或设置<a href="StyleExpression.html"><code>StyleExpression</code></a> object used to evaluate the style's <code>labelHorizontalOrigin</code> property. Alternatively a string or object defining a number style can be used.The getter will return the internal <a href="Expression.html"><code>Expression</code></a> or <a href="ConditionsExpression.html"><code>ConditionsExpression</code></a>, which may differ from the value provided to the setter.<p>The expression must return a <code>HorizontalOrigin</code>.</p><p>This expression is only applicable to point features in a Vector tile.</p>
+    获取或设置<a href="StyleExpression.html"><code>StyleExpression</code></a> 对象，用于评估样式的 <code>labelHorizontalOrigin</code> 属性。或者，可以使用定义数字样式的字符串或对象。
+getter 将返回内部 <a href="Expression.html"><code>Expression</code></a> 或 <a href="ConditionsExpression.html"><code>ConditionsExpression</code></a>，这可能与提供给 setter 的值不同。
+<p>
+表达式必须返回 <code>HorizontalOrigin</code>。
+</p>
+<p>
+此表达式仅适用于矢量瓦片中的点要素。
+</p>
 </div>
 
 
@@ -1200,9 +1425,18 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">const style = new Cesium3DTileStyle({    labelHorizontalOrigin : HorizontalOrigin.LEFT});style.labelHorizontalOrigin.evaluate(feature); // returns a HorizontalOrigin</code></pre>
+    <pre><code class="language-javascript">const style = new Cesium3DTileStyle({
+    labelHorizontalOrigin : HorizontalOrigin.LEFT
+});
+style.labelHorizontalOrigin.evaluate(feature); // returns a HorizontalOrigin</code></pre>
 
-    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();// Override labelHorizontalOrigin expression with a custom functionstyle.labelHorizontalOrigin = {    evaluate : function(feature) {        return HorizontalOrigin.CENTER;    }};</code></pre>
+    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();
+// Override labelHorizontalOrigin expression with a custom function
+style.labelHorizontalOrigin = {
+    evaluate : function(feature) {
+        return HorizontalOrigin.CENTER;
+    }
+};</code></pre>
 
     
 
@@ -1214,7 +1448,7 @@
     <div class="tag-experimental">
         <h5>Experimental</h5>
         
-            <p>This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.</p>
+            <p>此功能使用的是 3D Tiles 规范的一部分，该规范不是最终版本，并且可能会在没有 Cesium 标准弃用策略的情况下进行更改。</p>
         
     </div>
     
@@ -1245,7 +1479,14 @@
 
 
 <div class="description">
-    获取或设置<a href="StyleExpression.html"><code>StyleExpression</code></a> object used to evaluate the style's <code>labelOutlineColor</code> property. Alternatively a string or object defining a color style can be used.The getter will return the internal <a href="Expression.html"><code>Expression</code></a> or <a href="ConditionsExpression.html"><code>ConditionsExpression</code></a>, which may differ from the value provided to the setter.<p>The expression must return a <code>Color</code>.</p><p>This expression is only applicable to point features in a Vector tile.</p>
+    获取或设置<a href="StyleExpression.html"><code>StyleExpression</code></a> 对象，用于计算样式的 <code>labelOutlineColor</code> 属性。或者，可以使用定义颜色样式的字符串或对象。
+getter 将返回内部 <a href="Expression.html"><code>Expression</code></a> 或 <a href="ConditionsExpression.html"><code>ConditionsExpression</code></a>，这可能与提供给 setter 的值不同。
+<p>
+表达式必须返回 <code>Color</code>。
+</p>
+<p>
+此表达式仅适用于矢量瓦片中的点要素。
+</p>
 </div>
 
 
@@ -1274,9 +1515,18 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();// Override labelOutlineColor expression with a stringstyle.labelOutlineColor = 'color("blue")';</code></pre>
+    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();
+// Override labelOutlineColor expression with a string
+style.labelOutlineColor = 'color("blue")';</code></pre>
 
-    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();// Override labelOutlineColor expression with a conditionstyle.labelOutlineColor = {    conditions : [        ['${height} > 2', 'color("cyan")'],        ['true', 'color("blue")']    ]};</code></pre>
+    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();
+// Override labelOutlineColor expression with a condition
+style.labelOutlineColor = {
+    conditions : [
+        ['${height} > 2', 'color("cyan")'],
+        ['true', 'color("blue")']
+    ]
+};</code></pre>
 
     
 
@@ -1288,7 +1538,7 @@
     <div class="tag-experimental">
         <h5>Experimental</h5>
         
-            <p>This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.</p>
+            <p>此功能使用的是 3D Tiles 规范的一部分，该规范不是最终版本，并且可能会在没有 Cesium 标准弃用策略的情况下进行更改。</p>
         
     </div>
     
@@ -1319,7 +1569,14 @@
 
 
 <div class="description">
-    获取或设置<a href="StyleExpression.html"><code>StyleExpression</code></a> object used to evaluate the style's <code>labelOutlineWidth</code> property. Alternatively a string or object defining a number style can be used.The getter will return the internal <a href="Expression.html"><code>Expression</code></a> or <a href="ConditionsExpression.html"><code>ConditionsExpression</code></a>, which may differ from the value provided to the setter.<p>The expression must return a <code>Number</code>.</p><p>This expression is only applicable to point features in a Vector tile.</p>
+    获取或设置<a href="StyleExpression.html"><code>StyleExpression</code></a> 对象，用于计算样式的 <code>labelOutlineWidth</code> 属性。或者，可以使用定义数字样式的字符串或对象。
+getter 将返回内部 <a href="Expression.html"><code>Expression</code></a> 或 <a href="ConditionsExpression.html"><code>ConditionsExpression</code></a>，这可能与提供给 setter 的值不同。
+<p>
+表达式必须返回 <code>Number</code>。
+</p>
+<p>
+此表达式仅适用于矢量瓦片中的点要素。
+</p>
 </div>
 
 
@@ -1348,9 +1605,18 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();// Override labelOutlineWidth expression with a stringstyle.labelOutlineWidth = '5';</code></pre>
+    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();
+// Override labelOutlineWidth expression with a string
+style.labelOutlineWidth = '5';</code></pre>
 
-    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();// Override labelOutlineWidth expression with a conditionstyle.labelOutlineWidth = {    conditions : [        ['${height} > 2', '5'],        ['true', '0']    ]};</code></pre>
+    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();
+// Override labelOutlineWidth expression with a condition
+style.labelOutlineWidth = {
+    conditions : [
+        ['${height} > 2', '5'],
+        ['true', '0']
+    ]
+};</code></pre>
 
     
 
@@ -1362,7 +1628,7 @@
     <div class="tag-experimental">
         <h5>Experimental</h5>
         
-            <p>This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.</p>
+            <p>此功能使用的是 3D Tiles 规范的一部分，该规范不是最终版本，并且可能会在没有 Cesium 标准弃用策略的情况下进行更改。</p>
         
     </div>
     
@@ -1393,7 +1659,14 @@
 
 
 <div class="description">
-    获取或设置<a href="StyleExpression.html"><code>StyleExpression</code></a> object used to evaluate the style's <code>label style</code> property. Alternatively a string or object defining a number style can be used.The getter will return the internal <a href="Expression.html"><code>Expression</code></a> or <a href="ConditionsExpression.html"><code>ConditionsExpression</code></a>, which may differ from the value provided to the setter.<p>The expression must return a <code>LabelStyle</code>.</p><p>This expression is only applicable to point features in a Vector tile.</p>
+    获取或设置<a href="StyleExpression.html"><code>StyleExpression</code></a> 对象，用于评估样式的 <code>Label Style</code> 属性。或者，可以使用定义数字样式的字符串或对象。
+getter 将返回内部 <a href="Expression.html"><code>Expression</code></a> 或 <a href="ConditionsExpression.html"><code>ConditionsExpression</code></a>，这可能与提供给 setter 的值不同。
+<p>
+表达式必须返回 <code>LabelStyle</code>。
+</p>
+<p>
+此表达式仅适用于矢量瓦片中的点要素。
+</p>
 </div>
 
 
@@ -1422,9 +1695,18 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">const style = new Cesium3DTileStyle({    labelStyle : `(\${Temperature} > 90) ? ${LabelStyle.FILL_AND_OUTLINE} : ${LabelStyle.FILL}`});style.labelStyle.evaluate(feature); // returns a LabelStyle</code></pre>
+    <pre><code class="language-javascript">const style = new Cesium3DTileStyle({
+    labelStyle : `(\${Temperature} > 90) ? ${LabelStyle.FILL_AND_OUTLINE} : ${LabelStyle.FILL}`
+});
+style.labelStyle.evaluate(feature); // returns a LabelStyle</code></pre>
 
-    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();// Override labelStyle expression with a custom functionstyle.labelStyle = {    evaluate : function(feature) {        return LabelStyle.FILL;    }};</code></pre>
+    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();
+// Override labelStyle expression with a custom function
+style.labelStyle = {
+    evaluate : function(feature) {
+        return LabelStyle.FILL;
+    }
+};</code></pre>
 
     
 
@@ -1436,7 +1718,7 @@
     <div class="tag-experimental">
         <h5>Experimental</h5>
         
-            <p>This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.</p>
+            <p>此功能使用的是 3D Tiles 规范的一部分，该规范不是最终版本，并且可能会在没有 Cesium 标准弃用策略的情况下进行更改。</p>
         
     </div>
     
@@ -1467,7 +1749,14 @@
 
 
 <div class="description">
-    获取或设置<a href="StyleExpression.html"><code>StyleExpression</code></a> object used to evaluate the style's <code>labelText</code> property. Alternatively a string or object defining a string style can be used.The getter will return the internal <a href="Expression.html"><code>Expression</code></a> or <a href="ConditionsExpression.html"><code>ConditionsExpression</code></a>, which may differ from the value provided to the setter.<p>The expression must return a <code>String</code>.</p><p>This expression is only applicable to point features in a Vector tile.</p>
+    获取或设置<a href="StyleExpression.html"><code>StyleExpression</code></a> 对象，用于评估样式的 <code>labelText</code> 属性。或者，可以使用定义字符串样式的字符串或对象。
+getter 将返回内部 <a href="Expression.html"><code>Expression</code></a> 或 <a href="ConditionsExpression.html"><code>ConditionsExpression</code></a>，这可能与提供给 setter 的值不同。
+<p>
+表达式必须返回 <code>String</code>。
+</p>
+<p>
+此表达式仅适用于矢量瓦片中的点要素。
+</p>
 </div>
 
 
@@ -1496,9 +1785,18 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">const style = new Cesium3DTileStyle({    labelText : '(${Temperature} > 90) ? ">90" : "&lt;=90"'});style.labelText.evaluate(feature); // returns a String</code></pre>
+    <pre><code class="language-javascript">const style = new Cesium3DTileStyle({
+    labelText : '(${Temperature} > 90) ? ">90" : "&lt;=90"'
+});
+style.labelText.evaluate(feature); // returns a String</code></pre>
 
-    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();// Override labelText expression with a custom functionstyle.labelText = {    evaluate : function(feature) {        return 'Example label text';    }};</code></pre>
+    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();
+// Override labelText expression with a custom function
+style.labelText = {
+    evaluate : function(feature) {
+        return 'Example label text';
+    }
+};</code></pre>
 
     
 
@@ -1510,7 +1808,7 @@
     <div class="tag-experimental">
         <h5>Experimental</h5>
         
-            <p>This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.</p>
+            <p>此功能使用的是 3D Tiles 规范的一部分，该规范不是最终版本，并且可能会在没有 Cesium 标准弃用策略的情况下进行更改。</p>
         
     </div>
     
@@ -1541,7 +1839,14 @@
 
 
 <div class="description">
-    获取或设置<a href="StyleExpression.html"><code>StyleExpression</code></a> object used to evaluate the style's <code>labelVerticalOrigin</code> property. Alternatively a string or object defining a number style can be used.The getter will return the internal <a href="Expression.html"><code>Expression</code></a> or <a href="ConditionsExpression.html"><code>ConditionsExpression</code></a>, which may differ from the value provided to the setter.<p>The expression must return a <code>VerticalOrigin</code>.</p><p>This expression is only applicable to point features in a Vector tile.</p>
+    获取或设置<a href="StyleExpression.html"><code>StyleExpression</code></a> 对象，用于评估样式的 <code>labelVerticalOrigin</code> 属性。或者，可以使用定义数字样式的字符串或对象。
+getter 将返回内部 <a href="Expression.html"><code>Expression</code></a> 或 <a href="ConditionsExpression.html"><code>ConditionsExpression</code></a>，这可能与提供给 setter 的值不同。
+<p>
+表达式必须返回 <code>VerticalOrigin</code>。
+</p>
+<p>
+此表达式仅适用于矢量瓦片中的点要素。
+</p>
 </div>
 
 
@@ -1570,9 +1875,18 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">const style = new Cesium3DTileStyle({    labelVerticalOrigin : VerticalOrigin.TOP});style.labelVerticalOrigin.evaluate(feature); // returns a VerticalOrigin</code></pre>
+    <pre><code class="language-javascript">const style = new Cesium3DTileStyle({
+    labelVerticalOrigin : VerticalOrigin.TOP
+});
+style.labelVerticalOrigin.evaluate(feature); // returns a VerticalOrigin</code></pre>
 
-    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();// Override labelVerticalOrigin expression with a custom functionstyle.labelVerticalOrigin = {    evaluate : function(feature) {        return VerticalOrigin.CENTER;    }};</code></pre>
+    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();
+// Override labelVerticalOrigin expression with a custom function
+style.labelVerticalOrigin = {
+    evaluate : function(feature) {
+        return VerticalOrigin.CENTER;
+    }
+};</code></pre>
 
     
 
@@ -1584,7 +1898,7 @@
     <div class="tag-experimental">
         <h5>Experimental</h5>
         
-            <p>This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.</p>
+            <p>此功能使用的是 3D Tiles 规范的一部分，该规范不是最终版本，并且可能会在没有 Cesium 标准弃用策略的情况下进行更改。</p>
         
     </div>
     
@@ -1615,7 +1929,8 @@
 
 
 <div class="description">
-    获取或设置object containing application-specific expression that can be explicitlyevaluated, e.g., for display in a UI.
+    获取或设置对象，该对象包含特定于应用程序的表达式，该表达式可以显式地
+评估，例如，用于在 UI 中显示。
 </div>
 
 
@@ -1644,7 +1959,12 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const style = new Cesium3DTileStyle({    meta : {        description : '"Building id ${id} has height ${Height}."'    }});style.meta.description.evaluate(feature); // returns a String with the substituted variables</code></pre>
+    <pre><code class="language-javascript">const style = new Cesium3DTileStyle({
+    meta : {
+        description : '"Building id ${id} has height ${Height}."'
+    }
+});
+style.meta.description.evaluate(feature); // returns a String with the substituted variables</code></pre>
 
     
 
@@ -1680,7 +2000,14 @@
 
 
 <div class="description">
-    获取或设置<a href="StyleExpression.html"><code>StyleExpression</code></a> object used to evaluate the style's <code>pointOutlineColor</code> property. Alternatively a string or object defining a color style can be used.The getter will return the internal <a href="Expression.html"><code>Expression</code></a> or <a href="ConditionsExpression.html"><code>ConditionsExpression</code></a>, which may differ from the value provided to the setter.<p>The expression must return a <code>Color</code>.</p><p>This expression is only applicable to point features in a Vector tile.</p>
+    获取或设置<a href="StyleExpression.html"><code>StyleExpression</code></a>对象，用于计算样式的 <code>pointOutlineColor</code> 属性。或者，可以使用定义颜色样式的字符串或对象。
+getter 将返回内部 <a href="Expression.html"><code>Expression</code></a> 或 <a href="ConditionsExpression.html"><code>ConditionsExpression</code></a>，这可能与提供给 setter 的值不同。
+<p>
+表达式必须返回 <code>Color</code>。
+</p>
+<p>
+此表达式仅适用于矢量瓦片中的点要素。
+</p>
 </div>
 
 
@@ -1709,9 +2036,18 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();// Override pointOutlineColor expression with a stringstyle.pointOutlineColor = 'color("blue")';</code></pre>
+    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();
+// Override pointOutlineColor expression with a string
+style.pointOutlineColor = 'color("blue")';</code></pre>
 
-    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();// Override pointOutlineColor expression with a conditionstyle.pointOutlineColor = {    conditions : [        ['${height} > 2', 'color("cyan")'],        ['true', 'color("blue")']    ]};</code></pre>
+    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();
+// Override pointOutlineColor expression with a condition
+style.pointOutlineColor = {
+    conditions : [
+        ['${height} > 2', 'color("cyan")'],
+        ['true', 'color("blue")']
+    ]
+};</code></pre>
 
     
 
@@ -1723,7 +2059,7 @@
     <div class="tag-experimental">
         <h5>Experimental</h5>
         
-            <p>This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.</p>
+            <p>此功能使用的是 3D Tiles 规范的一部分，该规范不是最终版本，并且可能会在没有 Cesium 标准弃用策略的情况下进行更改。</p>
         
     </div>
     
@@ -1754,7 +2090,14 @@
 
 
 <div class="description">
-    获取或设置<a href="StyleExpression.html"><code>StyleExpression</code></a> object used to evaluate the style's <code>pointOutlineWidth</code> property. Alternatively a string or object defining a number style can be used.The getter will return the internal <a href="Expression.html"><code>Expression</code></a> or <a href="ConditionsExpression.html"><code>ConditionsExpression</code></a>, which may differ from the value provided to the setter.<p>The expression must return a <code>Number</code>.</p><p>This expression is only applicable to point features in a Vector tile.</p>
+    获取或设置<a href="StyleExpression.html"><code>StyleExpression</code></a> 对象，用于评估样式的 <code>pointOutlineWidth</code> 属性。或者，可以使用定义数字样式的字符串或对象。
+getter 将返回内部 <a href="Expression.html"><code>Expression</code></a> 或 <a href="ConditionsExpression.html"><code>ConditionsExpression</code></a>，这可能与提供给 setter 的值不同。
+<p>
+表达式必须返回 <code>Number</code>。
+</p>
+<p>
+此表达式仅适用于矢量瓦片中的点要素。
+</p>
 </div>
 
 
@@ -1783,9 +2126,18 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();// Override pointOutlineWidth expression with a stringstyle.pointOutlineWidth = '5';</code></pre>
+    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();
+// Override pointOutlineWidth expression with a string
+style.pointOutlineWidth = '5';</code></pre>
 
-    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();// Override pointOutlineWidth expression with a conditionstyle.pointOutlineWidth = {    conditions : [        ['${height} > 2', '5'],        ['true', '0']    ]};</code></pre>
+    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();
+// Override pointOutlineWidth expression with a condition
+style.pointOutlineWidth = {
+    conditions : [
+        ['${height} > 2', '5'],
+        ['true', '0']
+    ]
+};</code></pre>
 
     
 
@@ -1797,7 +2149,7 @@
     <div class="tag-experimental">
         <h5>Experimental</h5>
         
-            <p>This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.</p>
+            <p>此功能使用的是 3D Tiles 规范的一部分，该规范不是最终版本，并且可能会在没有 Cesium 标准弃用策略的情况下进行更改。</p>
         
     </div>
     
@@ -1828,7 +2180,14 @@
 
 
 <div class="description">
-    获取或设置<a href="StyleExpression.html"><code>StyleExpression</code></a> object used to evaluate the style's <code>pointSize</code> property. Alternatively a string or object defining a point size style can be used.The getter will return the internal <a href="Expression.html"><code>Expression</code></a> or <a href="ConditionsExpression.html"><code>ConditionsExpression</code></a>, which may differ from the value provided to the setter.<p>The expression must return a <code>Number</code>.</p><p>This expression is only applicable to point features in a Vector tile or a Point Cloud tile.</p>
+    获取或设置<a href="StyleExpression.html"><code>StyleExpression</code></a>对象，用于评估样式的 <code>pointSize</code> 属性。或者，可以使用定义磅值样式的字符串或对象。
+getter 将返回内部 <a href="Expression.html"><code>Expression</code></a> 或 <a href="ConditionsExpression.html"><code>ConditionsExpression</code></a>，这可能与提供给 setter 的值不同。
+<p>
+表达式必须返回 <code>Number</code>。
+</p>
+<p>
+此表达式仅适用于矢量瓦片或点云瓦片中的点要素。
+</p>
 </div>
 
 
@@ -1857,15 +2216,35 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">const style = new Cesium3DTileStyle({    pointSize : '(${Temperature} > 90) ? 2.0 : 1.0'});style.pointSize.evaluate(feature); // returns a Number</code></pre>
+    <pre><code class="language-javascript">const style = new Cesium3DTileStyle({
+    pointSize : '(${Temperature} > 90) ? 2.0 : 1.0'
+});
+style.pointSize.evaluate(feature); // returns a Number</code></pre>
 
-    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();// Override pointSize expression with a custom functionstyle.pointSize = {    evaluate : function(feature) {        return 1.0;    }};</code></pre>
+    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();
+// Override pointSize expression with a custom function
+style.pointSize = {
+    evaluate : function(feature) {
+        return 1.0;
+    }
+};</code></pre>
 
-    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();// Override pointSize expression with a numberstyle.pointSize = 1.0;</code></pre>
+    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();
+// Override pointSize expression with a number
+style.pointSize = 1.0;</code></pre>
 
-    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();// Override pointSize expression with a stringstyle.pointSize = '${height} / 10';</code></pre>
+    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();
+// Override pointSize expression with a string
+style.pointSize = '${height} / 10';</code></pre>
 
-    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();// Override pointSize expression with a conditionstyle.pointSize =  {    conditions : [        ['${height} > 2', '1.0'],        ['true', '2.0']    ]};</code></pre>
+    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();
+// Override pointSize expression with a condition
+style.pointSize =  {
+    conditions : [
+        ['${height} > 2', '1.0'],
+        ['true', '2.0']
+    ]
+};</code></pre>
 
     
 
@@ -1901,7 +2280,14 @@
 
 
 <div class="description">
-    获取或设置<a href="StyleExpression.html"><code>StyleExpression</code></a> object used to evaluate the style's <code>scaleByDistance</code> property. Alternatively a string or object defining a vec4 style can be used.The getter will return the internal <a href="Expression.html"><code>Expression</code></a> or <a href="ConditionsExpression.html"><code>ConditionsExpression</code></a>, which may differ from the value provided to the setter.<p>The expression must return a <code>Cartesian4</code>.</p><p>This expression is only applicable to point features in a Vector tile.</p>
+    获取或设置<a href="StyleExpression.html"><code>StyleExpression</code></a> 对象，用于评估样式的 <code>scaleByDistance</code> 属性。或者，可以使用定义 vec4 样式的字符串或对象。
+getter 将返回内部 <a href="Expression.html"><code>Expression</code></a> 或 <a href="ConditionsExpression.html"><code>ConditionsExpression</code></a>，这可能与提供给 setter 的值不同。
+<p>
+表达式必须返回 <code>Cartesian4</code>。
+</p>
+<p>
+此表达式仅适用于矢量瓦片中的点要素。
+</p>
 </div>
 
 
@@ -1930,7 +2316,10 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();// Override scaleByDistance expression with a stringstyle.scaleByDistance = 'vec4(1.5e2, 2.0, 1.5e7, 0.5)';style.scaleByDistance.evaluate(feature); // returns a Cartesian4</code></pre>
+    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();
+// Override scaleByDistance expression with a string
+style.scaleByDistance = 'vec4(1.5e2, 2.0, 1.5e7, 0.5)';
+style.scaleByDistance.evaluate(feature); // returns a Cartesian4</code></pre>
 
     
 
@@ -1942,7 +2331,7 @@
     <div class="tag-experimental">
         <h5>Experimental</h5>
         
-            <p>This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.</p>
+            <p>此功能使用的是 3D Tiles 规范的一部分，该规范不是最终版本，并且可能会在没有 Cesium 标准弃用策略的情况下进行更改。</p>
         
     </div>
     
@@ -1973,7 +2362,14 @@
 
 
 <div class="description">
-    获取或设置<a href="StyleExpression.html"><code>StyleExpression</code></a> object used to evaluate the style's <code>show</code> property. Alternatively a boolean, string, or object defining a show style can be used.The getter will return the internal <a href="Expression.html"><code>Expression</code></a> or <a href="ConditionsExpression.html"><code>ConditionsExpression</code></a>, which may differ from the value provided to the setter.<p>The expression must return or convert to a <code>Boolean</code>.</p><p>This expression is applicable to all tile formats.</p>
+    获取或设置<a href="StyleExpression.html"><code>StyleExpression</code></a> 用于评估样式的 <code>show</code> 属性的对象。或者，可以使用定义显示样式的布尔值、字符串或对象。
+getter 将返回内部 <a href="Expression.html"><code>Expression</code></a> 或 <a href="ConditionsExpression.html"><code>ConditionsExpression</code></a>，这可能与提供给 setter 的值不同。
+<p>
+表达式必须返回或转换为<code>布尔值</code>。
+</p>
+<p>
+此表达式适用于所有磁贴格式。
+</p>
 </div>
 
 
@@ -2002,15 +2398,37 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">const style = new Cesium3DTileStyle({    show : '(regExp("^Chest").test(${County})) &amp;&amp; (${YearBuilt} >= 1970)'});style.show.evaluate(feature); // returns true or false depending on the feature's properties</code></pre>
+    <pre><code class="language-javascript">const style = new Cesium3DTileStyle({
+    show : '(regExp("^Chest").test(${County})) &amp;&amp; (${YearBuilt} >= 1970)'
+});
+style.show.evaluate(feature); // returns true or false depending on the feature's properties</code></pre>
 
-    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();// Override show expression with a custom functionstyle.show = {    evaluate : function(feature) {        return true;    }};</code></pre>
+    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();
+// Override show expression with a custom function
+style.show = {
+    evaluate : function(feature) {
+        return true;
+    }
+};</code></pre>
 
-    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();// Override show expression with a booleanstyle.show = true;};</code></pre>
+    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();
+// Override show expression with a boolean
+style.show = true;
+};</code></pre>
 
-    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();// Override show expression with a stringstyle.show = '${Height} > 0';};</code></pre>
+    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();
+// Override show expression with a string
+style.show = '${Height} > 0';
+};</code></pre>
 
-    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();// Override show expression with a conditionstyle.show = {    conditions: [        ['${height} > 2', 'false'],        ['true', 'true']    ];};</code></pre>
+    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();
+// Override show expression with a condition
+style.show = {
+    conditions: [
+        ['${height} > 2', 'false'],
+        ['true', 'true']
+    ];
+};</code></pre>
 
     
 
@@ -2046,7 +2464,8 @@
 
 
 <div class="description">
-    Gets the object defining the style using the<a href="https://github.com/CesiumGS/3d-tiles/tree/main/specification/Styling">3D Tiles Styling language</a>.
+    使用
+<a href="https://github.com/CesiumGS/3d-tiles/tree/main/specification/Styling">3D Tiles Styling language</a>.
 </div>
 
 
@@ -2109,7 +2528,14 @@
 
 
 <div class="description">
-    获取或设置<a href="StyleExpression.html"><code>StyleExpression</code></a> object used to evaluate the style's <code>translucencyByDistance</code> property. Alternatively a string or object defining a vec4 style can be used.The getter will return the internal <a href="Expression.html"><code>Expression</code></a> or <a href="ConditionsExpression.html"><code>ConditionsExpression</code></a>, which may differ from the value provided to the setter.<p>The expression must return a <code>Cartesian4</code>.</p><p>This expression is only applicable to point features in a Vector tile.</p>
+    获取或设置<a href="StyleExpression.html"><code>StyleExpression</code></a> 对象，用于评估样式的 <code>translucencyByDistance</code> 属性。或者，可以使用定义 vec4 样式的字符串或对象。
+getter 将返回内部 <a href="Expression.html"><code>Expression</code></a> 或 <a href="ConditionsExpression.html"><code>ConditionsExpression</code></a>，这可能与提供给 setter 的值不同。
+<p>
+表达式必须返回 <code>Cartesian4</code>。
+</p>
+<p>
+此表达式仅适用于矢量瓦片中的点要素。
+</p>
 </div>
 
 
@@ -2138,7 +2564,10 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();// Override translucencyByDistance expression with a stringstyle.translucencyByDistance = 'vec4(1.5e2, 1.0, 1.5e7, 0.2)';style.translucencyByDistance.evaluate(feature); // returns a Cartesian4</code></pre>
+    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();
+// Override translucencyByDistance expression with a string
+style.translucencyByDistance = 'vec4(1.5e2, 1.0, 1.5e7, 0.2)';
+style.translucencyByDistance.evaluate(feature); // returns a Cartesian4</code></pre>
 
     
 
@@ -2150,7 +2579,7 @@
     <div class="tag-experimental">
         <h5>Experimental</h5>
         
-            <p>This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.</p>
+            <p>此功能使用的是 3D Tiles 规范的一部分，该规范不是最终版本，并且可能会在没有 Cesium 标准弃用策略的情况下进行更改。</p>
         
     </div>
     
@@ -2181,7 +2610,14 @@
 
 
 <div class="description">
-    获取或设置<a href="StyleExpression.html"><code>StyleExpression</code></a> object used to evaluate the style's <code>verticalOrigin</code> property. Alternatively a string or object defining a number style can be used.The getter will return the internal <a href="Expression.html"><code>Expression</code></a> or <a href="ConditionsExpression.html"><code>ConditionsExpression</code></a>, which may differ from the value provided to the setter.<p>The expression must return a <code>VerticalOrigin</code>.</p><p>This expression is only applicable to point features in a Vector tile.</p>
+    获取或设置<a href="StyleExpression.html"><code>StyleExpression</code></a> 对象，用于评估样式的 <code>verticalOrigin</code> 属性。或者，可以使用定义数字样式的字符串或对象。
+getter 将返回内部 <a href="Expression.html"><code>Expression</code></a> 或 <a href="ConditionsExpression.html"><code>ConditionsExpression</code></a>，这可能与提供给 setter 的值不同。
+<p>
+表达式必须返回 <code>VerticalOrigin</code>。
+</p>
+<p>
+此表达式仅适用于矢量瓦片中的点要素。
+</p>
 </div>
 
 
@@ -2210,9 +2646,18 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">const style = new Cesium3DTileStyle({    verticalOrigin : VerticalOrigin.TOP});style.verticalOrigin.evaluate(feature); // returns a VerticalOrigin</code></pre>
+    <pre><code class="language-javascript">const style = new Cesium3DTileStyle({
+    verticalOrigin : VerticalOrigin.TOP
+});
+style.verticalOrigin.evaluate(feature); // returns a VerticalOrigin</code></pre>
 
-    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();// Override verticalOrigin expression with a custom functionstyle.verticalOrigin = {    evaluate : function(feature) {        return VerticalOrigin.CENTER;    }};</code></pre>
+    <pre><code class="language-javascript">const style = new Cesium.Cesium3DTileStyle();
+// Override verticalOrigin expression with a custom function
+style.verticalOrigin = {
+    evaluate : function(feature) {
+        return VerticalOrigin.CENTER;
+    }
+};</code></pre>
 
     
 
@@ -2224,7 +2669,7 @@
     <div class="tag-experimental">
         <h5>Experimental</h5>
         
-            <p>This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.</p>
+            <p>此功能使用的是 3D Tiles 规范的一部分，该规范不是最终版本，并且可能会在没有 Cesium 标准弃用策略的情况下进行更改。</p>
         
     </div>
     

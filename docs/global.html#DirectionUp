@@ -47,7 +47,7 @@
 
 
         
-            <div class="description">An orientation given by a pair of unit vectors</div>
+            <div class="description">由一对单位向量给出的方向</div>
         
 
         
@@ -96,7 +96,7 @@
 
             
 
-            <td class="description last">The unit "direction" vector</td>
+            <td class="description last">单位 “direction” 向量</td>
         </tr>
 
     
@@ -119,7 +119,7 @@
 
             
 
-            <td class="description last">The unit "up" vector</td>
+            <td class="description last">单位 “up” 向量</td>
         </tr>
 
     

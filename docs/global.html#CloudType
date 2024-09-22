@@ -47,7 +47,7 @@
 
 
         
-            <div class="description">Specifies the type of the cloud that is added to a <a href="CloudCollection.html"><code>CloudCollection</code></a> in <a href="CloudCollection.html#add"><code>CloudCollection#add</code></a>.</div>
+            <div class="description">指定添加到 <a href="CloudCollection.html#add"><code>CloudCollection#add</code></a> 中 <a href="CloudCollection.html"><code>CloudCollection</code></a> 的云的类型。</div>
         
 
         
@@ -96,7 +96,7 @@
 
             
 
-            <td class="description last">Cumulus cloud.</td>
+            <td class="description last">积云。</td>
         </tr>
 
     
@@ -170,7 +170,7 @@
 
 
 <div class="description">
-    Cumulus cloud.
+    积云。
 </div>
 
 
@@ -237,7 +237,7 @@
 
 
 <div class="description">
-    Validates that the provided cloud type is a valid <a href="global.html#CloudType"><code>CloudType</code></a>
+    验证提供的云类型是否为有效的 <a href="global.html#CloudType"><code>CloudType</code></a>
 </div>
 
 
@@ -288,7 +288,7 @@
 
             <td class="description last">
             
-                The cloud type to validate.</td>
+                要验证的云类型。</td>
         </tr>
 
     
@@ -309,7 +309,7 @@
 
         
 <div class="param-desc">
-    <code>true</code> if the provided cloud type is a valid value; otherwise, <code>false</code>.
+    <code>true</code>（如果提供的云类型为有效值）;否则为 <code>false</code>。
 </div>
 
 
@@ -340,7 +340,9 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">if (!Cesium.CloudType.validate(cloudType)) {  throw new Cesium.DeveloperError('cloudType must be a valid value.');}</code></pre>
+    <pre><code class="language-javascript">如果 （！Cesium.CloudType.validate（cloudType）） {
+throw new Cesium.DeveloperError（'cloudType must a valid value.'）;
+}</code></pre>
 
     
 

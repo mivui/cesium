@@ -58,7 +58,12 @@
 
 
 <div class="description">
-    Provides playback of time-dynamic point cloud data.<p>Point cloud frames are prefetched in intervals determined by the average frame load time and the current clock speed.If intermediate frames cannot be loaded in time to meet playback speed, they will be skipped. If frames are sufficientlysmall or the clock is sufficiently slow then no frames will be skipped.</p>
+    提供时间动态点云数据的回放。
+<p>
+点云帧的预取间隔由平均帧加载时间和当前时钟速度决定。
+如果无法及时加载中间帧以满足播放速度，则将跳过这些中间帧。如果帧
+small 或时钟足够慢，则不会跳过任何帧。
+</p>
 </div>
 
 
@@ -159,7 +164,7 @@
 
                 
             
-                A <a href="Clock.html"><code>Clock</code></a> instance that is used when determining the value for the time dimension.</td>
+                确定时间维度值时使用的 <a href="Clock.html"><code>Clock</code></a> 实例。</td>
         </tr>
 
     
@@ -191,7 +196,7 @@
 
                 
             
-                A <a href="TimeIntervalCollection.html"><code>TimeIntervalCollection</code></a> with its data property being an object containing a <code>uri</code> to a 3D Tiles Point Cloud tile and an optional <code>transform</code>.</td>
+                一个 <a href="TimeIntervalCollection.html"><code>TimeIntervalCollection</code></a>，其 data 属性是一个对象，其中包含 3D 瓦片的 <code>uri</code>、点云瓦片和可选<code>转换</code>。</td>
         </tr>
 
     
@@ -227,7 +232,7 @@
 
                 
             
-                Determines if the point cloud will be shown.</td>
+                确定是否显示点云。</td>
         </tr>
 
     
@@ -263,7 +268,7 @@
 
                 
             
-                A 4x4 transformation matrix that transforms the point cloud.</td>
+                转换点云的 4x4 变换矩阵。</td>
         </tr>
 
     
@@ -299,7 +304,7 @@
 
                 
             
-                Determines whether the point cloud casts or receives shadows from light sources.</td>
+                确定点云是投射还是接收来自光源的阴影。</td>
         </tr>
 
     
@@ -335,7 +340,7 @@
 
                 
             
-                The maximum amount of memory in MB that can be used by the point cloud.</td>
+                点云可以使用的最大内存量（以 MB 为单位）。</td>
         </tr>
 
     
@@ -369,7 +374,7 @@
 
                 
             
-                Options for constructing a <a href="PointCloudShading.html"><code>PointCloudShading</code></a> object to control point attenuation and eye dome lighting.</td>
+                用于构建 <a href="PointCloudShading.html"><code>PointCloudShading</code></a> 对象以控制点衰减和眼球照明的选项。</td>
         </tr>
 
     
@@ -403,7 +408,7 @@
 
                 
             
-                The style, defined using the <a href="https://github.com/CesiumGS/3d-tiles/tree/main/specification/Styling">3D Tiles Styling language</a>, applied to each point in the point cloud.</td>
+                使用 <a href="https://github.com/CesiumGS/3d-tiles/tree/main/specification/Styling">3D Tiles Styling language</a> 定义的样式，应用于点云中的每个点。</td>
         </tr>
 
     
@@ -437,7 +442,7 @@
 
                 
             
-                The <a href="ClippingPlaneCollection.html"><code>ClippingPlaneCollection</code></a> used to selectively disable rendering the point cloud.</td>
+                用于选择性地禁用点云渲染的 <a href="ClippingPlaneCollection.html"><code>ClippingPlaneCollection</code></a>。</td>
         </tr>
 
     
@@ -533,7 +538,7 @@
 
 
 <div class="description">
-    The bounding sphere of the frame being rendered. Returns <code>undefined</code> if no frame is being rendered.
+    正在渲染的帧的边界球体。如果未渲染帧，则返回 <code>undefined</code>。
 </div>
 
 
@@ -593,7 +598,7 @@
 
 
 <div class="description">
-    The <a href="ClippingPlaneCollection.html"><code>ClippingPlaneCollection</code></a> used to selectively disable rendering the point cloud.
+    用于选择性地禁用点云渲染的 <a href="ClippingPlaneCollection.html"><code>ClippingPlaneCollection</code></a>。
 </div>
 
 
@@ -653,7 +658,10 @@
 
 
 <div class="description">
-    The event fired to indicate that a new frame was rendered.<p>The time dynamic point cloud <a href="TimeDynamicPointCloud.html"><code>TimeDynamicPointCloud</code></a> is passed to the event listener.</p>
+    触发事件以指示已渲染新帧。
+<p>
+时间动态点云 <a href="TimeDynamicPointCloud.html"><code>TimeDynamicPointCloud</code></a> 被传递给事件监听器。
+</p>
 </div>
 
 
@@ -685,7 +693,9 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">pointCloud.frameChanged.addEventListener(function(timeDynamicPointCloud) {    viewer.camera.viewBoundingSphere(timeDynamicPointCloud.boundingSphere);});</code></pre>
+    <pre><code class="language-javascript">pointCloud.frameChanged.addEventListener(function(timeDynamicPointCloud) {
+    viewer.camera.viewBoundingSphere(timeDynamicPointCloud.boundingSphere);
+});</code></pre>
 
     
 
@@ -721,7 +731,17 @@
 
 
 <div class="description">
-    The event fired to indicate that a frame failed to load. A frame may fail to load if therequest for its uri fails or processing fails due to invalid content.<p>If there are no event listeners, error messages will be logged to the console.</p><p>The error object passed to the listener contains two properties:<ul><li><code>uri</code>: the uri of the failed frame.</li><li><code>message</code>: the error message.</li></ul>
+    触发事件以指示帧加载失败。如果
+请求其 URI 失败或由于内容无效而处理失败。
+<p>
+如果没有事件侦听器，错误消息将记录到控制台。
+</p>
+<p>
+传递给侦听器的 error 对象包含两个属性：
+<ul>
+<li><code>URI</code>：失败帧的 URI。</li>
+<li><code>message</code>：错误消息。</li>
+</ul>
 </div>
 
 
@@ -753,7 +773,10 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">pointCloud.frameFailed.addEventListener(function(error) {    console.log(`An error occurred loading frame: ${error.uri}`);    console.log(`Error: ${error.message}`);});</code></pre>
+    <pre><code class="language-javascript">pointCloud.frameFailed.addEventListener(function(error) {
+    console.log(`An error occurred loading frame: ${error.uri}`);
+    console.log(`Error: ${error.message}`);
+});</code></pre>
 
     
 
@@ -789,7 +812,13 @@
 
 
 <div class="description">
-    The maximum amount of GPU memory (in MB) that may be used to cache point cloud frames.<p>Frames that are not being loaded or rendered are unloaded to enforce this.</p><p>If decreasing this value results in unloading tiles, the tiles are unloaded the next frame.</p>
+    可用于缓存点云帧的最大 GPU 内存量（以 MB 为单位）。
+<p>
+未加载或渲染的帧将被卸载以强制执行此操作。
+</p>
+<p>
+如果减小此值导致卸载图块，则会在下一帧卸载图块。
+</p>
 </div>
 
 
@@ -857,7 +886,7 @@
 
 
 <div class="description">
-    A 4x4 transformation matrix that transforms the point cloud.
+    一个 4x4 转换矩阵，用于转换点云。
 </div>
 
 
@@ -920,7 +949,7 @@
 
 
 <div class="description">
-    Options for controlling point size based on geometric error and eye dome lighting.
+    用于根据几何误差和 Eye Dome 照明控制点大小的选项。
 </div>
 
 
@@ -980,7 +1009,13 @@
 
 
 <div class="description">
-    Determines whether the point cloud casts or receives shadows from light sources.<p>Enabling shadows has a performance impact. A point cloud that casts shadows must be rendered twice, once from the camera and again from the light's point of view.</p><p>Shadows are rendered only when <a href="Viewer.html#shadows"><code>Viewer#shadows</code></a> is <code>true</code>.</p>
+    确定点云是投射还是接收来自光源的阴影。
+<p>
+启用阴影会影响性能。投射阴影的点云必须渲染两次，一次从摄像机渲染，另一次从灯光角度渲染。
+</p>
+<p>
+仅当 <a href="Viewer.html#shadows"><code>Viewer#shadows</code></a> 为 <code>true</code> 时，才会渲染阴影。
+</p>
 </div>
 
 
@@ -1043,7 +1078,7 @@
 
 
 <div class="description">
-    Determines if the point cloud will be shown.
+    确定是否显示点云。
 </div>
 
 
@@ -1106,7 +1141,13 @@
 
 
 <div class="description">
-    The style, defined using the<a href="https://github.com/CesiumGS/3d-tiles/tree/main/specification/Styling">3D Tiles Styling language</a>,applied to each point in the point cloud.<p>Assign <code>undefined</code> to remove the style, which will restore the visualappearance of the point cloud to its default when no style was applied.</p>
+    样式，使用
+<a href="https://github.com/CesiumGS/3d-tiles/tree/main/specification/Styling">3D 瓦片样式语言</a>，
+应用于点云中的每个点。
+<p>
+分配 <code>undefined</code> 以删除样式，这将恢复视觉效果
+未应用样式时，点云的外观将变为默认值。
+</p>
 </div>
 
 
@@ -1135,7 +1176,16 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">pointCloud.style = new Cesium.Cesium3DTileStyle({   color : {       conditions : [           ['${Classification} === 0', 'color("purple", 0.5)'],           ['${Classification} === 1', 'color("red")'],           ['true', '${COLOR}']       ]   },   show : '${Classification} !== 2'});</code></pre>
+    <pre><code class="language-javascript">pointCloud.style = new Cesium.Cesium3DTileStyle({
+   color : {
+       conditions : [
+           ['${Classification} === 0', 'color("purple", 0.5)'],
+           ['${Classification} === 1', 'color("red")'],
+           ['true', '${COLOR}']
+       ]
+   },
+   show : '${Classification} !== 2'
+});</code></pre>
 
     
 
@@ -1176,7 +1226,7 @@
 
 
 <div class="description">
-    The total amount of GPU memory in bytes used by the point cloud.
+    点云使用的 GPU 内存总量（以字节为单位）。
 </div>
 
 
@@ -1248,7 +1298,12 @@
 
 
 <div class="description">
-    Destroys the WebGL resources held by this object.  Destroying an object allows for deterministicrelease of WebGL resources, instead of relying on the garbage collector to destroy this object.<br /><br />Once an object is destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.  Therefore,assign the return value (<code>undefined</code>) to the object as done in the example.
+    销毁此对象持有的 WebGL 资源。 销毁对象允许确定性
+释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。
+<br /><br />
+一旦对象被销毁，就不应该使用它;调用
+<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。 因此
+将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
 </div>
 
 
@@ -1281,7 +1336,7 @@
         
 <span class="param-type"><a href="DeveloperError.html">DeveloperError</a></span>
 
-: This object was destroyed, i.e., destroy() was called.
+: 这个物体被摧毁了,destroy().
     </div>
 
 </li>
@@ -1353,7 +1408,10 @@
 
 
 <div class="description">
-    Returns true if this object was destroyed; otherwise, false.<br /><br />If this object was destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.
+    如果此对象已销毁，则返回 true;否则为 false。
+<br /><br />
+如果此对象已销毁，则不应使用;调用
+<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。
 </div>
 
 
@@ -1380,7 +1438,7 @@
 
         
 <div class="param-desc">
-    <code>true</code> if this object was destroyed; otherwise, <code>false</code>.
+    <code>true</code>，如果此对象被销毁;否则为 <code>false</code>。
 </div>
 
 
@@ -1448,7 +1506,8 @@
 
 
 <div class="description">
-    Marks the point cloud's <a href="TimeDynamicPointCloud.html#style"><code>TimeDynamicPointCloud#style</code></a> as dirty, which forces allpoints to re-evaluate the style in the next frame.
+    将点云的 <a href="TimeDynamicPointCloud.html#style"><code>TimeDynamicPointCloud#style</code></a> 标记为 dirty，这将强制所有
+点以在下一帧中重新评估样式。
 </div>
 
 

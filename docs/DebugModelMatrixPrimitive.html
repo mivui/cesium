@@ -58,7 +58,15 @@
 
 
 <div class="description">
-    Draws the axes of a reference frame defined by a matrix that transforms to worldcoordinates, i.e., Earth's WGS84 coordinates.  The most prominent example isa primitives <code>modelMatrix</code>.<p>The X axis is red; Y is green; and Z is blue.</p><p>This is for debugging only; it is not optimized for production use.</p>
+    绘制由转换为 world 的矩阵定义的参考系的轴
+坐标，即地球的 WGS84 坐标。 最突出的例子是
+一个基元 <code>modelMatrix</code>。
+<p>
+X 轴为红色;Y 为绿色;Z 为蓝色。
+</p>
+<p>
+这仅用于调试;它未针对生产使用进行优化。
+</p>
 </div>
 
 
@@ -170,7 +178,7 @@
 
                 
             
-                The length of the axes in meters.</td>
+                轴的长度，以米为单位。</td>
         </tr>
 
     
@@ -206,7 +214,7 @@
 
                 
             
-                宽度 axes in pixels.</td>
+                宽度轴（以像素为单位）。</td>
         </tr>
 
     
@@ -242,7 +250,7 @@
 
                 
             
-                The 4x4 matrix that defines the reference frame, i.e., origin plus axes, to visualize.</td>
+                定义要可视化的参考系（即原点加轴）的 4x4 矩阵。</td>
         </tr>
 
     
@@ -278,7 +286,7 @@
 
                 
             
-                Determines if this primitive will be shown.</td>
+                决定是否显示此基元。</td>
         </tr>
 
     
@@ -312,7 +320,7 @@
 
                 
             
-                A user-defined object to return when the instance is picked with <a href="Scene.html#pick"><code>Scene#pick</code></a></td>
+                使用 <a href="Scene.html#pick"><code>Scene#pick</code></a> 选取实例时返回的用户定义对象</td>
         </tr>
 
     
@@ -361,7 +369,11 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">primitives.add(new Cesium.DebugModelMatrixPrimitive({  modelMatrix : primitive.modelMatrix,  // primitive to debug  length : 100000.0,  width : 10.0}));</code></pre>
+    <pre><code class="language-javascript">primitives.add(new Cesium.DebugModelMatrixPrimitive({
+  modelMatrix : primitive.modelMatrix,  // primitive to debug
+  length : 100000.0,
+  width : 10.0
+}));</code></pre>
 
     
 
@@ -413,7 +425,7 @@
 
 
 <div class="description">
-    User-defined value returned when the primitive is picked.
+    选取基元时返回的 User-defined 值。
 </div>
 
 
@@ -481,7 +493,7 @@
 
 
 <div class="description">
-    The length of the axes in meters.
+    轴的长度（以米为单位）。
 </div>
 
 
@@ -544,7 +556,7 @@
 
 
 <div class="description">
-    The 4x4 matrix that defines the reference frame, i.e., origin plus axes, to visualize.
+    定义要可视化的参考帧（即原点加轴）的 4x4 矩阵。
 </div>
 
 
@@ -607,7 +619,7 @@
 
 
 <div class="description">
-    Determines if this primitive will be shown.
+    确定是否显示此基元。
 </div>
 
 
@@ -670,7 +682,7 @@
 
 
 <div class="description">
-    The width of the axes in pixels.
+    轴的宽度（以像素为单位）。
 </div>
 
 
@@ -740,7 +752,13 @@
 
 
 <div class="description">
-    Destroys the WebGL resources held by this object.  Destroying an object allows for deterministicrelease of WebGL resources, instead of relying on the garbage collector to destroy this object.<p>Once an object is destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.  Therefore,assign the return value (<code>undefined</code>) to the object as done in the example.</p>
+    销毁此对象持有的 WebGL 资源。 销毁对象允许确定性
+释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。
+<p>
+一旦对象被销毁，就不应该使用它;调用
+<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。因此
+将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
+</p>
 </div>
 
 
@@ -773,7 +791,7 @@
         
 <span class="param-type"><a href="DeveloperError.html">DeveloperError</a></span>
 
-: This object was destroyed, i.e., destroy() was called.
+: 这个物体被摧毁了,destroy().
     </div>
 
 </li>
@@ -845,7 +863,11 @@
 
 
 <div class="description">
-    Returns true if this object was destroyed; otherwise, false.<p>If this object was destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.</p>
+    如果此对象已销毁，则返回 true;否则为 false。
+<p>
+如果此对象已销毁，则不应使用;调用
+ <code> isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。
+</p>
 </div>
 
 
@@ -872,7 +894,7 @@
 
         
 <div class="param-desc">
-    <code>true</code> if this object was destroyed; otherwise, <code>false</code>.
+    如果此对象被销毁，<code>则为 true</code>;否则为 <code>false</code>。
 </div>
 
 

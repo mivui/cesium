@@ -47,7 +47,8 @@
 
 
         
-            <div class="description">Specifies whether the object casts or receives shadows from light sources whenshadows are enabled.</div>
+            <div class="description">指定在以下情况下，对象是投射还是接收来自光源的阴影
+启用阴影。</div>
         
 
         
@@ -96,7 +97,7 @@
 
             
 
-            <td class="description last">The object does not cast or receive shadows.</td>
+            <td class="description last">对象不投射或接收阴影。</td>
         </tr>
 
     
@@ -119,7 +120,7 @@
 
             
 
-            <td class="description last">The object casts and receives shadows.</td>
+            <td class="description last">对象投射和接收阴影。</td>
         </tr>
 
     
@@ -142,7 +143,7 @@
 
             
 
-            <td class="description last">The object casts shadows only.</td>
+            <td class="description last">对象仅投射阴影。</td>
         </tr>
 
     
@@ -165,7 +166,7 @@
 
             
 
-            <td class="description last">The object receives shadows only.</td>
+            <td class="description last">对象仅接收阴影。</td>
         </tr>
 
     
@@ -239,7 +240,7 @@
 
 
 <div class="description">
-    The object casts shadows only.
+    对象仅投射阴影。
 </div>
 
 
@@ -302,7 +303,7 @@
 
 
 <div class="description">
-    The object does not cast or receive shadows.
+    对象不投射或接收阴影。
 </div>
 
 
@@ -362,7 +363,7 @@
 
 
 <div class="description">
-    The object casts and receives shadows.
+    对象投射和接收阴影。
 </div>
 
 
@@ -425,7 +426,7 @@
 
 
 <div class="description">
-    The object receives shadows only.
+    对象仅接收阴影。
 </div>
 
 

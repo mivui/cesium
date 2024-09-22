@@ -47,7 +47,7 @@
 
 
         
-            <div class="description">EPSG codes known to include reverse axis orders, but are not within 4000-5000.</div>
+            <div class="description">已知 EPSG 代码包含反向轴顺序，但不在 4000-5000 之间。</div>
         
 
         

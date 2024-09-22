@@ -58,7 +58,7 @@
 
 
 <div class="description">
-    A primitive that renders voxel data from a <a href="VoxelProvider.html"><code>VoxelProvider</code></a>.
+    一个基元，用于呈现来自 <a href="VoxelProvider.html"><code>VoxelProvider</code></a> 的体素数据。
 </div>
 
 
@@ -168,7 +168,7 @@
 
                 
             
-                The voxel provider that supplies the primitive with tile data.</td>
+                为基元提供图块数据的体素提供程序。</td>
         </tr>
 
     
@@ -204,7 +204,7 @@
 
                 
             
-                The model matrix used to transform the primitive.</td>
+                用于变换基元的模型矩阵。</td>
         </tr>
 
     
@@ -238,7 +238,7 @@
 
                 
             
-                The custom shader used to style the primitive.</td>
+                用于设置基元样式的自定义着色器。</td>
         </tr>
 
     
@@ -272,7 +272,7 @@
 
                 
             
-                The clock used to control time dynamic behavior.</td>
+                用于控制时间动态行为的时钟。</td>
         </tr>
 
     
@@ -328,7 +328,7 @@
     <div class="tag-experimental">
         <h5>Experimental</h5>
         
-            <p>This feature is not final and is subject to change without Cesium's standard deprecation policy.</p>
+            <p>此功能不是最终的，在没有 Cesium 的标准弃用政策的情况下可能会发生变化。</p>
         
     </div>
     
@@ -864,7 +864,8 @@
 
 
 <div class="description">
-    获取或设置maximum bounds in the shape's local coordinate system.Voxel data is stretched or squashed to fit the bounds.
+    获取或设置maximum bounds in the shape's local coordinate system.
+Voxel data is stretched or squashed to fit the bounds.
 </div>
 
 
@@ -924,7 +925,8 @@
 
 
 <div class="description">
-    获取或设置maximum clipping location in the shape's local coordinate system.Any voxel content outside the range is clipped.
+    获取或设置maximum clipping location in the shape's local coordinate system.
+Any voxel content outside the range is clipped.
 </div>
 
 
@@ -1044,7 +1046,8 @@
 
 
 <div class="description">
-    获取或设置minimum bounds in the shape's local coordinate system.Voxel data is stretched or squashed to fit the bounds.
+    获取或设置minimum bounds in the shape's local coordinate system.
+Voxel data is stretched or squashed to fit the bounds.
 </div>
 
 
@@ -1104,7 +1107,8 @@
 
 
 <div class="description">
-    获取或设置minimum clipping location in the shape's local coordinate system.Any voxel content outside the range is clipped.
+    获取或设置minimum clipping location in the shape's local coordinate system.
+Any voxel content outside the range is clipped.
 </div>
 
 
@@ -1524,7 +1528,10 @@
 
 
 <div class="description">
-    获取或设置screen space error in pixels. If the screen space sizeof a voxel is greater than the screen space error, the tile is subdivided.Lower screen space error corresponds with higher detail rendering, but couldresult in worse performance and higher memory consumption.
+    获取或设置screen space error in pixels. If the screen space size
+of a voxel is greater than the screen space error, the tile is subdivided.
+Lower screen space error corresponds with higher detail rendering, but could
+result in worse performance and higher memory consumption.
 </div>
 
 
@@ -1704,7 +1711,9 @@
 
 
 <div class="description">
-    获取或设置step size multiplier used during raymarching.The lower the value, the higher the rendering quality, butalso the worse the performance.
+    获取或设置step size multiplier used during raymarching.
+The lower the value, the higher the rendering quality, but
+also the worse the performance.
 </div>
 
 
@@ -1771,7 +1780,12 @@
 
 
 <div class="description">
-    Destroys the WebGL resources held by this object.  Destroying an object allows for deterministicrelease of WebGL resources, instead of relying on the garbage collector to destroy this object.<br /><br />Once an object is destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.  Therefore,assign the return value (<code>undefined</code>) to the object as done in the example.
+    Destroys the WebGL resources held by this object.  Destroying an object allows for deterministic
+release of WebGL resources, instead of relying on the garbage collector to destroy this object.
+<br /><br />
+Once an object is destroyed, it should not be used; calling any function other than
+<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.  Therefore,
+assign the return value (<code>undefined</code>) to the object as done in the example.
 </div>
 
 
@@ -1804,7 +1818,7 @@
         
 <span class="param-type"><a href="DeveloperError.html">DeveloperError</a></span>
 
-: This object was destroyed, i.e., destroy() was called.
+: 这个物体被摧毁了,destroy().
     </div>
 
 </li>
@@ -1876,7 +1890,10 @@
 
 
 <div class="description">
-    Returns true if this object was destroyed; otherwise, false.<br /><br />If this object was destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.
+    Returns true if this object was destroyed; otherwise, false.
+<br /><br />
+If this object was destroyed, it should not be used; calling any function other than
+<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.
 </div>
 
 

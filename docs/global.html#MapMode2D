@@ -47,7 +47,7 @@
 
 
         
-            <div class="description">Describes how the map will operate in 2D.</div>
+            <div class="description">描述地图在 2D 模式下的操作方式。</div>
         
 
         
@@ -96,7 +96,7 @@
 
             
 
-            <td class="description last">The 2D map can be rotated about the z axis.</td>
+            <td class="description last">2D 地图可以绕 z 轴旋转。</td>
         </tr>
 
     
@@ -119,7 +119,7 @@
 
             
 
-            <td class="description last">The 2D map can be scrolled infinitely in the horizontal direction.</td>
+            <td class="description last">2D 地图可以在水平方向上无限滚动。</td>
         </tr>
 
     
@@ -193,7 +193,7 @@
 
 
 <div class="description">
-    The 2D map can be scrolled infinitely in the horizontal direction.
+    2D 地图可以在水平方向上无限滚动。
 </div>
 
 
@@ -256,7 +256,7 @@
 
 
 <div class="description">
-    The 2D map can be rotated about the z axis.
+    2D 地图可以绕 z 轴旋转。
 </div>
 
 

@@ -47,7 +47,7 @@
 
 
         
-            <div class="description">An object describing a uniform, its type, and an initial value</div>
+            <div class="description">描述 uniform、其类型和初始值的对象</div>
         
 
         
@@ -96,7 +96,7 @@
 
             
 
-            <td class="description last">The Glsl type of the uniform.</td>
+            <td class="description last">制服的 Glsl 类型。</td>
         </tr>
 
     
@@ -143,7 +143,7 @@
 
             
 
-            <td class="description last">The initial value of the uniform</td>
+            <td class="description last">uniform 的初始值</td>
         </tr>
 
     
@@ -178,7 +178,7 @@
     <div class="tag-experimental">
         <h5>Experimental</h5>
         
-            <p>This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.</p>
+            <p>此功能使用的是 3D Tiles 规范的一部分，该规范不是最终版本，并且可能会在没有 Cesium 标准弃用策略的情况下进行更改。</p>
         
     </div>
     

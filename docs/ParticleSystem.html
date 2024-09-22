@@ -58,7 +58,7 @@
 
 
 <div class="description">
-    A ParticleSystem manages the updating and display of a collection of particles.
+    ParticleSystem 管理粒子集合的更新和显示。
 </div>
 
 
@@ -170,7 +170,7 @@
 
                 
             
-                Whether to display the particle system.</td>
+                是否显示粒子系统。</td>
         </tr>
 
     
@@ -204,7 +204,7 @@
 
                 
             
-                The callback function to be called each frame to update a particle.</td>
+                每帧调用以更新粒子的回调函数。</td>
         </tr>
 
     
@@ -240,7 +240,7 @@
 
                 
             
-                The particle emitter for this system.</td>
+                这个系统的粒子发射器。</td>
         </tr>
 
     
@@ -276,7 +276,7 @@
 
                 
             
-                The 4x4 transformation matrix that transforms the particle system from model to world coordinates.</td>
+                将粒子系统从模型坐标转换为世界坐标的 4x4 变换矩阵。</td>
         </tr>
 
     
@@ -312,7 +312,7 @@
 
                 
             
-                The 4x4 transformation matrix that transforms the particle system emitter within the particle systems local coordinate system.</td>
+                在粒子系统局部坐标系内变换粒子系统发射器的 4x4 变换矩阵。</td>
         </tr>
 
     
@@ -348,7 +348,7 @@
 
                 
             
-                The number of particles to emit per second.</td>
+                每秒发射的粒子数。</td>
         </tr>
 
     
@@ -382,7 +382,7 @@
 
                 
             
-                An array of <a href="ParticleBurst.html"><code>ParticleBurst</code></a>, emitting bursts of particles at periodic times.</td>
+                一个 <a href="ParticleBurst.html"><code>ParticleBurst</code></a> 数组，周期性地发射粒子爆发。</td>
         </tr>
 
     
@@ -418,7 +418,7 @@
 
                 
             
-                Whether the particle system should loop its bursts when it is complete.</td>
+                粒子系统在完成时是否应该循环其爆发。</td>
         </tr>
 
     
@@ -454,7 +454,7 @@
 
                 
             
-                Sets the scale to apply to the image of the particle for the duration of its particleLife.</td>
+                设置在粒子的 particleLife 持续时间内应用于粒子图像的比例。</td>
         </tr>
 
     
@@ -488,7 +488,7 @@
 
                 
             
-                The initial scale to apply to the image of the particle at the beginning of its life.</td>
+                应用于粒子生命周期开始时图像的初始比例。</td>
         </tr>
 
     
@@ -522,7 +522,7 @@
 
                 
             
-                The final scale to apply to the image of the particle at the end of its life.</td>
+                应用于粒子生命周期结束时图像的最终缩放。</td>
         </tr>
 
     
@@ -558,7 +558,7 @@
 
                 
             
-                Sets the color of a particle for the duration of its particleLife.</td>
+                设置粒子在其 particleLife 持续时间内的颜色。</td>
         </tr>
 
     
@@ -592,7 +592,7 @@
 
                 
             
-                The color of the particle at the beginning of its life.</td>
+                粒子在其生命周期开始时的颜色。</td>
         </tr>
 
     
@@ -626,7 +626,7 @@
 
                 
             
-                The color of the particle at the end of its life.</td>
+                粒子在其生命周期结束时的颜色。</td>
         </tr>
 
     
@@ -660,7 +660,7 @@
 
                 
             
-                The URI, HTMLImageElement, or HTMLCanvasElement to use for the billboard.</td>
+                用于公告牌的 URI、HTMLImageElement 或 HTMLCanvasElement。</td>
         </tr>
 
     
@@ -682,7 +682,7 @@
             
                 <td class="default">
                 
-                    <code class="language-javascript">new Cartesian2(1.0, 1.0)</code>
+                    <code class="language-javascript">new Cartesian(1.0, 1.0)</code>
                 
                 </td>
             
@@ -696,7 +696,7 @@
 
                 
             
-                If set, overrides the minimumImageSize and maximumImageSize inputs that scale the particle image's dimensions in pixels.</td>
+                如果设置，则覆盖缩放粒子图像尺寸（以像素为单位）的 minimumImageSize 和 maximumImageSize 输入。</td>
         </tr>
 
     
@@ -730,7 +730,7 @@
 
                 
             
-                Sets the minimum bound, width by height, above which to randomly scale the particle image's dimensions in pixels.</td>
+                设置最小边界，宽度乘高度，超过该边界后，以像素为单位随机缩放粒子图像的尺寸。</td>
         </tr>
 
     
@@ -764,7 +764,7 @@
 
                 
             
-                Sets the maximum bound, width by height, below which to randomly scale the particle image's dimensions in pixels.</td>
+                设置最大边界（宽度乘高度），低于该边界时，可以随机缩放粒子图像的尺寸（以像素为单位）。</td>
         </tr>
 
     
@@ -798,7 +798,7 @@
 
                 
             
-                Sets if the size of particles is in meters or pixels. <code>true</code> to size the particles in meters; otherwise, the size is in pixels.</td>
+                设置粒子的大小是以米为单位还是以像素为单位。<code>true</code> 以米为单位调整颗粒大小;否则，大小以像素为单位。</td>
         </tr>
 
     
@@ -834,7 +834,7 @@
 
                 
             
-                If set, overrides the minimumSpeed and maximumSpeed inputs with this value.</td>
+                如果设置，则用此值覆盖 minimumSpeed 和 maximumSpeed 输入。</td>
         </tr>
 
     
@@ -868,7 +868,7 @@
 
                 
             
-                Sets the minimum bound in meters per second above which a particle's actual speed will be randomly chosen.</td>
+                设置以米/秒为单位的最小限制，超过该限制时，将随机选择粒子的实际速度。</td>
         </tr>
 
     
@@ -902,7 +902,7 @@
 
                 
             
-                Sets the maximum bound in meters per second below which a particle's actual speed will be randomly chosen.</td>
+                设置以米/秒为单位的最大边界，低于该边界将随机选择粒子的实际速度。</td>
         </tr>
 
     
@@ -938,7 +938,7 @@
 
                 
             
-                How long the particle system will emit particles, in seconds.</td>
+                粒子系统发射粒子的时间，以秒为单位。</td>
         </tr>
 
     
@@ -974,7 +974,7 @@
 
                 
             
-                If set, overrides the minimumParticleLife and maximumParticleLife inputs with this value.</td>
+                如果设置，则使用此值覆盖 minimumParticleLife 和 maximumParticleLife 输入。</td>
         </tr>
 
     
@@ -1008,7 +1008,7 @@
 
                 
             
-                Sets the minimum bound in seconds for the possible duration of a particle's life above which a particle's actual life will be randomly chosen.</td>
+                设置粒子寿命的可能持续时间的最小限制（以秒为单位），超过该限制时，将随机选择粒子的实际寿命。</td>
         </tr>
 
     
@@ -1042,7 +1042,7 @@
 
                 
             
-                Sets the maximum bound in seconds for the possible duration of a particle's life below which a particle's actual life will be randomly chosen.</td>
+                设置粒子寿命的可能持续时间的最大限制（以秒为单位），低于该限制时，将随机选择粒子的实际寿命。</td>
         </tr>
 
     
@@ -1078,7 +1078,7 @@
 
                 
             
-                Sets the minimum and maximum mass of particles in kilograms.</td>
+                设置粒子的最小和最大质量（以千克为单位）。</td>
         </tr>
 
     
@@ -1112,7 +1112,7 @@
 
                 
             
-                Sets the minimum bound for the mass of a particle in kilograms. A particle's actual mass will be chosen as a random amount above this value.</td>
+                设置粒子质量的最小界限（以千克为单位）。粒子的实际质量将被选择为高于此值的随机量。</td>
         </tr>
 
     
@@ -1146,7 +1146,7 @@
 
                 
             
-                Sets the maximum mass of particles in kilograms. A particle's actual mass will be chosen as a random amount below this value.</td>
+                设置粒子的最大质量（以千克为单位）。粒子的实际质量将选择为低于此值的随机量。</td>
         </tr>
 
     
@@ -1199,11 +1199,11 @@
     
     <h5>Demo:</h5>
     <ul class="see-list">
-        <li><a href="https://cesium.com/learn/cesiumjs-learn/cesiumjs-particle-systems/">Particle Systems Tutorial</a></li>
+        <li><a href="https://cesium.com/learn/cesiumjs-learn/cesiumjs-particle-systems/">粒子系统教程</a></li>
     
-        <li><a href="https://sandcastle.cesium.com/?src=Particle%2520System.html&label=Showcases">Particle Systems Tutorial Demo</a></li>
+        <li><a href="https://sandcastle.cesium.com/?src=Particle%2520System.html&label=Showcases">粒子系统教程演示</a></li>
     
-        <li><a href="https://sandcastle.cesium.com/?src=Particle%2520System%2520Fireworks.html&label=Showcases">Particle Systems Fireworks Demo</a></li>
+        <li><a href="https://sandcastle.cesium.com/?src=Particle%2520System%2520Fireworks.html&label=Showcases">Particle Systems Fireworks 演示</a></li>
     </ul>
     
 
@@ -1251,7 +1251,7 @@
 
 
 <div class="description">
-    An array of <a href="ParticleBurst.html"><code>ParticleBurst</code></a>, emitting bursts of particles at periodic times.
+    一个 <a href="ParticleBurst.html"><code>ParticleBurst</code></a> 数组，在周期性时间发射粒子爆发。
 </div>
 
 
@@ -1314,7 +1314,7 @@
 
 
 <div class="description">
-    Fires an event when the particle system has reached the end of its lifetime.
+    当粒子系统达到其生命周期的终点时触发事件。
 </div>
 
 
@@ -1374,7 +1374,7 @@
 
 
 <div class="description">
-    The number of particles to emit per second.
+    每秒要发射的粒子数。
 </div>
 
 
@@ -1437,7 +1437,7 @@
 
 
 <div class="description">
-    The particle emitter for this
+    粒子发射器
 </div>
 
 
@@ -1500,7 +1500,7 @@
 
 
 <div class="description">
-    The 4x4 transformation matrix that transforms the particle system emitter within the particle systems local coordinate system.
+    在粒子系统局部坐标系内变换粒子系统发射器的 4x4 变换矩阵。
 </div>
 
 
@@ -1563,7 +1563,7 @@
 
 
 <div class="description">
-    The color of the particle at the end of its life.
+    粒子在其生命周期结束时的颜色。
 </div>
 
 
@@ -1626,7 +1626,7 @@
 
 
 <div class="description">
-    The final scale to apply to the image of the particle at the end of its life.
+    应用于粒子生命周期结束时的图像的最终比例。
 </div>
 
 
@@ -1689,7 +1689,7 @@
 
 
 <div class="description">
-    The URI, HTMLImageElement, or HTMLCanvasElement to use for the billboard.
+    用于广告牌的 URI、HTMLImageElement 或 HTMLCanvasElement。
 </div>
 
 
@@ -1752,7 +1752,7 @@
 
 
 <div class="description">
-    When <code>true</code>, the particle system has reached the end of its lifetime; <code>false</code> 否则。
+    如果为<code> true</code>，则粒子系统已达到其生命周期的终点;<否则code>false</否则code> 。
 </div>
 
 
@@ -1812,7 +1812,7 @@
 
 
 <div class="description">
-    How long the particle system will emit particles, in seconds.
+    粒子系统发射粒子的时间（以秒为单位）。
 </div>
 
 
@@ -1875,7 +1875,7 @@
 
 
 <div class="description">
-    Whether the particle system should loop it's bursts when it is complete.
+    粒子系统是否应该在完成时循环它的爆发。
 </div>
 
 
@@ -1938,7 +1938,7 @@
 
 
 <div class="description">
-    Sets the maximum bound, width by height, below which to randomly scale the particle image's dimensions in pixels.
+    设置最大边界 width x height，低于该边界时，将随机缩放粒子图像的尺寸（以像素为单位）。
 </div>
 
 
@@ -2001,7 +2001,7 @@
 
 
 <div class="description">
-    Sets the maximum mass of particles in kilograms.
+    设置粒子的最大质量（以千克为单位）。
 </div>
 
 
@@ -2064,7 +2064,7 @@
 
 
 <div class="description">
-    Sets the maximum bound in seconds for the possible duration of a particle's life below which a particle's actual life will be randomly chosen.
+    设置粒子寿命可能持续时间的最大限制（以秒为单位），低于该限制时将随机选择粒子的实际寿命。
 </div>
 
 
@@ -2127,7 +2127,7 @@
 
 
 <div class="description">
-    Sets the maximum bound in meters per second below which a particle's actual speed will be randomly chosen.
+    设置最大限制（以米/秒为单位），低于该限制时将随机选择粒子的实际速度。
 </div>
 
 
@@ -2190,7 +2190,7 @@
 
 
 <div class="description">
-    Sets the minimum bound, width by height, above which to randomly scale the particle image's dimensions in pixels.
+    设置最小边界 width x height，超过该边界时，将随机缩放粒子图像的尺寸（以像素为单位）。
 </div>
 
 
@@ -2253,7 +2253,7 @@
 
 
 <div class="description">
-    Sets the minimum mass of particles in kilograms.
+    设置粒子的最小质量（以千克为单位）。
 </div>
 
 
@@ -2316,7 +2316,7 @@
 
 
 <div class="description">
-    Sets the minimum bound in seconds for the possible duration of a particle's life above which a particle's actual life will be randomly chosen.
+    设置粒子寿命可能持续时间的最小限制（以秒为单位），超过该限制将随机选择粒子的实际寿命。
 </div>
 
 
@@ -2379,7 +2379,7 @@
 
 
 <div class="description">
-    Sets the minimum bound in meters per second above which a particle's actual speed will be randomly chosen.
+    设置最小限制（以米/秒为单位），超过该限制时将随机选择粒子的实际速度。
 </div>
 
 
@@ -2442,7 +2442,7 @@
 
 
 <div class="description">
-    The 4x4 transformation matrix that transforms the particle system from model to world coordinates.
+    将粒子系统从模型转换为世界坐标的 4x4 变换矩阵。
 </div>
 
 
@@ -2505,7 +2505,7 @@
 
 
 <div class="description">
-    Whether to display the particle system.
+    是否显示粒子系统。
 </div>
 
 
@@ -2568,7 +2568,7 @@
 
 
 <div class="description">
-    获取或设置是否 particle size is in meters or pixels. <code>true</code> to size particles in meters; otherwise, the size is in pixels.
+    获取或设置是否粒子大小以米或像素为单位。以米为单位的颗粒大小<code>为真</code>;否则，大小以像素为单位。
 </div>
 
 
@@ -2631,7 +2631,7 @@
 
 
 <div class="description">
-    The color of the particle at the beginning of its life.
+    粒子在其生命周期开始时的颜色。
 </div>
 
 
@@ -2694,7 +2694,7 @@
 
 
 <div class="description">
-    The initial scale to apply to the image of the particle at the beginning of its life.
+    应用于粒子生命周期开始时图像的初始比例。
 </div>
 
 
@@ -2757,7 +2757,7 @@
 
 
 <div class="description">
-    An array of force callbacks. The callback is passed a <a href="Particle.html"><code>Particle</code></a> and the difference from the last time
+    force 回调数组。回调将传递 <a href="Particle.html"><code>Particle</code></a> 以及与上次
 </div>
 
 
@@ -2827,7 +2827,12 @@
 
 
 <div class="description">
-    Destroys the WebGL resources held by this object.  Destroying an object allows for deterministicrelease of WebGL resources, instead of relying on the garbage collector to destroy this object.<br /><br />Once an object is destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.  Therefore,assign the return value (<code>undefined</code>) to the object as done in the example.
+    销毁此对象持有的 WebGL 资源。 销毁对象允许确定性
+释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。
+<br /><br />
+一旦对象被销毁，就不应该使用它;调用
+<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。 因此
+将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
 </div>
 
 
@@ -2860,7 +2865,7 @@
         
 <span class="param-type"><a href="DeveloperError.html">DeveloperError</a></span>
 
-: This object was destroyed, i.e., destroy() was called.
+: 这个物体被摧毁了,destroy().
     </div>
 
 </li>
@@ -2927,7 +2932,10 @@
 
 
 <div class="description">
-    Returns true if this object was destroyed; otherwise, false.<br /><br />If this object was destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.
+    如果此对象已销毁，则返回 true;否则为 false。
+<br /><br />
+如果此对象已销毁，则不应使用;调用
+<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。
 </div>
 
 
@@ -2954,7 +2962,7 @@
 
         
 <div class="param-desc">
-    <code>true</code> if this object was destroyed; otherwise, <code>false</code>.
+    <code>true</code>，如果此对象被销毁;否则为 <code>false</code>。
 </div>
 
 
@@ -3028,7 +3036,8 @@
 
 
 <div class="description">
-    A function used to modify attributes of the particle at each time step. This can include force modifications,color, sizing, etc.
+    用于在每个时间步长修改粒子属性的函数。这可能包括 force 修改、
+颜色、尺寸等。
 </div>
 
 
@@ -3079,7 +3088,7 @@
 
             <td class="description last">
             
-                The particle being updated.</td>
+                正在更新的粒子。</td>
         </tr>
 
     
@@ -3102,7 +3111,7 @@
 
             <td class="description last">
             
-                The time in seconds since the last update.</td>
+                自上次更新以来的时间（以秒为单位）。</td>
         </tr>
 
     
@@ -3145,7 +3154,12 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">function applyGravity(particle, dt) {   const position = particle.position;   const gravityVector = Cesium.Cartesian3.normalize(position, new Cesium.Cartesian3());   Cesium.Cartesian3.multiplyByScalar(gravityVector, GRAVITATIONAL_CONSTANT * dt, gravityVector);   particle.velocity = Cesium.Cartesian3.add(particle.velocity, gravityVector, particle.velocity);}</code></pre>
+    <pre><code class="language-javascript">function applyGravity(particle, dt) {
+   const position = particle.position;
+   const gravityVector = Cesium.Cartesian3.normalize(position, new Cesium.Cartesian3());
+   Cesium.Cartesian3.multiplyByScalar(gravityVector, GRAVITATIONAL_CONSTANT * dt, gravityVector);
+   particle.velocity = Cesium.Cartesian3.add(particle.velocity, gravityVector, particle.velocity);
+}</code></pre>
 
     
 
