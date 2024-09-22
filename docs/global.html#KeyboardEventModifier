@@ -47,8 +47,7 @@
 
 
         
-            <div class="description">此枚举类型用于表示键盘修饰符。这些是键
-以及其他事件类型一起被按住。</div>
+            <div class="description">此枚举类型用于表示键盘修饰符。这些是键以及其他事件类型一起被按住。</div>
         
 
         

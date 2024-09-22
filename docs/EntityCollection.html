@@ -58,7 +58,7 @@
 
 
 <div class="description">
-    An observable collection of <a href="Entity.html"><code>Entity</code></a> instances where each entity has a unique id.
+    <a href="Entity.html"><code>Entity</code></a> 实例的可观察集合，其中每个实体都有唯一的 ID。
 </div>
 
 
@@ -119,7 +119,7 @@
 
                 
             
-                The data source (or composite entity collection) which created this collection.</td>
+                创建此集合的数据源（或复合实体集合）。</td>
         </tr>
 
     
@@ -209,7 +209,7 @@
 
 
 <div class="description">
-    Gets the event that is fired when entities are added or removed from the collection.The generated event is a <a href="EntityCollection.html#.CollectionChangedEventCallback"><code>EntityCollection.CollectionChangedEventCallback</code></a>.
+    获取在集合中添加或删除实体时触发的事件。生成的事件是 <a href="EntityCollection.html#.CollectionChangedEventCallback"><code>EntityCollection.CollectionChangedEventCallback</code></a>。
 </div>
 
 
@@ -269,7 +269,7 @@
 
 
 <div class="description">
-    Gets a globally unique identifier for this collection.
+    获取此集合的全局唯一标识符。
 </div>
 
 
@@ -329,7 +329,7 @@
 
 
 <div class="description">
-    Gets the owner of this entity collection, ie. the data source or composite entity collection which created it.
+    获取此实体集合的所有者，即。创建它的数据源或复合实体集合。
 </div>
 
 
@@ -389,7 +389,7 @@
 
 
 <div class="description">
-    获取是否 this entity collection should bedisplayed.  When true, each entity is only displayed ifits own show property is also true.
+    获取是否此实体集合应为显示。 如果为 true，则仅当它自己的 show 属性也是 true。
 </div>
 
 
@@ -449,7 +449,7 @@
 
 
 <div class="description">
-    Gets the array of Entity instances in the collection.This array should not be modified directly.
+    获取集合中的 Entity 实例的数组。此数组不应直接修改。
 </div>
 
 
@@ -516,7 +516,7 @@
 
 
 <div class="description">
-    Add an entity to the collection.
+    向集合中添加实体。
 </div>
 
 
@@ -570,7 +570,7 @@
 
             <td class="description last">
             
-                The entity to be added.</td>
+                要添加的实体。</td>
         </tr>
 
     
@@ -591,7 +591,7 @@
 
         
 <div class="param-desc">
-    The entity that was added.
+    已添加的实体。
 </div>
 
 
@@ -606,7 +606,7 @@
         
 <span class="param-type"><a href="DeveloperError.html">DeveloperError</a></span>
 
-: An entity with <entity.id> already exists in this collection.
+: 此集合中已存在具有 <entity.id> 的实体。
     </div>
 
 </li>
@@ -668,7 +668,7 @@
 
 
 <div class="description">
-    Computes the maximum availability of the entities in the collection.If the collection contains a mix of infinitely available data and non-infinite data,it will return the interval pertaining to the non-infinite data only.  If alldata is infinite, an infinite interval will be returned.
+    计算集合中实体的最大可用性。如果集合包含无限可用数据和非无限数据的混合，它将仅返回与非无限数据相关的间隔。 如果所有data 是无限的，则返回无限间隔。
 </div>
 
 
@@ -695,7 +695,7 @@
 
         
 <div class="param-desc">
-    The availability of entities in the collection.
+    集合中实体的可用性。
 </div>
 
 
@@ -758,7 +758,7 @@
 
 
 <div class="description">
-    Returns true if the provided entity is in this collection, false 否则。
+    如果提供的实体在此集合中，则返回 true，否则返回 false。
 </div>
 
 
@@ -809,7 +809,7 @@
 
             <td class="description last">
             
-                The entity.</td>
+                实体。</td>
         </tr>
 
     
@@ -830,7 +830,7 @@
 
         
 <div class="param-desc">
-    true if the provided entity is in this collection, false 否则。
+    true（如果提供的实体在此集合中）或 false。
 </div>
 
 
@@ -893,7 +893,7 @@
 
 
 <div class="description">
-    Gets an entity with the specified id.
+    获取具有指定 ID 的实体。
 </div>
 
 
@@ -944,7 +944,7 @@
 
             <td class="description last">
             
-                The id of the entity to retrieve.</td>
+                要检索的实体的 ID。</td>
         </tr>
 
     
@@ -965,7 +965,7 @@
 
         
 <div class="param-desc">
-    The entity with the provided id or undefined if the id did not exist in the collection.
+    具有提供的 id 的实体，如果集合中不存在 id，则为 undefined。
 </div>
 
 
@@ -1028,7 +1028,7 @@
 
 
 <div class="description">
-    Gets an entity with the specified id or creates it and adds it to the collection if it does not exist.
+    获取具有指定 ID 的实体，或者创建该实体并将其添加到集合中（如果该实体不存在）。
 </div>
 
 
@@ -1079,7 +1079,7 @@
 
             <td class="description last">
             
-                The id of the entity to retrieve or create.</td>
+                要检索或创建的实体的 ID。</td>
         </tr>
 
     
@@ -1100,7 +1100,7 @@
 
         
 <div class="param-desc">
-    The new or existing object.
+    新对象或现有对象。
 </div>
 
 
@@ -1163,7 +1163,7 @@
 
 
 <div class="description">
-    Removes an entity from the collection.
+    从集合中删除实体。
 </div>
 
 
@@ -1214,7 +1214,7 @@
 
             <td class="description last">
             
-                The entity to be removed.</td>
+                要删除的实体。</td>
         </tr>
 
     
@@ -1235,7 +1235,7 @@
 
         
 <div class="param-desc">
-    true if the item was removed, false if it did not exist in the collection.
+    true（如果项被删除），则为 false（如果它不存在于集合中）。
 </div>
 
 
@@ -1298,7 +1298,7 @@
 
 
 <div class="description">
-    Removes all Entities from the collection.
+    从集合中删除所有实体。
 </div>
 
 
@@ -1379,7 +1379,7 @@
 
 
 <div class="description">
-    Removes an entity with the provided id from the collection.
+    从集合中删除具有提供的 id 的实体。
 </div>
 
 
@@ -1430,7 +1430,7 @@
 
             <td class="description last">
             
-                The id of the entity to remove.</td>
+                要删除的实体的 ID。</td>
         </tr>
 
     
@@ -1451,7 +1451,7 @@
 
         
 <div class="param-desc">
-    true if the item was removed, false if no item with the provided id existed in the collection.
+    true（如果项已删除），则为 false（如果集合中不存在具有提供的 ID 的项）。
 </div>
 
 
@@ -1514,7 +1514,7 @@
 
 
 <div class="description">
-    Resumes raising <a href="EntityCollection.html#collectionChanged"><code>EntityCollection#collectionChanged</code></a> events immediatelywhen an item is added or removed.  Any modifications made while while events were suspendedwill be triggered as a single event when this function is called.This function is reference counted and can safely be called multiple times as long as thereare corresponding calls to <a href="EntityCollection.html#resumeEvents"><code>EntityCollection#resumeEvents</code></a>.
+    立即恢复引发 <a href="EntityCollection.html#collectionChanged"><code>EntityCollection#collectionChanged</code></a> 事件添加或删除项时。 在活动暂停期间所做的任何修改将作为单个事件触发。此函数是引用计数的，只要存在是对 <a href="EntityCollection.html#resumeEvents"><code>EntityCollection#resumeEvents</code></a> 的相应调用。
 </div>
 
 
@@ -1609,7 +1609,7 @@
 
 
 <div class="description">
-    Prevents <a href="EntityCollection.html#collectionChanged"><code>EntityCollection#collectionChanged</code></a> events from being raiseduntil a corresponding call is made to <a href="EntityCollection.html#resumeEvents"><code>EntityCollection#resumeEvents</code></a>, at whichpoint a single event will be raised that covers all suspended operations.This allows for many items to be added and removed efficiently.This function can be safely called multiple times as long as thereare corresponding calls to <a href="EntityCollection.html#resumeEvents"><code>EntityCollection#resumeEvents</code></a>.
+    防止引发 <a href="EntityCollection.html#collectionChanged"><code>EntityCollection#collectionChanged</code></a> 事件直到对 <a href="EntityCollection.html#resumeEvents"><code>EntityCollection#resumeEvents</code></a> 进行相应的调用，此时点将引发涵盖所有暂停操作的单个事件。这允许有效地添加和删除许多项目。只要有是对 <a href="EntityCollection.html#resumeEvents"><code>EntityCollection#resumeEvents</code></a> 的相应调用。
 </div>
 
 
@@ -1696,7 +1696,7 @@
 
 
 <div class="description">
-    The signature of the event generated by <a href="EntityCollection.html#collectionChanged"><code>EntityCollection#collectionChanged</code></a>.
+    生成的事件签名 <a href="EntityCollection.html#collectionChanged"><code>EntityCollection#collectionChanged</code></a>.
 </div>
 
 
@@ -1747,7 +1747,7 @@
 
             <td class="description last">
             
-                The collection that triggered the event.</td>
+                触发事件的集合。</td>
         </tr>
 
     
@@ -1770,7 +1770,7 @@
 
             <td class="description last">
             
-                The array of <a href="Entity.html"><code>Entity</code></a> instances that have been added to the collection.</td>
+                已添加到集合的 <a href="Entity.html"><code>Entity</code></a> 实例的数组。</td>
         </tr>
 
     
@@ -1793,7 +1793,7 @@
 
             <td class="description last">
             
-                The array of <a href="Entity.html"><code>Entity</code></a> instances that have been removed from the collection.</td>
+                已从集合中删除的 <a href="Entity.html"><code>Entity</code></a> 实例的数组。</td>
         </tr>
 
     
@@ -1816,7 +1816,7 @@
 
             <td class="description last">
             
-                The array of <a href="Entity.html"><code>Entity</code></a> instances that have been modified.</td>
+                已修改的 <a href="Entity.html"><code>Entity</code></a> 实例的数组。</td>
         </tr>
 
     

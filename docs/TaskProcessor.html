@@ -58,10 +58,7 @@
 
 
 <div class="description">
-    Web Worker 的包装器，允许为给定 worker 调度任务，
-通过 Promise 异步返回结果。
-
-在计划任务之前，不会构造 Worker。
+    Web Worker 的包装器，允许为给定 worker 调度任务，通过 Promise 异步返回结果。在计划任务之前，不会构造 Worker。
 </div>
 
 
@@ -159,9 +156,7 @@
 
                 
             
-                活动任务的最大数量。 一旦超过，
-scheduleTask 不会再将任何任务排队，因此允许
-工作将在未来的帧中重新安排。</td>
+                活动任务的最大数量。 一旦超过，scheduleTask 不会再将任何任务排队，因此允许工作将在未来的帧中重新安排。</td>
         </tr>
 
     
@@ -254,10 +249,7 @@ scheduleTask 不会再将任何任务排队，因此允许
 
 
 <div class="description">
-    销毁此对象。 这将立即终止 Worker。
-<br /><br />
-一旦对象被销毁，就不应该使用它;调用
-<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。
+    销毁此对象。 这将立即终止 Worker。<br /><br />一旦对象被销毁，就不应该使用它;调用<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。
 </div>
 
 
@@ -338,9 +330,7 @@ scheduleTask 不会再将任何任务排队，因此允许
 
 
 <div class="description">
-    向 Web Worker 发布消息，并配置以初始化加载
-并异步编译一个 Web 汇编模块，以及一个可选的
-在不支持 Web Assembly 时使用的回退 JavaScript 模块。
+    向 Web Worker 发布消息，并配置以初始化加载并异步编译一个 Web 汇编模块，以及一个可选的在不支持 Web Assembly 时使用的回退 JavaScript 模块。
 </div>
 
 
@@ -608,10 +598,7 @@ scheduleTask 不会再将任何任务排队，因此允许
 
 
 <div class="description">
-    如果此对象已销毁，则返回 true;否则为 false。
-<br /><br />
-如果此对象已销毁，则不应使用;调用
-<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。
+    如果此对象已销毁，则返回 true;否则为 false。<br /><br />如果此对象已销毁，则不应使用;调用<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。
 </div>
 
 
@@ -706,10 +693,7 @@ scheduleTask 不会再将任何任务排队，因此允许
 
 
 <div class="description">
-    安排一个任务，由 Web Worker 异步处理。 如果目前有更多
-活动任务超过构造函数设置的最大值，将立即返回 undefined。
-否则，返回一个 Promise，该 Promise 将解析为 worker 发回的结果，当
-完成。
+    安排一个任务，由 Web Worker 异步处理。 如果目前有更多活动任务超过构造函数设置的最大值，将立即返回 undefined。否则，返回一个 Promise，该 Promise 将解析为 worker 发回的结果，当完成。
 </div>
 
 
@@ -795,8 +779,7 @@ scheduleTask 不会再将任何任务排队，因此允许
 
                 
             
-                参数中包含的对象数组，该数组应为
-已传输给 worker 而不是 copied。</td>
+                参数中包含的对象数组，该数组应为已传输给 worker 而不是 copied。</td>
         </tr>
 
     
@@ -817,8 +800,7 @@ scheduleTask 不会再将任何任务排队，因此允许
 
         
 <div class="param-desc">
-    一个在可用时将解析为结果的 Promise，或者 undefined
-如果活动任务太多，
+    一个在可用时将解析为结果的 Promise，或者 undefined如果活动任务太多，
 </div>
 
 
@@ -849,18 +831,7 @@ scheduleTask 不会再将任何任务排队，因此允许
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const taskProcessor = new Cesium.TaskProcessor('myWorkerPath');
-const promise = taskProcessor.scheduleTask({
-    someParameter : true,
-    another : 'hello'
-});
-if (!Cesium.defined(promise)) {
-    // too many active tasks - try again later
-} else {
-    promise.then(function(result) {
-        // use the result of the task
-    });
-}</code></pre>
+    <pre><code class="language-javascript">const taskProcessor = new Cesium.TaskProcessor('myWorkerPath');const promise = taskProcessor.scheduleTask({    someParameter : true,    another : 'hello'});if (!Cesium.defined(promise)) {    // too many active tasks - try again later} else {    promise.then(function(result) {        // use the result of the task    });}</code></pre>
 
     
 

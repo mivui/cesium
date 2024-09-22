@@ -5232,8 +5232,7 @@
 
 
 <div class="description">
-    WebGL 索引数据类型的常量。 这些对应于
-<code>type</code> 参数的 <a href="http://www.khronos.org/opengles/sdk/docs/man/xhtml/glDrawElements.xml">drawElements</a> 的 intent 参数。
+    WebGL 索引数据类型的常量。 这些对应于<code>type</code> 参数的 <a href="http://www.khronos.org/opengles/sdk/docs/man/xhtml/glDrawElements.xml">drawElements</a> 的 intent 参数。
 </div>
 
 
@@ -5285,8 +5284,7 @@
 
             
 
-            <td class="description last">8-bit unsigned 字节对应于 <code>UNSIGNED_BYTE</code> 和 类型
-的元素 <code>Uint8Array</code>.</td>
+            <td class="description last">8-bit unsigned 字节对应于 <code>UNSIGNED_BYTE</code> 和 类型的元素 <code>Uint8Array</code>.</td>
         </tr>
 
     
@@ -5309,8 +5307,7 @@
 
             
 
-            <td class="description last">16-bit unsigned short 对应于 <code>UNSIGNED_SHORT</code> 和 类型
- 的元素<code>Uint16Array</code>.</td>
+            <td class="description last">16-bit unsigned short 对应于 <code>UNSIGNED_SHORT</code> 和 类型 的元素<code>Uint16Array</code>.</td>
         </tr>
 
     
@@ -5333,8 +5330,7 @@
 
             
 
-            <td class="description last">32-bit unsigned int 对应于 <code>UNSIGNED_INT</code> 和类型
- 的元素<code>Uint32Array</code>.</td>
+            <td class="description last">32-bit unsigned int 对应于 <code>UNSIGNED_INT</code> 和类型 的元素<code>Uint32Array</code>.</td>
         </tr>
 
     
@@ -5393,10 +5389,7 @@
 
 
 <div class="description">
-    此枚举类型用于确定相对于 frustum 的
-对象。对象可以完全包含在视锥体 （INSIDE） 中，
-部分在视锥体内部，部分在外侧（相交），或完全在某个地方
-在视锥体的 6 个平面之外 （OUTSIDE）。
+    此枚举类型用于确定相对于 frustum 的对象。对象可以完全包含在视锥体 （INSIDE） 中，部分在视锥体内部，部分在外侧（相交），或完全在某个地方在视锥体的 6 个平面之外 （OUTSIDE）。
 </div>
 
 
@@ -5710,8 +5703,7 @@
 
 
 <div class="description">
-    此枚举类型用于表示键盘修饰符。这些是键
-以及其他事件类型一起被按住。
+    此枚举类型用于表示键盘修饰符。这些是键以及其他事件类型一起被按住。
 </div>
 
 
@@ -8243,8 +8235,7 @@
 
             
 
-            <td class="description last">Line loop 基元，其中第一个顶点（或索引）之后的每个顶点（或索引）将一条线连接到
-前一个顶点，最后一个顶点隐式连接到第一个顶点。</td>
+            <td class="description last">Line loop 基元，其中第一个顶点（或索引）之后的每个顶点（或索引）将一条线连接到前一个顶点，最后一个顶点隐式连接到第一个顶点。</td>
         </tr>
 
     
@@ -8313,8 +8304,7 @@
 
             
 
-            <td class="description last">三角形条带基元，其中前两个顶点（或索引）之后的每个顶点（或索引）都连接到其中
-前两个顶点形成一个三角形。 例如，这可用于对墙进行建模。</td>
+            <td class="description last">三角形条带基元，其中前两个顶点（或索引）之后的每个顶点（或索引）都连接到其中前两个顶点形成一个三角形。 例如，这可用于对墙进行建模。</td>
         </tr>
 
     
@@ -8337,9 +8327,7 @@
 
             
 
-            <td class="description last">三角形扇形基元，其中前两个顶点（或索引）之后的每个顶点（或索引）都连接到其中
-前一个顶点和第一个顶点形成一个三角形。 例如，this can be used
-对圆锥体或圆进行建模。</td>
+            <td class="description last">三角形扇形基元，其中前两个顶点（或索引）之后的每个顶点（或索引）都连接到其中前一个顶点和第一个顶点形成一个三角形。 例如，this can be used对圆锥体或圆进行建模。</td>
         </tr>
 
     
@@ -10773,7 +10761,7 @@
 
 
 <div class="description">
-    Defined the orientation of stripes in <a href="StripeMaterialProperty.html"><code>StripeMaterialProperty</code></a>.
+    在 <a href="StripeMaterialProperty.html"><code>StripeMaterialProperty</code></a> 中定义了条带的方向。
 </div>
 
 
@@ -10825,7 +10813,7 @@
 
             
 
-            <td class="description last">Horizontal orientation.</td>
+            <td class="description last">水平方向。</td>
         </tr>
 
     
@@ -10848,7 +10836,7 @@
 
             
 
-            <td class="description last">Vertical orientation.</td>
+            <td class="description last">垂直方向。</td>
         </tr>
 
     
@@ -29888,14 +29876,7 @@
 
 
 <div class="description">
-    Exports an EntityCollection as a KML document. Only Point, Billboard, Model, Path, Polygon, Polyline geometries
-will be exported. Note that there is not a 1 to 1 mapping of Entity properties to KML Feature properties. For
-example, entity properties that are time dynamic but cannot be dynamic in KML are exported with their values at
-options.time or the beginning of the EntityCollection's time interval if not specified. For time-dynamic properties
-that are supported in KML, we use the samples if it is a <a href="SampledProperty.html"><code>SampledProperty</code></a> otherwise we sample the value using
-the options.sampleDuration. Point, Billboard, Model and Path geometries with time-dynamic positions will be exported
-as gx:Track Features. Not all Materials are representable in KML, so for more advanced Materials just the primary
-color is used. Canvas objects are exported as PNG images.
+    将 EntityCollection 导出为 KML 文档。仅点、公告牌、模型、路径、多边形、折线几何图形将被导出。请注意，图元属性与 KML 要素属性之间没有 1 对 1 的映射。为例如，如果实体属性是时间动态的，但在 KML 中不能是动态的，则导出时其值为options.time 或 EntityCollection 的时间间隔的开始时间（如果未指定）。对于时间动态属性中支持的 API 中，如果它是 <a href="SampledProperty.html"><code>SampledProperty</code></a>，则使用样本，否则我们使用options.sampleDuration 的 Duration。将导出具有时间动态位置的 Point、Billboard、Model 和 Path 几何图形如 gx：Track Features。并非所有材质都可以在 KML 中表示，因此对于更高级的材质，只有主要材质使用颜色。Canvas 对象导出为 PNG 图像。
 </div>
 
 
@@ -30237,7 +30218,7 @@ color is used. Canvas objects are exported as PNG images.
 
         
 <div class="param-desc">
-    A promise that resolved to an object containing the KML string and a dictionary of external file blobs, or a kmz file as a blob if options.kmz is true.
+    一个 Promise，该 Promise 解析为包含 KML 字符串和外部文件 blob 字典的对象，如果 options.kmz 为 true，则解析为 kmz 文件作为 blob。
 </div>
 
 
@@ -30268,18 +30249,7 @@ color is used. Canvas objects are exported as PNG images.
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">Cesium.exportKml({
-     entities: entityCollection
- })
-  .then(function(result) {
-    // The XML string is in result.kml
-
-    const externalFiles = result.externalFiles
-    for(const file in externalFiles) {
-      // file is the name of the file used in the KML document as the href
-      // externalFiles[file] is a blob with the contents of the file
-    }
-  });</code></pre>
+    <pre><code class="language-javascript">Cesium.exportKml({     entities: entityCollection })  .then(function(result) {    // The XML string is in result.kml    const externalFiles = result.externalFiles    for(const file in externalFiles) {      // file is the name of the file used in the KML document as the href      // externalFiles[file] is a blob with the contents of the file    }  });</code></pre>
 
     
 
@@ -30288,7 +30258,7 @@ color is used. Canvas objects are exported as PNG images.
     
     <h5>Demo:</h5>
     <ul class="see-list">
-        <li><a href="https://sandcastle.cesium.com/index.html?src=Export%2520KML.html">Cesium Sandcastle KML Export Demo</a></li>
+        <li><a href="https://sandcastle.cesium.com/index.html?src=Export%2520KML.html">Cesium Sandcastle KML 导出演示</a></li>
     </ul>
     
 
@@ -31750,12 +31720,7 @@ color is used. Canvas objects are exported as PNG images.
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Assume array contains BoundingSpheres in world coordinates.
-// Sort them in ascending order of distance from the camera.
-const position = camera.positionWC;
-Cesium.mergeSort(array, function(a, b, position) {
-    return Cesium.BoundingSphere.distanceSquaredTo(b, position) - Cesium.BoundingSphere.distanceSquaredTo(a, position);
-}, position);</code></pre>
+    <pre><code class="language-javascript">// Assume array contains BoundingSpheres in world coordinates.// Sort them in ascending order of distance from the camera.const position = camera.positionWC;Cesium.mergeSort(array, function(a, b, position) {    return Cesium.BoundingSphere.distanceSquaredTo(b, position) - Cesium.BoundingSphere.distanceSquaredTo(a, position);}, position);</code></pre>
 
     
 
@@ -31792,9 +31757,7 @@ Cesium.mergeSort(array, function(a, b, position) {
 
 
 <div class="description">
-    将表示一组名称/值对的对象转换为查询字符串，
-对名称和值进行正确编码，以便在 URL 中使用。 数组值
-将生成多个具有相同名称的值。
+    将表示一组名称/值对的对象转换为查询字符串，对名称和值进行正确编码，以便在 URL 中使用。 数组值将生成多个具有相同名称的值。
 </div>
 
 
@@ -31897,11 +31860,7 @@ Cesium.mergeSort(array, function(a, b, position) {
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const str = Cesium.objectToQuery({
-    key1 : 'some value',
-    key2 : 'a/b',
-    key3 : ['x', 'y']
-});</code></pre>
+    <pre><code class="language-javascript">const str = Cesium.objectToQuery({    key1 : 'some value',    key2 : 'a/b',    key3 : ['x', 'y']});</code></pre>
 
     
 
@@ -31914,9 +31873,7 @@ Cesium.mergeSort(array, function(a, b, position) {
     
     <h5>See:</h5>
     <ul class="see-list">
-        <li>queryToObject
-// str will be:
-// 'key1=some%20value&key2=a%2Fb&key3=x&key3=y'</li>
+        <li>queryToObject// str will be:// 'key1=some%20value&key2=a%2Fb&key3=x&key3=y'</li>
     </ul>
     
 
@@ -32166,9 +32123,7 @@ Cesium.mergeSort(array, function(a, b, position) {
 
 
 <div class="description">
-    将查询字符串解析为对象，其中对象的键和值是
-查询字符串中的名称/值对，解码。如果名称出现多次，
-对象中的值将是一个值数组。
+    将查询字符串解析为对象，其中对象的键和值是查询字符串中的名称/值对，解码。如果名称出现多次，对象中的值将是一个值数组。
 </div>
 
 
@@ -32271,13 +32226,7 @@ Cesium.mergeSort(array, function(a, b, position) {
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const obj = Cesium.queryToObject('key1=some%20value&amp;key2=a%2Fb&amp;key3=x&amp;key3=y');
-// obj will be:
-// {
-//   key1 : 'some value',
-//   key2 : 'a/b',
-//   key3 : ['x', 'y']
-// }</code></pre>
+    <pre><code class="language-javascript">const obj = Cesium.queryToObject('key1=some%20value&amp;key2=a%2Fb&amp;key3=x&amp;key3=y');// obj will be:// {//   key1 : 'some value',//   key2 : 'a/b',//   key3 : ['x', 'y']// }</code></pre>
 
     
 
@@ -35185,13 +35134,7 @@ Cesium.mergeSort(array, function(a, b, position) {
 
 
 <div class="description">
-    Options to control the setting up of a WebGL Context.
-<p>
-<code>allowTextureFilterAnisotropic</code> defaults to true, which enables
-anisotropic texture filtering when the WebGL extension is supported.
-Setting this to false will improve performance, but hurt visual quality,
-especially for horizon views.
-</p>
+    Options to control the setting up of a WebGL Context.<p><code>allowTextureFilterAnisotropic</code> defaults to true, which enablesanisotropic texture filtering when the WebGL extension is supported.Setting this to false will improve performance, but hurt visual quality,especially for horizon views.</p>
 </div>
 
 
@@ -35887,9 +35830,7 @@ especially for horizon views.
 
 
 <div class="description">
-    Since KML does not support glTF models, this callback is required to specify what URL to use for the model in the KML document.
-It can also be used to add additional files to the <code>externalFiles</code> object, which is the list of files embedded in the exported KMZ,
-or otherwise returned with the KML string when exporting.
+    由于 KML 不支持 glTF 模型，因此在 KML 文档中指定模型使用的 URL 时需要使用此回调。它还可用于向 <code>externalFiles</code> 对象添加其他文件，该对象是嵌入在导出的 KMZ 中的文件列表。或导出时返回 KML 字符串。
 </div>
 
 
@@ -35940,7 +35881,7 @@ or otherwise returned with the KML string when exporting.
 
             <td class="description last">
             
-                The ModelGraphics instance for an Entity.</td>
+                实体的 ModelGraphics 实例。</td>
         </tr>
 
     
@@ -35963,7 +35904,7 @@ or otherwise returned with the KML string when exporting.
 
             <td class="description last">
             
-                The time that any properties should use to get the value.</td>
+                任何属性用于获取值的时间。</td>
         </tr>
 
     
@@ -35986,7 +35927,7 @@ or otherwise returned with the KML string when exporting.
 
             <td class="description last">
             
-                An object that maps a filename to a Blob or a Promise that resolves to a Blob.</td>
+                将文件名映射到 Blob 的对象，或将 Promise 解析为 Blob。</td>
         </tr>
 
     
@@ -36007,7 +35948,7 @@ or otherwise returned with the KML string when exporting.
 
         
 <div class="param-desc">
-    The URL to use for the href in the KML document.
+    用于 KML 文档中 href 的 URL。
 </div>
 
 
@@ -36117,7 +36058,7 @@ or otherwise returned with the KML string when exporting.
 
             
 
-            <td class="description last">The generated KML.</td>
+            <td class="description last">生成的 KML.</td>
         </tr>
 
     
@@ -36140,7 +36081,7 @@ or otherwise returned with the KML string when exporting.
 
             
 
-            <td class="description last">An object dictionary of external files</td>
+            <td class="description last">外部文件的对象字典</td>
         </tr>
 
     
@@ -36705,9 +36646,7 @@ or otherwise returned with the KML string when exporting.
 
         
 <div class="param-desc">
-    如果 <code>a</code> 小于 <code>b</code>，则返回负值，
-如果 <code>a</code> 大于 <code>b</code>，则为正值，或
-如果 <code>a</code> 等于 <code>b</code>，则为 0。
+    如果 <code>a</code> 小于 <code>b</code>，则返回负值，如果 <code>a</code> 大于 <code>b</code>，则为正值，或如果 <code>a</code> 等于 <code>b</code>，则为 0。
 </div>
 
 
@@ -36738,9 +36677,7 @@ or otherwise returned with the KML string when exporting.
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">function compareNumbers(a, b, userDefinedObject) {
-    return a - b;
-}</code></pre>
+    <pre><code class="language-javascript">function compareNumbers(a, b, userDefinedObject) {    return a - b;}</code></pre>
 
     
 
@@ -36941,16 +36878,7 @@ or otherwise returned with the KML string when exporting.
 
 
 <div class="description">
-    WebGL options to be passed on to HTMLCanvasElement.getContext().
-See <a href="https://registry.khronos.org/webgl/specs/latest/1.0/#5.2">WebGLContextAttributes</a>
-but note the modified defaults for 'alpha', 'stencil', and 'powerPreference'
-
-<p>
-<code>alpha</code> defaults to false, which can improve performance
-compared to the standard WebGL default of true.  If an application needs
-to composite Cesium above other HTML elements using alpha-blending, set
-<code>alpha</code> to true.
-</p>
+    WebGL options to be passed on to HTMLCanvasElement.getContext().See <a href="https://registry.khronos.org/webgl/specs/latest/1.0/#5.2">WebGLContextAttributes</a>but note the modified defaults for 'alpha', 'stencil', and 'powerPreference'<p><code>alpha</code> defaults to false, which can improve performancecompared to the standard WebGL default of true.  If an application needsto composite Cesium above other HTML elements using alpha-blending, set<code>alpha</code> to true.</p>
 </div>
 
 

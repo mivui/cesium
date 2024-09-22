@@ -58,11 +58,7 @@
 
 
 <div class="description">
-    表示天文儒略日期，即自 -4712 年 1 月 1 日（公元前 4713 年）中午以来的天数。
-为了提高精度，此类存储日期和秒的整数部分
-部分日期在单独的组件中。 为了安全地进行算术和表示
-闰秒，日期始终以国际原子时标准存储
-<a href="global.html#TimeStandard#.TAI"><code>TimeStandard.TAI</code></a> 的
+    表示天文儒略日期，即自 -4712 年 1 月 1 日（公元前 4713 年）中午以来的天数。为了提高精度，此类存储日期和秒的整数部分部分日期在单独的组件中。 为了安全地进行算术和表示闰秒，日期始终以国际原子时标准存储<a href="global.html#TimeStandard#.TAI"><code>TimeStandard.TAI</code></a> 的
 </div>
 
 
@@ -1994,10 +1990,7 @@
 
 
 <div class="description">
-    比较两个实例并返回 <code>true</code> 如果他们在 <code>epsilon</code> 秒
-彼此。  也就是说，为了将日期视为相等（并且
-此函数返回 <code>true</code>), 它们之间差值的绝对值，在
-秒，必须小于 <code>epsilon</code>.
+    比较两个实例并返回 <code>true</code> 如果他们在 <code>epsilon</code> 秒彼此。  也就是说，为了将日期视为相等（并且此函数返回 <code>true</code>), 它们之间差值的绝对值，在秒，必须小于 <code>epsilon</code>.
 </div>
 
 
@@ -2583,9 +2576,7 @@
 
 
 <div class="description">
-    从 <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> 日期。
-此方法优于 <code>Date.parse</code>，因为它将处理 ISO 8601 定义的所有有效格式
-规范，包括闰秒和亚毫秒时间，大多数 JavaScript 实现都丢弃了这些时间。
+    从 <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> 日期。此方法优于 <code>Date.parse</code>，因为它将处理 ISO 8601 定义的所有有效格式规范，包括闰秒和亚毫秒时间，大多数 JavaScript 实现都丢弃了这些时间。
 </div>
 
 
@@ -3401,8 +3392,7 @@
 
 
 <div class="description">
-    创建表示当前系统时间的新实例。
-这相当于调用 <code>JulianDate.fromDate(new Date());</code>。
+    创建表示当前系统时间的新实例。这相当于调用 <code>JulianDate.fromDate(new Date());</code>。
 </div>
 
 
@@ -3702,10 +3692,7 @@
 
 
 <div class="description">
-    从提供的实例创建 JavaScript Date。
-由于 JavaScript 日期仅精确到最接近的毫秒，并且
-不能表示闰秒，请考虑使用 <a href="JulianDate.html#.toGregorianDate"><code>JulianDate.toGregorianDate</code></a> 代替。
-如果提供的 JulianDate 在闰秒期间，则使用前一秒。
+    从提供的实例创建 JavaScript Date。由于 JavaScript 日期仅精确到最接近的毫秒，并且不能表示闰秒，请考虑使用 <a href="JulianDate.html#.toGregorianDate"><code>JulianDate.toGregorianDate</code></a> 代替。如果提供的 JulianDate 在闰秒期间，则使用前一秒。
 </div>
 
 
@@ -4599,10 +4586,7 @@
 
 
 <div class="description">
-    将此实例与提供的实例进行比较，如果它们在 <code>epsilon</code> 秒内，则返回 <code>true</code>
-彼此。 也就是说，为了将日期视为相等（并且
-此函数返回 <code>true</code>），则表示它们之间差值的绝对值，在
-秒，必须小于 <code>epsilon</code>。
+    将此实例与提供的实例进行比较，如果它们在 <code>epsilon</code> 秒内，则返回 <code>true</code>彼此。 也就是说，为了将日期视为相等（并且此函数返回 <code>true</code>），则表示它们之间差值的绝对值，在秒，必须小于 <code>epsilon</code>。
 </div>
 
 

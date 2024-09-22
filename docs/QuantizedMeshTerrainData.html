@@ -58,11 +58,7 @@
 
 
 <div class="description">
-    单个瓦片的地形数据，其中地形数据表示为量化网格。 量化的
-网格由三个顶点属性组成，即 Longitude、latitude 和 Height。 所有属性都表示
-作为 0 到 32767 范围内的 16 位值。 经度和纬度在西南角为零
-的瓦片和 32767 在东北角。 在磁贴的最小高度处，Height 为零
-和 32767 位于瓦片中的最大高度。
+    单个瓦片的地形数据，其中地形数据表示为量化网格。 量化的网格由三个顶点属性组成，即 Longitude、latitude 和 Height。 所有属性都表示作为 0 到 32767 范围内的 16 位值。 经度和纬度在西南角为零的瓦片和 32767 在东北角。 在磁贴的最小高度处，Height 为零和 32767 位于瓦片中的最大高度。
 </div>
 
 
@@ -198,8 +194,7 @@
 
                 
             
-                指定量化顶点如何链接的索引
-一起组成三角形。 每三个索引指定一个三角形。</td>
+                指定量化顶点如何链接的索引一起组成三角形。 每三个索引指定一个三角形。</td>
         </tr>
 
     
@@ -361,9 +356,7 @@
 
                 
             
-                网格的水平线遮挡点。 如果此时
-低于地平线，则假定整个图块也低于地平线。
-该点以椭球标度坐标表示。</td>
+                网格的水平线遮挡点。 如果此时低于地平线，则假定整个图块也低于地平线。该点以椭球标度坐标表示。</td>
         </tr>
 
     
@@ -655,17 +648,7 @@
 
                 
             
-                一个位掩码，指示此图块的四个子图块中存在哪一个。
-如果设置了子位，则当该图块
-是必需的。 如果清除该位，则不会请求子平铺，并且 geometry 为
-而是从父级进行上采样。 位值如下所示：
-<table>
-<tr><th>Bit Position</th><th>位值</th><th>子平铺</th></tr>
-<tr><td>0</td><td>1</td><td>西南</td></tr>
-<tr><td>1</td><td>2</td><td>东南</td></tr>
-<tr><td>2</td><td>4</td><td>西北</td></tr>
-<tr><td>3</td><td>8</td><td>东北</td></tr>
-</table></td>
+                一个位掩码，指示此图块的四个子图块中存在哪一个。如果设置了子位，则当该图块是必需的。 如果清除该位，则不会请求子平铺，并且 geometry 为而是从父级进行上采样。 位值如下所示：<table><tr><th>Bit Position</th><th>位值</th><th>子平铺</th></tr><tr><td>0</td><td>1</td><td>西南</td></tr><tr><td>1</td><td>2</td><td>东南</td></tr><tr><td>2</td><td>4</td><td>西北</td></tr><tr><td>3</td><td>8</td><td>东北</td></tr></table></td>
         </tr>
 
     
@@ -701,8 +684,7 @@
 
                 
             
-                如果此实例是通过对另一个实例进行上采样创建的，则为 True;
-否则为 false。</td>
+                如果此实例是通过对另一个实例进行上采样创建的，则为 True;否则为 false。</td>
         </tr>
 
     
@@ -853,30 +835,7 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const data = new Cesium.QuantizedMeshTerrainData({
-    minimumHeight : -100,
-    maximumHeight : 2101,
-    quantizedVertices : new Uint16Array([// order is SW NW SE NE
-                                         // longitude
-                                         0, 0, 32767, 32767,
-                                         // latitude
-                                         0, 32767, 0, 32767,
-                                         // heights
-                                         16384, 0, 32767, 16384]),
-    indices : new Uint16Array([0, 3, 1,
-                               0, 2, 3]),
-    boundingSphere : new Cesium.BoundingSphere(new Cesium.Cartesian3(1.0, 2.0, 3.0), 10000),
-    orientedBoundingBox : new Cesium.OrientedBoundingBox(new Cesium.Cartesian3(1.0, 2.0, 3.0), Cesium.Matrix3.fromRotationX(Cesium.Math.PI, new Cesium.Matrix3())),
-    horizonOcclusionPoint : new Cesium.Cartesian3(3.0, 2.0, 1.0),
-    westIndices : [0, 1],
-    southIndices : [0, 1],
-    eastIndices : [2, 3],
-    northIndices : [1, 3],
-    westSkirtHeight : 1.0,
-    southSkirtHeight : 1.0,
-    eastSkirtHeight : 1.0,
-    northSkirtHeight : 1.0
-});</code></pre>
+    <pre><code class="language-javascript">const data = new Cesium.QuantizedMeshTerrainData({    minimumHeight : -100,    maximumHeight : 2101,    quantizedVertices : new Uint16Array([// order is SW NW SE NE                                         // longitude                                         0, 0, 32767, 32767,                                         // latitude                                         0, 32767, 0, 32767,                                         // heights                                         16384, 0, 32767, 16384]),    indices : new Uint16Array([0, 3, 1,                               0, 2, 3]),    boundingSphere : new Cesium.BoundingSphere(new Cesium.Cartesian3(1.0, 2.0, 3.0), 10000),    orientedBoundingBox : new Cesium.OrientedBoundingBox(new Cesium.Cartesian3(1.0, 2.0, 3.0), Cesium.Matrix3.fromRotationX(Cesium.Math.PI, new Cesium.Matrix3())),    horizonOcclusionPoint : new Cesium.Cartesian3(3.0, 2.0, 1.0),    westIndices : [0, 1],    southIndices : [0, 1],    eastIndices : [2, 3],    northIndices : [1, 3],    westSkirtHeight : 1.0,    southSkirtHeight : 1.0,    eastSkirtHeight : 1.0,    northSkirtHeight : 1.0});</code></pre>
 
     
 
@@ -997,9 +956,7 @@
 
 
 <div class="description">
-    此地形数据中包含的水面罩（如果有）。 水面罩是矩形的
-Uint8Array 或图像，其中值 255 表示水，值 0 表示陆地。
-允许介于 0 和 255 之间的值，以便在陆地和水之间平滑混合。
+    此地形数据中包含的水面罩（如果有）。 水面罩是矩形的Uint8Array 或图像，其中值 255 表示水，值 0 表示陆地。允许介于 0 和 255 之间的值，以便在陆地和水之间平滑混合。
 </div>
 
 
@@ -1184,8 +1141,7 @@ Uint8Array 或图像，其中值 255 表示水，值 0 表示陆地。
 
         
 <div class="param-desc">
-    指定位置的地形高度。 位置被钳制到
-矩形，因此对于远在矩形之外的位置，预期结果会不正确。
+    指定位置的地形高度。 位置被钳制到矩形，因此对于远在矩形之外的位置，预期结果会不正确。
 </div>
 
 
@@ -1248,10 +1204,7 @@ Uint8Array 或图像，其中值 255 表示水，值 0 表示陆地。
 
 
 <div class="description">
-    根据
-<code>HeightmapTerrainData.childTileMask</code> 中。 假定给定的子图块坐标
-成为此牌的四个子牌之一。 如果非子图块坐标为
-给定，则返回 southeast child tile 的可用性。
+    根据<code>HeightmapTerrainData.childTileMask</code> 中。 假定给定的子图块坐标成为此牌的四个子牌之一。 如果非子图块坐标为给定，则返回 southeast child tile 的可用性。
 </div>
 
 
@@ -1455,8 +1408,7 @@ Uint8Array 或图像，其中值 255 表示水，值 0 表示陆地。
 
 
 <div class="description">
-    对此地形数据进行上采样，以供后代瓦片使用。 生成的实例将包含
-顶点，必要时进行插值。
+    对此地形数据进行上采样，以供后代瓦片使用。 生成的实例将包含顶点，必要时进行插值。
 </div>
 
 
@@ -1666,9 +1618,7 @@ Uint8Array 或图像，其中值 255 表示水，值 0 表示陆地。
 
         
 <div class="param-desc">
-    为后代瓦片的上采样高度贴图地形数据的承诺，
-或 undefined 如果正在进行的异步 Upsample 操作过多，并且请求已被
-递 延。
+    为后代瓦片的上采样高度贴图地形数据的承诺，或 undefined 如果正在进行的异步 Upsample 操作过多，并且请求已被递 延。
 </div>
 
 
@@ -1731,10 +1681,7 @@ Uint8Array 或图像，其中值 255 表示水，值 0 表示陆地。
 
 
 <div class="description">
-    获取一个值，该值指示此地形数据是否是通过对较低分辨率的上采样创建的
-地形数据。 如果此值为 false，则数据是从其他来源获取的，例如
-从远程服务器下载。 对于实例，此方法应返回 true
-从调用 <a href="HeightmapTerrainData.html#upsample"><code>HeightmapTerrainData#upsample</code></a> 返回。
+    获取一个值，该值指示此地形数据是否是通过对较低分辨率的上采样创建的地形数据。 如果此值为 false，则数据是从其他来源获取的，例如从远程服务器下载。 对于实例，此方法应返回 true从调用 <a href="HeightmapTerrainData.html#upsample"><code>HeightmapTerrainData#upsample</code></a> 返回。
 </div>
 
 

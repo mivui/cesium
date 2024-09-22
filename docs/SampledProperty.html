@@ -58,7 +58,7 @@
 
 
 <div class="description">
-    A <a href="Property.html"><code>Property</code></a> whose value is interpolated for a given time from theprovided set of samples and specified interpolation algorithm and degree.
+    一个 <a href="Property.html"><code>Property</code></a>，其值在给定时间内从提供样本集和指定的插值算法和度数。
 </div>
 
 
@@ -117,7 +117,7 @@
 
                 
             
-                The type of property.</td>
+                属性的类型。</td>
         </tr>
 
     
@@ -147,7 +147,7 @@
 
                 
             
-                When supplied, indicates that samples will contain derivative information of the specified types.</td>
+                提供时，表示样本将包含指定类型的衍生信息。</td>
         </tr>
 
     
@@ -249,7 +249,7 @@
 
 
 <div class="description">
-    获取或设置amount of time to extrapolate backwardbefore the property becomes undefined.  A value of 0 will extrapolate forever.
+    获取或设置向后推断的时间量之前。 值 0 将永远外推。
 </div>
 
 
@@ -312,7 +312,7 @@
 
 
 <div class="description">
-    获取或设置type of extrapolation to perform when a valueis requested at a time before any available samples.
+    获取或设置当值在任何可用样品之前请求。
 </div>
 
 
@@ -375,7 +375,7 @@
 
 
 <div class="description">
-    Gets the event that is raised whenever the definition of this property changes.The definition is considered to have changed if a call to getValue would returna different result for the same time.
+    获取此属性的定义发生更改时引发的事件。如果对 getValue 的调用会返回 getValue，则认为定义已更改同一时间的不同结果。
 </div>
 
 
@@ -435,7 +435,7 @@
 
 
 <div class="description">
-    Gets the derivative types used by this property.
+    获取此属性使用的派生类型。
 </div>
 
 
@@ -495,7 +495,7 @@
 
 
 <div class="description">
-    获取或设置amount of time to extrapolate forward beforethe property becomes undefined.  A value of 0 will extrapolate forever.
+    获取或设置之前向前推断的时间量属性变为 undefined。 值 0 将永远外推。
 </div>
 
 
@@ -558,7 +558,7 @@
 
 
 <div class="description">
-    获取或设置type of extrapolation to perform when a valueis requested at a time after any available samples.
+    获取或设置当值在任何可用样品之后请求。
 </div>
 
 
@@ -621,7 +621,7 @@
 
 
 <div class="description">
-    Gets the interpolation algorithm to use when retrieving a value.
+    获取检索值时要使用的插值算法。
 </div>
 
 
@@ -684,7 +684,7 @@
 
 
 <div class="description">
-    Gets the degree of interpolation to perform when retrieving a value.
+    获取检索值时要执行的插值度数。
 </div>
 
 
@@ -747,7 +747,7 @@
 
 
 <div class="description">
-    Gets a value indicating if this property is constant.  A property is consideredconstant if getValue always returns the same result for the current definition.
+    获取一个值，该值指示此属性是否为 constant。 将属性视为常量（如果 getValue 始终为当前定义返回相同的结果）。
 </div>
 
 
@@ -807,7 +807,7 @@
 
 
 <div class="description">
-    Gets the type of property.
+    获取属性的类型。
 </div>
 
 
@@ -874,7 +874,7 @@
 
 
 <div class="description">
-    Adds a new sample.
+    添加新样本。
 </div>
 
 
@@ -930,7 +930,7 @@
 
                 
             
-                The sample time.</td>
+                采样时间。</td>
         </tr>
 
     
@@ -958,7 +958,7 @@
 
                 
             
-                The value at the provided time.</td>
+                提供的时间的值。</td>
         </tr>
 
     
@@ -988,7 +988,7 @@
 
                 
             
-                The array of derivatives at the provided time.</td>
+                在提供的时间的衍生数组。</td>
         </tr>
 
     
@@ -1063,7 +1063,7 @@
 
 
 <div class="description">
-    Adds an array of samples.
+    添加样本数组。
 </div>
 
 
@@ -1119,7 +1119,7 @@
 
                 
             
-                An array of JulianDate instances where each index is a sample time.</td>
+                一个 JulianDate 实例的数组，其中每个索引都是一个采样时间。</td>
         </tr>
 
     
@@ -1147,7 +1147,7 @@
 
                 
             
-                The array of values, where each value corresponds to the provided times index.</td>
+                值数组，其中每个值对应于提供的 times 索引。</td>
         </tr>
 
     
@@ -1177,7 +1177,7 @@
 
                 
             
-                An array where each item is the array of derivatives at the equivalent time index.</td>
+                一个数组，其中每个项目都是等效时间索引处的导数数组。</td>
         </tr>
 
     
@@ -1277,7 +1277,7 @@
 
 
 <div class="description">
-    Adds samples as a single packed array where each new sample is represented as a date,followed by the packed representation of the corresponding value and derivatives.
+    将样本添加为单个打包数组，其中每个新样本都表示为日期，后跟相应值和导数的打包表示形式。
 </div>
 
 
@@ -1333,7 +1333,7 @@
 
                 
             
-                The array of packed samples.</td>
+                打包样本数组。</td>
         </tr>
 
     
@@ -1363,7 +1363,7 @@
 
                 
             
-                If any of the dates in packedSamples are numbers, they are considered an offset from this epoch, in seconds.</td>
+                如果 packedSamples 中的任何日期是数字，则它们被视为与该纪元的偏移量（以秒为单位）。</td>
         </tr>
 
     
@@ -1438,7 +1438,7 @@
 
 
 <div class="description">
-    Compares this property to the provided property and returns<code>true</code>，否则为<code>false</code>。
+    将此属性与提供的属性进行比较，并返回<code>true</code>，否则为 <code>false</code>。
 </div>
 
 
@@ -1496,7 +1496,7 @@
 
                 
             
-                The other property.</td>
+                另一个属性。</td>
         </tr>
 
     
@@ -1580,7 +1580,7 @@
 
 
 <div class="description">
-    Gets the value of the property at the provided time.
+    获取属性在提供的时间的值。
 </div>
 
 
@@ -1646,7 +1646,7 @@
 
                 
             
-                The time for which to retrieve the value. If omitted, the current system time is used.</td>
+                检索值的时间。如果省略，则使用当前系统时间。</td>
         </tr>
 
     
@@ -1680,7 +1680,7 @@
 
                 
             
-                The object to store the value into, if omitted, a new instance is created and returned.</td>
+                要将值存储到的对象，如果省略，则创建并返回一个新实例。</td>
         </tr>
 
     
@@ -1701,7 +1701,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数 or a new instance if the result parameter was not supplied.
+    修改后的结果参数或新实例（如果未提供 result 参数）。
 </div>
 
 
@@ -1764,7 +1764,7 @@
 
 
 <div class="description">
-    Removes a sample at the given time, if present.
+    在给定时间删除样本（如果存在）。
 </div>
 
 
@@ -1815,7 +1815,7 @@
 
             <td class="description last">
             
-                The sample time.</td>
+                采样时间。</td>
         </tr>
 
     
@@ -1899,7 +1899,7 @@
 
 
 <div class="description">
-    Removes all samples for the given time interval.
+    删除给定时间间隔内的所有样本。
 </div>
 
 
@@ -1950,7 +1950,7 @@
 
             <td class="description last">
             
-                The time interval for which to remove all samples.</td>
+                删除所有样本的时间间隔。</td>
         </tr>
 
     
@@ -2025,7 +2025,7 @@
 
 
 <div class="description">
-    Sets the algorithm and degree to use when interpolating a value.
+    设置插值时要使用的算法和度数。
 </div>
 
 
@@ -2129,7 +2129,7 @@
 
                 
             
-                The new interpolation algorithm.  If undefined, the existing property will be unchanged.</td>
+                新的插值算法。 如果未定义，则 existing 属性将保持不变。</td>
         </tr>
 
     
@@ -2159,7 +2159,7 @@
 
                 
             
-                The new interpolation degree.  If undefined, the existing property will be unchanged.</td>
+                新的插值度数。 如果未定义，则 existing 属性将保持不变。</td>
         </tr>
 
     

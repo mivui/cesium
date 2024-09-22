@@ -58,7 +58,7 @@
 
 
 <div class="description">
-    A <a href="Property.html"><code>Property</code></a> whose value is a key-value mapping of property names to the computed value of other properties.
+    一个 <a href="Property.html"><code>Property</code></a>，其值是属性名称到其他属性的计算值的键值映射。
 </div>
 
 
@@ -116,7 +116,7 @@
 
                 
             
-                An object, containing key-value mapping of property names to properties.</td>
+                一个对象，包含属性名称到属性的键值映射。</td>
         </tr>
 
     
@@ -146,7 +146,7 @@
 
                 
             
-                A function that will be called when the value of any of the properties in value are not a Property.</td>
+                当 value 中任何属性的值不是 Property 时将调用的函数。</td>
         </tr>
 
     
@@ -236,7 +236,7 @@
 
 
 <div class="description">
-    Gets the event that is raised whenever the set of properties contained in thisobject changes, or one of the properties itself changes.
+    获取每当此中包含的属性集时引发的事件对象更改，或者其中一个属性本身发生更改。
 </div>
 
 
@@ -296,7 +296,7 @@
 
 
 <div class="description">
-    Gets a value indicating if this property is constant.  This propertyis considered constant if all property items in this object are constant.
+    获取一个值，该值指示此属性是否为 constant。 此属性如果此对象中的所有属性项都是 constant，则被视为 constant。
 </div>
 
 
@@ -356,7 +356,7 @@
 
 
 <div class="description">
-    Gets the names of all properties registered on this instance.
+    获取在此实例上注册的所有属性的名称。
 </div>
 
 
@@ -423,7 +423,7 @@
 
 
 <div class="description">
-    Adds a property to this object.
+    向此对象添加属性。
 </div>
 
 
@@ -479,7 +479,7 @@
 
                 
             
-                The name of the property to add.</td>
+                要添加的属性的名称。</td>
         </tr>
 
     
@@ -509,7 +509,7 @@
 
                 
             
-                The value of the new property, if provided.</td>
+                新属性的值（如果提供）。</td>
         </tr>
 
     
@@ -539,7 +539,7 @@
 
                 
             
-                A function that will be called when the value of this new property is set to a value that is not a Property.</td>
+                当此新属性的值设置为非 Property 的值时将调用的函数。</td>
         </tr>
 
     
@@ -628,7 +628,7 @@
 
 
 <div class="description">
-    Compares this property to the provided property and returns<code>true</code>，否则为<code>false</code>。
+    将此属性与提供的属性进行比较，并返回<code>true</code>，否则为 <code>false</code>。
 </div>
 
 
@@ -686,7 +686,7 @@
 
                 
             
-                The other property.</td>
+                另一个属性。</td>
         </tr>
 
     
@@ -770,7 +770,7 @@
 
 
 <div class="description">
-    Gets the value of this property.  Each contained property will be evaluated at the given time, and the overallresult will be an object, mapping property names to those values.
+    获取此属性的值。 每个包含的属性都将在给定的时间进行评估，并且总体result 将是一个对象，将属性名称映射到这些值。
 </div>
 
 
@@ -836,7 +836,7 @@
 
                 
             
-                The time for which to retrieve the value. If omitted, the current system time is used.</td>
+                检索值的时间。如果省略，则使用当前系统时间。</td>
         </tr>
 
     
@@ -870,7 +870,7 @@
 
                 
             
-                The object to store the value into, if omitted, a new instance is created and returned.Note that any properties in result which are not part of this PropertyBag will be left as-is.</td>
+                要将值存储到的对象，如果省略，则创建并返回一个新实例。请注意，结果中不属于此 PropertyBag 的任何属性都将保持原样。</td>
         </tr>
 
     
@@ -891,7 +891,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数 or a new instance if the result parameter was not supplied.
+    修改后的结果参数或者，如果未提供 result 参数，则为新实例。
 </div>
 
 
@@ -954,7 +954,7 @@
 
 
 <div class="description">
-    Determines if this object has defined a property with the given name.
+    确定此对象是否定义了具有给定名称的属性。
 </div>
 
 
@@ -1005,7 +1005,7 @@
 
             <td class="description last">
             
-                The name of the property to check for.</td>
+                要检查的属性的名称。</td>
         </tr>
 
     
@@ -1026,7 +1026,7 @@
 
         
 <div class="param-desc">
-    True if this object has defined a property with the given name, false 否则。
+    如果此对象定义了具有给定名称的属性，则为 True，否则为 false。
 </div>
 
 
@@ -1089,7 +1089,7 @@
 
 
 <div class="description">
-    Assigns each unassigned property on this object to the valueof the same property on the provided source object.
+    将此对象上每个未分配的属性分配给值的 API 值。
 </div>
 
 
@@ -1145,7 +1145,7 @@
 
                 
             
-                The object to be merged into this object.</td>
+                要合并到此对象中的对象。</td>
         </tr>
 
     
@@ -1175,7 +1175,7 @@
 
                 
             
-                A function that will be called when the value of any of the properties in value are not a Property.</td>
+                当 value 中任何属性的值不是 Property 时将调用的函数。</td>
         </tr>
 
     
@@ -1250,7 +1250,7 @@
 
 
 <div class="description">
-    Removed a property previously added with addProperty.
+    删除了以前使用 addProperty 添加的属性。
 </div>
 
 
@@ -1301,7 +1301,7 @@
 
             <td class="description last">
             
-                The name of the property to remove.</td>
+                要删除的属性的名称。</td>
         </tr>
 
     

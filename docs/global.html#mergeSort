@@ -73,12 +73,7 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Assume array contains BoundingSpheres in world coordinates.
-// Sort them in ascending order of distance from the camera.
-const position = camera.positionWC;
-Cesium.mergeSort(array, function(a, b, position) {
-    return Cesium.BoundingSphere.distanceSquaredTo(b, position) - Cesium.BoundingSphere.distanceSquaredTo(a, position);
-}, position);</code></pre>
+    <pre><code class="language-javascript">// Assume array contains BoundingSpheres in world coordinates.// Sort them in ascending order of distance from the camera.const position = camera.positionWC;Cesium.mergeSort(array, function(a, b, position) {    return Cesium.BoundingSphere.distanceSquaredTo(b, position) - Cesium.BoundingSphere.distanceSquaredTo(a, position);}, position);</code></pre>
 
     
 

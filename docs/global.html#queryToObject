@@ -47,9 +47,7 @@
 
 
         
-            <div class="description">将查询字符串解析为对象，其中对象的键和值是
-查询字符串中的名称/值对，解码。如果名称出现多次，
-对象中的值将是一个值数组。</div>
+            <div class="description">将查询字符串解析为对象，其中对象的键和值是查询字符串中的名称/值对，解码。如果名称出现多次，对象中的值将是一个值数组。</div>
         
 
         
@@ -75,13 +73,7 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const obj = Cesium.queryToObject('key1=some%20value&amp;key2=a%2Fb&amp;key3=x&amp;key3=y');
-// obj will be:
-// {
-//   key1 : 'some value',
-//   key2 : 'a/b',
-//   key3 : ['x', 'y']
-// }</code></pre>
+    <pre><code class="language-javascript">const obj = Cesium.queryToObject('key1=some%20value&amp;key2=a%2Fb&amp;key3=x&amp;key3=y');// obj will be:// {//   key1 : 'some value',//   key2 : 'a/b',//   key3 : ['x', 'y']// }</code></pre>
 
     
 

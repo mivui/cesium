@@ -148,8 +148,7 @@
 
             <td class="description last">
             
-                每个点的严格递增、无单位的浮点时间数组。
-这些值与 clock time 无关。它们是曲线的参数化。</td>
+                每个点的严格递增、无单位的浮点时间数组。这些值与 clock time 无关。它们是曲线的参数化。</td>
         </tr>
 
     
@@ -249,19 +248,7 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const times = [ 0.0, 1.5, 3.0, 4.5, 6.0 ];
-const spline = new Cesium.LinearSpline({
-    times : times,
-    points : [
-        new Cesium.Cartesian3(1235398.0, -4810983.0, 4146266.0),
-        new Cesium.Cartesian3(1372574.0, -5345182.0, 4606657.0),
-        new Cesium.Cartesian3(-757983.0, -5542796.0, 4514323.0),
-        new Cesium.Cartesian3(-2821260.0, -5248423.0, 4021290.0),
-        new Cesium.Cartesian3(-2539788.0, -4724797.0, 3620093.0)
-    ]
-});
-
-const p0 = spline.evaluate(times[0]);</code></pre>
+    <pre><code class="language-javascript">const times = [ 0.0, 1.5, 3.0, 4.5, 6.0 ];const spline = new Cesium.LinearSpline({    times : times,    points : [        new Cesium.Cartesian3(1235398.0, -4810983.0, 4146266.0),        new Cesium.Cartesian3(1372574.0, -5345182.0, 4606657.0),        new Cesium.Cartesian3(-757983.0, -5542796.0, 4514323.0),        new Cesium.Cartesian3(-2821260.0, -5248423.0, 4021290.0),        new Cesium.Cartesian3(-2539788.0, -4724797.0, 3620093.0)    ]});const p0 = spline.evaluate(times[0]);</code></pre>
 
     
 
@@ -712,9 +699,7 @@ const p0 = spline.evaluate(times[0]);</code></pre>
         
 <span class="param-type"><a href="DeveloperError.html">DeveloperError</a></span>
 
-: time must be in the range <code>[t<sub>0</sub>, t<sub>n</sub>]</code>, where <code>t<sub>0</sub></code>
-                            is the first element in the array <code>times</code> and <code>t<sub>n</sub></code> is the last element
-                            in the array <code>times</code>.
+: time must be in the range <code>[t<sub>0</sub>, t<sub>n</sub>]</code>, where <code>t<sub>0</sub></code>                            is the first element in the array <code>times</code> and <code>t<sub>n</sub></code> is the last element                            in the array <code>times</code>.
     </div>
 
 </li>
@@ -776,8 +761,7 @@ const p0 = spline.evaluate(times[0]);</code></pre>
 
 
 <div class="description">
-    在<code>时间</code>中查找索引 <code>i</code>，使得参数
-<code>时间</code>在区间 <code>[times[i]， times[i + 1]]</code> 中。
+    在<code>时间</code>中查找索引 <code>i</code>，使得参数<code>时间</code>在区间 <code>[times[i]， times[i + 1]]</code> 中。
 </div>
 
 
@@ -864,9 +848,7 @@ const p0 = spline.evaluate(times[0]);</code></pre>
         
 <span class="param-type"><a href="DeveloperError.html">DeveloperError</a></span>
 
-: time must be in the range <code>[t<sub>0</sub>, t<sub>n</sub>]</code>, where <code>t<sub>0</sub></code>
-                            is the first element in the array <code>times</code> and <code>t<sub>n</sub></code> is the last element
-                            in the array <code>times</code>.
+: time must be in the range <code>[t<sub>0</sub>, t<sub>n</sub>]</code>, where <code>t<sub>0</sub></code>                            is the first element in the array <code>times</code> and <code>t<sub>n</sub></code> is the last element                            in the array <code>times</code>.
     </div>
 
 </li>

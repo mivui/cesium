@@ -58,8 +58,7 @@
 
 
 <div class="description">
-    创建 OrientedBoundingBox 的实例。
-某个对象的 OrientedBoundingBox 是一个闭合的凸面矩形长方体。在许多情况下，它可以提供比 <a href="BoundingSphere.html"><code>BoundingSphere</code></a> 或 <a href="AxisAlignedBoundingBox.html"><code>AxisAlignedBoundingBox</code></a> 更紧密的边界体积。
+    创建 OrientedBoundingBox 的实例。某个对象的 OrientedBoundingBox 是一个闭合的凸面矩形长方体。在许多情况下，它可以提供比 <a href="BoundingSphere.html"><code>BoundingSphere</code></a> 或 <a href="AxisAlignedBoundingBox.html"><code>AxisAlignedBoundingBox</code></a> 更紧密的边界体积。
 </div>
 
 
@@ -161,9 +160,7 @@
 
                 
             
-                边界框的三个正交半轴。
-等效于变换矩阵，用于旋转和缩放 2x2x2
-立方体以原点为中心。</td>
+                边界框的三个正交半轴。等效于变换矩阵，用于旋转和缩放 2x2x2立方体以原点为中心。</td>
         </tr>
 
     
@@ -206,11 +203,7 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Create an OrientedBoundingBox using a transformation matrix, a position where the box will be translated, and a scale.
-const center = new Cesium.Cartesian3(1.0, 0.0, 0.0);
-const halfAxes = Cesium.Matrix3.fromScale(new Cesium.Cartesian3(1.0, 3.0, 2.0), new Cesium.Matrix3());
-
-const obb = new Cesium.OrientedBoundingBox(center, halfAxes);</code></pre>
+    <pre><code class="language-javascript">// Create an OrientedBoundingBox using a transformation matrix, a position where the box will be translated, and a scale.const center = new Cesium.Cartesian3(1.0, 0.0, 0.0);const halfAxes = Cesium.Matrix3.fromScale(new Cesium.Cartesian3(1.0, 3.0, 2.0), new Cesium.Matrix3());const obb = new Cesium.OrientedBoundingBox(center, halfAxes);</code></pre>
 
     
 
@@ -392,9 +385,7 @@ const obb = new Cesium.OrientedBoundingBox(center, halfAxes);</code></pre>
 
 
 <div class="description">
-    边界框的三个正交半轴。等效地，
-变换矩阵，旋转和缩放以
-起源。
+    边界框的三个正交半轴。等效地，变换矩阵，旋转和缩放以起源。
 </div>
 
 
@@ -804,10 +795,7 @@ const obb = new Cesium.OrientedBoundingBox(center, halfAxes);</code></pre>
 
 
 <div class="description">
-    由向量计算出从边界框中心到投影到方向上的位置的距离。
-<br>
-如果你想象有无限个法线方向的平面，这计算出到
-与边界框相交的位置最近和最远的平面。
+    由向量计算出从边界框中心到投影到方向上的位置的距离。<br>如果你想象有无限个法线方向的平面，这计算出到与边界框相交的位置最近和最远的平面。
 </div>
 
 
@@ -1317,10 +1305,7 @@ const obb = new Cesium.OrientedBoundingBox(center, halfAxes);</code></pre>
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Sort bounding boxes from back to front
-boxes.sort(function(a, b) {
-    return Cesium.OrientedBoundingBox.distanceSquaredTo(b, camera.positionWC) - Cesium.OrientedBoundingBox.distanceSquaredTo(a, camera.positionWC);
-});</code></pre>
+    <pre><code class="language-javascript">// Sort bounding boxes from back to frontboxes.sort(function(a, b) {    return Cesium.OrientedBoundingBox.distanceSquaredTo(b, camera.positionWC) - Cesium.OrientedBoundingBox.distanceSquaredTo(a, camera.positionWC);});</code></pre>
 
     
 
@@ -1357,8 +1342,7 @@ boxes.sort(function(a, b) {
 
 
 <div class="description">
-    对提供的 OrientedBoundingBox 组件进行比较，并返回
-<code>true</code>，否则为<code>false</code>。
+    对提供的 OrientedBoundingBox 组件进行比较，并返回<code>true</code>，否则为<code>false</code>。
 </div>
 
 
@@ -1516,9 +1500,7 @@ boxes.sort(function(a, b) {
 
 
 <div class="description">
-    计算给定位置的 OrientedBoundingBox 实例。
-这是 Stefan Gottschalk 的 Collision Queries using Oriented Bounding Boxes 解决方案（博士论文）的实现。
-Reference: http://gamma.cs.unc.edu/users/gottschalk/main.pdf
+    计算给定位置的 OrientedBoundingBox 实例。这是 Stefan Gottschalk 的 Collision Queries using Oriented Bounding Boxes 解决方案（博士论文）的实现。Reference: http://gamma.cs.unc.edu/users/gottschalk/main.pdf
 </div>
 
 
@@ -1658,8 +1640,7 @@ Reference: http://gamma.cs.unc.edu/users/gottschalk/main.pdf
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Compute an object oriented bounding box enclosing two points.
-const box = Cesium.OrientedBoundingBox.fromPoints([new Cesium.Cartesian3(2, 0, 0), new Cesium.Cartesian3(-2, 0, 0)]);</code></pre>
+    <pre><code class="language-javascript">// Compute an object oriented bounding box enclosing two points.const box = Cesium.OrientedBoundingBox.fromPoints([new Cesium.Cartesian3(2, 0, 0), new Cesium.Cartesian3(-2, 0, 0)]);</code></pre>
 
     
 
@@ -1696,8 +1677,7 @@ const box = Cesium.OrientedBoundingBox.fromPoints([new Cesium.Cartesian3(2, 0, 0
 
 
 <div class="description">
-    计算一个 OrientedBoundingBox，该 BoundingBox 将 <a href="Rectangle.html"><code>Rectangle</code></a> 限定在 <a href="Ellipsoid.html"><code>Ellipsoid</code></a> 的表面上。
-无法保证边界框的方向。
+    计算一个 OrientedBoundingBox，该 BoundingBox 将 <a href="Rectangle.html"><code>Rectangle</code></a> 限定在 <a href="Ellipsoid.html"><code>Ellipsoid</code></a> 的表面上。无法保证边界框的方向。
 </div>
 
 
@@ -2286,10 +2266,7 @@ const box = Cesium.OrientedBoundingBox.fromPoints([new Cesium.Cartesian3(2, 0, 0
 
         
 <div class="param-desc">
-    <a href="global.html#Intersect#.INSIDE"><code>Intersect.INSIDE</code></a> 如果整个盒子都在飞机的一侧
-                     法线指向 <a href="global.html#Intersect#.OUTSIDE"><code>Intersect.OUTSIDE</code></a> 如果整个盒子
-                     在反面， 和 <a href="global.html#Intersect#.INTERSECTING"><code>Intersect.INTERSECTING</code></a>  如果盒子
-                     与平面相交。
+    <a href="global.html#Intersect#.INSIDE"><code>Intersect.INSIDE</code></a> 如果整个盒子都在飞机的一侧                     法线指向 <a href="global.html#Intersect#.OUTSIDE"><code>Intersect.OUTSIDE</code></a> 如果整个盒子                     在反面， 和 <a href="global.html#Intersect#.INTERSECTING"><code>Intersect.INTERSECTING</code></a>  如果盒子                     与平面相交。
 </div>
 
 
@@ -3224,10 +3201,7 @@ const box = Cesium.OrientedBoundingBox.fromPoints([new Cesium.Cartesian3(2, 0, 0
 
 
 <div class="description">
-    由向量计算出从边界框中心到投影到方向上的位置的距离。
-<br>
-如果你想象有无限个法线方向的平面，这计算出到
-与边界框相交的位置最近和最远的平面。
+    由向量计算出从边界框中心到投影到方向上的位置的距离。<br>如果你想象有无限个法线方向的平面，这计算出到与边界框相交的位置最近和最远的平面。
 </div>
 
 
@@ -3663,10 +3637,7 @@ const box = Cesium.OrientedBoundingBox.fromPoints([new Cesium.Cartesian3(2, 0, 0
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Sort bounding boxes from back to front
-boxes.sort(function(a, b) {
-    return b.distanceSquaredTo(camera.positionWC) - a.distanceSquaredTo(camera.positionWC);
-});</code></pre>
+    <pre><code class="language-javascript">// Sort bounding boxes from back to frontboxes.sort(function(a, b) {    return b.distanceSquaredTo(camera.positionWC) - a.distanceSquaredTo(camera.positionWC);});</code></pre>
 
     
 
@@ -3703,8 +3674,7 @@ boxes.sort(function(a, b) {
 
 
 <div class="description">
-    将此 OrientedBoundingBox 与提供的 OrientedBoundingBox 组件进行比较，并返回
-<code>true</code>，否则为<code>false</code>。
+    将此 OrientedBoundingBox 与提供的 OrientedBoundingBox 组件进行比较，并返回<code>true</code>，否则为<code>false</code>。
 </div>
 
 
@@ -3918,10 +3888,7 @@ boxes.sort(function(a, b) {
 
         
 <div class="param-desc">
-    <a href="global.html#Intersect#.INSIDE"><code>Intersect.INSIDE</code></a> 如果整个盒子都在飞机的一侧
-                     法线指向 <a href="global.html#Intersect#.OUTSIDE"><code>Intersect.OUTSIDE</code></a> 如果整个盒子
-                     在反面， 和 <a href="global.html#Intersect#.INTERSECTING"><code>Intersect.INTERSECTING</code></a>  如果盒子
-                     与平面相交。
+    <a href="global.html#Intersect#.INSIDE"><code>Intersect.INSIDE</code></a> 如果整个盒子都在飞机的一侧                     法线指向 <a href="global.html#Intersect#.OUTSIDE"><code>Intersect.OUTSIDE</code></a> 如果整个盒子                     在反面， 和 <a href="global.html#Intersect#.INTERSECTING"><code>Intersect.INTERSECTING</code></a>  如果盒子                     与平面相交。
 </div>
 
 

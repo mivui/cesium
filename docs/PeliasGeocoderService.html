@@ -155,15 +155,7 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Configure a Viewer to use the Pelias server hosted by https://geocode.earth/
-const viewer = new Cesium.Viewer('cesiumContainer', {
-  geocoder: new Cesium.PeliasGeocoderService(new Cesium.Resource({
-    url: 'https://api.geocode.earth/v1/',
-      queryParameters: {
-        api_key: '&lt;Your geocode.earth API key>'
-    }
-  }))
-});</code></pre>
+    <pre><code class="language-javascript">// Configure a Viewer to use the Pelias server hosted by https://geocode.earth/const viewer = new Cesium.Viewer('cesiumContainer', {  geocoder: new Cesium.PeliasGeocoderService(new Cesium.Resource({    url: 'https://api.geocode.earth/v1/',      queryParameters: {        api_key: '&lt;Your geocode.earth API key>'    }  }))});</code></pre>
 
     
 
@@ -215,8 +207,7 @@ const viewer = new Cesium.Viewer('cesiumContainer', {
 
 
 <div class="description">
-    获取要在执行地理代码后显示的信用项。这通常用于信贷
-地理编码器服务。
+    获取要在执行地理代码后显示的信用项。这通常用于信贷地理编码器服务。
 </div>
 
 

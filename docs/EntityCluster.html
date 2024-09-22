@@ -58,7 +58,7 @@
 
 
 <div class="description">
-    Defines how screen space objects (billboards, points, labels) are clustered.
+    定义屏幕空间对象（广告牌、点、标签）的群集方式。
 </div>
 
 
@@ -170,7 +170,7 @@
 
                 
             
-                Whether or not to enable clustering.</td>
+                是否启用集群。</td>
         </tr>
 
     
@@ -206,7 +206,7 @@
 
                 
             
-                The pixel range to extend the screen space bounding box.</td>
+                扩展屏幕空间边界框的像素范围。</td>
         </tr>
 
     
@@ -242,7 +242,7 @@
 
                 
             
-                The minimum number of screen space objects that can be clustered.</td>
+                可以聚集的屏幕空间对象的最小数量。</td>
         </tr>
 
     
@@ -278,7 +278,7 @@
 
                 
             
-                Whether or not to cluster the billboards of an entity.</td>
+                是否对实体的广告牌进行聚类。</td>
         </tr>
 
     
@@ -314,7 +314,7 @@
 
                 
             
-                Whether or not to cluster the labels of an entity.</td>
+                是否对实体的标签进行聚类。</td>
         </tr>
 
     
@@ -350,7 +350,7 @@
 
                 
             
-                Whether or not to cluster the points of an entity.</td>
+                是否对实体的点进行聚类。</td>
         </tr>
 
     
@@ -386,7 +386,7 @@
 
                 
             
-                Determines if the entities in the cluster will be shown.</td>
+                确定是否显示集群中的实体。</td>
         </tr>
 
     
@@ -487,7 +487,7 @@
 
 
 <div class="description">
-    Gets or sets whether clustering billboard entities is enabled.
+    获取或设置是否启用聚类公告牌实体。
 </div>
 
 
@@ -547,7 +547,7 @@
 
 
 <div class="description">
-    Gets the event that will be raised when a new cluster will be displayed. The signature of the event listener is <a href="EntityCluster.html#.newClusterCallback"><code>EntityCluster.newClusterCallback</code></a>.
+    获取在显示新集群时将引发的事件。事件监听器的签名为 <a href="EntityCluster.html#.newClusterCallback"><code>EntityCluster.newClusterCallback</code></a>。
 </div>
 
 
@@ -607,7 +607,7 @@
 
 
 <div class="description">
-    Gets or sets whether clustering labels entities is enabled.
+    获取或设置是否启用聚类分析标签实体。
 </div>
 
 
@@ -667,7 +667,7 @@
 
 
 <div class="description">
-    Gets or sets whether clustering point entities is enabled.
+    获取或设置是否启用聚类分析点实体。
 </div>
 
 
@@ -727,7 +727,7 @@
 
 
 <div class="description">
-    Gets or sets whether clustering is enabled.
+    获取或设置是否启用群集。
 </div>
 
 
@@ -787,7 +787,7 @@
 
 
 <div class="description">
-    获取或设置minimum number of screen space objects that can be clustered.
+    获取或设置可以群集的屏幕空间对象的最小数量。
 </div>
 
 
@@ -847,7 +847,7 @@
 
 
 <div class="description">
-    获取或设置pixel range to extend the screen space bounding box.
+    获取或设置pixel range 来扩展屏幕空间边界框。
 </div>
 
 
@@ -907,7 +907,7 @@
 
 
 <div class="description">
-    Determines if entities in this collection will be shown.
+    确定是否显示此集合中的实体。
 </div>
 
 
@@ -977,12 +977,7 @@
 
 
 <div class="description">
-    Destroys the WebGL resources held by this object.  Destroying an object allows for deterministic
-release of WebGL resources, instead of relying on the garbage collector to destroy this object.
-<p>
-Unlike other objects that use WebGL resources, this object can be reused. For example, if a data source is removed
-from a data source collection and added to another.
-</p>
+    销毁此对象持有的 WebGL 资源。 销毁对象允许确定性释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。<p>与使用 WebGL 资源的其他对象不同，此对象可以重复使用。例如，如果删除了数据源从数据源集合并添加到另一个数据源集合。</p>
 </div>
 
 
@@ -1069,7 +1064,7 @@ from a data source collection and added to another.
 
 
 <div class="description">
-    A event listener function used to style clusters.
+    用于设置集群样式的事件侦听器函数。
 </div>
 
 
@@ -1143,8 +1138,7 @@ from a data source collection and added to another.
 
             <td class="description last">
             
-                An object containing the Billboard, Label, and Point
-primitives that represent this cluster of entities.
+                An object containing the Billboard, Label, and Pointprimitives that represent this cluster of entities.
                 
 
 <table class="params">
@@ -1278,11 +1272,7 @@ primitives that represent this cluster of entities.
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// The default cluster values.
-dataSource.clustering.clusterEvent.addEventListener(function(entities, cluster) {
-    cluster.label.show = true;
-    cluster.label.text = entities.length.toLocaleString();
-});</code></pre>
+    <pre><code class="language-javascript">// The default cluster values.dataSource.clustering.clusterEvent.addEventListener(function(entities, cluster) {    cluster.label.show = true;    cluster.label.text = entities.length.toLocaleString();});</code></pre>
 
     
 

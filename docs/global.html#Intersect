@@ -47,10 +47,7 @@
 
 
         
-            <div class="description">此枚举类型用于确定相对于 frustum 的
-对象。对象可以完全包含在视锥体 （INSIDE） 中，
-部分在视锥体内部，部分在外侧（相交），或完全在某个地方
-在视锥体的 6 个平面之外 （OUTSIDE）。</div>
+            <div class="description">此枚举类型用于确定相对于 frustum 的对象。对象可以完全包含在视锥体 （INSIDE） 中，部分在视锥体内部，部分在外侧（相交），或完全在某个地方在视锥体的 6 个平面之外 （OUTSIDE）。</div>
         
 
         

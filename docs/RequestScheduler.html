@@ -47,10 +47,7 @@
 
 
         
-            <div class="description">请求调度程序用于跟踪和限制活动请求的数量，以便确定传入请求的优先级。能力
-在 CesiumJS 中保持对请求数量的控制很重要，因为由于相机位置的变化等事件，
-可能会生成大量新请求，并且许多正在进行的请求可能会变得多余。请求调度程序手动限制
-请求数，以便较新的请求在较短的队列中等待，而不必与已过期的请求争夺带宽。</div>
+            <div class="description">请求调度程序用于跟踪和限制活动请求的数量，以便确定传入请求的优先级。能力在 CesiumJS 中保持对请求数量的控制很重要，因为由于相机位置的变化等事件，可能会生成大量新请求，并且许多正在进行的请求可能会变得多余。请求调度程序手动限制请求数，以便较新的请求在较短的队列中等待，而不必与已过期的请求争夺带宽。</div>
         
 
         
@@ -185,8 +182,7 @@
 
 
 <div class="description">
-    每个服务器同时活动请求的最大数量。未受限制的请求或服务器
-<code>requestsByServer</code> 中列出的 * 不遵守此限制。
+    每个服务器同时活动请求的最大数量。未受限制的请求或服务器<code>requestsByServer</code> 中列出的 * 不遵守此限制。
 </div>
 
 
@@ -249,8 +245,7 @@
 
 
 <div class="description">
-    用于限制的覆盖的每个服务器密钥列表，而不是 <code>maximumRequestsPerServer</code>。
-从已知的 HTTP/2 或 HTTP/3 服务器流式传输数据时很有用。
+    用于限制的覆盖的每个服务器密钥列表，而不是 <code>maximumRequestsPerServer</code>。从已知的 HTTP/2 或 HTTP/3 服务器流式传输数据时很有用。
 </div>
 
 
@@ -281,10 +276,7 @@
         
     <pre><code class="language-javascript">RequestScheduler.requestsByServer["myserver.com:443"] = 18;</code></pre>
 
-    <pre><code class="language-javascript">RequestScheduler.requestsByServer = {
-  "api.cesium.com:443": 18,
-  "assets.cesium.com:443": 18,
-};</code></pre>
+    <pre><code class="language-javascript">RequestScheduler.requestsByServer = {  "api.cesium.com:443": 18,  "assets.cesium.com:443": 18,};</code></pre>
 
     
 

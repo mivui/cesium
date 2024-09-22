@@ -58,9 +58,7 @@
 
 
 <div class="description">
-    创建从对象的位置和半径以及摄像机位置派生的 Occluder。
-遮挡物可用于确定其他对象是否可见或隐藏在
-由 Occluder 和 Camera Position 定义的可见地平线。
+    创建从对象的位置和半径以及摄像机位置派生的 Occluder。遮挡物可用于确定其他对象是否可见或隐藏在由 Occluder 和 Camera Position 定义的可见地平线。
 </div>
 
 
@@ -177,10 +175,7 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Construct an occluder one unit away from the origin with a radius of one.
-const cameraPosition = Cesium.Cartesian3.ZERO;
-const occluderBoundingSphere = new Cesium.BoundingSphere(new Cesium.Cartesian3(0, 0, -1), 1);
-const occluder = new Cesium.Occluder(occluderBoundingSphere, cameraPosition);</code></pre>
+    <pre><code class="language-javascript">// Construct an occluder one unit away from the origin with a radius of one.const cameraPosition = Cesium.Cartesian3.ZERO;const occluderBoundingSphere = new Cesium.BoundingSphere(new Cesium.Cartesian3(0, 0, -1), 1);const occluder = new Cesium.Occluder(occluderBoundingSphere, cameraPosition);</code></pre>
 
     
 
@@ -419,13 +414,7 @@ const occluder = new Cesium.Occluder(occluderBoundingSphere, cameraPosition);</c
 
 
 <div class="description">
-    计算可用作可见性函数的遮挡位置的点。
-对遮挡对象半径使用零的半径。 通常，用户会计算一个围绕
-用于可见性的对象;但是，也可以计算一个点，如果
-seen/not seen 还将指示对象是否可见/不可见。 这个功能比较好
-适用于不相对于遮挡物移动且较大的对象，例如
-地形。 最好不要调用此函数，而是将对象的边界球体用于对象
-例如卫星或地面车辆。
+    计算可用作可见性函数的遮挡位置的点。对遮挡对象半径使用零的半径。 通常，用户会计算一个围绕用于可见性的对象;但是，也可以计算一个点，如果seen/not seen 还将指示对象是否可见/不可见。 这个功能比较好适用于不相对于遮挡物移动且较大的对象，例如地形。 最好不要调用此函数，而是将对象的边界球体用于对象例如卫星或地面车辆。
 </div>
 
 
@@ -543,8 +532,7 @@ seen/not seen 还将指示对象是否可见/不可见。 这个功能比较好
 
         
 <div class="param-desc">
-    包含两个属性的对象：<code>occludeePoint</code> 和 <code>valid</code>
-的 Boolean 值。
+    包含两个属性的对象：<code>occludeePoint</code> 和 <code>valid</code>的 Boolean 值。
 </div>
 
 
@@ -600,13 +588,7 @@ seen/not seen 还将指示对象是否可见/不可见。 这个功能比较好
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const cameraPosition = new Cesium.Cartesian3(0, 0, 0);
-const occluderBoundingSphere = new Cesium.BoundingSphere(new Cesium.Cartesian3(0, 0, -8), 2);
-const occluder = new Cesium.Occluder(occluderBoundingSphere, cameraPosition);
-const positions = [new Cesium.Cartesian3(-0.25, 0, -5.3), new Cesium.Cartesian3(0.25, 0, -5.3)];
-const tileOccluderSphere = Cesium.BoundingSphere.fromPoints(positions);
-const occludeePosition = tileOccluderSphere.center;
-const occludeePt = Cesium.Occluder.computeOccludeePoint(occluderBoundingSphere, occludeePosition, positions);</code></pre>
+    <pre><code class="language-javascript">const cameraPosition = new Cesium.Cartesian3(0, 0, 0);const occluderBoundingSphere = new Cesium.BoundingSphere(new Cesium.Cartesian3(0, 0, -8), 2);const occluder = new Cesium.Occluder(occluderBoundingSphere, cameraPosition);const positions = [new Cesium.Cartesian3(-0.25, 0, -5.3), new Cesium.Cartesian3(0.25, 0, -5.3)];const tileOccluderSphere = Cesium.BoundingSphere.fromPoints(positions);const occludeePosition = tileOccluderSphere.center;const occludeePt = Cesium.Occluder.computeOccludeePoint(occluderBoundingSphere, occludeePosition, positions);</code></pre>
 
     
 
@@ -762,8 +744,7 @@ const occludeePt = Cesium.Occluder.computeOccludeePoint(occluderBoundingSphere, 
 
         
 <div class="param-desc">
-    包含两个属性的对象：<code>occludeePoint</code> 和 <code>valid</code>
-的 Boolean 值。
+    包含两个属性的对象：<code>occludeePoint</code> 和 <code>valid</code>的 Boolean 值。
 </div>
 
 
@@ -1096,9 +1077,7 @@ const occludeePt = Cesium.Occluder.computeOccludeePoint(occluderBoundingSphere, 
 
         
 <div class="param-desc">
-    Visibility.NONE 如果被遮挡对象不可见，
-Visibility.PARTIAL（如果被遮挡对象部分可见），或者
-Visibility.FULL（如果被遮挡对象完全可见）。
+    Visibility.NONE 如果被遮挡对象不可见，Visibility.PARTIAL（如果被遮挡对象部分可见），或者Visibility.FULL（如果被遮挡对象完全可见）。
 </div>
 
 
@@ -1129,11 +1108,7 @@ Visibility.FULL（如果被遮挡对象完全可见）。
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const sphere1 = new Cesium.BoundingSphere(new Cesium.Cartesian3(0, 0, -1.5), 0.5);
-const sphere2 = new Cesium.BoundingSphere(new Cesium.Cartesian3(0, 0, -2.5), 0.5);
-const cameraPosition = new Cesium.Cartesian3(0, 0, 0);
-const occluder = new Cesium.Occluder(sphere1, cameraPosition);
-occluder.computeVisibility(sphere2); //returns Visibility.NONE</code></pre>
+    <pre><code class="language-javascript">const sphere1 = new Cesium.BoundingSphere(new Cesium.Cartesian3(0, 0, -1.5), 0.5);const sphere2 = new Cesium.BoundingSphere(new Cesium.Cartesian3(0, 0, -2.5), 0.5);const cameraPosition = new Cesium.Cartesian3(0, 0, 0);const occluder = new Cesium.Occluder(sphere1, cameraPosition);occluder.computeVisibility(sphere2); //returns Visibility.NONE</code></pre>
 
     
 
@@ -1278,11 +1253,7 @@ occluder.computeVisibility(sphere2); //returns Visibility.NONE</code></pre>
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const cameraPosition = new Cesium.Cartesian3(0, 0, 0);
-const littleSphere = new Cesium.BoundingSphere(new Cesium.Cartesian3(0, 0, -1), 0.25);
-const occluder = new Cesium.Occluder(littleSphere, cameraPosition);
-const bigSphere = new Cesium.BoundingSphere(new Cesium.Cartesian3(0, 0, -3), 1);
-occluder.isBoundingSphereVisible(bigSphere); //returns true</code></pre>
+    <pre><code class="language-javascript">const cameraPosition = new Cesium.Cartesian3(0, 0, 0);const littleSphere = new Cesium.BoundingSphere(new Cesium.Cartesian3(0, 0, -1), 0.25);const occluder = new Cesium.Occluder(littleSphere, cameraPosition);const bigSphere = new Cesium.BoundingSphere(new Cesium.Cartesian3(0, 0, -3), 1);occluder.isBoundingSphereVisible(bigSphere); //returns true</code></pre>
 
     
 
@@ -1427,11 +1398,7 @@ occluder.isBoundingSphereVisible(bigSphere); //returns true</code></pre>
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const cameraPosition = new Cesium.Cartesian3(0, 0, 0);
-const littleSphere = new Cesium.BoundingSphere(new Cesium.Cartesian3(0, 0, -1), 0.25);
-const occluder = new Cesium.Occluder(littleSphere, cameraPosition);
-const point = new Cesium.Cartesian3(0, 0, -3);
-occluder.isPointVisible(point); //returns true</code></pre>
+    <pre><code class="language-javascript">const cameraPosition = new Cesium.Cartesian3(0, 0, 0);const littleSphere = new Cesium.BoundingSphere(new Cesium.Cartesian3(0, 0, -1), 0.25);const occluder = new Cesium.Occluder(littleSphere, cameraPosition);const point = new Cesium.Cartesian3(0, 0, -3);occluder.isPointVisible(point); //returns true</code></pre>
 
     
 

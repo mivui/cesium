@@ -73,9 +73,7 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">function compareNumbers(a, b, userDefinedObject) {
-    return a - b;
-}</code></pre>
+    <pre><code class="language-javascript">function compareNumbers(a, b, userDefinedObject) {    return a - b;}</code></pre>
 
     
 

@@ -58,7 +58,7 @@
 
 
 <div class="description">
-    Entity instances aggregate multiple forms of visualization into a single high-level object.They can be created manually and added to <a href="Viewer.html#entities"><code>Viewer#entities</code></a> or be produced bydata sources, such as <a href="CzmlDataSource.html"><code>CzmlDataSource</code></a> and <a href="GeoJsonDataSource.html"><code>GeoJsonDataSource</code></a>.
+    实体实例将多种形式的可视化聚合到单个高级对象中。它们可以手动创建并添加到 <a href="Viewer.html#entities"><code>Viewer#entities</code></a> 中，也可以由数据源，例如 <a href="CzmlDataSource.html"><code>CzmlDataSource</code></a> 和 <a href="GeoJsonDataSource.html"><code>GeoJsonDataSource</code></a>。
 </div>
 
 
@@ -211,7 +211,7 @@
 
 
 <div class="description">
-    The availability, if any, associated with this object.If availability is undefined, it is assumed that this object'sother properties will return valid data for any provided time.If availability exists, the objects other properties will onlyprovide valid data if queried within the given interval.
+    与此对象关联的可用性 （如果有）。如果未定义可用性，则假定此对象的其他属性将返回任何提供时间的有效数据。如果存在可用性，则对象的其他属性将仅如果在给定的间隔内查询，请提供有效数据。
 </div>
 
 
@@ -511,7 +511,7 @@
 
 
 <div class="description">
-    Gets the event that is raised whenever a property or sub-property is changed or modified.
+    获取在更改或修改属性或子属性时引发的事件。
 </div>
 
 
@@ -811,7 +811,7 @@
 
 
 <div class="description">
-    Gets the unique ID associated with this object.
+    获取与此对象关联的唯一 ID。
 </div>
 
 
@@ -871,7 +871,7 @@
 
 
 <div class="description">
-    Gets whether this entity is being displayed, taking into accountthe visibility of any ancestor entities.
+    获取是否显示此实体，同时考虑任何祖先实体的可见性。
 </div>
 
 
@@ -1051,7 +1051,7 @@
 
 
 <div class="description">
-    获取或设置name of the object.  The name is intended for end-userconsumption and does not need to be unique.
+    获取或设置对象的名称。 该名称适用于最终用户消耗，并且不需要是唯一的。
 </div>
 
 
@@ -1171,7 +1171,7 @@
 
 
 <div class="description">
-    获取或设置parent object.
+    获取或设置parent 对象。
 </div>
 
 
@@ -1651,7 +1651,7 @@
 
 
 <div class="description">
-    获取或设置bag of arbitrary properties associated with this entity.
+    获取或设置bag 的任意属性。
 </div>
 
 
@@ -1711,7 +1711,7 @@
 
 
 <div class="description">
-    Gets the names of all properties registered on this instance.
+    获取在此实例上注册的所有属性的名称。
 </div>
 
 
@@ -1831,7 +1831,7 @@
 
 
 <div class="description">
-    Gets or sets whether this entity should be displayed. When set to true,the entity is only displayed if the parent entity's show property is also true.
+    获取或设置是否应显示此实体。当设置为 true 时，仅当父实体的 show 属性也为 true 时，才会显示实体。
 </div>
 
 
@@ -1951,7 +1951,7 @@
 
 
 <div class="description">
-    获取或设置suggested initial offset when tracking this object.The offset is typically defined in the east-north-up reference frame,but may be another frame depending on the object's velocity.
+    获取或设置跟踪此对象时建议的初始偏移量。偏移量通常在东北向上的参考系中定义，但可能是另一帧，具体取决于对象的速度。
 </div>
 
 
@@ -2078,7 +2078,7 @@
 
 
 <div class="description">
-    Checks if the given Scene supports materials besides Color on Entities draped on terrain or 3D Tiles.If this feature is not supported, Entities with non-color materials but no `height` willinstead be rendered as if height is 0.
+    检查给定场景是否支持除 Color 之外的 Entity on Overlay on terrain 或 3D Tiles 上的材质。如果不支持此功能，则具有非颜色材质但没有“高度”的实体将的渲染方式为 height 为 0。
 </div>
 
 
@@ -2129,7 +2129,7 @@
 
             <td class="description last">
             
-                The current scene.</td>
+                当前场景。</td>
         </tr>
 
     
@@ -2150,7 +2150,7 @@
 
         
 <div class="param-desc">
-    Whether or not the current scene supports materials for entities on terrain.
+    当前场景是否支持地形上实体的材质。
 </div>
 
 
@@ -2213,7 +2213,7 @@
 
 
 <div class="description">
-    Checks if the given Scene supports polylines clamped to terrain or 3D Tiles.If this feature is not supported, Entities with PolylineGraphics will be rendered with vertices atthe provided heights and using the `arcType` parameter instead of clamped to the ground.
+    检查给定场景是否支持固定到地形或 3D 瓦片的折线。如果不支持此功能，则具有 PolylineGraphics 的实体将以提供的高度，并使用 'arcType' 参数而不是固定到地面。
 </div>
 
 
@@ -2264,7 +2264,7 @@
 
             <td class="description last">
             
-                The current scene.</td>
+                当前场景。</td>
         </tr>
 
     
@@ -2285,7 +2285,7 @@
 
         
 <div class="param-desc">
-    Whether or not the current scene supports polylines on terrain or 3D TIles.
+    当前场景是否支持地形上的折线或 3D 图块。
 </div>
 
 
@@ -2348,7 +2348,7 @@
 
 
 <div class="description">
-    Adds a property to this object.  Once a property is added, it can beobserved with <a href="Entity.html#definitionChanged"><code>Entity#definitionChanged</code></a> and compositedwith <a href="CompositeEntityCollection.html"><code>CompositeEntityCollection</code></a>
+    向此对象添加属性。 添加属性后，它可以使用 <a href="Entity.html#definitionChanged"><code>Entity#definitionChanged</code></a> 观察到并合成替换为 <a href="CompositeEntityCollection.html"><code>CompositeEntityCollection</code></a>
 </div>
 
 
@@ -2399,7 +2399,7 @@
 
             <td class="description last">
             
-                The name of the property to add.</td>
+                要添加的属性的名称。</td>
         </tr>
 
     
@@ -2499,7 +2499,7 @@
 
 
 <div class="description">
-    Computes the model matrix for the entity's transform at specified time. Returns undefined if position is undefined
+    计算实体在指定时间的转换的模型矩阵。如果 position 未定义，则返回 undefined
 </div>
 
 
@@ -2555,7 +2555,7 @@
 
                 
             
-                The time to retrieve model matrix for.</td>
+                检索模型矩阵的时间。</td>
         </tr>
 
     
@@ -2606,7 +2606,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数 or a new Matrix4 instance if one was not provided. Result is undefined if position is undefined.
+    修改后的结果参数或者一个新的 Matrix4 实例（如果未提供）。如果位置未定义，则结果为 undefined。
 </div>
 
 
@@ -2669,7 +2669,7 @@
 
 
 <div class="description">
-    Given a time, returns true if this object should have data during that time.
+    给定时间，如果此对象在该时间内应有数据，则返回 true。
 </div>
 
 
@@ -2720,7 +2720,7 @@
 
             <td class="description last">
             
-                The time to check availability for.</td>
+                检查可用性的时间。</td>
         </tr>
 
     
@@ -2741,7 +2741,7 @@
 
         
 <div class="param-desc">
-    true if the object should have data during the provided time, false 否则。
+    true 如果对象在提供的时间内应该有数据，则为 false 否则。
 </div>
 
 
@@ -2804,7 +2804,7 @@
 
 
 <div class="description">
-    Assigns each unassigned property on this object to the valueof the same property on the provided source object.
+    将此对象上每个未分配的属性分配给值的 API 值。
 </div>
 
 
@@ -2855,7 +2855,7 @@
 
             <td class="description last">
             
-                The object to be merged into this object.</td>
+                要合并到此对象中的对象。</td>
         </tr>
 
     
@@ -2930,7 +2930,7 @@
 
 
 <div class="description">
-    Removed a property previously added with addProperty.
+    删除了以前使用 addProperty 添加的属性。
 </div>
 
 
@@ -2981,7 +2981,7 @@
 
             <td class="description last">
             
-                The name of the property to remove.</td>
+                要删除的属性的名称。</td>
         </tr>
 
     
@@ -3086,7 +3086,7 @@
 
 
 <div class="description">
-    Initialization options for the Entity constructor
+    Entity 构造函数的初始化选项
 </div>
 
 
@@ -3154,7 +3154,7 @@
                 </td>
             
 
-            <td class="description last">A unique identifier for this object. If none is provided, a GUID is generated.</td>
+            <td class="description last">此对象的唯一标识符。如果未提供任何 GUID，则会生成 GUID。</td>
         </tr>
 
     
@@ -3189,7 +3189,7 @@
                 </td>
             
 
-            <td class="description last">A human readable name to display to users. It does not have to be unique.</td>
+            <td class="description last">向用户显示的可读名称。它不必是唯一的。</td>
         </tr>
 
     
@@ -3224,7 +3224,7 @@
                 </td>
             
 
-            <td class="description last">The availability, if any, associated with this object.</td>
+            <td class="description last">与此对象关联的可用性 （如果有）。</td>
         </tr>
 
     
@@ -3259,7 +3259,7 @@
                 </td>
             
 
-            <td class="description last">A boolean value indicating if the entity and its children are displayed.</td>
+            <td class="description last">一个布尔值，指示是否显示实体及其子项。</td>
         </tr>
 
     
@@ -3297,7 +3297,7 @@
                 </td>
             
 
-            <td class="description last">A string Property specifying an HTML description for this entity.</td>
+            <td class="description last">一个 string 属性，用于指定此实体的 HTML 描述。</td>
         </tr>
 
     
@@ -3338,7 +3338,7 @@
                 </td>
             
 
-            <td class="description last">A Property specifying the entity position.</td>
+            <td class="description last">指定实体位置的 Property。</td>
         </tr>
 
     
@@ -3378,7 +3378,7 @@
                 </td>
             
 
-            <td class="description last">A Property specifying the entity orientation in respect to Earth-fixed-Earth-centered (ECEF). If undefined, east-north-up at entity position is used.</td>
+            <td class="description last">一个属性，用于指定相对于地球固定地球中心 （ECEF） 的实体方向。如果未定义，则在实体位置使用 east-north-up。</td>
         </tr>
 
     
@@ -3416,7 +3416,7 @@
                 </td>
             
 
-            <td class="description last">A suggested initial offset for viewing this object.</td>
+            <td class="description last">查看此对象时建议的初始偏移量。</td>
         </tr>
 
     
@@ -3451,7 +3451,7 @@
                 </td>
             
 
-            <td class="description last">A parent entity to associate with this entity.</td>
+            <td class="description last">要与此实体关联的父实体。</td>
         </tr>
 
     
@@ -3489,7 +3489,7 @@
                 </td>
             
 
-            <td class="description last">A billboard to associate with this entity.</td>
+            <td class="description last">要与此实体关联的公告板。</td>
         </tr>
 
     
@@ -3527,7 +3527,7 @@
                 </td>
             
 
-            <td class="description last">A box to associate with this entity.</td>
+            <td class="description last">要与此实体关联的框。</td>
         </tr>
 
     
@@ -3565,7 +3565,7 @@
                 </td>
             
 
-            <td class="description last">A corridor to associate with this entity.</td>
+            <td class="description last">要与此实体关联的走廊。</td>
         </tr>
 
     
@@ -3603,7 +3603,7 @@
                 </td>
             
 
-            <td class="description last">A cylinder to associate with this entity.</td>
+            <td class="description last">要与此实体关联的圆柱体。</td>
         </tr>
 
     
@@ -3641,7 +3641,7 @@
                 </td>
             
 
-            <td class="description last">A ellipse to associate with this entity.</td>
+            <td class="description last">要与此实体关联的椭圆。</td>
         </tr>
 
     
@@ -3679,7 +3679,7 @@
                 </td>
             
 
-            <td class="description last">A ellipsoid to associate with this entity.</td>
+            <td class="description last">要与此实体关联的椭球体。</td>
         </tr>
 
     
@@ -3717,7 +3717,7 @@
                 </td>
             
 
-            <td class="description last">A options.label to associate with this entity.</td>
+            <td class="description last">与此实体关联的 options.label。</td>
         </tr>
 
     
@@ -3755,7 +3755,7 @@
                 </td>
             
 
-            <td class="description last">A model to associate with this entity.</td>
+            <td class="description last">要与此实体关联的模型。</td>
         </tr>
 
     
@@ -3793,7 +3793,7 @@
                 </td>
             
 
-            <td class="description last">A 3D Tiles tileset to associate with this entity.</td>
+            <td class="description last">要与此实体关联的 3D Tiles 图块集。</td>
         </tr>
 
     
@@ -3831,7 +3831,7 @@
                 </td>
             
 
-            <td class="description last">A path to associate with this entity.</td>
+            <td class="description last">要与此实体关联的路径。</td>
         </tr>
 
     
@@ -3869,7 +3869,7 @@
                 </td>
             
 
-            <td class="description last">A plane to associate with this entity.</td>
+            <td class="description last">要与此实体关联的平面。</td>
         </tr>
 
     
@@ -3907,7 +3907,7 @@
                 </td>
             
 
-            <td class="description last">A point to associate with this entity.</td>
+            <td class="description last">要与此实体关联的点。</td>
         </tr>
 
     
@@ -3945,7 +3945,7 @@
                 </td>
             
 
-            <td class="description last">A polygon to associate with this entity.</td>
+            <td class="description last">要与此实体关联的多边形。</td>
         </tr>
 
     
@@ -3983,7 +3983,7 @@
                 </td>
             
 
-            <td class="description last">A polyline to associate with this entity.</td>
+            <td class="description last">要与此实体关联的多段线。</td>
         </tr>
 
     
@@ -4021,7 +4021,7 @@
                 </td>
             
 
-            <td class="description last">Arbitrary properties to associate with this entity.</td>
+            <td class="description last">要与此实体关联的任意属性。</td>
         </tr>
 
     
@@ -4059,7 +4059,7 @@
                 </td>
             
 
-            <td class="description last">A polylineVolume to associate with this entity.</td>
+            <td class="description last">要与此实体关联的 polylineVolume。</td>
         </tr>
 
     
@@ -4097,7 +4097,7 @@
                 </td>
             
 
-            <td class="description last">A rectangle to associate with this entity.</td>
+            <td class="description last">要与此实体关联的矩形。</td>
         </tr>
 
     
@@ -4135,7 +4135,7 @@
                 </td>
             
 
-            <td class="description last">A wall to associate with this entity.</td>
+            <td class="description last">要与此实体关联的墙。</td>
         </tr>
 
     

@@ -1470,8 +1470,7 @@
 
 
 <div class="description">
-    计算内部四边形点。
-<p>这将计算确保小队曲线为 C<sup>1</sup> 的四元数。</p>
+    计算内部四边形点。<p>这将计算确保小队曲线为 C<sup>1</sup> 的四元数。</p>
 </div>
 
 
@@ -2420,8 +2419,7 @@
 
 
 <div class="description">
-    对提供的四元数进行组件比较，并返回
-<code>true</code>，否则为<code>false</code>。
+    对提供的四元数进行组件比较，并返回<code>true</code>，否则为<code>false</code>。
 </div>
 
 
@@ -2593,9 +2591,7 @@
 
 
 <div class="description">
-    对提供的四元数进行组件比较，并返回
-<code>true</code>，如果它们位于提供的 epsilon 内，
-否则<code>false</code> 。
+    对提供的四元数进行组件比较，并返回<code>true</code>，如果它们位于提供的 epsilon 内，否则<code>false</code> 。
 </div>
 
 
@@ -2971,8 +2967,7 @@
 
 
 <div class="description">
-    使用提供的四元数计算球面线性插值或 t 处的外插。
-此实现比 <code>Quaternion#slerp</code> 更快，但仅在 <sup>10-6</sup> 以下精确。
+    使用提供的四元数计算球面线性插值或 t 处的外插。此实现比 <code>Quaternion#slerp</code> 更快，但仅在 <sup>10-6</sup> 以下精确。
 </div>
 
 
@@ -3181,8 +3176,7 @@
 
 
 <div class="description">
-    计算四元数之间的球形四边形插值。
-比 <code>Quaternion#squad</code> 更快的实现，但准确性较低。
+    计算四元数之间的球形四边形插值。比 <code>Quaternion#squad</code> 更快的实现，但准确性较低。
 </div>
 
 
@@ -3635,9 +3629,7 @@
 
 
 <div class="description">
-    根据给定的航向角、俯仰角和横滚角计算旋转。heading 是围绕
-负 Z 轴。Pitch 是绕负 y 轴的旋转。Roll 是旋转
-正 x 轴。
+    根据给定的航向角、俯仰角和横滚角计算旋转。heading 是围绕负 Z 轴。Pitch 是绕负 y 轴的旋转。Roll 是旋转正 x 轴。
 </div>
 
 
@@ -6091,14 +6083,7 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// 1. compute the squad interpolation between two quaternions on a curve
-const s0 = Cesium.Quaternion.computeInnerQuadrangle(quaternions[i - 1], quaternions[i], quaternions[i + 1], new Cesium.Quaternion());
-const s1 = Cesium.Quaternion.computeInnerQuadrangle(quaternions[i], quaternions[i + 1], quaternions[i + 2], new Cesium.Quaternion());
-const q = Cesium.Quaternion.squad(quaternions[i], quaternions[i + 1], s0, s1, t, new Cesium.Quaternion());
-
-// 2. compute the squad interpolation as above but where the first quaternion is a end point.
-const s1 = Cesium.Quaternion.computeInnerQuadrangle(quaternions[0], quaternions[1], quaternions[2], new Cesium.Quaternion());
-const q = Cesium.Quaternion.squad(quaternions[0], quaternions[1], quaternions[0], s1, t, new Cesium.Quaternion());</code></pre>
+    <pre><code class="language-javascript">// 1. compute the squad interpolation between two quaternions on a curveconst s0 = Cesium.Quaternion.computeInnerQuadrangle(quaternions[i - 1], quaternions[i], quaternions[i + 1], new Cesium.Quaternion());const s1 = Cesium.Quaternion.computeInnerQuadrangle(quaternions[i], quaternions[i + 1], quaternions[i + 2], new Cesium.Quaternion());const q = Cesium.Quaternion.squad(quaternions[i], quaternions[i + 1], s0, s1, t, new Cesium.Quaternion());// 2. compute the squad interpolation as above but where the first quaternion is a end point.const s1 = Cesium.Quaternion.computeInnerQuadrangle(quaternions[0], quaternions[1], quaternions[2], new Cesium.Quaternion());const q = Cesium.Quaternion.squad(quaternions[0], quaternions[1], quaternions[0], s1, t, new Cesium.Quaternion());</code></pre>
 
     
 
@@ -6963,8 +6948,7 @@ const q = Cesium.Quaternion.squad(quaternions[0], quaternions[1], quaternions[0]
 
 
 <div class="description">
-    将此函数与提供的四元数组件进行比较，并返回
-<code>true</code>，否则为<code>false</code>。
+    将此函数与提供的四元数组件进行比较，并返回<code>true</code>，否则为<code>false</code>。
 </div>
 
 
@@ -7106,9 +7090,7 @@ const q = Cesium.Quaternion.squad(quaternions[0], quaternions[1], quaternions[0]
 
 
 <div class="description">
-    将此函数与提供的四元数组件进行比较，并返回
-<code>true</code>如果它们位于提供的 epsilon 内，
-否则<code>false</code> 。
+    将此函数与提供的四元数组件进行比较，并返回<code>true</code>如果它们位于提供的 epsilon 内，否则<code>false</code> 。
 </div>
 
 

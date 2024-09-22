@@ -58,7 +58,7 @@
 
 
 <div class="description">
-    Visualizes a collection of <a href="DataSource.html"><code>DataSource</code></a> instances.
+    可视化 <a href="DataSource.html"><code>DataSource</code></a> 实例的集合。
 </div>
 
 
@@ -159,7 +159,7 @@
 
                 
             
-                The scene in which to display the data.</td>
+                显示数据的场景。</td>
         </tr>
 
     
@@ -191,7 +191,7 @@
 
                 
             
-                The data sources to display.</td>
+                要显示的数据源。</td>
         </tr>
 
     
@@ -227,7 +227,7 @@
 
                 
             
-                A function which creates an array of visualizers used for visualization.       If undefined, all standard visualizers are used.</td>
+                创建用于可视化的可视化工具数组的函数。如果未定义，则使用所有标准可视化工具。</td>
         </tr>
 
     
@@ -323,7 +323,7 @@
 
 
 <div class="description">
-    Gets the collection of data sources to display.
+    获取要显示的数据源的集合。
 </div>
 
 
@@ -383,7 +383,7 @@
 
 
 <div class="description">
-    Gets the default data source instance which can be used tomanually create and visualize entities not tied toa specific data source. This instance is always availableand does not appear in the list dataSources collection.
+    获取默认数据源实例，该实例可用于手动创建和可视化未绑定到的实体特定数据源。此实例始终可用中，并且不会显示在列表 dataSources 集合中。
 </div>
 
 
@@ -443,7 +443,7 @@
 
 
 <div class="description">
-    Gets a value indicating whether or not all entities in the data source are ready
+    获取一个值，该值指示数据源中的所有实体是否都已准备就绪
 </div>
 
 
@@ -503,7 +503,7 @@
 
 
 <div class="description">
-    得到场景 associated with this display.
+    得到场景与此显示相关联。
 </div>
 
 
@@ -570,7 +570,7 @@
 
 
 <div class="description">
-    获取或设置default function which creates an array of visualizers used for visualization.By default, this function uses all standard visualizers.
+    获取或设置default 函数，该函数创建用于可视化的可视化工具数组。默认情况下，此功能使用所有标准可视化工具。
 </div>
 
 
@@ -651,7 +651,7 @@
 
 
 <div class="description">
-    Destroys the WebGL resources held by this object.  Destroying an object allows for deterministicrelease of WebGL resources, instead of relying on the garbage collector to destroy this object.<br /><br />Once an object is destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.  Therefore,assign the return value (<code>undefined</code>) to the object as done in the example.
+    销毁此对象持有的 WebGL 资源。 销毁对象允许确定性释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。<br /><br />一旦对象被销毁，就不应该使用它;调用<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。 因此将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
 </div>
 
 
@@ -684,7 +684,7 @@
         
 <span class="param-type"><a href="DeveloperError.html">DeveloperError</a></span>
 
-: This object was destroyed, i.e., destroy() was called.
+: 此对象已销毁，即调用 destroy（） 。
     </div>
 
 </li>
@@ -756,7 +756,7 @@
 
 
 <div class="description">
-    Returns true if this object was destroyed; otherwise, false.<br /><br />If this object was destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.
+    如果此对象已销毁，则返回 true;否则为 false。<br /><br />如果此对象已销毁，则不应使用;调用<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常.
 </div>
 
 
@@ -783,7 +783,7 @@
 
         
 <div class="param-desc">
-    True if this object was destroyed; otherwise, false.
+    如果此对象被销毁，则为 True;否则为 false。
 </div>
 
 
@@ -851,7 +851,7 @@
 
 
 <div class="description">
-    Updates the display to the provided time.
+    将显示更新为提供的时间。
 </div>
 
 
@@ -902,7 +902,7 @@
 
             <td class="description last">
             
-                The simulation time.</td>
+                模拟时间。</td>
         </tr>
 
     
@@ -923,7 +923,7 @@
 
         
 <div class="param-desc">
-    True if all data sources are ready to be displayed, false 否则。
+    如果所有数据源都已准备好显示，则为 True，否则为 false。
 </div>
 
 
@@ -992,7 +992,7 @@
 
 
 <div class="description">
-    A function which creates an array of visualizers used for visualization.
+    创建用于可视化的可视化工具数组的函数。
 </div>
 
 
@@ -1043,7 +1043,7 @@
 
             <td class="description last">
             
-                The scene to create visualizers for.</td>
+                要为其创建可视化工具的场景。</td>
         </tr>
 
     
@@ -1066,7 +1066,7 @@
 
             <td class="description last">
             
-                The entity cluster to create visualizers for.</td>
+                要为其创建可视化工具的实体集群。</td>
         </tr>
 
     
@@ -1089,7 +1089,7 @@
 
             <td class="description last">
             
-                The data source to create visualizers for.</td>
+                要为其创建可视化工具的数据源。</td>
         </tr>
 
     
@@ -1110,7 +1110,7 @@
 
         
 <div class="param-desc">
-    An array of visualizers used for visualization.
+    用于可视化的可视化器数组。
 </div>
 
 

@@ -58,8 +58,7 @@
 
 
 <div class="description">
-    封装 Cesium ion 资产访问的 <a href="Resource.html"><code>Resource</code></a> 实例。
-此对象通常不直接实例化，请使用 <a href="IonResource.html#.fromAssetId"><code>IonResource.fromAssetId</code></a>。
+    封装 Cesium ion 资产访问的 <a href="Resource.html"><code>Resource</code></a> 实例。此对象通常不直接实例化，请使用 <a href="IonResource.html#.fromAssetId"><code>IonResource.fromAssetId</code></a>。
 </div>
 
 
@@ -1394,20 +1393,9 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Load a Cesium3DTileset with asset ID of 124624234
-try {
-  const resource = await Cesium.IonResource.fromAssetId(124624234);
-  const tileset = await Cesium.Cesium3DTileset.fromUrl(resource);
-  scene.primitives.add(tileset);
-} catch (error) {
-  console.error(`Error creating tileset: ${error}`);
-}</code></pre>
+    <pre><code class="language-javascript">// Load a Cesium3DTileset with asset ID of 124624234try {  const resource = await Cesium.IonResource.fromAssetId(124624234);  const tileset = await Cesium.Cesium3DTileset.fromUrl(resource);  scene.primitives.add(tileset);} catch (error) {  console.error(`Error creating tileset: ${error}`);}</code></pre>
 
-    <pre><code class="language-javascript">//Load a CZML file with asset ID of 10890
-Cesium.IonResource.fromAssetId(10890)
-  .then(function (resource) {
-    viewer.dataSources.add(Cesium.CzmlDataSource.load(resource));
-  });</code></pre>
+    <pre><code class="language-javascript">//Load a CZML file with asset ID of 10890Cesium.IonResource.fromAssetId(10890)  .then(function (resource) {    viewer.dataSources.add(Cesium.CzmlDataSource.load(resource));  });</code></pre>
 
     
 
@@ -1530,8 +1518,7 @@ Cesium.IonResource.fromAssetId(10890)
 
 
 <div class="description">
-    组合指定的对象和现有的查询参数。这允许您一次添加多个参数。
-而不是一次将它们添加到 queryParameters 属性中。
+    组合指定的对象和现有的查询参数。这允许您一次添加多个参数。而不是一次将它们添加到 queryParameters 属性中。
 </div>
 
 
@@ -1809,10 +1796,7 @@ Cesium.IonResource.fromAssetId(10890)
 
 
 <div class="description">
-    异步删除给定的资源。 返回一个 Promise，该 Promise 将解析为
-加载后的结果，如果资源加载失败，则为 reject。 数据已加载
-使用 XMLHttpRequest，这意味着为了向另一个源发出请求，
-服务器必须启用跨域资源共享 （CORS） 标头。
+    异步删除给定的资源。 返回一个 Promise，该 Promise 将解析为加载后的结果，如果资源加载失败，则为 reject。 数据已加载使用 XMLHttpRequest，这意味着为了向另一个源发出请求，服务器必须启用跨域资源共享 （CORS） 标头。
 </div>
 
 
@@ -2039,12 +2023,7 @@ Cesium.IonResource.fromAssetId(10890)
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">resource.delete()
-  .then(function(body) {
-      // use the data
-  }).catch(function(error) {
-      // an error occurred
-  });</code></pre>
+    <pre><code class="language-javascript">resource.delete()  .then(function(body) {      // use the data  }).catch(function(error) {      // an error occurred  });</code></pre>
 
     
 
@@ -2088,11 +2067,7 @@ Cesium.IonResource.fromAssetId(10890)
 
 
 <div class="description">
-    异步加载给定的资源。 返回一个 Promise，该 Promise 将解析为
-加载后的结果，如果资源加载失败，则为 reject。 数据已加载
-使用 XMLHttpRequest，这意味着为了向另一个源发出请求，
-服务器必须启用跨域资源共享 （CORS） 标头。建议您使用
-更具体的功能，例如。fetchJson、fetchBlob 等。
+    异步加载给定的资源。 返回一个 Promise，该 Promise 将解析为加载后的结果，如果资源加载失败，则为 reject。 数据已加载使用 XMLHttpRequest，这意味着为了向另一个源发出请求，服务器必须启用跨域资源共享 （CORS） 标头。建议您使用更具体的功能，例如。fetchJson、fetchBlob 等。
 </div>
 
 
@@ -2319,12 +2294,7 @@ Cesium.IonResource.fromAssetId(10890)
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">resource.fetch()
-  .then(function(body) {
-      // use the data
-  }).catch(function(error) {
-      // an error occurred
-  });</code></pre>
+    <pre><code class="language-javascript">resource.fetch()  .then(function(body) {      // use the data  }).catch(function(error) {      // an error occurred  });</code></pre>
 
     
 
@@ -2368,10 +2338,7 @@ Cesium.IonResource.fromAssetId(10890)
 
 
 <div class="description">
-    异步加载资源作为原始二进制数据。 返回一个 Promise，该 Promise 将解析为
-加载后为 ArrayBuffer，如果资源加载失败，则为 reject。 数据已加载
-使用 XMLHttpRequest，这意味着为了向另一个源发出请求，
-服务器必须启用跨域资源共享 （CORS） 标头。
+    异步加载资源作为原始二进制数据。 返回一个 Promise，该 Promise 将解析为加载后为 ArrayBuffer，如果资源加载失败，则为 reject。 数据已加载使用 XMLHttpRequest，这意味着为了向另一个源发出请求，服务器必须启用跨域资源共享 （CORS） 标头。
 </div>
 
 
@@ -2434,12 +2401,7 @@ Cesium.IonResource.fromAssetId(10890)
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// load a single URL asynchronously
-resource.fetchArrayBuffer().then(function(arrayBuffer) {
-    // use the data
-}).catch(function(error) {
-    // an error occurred
-});</code></pre>
+    <pre><code class="language-javascript">// load a single URL asynchronouslyresource.fetchArrayBuffer().then(function(arrayBuffer) {    // use the data}).catch(function(error) {    // an error occurred});</code></pre>
 
     
 
@@ -2483,10 +2445,7 @@ resource.fetchArrayBuffer().then(function(arrayBuffer) {
 
 
 <div class="description">
-    以异步方式将给定资源加载为 blob。 返回一个 Promise，该 Promise 将解析为
-加载后为 Blob，如果资源加载失败，则为 reject。 数据已加载
-使用 XMLHttpRequest，这意味着为了向另一个源发出请求，
-服务器必须启用跨域资源共享 （CORS） 标头。
+    以异步方式将给定资源加载为 blob。 返回一个 Promise，该 Promise 将解析为加载后为 Blob，如果资源加载失败，则为 reject。 数据已加载使用 XMLHttpRequest，这意味着为了向另一个源发出请求，服务器必须启用跨域资源共享 （CORS） 标头。
 </div>
 
 
@@ -2549,12 +2508,7 @@ resource.fetchArrayBuffer().then(function(arrayBuffer) {
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// load a single URL asynchronously
-resource.fetchBlob().then(function(blob) {
-    // use the data
-}).catch(function(error) {
-    // an error occurred
-});</code></pre>
+    <pre><code class="language-javascript">// load a single URL asynchronouslyresource.fetchBlob().then(function(blob) {    // use the data}).catch(function(error) {    // an error occurred});</code></pre>
 
     
 
@@ -2598,9 +2552,7 @@ resource.fetchBlob().then(function(blob) {
 
 
 <div class="description">
-    异步加载给定的图像资源。 返回一个 Promise，该 Promise 将解析为
-an <a href="https://developer.mozilla.org/en-US/docs/Web/API/ImageBitmap">ImageBitmap</a> 如果 <code>preferImageBitmap</code> 为 true，并且浏览器支持 <code>createImageBitmap</code> 或其他
-<a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement">Image</a>，如果图像加载失败，则为 reject。
+    异步加载给定的图像资源。 返回一个 Promise，该 Promise 将解析为an <a href="https://developer.mozilla.org/en-US/docs/Web/API/ImageBitmap">ImageBitmap</a> 如果 <code>preferImageBitmap</code> 为 true，并且浏览器支持 <code>createImageBitmap</code> 或其他<a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement">Image</a>，如果图像加载失败，则为 reject。
 </div>
 
 
@@ -2883,17 +2835,7 @@ an <a href="https://developer.mozilla.org/en-US/docs/Web/API/ImageBitmap">ImageB
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// load a single image asynchronously
-resource.fetchImage().then(function(image) {
-    // use the loaded image
-}).catch(function(error) {
-    // an error occurred
-});
-
-// load several images in parallel
-Promise.all([resource1.fetchImage(), resource2.fetchImage()]).then(function(images) {
-    // images is an array containing all the loaded images
-});</code></pre>
+    <pre><code class="language-javascript">// load a single image asynchronouslyresource.fetchImage().then(function(image) {    // use the loaded image}).catch(function(error) {    // an error occurred});// load several images in parallelPromise.all([resource1.fetchImage(), resource2.fetchImage()]).then(function(images) {    // images is an array containing all the loaded images});</code></pre>
 
     
 
@@ -2937,12 +2879,7 @@ Promise.all([resource1.fetchImage(), resource2.fetchImage()]).then(function(imag
 
 
 <div class="description">
-    以 JSON 格式异步加载给定资源。 返回一个 Promise，该 Promise 将解析为
-JSON 对象，如果资源加载失败，则拒绝。 数据已加载
-使用 XMLHttpRequest，这意味着为了向另一个源发出请求，
-服务器必须启用跨域资源共享 （CORS） 标头。此功能
-添加 'Accept: application/json,&#42;&#47;&#42;;q=0.01' 添加到请求标头中，如果不是
-已指定。
+    以 JSON 格式异步加载给定资源。 返回一个 Promise，该 Promise 将解析为JSON 对象，如果资源加载失败，则拒绝。 数据已加载使用 XMLHttpRequest，这意味着为了向另一个源发出请求，服务器必须启用跨域资源共享 （CORS） 标头。此功能添加 'Accept: application/json,&#42;&#47;&#42;;q=0.01' 添加到请求标头中，如果不是已指定。
 </div>
 
 
@@ -3005,11 +2942,7 @@ JSON 对象，如果资源加载失败，则拒绝。 数据已加载
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">resource.fetchJson().then(function(jsonData) {
-    // Do something with the JSON object
-}).catch(function(error) {
-    // an error occurred
-});</code></pre>
+    <pre><code class="language-javascript">resource.fetchJson().then(function(jsonData) {    // Do something with the JSON object}).catch(function(error) {    // an error occurred});</code></pre>
 
     
 
@@ -3176,12 +3109,7 @@ JSON 对象，如果资源加载失败，则拒绝。 数据已加载
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// load a data asynchronously
-resource.fetchJsonp().then(function(data) {
-    // use the loaded data
-}).catch(function(error) {
-    // an error occurred
-});</code></pre>
+    <pre><code class="language-javascript">// load a data asynchronouslyresource.fetchJsonp().then(function(data) {    // use the loaded data}).catch(function(error) {    // an error occurred});</code></pre>
 
     
 
@@ -3223,10 +3151,7 @@ resource.fetchJsonp().then(function(data) {
 
 
 <div class="description">
-    异步加载给定的资源为文本。 返回一个 Promise，该 Promise 将解析为
-一个 String，如果资源加载失败，则为 reject。 数据已加载
-使用 XMLHttpRequest，这意味着为了向另一个源发出请求，
-服务器必须启用跨域资源共享 （CORS） 标头。
+    异步加载给定的资源为文本。 返回一个 Promise，该 Promise 将解析为一个 String，如果资源加载失败，则为 reject。 数据已加载使用 XMLHttpRequest，这意味着为了向另一个源发出请求，服务器必须启用跨域资源共享 （CORS） 标头。
 </div>
 
 
@@ -3289,18 +3214,7 @@ resource.fetchJsonp().then(function(data) {
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// load text from a URL, setting a custom header
-const resource = new Resource({
-  url: 'http://someUrl.com/someJson.txt',
-  headers: {
-    'X-Custom-Header' : 'some value'
-  }
-});
-resource.fetchText().then(function(text) {
-    // Do something with the text
-}).catch(function(error) {
-    // an error occurred
-});</code></pre>
+    <pre><code class="language-javascript">// load text from a URL, setting a custom headerconst resource = new Resource({  url: 'http://someUrl.com/someJson.txt',  headers: {    'X-Custom-Header' : 'some value'  }});resource.fetchText().then(function(text) {    // Do something with the text}).catch(function(error) {    // an error occurred});</code></pre>
 
     
 
@@ -3346,10 +3260,7 @@ resource.fetchText().then(function(text) {
 
 
 <div class="description">
-    以 XML 形式异步加载给定的资源。 返回一个 Promise，该 Promise 将解析为
-XML 文档，如果资源加载失败，则拒绝。 数据已加载
-使用 XMLHttpRequest，这意味着为了向另一个源发出请求，
-服务器必须启用跨域资源共享 （CORS） 标头。
+    以 XML 形式异步加载给定的资源。 返回一个 Promise，该 Promise 将解析为XML 文档，如果资源加载失败，则拒绝。 数据已加载使用 XMLHttpRequest，这意味着为了向另一个源发出请求，服务器必须启用跨域资源共享 （CORS） 标头。
 </div>
 
 
@@ -3412,14 +3323,7 @@ XML 文档，如果资源加载失败，则拒绝。 数据已加载
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// load XML from a URL, setting a custom header
-Cesium.loadXML('http://someUrl.com/someXML.xml', {
-  'X-Custom-Header' : 'some value'
-}).then(function(document) {
-    // Do something with the document
-}).catch(function(error) {
-    // an error occurred
-});</code></pre>
+    <pre><code class="language-javascript">// load XML from a URL, setting a custom headerCesium.loadXML('http://someUrl.com/someXML.xml', {  'X-Custom-Header' : 'some value'}).then(function(document) {    // Do something with the document}).catch(function(error) {    // an error occurred});</code></pre>
 
     
 
@@ -4285,10 +4189,7 @@ Cesium.loadXML('http://someUrl.com/someXML.xml', {
 
 
 <div class="description">
-    异步获取给定资源的标头。 返回一个 Promise，该 Promise 将解析为
-加载后的结果，如果资源加载失败，则为 reject。 数据已加载
-使用 XMLHttpRequest，这意味着为了向另一个源发出请求，
-服务器必须启用跨域资源共享 （CORS） 标头。
+    异步获取给定资源的标头。 返回一个 Promise，该 Promise 将解析为加载后的结果，如果资源加载失败，则为 reject。 数据已加载使用 XMLHttpRequest，这意味着为了向另一个源发出请求，服务器必须启用跨域资源共享 （CORS） 标头。
 </div>
 
 
@@ -4515,12 +4416,7 @@ Cesium.loadXML('http://someUrl.com/someXML.xml', {
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">resource.head()
-  .then(function(headers) {
-      // use the data
-  }).catch(function(error) {
-      // an error occurred
-  });</code></pre>
+    <pre><code class="language-javascript">resource.head()  .then(function(headers) {      // use the data  }).catch(function(error) {      // an error occurred  });</code></pre>
 
     
 
@@ -4564,10 +4460,7 @@ Cesium.loadXML('http://someUrl.com/someXML.xml', {
 
 
 <div class="description">
-    异步获取给定资源的 options。 返回一个 Promise，该 Promise 将解析为
-加载后的结果，如果资源加载失败，则为 reject。 数据已加载
-使用 XMLHttpRequest，这意味着为了向另一个源发出请求，
-服务器必须启用跨域资源共享 （CORS） 标头。
+    异步获取给定资源的 options。 返回一个 Promise，该 Promise 将解析为加载后的结果，如果资源加载失败，则为 reject。 数据已加载使用 XMLHttpRequest，这意味着为了向另一个源发出请求，服务器必须启用跨域资源共享 （CORS） 标头。
 </div>
 
 
@@ -4794,12 +4687,7 @@ Cesium.loadXML('http://someUrl.com/someXML.xml', {
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">resource.options()
-  .then(function(headers) {
-      // use the data
-  }).catch(function(error) {
-      // an error occurred
-  });</code></pre>
+    <pre><code class="language-javascript">resource.options()  .then(function(headers) {      // use the data  }).catch(function(error) {      // an error occurred  });</code></pre>
 
     
 
@@ -4843,10 +4731,7 @@ Cesium.loadXML('http://someUrl.com/someXML.xml', {
 
 
 <div class="description">
-    异步将数据修补到给定资源。 返回一个 Promise，该 Promise 将解析为
-加载后的结果，如果资源加载失败，则为 reject。 数据已加载
-使用 XMLHttpRequest，这意味着为了向另一个源发出请求，
-服务器必须启用跨域资源共享 （CORS） 标头。
+    异步将数据修补到给定资源。 返回一个 Promise，该 Promise 将解析为加载后的结果，如果资源加载失败，则为 reject。 数据已加载使用 XMLHttpRequest，这意味着为了向另一个源发出请求，服务器必须启用跨域资源共享 （CORS） 标头。
 </div>
 
 
@@ -5101,12 +4986,7 @@ Cesium.loadXML('http://someUrl.com/someXML.xml', {
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">resource.patch(data)
-  .then(function(result) {
-      // use the result
-  }).catch(function(error) {
-      // an error occurred
-  });</code></pre>
+    <pre><code class="language-javascript">resource.patch(data)  .then(function(result) {      // use the result  }).catch(function(error) {      // an error occurred  });</code></pre>
 
     
 
@@ -5150,10 +5030,7 @@ Cesium.loadXML('http://someUrl.com/someXML.xml', {
 
 
 <div class="description">
-    异步将数据发布到给定的资源。 返回一个 Promise，该 Promise 将解析为
-加载后的结果，如果资源加载失败，则为 reject。 数据已加载
-使用 XMLHttpRequest，这意味着为了向另一个源发出请求，
-服务器必须启用跨域资源共享 （CORS） 标头。
+    异步将数据发布到给定的资源。 返回一个 Promise，该 Promise 将解析为加载后的结果，如果资源加载失败，则为 reject。 数据已加载使用 XMLHttpRequest，这意味着为了向另一个源发出请求，服务器必须启用跨域资源共享 （CORS） 标头。
 </div>
 
 
@@ -5438,12 +5315,7 @@ Cesium.loadXML('http://someUrl.com/someXML.xml', {
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">resource.post(data)
-  .then(function(result) {
-      // use the result
-  }).catch(function(error) {
-      // an error occurred
-  });</code></pre>
+    <pre><code class="language-javascript">resource.post(data)  .then(function(result) {      // use the result  }).catch(function(error) {      // an error occurred  });</code></pre>
 
     
 
@@ -5487,10 +5359,7 @@ Cesium.loadXML('http://someUrl.com/someXML.xml', {
 
 
 <div class="description">
-    异步将数据放入给定的资源。 返回一个 Promise，该 Promise 将解析为
-加载后的结果，如果资源加载失败，则为 reject。 数据已加载
-使用 XMLHttpRequest，这意味着为了向另一个源发出请求，
-服务器必须启用跨域资源共享 （CORS） 标头。
+    异步将数据放入给定的资源。 返回一个 Promise，该 Promise 将解析为加载后的结果，如果资源加载失败，则为 reject。 数据已加载使用 XMLHttpRequest，这意味着为了向另一个源发出请求，服务器必须启用跨域资源共享 （CORS） 标头。
 </div>
 
 
@@ -5745,12 +5614,7 @@ Cesium.loadXML('http://someUrl.com/someXML.xml', {
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">resource.put(data)
-  .then(function(result) {
-      // use the result
-  }).catch(function(error) {
-      // an error occurred
-  });</code></pre>
+    <pre><code class="language-javascript">resource.put(data)  .then(function(result) {      // use the result  }).catch(function(error) {      // an error occurred  });</code></pre>
 
     
 
@@ -5794,8 +5658,7 @@ Cesium.loadXML('http://someUrl.com/someXML.xml', {
 
 
 <div class="description">
-    组合指定的对象和现有的查询参数。这允许您一次添加多个参数。
-而不是一次将它们添加到 queryParameters 属性中。如果已设置值，则将其替换为新值。
+    组合指定的对象和现有的查询参数。这允许您一次添加多个参数。而不是一次将它们添加到 queryParameters 属性中。如果已设置值，则将其替换为新值。
 </div>
 
 
@@ -5973,8 +5836,7 @@ Cesium.loadXML('http://someUrl.com/someXML.xml', {
 
 
 <div class="description">
-    合并指定的对象和现有模板值。这允许您一次添加多个值。
-而不是一次将它们添加到 templateValues 属性中。如果已设置值，它将变为数组，并附加新值。
+    合并指定的对象和现有模板值。这允许您一次添加多个值。而不是一次将它们添加到 templateValues 属性中。如果已设置值，它将变为数组，并附加新值。
 </div>
 
 
@@ -6152,8 +6014,7 @@ Cesium.loadXML('http://someUrl.com/someXML.xml', {
 
 
 <div class="description">
-    覆盖 Object#toString，以便隐式字符串转换给出
-此资源表示的完整 URL。
+    覆盖 Object#toString，以便隐式字符串转换给出此资源表示的完整 URL。
 </div>
 
 

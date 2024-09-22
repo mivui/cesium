@@ -58,7 +58,7 @@
 
 
 <div class="description">
-    A <a href="DataSource.html"><code>DataSource</code></a> which processes both<a href="http://www.geojson.org/">GeoJSON</a> and <a href="https://github.com/mbostock/topojson">TopoJSON</a> data.<a href="https://github.com/mapbox/simplestyle-spec">simplestyle-spec</a> properties will also be used if theyare present.
+    一个 <a href="DataSource.html"><code>DataSource</code></a>，它处理<a href="http://www.geojson.org/">GeoJSON</a> 和 <a href="https://github.com/mbostock/topojson">TopoJSON</a> 数据。<a href="https://github.com/mapbox/simplestyle-spec">simplestyle-spec</a> 属性也将在以下情况下被使用存在。
 </div>
 
 
@@ -116,7 +116,7 @@
 
                 
             
-                The name of this data source.  If undefined, a name will be taken from                       the name of the GeoJSON file.</td>
+                此数据源的名称。 如果未定义，则名称将从GeoJSON 文件的名称。</td>
         </tr>
 
     
@@ -218,7 +218,7 @@
 
 
 <div class="description">
-    Gets or sets default of whether to clamp to the ground.
+    获取或设置是否固定到地面的默认值.
 </div>
 
 
@@ -281,7 +281,7 @@
 
 
 <div class="description">
-    Gets an object that maps the href property of a crs link to a callback functionwhich takes the crs properties object and returns a Promise that resolvesto a function that takes a GeoJSON coordinate and transforms it into a WGS84 Earth-fixed Cartesian.Items in this object take precedence over those defined in <code>crsLinkHrefs</code>, assumingthe link has a type specified.
+    获取将 crs 链接的 href 属性映射到回调函数的对象它接受 crs properties 对象并返回一个 Promise，该 Promise 解析转换为一个函数，该函数采用 GeoJSON 坐标并将其转换为 WGS84 地球固定笛卡尔坐标。此对象中的项目优先于 <code>crsLinkHrefs</code> 中定义的项目，假设链接指定了类型。
 </div>
 
 
@@ -341,7 +341,7 @@
 
 
 <div class="description">
-    Gets an object that maps the type property of a crs link to a callback functionwhich takes the crs properties object and returns a Promise that resolvesto a function that takes a GeoJSON coordinate and transforms it into a WGS84 Earth-fixed Cartesian.Items in <code>crsLinkHrefs</code> take precedence over this object.
+    获取将 crs 链接的 type 属性映射到回调函数的对象它接受 crs properties 对象并返回一个 Promise，该 Promise 解析转换为一个函数，该函数采用 GeoJSON 坐标并将其转换为 WGS84 地球固定笛卡尔坐标。<code>crsLinkHrefs</code> 中的项优先于此对象。
 </div>
 
 
@@ -401,7 +401,7 @@
 
 
 <div class="description">
-    Gets an object that maps the name of a crs to a callback function which takes a GeoJSON coordinateand transforms it into a WGS84 Earth-fixed Cartesian.  Older versions of GeoJSON whichsupported the EPSG type can be added to this list as well, by specifying the complete EPSG name,for example 'EPSG:4326'.
+    获取一个对象，该对象将 crs 的名称映射到一个采用 GeoJSON 坐标的回调函数并将其转换为 WGS84 地球固定笛卡尔矩阵。 旧版本的 GeoJSON支持的 EPSG 类型也可以添加到此列表中，只需指定完整的 EPSG 名称即可。例如：'EPSG：4326'。
 </div>
 
 
@@ -461,7 +461,7 @@
 
 
 <div class="description">
-    Gets or sets default color for polygon interiors.
+    获取或设置多边形内部的默认颜色。
 </div>
 
 
@@ -524,7 +524,7 @@
 
 
 <div class="description">
-    获取或设置default color of the map pin created for each point.
+    获取或设置为每个点创建的贴图引脚的默认颜色。
 </div>
 
 
@@ -587,7 +587,7 @@
 
 
 <div class="description">
-    获取或设置default size of the map pin created for each point, in pixels.
+    获取或设置为每个点创建的映射图钉的默认大小（以像素为单位）。
 </div>
 
 
@@ -650,7 +650,7 @@
 
 
 <div class="description">
-    获取或设置default symbol of the map pin created for each point.This can be any valid <a href="http://mapbox.com/maki/">Maki</a> identifier, any single character,or blank if no symbol is to be used.
+    获取或设置为每个点创建的 Map Pin 的默认元件。这可以是任何有效的 <a href="http://mapbox.com/maki/">Maki</a> 标识符、任何单个字符、如果不要使用符号，则为空。
 </div>
 
 
@@ -710,7 +710,7 @@
 
 
 <div class="description">
-    获取或设置default color of polylines and polygon outlines.
+    获取或设置折线和多边形轮廓的默认颜色。
 </div>
 
 
@@ -773,7 +773,7 @@
 
 
 <div class="description">
-    获取或设置default width of polylines and polygon outlines.
+    获取或设置折线和多边形轮廓的默认宽度。
 </div>
 
 
@@ -836,7 +836,7 @@
 
 
 <div class="description">
-    Gets an event that will be raised when the underlying data changes.
+    获取将在基础数据更改时引发的事件。
 </div>
 
 
@@ -896,7 +896,7 @@
 
 
 <div class="description">
-    This DataSource only defines static data, therefore this property is always undefined.
+    此 DataSource 仅定义静态数据，因此此属性始终未定义。
 </div>
 
 
@@ -956,7 +956,7 @@
 
 
 <div class="description">
-    获取或设置clustering options for this data source. This object can be shared between multiple data sources.
+    获取或设置此数据源的聚类选项。此对象可以在多个数据源之间共享.
 </div>
 
 
@@ -1016,7 +1016,7 @@
 
 
 <div class="description">
-    Gets the credit that will be displayed for the data source
+    获取将为数据源显示的积分
 </div>
 
 
@@ -1076,7 +1076,7 @@
 
 
 <div class="description">
-    Gets the collection of <a href="Entity.html"><code>Entity</code></a> instances.
+    获取 <a href="Entity.html"><code>Entity</code></a> 实例的集合。
 </div>
 
 
@@ -1136,7 +1136,7 @@
 
 
 <div class="description">
-    Gets an event that will be raised if an error is encountered during processing.
+    获取在处理过程中遇到错误时将引发的事件。
 </div>
 
 
@@ -1196,7 +1196,7 @@
 
 
 <div class="description">
-    Gets a value indicating if the data source is currently loading data.
+    获取一个值，该值指示数据源当前是否正在加载数据。
 </div>
 
 
@@ -1256,7 +1256,7 @@
 
 
 <div class="description">
-    Gets an event that will be raised when the data source either starts or stops loading.
+    获取在数据源开始或停止加载时将引发的事件。
 </div>
 
 
@@ -1316,7 +1316,7 @@
 
 
 <div class="description">
-    Gets or sets a human-readable name for this instance.
+    获取或设置此实例的可读名称。
 </div>
 
 
@@ -1376,7 +1376,7 @@
 
 
 <div class="description">
-    获取是否 this data source should be displayed.
+    获取是否应显示此数据源。
 </div>
 
 
@@ -1443,7 +1443,7 @@
 
 
 <div class="description">
-    Creates a Promise to a new instance loaded with the provided GeoJSON or TopoJSON data.
+    为加载了提供的 GeoJSON 或 TopoJSON 数据的新实例创建 Promise。
 </div>
 
 
@@ -1505,7 +1505,7 @@
 
                 
             
-                A url, GeoJSON object, or TopoJSON object to be loaded.</td>
+                要加载的 url、GeoJSON 对象或 TopoJSON 对象。</td>
         </tr>
 
     
@@ -1535,7 +1535,7 @@
 
                 
             
-                An object specifying configuration options</td>
+                指定配置选项的对象</td>
         </tr>
 
     
@@ -1556,7 +1556,7 @@
 
         
 <div class="param-desc">
-    A promise that will resolve when the data is loaded.
+    加载数据时将解析的 Promise。
 </div>
 
 
@@ -1619,7 +1619,7 @@
 
 
 <div class="description">
-    Asynchronously loads the provided GeoJSON or TopoJSON data, replacing any existing data.
+    异步加载提供的 GeoJSON 或 TopoJSON 数据，替换任何现有数据。
 </div>
 
 
@@ -1681,7 +1681,7 @@
 
                 
             
-                A url, GeoJSON object, or TopoJSON object to be loaded.</td>
+                要加载的 url、GeoJSON 对象或 TopoJSON 对象。</td>
         </tr>
 
     
@@ -1711,7 +1711,7 @@
 
                 
             
-                An object specifying configuration options</td>
+                指定配置选项的对象</td>
         </tr>
 
     
@@ -1732,7 +1732,7 @@
 
         
 <div class="param-desc">
-    a promise that will resolve when the GeoJSON is loaded.
+    一个将在加载 GeoJSON 时解析的 Promise。
 </div>
 
 
@@ -1795,7 +1795,7 @@
 
 
 <div class="description">
-    Asynchronously loads the provided GeoJSON or TopoJSON data, without replacing any existing data.
+    异步加载提供的 GeoJSON 或 TopoJSON 数据，而不替换任何现有数据。
 </div>
 
 
@@ -1857,7 +1857,7 @@
 
                 
             
-                A url, GeoJSON object, or TopoJSON object to be loaded.</td>
+                要加载的 url、GeoJSON 对象或 TopoJSON 对象。</td>
         </tr>
 
     
@@ -1887,7 +1887,7 @@
 
                 
             
-                An object specifying configuration options</td>
+                指定配置选项的对象</td>
         </tr>
 
     
@@ -1908,7 +1908,7 @@
 
         
 <div class="param-desc">
-    a promise that will resolve when the GeoJSON is loaded.
+    一个将在加载 GeoJSON 时解析的 Promise。
 </div>
 
 
@@ -1971,7 +1971,7 @@
 
 
 <div class="description">
-    Updates the data source to the provided time.  This function is optional andis not required to be implemented.  It is provided for data sources whichretrieve data based on the current animation time or scene state.If implemented, update will be called by <a href="DataSourceDisplay.html"><code>DataSourceDisplay</code></a> once a frame.
+    将数据源更新为提供的时间。 此功能是可选的，并且不需要实施。 它适用于以下数据源根据当前动画时间或场景状态检索数据。如果实现，则 <a href="DataSourceDisplay.html"><code>DataSourceDisplay</code></a> 将每帧调用一次 update。
 </div>
 
 
@@ -2022,7 +2022,7 @@
 
             <td class="description last">
             
-                The simulation time.</td>
+                模拟时间。</td>
         </tr>
 
     
@@ -2043,7 +2043,7 @@
 
         
 <div class="param-desc">
-    True if this data source is ready to be displayed at the provided time, false 否则。
+    如果此数据源已准备好在提供的时间显示，则为 True，否则为 false。
 </div>
 
 
@@ -2112,7 +2112,7 @@
 
 
 <div class="description">
-    This callback is displayed as part of the GeoJsonDataSource class.
+    此回调显示为 GeoJsonDataSource 类的一部分。
 </div>
 
 
@@ -2163,7 +2163,7 @@
 
             <td class="description last">
             
-                The properties of the feature.</td>
+                要素的属性。</td>
         </tr>
 
     
@@ -2186,7 +2186,7 @@
 
             <td class="description last">
             
-                The property key that Cesium estimates to have the name of the feature.</td>
+                Cesium 估计具有功能名称的属性键。</td>
         </tr>
 
     
@@ -2260,7 +2260,7 @@
 
 
 <div class="description">
-    Initialization options for the <code>load</code> method.
+    <code>load</code> 方法的初始化选项。
 </div>
 
 
@@ -2328,7 +2328,7 @@
                 </td>
             
 
-            <td class="description last">Overrides the url to use for resolving relative links.</td>
+            <td class="description last">覆盖用于解析相对链接的 URL。</td>
         </tr>
 
     
@@ -2365,7 +2365,7 @@
                 </td>
             
 
-            <td class="description last">A function which returns a Property object (or just a string).</td>
+            <td class="description last">返回 Property 对象（或仅返回字符串）的函数。</td>
         </tr>
 
     
@@ -2402,7 +2402,7 @@
                 </td>
             
 
-            <td class="description last">The default size of the map pin created for each point, in pixels.</td>
+            <td class="description last">为每个点创建的地图图钉的默认大小（以像素为单位）。</td>
         </tr>
 
     
@@ -2439,7 +2439,7 @@
                 </td>
             
 
-            <td class="description last">The default symbol of the map pin created for each point.</td>
+            <td class="description last">为每个点创建的地图图钉的默认符号。</td>
         </tr>
 
     
@@ -2476,7 +2476,7 @@
                 </td>
             
 
-            <td class="description last">The default color of the map pin created for each point.</td>
+            <td class="description last">为每个点创建的地图图钉的默认颜色。</td>
         </tr>
 
     
@@ -2513,7 +2513,7 @@
                 </td>
             
 
-            <td class="description last">The default color of polylines and polygon outlines.</td>
+            <td class="description last">折线和多边形轮廓的默认颜色。</td>
         </tr>
 
     
@@ -2550,7 +2550,7 @@
                 </td>
             
 
-            <td class="description last">The default width of polylines and polygon outlines.</td>
+            <td class="description last">折线和多边形轮廓的默认宽度。</td>
         </tr>
 
     
@@ -2587,7 +2587,7 @@
                 </td>
             
 
-            <td class="description last">The default color for polygon interiors.</td>
+            <td class="description last">多边形内部的默认颜色。</td>
         </tr>
 
     
@@ -2624,7 +2624,7 @@
                 </td>
             
 
-            <td class="description last">true if we want the geometry features (polygons or linestrings) clamped to the ground.</td>
+            <td class="description last">true 如果我们想将几何特征（多边形或线串）固定到地面上。</td>
         </tr>
 
     
@@ -2662,7 +2662,7 @@
                 </td>
             
 
-            <td class="description last">A credit for the data source, which is displayed on the canvas.</td>
+            <td class="description last">数据源的积分，显示在画布上。</td>
         </tr>
 
     

@@ -122,9 +122,7 @@
 
 
 <div class="description">
-    在给定的轴对齐阈值处分割 2D 三角形，并返回结果
-阈值给定一侧的多边形。 生成的多边形可能具有 0、1、2、
-3 或 4 个顶点。
+    在给定的轴对齐阈值处分割 2D 三角形，并返回结果阈值给定一侧的多边形。 生成的多边形可能具有 0、1、2、3 或 4 个顶点。
 </div>
 
 
@@ -208,8 +206,7 @@
 
                 
             
-                true 保持三角形的部分高于阈值，或 false
-保留以下部分。</td>
+                true 保持三角形的部分高于阈值，或 false保留以下部分。</td>
         </tr>
 
     
@@ -323,8 +320,7 @@
 
                 
             
-                要将结果复制到其中的数组。 如果未提供此参数，则
-构造并返回一个新数组。</td>
+                要将结果复制到其中的数组。 如果未提供此参数，则构造并返回一个新数组。</td>
         </tr>
 
     
@@ -345,14 +341,7 @@
 
         
 <div class="param-desc">
-    剪辑后生成的多边形，指定为
-顶点。 顶点按逆时针顺序指定。
-每个顶点都是现有列表中的索引（标识为
-0、1 或 2）或 -1 表示不在原始三角形中的新顶点。
-对于新顶点，-1 后跟三个附加数字：
-两个原始顶点中每个顶点的索引，该索引构成线段
-新顶点位于 上，与第一个顶点的距离分数
-顶点分配给第二个。
+    剪辑后生成的多边形，指定为顶点。 顶点按逆时针顺序指定。每个顶点都是现有列表中的索引（标识为0、1 或 2）或 -1 表示不在原始三角形中的新顶点。对于新顶点，-1 后跟三个附加数字：两个原始顶点中每个顶点的索引，该索引构成线段新顶点位于 上，与第一个顶点的距离分数顶点分配给第二个。
 </div>
 
 
@@ -383,8 +372,7 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const result = Cesium.Intersections2D.clipTriangleAtAxisAlignedThreshold(0.5, false, 0.2, 0.6, 0.4);
-// result === [2, 0, -1, 1, 0, 0.25, -1, 1, 2, 0.5]</code></pre>
+    <pre><code class="language-javascript">const result = Cesium.Intersections2D.clipTriangleAtAxisAlignedThreshold(0.5, false, 0.2, 0.6, 0.4);// result === [2, 0, -1, 1, 0, 0.25, -1, 1, 2, 0.5]</code></pre>
 
     
 
@@ -703,8 +691,7 @@
 
                 
             
-                要将结果复制到的实例。 如果此参数
-未定义，则会创建并返回一个新实例。</td>
+                要将结果复制到的实例。 如果此参数未定义，则会创建并返回一个新实例。</td>
         </tr>
 
     
@@ -756,8 +743,7 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const result = Cesium.Intersections2D.computeBarycentricCoordinates(0.0, 0.0, 0.0, 1.0, -1, -0.5, 1, -0.5);
-// result === new Cesium.Cartesian3(1.0 / 3.0, 1.0 / 3.0, 1.0 / 3.0);</code></pre>
+    <pre><code class="language-javascript">const result = Cesium.Intersections2D.computeBarycentricCoordinates(0.0, 0.0, 0.0, 1.0, -1, -0.5, 1, -0.5);// result === new Cesium.Cartesian3(1.0 / 3.0, 1.0 / 3.0, 1.0 / 3.0);</code></pre>
 
     
 
@@ -1076,8 +1062,7 @@
 
                 
             
-                要将结果复制到的实例。如果此参数
-未定义，则会创建并返回一个新实例。</td>
+                要将结果复制到的实例。如果此参数未定义，则会创建并返回一个新实例。</td>
         </tr>
 
     
@@ -1129,8 +1114,7 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const result = Cesium.Intersections2D.computeLineSegmentLineSegmentIntersection(0.0, 0.0, 0.0, 2.0, -1, 1, 1, 1);
-// result === new Cesium.Cartesian2(0.0, 1.0);</code></pre>
+    <pre><code class="language-javascript">const result = Cesium.Intersections2D.computeLineSegmentLineSegmentIntersection(0.0, 0.0, 0.0, 2.0, -1, 1, 1, 1);// result === new Cesium.Cartesian2(0.0, 1.0);</code></pre>
 
     
 

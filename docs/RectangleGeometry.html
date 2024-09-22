@@ -516,22 +516,7 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// 1. create a rectangle
-const rectangle = new Cesium.RectangleGeometry({
-  ellipsoid : Cesium.Ellipsoid.default,
-  rectangle : Cesium.Rectangle.fromDegrees(-80.0, 39.0, -74.0, 42.0),
-  height : 10000.0
-});
-const geometry = Cesium.RectangleGeometry.createGeometry(rectangle);
-
-// 2. create an extruded rectangle without a top
-const rectangle = new Cesium.RectangleGeometry({
-  ellipsoid : Cesium.Ellipsoid.default,
-  rectangle : Cesium.Rectangle.fromDegrees(-80.0, 39.0, -74.0, 42.0),
-  height : 10000.0,
-  extrudedHeight: 300000
-});
-const geometry = Cesium.RectangleGeometry.createGeometry(rectangle);</code></pre>
+    <pre><code class="language-javascript">// 1. create a rectangleconst rectangle = new Cesium.RectangleGeometry({  ellipsoid : Cesium.Ellipsoid.default,  rectangle : Cesium.Rectangle.fromDegrees(-80.0, 39.0, -74.0, 42.0),  height : 10000.0});const geometry = Cesium.RectangleGeometry.createGeometry(rectangle);// 2. create an extruded rectangle without a topconst rectangle = new Cesium.RectangleGeometry({  ellipsoid : Cesium.Ellipsoid.default,  rectangle : Cesium.Rectangle.fromDegrees(-80.0, 39.0, -74.0, 42.0),  height : 10000.0,  extrudedHeight: 300000});const geometry = Cesium.RectangleGeometry.createGeometry(rectangle);</code></pre>
 
     
 

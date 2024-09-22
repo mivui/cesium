@@ -58,7 +58,7 @@
 
 
 <div class="description">
-    A <a href="DataSource.html"><code>DataSource</code></a> which processes the GPS Exchange Format (GPX).
+    处理 GPS 交换格式 （GPX） 的 <a href="DataSource.html"><code>DataSource</code></a>。
 </div>
 
 
@@ -107,8 +107,7 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const viewer = new Cesium.Viewer('cesiumContainer');
-viewer.dataSources.add(Cesium.GpxDataSource.load('../../SampleData/track.gpx'));</code></pre>
+    <pre><code class="language-javascript">const viewer = new Cesium.Viewer('cesiumContainer');viewer.dataSources.add(Cesium.GpxDataSource.load('../../SampleData/track.gpx'));</code></pre>
 
     
 
@@ -172,7 +171,7 @@ viewer.dataSources.add(Cesium.GpxDataSource.load('../../SampleData/track.gpx'));
 
 
 <div class="description">
-    Gets an event that will be raised when the underlying data changes.
+    获取在基础数据更改时将引发的事件。
 </div>
 
 
@@ -232,9 +231,7 @@ viewer.dataSources.add(Cesium.GpxDataSource.load('../../SampleData/track.gpx'));
 
 
 <div class="description">
-    Gets the clock settings defined by the loaded GPX. This represents the total
-availability interval for all time-dynamic data. If the GPX does not contain
-time-dynamic data, this value is undefined.
+    获取由加载的 GPX 定义的 clock settings。这表示总计所有时间动态数据的可用性间隔。如果 GPX 不包含time-dynamic data，此值未定义。
 </div>
 
 
@@ -294,7 +291,7 @@ time-dynamic data, this value is undefined.
 
 
 <div class="description">
-    获取或设置clustering options for this data source. This object can be shared between multiple data sources.
+    获取或设置此数据源的聚类选项。此对象可以在多个数据源之间共享。
 </div>
 
 
@@ -354,7 +351,7 @@ time-dynamic data, this value is undefined.
 
 
 <div class="description">
-    Gets the creator of the GPX document.
+    获取 GPX 文档的创建者。
 </div>
 
 
@@ -414,7 +411,7 @@ time-dynamic data, this value is undefined.
 
 
 <div class="description">
-    Gets the collection of <a href="Entity.html"><code>Entity</code></a> instances.
+    获取 <a href="Entity.html"><code>Entity</code></a> 实例的集合。
 </div>
 
 
@@ -474,7 +471,7 @@ time-dynamic data, this value is undefined.
 
 
 <div class="description">
-    Gets an event that will be raised if an error is encountered during processing.
+    获取在处理过程中遇到错误时将引发的事件。
 </div>
 
 
@@ -534,7 +531,7 @@ time-dynamic data, this value is undefined.
 
 
 <div class="description">
-    Gets a value indicating if the data source is currently loading data.
+    获取一个值，该值指示数据源当前是否正在加载数据。
 </div>
 
 
@@ -594,7 +591,7 @@ time-dynamic data, this value is undefined.
 
 
 <div class="description">
-    Gets an event that will be raised when the data source either starts or stops loading.
+    获取在数据源开始或停止加载时将引发的事件。
 </div>
 
 
@@ -654,7 +651,7 @@ time-dynamic data, this value is undefined.
 
 
 <div class="description">
-    Gets an object containing metadata about the GPX file.
+    获取包含有关 GPX 文件的元数据的对象。
 </div>
 
 
@@ -714,8 +711,7 @@ time-dynamic data, this value is undefined.
 
 
 <div class="description">
-    Gets a human-readable name for this instance.
-This will be automatically be set to the GPX document name on load.
+    获取此实例的可读名称。这将在加载时自动设置为 GPX 文档名称。
 </div>
 
 
@@ -775,7 +771,7 @@ This will be automatically be set to the GPX document name on load.
 
 
 <div class="description">
-    获取是否 this data source should be displayed.
+    获取是否应显示此数据源。
 </div>
 
 
@@ -835,7 +831,7 @@ This will be automatically be set to the GPX document name on load.
 
 
 <div class="description">
-    Gets the version of the GPX Schema in use.
+    获取正在使用的 GPX 架构的版本。
 </div>
 
 
@@ -902,7 +898,7 @@ This will be automatically be set to the GPX document name on load.
 
 
 <div class="description">
-    Creates a Promise to a new instance loaded with the provided GPX data.
+    为加载了提供的 GPX 数据的新实例创建一个 Promise。
 </div>
 
 
@@ -964,7 +960,7 @@ This will be automatically be set to the GPX document name on load.
 
                 
             
-                A url, parsed GPX document, or Blob containing binary GPX data.</td>
+                url、解析的 GPX 文档或包含二进制 GPX 数据的 Blob。</td>
         </tr>
 
     
@@ -1040,7 +1036,7 @@ This will be automatically be set to the GPX document name on load.
 
                 
             
-                True if the symbols should be rendered at the same height as the terrain</td>
+                如果元件应以与地形相同的高度渲染，则为 True。</td>
         </tr>
 
     
@@ -1070,7 +1066,7 @@ This will be automatically be set to the GPX document name on load.
 
                 
             
-                Image to use for waypoint billboards.</td>
+                用于航点广告牌的图像。</td>
         </tr>
 
     
@@ -1100,7 +1096,7 @@ This will be automatically be set to the GPX document name on load.
 
                 
             
-                Image to use for track billboards.</td>
+                用于轨道公告牌的图像。</td>
         </tr>
 
     
@@ -1130,7 +1126,7 @@ This will be automatically be set to the GPX document name on load.
 
                 
             
-                Color to use for track lines.</td>
+                用于轨道线的颜色。</td>
         </tr>
 
     
@@ -1160,7 +1156,7 @@ This will be automatically be set to the GPX document name on load.
 
                 
             
-                Color to use for route lines.</td>
+                用于路由线的颜色。</td>
         </tr>
 
     
@@ -1187,7 +1183,7 @@ This will be automatically be set to the GPX document name on load.
 
         
 <div class="param-desc">
-    A promise that will resolve to a new GpxDataSource instance once the gpx is loaded.
+    加载 gpx 后将解析为新的 GpxDataSource 实例的 Promise。
 </div>
 
 
@@ -1250,7 +1246,7 @@ This will be automatically be set to the GPX document name on load.
 
 
 <div class="description">
-    Asynchronously loads the provided GPX data, replacing any existing data.
+    异步加载提供的 GPX 数据，替换任何现有数据。
 </div>
 
 
@@ -1312,7 +1308,7 @@ This will be automatically be set to the GPX document name on load.
 
                 
             
-                A url, parsed GPX document, or Blob containing binary GPX data or a parsed GPX document.</td>
+                url、解析的 GPX 文档或包含二进制 GPX 数据或解析的 GPX 文档的 Blob。</td>
         </tr>
 
     
@@ -1388,7 +1384,7 @@ This will be automatically be set to the GPX document name on load.
 
                 
             
-                True if the symbols should be rendered at the same height as the terrain</td>
+                如果符号应以与地形相同的高度渲染，则为 True。</td>
         </tr>
 
     
@@ -1418,7 +1414,7 @@ This will be automatically be set to the GPX document name on load.
 
                 
             
-                Image to use for waypoint billboards.</td>
+                用于航点广告牌的图像。</td>
         </tr>
 
     
@@ -1448,7 +1444,7 @@ This will be automatically be set to the GPX document name on load.
 
                 
             
-                Image to use for track billboards.</td>
+                用于轨道公告牌的图像。</td>
         </tr>
 
     
@@ -1478,7 +1474,7 @@ This will be automatically be set to the GPX document name on load.
 
                 
             
-                Color to use for track lines.</td>
+                用于轨道线的颜色。</td>
         </tr>
 
     
@@ -1508,7 +1504,7 @@ This will be automatically be set to the GPX document name on load.
 
                 
             
-                Color to use for route lines.</td>
+                用于路由线的颜色。</td>
         </tr>
 
     
@@ -1535,7 +1531,7 @@ This will be automatically be set to the GPX document name on load.
 
         
 <div class="param-desc">
-    A promise that will resolve to this instances once the GPX is loaded.
+    加载 GPX 后将解析为此实例的 Promise。
 </div>
 
 
@@ -1598,10 +1594,7 @@ This will be automatically be set to the GPX document name on load.
 
 
 <div class="description">
-    Updates the data source to the provided time.  This function is optional and
-is not required to be implemented.  It is provided for data sources which
-retrieve data based on the current animation time or scene state.
-If implemented, update will be called by <a href="DataSourceDisplay.html"><code>DataSourceDisplay</code></a> once a frame.
+    将数据源更新为提供的时间。 此功能是可选的，并且不需要实施。 它适用于以下数据源根据当前动画时间或场景状态检索数据。如果实现，则 <a href="DataSourceDisplay.html"><code>DataSourceDisplay</code></a> 将每帧调用一次 update。
 </div>
 
 
@@ -1652,7 +1645,7 @@ If implemented, update will be called by <a href="DataSourceDisplay.html"><code>
 
             <td class="description last">
             
-                The simulation time.</td>
+                模拟时间。</td>
         </tr>
 
     
@@ -1673,7 +1666,7 @@ If implemented, update will be called by <a href="DataSourceDisplay.html"><code>
 
         
 <div class="param-desc">
-    True if this data source is ready to be displayed at the provided time, false 否则。
+    如果此数据源已准备好在提供的时间显示，则为 True，否则为 false。
 </div>
 
 

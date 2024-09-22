@@ -47,8 +47,7 @@
 
 
         
-            <div class="description">WebGL 索引数据类型的常量。 这些对应于
-<code>type</code> 参数的 <a href="http://www.khronos.org/opengles/sdk/docs/man/xhtml/glDrawElements.xml">drawElements</a> 的 intent 参数。</div>
+            <div class="description">WebGL 索引数据类型的常量。 这些对应于<code>type</code> 参数的 <a href="http://www.khronos.org/opengles/sdk/docs/man/xhtml/glDrawElements.xml">drawElements</a> 的 intent 参数。</div>
         
 
         
@@ -97,8 +96,7 @@
 
             
 
-            <td class="description last">8-bit unsigned 字节对应于 <code>UNSIGNED_BYTE</code> 和 类型
-的元素 <code>Uint8Array</code>.</td>
+            <td class="description last">8-bit unsigned 字节对应于 <code>UNSIGNED_BYTE</code> 和 类型的元素 <code>Uint8Array</code>.</td>
         </tr>
 
     
@@ -121,8 +119,7 @@
 
             
 
-            <td class="description last">16-bit unsigned short 对应于 <code>UNSIGNED_SHORT</code> 和 类型
- 的元素<code>Uint16Array</code>.</td>
+            <td class="description last">16-bit unsigned short 对应于 <code>UNSIGNED_SHORT</code> 和 类型 的元素<code>Uint16Array</code>.</td>
         </tr>
 
     
@@ -145,8 +142,7 @@
 
             
 
-            <td class="description last">32-bit unsigned int 对应于 <code>UNSIGNED_INT</code> 和类型
- 的元素<code>Uint32Array</code>.</td>
+            <td class="description last">32-bit unsigned int 对应于 <code>UNSIGNED_INT</code> 和类型 的元素<code>Uint32Array</code>.</td>
         </tr>
 
     
@@ -220,8 +216,7 @@
 
 
 <div class="description">
-    8-bit unsigned 字节对应于 <code>UNSIGNED_BYTE</code> 和 类型
-的元素 <code>Uint8Array</code>.
+    8-bit unsigned 字节对应于 <code>UNSIGNED_BYTE</code> 和 类型的元素 <code>Uint8Array</code>.
 </div>
 
 
@@ -284,8 +279,7 @@
 
 
 <div class="description">
-    32-bit unsigned int 对应于 <code>UNSIGNED_INT</code> 和类型
- 的元素<code>Uint32Array</code>.
+    32-bit unsigned int 对应于 <code>UNSIGNED_INT</code> 和类型 的元素<code>Uint32Array</code>.
 </div>
 
 
@@ -348,8 +342,7 @@
 
 
 <div class="description">
-    16-bit unsigned short 对应于 <code>UNSIGNED_SHORT</code> 和 类型
- 的元素<code>Uint16Array</code>.
+    16-bit unsigned short 对应于 <code>UNSIGNED_SHORT</code> 和 类型 的元素<code>Uint16Array</code>.
 </div>
 
 
@@ -419,8 +412,7 @@
 
 
 <div class="description">
-    使用 <code><Uint16Array</code> 创建将存储索引的类型化数组
-或 <code>Uint32Array</code>，具体取决于顶点的数量。
+    使用 <code><Uint16Array</code> 创建将存储索引的类型化数组或 <code>Uint32Array</code>，具体取决于顶点的数量。
 </div>
 
 
@@ -586,8 +578,7 @@
 
 
 <div class="description">
-    从源数组缓冲区创建类型化数组。 生成的类型化数组将使用 <code><Uint16Array</code> 存储索引
-或 <code>Uint32Array</code>，具体取决于顶点的数量。
+    从源数组缓冲区创建类型化数组。 生成的类型化数组将使用 <code><Uint16Array</code> 存储索引或 <code>Uint32Array</code>，具体取决于顶点的数量。
 </div>
 
 
@@ -1170,8 +1161,7 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Returns 2
-const size = Cesium.IndexDatatype.getSizeInBytes(Cesium.IndexDatatype.UNSIGNED_SHORT);</code></pre>
+    <pre><code class="language-javascript">// Returns 2const size = Cesium.IndexDatatype.getSizeInBytes(Cesium.IndexDatatype.UNSIGNED_SHORT);</code></pre>
 
     
 
@@ -1311,9 +1301,7 @@ const size = Cesium.IndexDatatype.getSizeInBytes(Cesium.IndexDatatype.UNSIGNED_S
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">if (!Cesium.IndexDatatype.validate(indexDatatype)) {
-  throw new Cesium.DeveloperError('indexDatatype must be a valid value.');
-}</code></pre>
+    <pre><code class="language-javascript">if (!Cesium.IndexDatatype.validate(indexDatatype)) {  throw new Cesium.DeveloperError('indexDatatype must be a valid value.');}</code></pre>
 
     
 

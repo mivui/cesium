@@ -58,13 +58,7 @@
 
 
 <div class="description">
-    A collection of <a href="PostProcessStage.html"><code>PostProcessStage</code></a>s or other post-process composite stages that execute together logically.
-<p>
-All stages are executed in the order of the array. The input texture changes based on the value of <code>inputPreviousStageTexture</code>.
-If <code>inputPreviousStageTexture</code> is <code>true</code>, the input to each stage is the output texture rendered to by the scene or of the stage that executed before it.
-If <code>inputPreviousStageTexture</code> is <code>false</code>, the input texture is the same for each stage in the composite. The input texture is the texture rendered to by the scene
-or the output texture of the previous stage.
-</p>
+    A collection of <a href="PostProcessStage.html"><code>PostProcessStage</code></a>s or other post-process composite stages that execute together logically.<p>All stages are executed in the order of the array. The input texture changes based on the value of <code>inputPreviousStageTexture</code>.If <code>inputPreviousStageTexture</code> is <code>true</code>, the input to each stage is the output texture rendered to by the scene or of the stage that executed before it.If <code>inputPreviousStageTexture</code> is <code>false</code>, the input texture is the same for each stage in the composite. The input texture is the texture rendered to by the sceneor the output texture of the previous stage.</p>
 </div>
 
 
@@ -334,49 +328,11 @@ or the output texture of the previous stage.
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Example 1: separable blur filter
-// The input to blurXDirection is the texture rendered to by the scene or the output of the previous stage.
-// The input to blurYDirection is the texture rendered to by blurXDirection.
-scene.postProcessStages.add(new Cesium.PostProcessStageComposite({
-    stages : [blurXDirection, blurYDirection]
-}));</code></pre>
+    <pre><code class="language-javascript">// Example 1: separable blur filter// The input to blurXDirection is the texture rendered to by the scene or the output of the previous stage.// The input to blurYDirection is the texture rendered to by blurXDirection.scene.postProcessStages.add(new Cesium.PostProcessStageComposite({    stages : [blurXDirection, blurYDirection]}));</code></pre>
 
-    <pre><code class="language-javascript">// Example 2: referencing the output of another post-process stage
-scene.postProcessStages.add(new Cesium.PostProcessStageComposite({
-    inputPreviousStageTexture : false,
-    stages : [
-        // The same as Example 1.
-        new Cesium.PostProcessStageComposite({
-            inputPreviousStageTexture : true
-            stages : [blurXDirection, blurYDirection],
-            name : 'blur'
-        }),
-        // The input texture for this stage is the same input texture to blurXDirection since inputPreviousStageTexture is false
-        new Cesium.PostProcessStage({
-            fragmentShader : compositeShader,
-            uniforms : {
-                blurTexture : 'blur' // The output of the composite with name 'blur' (the texture that blurYDirection rendered to).
-            }
-        })
-    ]
-});</code></pre>
+    <pre><code class="language-javascript">// Example 2: referencing the output of another post-process stagescene.postProcessStages.add(new Cesium.PostProcessStageComposite({    inputPreviousStageTexture : false,    stages : [        // The same as Example 1.        new Cesium.PostProcessStageComposite({            inputPreviousStageTexture : true            stages : [blurXDirection, blurYDirection],            name : 'blur'        }),        // The input texture for this stage is the same input texture to blurXDirection since inputPreviousStageTexture is false        new Cesium.PostProcessStage({            fragmentShader : compositeShader,            uniforms : {                blurTexture : 'blur' // The output of the composite with name 'blur' (the texture that blurYDirection rendered to).            }        })    ]});</code></pre>
 
-    <pre><code class="language-javascript">// Example 3: create a uniform alias
-const uniforms = {};
-Cesium.defineProperties(uniforms, {
-    filterSize : {
-        get : function() {
-            return blurXDirection.uniforms.filterSize;
-        },
-        set : function(value) {
-            blurXDirection.uniforms.filterSize = blurYDirection.uniforms.filterSize = value;
-        }
-    }
-});
-scene.postProcessStages.add(new Cesium.PostProcessStageComposite({
-    stages : [blurXDirection, blurYDirection],
-    uniforms : uniforms
-}));</code></pre>
+    <pre><code class="language-javascript">// Example 3: create a uniform aliasconst uniforms = {};Cesium.defineProperties(uniforms, {    filterSize : {        get : function() {            return blurXDirection.uniforms.filterSize;        },        set : function(value) {            blurXDirection.uniforms.filterSize = blurYDirection.uniforms.filterSize = value;        }    }});scene.postProcessStages.add(new Cesium.PostProcessStageComposite({    stages : [blurXDirection, blurYDirection],    uniforms : uniforms}));</code></pre>
 
     
 
@@ -493,10 +449,7 @@ scene.postProcessStages.add(new Cesium.PostProcessStageComposite({
 
 
 <div class="description">
-    All post-process stages are executed in the order of the array. The input texture changes based on the value of <code>inputPreviousStageTexture</code>.
-If <code>inputPreviousStageTexture</code> is <code>true</code>, the input to each stage is the output texture rendered to by the scene or of the stage that executed before it.
-If <code>inputPreviousStageTexture</code> is <code>false</code>, the input texture is the same for each stage in the composite. The input texture is the texture rendered to by the scene
-or the output texture of the previous stage.
+    All post-process stages are executed in the order of the array. The input texture changes based on the value of <code>inputPreviousStageTexture</code>.If <code>inputPreviousStageTexture</code> is <code>true</code>, the input to each stage is the output texture rendered to by the scene or of the stage that executed before it.If <code>inputPreviousStageTexture</code> is <code>false</code>, the input texture is the same for each stage in the composite. The input texture is the texture rendered to by the sceneor the output texture of the previous stage.
 </div>
 
 
@@ -863,13 +816,7 @@ or the output texture of the previous stage.
 
 
 <div class="description">
-    Destroys the WebGL resources held by this object.  Destroying an object allows for deterministic
-release of WebGL resources, instead of relying on the garbage collector to destroy this object.
-<p>
-Once an object is destroyed, it should not be used; calling any function other than
-<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.  Therefore,
-assign the return value (<code>undefined</code>) to the object as done in the example.
-</p>
+    Destroys the WebGL resources held by this object.  Destroying an object allows for deterministicrelease of WebGL resources, instead of relying on the garbage collector to destroy this object.<p>Once an object is destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.  Therefore,assign the return value (<code>undefined</code>) to the object as done in the example.</p>
 </div>
 
 
@@ -1129,11 +1076,7 @@ assign the return value (<code>undefined</code>) to the object as done in the ex
 
 
 <div class="description">
-    Returns true if this object was destroyed; otherwise, false.
-<p>
-If this object was destroyed, it should not be used; calling any function other than
-<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.
-</p>
+    Returns true if this object was destroyed; otherwise, false.<p>If this object was destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.</p>
 </div>
 
 

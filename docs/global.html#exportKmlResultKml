@@ -94,7 +94,7 @@
 
             
 
-            <td class="description last">The generated KML.</td>
+            <td class="description last">生成的 KML.</td>
         </tr>
 
     
@@ -117,7 +117,7 @@
 
             
 
-            <td class="description last">An object dictionary of external files</td>
+            <td class="description last">外部文件的对象字典</td>
         </tr>
 
     

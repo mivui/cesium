@@ -58,9 +58,7 @@
 
 
 <div class="description">
-    建模为线带的多段线的描述;前两个位置定义线段
-，每个额外的位置定义从前一个位置开始的线段。多段线能够
-使用材质显示。
+    建模为线带的多段线的描述;前两个位置定义线段，每个额外的位置定义从前一个位置开始的线段。多段线能够使用材质显示。
 </div>
 
 
@@ -496,16 +494,7 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// A polyline with two connected line segments
-const polyline = new Cesium.PolylineGeometry({
-  positions : Cesium.Cartesian3.fromDegreesArray([
-    0.0, 0.0,
-    5.0, 0.0,
-    5.0, 5.0
-  ]),
-  width : 10.0
-});
-const geometry = Cesium.PolylineGeometry.createGeometry(polyline);</code></pre>
+    <pre><code class="language-javascript">// A polyline with two connected line segmentsconst polyline = new Cesium.PolylineGeometry({  positions : Cesium.Cartesian3.fromDegreesArray([    0.0, 0.0,    5.0, 0.0,    5.0, 5.0  ]),  width : 10.0});const geometry = Cesium.PolylineGeometry.createGeometry(polyline);</code></pre>
 
     
 

@@ -58,7 +58,7 @@
 
 
 <div class="description">
-    A <a href="Property.html"><code>Property</code></a> which transparently links to another property on a provided object.
+    一个 <a href="Property.html"><code>Property</code></a>，它透明地链接到所提供对象上的另一个属性。
 </div>
 
 
@@ -109,7 +109,7 @@
 
             <td class="description last">
             
-                The entity collection which will be used to resolve the reference.</td>
+                将用于解析引用的实体集合。</td>
         </tr>
 
     
@@ -132,7 +132,7 @@
 
             <td class="description last">
             
-                The id of the entity which is being referenced.</td>
+                被引用的实体的 ID。</td>
         </tr>
 
     
@@ -155,7 +155,7 @@
 
             <td class="description last">
             
-                The names of the property on the target entity which we will use.</td>
+                我们将使用的目标实体上的属性名称。</td>
         </tr>
 
     
@@ -250,7 +250,7 @@
 
 
 <div class="description">
-    Gets the event that is raised whenever the definition of this property changes.The definition is changed whenever the referenced property's definition is changed.
+    获取此属性的定义发生更改时引发的事件。每当引用属性的定义发生更改时，定义都会更改。
 </div>
 
 
@@ -310,7 +310,7 @@
 
 
 <div class="description">
-    Gets a value indicating if this property is constant.
+    获取一个值，该值指示此属性是否为 constant。
 </div>
 
 
@@ -370,7 +370,7 @@
 
 
 <div class="description">
-    Gets the reference frame that the position is defined in.This property is only valid if the referenced property is a <a href="PositionProperty.html"><code>PositionProperty</code></a>.
+    获取定义位置的参考帧。仅当引用的属性是 <a href="PositionProperty.html"><code>PositionProperty</code></a> 时，此属性才有效。
 </div>
 
 
@@ -430,7 +430,7 @@
 
 
 <div class="description">
-    Gets the resolved instance of the underlying referenced property.
+    获取基础引用属性的已解析实例。
 </div>
 
 
@@ -490,7 +490,7 @@
 
 
 <div class="description">
-    Gets the collection containing the entity being referenced.
+    获取包含被引用实体的集合。
 </div>
 
 
@@ -550,7 +550,7 @@
 
 
 <div class="description">
-    Gets the id of the entity being referenced.
+    获取被引用的实体的 ID。
 </div>
 
 
@@ -610,7 +610,7 @@
 
 
 <div class="description">
-    Gets the array of property names used to retrieve the referenced property.
+    获取用于检索引用属性的属性名称数组。
 </div>
 
 
@@ -677,7 +677,7 @@
 
 
 <div class="description">
-    Creates a new instance given the entity collection that willbe used to resolve it and a string indicating the target entity id and property.The format of the string is "objectId#foo.bar", where # separates the id fromproperty path and . separates sub-properties.  If the reference identifier oror any sub-properties contains a # . or \ they must be escaped.
+    在给定实体集合的情况下创建一个新实例，该实例将用于解析它，以及指示目标实体 ID 和属性的字符串。字符串的格式为 “objectId#foo.bar”，其中 # 将 id 与属性路径和 .分隔子属性。 如果引用标识符或或任何子属性包含 # . or \ 他们必须逃脱。
 </div>
 
 
@@ -772,7 +772,7 @@
 
         
 <div class="param-desc">
-    A new instance of ReferenceProperty.
+    ReferenceProperty 的新实例。
 </div>
 
 
@@ -849,7 +849,7 @@
 
 
 <div class="description">
-    Compares this property to the provided property and returns<code>true</code>，否则为<code>false</code>。
+    将此属性与提供的属性进行比较，并返回<code>true</code>，否则为 <code>false</code>。
 </div>
 
 
@@ -907,7 +907,7 @@
 
                 
             
-                The other property.</td>
+                另一个属性。</td>
         </tr>
 
     
@@ -991,7 +991,7 @@
 
 
 <div class="description">
-    Gets the <a href="Material.html"><code>Material</code></a> type at the provided time.This method is only valid if the property being referenced is a <a href="MaterialProperty.html"><code>MaterialProperty</code></a>.
+    在提供的时间获取 <a href="Material.html"><code>Material</code></a> 类型。仅当被引用的属性是 <a href="MaterialProperty.html"><code>MaterialProperty</code></a> 时，此方法才有效。
 </div>
 
 
@@ -1042,7 +1042,7 @@
 
             <td class="description last">
             
-                The time for which to retrieve the type.</td>
+                检索类型的时间。</td>
         </tr>
 
     
@@ -1063,7 +1063,7 @@
 
         
 <div class="param-desc">
-    The type of material.
+    材质的类型。
 </div>
 
 
@@ -1126,7 +1126,7 @@
 
 
 <div class="description">
-    Gets the value of the property at the provided time.
+    获取属性在提供的时间的值。
 </div>
 
 
@@ -1192,7 +1192,7 @@
 
                 
             
-                The time for which to retrieve the value. If omitted, the current system time is used.</td>
+                检索值的时间。如果省略，则使用当前系统时间。</td>
         </tr>
 
     
@@ -1226,7 +1226,7 @@
 
                 
             
-                The object to store the value into, if omitted, a new instance is created and returned.</td>
+                要将值存储到的对象，如果省略，则创建并返回一个新实例。</td>
         </tr>
 
     
@@ -1247,7 +1247,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数 or a new instance if the result parameter was not supplied.
+    修改后的结果参数或者，如果未提供 result 参数，则为新实例。
 </div>
 
 
@@ -1310,7 +1310,7 @@
 
 
 <div class="description">
-    Gets the value of the property at the provided time and in the provided reference frame.This method is only valid if the property being referenced is a <a href="PositionProperty.html"><code>PositionProperty</code></a>.
+    获取在提供的时间和提供的参考框架中的属性值。仅当引用的属性是 <a href="PositionProperty.html"><code>PositionProperty</code></a> 时，此方法才有效。
 </div>
 
 
@@ -1366,7 +1366,7 @@
 
                 
             
-                The time for which to retrieve the value.</td>
+                检索值的时间。</td>
         </tr>
 
     
@@ -1394,7 +1394,7 @@
 
                 
             
-                The desired referenceFrame of the result.</td>
+                结果所需的 referenceFrame。</td>
         </tr>
 
     
@@ -1424,7 +1424,7 @@
 
                 
             
-                The object to store the value into, if omitted, a new instance is created and returned.</td>
+                要将值存储到的对象，如果省略，则会创建并返回一个新实例。</td>
         </tr>
 
     
@@ -1445,7 +1445,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数 or a new instance if the result parameter was not supplied.
+    修改后的结果参数或者，如果未提供 result 参数，则为新实例。
 </div>
 
 

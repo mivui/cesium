@@ -58,13 +58,7 @@
 
 
 <div class="description">
-    由
-<pre>
-ax + by + cz + d = 0
-</pre>
-其中 （a， b， c） 是平面的<code>法线</code>，d 是有符号
-<code>到平面的距离</code>，并且 （x， y， z） 是 上的任意点
-飞机。
+    由<pre>ax + by + cz + d = 0</pre>其中 （a， b， c） 是平面的<code>法线</code>，d 是有符号<code>到平面的距离</code>，并且 （x， y， z） 是 上的任意点飞机。
 </div>
 
 
@@ -138,11 +132,7 @@ ax + by + cz + d = 0
 
             <td class="description last">
             
-                从原点到平面的最短距离。 的标志
-<code>距离</code> 确定平面的哪一侧为原点
-为打开。 如果 <code>distance</code> 为正数，则原点位于半空间中
-沿法线方向;如果为负数，则原点位于半空间
-与正常相反;如果为零，则平面通过原点。</td>
+                从原点到平面的最短距离。 的标志<code>距离</code> 确定平面的哪一侧为原点为打开。 如果 <code>distance</code> 为正数，则原点位于半空间中沿法线方向;如果为负数，则原点位于半空间与正常相反;如果为零，则平面通过原点。</td>
         </tr>
 
     
@@ -199,8 +189,7 @@ ax + by + cz + d = 0
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// The plane x=0
-const plane = new Cesium.Plane(Cesium.Cartesian3.UNIT_X, 0.0);</code></pre>
+    <pre><code class="language-javascript">// The plane x=0const plane = new Cesium.Plane(Cesium.Cartesian3.UNIT_X, 0.0);</code></pre>
 
     
 
@@ -432,11 +421,7 @@ const plane = new Cesium.Plane(Cesium.Cartesian3.UNIT_X, 0.0);</code></pre>
 
 
 <div class="description">
-    从原点到平面的最短距离。 的标志
-<code>距离</code> 确定平面的哪一侧为原点
-为打开。 如果 <code>distance</code> 为正数，则原点位于半空间中
-沿法线方向;如果为负数，则原点位于半空间
-与正常相反;如果为零，则平面通过原点。
+    从原点到平面的最短距离。 的标志<code>距离</code> 确定平面的哪一侧为原点为打开。 如果 <code>distance</code> 为正数，则原点位于半空间中沿法线方向;如果为负数，则原点位于半空间与正常相反;如果为零，则平面通过原点。
 </div>
 
 
@@ -733,8 +718,7 @@ const plane = new Cesium.Plane(Cesium.Cartesian3.UNIT_X, 0.0);</code></pre>
 
 
 <div class="description">
-    按法线和距离比较提供的 Planes 并返回
-<code>true</code>，否则为 <code>false</code>。
+    按法线和距离比较提供的 Planes 并返回<code>true</code>，否则为 <code>false</code>。
 </div>
 
 
@@ -1256,9 +1240,7 @@ const plane = new Cesium.Plane(Cesium.Cartesian3.UNIT_X, 0.0);</code></pre>
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const point = Cesium.Cartesian3.fromDegrees(-72.0, 40.0);
-const normal = ellipsoid.geodeticSurfaceNormal(point);
-const tangentPlane = Cesium.Plane.fromPointNormal(point, normal);</code></pre>
+    <pre><code class="language-javascript">const point = Cesium.Cartesian3.fromDegrees(-72.0, 40.0);const normal = ellipsoid.geodeticSurfaceNormal(point);const tangentPlane = Cesium.Plane.fromPointNormal(point, normal);</code></pre>
 
     
 
@@ -1295,11 +1277,7 @@ const tangentPlane = Cesium.Plane.fromPointNormal(point, normal);</code></pre>
 
 
 <div class="description">
-    计算点到平面的有符号最短距离。
-距离的符号确定点是平面的哪一侧
-为打开。 如果距离为正，则点位于半空间中
-沿法线方向;如果为负数，则该点位于半空间中
-与正常相反;如果为零，则平面通过该点。
+    计算点到平面的有符号最短距离。距离的符号确定点是平面的哪一侧为打开。 如果距离为正，则点位于半空间中沿法线方向;如果为负数，则该点位于半空间中与正常相反;如果为零，则平面通过该点。
 </div>
 
 

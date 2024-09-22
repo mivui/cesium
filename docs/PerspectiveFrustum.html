@@ -58,10 +58,7 @@
 
 
 <div class="description">
-    视锥体由 6 个平面定义。
-每个平面都由一个 <a href="Cartesian4.html"><code>Cartesian4</code></a> 对象表示，其中 x、y 和 z 分量
-定义垂直于平面的单位向量，w 分量是
-从原点/相机位置开始的平面。
+    视锥体由 6 个平面定义。每个平面都由一个 <a href="Cartesian4.html"><code>Cartesian4</code></a> 对象表示，其中 x、y 和 z 分量定义垂直于平面的单位向量，w 分量是从原点/相机位置开始的平面。
 </div>
 
 
@@ -398,12 +395,7 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const frustum = new Cesium.PerspectiveFrustum({
-    fov : Cesium.Math.PI_OVER_THREE,
-    aspectRatio : canvas.clientWidth / canvas.clientHeight
-    near : 1.0,
-    far : 1000.0
-});</code></pre>
+    <pre><code class="language-javascript">const frustum = new Cesium.PerspectiveFrustum({    fov : Cesium.Math.PI_OVER_THREE,    aspectRatio : canvas.clientWidth / canvas.clientHeight    near : 1.0,    far : 1000.0});</code></pre>
 
     
 
@@ -646,9 +638,7 @@
 
 
 <div class="description">
-    视场角度 （FOV），以弧度为单位。 将使用这个角度
-如果宽度大于高度，则作为水平 FOV，否则
-这将是垂直 FOV。
+    视场角度 （FOV），以弧度为单位。 将使用这个角度如果宽度大于高度，则作为水平 FOV，否则这将是垂直 FOV。
 </div>
 
 
@@ -1821,9 +1811,7 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Check if a bounding volume intersects the frustum.
-const cullingVolume = frustum.computeCullingVolume(cameraPosition, cameraDirection, cameraUp);
-const intersect = cullingVolume.computeVisibility(boundingVolume);</code></pre>
+    <pre><code class="language-javascript">// Check if a bounding volume intersects the frustum.const cullingVolume = frustum.computeCullingVolume(cameraPosition, cameraDirection, cameraUp);const intersect = cullingVolume.computeVisibility(boundingVolume);</code></pre>
 
     
 
@@ -1860,8 +1848,7 @@ const intersect = cullingVolume.computeVisibility(boundingVolume);</code></pre>
 
 
 <div class="description">
-    对提供的 PerspectiveFrustum 组件进行比较，并返回
-<code>true</code>，否则为<code>false</code>。
+    对提供的 PerspectiveFrustum 组件进行比较，并返回<code>true</code>，否则为<code>false</code>。
 </div>
 
 
@@ -2003,9 +1990,7 @@ const intersect = cullingVolume.computeVisibility(boundingVolume);</code></pre>
 
 
 <div class="description">
-    对提供的 PerspectiveFrustum 组件进行比较，并返回
-<code>true</code> 如果它们通过了绝对或相对耐受性测试，
-<code>false</code> 否则。
+    对提供的 PerspectiveFrustum 组件进行比较，并返回<code>true</code> 如果它们通过了绝对或相对耐受性测试，<code>false</code> 否则。
 </div>
 
 
@@ -2450,19 +2435,9 @@ const intersect = cullingVolume.computeVisibility(boundingVolume);</code></pre>
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Example 1
-// Get the width and height of a pixel.
-const pixelSize = camera.frustum.getPixelDimensions(scene.drawingBufferWidth, scene.drawingBufferHeight, 1.0, scene.pixelRatio, new Cesium.Cartesian2());</code></pre>
+    <pre><code class="language-javascript">// Example 1// Get the width and height of a pixel.const pixelSize = camera.frustum.getPixelDimensions(scene.drawingBufferWidth, scene.drawingBufferHeight, 1.0, scene.pixelRatio, new Cesium.Cartesian2());</code></pre>
 
-    <pre><code class="language-javascript">// Example 2
-// Get the width and height of a pixel if the near plane was set to 'distance'.
-// For example, get the size of a pixel of an image on a billboard.
-const position = camera.position;
-const direction = camera.direction;
-const toCenter = Cesium.Cartesian3.subtract(primitive.boundingVolume.center, position, new Cesium.Cartesian3());      // vector from camera to a primitive
-const toCenterProj = Cesium.Cartesian3.multiplyByScalar(direction, Cesium.Cartesian3.dot(direction, toCenter), new Cesium.Cartesian3()); // project vector onto camera direction vector
-const distance = Cesium.Cartesian3.magnitude(toCenterProj);
-const pixelSize = camera.frustum.getPixelDimensions(scene.drawingBufferWidth, scene.drawingBufferHeight, distance, scene.pixelRatio, new Cesium.Cartesian2());</code></pre>
+    <pre><code class="language-javascript">// Example 2// Get the width and height of a pixel if the near plane was set to 'distance'.// For example, get the size of a pixel of an image on a billboard.const position = camera.position;const direction = camera.direction;const toCenter = Cesium.Cartesian3.subtract(primitive.boundingVolume.center, position, new Cesium.Cartesian3());      // vector from camera to a primitiveconst toCenterProj = Cesium.Cartesian3.multiplyByScalar(direction, Cesium.Cartesian3.dot(direction, toCenter), new Cesium.Cartesian3()); // project vector onto camera direction vectorconst distance = Cesium.Cartesian3.magnitude(toCenterProj);const pixelSize = camera.frustum.getPixelDimensions(scene.drawingBufferWidth, scene.drawingBufferHeight, distance, scene.pixelRatio, new Cesium.Cartesian2());</code></pre>
 
     
 
