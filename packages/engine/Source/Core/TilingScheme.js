@@ -1,11 +1,11 @@
 import DeveloperError from "./DeveloperError.js";
 
 /**
- * A tiling scheme for geometry or imagery on the surface of an ellipsoid.  At level-of-detail zero,
- * the coarsest, least-detailed level, the number of tiles is configurable.
- * At level of detail one, each of the level zero tiles has four children, two in each direction.
- * At level of detail two, each of the level one tiles has four children, two in each direction.
- * This continues for as many levels as are present in the geometry or imagery source.
+ * 椭球体表面上的几何或影像的切片方案。 在细节层次为零时，
+ * 最粗糙、最不详细的级别，瓦片的数量是可配置的。
+ * 在细节级别 1 中，每个级别 0 磁贴都有四个子级，每个方向两个。
+ * 在细节级别 2 中，每个级别 1 磁贴都有四个子项，每个方向两个子项。
+ * 对于几何或影像源中存在的多个级别，此操作将持续。
  *
  * @alias TilingScheme
  * @constructor
@@ -23,7 +23,7 @@ function TilingScheme(options) {
 
 Object.defineProperties(TilingScheme.prototype, {
   /**
-   * Gets the ellipsoid that is tiled by the tiling scheme.
+   * 获取由切片方案平铺的椭球体。
    * @memberof TilingScheme.prototype
    * @type {Ellipsoid}
    */
@@ -32,7 +32,7 @@ Object.defineProperties(TilingScheme.prototype, {
   },
 
   /**
-   * Gets the rectangle, in radians, covered by this tiling scheme.
+   * 获取此平铺方案覆盖的矩形（以弧度为单位）。
    * @memberof TilingScheme.prototype
    * @type {Rectangle}
    */
@@ -41,7 +41,7 @@ Object.defineProperties(TilingScheme.prototype, {
   },
 
   /**
-   * Gets the map projection used by the tiling scheme.
+   * 获取切片方案使用的地图投影。
    * @memberof TilingScheme.prototype
    * @type {MapProjection}
    */

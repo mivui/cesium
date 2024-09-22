@@ -6,27 +6,27 @@ import Rectangle from "./Rectangle.js";
 import WebMercatorProjection from "./WebMercatorProjection.js";
 
 /**
- * A tiling scheme for geometry referenced to a {@link WebMercatorProjection}, EPSG:3857.  This is
- * the tiling scheme used by Google Maps, Microsoft Bing Maps, and most of ESRI ArcGIS Online.
+ * 引用 {@link WebMercatorProjection} 的几何图形的平铺方案，EPSG：3857。 这是
+ * Google 地图、Microsoft Bing 地图和大多数 ESRI ArcGIS Online 使用的切片方案。
  *
  * @alias WebMercatorTilingScheme
  * @constructor
  *
  * @param {object} [options] 对象，具有以下属性:
- * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] The ellipsoid whose surface is being tiled. Defaults to
- * the default ellipsoid.
- * @param {number} [options.numberOfLevelZeroTilesX=1] The number of tiles in the X direction at level zero of
- *        the tile tree.
- * @param {number} [options.numberOfLevelZeroTilesY=1] The number of tiles in the Y direction at level zero of
- *        the tile tree.
- * @param {Cartesian2} [options.rectangleSouthwestInMeters] The southwest corner of the rectangle covered by the
- *        tiling scheme, in meters.  If this parameter or rectangleNortheastInMeters is not specified, the entire
- *        globe is covered in the longitude direction and an equal distance is covered in the latitude
- *        direction, resulting in a square projection.
- * @param {Cartesian2} [options.rectangleNortheastInMeters] The northeast corner of the rectangle covered by the
- *        tiling scheme, in meters.  If this parameter or rectangleSouthwestInMeters is not specified, the entire
- *        globe is covered in the longitude direction and an equal distance is covered in the latitude
- *        direction, resulting in a square projection.
+ * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] 其表面正在平铺的椭球体。默认为
+ * 默认椭球体。
+ * @param {number} [options.numberOfLevelZeroTilesX=1] 在零级
+ * 瓦片树。
+ * @param {number} [options.numberOfLevelZeroTilesY=1] 在零级
+ * 瓦片树。
+ * @param {Cartesian2} [options.rectangleSouthwestInMeters] 矩形的西南角被
+ * 平铺方案，以米为单位。 如果未指定此参数或 rectangleNortheastInMeters，则整个
+ * 地球仪在经度方向上覆盖，在纬度上覆盖相等的距离
+ * 方向，从而产生方形投影。
+ * @param {Cartesian2} [options.rectangleNortheastInMeters] 矩形的东北角被
+ * 平铺方案，以米为单位。 如果未指定此参数或 rectangleSouthwestInMeters，则整个
+ * 地球仪在经度方向上覆盖，在纬度上覆盖相等的距离
+ * 方向，从而产生方形投影。
  */
 function WebMercatorTilingScheme(options) {
   options = defaultValue(options, defaultValue.EMPTY_OBJECT);
@@ -77,7 +77,7 @@ function WebMercatorTilingScheme(options) {
 
 Object.defineProperties(WebMercatorTilingScheme.prototype, {
   /**
-   * Gets the ellipsoid that is tiled by this tiling scheme.
+   * 获取此平铺方案平铺的椭球体。
    * @memberof WebMercatorTilingScheme.prototype
    * @type {Ellipsoid}
    */
@@ -88,7 +88,7 @@ Object.defineProperties(WebMercatorTilingScheme.prototype, {
   },
 
   /**
-   * Gets the rectangle, in radians, covered by this tiling scheme.
+   * 获取此平铺方案覆盖的矩形（以弧度为单位）。
    * @memberof WebMercatorTilingScheme.prototype
    * @type {Rectangle}
    */
@@ -99,7 +99,7 @@ Object.defineProperties(WebMercatorTilingScheme.prototype, {
   },
 
   /**
-   * Gets the map projection used by this tiling scheme.
+   * 获取此切片方案使用的地图投影。
    * @memberof WebMercatorTilingScheme.prototype
    * @type {MapProjection}
    */
@@ -111,34 +111,34 @@ Object.defineProperties(WebMercatorTilingScheme.prototype, {
 });
 
 /**
- * Gets the total number of tiles in the X direction at a specified level-of-detail.
+ * 获取指定细节级别 X 方向的图块总数。
  *
- * @param {number} level The level-of-detail.
- * @returns {number} The number of tiles in the X direction at the given level.
+ * @param {number} level 细节级别。
+ * @returns {number} 给定级别 X 方向的图块数量。
  */
 WebMercatorTilingScheme.prototype.getNumberOfXTilesAtLevel = function (level) {
   return this._numberOfLevelZeroTilesX << level;
 };
 
 /**
- * Gets the total number of tiles in the Y direction at a specified level-of-detail.
+ * 获取指定细节级别 Y 方向的平铺总数。
  *
- * @param {number} level The level-of-detail.
- * @returns {number} The number of tiles in the Y direction at the given level.
+ * @param {number} level 细节级别。
+ * @returns {number} 给定级别上 Y 方向的图块数量。
  */
 WebMercatorTilingScheme.prototype.getNumberOfYTilesAtLevel = function (level) {
   return this._numberOfLevelZeroTilesY << level;
 };
 
 /**
- * Transforms a rectangle specified in geodetic radians to the native coordinate system
- * of this tiling scheme.
+ * 将以大地弧度中指定的矩形转换为本地坐标系
+ * 的 Package。
  *
- * @param {Rectangle} rectangle The rectangle to transform.
- * @param {Rectangle} [result] The instance to which to copy the result, or undefined if a new instance
- *        should be created.
- * @returns {Rectangle} The specified 'result', or a new object containing the native rectangle if 'result'
- *          is undefined.
+ * @param {Rectangle} rectangle 要转换的矩形。
+ * @param {Rectangle} [result] 要将结果复制到的实例，如果是新实例，则为 undefined
+ * 应创建。
+ * @returns {Rectangle} 指定的 'result'，或者包含 'result' 的原生矩形的新对象
+ * 未定义。
  */
 WebMercatorTilingScheme.prototype.rectangleToNativeRectangle = function (
   rectangle,
@@ -160,16 +160,16 @@ WebMercatorTilingScheme.prototype.rectangleToNativeRectangle = function (
 };
 
 /**
- * Converts tile x, y coordinates and level to a rectangle expressed in the native coordinates
- * of the tiling scheme.
+ * 将图块 x、y 坐标和标高转换为以本机坐标表示的矩形
+ * 的平铺方案。
  *
- * @param {number} x The integer x coordinate of the tile.
- * @param {number} y The integer y coordinate of the tile.
- * @param {number} level The tile level-of-detail.  Zero is the least detailed.
- * @param {object} [result] The instance to which to copy the result, or undefined if a new instance
- *        should be created.
- * @returns {Rectangle} The specified 'result', or a new object containing the rectangle
- *          if 'result' is undefined.
+ * @param {number} x 瓦片的整数 x 坐标。
+ * @param {number} y 瓦片的整数 y 坐标。
+ * @param {number} level 瓦片细节级别。 零是最不详细的。
+ * @param {object} [result] 要将结果复制到的实例，如果是新实例，则为 undefined
+ * 应创建。
+ * @returns {Rectangle} 指定的 'result'，或包含矩形的新对象
+ * 如果 'result' 未定义。
  */
 WebMercatorTilingScheme.prototype.tileXYToNativeRectangle = function (
   x,
@@ -204,15 +204,15 @@ WebMercatorTilingScheme.prototype.tileXYToNativeRectangle = function (
 };
 
 /**
- * Converts tile x, y coordinates and level to a cartographic rectangle in radians.
+ * 将平铺 x、y 坐标和级别转换为以弧度为单位的制图矩形。
  *
- * @param {number} x The integer x coordinate of the tile.
- * @param {number} y The integer y coordinate of the tile.
- * @param {number} level The tile level-of-detail.  Zero is the least detailed.
- * @param {object} [result] The instance to which to copy the result, or undefined if a new instance
- *        should be created.
- * @returns {Rectangle} The specified 'result', or a new object containing the rectangle
- *          if 'result' is undefined.
+ * @param {number} x 瓦片的整数 x 坐标。
+ * @param {number} y 瓦片的整数 y 坐标。
+ * @param {number} level 瓦片细节级别。 零是最不详细的。
+ * @param {object} [result] 要将结果复制到的实例，如果是新实例，则为 undefined
+ * 应创建。
+ * @returns {Rectangle} 指定的 'result'，或包含矩形的新对象
+ * 如果 'result' 未定义。
  */
 WebMercatorTilingScheme.prototype.tileXYToRectangle = function (
   x,
@@ -238,15 +238,15 @@ WebMercatorTilingScheme.prototype.tileXYToRectangle = function (
 };
 
 /**
- * Calculates the tile x, y coordinates of the tile containing
- * a given cartographic position.
+ * 计算包含
+ * 给定的制图位置。
  *
- * @param {Cartographic} position The position.
- * @param {number} level The tile level-of-detail.  Zero is the least detailed.
- * @param {Cartesian2} [result] The instance to which to copy the result, or undefined if a new instance
- *        should be created.
- * @returns {Cartesian2} The specified 'result', or a new object containing the tile x, y coordinates
- *          if 'result' is undefined.
+ * @param {Cartographic} position 位置。
+ * @param {number} level 瓦片细节级别。 零是最不详细的。
+ * @param {Cartesian2} [result] 要将结果复制到的实例，如果是新实例，则为 undefined
+ * 应创建。
+ * @returns {Cartesian2} 指定的 'result'，或包含图块 x、y 坐标的新对象
+ * 如果 'result' 未定义。
  */
 WebMercatorTilingScheme.prototype.positionToTileXY = function (
   position,

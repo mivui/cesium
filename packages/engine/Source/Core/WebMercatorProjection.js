@@ -7,9 +7,9 @@ import Ellipsoid from "./Ellipsoid.js";
 import CesiumMath from "./Math.js";
 
 /**
- * The map projection used by Google Maps, Bing Maps, and most of ArcGIS Online, EPSG:3857.  This
- * projection use longitude and latitude expressed with the WGS84 and transforms them to Mercator using
- * the spherical (rather than ellipsoidal) equations.
+ * Google 地图、Bing 地图和大多数 ArcGIS Online 使用的地图投影，EPSG：3857。 这
+ * 投影使用用 WGS84 表示的经度和纬度，并使用
+ * 球形（而不是椭球体）方程。
  *
  * @alias WebMercatorProjection
  * @constructor
@@ -26,7 +26,7 @@ function WebMercatorProjection(ellipsoid) {
 
 Object.defineProperties(WebMercatorProjection.prototype, {
   /**
-   * Gets the {@link Ellipsoid}.
+   * 获取 {@link Ellipsoid}。
    *
    * @memberof WebMercatorProjection.prototype
    *
@@ -41,11 +41,11 @@ Object.defineProperties(WebMercatorProjection.prototype, {
 });
 
 /**
- * Converts a Mercator angle, in the range -PI to PI, to a geodetic latitude
- * in the range -PI/2 to PI/2.
+ * 将 -PI 到 PI 范围内的墨卡托角转换为大地纬度
+ * 在 -PI/2 到 PI/2 范围内。
  *
- * @param {number} mercatorAngle The angle to convert.
- * @returns {number} The geodetic latitude in radians.
+ * @param {number} mercatorAngle 要转换的角度。
+ * @returns {number} 以弧度为单位的大地纬度。
  */
 WebMercatorProjection.mercatorAngleToGeodeticLatitude = function (
   mercatorAngle
@@ -54,11 +54,11 @@ WebMercatorProjection.mercatorAngleToGeodeticLatitude = function (
 };
 
 /**
- * Converts a geodetic latitude in radians, in the range -PI/2 to PI/2, to a Mercator
- * angle in the range -PI to PI.
+ * 将 -PI/2 到 PI/2 范围内的弧度（以弧度为单位）转换为墨卡托
+ * 角度在 -PI 到 PI 范围内。
  *
- * @param {number} latitude The geodetic latitude in radians.
- * @returns {number} The Mercator angle.
+ * @param {number} latitude 以弧度为单位的大地纬度。
+ * @returns {number} 墨卡托角。
  */
 WebMercatorProjection.geodeticLatitudeToMercatorAngle = function (latitude) {
   // Clamp the latitude coordinate to the valid Mercator bounds.
@@ -72,16 +72,16 @@ WebMercatorProjection.geodeticLatitudeToMercatorAngle = function (latitude) {
 };
 
 /**
- * The maximum latitude (both North and South) supported by a Web Mercator
- * (EPSG:3857) projection.  Technically, the Mercator projection is defined
- * for any latitude up to (but not including) 90 degrees, but it makes sense
- * to cut it off sooner because it grows exponentially with increasing latitude.
- * The logic behind this particular cutoff value, which is the one used by
- * Google Maps, Bing Maps, and Esri, is that it makes the projection
- * square.  That is, the rectangle is equal in the X and Y directions.
+ * Web 墨卡托支持的最大纬度（北纬和南纬）
+ * （EPSG：3857） 预测。 从技术上讲，墨卡托投影是定义的
+ * 对于任何纬度，最高可达（但不包括）90 度，但这是有道理的
+ * 以更早地切断它，因为它随着纬度的增加呈指数增长。
+ * 此特定截止值背后的逻辑，即
+ * Google Maps、Bing Maps 和 Esri 是它进行投影
+ * 广场。 也就是说，矩形在 X 和 Y 方向上相等。
  *
- * The constant value is computed by calling:
- *    WebMercatorProjection.mercatorAngleToGeodeticLatitude(Math.PI)
+ * 常量值通过调用来计算：
+ * WebMercatorProjection.mercatorAngleToGeodeticLatitude （Math.PI）
  *
  * @type {number}
  */
@@ -90,14 +90,14 @@ WebMercatorProjection.MaximumLatitude = WebMercatorProjection.mercatorAngleToGeo
 );
 
 /**
- * Converts geodetic ellipsoid coordinates, in radians, to the equivalent Web Mercator
- * X, Y, Z coordinates expressed in meters and returned in a {@link Cartesian3}.  The height
- * is copied unmodified to z坐标。
+ * 将大地椭球坐标（以弧度为单位）转换为等效的 Web 墨卡托
+ * X、Y、Z 坐标以米表示，并以 {@link Cartesian3} 返回。 高度
+ * 将原封不动地复制到 z坐标。
  *
- * @param {Cartographic} cartographic The cartographic coordinates in radians.
- * @param {Cartesian3} [result] The instance to which to copy the result, or undefined if a
- *        new instance should be created.
- * @returns {Cartesian3} The equivalent web mercator X, Y, Z coordinates, in meters.
+ * @param {Cartographic} cartographic 以弧度为单位的制图坐标。
+ * @param {Cartesian3} [result] 要将结果复制到的实例，如果
+ * 应创建新实例。
+ * @returns {Cartesian3} 等效的网页墨卡托 X、Y、Z 坐标，单位为米。
  */
 WebMercatorProjection.prototype.project = function (cartographic, result) {
   const semimajorAxis = this._semimajorAxis;
@@ -119,14 +119,14 @@ WebMercatorProjection.prototype.project = function (cartographic, result) {
 };
 
 /**
- * Converts Web Mercator X, Y coordinates, expressed in meters, to a {@link Cartographic}
- * containing geodetic ellipsoid coordinates.  The Z coordinate is copied unmodified to the
- * height.
+ * 将 Web 墨卡托 X、Y 坐标（以米表示）转换为 {@link 制图}
+ * 包含大地椭球体坐标。 Z 坐标将原封不动地复制到
+ *高度。
  *
- * @param {Cartesian3} cartesian The web mercator Cartesian position to unrproject with height (z) in meters.
- * @param {Cartographic} [result] The instance to which to copy the result, or undefined if a
- *        new instance should be created.
- * @returns {Cartographic} The equivalent cartographic coordinates.
+ * @param {Cartesian3} cartesian Web 墨卡托笛卡尔位置与高度 （z） 展开投影，以米为单位。
+ * @param {Cartographic} [result] 要将结果复制到的实例，如果
+ * 应创建新实例。
+ * @returns {Cartographic} 等效的制图坐标。
  */
 WebMercatorProjection.prototype.unproject = function (cartesian, result) {
   //>>includeStart('debug', pragmas.debug);

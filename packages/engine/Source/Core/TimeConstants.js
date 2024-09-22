@@ -1,5 +1,5 @@
 /**
- * Constants for time conversions like those done by {@link JulianDate}.
+ * 时间转换的常量，如 {@link JulianDate} 所做的转换。
  *
  * @namespace TimeConstants
  *
@@ -9,72 +9,72 @@
  */
 const TimeConstants = {
   /**
-   * The number of seconds in one millisecond: <code>0.001</code>
+   * 1 毫秒中的秒数：<code>0.001</code>
    * @type {number}
    * @constant
    */
   SECONDS_PER_MILLISECOND: 0.001,
 
   /**
-   * The number of seconds in one minute: <code>60</code>.
+   * 一分钟内的秒数：<code>60</code>。
    * @type {number}
    * @constant
    */
   SECONDS_PER_MINUTE: 60.0,
 
   /**
-   * The number of minutes in one hour: <code>60</code>.
+   * 一小时内的分钟数：<code>60</code>。
    * @type {number}
    * @constant
    */
   MINUTES_PER_HOUR: 60.0,
 
   /**
-   * The number of hours in one day: <code>24</code>.
+   * 一天的小时数：<code>24</code>。
    * @type {number}
    * @constant
    */
   HOURS_PER_DAY: 24.0,
 
   /**
-   * The number of seconds in one hour: <code>3600</code>.
+   * 一小时内的秒数：<code>3600</code>。
    * @type {number}
    * @constant
    */
   SECONDS_PER_HOUR: 3600.0,
 
   /**
-   * The number of minutes in one day: <code>1440</code>.
+   * 一天的分钟数：<code>1440</code>。
    * @type {number}
    * @constant
    */
   MINUTES_PER_DAY: 1440.0,
 
   /**
-   * The number of seconds in one day, ignoring leap seconds: <code>86400</code>.
+   * 忽略闰秒的一天中的秒数：<code>86400</code>。
    * @type {number}
    * @constant
    */
   SECONDS_PER_DAY: 86400.0,
 
   /**
-   * The number of days in one Julian century: <code>36525</code>.
+   * 一个儒略世纪的天数：<code>36525</code>。
    * @type {number}
    * @constant
    */
   DAYS_PER_JULIAN_CENTURY: 36525.0,
 
   /**
-   * One trillionth of a second.
+   * 万亿分之一秒。
    * @type {number}
    * @constant
    */
   PICOSECOND: 0.000000001,
 
   /**
-   * The number of days to subtract from a Julian date to determine the
-   * modified Julian date, which gives the number of days since midnight
-   * on November 17, 1858.
+   * 从儒略日期中减去以确定
+   * 修改后的儒略日期，给出自午夜以来的天数
+   * 1858 年 11 月 17 日。
    * @type {number}
    * @constant
    */

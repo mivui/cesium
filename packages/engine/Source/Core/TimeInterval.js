@@ -5,18 +5,18 @@ import DeveloperError from "./DeveloperError.js";
 import JulianDate from "./JulianDate.js";
 
 /**
- * An interval defined by a start and a stop time; optionally including those times as part of the interval.
- * Arbitrary data can optionally be associated with each instance for used with {@link TimeIntervalCollection}.
+ * 由开始和停止时间定义的间隔;（可选）将这些时间作为间隔的一部分包括在内。
+ * 可以选择将任意数据与每个实例相关联，以便与 {@link TimeIntervalCollection} 一起使用。
  *
  * @alias TimeInterval
  * @constructor
  *
  * @param {object} [options] 对象，具有以下属性:
- * @param {JulianDate} [options.start=new JulianDate()] The start time of the interval.
- * @param {JulianDate} [options.stop=new JulianDate()] The stop time of the interval.
- * @param {boolean} [options.isStartIncluded=true] <code>true</code> if <code>options.start</code> is included in the interval, <code>false</code> 否则。
- * @param {boolean} [options.isStopIncluded=true] <code>true</code> if <code>options.stop</code> is included in the interval, <code>false</code> 否则。
- * @param {object} [options.data] Arbitrary data associated with this interval.
+ * @param {JulianDate} [options.start=new JulianDate()] 区间的开始时间。
+ * @param {JulianDate} [options.stop=new JulianDate()] 区间的停止时间。
+ * @param {boolean} [options.isStartIncluded=true] 如果 <code>options.start</code> 包含在区间中，则<code>为 true</code>， <code>false</code> 否则。
+ * @param {boolean} [options.isStopIncluded=true] 如果 <code>options.stop</code> 包含在区间内，<code>则为 true</code>， <code>false</code> 否则。
+ * @param {object} [options.data] 与此区间关联的任意数据。
  *
  * @example
  * // Create an instance that spans August 1st, 1980 and is associated
@@ -76,20 +76,20 @@ function TimeInterval(options) {
     : new JulianDate();
 
   /**
-   * 获取或设置data associated with this interval.
+   * 获取或设置与此间隔关联的数据。
    * @type {*}
    */
   this.data = options.data;
 
   /**
-   * 获取或设置是否 the start time is included in this interval.
+   * 获取或设置是否开始时间包含在此间隔中。
    * @type {boolean}
    * @default true
    */
   this.isStartIncluded = defaultValue(options.isStartIncluded, true);
 
   /**
-   * 获取或设置是否 the stop time is included in this interval.
+   * 获取或设置是否停止时间包含在此间隔中。
    * @type {boolean}
    * @default true
    */
@@ -98,7 +98,7 @@ function TimeInterval(options) {
 
 Object.defineProperties(TimeInterval.prototype, {
   /**
-   * 获取是否 this interval is empty.
+   * 获取是否此间隔为空。
    * @memberof TimeInterval.prototype
    * @type {boolean}
    * @readonly
@@ -124,17 +124,17 @@ const scratchInterval = {
 };
 
 /**
- * Creates a new instance from a {@link http://en.wikipedia.org/wiki/ISO_8601|ISO 8601} interval.
+ * 从 {@link http://en.wikipedia.org/wiki/ISO_8601|ISO 8601} 间隔。
  *
- * @throws DeveloperError if options.iso8601 does not match proper formatting.
+ * 如果 options.iso8601 与正确的格式不匹配，则@throws DeveloperError。
  *
  * @param {object} options 对象，具有以下属性:
- * @param {string} options.iso8601 An ISO 8601 interval.
- * @param {boolean} [options.isStartIncluded=true] <code>true</code> if <code>options.start</code> is included in the interval, <code>false</code> 否则。
- * @param {boolean} [options.isStopIncluded=true] <code>true</code> if <code>options.stop</code> is included in the interval, <code>false</code> 否则。
- * @param {object} [options.data] Arbitrary data associated with this interval.
- * @param {TimeInterval} [result] An existing instance to use for the result.
- * @returns {TimeInterval} 修改后的结果参数 or a new instance if none was provided.
+ * @param {string} options.iso8601 ISO 8601 间隔。
+ * @param {boolean} [options.isStartIncluded=true] 如果 <code>options.start</code> 包含在区间中，则<code>为 true</code>， <code>false</code> 否则。
+ * @param {boolean} [options.isStopIncluded=true] 如果 <code>options.stop</code> 包含在区间内，<code>则为 true</code>， <code>false</code> 否则。
+ * @param {object} [options.data] 与此区间关联的任意数据。
+ * @param {TimeInterval} [result] 用于结果的现有实例。
+ * @returns {TimeInterval} 修改后的结果参数或新实例（如果未提供）。
  */
 TimeInterval.fromIso8601 = function (options, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -172,11 +172,11 @@ TimeInterval.fromIso8601 = function (options, result) {
 };
 
 /**
- * Creates an ISO8601 representation of the provided interval.
+ * 创建所提供间隔的 ISO8601 表示形式。
  *
- * @param {TimeInterval} timeInterval The interval to be converted.
- * @param {number} [precision] The number of fractional digits used to represent the seconds component.  By default, the most precise representation is used.
- * @returns {string} The ISO8601 representation of the provided interval.
+ * @param {TimeInterval} timeInterval 需要转换的间隔。
+ * @param {number} [precision] 用于表示秒部分的小数位数。 默认情况下，使用最精确的表示。
+ * @returns {string} 提供的区间的 ISO8601 表示形式。
  */
 TimeInterval.toIso8601 = function (timeInterval, precision) {
   //>>includeStart('debug', pragmas.debug);
@@ -190,11 +190,11 @@ TimeInterval.toIso8601 = function (timeInterval, precision) {
 };
 
 /**
- * Duplicates the provided instance.
+ * 复制提供的实例。
  *
- * @param {TimeInterval} [timeInterval] The instance to clone.
- * @param {TimeInterval} [result] An existing instance to use for the result.
- * @returns {TimeInterval} 修改后的结果参数 or a new instance if none was provided.
+ * @param {TimeInterval} [timeInterval] 要克隆的实例。
+ * @param {TimeInterval} [result] 用于结果的现有实例。
+ * @returns {TimeInterval} 修改后的结果参数或新实例（如果未提供）。
  */
 TimeInterval.clone = function (timeInterval, result) {
   if (!defined(timeInterval)) {
@@ -212,12 +212,12 @@ TimeInterval.clone = function (timeInterval, result) {
 };
 
 /**
- * Compares two instances and returns <code>true</code>，否则为<code>false</code>。
+ * 比较两个实例并返回 <code>true</code>，否则为<code>false</code>。
  *
  * @param {TimeInterval} [left] 第一个instance.
  * @param {TimeInterval} [right] 第二个 instance.
- * @param {TimeInterval.DataComparer} [dataComparer] A function which compares the data of the two intervals.  If omitted, reference equality is used.
- * @returns {boolean} <code>true</code> if the dates are equal; otherwise, <code>false</code>.
+ * @param {TimeInterval.DataComparer} [dataComparer] 比较两个区间的数据的函数。 如果省略，则使用引用相等。
+ * @returns {boolean} 如果日期相等，<code>则为 true</code>;否则为 <code>false</code>.
  */
 TimeInterval.equals = function (left, right, dataComparer) {
   return (
@@ -235,16 +235,16 @@ TimeInterval.equals = function (left, right, dataComparer) {
 };
 
 /**
- * Compares two instances and returns <code>true</code> if they are within <code>epsilon</code> seconds of
- * each other.  That is, in order for the dates to be considered equal (and for
- * this function to return <code>true</code>), the absolute value of the difference between them, in
- * seconds, must be less than <code>epsilon</code>.
+ * 比较两个实例<code>，如果它们在</code> <code></code>
+ * 彼此。 也就是说，为了将日期视为相等（并且
+ * 此函数返回 <code>true</code>），则表示它们之间差值的绝对值，在
+ * 秒，必须小于 <code>epsilon</code>。
  *
  * @param {TimeInterval} [left] 第一个instance.
  * @param {TimeInterval} [right] 第二个 instance.
- * @param {number} [epsilon=0] The maximum number of seconds that should separate the two instances.
- * @param {TimeInterval.DataComparer} [dataComparer] A function which compares the data of the two intervals.  If omitted, reference equality is used.
- * @returns {boolean} <code>true</code> if the two dates are within <code>epsilon</code> seconds of each other; otherwise <code>false</code>.
+ * @param {number} [epsilon=0] 两个实例之间应分隔的最大秒数。
+ * @param {TimeInterval.DataComparer} [dataComparer] 比较两个区间数据的函数。 如果省略，则使用引用相等。
+ * @returns {boolean} <code>true</code>，如果两个日期彼此相差在 <code>epsilon</code> 秒内;否则<code>为 false</code>。
  */
 TimeInterval.equalsEpsilon = function (left, right, epsilon, dataComparer) {
   epsilon = defaultValue(epsilon, 0);
@@ -264,12 +264,12 @@ TimeInterval.equalsEpsilon = function (left, right, epsilon, dataComparer) {
 };
 
 /**
- * Computes the intersection of two intervals, optionally merging their data.
+ * 计算两个区间的交集，可以选择合并其数据。
  *
- * @param {TimeInterval} left The first interval.
+ * @param {TimeInterval} left 第一个 interval.
  * @param {TimeInterval} [right] 第二个 interval.
- * @param {TimeInterval} [result] An existing instance to use for the result.
- * @param {TimeInterval.MergeCallback} [mergeCallback] A function which merges the data of the two intervals. If omitted, the data from the left interval will be used.
+ * @param {TimeInterval} [result] 用于结果的现有实例。
+ * @param {TimeInterval.MergeCallback} [mergeCallback] 合并两个区间数据的函数。如果省略，则将使用左侧间隔中的数据。
  * @returns {TimeInterval} 修改后的结果参数。
  */
 TimeInterval.intersect = function (left, right, result, mergeCallback) {
@@ -327,11 +327,11 @@ TimeInterval.intersect = function (left, right, result, mergeCallback) {
 };
 
 /**
- * Checks if the specified date is inside the provided interval.
+ * 检查指定的日期是否在提供的间隔内。
  *
- * @param {TimeInterval} timeInterval The interval.
- * @param {JulianDate} julianDate The date to check.
- * @returns {boolean} <code>true</code> if the interval contains the specified date, <code>false</code> 否则。
+ * @param {TimeInterval} timeInterval 间隔。
+ * @param {JulianDate} julianDate 要检查的日期。
+ * @returns {boolean} <code>true</code>（如果区间包含指定日期），否则 <code>false</code>，。
  */
 TimeInterval.contains = function (timeInterval, julianDate) {
   //>>includeStart('debug', pragmas.debug);
@@ -360,21 +360,21 @@ TimeInterval.contains = function (timeInterval, julianDate) {
 };
 
 /**
- * 复制instance.
+ * 复制TimeInterval
  *
- * @param {TimeInterval} [result] An existing instance to use for the result.
- * @returns {TimeInterval} 修改后的结果参数 or a new instance if none was provided.
+ * @param {TimeInterval} [result]用于结果的现有实例。
+ * @returns {TimeInterval} 修改后的结果参数或者如果未提供任何实例，则为新实例。
  */
 TimeInterval.prototype.clone = function (result) {
   return TimeInterval.clone(this, result);
 };
 
 /**
- * Compares this instance against the provided instance componentwise and returns
- * <code>true</code>，否则为<code>false</code>。
+ * 将此实例与提供的实例 componentwise 进行比较，并返回
+ * <code>true</code>，否则为 <code>false</code>。
  *
  * @param {TimeInterval} [right] 右边 interval.
- * @param {TimeInterval.DataComparer} [dataComparer] A function which compares the data of the two intervals.  If omitted, reference equality is used.
+ * @param {TimeInterval.DataComparer} [dataComparer] 比较两个区间的数据的函数。 如果省略，则使用引用相等。
  * @returns {boolean} <code>true</code>，否则为<code>false</code>。
  */
 TimeInterval.prototype.equals = function (right, dataComparer) {
@@ -382,13 +382,13 @@ TimeInterval.prototype.equals = function (right, dataComparer) {
 };
 
 /**
- * Compares this instance against the provided instance componentwise and returns
- * <code>true</code> if they are within the provided epsilon,
- * <code>false</code> 否则。
+ * 将此实例与提供的实例 componentwise 进行比较，并返回
+ * <code>true</code>，如果它们位于提供的 epsilon 内，
+ * 否则<code>false</code> 。
  *
  * @param {TimeInterval} [right] 右边 interval.
  * @param {number} [epsilon=0] 用来检验等式。
- * @param {TimeInterval.DataComparer} [dataComparer] A function which compares the data of the two intervals.  If omitted, reference equality is used.
+ * @param {TimeInterval.DataComparer} [dataComparer] 比较两个区间的数据的函数。 如果省略，则使用引用相等。
  * @returns {boolean} <code>true</code>如果它们在提供的epsilon内，<code>false</code>否则。
  */
 TimeInterval.prototype.equalsEpsilon = function (right, epsilon, dataComparer) {
@@ -396,16 +396,16 @@ TimeInterval.prototype.equalsEpsilon = function (right, epsilon, dataComparer) {
 };
 
 /**
- * Creates a string representing this TimeInterval in ISO8601 format.
+ * 以 ISO8601 格式创建表示此 TimeInterval 的字符串。
  *
- * @returns {string} A string representing this TimeInterval in ISO8601 format.
+ * @returns {string} 以 ISO8601 格式表示此 TimeInterval 的字符串。
  */
 TimeInterval.prototype.toString = function () {
   return TimeInterval.toIso8601(this);
 };
 
 /**
- * An immutable empty interval.
+ * 不可变的空间隔。
  *
  * @type {TimeInterval}
  * @constant
@@ -420,19 +420,19 @@ TimeInterval.EMPTY = Object.freeze(
 );
 
 /**
- * Function interface for merging interval data.
+ * 用于合并间隔数据的功能接口。
  * @callback TimeInterval.MergeCallback
  *
- * @param {*} leftData The first data instance.
- * @param {*} rightData The second data instance.
- * @returns {*} The result of merging the two data instances.
+ * @param {*} leftData 第一个数据实例。
+ * @param {*} rightData 第二个数据实例。
+ * @returns {*} 合并两个数据实例的结果。
  */
 
 /**
- * Function interface for comparing interval data.
+ * 用于比较间隔数据的功能接口。
  * @callback TimeInterval.DataComparer
- * @param {*} leftData The first data instance.
- * @param {*} rightData The second data instance.
- * @returns {boolean} <code>true</code> if the provided instances are equal, <code>false</code> 否则。
+ * @param {*} leftData 第一个数据实例。
+ * @param {*} rightData 第二个数据实例。
+ * @returns {boolean} <code>true</code>（如果提供的实例相等），否则 <code>false</code>。
  */
 export default TimeInterval;

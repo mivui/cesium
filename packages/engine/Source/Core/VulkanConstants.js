@@ -1,7 +1,7 @@
 /**
- * Enum containing Vulkan Constant values by name.
+ * 按名称包含 Vulkan 常量值的枚举。
  *
- * These match the constants from the {@link https://www.khronos.org/registry/vulkan/specs/1.2-extensions/html/vkspec.html#formats-definition|Vulkan 1.2 specification}.
+ * 这些与 {@link https://www.khronos.org/registry/vulkan/specs/1.2-extensions/html/vkspec.html#formats-definition|Vulkan 1.2 规范}。
  *
  * @enum {number}
  * @private

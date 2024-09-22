@@ -98,23 +98,23 @@ function measureText(context2D, textString, font, stroke, fill) {
 let imageSmoothingEnabledName;
 
 /**
- * Writes the given text into a new canvas.  The canvas will be sized to fit the text.
- * If text is blank, returns undefined.
+ * 将给定的文本写入新画布。 画布的大小将调整以适合文本。
+ * 如果文本为空，则返回 undefined。
  *
- * @param {string} text The text to write.
+ * @param {string} text 要写入的文本。
  * @param {object} [options] 对象，具有以下属性:
- * @param {string} [options.font='10px sans-serif'] The CSS font to use.
- * @param {string} [options.textBaseline='bottom'] The baseline of the text.
- * @param {boolean} [options.fill=true] Whether to fill the text.
- * @param {boolean} [options.stroke=false] Whether to stroke the text.
- * @param {Color} [options.fillColor=Color.WHITE] The fill color.
- * @param {Color} [options.strokeColor=Color.BLACK] The stroke color.
- * @param {number} [options.strokeWidth=1] The stroke width.
- * @param {Color} [options.backgroundColor=Color.TRANSPARENT] The background color of the canvas.
- * @param {number} [options.padding=0] The pixel size of the padding to add around the text.
- * @returns {HTMLCanvasElement|undefined} A new canvas with the given text drawn into it.  The dimensions object
- *                   from measureText will also be added to the returned canvas. If text is
- *                   blank, returns undefined.
+ * @param {string} [options.font='10px sans-serif'] 要使用的 CSS 字体。
+ * @param {string} [options.textBaseline='bottom'] 文本的基线。
+ * @param {boolean} [options.fill=true] 是否填充文本。
+ * @param {boolean} [options.stroke=false] 是否对文本进行描边。
+ * @param {Color} [options.fillColor=Color.WHITE] 填充颜色。
+ * @param {Color} [options.strokeColor=Color.BLACK] 描边颜色。
+ * @param {number} [options.strokeWidth=1] 描边宽度。
+ * @param {Color} [options.backgroundColor=Color.TRANSPARENT] 画布的背景颜色。
+ * @param {number} [options.padding=0] 要在文本周围添加的内边距的像素大小。
+ * @returns {HTMLCanvasElement|undefined} 一个新的画布，其中绘制了给定的文本。 dimensions 对象
+ * from measureText 也将添加到返回的画布中。如果文本为
+ * 为空，返回 undefined。
  * @function writeTextToCanvas
  */
 function writeTextToCanvas(text, options) {

@@ -9,11 +9,11 @@ import defined from "./defined.js";
 const VerticalExaggeration = {};
 
 /**
- * Scales a height relative to an offset.
+ * 相对于偏移缩放高度。
  *
- * @param {number} height The height.
- * @param {number} scale A scalar used to exaggerate the terrain. If the value is 1.0 there will be no effect.
- * @param {number} relativeHeight The height relative to which terrain is exaggerated. If the value is 0.0 terrain will be exaggerated relative to the ellipsoid surface.
+ * @param {number} height 高度。
+ * @param {number} scale 用于夸大地形的标量。如果值为 1.0，则不会产生任何影响。
+ * @param {number} relativeHeight 相对于哪个地形被夸大的高度。如果值为 0.0，则 terrain 将相对于椭球体表面进行夸大。
  */
 VerticalExaggeration.getHeight = function (height, scale, relativeHeight) {
   //>>includeStart('debug', pragmas.debug);
@@ -30,12 +30,12 @@ VerticalExaggeration.getHeight = function (height, scale, relativeHeight) {
 const scratchCartographic = new Cartographic();
 
 /**
- * Scales a position by exaggeration.
+ * 通过夸大缩放位置。
  *
- * @param {Cartesian3} position The position.
- * @param {Ellipsoid} ellipsoid The ellipsoid.
- * @param {number} verticalExaggeration A scalar used to exaggerate the terrain. If the value is 1.0 there will be no effect.
- * @param {number} verticalExaggerationRelativeHeight The height relative to which terrain is exaggerated. If the value is 0.0 terrain will be exaggerated relative to the ellipsoid surface.
+ * @param {Cartesian3} position 位置。
+ * @param {Ellipsoid} ellipsoid 椭球体。
+ * @param {number} verticalExaggeration 用于夸大地形的标量。如果值为 1.0，则不会产生任何影响。
+ * @param {number} verticalExaggerationRelativeHeight 地形被夸大的相对高度。如果值为 0.0，则 terrain 将相对于椭球体表面进行夸大。
  * @param {Cartesian3} [result] 要在其上存储结果的对象。
  */
 VerticalExaggeration.getPosition = function (

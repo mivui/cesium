@@ -6,15 +6,15 @@ import sampleTerrain from "./sampleTerrain.js";
 const scratchCartesian2 = new Cartesian2();
 
 /**
- * Initiates a sampleTerrain() request at the maximum available tile level for a terrain dataset.
+ * 在 terrain 数据集的最大可用瓦片级别启动 sampleTerrain（） 请求。
  *
  * @function sampleTerrainMostDetailed
  *
- * @param {TerrainProvider} terrainProvider The terrain provider from which to query heights.
- * @param {Cartographic[]} positions The positions to update with terrain heights.
- * @param {boolean} [rejectOnTileFail=false] If true, for a failed terrain tile request the promise will be rejected. If false, returned heights will be undefined.
- * @returns {Promise<Cartographic[]>} A promise that resolves to the provided list of positions when terrain the query has completed.  This
- *                                     promise will reject if the terrain provider's `availability` property is undefined.
+ * @param {TerrainProvider} terrainProvider 从中查询高度的 terrain 提供程序。
+ * @param {Cartographic[]} positions 要随地形高度更新的位置。
+ * @param {boolean} [rejectOnTileFail=false] 如果为 true，则对于失败的地形瓦片请求，承诺将被拒绝。如果为 false，则返回的高度将是 undefined。
+ * @returns {Promise<Cartographic[]>} 当 terrain 查询完成时，解析为提供的位置列表的 Promise。 这
+ * 如果地形提供程序的 'availability' 属性未定义，则 promise 将拒绝。
  *
  * @example
  * // Query the terrain height of two Cartographic positions

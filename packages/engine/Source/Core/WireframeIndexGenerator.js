@@ -3,8 +3,8 @@ import IndexDatatype from "./IndexDatatype.js";
 import PrimitiveType from "./PrimitiveType.js";
 
 /**
- * Functions for generating indices for model wireframes. The indices are
- * outputted as typed arrays, which can then be put into buffers for rendering.
+ * 用于为模型线框生成索引的函数。索引是
+ * 输出为类型化数组，然后可以将其放入缓冲区进行渲染。
  *
  * @namespace WireframeIndexGenerator
  * @private
@@ -160,14 +160,14 @@ function createWireframeFromTriangleFanIndices(vertexCount, originalIndices) {
 }
 
 /**
- * Generates a wireframe index buffer for a primitive, either by reindexing the existing indices
- * or creating them from scratch if the model had none.
+ * 通过重新索引现有索引，为基元生成线框索引缓冲区
+ * 或者如果模型没有，则从头开始创建它们。
  *
- * @param {PrimitiveType} primitiveType The primitive type.
- * @param {number} vertexCount The number of vertices in the primitive.
- * @param {Uint8Array|Uint16Array|Uint32Array} [originalIndices] A typed array containing the original indices of the primitive.
+ * @param {PrimitiveType} primitiveType 基元类型。
+ * @param {number} vertexCount 基元中的顶点数。
+ * @param {Uint8Array|Uint16Array|Uint32Array} [originalIndices] 包含基元原始索引的类型化数组。
  *
- * @return {Uint16Array|Uint32Array} A typed array with the wireframe indices, or undefined if the primitive type does not use triangles.
+ * @return {Uint16Array|Uint32Array} 具有线框索引的类型化数组，如果基元类型不使用三角形，则为 undefined。
  *
  * @private
  */
@@ -199,11 +199,11 @@ WireframeIndexGenerator.createWireframeIndices = function (
 };
 
 /**
- * Gets the number of indices in the wireframe index buffer of a primitive type.
+ * 获取基元类型的线框索引缓冲区中的索引数。
  *
- * @param {PrimitiveType} primitiveType The primitive type.
- * @param {number} originalCount The original number of vertices or indices in the primitive.
- * @return {number} The number of indices in the primitive's wireframe.
+ * @param {PrimitiveType} primitiveType 基元类型。
+ * @param {number} originalCount 基元中顶点或索引的原始数量。
+ * @return {number} 基元线框中的索引数。
  *
  * @private
  */

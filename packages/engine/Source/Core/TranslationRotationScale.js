@@ -8,17 +8,17 @@ const defaultTranslation = Cartesian3.ZERO;
 const defaultRotation = Quaternion.IDENTITY;
 
 /**
- * An affine transformation defined by a translation, rotation, and scale.
+ * 由平移、旋转和缩放定义的仿射变换。
  * @alias TranslationRotationScale
  * @constructor
  *
- * @param {Cartesian3} [translation=Cartesian3.ZERO] A {@link Cartesian3} specifying the (x, y, z) translation to apply to the node.
- * @param {Quaternion} [rotation=Quaternion.IDENTITY] A {@link Quaternion} specifying the (x, y, z, w) rotation to apply to the node.
- * @param {Cartesian3} [scale=new Cartesian3(1.0, 1.0, 1.0)] A {@link Cartesian3} specifying the (x, y, z) scaling to apply to the node.
+ * @param {Cartesian3} [translation=Cartesian3.ZERO]  {@link Cartesian3} 指定要应用于节点的 （x， y， z） 转换。
+ * @param {Quaternion} [rotation=Quaternion.IDENTITY]  {@link Quaternion} 指定要应用于节点的 （X， Y， Z， W） 旋转。
+ * @param {Cartesian3} [scale=new Cartesian3(1.0, 1.0, 1.0)]  {@link Cartesian3} 指定要应用于节点的 （x， y， z） 缩放。
  */
 function TranslationRotationScale(translation, rotation, scale) {
   /**
-   * 获取或设置(x, y, z) translation to apply to the node.
+   * 获取或设置(x, y, z) translation 以应用于节点。
    * @type {Cartesian3}
    * @default Cartesian3.ZERO
    */
@@ -27,14 +27,14 @@ function TranslationRotationScale(translation, rotation, scale) {
   );
 
   /**
-   * 获取或设置(x, y, z, w) rotation to apply to the node.
+   * 获取或设置(x, y, z, w) rotation 以应用于节点。
    * @type {Quaternion}
    * @default Quaternion.IDENTITY
    */
   this.rotation = Quaternion.clone(defaultValue(rotation, defaultRotation));
 
   /**
-   * 获取或设置(x, y, z) scaling to apply to the node.
+   * 获取或设置(x, y, z) 缩放以应用于节点。
    * @type {Cartesian3}
    * @default new Cartesian3(1.0, 1.0, 1.0)
    */
@@ -42,7 +42,7 @@ function TranslationRotationScale(translation, rotation, scale) {
 }
 
 /**
- * Compares this instance against the provided instance and returns
+ * 将此实例与提供的实例进行比较，并返回
  * <code>true</code>，否则为<code>false</code>。
  *
  * @param {TranslationRotationScale} [right] 右边 TranslationRotationScale.

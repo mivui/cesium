@@ -3,10 +3,10 @@ import defined from "./defined.js";
 import DeveloperError from "./DeveloperError.js";
 
 /**
- * Encapsulates an algorithm to optimize triangles for the post
- * vertex-shader cache.  This is based on the 2007 SIGGRAPH paper
- * 'Fast Triangle Reordering for Vertex Locality and Reduced Overdraw.'
- * The runtime is linear but several passes are made.
+ * 封装算法以优化帖子的三角形
+ * 顶点着色器缓存。 这是基于 2007 年 SIGGRAPH 论文的
+ * '顶点位置的快速三角形重新排序并减少过度绘制。
+ * 运行时间是线性的，但会进行多次传递。
  *
  * @namespace Tipsify
  *
@@ -19,15 +19,15 @@ import DeveloperError from "./DeveloperError.js";
 const Tipsify = {};
 
 /**
- * Calculates the average cache miss ratio (ACMR) for a given set of indices.
+ * 计算给定索引集的平均缓存未命中率 （ACMR）。
  *
  * @param {object} options 对象，具有以下属性:
- * @param {number[]} options.indices Lists triads of numbers corresponding to the indices of the vertices
- *                        in the vertex buffer that define the geometry's triangles.
- * @param {number} [options.maximumIndex] The maximum value of the elements in <code>args.indices</code>.
- *                                     If not supplied, this value will be computed.
- * @param {number} [options.cacheSize=24] The number of vertices that can be stored in the cache at any one time.
- * @returns {number} The average cache miss ratio (ACMR).
+ * @param {number[]} options.indices 列出与顶点索引相对应的数字三元组
+ * 在定义几何图形的三角形的顶点缓冲区中。
+ * @param {number} [options.maximumIndex] <code>args.indices</code> 中元素的最大值。
+ * 如果未提供，将计算此值。
+ * @param {number} [options.cacheSize=24] 任何时候可以存储在缓存中的顶点数。
+ * @returns {number} 平均缓存未命中率 （ACMR）。
  *
  * @exception {DeveloperError} indices length must be a multiple of three.
  * @exception {DeveloperError} cacheSize must be greater than two.
@@ -100,12 +100,12 @@ Tipsify.calculateACMR = function (options) {
  * Optimizes triangles for the post-vertex shader cache.
  *
  * @param {object} options 对象，具有以下属性:
- * @param {number[]} options.indices Lists triads of numbers corresponding to the indices of the vertices
- *                        in the vertex buffer that define the geometry's triangles.
- * @param {number} [options.maximumIndex] The maximum value of the elements in <code>args.indices</code>.
- *                                     If not supplied, this value will be computed.
- * @param {number} [options.cacheSize=24] The number of vertices that can be stored in the cache at any one time.
- * @returns {number[]} A list of the input indices in an optimized order.
+ * @param {number[]} options.indices 列出与顶点索引相对应的数字三元组
+ * 在定义几何图形的三角形的顶点缓冲区中。
+ * @param {number} [options.maximumIndex] <code>args.indices</code> 中元素的最大值。
+ * 如果未提供，将计算此值。
+ * @param {number} [options.cacheSize=24] 任何时候可以存储在缓存中的顶点数。
+ * @returns {number[]} 按优化顺序排列的输入索引列表。
  *
  * @exception {DeveloperError} indices length must be a multiple of three.
  * @exception {DeveloperError} cacheSize must be greater than two.

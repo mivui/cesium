@@ -7,16 +7,16 @@ const scaleToGeodeticSurfaceIntersection = new Cartesian3();
 const scaleToGeodeticSurfaceGradient = new Cartesian3();
 
 /**
- * Scales the provided Cartesian position along the geodetic surface normal
- * so that it is on the surface of this ellipsoid.  If the position is
- * at the center of the ellipsoid, this function returns undefined.
+ * 沿大地测量表面法线缩放提供的笛卡尔位置
+ * 使其位于此椭球体的表面上。 如果位置为
+ * 在椭球体的中心，此函数返回 undefined。
  *
- * @param {Cartesian3} cartesian The Cartesian position to scale.
- * @param {Cartesian3} oneOverRadii One over radii of the ellipsoid.
- * @param {Cartesian3} oneOverRadiiSquared One over radii squared of the ellipsoid.
- * @param {number} centerToleranceSquared Tolerance for closeness to the center.
+ * @param {Cartesian3} cartesian 刻度的笛卡尔位置。
+ * @param {Cartesian3} oneOverRadii 椭球体的 One over radii。
+ * @param {Cartesian3} oneOverRadiiSquared 一乘椭圆体半径的平方。
+ * @param {number} centerToleranceSquared 接近中心的容差。
  * @param {Cartesian3} [result] 要在其上存储结果的对象。
- * @returns {Cartesian3} 修改后的结果参数, a new Cartesian3 instance if none was provided, or undefined if the position is at the center.
+ * @returns {Cartesian3} 修改后的结果参数，如果未提供，则为新的 Cartesian3 实例，如果位置位于中心，则为 undefined。
  *
  * @function scaleToGeodeticSurface
  *

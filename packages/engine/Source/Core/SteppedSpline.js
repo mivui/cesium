@@ -4,17 +4,17 @@ import DeveloperError from "./DeveloperError.js";
 import Spline from "./Spline.js";
 
 /**
- * A spline that is composed of piecewise constants representing a step function.
+ * 由表示阶跃函数的分段常量组成的样条。
  *
  * @alias SteppedSpline
  * @constructor
  *
  * @param {object} options 对象，具有以下属性:
- * @param {number[]} options.times An array of strictly increasing, unit-less, floating-point times at each point. The values are in no way connected to the clock time. They are the parameterization for the curve.
- * @param {number[]|Cartesian3[]|Quaternion[]} options.points The array of control points.
+ * @param {number[]} options.times 每个点的严格递增、无单位的浮点时间数组。这些值与 clock time 没有任何关系。它们是曲线的参数化。
+ * @param {number[]|Cartesian3[]|Quaternion[]} options.points 控制点数组。
  *
- * @exception {DeveloperError} points.length must be greater than or equal to 2.
- * @exception {DeveloperError} times.length must be equal to points.length.
+ * @exception {DeveloperError} points.length 必须大于或等于 2。
+ * @exception {DeveloperError} times.length 必须等于 points.length。
  *
  * @example
  * const times = [ 0.0, 1.5, 3.0, 4.5, 6.0 ];
@@ -67,7 +67,7 @@ function SteppedSpline(options) {
 
 Object.defineProperties(SteppedSpline.prototype, {
   /**
-   * An array of times for the control points.
+   * 控制点的时间数组。
    *
    * @memberof SteppedSpline.prototype
    *
@@ -81,7 +81,7 @@ Object.defineProperties(SteppedSpline.prototype, {
   },
 
   /**
-   * An array of control points.
+   * 控制点数组。
    *
    * @memberof SteppedSpline.prototype
    *
@@ -96,48 +96,48 @@ Object.defineProperties(SteppedSpline.prototype, {
 });
 
 /**
- * Finds an index <code>i</code> in <code>times</code> such that the parameter
- * <code>time</code> is in the interval <code>[times[i], times[i + 1]]</code>.
+ * 在<code>times</code>中查找索引 <code>i</code>，使得参数
+ * <code>times</code>在区间 <code>[times[i]， times[i + 1]]</code> 中。
  * @function
  *
- * @param {number} time The time.
- * @param {number} startIndex The index from which to start the search.
- * @returns {number} The index for the element at the start of the interval.
+ * @param {number} time 时间。
+ * @param {number} startIndex 开始搜索的索引。
+ * @returns {number} 区间开始时元素的索引。
  *
- * @exception {DeveloperError} time must be in the range <code>[t<sub>0</sub>, t<sub>n</sub>]</code>, where <code>t<sub>0</sub></code>
- *                             is the first element in the array <code>times</code> and <code>t<sub>n</sub></code> is the last element
- *                             in the array <code>times</code>.
+ * @exception {DeveloperError} 时间必须在 <code>[t<sub>0</sub>， t<sub>n</sub>]</code> 范围内，其中 <code>t<sub>0</sub></code>
+ * 是数组中的第一个元素 <code>times</code> 和 <code>t<sub>n</sub></code> 是最后一个元素
+ * 在数组<code>时间</code>。
  */
 SteppedSpline.prototype.findTimeInterval = Spline.prototype.findTimeInterval;
 
 /**
- * Wraps the given time to the period covered by the spline.
+ * 将给定时间环绕到样条所覆盖的时间段。
  * @function
  *
- * @param {number} time The time.
- * @return {number} The time, wrapped around to the updated animation.
+ * @param {number} time 时间。
+ * @return {number} 时间，环绕到更新的动画。
  */
 SteppedSpline.prototype.wrapTime = Spline.prototype.wrapTime;
 
 /**
- * Clamps the given time to the period covered by the spline.
+ * 将给定时间限制为样条所覆盖的时间段。
  * @function
  *
- * @param {number} time The time.
- * @return {number} The time, clamped to the animation period.
+ * @param {number} time 时间。
+ * @return {number} 时间，固定到动画周期。
  */
 SteppedSpline.prototype.clampTime = Spline.prototype.clampTime;
 
 /**
- * Evaluates the curve at a given time.
+ * 在给定时间计算曲线。
  *
- * @param {number} time The time at which to evaluate the curve.
+ * @param {number} time 评估曲线的时间。
  * @param {Cartesian3|Quaternion} [result] 要在其上存储结果的对象。
- * @returns {number|Cartesian3|Quaternion} 修改后的结果参数 or a new instance of the point on the curve at the given time.
+ * @returns {number|Cartesian3|Quaternion} 修改后的结果参数或给定时间曲线上点的新实例。
  *
- * @exception {DeveloperError} time must be in the range <code>[t<sub>0</sub>, t<sub>n</sub>]</code>, where <code>t<sub>0</sub></code>
- *                             is the first element in the array <code>times</code> and <code>t<sub>n</sub></code> is the last element
- *                             in the array <code>times</code>.
+ * @exception {DeveloperError} 时间必须在 <code>[t<sub>0</sub>， t<sub>n</sub>]</code> 范围内，其中 <code>t<sub>0</sub></code>
+ * 是数组中的第一个元素 <code>times</code> 和 <code>t<sub>n</sub></code> 是最后一个元素
+ * 在数组<code>时间</code>。
  */
 SteppedSpline.prototype.evaluate = function (time, result) {
   const points = this.points;

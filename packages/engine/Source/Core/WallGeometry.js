@@ -23,8 +23,8 @@ const scratchTangent = new Cartesian3();
 const scratchNormal = new Cartesian3();
 
 /**
- * A description of a wall, which is similar to a KML line string. A wall is defined by a series of points,
- * which extrude down to the ground. Optionally, they can extrude downwards to a specified height.
+ * 墙的描述，类似于 KML 线串。墙由一系列点定义，
+ * 向下拉伸到地面。或者，它们可以向下拉伸到指定的高度。
  *
  * @alias WallGeometry
  * @constructor
@@ -200,7 +200,7 @@ const scratchOptions = {
  * @param {number[]} array 打包数组。
  * @param {number} [startingIndex=0] 要解压缩的元素的起始索引。
  * @param {WallGeometry} [result] 要在其中存储结果的对象。
- * @returns {WallGeometry} 修改后的结果参数 or a new WallGeometry instance if one was not provided.
+ * @returns {WallGeometry} 修改后的结果参数或新的 WallGeometry 实例（如果未提供）。
  */
 WallGeometry.unpack = function (array, startingIndex, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -271,16 +271,16 @@ WallGeometry.unpack = function (array, startingIndex, result) {
 };
 
 /**
- * A description of a wall, which is similar to a KML line string. A wall is defined by a series of points,
- * which extrude down to the ground. Optionally, they can extrude downwards to a specified height.
+ * 墙的描述，类似于 KML 线串。墙由一系列点定义，
+ * 向下拉伸到地面。或者，它们可以向下拉伸到指定的高度。
  *
  * @param {object} options 对象，具有以下属性:
- * @param {Cartesian3[]} options.positions An array of Cartesian objects, which are the points of the wall.
- * @param {number} [options.maximumHeight] A constant that defines the maximum height of the
- *        wall at <code>positions</code>. If undefined, the height of each position in used.
- * @param {number} [options.minimumHeight] A constant that defines the minimum height of the
- *        wall at <code>positions</code>. If undefined, the height at each position is 0.0.
- * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] The ellipsoid for coordinate manipulation
+ * @param {Cartesian3[]} options.positions 笛卡尔对象的数组，它们是墙的点。
+ * @param {number} [options.maximumHeight] 一个常量，用于定义
+ * 墙在<code>位置</code>。如果未定义，则为已使用的每个位置的高度。
+ * @param {number} [options.minimumHeight] 一个常量，用于定义
+ * 墙在<code>位置</code>。如果未定义，则每个位置的高度为 0.0。
+ * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] 用于坐标操作的椭球体
  * @param {VertexFormat} [options.vertexFormat=VertexFormat.DEFAULT] 要计算的顶点属性。
  * @returns {WallGeometry}
  *
@@ -347,9 +347,9 @@ WallGeometry.fromConstantHeights = function (options) {
 };
 
 /**
- * Computes the geometric representation of a wall, including its vertices, indices, and a bounding sphere.
+ * 计算墙的几何表示，包括其顶点、索引和边界球体。
  *
- * @param {WallGeometry} wallGeometry A description of the wall.
+ * @param {WallGeometry} wallGeometry 墙的描述。
  * @returns {Geometry|undefined} 计算的顶点和索引。
  */
 WallGeometry.createGeometry = function (wallGeometry) {

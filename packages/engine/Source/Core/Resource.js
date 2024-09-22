@@ -2237,7 +2237,7 @@ Resource._Implementations.loadAndExecuteScript = function (
 };
 
 /**
- * The default implementations
+ * 默认实现
  *
  * @private
  */

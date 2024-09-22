@@ -1,9 +1,9 @@
 import DeveloperError from "./DeveloperError.js";
 
 /**
- * Wraps a function on the provided objects with another function called in the
- * object's context so that the new function is always called immediately
- * before the old one.
+ * 使用在
+ * 对象的上下文，以便始终立即调用 new 函数
+ * 在旧的之前。
  *
  * @private
  */

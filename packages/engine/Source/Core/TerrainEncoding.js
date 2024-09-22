@@ -18,22 +18,22 @@ const matrix4Scratch2 = new Matrix4();
 const SHIFT_LEFT_12 = Math.pow(2.0, 12.0);
 
 /**
- * Data used to quantize and pack the terrain mesh. The position can be unpacked for picking and all attributes
- * are unpacked in the vertex shader.
+ * 用于量化和打包地形网格的数据。可以解包位置以进行 pick 和所有属性
+ * 在顶点着色器中解包。
  *
  * @alias TerrainEncoding
  * @constructor
  *
- * @param {Cartesian3} center The center point of the vertices.
- * @param {AxisAlignedBoundingBox} axisAlignedBoundingBox The bounds of the tile in the east-north-up coordinates at the tiles center.
- * @param {number} minimumHeight The minimum height.
- * @param {number} maximumHeight The maximum height.
- * @param {Matrix4} fromENU The east-north-up to fixed frame matrix at the center of the terrain mesh.
- * @param {boolean} hasVertexNormals If the mesh has vertex normals.
- * @param {boolean} [hasWebMercatorT=false] true if the terrain data includes a Web Mercator texture coordinate; otherwise, false.
- * @param {boolean} [hasGeodeticSurfaceNormals=false] true if the terrain data includes geodetic surface normals; otherwise, false.
- * @param {number} [exaggeration=1.0] A scalar used to exaggerate terrain.
- * @param {number} [exaggerationRelativeHeight=0.0] The relative height from which terrain is exaggerated.
+ * @param {Cartesian3} center 顶点的中心点。
+ * @param {AxisAlignedBoundingBox} axisAlignedBoundingBox 瓦片中心东西向北向上坐标中的瓦片边界。
+ * @param {number} minimumHeight 最小高度。
+ * @param {number} maximumHeight 最大高度。
+ * @param {Matrix4} fromENU 地形网格中心的东西北向上到固定帧矩阵。
+ * @param {boolean} hasVertexNormals 如果网格具有顶点法线。
+ * @param {boolean} [hasWebMercatorT=false] 如果地形数据包含 Web 墨卡托纹理坐标，则为 true;否则为 false。
+ * @param {boolean} [hasGeodeticSurfaceNormals=false] 如果地形数据包含大地测量表面法线，则为 true;否则为 false。
+ * @param {number} [夸张=1.0] 用于夸大地形的标量。
+ * @param {number} [exaggerationRelativeHeight=0.0] 地形被夸大的相对高度。
  *
  * @private
  */
@@ -105,62 +105,62 @@ function TerrainEncoding(
   }
 
   /**
-   * How the vertices of the mesh were compressed.
+   * 网格的顶点是如何压缩的。
    * @type {TerrainQuantization}
    */
   this.quantization = quantization;
 
   /**
-   * The minimum height of the tile including the skirts.
+   * 瓦片（包括裙边）的最小高度。
    * @type {number}
    */
   this.minimumHeight = minimumHeight;
 
   /**
-   * The maximum height of the tile.
+   * 瓦片的最大高度。
    * @type {number}
    */
   this.maximumHeight = maximumHeight;
 
   /**
-   * The center of the tile.
+   * 瓦片的中心。
    * @type {Cartesian3}
    */
   this.center = Cartesian3.clone(center);
 
   /**
-   * A matrix that takes a vertex from the tile, transforms it to east-north-up at the center and scales
-   * it so each component is in the [0, 1] range.
+   * 一个矩阵，它从瓦片中获取一个顶点，在中心将其转换为东北向上并缩放
+   * 它使每个组件都在 [0， 1] 范围内。
    * @type {Matrix4}
    */
   this.toScaledENU = toENU;
 
   /**
-   * A matrix that restores a vertex transformed with toScaledENU back to the earth fixed reference frame
+   * 一个矩阵，该矩阵将使用 toScaledENU 转换的顶点恢复回地球固定参考系
    * @type {Matrix4}
    */
   this.fromScaledENU = fromENU;
 
   /**
-   * The matrix used to decompress the terrain vertices in the shader for RTE rendering.
+   * 用于解压缩着色器中地形顶点以进行 RTE 渲染的矩阵。
    * @type {Matrix4}
    */
   this.matrix = matrix;
 
   /**
-   * The terrain mesh contains normals.
+   * 地形网格包含法线。
    * @type {boolean}
    */
   this.hasVertexNormals = hasVertexNormals;
 
   /**
-   * The terrain mesh contains a vertical texture coordinate following the Web Mercator projection.
+   * 地形网格包含遵循 Web 墨卡托投影的垂直纹理坐标。
    * @type {boolean}
    */
   this.hasWebMercatorT = defaultValue(hasWebMercatorT, false);
 
   /**
-   * The terrain mesh contains geodetic surface normals, used for terrain exaggeration.
+   * 地形网格包含用于地形夸大的大地测量表面法线。
    * @type {boolean}
    */
   this.hasGeodeticSurfaceNormals = defaultValue(
@@ -169,13 +169,13 @@ function TerrainEncoding(
   );
 
   /**
-   * A scalar used to exaggerate terrain.
+   * 用于夸大地形的标量。
    * @type {number}
    */
   this.exaggeration = defaultValue(exaggeration, 1.0);
 
   /**
-   * The relative height from which terrain is exaggerated.
+   * 地形被夸大的相对高度。
    */
   this.exaggerationRelativeHeight = defaultValue(
     exaggerationRelativeHeight,
@@ -183,7 +183,7 @@ function TerrainEncoding(
   );
 
   /**
-   * The number of components in each vertex. This value can differ with different quantizations.
+   * 每个顶点中的组件数。该值可能因不同的量化而不同。
    * @type {number}
    */
   this.stride = 0;

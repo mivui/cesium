@@ -1,5 +1,5 @@
 /**
- * Provides the type of time standards which JulianDate can take as input.
+ * 提供 JulianDate 可以用作 input 的时间标准类型。
  *
  * @enum {number}
  *
@@ -7,11 +7,11 @@
  */
 const TimeStandard = {
   /**
-   * Represents the coordinated Universal Time (UTC) time standard.
+   * 表示协调世界时 （UTC） 时间标准。
    *
-   * UTC is related to TAI according to the relationship
-   * <code>UTC = TAI - deltaT</code> where <code>deltaT</code> is the number of leap
-   * seconds which have been introduced as of the time in TAI.
+   * UTC 与 TAI 的关系根据关系
+   * <code>UTC = TAI - deltaT</code>，其中 <code>deltaT</code> 是跳跃数
+   * 秒数，这些秒数已引入 TAI 中。
    *
    * @type {number}
    * @constant
@@ -19,8 +19,8 @@ const TimeStandard = {
   UTC: 0,
 
   /**
-   * Represents the International Atomic Time (TAI) time standard.
-   * TAI is the principal time standard to which the other time standards are related.
+   * 表示国际原子时 （TAI） 时间标准。
+   * TAI 是与其他时间标准相关的主要时间标准。
    *
    * @type {number}
    * @constant

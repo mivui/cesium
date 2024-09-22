@@ -2,26 +2,26 @@ import Check from "./Check.js";
 import defined from "./defined.js";
 
 /**
- * Initiates a terrain height query for an array of {@link Cartographic} positions by
- * requesting tiles from a terrain provider, sampling, and interpolating.  The interpolation
- * matches the triangles used to render the terrain at the specified level.  The query
- * happens asynchronously, so this function returns a promise that is resolved when
- * the query completes.  Each point height is modified in place.  If a height can not be
- * determined because no terrain data is available for the specified level at that location,
- * or another error occurs, the height is set to undefined.  As is typical of the
- * {@link Cartographic} type, the supplied height is a height above the reference ellipsoid
- * (such as {@link Ellipsoid.WGS84}) rather than an altitude above mean sea level.  In other
- * words, it will not necessarily be 0.0 if sampled in the ocean. This function needs the
- * terrain level of detail as input, if you need to get the altitude of the terrain as precisely
- * as possible (i.e. with maximum level of detail) use {@link sampleTerrainMostDetailed}.
+ * 通过以下方式对 {@link Cartographic} 位置数组启动地形高度查询
+ * 向地形提供商请求瓦片、采样和插值。 插值
+ * 匹配用于在指定级别渲染地形的三角形。 查询
+ * 异步发生，因此此函数返回一个 Promise，该 Promise 在
+ * 查询完成。 每个点高度都已就地修改。 如果高度不能
+ * 确定，因为该位置的指定标高没有可用的地形数据，
+ * 或发生其他错误时，高度将设置为 undefined。 作为典型的
+ * {@link Cartographic} 类型，则提供的高度是高于参考椭球体的高度
+ *（例如 {@link Ellipsoid.WGS84}），而不是高于平均海平面的高度。 在其他
+ * 单词，如果在 Ocean 中采样，它不一定是 0.0。此函数需要
+ * 地形细节级别作为输入，如果您需要精确获取地形的高度
+ * 尽可能 （即具有最高级别的细节） 使用 {@link sampleTerrainMostDetailed}。
  *
  * @function sampleTerrain
  *
- * @param {TerrainProvider} terrainProvider The terrain provider from which to query heights.
- * @param {number} level The terrain level-of-detail from which to query terrain heights.
- * @param {Cartographic[]} positions The positions to update with terrain heights.
- * @param {boolean} [rejectOnTileFail=false] If true, for any failed terrain tile requests, the promise will be rejected. If false, returned heights will be undefined.
- * @returns {Promise<Cartographic[]>} A promise that resolves to the provided list of positions when terrain the query has completed.
+ * @param {TerrainProvider} terrainProvider 从中查询高度的 terrain 提供程序。
+ * @param {number} level 从中查询地形高度的地形细节级别。
+ * @param {Cartographic[]} positions 要随地形高度更新的位置。
+ * @param {boolean} [rejectOnTileFail=false] 如果为 true，则对于任何失败的地形瓦片请求，承诺都将被拒绝。如果为 false，则返回的高度将是 undefined。
+ * @returns {Promise<Cartographic[]>} 当 terrain 查询完成时，解析为提供的位置列表的 Promise。
  *
  * @see sampleTerrainMostDetailed
  *
@@ -63,11 +63,11 @@ async function sampleTerrain(
 }
 
 /**
- * @param {object[]} tileRequests The mutated list of requests, the first one will be attempted
- * @param {Array<Promise<void>>} results The list to put the result promises into
- * @param {boolean} rejectOnTileFail If true, the promise will be rejected.  If false, returned heights will be undefined.
- * @returns {boolean} true if the request was made, and we are okay to attempt the next item immediately,
- *  or false if we were throttled and should wait awhile before retrying.
+ * @param {object[]} tileRequests 更改后的请求列表，将尝试第一个请求
+ * @param {Array<Promise<void>>} results 将结果 promise 放入的列表
+ * @param {boolean} rejectOnTileFail 如果为 true，则 Promise 将被拒绝。 如果为 false，则返回的高度将是 undefined。
+ * @returns {boolean} true，如果请求已发出，并且我们可以立即尝试下一项，
+ * 或 false（如果我们受到限制，应该等待一段时间再重试）。
  *
  * @private
  */
@@ -104,7 +104,7 @@ function attemptConsumeNextQueueItem(tileRequests, results, rejectOnTileFail) {
 }
 
 /**
- * Wrap window.setTimeout in a Promise
+ * 将 window.setTimeout 包装在 Promise 中
  * @param {number} ms
  * @private
  */
@@ -115,12 +115,12 @@ function delay(ms) {
 }
 
 /**
- * Recursively consumes all the tileRequests until the list has been emptied
- *  and a Promise of each result has been put into the results list
- * @param {object[]} tileRequests The list of requests desired to be made
- * @param {Array<Promise<void>>} results The list to put all the result promises into
- * @param {boolean} rejectOnTileFail If true, the promise will be rejected.  If false, returned heights will be undefined.
- * @returns {Promise<void>} A promise which resolves once all requests have been started
+ * 递归地使用所有 tileRequest，直到列表被清空
+ * 并且每个结果的 Promise 已放入结果列表中
+ * @param {object[]} tileRequests 需要发出的请求列表
+ * @param {Array<Promise<void>>} results 将所有结果 Promise 放入的列表
+ * @param {boolean} rejectOnTileFail 如果为 true，则 Promise 将被拒绝。 如果为 false，则返回的高度将是 undefined。
+ * @returns {Promise<void>} 一个 Promise，在所有请求都启动后 resolved
  *
  * @private
  */
@@ -198,14 +198,14 @@ function doSampling(terrainProvider, level, positions, rejectOnTileFail) {
 }
 
 /**
- * Calls {@link TerrainData#interpolateHeight} on a given {@link TerrainData} for a given {@link Cartographic} and
- *  will assign the height property if the return value is not undefined.
+ * 对给定的 {@link Cartographic} 的给定 {@link TerrainData} 调用 {@link TerrainData#interpolateHeight}，并且
+ * 如果返回值不是 undefined，则将分配 height 属性。
  *
- * If the return value is false; it's suggesting that you should call {@link TerrainData#createMesh} first.
- * @param {Cartographic} position The position to interpolate for and assign the height value to
+ * 如果返回值为 false;它建议你应该先调用 {@link TerrainData#createMesh}。
+ * @param {Cartographic} position 要为其插值并分配高度值的位置
  * @param {TerrainData} terrainData
  * @param {Rectangle} rectangle
- * @returns {boolean} If the height was actually interpolated and assigned
+ * @returns {boolean} 如果高度实际上是插值和分配的
  * @private
  */
 function interpolateAndAssignHeight(position, terrainData, rectangle) {

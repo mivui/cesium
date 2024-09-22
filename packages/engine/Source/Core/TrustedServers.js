@@ -3,8 +3,8 @@ import defined from "./defined.js";
 import DeveloperError from "./DeveloperError.js";
 
 /**
- * A singleton that contains all of the servers that are trusted. Credentials will be sent with
- * any requests to these servers.
+ * 包含所有受信任的服务器的单一实例。凭证将与
+ * 对这些服务器的任何请求。
  *
  * @namespace TrustedServers
  *
@@ -14,10 +14,10 @@ const TrustedServers = {};
 let _servers = {};
 
 /**
- * Adds a trusted server to the registry
+ * 将受信任的服务器添加到注册表
  *
- * @param {string} host The host to be added.
- * @param {number} port The port used to access the host.
+ * @param {string} host 需要添加的主机。
+ * @param {number} port 用于访问主机的端口。
  *
  * @example
  * // Add a trusted server
@@ -40,10 +40,10 @@ TrustedServers.add = function (host, port) {
 };
 
 /**
- * Removes a trusted server from the registry
+ * 从注册表中删除受信任的服务器
  *
- * @param {string} host The host to be removed.
- * @param {number} port The port used to access the host.
+ * @param {string} host 要删除的主机。
+ * @param {number} port 用于访问主机的端口。
  *
  * @example
  * // Remove a trusted server
@@ -101,11 +101,11 @@ function getAuthority(url) {
 }
 
 /**
- * Tests whether a server is trusted or not. The server must have been added with the port if it is included in the url.
+ * 测试服务器是否受信任。如果 URL 中包含端口，则必须使用端口添加服务器。
  *
- * @param {string} url The url to be tested against the trusted list
+ * @param {string} url 要针对受信任列表进行测试的 url
  *
- * @returns {boolean} Returns true if url is trusted, false 否则。
+ * @returns {boolean} 如果 url 可信，则返回 true，否则返回 false。
  *
  * @example
  * // Add server
@@ -134,7 +134,7 @@ TrustedServers.contains = function (url) {
 };
 
 /**
- * Clears the registry
+ * 清除注册表
  *
  * @example
  * // Remove a trusted server

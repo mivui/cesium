@@ -2,12 +2,12 @@ import defined from "./defined.js";
 import DeveloperError from "./DeveloperError.js";
 
 /**
- * Subdivides an array into a number of smaller, equal sized arrays.
+ * 将数组细分为多个大小相等的较小数组。
  *
  * @function subdivideArray
  *
- * @param {Array} array The array to divide.
- * @param {number} numberOfArrays The number of arrays to divide the provided array into.
+ * @param {Array} array 要划分的数组。
+ * @param {number} numberOfArrays 要将提供的数组划分为的数组数。
  *
  * @exception {DeveloperError} numberOfArrays must be greater than 0.
  */

@@ -17,20 +17,20 @@ const scratchCartesian3Position1 = new Cartesian3();
 const scratchCartesian3Position2 = new Cartesian3();
 
 /**
- * A description of a wall outline. A wall is defined by a series of points,
- * which extrude down to the ground. Optionally, they can extrude downwards to a specified height.
+ * 墙轮廓的描述。墙由一系列点定义，
+ * 向下拉伸到地面。或者，它们可以向下拉伸到指定的高度。
  *
  * @alias WallOutlineGeometry
  * @constructor
  *
  * @param {object} options 对象，具有以下属性:
- * @param {Cartesian3[]} options.positions An array of Cartesian objects, which are the points of the wall.
- * @param {number} [options.granularity=CesiumMath.RADIANS_PER_DEGREE] The distance, in radians, between each latitude and longitude. Determines the number of positions in the buffer.
- * @param {number[]} [options.maximumHeights] An array parallel to <code>positions</code> that give the maximum height of the
- *        wall at <code>positions</code>. If undefined, the height of each position in used.
- * @param {number[]} [options.minimumHeights] An array parallel to <code>positions</code> that give the minimum height of the
- *        wall at <code>positions</code>. If undefined, the height at each position is 0.0.
- * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] The ellipsoid for coordinate manipulation
+ * @param {Cartesian3[]} options.positions 笛卡尔对象的数组，它们是墙的点。
+ * @param {number} [options.granularity=CesiumMath.RADIANS_PER_DEGREE] 每个纬度和经度之间的距离，以弧度为单位。确定缓冲区中的位置数。
+ * @param {number[]} [options.maximumHeights] 一个平行于位置的位置的数组，该<code>positions</code>给出了
+ * 墙在<code>positions</code>。如果未定义，则为已使用的每个位置的高度。
+ * @param {number[]} [options.minimumHeights] 一个平行于<code>位置</code>且给出
+ * 墙在<code>positions</code>。如果未定义，则每个位置的高度为 0.0。
+ * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] 用于坐标操作的椭球体
  *
  * @exception {DeveloperError} positions length must be greater than or equal to 2.
  * @exception {DeveloperError} positions and maximumHeights must have the same length.
@@ -246,16 +246,16 @@ WallOutlineGeometry.unpack = function (array, startingIndex, result) {
 };
 
 /**
- * A description of a walloutline. A wall is defined by a series of points,
- * which extrude down to the ground. Optionally, they can extrude downwards to a specified height.
+ * walloutline 的描述。墙由一系列点定义，
+ * 向下拉伸到地面。或者，它们可以向下拉伸到指定的高度。
  *
  * @param {object} options 对象，具有以下属性:
- * @param {Cartesian3[]} options.positions An array of Cartesian objects, which are the points of the wall.
- * @param {number} [options.maximumHeight] A constant that defines the maximum height of the
- *        wall at <code>positions</code>. If undefined, the height of each position in used.
- * @param {number} [options.minimumHeight] A constant that defines the minimum height of the
- *        wall at <code>positions</code>. If undefined, the height at each position is 0.0.
- * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] The ellipsoid for coordinate manipulation
+ * @param {Cartesian3[]} options.positions 笛卡尔对象的数组，它们是墙的点。
+ * @param {number} [options.maximumHeight] 一个常量，用于定义
+ * 墙在<code>positions</code>。如果未定义，则为已使用的每个位置的高度。
+ * @param {number} [options.minimumHeight] 一个常量，用于定义
+ * 墙在<code>positions</code>。如果未定义，则每个位置的高度为 0.0。
+ * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] 用于坐标操作的椭球体
  * @returns {WallOutlineGeometry}
  *
  *
@@ -320,9 +320,9 @@ WallOutlineGeometry.fromConstantHeights = function (options) {
 };
 
 /**
- * Computes the geometric representation of a wall outline, including its vertices, indices, and a bounding sphere.
+ * 计算墙轮廓的几何表示，包括其顶点、索引和边界球体。
  *
- * @param {WallOutlineGeometry} wallGeometry A description of the wall outline.
+ * @param {WallOutlineGeometry} wallGeometry 墙轮廓的描述。
  * @returns {Geometry|undefined} 计算的顶点和索引。
  */
 WallOutlineGeometry.createGeometry = function (wallGeometry) {

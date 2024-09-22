@@ -1,13 +1,13 @@
 import WebGLConstants from "./WebGLConstants.js";
 
 /**
- * Winding order defines the order of vertices for a triangle to be considered front-facing.
+ * 缠绕顺序 定义将三角形视为正面的顶点顺序。
  *
  * @enum {number}
  */
 const WindingOrder = {
   /**
-   * Vertices are in clockwise order.
+   * 顶点按顺时针顺序排列。
    *
    * @type {number}
    * @constant
@@ -15,7 +15,7 @@ const WindingOrder = {
   CLOCKWISE: WebGLConstants.CW,
 
   /**
-   * Vertices are in counter-clockwise order.
+   * 顶点按逆时针顺序排列。
    *
    * @type {number}
    * @constant

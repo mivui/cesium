@@ -4,12 +4,12 @@ import defined from "./defined.js";
 import DeveloperError from "./DeveloperError.js";
 
 /**
- * Value and type information for per-instance geometry attribute that determines if the geometry instance will be shown.
+ * 每个实例几何图形属性的值和类型信息，用于确定是否显示几何图形实例。
  *
  * @alias ShowGeometryInstanceAttribute
  * @constructor
  *
- * @param {boolean} [show=true] Determines if the geometry instance will be shown.
+ * @param {boolean} [show=true] 确定是否显示几何实例。
  *
  *
  * @example
@@ -34,7 +34,7 @@ function ShowGeometryInstanceAttribute(show) {
   show = defaultValue(show, true);
 
   /**
-   * The values for the attributes stored in a typed array.
+   * 存储在类型化数组中的属性的值。
    *
    * @type Uint8Array
    *
@@ -45,7 +45,7 @@ function ShowGeometryInstanceAttribute(show) {
 
 Object.defineProperties(ShowGeometryInstanceAttribute.prototype, {
   /**
-   * The datatype of each component in the attribute, e.g., individual elements in
+   * 属性中每个组件的数据类型，例如，其中的单个元素
    * {@link ColorGeometryInstanceAttribute#value}.
    *
    * @memberof ShowGeometryInstanceAttribute.prototype
@@ -62,7 +62,7 @@ Object.defineProperties(ShowGeometryInstanceAttribute.prototype, {
   },
 
   /**
-   * The number of components in the attributes, i.e., {@link ColorGeometryInstanceAttribute#value}.
+   * 属性中的组件数，即 {@link ColorGeometryInstanceAttribute#value}。
    *
    * @memberof ShowGeometryInstanceAttribute.prototype
    *
@@ -78,9 +78,9 @@ Object.defineProperties(ShowGeometryInstanceAttribute.prototype, {
   },
 
   /**
-   * When <code>true</code> and <code>componentDatatype</code> is an integer format,
-   * indicate that the components should be mapped to the range [0, 1] (unsigned)
-   * or [-1, 1] (signed) when they are accessed as floating-point for rendering.
+   * 当 <code>true</code> 且 <code>componentDatatype</code> 为整数格式时，
+   * 表示组件应映射到范围 [0， 1]（无符号）
+   * 或 [-1， 1]（带符号）当它们作为浮点进行访问以进行渲染时。
    *
    * @memberof ShowGeometryInstanceAttribute.prototype
    *
@@ -97,11 +97,11 @@ Object.defineProperties(ShowGeometryInstanceAttribute.prototype, {
 });
 
 /**
- * Converts a boolean show to a typed array that can be used to assign a show attribute.
+ * 将布尔值 show 转换为可用于分配 show 属性的类型化数组。
  *
- * @param {boolean} 显示show value.
- * @param {Uint8Array} [result] The array to store the result in, if undefined a new instance will be created.
- * @returns {Uint8Array} 修改后的结果参数 or a new instance if result was undefined.
+ * @param {boolean} show 显示值。
+ * @param {Uint8Array} [result] 用于存储结果的数组，如果未定义，将创建一个新实例。
+ * @returns {Uint8Array} 修改后的结果参数或者如果 result 未定义，则为新实例。
  *
  * @example
  * const attributes = primitive.getGeometryInstanceAttributes('an id');

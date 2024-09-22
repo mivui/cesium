@@ -10,96 +10,96 @@ import FeatureDetection from "./FeatureDetection.js";
 import RuntimeError from "./RuntimeError.js";
 
 /**
- * S2
+ * 第 2 季
  * --
  *
- * This implementation is based on the S2 C++ reference implementation: https://github.com/google/s2geometry
+ * 此实现基于 S2 C++ 参考实现：https://github.com/google/s2geometry
  *
  *
- * Overview:
+ *概述：
  * ---------
- * The S2 library decomposes the unit sphere into a hierarchy of cells. A cell is a quadrilateral bounded by 4 geodesics.
- * The 6 root cells are obtained by projecting the six faces of a cube on a unit sphere. Each root cell follows a quadtree
- * subdivision scheme, i.e. each cell subdivides into 4 smaller cells that cover the same area as the parent cell. The S2 cell
- * hierarchy extends from level 0 (root cells) to level 30 (leaf cells). The root cells are rotated to enable a continuous Hilbert
- * curve to map all 6 faces of the cube.
+ * S2 库将单位球体分解为单元层次结构。像元是由 4 个测地线界定的四边形。
+ * 通过将立方体的 6 个面投影到一个单位球体上来获得 6 个根单元。每个根单元都遵循一个四叉树
+ * 细分方案，即每个单元格细分为 4 个较小的单元格，这些单元格覆盖与父单元格相同的区域。S2 细胞
+ * 层次结构从级别 0（根单元）扩展到级别 30（叶单元）。旋转根单元以启用连续的 Hilbert
+ * 曲线来映射立方体的所有 6 个面。
  *
  *
- * Cell ID:
+ * 小区 ID：
  * --------
- * Each cell in S2 can be uniquely identified using a 64-bit unsigned integer, its cell ID. The first 3 bits of the cell ID are the face bits, i.e.
- * they indicate which of the 6 faces of the cube a cell lies on. After the face bits are the position bits, i.e. they indicate the position
- * of the cell along the Hilbert curve. After the positions bits is the sentinel bit, which is always set to 1, and it indicates the level of the
- * cell. Again, the level can be between 0 and 30 in S2.
+ * S2 中的每个单元格都可以使用 64 位无符号整数（其单元格 ID）进行唯一标识。cell ID 的前 3 位是 face 位，即
+ * 它们表示一个单元格位于立方体的 6 个面上的哪一个。面位之后是位置位，即它们表示位置
+ * 沿希尔伯特曲线的单元格。位置位后面是 sentinel 位，它始终设置为 1，它表示
+ *细胞。同样，在 S2 中，级别可以介于 0 和 30 之间。
  *
- *   Note: In the illustration below, the face bits are marked with 'f', the position bits are marked with 'p', the zero bits are marked with '-'.
+ * 注意：在下图中，面位标有“f”，位置位标有“p”，零位标有“-”。
  *
- *   Cell ID (base 10): 3170534137668829184
- *   Cell ID (base 2) : 0010110000000000000000000000000000000000000000000000000000000000
+ * 单元格 ID（以 10 为基数）：3170534137668829184
+ * 小区 ID（以 2 为基数）：0010110000000000000000000000000000000000000000000000000000000000
  *
  *   001 0110000000000000000000000000000000000000000000000000000000000
- *   fff pps----------------------------------------------------------
+ * FFF PPS----------------------------------------------------------
  *
- * For the cell above, we can see that it lies on face 1 (01), with a Hilbert index of 1 (1).
+ * 对于上面的单元格，我们可以看到它位于面 1 （01） 上，希尔伯特指数为 1 （1）。
  *
  *
- * Cell Subdivision:
+ * 细胞细分：
  * ------------------
- * Cells in S2 subdivide recursively using quadtree subdivision. For each cell, you can get a child of index [0-3]. To compute the child at index i,
- * insert the base 2 representation of i to the right of the parent's position bits. Ensure that the sentinel bit is also shifted two places to the right.
+ * S2 中的单元格使用四叉树细分递归细分。对于每个单元格，您可以获取索引为 [0-3] 的子项。要计算索引 i 处的子项，
+ * 将 i 的 base 2 表示形式插入到父级位置位的右侧。确保 sentinel 位也向右移动两位。
  *
- *   Parent Cell ID (base 10) : 3170534137668829184
- *   Parent Cell ID (base 2)  : 0010110000000000000000000000000000000000000000000000000000000000
+ * 父小区 ID（以 10 为基数）：3170534137668829184
+ * 父单元 ID（以 2 为基数）：0010110000000000000000000000000000000000000000000000000000000000
  *
  *   001 0110000000000000000000000000000000000000000000000000000000000
- *   fff pps----------------------------------------------------------
+ * FFF PPS----------------------------------------------------------
  *
- *   To get the 3rd child of the cell above, we insert the binary representation of 3 to the right of the parent's position bits:
+ * 为了获得上面单元格的第 3 个子项，我们将 3 的二进制表示形式插入到父项位置位的右侧：
  *
- *   Note: In the illustration below, the bits to be added are highlighted with '^'.
+ * 注意：在下图中，要添加的位用 '^' 突出显示。
  *
  *   001 0111100000000000000000000000000000000000000000000000000000000
- *   fff pppps--------------------------------------------------------
+ * fff pppps--------------------------------------------------------
  *         ^^
  *
- *   Child(3) Cell ID (base 10) : 3386706919782612992
- *   Child(3) Cell ID (base 2)  : 0010111100000000000000000000000000000000000000000000000000000000
+ * 儿童（3） 小区 ID（以 10 为基数）：3386706919782612992
+ * 儿童（3） 小区 ID（以 2 为基）：0010111100000000000000000000000000000000000000000000000000000000
  *
- * Cell Token:
+ * Cell Token：
  * -----------
- * To provide a more concise representation of the S2 cell ID, we can use their hexadecimal representation.
+ * 为了提供更简洁的 S2 单元格 ID 表示，我们可以使用它们的十六进制表示。
  *
- *   Cell ID (base 10): 3170534137668829184
- *   Cell ID (base 2) : 0010110000000000000000000000000000000000000000000000000000000000
+ * 单元格 ID（以 10 为基数）：3170534137668829184
+ * 小区 ID（以 2 为基数）：0010110000000000000000000000000000000000000000000000000000000000
  *
- *   We remove all trailing zero bits, until we reach the nybble (4 bits) that contains the sentinel bit.
+ * 我们删除所有尾随的零位，直到我们到达包含 sentinel 位的 nybble （4 位）。
  *
- *   Note: In the illustration below, the bits to be removed are highlighted with 'X'.
+ * 注意：在下图中，要删除的位用“X”突出显示。
  *
  *   0010110000000000000000000000000000000000000000000000000000000000
- *   fffpps--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+ * fffpps--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
  *
- *   We convert the remaining bits to their hexadecimal representation.
+ * 我们将剩余的位转换为它们的十六进制表示。
  *
- *   Base 2: 0010 1100
- *   Base 16: "2"  "c"
+ * 底座 2：0010 1100
+ * 16 进制：“2” “c”
  *
- *   Cell Token: "2c"
+ * Cell Token：“2c”
  *
- * To compute the cell ID from the token, we simply add enough zeros to the right to make the ID span 64 bits.
+ * 要从 Token 中计算 Cell ID，我们只需在右侧添加足够的 0，使 ID 跨越 64 位。
  *
- * Coordinate Transforms:
+ * 坐标变换：
  * ----------------------
  *
- * To go from a cell in S2 to a point on the ellipsoid, the following order of transforms is applied:
+ * 要从 S2 中的单元格转到椭球体上的某个点，将应用以下转换顺序：
  *
- *   1. (Cell ID): S2 cell ID
- *   2. (Face, I, J): Leaf cell coordinates, where i and j are in range [0, 2^30 - 1]
- *   3. (Face, S, T): Cell space coordinates, where s and t are in range [0, 1].
- *   4. (Face, Si, Ti): Discrete cell space coordinates, where si and ti are in range [0, 2^31]
- *   5. (Face, U, V): Cube space coordinates, where u and v are in range [-1, 1]. We apply the non-linear quadratic transform here.
- *   6. (X, Y, Z): Direction vector, where vector may not be unit length. Can be normalized to obtain point on unit sphere
- *   7. (Latitude, Longitude): Direction vector, where latitude is in range [-90, 90] and longitude is in range [-180, 180]
+ *   1.（小区 ID）：S2 小区 ID
+ *   2.（Face， I， J）：叶单元坐标，其中 i 和 j 在 [0， 2^30 - 1] 范围内
+ *   3.（Face， S， T）：像元空间坐标，其中 s 和 t 在 [0， 1] 范围内。
+ *   4.（面、Si、Ti）：离散单元空间坐标，其中 si 和 ti 在 [0， 2^31] 范围内
+ *   5.（面、U、V）：立方体空间坐标，其中 u 和 v 在 [-1， 1] 范围内。我们在这里应用非线性二次变换。
+ *   6.（X， Y， Z）：方向向量，其中向量不能为单位长度。可以归一化以获得单位球体上的点
+ *   7.（纬度、经度）：方向向量，其中纬度在 [-90， 90] 范围内，经度在 [-180， 180] 范围内
  *
  * @ignore
  */
@@ -149,7 +149,7 @@ const S2_POSITION_TO_ORIENTATION_MASK = [
 ];
 
 /**
- * Represents a cell in the S2 geometry library.
+ * 表示 S2 几何图形库中的单元格。
  *
  * @alias S2Cell
  * @constructor
@@ -175,10 +175,10 @@ function S2Cell(cellId) {
 }
 
 /**
- * Creates a new S2Cell from a token. A token is a hexadecimal representation of the 64-bit S2CellId.
+ * 从令牌创建新的 S2Cell。令牌是 64 位 S2CellId 的十六进制表示形式。
  *
- * @param {string} token The token for the S2 Cell.
- * @returns {S2Cell} Returns a new S2Cell.
+ * @param {string} token S2 Cell 的令牌。
+ * @returns {S2Cell} 返回一个新的 S2Cell。
  * @private
  */
 S2Cell.fromToken = function (token) {
@@ -193,10 +193,10 @@ S2Cell.fromToken = function (token) {
 };
 
 /**
- * Validates an S2 cell ID.
+ * 验证 S2 单元 ID。
  *
- * @param {bigint} [cellId] The S2CellId.
- * @returns {boolean} Returns true if the cell ID is valid, returns false 否则。
+ * @param {bigint} [cellId] S2CellId.
+ * @returns {boolean} 如果单元格 ID 有效，则返回 true，否则返回 false。
  * @private
  */
 S2Cell.isValidId = function (cellId) {
@@ -227,10 +227,10 @@ S2Cell.isValidId = function (cellId) {
 };
 
 /**
- * Validates an S2 cell token.
+ * 验证 S2 单元令牌。
  *
- * @param {string} [token] The hexadecimal representation of an S2CellId.
- * @returns {boolean} Returns true if the token is valid, returns false 否则。
+ * @param {string} [token] S2CellId 的十六进制表示形式。
+ * @returns {boolean} 如果令牌有效，则返回 true，否则返回 false。
  * @private
  */
 S2Cell.isValidToken = function (token) {
@@ -246,10 +246,10 @@ S2Cell.isValidToken = function (token) {
 };
 
 /**
- * Converts an S2 cell token to a 64-bit S2 cell ID.
+ * 将 S2 cell token 转换为 64 位 S2 cell ID。
  *
- * @param {string} [token] The hexadecimal representation of an S2CellId. Expected to be a valid S2 token.
- * @returns {bigint} Returns the S2 cell ID.
+ * @param {string} [token] S2CellId 的十六进制表示形式。应为有效的 S2 令牌。
+ * @returns {bigint} 返回 S2 单元格 ID。
  * @private
  */
 S2Cell.getIdFromToken = function (token) {
@@ -261,10 +261,10 @@ S2Cell.getIdFromToken = function (token) {
 };
 
 /**
- * Converts a 64-bit S2 cell ID to an S2 cell token.
+ * 将 64 位 S2 Cell ID 转换为 S2 Cell Token。
  *
- * @param {bigint} [cellId] The S2 cell ID.
- * @returns {string} Returns hexadecimal representation of an S2CellId.
+ * @param {bigint} [cellId] S2 小区 ID。
+ * @returns {string} 返回 S2CellId 的十六进制表示形式。
  * @private
  */
 S2Cell.getTokenFromId = function (cellId) {
@@ -282,10 +282,10 @@ S2Cell.getTokenFromId = function (cellId) {
 };
 
 /**
- * Gets the level of the cell from the cell ID.
+ * 从单元格 ID 获取单元格的级别。
  *
- * @param {bigint} [cellId] The S2 cell ID.
- * @returns {number} Returns the level of the cell.
+ * @param {bigint} [cellId] S2 小区 ID。
+ * @returns {number} 返回单元格的级别。
  * @private
  */
 S2Cell.getLevel = function (cellId) {
@@ -312,10 +312,10 @@ S2Cell.getLevel = function (cellId) {
 };
 
 /**
- * Gets the child cell of the cell at the given index.
+ * 获取给定索引处的单元格的子单元格。
  *
- * @param {number} index An integer index of the child.
- * @returns {S2Cell} The child of the S2Cell.
+ * @param {number} index 子项的整数索引。
+ * @returns {S2Cell} S2Cell 的子项。
  * @private
  */
 S2Cell.prototype.getChild = function (index) {
@@ -339,9 +339,9 @@ S2Cell.prototype.getChild = function (index) {
 };
 
 /**
- * Gets the parent cell of an S2Cell.
+ * 获取 S2Cell 的父单元格。
  *
- * @returns {S2Cell} Returns the parent of the S2Cell.
+ * @returns {S2Cell} 返回 S2Cell 的父级。
  * @private
  */
 S2Cell.prototype.getParent = function () {
@@ -359,9 +359,9 @@ S2Cell.prototype.getParent = function () {
 };
 
 /**
- * Gets the parent cell at the given level.
+ * 获取给定级别的父单元格。
  *
- * @returns {S2Cell} Returns the parent of the S2Cell.
+ * @returns {S2Cell} 返回 S2Cell 的父级。
  * @private
  */
 S2Cell.prototype.getParentAtLevel = function (level) {
@@ -375,10 +375,10 @@ S2Cell.prototype.getParentAtLevel = function (level) {
 };
 
 /**
- * Get center of the S2 cell.
+ * 获取 S2 单元格的中心。
  *
- * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.WGS84] The ellipsoid.
- * @returns {Cartesian3} The position of center of the S2 cell.
+ * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.WGS84] 椭球体。
+ * @returns {Cartesian3} S2 单元的中心位置。
  * @private
  */
 S2Cell.prototype.getCenter = function (ellipsoid) {
@@ -396,11 +396,11 @@ S2Cell.prototype.getCenter = function (ellipsoid) {
 };
 
 /**
- * Get vertex of the S2 cell. Vertices are indexed in CCW order.
+ * 获取 S2 单元的顶点。顶点按 CCW 顺序编制索引。
  *
- * @param {number} index An integer index of the vertex. Must be in the range [0-3].
- * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.WGS84] The ellipsoid.
- * @returns {Cartesian3} The position of the vertex of the S2 cell.
+ * @param {number} index 顶点的整数索引。必须在 [0-3] 范围内。
+ * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.WGS84] 椭球体。
+ * @returns {Cartesian3} S2 单元顶点的位置。
  * @private
  */
 S2Cell.prototype.getVertex = function (index, ellipsoid) {
@@ -425,12 +425,12 @@ S2Cell.prototype.getVertex = function (index, ellipsoid) {
 };
 
 /**
- * Creates an S2Cell from its face, position along the Hilbert curve for a given level.
+ * 从其面创建一个 S2Cell，该位置沿给定级别的 Hilbert 曲线。
  *
- * @param {number} face The root face of S2 this cell is on. Must be in the range [0-5].
- * @param {bigint} position The position along the Hilbert curve. Must be in the range [0-4**level).
- * @param {number} level The level of the S2 curve. Must be in the range [0-30].
- * @returns {S2Cell} A new S2Cell from the given parameters.
+ * @param {number} face 此单元格所在的 S2 的根面。必须在 [0-5] 范围内。
+ * @param {bigint} position 沿希尔伯特曲线的位置。必须在 [0-4**级别） 范围内。
+ * @param {number} level S2 曲线的级别。必须在 [0-30] 范围内。
+ * @returns {S2Cell} 来自给定参数的新 S2Cell。
  * @private
  */
 S2Cell.fromFacePositionLevel = function (face, position, level) {
@@ -578,11 +578,11 @@ function convertFaceUVtoXYZ(face, u, v) {
 }
 
 /**
- * S2 provides 3 methods for the non-linear transform: linear, quadratic and tangential.
- * This implementation uses the quadratic method because it provides a good balance of
- * accuracy and speed.
+ * S2 提供了 3 种非线性变换方法：线性、二次和切向。
+ * 此实现使用二次方法，因为它提供了
+ * 准确性和速度。
  *
- * For a more detailed comparison of these transform methods, see
+ * 有关这些转换方法的更详细比较，请参阅
  * {@link https://github.com/google/s2geometry/blob/0c4c460bdfe696da303641771f9def900b3e440f/src/s2/s2metrics.cc}
  * @private
  */
@@ -632,9 +632,9 @@ function convertIJtoSTMinimum(i) {
 // Utility Functions
 
 /**
- * This function generates 4 variations of a Hilbert curve of level 4, based on the S2_POSITION_TO_IJ table, for fast lookups of (i, j)
- * to position along Hilbert curve. The reference C++ implementation uses an iterative approach, however, this function is implemented
- * recursively.
+ * 此函数根据 4 级希尔伯特曲线生成 4 级希尔伯特曲线的 4 个变体，S2_POSITION_TO_IJ表用于快速查找 （i， j）
+ * 沿希尔伯特曲线定位。参考 C++ 实现使用迭代方法，但是，此函数是实现的
+ * 递 归。
  *
  * See {@link https://github.com/google/s2geometry/blob/c59d0ca01ae3976db7f8abdc83fcc871a3a95186/src/s2/s2cell_id.cc#L75-L109}
  * @private
@@ -712,7 +712,7 @@ function generateLookupTable() {
 }
 
 /**
- * Return the lowest-numbered bit that is on for this cell id
+ * 返回此小区 ID 的最低编号位
  * @private
  */
 function lsb(cellId) {
@@ -720,7 +720,7 @@ function lsb(cellId) {
 }
 
 /**
- * Return the lowest-numbered bit that is on for cells at the given level.
+ * 返回给定级别的 cells 的最低编号位。
  * @private
  */
 function lsbForLevel(level) {
@@ -801,7 +801,7 @@ const Mod67BitPosition = [
 ];
 
 /**
- * Return the number of trailing zeros in number.
+ * 返回 number 中尾随 0 的个数。
  * @private
  */
 function countTrailingZeroBits(x) {

@@ -1,5 +1,5 @@
 /**
- * This enumerated type is used to determine how the vertices of the terrain mesh are compressed.
+ * 此枚举类型用于确定如何压缩地形网格的顶点。
  *
  * @enum {number}
  *
@@ -7,7 +7,7 @@
  */
 const TerrainQuantization = {
   /**
-   * The vertices are not compressed.
+   * 顶点未压缩。
    *
    * @type {number}
    * @constant
@@ -15,7 +15,7 @@ const TerrainQuantization = {
   NONE: 0,
 
   /**
-   * The vertices are compressed to 12 bits.
+   * 顶点被压缩为 12 位。
    *
    * @type {number}
    * @constant

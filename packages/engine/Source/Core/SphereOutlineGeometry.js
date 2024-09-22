@@ -5,16 +5,16 @@ import defined from "./defined.js";
 import EllipsoidOutlineGeometry from "./EllipsoidOutlineGeometry.js";
 
 /**
- * A description of the outline of a sphere.
+ * 对球体轮廓的描述。
  *
  * @alias SphereOutlineGeometry
  * @constructor
  *
  * @param {object} [options] 对象，具有以下属性:
- * @param {number} [options.radius=1.0] The radius of the sphere.
- * @param {number} [options.stackPartitions=10] The count of stacks for the sphere (1 greater than the number of parallel lines).
- * @param {number} [options.slicePartitions=8] The count of slices for the sphere (Equal to the number of radial lines).
- * @param {number} [options.subdivisions=200] The number of points per line, determining the granularity of the curvature .
+ * @param {number} [options.radius=1.0] 球体的半径。
+ * @param {number} [options.stackPartitions=10] 球体的堆栈数（1 大于平行线的数量）。
+ * @param {number} [options.slicePartitions=8] 球体的切片数（等于径向线的数量）。
+ * @param {number} [options.subdivisions=200] 每行的点数，确定曲率的粒度。
  *
  * @exception {DeveloperError} options.stackPartitions must be greater than or equal to one.
  * @exception {DeveloperError} options.slicePartitions must be greater than or equal to zero.
@@ -84,7 +84,7 @@ const scratchOptions = {
  * @param {number[]} array 打包数组。
  * @param {number} [startingIndex=0] 要解压缩的元素的起始索引。
  * @param {SphereOutlineGeometry} [result] 要在其中存储结果的对象。
- * @returns {SphereOutlineGeometry} 修改后的结果参数 or a new SphereOutlineGeometry instance if one was not provided.
+ * @returns {SphereOutlineGeometry} 修改后的结果参数或新的 SphereOutlineGeometry 实例（如果未提供）。
  */
 SphereOutlineGeometry.unpack = function (array, startingIndex, result) {
   const ellipsoidGeometry = EllipsoidOutlineGeometry.unpack(
@@ -107,9 +107,9 @@ SphereOutlineGeometry.unpack = function (array, startingIndex, result) {
 };
 
 /**
- * Computes the geometric representation of an outline of a sphere, including its vertices, indices, and a bounding sphere.
+ * 计算球体轮廓的几何表示，包括其顶点、索引和边界球体。
  *
- * @param {SphereOutlineGeometry} sphereGeometry A description of the sphere outline.
+ * @param {SphereOutlineGeometry} sphereGeometry 球体轮廓的描述。
  * @returns {Geometry|undefined} 计算的顶点和索引。
  */
 SphereOutlineGeometry.createGeometry = function (sphereGeometry) {

@@ -1,8 +1,8 @@
 import DeveloperError from "./DeveloperError.js";
 
 /**
- * Terrain data for a single tile.  This type describes an
- * interface and is not intended to be instantiated directly.
+ * 单个图块的地形数据。 此类型描述
+ * 接口，并且不打算直接实例化。
  *
  * @alias TerrainData
  * @constructor
@@ -17,7 +17,7 @@ function TerrainData() {
 
 Object.defineProperties(TerrainData.prototype, {
   /**
-   * An array of credits for this tile.
+   * 此磁贴的制作人员名单数组。
    * @memberof TerrainData.prototype
    * @type {Credit[]}
    */
@@ -25,9 +25,9 @@ Object.defineProperties(TerrainData.prototype, {
     get: DeveloperError.throwInstantiationError,
   },
   /**
-   * The water mask included in this terrain data, if any.  A water mask is a rectangular
-   * Uint8Array or image where a value of 255 indicates water and a value of 0 indicates land.
-   * Values in between 0 and 255 are allowed as well to smoothly blend between land and water.
+   * 此地形数据中包含的水面罩（如果有）。 水面罩是矩形的
+   * Uint8Array 或图像，其中值 255 表示水，值 0 表示陆地。
+   * 允许介于 0 和 255 之间的值，以便在陆地和水之间平滑混合。
    * @memberof TerrainData.prototype
    * @type {Uint8Array|HTMLImageElement|HTMLCanvasElement}
    */
@@ -37,85 +37,85 @@ Object.defineProperties(TerrainData.prototype, {
 });
 
 /**
- * Computes the terrain height at a specified longitude and latitude.
+ * 计算指定经纬度处的地形高度。
  * @function
  *
- * @param {Rectangle} rectangle The rectangle covered by this terrain data.
- * @param {number} longitude The longitude in radians.
- * @param {number} latitude The latitude in radians.
- * @returns {number} The terrain height at the specified position.  If the position
- *          is outside the rectangle, this method will extrapolate the height, which is likely to be wildly
- *          incorrect for positions far outside the rectangle.
+ * @param {Rectangle} rectangle 此地形数据覆盖的矩形。
+ * @param {number} longitude 以弧度为单位的经度。
+ * @param {number} latitude 以弧度为单位的纬度。
+ * @returns {number} 指定位置的地形高度。 如果位置
+ * 在矩形之外，这个方法会推断高度，很可能会很疯狂
+ * 对于远在矩形之外的位置不正确。
  */
 TerrainData.prototype.interpolateHeight =
   DeveloperError.throwInstantiationError;
 
 /**
- * Determines if a given child tile is available, based on the
- * {@link TerrainData#childTileMask}.  The given child tile coordinates are assumed
- * to be one of the four children of this tile.  If non-child tile coordinates are
- * given, the availability of the southeast child tile is returned.
+ * 根据
+ * {@link TerrainData#childTileMask} 的 SurfaceData 中。 假定给定的子图块坐标
+ * 成为此牌的四个子牌之一。 如果非子图块坐标为
+ * 给定，则返回 southeast child tile 的可用性。
  * @function
  *
- * @param {number} thisX The tile X coordinate of this (the parent) tile.
- * @param {number} thisY The tile Y coordinate of this (the parent) tile.
- * @param {number} childX The tile X coordinate of the child tile to check for availability.
- * @param {number} childY The tile Y coordinate of the child tile to check for availability.
- * @returns {boolean} True if the child tile is available; otherwise, false.
+ * @param {number} thisX 此（父）瓦片的瓦片 X 坐标。
+ * @param {number} thisY 此（父）瓦片的瓦片 Y 坐标。
+ * @param {number} childX 用于检查可用性的子磁贴的磁贴 X 坐标。
+ * @param {number} childY 要检查可用性的子磁贴的磁贴 Y 坐标。
+ * @returns {boolean} 如果子磁贴可用，则为 True;否则为 false。
  */
 TerrainData.prototype.isChildAvailable = DeveloperError.throwInstantiationError;
 
 /**
- * Creates a {@link TerrainMesh} from this terrain data.
+ * 从此地形数据创建 {@link TerrainMesh}。
  * @function
  *
  * @private
  *
  * @param {object} options 对象，具有以下属性:
- * @param {TilingScheme} options.tilingScheme The tiling scheme to which this tile belongs.
- * @param {number} options.x x坐标  tile for which to create the terrain data.
- * @param {number} options.y y坐标 tile for which to create the terrain data.
- * @param {number} options.level The level of the tile for which to create the terrain data.
- * @param {number} [options.exaggeration=1.0] The scale used to exaggerate the terrain.
- * @param {number} [options.exaggerationRelativeHeight=0.0] The height relative to which terrain is exaggerated.
- * @param {boolean} [options.throttle=true] If true, indicates that this operation will need to be retried if too many asynchronous mesh creations are already in progress.
- * @returns {Promise<TerrainMesh>|undefined} A promise for the terrain mesh, or undefined if too many
- *          asynchronous mesh creations are already in progress and the operation should
- *          be retried later.
+ * @param {TilingScheme} options.tilingScheme 此瓦片所属的平铺方案。
+ * @param {number} options.x x坐标 瓦片，为其创建地形数据。
+ * @param {number} options.y y坐标 瓦片，为其创建 terrain 数据。
+ * @param {number} options.level 要为其创建 terrain 数据的瓦片的级别。
+ * @param {number} [options.exaggeration=1.0] 用于夸大地形的比例尺。
+ * @param {number} [options.exaggerationRelativeHeight=0.0] 地形被夸大的相对高度。
+ * @param {boolean} [options.throttle=true] 如果为 true，则表示如果正在进行的异步网格创建太多，则需要重试此操作。
+ * @returns {Promise<TerrainMesh>|undefined} 地形网格的 Promise，如果太多，则为 undefined
+ * 异步网格创建已在进行中，操作应
+ * 稍后重试。
  */
 TerrainData.prototype.createMesh = DeveloperError.throwInstantiationError;
 
 /**
- * Upsamples this terrain data for use by a descendant tile.
+ * 对此地形数据进行上采样，以供后代瓦片使用。
  * @function
  *
- * @param {TilingScheme} tilingScheme The tiling scheme of this terrain data.
- * @param {number} thisX The X coordinate of this tile in the tiling scheme.
- * @param {number} thisY The Y coordinate of this tile in the tiling scheme.
- * @param {number} thisLevel The level of this tile in the tiling scheme.
- * @param {number} descendantX The X coordinate within the tiling scheme of the descendant tile for which we are upsampling.
- * @param {number} descendantY The Y coordinate within the tiling scheme of the descendant tile for which we are upsampling.
- * @param {number} descendantLevel The level within the tiling scheme of the descendant tile for which we are upsampling.
- * @returns {Promise<TerrainData>|undefined} A promise for upsampled terrain data for the descendant tile,
- *          or undefined if too many asynchronous upsample operations are in progress and the request has been
- *          deferred.
+ * @param {TilingScheme} tilingScheme 此地形数据的平铺方案。
+ * @param {number} thisX 平铺方案中此瓦片的 X 坐标。
+ * @param {number} thisY 此瓦片在切片方案中的 Y 坐标。
+ * @param {number} thisLevel 此瓦片在平铺方案中的级别。
+ * @param {number} descendantX 我们正在上采样的后代瓦片的平铺方案中的 X 坐标。
+ * @param {number} descendantY 我们正在进行上采样的后代瓦片的平铺方案中的 Y 坐标。
+ * @param {number} descendantLevel 我们正在上采样的后代瓦片的平铺方案中的级别。
+ * @returns {Promise<TerrainData>|undefined} 后代瓦片的上采样地形数据的承诺，
+ * 或 undefined 如果正在进行的异步 Upsample 操作过多，并且请求已被
+ * 递延。
  */
 TerrainData.prototype.upsample = DeveloperError.throwInstantiationError;
 
 /**
- * Gets a value indicating whether or not this terrain data was created by upsampling lower resolution
- * terrain data.  If this value is false, the data was obtained from some other source, such
- * as by downloading it from a remote server.  This method should return true for instances
- * returned from a call to {@link TerrainData#upsample}.
+ * 获取一个值，该值指示此地形数据是否是通过对较低分辨率的上采样创建的
+ * 地形数据。 如果此值为 false，则数据是从其他来源获取的，例如
+ * 从远程服务器下载。 对于实例，此方法应返回 true
+ * 从调用 {@link TerrainData#upsample} 返回。
  * @function
  *
- * @returns {boolean} True if this instance was created by upsampling; otherwise, false.
+ * @returns {boolean} 如果此实例是通过上采样创建的，则为 True;否则为 false。
  */
 TerrainData.prototype.wasCreatedByUpsampling =
   DeveloperError.throwInstantiationError;
 
 /**
- * The maximum number of asynchronous tasks used for terrain processing.
+ * 用于地形处理的异步任务的最大数量。
  *
  * @type {number}
  * @private
