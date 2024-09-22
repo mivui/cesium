@@ -1,7 +1,7 @@
 import DeveloperError from "../Core/DeveloperError.js";
 
 /**
- * If element is a string, look up the element in the DOM by ID.  Otherwise return element.
+ * 如果 element 是字符串，则按 ID 查找 DOM 中的元素。 否则返回 element。
  *
  * @private
  *

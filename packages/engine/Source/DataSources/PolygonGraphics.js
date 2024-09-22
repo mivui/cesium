@@ -18,36 +18,36 @@ function createPolygonHierarchyProperty(value) {
 /**
  * @typedef {object} PolygonGraphics.ConstructorOptions
  *
- * Initialization options for the PolygonGraphics constructor
+ * PolygonGraphics 构造函数的初始化选项
  *
- * @property {Property | boolean} [show=true] A boolean Property specifying the visibility of the polygon.
- * @property {Property | PolygonHierarchy | Cartesian3[]} [hierarchy] A Property specifying the {@link PolygonHierarchy}.
- * @property {Property | number} [height=0] A numeric Property specifying the altitude of the polygon relative to the ellipsoid surface.
- * @property {Property | HeightReference} [heightReference=HeightReference.NONE] A Property specifying what the height is relative to.
- * @property {Property | number} [extrudedHeight] A numeric Property specifying the altitude of the polygon's extruded face relative to the ellipsoid surface.
- * @property {Property | HeightReference} [extrudedHeightReference=HeightReference.NONE] A Property specifying what the extrudedHeight is relative to.
- * @property {Property | number} [stRotation=0.0] A numeric property specifying the rotation of the polygon texture counter-clockwise from north. Only has an effect if textureCoordinates is not defined.
- * @property {Property | number} [granularity=Cesium.Math.RADIANS_PER_DEGREE] A numeric Property specifying the angular distance between each latitude and longitude point.
- * @property {Property | boolean} [fill=true] A boolean Property specifying whether the polygon is filled with the provided material.
- * @property {MaterialProperty | Color} [material=Color.WHITE] A Property specifying the material used to fill the polygon.
- * @property {Property | boolean} [outline=false] A boolean Property specifying whether the polygon is outlined.
- * @property {Property | Color} [outlineColor=Color.BLACK] A Property specifying the {@link Color} of the outline.
- * @property {Property | number} [outlineWidth=1.0] A numeric Property specifying the width of the outline.
- * @property {Property | boolean} [perPositionHeight=false] A boolean specifying whether or not the height of each position is used.
- * @property {boolean | boolean} [closeTop=true] When false, leaves off the top of an extruded polygon open.
- * @property {boolean | boolean} [closeBottom=true] When false, leaves off the bottom of an extruded polygon open.
- * @property {Property | ArcType} [arcType=ArcType.GEODESIC] The type of line the polygon edges must follow.
- * @property {Property | ShadowMode} [shadows=ShadowMode.DISABLED] An enum Property specifying whether the polygon casts or receives shadows from light sources.
- * @property {Property | DistanceDisplayCondition} [distanceDisplayCondition] A Property specifying at what distance from the camera that this polygon will be displayed.
- * @property {Property | ClassificationType} [classificationType=ClassificationType.BOTH] An enum Property specifying whether this polygon will classify terrain, 3D Tiles, or both when on the ground.
- * @property {ConstantProperty | number} [zIndex=0] A property specifying the zIndex used for ordering ground geometry.  Only has an effect if the polygon is constant and neither height or extrudedHeight are specified.
- * @property {Property | PolygonHierarchy} [textureCoordinates] A Property specifying texture coordinates as a {@link PolygonHierarchy} of {@link Cartesian2} points. Has no effect for ground primitives.
+ * @property {Property | boolean} [show=true] 指定多边形可见性的布尔属性。
+ * @property {Property |PolygonHierarchy |Cartesian3[]} [hierarchy] 指定 {@link PolygonHierarchy} 的属性。
+ * @property {Property | number} [height=0] 一个数字属性，指定多边形相对于椭球体表面的高度。
+ * @property {Property |HeightReference} [heightReference=HeightReference.NONE] 指定高度相对于什么的属性。
+ * @property {Property | number} [extrudedHeight] 一个数值属性，用于指定多边形的凸出面相对于椭球体表面的高度。
+ * @property {Property |HeightReference} [extrudedHeightReference=HeightReference.NONE] 指定 extrudedHeight 相对于什么的属性。
+ * @property {Property | number} [stRotation=0.0] 一个数值属性，指定多边形纹理从北逆时针旋转。仅在未定义 textureCoordinates 时有效。
+ * @property {Property | number} [granularity=Cesium.Math.RADIANS_PER_DEGREE] 一个数字属性，指定每个纬度和经度点之间的角度距离。
+ * @property {Property | boolean} [fill=true] 一个布尔属性，指定多边形是否使用提供的材质填充。
+ * @property {MaterialProperty |Color} [material=Color.WHITE] 指定用于填充多边形的材质的属性。
+ * @property {Property | boolean} [outline=false] 一个布尔属性，指定是否对多边形进行轮廓划分。
+ * @property {Property |Color} [outlineColor=Color.BLACK] 指定轮廓的 {@link Color} 的属性。
+ * @property {Property | number} [outlineWidth=1.0] 指定轮廓宽度的数字属性。
+ * @property {Property | boolean} [perPositionHeight=false] 一个布尔值，指定是否使用每个位置的高度。
+ * @property {boolean | boolean} [closeTop=true] 如果为 false，则挤出多边形的顶部保持打开状态。
+ * @property {boolean | boolean} [closeBottom=true] 当为 false 时，挤出多边形的底部保持开放状态。
+ * @property {Property |ArcType} [arcType=ArcType.GEODESIC] 多边形边缘必须遵循的线类型。
+ * @property {Property |ShadowMode} [shadows=ShadowMode.DISABLED] 一个枚举属性，指定多边形是投射还是接收来自光源的阴影。
+ * @property {Property |DistanceDisplayCondition} [distanceDisplayCondition] 一个属性，指定在距摄像机多远处显示此多边形。
+ * @property {Property |ClassificationType} [classificationType=ClassificationType.BOTH] 一个枚举属性，指定此多边形在地面上时是分类地形、3D 瓦片，还是两者兼而有之。
+ * @property {ConstantProperty | number} [zIndex=0] 一个属性，用于指定用于对地面几何体进行排序的 zIndex。 仅当多边形为 constant 且未指定 height 或 extrudedHeight 时才有效。
+ * @property {Property |PolygonHierarchy} [textureCoordinates] 一个属性，将纹理坐标指定为 {@link Cartesian2} 点的 {@link PolygonHierarchy}。对 Ground Primitives 没有影响。
  */
 
 /**
- * Describes a polygon defined by an hierarchy of linear rings which make up the outer shape and any nested holes.
- * The polygon conforms to the curvature of the globe and can be placed on the surface or
- * at altitude and can optionally be extruded into a volume.
+ * 描述由构成外部形状和任何嵌套孔的线性环层次结构定义的多边形。
+ * 多边形符合地球的曲率，可以放置在表面或
+ * 在高度处，并且可以选择将其拉伸到体积中。
  *
  * @alias PolygonGraphics
  * @constructor
@@ -109,7 +109,7 @@ function PolygonGraphics(options) {
 
 Object.defineProperties(PolygonGraphics.prototype, {
   /**
-   * Gets the event that is raised whenever a property or sub-property is changed or modified.
+   * 获取在更改或修改属性或子属性时引发的事件。
    * @memberof PolygonGraphics.prototype
    *
    * @type {Event}
@@ -122,7 +122,7 @@ Object.defineProperties(PolygonGraphics.prototype, {
   },
 
   /**
-   * 获取或设置boolean Property specifying the visibility of the polygon.
+   * 获取或设置boolean 指定多边形可见性的属性。
    * @memberof PolygonGraphics.prototype
    * @type {Property|undefined}
    * @default true
@@ -130,7 +130,7 @@ Object.defineProperties(PolygonGraphics.prototype, {
   show: createPropertyDescriptor("show"),
 
   /**
-   * 获取或设置Property specifying the {@link PolygonHierarchy}.
+   * 获取或设置指定 {@link PolygonHierarchy} 的属性。
    * @memberof PolygonGraphics.prototype
    * @type {Property|undefined}
    */
@@ -141,7 +141,7 @@ Object.defineProperties(PolygonGraphics.prototype, {
   ),
 
   /**
-   * 获取或设置numeric Property specifying the constant altitude of the polygon.
+   * 获取或设置numeric 指定多边形的恒定高度的属性。
    * @memberof PolygonGraphics.prototype
    * @type {Property|undefined}
    * @default 0.0
@@ -149,7 +149,7 @@ Object.defineProperties(PolygonGraphics.prototype, {
   height: createPropertyDescriptor("height"),
 
   /**
-   * 获取或设置Property specifying the {@link HeightReference}.
+   * 获取或设置指定 {@link HeightReference} 的属性。
    * @memberof PolygonGraphics.prototype
    * @type {Property|undefined}
    * @default HeightReference.NONE
@@ -157,16 +157,16 @@ Object.defineProperties(PolygonGraphics.prototype, {
   heightReference: createPropertyDescriptor("heightReference"),
 
   /**
-   * 获取或设置numeric Property specifying the altitude of the polygon extrusion.
-   * If {@link PolygonGraphics#perPositionHeight} is false, the volume starts at {@link PolygonGraphics#height} and ends at this altitude.
-   * If {@link PolygonGraphics#perPositionHeight} is true, the volume starts at the height of each {@link PolygonGraphics#hierarchy} position and ends at this altitude.
+   * 获取或设置numeric 指定多边形拉伸高度的属性。
+   * 如果 {@link PolygonGraphics#perPositionHeight} 为 false，则体积从 {@link PolygonGraphics#height} 开始，到此高度结束。
+   * 如果 {@link PolygonGraphics#perPositionHeight} 为 true，则体积从每个 {@link PolygonGraphics#hierarchy} 位置的高度开始，并在此高度结束。
    * @memberof PolygonGraphics.prototype
    * @type {Property|undefined}
    */
   extrudedHeight: createPropertyDescriptor("extrudedHeight"),
 
   /**
-   * 获取或设置Property specifying the extruded {@link HeightReference}.
+   * 获取或设置指定拉伸 {@link HeightReference} 的属性。
    * @memberof PolygonGraphics.prototype
    * @type {Property|undefined}
    * @default HeightReference.NONE
@@ -174,7 +174,7 @@ Object.defineProperties(PolygonGraphics.prototype, {
   extrudedHeightReference: createPropertyDescriptor("extrudedHeightReference"),
 
   /**
-   * 获取或设置numeric property specifying the rotation of the polygon texture counter-clockwise from north. Only has an effect if textureCoordinates is not defined.
+   * 获取或设置numeric 属性指定多边形纹理从北逆时针旋转。仅在未定义 textureCoordinates 时有效。
    * @memberof PolygonGraphics.prototype
    * @type {Property|undefined}
    * @default 0
@@ -182,7 +182,7 @@ Object.defineProperties(PolygonGraphics.prototype, {
   stRotation: createPropertyDescriptor("stRotation"),
 
   /**
-   * 获取或设置numeric Property specifying the angular distance between points on the polygon.
+   * 获取或设置numeric 属性，用于指定多边形上点之间的角度距离。
    * @memberof PolygonGraphics.prototype
    * @type {Property|undefined}
    * @default {CesiumMath.RADIANS_PER_DEGREE}
@@ -190,7 +190,7 @@ Object.defineProperties(PolygonGraphics.prototype, {
   granularity: createPropertyDescriptor("granularity"),
 
   /**
-   * 获取或设置boolean Property specifying whether the polygon is filled with the provided material.
+   * 获取或设置boolean 属性，指定是否使用提供的材质填充多边形。
    * @memberof PolygonGraphics.prototype
    * @type {Property|undefined}
    * @default true
@@ -198,7 +198,7 @@ Object.defineProperties(PolygonGraphics.prototype, {
   fill: createPropertyDescriptor("fill"),
 
   /**
-   * 获取或设置Property specifying the material used to fill the polygon.
+   * 获取或设置指定用于填充多边形的材料的属性。
    * @memberof PolygonGraphics.prototype
    * @type {MaterialProperty}
    * @default Color.WHITE
@@ -206,7 +206,7 @@ Object.defineProperties(PolygonGraphics.prototype, {
   material: createMaterialPropertyDescriptor("material"),
 
   /**
-   * 获取或设置Property specifying whether the polygon is outlined.
+   * 获取或设置指定是否对多边形进行轮廓划分的属性。
    * @memberof PolygonGraphics.prototype
    * @type {Property|undefined}
    * @default false
@@ -214,7 +214,7 @@ Object.defineProperties(PolygonGraphics.prototype, {
   outline: createPropertyDescriptor("outline"),
 
   /**
-   * 获取或设置Property specifying the {@link Color} of the outline.
+   * 获取或设置指定轮廓的 {@link Color} 的属性。
    * @memberof PolygonGraphics.prototype
    * @type {Property|undefined}
    * @default Color.BLACK
@@ -222,9 +222,9 @@ Object.defineProperties(PolygonGraphics.prototype, {
   outlineColor: createPropertyDescriptor("outlineColor"),
 
   /**
-   * 获取或设置numeric Property specifying the width of the outline.
+   * 获取或设置numeric 指定轮廓宽度的属性。
    * <p>
-   * Note: This property will be ignored on all major browsers on Windows platforms. For details, see (@link https://github.com/CesiumGS/cesium/issues/40}.
+   * Note: 在 Windows 平台上的所有主要浏览器上都将忽略此属性。有关详细信息， see (@link https://github.com/CesiumGS/cesium/issues/40}.
    * </p>
    * @memberof PolygonGraphics.prototype
    * @type {Property|undefined}
@@ -233,30 +233,30 @@ Object.defineProperties(PolygonGraphics.prototype, {
   outlineWidth: createPropertyDescriptor("outlineWidth"),
 
   /**
-   * 获取或设置boolean specifying whether or not the the height of each position is used.
-   * If true, the shape will have non-uniform altitude defined by the height of each {@link PolygonGraphics#hierarchy} position.
-   * If false, the shape will have a constant altitude as specified by {@link PolygonGraphics#height}.
+   * 获取或设置boolean 指定是否使用每个位置的高度。
+   * 如果为 true，则形状将具有由每个 {@link PolygonGraphics#hierarchy} 位置的高度定义的非均匀高度。
+   * 如果为 false，则形状将具有由 {@link PolygonGraphics#height} 指定的恒定高度。
    * @memberof PolygonGraphics.prototype
    * @type {Property|undefined}
    */
   perPositionHeight: createPropertyDescriptor("perPositionHeight"),
 
   /**
-   * Gets or sets a boolean specifying whether or not the top of an extruded polygon is included.
+   * 获取或设置一个布尔值，用于指定是否包含拉伸多边形的顶部。
    * @memberof PolygonGraphics.prototype
    * @type {Property|undefined}
    */
   closeTop: createPropertyDescriptor("closeTop"),
 
   /**
-   * Gets or sets a boolean specifying whether or not the bottom of an extruded polygon is included.
+   * 获取或设置一个布尔值，用于指定是否包含挤出多边形的底部。
    * @memberof PolygonGraphics.prototype
    * @type {Property|undefined}
    */
   closeBottom: createPropertyDescriptor("closeBottom"),
 
   /**
-   * 获取或设置{@link ArcType} Property specifying the type of lines the polygon edges use.
+   * 获取或设置{@link ArcType} 指定多边形边使用的线条类型的属性。
    * @memberof PolygonGraphics.prototype
    * @type {Property|undefined}
    * @default ArcType.GEODESIC
@@ -264,8 +264,8 @@ Object.defineProperties(PolygonGraphics.prototype, {
   arcType: createPropertyDescriptor("arcType"),
 
   /**
-   * Get or sets the enum Property specifying whether the polygon
-   * casts or receives shadows from light sources.
+   * 获取或设置 enum 属性，指定多边形
+   * 从光源投射或接收阴影。
    * @memberof PolygonGraphics.prototype
    * @type {Property|undefined}
    * @default ShadowMode.DISABLED
@@ -273,7 +273,7 @@ Object.defineProperties(PolygonGraphics.prototype, {
   shadows: createPropertyDescriptor("shadows"),
 
   /**
-   * 获取或设置{@link DistanceDisplayCondition} Property specifying at what distance from the camera that this polygon will be displayed.
+   * 获取或设置{@link DistanceDisplayCondition} 属性指定此多边形将在距摄像机多远处显示。
    * @memberof PolygonGraphics.prototype
    * @type {Property|undefined}
    */
@@ -282,7 +282,7 @@ Object.defineProperties(PolygonGraphics.prototype, {
   ),
 
   /**
-   * 获取或设置{@link ClassificationType} Property specifying whether this polygon will classify terrain, 3D Tiles, or both when on the ground.
+   * 获取或设置{@link ClassificationType} 属性指定此多边形在地面上时是分类地形、3D 瓦片还是两者。
    * @memberof PolygonGraphics.prototype
    * @type {Property|undefined}
    * @default ClassificationType.BOTH
@@ -290,7 +290,7 @@ Object.defineProperties(PolygonGraphics.prototype, {
   classificationType: createPropertyDescriptor("classificationType"),
 
   /**
-   * 获取或设置zIndex Prperty specifying the ordering of ground geometry.  Only has an effect if the polygon is constant and neither height or extrudedHeight are specified.
+   * 获取或设置zIndex Prperty 指定地面几何的顺序。 仅当多边形为 constant 且未指定 height 或 extrudedHeight 时才有效。
    * @memberof PolygonGraphics.prototype
    * @type {ConstantProperty|undefined}
    * @default 0
@@ -298,7 +298,7 @@ Object.defineProperties(PolygonGraphics.prototype, {
   zIndex: createPropertyDescriptor("zIndex"),
 
   /**
-   *  A Property specifying texture coordinates as a {@link PolygonHierarchy} of {@link Cartesian2} points. Has no effect for ground primitives.
+   *  将纹理坐标指定为 {@link Cartesian2} 点的 {@link PolygonHierarchy} 的属性。对 Ground Primitives 没有影响。
    * @memberof PolygonGraphics.prototype
    * @type {Property|undefined}
    */
@@ -306,10 +306,10 @@ Object.defineProperties(PolygonGraphics.prototype, {
 });
 
 /**
- * 复制instance.
+ * 复制实例。
  *
  * @param {PolygonGraphics} [result] 要在其上存储结果的对象。
- * @returns {PolygonGraphics} 修改后的结果参数 or a new instance if one was not provided.
+ * @returns {PolygonGraphics} 修改后的结果参数或者一个新实例（如果未提供）。
  */
 PolygonGraphics.prototype.clone = function (result) {
   if (!defined(result)) {
@@ -341,10 +341,10 @@ PolygonGraphics.prototype.clone = function (result) {
 };
 
 /**
- * Assigns each unassigned property on this object to the value
- * of the same property on the provided source object.
+ * 将此对象上的每个未分配的属性分配给值
+ * 的 API 值。
  *
- * @param {PolygonGraphics} source The object to be merged into this object.
+ * @param {PolygonGraphics} source 要合并到此对象中的对象。
  */
 PolygonGraphics.prototype.merge = function (source) {
   //>>includeStart('debug', pragmas.debug);

@@ -8,19 +8,19 @@ import createPropertyDescriptor from "./createPropertyDescriptor.js";
 /**
  * @typedef {object} PathGraphics.ConstructorOptions
  *
- * Initialization options for the PathGraphics constructor
+ * PathGraphics 构造函数的初始化选项
  *
- * @property {Property | boolean} [show=true] A boolean Property specifying the visibility of the path.
- * @property {Property | number} [leadTime] A Property specifying the number of seconds in front the object to show.
- * @property {Property | number} [trailTime] A Property specifying the number of seconds behind of the object to show.
- * @property {Property | number} [width=1.0] A numeric Property specifying the width in pixels.
- * @property {Property | number} [resolution=60] A numeric Property specifying the maximum number of seconds to step when sampling the position.
- * @property {MaterialProperty | Color} [material=Color.WHITE] A Property specifying the material used to draw the path.
- * @property {Property | DistanceDisplayCondition} [distanceDisplayCondition] A Property specifying at what distance from the camera that this path will be displayed.
+ * @property {Property | boolean} [show=true] 指定路径可见性的布尔属性。
+ * @property {Property | number} [leadTime] 一个属性，指定要显示的对象前面的秒数。
+ * @property {Property | number} [trailTime] 一个属性，指定要显示的对象落后秒数。
+ * @property {Property | number} [width=1.0] 一个数字属性，用于指定以像素为单位的宽度。
+ * @property {Property | number} [resolution=60] 一个数字属性，指定对位置进行采样时的最大步进秒数。
+ * @property {MaterialProperty |Color} [material=Color.WHITE] 指定用于绘制路径的材质的属性。
+ * @property {Property |DistanceDisplayCondition} [distanceDisplayCondition] 一个属性，指定在距摄像机多远处显示此路径。
  */
 
 /**
- * Describes a polyline defined as the path made by an {@link Entity} as it moves over time.
+ * 描述定义为 {@link Entity} 在随时间移动时所形成的路径的折线。
  *
  * @alias PathGraphics
  * @constructor
@@ -49,7 +49,7 @@ function PathGraphics(options) {
 
 Object.defineProperties(PathGraphics.prototype, {
   /**
-   * Gets the event that is raised whenever a property or sub-property is changed or modified.
+   * 获取在更改或修改属性或子属性时引发的事件。
    * @memberof PathGraphics.prototype
    * @type {Event}
    * @readonly
@@ -61,7 +61,7 @@ Object.defineProperties(PathGraphics.prototype, {
   },
 
   /**
-   * 获取或设置boolean Property specifying the visibility of the path.
+   * 获取或设置boolean 指定路径可见性的属性。
    * @memberof PathGraphics.prototype
    * @type {Property|undefined}
    * @default true
@@ -69,21 +69,21 @@ Object.defineProperties(PathGraphics.prototype, {
   show: createPropertyDescriptor("show"),
 
   /**
-   * 获取或设置Property specifying the number of seconds in front of the object to show.
+   * 获取或设置指定要显示的对象前面的秒数的属性。
    * @memberof PathGraphics.prototype
    * @type {Property|undefined}
    */
   leadTime: createPropertyDescriptor("leadTime"),
 
   /**
-   * 获取或设置Property specifying the number of seconds behind the object to show.
+   * 获取或设置指定要显示的对象后面的秒数的属性。
    * @memberof PathGraphics.prototype
    * @type {Property|undefined}
    */
   trailTime: createPropertyDescriptor("trailTime"),
 
   /**
-   * 获取或设置numeric Property specifying the width in pixels.
+   * 获取或设置numeric 属性，用于指定宽度（以像素为单位）。
    * @memberof PathGraphics.prototype
    * @type {Property|undefined}
    * @default 1.0
@@ -91,7 +91,7 @@ Object.defineProperties(PathGraphics.prototype, {
   width: createPropertyDescriptor("width"),
 
   /**
-   * 获取或设置Property specifying the maximum number of seconds to step when sampling the position.
+   * 获取或设置指定对位置进行采样时要步进的最大秒数的属性。
    * @memberof PathGraphics.prototype
    * @type {Property|undefined}
    * @default 60
@@ -99,7 +99,7 @@ Object.defineProperties(PathGraphics.prototype, {
   resolution: createPropertyDescriptor("resolution"),
 
   /**
-   * 获取或设置Property specifying the material used to draw the path.
+   * 获取或设置指定用于绘制路径的材质的属性。
    * @memberof PathGraphics.prototype
    * @type {MaterialProperty}
    * @default Color.WHITE
@@ -107,7 +107,7 @@ Object.defineProperties(PathGraphics.prototype, {
   material: createMaterialPropertyDescriptor("material"),
 
   /**
-   * 获取或设置{@link DistanceDisplayCondition} Property specifying at what distance from the camera that this path will be displayed.
+   * 获取或设置{@link DistanceDisplayCondition} 指定此路径将在距摄像机多远处显示的属性。
    * @memberof PathGraphics.prototype
    * @type {Property|undefined}
    */
@@ -117,10 +117,10 @@ Object.defineProperties(PathGraphics.prototype, {
 });
 
 /**
- * 复制instance.
+ * 复制实例。
  *
  * @param {PathGraphics} [result] 要在其上存储结果的对象。
- * @returns {PathGraphics} 修改后的结果参数 or a new instance if one was not provided.
+ * @returns {PathGraphics} 修改后的结果参数或者一个新实例（如果未提供）。
  */
 PathGraphics.prototype.clone = function (result) {
   if (!defined(result)) {
@@ -137,10 +137,10 @@ PathGraphics.prototype.clone = function (result) {
 };
 
 /**
- * Assigns each unassigned property on this object to the value
- * of the same property on the provided source object.
+ * 将此对象上每个未分配的属性分配给值
+ * 的 API 值。
  *
- * @param {PathGraphics} source The object to be merged into this object.
+ * @param {PathGraphics} source 要合并到此对象中的对象。
  */
 PathGraphics.prototype.merge = function (source) {
   //>>includeStart('debug', pragmas.debug);

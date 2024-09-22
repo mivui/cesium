@@ -12,14 +12,14 @@ const defaultOddColor = Color.BLACK;
 const defaultRepeat = new Cartesian2(2.0, 2.0);
 
 /**
- * A {@link MaterialProperty} that maps to checkerboard {@link Material} uniforms.
+ * 映射到棋盘 {@link Material} 制服的 {@link MaterialProperty}。
  * @alias CheckerboardMaterialProperty
  * @constructor
  *
  * @param {object} [options] 对象，具有以下属性:
- * @param {Property|Color} [options.evenColor=Color.WHITE] A Property specifying the first {@link Color}.
- * @param {Property|Color} [options.oddColor=Color.BLACK] A Property specifying the second {@link Color}.
- * @param {Property|Cartesian2} [options.repeat=new Cartesian2(2.0, 2.0)] A {@link Cartesian2} Property specifying how many times the tiles repeat in each direction.
+ * @param {Property|Color} [options.evenColor=Color.WHITE] 指定第一个 {@link Color} 的属性。
+ * @param {Property|Color} [options.oddColor=Color.BLACK] 指定第二个 {@link Color} 的属性。
+ * @param {Property|Cartesian2} [options.repeat=new Cartesian2（2.0， 2.0）] 一个 {@link Cartesian2} 属性，用于指定图块在每个方向上重复的次数。
  */
 function CheckerboardMaterialProperty(options) {
   options = defaultValue(options, defaultValue.EMPTY_OBJECT);
@@ -39,8 +39,8 @@ function CheckerboardMaterialProperty(options) {
 
 Object.defineProperties(CheckerboardMaterialProperty.prototype, {
   /**
-   * Gets a value indicating if this property is constant.  A property is considered
-   * constant if getValue always returns the same result for the current definition.
+   * 获取一个值，该值指示此属性是否为 constant。 将属性视为
+   * 常量（如果 getValue 始终为当前定义返回相同的结果）。
    * @memberof CheckerboardMaterialProperty.prototype
    *
    * @type {boolean}
@@ -57,9 +57,9 @@ Object.defineProperties(CheckerboardMaterialProperty.prototype, {
   },
 
   /**
-   * Gets the event that is raised whenever the definition of this property changes.
-   * The definition is considered to have changed if a call to getValue would return
-   * a different result for the same time.
+   * 获取此属性的定义发生更改时引发的事件。
+   * 如果对 getValue 的调用会返回 getValue，则认为定义已更改
+   * 同一时间的不同结果。
    * @memberof CheckerboardMaterialProperty.prototype
    *
    * @type {Event}
@@ -72,7 +72,7 @@ Object.defineProperties(CheckerboardMaterialProperty.prototype, {
   },
 
   /**
-   * 获取或设置Property specifying the first {@link Color}.
+   * 获取或设置指定第一个 {@link Color} 的属性。
    * @memberof CheckerboardMaterialProperty.prototype
    * @type {Property|undefined}
    * @default Color.WHITE
@@ -80,7 +80,7 @@ Object.defineProperties(CheckerboardMaterialProperty.prototype, {
   evenColor: createPropertyDescriptor("evenColor"),
 
   /**
-   * 获取或设置Property specifying the second {@link Color}.
+   * 获取或设置指定第二个 {@link Color} 的属性。
    * @memberof CheckerboardMaterialProperty.prototype
    * @type {Property|undefined}
    * @default Color.BLACK
@@ -88,7 +88,7 @@ Object.defineProperties(CheckerboardMaterialProperty.prototype, {
   oddColor: createPropertyDescriptor("oddColor"),
 
   /**
-   * 获取或设置{@link Cartesian2} Property specifying how many times the tiles repeat in each direction.
+   * 获取或设置{@link Cartesian2} 指定图块在每个方向上重复次数的属性。
    * @memberof CheckerboardMaterialProperty.prototype
    * @type {Property|undefined}
    * @default new Cartesian2(2.0, 2.0)
@@ -97,10 +97,10 @@ Object.defineProperties(CheckerboardMaterialProperty.prototype, {
 });
 
 /**
- * Gets the {@link Material} type at the provided time.
+ * 在提供的时间获取 {@link Material} 类型。
  *
- * @param {JulianDate} time The time for which to retrieve the type.
- * @returns {string} The type of material.
+ * @param {JulianDate} time 检索类型的时间。
+ * @returns {string} 材质的类型。
  */
 CheckerboardMaterialProperty.prototype.getType = function (time) {
   return "Checkerboard";
@@ -109,11 +109,11 @@ CheckerboardMaterialProperty.prototype.getType = function (time) {
 const timeScratch = new JulianDate();
 
 /**
- * Gets the value of the property at the provided time.
+ * 获取属性在提供的时间的值。
  *
- * @param {JulianDate} [time=JulianDate.now()] The time for which to retrieve the value. If omitted, the current system time is used.
- * @param {object} [result] The object to store the value into, if omitted, a new instance is created and returned.
- * @returns {object} 修改后的结果参数 or a new instance if the result parameter was not supplied.
+ * @param {JulianDate} [time=JulianDate.now()] 检索值的时间。如果省略，则使用当前系统时间。
+ * @param {object} [result] 要将值存储到的对象，如果省略，则创建并返回一个新实例。
+ * @returns {object} 修改后的结果参数或者，如果未提供 result 参数，则为新实例。
  */
 CheckerboardMaterialProperty.prototype.getValue = function (time, result) {
   if (!defined(time)) {
@@ -139,10 +139,10 @@ CheckerboardMaterialProperty.prototype.getValue = function (time, result) {
 };
 
 /**
- * Compares this property to the provided property and returns
- * <code>true</code>，否则为<code>false</code>。
+ * 将此属性与提供的属性进行比较，并返回
+ * <code>true</code>，否则为 <code>false</code>。
  *
- * @param {Property} [other] The other property.
+ * @param {Property} [other] 另一个属性。
  * @returns {boolean} <code>true</code>如果左和右相等，否则<code>false</code>。
  */
 CheckerboardMaterialProperty.prototype.equals = function (other) {

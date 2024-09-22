@@ -16,16 +16,16 @@ import SceneMode from "../Scene/SceneMode.js";
 import KDBush from "kdbush";
 
 /**
- * Defines how screen space objects (billboards, points, labels) are clustered.
+ * 定义屏幕空间对象（广告牌、点、标签）的群集方式。
  *
  * @param {object} [options]  对象，具有以下属性:
- * @param {boolean} [options.enabled=false] Whether or not to enable clustering.
- * @param {number} [options.pixelRange=80] The pixel range to extend the screen space bounding box.
- * @param {number} [options.minimumClusterSize=2] The minimum number of screen space objects that can be clustered.
- * @param {boolean} [options.clusterBillboards=true] Whether or not to cluster the billboards of an entity.
- * @param {boolean} [options.clusterLabels=true] Whether or not to cluster the labels of an entity.
- * @param {boolean} [options.clusterPoints=true] Whether or not to cluster the points of an entity.
- * @param {boolean} [options.show=true] Determines if the entities in the cluster will be shown.
+ * @param {boolean} [options.enabled=false] 是否启用集群。
+ * @param {number} [options.pixelRange=80] 扩展屏幕空间边界框的像素范围。
+ * @param {number} [options.minimumClusterSize=2] 可以聚集的屏幕空间对象的最小数量。
+ * @param {boolean} [options.clusterBillboards=true] 是否对实体的广告牌进行聚类。
+ * @param {boolean} [options.clusterLabels=true] 是否对实体的标签进行聚类。
+ * @param {boolean} [options.clusterPoints=true] 是否对实体的点进行聚类。
+ * @param {boolean} [options.show=true] 确定是否显示集群中的实体。
  *
  * @alias EntityCluster
  * @constructor
@@ -68,7 +68,7 @@ function EntityCluster(options) {
   this._clusterEvent = new Event();
 
   /**
-   * Determines if entities in this collection will be shown.
+   * 确定是否显示此集合中的实体。
    *
    * @type {boolean}
    * @default true
@@ -513,7 +513,7 @@ EntityCluster.prototype._initialize = function (scene) {
 
 Object.defineProperties(EntityCluster.prototype, {
   /**
-   * Gets or sets whether clustering is enabled.
+   * 获取或设置是否启用群集。
    * @memberof EntityCluster.prototype
    * @type {boolean}
    */
@@ -527,7 +527,7 @@ Object.defineProperties(EntityCluster.prototype, {
     },
   },
   /**
-   * 获取或设置pixel range to extend the screen space bounding box.
+   * 获取或设置pixel range 来扩展屏幕空间边界框。
    * @memberof EntityCluster.prototype
    * @type {number}
    */
@@ -541,7 +541,7 @@ Object.defineProperties(EntityCluster.prototype, {
     },
   },
   /**
-   * 获取或设置minimum number of screen space objects that can be clustered.
+   * 获取或设置可以群集的屏幕空间对象的最小数量。
    * @memberof EntityCluster.prototype
    * @type {number}
    */
@@ -556,7 +556,7 @@ Object.defineProperties(EntityCluster.prototype, {
     },
   },
   /**
-   * Gets the event that will be raised when a new cluster will be displayed. The signature of the event listener is {@link EntityCluster.newClusterCallback}.
+   * 获取在显示新集群时将引发的事件。事件监听器的签名为 {@link EntityCluster.newClusterCallback}。
    * @memberof EntityCluster.prototype
    * @type {Event<EntityCluster.newClusterCallback>}
    */
@@ -566,7 +566,7 @@ Object.defineProperties(EntityCluster.prototype, {
     },
   },
   /**
-   * Gets or sets whether clustering billboard entities is enabled.
+   * 获取或设置是否启用聚类公告牌实体。
    * @memberof EntityCluster.prototype
    * @type {boolean}
    */
@@ -581,7 +581,7 @@ Object.defineProperties(EntityCluster.prototype, {
     },
   },
   /**
-   * Gets or sets whether clustering labels entities is enabled.
+   * 获取或设置是否启用聚类分析标签实体。
    * @memberof EntityCluster.prototype
    * @type {boolean}
    */
@@ -595,7 +595,7 @@ Object.defineProperties(EntityCluster.prototype, {
     },
   },
   /**
-   * Gets or sets whether clustering point entities is enabled.
+   * 获取或设置是否启用聚类分析点实体。
    * @memberof EntityCluster.prototype
    * @type {boolean}
    */
@@ -679,9 +679,9 @@ function removeEntityIndicesIfUnused(entityCluster, entityId) {
 }
 
 /**
- * Returns a new {@link Label}.
- * @param {Entity} entity The entity that will use the returned {@link Label} for visualization.
- * @returns {Label} The label that will be used to visualize an entity.
+ * 返回新的 {@link Label}。
+ * @param {Entity} entity 将使用返回的 {@link Label} 进行可视化的实体。
+ * @returns {Label} 将用于可视化实体的标签。
  *
  * @private
  */
@@ -693,8 +693,8 @@ EntityCluster.prototype.getLabel = createGetEntity(
 );
 
 /**
- * Removes the {@link Label} associated with an entity so it can be reused by another entity.
- * @param {Entity} entity The entity that will uses the returned {@link Label} for visualization.
+ * 删除与实体关联的 {@link Label}，以便其他实体可以重复使用该标签。
+ * @param {Entity} entity 将使用返回的 {@link Label} 进行可视化的实体。
  *
  * @private
  */
@@ -725,9 +725,9 @@ EntityCluster.prototype.removeLabel = function (entity) {
 };
 
 /**
- * Returns a new {@link Billboard}.
- * @param {Entity} entity The entity that will use the returned {@link Billboard} for visualization.
- * @returns {Billboard} The label that will be used to visualize an entity.
+ * 返回新的 {@link Billboard}。
+ * @param {Entity} entity 将使用返回的 {@link Billboard} 进行可视化的实体。
+ * @returns {Billboard} 将用于可视化实体的标签。
  *
  * @private
  */
@@ -739,8 +739,8 @@ EntityCluster.prototype.getBillboard = createGetEntity(
 );
 
 /**
- * Removes the {@link Billboard} associated with an entity so it can be reused by another entity.
- * @param {Entity} entity The entity that will uses the returned {@link Billboard} for visualization.
+ * 删除与实体关联的 {@link Billboard}，以便其他实体可以重复使用该 { Billboard}
+ * @param {Entity} entity 将使用返回的 {@link Billboard} 进行可视化的实体。
  *
  * @private
  */
@@ -771,9 +771,9 @@ EntityCluster.prototype.removeBillboard = function (entity) {
 };
 
 /**
- * Returns a new {@link Point}.
- * @param {Entity} entity The entity that will use the returned {@link Point} for visualization.
- * @returns {Point} The label that will be used to visualize an entity.
+ * 返回新的 {@link Point}。
+ * @param {Entity} entity 将使用返回的 {@link Point} 进行可视化的实体。
+ * @returns {Point} 将用于可视化实体的标签。
  *
  * @private
  */
@@ -785,8 +785,8 @@ EntityCluster.prototype.getPoint = createGetEntity(
 );
 
 /**
- * Removes the {@link Point} associated with an entity so it can be reused by another entity.
- * @param {Entity} entity The entity that will uses the returned {@link Point} for visualization.
+ * 删除与实体关联的 {@link Point}，以便其他实体可以重复使用该 { Point}。
+ * @param {Entity} entity 将使用返回的 {@link Point} 进行可视化的实体。
  *
  * @private
  */
@@ -851,8 +851,8 @@ function updateEnable(entityCluster) {
 }
 
 /**
- * Gets the draw commands for the clustered billboards/points/labels if enabled, otherwise,
- * queues the draw commands for billboards/points/labels created for entities.
+ * 如果启用，则获取群集公告牌/点/标签的绘制命令，否则，
+ * 将 Billboards/Points/Labels 的绘制命令排队，以便为实体创建。
  * @private
  */
 EntityCluster.prototype.update = function (frameState) {
@@ -922,11 +922,11 @@ EntityCluster.prototype.update = function (frameState) {
 };
 
 /**
- * Destroys the WebGL resources held by this object.  Destroying an object allows for deterministic
- * release of WebGL resources, instead of relying on the garbage collector to destroy this object.
+ * 销毁此对象持有的 WebGL 资源。 销毁对象允许确定性
+ * 释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。
  * <p>
- * Unlike other objects that use WebGL resources, this object can be reused. For example, if a data source is removed
- * from a data source collection and added to another.
+ * 与使用 WebGL 资源的其他对象不同，此对象可以重复使用。例如，如果删除了数据源
+ * 从数据源集合并添加到另一个数据源集合。
  * </p>
  */
 EntityCluster.prototype.destroy = function () {
@@ -975,7 +975,7 @@ EntityCluster.prototype.destroy = function () {
 };
 
 /**
- * A event listener function used to style clusters.
+ * 用于设置集群样式的事件侦听器函数。
  * @callback EntityCluster.newClusterCallback
  *
  * @param {Entity[]} clusteredEntities An array of the entities contained in the cluster.

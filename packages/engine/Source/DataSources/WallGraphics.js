@@ -8,25 +8,25 @@ import createPropertyDescriptor from "./createPropertyDescriptor.js";
 /**
  * @typedef {object} WallGraphics.ConstructorOptions
  *
- * Initialization options for the WallGraphics constructor
+ * WallGraphics 构造函数的初始化选项
  *
- * @property {Property | boolean} [show=true] A boolean Property specifying the visibility of the wall.
- * @property {Property | Cartesian3[]} [positions] A Property specifying the array of {@link Cartesian3} positions which define the top of the wall.
- * @property {Property | number[]} [minimumHeights] A Property specifying an array of heights to be used for the bottom of the wall instead of the globe surface.
- * @property {Property | number[]} [maximumHeights] A Property specifying an array of heights to be used for the top of the wall instead of the height of each position.
- * @property {Property | number} [granularity=Cesium.Math.RADIANS_PER_DEGREE] A numeric Property specifying the angular distance between each latitude and longitude point.
- * @property {Property | boolean} [fill=true] A boolean Property specifying whether the wall is filled with the provided material.
- * @property {MaterialProperty | Color} [material=Color.WHITE] A Property specifying the material used to fill the wall.
- * @property {Property | boolean} [outline=false] A boolean Property specifying whether the wall is outlined.
- * @property {Property | Color} [outlineColor=Color.BLACK] A Property specifying the {@link Color} of the outline.
- * @property {Property | number} [outlineWidth=1.0] A numeric Property specifying the width of the outline.
- * @property {Property | ShadowMode} [shadows=ShadowMode.DISABLED] An enum Property specifying whether the wall casts or receives shadows from light sources.
- * @property {Property | DistanceDisplayCondition} [distanceDisplayCondition] A Property specifying at what distance from the camera that this wall will be displayed.
+ * @property {Property | boolean} [show=true] 指定墙的可见性的布尔属性。
+ * @property {Property |Cartesian3[]} [positions] 一个属性，指定定义墙顶部的 {@link Cartesian3} 位置数组。
+ * @property {Property | number[]} [minimumHeights] 一个属性，指定要用于墙底部而不是地球表面的高度数组。
+ * @property {Property | number[]} [maximumHeights] 一个属性，指定要用于墙顶部的高度数组，而不是每个位置的高度。
+ * @property {Property | number} [granularity=Cesium.Math.RADIANS_PER_DEGREE] 一个数字属性，指定每个纬度和经度点之间的角度距离。
+ * @property {Property | boolean} [fill=true] 一个布尔属性，指定墙是否使用提供的材质填充。
+ * @property {MaterialProperty |Color} [material=Color.WHITE] 指定用于填充墙壁的材质的属性。
+ * @property {Property | boolean} [outline=false] 一个布尔属性，指定是否对墙进行轮廓勾勒。
+ * @property {Property |Color} [outlineColor=Color.BLACK] 指定轮廓的 {@link Color} 的属性。
+ * @property {Property | number} [outlineWidth=1.0] 指定轮廓宽度的数字属性。
+ * @property {Property |ShadowMode} [shadows=ShadowMode.DISABLED] 一个枚举属性，指定墙壁是投射还是接收来自光源的阴影。
+ * @property {Property |DistanceDisplayCondition} [distanceDisplayCondition] 一个属性，指定在距摄像头多远处显示此墙。
  */
 
 /**
- * Describes a two dimensional wall defined as a line strip and optional maximum and minimum heights.
- * The wall conforms to the curvature of the globe and can be placed along the surface or at altitude.
+ * 描述定义为线带的二维墙以及可选的最大和最小高度。
+ * 墙体符合地球仪的曲率，可以沿表面或海拔高度放置。
  *
  * @alias WallGraphics
  * @constructor
@@ -68,7 +68,7 @@ function WallGraphics(options) {
 
 Object.defineProperties(WallGraphics.prototype, {
   /**
-   * Gets the event that is raised whenever a property or sub-property is changed or modified.
+   * 获取在更改或修改属性或子属性时引发的事件。
    * @memberof WallGraphics.prototype
    *
    * @type {Event}
@@ -81,7 +81,7 @@ Object.defineProperties(WallGraphics.prototype, {
   },
 
   /**
-   * 获取或设置boolean Property specifying the visibility of the wall.
+   * 获取或设置boolean 指定墙的可见性的属性。
    * @memberof WallGraphics.prototype
    * @type {Property|undefined}
    * @default true
@@ -89,30 +89,30 @@ Object.defineProperties(WallGraphics.prototype, {
   show: createPropertyDescriptor("show"),
 
   /**
-   * 获取或设置Property specifying the array of {@link Cartesian3} positions which define the top of the wall.
+   * 获取或设置指定 {@link Cartesian3} 位置数组的属性，用于定义墙的顶部。
    * @memberof WallGraphics.prototype
    * @type {Property|undefined}
    */
   positions: createPropertyDescriptor("positions"),
 
   /**
-   * 获取或设置Property specifying an array of heights to be used for the bottom of the wall instead of the surface of the globe.
-   * If defined, the array must be the same length as {@link Wall#positions}.
+   * 获取或设置指定要用于墙底部而不是地球表面的高度数组的属性。
+   * 如果已定义，则数组的长度必须与 {@link Wall#positions} 相同。
    * @memberof WallGraphics.prototype
    * @type {Property|undefined}
    */
   minimumHeights: createPropertyDescriptor("minimumHeights"),
 
   /**
-   * 获取或设置Property specifying an array of heights to be used for the top of the wall instead of the height of each position.
-   * If defined, the array must be the same length as {@link Wall#positions}.
+   * 获取或设置指定要用于墙顶部的高度数组，而不是每个位置的高度的属性。
+   * 如果已定义，则数组的长度必须与 {@link Wall#positions} 相同。
    * @memberof WallGraphics.prototype
    * @type {Property|undefined}
    */
   maximumHeights: createPropertyDescriptor("maximumHeights"),
 
   /**
-   * 获取或设置numeric Property specifying the angular distance between points on the wall.
+   * 获取或设置numeric 指定墙上点之间的角度距离的属性。
    * @memberof WallGraphics.prototype
    * @type {Property|undefined}
    * @default {CesiumMath.RADIANS_PER_DEGREE}
@@ -120,7 +120,7 @@ Object.defineProperties(WallGraphics.prototype, {
   granularity: createPropertyDescriptor("granularity"),
 
   /**
-   * 获取或设置boolean Property specifying whether the wall is filled with the provided material.
+   * 获取或设置boolean 指定是否使用提供的材质填充墙的属性。
    * @memberof WallGraphics.prototype
    * @type {Property|undefined}
    * @default true
@@ -128,7 +128,7 @@ Object.defineProperties(WallGraphics.prototype, {
   fill: createPropertyDescriptor("fill"),
 
   /**
-   * 获取或设置Property specifying the material used to fill the wall.
+   * 获取或设置指定用于填充墙的材料的属性。
    * @memberof WallGraphics.prototype
    * @type {MaterialProperty}
    * @default Color.WHITE
@@ -136,7 +136,7 @@ Object.defineProperties(WallGraphics.prototype, {
   material: createMaterialPropertyDescriptor("material"),
 
   /**
-   * 获取或设置Property specifying whether the wall is outlined.
+   * 获取或设置指定是否对墙进行轮廓勾勒的属性。
    * @memberof WallGraphics.prototype
    * @type {Property|undefined}
    * @default false
@@ -144,7 +144,7 @@ Object.defineProperties(WallGraphics.prototype, {
   outline: createPropertyDescriptor("outline"),
 
   /**
-   * 获取或设置Property specifying the {@link Color} of the outline.
+   * 获取或设置指定轮廓的 {@link Color} 的属性。
    * @memberof WallGraphics.prototype
    * @type {Property|undefined}
    * @default Color.BLACK
@@ -152,9 +152,9 @@ Object.defineProperties(WallGraphics.prototype, {
   outlineColor: createPropertyDescriptor("outlineColor"),
 
   /**
-   * 获取或设置numeric Property specifying the width of the outline.
+   * 获取或设置numeric 指定轮廓宽度的属性。
    * <p>
-   * Note: This property will be ignored on all major browsers on Windows platforms. For details, see (@link https://github.com/CesiumGS/cesium/issues/40}.
+   * Note: 在 Windows 平台上的所有主要浏览器上都将忽略此属性。有关详细信息， see (@link https://github.com/CesiumGS/cesium/issues/40}.
    * </p>
    * @memberof WallGraphics.prototype
    * @type {Property|undefined}
@@ -163,8 +163,8 @@ Object.defineProperties(WallGraphics.prototype, {
   outlineWidth: createPropertyDescriptor("outlineWidth"),
 
   /**
-   * Get or sets the enum Property specifying whether the wall
-   * casts or receives shadows from light sources.
+   * 获取或设置 enum 属性，指定墙体是否
+   * 从光源投射或接收阴影。
    * @memberof WallGraphics.prototype
    * @type {Property|undefined}
    * @default ShadowMode.DISABLED
@@ -172,7 +172,7 @@ Object.defineProperties(WallGraphics.prototype, {
   shadows: createPropertyDescriptor("shadows"),
 
   /**
-   * 获取或设置{@link DistanceDisplayCondition} Property specifying at what distance from the camera that this wall will be displayed.
+   * 获取或设置{@link DistanceDisplayCondition} 指定在距摄像机多远处显示此墙的属性。
    * @memberof WallGraphics.prototype
    * @type {Property|undefined}
    */
@@ -182,10 +182,10 @@ Object.defineProperties(WallGraphics.prototype, {
 });
 
 /**
- * 复制instance.
+ * 复制实例。
  *
  * @param {WallGraphics} [result] 要在其上存储结果的对象。
- * @returns {WallGraphics} 修改后的结果参数 or a new instance if one was not provided.
+ * @returns {WallGraphics} 修改后的结果参数或者一个新实例（如果未提供）。
  */
 WallGraphics.prototype.clone = function (result) {
   if (!defined(result)) {
@@ -207,10 +207,10 @@ WallGraphics.prototype.clone = function (result) {
 };
 
 /**
- * Assigns each unassigned property on this object to the value
- * of the same property on the provided source object.
+ * 将此对象上每个未分配的属性分配给值
+ * 的 API 值。
  *
- * @param {WallGraphics} source The object to be merged into this object.
+ * @param {WallGraphics} source 要合并到此对象中的对象。
  */
 WallGraphics.prototype.merge = function (source) {
   //>>includeStart('debug', pragmas.debug);

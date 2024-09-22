@@ -1,9 +1,9 @@
 import DeveloperError from "../Core/DeveloperError.js";
 
 /**
- * Defines the interface for data sources, which turn arbitrary data into a
- * {@link EntityCollection} for generic consumption. This object is an interface
- * for documentation purposes and is not intended to be instantiated directly.
+ * 定义数据源的接口，该接口将任意数据转换为
+ * {@link EntityCollection} 用于通用使用。此对象是一个接口
+ * 用于文档目的，不打算直接实例化。
  * @alias DataSource
  * @constructor
  *
@@ -16,7 +16,7 @@ function DataSource() {
 
 Object.defineProperties(DataSource.prototype, {
   /**
-   * Gets a human-readable name for this instance.
+   * 获取此实例的可读名称。
    * @memberof DataSource.prototype
    * @type {string}
    */
@@ -24,7 +24,7 @@ Object.defineProperties(DataSource.prototype, {
     get: DeveloperError.throwInstantiationError,
   },
   /**
-   * Gets the preferred clock settings for this data source.
+   * 获取此数据源的首选时钟设置。
    * @memberof DataSource.prototype
    * @type {DataSourceClock}
    */
@@ -32,7 +32,7 @@ Object.defineProperties(DataSource.prototype, {
     get: DeveloperError.throwInstantiationError,
   },
   /**
-   * Gets the collection of {@link Entity} instances.
+   * 获取 {@link Entity} 实例的集合。
    * @memberof DataSource.prototype
    * @type {EntityCollection}
    */
@@ -40,7 +40,7 @@ Object.defineProperties(DataSource.prototype, {
     get: DeveloperError.throwInstantiationError,
   },
   /**
-   * Gets a value indicating if the data source is currently loading data.
+   * 获取一个值，该值指示数据源当前是否正在加载数据。
    * @memberof DataSource.prototype
    * @type {boolean}
    */
@@ -48,7 +48,7 @@ Object.defineProperties(DataSource.prototype, {
     get: DeveloperError.throwInstantiationError,
   },
   /**
-   * Gets an event that will be raised when the underlying data changes.
+   * 获取将在基础数据更改时引发的事件。
    * @memberof DataSource.prototype
    * @type {Event}
    */
@@ -56,7 +56,7 @@ Object.defineProperties(DataSource.prototype, {
     get: DeveloperError.throwInstantiationError,
   },
   /**
-   * Gets an event that will be raised if an error is encountered during processing.
+   * 获取在处理过程中遇到错误时将引发的事件。
    * @memberof DataSource.prototype
    * @type {Event<function(this, RequestErrorEvent)>}
    */
@@ -64,7 +64,7 @@ Object.defineProperties(DataSource.prototype, {
     get: DeveloperError.throwInstantiationError,
   },
   /**
-   * Gets an event that will be raised when the value of isLoading changes.
+   * 获取在 isLoading 的值更改时将引发的事件。
    * @memberof DataSource.prototype
    * @type {Event<function(this, boolean)>}
    */
@@ -81,7 +81,7 @@ Object.defineProperties(DataSource.prototype, {
   },
 
   /**
-   * 获取或设置clustering options for this data source. This object can be shared between multiple data sources.
+   * 获取或设置此数据源的聚类选项。此对象可以在多个数据源之间共享。
    *
    * @memberof DataSource.prototype
    * @type {EntityCluster}
@@ -92,13 +92,13 @@ Object.defineProperties(DataSource.prototype, {
 });
 
 /**
- * Updates the data source to the provided time.  This function is optional and
- * is not required to be implemented.  It is provided for data sources which
- * retrieve data based on the current animation time or scene state.
- * If implemented, update will be called by {@link DataSourceDisplay} once a frame.
+ * 将数据源更新为提供的时间。 此功能是可选的，并且
+ * 不需要实施。 它适用于以下数据源
+ * 根据当前动画时间或场景状态检索数据。
+ * 如果实现，则 {@link DataSourceDisplay} 将每帧调用一次 update。
  *
- * @param {JulianDate} time The simulation time.
- * @returns {boolean} True if this data source is ready to be displayed at the provided time, false 否则。
+ * @param {JulianDate} time 模拟时间。
+ * @returns {boolean} 如果此数据源已准备好在提供的时间显示，则为 True，否则为 false。
  */
 DataSource.prototype.update = function (time) {
   DeveloperError.throwInstantiationError();

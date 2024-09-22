@@ -13,13 +13,13 @@ import MaterialProperty from "./MaterialProperty.js";
 import Property from "./Property.js";
 
 /**
- * Defines the interface for a dynamic geometry updater.  A DynamicGeometryUpdater
- * is responsible for handling visualization of a specific type of geometry
- * that needs to be recomputed based on simulation time.
- * This object is never used directly by client code, but is instead created by
- * {@link GeometryUpdater} implementations which contain dynamic geometry.
+ * 定义动态几何图形更新程序的接口。 一个 DynamicGeometryUpdater
+ * 负责处理特定类型几何体的可视化
+ * 需要根据仿真时间重新计算。
+ * 此对象从不由客户端代码直接使用，而是由
+ * {@link GeometryUpdater} 实现。
  *
- * This type defines an interface and cannot be instantiated directly.
+ * 此类型定义接口，不能直接实例化。
  *
  * @alias DynamicGeometryUpdater
  * @constructor
@@ -59,11 +59,11 @@ DynamicGeometryUpdater.prototype._setOptions =
   DeveloperError.throwInstantiationError;
 
 /**
- * Updates the geometry to the specified time.
+ * 将几何图形更新到指定时间。
  * @memberof DynamicGeometryUpdater
  * @function
  *
- * @param {JulianDate} time The current time.
+ * @param {JulianDate} time 当前时间。
  */
 DynamicGeometryUpdater.prototype.update = function (time) {
   //>>includeStart('debug', pragmas.debug);
@@ -189,14 +189,14 @@ DynamicGeometryUpdater.prototype.update = function (time) {
 };
 
 /**
- * Computes a bounding sphere which encloses the visualization produced for the specified entity.
- * The bounding sphere is in the fixed frame of the scene's globe.
+ * 计算一个边界球体，该球体包含为指定实体生成的可视化效果。
+ * 边界球体位于场景地球的固定帧中。
  * @function
  *
- * @param {BoundingSphere} result The bounding sphere onto which to store the result.
- * @returns {BoundingSphereState} BoundingSphereState.DONE if the result contains the bounding sphere,
- *                       BoundingSphereState.PENDING if the result is still being computed, or
- *                       BoundingSphereState.FAILED if the entity has no visualization in the current scene.
+ * @param {BoundingSphere} result 要存储结果的边界球体。
+ * @returns {BoundingSphereState} BoundingSphereState.DONE（如果结果包含边界球体），
+ * BoundingSphereState.PENDING（如果结果仍在计算中），或者
+ * BoundingSphereState.FAILED，如果实体在当前场景中没有可视化效果。
  * @private
  */
 DynamicGeometryUpdater.prototype.getBoundingSphere = function (result) {
@@ -243,18 +243,18 @@ DynamicGeometryUpdater.prototype.getBoundingSphere = function (result) {
 };
 
 /**
- * Returns true if this object was destroyed; otherwise, false.
+ * 如果此对象已销毁，则返回 true;否则为 false。
  * @memberof DynamicGeometryUpdater
  * @function
  *
- * @returns {boolean} True if this object was destroyed; otherwise, false.
+ * @returns {boolean} 如果此对象被销毁，则为 True;否则为 false。
  */
 DynamicGeometryUpdater.prototype.isDestroyed = function () {
   return false;
 };
 
 /**
- * Destroys and resources used by the object.  Once an object is destroyed, it should not be used.
+ * 销毁对象使用的资源。 一旦对象被销毁，就不应该使用它。
  * @memberof DynamicGeometryUpdater
  * @function
  *

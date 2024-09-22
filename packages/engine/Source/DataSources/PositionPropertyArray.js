@@ -8,14 +8,14 @@ import ReferenceFrame from "../Core/ReferenceFrame.js";
 import Property from "./Property.js";
 
 /**
- * A {@link Property} whose value is an array whose items are the computed value
- * of other PositionProperty instances.
+ * 一个 {@link Property}，其值是一个数组，其项是计算值
+ * 的其他 PositionProperty 实例。
  *
  * @alias PositionPropertyArray
  * @constructor
  *
- * @param {Property[]} [value] An array of Property instances.
- * @param {ReferenceFrame} [referenceFrame=ReferenceFrame.FIXED] The reference frame in which the position is defined.
+ * @param {Property[]} [value] Property 实例的数组。
+ * @param {ReferenceFrame} [referenceFrame=ReferenceFrame.FIXED] 定义位置的参考系。
  */
 function PositionPropertyArray(value, referenceFrame) {
   this._value = undefined;
@@ -27,8 +27,8 @@ function PositionPropertyArray(value, referenceFrame) {
 
 Object.defineProperties(PositionPropertyArray.prototype, {
   /**
-   * Gets a value indicating if this property is constant.  This property
-   * is considered constant if all property items in the array are constant.
+   * 获取一个值，该值指示此属性是否为 constant。 此属性
+   * 如果数组中的所有属性项都是常量，则被视为常量。
    * @memberof PositionPropertyArray.prototype
    *
    * @type {boolean}
@@ -51,9 +51,9 @@ Object.defineProperties(PositionPropertyArray.prototype, {
     },
   },
   /**
-   * Gets the event that is raised whenever the definition of this property changes.
-   * The definition is changed whenever setValue is called with data different
-   * than the current value or one of the properties in the array also changes.
+   * 获取此属性的定义发生更改时引发的事件。
+   * 每当使用不同的数据调用 setValue 时，定义都会更改
+   * 时，当前值或数组中的某个属性也会更改。
    * @memberof PositionPropertyArray.prototype
    *
    * @type {Event}
@@ -65,7 +65,7 @@ Object.defineProperties(PositionPropertyArray.prototype, {
     },
   },
   /**
-   * Gets the reference frame in which the position is defined.
+   * 获取定义位置的参考帧。
    * @memberof PositionPropertyArray.prototype
    * @type {ReferenceFrame}
    * @default ReferenceFrame.FIXED;

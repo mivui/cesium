@@ -9,14 +9,14 @@ import Property from "./Property.js";
 const defaultNodeTransformation = new TranslationRotationScale();
 
 /**
- * A {@link Property} that produces {@link TranslationRotationScale} data.
+ * 生成 {@link TranslationRotationScale} 数据的 {@link Property}。
  * @alias NodeTransformationProperty
  * @constructor
  *
- * @param {object} [options] 对象，具有以下属性:
- * @param {Property|Cartesian3} [options.translation=Cartesian3.ZERO] A {@link Cartesian3} Property specifying the (x, y, z) translation to apply to the node.
- * @param {Property|Quaternion} [options.rotation=Quaternion.IDENTITY] A {@link Quaternion} Property specifying the (x, y, z, w) rotation to apply to the node.
- * @param {Property|Cartesian3} [options.scale=new Cartesian3(1.0, 1.0, 1.0)] A {@link Cartesian3} Property specifying the (x, y, z) scaling to apply to the node.
+ * @param {object} [options] 对象，具有以下属性：
+ * @param {Property|Cartesian3} [options.translation=Cartesian3.ZERO] 一个 {@link Cartesian3} 属性，指定要应用于节点的 （x， y， z） 转换。
+ * @param {Property|Quaternion} [options.rotation=Quaternion.IDENTITY] 一个 {@link Quaternion} 属性，指定要应用于节点的 （x， y， z， w） 旋转。
+ * @param {Property|Cartesian3} [options.scale=new Cartesian3(1.0, 1.0, 1.0)] 一个 {@link Cartesian3} 属性，指定要应用于节点的 （x， y， z） 缩放。
  */
 function NodeTransformationProperty(options) {
   options = defaultValue(options, defaultValue.EMPTY_OBJECT);
@@ -36,8 +36,8 @@ function NodeTransformationProperty(options) {
 
 Object.defineProperties(NodeTransformationProperty.prototype, {
   /**
-   * Gets a value indicating if this property is constant.  A property is considered
-   * constant if getValue always returns the same result for the current definition.
+   * 获取一个值，该值指示此属性是否为 constant。 将属性视为
+   * 常量（如果 getValue 始终为当前定义返回相同的结果）。
    * @memberof NodeTransformationProperty.prototype
    *
    * @type {boolean}
@@ -54,9 +54,9 @@ Object.defineProperties(NodeTransformationProperty.prototype, {
   },
 
   /**
-   * Gets the event that is raised whenever the definition of this property changes.
-   * The definition is considered to have changed if a call to getValue would return
-   * a different result for the same time.
+   * 获取此属性的定义发生更改时引发的事件。
+   * 如果对 getValue 的调用会返回 getValue，则认为定义已更改
+   * 同一时间的不同结果。
    * @memberof NodeTransformationProperty.prototype
    *
    * @type {Event}
@@ -69,7 +69,7 @@ Object.defineProperties(NodeTransformationProperty.prototype, {
   },
 
   /**
-   * 获取或设置{@link Cartesian3} Property specifying the (x, y, z) translation to apply to the node.
+   * 获取或设置{@link Cartesian3}指定要应用于节点的 （x， y， z） 转换的属性。
    * @memberof NodeTransformationProperty.prototype
    * @type {Property|undefined}
    * @default Cartesian3.ZERO
@@ -77,7 +77,7 @@ Object.defineProperties(NodeTransformationProperty.prototype, {
   translation: createPropertyDescriptor("translation"),
 
   /**
-   * 获取或设置{@link Quaternion} Property specifying the (x, y, z, w) rotation to apply to the node.
+   * 获取或设置{@link Quaternion} 指定要应用于节点的 （x， y， z， w） 旋转的属性。
    * @memberof NodeTransformationProperty.prototype
    * @type {Property|undefined}
    * @default Quaternion.IDENTITY
@@ -85,7 +85,7 @@ Object.defineProperties(NodeTransformationProperty.prototype, {
   rotation: createPropertyDescriptor("rotation"),
 
   /**
-   * 获取或设置{@link Cartesian3} Property specifying the (x, y, z) scaling to apply to the node.
+   * 获取或设置{@link Cartesian3} 指定要应用于节点的 （x， y， z） 缩放的属性。
    * @memberof NodeTransformationProperty.prototype
    * @type {Property|undefined}
    * @default new Cartesian3(1.0, 1.0, 1.0)
@@ -96,11 +96,11 @@ Object.defineProperties(NodeTransformationProperty.prototype, {
 const timeScratch = new JulianDate();
 
 /**
- * Gets the value of the property at the provided time.
+ * 获取属性在提供的时间的值。
  *
- * @param {JulianDate} [time=JulianDate.now()] The time for which to retrieve the value. If omitted, the current system time is used.
- * @param {TranslationRotationScale} [result] The object to store the value into, if omitted, a new instance is created and returned.
- * @returns {TranslationRotationScale} 修改后的结果参数 or a new instance if the result parameter was not supplied.
+ * @param {JulianDate} [time=JulianDate.now()] 检索值的时间。如果省略，则使用当前系统时间。
+ * @param {TranslationRotationScale} [result] 要将值存储到的对象，如果省略，则创建并返回一个新实例。
+ * @returns {TranslationRotationScale} 修改后的结果参数或者，如果未提供 result 参数，则为新实例。
  */
 NodeTransformationProperty.prototype.getValue = function (time, result) {
   if (!defined(time)) {
@@ -132,10 +132,10 @@ NodeTransformationProperty.prototype.getValue = function (time, result) {
 };
 
 /**
- * Compares this property to the provided property and returns
- * <code>true</code>，否则为<code>false</code>。
+ * 将此属性与提供的属性进行比较，并返回
+ * <code>true</code>，否则为 <code>false</code>。
  *
- * @param {Property} [other] The other property.
+ * @param {Property} [other] 另一个属性。
  * @returns {boolean} <code>true</code>如果左和右相等，否则<code>false</code>。
  */
 NodeTransformationProperty.prototype.equals = function (other) {

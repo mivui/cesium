@@ -67,41 +67,41 @@ function createPropertyTypeDescriptor(name, Type) {
 /**
  * @typedef {object} Entity.ConstructorOptions
  *
- * Initialization options for the Entity constructor
+ * Entity 构造函数的初始化选项
  *
- * @property {string} [id] A unique identifier for this object. If none is provided, a GUID is generated.
- * @property {string} [name] A human readable name to display to users. It does not have to be unique.
- * @property {TimeIntervalCollection} [availability] The availability, if any, associated with this object.
- * @property {boolean} [show] A boolean value indicating if the entity and its children are displayed.
- * @property {Property | string} [description] A string Property specifying an HTML description for this entity.
- * @property {PositionProperty | Cartesian3 | CallbackProperty} [position] A Property specifying the entity position.
- * @property {Property | Quaternion} [orientation=Transforms.eastNorthUpToFixedFrame(position)] A Property specifying the entity orientation in respect to Earth-fixed-Earth-centered (ECEF). If undefined, east-north-up at entity position is used.
- * @property {Property | Cartesian3} [viewFrom] A suggested initial offset for viewing this object.
- * @property {Entity} [parent] A parent entity to associate with this entity.
- * @property {BillboardGraphics | BillboardGraphics.ConstructorOptions} [billboard] A billboard to associate with this entity.
- * @property {BoxGraphics | BoxGraphics.ConstructorOptions} [box] A box to associate with this entity.
- * @property {CorridorGraphics | CorridorGraphics.ConstructorOptions} [corridor] A corridor to associate with this entity.
- * @property {CylinderGraphics | CylinderGraphics.ConstructorOptions} [cylinder] A cylinder to associate with this entity.
- * @property {EllipseGraphics | EllipseGraphics.ConstructorOptions} [ellipse] A ellipse to associate with this entity.
- * @property {EllipsoidGraphics | EllipsoidGraphics.ConstructorOptions} [ellipsoid] A ellipsoid to associate with this entity.
- * @property {LabelGraphics | LabelGraphics.ConstructorOptions} [label] A options.label to associate with this entity.
- * @property {ModelGraphics | ModelGraphics.ConstructorOptions} [model] A model to associate with this entity.
- * @property {Cesium3DTilesetGraphics | Cesium3DTilesetGraphics.ConstructorOptions} [tileset] A 3D Tiles tileset to associate with this entity.
- * @property {PathGraphics | PathGraphics.ConstructorOptions} [path] A path to associate with this entity.
- * @property {PlaneGraphics | PlaneGraphics.ConstructorOptions} [plane] A plane to associate with this entity.
- * @property {PointGraphics | PointGraphics.ConstructorOptions} [point] A point to associate with this entity.
- * @property {PolygonGraphics | PolygonGraphics.ConstructorOptions} [polygon] A polygon to associate with this entity.
- * @property {PolylineGraphics | PolylineGraphics.ConstructorOptions} [polyline] A polyline to associate with this entity.
- * @property {PropertyBag | Object<string,*>} [properties] Arbitrary properties to associate with this entity.
- * @property {PolylineVolumeGraphics | PolylineVolumeGraphics.ConstructorOptions} [polylineVolume] A polylineVolume to associate with this entity.
- * @property {RectangleGraphics | RectangleGraphics.ConstructorOptions} [rectangle] A rectangle to associate with this entity.
- * @property {WallGraphics | WallGraphics.ConstructorOptions} [wall] A wall to associate with this entity.
+ * @property {string} [id] 此对象的唯一标识符。如果未提供任何 GUID，则会生成 GUID。
+ * @property {string} [name] 向用户显示的可读名称。它不必是唯一的。
+ * @property {TimeIntervalCollection} [availability] 与此对象关联的可用性 （如果有）。
+ * @property {boolean} [show] 一个布尔值，指示是否显示实体及其子项。
+ * @property {Property | string} [description] 一个 string 属性，用于指定此实体的 HTML 描述。
+ * @property {PositionProperty | Cartesian3 | CallbackProperty} [position] 指定实体位置的 Property。
+ * @property {Property | Quaternion} [orientation=Transforms.eastNorthUpToFixedFrame(position)] 一个属性，用于指定相对于地球固定地球中心 （ECEF） 的实体方向。如果未定义，则在实体位置使用 east-north-up。
+ * @property {Property | Cartesian3} [viewFrom] 查看此对象时建议的初始偏移量。
+ * @property {Entity} [parent] 要与此实体关联的父实体。
+ * @property {BillboardGraphics | BillboardGraphics.ConstructorOptions} [billboard] 要与此实体关联的公告板。
+ * @property {BoxGraphics | BoxGraphics.ConstructorOptions} [box] 要与此实体关联的框。
+ * @property {CorridorGraphics | CorridorGraphics.ConstructorOptions} [corridor] 要与此实体关联的走廊。
+ * @property {CylinderGraphics | CylinderGraphics.ConstructorOptions} [cylinder] 要与此实体关联的圆柱体。
+ * @property {EllipseGraphics | EllipseGraphics.ConstructorOptions} [ellipse] 要与此实体关联的椭圆。
+ * @property {EllipsoidGraphics | EllipsoidGraphics.ConstructorOptions} [ellipsoid] 要与此实体关联的椭球体。
+ * @property {LabelGraphics | LabelGraphics.ConstructorOptions} [label] 与此实体关联的 options.label。
+ * @property {ModelGraphics | ModelGraphics.ConstructorOptions} [model] 要与此实体关联的模型。
+ * @property {Cesium3DTilesetGraphics | Cesium3DTilesetGraphics.ConstructorOptions} [tileset] 要与此实体关联的 3D Tiles 图块集。
+ * @property {PathGraphics | PathGraphics.ConstructorOptions} [path] 要与此实体关联的路径。
+ * @property {PlaneGraphics | PlaneGraphics.ConstructorOptions} [plane] 要与此实体关联的平面。
+ * @property {PointGraphics | PointGraphics.ConstructorOptions} [point] 要与此实体关联的点。
+ * @property {PolygonGraphics | PolygonGraphics.ConstructorOptions} [polygon] 要与此实体关联的多边形。
+ * @property {PolylineGraphics | PolylineGraphics.ConstructorOptions} [polyline] 要与此实体关联的多段线。
+ * @property {PropertyBag | Object<string,*>} [properties] 要与此实体关联的任意属性。
+ * @property {PolylineVolumeGraphics | PolylineVolumeGraphics.ConstructorOptions} [polylineVolume] 要与此实体关联的 polylineVolume。
+ * @property {RectangleGraphics | RectangleGraphics.ConstructorOptions} [rectangle] 要与此实体关联的矩形。
+ * @property {WallGraphics | WallGraphics.ConstructorOptions} [wall] 要与此实体关联的墙。
  */
 
 /**
- * Entity instances aggregate multiple forms of visualization into a single high-level object.
- * They can be created manually and added to {@link Viewer#entities} or be produced by
- * data sources, such as {@link CzmlDataSource} and {@link GeoJsonDataSource}.
+ * 实体实例将多种形式的可视化聚合到单个高级对象中。
+ * 它们可以手动创建并添加到 {@link Viewer#entities} 中，也可以由
+ * 数据源，例如 {@link CzmlDataSource} 和 {@link GeoJsonDataSource}。
  * @alias Entity
  * @constructor
  *
@@ -226,17 +226,17 @@ function updateShow(entity, children, isShowing) {
 
 Object.defineProperties(Entity.prototype, {
   /**
-   * The availability, if any, associated with this object.
-   * If availability is undefined, it is assumed that this object's
-   * other properties will return valid data for any provided time.
-   * If availability exists, the objects other properties will only
-   * provide valid data if queried within the given interval.
+   * 与此对象关联的可用性 （如果有）。
+   * 如果未定义可用性，则假定此对象的
+   * 其他属性将返回任何提供时间的有效数据。
+   * 如果存在可用性，则对象的其他属性将仅
+   * 如果在给定的间隔内查询，请提供有效数据。
    * @memberof Entity.prototype
    * @type {TimeIntervalCollection|undefined}
    */
   availability: createRawPropertyDescriptor("availability"),
   /**
-   * Gets the unique ID associated with this object.
+   * 获取与此对象关联的唯一 ID。
    * @memberof Entity.prototype
    * @type {string}
    */
@@ -246,7 +246,7 @@ Object.defineProperties(Entity.prototype, {
     },
   },
   /**
-   * Gets the event that is raised whenever a property or sub-property is changed or modified.
+   * 获取在更改或修改属性或子属性时引发的事件。
    * @memberof Entity.prototype
    *
    * @type {Event}
@@ -258,15 +258,15 @@ Object.defineProperties(Entity.prototype, {
     },
   },
   /**
-   * 获取或设置name of the object.  The name is intended for end-user
-   * consumption and does not need to be unique.
+   * 获取或设置对象的名称。 该名称适用于最终用户
+   * 消耗，并且不需要是唯一的。
    * @memberof Entity.prototype
    * @type {string|undefined}
    */
   name: createRawPropertyDescriptor("name"),
   /**
-   * Gets or sets whether this entity should be displayed. When set to true,
-   * the entity is only displayed if the parent entity's show property is also true.
+   * 获取或设置是否应显示此实体。当设置为 true 时，
+   * 仅当父实体的 show 属性也为 true 时，才会显示实体。
    * @memberof Entity.prototype
    * @type {boolean}
    */
@@ -297,8 +297,8 @@ Object.defineProperties(Entity.prototype, {
     },
   },
   /**
-   * Gets whether this entity is being displayed, taking into account
-   * the visibility of any ancestor entities.
+   * 获取是否显示此实体，同时考虑
+   * 任何祖先实体的可见性。
    * @memberof Entity.prototype
    * @type {boolean}
    */
@@ -312,7 +312,7 @@ Object.defineProperties(Entity.prototype, {
     },
   },
   /**
-   * 获取或设置parent object.
+   * 获取或设置parent 对象。
    * @memberof Entity.prototype
    * @type {Entity|undefined}
    */
@@ -348,7 +348,7 @@ Object.defineProperties(Entity.prototype, {
     },
   },
   /**
-   * Gets the names of all properties registered on this instance.
+   * 获取在此实例上注册的所有属性的名称。
    * @memberof Entity.prototype
    * @type {string[]}
    */
@@ -464,7 +464,7 @@ Object.defineProperties(Entity.prototype, {
     PolylineVolumeGraphics
   ),
   /**
-   * 获取或设置bag of arbitrary properties associated with this entity.
+   * 获取或设置bag 的任意属性。
    * @memberof Entity.prototype
    * @type {PropertyBag|undefined}
    */
@@ -482,9 +482,9 @@ Object.defineProperties(Entity.prototype, {
    */
   rectangle: createPropertyTypeDescriptor("rectangle", RectangleGraphics),
   /**
-   * 获取或设置suggested initial offset when tracking this object.
-   * The offset is typically defined in the east-north-up reference frame,
-   * but may be another frame depending on the object's velocity.
+   * 获取或设置跟踪此对象时建议的初始偏移量。
+   * 偏移量通常在东北向上的参考系中定义，
+   * 但可能是另一帧，具体取决于对象的速度。
    * @memberof Entity.prototype
    * @type {Property|undefined}
    */
@@ -498,10 +498,10 @@ Object.defineProperties(Entity.prototype, {
 });
 
 /**
- * Add the specified type and construct the properties for it in the Entity class
+ * 添加指定的类型并在 Entity 类中为其构造属性
  * @private
- * @param {string} propertyName name of the property that controls/accesses this entity type
- * @param {{ constructor: function }} Type The Graphics class to associate with this entity type
+ * @param {string} propertyName 控制/访问此实体类型的属性的名称
+ * @param {{ constructor: function }} Type 要与此实体类型关联的 Graphics 类
  */
 Entity.registerEntityType = function (propertyName, Type) {
   Object.defineProperties(Entity.prototype, {
@@ -513,10 +513,10 @@ Entity.registerEntityType = function (propertyName, Type) {
 };
 
 /**
- * Given a time, returns true if this object should have data during that time.
+ * 给定时间，如果此对象在该时间内应有数据，则返回 true。
  *
- * @param {JulianDate} time The time to check availability for.
- * @returns {boolean} true if the object should have data during the provided time, false 否则。
+ * @param {JulianDate} time 检查可用性的时间。
+ * @returns {boolean} true 如果对象在提供的时间内应该有数据，则为 false 否则。
  */
 Entity.prototype.isAvailable = function (time) {
   //>>includeStart('debug', pragmas.debug);
@@ -530,11 +530,11 @@ Entity.prototype.isAvailable = function (time) {
 };
 
 /**
- * Adds a property to this object.  Once a property is added, it can be
- * observed with {@link Entity#definitionChanged} and composited
- * with {@link CompositeEntityCollection}
+ * 向此对象添加属性。 添加属性后，它可以
+ * 使用 {@link Entity#definitionChanged} 观察到并合成
+ * 替换为 {@link CompositeEntityCollection}
  *
- * @param {string} propertyName The name of the property to add.
+ * @param {string} propertyName 要添加的属性的名称。
  *
  * @exception {DeveloperError} "propertyName" is a reserved property name.
  * @exception {DeveloperError} "propertyName" is already a registered property.
@@ -565,9 +565,9 @@ Entity.prototype.addProperty = function (propertyName) {
 };
 
 /**
- * Removed a property previously added with addProperty.
+ * 删除了以前使用 addProperty 添加的属性。
  *
- * @param {string} propertyName The name of the property to remove.
+ * @param {string} propertyName 要删除的属性的名称。
  *
  * @exception {DeveloperError} "propertyName" is a reserved property name.
  * @exception {DeveloperError} "propertyName" is not a registered property.
@@ -590,10 +590,10 @@ Entity.prototype.removeProperty = function (propertyName) {
 };
 
 /**
- * Assigns each unassigned property on this object to the value
- * of the same property on the provided source object.
+ * 将此对象上每个未分配的属性分配给值
+ * 的 API 值。
  *
- * @param {Entity} source The object to be merged into this object.
+ * @param {Entity} source 要合并到此对象中的对象。
  */
 Entity.prototype.merge = function (source) {
   //>>includeStart('debug', pragmas.debug);
@@ -658,12 +658,12 @@ const positionScratch = new Cartesian3();
 const orientationScratch = new Quaternion();
 
 /**
- * Computes the model matrix for the entity's transform at specified time. Returns undefined if position is undefined
+ * 计算实体在指定时间的转换的模型矩阵。如果 position 未定义，则返回 undefined
  *
- * @param {JulianDate} time The time to retrieve model matrix for.
+ * @param {JulianDate} time 检索模型矩阵的时间。
  * @param {Matrix4} [result] 要在其上存储结果的对象。
  *
- * @returns {Matrix4} 修改后的结果参数 or a new Matrix4 instance if one was not provided. Result is undefined if position is undefined.
+ * @returns {Matrix4} 修改后的结果参数或者一个新的 Matrix4 实例（如果未提供）。如果位置未定义，则结果为 undefined。
  */
 Entity.prototype.computeModelMatrix = function (time, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -752,24 +752,24 @@ Entity.prototype.computeModelMatrixForHeightReference = function (
 };
 
 /**
- * Checks if the given Scene supports materials besides Color on Entities draped on terrain or 3D Tiles.
- * If this feature is not supported, Entities with non-color materials but no `height` will
- * instead be rendered as if height is 0.
+ * 检查给定场景是否支持除 Color 之外的 Entity on Overlay on terrain 或 3D Tiles 上的材质。
+ * 如果不支持此功能，则具有非颜色材质但没有“高度”的实体将
+ * 的渲染方式为 height 为 0。
  *
- * @param {Scene} scene The current scene.
- * @returns {boolean} Whether or not the current scene supports materials for entities on terrain.
+ * @param {Scene} scene 当前场景。
+ * @returns {boolean} 当前场景是否支持地形上实体的材质。
  */
 Entity.supportsMaterialsforEntitiesOnTerrain = function (scene) {
   return GroundPrimitive.supportsMaterials(scene);
 };
 
 /**
- * Checks if the given Scene supports polylines clamped to terrain or 3D Tiles.
- * If this feature is not supported, Entities with PolylineGraphics will be rendered with vertices at
- * the provided heights and using the `arcType` parameter instead of clamped to the ground.
+ * 检查给定场景是否支持固定到地形或 3D 瓦片的折线。
+ * 如果不支持此功能，则具有 PolylineGraphics 的实体将以
+ * 提供的高度，并使用 'arcType' 参数而不是固定到地面。
  *
- * @param {Scene} scene The current scene.
- * @returns {boolean} Whether or not the current scene supports polylines on terrain or 3D TIles.
+ * @param {Scene} scene 当前场景。
+ * @returns {boolean} 当前场景是否支持地形上的折线或 3D 图块。
  */
 Entity.supportsPolylinesOnTerrain = function (scene) {
   return GroundPolylinePrimitive.isSupported(scene);

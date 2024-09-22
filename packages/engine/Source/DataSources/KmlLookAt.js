@@ -2,8 +2,8 @@
  * @alias KmlLookAt
  * @constructor
  *
- * @param {Cartesian3} position camera position
- * @param {HeadingPitchRange} headingPitchRange camera orientation
+ * @param {Cartesian3} position 摄像机位置
+ * @param {HeadingPitchRange} headingPitchRange 相机方向
  */
 function KmlLookAt(position, headingPitchRange) {
   this.position = position;

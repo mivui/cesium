@@ -552,31 +552,31 @@ function processTopology(dataSource, geoJson, geometry, crsFunction, options) {
 /**
  * @typedef {object} GeoJsonDataSource.LoadOptions
  *
- * Initialization options for the <code>load</code> method.
+ * <code>load</code> 方法的初始化选项。
  *
- * @property {string} [sourceUri] Overrides the url to use for resolving relative links.
- * @property {GeoJsonDataSource.describe} [describe=GeoJsonDataSource.defaultDescribeProperty] A function which returns a Property object (or just a string).
- * @property {number} [markerSize=GeoJsonDataSource.markerSize] The default size of the map pin created for each point, in pixels.
- * @property {string} [markerSymbol=GeoJsonDataSource.markerSymbol] The default symbol of the map pin created for each point.
- * @property {Color} [markerColor=GeoJsonDataSource.markerColor] The default color of the map pin created for each point.
- * @property {Color} [stroke=GeoJsonDataSource.stroke] The default color of polylines and polygon outlines.
- * @property {number} [strokeWidth=GeoJsonDataSource.strokeWidth] The default width of polylines and polygon outlines.
- * @property {Color} [fill=GeoJsonDataSource.fill] The default color for polygon interiors.
- * @property {boolean} [clampToGround=GeoJsonDataSource.clampToGround] true if we want the geometry features (polygons or linestrings) clamped to the ground.
- * @property {Credit|string} [credit] A credit for the data source, which is displayed on the canvas.
+ * @property {string} [sourceUri] 覆盖用于解析相对链接的 URL。
+ * @property {GeoJsonDataSource.describe} [describe=GeoJsonDataSource.defaultDescribeProperty] 返回 Property 对象（或仅返回字符串）的函数。
+ * @property {number} [markerSize=GeoJsonDataSource.markerSize] 为每个点创建的地图图钉的默认大小（以像素为单位）。
+ * @property {string} [markerSymbol=GeoJsonDataSource.markerSymbol] 为每个点创建的地图图钉的默认符号。
+ * @property {Color} [markerColor=GeoJsonDataSource.markerColor] 为每个点创建的地图图钉的默认颜色。
+ * @property {Color} [stroke=GeoJsonDataSource.stroke] 折线和多边形轮廓的默认颜色。
+ * @property {number} [strokeWidth=GeoJsonDataSource.strokeWidth] 折线和多边形轮廓的默认宽度。
+ * @property {Color} [fill=GeoJsonDataSource.fill] 多边形内部的默认颜色。
+ * @property {boolean} [clampToGround=GeoJsonDataSource.clampToGround] true 如果我们想将几何特征（多边形或线串）固定到地面上。
+ * @property {Credit|string} [credit] 数据源的积分，显示在画布上。
  */
 
 /**
- * A {@link DataSource} which processes both
- * {@link http://www.geojson.org/|GeoJSON} and {@link https://github.com/mbostock/topojson|TopoJSON} data.
- * {@link https://github.com/mapbox/simplestyle-spec|simplestyle-spec} properties will also be used if they
- * are present.
+ * 一个 {@link DataSource}，它处理
+ * {@link http://www.geojson.org/|GeoJSON} 和 {@link https://github.com/mbostock/topojson|TopoJSON} 数据。
+ * {@link https://github.com/mapbox/simplestyle-spec|simplestyle-spec} 属性也将在以下情况下被使用
+ * 存在。
  *
  * @alias GeoJsonDataSource
  * @constructor
  *
- * @param {string} [name] The name of this data source.  If undefined, a name will be taken from
- *                        the name of the GeoJSON file.
+ * @param {string} [name] 此数据源的名称。 如果未定义，则名称将从
+ * GeoJSON 文件的名称。
  *
  * @demo {@link https://sandcastle.cesium.com/index.html?src=GeoJSON%20and%20TopoJSON.html|Cesium Sandcastle GeoJSON and TopoJSON Demo}
  * @demo {@link https://sandcastle.cesium.com/index.html?src=GeoJSON%20simplestyle.html|Cesium Sandcastle GeoJSON simplestyle Demo}
@@ -605,12 +605,12 @@ function GeoJsonDataSource(name) {
 }
 
 /**
- * Creates a Promise to a new instance loaded with the provided GeoJSON or TopoJSON data.
+ * 为加载了提供的 GeoJSON 或 TopoJSON 数据的新实例创建 Promise。
  *
- * @param {Resource|string|object} data A url, GeoJSON object, or TopoJSON object to be loaded.
- * @param {GeoJsonDataSource.LoadOptions} [options] An object specifying configuration options
+ * @param {Resource|string|object} data 要加载的 url、GeoJSON 对象或 TopoJSON 对象。
+ * @param {GeoJsonDataSource.LoadOptions} [options] 指定配置选项的对象
  *
- * @returns {Promise<GeoJsonDataSource>} A promise that will resolve when the data is loaded.
+ * @returns {Promise<GeoJsonDataSource>} 加载数据时将解析的 Promise。
  */
 GeoJsonDataSource.load = function (data, options) {
   return new GeoJsonDataSource().load(data, options);
@@ -618,7 +618,7 @@ GeoJsonDataSource.load = function (data, options) {
 
 Object.defineProperties(GeoJsonDataSource, {
   /**
-   * 获取或设置default size of the map pin created for each point, in pixels.
+   * 获取或设置为每个点创建的映射图钉的默认大小（以像素为单位）。
    * @memberof GeoJsonDataSource
    * @type {number}
    * @default 48
@@ -632,9 +632,9 @@ Object.defineProperties(GeoJsonDataSource, {
     },
   },
   /**
-   * 获取或设置default symbol of the map pin created for each point.
-   * This can be any valid {@link http://mapbox.com/maki/|Maki} identifier, any single character,
-   * or blank if no symbol is to be used.
+   * 获取或设置为每个点创建的 Map Pin 的默认元件。
+   * 这可以是任何有效的 {@link http://mapbox.com/maki/|Maki} 标识符、任何单个字符、
+   * 如果不要使用符号，则为空。
    * @memberof GeoJsonDataSource
    * @type {string}
    */
@@ -647,7 +647,7 @@ Object.defineProperties(GeoJsonDataSource, {
     },
   },
   /**
-   * 获取或设置default color of the map pin created for each point.
+   * 获取或设置为每个点创建的贴图引脚的默认颜色。
    * @memberof GeoJsonDataSource
    * @type {Color}
    * @default Color.ROYALBLUE
@@ -661,7 +661,7 @@ Object.defineProperties(GeoJsonDataSource, {
     },
   },
   /**
-   * 获取或设置default color of polylines and polygon outlines.
+   * 获取或设置折线和多边形轮廓的默认颜色。
    * @memberof GeoJsonDataSource
    * @type {Color}
    * @default Color.BLACK
@@ -675,7 +675,7 @@ Object.defineProperties(GeoJsonDataSource, {
     },
   },
   /**
-   * 获取或设置default width of polylines and polygon outlines.
+   * 获取或设置折线和多边形轮廓的默认宽度。
    * @memberof GeoJsonDataSource
    * @type {number}
    * @default 2.0
@@ -689,7 +689,7 @@ Object.defineProperties(GeoJsonDataSource, {
     },
   },
   /**
-   * Gets or sets default color for polygon interiors.
+   * 获取或设置多边形内部的默认颜色。
    * @memberof GeoJsonDataSource
    * @type {Color}
    * @default Color.YELLOW
@@ -703,7 +703,7 @@ Object.defineProperties(GeoJsonDataSource, {
     },
   },
   /**
-   * Gets or sets default of whether to clamp to the ground.
+   * 获取或设置是否固定到地面的默认值.
    * @memberof GeoJsonDataSource
    * @type {boolean}
    * @default false
@@ -718,10 +718,10 @@ Object.defineProperties(GeoJsonDataSource, {
   },
 
   /**
-   * Gets an object that maps the name of a crs to a callback function which takes a GeoJSON coordinate
-   * and transforms it into a WGS84 Earth-fixed Cartesian.  Older versions of GeoJSON which
-   * supported the EPSG type can be added to this list as well, by specifying the complete EPSG name,
-   * for example 'EPSG:4326'.
+   * 获取一个对象，该对象将 crs 的名称映射到一个采用 GeoJSON 坐标的回调函数
+   * 并将其转换为 WGS84 地球固定笛卡尔矩阵。 旧版本的 GeoJSON
+   * 支持的 EPSG 类型也可以添加到此列表中，只需指定完整的 EPSG 名称即可。
+   * 例如：'EPSG：4326'。
    * @memberof GeoJsonDataSource
    * @type {object}
    */
@@ -732,11 +732,11 @@ Object.defineProperties(GeoJsonDataSource, {
   },
 
   /**
-   * Gets an object that maps the href property of a crs link to a callback function
-   * which takes the crs properties object and returns a Promise that resolves
-   * to a function that takes a GeoJSON coordinate and transforms it into a WGS84 Earth-fixed Cartesian.
-   * Items in this object take precedence over those defined in <code>crsLinkHrefs</code>, assuming
-   * the link has a type specified.
+   * 获取将 crs 链接的 href 属性映射到回调函数的对象
+   * 它接受 crs properties 对象并返回一个 Promise，该 Promise 解析
+   * 转换为一个函数，该函数采用 GeoJSON 坐标并将其转换为 WGS84 地球固定笛卡尔坐标。
+   * 此对象中的项目优先于 <code>crsLinkHrefs</code> 中定义的项目，假设
+   * 链接指定了类型。
    * @memberof GeoJsonDataSource
    * @type {object}
    */
@@ -747,10 +747,10 @@ Object.defineProperties(GeoJsonDataSource, {
   },
 
   /**
-   * Gets an object that maps the type property of a crs link to a callback function
-   * which takes the crs properties object and returns a Promise that resolves
-   * to a function that takes a GeoJSON coordinate and transforms it into a WGS84 Earth-fixed Cartesian.
-   * Items in <code>crsLinkHrefs</code> take precedence over this object.
+   * 获取将 crs 链接的 type 属性映射到回调函数的对象
+   * 它接受 crs properties 对象并返回一个 Promise，该 Promise 解析
+   * 转换为一个函数，该函数采用 GeoJSON 坐标并将其转换为 WGS84 地球固定笛卡尔坐标。
+   * <code>crsLinkHrefs</code> 中的项优先于此对象。
    * @memberof GeoJsonDataSource
    * @type {object}
    */
@@ -763,7 +763,7 @@ Object.defineProperties(GeoJsonDataSource, {
 
 Object.defineProperties(GeoJsonDataSource.prototype, {
   /**
-   * Gets or sets a human-readable name for this instance.
+   * 获取或设置此实例的可读名称。
    * @memberof GeoJsonDataSource.prototype
    * @type {string}
    */
@@ -779,7 +779,7 @@ Object.defineProperties(GeoJsonDataSource.prototype, {
     },
   },
   /**
-   * This DataSource only defines static data, therefore this property is always undefined.
+   * 此 DataSource 仅定义静态数据，因此此属性始终未定义。
    * @memberof GeoJsonDataSource.prototype
    * @type {DataSourceClock}
    */
@@ -788,7 +788,7 @@ Object.defineProperties(GeoJsonDataSource.prototype, {
     writable: false,
   },
   /**
-   * Gets the collection of {@link Entity} instances.
+   * 获取 {@link Entity} 实例的集合。
    * @memberof GeoJsonDataSource.prototype
    * @type {EntityCollection}
    */
@@ -798,7 +798,7 @@ Object.defineProperties(GeoJsonDataSource.prototype, {
     },
   },
   /**
-   * Gets a value indicating if the data source is currently loading data.
+   * 获取一个值，该值指示数据源当前是否正在加载数据。
    * @memberof GeoJsonDataSource.prototype
    * @type {boolean}
    */
@@ -808,7 +808,7 @@ Object.defineProperties(GeoJsonDataSource.prototype, {
     },
   },
   /**
-   * Gets an event that will be raised when the underlying data changes.
+   * 获取将在基础数据更改时引发的事件。
    * @memberof GeoJsonDataSource.prototype
    * @type {Event}
    */
@@ -818,7 +818,7 @@ Object.defineProperties(GeoJsonDataSource.prototype, {
     },
   },
   /**
-   * Gets an event that will be raised if an error is encountered during processing.
+   * 获取在处理过程中遇到错误时将引发的事件。
    * @memberof GeoJsonDataSource.prototype
    * @type {Event}
    */
@@ -828,7 +828,7 @@ Object.defineProperties(GeoJsonDataSource.prototype, {
     },
   },
   /**
-   * Gets an event that will be raised when the data source either starts or stops loading.
+   * 获取在数据源开始或停止加载时将引发的事件。
    * @memberof GeoJsonDataSource.prototype
    * @type {Event}
    */
@@ -838,7 +838,7 @@ Object.defineProperties(GeoJsonDataSource.prototype, {
     },
   },
   /**
-   * 获取是否 this data source should be displayed.
+   * 获取是否应显示此数据源。
    * @memberof GeoJsonDataSource.prototype
    * @type {boolean}
    */
@@ -852,7 +852,7 @@ Object.defineProperties(GeoJsonDataSource.prototype, {
   },
 
   /**
-   * 获取或设置clustering options for this data source. This object can be shared between multiple data sources.
+   * 获取或设置此数据源的聚类选项。此对象可以在多个数据源之间共享.
    *
    * @memberof GeoJsonDataSource.prototype
    * @type {EntityCluster}
@@ -871,7 +871,7 @@ Object.defineProperties(GeoJsonDataSource.prototype, {
     },
   },
   /**
-   * Gets the credit that will be displayed for the data source
+   * 获取将为数据源显示的积分
    * @memberof GeoJsonDataSource.prototype
    * @type {Credit}
    */
@@ -883,24 +883,24 @@ Object.defineProperties(GeoJsonDataSource.prototype, {
 });
 
 /**
- * Asynchronously loads the provided GeoJSON or TopoJSON data, replacing any existing data.
+ * 异步加载提供的 GeoJSON 或 TopoJSON 数据，替换任何现有数据。
  *
- * @param {Resource|string|object} data A url, GeoJSON object, or TopoJSON object to be loaded.
- * @param {GeoJsonDataSource.LoadOptions} [options] An object specifying configuration options
+ * @param {Resource|string|object} data 要加载的 url、GeoJSON 对象或 TopoJSON 对象。
+ * @param {GeoJsonDataSource.LoadOptions} [options] 指定配置选项的对象
  *
- * @returns {Promise<GeoJsonDataSource>} a promise that will resolve when the GeoJSON is loaded.
+ * @returns {Promise<GeoJsonDataSource>} 一个将在加载 GeoJSON 时解析的 Promise。
  */
 GeoJsonDataSource.prototype.load = function (data, options) {
   return preload(this, data, options, true);
 };
 
 /**
- * Asynchronously loads the provided GeoJSON or TopoJSON data, without replacing any existing data.
+ * 异步加载提供的 GeoJSON 或 TopoJSON 数据，而不替换任何现有数据。
  *
- * @param {Resource|string|object} data A url, GeoJSON object, or TopoJSON object to be loaded.
- * @param {GeoJsonDataSource.LoadOptions} [options] An object specifying configuration options
+ * @param {Resource|string|object} data 要加载的 url、GeoJSON 对象或 TopoJSON 对象。
+ * @param {GeoJsonDataSource.LoadOptions} [options] 指定配置选项的对象
  *
- * @returns {Promise<GeoJsonDataSource>} a promise that will resolve when the GeoJSON is loaded.
+ * @returns {Promise<GeoJsonDataSource>} 一个将在加载 GeoJSON 时解析的 Promise。
  */
 GeoJsonDataSource.prototype.process = function (data, options) {
   return preload(this, data, options, false);
@@ -970,13 +970,13 @@ function preload(that, data, options, clear) {
 }
 
 /**
- * Updates the data source to the provided time.  This function is optional and
- * is not required to be implemented.  It is provided for data sources which
- * retrieve data based on the current animation time or scene state.
- * If implemented, update will be called by {@link DataSourceDisplay} once a frame.
+ * 将数据源更新为提供的时间。 此功能是可选的，并且
+ * 不需要实施。 它适用于以下数据源
+ * 根据当前动画时间或场景状态检索数据。
+ * 如果实现，则 {@link DataSourceDisplay} 将每帧调用一次 update。
  *
- * @param {JulianDate} time The simulation time.
- * @returns {boolean} True if this data source is ready to be displayed at the provided time, false 否则。
+ * @param {JulianDate} time 模拟时间。
+ * @returns {boolean} 如果此数据源已准备好在提供的时间显示，则为 True，否则为 false。
  */
 GeoJsonDataSource.prototype.update = function (time) {
   return true;
@@ -1056,9 +1056,9 @@ function load(that, geoJson, options, sourceUri, clear) {
 }
 
 /**
- * This callback is displayed as part of the GeoJsonDataSource class.
+ * 此回调显示为 GeoJsonDataSource 类的一部分。
  * @callback GeoJsonDataSource.describe
- * @param {object} properties The properties of the feature.
- * @param {string} nameProperty The property key that Cesium estimates to have the name of the feature.
+ * @param {object} properties 要素的属性。
+ * @param {string} nameProperty Cesium 估计具有功能名称的属性键。
  */
 export default GeoJsonDataSource;

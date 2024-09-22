@@ -6,7 +6,7 @@ import EntityCluster from "./EntityCluster.js";
 import EntityCollection from "./EntityCollection.js";
 
 /**
- * A {@link DataSource} implementation which can be used to manually manage a group of entities.
+ * 一个 {@link DataSource} 实现，可用于手动管理一组实体。
  *
  * @alias CustomDataSource
  * @constructor
@@ -38,7 +38,7 @@ function CustomDataSource(name) {
 
 Object.defineProperties(CustomDataSource.prototype, {
   /**
-   * Gets or sets a human-readable name for this instance.
+   * 获取或设置此实例的可读名称。
    * @memberof CustomDataSource.prototype
    * @type {string}
    */
@@ -54,7 +54,7 @@ Object.defineProperties(CustomDataSource.prototype, {
     },
   },
   /**
-   * 获取或设置clock for this instance.
+   * 获取或设置clock 的实例。
    * @memberof CustomDataSource.prototype
    * @type {DataSourceClock}
    */
@@ -70,7 +70,7 @@ Object.defineProperties(CustomDataSource.prototype, {
     },
   },
   /**
-   * Gets the collection of {@link Entity} instances.
+   * 获取 {@link Entity} 实例的集合。
    * @memberof CustomDataSource.prototype
    * @type {EntityCollection}
    */
@@ -80,7 +80,7 @@ Object.defineProperties(CustomDataSource.prototype, {
     },
   },
   /**
-   * Gets or sets whether the data source is currently loading data.
+   * 获取或设置数据源当前是否正在加载数据。
    * @memberof CustomDataSource.prototype
    * @type {boolean}
    */
@@ -93,7 +93,7 @@ Object.defineProperties(CustomDataSource.prototype, {
     },
   },
   /**
-   * Gets an event that will be raised when the underlying data changes.
+   * 获取将在基础数据更改时引发的事件。
    * @memberof CustomDataSource.prototype
    * @type {Event}
    */
@@ -103,7 +103,7 @@ Object.defineProperties(CustomDataSource.prototype, {
     },
   },
   /**
-   * Gets an event that will be raised if an error is encountered during processing.
+   * 获取在处理过程中遇到错误时将引发的事件。
    * @memberof CustomDataSource.prototype
    * @type {Event}
    */
@@ -113,7 +113,7 @@ Object.defineProperties(CustomDataSource.prototype, {
     },
   },
   /**
-   * Gets an event that will be raised when the data source either starts or stops loading.
+   * 获取在数据源开始或停止加载时将引发的事件。
    * @memberof CustomDataSource.prototype
    * @type {Event}
    */
@@ -123,7 +123,7 @@ Object.defineProperties(CustomDataSource.prototype, {
     },
   },
   /**
-   * 获取是否 this data source should be displayed.
+   * 获取是否应显示此数据源。
    * @memberof CustomDataSource.prototype
    * @type {boolean}
    */
@@ -137,7 +137,7 @@ Object.defineProperties(CustomDataSource.prototype, {
   },
 
   /**
-   * 获取或设置clustering options for this data source. This object can be shared between multiple data sources.
+   * 获取或设置此数据源的聚类选项。此对象可以在多个数据源之间共享。
    *
    * @memberof CustomDataSource.prototype
    * @type {EntityCluster}
@@ -158,13 +158,13 @@ Object.defineProperties(CustomDataSource.prototype, {
 });
 
 /**
- * Updates the data source to the provided time.  This function is optional and
- * is not required to be implemented.  It is provided for data sources which
- * retrieve data based on the current animation time or scene state.
- * If implemented, update will be called by {@link DataSourceDisplay} once a frame.
+ * 将数据源更新为提供的时间。 此功能是可选的，并且
+ * 不需要实施。 它适用于以下数据源
+ * 根据当前动画时间或场景状态检索数据。
+ * 如果实现，则 {@link DataSourceDisplay} 将每帧调用一次 update。
  *
- * @param {JulianDate} time The simulation time.
- * @returns {boolean} True if this data source is ready to be displayed at the provided time, false 否则。
+ * @param {JulianDate} time 模拟时间。
+ * @returns {boolean} 如果此数据源已准备好在提供的时间显示，则为 True，否则为 false。
  */
 CustomDataSource.prototype.update = function (time) {
   return true;

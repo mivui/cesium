@@ -8,26 +8,26 @@ import createPropertyDescriptor from "./createPropertyDescriptor.js";
 /**
  * @typedef {object} PolylineGraphics.ConstructorOptions
  *
- * Initialization options for the PolylineGraphics constructor
+ * PolylineGraphics 构造函数的初始化选项
  *
- * @property {Property | boolean} [show=true] A boolean Property specifying the visibility of the polyline.
- * @property {Property | Cartesian3[]} [positions] A Property specifying the array of {@link Cartesian3} positions that define the line strip.
- * @property {Property | number} [width=1.0] A numeric Property specifying the width in pixels.
- * @property {Property | number} [granularity=Cesium.Math.RADIANS_PER_DEGREE] A numeric Property specifying the angular distance between each latitude and longitude if arcType is not ArcType.NONE.
- * @property {MaterialProperty | Color} [material=Color.WHITE] A Property specifying the material used to draw the polyline.
- * @property {MaterialProperty | Color} [depthFailMaterial] A property specifying the material used to draw the polyline when it is below the terrain.
- * @property {Property | ArcType} [arcType=ArcType.GEODESIC] The type of line the polyline segments must follow.
- * @property {Property | boolean} [clampToGround=false] A boolean Property specifying whether the Polyline should be clamped to the ground.
- * @property {Property | ShadowMode} [shadows=ShadowMode.DISABLED] An enum Property specifying whether the polyline casts or receives shadows from light sources.
- * @property {Property | DistanceDisplayCondition} [distanceDisplayCondition] A Property specifying at what distance from the camera that this polyline will be displayed.
- * @property {Property | ClassificationType} [classificationType=ClassificationType.BOTH] An enum Property specifying whether this polyline will classify terrain, 3D Tiles, or both when on the ground.
- * @property {Property | number} [zIndex=0] A Property specifying the zIndex used for ordering ground geometry. Only has an effect if `clampToGround` is true and polylines on terrain is supported.
+ * @property {Property | boolean} [show=true] 指定多段线可见性的布尔属性。
+ * @property {Property |Cartesian3[]} [positions] 一个属性，指定定义线带的 {@link Cartesian3} 位置数组。
+ * @property {Property | number} [width=1.0] 一个数字属性，用于指定以像素为单位的宽度。
+ * @property {Property | number} [granularity=Cesium.Math.RADIANS_PER_DEGREE] 一个数值属性，如果 arcType 不是 ArcType.NONE，则指定每个纬度和经度之间的角度距离。
+ * @property {MaterialProperty |Color} [material=Color.WHITE] 指定用于绘制多段线的材料的属性。
+ * @property {MaterialProperty |Color} [depthFailMaterial] 一个属性，用于指定当多段线低于地形时用于绘制多段线的材质。
+ * @property {Property |ArcType} [arcType=ArcType.GEODESIC] 多段线段必须遵循的线类型。
+ * @property {Property | boolean} [clampToGround=false] 一个布尔属性，指定是否应将 Polyline 固定在地面上。
+ * @property {Property |ShadowMode} [shadows=ShadowMode.DISABLED] 一个枚举属性，指定多段线是投射还是接收来自光源的阴影。
+ * @property {Property |DistanceDisplayCondition} [distanceDisplayCondition] 一个属性，指定此多段线将在距摄像机多远处显示。
+ * @property {Property |ClassificationType} [classificationType=ClassificationType.BOTH] 一个枚举属性，指定此多段线在地面上时是对地形、3D 瓦片进行分类，还是对两者进行分类。
+ * @property {Property | number} [zIndex=0] 指定用于对地面几何图形进行排序的 zIndex 的属性。仅当 'clampToGround' 为 true 并且支持地形上的折线时才有效。
  */
 
 /**
- * Describes a polyline. The first two positions define a line segment,
- * and each additional position defines a line segment from the previous position. The segments
- * can be linear connected points, great arcs, or clamped to terrain.
+ * 描述多段线。前两个位置定义一条线段
+ * ，每个额外的位置定义从前一个位置开始的线段。细分
+ * 可以是线性连接点、大圆弧或固定到地形。
  *
  * @alias PolylineGraphics
  * @constructor
@@ -69,7 +69,7 @@ function PolylineGraphics(options) {
 
 Object.defineProperties(PolylineGraphics.prototype, {
   /**
-   * Gets the event that is raised whenever a property or sub-property is changed or modified.
+   * 获取在更改或修改属性或子属性时引发的事件。
    * @memberof PolylineGraphics.prototype
    *
    * @type {Event}
@@ -82,7 +82,7 @@ Object.defineProperties(PolylineGraphics.prototype, {
   },
 
   /**
-   * 获取或设置boolean Property specifying the visibility of the polyline.
+   * 获取或设置boolean 指定多段线可见性的属性。
    * @memberof PolylineGraphics.prototype
    * @type {Property|undefined}
    * @default true
@@ -90,15 +90,15 @@ Object.defineProperties(PolylineGraphics.prototype, {
   show: createPropertyDescriptor("show"),
 
   /**
-   * 获取或设置Property specifying the array of {@link Cartesian3}
-   * positions that define the line strip.
+   * 获取或设置指定 {@link Cartesian3} 数组的属性
+   * 定义线带的位置。
    * @memberof PolylineGraphics.prototype
    * @type {Property|undefined}
    */
   positions: createPropertyDescriptor("positions"),
 
   /**
-   * 获取或设置numeric Property specifying the width in pixels.
+   * 获取或设置numeric 属性，用于指定宽度（以像素为单位）。
    * @memberof PolylineGraphics.prototype
    * @type {Property|undefined}
    * @default 1.0
@@ -106,7 +106,7 @@ Object.defineProperties(PolylineGraphics.prototype, {
   width: createPropertyDescriptor("width"),
 
   /**
-   * 获取或设置numeric Property specifying the angular distance between each latitude and longitude if arcType is not ArcType.NONE and clampToGround is false.
+   * 获取或设置numeric 属性，如果 arcType 不是 ArcType.NONE 且 clampToGround 为 false，则指定每个纬度和经度之间的角度距离。
    * @memberof PolylineGraphics.prototype
    * @type {Property|undefined}
    * @default Cesium.Math.RADIANS_PER_DEGREE
@@ -114,7 +114,7 @@ Object.defineProperties(PolylineGraphics.prototype, {
   granularity: createPropertyDescriptor("granularity"),
 
   /**
-   * 获取或设置Property specifying the material used to draw the polyline.
+   * 获取或设置指定用于绘制多段线的材料的属性。
    * @memberof PolylineGraphics.prototype
    * @type {MaterialProperty}
    * @default Color.WHITE
@@ -122,10 +122,10 @@ Object.defineProperties(PolylineGraphics.prototype, {
   material: createMaterialPropertyDescriptor("material"),
 
   /**
-   * 获取或设置Property specifying the material used to draw the polyline when it fails the depth test.
+   * 获取或设置指定在深度测试失败时用于绘制多段线的材料的属性。
    * <p>
-   * Requires the EXT_frag_depth WebGL extension to render properly. If the extension is not supported,
-   * there may be artifacts.
+   * 需要 EXT_frag_depth WebGL 扩展才能正确呈现。如果该扩展不受支持，则
+   * 可能存在伪影。
    * </p>
    * @memberof PolylineGraphics.prototype
    * @type {MaterialProperty}
@@ -134,7 +134,7 @@ Object.defineProperties(PolylineGraphics.prototype, {
   depthFailMaterial: createMaterialPropertyDescriptor("depthFailMaterial"),
 
   /**
-   * 获取或设置{@link ArcType} Property specifying whether the line segments should be great arcs, rhumb lines or linearly connected.
+   * 获取或设置{@link ArcType} 指定线段应为大圆弧、恒向线还是线性连接的属性。
    * @memberof PolylineGraphics.prototype
    * @type {Property|undefined}
    * @default ArcType.GEODESIC
@@ -142,8 +142,8 @@ Object.defineProperties(PolylineGraphics.prototype, {
   arcType: createPropertyDescriptor("arcType"),
 
   /**
-   * 获取或设置boolean Property specifying whether the polyline
-   * should be clamped to the ground.
+   * 获取或设置boolean 属性，指定多段线是否
+   * 应夹在地面上。
    * @memberof PolylineGraphics.prototype
    * @type {Property|undefined}
    * @default false
@@ -151,8 +151,8 @@ Object.defineProperties(PolylineGraphics.prototype, {
   clampToGround: createPropertyDescriptor("clampToGround"),
 
   /**
-   * Get or sets the enum Property specifying whether the polyline
-   * casts or receives shadows from light sources.
+   * 获取或设置 enum 属性，指定 polyline 是否
+   * 从光源投射或接收阴影。
    * @memberof PolylineGraphics.prototype
    * @type {Property|undefined}
    * @default ShadowMode.DISABLED
@@ -160,7 +160,7 @@ Object.defineProperties(PolylineGraphics.prototype, {
   shadows: createPropertyDescriptor("shadows"),
 
   /**
-   * 获取或设置{@link DistanceDisplayCondition} Property specifying at what distance from the camera that this polyline will be displayed.
+   * 获取或设置{@link DistanceDisplayCondition} 指定此多段线将在距相机多远处显示的属性。
    * @memberof PolylineGraphics.prototype
    * @type {Property|undefined}
    */
@@ -169,7 +169,7 @@ Object.defineProperties(PolylineGraphics.prototype, {
   ),
 
   /**
-   * 获取或设置{@link ClassificationType} Property specifying whether this polyline will classify terrain, 3D Tiles, or both when on the ground.
+   * 获取或设置{@link ClassificationType} 指定此多段线在地面上时是分类地形、3D 瓦片还是两者的属性。
    * @memberof PolylineGraphics.prototype
    * @type {Property|undefined}
    * @default ClassificationType.BOTH
@@ -177,7 +177,7 @@ Object.defineProperties(PolylineGraphics.prototype, {
   classificationType: createPropertyDescriptor("classificationType"),
 
   /**
-   * 获取或设置zIndex Property specifying the ordering of the polyline. Only has an effect if `clampToGround` is true and polylines on terrain is supported.
+   * 获取或设置zIndex 属性指定折线的顺序。仅当 'clampToGround' 为 true 并且支持地形上的折线时才有效。
    * @memberof PolylineGraphics.prototype
    * @type {ConstantProperty|undefined}
    * @default 0
@@ -186,10 +186,10 @@ Object.defineProperties(PolylineGraphics.prototype, {
 });
 
 /**
- * 复制instance.
+ * 复制实例。
  *
  * @param {PolylineGraphics} [result] 要在其上存储结果的对象。
- * @returns {PolylineGraphics} 修改后的结果参数 or a new instance if one was not provided.
+ * @returns {PolylineGraphics} 修改后的结果参数或者一个新实例（如果未提供）。
  */
 PolylineGraphics.prototype.clone = function (result) {
   if (!defined(result)) {
@@ -211,10 +211,10 @@ PolylineGraphics.prototype.clone = function (result) {
 };
 
 /**
- * Assigns each unassigned property on this object to the value
- * of the same property on the provided source object.
+ * 将此对象上每个未分配的属性分配给值
+ * 的 API 值。
  *
- * @param {PolylineGraphics} source The object to be merged into this object.
+ * @param {PolylineGraphics} source 要合并到此对象中的对象。
  */
 PolylineGraphics.prototype.merge = function (source) {
   //>>includeStart('debug', pragmas.debug);

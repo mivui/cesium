@@ -3,15 +3,15 @@ import combine from "../Core/combine.js";
 import defined from "../Core/defined.js";
 import EasingFunction from "../Core/EasingFunction.js";
 /**
- * Transitions the KmlTour to the next destination. This transition is facilitated
- * using a specified flyToMode over a given number of seconds.
+ * 将 KmlTour 过渡到下一个目的地。这种转变是便利的
+ * 在给定的秒数内使用指定的 flyToMode。
  *
  * @alias KmlTourFlyTo
  * @constructor
  *
- * @param {number} duration entry duration
- * @param {string} flyToMode KML fly to mode: bounce, smooth, etc
- * @param {KmlCamera|KmlLookAt} view KmlCamera or KmlLookAt
+ * @param {number} duration 参赛时长
+ * @param {string} flyToMode KML 飞向模式：弹跳、平滑等
+ * @param {KmlCamera|KmlLookAt} view KmlCamera 或 KmlLookAt
  *
  * @see KmlTour
  * @see KmlTourWait
@@ -28,11 +28,11 @@ function KmlTourFlyTo(duration, flyToMode, view) {
 }
 
 /**
- * Play this playlist entry
+ * 播放此播放列表条目
  *
- * @param {KmlTourFlyTo.DoneCallback} done function which will be called when playback ends
- * @param {Camera} camera Cesium camera
- * @param {object} [cameraOptions] which will be merged with camera flyTo options. See {@link Camera#flyTo}
+ * @param {KmlTourFlyTo.DoneCallback} done 播放结束时将调用的函数
+ * @param {Camera} camera Cesium 相机
+ * @param {object} [cameraOptions] ，该选项将与相机 flyTo 选项合并。看 {@link Camera#flyTo}
  */
 KmlTourFlyTo.prototype.play = function (done, camera, cameraOptions) {
   this.activeCamera = camera;
@@ -55,7 +55,7 @@ KmlTourFlyTo.prototype.play = function (done, camera, cameraOptions) {
 };
 
 /**
- * Stop execution of curent entry. Cancel camera flyTo
+ * 停止执行当前输入。取消相机 flyTo
  */
 KmlTourFlyTo.prototype.stop = function () {
   if (defined(this.activeCamera)) {
@@ -67,11 +67,11 @@ KmlTourFlyTo.prototype.stop = function () {
 };
 
 /**
- * Returns options for {@link Camera#flyTo} or {@link Camera#flyToBoundingSphere}
- * depends on this.view type.
+ * 返回 {@link Camera#flyTo} 或 {@link Camera#flyToBoundingSphere} 的选项
+ * 依赖于 this.view 类型。
  *
- * @param {object} cameraOptions options to merge with generated. See {@link Camera#flyTo}
- * @returns {object} {@link Camera#flyTo} or {@link Camera#flyToBoundingSphere} options
+ * @param {object} cameraOptions 选项与 generated 合并。 See {@link Camera#flyTo}
+ * @returns {object} {@link Camera#flyTo} 或 {@link Camera#flyToBoundingSphere} 选项
  */
 KmlTourFlyTo.prototype.getCameraOptions = function (cameraOptions) {
   let options = {
@@ -100,10 +100,10 @@ KmlTourFlyTo.prototype.getCameraOptions = function (cameraOptions) {
 };
 
 /**
- * A function that will be executed when the flight completes.
+ * 飞行结束时将执行的函数。
  * @callback KmlTourFlyTo.DoneCallback
  *
- * @param {boolean} terminated true if {@link KmlTourFlyTo#stop} was
- * called before entry done playback.
+ * @param {boolean} terminated 如果 {@link KmlTourFlyTo#stop} 为
+ * 在 Entry 完成播放之前调用。
  */
 export default KmlTourFlyTo;

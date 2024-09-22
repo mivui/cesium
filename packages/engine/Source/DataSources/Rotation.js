@@ -4,10 +4,10 @@ import DeveloperError from "../Core/DeveloperError.js";
 import CesiumMath from "../Core/Math.js";
 
 /**
- * Represents a {@link Packable} number that always interpolates values
- * towards the shortest angle of rotation. This object is never used directly
- * but is instead passed to the constructor of {@link SampledProperty}
- * in order to represent a two-dimensional angle of rotation.
+ * 表示始终对值进行插值的 {@link Packable} 数字
+ * 朝向最短的旋转角度。此对象永远不会直接使用
+ * 而是传递给 {@link SampledProperty} 的构造函数
+ * 来表示二维旋转角度。
  *
  * @interface Rotation
  *
@@ -68,7 +68,7 @@ const Rotation = {
    * @param {number[]} array 打包数组。
    * @param {number} [startingIndex=0] 要解压缩的元素的起始索引。
    * @param {Rotation} [result] 要在其中存储结果的对象。
-   * @returns {Rotation} 修改后的结果参数 or a new Rotation instance if one was not provided.
+   * @returns {Rotation} 修改后的结果参数或新的 Rotation 实例（如果未提供）。
    */
   unpack: function (array, startingIndex, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -82,11 +82,11 @@ const Rotation = {
   },
 
   /**
-   * Converts a packed array into a form suitable for interpolation.
+   * 将打包数组转换为适合插值的形式。
    *
    * @param {number[]} packedArray 打包数组。
-   * @param {number} [startingIndex=0] The index of the first element to be converted.
-   * @param {number} [lastIndex=packedArray.length] The index of the last element to be converted.
+   * @param {number} [startingIndex=0] 要转换的第一个元素的索引。
+   * @param {number} [lastIndex=packedArray.length] 最后一个要转换的元素的索引。
    * @param {number[]} [result] 要在其中存储结果的对象。
    */
   convertPackedArrayForInterpolation: function (
@@ -121,14 +121,14 @@ const Rotation = {
   },
 
   /**
-   * Retrieves an instance from a packed array converted with {@link Rotation.convertPackedArrayForInterpolation}.
+   * 从使用 {@link Rotation.convertPackedArrayForInterpolation} 转换的打包数组中检索实例。
    *
-   * @param {number[]} array The array previously packed for interpolation.
-   * @param {number[]} sourceArray The original packed array.
-   * @param {number} [firstIndex=0] The firstIndex used to convert the array.
-   * @param {number} [lastIndex=packedArray.length] The lastIndex used to convert the array.
+   * @param {number[]} array 先前打包用于插值的数组。
+   * @param {number[]} sourceArray 原始打包数组。
+   * @param {number} [firstIndex=0] 用于转换数组的 firstIndex。
+   * @param {number} [lastIndex=packedArray.length] 用于转换数组的 lastIndex。
    * @param {Rotation} [result] 要在其中存储结果的对象。
-   * @returns {Rotation} 修改后的结果参数 or a new Rotation instance if one was not provided.
+   * @returns {Rotation} 修改后的结果参数或新的 Rotation 实例（如果未提供）。
    */
   unpackInterpolationResult: function (
     array,

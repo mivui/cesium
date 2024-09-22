@@ -1,11 +1,11 @@
 import defined from "../Core/defined.js";
 /**
- * Pauses the KmlTour for a given number of seconds.
+ * 将 KmlTour 暂停给定的秒数。
  *
  * @alias KmlTourWait
  * @constructor
  *
- * @param {number} duration entry duration
+ * @param {number} duration 参赛时长
  *
  * @see KmlTour
  * @see KmlTourFlyTo
@@ -19,9 +19,9 @@ function KmlTourWait(duration) {
 }
 
 /**
- * Play this playlist entry
+ * 播放此播放列表条目
  *
- * @param {KmlTourWait.DoneCallback} done function which will be called when playback ends
+ * @param {KmlTourWait.DoneCallback} done 播放结束时将调用的函数
  */
 KmlTourWait.prototype.play = function (done) {
   const self = this;
@@ -33,7 +33,7 @@ KmlTourWait.prototype.play = function (done) {
 };
 
 /**
- * Stop execution of curent entry, cancel curent timeout
+ * 停止执行当前输入，取消当前超时
  */
 KmlTourWait.prototype.stop = function () {
   clearTimeout(this.timeout);
@@ -43,10 +43,10 @@ KmlTourWait.prototype.stop = function () {
 };
 
 /**
- * A function which will be called when playback ends.
+ *播放结束时将调用的函数。
  *
  * @callback KmlTourWait.DoneCallback
- * @param {boolean} terminated true if {@link KmlTourWait#stop} was
- * called before entry done playback.
+ * @param {boolean} terminated 如果 {@link KmlTourWait#stop} 为
+ * 在 Entry done 播放之前调用。
  */
 export default KmlTourWait;

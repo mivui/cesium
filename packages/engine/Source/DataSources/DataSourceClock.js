@@ -7,8 +7,8 @@ import JulianDate from "../Core/JulianDate.js";
 import createRawPropertyDescriptor from "./createRawPropertyDescriptor.js";
 
 /**
- * Represents desired clock settings for a particular {@link DataSource}.  These settings may be applied
- * to the {@link Clock} when the DataSource is loaded.
+ * 表示特定 {@link DataSource} 所需的 clock settings。 可以应用这些设置
+ * 到 {@link Clock} 时。
  *
  * @alias DataSourceClock
  * @constructor
@@ -25,7 +25,7 @@ function DataSourceClock() {
 
 Object.defineProperties(DataSourceClock.prototype, {
   /**
-   * Gets the event that is raised whenever a new property is assigned.
+   * 获取每当分配新属性时引发的事件。
    * @memberof DataSourceClock.prototype
    *
    * @type {Event}
@@ -38,7 +38,7 @@ Object.defineProperties(DataSourceClock.prototype, {
   },
 
   /**
-   * 获取或设置desired start time of the clock.
+   * 获取或设置期望的 clock 开始时间。
    * See {@link Clock#startTime}.
    * @memberof DataSourceClock.prototype
    * @type {JulianDate}
@@ -46,7 +46,7 @@ Object.defineProperties(DataSourceClock.prototype, {
   startTime: createRawPropertyDescriptor("startTime"),
 
   /**
-   * 获取或设置desired stop time of the clock.
+   * 获取或设置时钟的 desired stop time。
    * See {@link Clock#stopTime}.
    * @memberof DataSourceClock.prototype
    * @type {JulianDate}
@@ -54,7 +54,7 @@ Object.defineProperties(DataSourceClock.prototype, {
   stopTime: createRawPropertyDescriptor("stopTime"),
 
   /**
-   * 获取或设置desired current time when this data source is loaded.
+   * 获取或设置加载此数据源时的 Desired Current Time。
    * See {@link Clock#currentTime}.
    * @memberof DataSourceClock.prototype
    * @type {JulianDate}
@@ -62,7 +62,7 @@ Object.defineProperties(DataSourceClock.prototype, {
   currentTime: createRawPropertyDescriptor("currentTime"),
 
   /**
-   * 获取或设置desired clock range setting.
+   * 获取或设置所需的 clock range 设置。
    * See {@link Clock#clockRange}.
    * @memberof DataSourceClock.prototype
    * @type {ClockRange}
@@ -70,7 +70,7 @@ Object.defineProperties(DataSourceClock.prototype, {
   clockRange: createRawPropertyDescriptor("clockRange"),
 
   /**
-   * 获取或设置desired clock step setting.
+   * 获取或设置所需的 clock step 设置。
    * See {@link Clock#clockStep}.
    * @memberof DataSourceClock.prototype
    * @type {ClockStep}
@@ -78,7 +78,7 @@ Object.defineProperties(DataSourceClock.prototype, {
   clockStep: createRawPropertyDescriptor("clockStep"),
 
   /**
-   * 获取或设置desired clock multiplier.
+   * 获取或设置所需的 clock multiplier。
    * See {@link Clock#multiplier}.
    * @memberof DataSourceClock.prototype
    * @type {number}
@@ -87,10 +87,10 @@ Object.defineProperties(DataSourceClock.prototype, {
 });
 
 /**
- * 复制DataSourceClock instance.
+ * 复制DataSourceClock实例。
  *
  * @param {DataSourceClock} [result] 要在其上存储结果的对象。
- * @returns {DataSourceClock} 修改后的结果参数 or a new instance if one was not provided.
+ * @returns {DataSourceClock} 修改后的结果参数或者一个新实例（如果未提供）。
  */
 DataSourceClock.prototype.clone = function (result) {
   if (!defined(result)) {
@@ -106,10 +106,10 @@ DataSourceClock.prototype.clone = function (result) {
 };
 
 /**
- * Returns true if this DataSourceClock is equivalent to the other
+ * 如果此 DataSourceClock 等效于另一个 DataSourceClock，则返回 true
  *
- * @param {DataSourceClock} other The other DataSourceClock to compare to.
- * @returns {boolean} <code>true</code> if the DataSourceClocks are equal; otherwise, <code>false</code>.
+ * @param {DataSourceClock} other 要比较的另一个 DataSourceClock。
+ * 如果 DataSourceClocks 相等，则@returns {boolean} <code>true</code>;否则为 <code>false</code>。
  */
 DataSourceClock.prototype.equals = function (other) {
   return (
@@ -125,10 +125,10 @@ DataSourceClock.prototype.equals = function (other) {
 };
 
 /**
- * Assigns each unassigned property on this object to the value
- * of the same property on the provided source object.
+ * 将此对象上每个未分配的属性分配给值
+ * 的 API 值。
  *
- * @param {DataSourceClock} source The object to be merged into this object.
+ * @param {DataSourceClock} source 要合并到此对象中的对象。
  */
 DataSourceClock.prototype.merge = function (source) {
   //>>includeStart('debug', pragmas.debug);
@@ -146,9 +146,9 @@ DataSourceClock.prototype.merge = function (source) {
 };
 
 /**
- * Gets the value of this clock instance as a {@link Clock} object.
+ * 获取此 clock 实例的值作为 {@link Clock} 对象。
  *
- * @returns {Clock} 修改后的结果参数 or a new instance if one was not provided.
+ * @returns {Clock} 修改后的结果参数或者一个新实例（如果未提供）。
  */
 DataSourceClock.prototype.getValue = function (result) {
   if (!defined(result)) {

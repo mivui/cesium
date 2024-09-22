@@ -11,14 +11,14 @@ import Property from "./Property.js";
 import VelocityVectorProperty from "./VelocityVectorProperty.js";
 
 /**
- * A {@link Property} which evaluates to a {@link Quaternion} rotation
- * based on the velocity of the provided {@link PositionProperty}.
+ * 一个 {@link Property}，其计算结果为 {@link Quaternion} 旋转
+ * 基于提供的 {@link PositionProperty} 的速度。
  *
  * @alias VelocityOrientationProperty
  * @constructor
  *
- * @param {PositionProperty} [position] The position property used to compute the orientation.
- * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] The ellipsoid used to determine which way is up.
+ * @param {PositionProperty} [position] 用于计算方向的位置属性。
+ * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] 用于确定哪个方向向上的椭球体。
  *
  * @example
  * //Create an entity with position and orientation.
@@ -45,7 +45,7 @@ function VelocityOrientationProperty(position, ellipsoid) {
 
 Object.defineProperties(VelocityOrientationProperty.prototype, {
   /**
-   * Gets a value indicating if this property is constant.
+   * 获取一个值，该值指示此属性是否为 constant。
    * @memberof VelocityOrientationProperty.prototype
    *
    * @type {boolean}
@@ -57,7 +57,7 @@ Object.defineProperties(VelocityOrientationProperty.prototype, {
     },
   },
   /**
-   * Gets the event that is raised whenever the definition of this property changes.
+   * 获取此属性的定义发生更改时引发的事件。
    * @memberof VelocityOrientationProperty.prototype
    *
    * @type {Event}
@@ -69,7 +69,7 @@ Object.defineProperties(VelocityOrientationProperty.prototype, {
     },
   },
   /**
-   * 获取或设置position property used to compute orientation.
+   * 获取或设置position 属性。
    * @memberof VelocityOrientationProperty.prototype
    *
    * @type {Property|undefined}
@@ -83,7 +83,7 @@ Object.defineProperties(VelocityOrientationProperty.prototype, {
     },
   },
   /**
-   * 获取或设置ellipsoid used to determine which way is up.
+   * 获取或设置用于确定哪个方向向上的 Ellipsoid 中。
    * @memberof VelocityOrientationProperty.prototype
    *
    * @type {Property|undefined}
@@ -108,11 +108,11 @@ const rotationScratch = new Matrix3();
 const timeScratch = new JulianDate();
 
 /**
- * Gets the value of the property at the provided time.
+ * 获取属性在提供的时间的值。
  *
- * @param {JulianDate} [time=JulianDate.now()] The time for which to retrieve the value. If omitted, the current system time is used.
- * @param {Quaternion} [result] The object to store the value into, if omitted, a new instance is created and returned.
- * @returns {Quaternion} 修改后的结果参数 or a new instance if the result parameter was not supplied.
+ * @param {JulianDate} [time=JulianDate.now()] 检索值的时间。如果省略，则使用当前系统时间。
+ * @param {Quaternion} [result] 要将值存储到的对象，如果省略，则创建并返回一个新实例。
+ * @returns {Quaternion} 修改后的结果参数或者，如果未提供 result 参数，则为新实例。
  */
 VelocityOrientationProperty.prototype.getValue = function (time, result) {
   if (!defined(time)) {
@@ -138,10 +138,10 @@ VelocityOrientationProperty.prototype.getValue = function (time, result) {
 };
 
 /**
- * Compares this property to the provided property and returns
- * <code>true</code>，否则为<code>false</code>。
+ * 将此属性与提供的属性进行比较，并返回
+ * <code>true</code>，否则为 <code>false</code>。
  *
- * @param {Property} [other] The other property.
+ * @param {Property} [other] 另一个属性。
  * @returns {boolean} <code>true</code>如果左和右相等，否则<code>false</code>。
  */
 VelocityOrientationProperty.prototype.equals = function (other) {

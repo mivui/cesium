@@ -14,16 +14,16 @@ const defaultOffset = 0;
 const defaultRepeat = 1;
 
 /**
- * A {@link MaterialProperty} that maps to stripe {@link Material} uniforms.
+ * 映射到条带 {@link Material} 制服的 {@link MaterialProperty}。
  * @alias StripeMaterialProperty
  * @constructor
  *
  * @param {object} [options] 对象，具有以下属性:
- * @param {Property|StripeOrientation} [options.orientation=StripeOrientation.HORIZONTAL] A Property specifying the {@link StripeOrientation}.
- * @param {Property|Color} [options.evenColor=Color.WHITE] A Property specifying the first {@link Color}.
- * @param {Property|Color} [options.oddColor=Color.BLACK] A Property specifying the second {@link Color}.
- * @param {Property|number} [options.offset=0] A numeric Property specifying how far into the pattern to start the material.
- * @param {Property|number} [options.repeat=1] A numeric Property specifying how many times the stripes repeat.
+ * @param {Property|StripeOrientation} [options.orientation=StripeOrientation.HORIZONTAL] 指定 {@link StripeOrientation} 的属性。
+ * @param {Property|Color} [options.evenColor=Color.WHITE] 指定第一个 {@link Color} 的属性。
+ * @param {Property|Color} [options.oddColor=Color.BLACK] 指定第二个 {@link Color} 的属性。
+ * @param {Property|number} [options.offset=0] 一个数字属性，指定在图案中开始材质的距离。
+ * @param {Property|number} [options.repeat=1] 一个数字属性，指定条带重复的次数。
  */
 function StripeMaterialProperty(options) {
   options = defaultValue(options, defaultValue.EMPTY_OBJECT);
@@ -49,8 +49,8 @@ function StripeMaterialProperty(options) {
 
 Object.defineProperties(StripeMaterialProperty.prototype, {
   /**
-   * Gets a value indicating if this property is constant.  A property is considered
-   * constant if getValue always returns the same result for the current definition.
+   * 获取一个值，该值指示此属性是否为 constant。 将属性视为
+   * 常量（如果 getValue 始终为当前定义返回相同的结果）。
    * @memberof StripeMaterialProperty.prototype
    *
    * @type {boolean}
@@ -68,9 +68,9 @@ Object.defineProperties(StripeMaterialProperty.prototype, {
     },
   },
   /**
-   * Gets the event that is raised whenever the definition of this property changes.
-   * The definition is considered to have changed if a call to getValue would return
-   * a different result for the same time.
+   * 获取此属性的定义发生更改时引发的事件。
+   * 如果对 getValue 的调用会返回 getValue，则认为定义已更改
+   * 同一时间的不同结果。
    * @memberof StripeMaterialProperty.prototype
    *
    * @type {Event}
@@ -83,7 +83,7 @@ Object.defineProperties(StripeMaterialProperty.prototype, {
   },
 
   /**
-   * 获取或设置Property specifying the {@link StripeOrientation}/
+   * 获取或设置指定 {@link StripeOrientation} 的属性
    * @memberof StripeMaterialProperty.prototype
    * @type {Property|undefined}
    * @default StripeOrientation.HORIZONTAL
@@ -91,7 +91,7 @@ Object.defineProperties(StripeMaterialProperty.prototype, {
   orientation: createPropertyDescriptor("orientation"),
 
   /**
-   * 获取或设置Property specifying the first {@link Color}.
+   * 获取或设置指定第一个 {@link Color} 的属性。
    * @memberof StripeMaterialProperty.prototype
    * @type {Property|undefined}
    * @default Color.WHITE
@@ -99,7 +99,7 @@ Object.defineProperties(StripeMaterialProperty.prototype, {
   evenColor: createPropertyDescriptor("evenColor"),
 
   /**
-   * 获取或设置Property specifying the second {@link Color}.
+   * 获取或设置指定第二个 {@link Color} 的属性。
    * @memberof StripeMaterialProperty.prototype
    * @type {Property|undefined}
    * @default Color.BLACK
@@ -107,10 +107,10 @@ Object.defineProperties(StripeMaterialProperty.prototype, {
   oddColor: createPropertyDescriptor("oddColor"),
 
   /**
-   * 获取或设置numeric Property specifying the point into the pattern
-   * to begin drawing; with 0.0 being the beginning of the even color, 1.0 the beginning
-   * of the odd color, 2.0 being the even color again, and any multiple or fractional values
-   * being in between.
+   * 获取或设置numeric 属性，用于指定模式中的点
+   * 开始绘制;其中 0.0 是偶数颜色的开始，1.0 是开始
+   * 为奇数色，2.0 再次为偶数色，以及任何倍数或分数值
+   * 介于两者之间。
    * @memberof StripeMaterialProperty.prototype
    * @type {Property|undefined}
    * @default 0.0
@@ -118,7 +118,7 @@ Object.defineProperties(StripeMaterialProperty.prototype, {
   offset: createPropertyDescriptor("offset"),
 
   /**
-   * 获取或设置numeric Property specifying how many times the stripes repeat.
+   * 获取或设置numeric 属性，用于指定条带重复的次数。
    * @memberof StripeMaterialProperty.prototype
    * @type {Property|undefined}
    * @default 1.0
@@ -127,10 +127,10 @@ Object.defineProperties(StripeMaterialProperty.prototype, {
 });
 
 /**
- * Gets the {@link Material} type at the provided time.
+ * 在提供的时间获取 {@link Material} 类型。
  *
- * @param {JulianDate} time The time for which to retrieve the type.
- * @returns {string} The type of material.
+ * @param {JulianDate} time 检索类型的时间。
+ * @returns {string} 材质的类型。
  */
 StripeMaterialProperty.prototype.getType = function (time) {
   return "Stripe";
@@ -139,11 +139,11 @@ StripeMaterialProperty.prototype.getType = function (time) {
 const timeScratch = new JulianDate();
 
 /**
- * Gets the value of the property at the provided time.
+ * 获取属性在提供的时间的值。
  *
- * @param {JulianDate} [time=JulianDate.now()] The time for which to retrieve the value. If omitted, the current system time is used.
- * @param {object} [result] The object to store the value into, if omitted, a new instance is created and returned.
- * @returns {object} 修改后的结果参数 or a new instance if the result parameter was not supplied.
+ * @param {JulianDate} [time=JulianDate.now()] 检索值的时间。如果省略，则使用当前系统时间。
+ * @param {object} [result] 要将值存储到的对象，如果省略，则创建并返回一个新实例。
+ * @returns {object} 修改后的结果参数或者如果未提供 result 参数，则为新实例.
  */
 StripeMaterialProperty.prototype.getValue = function (time, result) {
   if (!defined(time)) {
@@ -173,10 +173,10 @@ StripeMaterialProperty.prototype.getValue = function (time, result) {
 };
 
 /**
- * Compares this property to the provided property and returns
- * <code>true</code>，否则为<code>false</code>。
+ * 将此属性与提供的属性进行比较，并返回
+ * <code>true</code>，否则为 <code>false</code>。
  *
- * @param {Property} [other] The other property.
+ * @param {Property} [other] 另一个属性。
  * @returns {boolean} <code>true</code>如果左和右相等，否则<code>false</code>。
  */
 StripeMaterialProperty.prototype.equals = function (other) {

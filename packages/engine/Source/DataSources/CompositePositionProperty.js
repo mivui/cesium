@@ -8,7 +8,7 @@ import CompositeProperty from "./CompositeProperty.js";
 import Property from "./Property.js";
 
 /**
- * A {@link CompositeProperty} which is also a {@link PositionProperty}.
+ * 一个 {@link CompositeProperty}，也是一个 {@link PositionProperty}。
  *
  * @alias CompositePositionProperty
  * @constructor
@@ -27,8 +27,8 @@ function CompositePositionProperty(referenceFrame) {
 
 Object.defineProperties(CompositePositionProperty.prototype, {
   /**
-   * Gets a value indicating if this property is constant.  A property is considered
-   * constant if getValue always returns the same result for the current definition.
+   * 获取一个值，该值指示此属性是否为 constant。 将属性视为
+   * 常量（如果 getValue 始终为当前定义返回相同的结果）。
    * @memberof CompositePositionProperty.prototype
    *
    * @type {boolean}
@@ -40,9 +40,9 @@ Object.defineProperties(CompositePositionProperty.prototype, {
     },
   },
   /**
-   * Gets the event that is raised whenever the definition of this property changes.
-   * The definition is changed whenever setValue is called with data different
-   * than the current value.
+   * 获取此属性的定义发生更改时引发的事件。
+   * 每当使用不同的数据调用 setValue 时，定义都会更改
+   * 比当前值。
    * @memberof CompositePositionProperty.prototype
    *
    * @type {Event}
@@ -54,7 +54,7 @@ Object.defineProperties(CompositePositionProperty.prototype, {
     },
   },
   /**
-   * Gets the interval collection.
+   * 获取 interval 集合。
    * @memberof CompositePositionProperty.prototype
    *
    * @type {TimeIntervalCollection}
@@ -65,10 +65,10 @@ Object.defineProperties(CompositePositionProperty.prototype, {
     },
   },
   /**
-   * 获取或设置reference frame which this position presents itself as.
-   * Each PositionProperty making up this object has it's own reference frame,
-   * so this property merely exposes a "preferred" reference frame for clients
-   * to use.
+   * 获取或设置这个位置所表现的参考系。
+   * 组成此对象的每个 PositionProperty 都有自己的参考系
+   * 所以这个属性只是为 Client 端公开一个 “preferred” 参考框架
+   * 使用。
    * @memberof CompositePositionProperty.prototype
    *
    * @type {ReferenceFrame}
@@ -86,11 +86,11 @@ Object.defineProperties(CompositePositionProperty.prototype, {
 const timeScratch = new JulianDate();
 
 /**
- * Gets the value of the property at the provided time in the fixed frame.
+ * 获取固定帧中给定时间的属性值。
  *
- * @param {JulianDate} [time=JulianDate.now()] The time for which to retrieve the value. If omitted, the current system time is used.
- * @param {Cartesian3} [result] The object to store the value into, if omitted, a new instance is created and returned.
- * @returns {Cartesian3 | undefined} 修改后的结果参数 or a new instance if the result parameter was not supplied.
+ * @param {JulianDate} [time=JulianDate.now()] 检索值的时间。如果省略，则使用当前系统时间。
+ * @param {Cartesian3} [result] 要将值存储到的对象，如果省略，则会创建并返回一个新实例。
+ * @returns {Cartesian3 | undefined} 修改后的结果参数或者，如果未提供 result 参数，则为新实例。
  */
 CompositePositionProperty.prototype.getValue = function (time, result) {
   if (!defined(time)) {
@@ -100,12 +100,12 @@ CompositePositionProperty.prototype.getValue = function (time, result) {
 };
 
 /**
- * Gets the value of the property at the provided time and in the provided reference frame.
+ * 获取在提供的时间和提供的参考框架中的属性值。
  *
- * @param {JulianDate} time The time for which to retrieve the value.
- * @param {ReferenceFrame} referenceFrame The desired referenceFrame of the result.
- * @param {Cartesian3} [result] The object to store the value into, if omitted, a new instance is created and returned.
- * @returns {Cartesian3 | undefined} 修改后的结果参数 or a new instance if the result parameter was not supplied.
+ * @param {JulianDate} time 检索值的时间。
+ * @param {ReferenceFrame} referenceFrame 结果所需的 referenceFrame。
+ * @param {Cartesian3} [result] 要将值存储到的对象，如果省略，则会创建并返回一个新实例。
+ * @returns {Cartesian3 | undefined} 修改后的结果参数或者，如果未提供 result 参数，则为新实例。
  */
 CompositePositionProperty.prototype.getValueInReferenceFrame = function (
   time,
@@ -131,10 +131,10 @@ CompositePositionProperty.prototype.getValueInReferenceFrame = function (
 };
 
 /**
- * Compares this property to the provided property and returns
- * <code>true</code>，否则为<code>false</code>。
+ * 将此属性与提供的属性进行比较，并返回
+ * <code>true</code>，否则为 <code>false</code>。
  *
- * @param {Property} [other] The other property.
+ * @param {Property} [other] 另一个属性。
  * @returns {boolean} <code>true</code>如果左和右相等，否则<code>false</code>。
  */
 CompositePositionProperty.prototype.equals = function (other) {

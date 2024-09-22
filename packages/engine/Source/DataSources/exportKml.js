@@ -225,8 +225,8 @@ IdManager.prototype.get = function (id) {
 /**
  * @typedef exportKmlResultKml
  * @type {object}
- * @property {string} kml The generated KML.
- * @property {Object<string, Blob>} externalFiles An object dictionary of external files
+ * @property {string} kml 生成的 KML.
+ * @property {Object<string, Blob>} externalFiles 外部文件的对象字典
  */
 
 /**
@@ -236,14 +236,14 @@ IdManager.prototype.get = function (id) {
  */
 
 /**
- * Exports an EntityCollection as a KML document. Only Point, Billboard, Model, Path, Polygon, Polyline geometries
- * will be exported. Note that there is not a 1 to 1 mapping of Entity properties to KML Feature properties. For
- * example, entity properties that are time dynamic but cannot be dynamic in KML are exported with their values at
- * options.time or the beginning of the EntityCollection's time interval if not specified. For time-dynamic properties
- * that are supported in KML, we use the samples if it is a {@link SampledProperty} otherwise we sample the value using
- * the options.sampleDuration. Point, Billboard, Model and Path geometries with time-dynamic positions will be exported
- * as gx:Track Features. Not all Materials are representable in KML, so for more advanced Materials just the primary
- * color is used. Canvas objects are exported as PNG images.
+ * 将 EntityCollection 导出为 KML 文档。仅点、公告牌、模型、路径、多边形、折线几何图形
+ * 将被导出。请注意，图元属性与 KML 要素属性之间没有 1 对 1 的映射。为
+ * 例如，如果实体属性是时间动态的，但在 KML 中不能是动态的，则导出时其值为
+ * options.time 或 EntityCollection 的时间间隔的开始时间（如果未指定）。对于时间动态属性
+ * 中支持的 API 中，如果它是 {@link SampledProperty}，则使用样本，否则我们使用
+ * options.sampleDuration 的 Duration。将导出具有时间动态位置的 Point、Billboard、Model 和 Path 几何图形
+ * 如 gx：Track Features。并非所有材质都可以在 KML 中表示，因此对于更高级的材质，只有主要材质
+ * 使用颜色。Canvas 对象导出为 PNG 图像。
  *
  * @function exportKml
  *
@@ -256,8 +256,8 @@ IdManager.prototype.get = function (id) {
  * @param {number} [options.sampleDuration=60] The number of seconds to sample properties that are varying in KML.
  * @param {boolean} [options.kmz=false] If true KML and external files will be compressed into a kmz file.
  *
- * @returns {Promise<exportKmlResultKml|exportKmlResultKmz>} A promise that resolved to an object containing the KML string and a dictionary of external file blobs, or a kmz file as a blob if options.kmz is true.
- * @demo {@link https://sandcastle.cesium.com/index.html?src=Export%20KML.html|Cesium Sandcastle KML Export Demo}
+ * @returns {Promise<exportKmlResultKml|exportKmlResultKmz>} 一个 Promise，该 Promise 解析为包含 KML 字符串和外部文件 blob 字典的对象，如果 options.kmz 为 true，则解析为 kmz 文件作为 blob。
+ * @demo {@link https://sandcastle.cesium.com/index.html?src=Export%20KML.html|Cesium Sandcastle KML 导出演示}
  * @example
  * Cesium.exportKml({
  *      entities: entityCollection
@@ -1505,15 +1505,15 @@ function colorToString(color) {
 }
 
 /**
- * Since KML does not support glTF models, this callback is required to specify what URL to use for the model in the KML document.
- * It can also be used to add additional files to the <code>externalFiles</code> object, which is the list of files embedded in the exported KMZ,
- * or otherwise returned with the KML string when exporting.
+ * 由于 KML 不支持 glTF 模型，因此在 KML 文档中指定模型使用的 URL 时需要使用此回调。
+ * 它还可用于向 <code>externalFiles</code> 对象添加其他文件，该对象是嵌入在导出的 KMZ 中的文件列表。
+ * 或导出时返回 KML 字符串。
  *
  * @callback exportKmlModelCallback
  *
- * @param {ModelGraphics} model The ModelGraphics instance for an Entity.
- * @param {JulianDate} time The time that any properties should use to get the value.
- * @param {object} externalFiles An object that maps a filename to a Blob or a Promise that resolves to a Blob.
- * @returns {string} The URL to use for the href in the KML document.
+ * @param {ModelGraphics} model 实体的 ModelGraphics 实例。
+ * @param {JulianDate} time 任何属性用于获取值的时间。
+ * @param {object} externalFiles 将文件名映射到 Blob 的对象，或将 Promise 解析为 Blob。
+ * @returns {string} 用于 KML 文档中 href 的 URL。
  */
 export default exportKml;

@@ -6,14 +6,14 @@ import JulianDate from "../Core/JulianDate.js";
 import Property from "./Property.js";
 
 /**
- * A {@link Property} which evaluates to a {@link Cartesian3} vector
- * based on the velocity of the provided {@link PositionProperty}.
+ * 一个 {@link Property}，其计算结果为 {@link Cartesian3} 向量
+ * 基于提供的 {@link PositionProperty} 的速度。
  *
  * @alias VelocityVectorProperty
  * @constructor
  *
- * @param {PositionProperty} [position] The position property used to compute the velocity.
- * @param {boolean} [normalize=true] Whether to normalize the computed velocity vector.
+ * @param {PositionProperty} [position] 用于计算速度的位置属性。
+ * @param {boolean} [normalize=true] 是否对计算出的速度向量进行归一化。
  *
  * @example
  * //Create an entity with a billboard rotated to match its velocity.
@@ -38,7 +38,7 @@ function VelocityVectorProperty(position, normalize) {
 
 Object.defineProperties(VelocityVectorProperty.prototype, {
   /**
-   * Gets a value indicating if this property is constant.
+   * 获取一个值，该值指示此属性是否为 constant。
    * @memberof VelocityVectorProperty.prototype
    *
    * @type {boolean}
@@ -50,7 +50,7 @@ Object.defineProperties(VelocityVectorProperty.prototype, {
     },
   },
   /**
-   * Gets the event that is raised whenever the definition of this property changes.
+   * 获取此属性的定义发生更改时引发的事件。
    * @memberof VelocityVectorProperty.prototype
    *
    * @type {Event}
@@ -62,7 +62,7 @@ Object.defineProperties(VelocityVectorProperty.prototype, {
     },
   },
   /**
-   * 获取或设置position property used to compute the velocity vector.
+   * 获取或设置position 属性。
    * @memberof VelocityVectorProperty.prototype
    *
    * @type {Property|undefined}
@@ -94,8 +94,8 @@ Object.defineProperties(VelocityVectorProperty.prototype, {
     },
   },
   /**
-   * Gets or sets whether the vector produced by this property
-   * will be normalized or not.
+   * 获取或设置此属性是否生成的向量
+   * 将进行标准化或不标准化。
    * @memberof VelocityVectorProperty.prototype
    *
    * @type {boolean}
@@ -122,11 +122,11 @@ const timeNowScratch = new JulianDate();
 const step = 1.0 / 60.0;
 
 /**
- * Gets the value of the property at the provided time.
+ * 获取属性在提供的时间的值。
  *
- * @param {JulianDate} [time=JulianDate.now()] The time for which to retrieve the value. If omitted, the current system time is used.
- * @param {Cartesian3} [result] The object to store the value into, if omitted, a new instance is created and returned.
- * @returns {Cartesian3} 修改后的结果参数 or a new instance if the result parameter was not supplied.
+ * @param {JulianDate} [time=JulianDate.now()] 检索值的时间。如果省略，则使用当前系统时间。
+ * @param {Cartesian3} [result] 要将值存储到的对象，如果省略，则会创建并返回一个新实例。
+ * @returns {Cartesian3} 修改后的结果参数或者，如果未提供 result 参数，则为新实例。
  */
 VelocityVectorProperty.prototype.getValue = function (time, result) {
   return this._getValue(time, result);
@@ -198,10 +198,10 @@ VelocityVectorProperty.prototype._getValue = function (
 };
 
 /**
- * Compares this property to the provided property and returns
- * <code>true</code>，否则为<code>false</code>。
+ * 将此属性与提供的属性进行比较，并返回
+ * <code>true</code>，否则为 <code>false</code>。
  *
- * @param {Property} [other] The other property.
+ * @param {Property} [other] 另一个属性。
  * @returns {boolean} <code>true</code>如果左和右相等，否则<code>false</code>。
  */
 VelocityVectorProperty.prototype.equals = function (other) {

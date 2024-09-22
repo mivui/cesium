@@ -7,37 +7,37 @@ import createPropertyDescriptor from "./createPropertyDescriptor.js";
 /**
  * @typedef {object} LabelGraphics.ConstructorOptions
  *
- * Initialization options for the LabelGraphics constructor
+ * LabelGraphics 构造函数的初始化选项
  *
- * @property {Property | boolean} [show=true] A boolean Property specifying the visibility of the label.
- * @property {Property | string} [text] A Property specifying the text. Explicit newlines '\n' are supported.
- * @property {Property | string} [font='30px sans-serif'] A Property specifying the CSS font.
- * @property {Property | LabelStyle} [style=LabelStyle.FILL] A Property specifying the {@link LabelStyle}.
- * @property {Property | number} [scale=1.0] A numeric Property specifying the scale to apply to the text.
- * @property {Property | boolean} [showBackground=false] A boolean Property specifying the visibility of the background behind the label.
- * @property {Property | Color} [backgroundColor=new Color(0.165, 0.165, 0.165, 0.8)] A Property specifying the background {@link Color}.
- * @property {Property | Cartesian2} [backgroundPadding=new Cartesian2(7, 5)] A {@link Cartesian2} Property specifying the horizontal and vertical background padding in pixels.
- * @property {Property | Cartesian2} [pixelOffset=Cartesian2.ZERO] A {@link Cartesian2} Property specifying the pixel offset.
- * @property {Property | Cartesian3} [eyeOffset=Cartesian3.ZERO] A {@link Cartesian3} Property specifying the eye offset.
- * @property {Property | HorizontalOrigin} [horizontalOrigin=HorizontalOrigin.CENTER] A Property specifying the {@link HorizontalOrigin}.
- * @property {Property | VerticalOrigin} [verticalOrigin=VerticalOrigin.CENTER] A Property specifying the {@link VerticalOrigin}.
- * @property {Property | HeightReference} [heightReference=HeightReference.NONE] A Property specifying what the height is relative to.
- * @property {Property | Color} [fillColor=Color.WHITE] A Property specifying the fill {@link Color}.
- * @property {Property | Color} [outlineColor=Color.BLACK] A Property specifying the outline {@link Color}.
- * @property {Property | number} [outlineWidth=1.0] A numeric Property specifying the outline width.
- * @property {Property | NearFarScalar} [translucencyByDistance] A {@link NearFarScalar} Property used to set translucency based on distance from the camera.
- * @property {Property | NearFarScalar} [pixelOffsetScaleByDistance] A {@link NearFarScalar} Property used to set pixelOffset based on distance from the camera.
- * @property {Property | NearFarScalar} [scaleByDistance] A {@link NearFarScalar} Property used to set scale based on distance from the camera.
- * @property {Property | DistanceDisplayCondition} [distanceDisplayCondition] A Property specifying at what distance from the camera that this label will be displayed.
- * @property {Property | number} [disableDepthTestDistance] A Property specifying the distance from the camera at which to disable the depth test to.
+ * @property {Property | boolean} [show=true] 指定标签可见性的布尔属性。
+ * @property {Property | string} [text] 指定文本的属性。支持显式换行符 '\n'。
+ * @property {Property | string} [font='30px sans-serif'] 指定 CSS 字体的属性。
+ * @property {Property |LabelStyle} [style=LabelStyle.FILL] 指定 {@link LabelStyle} 的属性。
+ * @property {Property | number} [scale=1.0] 一个数字属性，指定要应用于文本的比例。
+ * @property {Property | boolean} [showBackground=false] 一个布尔属性，指定标签后面背景的可见性。
+ * @property {Property |Color} [backgroundColor=new Color(0.165, 0.165, 0.165,0.8)] 指定背景 {@link Color} 的属性。
+ * @property {Property |Cartesian2} [backgroundPadding=new Cartesian2(7,5)] 一个 {@link Cartesian2} 属性，用于指定水平和垂直背景填充（以像素为单位）。
+ * @property {Property |Cartesian2} [pixelOffset=Cartesian2.ZERO] 指定像素偏移量的 {@link Cartesian2} 属性。
+ * @property {Property |Cartesian3} [eyeOffset=Cartesian3.ZERO] 一个 {@link Cartesian3} 属性，用于指定眼睛偏移。
+ * @property {Property |HorizontalOrigin} [horizontalOrigin=HorizontalOrigin.CENTER] 指定 {@link HorizontalOrigin} 的属性。
+ * @property {Property |VerticalOrigin} [verticalOrigin=VerticalOrigin.CENTER] 指定 {@link VerticalOrigin} 的属性。
+ * @property {Property |HeightReference} [heightReference=HeightReference.NONE] 指定高度相对于什么的属性。
+ * @property {Property |Color} [fillColor=Color.WHITE] 指定填充 {@link Color} 的属性。
+ * @property {Property |Color} [outlineColor=Color.BLACK] 指定轮廓 {@link Color} 的属性。
+ * @property {Property | number} [outlineWidth=1.0] 指定轮廓宽度的数字属性。
+ * @property {Property |NearFarScalar} [translucencyByDistance] 一个 {@link NearFarScalar} 属性，用于根据与摄像机的距离设置半透明。
+ * @property {Property |NearFarScalar} [pixelOffsetScaleByDistance] 一个 {@link NearFarScalar} 属性，用于根据与摄像机的距离设置 pixelOffset。
+ * @property {Property |NearFarScalar} [scaleByDistance] 一个 {@link NearFarScalar} 属性，用于根据与摄像机的距离设置缩放。
+ * @property {Property |DistanceDisplayCondition} [distanceDisplayCondition] 一个属性，指定在距相机多远处显示此标签。
+ * @property {Property | number} [disableDepthTestDistance] 一个属性，用于指定要禁用深度测试的摄像头的距离。
  */
 
 /**
- * Describes a two dimensional label located at the position of the containing {@link Entity}.
+ * 描述位于包含 {@link Entity} 位置的二维标签。
  * <p>
  * <div align='center'>
  * <img src='Images/Label.png' width='400' height='300' /><br />
- * Example labels
+ * 示例标签
  * </div>
  * </p>
  *
@@ -98,7 +98,7 @@ function LabelGraphics(options) {
 
 Object.defineProperties(LabelGraphics.prototype, {
   /**
-   * Gets the event that is raised whenever a property or sub-property is changed or modified.
+   * 获取在更改或修改属性或子属性时引发的事件。
    * @memberof LabelGraphics.prototype
    *
    * @type {Event}
@@ -111,22 +111,22 @@ Object.defineProperties(LabelGraphics.prototype, {
   },
 
   /**
-   * 获取或设置boolean Property specifying the visibility of the label.
+   * 获取或设置boolean 指定标签可见性的属性。
    * @memberof LabelGraphics.prototype
    * @type {Property|undefined}
    */
   show: createPropertyDescriptor("show"),
 
   /**
-   * 获取或设置string Property specifying the text of the label.
-   * Explicit newlines '\n' are supported.
+   * 获取或设置string 属性，用于指定标签的文本。
+   * 支持显式换行符 '\n'。
    * @memberof LabelGraphics.prototype
    * @type {Property|undefined}
    */
   text: createPropertyDescriptor("text"),
 
   /**
-   * 获取或设置string Property specifying the font in CSS syntax.
+   * 获取或设置string 属性，用于指定 CSS 语法中的字体。
    * @memberof LabelGraphics.prototype
    * @type {Property|undefined}
    * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/font|CSS font on MDN}
@@ -134,20 +134,20 @@ Object.defineProperties(LabelGraphics.prototype, {
   font: createPropertyDescriptor("font"),
 
   /**
-   * 获取或设置Property specifying the {@link LabelStyle}.
+   * 获取或设置指定 {@link LabelStyle} 的属性。
    * @memberof LabelGraphics.prototype
    * @type {Property|undefined}
    */
   style: createPropertyDescriptor("style"),
 
   /**
-   * 获取或设置numeric Property specifying the uniform scale to apply to the image.
-   * A scale greater than <code>1.0</code> enlarges the label while a scale less than <code>1.0</code> shrinks it.
+   * 获取或设置numeric 指定要应用于图像的统一缩放的属性。
+   * 大于 <code>1.0</code> 的比例会放大标签，而小于 <code>1.0</code> 的比例会缩小标签。
    * <p>
    * <div align='center'>
    * <img src='Images/Label.setScale.png' width='400' height='300' /><br/>
-   * From left to right in the above image, the scales are <code>0.5</code>, <code>1.0</code>,
-   * and <code>2.0</code>.
+   * 在上图中，比例尺从左到右依次为 <code>0.5</code>, <code>1.0</code>,
+   * 和 <code>2.0</code>.
    * </div>
    * </p>
    * @memberof LabelGraphics.prototype
@@ -157,7 +157,7 @@ Object.defineProperties(LabelGraphics.prototype, {
   scale: createPropertyDescriptor("scale"),
 
   /**
-   * 获取或设置boolean Property specifying the visibility of the background behind the label.
+   * 获取或设置boolean 属性，用于指定标签后面背景的可见性。
    * @memberof LabelGraphics.prototype
    * @type {Property|undefined}
    * @default false
@@ -165,7 +165,7 @@ Object.defineProperties(LabelGraphics.prototype, {
   showBackground: createPropertyDescriptor("showBackground"),
 
   /**
-   * 获取或设置Property specifying the background {@link Color}.
+   * 获取或设置指定背景 {@link Color} 的属性。
    * @memberof LabelGraphics.prototype
    * @type {Property|undefined}
    * @default new Color(0.165, 0.165, 0.165, 0.8)
@@ -173,7 +173,7 @@ Object.defineProperties(LabelGraphics.prototype, {
   backgroundColor: createPropertyDescriptor("backgroundColor"),
 
   /**
-   * 获取或设置{@link Cartesian2} Property specifying the label's horizontal and vertical
+   * 获取或设置{@link Cartesian2} 指定标签的 horizontal 和 vertical 的属性
    * background padding in pixels.
    * @memberof LabelGraphics.prototype
    * @type {Property|undefined}
@@ -182,17 +182,17 @@ Object.defineProperties(LabelGraphics.prototype, {
   backgroundPadding: createPropertyDescriptor("backgroundPadding"),
 
   /**
-   * 获取或设置{@link Cartesian2} Property specifying the label's pixel offset in screen space
-   * from the origin of this label.  This is commonly used to align multiple labels and labels at
-   * the same position, e.g., an image and text.  The screen space origin is the top, left corner of the
-   * canvas; <code>x</code> increases from left to right, and <code>y</code> increases from top to bottom.
+   * 获取或设置{@link Cartesian2}指定标签在屏幕空间中的像素偏移量的属性
+   * 来自此标签的原点。 这通常用于对齐多个标签和
+   * 相同的位置，例如，图像和文本。 屏幕空间原点是
+   * canvas; <code>x</code>从左到右增加，以及 <code>y</code> 从上到下增加。
    * <p>
    * <div align='center'>
    * <table border='0' cellpadding='5'><tr>
    * <td align='center'><code>default</code><br/><img src='Images/Label.setPixelOffset.default.png' width='250' height='188' /></td>
    * <td align='center'><code>l.pixeloffset = new Cartesian2(25, 75);</code><br/><img src='Images/Label.setPixelOffset.x50y-25.png' width='250' height='188' /></td>
    * </tr></table>
-   * The label's origin is indicated by the yellow point.
+   * 标签的原点由黄点指示。
    * </div>
    * </p>
    * @memberof LabelGraphics.prototype
@@ -202,15 +202,15 @@ Object.defineProperties(LabelGraphics.prototype, {
   pixelOffset: createPropertyDescriptor("pixelOffset"),
 
   /**
-   * 获取或设置{@link Cartesian3} Property specifying the label's offset in eye coordinates.
-   * Eye coordinates is a left-handed coordinate system, where <code>x</code> points towards the viewer's
-   * right, <code>y</code> points up, and <code>z</code> points into the screen.
+   * 获取或设置{@link Cartesian3} 指定标签在眼睛坐标中的偏移量的属性。
+   * 眼睛坐标是左手坐标系，其中 <code>x</code> 指向查看者的
+   * 向右，<code>Y</code> 指向上方，<code>Z</code> 指向屏幕。
    * <p>
-   * An eye offset is commonly used to arrange multiple labels or objects at the same position, e.g., to
-   * arrange a label above its corresponding 3D model.
+   * 眼图偏移通常用于将多个标签或对象排列在同一位置，例如，将
+   * 将标签排列在相应的 3D 模型上方。
    * </p>
-   * Below, the label is positioned at the center of the Earth but an eye offset makes it always
-   * appear on top of the Earth regardless of the viewer's or Earth's orientation.
+   * 在下图中，标签位于地球的中心，但眼睛偏移使其始终
+   * 显示在地球顶部，无论观看者或地球的方向如何。
    * <p>
    * <div align='center'>
    * <table border='0' cellpadding='5'><tr>
@@ -227,21 +227,21 @@ Object.defineProperties(LabelGraphics.prototype, {
   eyeOffset: createPropertyDescriptor("eyeOffset"),
 
   /**
-   * 获取或设置Property specifying the {@link HorizontalOrigin}.
+   * 获取或设置指定 {@link HorizontalOrigin} 的属性。
    * @memberof LabelGraphics.prototype
    * @type {Property|undefined}
    */
   horizontalOrigin: createPropertyDescriptor("horizontalOrigin"),
 
   /**
-   * 获取或设置Property specifying the {@link VerticalOrigin}.
+   * 获取或设置指定 {@link VerticalOrigin} 的属性。
    * @memberof LabelGraphics.prototype
    * @type {Property|undefined}
    */
   verticalOrigin: createPropertyDescriptor("verticalOrigin"),
 
   /**
-   * 获取或设置Property specifying the {@link HeightReference}.
+   * 获取或设置指定 {@link HeightReference} 的属性。
    * @memberof LabelGraphics.prototype
    * @type {Property|undefined}
    * @default HeightReference.NONE
@@ -249,43 +249,43 @@ Object.defineProperties(LabelGraphics.prototype, {
   heightReference: createPropertyDescriptor("heightReference"),
 
   /**
-   * 获取或设置Property specifying the fill {@link Color}.
+   * 获取或设置指定填充 {@link Color} 的属性。
    * @memberof LabelGraphics.prototype
    * @type {Property|undefined}
    */
   fillColor: createPropertyDescriptor("fillColor"),
 
   /**
-   * 获取或设置Property specifying the outline {@link Color}.
+   * 获取或设置指定轮廓 {@link Color} 的属性。
    * @memberof LabelGraphics.prototype
    * @type {Property|undefined}
    */
   outlineColor: createPropertyDescriptor("outlineColor"),
 
   /**
-   * 获取或设置numeric Property specifying the outline width.
+   * 获取或设置numeric 指定轮廓宽度的属性。
    * @memberof LabelGraphics.prototype
    * @type {Property|undefined}
    */
   outlineWidth: createPropertyDescriptor("outlineWidth"),
 
   /**
-   * Gets or sets {@link NearFarScalar} Property specifying the translucency of the label based on the distance from the camera.
-   * A label's translucency will interpolate between the {@link NearFarScalar#nearValue} and
-   * {@link NearFarScalar#farValue} while the camera distance falls within the lower and upper bounds
-   * of the specified {@link NearFarScalar#near} and {@link NearFarScalar#far}.
-   * Outside of these ranges the label's translucency remains clamped to the nearest bound.
+   * 获取或设置 {@link NearFarScalar} 属性，根据与摄像机的距离指定标签的半透明性。
+   * 标签的半透明性将在 {@link NearFarScalar#nearValue} 和
+   * {@link NearFarScalar#farValue} 当摄像机距离落在下限和上限内时
+   * 指定的 {@link NearFarScalar#near} 和 {@link NearFarScalar#far} 的。
+   * 在这些范围之外，标签的半透明性仍然被限制在最近的边界上。
    * @memberof LabelGraphics.prototype
    * @type {Property|undefined}
    */
   translucencyByDistance: createPropertyDescriptor("translucencyByDistance"),
 
   /**
-   * Gets or sets {@link NearFarScalar} Property specifying the pixel offset of the label based on the distance from the camera.
-   * A label's pixel offset will interpolate between the {@link NearFarScalar#nearValue} and
-   * {@link NearFarScalar#farValue} while the camera distance falls within the lower and upper bounds
-   * of the specified {@link NearFarScalar#near} and {@link NearFarScalar#far}.
-   * Outside of these ranges the label's pixel offset remains clamped to the nearest bound.
+   * 获取或设置 {@link NearFarScalar} 属性，根据与相机的距离指定标签的像素偏移量。
+   * 标签的像素偏移量将在 {@link NearFarScalar#nearValue} 和
+   * {@link NearFarScalar#farValue} 当摄像机距离落在下限和上限内时
+   * 指定的 {@link NearFarScalar#near} 和 {@link NearFarScalar#far} 的 。
+   * 在这些范围之外，标签的像素偏移量将保持限制在最近的边界上。
    * @memberof LabelGraphics.prototype
    * @type {Property|undefined}
    */
@@ -294,19 +294,19 @@ Object.defineProperties(LabelGraphics.prototype, {
   ),
 
   /**
-   * Gets or sets near and far scaling properties of a Label based on the label's distance from the camera.
-   * A label's scale will interpolate between the {@link NearFarScalar#nearValue} and
-   * {@link NearFarScalar#farValue} while the camera distance falls within the lower and upper bounds
-   * of the specified {@link NearFarScalar#near} and {@link NearFarScalar#far}.
-   * Outside of these ranges the label's scale remains clamped to the nearest bound.  If undefined,
-   * scaleByDistance will be disabled.
+   * 根据标签与相机的距离获取或设置 Label 的近距和远距缩放属性。
+   * 标签的比例将在 {@link NearFarScalar#nearValue} 和
+   * {@link NearFarScalar#farValue} 当摄像机距离落在下限和上限内时
+   * 指定的 {@link NearFarScalar#near} 和 {@link NearFarScalar#far} 的 。
+   * 超出这些范围时，标签的刻度将保持限制为最近的边界。 如果未定义，则
+   * scaleByDistance 将被禁用。
    * @memberof LabelGraphics.prototype
    * @type {Property|undefined}
    */
   scaleByDistance: createPropertyDescriptor("scaleByDistance"),
 
   /**
-   * 获取或设置{@link DistanceDisplayCondition} Property specifying at what distance from the camera that this label will be displayed.
+   * 获取或设置{@link DistanceDisplayCondition} 指定此标签将在距摄像机多远处显示的属性。
    * @memberof LabelGraphics.prototype
    * @type {Property|undefined}
    */
@@ -315,8 +315,8 @@ Object.defineProperties(LabelGraphics.prototype, {
   ),
 
   /**
-   * 获取或设置distance from the camera at which to disable the depth test to, for example, prevent clipping against terrain.
-   * When set to zero, the depth test is always applied. When set to Number.POSITIVE_INFINITY, the depth test is never applied.
+   * 获取或设置与摄像机的距离，以禁用深度测试，以防止根据地形进行裁剪。
+   * 当设置为零时，始终应用深度测试。设置为 Number.POSITIVE_INFINITY 时，从不应用深度测试。
    * @memberof LabelGraphics.prototype
    * @type {Property|undefined}
    */
@@ -326,10 +326,10 @@ Object.defineProperties(LabelGraphics.prototype, {
 });
 
 /**
- * 复制instance.
+ * 复制实例。
  *
  * @param {LabelGraphics} [result] 要在其上存储结果的对象。
- * @returns {LabelGraphics} 修改后的结果参数 or a new instance if one was not provided.
+ * @returns {LabelGraphics} 修改后的结果参数或者一个新实例（如果未提供）。
  */
 LabelGraphics.prototype.clone = function (result) {
   if (!defined(result)) {
@@ -360,10 +360,10 @@ LabelGraphics.prototype.clone = function (result) {
 };
 
 /**
- * Assigns each unassigned property on this object to the value
- * of the same property on the provided source object.
+ * 将此对象上每个未分配的属性分配给值
+ * 的 API 值。
  *
- * @param {LabelGraphics} source The object to be merged into this object.
+ * @param {LabelGraphics} source 要合并到此对象中的对象。
  */
 LabelGraphics.prototype.merge = function (source) {
   //>>includeStart('debug', pragmas.debug);

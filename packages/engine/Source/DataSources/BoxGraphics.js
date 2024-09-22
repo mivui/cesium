@@ -8,23 +8,23 @@ import createPropertyDescriptor from "./createPropertyDescriptor.js";
 /**
  * @typedef {object} BoxGraphics.ConstructorOptions
  *
- * Initialization options for the BoxGraphics constructor
+ * BoxGraphics 构造函数的初始化选项
  *
- * @property {Property | boolean} [show=true] A boolean Property specifying the visibility of the box.
- * @property {Property | Cartesian3} [dimensions] A {@link Cartesian3} Property specifying the length, width, and height of the box.
- * @property {Property | HeightReference} [heightReference=HeightReference.NONE] A Property specifying what the height from the entity position is relative to.
- * @property {Property | boolean} [fill=true] A boolean Property specifying whether the box is filled with the provided material.
- * @property {MaterialProperty | Color} [material=Color.WHITE] A Property specifying the material used to fill the box.
- * @property {Property | boolean} [outline=false] A boolean Property specifying whether the box is outlined.
- * @property {Property | Color} [outlineColor=Color.BLACK] A Property specifying the {@link Color} of the outline.
- * @property {Property | number} [outlineWidth=1.0] A numeric Property specifying the width of the outline.
- * @property {Property | ShadowMode} [shadows=ShadowMode.DISABLED] An enum Property specifying whether the box casts or receives shadows from light sources.
- * @property {Property | DistanceDisplayCondition} [distanceDisplayCondition] A Property specifying at what distance from the camera that this box will be displayed.
+ * @property {Property | boolean} [show=true] 一个布尔属性，指定框的可见性。
+ * @property {Property | Cartesian3} [dimensions] 一个 {@link Cartesian3} 属性，用于指定框的长度、宽度和高度。
+ * @property {Property | HeightReference} [heightReference=HeightReference.NONE] 一个属性，用于指定从实体位置开始的高度相对于什么。
+ * @property {Property | boolean} [fill=true] 一个布尔属性，指定是否用提供的材质填充框。
+ * @property {MaterialProperty |Color} [material=Color.WHITE] 指定用于填充框的材质的属性。
+ * @property {Property | boolean} [outline=false] 一个布尔型 属性，指定是否对框进行轮廓划分。
+ * @property {Property |Color} [outlineColor=Color.BLACK] 指定轮廓的 {@link Color} 的属性。
+ * @property {Property | number} [outlineWidth=1.0] 指定轮廓宽度的数字属性。
+ * @property {Property | ShadowMode} [shadows=ShadowMode.DISABLED] 一个枚举属性，指定盒子是投射还是接收来自光源的阴影。
+ * @property {Property | DistanceDisplayCondition} [distanceDisplayCondition] 一个属性，指定在距摄像机多远处显示此框。
  *
  */
 
 /**
- * Describes a box. The center position and orientation are determined by the containing {@link Entity}.
+ * 描述一个框。中心位置和方向由包含的 {@link Entity} 确定。
  *
  * @alias BoxGraphics
  * @constructor
@@ -61,7 +61,7 @@ function BoxGraphics(options) {
 
 Object.defineProperties(BoxGraphics.prototype, {
   /**
-   * Gets the event that is raised whenever a property or sub-property is changed or modified.
+   * 获取在更改或修改属性或子属性时引发的事件。
    * @memberof BoxGraphics.prototype
    * @type {Event}
    * @readonly
@@ -81,14 +81,14 @@ Object.defineProperties(BoxGraphics.prototype, {
   show: createPropertyDescriptor("show"),
 
   /**
-   * Gets or sets {@link Cartesian3} Property property specifying the length, width, and height of the box.
+   * 获取或设置 {@link Cartesian3} 属性，指定框的长度、宽度和高度。
    * @memberof BoxGraphics.prototype
    * @type {Property|undefined}
    */
   dimensions: createPropertyDescriptor("dimensions"),
 
   /**
-   * 获取或设置Property specifying the {@link HeightReference}.
+   * 获取或设置指定 {@link HeightReference} 的属性。
    * @memberof BoxGraphics.prototype
    * @type {Property|undefined}
    * @default HeightReference.NONE
@@ -96,7 +96,7 @@ Object.defineProperties(BoxGraphics.prototype, {
   heightReference: createPropertyDescriptor("heightReference"),
 
   /**
-   * 获取或设置boolean Property specifying whether the box is filled with the provided material.
+   * 获取或设置boolean 指定是否使用提供的材质填充框的属性。
    * @memberof BoxGraphics.prototype
    * @type {Property|undefined}
    * @default true
@@ -104,7 +104,7 @@ Object.defineProperties(BoxGraphics.prototype, {
   fill: createPropertyDescriptor("fill"),
 
   /**
-   * 获取或设置material used to fill the box.
+   * 获取或设置用于填充箱子的材料。
    * @memberof BoxGraphics.prototype
    * @type {MaterialProperty|undefined}
    * @default Color.WHITE
@@ -112,7 +112,7 @@ Object.defineProperties(BoxGraphics.prototype, {
   material: createMaterialPropertyDescriptor("material"),
 
   /**
-   * 获取或设置Property specifying whether the box is outlined.
+   * 获取或设置指定是否为框添加轮廓的属性。
    * @memberof BoxGraphics.prototype
    * @type {Property|undefined}
    * @default false
@@ -120,7 +120,7 @@ Object.defineProperties(BoxGraphics.prototype, {
   outline: createPropertyDescriptor("outline"),
 
   /**
-   * 获取或设置Property specifying the {@link Color} of the outline.
+   * 获取或设置指定轮廓的 {@link Color} 的属性。
    * @memberof BoxGraphics.prototype
    * @type {Property|undefined}
    * @default Color.BLACK
@@ -128,9 +128,9 @@ Object.defineProperties(BoxGraphics.prototype, {
   outlineColor: createPropertyDescriptor("outlineColor"),
 
   /**
-   * 获取或设置numeric Property specifying the width of the outline.
+   * 获取或设置指定轮廓宽度的属性。
    * <p>
-   * Note: This property will be ignored on all major browsers on Windows platforms. For details, see (@link https://github.com/CesiumGS/cesium/issues/40}.
+   * 注意：在 Windows 平台上的所有主要浏览器上，都将忽略此属性。有关详细信息，请参阅 (@link https://github.com/CesiumGS/cesium/issues/40}.
    * </p>
    * @memberof BoxGraphics.prototype
    * @type {Property|undefined}
@@ -139,8 +139,8 @@ Object.defineProperties(BoxGraphics.prototype, {
   outlineWidth: createPropertyDescriptor("outlineWidth"),
 
   /**
-   * Get or sets the enum Property specifying whether the box
-   * casts or receives shadows from light sources.
+   * 获取或设置 enum 属性，指定框是否
+   * 从光源投射或接收阴影。
    * @memberof BoxGraphics.prototype
    * @type {Property|undefined}
    * @default ShadowMode.DISABLED
@@ -148,7 +148,7 @@ Object.defineProperties(BoxGraphics.prototype, {
   shadows: createPropertyDescriptor("shadows"),
 
   /**
-   * 获取或设置{@link DistanceDisplayCondition} Property specifying at what distance from the camera that this box will be displayed.
+   * 获取或设置{@link DistanceDisplayCondition} 指定在距摄像机多远处显示此框的属性。
    * @memberof BoxGraphics.prototype
    * @type {Property|undefined}
    */
@@ -158,10 +158,10 @@ Object.defineProperties(BoxGraphics.prototype, {
 });
 
 /**
- * 复制instance.
+ * 复制实例。
  *
  * @param {BoxGraphics} [result] 要在其上存储结果的对象。
- * @returns {BoxGraphics} 修改后的结果参数 or a new instance if one was not provided.
+ * @returns {BoxGraphics} 修改后的结果参数或者一个新实例（如果未提供）。
  */
 BoxGraphics.prototype.clone = function (result) {
   if (!defined(result)) {
@@ -181,10 +181,10 @@ BoxGraphics.prototype.clone = function (result) {
 };
 
 /**
- * Assigns each unassigned property on this object to the value
- * of the same property on the provided source object.
+ * 将此对象上每个未分配的属性分配给值
+ * 的 API 值。
  *
- * @param {BoxGraphics} source The object to be merged into this object.
+ * @param {BoxGraphics} source 要合并到此对象中的对象。
  */
 BoxGraphics.prototype.merge = function (source) {
   //>>includeStart('debug', pragmas.debug);

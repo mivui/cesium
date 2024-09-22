@@ -6,7 +6,7 @@ import CompositeProperty from "./CompositeProperty.js";
 import Property from "./Property.js";
 
 /**
- * A {@link CompositeProperty} which is also a {@link MaterialProperty}.
+ * 一个 {@link CompositeProperty}，它也是一个 {@link MaterialProperty}。
  *
  * @alias CompositeMaterialProperty
  * @constructor
@@ -22,8 +22,8 @@ function CompositeMaterialProperty() {
 
 Object.defineProperties(CompositeMaterialProperty.prototype, {
   /**
-   * Gets a value indicating if this property is constant.  A property is considered
-   * constant if getValue always returns the same result for the current definition.
+   * 获取一个值，该值指示此属性是否为 constant。 将属性视为
+   * 常量（如果 getValue 始终为当前定义返回相同的结果）。
    * @memberof CompositeMaterialProperty.prototype
    *
    * @type {boolean}
@@ -35,9 +35,9 @@ Object.defineProperties(CompositeMaterialProperty.prototype, {
     },
   },
   /**
-   * Gets the event that is raised whenever the definition of this property changes.
-   * The definition is changed whenever setValue is called with data different
-   * than the current value.
+   * 获取此属性的定义发生更改时引发的事件。
+   * 每当使用不同的数据调用 setValue 时，定义都会更改
+   * 比当前值。
    * @memberof CompositeMaterialProperty.prototype
    *
    * @type {Event}
@@ -49,7 +49,7 @@ Object.defineProperties(CompositeMaterialProperty.prototype, {
     },
   },
   /**
-   * Gets the interval collection.
+   * 获取 interval 集合。
    * @memberof CompositeMaterialProperty.prototype
    *
    * @type {TimeIntervalCollection}
@@ -62,10 +62,10 @@ Object.defineProperties(CompositeMaterialProperty.prototype, {
 });
 
 /**
- * Gets the {@link Material} type at the provided time.
+ * 在提供的时间获取 {@link Material} 类型。
  *
- * @param {JulianDate} time The time for which to retrieve the type.
- * @returns {string} The type of material.
+ * @param {JulianDate} time 检索类型的时间。
+ * @returns {string} 材质的类型。
  */
 CompositeMaterialProperty.prototype.getType = function (time) {
   //>>includeStart('debug', pragmas.debug);
@@ -86,11 +86,11 @@ CompositeMaterialProperty.prototype.getType = function (time) {
 const timeScratch = new JulianDate();
 
 /**
- * Gets the value of the property at the provided time.
+ * 获取属性在提供的时间的值。
  *
- * @param {JulianDate} [time=JulianDate.now()] The time for which to retrieve the value. If omitted, the current system time is used.
- * @param {object} [result] The object to store the value into, if omitted, a new instance is created and returned.
- * @returns {object} 修改后的结果参数 or a new instance if the result parameter was not supplied.
+ * @param {JulianDate} [time=JulianDate.now()] 检索值的时间。如果省略，则使用当前系统时间。
+ * @param {object} [result] 要将值存储到的对象，如果省略，则创建并返回一个新实例。
+ * @returns {object} 修改后的结果参数或新实例（如果未提供 result 参数）。
  */
 CompositeMaterialProperty.prototype.getValue = function (time, result) {
   if (!defined(time)) {
@@ -107,10 +107,10 @@ CompositeMaterialProperty.prototype.getValue = function (time, result) {
 };
 
 /**
- * Compares this property to the provided property and returns
- * <code>true</code>，否则为<code>false</code>。
+ * 将此属性与提供的属性进行比较，并返回
+ * <code>true</code>，否则为 <code>false</code>。
  *
- * @param {Property} [other] The other property.
+ * @param {Property} [other] 另一个属性。
  * @returns {boolean} <code>true</code>如果左和右相等，否则<code>false</code>。
  */
 CompositeMaterialProperty.prototype.equals = function (other) {

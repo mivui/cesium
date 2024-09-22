@@ -7,14 +7,14 @@ import ReferenceFrame from "../Core/ReferenceFrame.js";
 import PositionProperty from "./PositionProperty.js";
 
 /**
- * A {@link PositionProperty} whose value is lazily evaluated by a callback function.
+ * 一个 {@link PositionProperty}，其值由回调函数延迟计算。
  *
  * @alias CallbackPositionProperty
  * @constructor
  *
- * @param {CallbackPositionProperty.Callback} callback The function to be called when the position property is evaluated.
- * @param {boolean} isConstant <code>true</code> when the callback function returns the same value every time, <code>false</code> if the value will change.
- * @param {ReferenceFrame} [referenceFrame=ReferenceFrame.FIXED] The reference frame in which the position is defined.
+ * @param {CallbackPositionProperty.Callback} callback 计算 position 属性时要调用的函数。
+ * @param {boolean} isConstant <code>true</code>（当回调函数每次都返回相同的值时），如果值会发生变化，则为 <code>false</code>。
+ * @param {ReferenceFrame} [referenceFrame=ReferenceFrame.FIXED] 定义位置的参考系。
  *
  * @demo {@link https://sandcastle.cesium.com/index.html?src=Callback%20Position%20Property.html|Cesium Sandcastle Callback Position Property Demo}
  */
@@ -28,7 +28,7 @@ function CallbackPositionProperty(callback, isConstant, referenceFrame) {
 
 Object.defineProperties(CallbackPositionProperty.prototype, {
   /**
-   * Gets a value indicating if this property is constant.
+   * 获取一个值，该值指示此属性是否为 constant。
    * @memberof CallbackPositionProperty.prototype
    *
    * @type {boolean}
@@ -40,9 +40,9 @@ Object.defineProperties(CallbackPositionProperty.prototype, {
     },
   },
   /**
-   * Gets the event that is raised whenever the definition of this property changes.
-   * The definition is considered to have changed if a call to getValue would return
-   * a different result for the same time.
+   * 获取此属性的定义发生更改时引发的事件。
+   * 如果对 getValue 的调用会返回 getValue，则认为定义已更改
+   * 同一时间的不同结果。
    * @memberof CallbackPositionProperty.prototype
    *
    * @type {Event}
@@ -54,7 +54,7 @@ Object.defineProperties(CallbackPositionProperty.prototype, {
     },
   },
   /**
-   * Gets the reference frame in which the position is defined.
+   * 获取定义位置的参考帧。
    * @memberof CallbackPositionProperty.prototype
    * @type {ReferenceFrame}
    * @default ReferenceFrame.FIXED;
@@ -69,11 +69,11 @@ Object.defineProperties(CallbackPositionProperty.prototype, {
 const timeScratch = new JulianDate();
 
 /**
- * Gets the value of the property at the provided time in the fixed frame.
+ * 获取固定帧中给定时间的属性值。
  *
- * @param {JulianDate} [time=JulianDate.now()] The time for which to retrieve the value. If omitted, the current system time is used.
- * @param {Cartesian3} [result] The object to store the value into, if omitted, a new instance is created and returned.
- * @returns {Cartesian3 | undefined} 修改后的结果参数 or a new instance if the result parameter was not supplied.
+ * @param {JulianDate} [time=JulianDate.now()] 检索值的时间。如果省略，则使用当前系统时间。
+ * @param {Cartesian3} [result] 要将值存储到的对象，如果省略，则会创建并返回一个新实例。
+ * @returns {Cartesian3 | undefined} 修改后的结果参数或者，如果未提供 result 参数，则为新实例。
  */
 CallbackPositionProperty.prototype.getValue = function (time, result) {
   if (!defined(time)) {
@@ -83,10 +83,10 @@ CallbackPositionProperty.prototype.getValue = function (time, result) {
 };
 
 /**
- * Sets the callback to be used.
+ * 设置要使用的回调。
  *
- * @param {CallbackPositionProperty.Callback} callback The function to be called when the property is evaluated.
- * @param {boolean} isConstant <code>true</code> when the callback function returns the same value every time, <code>false</code> if the value will change.
+ * @param {CallbackPositionProperty.Callback} callback 评估属性时要调用的函数。
+ * @param {boolean} isConstant <code>true</code>（当回调函数每次都返回相同的值时），如果值会发生变化，则为 <code>false</code>。
  */
 CallbackPositionProperty.prototype.setCallback = function (
   callback,
@@ -113,12 +113,12 @@ CallbackPositionProperty.prototype.setCallback = function (
 };
 
 /**
- * Gets the value of the property at the provided time and in the provided reference frame.
+ * 获取在提供的时间和提供的参考框架中的属性值。
  *
- * @param {JulianDate} time The time for which to retrieve the value.
- * @param {ReferenceFrame} referenceFrame The desired referenceFrame of the result.
- * @param {Cartesian3} [result] The object to store the value into, if omitted, a new instance is created and returned.
- * @returns {Cartesian3 | undefined} 修改后的结果参数 or a new instance if the result parameter was not supplied.
+ * @param {JulianDate} time 检索值的时间。
+ * @param {ReferenceFrame} referenceFrame 结果所需的 referenceFrame。
+ * @param {Cartesian3} [result] 要将值存储到的对象，如果省略，则会创建并返回一个新实例。
+ * @returns {Cartesian3 | undefined} 修改后的结果参数或者，如果未提供 result 参数，则为新实例。
  */
 CallbackPositionProperty.prototype.getValueInReferenceFrame = function (
   time,
@@ -146,10 +146,10 @@ CallbackPositionProperty.prototype.getValueInReferenceFrame = function (
 };
 
 /**
- * Compares this property to the provided property and returns
- * <code>true</code>，否则为<code>false</code>。
+ * 将此属性与提供的属性进行比较，并返回
+ * <code>true</code>，否则为 <code>false</code>。
  *
- * @param {Property} [other] The other property.
+ * @param {Property} [other] 另一个属性。
  * @returns {boolean} <code>true</code>如果左和右相等，否则<code>false</code>。
  */
 CallbackPositionProperty.prototype.equals = function (other) {
@@ -163,11 +163,11 @@ CallbackPositionProperty.prototype.equals = function (other) {
 };
 
 /**
- * A function that returns the value of the position property.
+ * 返回 position 属性值的函数。
  * @callback CallbackPositionProperty.Callback
  *
- * @param {JulianDate} [time=JulianDate.now()] The time for which to retrieve the value. If omitted, the current system time is used.
- * @param {Cartesian3} [result] The object to store the value into. If omitted, the function must create and return a new instance.
- * @returns {Cartesian3 | undefined} 修改后的结果参数, or a new instance if the result parameter was not supplied or is unsupported.
+ * @param {JulianDate} [time=JulianDate.now()] 检索值的时间。如果省略，则使用当前系统时间。
+ * @param {Cartesian3} [result] 要将值存储到的对象。如果省略，则函数必须创建并返回一个新实例。
+ * @returns {Cartesian3 | undefined} 修改后的结果参数,或者 result 参数未提供或不受支持，则为新实例。
  */
 export default CallbackPositionProperty;

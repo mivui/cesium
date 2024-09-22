@@ -27,7 +27,7 @@ const geometryUpdaters = [
 ];
 
 /**
- * Manages a set of "updater" classes for the {@link GeometryVisualizer} for each entity
+ * 为每个实体的 {@link GeometryVisualizer} 管理一组“更新程序”类
  *
  * @private
  * @param {Entity} entity
@@ -91,7 +91,7 @@ GeometryUpdaterSet.prototype.destroy = function () {
 };
 
 /**
- * Add the provided updater to the default list of updaters if not already included
+ * 将提供的更新程序添加到默认更新程序列表中（如果尚未包含）
  * @param {GeometryUpdater} updater
  */
 GeometryUpdaterSet.registerUpdater = function (updater) {

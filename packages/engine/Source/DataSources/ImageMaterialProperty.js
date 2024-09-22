@@ -12,15 +12,15 @@ const defaultTransparent = false;
 const defaultColor = Color.WHITE;
 
 /**
- * A {@link MaterialProperty} that maps to image {@link Material} uniforms.
+ * 映射到图像 {@link Material} 的 {@link MaterialProperty} 统一。
  * @alias ImageMaterialProperty
  * @constructor
  *
  * @param {object} [options] 对象，具有以下属性:
- * @param {Property|string|HTMLImageElement|HTMLCanvasElement|HTMLVideoElement} [options.image] A Property specifying the Image, URL, Canvas, or Video.
- * @param {Property|Cartesian2} [options.repeat=new Cartesian2(1.0, 1.0)] A {@link Cartesian2} Property specifying the number of times the image repeats in each direction.
- * @param {Property|Color} [options.color=Color.WHITE] The color applied to the image
- * @param {Property|boolean} [options.transparent=false] Set to true when the image has transparency (for example, when a png has transparent sections)
+ * @param {Property|string|HTMLImageElement|HTMLCanvasElement|HTMLVideoElement} [options.image] 指定 Image、URL、Canvas 或 Video 的属性。
+ * @param {Property|Cartesian2} [options.repeat=new Cartesian2(1.0, 1.0)] A {@link Cartesian2} 指定图像在每个方向上重复次数的属性。
+ * @param {Property|Color} [options.color=Color.WHITE] 应用于图像的颜色
+ * @param {Property|boolean} [options.transparent=false] 当图像具有透明度时（例如，当 png 具有透明部分时），设置为 true
  */
 function ImageMaterialProperty(options) {
   options = defaultValue(options, defaultValue.EMPTY_OBJECT);
@@ -43,8 +43,8 @@ function ImageMaterialProperty(options) {
 
 Object.defineProperties(ImageMaterialProperty.prototype, {
   /**
-   * Gets a value indicating if this property is constant.  A property is considered
-   * constant if getValue always returns the same result for the current definition.
+   * 获取一个值，该值指示此属性是否为 constant。 将属性视为
+   * 常量（如果 getValue 始终为当前定义返回相同的结果）。
    * @memberof ImageMaterialProperty.prototype
    *
    * @type {boolean}
@@ -59,9 +59,9 @@ Object.defineProperties(ImageMaterialProperty.prototype, {
   },
 
   /**
-   * Gets the event that is raised whenever the definition of this property changes.
-   * The definition is considered to have changed if a call to getValue would return
-   * a different result for the same time.
+   * 获取此属性的定义发生更改时引发的事件。
+   * 如果对 getValue 的调用会返回 getValue，则认为定义已更改
+   * 同一时间的不同结果。
    * @memberof ImageMaterialProperty.prototype
    *
    * @type {Event}
@@ -74,14 +74,14 @@ Object.defineProperties(ImageMaterialProperty.prototype, {
   },
 
   /**
-   * 获取或设置Property specifying Image, URL, Canvas, or Video to use.
+   * 获取或设置指定要使用的 Image、URL、Canvas 或 Video 的属性。
    * @memberof ImageMaterialProperty.prototype
    * @type {Property|undefined}
    */
   image: createPropertyDescriptor("image"),
 
   /**
-   * 获取或设置{@link Cartesian2} Property specifying the number of times the image repeats in each direction.
+   * 获取或设置{@link Cartesian2} 指定图像在每个方向上重复次数的属性。
    * @memberof ImageMaterialProperty.prototype
    * @type {Property|undefined}
    * @default new Cartesian2(1, 1)
@@ -89,7 +89,7 @@ Object.defineProperties(ImageMaterialProperty.prototype, {
   repeat: createPropertyDescriptor("repeat"),
 
   /**
-   * 获取或设置Color Property specifying the desired color applied to the image.
+   * 获取或设置Color 属性，用于指定应用于图像的所需颜色。
    * @memberof ImageMaterialProperty.prototype
    * @type {Property|undefined}
    * @default 1.0
@@ -97,7 +97,7 @@ Object.defineProperties(ImageMaterialProperty.prototype, {
   color: createPropertyDescriptor("color"),
 
   /**
-   * 获取或设置Boolean Property specifying whether the image has transparency
+   * 获取或设置指定图像是否具有透明度的布尔属性
    * @memberof ImageMaterialProperty.prototype
    * @type {Property|undefined}
    * @default 1.0
@@ -106,10 +106,10 @@ Object.defineProperties(ImageMaterialProperty.prototype, {
 });
 
 /**
- * Gets the {@link Material} type at the provided time.
+ * 在提供的时间获取 {@link Material} 类型。
  *
- * @param {JulianDate} time The time for which to retrieve the type.
- * @returns {string} The type of material.
+ * @param {JulianDate} time 检索类型的时间。
+ * @returns {string} 材质的类型。
  */
 ImageMaterialProperty.prototype.getType = function (time) {
   return "Image";
@@ -118,11 +118,11 @@ ImageMaterialProperty.prototype.getType = function (time) {
 const timeScratch = new JulianDate();
 
 /**
- * Gets the value of the property at the provided time.
+ * 获取属性在提供的时间的值。
  *
- * @param {JulianDate} [time=JulianDate.now()] The time for which to retrieve the value. If omitted, the current system time is used.
- * @param {object} [result] The object to store the value into, if omitted, a new instance is created and returned.
- * @returns {object} 修改后的结果参数 or a new instance if the result parameter was not supplied.
+ * @param {JulianDate} [time=JulianDate.now()] 检索值的时间。如果省略，则使用当前系统时间。
+ * @param {object} [result] 要将值存储到的对象，如果省略，则创建并返回一个新实例。
+ * @returns {object} 修改后的结果参数或者，如果未提供 result 参数，则为新实例。
  */
 ImageMaterialProperty.prototype.getValue = function (time, result) {
   if (!defined(time)) {
@@ -154,10 +154,10 @@ ImageMaterialProperty.prototype.getValue = function (time, result) {
 };
 
 /**
- * Compares this property to the provided property and returns
- * <code>true</code>，否则为<code>false</code>。
+ * 将此属性与提供的属性进行比较，并返回
+ * <code>true</code>，否则为 <code>false</code>。
  *
- * @param {Property} [other] The other property.
+ * @param {Property} [other] 另一个属性。
  * @returns {boolean} <code>true</code>如果左和右相等，否则<code>false</code>。
  */
 ImageMaterialProperty.prototype.equals = function (other) {

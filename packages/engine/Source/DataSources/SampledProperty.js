@@ -113,13 +113,13 @@ function mergeNewSamples(epoch, times, values, newData, packedLength) {
 }
 
 /**
- * A {@link Property} whose value is interpolated for a given time from the
- * provided set of samples and specified interpolation algorithm and degree.
+ * 一个 {@link Property}，其值在给定时间内从
+ * 提供样本集和指定的插值算法和度数。
  * @alias SampledProperty
  * @constructor
  *
- * @param {number|Packable} type The type of property.
- * @param {Packable[]} [derivativeTypes] When supplied, indicates that samples will contain derivative information of the specified types.
+ * @param {number|Packable} type 属性的类型。
+ * @param {Packable[]} [derivativeTypes] 提供时，表示样本将包含指定类型的衍生信息。
  *
  *
  * @example
@@ -217,8 +217,8 @@ function SampledProperty(type, derivativeTypes) {
 
 Object.defineProperties(SampledProperty.prototype, {
   /**
-   * Gets a value indicating if this property is constant.  A property is considered
-   * constant if getValue always returns the same result for the current definition.
+   * 获取一个值，该值指示此属性是否为 constant。 将属性视为
+   * 常量（如果 getValue 始终为当前定义返回相同的结果）。
    * @memberof SampledProperty.prototype
    *
    * @type {boolean}
@@ -230,9 +230,9 @@ Object.defineProperties(SampledProperty.prototype, {
     },
   },
   /**
-   * Gets the event that is raised whenever the definition of this property changes.
-   * The definition is considered to have changed if a call to getValue would return
-   * a different result for the same time.
+   * 获取此属性的定义发生更改时引发的事件。
+   * 如果对 getValue 的调用会返回 getValue，则认为定义已更改
+   * 同一时间的不同结果。
    * @memberof SampledProperty.prototype
    *
    * @type {Event}
@@ -244,7 +244,7 @@ Object.defineProperties(SampledProperty.prototype, {
     },
   },
   /**
-   * Gets the type of property.
+   * 获取属性的类型。
    * @memberof SampledProperty.prototype
    * @type {*}
    */
@@ -254,7 +254,7 @@ Object.defineProperties(SampledProperty.prototype, {
     },
   },
   /**
-   * Gets the derivative types used by this property.
+   * 获取此属性使用的派生类型。
    * @memberof SampledProperty.prototype
    * @type {Packable[]}
    */
@@ -264,7 +264,7 @@ Object.defineProperties(SampledProperty.prototype, {
     },
   },
   /**
-   * Gets the degree of interpolation to perform when retrieving a value.
+   * 获取检索值时要执行的插值度数。
    * @memberof SampledProperty.prototype
    * @type {number}
    * @default 1
@@ -275,7 +275,7 @@ Object.defineProperties(SampledProperty.prototype, {
     },
   },
   /**
-   * Gets the interpolation algorithm to use when retrieving a value.
+   * 获取检索值时要使用的插值算法。
    * @memberof SampledProperty.prototype
    * @type {InterpolationAlgorithm}
    * @default LinearApproximation
@@ -286,8 +286,8 @@ Object.defineProperties(SampledProperty.prototype, {
     },
   },
   /**
-   * 获取或设置type of extrapolation to perform when a value
-   * is requested at a time after any available samples.
+   * 获取或设置当值
+   * 在任何可用样品之后请求。
    * @memberof SampledProperty.prototype
    * @type {ExtrapolationType}
    * @default ExtrapolationType.NONE
@@ -304,8 +304,8 @@ Object.defineProperties(SampledProperty.prototype, {
     },
   },
   /**
-   * 获取或设置amount of time to extrapolate forward before
-   * the property becomes undefined.  A value of 0 will extrapolate forever.
+   * 获取或设置之前向前推断的时间量
+   * 属性变为 undefined。 值 0 将永远外推。
    * @memberof SampledProperty.prototype
    * @type {number}
    * @default 0
@@ -322,8 +322,8 @@ Object.defineProperties(SampledProperty.prototype, {
     },
   },
   /**
-   * 获取或设置type of extrapolation to perform when a value
-   * is requested at a time before any available samples.
+   * 获取或设置当值
+   * 在任何可用样品之前请求。
    * @memberof SampledProperty.prototype
    * @type {ExtrapolationType}
    * @default ExtrapolationType.NONE
@@ -340,8 +340,8 @@ Object.defineProperties(SampledProperty.prototype, {
     },
   },
   /**
-   * 获取或设置amount of time to extrapolate backward
-   * before the property becomes undefined.  A value of 0 will extrapolate forever.
+   * 获取或设置向后推断的时间量
+   * 之前。 值 0 将永远外推。
    * @memberof SampledProperty.prototype
    * @type {number}
    * @default 0
@@ -362,11 +362,11 @@ Object.defineProperties(SampledProperty.prototype, {
 const timeScratch = new JulianDate();
 
 /**
- * Gets the value of the property at the provided time.
+ * 获取属性在提供的时间的值。
  *
- * @param {JulianDate} [time=JulianDate.now()] The time for which to retrieve the value. If omitted, the current system time is used.
- * @param {object} [result] The object to store the value into, if omitted, a new instance is created and returned.
- * @returns {object} 修改后的结果参数 or a new instance if the result parameter was not supplied.
+ * @param {JulianDate} [time=JulianDate.now()] 检索值的时间。如果省略，则使用当前系统时间。
+ * @param {object} [result] 要将值存储到的对象，如果省略，则创建并返回一个新实例。
+ * @returns {object} 修改后的结果参数或新实例（如果未提供 result 参数）。
  */
 SampledProperty.prototype.getValue = function (time, result) {
   if (!defined(time)) {
@@ -535,11 +535,11 @@ SampledProperty.prototype.getValue = function (time, result) {
 };
 
 /**
- * Sets the algorithm and degree to use when interpolating a value.
+ * 设置插值时要使用的算法和度数。
  *
  * @param {object} [options] 对象，具有以下属性:
- * @param {InterpolationAlgorithm} [options.interpolationAlgorithm] The new interpolation algorithm.  If undefined, the existing property will be unchanged.
- * @param {number} [options.interpolationDegree] The new interpolation degree.  If undefined, the existing property will be unchanged.
+ * @param {InterpolationAlgorithm} [options.interpolationAlgorithm] 新的插值算法。 如果未定义，则 existing 属性将保持不变。
+ * @param {number} [options.interpolationDegree] 新的插值度数。 如果未定义，则 existing 属性将保持不变。
  */
 SampledProperty.prototype.setInterpolationOptions = function (options) {
   if (!defined(options)) {
@@ -574,11 +574,11 @@ SampledProperty.prototype.setInterpolationOptions = function (options) {
 };
 
 /**
- * Adds a new sample.
+ * 添加新样本。
  *
- * @param {JulianDate} time The sample time.
- * @param {Packable} value The value at the provided time.
- * @param {Packable[]} [derivatives] The array of derivatives at the provided time.
+ * @param {JulianDate} time 采样时间。
+ * @param {Packable} value 提供的时间的值。
+ * @param {Packable[]} [derivatives] 在提供的时间的衍生数组。
  */
 SampledProperty.prototype.addSample = function (time, value, derivatives) {
   const innerDerivativeTypes = this._innerDerivativeTypes;
@@ -615,11 +615,11 @@ SampledProperty.prototype.addSample = function (time, value, derivatives) {
 };
 
 /**
- * Adds an array of samples.
+ * 添加样本数组。
  *
- * @param {JulianDate[]} times An array of JulianDate instances where each index is a sample time.
- * @param {Packable[]} values The array of values, where each value corresponds to the provided times index.
- * @param {Array[]} [derivativeValues] An array where each item is the array of derivatives at the equivalent time index.
+ * @param {JulianDate[]} times 一个 JulianDate 实例的数组，其中每个索引都是一个采样时间。
+ * @param {Packable[]} values 值数组，其中每个值对应于提供的 times 索引。
+ * @param {Array[]} [derivativeValues] 一个数组，其中每个项目都是等效时间索引处的导数数组。
  *
  * @exception {DeveloperError} times and values must be the same length.
  * @exception {DeveloperError} times and derivativeValues must be the same length.
@@ -675,11 +675,11 @@ SampledProperty.prototype.addSamples = function (
 };
 
 /**
- * Adds samples as a single packed array where each new sample is represented as a date,
- * followed by the packed representation of the corresponding value and derivatives.
+ * 将样本添加为单个打包数组，其中每个新样本都表示为日期，
+ * 后跟相应值和导数的打包表示形式。
  *
- * @param {number[]} packedSamples The array of packed samples.
- * @param {JulianDate} [epoch] If any of the dates in packedSamples are numbers, they are considered an offset from this epoch, in seconds.
+ * @param {number[]} packedSamples 打包样本数组。
+ * @param {JulianDate} [epoch] 如果 packedSamples 中的任何日期是数字，则它们被视为与该纪元的偏移量（以秒为单位）。
  */
 SampledProperty.prototype.addSamplesPackedArray = function (
   packedSamples,
@@ -701,9 +701,9 @@ SampledProperty.prototype.addSamplesPackedArray = function (
 };
 
 /**
- * Removes a sample at the given time, if present.
+ * 在给定时间删除样本（如果存在）。
  *
- * @param {JulianDate} time The sample time.
+ * @param {JulianDate} time 采样时间。
  * @returns {boolean} <code>true</code> if a sample at time was removed, <code>false</code> 否则。
  */
 SampledProperty.prototype.removeSample = function (time) {
@@ -731,9 +731,9 @@ function removeSamples(property, startIndex, numberToRemove) {
 }
 
 /**
- * Removes all samples for the given time interval.
+ * 删除给定时间间隔内的所有样本。
  *
- * @param {TimeInterval} time The time interval for which to remove all samples.
+ * @param {TimeInterval} time 删除所有样本的时间间隔。
  */
 SampledProperty.prototype.removeSamples = function (timeInterval) {
   //>>includeStart('debug', pragmas.debug);
@@ -758,10 +758,10 @@ SampledProperty.prototype.removeSamples = function (timeInterval) {
 };
 
 /**
- * Compares this property to the provided property and returns
- * <code>true</code>，否则为<code>false</code>。
+ * 将此属性与提供的属性进行比较，并返回
+ * <code>true</code>，否则为 <code>false</code>。
  *
- * @param {Property} [other] The other property.
+ * @param {Property} [other] 另一个属性。
  * @returns {boolean} <code>true</code>如果左和右相等，否则<code>false</code>。
  */
 SampledProperty.prototype.equals = function (other) {

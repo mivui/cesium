@@ -6,9 +6,9 @@ import createPropertyDescriptor from "./createPropertyDescriptor.js";
 import Property from "./Property.js";
 
 /**
- * A {@link MaterialProperty} that maps to PolylineArrow {@link Material} uniforms.
+ * 映射到 PolylineArrow {@link Material} 制服的 {@link MaterialProperty}。
  *
- * @param {Property|Color} [color=Color.WHITE] The {@link Color} Property to be used.
+ * @param {Property|Color} [color=Color.WHITE] 要使用的 {@link Color} 属性。
  *
  * @alias PolylineArrowMaterialProperty
  * @constructor
@@ -23,8 +23,8 @@ function PolylineArrowMaterialProperty(color) {
 
 Object.defineProperties(PolylineArrowMaterialProperty.prototype, {
   /**
-   * Gets a value indicating if this property is constant.  A property is considered
-   * constant if getValue always returns the same result for the current definition.
+   * 获取一个值，该值指示此属性是否为 constant。 将属性视为
+   * 常量（如果 getValue 始终为当前定义返回相同的结果）。
    * @memberof PolylineArrowMaterialProperty.prototype
    *
    * @type {boolean}
@@ -36,9 +36,9 @@ Object.defineProperties(PolylineArrowMaterialProperty.prototype, {
     },
   },
   /**
-   * Gets the event that is raised whenever the definition of this property changes.
-   * The definition is considered to have changed if a call to getValue would return
-   * a different result for the same time.
+   * 获取此属性的定义发生更改时引发的事件。
+   * 如果对 getValue 的调用会返回 getValue，则认为定义已更改
+   * 同一时间的不同结果。
    * @memberof PolylineArrowMaterialProperty.prototype
    *
    * @type {Event}
@@ -59,10 +59,10 @@ Object.defineProperties(PolylineArrowMaterialProperty.prototype, {
 });
 
 /**
- * Gets the {@link Material} type at the provided time.
+ * 在提供的时间获取 {@link Material} 类型。
  *
- * @param {JulianDate} time The time for which to retrieve the type.
- * @returns {string} The type of material.
+ * @param {JulianDate} time 检索类型的时间。
+ * @returns {string} 材质的类型。
  */
 PolylineArrowMaterialProperty.prototype.getType = function (time) {
   return "PolylineArrow";
@@ -71,11 +71,11 @@ PolylineArrowMaterialProperty.prototype.getType = function (time) {
 const timeScratch = new JulianDate();
 
 /**
- * Gets the value of the property at the provided time.
+ * 获取属性在提供的时间的值。
  *
- * @param {JulianDate} [time=JulianDate.now()] The time for which to retrieve the value. If omitted, the current system time is used.
- * @param {object} [result] The object to store the value into, if omitted, a new instance is created and returned.
- * @returns {object} 修改后的结果参数 or a new instance if the result parameter was not supplied.
+ * @param {JulianDate} [time=JulianDate.now()] 检索值的时间。如果省略，则使用当前系统时间。
+ * @param {object} [result] 要将值存储到的对象，如果省略，则创建并返回一个新实例。
+ * @returns {object} 修改后的结果参数或新实例（如果未提供 result 参数）。
  */
 PolylineArrowMaterialProperty.prototype.getValue = function (time, result) {
   if (!defined(time)) {
@@ -94,10 +94,10 @@ PolylineArrowMaterialProperty.prototype.getValue = function (time, result) {
 };
 
 /**
- * Compares this property to the provided property and returns
- * <code>true</code>，否则为<code>false</code>。
+ * 将此属性与提供的属性进行比较，并返回
+ * <code>true</code>，否则为 <code>false</code>。
  *
- * @param {Property} [other] The other property.
+ * @param {Property} [other] 另一个属性。
  * @returns {boolean} <code>true</code>如果左和右相等，否则<code>false</code>。
  */
 PolylineArrowMaterialProperty.prototype.equals = function (other) {

@@ -21,16 +21,16 @@ import PointVisualizer from "./PointVisualizer.js";
 import PolylineVisualizer from "./PolylineVisualizer.js";
 
 /**
- * Visualizes a collection of {@link DataSource} instances.
+ * 可视化 {@link DataSource} 实例的集合。
  * @alias DataSourceDisplay
  * @constructor
  *
  * @param {object} options 对象，具有以下属性:
- * @param {Scene} options.scene The scene in which to display the data.
- * @param {DataSourceCollection} options.dataSourceCollection The data sources to display.
+ * @param {Scene} options.scene 显示数据的场景。
+ * @param {DataSourceCollection} options.dataSourceCollection 要显示的数据源。
  * @param {DataSourceDisplay.VisualizersCallback} [options.visualizersCallback=DataSourceDisplay.defaultVisualizersCallback]
- *        A function which creates an array of visualizers used for visualization.
- *        If undefined, all standard visualizers are used.
+ * 创建用于可视化的可视化工具数组的函数。
+ * 如果未定义，则使用所有标准可视化工具。
  */
 function DataSourceDisplay(options) {
   //>>includeStart('debug', pragmas.debug);
@@ -122,9 +122,9 @@ function DataSourceDisplay(options) {
 
 const ExtraVisualizers = [];
 /**
- * Add the provided Visualizer to the default visualizers callback if not already included
+ * 将提供的 Visualizer 添加到默认 Visualizers 回调（如果尚未包含）
  * @private
- * @param {Visualizer} visualizer Visualizer class to add
+ * @param {Visualizer} visualizer 要添加的 Visualizer 类
  */
 DataSourceDisplay.registerVisualizer = function (visualizer) {
   if (!ExtraVisualizers.includes(visualizer)) {
@@ -133,9 +133,9 @@ DataSourceDisplay.registerVisualizer = function (visualizer) {
 };
 
 /**
- * Remove the provided Visualizer from the default visualizers callback if it's already included
+ * 从默认 Visualizers 回调中删除提供的 Visualizer（如果已包含）
  * @private
- * @param {Visualizer} visualizer Visualizer class to remove
+ * @param {Visualizer} visualizer 要删除的 Visualizer 类
  */
 DataSourceDisplay.unregisterVisualizer = function (visualizer) {
   if (ExtraVisualizers.includes(visualizer)) {
@@ -145,8 +145,8 @@ DataSourceDisplay.unregisterVisualizer = function (visualizer) {
 };
 
 /**
- * 获取或设置default function which creates an array of visualizers used for visualization.
- * By default, this function uses all standard visualizers.
+ * 获取或设置default 函数，该函数创建用于可视化的可视化工具数组。
+ * 默认情况下，此功能使用所有标准可视化工具。
  *
  * @type {DataSourceDisplay.VisualizersCallback}
  */
@@ -183,7 +183,7 @@ DataSourceDisplay.defaultVisualizersCallback = function (
 
 Object.defineProperties(DataSourceDisplay.prototype, {
   /**
-   * 得到场景 associated with this display.
+   * 得到场景与此显示相关联。
    * @memberof DataSourceDisplay.prototype
    * @type {Scene}
    */
@@ -193,7 +193,7 @@ Object.defineProperties(DataSourceDisplay.prototype, {
     },
   },
   /**
-   * Gets the collection of data sources to display.
+   * 获取要显示的数据源的集合。
    * @memberof DataSourceDisplay.prototype
    * @type {DataSourceCollection}
    */
@@ -203,10 +203,10 @@ Object.defineProperties(DataSourceDisplay.prototype, {
     },
   },
   /**
-   * Gets the default data source instance which can be used to
-   * manually create and visualize entities not tied to
-   * a specific data source. This instance is always available
-   * and does not appear in the list dataSources collection.
+   * 获取默认数据源实例，该实例可用于
+   * 手动创建和可视化未绑定到的实体
+   * 特定数据源。此实例始终可用
+   * 中，并且不会显示在列表 dataSources 集合中。
    * @memberof DataSourceDisplay.prototype
    * @type {CustomDataSource}
    */
@@ -217,7 +217,7 @@ Object.defineProperties(DataSourceDisplay.prototype, {
   },
 
   /**
-   * Gets a value indicating whether or not all entities in the data source are ready
+   * 获取一个值，该值指示数据源中的所有实体是否都已准备就绪
    * @memberof DataSourceDisplay.prototype
    * @type {boolean}
    * @readonly
@@ -230,12 +230,12 @@ Object.defineProperties(DataSourceDisplay.prototype, {
 });
 
 /**
- * Returns true if this object was destroyed; otherwise, false.
+ * 如果此对象已销毁，则返回 true;否则为 false。
  * <br /><br />
- * If this object was destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.
+ * 如果此对象已销毁，则不应使用;调用
+ * <code>isDestroyed</code> 将导致 {@link DeveloperError} 异常.
  *
- * @returns {boolean} True if this object was destroyed; otherwise, false.
+ * @returns {boolean} 如果此对象被销毁，则为 True;否则为 false。
  *
  * @see DataSourceDisplay#destroy
  */
@@ -244,14 +244,14 @@ DataSourceDisplay.prototype.isDestroyed = function () {
 };
 
 /**
- * Destroys the WebGL resources held by this object.  Destroying an object allows for deterministic
- * release of WebGL resources, instead of relying on the garbage collector to destroy this object.
+ * 销毁此对象持有的 WebGL 资源。 销毁对象允许确定性
+ * 释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。
  * <br /><br />
- * Once an object is destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.  Therefore,
- * assign the return value (<code>undefined</code>) to the object as done in the example.
+ * 一旦对象被销毁，就不应该使用它;调用
+ * <code>isDestroyed</code> 将导致 {@link DeveloperError} 异常。 因此
+ * 将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
  *
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 此对象已销毁，即调用 destroy（） 。
  *
  *
  * @example
@@ -283,10 +283,10 @@ DataSourceDisplay.prototype.destroy = function () {
 };
 
 /**
- * Updates the display to the provided time.
+ * 将显示更新为提供的时间。
  *
- * @param {JulianDate} time The simulation time.
- * @returns {boolean} True if all data sources are ready to be displayed, false 否则。
+ * @param {JulianDate} time 模拟时间。
+ * @returns {boolean} 如果所有数据源都已准备好显示，则为 True，否则为 false。
  */
 DataSourceDisplay.prototype.update = function (time) {
   //>>includeStart('debug', pragmas.debug);
@@ -363,16 +363,16 @@ const getBoundingSphereArrayScratch = [];
 const getBoundingSphereBoundingSphereScratch = new BoundingSphere();
 
 /**
- * Computes a bounding sphere which encloses the visualization produced for the specified entity.
- * The bounding sphere is in the fixed frame of the scene's globe.
+ * 计算一个边界球体，该球体包含为指定实体生成的可视化效果。
+ * 边界球体位于场景地球的固定帧中。
  *
- * @param {Entity} entity The entity whose bounding sphere to compute.
- * @param {boolean} allowPartial If true, pending bounding spheres are ignored and an answer will be returned from the currently available data.
- *                               If false, the the function will halt and return pending if any of the bounding spheres are pending.
- * @param {BoundingSphere} result The bounding sphere onto which to store the result.
- * @returns {BoundingSphereState} BoundingSphereState.DONE if the result contains the bounding sphere,
- *                       BoundingSphereState.PENDING if the result is still being computed, or
- *                       BoundingSphereState.FAILED if the entity has no visualization in the current scene.
+ * @param {Entity} entity 要计算其边界球体的实体。
+ * @param {boolean} allowPartial 如果为 true，则忽略待处理的边界球体，并将从当前可用数据中返回答案。
+ * 如果为 false，则函数将停止并在任何边界球体处于 pending 状态时返回 pending。
+ * @param {BoundingSphere} result 要存储结果的边界球体。
+ * @returns {BoundingSphereState} BoundingSphereState.DONE（如果结果包含边界球体），
+ * BoundingSphereState.PENDING（如果结果仍在计算中），或者
+ * BoundingSphereState.FAILED，如果实体在当前场景中没有可视化效果。
  * @private
  */
 DataSourceDisplay.prototype.getBoundingSphere = function (
@@ -527,13 +527,13 @@ DataSourceDisplay.prototype._onDataSourceMoved = function (
 };
 
 /**
- * A function which creates an array of visualizers used for visualization.
+ * 创建用于可视化的可视化工具数组的函数。
  * @callback DataSourceDisplay.VisualizersCallback
  *
- * @param {Scene} scene The scene to create visualizers for.
- * @param {EntityCluster} entityCluster The entity cluster to create visualizers for.
- * @param {DataSource} dataSource The data source to create visualizers for.
- * @returns {Visualizer[]} An array of visualizers used for visualization.
+ * @param {Scene} scene 要为其创建可视化工具的场景。
+ * @param {EntityCluster} entityCluster 要为其创建可视化工具的实体集群。
+ * @param {DataSource} dataSource 要为其创建可视化工具的数据源。
+ * @returns {Visualizer[]} 用于可视化的可视化器数组。
  *
  * @example
  * function createVisualizers(scene, entityCluster, dataSource) {

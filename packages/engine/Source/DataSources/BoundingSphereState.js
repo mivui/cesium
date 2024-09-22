@@ -1,23 +1,23 @@
 /**
- * The state of a BoundingSphere computation being performed by a {@link Visualizer}.
+ * 由 {@link Visualizer} 执行的 BoundingSphere 计算的状态。
  * @enum {number}
  * @private
  */
 const BoundingSphereState = {
   /**
-   * The BoundingSphere has been computed.
+   * 已计算 BoundingSphere。
    * @type BoundingSphereState
    * @constant
    */
   DONE: 0,
   /**
-   * The BoundingSphere is still being computed.
+   * BoundingSphere 仍在计算中。
    * @type BoundingSphereState
    * @constant
    */
   PENDING: 1,
   /**
-   * The BoundingSphere does not exist.
+   * BoundingSphere 不存在。
    * @type BoundingSphereState
    * @constant
    */

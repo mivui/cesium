@@ -27,16 +27,16 @@ const defaultDistanceDisplayCondition = new ConstantProperty(
 const defaultClassificationType = new ConstantProperty(ClassificationType.BOTH);
 
 /**
- * An abstract class for updating geometry entities.
+ * 用于更新几何实体的抽象类。
  * @alias GeometryUpdater
  * @constructor
  *
  * @param {object} options  对象，具有以下属性:
- * @param {Entity} options.entity The entity containing the geometry to be visualized.
- * @param {Scene} options.scene The scene where visualization is taking place.
- * @param {object} options.geometryOptions Options for the geometry
- * @param {string} options.geometryPropertyName The geometry property name
- * @param {string[]} options.observedPropertyNames The entity properties this geometry cares about
+ * @param {Entity} options.entity 包含要可视化的几何体的实体。
+ * @param {Scene} options.scene 正在进行可视化的场景。
+ * @param {object} options.geometryOptions 几何体的选项
+ * @param {string} options.geometryPropertyName 几何属性名称
+ * @param {string[]} options.observedPropertyNames 此几何体关心的实体属性
  */
 function GeometryUpdater(options) {
   //>>includeStart('debug', pragmas.debug);
@@ -77,7 +77,7 @@ function GeometryUpdater(options) {
 
 Object.defineProperties(GeometryUpdater.prototype, {
   /**
-   * Gets the unique ID associated with this updater
+   * 获取与此更新程序关联的唯一 ID
    * @memberof GeometryUpdater.prototype
    * @type {string}
    * @readonly
@@ -88,7 +88,7 @@ Object.defineProperties(GeometryUpdater.prototype, {
     },
   },
   /**
-   * Gets the entity associated with this geometry.
+   * 获取与此几何体关联的实体。
    * @memberof GeometryUpdater.prototype
    *
    * @type {Entity}
@@ -100,7 +100,7 @@ Object.defineProperties(GeometryUpdater.prototype, {
     },
   },
   /**
-   * Gets a value indicating if the geometry has a fill component.
+   * 获取一个值，该值指示几何图形是否具有填充组件。
    * @memberof GeometryUpdater.prototype
    *
    * @type {boolean}
@@ -112,7 +112,7 @@ Object.defineProperties(GeometryUpdater.prototype, {
     },
   },
   /**
-   * Gets a value indicating if fill visibility varies with simulation time.
+   * 获取一个值，该值指示填充可见性是否随模拟时间而变化。
    * @memberof GeometryUpdater.prototype
    *
    * @type {boolean}
@@ -129,7 +129,7 @@ Object.defineProperties(GeometryUpdater.prototype, {
     },
   },
   /**
-   * Gets the material property used to fill the geometry.
+   * 获取用于填充几何体的 material 属性。
    * @memberof GeometryUpdater.prototype
    *
    * @type {MaterialProperty}
@@ -141,7 +141,7 @@ Object.defineProperties(GeometryUpdater.prototype, {
     },
   },
   /**
-   * Gets a value indicating if the geometry has an outline component.
+   * 获取一个值，该值指示几何图形是否具有轮廓组件。
    * @memberof GeometryUpdater.prototype
    *
    * @type {boolean}
@@ -153,7 +153,7 @@ Object.defineProperties(GeometryUpdater.prototype, {
     },
   },
   /**
-   * Gets a value indicating if the geometry has an outline component.
+   * 获取一个值，该值指示几何图形是否具有轮廓组件.
    * @memberof GeometryUpdater.prototype
    *
    * @type {boolean}
@@ -170,7 +170,7 @@ Object.defineProperties(GeometryUpdater.prototype, {
     },
   },
   /**
-   * Gets the {@link Color} property for the geometry outline.
+   * 获取几何轮廓的 {@link Color} 属性。
    * @memberof GeometryUpdater.prototype
    *
    * @type {Property}
@@ -182,8 +182,8 @@ Object.defineProperties(GeometryUpdater.prototype, {
     },
   },
   /**
-   * Gets the constant with of the geometry outline, in pixels.
-   * This value is only valid if isDynamic is false.
+   * 获取几何轮廓的常数，以像素为单位。
+   * 仅当 isDynamic 为 false 时，此值才有效。
    * @memberof GeometryUpdater.prototype
    *
    * @type {number}
@@ -195,8 +195,8 @@ Object.defineProperties(GeometryUpdater.prototype, {
     },
   },
   /**
-   * Gets the property specifying whether the geometry
-   * casts or receives shadows from light sources.
+   * 获取指定几何图形是否
+   * 从光源投射或接收阴影。
    * @memberof GeometryUpdater.prototype
    *
    * @type {Property}
@@ -208,7 +208,7 @@ Object.defineProperties(GeometryUpdater.prototype, {
     },
   },
   /**
-   * 获取或设置{@link DistanceDisplayCondition} Property specifying at what distance from the camera that this geometry will be displayed.
+   * 获取或设置{@link DistanceDisplayCondition} 指定此几何体将在距摄像机多远处显示的属性。
    * @memberof GeometryUpdater.prototype
    *
    * @type {Property}
@@ -220,7 +220,7 @@ Object.defineProperties(GeometryUpdater.prototype, {
     },
   },
   /**
-   * 获取或设置{@link ClassificationType} Property specifying if this geometry will classify terrain, 3D Tiles, or both when on the ground.
+   * 获取或设置{@link ClassificationType} 属性指定此几何体在地面上时是否对地形、3D 瓦片或两者进行分类。
    * @memberof GeometryUpdater.prototype
    *
    * @type {Property}
@@ -232,7 +232,7 @@ Object.defineProperties(GeometryUpdater.prototype, {
     },
   },
   /**
-   * Gets a value indicating if the geometry is time-varying.
+   * 获取一个值，该值指示几何图形是否随时间变化。
    *
    * @memberof GeometryUpdater.prototype
    *
@@ -245,8 +245,8 @@ Object.defineProperties(GeometryUpdater.prototype, {
     },
   },
   /**
-   * Gets a value indicating if the geometry is closed.
-   * This property is only valid for static geometry.
+   * 获取一个值，该值指示几何体是否闭合。
+   * 此属性仅对静态几何体有效。
    * @memberof GeometryUpdater.prototype
    *
    * @type {boolean}
@@ -258,7 +258,7 @@ Object.defineProperties(GeometryUpdater.prototype, {
     },
   },
   /**
-   * Gets a value indicating if the geometry should be drawn on terrain.
+   * 获取一个值，该值指示是否应在地形上绘制几何体。
    * @memberof EllipseGeometryUpdater.prototype
    *
    * @type {boolean}
@@ -270,8 +270,8 @@ Object.defineProperties(GeometryUpdater.prototype, {
     },
   },
   /**
-   * Gets an event that is raised whenever the public properties
-   * of this updater change.
+   * 获取一个事件，该事件在公共属性
+   * 的更新程序更改。
    * @memberof GeometryUpdater.prototype
    *
    * @type {boolean}
@@ -285,10 +285,10 @@ Object.defineProperties(GeometryUpdater.prototype, {
 });
 
 /**
- * Checks if the geometry is outlined at the provided time.
+ * 检查是否在提供的时间勾勒出几何图形。
  *
- * @param {JulianDate} time The time for which to retrieve visibility.
- * @returns {boolean} true if geometry is outlined at the provided time, false 否则。
+ * @param {JulianDate} time 检索可见性的时间。
+ * @returns {boolean} true 如果在提供的时间勾勒出几何图形，则为 false 。
  */
 GeometryUpdater.prototype.isOutlineVisible = function (time) {
   const entity = this._entity;
@@ -301,10 +301,10 @@ GeometryUpdater.prototype.isOutlineVisible = function (time) {
 };
 
 /**
- * Checks if the geometry is filled at the provided time.
+ * 检查几何图形是否在提供的时间填充。
  *
- * @param {JulianDate} time The time for which to retrieve visibility.
- * @returns {boolean} true if geometry is filled at the provided time, false 否则。
+ * @param {JulianDate} time 检索可见性的时间。
+ * @returns {boolean} true 如果在提供的时间填充几何图形，否则 false
  */
 GeometryUpdater.prototype.isFilled = function (time) {
   const entity = this._entity;
@@ -317,11 +317,11 @@ GeometryUpdater.prototype.isFilled = function (time) {
 };
 
 /**
- * Creates the geometry instance which represents the fill of the geometry.
+ * 创建表示几何图形填充的几何实例。
  *
  * @function
- * @param {JulianDate} time The time to use when retrieving initial attribute values.
- * @returns {GeometryInstance} The geometry instance representing the filled portion of the geometry.
+ * @param {JulianDate} time 检索初始属性值时使用的时间。
+ * @returns {GeometryInstance} 表示几何体的填充部分的 geometry 实例。
  *
  * @exception {DeveloperError} This instance does not represent a filled geometry.
  */
@@ -329,11 +329,11 @@ GeometryUpdater.prototype.createFillGeometryInstance =
   DeveloperError.throwInstantiationError;
 
 /**
- * Creates the geometry instance which represents the outline of the geometry.
+ * 创建表示几何轮廓的几何实例。
  *
  * @function
- * @param {JulianDate} time The time to use when retrieving initial attribute values.
- * @returns {GeometryInstance} The geometry instance representing the outline portion of the geometry.
+ * @param {JulianDate} time 检索初始属性值时使用的时间。
+ * @returns {GeometryInstance} 表示几何体轮廓部分的 geometry 实例。
  *
  * @exception {DeveloperError} This instance does not represent an outlined geometry.
  */
@@ -341,16 +341,16 @@ GeometryUpdater.prototype.createOutlineGeometryInstance =
   DeveloperError.throwInstantiationError;
 
 /**
- * Returns true if this object was destroyed; otherwise, false.
+ * 如果此对象已销毁，则返回 true;否则为 false。
  *
- * @returns {boolean} True if this object was destroyed; otherwise, false.
+ * @returns {boolean} 如果此对象被销毁，则为 True;否则为 false。
  */
 GeometryUpdater.prototype.isDestroyed = function () {
   return false;
 };
 
 /**
- * Destroys and resources used by the object.  Once an object is destroyed, it should not be used.
+ * 销毁对象使用的资源。 一旦对象被销毁，就不应该使用它。
  *
  * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
  */
@@ -510,12 +510,12 @@ GeometryUpdater.prototype._onEntityPropertyChanged = function (
 };
 
 /**
- * Creates the dynamic updater to be used when GeometryUpdater#isDynamic is true.
+ * 创建要在 GeometryUpdater#isDynamic 为 true 时使用的动态更新程序。
  *
- * @param {PrimitiveCollection} primitives The primitive collection to use.
- * @param {PrimitiveCollection} [groundPrimitives] The primitive collection to use for ground primitives.
+ * @param {PrimitiveCollection} primitives 要使用的基元集合。
+ * @param {PrimitiveCollection} [groundPrimitives] 用于地面基元的基元集合。
  *
- * @returns {DynamicGeometryUpdater} The dynamic updater used to update the geometry each frame.
+ * @returns {DynamicGeometryUpdater} 用于更新每帧几何体的动态更新器。
  *
  * @exception {DeveloperError} This instance does not represent dynamic geometry.
  * @private

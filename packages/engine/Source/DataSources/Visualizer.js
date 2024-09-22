@@ -1,11 +1,11 @@
 import DeveloperError from "../Core/DeveloperError.js";
 
 /**
- * Defines the interface for visualizers. Visualizers are plug-ins to
- * {@link DataSourceDisplay} that render data associated with
- * {@link DataSource} instances.
- * This object is an interface for documentation purposes and is not intended
- * to be instantiated directly.
+ * 定义可视化工具的界面。可视化工具是
+ * {@link DataSourceDisplay} 呈现与
+ * {@link DataSource} 实例。
+ * 此对象是用于文档目的的接口，并非
+ * 直接实例化。
  * @alias Visualizer
  * @constructor
  *
@@ -21,40 +21,40 @@ function Visualizer() {
 }
 
 /**
- * Updates the visualization to the provided time.
+ * 将可视化效果更新为提供的时间。
  * @function
  *
- * @param {JulianDate} time The time.
+ * @param {JulianDate} time 时间。
  *
- * @returns {boolean} True if the display was updated to the provided time,
- * false if the visualizer is waiting for an asynchronous operation to
- * complete before data can be updated.
+ * @returns {boolean} 如果显示已更新到提供的时间，则为 True，
+ * 如果可视化工具正在等待异步操作
+ * 在更新数据之前完成。
  */
 Visualizer.prototype.update = DeveloperError.throwInstantiationError;
 
 /**
- * Computes a bounding sphere which encloses the visualization produced for the specified entity.
- * The bounding sphere is in the fixed frame of the scene's globe.
+ * 计算一个边界球体，该球体包含为指定实体生成的可视化效果。
+ * 边界球体位于场景地球的固定帧中。
  *
- * @param {Entity} entity The entity whose bounding sphere to compute.
- * @param {BoundingSphere} result The bounding sphere onto which to store the result.
- * @returns {BoundingSphereState} BoundingSphereState.DONE if the result contains the bounding sphere,
- *                       BoundingSphereState.PENDING if the result is still being computed, or
- *                       BoundingSphereState.FAILED if the entity has no visualization in the current scene.
+ * @param {Entity} entity 要计算其边界球体的实体。
+ * @param {BoundingSphere} result 要存储结果的边界球体。
+ * @returns {BoundingSphereState} BoundingSphereState.DONE（如果结果包含边界球体），
+ * BoundingSphereState.PENDING（如果结果仍在计算中），或者
+ * BoundingSphereState.FAILED，如果实体在当前场景中没有可视化效果。
  * @private
  */
 Visualizer.prototype.getBoundingSphere = DeveloperError.throwInstantiationError;
 
 /**
- * Returns true if this object was destroyed; otherwise, false.
+ * 如果此对象已销毁，则返回 true;否则为 false。
  * @function
  *
- * @returns {boolean} True if this object was destroyed; otherwise, false.
+ * @returns {boolean} 如果此对象被销毁，则为 True;否则为 false。
  */
 Visualizer.prototype.isDestroyed = DeveloperError.throwInstantiationError;
 
 /**
- * Removes all visualization and cleans up any resources associated with this instance.
+ * 删除所有可视化并清理与此实例关联的任何资源。
  * @function
  */
 Visualizer.prototype.destroy = DeveloperError.throwInstantiationError;

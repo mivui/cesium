@@ -8,25 +8,25 @@ import createPropertyDescriptor from "./createPropertyDescriptor.js";
 /**
  * @typedef {object} PolylineVolumeGraphics.ConstructorOptions
  *
- * Initialization options for the PolylineVolumeGraphics constructor
+ * PolylineVolumeGraphics 构造函数的初始化选项
  *
- * @property {Property | boolean} [show=true] A boolean Property specifying the visibility of the volume.
- * @property {Property | Cartesian3[]} [positions] A Property specifying the array of {@link Cartesian3} positions which define the line strip.
- * @property {Property | Cartesian2[]} [shape] A Property specifying the array of {@link Cartesian2} positions which define the shape to be extruded.
- * @property {Property | CornerType} [cornerType=CornerType.ROUNDED] A {@link CornerType} Property specifying the style of the corners.
- * @property {Property | number} [granularity=Cesium.Math.RADIANS_PER_DEGREE] A numeric Property specifying the angular distance between each latitude and longitude point.
- * @property {Property | boolean} [fill=true] A boolean Property specifying whether the volume is filled with the provided material.
- * @property {MaterialProperty | Color} [material=Color.WHITE] A Property specifying the material used to fill the volume.
- * @property {Property | boolean} [outline=false] A boolean Property specifying whether the volume is outlined.
- * @property {Property | Color} [outlineColor=Color.BLACK] A Property specifying the {@link Color} of the outline.
- * @property {Property | number} [outlineWidth=1.0] A numeric Property specifying the width of the outline.
- * @property {Property | ShadowMode} [shadows=ShadowMode.DISABLED] An enum Property specifying whether the volume casts or receives shadows from light sources.
- * @property {Property | DistanceDisplayCondition} [distanceDisplayCondition] A Property specifying at what distance from the camera that this volume will be displayed.
+ * @property {Property | boolean} [show=true] 指定卷可见性的布尔属性。
+ * @property {Property |Cartesian3[]} [positions] 一个属性，指定定义线带的 {@link Cartesian3} 位置数组。
+ * @property {Property |Cartesian2[]} [shape] 一个属性，指定 {@link Cartesian2} 位置数组，用于定义要拉伸的形状。
+ * @property {Property |CornerType} [cornerType=CornerType.ROUNDED] 一个 {@link CornerType} 属性，用于指定角的样式。
+ * @property {Property | number} [granularity=Cesium.Math.RADIANS_PER_DEGREE] 一个数字属性，指定每个纬度和经度点之间的角度距离。
+ * @property {Property | boolean} [fill=true] 一个布尔属性，指定是否使用提供的材质填充体积。
+ * @property {MaterialProperty |Color} [material=Color.WHITE] 指定用于填充体积的材质的属性。
+ * @property {Property | boolean} [outline=false] 一个布尔属性，指定是否对体积进行轮廓显示。
+ * @property {Property |Color} [outlineColor=Color.BLACK] 指定轮廓的 {@link Color} 的属性。
+ * @property {Property | number} [outlineWidth=1.0] 指定轮廓宽度的数字属性。
+ * @property {Property |ShadowMode} [shadows=ShadowMode.DISABLED] 一个枚举属性，指定体积是投射还是接收来自光源的阴影。
+ * @property {Property |DistanceDisplayCondition} [distanceDisplayCondition] 一个属性，指定在距摄像机多远处显示此体积。
  */
 
 /**
- * Describes a polyline volume defined as a line strip and corresponding two dimensional shape which is extruded along it.
- * The resulting volume conforms to the curvature of the globe.
+ * 描述定义为线条的多段线体积和沿该线条拉伸的相应二维形状。
+ * 生成的体积符合地球的曲率。
  *
  * @alias PolylineVolumeGraphics
  * @constructor
@@ -68,7 +68,7 @@ function PolylineVolumeGraphics(options) {
 
 Object.defineProperties(PolylineVolumeGraphics.prototype, {
   /**
-   * Gets the event that is raised whenever a property or sub-property is changed or modified.
+   * 获取在更改或修改属性或子属性时引发的事件。
    * @memberof PolylineVolumeGraphics.prototype
    *
    * @type {Event}
@@ -81,7 +81,7 @@ Object.defineProperties(PolylineVolumeGraphics.prototype, {
   },
 
   /**
-   * 获取或设置boolean Property specifying the visibility of the volume.
+   * 获取或设置boolean 属性，用于指定卷的可见性。
    * @memberof PolylineVolumeGraphics.prototype
    * @type {Property|undefined}
    * @default true
@@ -89,21 +89,21 @@ Object.defineProperties(PolylineVolumeGraphics.prototype, {
   show: createPropertyDescriptor("show"),
 
   /**
-   * 获取或设置Property specifying the array of {@link Cartesian3} positions which define the line strip.
+   * 获取或设置指定定义线带的 {@link Cartesian3} 位置数组的属性。
    * @memberof PolylineVolumeGraphics.prototype
    * @type {Property|undefined}
    */
   positions: createPropertyDescriptor("positions"),
 
   /**
-   * 获取或设置Property specifying the array of {@link Cartesian2} positions which define the shape to be extruded.
+   * 获取或设置指定 {@link Cartesian2} 位置数组的属性，这些位置定义要拉伸的形状。
    * @memberof PolylineVolumeGraphics.prototype
    * @type {Property|undefined}
    */
   shape: createPropertyDescriptor("shape"),
 
   /**
-   * 获取或设置{@link CornerType} Property specifying the style of the corners.
+   * 获取或设置{@link CornerType}指定角样式的属性。
    * @memberof PolylineVolumeGraphics.prototype
    * @type {Property|undefined}
    * @default CornerType.ROUNDED
@@ -111,7 +111,7 @@ Object.defineProperties(PolylineVolumeGraphics.prototype, {
   cornerType: createPropertyDescriptor("cornerType"),
 
   /**
-   * 获取或设置numeric Property specifying the angular distance between points on the volume.
+   * 获取或设置numeric 属性，用于指定体积上点之间的角度距离。
    * @memberof PolylineVolumeGraphics.prototype
    * @type {Property|undefined}
    * @default {CesiumMath.RADIANS_PER_DEGREE}
@@ -119,7 +119,7 @@ Object.defineProperties(PolylineVolumeGraphics.prototype, {
   granularity: createPropertyDescriptor("granularity"),
 
   /**
-   * 获取或设置boolean Property specifying whether the volume is filled with the provided material.
+   * 获取或设置boolean 属性，指定是否使用提供的材质填充体积。
    * @memberof PolylineVolumeGraphics.prototype
    * @type {Property|undefined}
    * @default true
@@ -127,7 +127,7 @@ Object.defineProperties(PolylineVolumeGraphics.prototype, {
   fill: createPropertyDescriptor("fill"),
 
   /**
-   * 获取或设置Property specifying the material used to fill the volume.
+   * 获取或设置指定用于填充体积的材料的属性。
    * @memberof PolylineVolumeGraphics.prototype
    * @type {MaterialProperty}
    * @default Color.WHITE
@@ -135,7 +135,7 @@ Object.defineProperties(PolylineVolumeGraphics.prototype, {
   material: createMaterialPropertyDescriptor("material"),
 
   /**
-   * 获取或设置Property specifying whether the volume is outlined.
+   * 获取或设置指定是否对体积进行轮廓显示的属性。
    * @memberof PolylineVolumeGraphics.prototype
    * @type {Property|undefined}
    * @default false
@@ -143,7 +143,7 @@ Object.defineProperties(PolylineVolumeGraphics.prototype, {
   outline: createPropertyDescriptor("outline"),
 
   /**
-   * 获取或设置Property specifying the {@link Color} of the outline.
+   * 获取或设置指定轮廓的 {@link Color} 的属性。
    * @memberof PolylineVolumeGraphics.prototype
    * @type {Property|undefined}
    * @default Color.BLACK
@@ -151,9 +151,9 @@ Object.defineProperties(PolylineVolumeGraphics.prototype, {
   outlineColor: createPropertyDescriptor("outlineColor"),
 
   /**
-   * 获取或设置numeric Property specifying the width of the outline.
+   * 获取或设置numeric 指定轮廓宽度的属性。
    * <p>
-   * Note: This property will be ignored on all major browsers on Windows platforms. For details, see (@link https://github.com/CesiumGS/cesium/issues/40}.
+   * Note: 在 Windows 平台上的所有主要浏览器上都将忽略此属性。有关详细信息， see (@link https://github.com/CesiumGS/cesium/issues/40}.
    * </p>
    * @memberof PolylineVolumeGraphics.prototype
    * @type {Property|undefined}
@@ -162,8 +162,8 @@ Object.defineProperties(PolylineVolumeGraphics.prototype, {
   outlineWidth: createPropertyDescriptor("outlineWidth"),
 
   /**
-   * Get or sets the enum Property specifying whether the volume
-   * casts or receives shadows from light sources.
+   * 获取或设置 enum 属性，指定 volume
+   * 从光源投射或接收阴影。
    * @memberof PolylineVolumeGraphics.prototype
    * @type {Property|undefined}
    * @default ShadowMode.DISABLED
@@ -171,7 +171,7 @@ Object.defineProperties(PolylineVolumeGraphics.prototype, {
   shadows: createPropertyDescriptor("shadows"),
 
   /**
-   * 获取或设置{@link DistanceDisplayCondition} Property specifying at what distance from the camera that this volume will be displayed.
+   * 获取或设置{@link DistanceDisplayCondition} 指定此体积在距摄像机多远处显示的属性。
    * @memberof PolylineVolumeGraphics.prototype
    * @type {Property|undefined}
    */
@@ -184,7 +184,7 @@ Object.defineProperties(PolylineVolumeGraphics.prototype, {
  * 复制instance.
  *
  * @param {PolylineVolumeGraphics} [result] 要在其上存储结果的对象。
- * @returns {PolylineVolumeGraphics} 修改后的结果参数 or a new instance if one was not provided.
+ * @returns {PolylineVolumeGraphics} 修改后的结果参数或者一个新实例（如果未提供）。
  */
 PolylineVolumeGraphics.prototype.clone = function (result) {
   if (!defined(result)) {
@@ -206,10 +206,10 @@ PolylineVolumeGraphics.prototype.clone = function (result) {
 };
 
 /**
- * Assigns each unassigned property on this object to the value
- * of the same property on the provided source object.
+ * 将此对象上每个未分配的属性分配给值
+ * 的 API 值。
  *
- * @param {PolylineVolumeGraphics} source The object to be merged into this object.
+ * @param {PolylineVolumeGraphics} source 要合并到此对象中的对象。
  */
 PolylineVolumeGraphics.prototype.merge = function (source) {
   //>>includeStart('debug', pragmas.debug);
