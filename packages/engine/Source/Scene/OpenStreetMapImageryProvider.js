@@ -14,22 +14,22 @@ const defaultCredit = new Credit(
 /**
  * @typedef {object} OpenStreetMapImageryProvider.ConstructorOptions
  *
- * Initialization options for the OpenStreetMapImageryProvider constructor
+ * OpenStreetMapImageryProvider 构造函数的初始化选项
  *
- * @property {string} [url='https://tile.openstreetmap.org'] The OpenStreetMap server url.
- * @property {string} [fileExtension='png'] The file extension for images on the server.
- * @property {boolean} [retinaTiles=false] When true, request tiles at the 2x resolution for retina displays.
- * @property {Rectangle} [rectangle=Rectangle.MAX_VALUE] The rectangle of the layer.
- * @property {number} [minimumLevel=0] The minimum level-of-detail supported by the imagery provider.
- * @property {number} [maximumLevel] The maximum level-of-detail supported by the imagery provider, or undefined if there is no limit.
- * @property {Ellipsoid} [ellipsoid] The ellipsoid.  If not specified, the WGS84 ellipsoid is used.
- * @property {Credit|string} [credit='MapQuest, Open Street Map and contributors, CC-BY-SA'] A credit for the data source, which is displayed on the canvas.
+ * @property {string} [url='https：//tile.openstreetmap.org'] OpenStreetMap 服务器 url。
+ * @property {string} [fileExtension='png'] 服务器上图片的文件扩展名。
+ * @property {boolean} [retinaTiles=false] 如果为 true，则为 Retina 显示屏请求 2 倍分辨率的平铺。
+ * @property {Rectangle} [rectangle=Rectangle.MAX_VALUE] 图层的矩形。
+ * @property {number} [minimumLevel=0] 图像提供商支持的最低细节层次。
+ * @property {number} [maximumLevel] 图像提供商支持的最大细节层次，如果没有限制，则为 undefined。
+ * @property {Ellipsoid} [ellipsoid] 椭球体。 如果未指定，则使用 WGS84 椭球体。
+ * @property {Credit|string} [credit='MapQuest， Open Street Map and contributors， CC-BY-SA'] 数据源的制作者名单，显示在画布上。
  */
 
 /**
- * An imagery provider that provides tiled imagery hosted by OpenStreetMap
- * or another provider of Slippy tiles.  The default url connects to OpenStreetMap's volunteer-run
- * servers, so you must conform to their
+ * 提供由 OpenStreetMap 托管的平铺图像的图像提供商
+ * 或其他 Slippy 磁贴提供商。 默认 URL 连接到 OpenStreetMap 的志愿者运营
+ * 服务器，因此您必须符合其
  * {@link http://wiki.openstreetmap.org/wiki/Tile_usage_policy|Tile Usage Policy}.
  *
  * @alias OpenStreetMapImageryProvider

@@ -6,24 +6,24 @@ import MetadataClass from "./MetadataClass.js";
 import MetadataEnum from "./MetadataEnum.js";
 
 /**
- * A schema containing classes and enums.
+ * 包含类和枚举的架构。
  * <p>
- * See the {@link https://github.com/CesiumGS/3d-tiles/tree/main/specification/Metadata|3D Metadata Specification} for 3D Tiles
+ * 请参阅 {@link https://github.com/CesiumGS/3d-tiles/tree/main/specification/Metadata|3D 元数据规范} 了解 3D 瓦片
  * </p>
  *
- * @param {object} options 对象，具有以下属性:
- * @param {string} [options.id] The ID of the schema
- * @param {string} [options.name] The name of the schema.
- * @param {string} [options.description] The description of the schema.
- * @param {string} [options.version] The application-specific version of the schema.
- * @param {Object<string, MetadataClass>} [options.classes] Classes defined in the schema, where each key is the class ID.
- * @param {Object<string, MetadataEnum>} [options.enums] Enums defined in the schema, where each key is the enum ID.
- * @param {*} [options.extras] Extra user-defined properties.
- * @param {object} [options.extensions] An object containing extensions.
+ * @param {object} options 对象，具有以下属性：
+ * @param {string} [options.id] 架构的 ID
+ * @param {string} [options.name] 架构的名称。
+ * @param {string} [options.description] 架构的描述。
+ * @param {string} [options.version] 架构的特定应用程序版本。
+ * @param {Object<string,MetadataClass>} [options.classes] 模式中定义的类，其中每个键都是类 ID。
+ * @param {Object<string,MetadataEnum>} [options.enums] 枚举，其中每个键都是枚举 ID。
+ * @param {*} [options.extras] 额外的用户定义属性。
+ * @param {object} [options.extensions] 包含扩展的对象。
  *
  * @alias MetadataSchema
  * @constructor
- * @experimental This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.
+ * @experimental 此功能使用的是 3D Tiles 规范的一部分，该规范不是最终版本，并且可能会在没有 Cesium 标准弃用策略的情况下进行更改。
  */
 function MetadataSchema(options) {
   options = defaultValue(options, defaultValue.EMPTY_OBJECT);
@@ -42,14 +42,14 @@ function MetadataSchema(options) {
 }
 
 /**
- * Creates a {@link MetadataSchema} from either 3D Tiles 1.1, 3DTILES_metadata, EXT_structural_metadata, or EXT_feature_metadata.
+ * 从 3D 瓦片 1.1、3DTILES_metadata、EXT_structural_metadata 或 EXT_feature_metadata 创建 {@link MetadataSchema}。
  *
- * @param {object} schema The schema JSON object.
+ * @param {object} schema 架构 JSON 对象。
  *
- * @returns {MetadataSchema} The newly created metadata schema
+ * @returns {MetadataSchema} 新创建的元数据架构
  *
  * @private
- * @experimental This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.
+ * @experimental 此功能使用的是 3D Tiles 规范的一部分，该规范并非最终版本，并且可能会在没有 Cesium 标准弃用政策的情况下进行更改。
  */
 MetadataSchema.fromJson = function (schema) {
   //>>includeStart('debug', pragmas.debug);
@@ -95,7 +95,7 @@ MetadataSchema.fromJson = function (schema) {
 
 Object.defineProperties(MetadataSchema.prototype, {
   /**
-   * Classes defined in the schema.
+   * 架构中定义的类。
    *
    * @memberof MetadataSchema.prototype
    * @type {Object<string, MetadataClass>}
@@ -108,7 +108,7 @@ Object.defineProperties(MetadataSchema.prototype, {
   },
 
   /**
-   * Enums defined in the schema.
+   * 架构中定义的枚举。
    *
    * @memberof MetadataSchema.prototype
    * @type {Object<string, MetadataEnum>}
@@ -121,7 +121,7 @@ Object.defineProperties(MetadataSchema.prototype, {
   },
 
   /**
-   * The ID of the schema.
+   * 架构的 ID。
    *
    * @memberof MetadataSchema.prototype
    * @type {string}
@@ -134,7 +134,7 @@ Object.defineProperties(MetadataSchema.prototype, {
   },
 
   /**
-   * The name of the schema.
+   * 架构的名称。
    *
    * @memberof MetadataSchema.prototype
    * @type {string}
@@ -147,7 +147,7 @@ Object.defineProperties(MetadataSchema.prototype, {
   },
 
   /**
-   * The description of the schema.
+   * 架构的描述。
    *
    * @memberof MetadataSchema.prototype
    * @type {string}
@@ -160,7 +160,7 @@ Object.defineProperties(MetadataSchema.prototype, {
   },
 
   /**
-   * The application-specific version of the schema.
+   * 架构的应用程序特定版本。
    *
    * @memberof MetadataSchema.prototype
    * @type {string}
@@ -173,7 +173,7 @@ Object.defineProperties(MetadataSchema.prototype, {
   },
 
   /**
-   * Extra user-defined properties.
+   * 额外的用户定义属性。
    *
    * @memberof MetadataSchema.prototype
    * @type {*}
@@ -186,7 +186,7 @@ Object.defineProperties(MetadataSchema.prototype, {
   },
 
   /**
-   * An object containing extensions.
+   * 包含扩展的对象。
    *
    * @memberof MetadataSchema.prototype
    * @type {object}

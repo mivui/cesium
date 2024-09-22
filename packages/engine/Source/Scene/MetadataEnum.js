@@ -5,23 +5,23 @@ import MetadataEnumValue from "./MetadataEnumValue.js";
 import MetadataComponentType from "./MetadataComponentType.js";
 
 /**
- * A metadata enum.
+ * 元数据枚举。
  * <p>
- * See the {@link https://github.com/CesiumGS/3d-tiles/tree/main/specification/Metadata|3D Metadata Specification} for 3D Tiles
+ * 请参阅 {@link https://github.com/CesiumGS/3d-tiles/tree/main/specification/Metadata|3D 元数据规范} 了解 3D 瓦片
  * </p>
  *
  * @param {object} options 对象，具有以下属性:
- * @param {string} options.id The ID of the enum.
- * @param {MetadataEnumValue[]} options.values The enum values.
- * @param {MetadataComponentType} [options.valueType=MetadataComponentType.UINT16] The enum value type.
- * @param {string} [options.name] The name of the enum.
- * @param {string} [options.description] The description of the enum.
- * @param {*} [options.extras] Extra user-defined properties.
- * @param {object} [options.extensions] An object containing extensions.
+ * @param {string} options.id 枚举的 ID。
+ * @param {MetadataEnumValue[]} options.values 枚举值。
+ * @param {MetadataComponentType} [options.valueType=MetadataComponentType.UINT16] 枚举值类型。
+ * @param {string} [options.name] 枚举的名称。
+ * @param {string} [options.description] 枚举的描述。
+ * @param {*} [options.extras] 额外的用户定义属性。
+ * @param {object} [options.extensions] 包含扩展的对象。
  *
  * @alias MetadataEnum
  * @constructor
- * @experimental This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.
+ * @experimental 此功能使用的是 3D Tiles 规范的一部分，该规范不是最终版本，并且可能会在没有 Cesium 标准弃用策略的情况下进行更改。
  */
 function MetadataEnum(options) {
   options = defaultValue(options, defaultValue.EMPTY_OBJECT);
@@ -60,16 +60,16 @@ function MetadataEnum(options) {
 }
 
 /**
- * Creates a {@link MetadataEnum} from either 3D Tiles 1.1, 3DTILES_metadata, EXT_structural_metadata, or EXT_feature_metadata.
+ * 从 3D 平铺 1.1、3DTILES_metadata、EXT_structural_metadata 或 EXT_feature_metadata 创建 {@link MetadataEnum}。
  *
  * @param {object} options 对象，具有以下属性:
- * @param {string} options.id The ID of the enum.
- * @param {object} options.enum The enum JSON object.
+ * @param {string} options.id 枚举的 ID。
+ * @param {object} options.enum 枚举 JSON 对象。
  *
- * @returns {MetadataEnum} The newly created metadata enum.
+ * @returns {MetadataEnum} 新创建的元数据枚举。
  *
  * @private
- * @experimental This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.
+ * @experimental 此功能使用的是 3D Tiles 规范的一部分，该规范并非最终版本，并且可能会在没有 Cesium 标准弃用政策的情况下进行更改。
  */
 MetadataEnum.fromJson = function (options) {
   options = defaultValue(options, defaultValue.EMPTY_OBJECT);
@@ -98,7 +98,7 @@ MetadataEnum.fromJson = function (options) {
 
 Object.defineProperties(MetadataEnum.prototype, {
   /**
-   * The enum values.
+   * 枚举值。
    *
    * @memberof MetadataEnum.prototype
    * @type {MetadataEnumValue[]}
@@ -111,7 +111,7 @@ Object.defineProperties(MetadataEnum.prototype, {
   },
 
   /**
-   * A dictionary mapping enum integer values to names.
+   * 将枚举整数值映射到名称的字典。
    *
    * @memberof MetadataEnum.prototype
    * @type {Object<number, string>}
@@ -126,7 +126,7 @@ Object.defineProperties(MetadataEnum.prototype, {
   },
 
   /**
-   * A dictionary mapping enum names to integer values.
+   * 将枚举名称映射到整数值的字典。
    *
    * @memberof MetadataEnum.prototype
    * @type {Object<string, number>}
@@ -141,7 +141,7 @@ Object.defineProperties(MetadataEnum.prototype, {
   },
 
   /**
-   * The enum value type.
+   * 枚举值类型。
    *
    * @memberof MetadataEnum.prototype
    * @type {MetadataComponentType}
@@ -154,7 +154,7 @@ Object.defineProperties(MetadataEnum.prototype, {
   },
 
   /**
-   * The ID of the enum.
+   * 枚举的 ID。
    *
    * @memberof MetadataEnum.prototype
    * @type {string}
@@ -167,7 +167,7 @@ Object.defineProperties(MetadataEnum.prototype, {
   },
 
   /**
-   * The name of the enum.
+   * 枚举的名称。
    *
    * @memberof MetadataEnum.prototype
    * @type {string}
@@ -180,7 +180,7 @@ Object.defineProperties(MetadataEnum.prototype, {
   },
 
   /**
-   * The description of the enum.
+   * 枚举的描述。
    *
    * @memberof MetadataEnum.prototype
    * @type {string}
@@ -193,7 +193,7 @@ Object.defineProperties(MetadataEnum.prototype, {
   },
 
   /**
-   * Extra user-defined properties.
+   * 额外的用户定义属性。
    *
    * @memberof MetadataEnum.prototype
    * @type {*}
@@ -206,7 +206,7 @@ Object.defineProperties(MetadataEnum.prototype, {
   },
 
   /**
-   * An object containing extensions.
+   * 包含扩展的对象。
    *
    * @memberof MetadataEnum.prototype
    * @type {object}

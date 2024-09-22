@@ -12,24 +12,24 @@ import Material from "./Material.js";
 
 /**
  * <div class="notice">
- * Create this by calling {@link PolylineCollection#add}. 不要直接调用构造函数。
+ * 通过调用 {@link PolylineCollection#add} 创建此函数。 不要直接调用构造函数。
  * </div>
  *
- * A renderable polyline.
+ * 可渲染的多段线。
  *
  * @alias Polyline
  * @internalConstructor
  * @class
  *
  * @privateParam {object} options 对象，具有以下属性:
- * @privateParam {boolean} [options.show=true] <code>true</code> if this polyline will be shown; otherwise, <code>false</code>.
- * @privateParam {number} [options.width=1.0] 宽度 polyline in pixels.
- * @privateParam {boolean} [options.loop=false] Whether a line segment will be added between the last and first line positions to make this line a loop.
- * @privateParam {Material} [options.material=Material.ColorType] The material.
- * @privateParam {Cartesian3[]} [options.positions] The positions.
- * @privateParam {object} [options.id] The user-defined object to be returned when this polyline is picked.
- * @privateParam {DistanceDisplayCondition} [options.distanceDisplayCondition] The condition specifying at what distance from the camera that this polyline will be displayed.
- * @privateParam {PolylineCollection} polylineCollection The renderable polyline collection.
+ * @privateParam {boolean} [options.show=true] 如果将显示此折线，<code>则为 true</code>;否则为 <code>false</code>。
+ * @privateParam {number} [options.width=1.0] 宽度 折线（以像素为单位）。
+ * @privateParam {boolean} [options.loop=false] 是否在最后一行和第一行位置之间添加一条线段，使这条线成为循环。
+ * @privateParam {Material} [options.material=Material.ColorType] 材质。
+ * @privateParam {Cartesian3[]} [options.positions] 位置。
+ * @privateParam {object} [options.id] 选取此折线时要返回的用户定义对象。
+ * @privateParam {DistanceDisplayCondition} [options.distanceDisplayCondition] 指定此多段线将在距相机多远处显示的条件。
+ * @privateParam {PolylineCollection} polylineCollection 可渲染的多段线集合。
  *
  * @see PolylineCollection
  *
@@ -139,7 +139,7 @@ Object.defineProperties(Polyline.prototype, {
   },
 
   /**
-   * 获取或设置positions of the polyline.
+   * 获取或设置多段线的位置。
    * @memberof Polyline.prototype
    * @type {Cartesian3[]}
    * @example
@@ -195,7 +195,7 @@ Object.defineProperties(Polyline.prototype, {
   },
 
   /**
-   * 获取或设置surface appearance of the polyline.  This can be one of several built-in {@link Material} objects or a custom material, scripted with
+   * 获取或设置多段线的表面外观。 这可以是几个内置 {@link Material} 对象之一，也可以是自定义材质，脚本中使用
    * {@link https://github.com/CesiumGS/cesium/wiki/Fabric|Fabric}.
    * @memberof Polyline.prototype
    * @type {Material}
@@ -243,7 +243,7 @@ Object.defineProperties(Polyline.prototype, {
   },
 
   /**
-   * Gets or sets whether a line segment will be added between the first and last polyline positions.
+   * 获取或设置是否在第一个和最后一个折线位置之间添加线段。
    * @memberof Polyline.prototype
    * @type {boolean}
    */
@@ -288,7 +288,7 @@ Object.defineProperties(Polyline.prototype, {
   },
 
   /**
-   * 获取或设置user-defined value returned when the polyline is picked.
+   * 获取或设置选取多段线时返回的 User-defined 值。
    * @memberof Polyline.prototype
    * @type {*}
    */
@@ -314,7 +314,7 @@ Object.defineProperties(Polyline.prototype, {
   },
 
   /**
-   * Gets the destruction status of this polyline
+   * 获取此多段线的销毁状态
    * @memberof Polyline.prototype
    * @type {boolean}
    * @default false
@@ -327,7 +327,7 @@ Object.defineProperties(Polyline.prototype, {
   },
 
   /**
-   * 获取或设置condition specifying at what distance from the camera that this polyline will be displayed.
+   * 获取或设置条件 指定此多段线将在距摄像机多远处显示。
    * @memberof Polyline.prototype
    * @type {DistanceDisplayCondition}
    * @default undefined

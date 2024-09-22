@@ -2,10 +2,10 @@ import DeveloperError from "../Core/DeveloperError.js";
 
 /**
  * <p>
- * An object that initializes a {@link Particle} from a {@link ParticleSystem}.
+ * 从 {@link ParticleSystem} 初始化 {@link Particle} 的对象。
  * </p>
  * <p>
- * This type describes an interface and is not intended to be instantiated directly.
+ * 此类型描述接口，不打算直接实例化。
  * </p>
  *
  * @alias ParticleEmitter
@@ -25,10 +25,10 @@ function ParticleEmitter(options) {
 }
 
 /**
- * Initializes the given {Particle} by setting it's position and velocity.
+ * 通过设置给定的 {Particle} 的位置和速度来初始化它。
  *
  * @private
- * @param {Particle} The particle to initialize
+ * @param {Particle} particle 要初始化的粒子
  */
 ParticleEmitter.prototype.emit = function (particle) {
   DeveloperError.throwInstantiationError();

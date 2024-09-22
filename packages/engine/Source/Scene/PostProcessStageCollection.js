@@ -17,16 +17,16 @@ import Tonemapper, { validateTonemapper } from "./Tonemapper.js";
 const stackScratch = [];
 
 /**
- * A collection of {@link PostProcessStage}s and/or {@link PostProcessStageComposite}s.
+ * {@link PostProcessStage} 和/或 {@link PostProcessStageComposite} 的集合。
  * <p>
- * The input texture for each post-process stage is the texture rendered to by the scene or the texture rendered
- * to by the previous stage in the collection.
+ * 每个后期处理阶段的输入纹理是场景渲染的纹理或渲染的纹理
+ * 到集合中的上一阶段。
  * </p>
  * <p>
- * If the ambient occlusion or bloom stages are enabled, they will execute before all other stages.
+ * 如果启用了 Ambient Occlusion 或 Bloom 阶段，它们将在所有其他阶段之前执行。
  * </p>
  * <p>
- * If the FXAA stage is enabled, it will execute after all other stages.
+ * 如果启用了 FXAA 阶段，它将在所有其他阶段之后执行。
  * </p>
  *
  * @alias PostProcessStageCollection
@@ -103,7 +103,7 @@ function PostProcessStageCollection() {
 
 Object.defineProperties(PostProcessStageCollection.prototype, {
   /**
-   * Determines if all of the post-process stages in the collection are ready to be executed.
+   * 确定集合中的所有后处理阶段是否都已准备好执行。
    *
    * @memberof PostProcessStageCollection.prototype
    * @type {boolean}
@@ -134,9 +134,9 @@ Object.defineProperties(PostProcessStageCollection.prototype, {
     },
   },
   /**
-   * A post-process stage for Fast Approximate Anti-aliasing.
+   * 快速近似抗锯齿的后期处理阶段。
    * <p>
-   * When enabled, this stage will execute after all others.
+   * 启用后，此阶段将在所有其他阶段之后执行。
    * </p>
    *
    * @memberof PostProcessStageCollection.prototype
@@ -149,39 +149,39 @@ Object.defineProperties(PostProcessStageCollection.prototype, {
     },
   },
   /**
-   * A post-process stage that applies Horizon-based Ambient Occlusion (HBAO) to the input texture.
+   * 将基于地平线的环境光遮蔽 （HBAO） 应用于输入纹理的后处理阶段。
    * <p>
-   * Ambient occlusion simulates shadows from ambient light. These shadows would always be present when the
-   * surface receives light and regardless of the light's position.
+   * 环境光遮挡模拟环境光的阴影。当
+   * 表面接收光线，无论光线的位置如何。
    * </p>
    * <p>
-   * The uniforms have the following properties: <code>intensity</code>, <code>bias</code>, <code>lengthCap</code>,
-   * <code>stepSize</code>, <code>frustumLength</code>, <code>ambientOcclusionOnly</code>,
-   * <code>delta</code>, <code>sigma</code>, and <code>blurStepSize</code>.
+   * uniforms 具有以下属性：<code>intensity</code>、<code>bias</code>、<code>lengthCap</code>、
+   * <code>stepSize</code>、<code>frustumLength</code>、<code>ambientOcclusionOnly</code>、
+   * <code>delta</code>、<code>sigma</code> 和 <code>blurStepSize</code> 的
    * </p>
    * <ul>
-   * <li><code>intensity</code> is a scalar value used to lighten or darken the shadows exponentially. Higher values make the shadows darker. The default value is <code>3.0</code>.</li>
+   * <li><code>强度</code> 是用于以指数方式使阴影变亮或变暗的标量值。较高的值会使阴影更暗。默认值为 <code>3.0</code>。</li>
    *
-   * <li><code>bias</code> is a scalar value representing an angle in radians. If the dot product between the normal of the sample and the vector to the camera is less than this value,
-   * sampling stops in the current direction. This is used to remove shadows from near planar edges. The default value is <code>0.1</code>.</li>
+   * <li><code>bias</code> 是表示以弧度为单位的角度的标量值。如果样本法线与相机向量之间的点积小于此值，则
+   * 采样在当前方向停止。这用于从附近的平面边缘移除阴影。默认值为 <code>0.1</code>。</li>
    *
-   * <li><code>lengthCap</code> is a scalar value representing a length in meters. If the distance from the current sample to first sample is greater than this value,
-   * sampling stops in the current direction. The default value is <code>0.26</code>.</li>
+   * <li><code>lengthCap</code> 是一个标量值，表示以米为单位的长度。如果从当前样本到第一个样本的距离大于此值，则
+   * 采样在当前方向停止。默认值为 <code>0.26</code>。</li>
    *
-   * <li><code>stepSize</code> is a scalar value indicating the distance to the next texel sample in the current direction. The default value is <code>1.95</code>.</li>
+   * <li><code>stepSize</code> 是一个标量值，指示在当前方向上到下一个纹素样本的距离。默认值为 <code>1.95</code>。</li>
    *
-   * <li><code>frustumLength</code> is a scalar value in meters. If the current fragment has a distance from the camera greater than this value, ambient occlusion is not computed for the fragment.
-   * The default value is <code>1000.0</code>.</li>
+   * <li><code>frustumLength</code> 是以米为单位的标量值。如果当前片段与摄像机的距离大于此值，则不会计算该片段的环境光遮蔽。
+   * 默认值为 <code>1000.0</code>。</li>
    *
-   * <li><code>ambientOcclusionOnly</code> is a boolean value. When <code>true</code>, only the shadows generated are written to the output. When <code>false</code>, the input texture is modulated
-   * with the ambient occlusion. This is a useful debug option for seeing the effects of changing the uniform values. The default value is <code>false</code>.</li>
+   * <li><code>ambientOcclusionOnly</code> 是一个布尔值。如果<code>为 true</code>，则仅将生成的阴影写入输出。当 <code>false</code> 时，将调制输入纹理
+   * 替换为环境光遮蔽。这是一个有用的调试选项，用于查看更改 uniform 值的效果。默认值为 <code>false</code>。</li>
    * </ul>
    * <p>
-   * <code>delta</code>, <code>sigma</code>, and <code>blurStepSize</code> are the same properties as {@link PostProcessStageLibrary#createBlurStage}.
-   * The blur is applied to the shadows generated from the image to make them smoother.
+   * <code>delta</code>、<code>sigma</code> 和 <code>blurStepSize</code> 是与 {@link PostProcessStageLibrary#createBlurStage} 相同的属性。
+   * 模糊应用于图像生成的阴影，以使其更平滑。
    * </p>
    * <p>
-   * When enabled, this stage will execute before all others.
+   * 启用后，此阶段将先于所有其他阶段执行。
    * </p>
    *
    * @memberof PostProcessStageCollection.prototype
@@ -194,29 +194,29 @@ Object.defineProperties(PostProcessStageCollection.prototype, {
     },
   },
   /**
-   * A post-process stage for a bloom effect.
+   * 泛光效果的后处理阶段。
    * <p>
-   * A bloom effect adds glow effect, makes bright areas brighter, and dark areas darker.
+   * 泛光效果可添加发光效果，使明亮区域更亮，使黑暗区域更暗。
    * </p>
    * <p>
-   * This stage has the following uniforms: <code>contrast</code>, <code>brightness</code>, <code>glowOnly</code>,
-   * <code>delta</code>, <code>sigma</code>, and <code>stepSize</code>.
+   * 此阶段有以下 uniforms：<code>contrast</code>、<code>brightness</code>、<code>glowOnly</code>、
+   * <code>delta</code>、<code>sigma</code> 和 <code>stepSize</code>。
    * </p>
    * <ul>
-   * <li><code>contrast</code> is a scalar value in the range [-255.0, 255.0] and affects the contract of the effect. The default value is <code>128.0</code>.</li>
+   * <li><code>contrast</code> 是 [-255.0， 255.0] 范围内的标量值，会影响效果的收缩。默认值为 <code>128.0</code>。</li>
    *
-   * <li><code>brightness</code> is a scalar value. The input texture RGB value is converted to hue, saturation, and brightness (HSB) then this value is
-   * added to the brightness. The default value is <code>-0.3</code>.</li>
+   * <li><code>brightness</code> 是一个标量值。输入纹理 RGB 值转换为色相、饱和度和亮度 （HSB），则该值为
+   * 添加到亮度。默认值为 <code>-0.3</code>。</li>
    *
-   * <li><code>glowOnly</code> is a boolean value. When <code>true</code>, only the glow effect will be shown. When <code>false</code>, the glow will be added to the input texture.
-   * The default value is <code>false</code>. This is a debug option for viewing the effects when changing the other uniform values.</li>
+   *    <li><code>glowOnly</code> 是一个布尔值。如果<code>为 true</code>，则仅显示发光效果。如果<code>为 false</code>，则发光将添加到输入纹理中。
+   * 默认值为 <code>false</code>。这是一个调试选项，用于在更改其他 uniform 值时查看效果。</li>
    * </ul>
    * <p>
-   * <code>delta</code>, <code>sigma</code>, and <code>stepSize</code> are the same properties as {@link PostProcessStageLibrary#createBlurStage}.
-   * The blur is applied to the shadows generated from the image to make them smoother.
+   * <code>delta</code>、<code>sigma</code> 和 <code>stepSize</code> 是与 {@link PostProcessStageLibrary#createBlurStage} 相同的属性。
+   * 模糊应用于图像生成的阴影，以使其更平滑。
    * </p>
    * <p>
-   * When enabled, this stage will execute before all others.
+   * 启用后，此阶段将先于所有其他阶段执行。
    * </p>
    *
    * @memberOf PostProcessStageCollection.prototype
@@ -229,7 +229,7 @@ Object.defineProperties(PostProcessStageCollection.prototype, {
     },
   },
   /**
-   * The number of post-process stages in this collection.
+   * 此集合中的后处理阶段数。
    *
    * @memberof PostProcessStageCollection.prototype
    * @type {number}
@@ -242,7 +242,7 @@ Object.defineProperties(PostProcessStageCollection.prototype, {
     },
   },
   /**
-   * A reference to the last texture written to when executing the post-process stages in this collection.
+   * 对执行此集合中的后处理阶段时写入的最后一个纹理的引用。
    *
    * @memberof PostProcessStageCollection.prototype
    * @type {Texture}
@@ -284,7 +284,7 @@ Object.defineProperties(PostProcessStageCollection.prototype, {
     },
   },
   /**
-   * Whether the collection has a stage that has selected features.
+   * 集合是否具有具有所选功能的阶段。
    *
    * @memberof PostProcessStageCollection.prototype
    * @type {boolean}
@@ -314,7 +314,7 @@ Object.defineProperties(PostProcessStageCollection.prototype, {
   },
 
   /**
-   * Specifies the tonemapping algorithm used when rendering with high dynamic range.
+   * 指定使用高动态范围渲染时使用的色调映射算法。
    * {@link https://sandcastle.cesium.com/?src=High%20Dynamic%20Range.html|Sandcastle Demo}
    *
    * @example viewer.scene.postProcessStages.tonemapper = Cesium.Tonemapper.ACES;
@@ -395,7 +395,7 @@ Object.defineProperties(PostProcessStageCollection.prototype, {
   },
 
   /**
-   * Control the exposure when HDR is on. Less than 1.0 makes the tonemapping darker while greater than 1.0 makes it brighter.
+   * 在 HDR 开启时控制曝光。小于 1.0 会使色调映射更暗，而大于 1.0 会使色调映射更亮。
    *
    * @example viewer.scene.postProcessStages.exposure = 1.0;
    *
@@ -436,10 +436,10 @@ function removeStages(collection) {
 }
 
 /**
- * Adds the post-process stage to the collection.
+ * 将后期处理阶段添加到集合中。
  *
- * @param {PostProcessStage|PostProcessStageComposite} stage The post-process stage to add to the collection.
- * @return {PostProcessStage|PostProcessStageComposite} The post-process stage that was added to the collection.
+ * @param {PostProcessStage|PostProcessStageComposite} stage 要添加到集合中的后处理阶段。
+ * @return {PostProcessStage|已添加到集合的后处理阶段。
  *
  * @exception {DeveloperError} The post-process stage has already been added to the collection or does not have a unique name.
  */
@@ -480,10 +480,10 @@ PostProcessStageCollection.prototype.add = function (stage) {
 };
 
 /**
- * Removes a post-process stage from the collection and destroys it.
+ * 从集合中删除后处理阶段并将其销毁。
  *
- * @param {PostProcessStage|PostProcessStageComposite} stage The post-process stage to remove from the collection.
- * @return {boolean} Whether the post-process stage was removed.
+ * @param {PostProcessStage|PostProcessStageComposite} stage 要从集合中删除的后处理阶段。
+ * @return {boolean} 是否删除了后处理阶段。
  */
 PostProcessStageCollection.prototype.remove = function (stage) {
   if (!this.contains(stage)) {
@@ -516,10 +516,10 @@ PostProcessStageCollection.prototype.remove = function (stage) {
 };
 
 /**
- * Returns whether the collection contains a post-process stage.
+ * 返回集合是否包含后处理阶段。
  *
- * @param {PostProcessStage|PostProcessStageComposite} stage The post-process stage.
- * @return {boolean} Whether the collection contains the post-process stage.
+ * @param {PostProcessStage|PostProcessStageComposite} stage 后处理阶段。
+ * @return {boolean} 集合是否包含后处理阶段。
  */
 PostProcessStageCollection.prototype.contains = function (stage) {
   return (
@@ -530,10 +530,10 @@ PostProcessStageCollection.prototype.contains = function (stage) {
 };
 
 /**
- * Gets the post-process stage at <code>index</code>.
+ * 获取 <code>index</code> 处的后处理阶段。
  *
- * @param {number} index The index of the post-process stage.
- * @return {PostProcessStage|PostProcessStageComposite} The post-process stage at index.
+ * @param {number} index 后处理阶段的索引。
+ * @return {PostProcessStage|PostProcessStageComposite} 索引处的后处理阶段。
  */
 PostProcessStageCollection.prototype.get = function (index) {
   removeStages(this);
@@ -548,7 +548,7 @@ PostProcessStageCollection.prototype.get = function (index) {
 };
 
 /**
- * Removes all post-process stages from the collection and destroys them.
+ * 从集合中删除所有后处理阶段并销毁它们。
  */
 PostProcessStageCollection.prototype.removeAll = function () {
   const stages = this._stages;
@@ -560,10 +560,10 @@ PostProcessStageCollection.prototype.removeAll = function () {
 };
 
 /**
- * Gets a post-process stage in the collection by its name.
+ * 按名称获取集合中的后处理阶段。
  *
- * @param {string} name The name of the post-process stage.
- * @return {PostProcessStage|PostProcessStageComposite} The post-process stage.
+ * @param {string} name 后处理阶段的名称。
+ * @return {PostProcessStage|PostProcessStageComposite} 后处理阶段。
  *
  * @private
  */
@@ -572,10 +572,10 @@ PostProcessStageCollection.prototype.getStageByName = function (name) {
 };
 
 /**
- * Called before the post-process stages in the collection are executed. Calls update for each stage and creates WebGL resources.
+ * 在执行集合中的后处理阶段之前调用。为每个阶段调用 update 并创建 WebGL 资源。
  *
- * @param {Context} context The context.
- * @param {boolean} useLogDepth Whether the scene uses a logarithmic depth buffer.
+ * @param {Context} context 上下文。
+ * @param {boolean} useLogDepth 场景是否使用对数深度缓冲区。
  *
  * @private
  */
@@ -709,9 +709,9 @@ PostProcessStageCollection.prototype.update = function (
 };
 
 /**
- * Clears all of the framebuffers used by the stages.
+ * 清除阶段使用的所有 framebuffer。
  *
- * @param {Context} context The context.
+ * @param {Context} context 上下文。
  *
  * @private
  */
@@ -731,10 +731,10 @@ function getOutputTexture(stage) {
 }
 
 /**
- * Gets the output texture of a stage with the given name.
+ * 获取具有给定名称的舞台的输出纹理。
  *
- * @param {string} stageName The name of the stage.
- * @return {Texture|undefined} The texture rendered to by the stage with the given name.
+ * @param {string} stageName 阶段的名称。
+ * @return {Texture|undefined} 具有给定名称的舞台渲染的纹理。
  *
  * @private
  */
@@ -774,12 +774,12 @@ function execute(stage, context, colorTexture, depthTexture, idTexture) {
 }
 
 /**
- * Executes all ready and enabled stages in the collection.
+ * 执行集合中的所有 ready 和 enabled 阶段。
  *
- * @param {Context} context The context.
- * @param {Texture} colorTexture The color texture rendered to by the scene.
- * @param {Texture} depthTexture The depth texture written to by the scene.
- * @param {Texture} idTexture The id texture written to by the scene.
+ * @param {Context} context 上下文。
+ * @param {Texture} colorTexture 场景渲染的颜色纹理。
+ * @param {Texture} depthTexture 场景写入的深度纹理。
+ * @param {Texture} idTexture 场景写入的 id 纹理。
  *
  * @private
  */
@@ -853,10 +853,10 @@ PostProcessStageCollection.prototype.execute = function (
 };
 
 /**
- * Copies the output of all executed stages to the color texture of a framebuffer.
+ * 将所有已执行阶段的输出复制到 framebuffer 的颜色纹理。
  *
- * @param {Context} context The context.
- * @param {Framebuffer} framebuffer The framebuffer to copy to.
+ * @param {Context} context 上下文。
+ * @param {Framebuffer} framebuffer 要复制到的 framebuffer。
  *
  * @private
  */
@@ -878,13 +878,13 @@ PostProcessStageCollection.prototype.copy = function (context, framebuffer) {
 };
 
 /**
- * Returns true if this object was destroyed; otherwise, false.
+ * 如果此对象已销毁，则返回 true;否则为 false。
  * <p>
- * If this object was destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.
+ * 如果此对象已销毁，则不应使用;调用
+ * <code>isDestroyed</code> 将导致 {@link DeveloperError} 异常。
  * </p>
  *
- * @returns {boolean} <code>true</code> if this object was destroyed; otherwise, <code>false</code>.
+ * @returns {boolean} <code>true</code>，如果此对象被销毁;否则为 <code>false</code>。
  *
  * @see PostProcessStageCollection#destroy
  */
@@ -893,12 +893,12 @@ PostProcessStageCollection.prototype.isDestroyed = function () {
 };
 
 /**
- * Destroys the WebGL resources held by this object.  Destroying an object allows for deterministic
- * release of WebGL resources, instead of relying on the garbage collector to destroy this object.
+ * 销毁此对象持有的 WebGL 资源。 销毁对象允许确定性
+ * 释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。
  * <p>
- * Once an object is destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.  Therefore,
- * assign the return value (<code>undefined</code>) to the object as done in the example.
+ * 一旦对象被销毁，就不应该使用它;调用
+ * <code>isDestroyed</code> 将导致 {@link DeveloperError} 异常。 因此
+ * 将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
  * </p>
  *
  * @exception {DeveloperError} 这个物体被摧毁了,destroy().

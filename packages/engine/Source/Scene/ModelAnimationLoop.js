@@ -1,5 +1,5 @@
 /**
- * Determines if and how a glTF animation is looped.
+ * 确定是否以及如何循环 glTF 动画。
  *
  * @enum {number}
  *
@@ -7,7 +7,7 @@
  */
 const ModelAnimationLoop = {
   /**
-   * Play the animation once; do not loop it.
+   * 播放一次动画;不要循环它。
    *
    * @type {number}
    * @constant
@@ -15,7 +15,7 @@ const ModelAnimationLoop = {
   NONE: 0,
 
   /**
-   * Loop the animation playing it from the start immediately after it stops.
+   * 在动画停止后立即从头开始循环播放动画。
    *
    * @type {number}
    * @constant
@@ -23,7 +23,7 @@ const ModelAnimationLoop = {
   REPEAT: 1,
 
   /**
-   * Loop the animation.  First, playing it forward, then in reverse, then forward, and so on.
+   * 循环播放动画。 首先，向前播放，然后反向播放，然后向前播放，依此类推。
    *
    * @type {number}
    * @constant

@@ -2,19 +2,19 @@ import defaultValue from "../Core/defaultValue.js";
 import PointCloudEyeDomeLighting from "./PointCloudEyeDomeLighting.js";
 
 /**
- * Options for performing point attenuation based on geometric error when rendering
- * point clouds using 3D Tiles.
+ * 渲染时根据几何误差执行点衰减的选项
+ * 使用 3D 瓦片的点云。
  *
  * @param {object} [options] 对象，具有以下属性:
- * @param {boolean} [options.attenuation=false] Perform point attenuation based on geometric error.
- * @param {number} [options.geometricErrorScale=1.0] Scale to be applied to each tile's geometric error.
- * @param {number} [options.maximumAttenuation] Maximum attenuation in pixels. Defaults to the Cesium3DTileset's maximumScreenSpaceError.
- * @param {number} [options.baseResolution] Average base resolution for the dataset in meters. Substitute for Geometric Error when not available.
- * @param {boolean} [options.eyeDomeLighting=true] When true, use eye dome lighting when drawing with point attenuation.
- * @param {number} [options.eyeDomeLightingStrength=1.0] Increasing this value increases contrast on slopes and edges.
- * @param {number} [options.eyeDomeLightingRadius=1.0] Increase the thickness of contours from eye dome lighting.
- * @param {boolean} [options.backFaceCulling=false] Determines whether back-facing points are hidden. This option works only if data has normals included.
- * @param {boolean} [options.normalShading=true] Determines whether a point cloud that contains normals is shaded by the scene's light source.
+ * @param {boolean} [options.attenuation=false] 根据几何误差执行点衰减。
+ * @param {number} [options.geometricErrorScale=1.0] 应用于每个图块的几何误差的比例。
+ * @param {number} [options.maximumAttenuation] 最大衰减（以像素为单位）。默认为 Cesium3DTileset 的 maximumScreenSpaceError。
+ * @param {number} [options.baseResolution] 数据集的平均基本分辨率（以米为单位）。Substitute for Geometric Error （几何误差） （如果不可用）。
+ * @param {boolean} [options.eyeDomeLighting=true] 如果为 true，则在使用点衰减进行绘制时使用眼球照明。
+ * @param {number} [options.eyeDomeLightingStrength=1.0] 增加此值会增加斜坡和边缘的对比度。
+ * @param {number} [options.eyeDomeLightingRadius=1.0] 增加眼球照明的轮廓厚度。
+ * @param {boolean} [options.backFaceCulling=false] 确定是否隐藏背面的点。仅当数据包含法线时，此选项才有效。
+ * @param {boolean} [options.normalShading=true] 确定包含法线的点云是否由场景的光源着色。
  *
  * @alias PointCloudShading
  * @constructor
@@ -30,7 +30,7 @@ function PointCloudShading(options) {
   this.attenuation = defaultValue(pointCloudShading.attenuation, false);
 
   /**
-   * Scale to be applied to the geometric error before computing attenuation.
+   * 在计算衰减之前应用于几何误差的比例。
    * @type {number}
    * @default 1.0
    */
@@ -40,23 +40,23 @@ function PointCloudShading(options) {
   );
 
   /**
-   * Maximum point attenuation in pixels. If undefined, the Cesium3DTileset's maximumScreenSpaceError will be used.
+   * 最大点衰减（以像素为单位）。如果未定义，则将使用 Cesium3DTileset 的 maximumScreenSpaceError。
    * @type {number}
    */
   this.maximumAttenuation = pointCloudShading.maximumAttenuation;
 
   /**
-   * Average base resolution for the dataset in meters.
-   * Used in place of geometric error when geometric error is 0.
-   * If undefined, an approximation will be computed for each tile that has geometric error of 0.
+   * 数据集的平均基本分辨率（以米为单位）。
+   * 当几何误差为 0 时，用于代替几何误差。
+   * 如果未定义，则将为几何误差为 0 的每个瓦片计算近似值。
    * @type {number}
    */
   this.baseResolution = pointCloudShading.baseResolution;
 
   /**
-   * Use eye dome lighting when drawing with point attenuation
-   * Requires support for EXT_frag_depth, OES_texture_float, and WEBGL_draw_buffers extensions in WebGL 1.0,
-   * otherwise eye dome lighting is ignored.
+   * 使用点衰减绘图时使用眼球照明
+   * 需要支持 WebGL 1.0 中的 EXT_frag_depth、OES_texture_float 和 WEBGL_draw_buffers 扩展，
+   * 否则，将忽略 Eye Dome 照明。
    *
    * @type {boolean}
    * @default true
@@ -64,7 +64,7 @@ function PointCloudShading(options) {
   this.eyeDomeLighting = defaultValue(pointCloudShading.eyeDomeLighting, true);
 
   /**
-   * Eye dome lighting strength (apparent contrast)
+   * 眼球照明强度（表观对比度）
    * @type {number}
    * @default 1.0
    */
@@ -74,7 +74,7 @@ function PointCloudShading(options) {
   );
 
   /**
-   * Thickness of contours from eye dome lighting
+   * 眼球照明的轮廓厚度
    * @type {number}
    * @default 1.0
    */
@@ -84,8 +84,8 @@ function PointCloudShading(options) {
   );
 
   /**
-   * Determines whether back-facing points are hidden.
-   * This option works only if data has normals included.
+   * 确定是否隐藏背面的点。
+   * 仅当数据包含法线时，此选项才有效。
    *
    * @type {boolean}
    * @default false
@@ -93,7 +93,7 @@ function PointCloudShading(options) {
   this.backFaceCulling = defaultValue(pointCloudShading.backFaceCulling, false);
 
   /**
-   * Determines whether a point cloud that contains normals is shaded by the scene's light source.
+   * 确定包含法线的点云是否由场景的光源着色。
    *
    * @type {boolean}
    * @default true
@@ -102,10 +102,10 @@ function PointCloudShading(options) {
 }
 
 /**
- * Determines if point cloud shading is supported.
+ * 确定是否支持点云着色。
  *
- * @param {Scene} scene The scene.
- * @returns {boolean} <code>true</code> if point cloud shading is supported; otherwise, returns <code>false</code>
+ * @param {Scene} scene 场景。
+ * @returns {boolean} <code>true</code>（如果支持点云着色）;否则，返回 <code>false</code>
  */
 PointCloudShading.isSupported = function (scene) {
   return PointCloudEyeDomeLighting.isSupported(scene.context);

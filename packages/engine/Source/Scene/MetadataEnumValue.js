@@ -3,21 +3,21 @@ import clone from "../Core/clone.js";
 import defaultValue from "../Core/defaultValue.js";
 
 /**
- * A metadata enum value.
+ * 元数据枚举值。
  * <p>
- * See the {@link https://github.com/CesiumGS/3d-tiles/tree/main/specification/Metadata|3D Metadata Specification} for 3D Tiles
+ * 请参阅 {@link https://github.com/CesiumGS/3d-tiles/tree/main/specification/Metadata|3D 元数据规范} 了解 3D 瓦片
  * </p>
  *
  * @param {object} options 对象，具有以下属性:
- * @param {number} options.value The integer value.
- * @param {string} options.name The name of the enum value.
- * @param {string} [options.description] The description of the enum value.
- * @param {*} [options.extras] Extra user-defined properties.
- * @param {object} [options.extensions] An object containing extensions.
+ * @param {number} options.value 整数值。
+ * @param {string} options.name 枚举值的名称。
+ * @param {string} [options.description] 枚举值的描述。
+ * @param {*} [options.extras] 额外的用户定义属性。
+ * @param {object} [options.extensions] 包含扩展的对象。
  *
  * @alias MetadataEnumValue
  * @constructor
- * @experimental This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.
+ * @experimental 此功能使用的是 3D Tiles 规范的一部分，该规范不是最终版本，并且可能会在没有 Cesium 标准弃用策略的情况下进行更改。
  */
 function MetadataEnumValue(options) {
   options = defaultValue(options, defaultValue.EMPTY_OBJECT);
@@ -38,14 +38,14 @@ function MetadataEnumValue(options) {
 }
 
 /**
- * Creates a {@link MetadataEnumValue} from either 3D Tiles 1.1, 3DTILES_metadata, EXT_structural_metadata, or EXT_feature_metadata.
+ * 从 3D 拼贴 1.1、3DTILES_metadata、EXT_structural_metadata 或 EXT_feature_metadata 创建 {@link MetadataEnumValue}。
  *
- * @param {object} value The enum value JSON object.
+ * @param {object} value 枚举值 JSON 对象。
  *
- * @returns {MetadataEnumValue} The newly created metadata enum value.
+ * @returns {MetadataEnumValue} 新创建的元数据枚举值。
  *
  * @private
- * @experimental This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.
+ * @experimental 此功能使用的是 3D Tiles 规范的一部分，该规范并非最终版本，并且可能会在没有 Cesium 标准弃用政策的情况下进行更改。
  */
 MetadataEnumValue.fromJson = function (value) {
   //>>includeStart('debug', pragmas.debug);
@@ -63,7 +63,7 @@ MetadataEnumValue.fromJson = function (value) {
 
 Object.defineProperties(MetadataEnumValue.prototype, {
   /**
-   * The integer value.
+   * 整数值。
    *
    * @memberof MetadataEnumValue.prototype
    * @type {number}
@@ -76,7 +76,7 @@ Object.defineProperties(MetadataEnumValue.prototype, {
   },
 
   /**
-   * The name of the enum value.
+   * 枚举值的名称。
    *
    * @memberof MetadataEnumValue.prototype
    * @type {string}
@@ -89,7 +89,7 @@ Object.defineProperties(MetadataEnumValue.prototype, {
   },
 
   /**
-   * The description of the enum value.
+   * 枚举值的描述。
    *
    * @memberof MetadataEnumValue.prototype
    * @type {string}
@@ -102,7 +102,7 @@ Object.defineProperties(MetadataEnumValue.prototype, {
   },
 
   /**
-   * Extra user-defined properties.
+   * 额外的用户定义属性。
    *
    * @memberof MetadataEnumValue.prototype
    * @type {*}
@@ -115,7 +115,7 @@ Object.defineProperties(MetadataEnumValue.prototype, {
   },
 
   /**
-   * An object containing extensions.
+   * 包含扩展的对象。
    *
    * @memberof MetadataEnumValue.prototype
    * @type {object}

@@ -1,35 +1,35 @@
 import defined from "../Core/defined.js";
 
 /**
- * Describes a rasterized feature, such as a point, polygon, polyline, etc., in an imagery layer.
+ * 描述影像图层中的栅格化要素，例如点、面、折线等。
  *
  * @alias ImageryLayerFeatureInfo
  * @constructor
  */
 function ImageryLayerFeatureInfo() {
   /**
-   * 获取或设置name of the feature.
+   * 获取或设置要素的名称。
    * @type {string|undefined}
    */
   this.name = undefined;
 
   /**
-   * Gets or sets an HTML description of the feature.  The HTML is not trusted and should
-   * be sanitized before display to the user.
+   * 获取或设置功能的 HTML 说明。 HTML 不受信任，应该
+   * 在向用户显示之前进行消毒。
    * @type {string|undefined}
    */
   this.description = undefined;
 
   /**
-   * 获取或设置position of the feature, or undefined if the position is not known.
+   * 获取或设置特征的位置，如果位置未知，则为 undefined。
    *
    * @type {Cartographic|undefined}
    */
   this.position = undefined;
 
   /**
-   * 获取或设置raw data describing the feature.  The raw data may be in any
-   * number of formats, such as GeoJSON, KML, etc.
+   * 获取或设置描述特征的原始数据。 原始数据可以是任何
+   * 格式数量，例如 GeoJSON、KML 等。
    * @type {object|undefined}
    */
   this.data = undefined;
@@ -42,12 +42,12 @@ function ImageryLayerFeatureInfo() {
 }
 
 /**
- * Configures the name of this feature by selecting an appropriate property.  The name will be obtained from
- * one of the following sources, in this order: 1) the property with the name 'name', 2) the property with the name 'title',
- * 3) the first property containing the word 'name', 4) the first property containing the word 'title'.  If
- * the name cannot be obtained from any of these sources, the existing name will be left unchanged.
+ *通过选择适当的属性来配置此功能的名称。 该名称将从
+ * 以下来源之一，按此顺序排列：1） 名称为 'name' 的属性，2） 名称为 'title' 的属性，
+ * 3） 第一个属性包含单词 'name'，4） 第一个属性包含单词 'title'。 如果
+ * 无法从任何这些来源获得名称，现有名称将保持不变。
  *
- * @param {object} properties An object literal containing the properties of the feature.
+ * @param {object} properties 包含功能属性的对象文本。
  */
 ImageryLayerFeatureInfo.prototype.configureNameFromProperties = function (
   properties
@@ -81,9 +81,9 @@ ImageryLayerFeatureInfo.prototype.configureNameFromProperties = function (
 };
 
 /**
- * Configures the description of this feature by creating an HTML table of properties and their values.
+ * 通过创建属性及其值的 HTML 表格来配置此功能的描述。
  *
- * @param {object} properties An object literal containing the properties of the feature.
+ * @param {object} properties 包含功能属性的对象文本。
  */
 ImageryLayerFeatureInfo.prototype.configureDescriptionFromProperties = function (
   properties

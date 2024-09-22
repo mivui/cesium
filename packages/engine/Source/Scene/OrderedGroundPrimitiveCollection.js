@@ -5,7 +5,7 @@ import destroyObject from "../Core/destroyObject.js";
 import PrimitiveCollection from "./PrimitiveCollection.js";
 
 /**
- * A primitive collection for helping maintain the order or ground primitives based on a z-index
+ * 一个基元集合，用于帮助维护基于 z 索引的 order 或 ground 基元
  *
  * @private
  */
@@ -19,7 +19,7 @@ function OrderedGroundPrimitiveCollection() {
 
 Object.defineProperties(OrderedGroundPrimitiveCollection.prototype, {
   /**
-   * Gets the number of primitives in the collection.
+   * 获取集合中的基元数。
    *
    * @memberof OrderedGroundPrimitiveCollection.prototype
    *
@@ -34,11 +34,11 @@ Object.defineProperties(OrderedGroundPrimitiveCollection.prototype, {
 });
 
 /**
- * Adds a primitive to the collection.
+ * 向集合中添加基元。
  *
- * @param {GroundPrimitive} primitive The primitive to add.
- * @param {number} [zIndex = 0] The index of the primitive
- * @returns {GroundPrimitive} The primitive added to the collection.
+ * @param {GroundPrimitive} primitive 要添加的基元。
+ * @param {number} [zIndex = 0] 原语的索引
+ * @returns {GroundPrimitive} 添加到集合中的基元。
  */
 OrderedGroundPrimitiveCollection.prototype.add = function (primitive, zIndex) {
   //>>includeStart('debug', pragmas.debug);
@@ -70,7 +70,7 @@ OrderedGroundPrimitiveCollection.prototype.add = function (primitive, zIndex) {
 };
 
 /**
- * Adjusts the z-index
+ * 调整 z 索引
  * @param {GroundPrimitive} primitive
  * @param {number} zIndex
  */
@@ -91,11 +91,11 @@ OrderedGroundPrimitiveCollection.prototype.set = function (primitive, zIndex) {
 };
 
 /**
- * Removes a primitive from the collection.
+ * 从集合中删除基元。
  *
- * @param {object} primitive The primitive to remove.
+ * @param {object} primitive 要删除的基元。
  * @param {boolean} [doNotDestroy = false]
- * @returns {boolean} <code>true</code> if the primitive was removed; <code>false</code> if the primitive is <code>undefined</code> or was not found in the collection.
+ * @returns {boolean} <code>true</code>（如果基元已被删除）;<code>如果</code>基元<code>未定义</code>或在集合中找不到，则为 false。
  */
 OrderedGroundPrimitiveCollection.prototype.remove = function (
   primitive,
@@ -131,7 +131,7 @@ OrderedGroundPrimitiveCollection.prototype.remove = function (
 };
 
 /**
- * Removes all primitives in the collection.
+ * 删除集合中的所有基元。
  *
  * @exception {DeveloperError} 这个物体被摧毁了,destroy().
  *
@@ -151,10 +151,10 @@ OrderedGroundPrimitiveCollection.prototype.removeAll = function () {
 };
 
 /**
- * Determines if this collection contains a primitive.
+ * 确定此集合是否包含基元。
  *
- * @param {object} primitive The primitive to check for.
- * @returns {boolean} <code>true</code> if the primitive is in the collection; <code>false</code> if the primitive is <code>undefined</code> or was not found in the collection.
+ * @param {object} primitive 要检查的基元。
+ * @returns {boolean} <code>true</code>，如果原语在集合中;<code>如果</code>基元<code>未定义</code>或在集合中找不到，则为 false。
  */
 OrderedGroundPrimitiveCollection.prototype.contains = function (primitive) {
   if (!defined(primitive)) {
@@ -179,12 +179,12 @@ OrderedGroundPrimitiveCollection.prototype.update = function (frameState) {
 };
 
 /**
- * Returns true if this object was destroyed; otherwise, false.
+ * 如果此对象已销毁，则返回 true;否则为 false。
  * <br /><br />
- * If this object was destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.
+ * 如果此对象已销毁，则不应使用;调用
+ * <code>isDestroyed</code> 将导致 {@link DeveloperError} 异常。
  *
- * @returns {boolean} True if this object was destroyed; otherwise, false.
+ * @returns {boolean} 如果此对象被销毁，则为 True;否则为 false。
  *
  * @see OrderedGroundPrimitiveCollection#destroy
  */
@@ -193,16 +193,16 @@ OrderedGroundPrimitiveCollection.prototype.isDestroyed = function () {
 };
 
 /**
- * Destroys the WebGL resources held by each primitive in this collection.  Explicitly destroying this
- * collection allows for deterministic release of WebGL resources, instead of relying on the garbage
- * collector to destroy this collection.
+ * 销毁此集合中每个基元所持有的 WebGL 资源。 显式销毁此
+ * collection 允许确定性地释放 WebGL 资源，而不是依赖垃圾
+ * collector 销毁此集合。
  * <br /><br />
- * Since destroying a collection destroys all the contained primitives, only destroy a collection
- * when you are sure no other code is still using any of the contained primitives.
+ * 由于销毁集合会销毁所有包含的原语，因此只销毁集合
+ * 当您确定没有其他代码仍在使用任何包含的基元时。
  * <br /><br />
- * Once this collection is destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.  Therefore,
- * assign the return value (<code>undefined</code>) to the object as done in the example.
+ * 此集合一旦销毁，就不应使用;调用
+ * <code>isDestroyed</code> 将导致 {@link DeveloperError} 异常。 因此
+ * 将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
  *
  * @exception {DeveloperError} 这个物体被摧毁了,destroy().
  *

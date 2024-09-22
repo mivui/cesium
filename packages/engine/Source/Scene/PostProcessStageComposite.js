@@ -5,22 +5,22 @@ import defined from "../Core/defined.js";
 import destroyObject from "../Core/destroyObject.js";
 
 /**
- * A collection of {@link PostProcessStage}s or other post-process composite stages that execute together logically.
+ * {@link PostProcessStage} 或其他逻辑上一起执行的后处理复合阶段的集合。
  * <p>
- * All stages are executed in the order of the array. The input texture changes based on the value of <code>inputPreviousStageTexture</code>.
- * If <code>inputPreviousStageTexture</code> is <code>true</code>, the input to each stage is the output texture rendered to by the scene or of the stage that executed before it.
- * If <code>inputPreviousStageTexture</code> is <code>false</code>, the input texture is the same for each stage in the composite. The input texture is the texture rendered to by the scene
- * or the output texture of the previous stage.
+ * 所有阶段都按数组的顺序执行。输入纹理根据 <code>inputPreviousStageTexture</code> 的值而变化。
+ * 如果 <code>inputPreviousStageTexture</code> 为 <code>true</code>，则每个阶段的输入是场景或之前执行的阶段渲染的输出纹理。
+ * 如果 <code>inputPreviousStageTexture</code> 为 <code>false</code>，则合成中每个阶段的输入纹理都相同。输入纹理是场景渲染到的纹理
+ * 或上一阶段的输出纹理。
  * </p>
  *
  * @alias PostProcessStageComposite
  * @constructor
  *
  * @param {object} options  对象，具有以下属性:
- * @param {Array} options.stages An array of {@link PostProcessStage}s or composites to be executed in order.
- * @param {boolean} [options.inputPreviousStageTexture=true] Whether to execute each post-process stage where the input to one stage is the output of the previous. Otherwise, the input to each contained stage is the output of the stage that executed before the composite.
- * @param {string} [options.name=createGuid()] The unique name of this post-process stage for reference by other composites. If a name is not supplied, a GUID will be generated.
- * @param {object} [options.uniforms] An alias to the uniforms of post-process stages.
+ * @param {Array} options.stages 要按顺序执行的 {@link 个 PostProcessStage} 或复合数组。
+ * @param {boolean} [options.inputPreviousStageTexture=true] 是否执行每个后处理阶段，其中一个阶段的输入是前一个阶段的输出。否则，每个包含的阶段的输入是在合成之前执行的阶段的输出。
+ * @param {string} [options.name=createGuid（）] 此后处理阶段的唯一名称，供其他合成引用。如果未提供名称，将生成 GUID。
+ * @param {object} [options.uniforms] 后处理阶段的 uniform 的别名。
  *
  * @exception {DeveloperError} options.stages.length must be greater than 0.0.
  *
@@ -116,7 +116,7 @@ function PostProcessStageComposite(options) {
 
 Object.defineProperties(PostProcessStageComposite.prototype, {
   /**
-   * Determines if this post-process stage is ready to be executed.
+   * 确定此后处理阶段是否已准备好执行。
    *
    * @memberof PostProcessStageComposite.prototype
    * @type {boolean}
@@ -135,7 +135,7 @@ Object.defineProperties(PostProcessStageComposite.prototype, {
     },
   },
   /**
-   * The unique name of this post-process stage for reference by other stages in a PostProcessStageComposite.
+   * 此后处理阶段的唯一名称，供 PostProcessStageComposite 中的其他阶段引用。
    *
    * @memberof PostProcessStageComposite.prototype
    * @type {string}
@@ -147,7 +147,7 @@ Object.defineProperties(PostProcessStageComposite.prototype, {
     },
   },
   /**
-   * Whether or not to execute this post-process stage when ready.
+   * 准备就绪时是否执行此后处理阶段。
    *
    * @memberof PostProcessStageComposite.prototype
    * @type {boolean}
@@ -165,7 +165,7 @@ Object.defineProperties(PostProcessStageComposite.prototype, {
     },
   },
   /**
-   * An alias to the uniform values of the post-process stages. May be <code>undefined</code>; in which case, get each stage to set uniform values.
+   * 后处理阶段的 uniform 值的别名。可能是<code>未定义的</code>;在这种情况下，请获取每个阶段以设置 uniform 值。
    * @memberof PostProcessStageComposite.prototype
    * @type {object}
    */
@@ -175,10 +175,10 @@ Object.defineProperties(PostProcessStageComposite.prototype, {
     },
   },
   /**
-   * All post-process stages are executed in the order of the array. The input texture changes based on the value of <code>inputPreviousStageTexture</code>.
-   * If <code>inputPreviousStageTexture</code> is <code>true</code>, the input to each stage is the output texture rendered to by the scene or of the stage that executed before it.
-   * If <code>inputPreviousStageTexture</code> is <code>false</code>, the input texture is the same for each stage in the composite. The input texture is the texture rendered to by the scene
-   * or the output texture of the previous stage.
+   * 所有后处理阶段都按数组的顺序执行。输入纹理根据 <code>inputPreviousStageTexture</code> 的值而变化。
+   * 如果 <code>inputPreviousStageTexture</code> 为 <code>true</code>，则每个阶段的输入是场景或之前执行的阶段渲染的输出纹理。
+   * 如果 <code>inputPreviousStageTexture</code> 为 <code>false</code>，则合成中每个阶段的输入纹理都相同。输入纹理是场景渲染到的纹理
+   * 或上一阶段的输出纹理。
    *
    * @memberof PostProcessStageComposite.prototype
    * @type {boolean}
@@ -190,7 +190,7 @@ Object.defineProperties(PostProcessStageComposite.prototype, {
     },
   },
   /**
-   * The number of post-process stages in this composite.
+   * 此合成中的后处理阶段数。
    *
    * @memberof PostProcessStageComposite.prototype
    * @type {number}
@@ -202,7 +202,7 @@ Object.defineProperties(PostProcessStageComposite.prototype, {
     },
   },
   /**
-   * The features selected for applying the post-process.
+   * 为应用后处理而选择的特征。
    *
    * @memberof PostProcessStageComposite.prototype
    * @type {Array}
@@ -243,13 +243,13 @@ PostProcessStageComposite.prototype._isSupported = function (context) {
 };
 
 /**
- * Gets the post-process stage at <code>index</code>
+ * 获取<code>索引</code>处的后处理阶段
  *
- * @param {number} index The index of the post-process stage or composite.
- * @return {PostProcessStage|PostProcessStageComposite} The post-process stage or composite at index.
+ * @param {number} index 后处理阶段或复合的索引。
+ * @return {PostProcessStage|PostProcessStageComposite} 索引处的后处理阶段或合成。
  *
- * @exception {DeveloperError} index must be greater than or equal to 0.
- * @exception {DeveloperError} index must be less than {@link PostProcessStageComposite#length}.
+ * @exception {DeveloperError} 索引必须大于或等于 0。
+ * @exception {DeveloperError} 索引必须小于 {@link PostProcessStageComposite#length}。
  */
 PostProcessStageComposite.prototype.get = function (index) {
   //>>includeStart('debug', pragmas.debug);
@@ -296,9 +296,9 @@ function isSelectedTextureDirty(stage) {
 }
 
 /**
- * A function that will be called before execute. Updates each post-process stage in the composite.
- * @param {Context} context The context.
- * @param {boolean} useLogDepth Whether the scene uses a logarithmic depth buffer.
+ * 将在执行之前调用的函数。更新合成中的每个后处理阶段。
+ * @param {Context} context 上下文。
+ * @param {boolean} useLogDepth 场景是否使用对数深度缓冲区。
  * @private
  */
 PostProcessStageComposite.prototype.update = function (context, useLogDepth) {
@@ -324,13 +324,13 @@ PostProcessStageComposite.prototype.update = function (context, useLogDepth) {
 };
 
 /**
- * Returns true if this object was destroyed; otherwise, false.
+ * 如果此对象已销毁，则返回 true;否则为 false。
  * <p>
- * If this object was destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.
+ * 如果此对象已销毁，则不应使用;调用
+ * <code>isDestroyed</code> 将导致 {@link DeveloperError} 异常。
  * </p>
  *
- * @returns {boolean} <code>true</code> if this object was destroyed; otherwise, <code>false</code>.
+ * @returns {boolean} 如果此对象被销毁，<code>则为 true</code>;否则为 <code>false</code>。
  *
  * @see PostProcessStageComposite#destroy
  */
@@ -339,12 +339,12 @@ PostProcessStageComposite.prototype.isDestroyed = function () {
 };
 
 /**
- * Destroys the WebGL resources held by this object.  Destroying an object allows for deterministic
- * release of WebGL resources, instead of relying on the garbage collector to destroy this object.
+ * 销毁此对象持有的 WebGL 资源。 销毁对象允许确定性
+ * 释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。
  * <p>
- * Once an object is destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.  Therefore,
- * assign the return value (<code>undefined</code>) to the object as done in the example.
+ * 一旦对象被销毁，就不应该使用它;调用
+ * <code>isDestroyed</code> 将导致 {@link DeveloperError} 异常。 因此
+ * 将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
  * </p>
  *
  * @exception {DeveloperError} 这个物体被摧毁了,destroy().

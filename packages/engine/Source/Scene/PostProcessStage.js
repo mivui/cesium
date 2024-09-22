@@ -21,22 +21,22 @@ import TextureWrap from "../Renderer/TextureWrap.js";
 import PostProcessStageSampleMode from "./PostProcessStageSampleMode.js";
 
 /**
- * Runs a post-process stage on either the texture rendered by the scene or the output of a previous post-process stage.
+ * 在场景渲染的纹理或前一个后处理阶段的输出上运行后处理阶段。
  *
  * @alias PostProcessStage
  * @constructor
  *
- * @param {object} options  对象，具有以下属性:
- * @param {string} options.fragmentShader The fragment shader to use. The default <code>sampler2D</code> uniforms are <code>colorTexture</code> and <code>depthTexture</code>. The color texture is the output of rendering the scene or the previous stage. The depth texture is the output from rendering the scene. The shader should contain one or both uniforms. There is also a <code>vec2</code> varying named <code>v_textureCoordinates</code> that can be used to sample the textures.
- * @param {object} [options.uniforms] An object whose properties will be used to set the shaders uniforms. The properties can be constant values or a function. A constant value can also be a URI, data URI, or HTML element to use as a texture.
- * @param {number} [options.textureScale=1.0] A number in the range (0.0, 1.0] used to scale the texture dimensions. A scale of 1.0 will render this post-process stage  to a texture the size of the viewport.
- * @param {boolean} [options.forcePowerOfTwo=false] Whether or not to force the texture dimensions to be both equal powers of two. The power of two will be the next power of two of the minimum of the dimensions.
- * @param {PostProcessStageSampleMode} [options.sampleMode=PostProcessStageSampleMode.NEAREST] How to sample the input color texture.
- * @param {PixelFormat} [options.pixelFormat=PixelFormat.RGBA] The color pixel format of the output texture.
- * @param {PixelDatatype} [options.pixelDatatype=PixelDatatype.UNSIGNED_BYTE] The pixel data type of the output texture.
- * @param {Color} [options.clearColor=Color.BLACK] The color to clear the output texture to.
- * @param {BoundingRectangle} [options.scissorRectangle] The rectangle to use for the scissor test.
- * @param {string} [options.name=createGuid()] The unique name of this post-process stage for reference by other stages in a composite. If a name is not supplied, a GUID will be generated.
+ * @param {object} options 对象，具有以下属性：
+ * @param {string} options.fragmentShader 要使用的片段着色器。默认的 <code>sampler2D</code> 制服是 <code>colorTexture</code> 和 <code>depthTexture</code>。颜色纹理是渲染场景或上一阶段的输出。depth 纹理是渲染场景的输出。着色器应包含一个或两个 uniform。还有一个名为 <code>v_textureCoordinates</code> <code>的 vec2</code> 变体，可用于对纹理进行采样。
+ * @param {object} [options.uniforms] 一个对象，其属性将用于设置着色器的 uniform。属性可以是常量值或函数。常量值也可以是 URI、数据 URI 或用作纹理的 HTML 元素。
+ * @param {number} [options.textureScale=1.0] 范围内的一个数字 （0.0， 1.0] 用于缩放纹理尺寸。缩放 1.0 会将此后期处理阶段渲染为视区大小的纹理。
+ * @param {boolean} [options.forcePowerOfTwo=false] 是否强制纹理维度均为 2 的幂。2 的幂将是最小维度中 2 的次幂。
+ * @param {PostProcessStageSampleMode} [options.sampleMode=PostProcessStageSampleMode.NEAREST] 如何对输入颜色纹理进行采样。
+ * @param {PixelFormat} [options.pixelFormat=PixelFormat.RGBA] 输出纹理的颜色像素格式。
+ * @param {PixelDatatype} [options.pixelDatatype=PixelDatatype.UNSIGNED_BYTE] 输出纹理的像素数据类型。
+ * @param {Color} [options.clearColor=Color.BLACK] 要将输出纹理清除为的颜色。
+ * @param {BoundingRectangle} [options.scissorRectangle] 用于剪刀测试的矩形。
+ * @param {string} [options.name=createGuid（）] 此后处理阶段的唯一名称，供合成中的其他阶段引用。如果未提供名称，将生成 GUID。
  *
  * @exception {DeveloperError} options.textureScale must be greater than 0.0 and less than or equal to 1.0.
  * @exception {DeveloperError} options.pixelFormat must be a color format.
@@ -174,7 +174,7 @@ function PostProcessStage(options) {
   this._index = undefined;
 
   /**
-   * Whether or not to execute this post-process stage when ready.
+   * 准备就绪时是否执行此后处理阶段。
    *
    * @type {boolean}
    */
@@ -184,9 +184,9 @@ function PostProcessStage(options) {
 
 Object.defineProperties(PostProcessStage.prototype, {
   /**
-   * Determines if this post-process stage is ready to be executed. A stage is only executed when both <code>ready</code>
-   * and {@link PostProcessStage#enabled} are <code>true</code>. A stage will not be ready while it is waiting on textures
-   * to load.
+   * 确定此后处理阶段是否已准备好执行。仅当两个<code>阶段都准备就绪</code>时，才会执行 stage
+   * 和 {@link PostProcessStage#enabled} 为 <code>true</code>。阶段在等待纹理时将未准备就绪
+   * 加载。
    *
    * @memberof PostProcessStage.prototype
    * @type {boolean}
@@ -198,7 +198,7 @@ Object.defineProperties(PostProcessStage.prototype, {
     },
   },
   /**
-   * The unique name of this post-process stage for reference by other stages in a {@link PostProcessStageComposite}.
+   * 此后处理阶段的唯一名称，供 {@link PostProcessStageComposite} 中的其他阶段引用。
    *
    * @memberof PostProcessStage.prototype
    * @type {string}
@@ -210,14 +210,14 @@ Object.defineProperties(PostProcessStage.prototype, {
     },
   },
   /**
-   * The fragment shader to use when execute this post-process stage.
+   * 执行此后处理阶段时要使用的片段着色器。
    * <p>
-   * The shader must contain a sampler uniform declaration for <code>colorTexture</code>, <code>depthTexture</code>,
-   * or both.
+   * 着色器必须包含 <code>colorTexture</code>、<code>depthTexture</code>、
+   * 或两者兼而有之。
    * </p>
    * <p>
-   * The shader must contain a <code>vec2</code> varying declaration for <code>v_textureCoordinates</code> for sampling
-   * the texture uniforms.
+   * 着色器必须包含 <code>vec2</code> varying 声明，用于采样的 <code>v_textureCoordinates</code>
+   * 纹理均匀。
    * </p>
    *
    * @memberof PostProcessStage.prototype
@@ -230,17 +230,17 @@ Object.defineProperties(PostProcessStage.prototype, {
     },
   },
   /**
-   * An object whose properties are used to set the uniforms of the fragment shader.
+   * 一个对象，其属性用于设置片段着色器的 uniforms。
    * <p>
-   * The object property values can be either a constant or a function. The function will be called
-   * each frame before the post-process stage is executed.
+   * 对象属性值可以是常量或函数。该函数将被调用
+   * 执行后处理阶段之前的每一帧。
    * </p>
    * <p>
-   * A constant value can also be a URI to an image, a data URI, or an HTML element that can be used as a texture, such as HTMLImageElement or HTMLCanvasElement.
+   * 常量值也可以是图像的 URI、数据 URI 或可用作纹理的 HTML 元素，例如 HTMLImageElement 或 HTMLCanvasElement。
    * </p>
    * <p>
-   * If this post-process stage is part of a {@link PostProcessStageComposite} that does not execute in series, the constant value can also be
-   * the name of another stage in a composite. This will set the uniform to the output texture the stage with that name.
+   * 如果此后处理阶段是不串行执行的 {@link PostProcessStageComposite} 的一部分，则常量值也可以是
+   * 复合中另一个阶段的名称。这会将 uniform 设置为具有该名称的舞台的输出纹理。
    * </p>
    *
    * @memberof PostProcessStage.prototype
@@ -253,7 +253,7 @@ Object.defineProperties(PostProcessStage.prototype, {
     },
   },
   /**
-   * A number in the range (0.0, 1.0] used to scale the output texture dimensions. A scale of 1.0 will render this post-process stage to a texture the size of the viewport.
+   * 范围 （0.0， 1.0） 中的数字，用于缩放输出纹理尺寸。缩放 1.0 会将此后期处理阶段渲染为视区大小的纹理。
    *
    * @memberof PostProcessStage.prototype
    * @type {number}
@@ -265,7 +265,7 @@ Object.defineProperties(PostProcessStage.prototype, {
     },
   },
   /**
-   * Whether or not to force the output texture dimensions to be both equal powers of two. The power of two will be the next power of two of the minimum of the dimensions.
+   * 是否强制输出纹理尺寸均为 2 的幂。2 的幂将是最小维度中 2 的次幂。
    *
    * @memberof PostProcessStage.prototype
    * @type {number}
@@ -277,7 +277,7 @@ Object.defineProperties(PostProcessStage.prototype, {
     },
   },
   /**
-   * How to sample the input color texture.
+   * 如何对输入颜色纹理进行采样。
    *
    * @memberof PostProcessStage.prototype
    * @type {PostProcessStageSampleMode}
@@ -289,7 +289,7 @@ Object.defineProperties(PostProcessStage.prototype, {
     },
   },
   /**
-   * The color pixel format of the output texture.
+   * 输出纹理的颜色像素格式。
    *
    * @memberof PostProcessStage.prototype
    * @type {PixelFormat}
@@ -301,7 +301,7 @@ Object.defineProperties(PostProcessStage.prototype, {
     },
   },
   /**
-   * The pixel data type of the output texture.
+   * 输出纹理的 pixel 数据类型。
    *
    * @memberof PostProcessStage.prototype
    * @type {PixelDatatype}
@@ -313,7 +313,7 @@ Object.defineProperties(PostProcessStage.prototype, {
     },
   },
   /**
-   * The color to clear the output texture to.
+   * 将输出纹理清除为的颜色。
    *
    * @memberof PostProcessStage.prototype
    * @type {Color}
@@ -325,7 +325,7 @@ Object.defineProperties(PostProcessStage.prototype, {
     },
   },
   /**
-   * The {@link BoundingRectangle} to use for the scissor test. A default bounding rectangle will disable the scissor test.
+   * 用于 scissor 测试的 {@link BoundingRectangle}。默认边界矩形将禁用 scissor 测试。
    *
    * @memberof PostProcessStage.prototype
    * @type {BoundingRectangle}
@@ -337,7 +337,7 @@ Object.defineProperties(PostProcessStage.prototype, {
     },
   },
   /**
-   * A reference to the texture written to when executing this post process stage.
+   * 对执行此后期处理阶段时写入的纹理的引用。
    *
    * @memberof PostProcessStage.prototype
    * @type {Texture}
@@ -356,10 +356,10 @@ Object.defineProperties(PostProcessStage.prototype, {
     },
   },
   /**
-   * The features selected for applying the post-process.
+   * 为应用后处理而选择的功能。
    * <p>
-   * In the fragment shader, use <code>czm_selected</code> to determine whether or not to apply the post-process
-   * stage to that fragment. For example:
+   * 在片段着色器中，使用 <code>czm_selected</code> 来确定是否应用后期处理
+   * stage 添加到该 fragment 中。例如：
    * <code>
    * if (czm_selected(v_textureCoordinates)) {
    *     // apply post-process stage
@@ -873,9 +873,9 @@ function createSelectedTexture(stage, context) {
 }
 
 /**
- * A function that will be called before execute. Used to create WebGL resources and load any textures.
- * @param {Context} context The context.
- * @param {boolean} useLogDepth Whether the scene uses a logarithmic depth buffer.
+ * 将在执行之前调用的函数。用于创建 WebGL 资源和加载任何纹理。
+ * @param {Context} context 上下文。
+ * @param {boolean} useLogDepth 场景是否使用对数深度缓冲区。
  * @private
  */
 PostProcessStage.prototype.update = function (context, useLogDepth) {
@@ -947,11 +947,11 @@ PostProcessStage.prototype.update = function (context, useLogDepth) {
 };
 
 /**
- * Executes the post-process stage. The color texture is the texture rendered to by the scene or from the previous stage.
- * @param {Context} context The context.
- * @param {Texture} colorTexture The input color texture.
- * @param {Texture} depthTexture The input depth texture.
- * @param {Texture} idTexture The id texture.
+ * 执行后处理阶段。颜色纹理是由场景或上一阶段渲染的纹理。
+ * @param {Context} context 上下文。
+ * @param {Texture} colorTexture 输入颜色纹理。
+ * @param {Texture} depthTexture 输入深度纹理。
+ * @param {Texture} idTexture id 纹理。
  * @private
  */
 PostProcessStage.prototype.execute = function (
@@ -989,13 +989,13 @@ PostProcessStage.prototype.execute = function (
 };
 
 /**
- * Returns true if this object was destroyed; otherwise, false.
+ * 如果此对象已销毁，则返回 true;否则为 false。
  * <p>
- * If this object was destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.
+ * 如果此对象已销毁，则不应使用;调用
+ * <code>isDestroyed</code> 将导致 {@link DeveloperError} 异常。
  * </p>
  *
- * @returns {boolean} <code>true</code> if this object was destroyed; otherwise, <code>false</code>.
+ * @returns {boolean} <code>true</code>，如果此对象被销毁;否则为 <code>false</code>。
  *
  * @see PostProcessStage#destroy
  */
@@ -1004,12 +1004,12 @@ PostProcessStage.prototype.isDestroyed = function () {
 };
 
 /**
- * Destroys the WebGL resources held by this object.  Destroying an object allows for deterministic
- * release of WebGL resources, instead of relying on the garbage collector to destroy this object.
+ * 销毁此对象持有的 WebGL 资源。 销毁对象允许确定性
+ * 释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。
  * <p>
- * Once an object is destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.  Therefore,
- * assign the return value (<code>undefined</code>) to the object as done in the example.
+ * 一旦对象被销毁，就不应该使用它;调用
+ * <code>isDestroyed</code> 将导致 {@link DeveloperError} 异常。 因此
+ * 将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
  * </p>
  *
  * @exception {DeveloperError} 这个物体被摧毁了,destroy().

@@ -17,31 +17,31 @@ import MetadataSemantic from "./MetadataSemantic.js";
 import BoundingVolumeSemantics from "./BoundingVolumeSemantics.js";
 
 /**
- * A specialized {@link Cesium3DTileContent} that lazily evaluates an implicit
- * tileset. It is somewhat similar in operation to a
- * {@link Tileset3DTileContent} in that once the content is constructed, it
- * updates the tileset tree with more tiles. However, unlike external tilesets,
- * child subtrees are represented as additional placeholder nodes with
- * Implicit3DTileContent.
+ * 一个专用的 {@link Cesium3DTileContent}，它懒惰地计算隐式的
+ * 图块集。它在操作上有点类似于
+ * {@link Tileset3DTileContent} 中，一旦构建了内容，它
+ * 使用更多图块更新图块集树。但是，与外部图块集不同的是，
+ * 子子树表示为附加的占位符节点，其中
+ * Implicit3DTileContent 的 Importicit Partial PackageContent 中。
  * <p>
- * Implements the {@link Cesium3DTileContent} interface.
+ * 实现 {@link Cesium3DTileContent} 接口。
  * </p>
- * This object is normally not instantiated directly, use {@link Implicit3DTileContent.fromSubtreeJson}.
+ * 此对象通常不直接实例化，请使用 {@link Implicit3DTileContent.fromSubtreeJson}。
  *
  * @alias Implicit3DTileContent
  * @constructor
  *
- * @param {Cesium3DTileset} tileset The tileset this content belongs to
- * @param {Cesium3DTile} tile The tile this content belongs to.
- * @param {Resource} resource The resource for the tileset
- * @param {object} [json] The JSON object containing the subtree. Mutually exclusive with arrayBuffer.
- * @param {ArrayBuffer} [arrayBuffer] The array buffer that stores the content payload. Mutually exclusive with json.
- * @param {number} [byteOffset=0] The offset into the array buffer, if one was provided
+ * @param {Cesium3DTileset} tileset 此内容所属的瓦片集
+ * @param {Cesium3DTile} tile 此内容所属的磁贴。
+ * @param {Resource} resource 瓦片集的资源
+ * @param {object} [json] 包含子树的 JSON 对象。与 arrayBuffer 互斥。
+ * @param {ArrayBuffer} [arrayBuffer] 存储内容有效负载的数组缓冲区。与 json 互斥。
+ * @param {number} [byteOffset=0] 数组缓冲区的偏移量（如果提供了）
  *
  * @exception {DeveloperError} One of json and arrayBuffer must be defined.
  *
  * @private
- * @experimental This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.
+ * @experimental 此功能使用的是 3D Tiles 规范的一部分，该规范不是最终版本，并且可能会在没有 Cesium 标准弃用策略的情况下进行更改。
  */
 function Implicit3DTileContent(tileset, tile, resource) {
   //>>includeStart('debug', pragmas.debug);
@@ -119,7 +119,7 @@ Object.defineProperties(Implicit3DTileContent.prototype, {
   },
 
   /**
-   * Returns true when the tile's content is ready to render; otherwise false
+   * 当磁贴的内容准备好呈现时，返回 true;否则为 false
    *
    * @memberof Implicit3DTileContent.prototype
    *
@@ -152,8 +152,8 @@ Object.defineProperties(Implicit3DTileContent.prototype, {
   },
 
   /**
-   * Part of the {@link Cesium3DTileContent} interface. <code>Implicit3DTileContent</code>
-   * always returns <code>undefined</code>. Only transcoded tiles have content metadata.
+   * {@link Cesium3DTileContent} 接口的一部分。<code>Implicit3DTileContent</code>
+   * 始终返回 <code>undefined</code>。只有转码后的切片才具有内容元数据。
    * @memberof Implicit3DTileContent.prototype
    * @private
    */
@@ -185,15 +185,15 @@ Object.defineProperties(Implicit3DTileContent.prototype, {
 });
 
 /**
- * Initialize the implicit content by parsing the subtree resource and setting
- * up a promise chain to expand the immediate subtree.
+ * 通过解析 subtree 资源初始化隐式内容，并设置
+ * 向上扩展 Promise Chain 以扩展 Immediate 子树。
  *
- * @param {Cesium3DTileset} tileset The tileset this content belongs to
- * @param {Cesium3DTile} tile The tile this content belongs to.
- * @param {Resource} resource The resource for the tileset
- * @param {object} [json] The JSON containing the subtree. Mutually exclusive with arrayBuffer.
- * @param {ArrayBuffer} [arrayBuffer] The ArrayBuffer containing a subtree binary. Mutually exclusive with json.
- * @param {number} [byteOffset=0] The byte offset into the arrayBuffer
+ * @param {Cesium3DTileset} tileset 此内容所属的瓦片集
+ * @param {Cesium3DTile} tile 此内容所属的磁贴。
+ * @param {Resource} resource 瓦片集的资源
+ * @param {object} [json] 包含子树的 JSON。与 arrayBuffer 互斥。
+ * @param {ArrayBuffer} [arrayBuffer] 包含子树二进制文件的 ArrayBuffer。与 json 互斥。
+ * @param {number} [byteOffset=0] arrayBuffer 的字节偏移量
  * @return {Promise<Implicit3DTileContent>}
  *
  * @exception {DeveloperError} One of json and arrayBuffer must be defined.
@@ -243,13 +243,13 @@ Implicit3DTileContent.fromSubtreeJson = async function (
 };
 
 /**
- * Expand a single subtree placeholder tile. This transcodes the subtree into
- * a tree of {@link Cesium3DTile}. The root of this tree is stored in
- * the placeholder tile's children array. This method also creates placeholder
- * tiles for the child subtrees to be lazily expanded as needed.
+ * 展开单个子树占位符磁贴。这会将子树转码为
+ * {@link Cesium3DTile} 的树。此树的根存储在
+ * 占位符图块的 children 数组。此方法还会创建 placeholder
+ * tiles 的子树，以便根据需要延迟扩展。
  *
- * @param {Implicit3DTileContent} content The content
- * @param {ImplicitSubtree} subtree The parsed subtree
+ * @param {Implicit3DTileContent} content 内容
+ * @param {ImplicitSubtree} subtree 已解析的子树
  * @private
  */
 function expandSubtree(content, subtree) {
@@ -286,21 +286,21 @@ function expandSubtree(content, subtree) {
 }
 
 /**
- * A pair of (tile, childIndex) used for finding child subtrees.
+ * 一对 （tile， childIndex） 用于查找子子树。
  *
  * @typedef {object} ChildSubtreeLocator
- * @property {Cesium3DTile} tile One of the tiles in the bottommost row of the subtree.
- * @property {number} childIndex The morton index of the child tile relative to its parent
+ * @property {Cesium3DTile} tile 子树最底部行中的磁贴之一。
+ * @property {number} childIndex 子图块相对于其父图块的莫顿索引
  * @private
  */
 
 /**
- * Determine what child subtrees exist and return a list of information
+ * 确定存在哪些子子树并返回信息列表
  *
- * @param {Implicit3DTileContent} content The implicit content
- * @param {ImplicitSubtree} subtree The subtree for looking up availability
- * @param {Array<Cesium3DTile|undefined>} bottomRow The bottom row of tiles in a transcoded subtree
- * @returns {ChildSubtreeLocator[]} A list of identifiers for the child subtrees.
+ * @param {Implicit3DTileContent} content 隐式内容
+ * @param {ImplicitSubtree} subtree 用于查找可用性的子树
+ * @param {Array<Cesium3DTile|undefined>} bottomRow 转码子树中的底行图块
+ * @returns {ChildSubtreeLocator[]} 子子树的标识符列表。
  * @private
  */
 function listChildSubtrees(content, subtree, bottomRow) {
@@ -326,25 +326,25 @@ function listChildSubtrees(content, subtree, bottomRow) {
 }
 
 /**
- * Results of transcodeSubtreeTiles, containing the root tile of the
- * subtree and the bottom row of nodes for further processing.
+ * transcodeSubtreeTiles 的结果，包含
+ * subtree 和节点的底行进行进一步处理。
  *
  * @typedef {object} TranscodedSubtree
- * @property {Cesium3DTile} rootTile The transcoded root tile of the subtree
- * @property {Array<Cesium3DTile|undefined>} bottomRow The bottom row of transcoded tiles. This is helpful for processing child subtrees
+ * @property {Cesium3DTile} rootTile 子树的转码根瓦片
+ * @property {Array<Cesium3DTile|undefined>} bottomRow 转码瓦片的底行。这有助于处理子子树
  * @private
  */
 
 /**
- * Transcode the implicitly-defined tiles within this subtree and generate
- * explicit {@link Cesium3DTile} objects. This function only transcode tiles,
- * child subtrees are handled separately.
+ * 对此子树中隐式定义的瓦片进行转码，并生成
+ * 显式 {@link Cesium3DTile} 对象。此函数仅对瓦片、
+ * 子子树单独处理。
  *
- * @param {Implicit3DTileContent} content The implicit content
- * @param {ImplicitSubtree} subtree The subtree to get availability information
- * @param {Cesium3DTile} placeholderTile The placeholder tile, used for constructing the subtree root tile
- * @param {number} childIndex The Morton index of the root tile relative to parentOfRootTile
- * @returns {TranscodedSubtree} The newly created subtree of tiles
+ * @param {Implicit3DTileContent} content 隐式内容
+ * @param {ImplicitSubtree} subtree 获取可用性信息的子树
+ * @param {Cesium3DTile} placeholderTile 占位符瓦片，用于构建子树根瓦片
+ * @param {number} childIndex 根瓦片相对于 parentOfRootTile 的 Morton 索引
+ * @returns {TranscodedSubtree} 新创建的瓦片子树
  * @private
  */
 function transcodeSubtreeTiles(content, subtree, placeholderTile, childIndex) {
@@ -423,20 +423,20 @@ function getGeometricError(tileMetadata, implicitTileset, implicitCoordinates) {
 }
 
 /**
- * Given a parent tile and information about which child to create, derive
- * the properties of the child tile implicitly.
+ * 给定父磁贴和有关要创建的子项的信息，派生
+ * 子图块的属性。
  * <p>
- * This creates a real tile for rendering, not a placeholder tile like some of
- * the other methods of ImplicitTileset.
+ * 这将创建一个用于渲染的真实瓦片，而不是像某些
+ * ImplicitTileset 的其他方法。
  * </p>
  *
- * @param {Implicit3DTileContent} implicitContent The implicit content
- * @param {ImplicitSubtree} subtree The subtree the child tile belongs to
- * @param {Cesium3DTile} parentTile The parent of the new child tile
- * @param {number} childIndex The morton index of the child tile relative to its parent
- * @param {number} childBitIndex The index of the child tile within the tile's availability information.
- * @param {boolean} [parentIsPlaceholderTile=false] True if parentTile is a placeholder tile. This is true for the root of each subtree.
- * @returns {Cesium3DTile} The new child tile.
+ * @param {Implicit3DTileContent} implicitContent 隐式内容
+ * @param {ImplicitSubtree} subtree 子瓦片所属的子树
+ * @param {Cesium3DTile} parentTile 新子瓦片的父级
+ * @param {number} childIndex 子瓦片相对于其父瓦片的莫顿索引
+ * @param {number} childBitIndex 磁贴的可用性信息中子磁贴的索引。
+ * @param {boolean} [parentIsPlaceholderTile=false] 如果 parentTile 是占位符磁贴，则为 True。对于每个子树的根，情况都是如此。
+ * @returns {Cesium3DTile} 新的子磁贴。
  * @private
  */
 function deriveChildTile(
@@ -569,15 +569,15 @@ function deriveChildTile(
 }
 
 /**
- * Checks whether the bounding volume's heights can be updated.
- * Returns true if the minimumHeight/maximumHeight parameter
- * is defined and the bounding volume is a region or S2 cell.
+ * 检查是否可以更新包围体的高度。
+ * 如果 minimumHeight/maximumHeight 参数
+ * 且边界体积为区域或 S2 单元。
  *
- * @param {object} [boundingVolume] The bounding volume
- * @param {object} [tileBounds] The tile bounds
- * @param {number} [tileBounds.minimumHeight] The minimum height
- * @param {number} [tileBounds.maximumHeight] The maximum height
- * @returns {boolean} Whether the bounding volume's heights can be updated
+ * @param {object} [boundingVolume] 边界体积
+ * @param {object} [tileBounds] 瓦片边界
+ * @param {number} [tileBounds.minimumHeight] 最小高度
+ * @param {number} [tileBounds.maximumHeight] 最大高度
+ * @returns {boolean} 是否可以更新包围体的高度
  * @private
  */
 function canUpdateHeights(boundingVolume, tileBounds) {
@@ -591,17 +591,17 @@ function canUpdateHeights(boundingVolume, tileBounds) {
 }
 
 /**
- * Update the minimum and maximum height of the bounding volume.
- * This is typically used to tighten a bounding volume using the
- * <code>TILE_MINIMUM_HEIGHT</code> and <code>TILE_MAXIMUM_HEIGHT</code>
- * semantics. Heights are only updated if the respective
- * minimumHeight/maximumHeight parameter is defined and the
- * bounding volume is a region or S2 cell.
+ * 更新边界体积的最小和最大高度。
+ * 这通常用于使用
+ * <code>TILE_MINIMUM_HEIGHT</code> 和 <code>TILE_MAXIMUM_HEIGHT</code>
+ *语义学。高度仅在相应的
+ * minimumHeight/maximumHeight 参数，并且
+ * bounding volume 是一个区域或 S2 单元格。
  *
- * @param {object} boundingVolume The bounding volume
- * @param {object} [tileBounds] The tile bounds
- * @param {number} [tileBounds.minimumHeight] The new minimum height
- * @param {number} [tileBounds.maximumHeight] The new maximum height
+ * @param {object} boundingVolume 边界体积
+ * @param {object} [tileBounds] 瓦片边界
+ * @param {number} [tileBounds.minimumHeight] 新的最小高度
+ * @param {number} [tileBounds.maximumHeight] 新的最大高度
  * @private
  */
 function updateHeights(boundingVolume, tileBounds) {
@@ -625,15 +625,15 @@ function updateHeights(boundingVolume, tileBounds) {
 }
 
 /**
- * For a bounding region, update the minimum and maximum height. This
- * is typically used to tighten a bounding volume using the
- * <code>TILE_MINIMUM_HEIGHT</code> and <code>TILE_MAXIMUM_HEIGHT</code>
- * semantics. Heights are only updated if the respective
- * minimumHeight/maximumHeight parameter is defined.
+ * 对于边界区域，请更新最小和最大高度。这
+ * 通常用于使用
+ * <code>TILE_MINIMUM_HEIGHT</code> 和 <code>TILE_MAXIMUM_HEIGHT</code>
+ *语义学。高度仅在相应的
+ * minimumHeight/maximumHeight 参数。
  *
- * @param {Array} region A 6-element array describing the bounding region
- * @param {number} [minimumHeight] The new minimum height
- * @param {number} [maximumHeight] The new maximum height
+ * @param {Array} region 描述边界区域的 6 元素数组
+ * @param {number} [minimumHeight] 新的最小高度
+ * @param {number} [maximumHeight] 新的最大高度
  * @private
  */
 function updateRegionHeights(region, minimumHeight, maximumHeight) {
@@ -647,15 +647,15 @@ function updateRegionHeights(region, minimumHeight, maximumHeight) {
 }
 
 /**
- * For a bounding S2 cell, update the minimum and maximum height. This
- * is typically used to tighten a bounding volume using the
- * <code>TILE_MINIMUM_HEIGHT</code> and <code>TILE_MAXIMUM_HEIGHT</code>
- * semantics. Heights are only updated if the respective
- * minimumHeight/maximumHeight parameter is defined.
+ * 对于有界 S2 单元格，请更新最小和最大高度。这
+ * 通常用于使用
+ * <code>TILE_MINIMUM_HEIGHT</code> 和 <code>TILE_MAXIMUM_HEIGHT</code>
+ * 语义学。高度仅在相应的
+ * minimumHeight/maximumHeight 参数。
  *
- * @param {object} s2CellVolume An object describing the S2 cell
- * @param {number} [minimumHeight] The new minimum height
- * @param {number} [maximumHeight] The new maximum height
+ * @param {object} s2CellVolume 描述 S2 单元格的对象
+ * @param {number} [minimumHeight] 新的最小高度
+ * @param {number} [maximumHeight] 新的最大高度
  * @private
  */
 function updateS2CellHeights(s2CellVolume, minimumHeight, maximumHeight) {
@@ -669,35 +669,35 @@ function updateS2CellHeights(s2CellVolume, minimumHeight, maximumHeight) {
 }
 
 /**
- * Gets the tile's bounding volume, which may be specified via
- * metadata semantics such as TILE_BOUNDING_BOX or implicitly
- * derived from the implicit root tile's bounding volume.
+ * 获取瓦片的边界体积，可通过
+ * 元数据语义，例如 TILE_BOUNDING_BOX 或隐式
+ * 派生自隐式根图块的边界体积。
  * <p>
- * Priority of bounding volume types:
+ * 边界卷类型的优先级：
  * <ol>
- * <li>Explicit min/max height
- *   <ol>
- *     <li>With explicit region</li>
- *     <li>With implicit S2</li>
- *     <li>With implicit region</li>
- *   </ol>
+ * <li>显式最小/最大高度
+ * <ol>
+ * <li>具有显式区域</li>
+ * <li>使用隐式 S2</li>
+ * <li>具有隐式区域</li>
+ * </ol>
  * </li>
- * <li>Explicit box</li>
- * <li>Explicit region</li>
- * <li>Explicit sphere</li>
- * <li>Implicit S2</li>
- * <li>Implicit box</li>
- * <li>Implicit region</li>
+ * <li>显式框</li>
+ * <li>显式区域</li>
+ * <li>显式球体</li>
+ * <li>隐式 S2</li>
+ * <li>隐式框</li>
+ * <li>隐式区域</li>
  * </ol>
  * </p>
  *
- * @param {ImplicitTileset} implicitTileset The implicit tileset struct which holds the root bounding volume
- * @param {ImplicitTileCoordinates} implicitCoordinates The coordinates of the child tile
- * @param {number} childIndex The morton index of the child tile relative to its parent
- * @param {boolean} parentIsPlaceholderTile True if parentTile is a placeholder tile. This is true for the root of each subtree.
- * @param {Cesium3DTile} parentTile The parent of the new child tile
- * @param {object} [tileBounds] The tile bounds
- * @returns {object} An object containing the JSON for a bounding volume
+ * @param {ImplicitTileset} implicitTileset 隐式图块集结构体，用于保存根边界体积
+ * @param {ImplicitTileCoordinates} implicitCoordinates 子瓦片的坐标
+ * @param {number} childIndex 子瓦片相对于其父瓦片的莫顿索引
+ * @param {boolean} parentIsPlaceholderTile 如果 parentTile 是占位符磁贴，则为 True。对于每个子树的根，情况都是如此。
+ * @param {Cesium3DTile} parentTile 新子瓦片的父级
+ * @param {object} [tileBounds] 瓦片边界
+ * @returns {object} 包含边界卷的 JSON 的对象
  * @private
  */
 function getTileBoundingVolume(
@@ -735,27 +735,27 @@ function getTileBoundingVolume(
 }
 
 /**
- * Gets the content bounding volume, which may be specified via
- * metadata semantics such as CONTENT_BOUNDING_BOX.
+ * 获取内容边界卷，可通过
+ * 元数据语义，例如 CONTENT_BOUNDING_BOX。
  * <p>
- * Priority of bounding volume types:
+ * 边界卷类型的优先级：
  * <ol>
- * <li>Explicit min/max height
+ * <li>显式最小/最大高度
  *   <ol>
- *     <li>With explicit region</li>
- *     <li>With tile bounding volume (S2 or region)</li>
+ *     <li>具有显式区域</li>
+ *     <li>使用平铺边界体积 (S2 or region)</li>
  *   </ol>
  * </li>
- * <li>Explicit box</li>
- * <li>Explicit region</li>
- * <li>Explicit sphere</li>
- * <li>Tile bounding volume (when content.boundingVolume is undefined)</li>
+ * <li>显式框</li>
+ * <li>显式区域</li>
+ * <li>显式球体</li>
+ * <li>平铺边界体积 (when content.boundingVolume is undefined)</li>
  * </ol>
  * </p>
  *
- * @param {object} tileBoundingVolume An object containing the JSON for the tile's bounding volume
- * @param {object} [contentBounds] The content bounds
- * @returns {object|undefined} An object containing the JSON for a bounding volume, or <code>undefined</code> if there is no bounding volume
+ * @param {object} tileBoundingVolume 一个包含图块边界体积的 JSON 的对象
+ * @param {object} [contentBounds] 内容边界
+ * @returns {object|undefined} 包含边界体积的 JSON 的对象，如果没有边界体积，<code>则为 undefined</code>
  * @private
  */
 function getContentBoundingVolume(tileBoundingVolume, contentBounds) {
@@ -779,14 +779,14 @@ function getContentBoundingVolume(tileBoundingVolume, contentBounds) {
 }
 
 /**
- * Given the coordinates of a tile, derive its bounding volume from the root.
+ * 给定平铺的坐标，从根派生其边界体积。
  *
- * @param {ImplicitTileset} implicitTileset The implicit tileset struct which holds the root bounding volume
- * @param {ImplicitTileCoordinates} implicitCoordinates The coordinates of the child tile
- * @param {number} childIndex The morton index of the child tile relative to its parent
- * @param {boolean} parentIsPlaceholderTile True if parentTile is a placeholder tile. This is true for the root of each subtree.
- * @param {Cesium3DTile} parentTile The parent of the new child tile
- * @returns {object} An object containing the JSON for a bounding volume
+ * @param {ImplicitTileset} implicitTileset 隐式图块集结构体，用于保存根边界体积
+ * @param {ImplicitTileCoordinates} implicitCoordinates 子瓦片的坐标
+ * @param {number} childIndex 子瓦片相对于其父瓦片的莫顿索引
+ * @param {boolean} parentIsPlaceholderTile 如果 parentTile 是占位符磁贴，则为 True。对于每个子树的根，情况都是如此。
+ * @param {Cesium3DTile} parentTile 新子瓦片的父级
+ * @returns {object} 包含边界卷的 JSON 的对象
  * @private
  */
 function deriveBoundingVolume(
@@ -838,24 +838,24 @@ function deriveBoundingVolume(
 }
 
 /**
- * Derive a bounding volume for a descendant tile (child, grandchild, etc.),
- * assuming a quadtree or octree implicit tiling scheme. The (level, x, y, [z])
- * coordinates are given to select the descendant tile and compute its position
- * and dimensions.
+ * 派生后代平铺（子、孙等）的边界体积，
+ * 假设使用 QuadTree 或 Octree 隐式切片方案。的 （level， x， y， [z]）
+ * 给出坐标以选择后代瓦片并计算其位置
+ * 和 dimensions.
  * <p>
- * If z is present, octree subdivision is used. Otherwise, quadtree subdivision
- * is used. Quadtrees are always divided at the midpoint of the the horizontal
- * dimensions, i.e. (x, y), leaving the z axis unchanged.
+ * 如果存在 z，则使用 octree 细分。否则，quadtree 细分
+ * 被使用。四叉树总是在水平线的中点处划分
+ * 维度，即 （x， y），保持 z 轴不变。
  * </p>
  *
- * @param {boolean} parentIsPlaceholderTile True if parentTile is a placeholder tile. This is true for the root of each subtree.
- * @param {Cesium3DTile} parentTile The parent of the new child tile
- * @param {number} childIndex The morton index of the child tile relative to its parent
- * @param {number} level The level of the descendant tile relative to the root implicit tile
- * @param {number} x x坐标  descendant tile
+ * @param {boolean} parentIsPlaceholderTile 如果 parentTile 是占位符磁贴，则为 True。对于每个子树的根，情况都是如此。
+ * @param {Cesium3DTile} parentTile 新子瓦片的父级
+ * @param {number} childIndex 子瓦片相对于其父瓦片的莫顿索引
+ * @param {number} level 后代瓦片相对于根隐式瓦片的级别
+ * @param {number} x x坐标 descendant tile
  * @param {number} y y坐标 descendant tile
- * @param {number} [z] The z coordinate of the descendant tile (octree only)
- * @returns {object} An object with the 3DTILES_bounding_volume_S2 extension.
+ * @param {number} [z] 后代瓦片的 z 坐标（仅限八叉树）
+ * @returns {object} 具有 3DTILES_bounding_volume_S2 扩展的对象。
  * @private
  */
 function deriveBoundingVolumeS2(
@@ -935,26 +935,26 @@ const scratchRootCenter = new Cartesian3();
 const scratchCenter = new Cartesian3();
 const scratchHalfAxes = new Matrix3();
 /**
- * Derive a bounding volume for a descendant tile (child, grandchild, etc.),
- * assuming a quadtree or octree implicit tiling scheme. The (level, x, y, [z])
- * coordinates are given to select the descendant tile and compute its position
- * and dimensions.
+ * 派生后代平铺（子、孙等）的边界体积，
+ * 假设使用 QuadTree 或 Octree 隐式切片方案。的 （level， x， y， [z]）
+ * 给出坐标以选择后代瓦片并计算其位置
+ * 和 dimensions.
  * <p>
- * If z is present, octree subdivision is used. Otherwise, quadtree subdivision
- * is used. Quadtrees are always divided at the midpoint of the the horizontal
- * dimensions, i.e. (x, y), leaving the z axis unchanged.
+ * 如果存在 z，则使用 octree 细分。否则，quadtree 细分
+ * 被使用。四叉树总是在水平线的中点处划分
+ * 维度，即 （x， y），保持 z 轴不变。
  * </p>
  * <p>
- * This computes the child volume directly from the root bounding volume rather
- * than recursively subdividing to minimize floating point error.
+ * 这将直接从根边界卷计算子卷，而不是
+ * 而不是递归细分以最小化浮点误差。
  * </p>
  *
- * @param {number[]} rootBox An array of 12 numbers representing the bounding box of the root tile
- * @param {number} level The level of the descendant tile relative to the root implicit tile
- * @param {number} x x坐标  descendant tile
+ * @param {number[]} rootBox 一个由 12 个数字组成的数组，代表根图块的边界框
+ * @param {number} level 后代瓦片相对于根隐式瓦片的级别
+ * @param {number} x x坐标 descendant tile
  * @param {number} y y坐标 descendant tile
- * @param {number} [z] The z coordinate of the descendant tile (octree only)
- * @returns {number[]} An array of 12 numbers representing the bounding box of the descendant tile.
+ * @param {number} [z] 后代瓦片的 z 坐标（仅限八叉树）
+ * @returns {number[]} 一个由 12 个数字组成的数组，表示后代图块的边界框。
  * @private
  */
 function deriveBoundingBox(rootBox, level, x, y, z) {
@@ -1012,26 +1012,26 @@ function deriveBoundingBox(rootBox, level, x, y, z) {
 
 const scratchRectangle = new Rectangle();
 /**
- * Derive a bounding volume for a descendant tile (child, grandchild, etc.),
- * assuming a quadtree or octree implicit tiling scheme. The (level, x, y, [z])
- * coordinates are given to select the descendant tile and compute its position
- * and dimensions.
+ * 派生后代平铺（子、孙等）的边界体积，
+ * 假设使用 QuadTree 或 Octree 隐式切片方案。的 （level， x， y， [z]）
+ * 给出坐标以选择后代瓦片并计算其位置
+ * 和 dimensions.
  * <p>
- * If z is present, octree subdivision is used. Otherwise, quadtree subdivision
- * is used. Quadtrees are always divided at the midpoint of the the horizontal
- * dimensions, i.e. (mid_longitude, mid_latitude), leaving the height values
- * unchanged.
+ * 如果存在 z，则使用 octree 细分。否则，quadtree 细分
+ * 被使用。四叉树总是在水平线的中点处划分
+ * dimensions，即 （mid_longitude， mid_latitude），保留 height 值
+ *变。
  * </p>
  * <p>
- * This computes the child volume directly from the root bounding volume rather
- * than recursively subdividing to minimize floating point error.
+ * 这将直接从根边界卷计算子卷，而不是
+ * 而不是递归细分以最小化浮点误差。
  * </p>
- * @param {number[]} rootRegion An array of 6 numbers representing the root implicit tile
- * @param {number} level The level of the descendant tile relative to the root implicit tile
- * @param {number} x x坐标  descendant tile
- * @param {number} y x坐标  descendant tile
- * @param {number} [z] The z coordinate of the descendant tile (octree only)
- * @returns {number[]} An array of 6 numbers representing the bounding region of the descendant tile
+ * @param {number[]} rootRegion 一个由 6 个数字组成的数组，表示根隐式瓦片
+ * @param {number} level 后代瓦片相对于根隐式瓦片的级别
+ * @param {number} x x坐标 descendant tile
+ * @param {number} y x坐标 descendant tile
+ * @param {number} [z] 后代瓦片的 z 坐标（仅限八叉树）
+ * @returns {number[]} 一个由 6 个数字组成的数组，表示后代瓦片的边界区域
  * @private
  */
 function deriveBoundingRegion(rootRegion, level, x, y, z) {
@@ -1075,13 +1075,13 @@ function deriveBoundingRegion(rootRegion, level, x, y, z) {
 }
 
 /**
- * Create a placeholder 3D Tile whose content will be an Implicit3DTileContent
- * for lazy evaluation of a child subtree.
+ * 创建一个占位符 3D 瓦片，其内容将为 Implicit3DTileContent
+ * 用于子子树的惰性计算。
  *
- * @param {Implicit3DTileContent} content The content object.
- * @param {Cesium3DTile} parentTile The parent of the new child subtree.
- * @param {number} childIndex The morton index of the child tile relative to its parent
- * @returns {Cesium3DTile} The new placeholder tile
+ * @param {Implicit3DTileContent} content 内容对象。
+ * @param {Cesium3DTile} parentTile 新子树的父级。
+ * @param {number} childIndex 子瓦片相对于其父瓦片的莫顿索引
+ * @returns {Cesium3DTile} 新的占位符图块
  * @private
  */
 function makePlaceholderChildSubtree(content, parentTile, childIndex) {
@@ -1135,14 +1135,14 @@ function makePlaceholderChildSubtree(content, parentTile, childIndex) {
 }
 
 /**
- * Make a {@link Cesium3DTile}. This uses the content's tile's constructor instead
- * of importing Cesium3DTile. This is to avoid a circular dependency between
- * this file and Cesium3DTile.js
- * @param {Implicit3DTileContent} content The implicit content
- * @param {Resource} baseResource The base resource for the tileset
- * @param {object} tileJson The JSON header for the tile
- * @param {Cesium3DTile} parentTile The parent of the new tile
- * @returns {Cesium3DTile} The newly created tile.
+ * 制作一个 {@link Cesium3DTile}。这将改用内容的图块的构造函数
+ * 导入 Cesium3DTile。这是为了避免
+ * 此文件和Cesium3DTile.js
+ * @param {Implicit3DTileContent} content 隐式内容
+ * @param {Resource} baseResource 瓦片集的基础资源
+ * @param {object} tileJson 瓦片的 JSON 标头
+ * @param {Cesium3DTile} parentTile 新瓦片的父级
+ * @returns {Cesium3DTile} 新创建的瓦片。
  * @private
  */
 function makeTile(content, baseResource, tileJson, parentTile) {
@@ -1151,8 +1151,8 @@ function makeTile(content, baseResource, tileJson, parentTile) {
 }
 
 /**
- * Part of the {@link Cesium3DTileContent} interface.  <code>Implicit3DTileContent</code>
- * always returns <code>false</code> since a tile of this type does not have any features.
+ * {@link Cesium3DTileContent} 接口的一部分。 <code>Implicit3DTileContent</code>
+ * 始终返回 <code>false</code>，因为此类型的瓦片没有任何特征。
  * @private
  */
 Implicit3DTileContent.prototype.hasProperty = function (batchId, name) {
@@ -1160,8 +1160,8 @@ Implicit3DTileContent.prototype.hasProperty = function (batchId, name) {
 };
 
 /**
- * Part of the {@link Cesium3DTileContent} interface.  <code>Implicit3DTileContent</code>
- * always returns <code>undefined</code> since a tile of this type does not have any features.
+ * {@link Cesium3DTileContent} 接口的一部分。 <code>Implicit3DTileContent</code>
+ * 始终返回 <code>undefined</code>，因为此类型的瓦片没有任何特征。
  * @private
  */
 Implicit3DTileContent.prototype.getFeature = function (batchId) {
