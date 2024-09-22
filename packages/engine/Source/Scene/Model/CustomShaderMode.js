@@ -1,23 +1,23 @@
 /**
- * An enum describing how the {@link CustomShader} will be added to the
- * fragment shader. This determines how the shader interacts with the material.
+ * 描述如何将 {@link CustomShader} 添加到
+ * 片段着色器。这决定了着色器如何与材质交互。
  *
  * @enum {string}
  *
- * @experimental This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.
+ * @experimental 此功能使用的是 3D Tiles 规范的一部分，该规范并非最终版本，并且可能会在没有 Cesium 标准弃用政策的情况下进行更改。
  */
 const CustomShaderMode = {
   /**
-   * The custom shader will be used to modify the results of the material stage
-   * before lighting is applied.
+   * 自定义着色器将用于修改材质阶段的结果
+   * 在应用照明之前。
    *
    * @type {string}
    * @constant
    */
   MODIFY_MATERIAL: "MODIFY_MATERIAL",
   /**
-   * The custom shader will be used instead of the material stage. This is a hint
-   * to optimize out the material processing code.
+   * 将使用自定义着色器而不是材质阶段。这是一个提示
+   * 优化材质处理代码。
    *
    * @type {string}
    * @constant
@@ -26,10 +26,10 @@ const CustomShaderMode = {
 };
 
 /**
- * Convert the shader mode to an uppercase identifier for use in GLSL define
- * directives. For example:  <code>#define CUSTOM_SHADER_MODIFY_MATERIAL</code>
- * @param {CustomShaderMode} customShaderMode The shader mode
- * @return {string} The name of the GLSL macro to use
+ * 将着色器模式转换为大写标识符，以便在 GLSL 定义中使用
+ *指令。例如：<code>#define CUSTOM_SHADER_MODIFY_MATERIAL</code>
+ * @param {CustomShaderMode} customShaderMode 着色器模式
+ * @return {string} 要使用的 GLSL 宏的名称
  *
  * @private
  */

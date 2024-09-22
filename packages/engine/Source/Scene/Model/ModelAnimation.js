@@ -8,14 +8,14 @@ import ModelAnimationChannel from "./ModelAnimationChannel.js";
 
 /**
  * <div class="notice">
- * Create animations by calling {@link ModelAnimationCollection#add}. 不要直接调用构造函数。
+ * 通过调用 {@link ModelAnimationCollection#add} 创建动画。 不要直接调用构造函数。
  * </div>
  *
- * An active animation derived from a glTF asset. An active animation is an
- * animation that is either currently playing or scheduled to be played due to
- * being added to a model's {@link ModelAnimationCollection}. An active animation
- * is an instance of an animation; for example, there can be multiple active
- * animations for the same glTF animation, each with a different start time.
+ * 从 glTF 资源派生的活动动画。活动动画是
+ * 当前正在播放或计划播放的动画，因为
+ * 被添加到模型的 {@link ModelAnimationCollection} 中。活动动画
+ * 是动画的实例;例如，可以有多个活动
+ * 同一 glTF 动画的动画，每个动画具有不同的开始时间。
  *
  * @alias ModelAnimation
  * @internalConstructor
@@ -33,9 +33,9 @@ function ModelAnimation(model, animation, options) {
   this._stopTime = JulianDate.clone(options.stopTime);
 
   /**
-   * When <code>true</code>, the animation is removed after it stops playing.
-   * This is slightly more efficient that not removing it, but if, for example,
-   * time is reversed, the animation is not played again.
+   * 如果为 <code>true</code>，则动画在停止播放后将被删除。
+   * 这比不删除它的效率略高，但如果，例如，
+   * 时间倒转，动画不再播放。
    *
    * @type {boolean}
    * @default false
@@ -48,10 +48,10 @@ function ModelAnimation(model, animation, options) {
   this._prevAnimationDelta = undefined;
 
   /**
-   * The event fired when this animation is started.  This can be used, for
-   * example, to play a sound or start a particle system, when the animation starts.
+   * 启动此动画时触发的事件。 这可用于
+   * 例如，在动画开始时播放声音或启动粒子系统。
    * <p>
-   * This event is fired at the end of the frame after the scene is rendered.
+   * 此事件在场景渲染后的帧结束时触发。
    * </p>
    *
    * @type {Event}
@@ -65,12 +65,12 @@ function ModelAnimation(model, animation, options) {
   this.start = new Event();
 
   /**
-   * The event fired when on each frame when this animation is updated.  The
-   * current time of the animation, relative to the glTF animation time span, is
-   * passed to the event, which allows, for example, starting new animations at a
-   * specific time relative to a playing animation.
+   * 更新此动画时，在每一帧上触发的事件。 这
+   * 动画的当前时间（相对于 glTF 动画时间跨度）为
+   * 传递给事件，例如，它允许在
+   * 相对于播放动画的特定时间。
    * <p>
-   * This event is fired at the end of the frame after the scene is rendered.
+   * 此事件在场景渲染后的帧结束时触发。
    * </p>
    *
    * @type {Event}
@@ -84,10 +84,10 @@ function ModelAnimation(model, animation, options) {
   this.update = new Event();
 
   /**
-   * The event fired when this animation is stopped.  This can be used, for
-   * example, to play a sound or start a particle system, when the animation stops.
+   * 此动画停止时触发的事件。 这可用于
+   * 例如，在动画停止时播放声音或启动粒子系统。
    * <p>
-   * This event is fired at the end of the frame after the scene is rendered.
+   * 此事件在场景渲染后的帧结束时触发。
    * </p>
    *
    * @type {Event}
@@ -129,7 +129,7 @@ function ModelAnimation(model, animation, options) {
 
 Object.defineProperties(ModelAnimation.prototype, {
   /**
-   * The glTF animation.
+   * glTF 动画。
    *
    * @memberof ModelAnimation.prototype
    *
@@ -145,7 +145,7 @@ Object.defineProperties(ModelAnimation.prototype, {
   },
 
   /**
-   * The name that identifies this animation in the model, if it exists.
+   * 在模型中标识此动画的名称 （如果存在）。
    *
    * @memberof ModelAnimation.prototype
    *
@@ -159,7 +159,7 @@ Object.defineProperties(ModelAnimation.prototype, {
   },
 
   /**
-   * The runtime animation channels for this animation.
+   * 此动画的运行时动画通道。
    *
    * @memberof ModelAnimation.prototype
    *
@@ -175,7 +175,7 @@ Object.defineProperties(ModelAnimation.prototype, {
   },
 
   /**
-   * The {@link Model} that owns this animation.
+   * 拥有此动画的 {@link Model}。
    *
    * @memberof ModelAnimation.prototype
    *
@@ -191,8 +191,8 @@ Object.defineProperties(ModelAnimation.prototype, {
   },
 
   /**
-   * The starting point of the animation in local animation time. This is the minimum
-   * time value across all of the keyframes belonging to this animation.
+   * 动画的起点（以本地动画时间表示）。这是最小值
+   * 时间值。
    *
    * @memberof ModelAnimation.prototype
    *
@@ -208,8 +208,8 @@ Object.defineProperties(ModelAnimation.prototype, {
   },
 
   /**
-   * The stopping point of the animation in local animation time. This is the maximum
-   * time value across all of the keyframes belonging to this animation.
+   * 动画在本地动画时间中的停止点。这是最大值
+   * 时间值。
    *
    * @memberof ModelAnimation.prototype
    *
@@ -225,8 +225,8 @@ Object.defineProperties(ModelAnimation.prototype, {
   },
 
   /**
-   * The scene time to start playing this animation. When this is <code>undefined</code>,
-   * the animation starts at the next frame.
+   * 开始播放此动画的场景时间。当 this<code> undefined</code>时，
+   * 动画从下一帧开始。
    *
    * @memberof ModelAnimation.prototype
    *
@@ -242,7 +242,7 @@ Object.defineProperties(ModelAnimation.prototype, {
   },
 
   /**
-   * The delay, in seconds, from {@link ModelAnimation#startTime} to start playing.
+   * 从 {@link ModelAnimation#startTime} 开始播放的延迟（以秒为单位）。
    *
    * @memberof ModelAnimation.prototype
    *
@@ -258,8 +258,8 @@ Object.defineProperties(ModelAnimation.prototype, {
   },
 
   /**
-   * The scene time to stop playing this animation. When this is <code>undefined</code>,
-   * the animation is played for its full duration and perhaps repeated depending on
+   * 停止播放此动画的场景时间。当 <code>this 未定义</code>时，
+   * 动画将在整个持续时间内播放，并且可能会重复播放，具体取决于
    * {@link ModelAnimation#loop}.
    *
    * @memberof ModelAnimation.prototype
@@ -276,11 +276,11 @@ Object.defineProperties(ModelAnimation.prototype, {
   },
 
   /**
-   * Values greater than <code>1.0</code> increase the speed that the animation is played relative
-   * to the scene clock speed; values less than <code>1.0</code> decrease the speed.  A value of
-   * <code>1.0</code> plays the animation at the speed in the glTF animation mapped to the scene
-   * clock speed.  For example, if the scene is played at 2x real-time, a two-second glTF animation
-   * will play in one second even if <code>multiplier</code> is <code>1.0</code>.
+   * 大于 <code>1.0</code> 的值会增加动画的相对播放速度
+   * 到场景时钟速度;小于 <code>1.0</code> 的值会降低速度。 值
+   * <code>1.0</code> 以映射到场景的 glTF 动画中的速度播放动画
+   * 时钟速度。 例如，如果场景以 2 倍实时播放，则 2 秒的 glTF 动画
+   * 即使<code>乘数</code>为 <code>1.0</code>，也会在 1 秒内播放。
    *
    * @memberof ModelAnimation.prototype
    *
@@ -296,7 +296,7 @@ Object.defineProperties(ModelAnimation.prototype, {
   },
 
   /**
-   * When <code>true</code>, the animation is played in reverse.
+   * 如果<code>为 true</code>，则动画将反向播放。
    *
    * @memberof ModelAnimation.prototype
    *
@@ -312,7 +312,7 @@ Object.defineProperties(ModelAnimation.prototype, {
   },
 
   /**
-   * Determines if and how the animation is looped.
+   * 确定是否以及如何循环播放动画。
    *
    * @memberof ModelAnimation.prototype
    *
@@ -328,8 +328,8 @@ Object.defineProperties(ModelAnimation.prototype, {
   },
 
   /**
-   * If this is defined, it will be used to compute the local animation time
-   * instead of the scene's time.
+   * 如果已定义，它将用于计算本地动画时间
+   * 而不是场景的时间。
    *
    * @memberof ModelAnimation.prototype
    *
@@ -385,9 +385,9 @@ function initialize(runtimeAnimation) {
 }
 
 /**
- * Evaluate all animation channels to advance this animation.
+ * 评估所有动画通道以推进此动画。
  *
- * @param {number} time The local animation time.
+ * @param {number} time 本地动画时间。
  *
  * @private
  */
@@ -400,12 +400,12 @@ ModelAnimation.prototype.animate = function (time) {
 };
 
 /**
- * A function used to compute the local animation time for a ModelAnimation.
+ * 用于计算 ModelAnimation 的本地动画时间的函数。
  * @callback ModelAnimation.AnimationTimeCallback
  *
- * @param {number} duration The animation's original duration in seconds.
- * @param {number} seconds The seconds since the animation started, in scene time.
- * @returns {number} Returns the local animation time.
+ * @param {number} duration 动画的原始持续时间（以秒为单位）。
+ * @param {number} seconds 自动画开始以来的秒数（以场景时间表示）。
+ * @returns {number} 返回本地动画时间。
  *
  * @example
  * // Use real time for model animation (assuming animateWhilePaused was set to true)

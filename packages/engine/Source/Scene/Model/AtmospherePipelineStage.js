@@ -5,8 +5,8 @@ import AtmosphereStageFS from "../../Shaders/Model/AtmosphereStageFS.js";
 import AtmosphereStageVS from "../../Shaders/Model/AtmosphereStageVS.js";
 
 /**
- * The atmosphere pipeline stage applies all earth atmosphere effects that apply
- * to models, including fog.
+ * 大气管道阶段应用所有适用的地球大气效果
+ * 到模型，包括雾。
  *
  * @namespace AtmospherePipelineStage
  *

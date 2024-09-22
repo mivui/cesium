@@ -9,13 +9,13 @@ import ModelAnimationLoop from "../ModelAnimationLoop.js";
 import Model from "./Model.js";
 
 /**
- * Represents the contents of a glTF, glb or
- * {@link https://github.com/CesiumGS/3d-tiles/tree/main/specification/TileFormats/Batched3DModel|Batched 3D Model}
- * tile in a {@link https://github.com/CesiumGS/3d-tiles/tree/main/specification|3D Tiles} tileset.
+ * 表示 glTF、glb 或
+ * {@link https://github.com/CesiumGS/3d-tiles/tree/main/specification/TileFormats/Batched3DModel|批量 3D 模型}
+ * {@link https://github.com/CesiumGS/3d-tiles/tree/main/specification|3D Tiles} 图块集中的图块。
  * <p>
- * Implements the {@link Cesium3DTileContent} interface.
+ * 实现 {@link Cesium3DTileContent} 接口。
  * </p>
- * This object is normally not instantiated directly, use {@link Model3DTileContent.fromGltf}, {@link Model3DTileContent.fromB3dm}, {@link Model3DTileContent.fromI3dm}, {@link Model3DTileContent.fromPnts}, or {@link Model3DTileContent.fromGeoJson}.
+ * 此对象通常不直接实例化，请使用 {@link Model3DTileContent.fromGltf}、{@link Model3DTileContent.fromB3dm}、{@link Model3DTileContent.fromI3dm}、{@link Model3DTileContent.fromPnts} 或 {@link Model3DTileContent.fromGeoJson}。
  *
  * @alias Model3DTileContent
  * @constructor
@@ -87,7 +87,7 @@ Object.defineProperties(Model3DTileContent.prototype, {
   },
 
   /**
-   * Returns true when the tile's content is ready to render; otherwise false
+   * 当磁贴的内容准备好呈现时，返回 true;否则为 false
    *
    * @memberof Model3DTileContent.prototype
    *
@@ -439,12 +439,12 @@ Model3DTileContent.fromGeoJson = async function (
 };
 
 /**
- * Find an intersection between a ray and the tile content surface that was rendered. The ray must be given in world coordinates.
+ * 查找光线与渲染的平铺内容表面之间的交集。射线必须以世界坐标给出。
  *
- * @param {Ray} ray The ray to test for intersection.
- * @param {FrameState} frameState The frame state.
- * @param {Cartesian3|undefined} [result] The intersection or <code>undefined</code> if none was found.
- * @returns {Cartesian3|undefined} The intersection or <code>undefined</code> if none was found.
+ * @param {Ray} ray 用于测试交集的射线。
+ * @param {FrameState} frameState 帧状态。
+ * @param {Cartesian3|undefined} [result] 交集或 <code>undefined</code>，如果未找到。
+ * @returns {Cartesian3|undefined} 交集或 <code>undefined</code>（如果未找到）。
  *
  * @private
  */

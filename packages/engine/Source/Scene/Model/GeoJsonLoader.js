@@ -21,15 +21,15 @@ import Buffer from "../../Renderer/Buffer.js";
 import BufferUsage from "../../Renderer/BufferUsage.js";
 
 /**
- * Loads a GeoJson model as part of the <code>MAXAR_content_geojson</code> extension with the following constraints:
+ * 加载 GeoJson 模型作为 <code>MAXAR_content_geojson</code> 扩展的一部分，但具有以下约束：
  * <ul>
- *   <li>The top level GeoJSON type must be FeatureCollection or Feature.</li>
- *   <li>The geometry types must be LineString, MultiLineString, MultiPolygon, Polygon, MultiPoint, or Point.</li>
- *   <li>Polygon and polyline geometries are converted to geodesic lines.</li>
- *   <li>Only WGS84 geographic coordinates are supported.</li>
+ * <li>顶级 GeoJSON 类型必须是 FeatureCollection 或 Feature。</li>
+ * <li>几何图形类型必须为 LineString、MultiLineString、MultiPolygon、Polygon、MultiPoint 或 Point。</li>
+ * <li>多边形和折线几何图形将转换为测地线。</li>
+ * <li>仅支持 WGS84 地理坐标。</li>
  * </ul>
  * <p>
- * Implements the {@link ResourceLoader} interface.
+ * 实现 {@link ResourceLoader} 接口。
  * </p>
  *
  * @alias GeoJsonLoader
@@ -38,7 +38,7 @@ import BufferUsage from "../../Renderer/BufferUsage.js";
  * @private
  *
  * @param {object} options 对象，具有以下属性:
- * @param {object} options.geoJson The GeoJson object.
+ * @param {object} options.geoJson GeoJson 对象。
  */
 function GeoJsonLoader(options) {
   options = defaultValue(options, defaultValue.EMPTY_OBJECT);
@@ -58,7 +58,7 @@ if (defined(Object.create)) {
 
 Object.defineProperties(GeoJsonLoader.prototype, {
   /**
-   * The cache key of the resource.
+   * 资源的缓存键。
    *
    * @memberof GeoJsonLoader.prototype
    *
@@ -72,7 +72,7 @@ Object.defineProperties(GeoJsonLoader.prototype, {
     },
   },
   /**
-   * The loaded components.
+   * 加载的组件。
    *
    * @memberof GeoJsonLoader.prototype
    *
@@ -88,8 +88,8 @@ Object.defineProperties(GeoJsonLoader.prototype, {
 });
 
 /**
- * Loads the resource.
- * @returns {Promise<GeoJsonLoader>} A promise which resolves to the loader when the resource loading is completed.
+ * 加载资源。
+ * @returns {Promise<GeoJsonLoader>} 当资源加载完成时，它解析给 loader 的 Promise。
  * @private
  */
 GeoJsonLoader.prototype.load = function () {
@@ -97,9 +97,9 @@ GeoJsonLoader.prototype.load = function () {
 };
 
 /**
- * Processes the resource until it becomes ready.
+ * 处理资源，直到它准备就绪。
  *
- * @param {FrameState} frameState The frame state.
+ * @param {FrameState} frameState 帧状态。
  * @private
  */
 GeoJsonLoader.prototype.process = function (frameState) {
@@ -688,7 +688,7 @@ function parse(geoJson, frameState) {
 }
 
 /**
- * Unloads the resource.
+ * 卸载资源。
  * @private
  */
 GeoJsonLoader.prototype.unload = function () {

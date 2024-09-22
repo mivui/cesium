@@ -8,25 +8,25 @@ import Sampler from "../../Renderer/Sampler.js";
 import TextureWrap from "../../Renderer/TextureWrap.js";
 
 /**
- * A simple struct that serves as a value of a <code>sampler2D</code>-valued
- * uniform. This is used with {@link CustomShader} and {@link TextureManager}
+ * 一个简单的结构体，用作 <code>sampler2D</code> 值的值
+ * 均匀。这与 {@link CustomShader} 和 {@link TextureManager} 一起使用
  *
  * @param {object} options  对象，具有以下属性:
- * @param {Uint8Array} [options.typedArray] A typed array storing the contents of a texture. Values are stored in row-major order. Since WebGL uses a y-up convention for textures, rows are listed from bottom to top.
- * @param {number} [options.width] 宽度 image. Required when options.typedArray is present
- * @param {number} [options.height] 高度 image. Required when options.typedArray is present.
- * @param {string|Resource} [options.url] A URL string or resource pointing to a texture image.
- * @param {boolean} [options.repeat=true] When defined, the texture sampler will be set to wrap in both directions
- * @param {PixelFormat} [options.pixelFormat=PixelFormat.RGBA] When options.typedArray is defined, this is used to determine the pixel format of the texture
- * @param {PixelDatatype} [options.pixelDatatype=PixelDatatype.UNSIGNED_BYTE] When options.typedArray is defined, this is the data type of pixel values in the typed array.
- * @param {TextureMinificationFilter} [options.minificationFilter=TextureMinificationFilter.LINEAR] The minification filter of the texture sampler.
- * @param {TextureMagnificationFilter} [options.magnificationFilter=TextureMagnificationFilter.LINEAR] The magnification filter of the texture sampler.
- * @param {number} [options.maximumAnisotropy=1.0] The maximum anisotropy of the texture sampler
+ * @param {Uint8Array} [options.typedArray] 存储纹理内容的类型化数组。值按行优先顺序存储。由于 WebGL 对纹理使用 y-up 约定，因此行是从下到上列出的。
+ * @param {number} [options.width] 宽度 image.当 options.typedArray 存在时是必需的
+ * @param {number} [options.height] 高度 image.当 options.typedArray 存在时是必需的。
+ * @param {string|Resource} [options.url] 指向纹理图像的 URL 字符串或资源。
+ * @param {boolean} [options.repeat=true] 定义后，纹理采样器将设置为在两个方向上环绕
+ * @param {PixelFormat} [options.pixelFormat=PixelFormat.RGBA] 定义 options.typedArray 后，这用于确定纹理的像素格式
+ * @param {PixelDatatype} [options.pixelDatatype=PixelDatatype.UNSIGNED_BYTE] 定义 options.typedArray 时，这是类型化数组中像素值的数据类型。
+ * @param {TextureMinificationFilter} [options.minificationFilter=TextureMinificationFilter.LINEAR] 纹理采样器的缩小过滤器。
+ * @param {TextureMagnificationFilter} [options.magnificationFilter=TextureMagnificationFilter.LINEAR] 纹理采样器的放大滤镜。
+ * @param {number} [options.maximumAnisotropy=1.0] 纹理采样器的最大各向异性
  *
  * @alias TextureUniform
  * @constructor
  *
- * @experimental This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.
+ * @experimental 此功能使用的是 3D Tiles 规范的一部分，该规范不是最终版本，并且可能会在没有 Cesium 标准弃用策略的情况下进行更改。
  */
 function TextureUniform(options) {
   options = defaultValue(options, defaultValue.EMPTY_OBJECT);

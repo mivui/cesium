@@ -1,7 +1,7 @@
 import WebGLConstants from "../Core/WebGLConstants.js";
 
 /**
- * The data type of a pixel.
+ * 像素的数据类型。
  *
  * @enum {number}
  * @see PostProcessStage

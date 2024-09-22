@@ -2,7 +2,7 @@ import combine from "../../Core/combine.js";
 import defaultValue from "../../Core/defaultValue.js";
 
 /**
- * The batch texture stage is responsible for setting up the batch texture for the primitive.
+ * batch texture 阶段负责设置基元的 batch texture。
  *
  * @namespace BatchTexturePipelineStage
  * @private
@@ -12,15 +12,15 @@ const BatchTexturePipelineStage = {
 };
 
 /**
- * Processes a primitive. This modifies the following parts of the render resources:
+ * 处理一个原语。这将修改渲染资源的以下部分：
  * <ul>
- *  <li>adds uniforms for the batch texture</li>
- *  <li>adds defines for multiline batch textures</li>
+ * <li>为 Batch 纹理添加 uniform</li>
+ * <li>为多行批处理纹理添加定义</li>
  * </ul>
  *
- * @param {PrimitiveRenderResources} renderResources The render resources for this primitive.
- * @param {ModelComponents.Primitive} primitive The primitive.
- * @param {FrameState} frameState The frame state.
+ * @param {PrimitiveRenderResources} renderResources 此基元的渲染资源。
+ * @param {ModelComponents.Primitive} primitive 基元。
+ * @param {FrameState} frameState 帧状态。
  */
 BatchTexturePipelineStage.process = function (
   renderResources,

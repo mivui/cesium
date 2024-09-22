@@ -14,14 +14,14 @@ import QuaternionSpline from "../../Core/QuaternionSpline.js";
 const AnimatedPropertyType = ModelComponents.AnimatedPropertyType;
 
 /**
- * A runtime animation channel for a {@link ModelAnimation}. An animation
- * channel is responsible for interpolating between the keyframe values of an animated
- * property, then applying the change to the target node.
+ * {@link ModelAnimation} 的运行时动画通道。动画
+ * 通道负责在动画的关键帧值之间进行插值
+ * 属性，然后将更改应用于目标节点。
  *
- * @param {object} options An object containing the following options:
- * @param {ModelComponents.AnimationChannel} options.channel The corresponding animation channel components from the 3D model.
- * @param {ModelAnimation} options.runtimeAnimation The runtime animation containing this channel.
- * @param {ModelRuntimeNode} options.runtimeNode The runtime node that this channel will animate.
+ * @param {object} options 包含以下选项的对象：
+ * @param {ModelComponents.AnimationChannel} options.channel 3D 模型中对应的动画通道组件。
+ * @param {ModelAnimation} options.runtimeAnimation 包含此通道的运行时动画。
+ * @param {ModelRuntimeNode} options.runtimeNode 此通道将进行动画处理的运行时节点。
  *
  * @alias ModelAnimationChannel
  * @constructor
@@ -54,7 +54,7 @@ function ModelAnimationChannel(options) {
 
 Object.defineProperties(ModelAnimationChannel.prototype, {
   /**
-   * The glTF animation channel.
+   * glTF 动画通道。
    *
    * @memberof ModelAnimationChannel.prototype
    *
@@ -70,7 +70,7 @@ Object.defineProperties(ModelAnimationChannel.prototype, {
   },
 
   /**
-   * The runtime animation that owns this channel.
+   * 拥有此通道的运行时动画。
    *
    * @memberof ModelAnimationChannel.prototype
    *
@@ -86,7 +86,7 @@ Object.defineProperties(ModelAnimationChannel.prototype, {
   },
 
   /**
-   * The runtime node that this channel animates.
+   * 此通道动画的运行时节点。
    *
    * @memberof ModelAnimationChannel.prototype
    *
@@ -102,7 +102,7 @@ Object.defineProperties(ModelAnimationChannel.prototype, {
   },
 
   /**
-   * The splines used to evaluate this animation channel.
+   * 用于评估此动画通道的样条线。
    *
    * @memberof ModelAnimationChannel.prototype
    *
@@ -240,9 +240,9 @@ function initialize(runtimeChannel) {
 }
 
 /**
- * Animates the target node property based on its spline.
+ * 根据目标节点的样条曲线对目标节点属性进行动画处理。
  *
- * @param {number} time The local animation time.
+ * @param {number} time 本地动画时间。
  *
  * @private
  */

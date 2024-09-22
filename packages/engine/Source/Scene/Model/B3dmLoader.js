@@ -28,9 +28,9 @@ const B3dmLoaderState = {
 const FeatureIdAttribute = ModelComponents.FeatureIdAttribute;
 
 /**
- * Loads a Batched 3D Model.
+ * 加载批处理的 3D 模型。
  * <p>
- * Implements the {@link ResourceLoader} interface.
+ * 实现 {@link ResourceLoader} 接口。
  * </p>
  *
  * @alias B3dmLoader
@@ -39,21 +39,21 @@ const FeatureIdAttribute = ModelComponents.FeatureIdAttribute;
  * @private
  *
  * @param {object} options 对象，具有以下属性:
- * @param {Resource} options.b3dmResource The {@link Resource} containing the b3dm.
- * @param {ArrayBuffer} options.arrayBuffer The array buffer of the b3dm contents.
- * @param {number} [options.byteOffset] The byte offset to the beginning of the b3dm contents in the array buffer.
- * @param {Resource} [options.baseResource] The {@link Resource} that paths in the glTF JSON are relative to.
- * @param {boolean} [options.releaseGltfJson=false] When true, the glTF JSON is released once the glTF is loaded. This is especially useful for cases like 3D Tiles, where each .gltf model is unique and caching the glTF JSON is not effective.
- * @param {boolean} [options.asynchronous=true] Determines if WebGL resource creation will be spread out over several frames or block until all WebGL resources are created.
- * @param {boolean} [options.incrementallyLoadTextures=true] Determine if textures may continue to stream in after the glTF is loaded.
- * @param {Axis} [options.upAxis=Axis.Y] The up-axis of the glTF model.
- * @param {Axis} [options.forwardAxis=Axis.X] The forward-axis of the glTF model.
- * @param {boolean} [options.loadAttributesAsTypedArray=false] If <code>true</code>, load all attributes as typed arrays instead of GPU buffers. If the attributes are interleaved in the glTF they will be de-interleaved in the typed array.
- * @param {boolean} [options.loadAttributesFor2D=false] If <code>true</code>, load the positions buffer and any instanced attribute buffers as typed arrays for accurately projecting models to 2D.
- * @param {boolean} [options.enablePick=false]  If <code>true</code>, load the positions buffer, any instanced attribute buffers, and index buffer as typed arrays for CPU-enabled picking in WebGL1.
- * @param {boolean} [options.loadIndicesForWireframe=false] If <code>true</code>, load the index buffer as a typed array. This is useful for creating wireframe indices in WebGL1.
- * @param {boolean} [options.loadPrimitiveOutline=true] If <code>true</code>, load outlines from the {@link https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/CESIUM_primitive_outline|CESIUM_primitive_outline} extension. This can be set false to avoid post-processing geometry at load time.
- * @param {boolean} [options.loadForClassification=false] If <code>true</code> and if the model has feature IDs, load the feature IDs and indices as typed arrays. This is useful for batching features for classification.
+ * @param {Resource} options.b3dm@link Resource 包含 b3dm.
+ * @param {ArrayBuffer} options.arrayBuffer b3dm 内容的数组缓冲区。
+ * @param {number} [options.byteOffset] 数组缓冲区中 b3dm 内容开头的字节偏移量。
+ * @param {Resource} [options.baseResource] glTF JSON 中路径相对的 {@link Resource}。
+ * @param {boolean} [options.releaseGltfJson=false] 如果为 true，则加载 glTF 后将释放 glTF JSON。这对于 3D 瓦片等情况特别有用，其中每个 .gltf 模型都是唯一的，并且缓存 glTF JSON 无效。
+ * @param {boolean} [options.asynchronous=true] 确定 WebGL 资源的创建是分散在多个帧还是块上，直到创建所有 WebGL 资源为止。
+ * @param {boolean} [options.incrementallyLoadTextures=true] 确定纹理在加载 glTF 后是否可以继续流式传输。
+ * @param {Axis} [options.upAxis=Axis.Y] glTF 模型的上轴。
+ * @param {Axis} [options.forwardAxis=Axis.X] glTF 模型的正向轴。
+ * @param {boolean} [options.loadAttributesAsTypedArray=false] 如果<code>为 true</code>，则将所有属性加载为类型化数组，而不是 GPU 缓冲区。如果属性在 glTF 中交错，则它们将在类型化数组中取消交错。
+ * @param {boolean} [options.loadAttributesFor2D=false] 如果<code>为 true</code>，则将位置缓冲区和任何实例化属性缓冲区加载为类型化数组，以便将模型精确投影到 2D。
+ * @param {boolean} [options.enablePick=false] 如果<code>为 true</code>，则加载位置缓冲区、任何实例化属性缓冲区和索引缓冲区作为类型化数组，以便在 WebGL1 中启用CPU进行选择。
+ * @param {boolean} [options.loadIndicesForWireframe=false] 如果<code>为 true</code>，则将索引缓冲区加载为类型化数组。这对于在 WebGL1 中创建线框索引很有用。
+ * @param {boolean} [options.loadPrimitiveOutline=true] 如果<code>为 true</code>，则从 {@link https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/CESIUM_primitive_outline|CESIUM_primitive_outline} 扩展。可以将其设置为 false 以避免在加载时对几何体进行后处理。
+ * @param {boolean} [options.loadForClassification=false] 如果为 <code>true</code>，并且模型具有特征 ID，则将特征 ID 和索引作为类型化数组加载。这对于对要素进行批处理以进行分类非常有用。
  * */
 function B3dmLoader(options) {
   options = defaultValue(options, defaultValue.EMPTY_OBJECT);
@@ -132,7 +132,7 @@ if (defined(Object.create)) {
 
 Object.defineProperties(B3dmLoader.prototype, {
   /**
-   * true if textures are loaded, useful when incrementallyLoadTextures is true
+   * 如果加载了纹理，则为 true，当 incrementallyLoadTextures 为 true 时很有用
    *
    * @memberof B3dmLoader.prototype
    *
@@ -146,7 +146,7 @@ Object.defineProperties(B3dmLoader.prototype, {
     },
   },
   /**
-   * The cache key of the resource
+   * 资源的 cache key
    *
    * @memberof B3dmLoader.prototype
    *
@@ -161,7 +161,7 @@ Object.defineProperties(B3dmLoader.prototype, {
   },
 
   /**
-   * The loaded components.
+   *加载的组件。
    *
    * @memberof B3dmLoader.prototype
    *
@@ -177,8 +177,8 @@ Object.defineProperties(B3dmLoader.prototype, {
 });
 
 /**
- * Loads the resource.
- * @returns {Promise<B3dmLoader>} A promise which resolves to the loader when the resource loading is completed.
+ * 加载资源。
+ * @returns {Promise<B3dmLoader>} 当资源加载完成时，它解析给 loader 的 Promise。
  * @private
  */
 B3dmLoader.prototype.load = function () {

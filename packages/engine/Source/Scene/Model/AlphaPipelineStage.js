@@ -5,7 +5,7 @@ import BlendingState from "../BlendingState.js";
 import Pass from "../../Renderer/Pass.js";
 
 /**
- * A pipeline stage for configuring the alpha options for handling translucency.
+ * 用于配置用于处理半透明 （translucency） 的 alpha 选项的管道阶段。
  *
  * @namespace AlphaPipelineStage
  *
