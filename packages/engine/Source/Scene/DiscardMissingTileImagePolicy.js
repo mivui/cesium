@@ -5,19 +5,19 @@ import getImagePixels from "../Core/getImagePixels.js";
 import Resource from "../Core/Resource.js";
 
 /**
- * A policy for discarding tile images that match a known image containing a
- * "missing" image.
+ * 用于丢弃与已知图像匹配的切片图像的策略，该图像包含
+ * “缺失”图像。
  *
  * @alias DiscardMissingTileImagePolicy
  * @constructor
  *
  * @param {object} options 对象，具有以下属性:
- * @param {Resource|string} options.missingImageUrl The URL of the known missing image.
- * @param {Cartesian2[]} options.pixelsToCheck An array of {@link Cartesian2} pixel positions to
- *        compare against the missing image.
- * @param {boolean} [options.disableCheckIfAllPixelsAreTransparent=false] If true, the discard check will be disabled
- *                  if all of the pixelsToCheck in the missingImageUrl have an alpha value of 0.  If false, the
- *                  discard check will proceed no matter the values of the pixelsToCheck.
+ * @param {Resource|string} options.missingImageUrl 已知缺失图像的 URL。
+ * @param {Cartesian2[]} options.pixelsToCheck 一个 {@link Cartesian2} 像素位置的数组，以
+ * 与缺失的图像进行比较。
+ * @param {boolean} [options.disableCheckIfAllPixelsAreTransparent=false] 如果为 true，则丢弃检查将被禁用
+ * 如果 missingImageUrl 中的所有 pixelsToCheck 的 alpha 值为 0。 如果为 false，则
+ * 无论 pixelsToCheck 的值是多少，放弃检查都会继续进行。
  */
 function DiscardMissingTileImagePolicy(options) {
   options = defaultValue(options, defaultValue.EMPTY_OBJECT);
@@ -94,20 +94,20 @@ function DiscardMissingTileImagePolicy(options) {
 }
 
 /**
- * Determines if the discard policy is ready to process images.
- * @returns {boolean} True if the discard policy is ready to process images; otherwise, false.
+ * 确定丢弃策略是否已准备好处理映像。
+ * @returns {boolean} 如果丢弃策略已准备好处理图像，则为 True;否则为 false。
  */
 DiscardMissingTileImagePolicy.prototype.isReady = function () {
   return this._isReady;
 };
 
 /**
- * Given a tile image, decide whether to discard that image.
+ * 给定一个平铺图像，决定是否丢弃该图像。
  *
- * @param {HTMLImageElement} image An image to test.
- * @returns {boolean} True if the image should be discarded; otherwise, false.
+ * @param {HTMLImageElement} image 要测试的图像。
+ * @returns {boolean} 如果应该丢弃图像，则为 True;否则为 false。
  *
- * @exception {DeveloperError} <code>shouldDiscardImage</code> must not be called before the discard policy is ready.
+ * @exception 在丢弃策略准备就绪之前，不得调用 {DeveloperError} <code>shouldDiscardImage</code>。
  */
 DiscardMissingTileImagePolicy.prototype.shouldDiscardImage = function (image) {
   //>>includeStart('debug', pragmas.debug);

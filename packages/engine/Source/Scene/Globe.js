@@ -31,14 +31,14 @@ import ShadowMode from "./ShadowMode.js";
 import CesiumMath from "../Core/Math.js";
 
 /**
- * The globe rendered in the scene, including its terrain ({@link Globe#terrainProvider})
- * and imagery layers ({@link Globe#imageryLayers}).  Access the globe using {@link Scene#globe}.
+ * 场景中渲染的地球仪，包括其地形 （{@link Globe#terrainProvider}）
+ * 和影像图层 （{@link Globe#imageryLayers}）。 使用 {@link Scene#globe} 访问 globe。
  *
  * @alias Globe
  * @constructor
  *
- * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] Determines the size and shape of the
- * globe.
+ * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] 决定 的大小和形状
+ * 球。
  */
 function Globe(ellipsoid) {
   ellipsoid = defaultValue(ellipsoid, Ellipsoid.default);
@@ -77,7 +77,7 @@ function Globe(ellipsoid) {
   makeShadersDirty(this);
 
   /**
-   * Determines if the globe will be shown.
+   * 确定是否显示地球仪。
    *
    * @type {boolean}
    * @default true
@@ -90,8 +90,8 @@ function Globe(ellipsoid) {
   });
 
   /**
-   * The maximum screen-space error used to drive level-of-detail refinement.  Higher
-   * values will provide better performance but lower visual quality.
+   * 用于驱动细节层次优化的最大屏幕空间误差。 高等
+   * 值将提供更好的性能，但会降低视觉质量。
    *
    * @type {number}
    * @default 2
@@ -99,10 +99,10 @@ function Globe(ellipsoid) {
   this.maximumScreenSpaceError = 2;
 
   /**
-   * The size of the terrain tile cache, expressed as a number of tiles.  Any additional
-   * tiles beyond this number will be freed, as long as they aren't needed for rendering
-   * this frame.  A larger number will consume more memory but will show detail faster
-   * when, for example, zooming out and then back in.
+   * 地形瓦片缓存的大小，以瓦片数表示。 任何其他
+   * 超出此数字的瓦片将被释放，只要它们不是渲染所必需的
+   * 这个框架。 数字越大，消耗的内存越多，但显示细节的速度越快
+   * 例如，缩小然后重新缩小时。
    *
    * @type {number}
    * @default 100
@@ -110,49 +110,49 @@ function Globe(ellipsoid) {
   this.tileCacheSize = 100;
 
   /**
-   * 获取或设置number of loading descendant tiles that is considered "too many".
-   * If a tile has too many loading descendants, that tile will be loaded and rendered before any of
-   * its descendants are loaded and rendered. This means more feedback for the user that something
-   * is happening at the cost of a longer overall load time. Setting this to 0 will cause each
-   * tile level to be loaded successively, significantly increasing load time. Setting it to a large
-   * number (e.g. 1000) will minimize the number of tiles that are loaded but tend to make
-   * detail appear all at once after a long wait.
+   * 获取或设置被视为“太多”的加载后代瓦片的数量。
+   * 如果瓦片具有太多加载后代，则该瓦片将在任何
+   * 加载并渲染其后代。 这意味着用户会有更多的反馈
+   * 的发生是以更长的总体加载时间为代价的。 将此设置为 0 将导致每个
+   * 连续加载瓦片级别，显著增加加载时间。 将其设置为较大的
+   * 数字（例如 1000）将最大限度地减少加载但往往会使
+   * 经过漫长的等待后，细节一下子全部出现。
    * @type {number}
    * @default 20
    */
   this.loadingDescendantLimit = 20;
 
   /**
-   * Gets or sets a value indicating whether the ancestors of rendered tiles should be preloaded.
-   * Setting this to true optimizes the zoom-out experience and provides more detail in
-   * newly-exposed areas when panning. The down side is that it requires loading more tiles.
+   * 获取或设置一个值，该值指示是否应预加载呈现的图块的上级。
+   * 将此项设置为 true 可优化缩小体验，并在
+   * 平移时新曝光的区域。缺点是它需要加载更多的图块。
    * @type {boolean}
    * @default true
    */
   this.preloadAncestors = true;
 
   /**
-   * Gets or sets a value indicating whether the siblings of rendered tiles should be preloaded.
-   * Setting this to true causes tiles with the same parent as a rendered tile to be loaded, even
-   * if they are culled. Setting this to true may provide a better panning experience at the
-   * cost of loading more tiles.
+   * 获取或设置一个值，该值指示是否应预加载呈现的磁贴的同级。
+   * 将此项设置为 true 会导致加载与渲染瓦片具有相同父级的瓦片，甚至
+   * 如果他们被淘汰。将此设置为 true 可能会在
+   * 加载更多图块的成本。
    * @type {boolean}
    * @default false
    */
   this.preloadSiblings = false;
 
   /**
-   * The color to use to highlight terrain fill tiles. If undefined, fill tiles are not
-   * highlighted at all. The alpha value is used to alpha blend with the tile's
-   * actual color. Because terrain fill tiles do not represent the actual terrain surface,
-   * it may be useful in some applications to indicate visually that they are not to be trusted.
+   * 用于高亮显示地形填充图块的颜色。如果未定义，则填充平铺不会
+   * 完全突出显示。alpha 值用于与图块的
+   * 实际颜色。由于 terrain fill 平铺不表示实际的 terrain 表面，因此
+   * 在某些应用程序中，直观地表明它们不值得信任可能很有用。
    * @type {Color}
    * @default undefined
    */
   this.fillHighlightColor = undefined;
 
   /**
-   * Enable lighting the globe with the scene's light source.
+   * 启用使用场景的光源照亮地球。
    *
    * @type {boolean}
    * @default false
@@ -160,9 +160,9 @@ function Globe(ellipsoid) {
   this.enableLighting = false;
 
   /**
-   * A multiplier to adjust terrain lambert lighting.
-   * This number is multiplied by the result of <code>czm_getLambertDiffuse</code> in GlobeFS.glsl.
-   * This only takes effect when <code>enableLighting</code> is <code>true</code>.
+   * 用于调整地形朗伯光照的乘数。
+   * 此数字乘以 GlobeFS.glsl 中 <code>czm_getLambertDiffuse</code> 的结果。
+   * 仅当 <code>enableLighting</code> 为 <code>true</code> 时，此选项才会生效。
    *
    * @type {number}
    * @default 0.9
@@ -170,8 +170,8 @@ function Globe(ellipsoid) {
   this.lambertDiffuseMultiplier = 0.9;
 
   /**
-   * Enable dynamic lighting effects on atmosphere and fog. This only takes effect
-   * when <code>enableLighting</code> is <code>true</code>.
+   * 在大气和雾气上启用动态照明效果。这只会生效
+   * 当 <code>enableLighting</code> 为 <code>true</code> 时。
    *
    * @type {boolean}
    * @default true
@@ -179,9 +179,9 @@ function Globe(ellipsoid) {
   this.dynamicAtmosphereLighting = true;
 
   /**
-   * Whether dynamic atmosphere lighting uses the sun direction instead of the scene's
-   * light direction. This only takes effect when <code>enableLighting</code> and
-   * <code>dynamicAtmosphereLighting</code> are <code>true</code>.
+   * 动态氛围照明是否使用太阳方向而不是场景的方向
+   * 灯光方向。这仅在 <code>enableLighting</code> 和
+   * <code>dynamicAtmosphereLighting</code> 为 <code>true</code>。
    *
    * @type {boolean}
    * @default false
@@ -189,15 +189,15 @@ function Globe(ellipsoid) {
   this.dynamicAtmosphereLightingFromSun = false;
 
   /**
-   * Enable the ground atmosphere, which is drawn over the globe when viewed from a distance between <code>lightingFadeInDistance</code> and <code>lightingFadeOutDistance</code>.
+   * 启用地面大气，当从 <code>lightingFadeInDistance</code> 和 <code>lightingFadeOutDistance</code> 之间的距离查看时，将绘制地球上。
    *
    * @type {boolean}
-   * @default true when using the WGS84 ellipsoid, false otherwise
+   * @default true 使用 WGS84 椭球体时，否则为 false
    */
   this.showGroundAtmosphere = Ellipsoid.WGS84.equals(ellipsoid);
 
   /**
-   * The intensity of the light that is used for computing the ground atmosphere color.
+   * 用于计算地面大气颜色的光的强度。
    *
    * @type {number}
    * @default 10.0
@@ -205,7 +205,7 @@ function Globe(ellipsoid) {
   this.atmosphereLightIntensity = 10.0;
 
   /**
-   * The Rayleigh scattering coefficient used in the atmospheric scattering equations for the ground atmosphere.
+   * 地面大气的大气散射方程中使用的瑞利散射系数。
    *
    * @type {Cartesian3}
    * @default Cartesian3(5.5e-6, 13.0e-6, 28.4e-6)
@@ -213,7 +213,7 @@ function Globe(ellipsoid) {
   this.atmosphereRayleighCoefficient = new Cartesian3(5.5e-6, 13.0e-6, 28.4e-6);
 
   /**
-   * The Mie scattering coefficient used in the atmospheric scattering equations for the ground atmosphere.
+   * 地面大气的大气散射方程中使用的 Mie 散射系数。
    *
    * @type {Cartesian3}
    * @default Cartesian3(21e-6, 21e-6, 21e-6)
@@ -221,7 +221,7 @@ function Globe(ellipsoid) {
   this.atmosphereMieCoefficient = new Cartesian3(21e-6, 21e-6, 21e-6);
 
   /**
-   * The Rayleigh scale height used in the atmospheric scattering equations for the ground atmosphere, in meters.
+   * 地面大气大气散射方程中使用的瑞利标尺高度，以米为单位。
    *
    * @type {number}
    * @default 10000.0
@@ -229,7 +229,7 @@ function Globe(ellipsoid) {
   this.atmosphereRayleighScaleHeight = 10000.0;
 
   /**
-   * The Mie scale height used in the atmospheric scattering equations for the ground atmosphere, in meters.
+   * 地面大气的大气散射方程中使用的米氏标尺高度，以米为单位。
    *
    * @type {number}
    * @default 3200.0
@@ -237,9 +237,9 @@ function Globe(ellipsoid) {
   this.atmosphereMieScaleHeight = 3200.0;
 
   /**
-   * The anisotropy of the medium to consider for Mie scattering.
+   * 米氏散射要考虑的介质的各向异性。
    * <p>
-   * Valid values are between -1.0 and 1.0.
+   * 有效值介于 -1.0 和 1.0 之间。
    * </p>
    * @type {number}
    * @default 0.9
@@ -247,8 +247,8 @@ function Globe(ellipsoid) {
   this.atmosphereMieAnisotropy = 0.9;
 
   /**
-   * The distance where everything becomes lit. This only takes effect
-   * when <code>enableLighting</code> or <code>showGroundAtmosphere</code> is <code>true</code>.
+   * 所有东西都亮起的距离。这只会生效
+   * 当 <code>enableLighting</code> 或 <code>showGroundAtmosphere</code> 为 <code>true</code> 时。
    *
    * @type {number}
    * @default 1/2 * pi * ellipsoid.minimumRadius
@@ -257,8 +257,8 @@ function Globe(ellipsoid) {
     CesiumMath.PI_OVER_TWO * ellipsoid.minimumRadius;
 
   /**
-   * The distance where lighting resumes. This only takes effect
-   * when <code>enableLighting</code> or <code>showGroundAtmosphere</code> is <code>true</code>.
+   * 恢复照明的距离。这只会生效
+   * 当 <code>enableLighting</code> 或 <code>showGroundAtmosphere</code> 为 <code>true</code> 时。
    *
    * @type {number}
    * @default pi * ellipsoid.minimumRadius
@@ -266,9 +266,9 @@ function Globe(ellipsoid) {
   this.lightingFadeInDistance = CesiumMath.PI * ellipsoid.minimumRadius;
 
   /**
-   * The distance where the darkness of night from the ground atmosphere fades out to a lit ground atmosphere.
-   * This only takes effect when <code>showGroundAtmosphere</code>, <code>enableLighting</code>, and
-   * <code>dynamicAtmosphereLighting</code> are <code>true</code>.
+   * 夜晚的黑暗从地面大气中淡出到被照亮的地面大气的距离。
+   * 仅当 <code>showGroundAtmosphere</code>、<code>enableLighting</code> 和
+   * <code>dynamicAtmosphereLighting</code> 为 <code>true</code>。
    *
    * @type {number}
    * @default 1/2 * pi * ellipsoid.minimumRadius
@@ -276,9 +276,9 @@ function Globe(ellipsoid) {
   this.nightFadeOutDistance = CesiumMath.PI_OVER_TWO * ellipsoid.minimumRadius;
 
   /**
-   * The distance where the darkness of night from the ground atmosphere fades in to an unlit ground atmosphere.
-   * This only takes effect when <code>showGroundAtmosphere</code>, <code>enableLighting</code>, and
-   * <code>dynamicAtmosphereLighting</code> are <code>true</code>.
+   * 夜晚的黑暗与地面大气层淡入未点亮的地面大气的距离。
+   * 仅当 <code>showGroundAtmosphere</code>、<code>enableLighting</code> 和
+   * <code>dynamicAtmosphereLighting</code> 为 <code>true</code>。
    *
    * @type {number}
    * @default 5/2 * pi * ellipsoid.minimumRadius
@@ -287,9 +287,9 @@ function Globe(ellipsoid) {
     5.0 * CesiumMath.PI_OVER_TWO * ellipsoid.minimumRadius;
 
   /**
-   * True if an animated wave effect should be shown in areas of the globe
-   * covered by water; otherwise, false.  This property is ignored if the
-   * <code>terrainProvider</code> does not provide a water mask.
+   * 如果动画波形效果应显示在地球的某些区域，则为 True。
+   * 被水覆盖;否则为 false。 如果
+   * <code>terrainProvider</code> 不提供水遮罩。
    *
    * @type {boolean}
    * @default true
@@ -297,11 +297,11 @@ function Globe(ellipsoid) {
   this.showWaterEffect = true;
 
   /**
-   * True if primitives such as billboards, polylines, labels, etc. should be depth-tested
-   * against the terrain surface, or false if such primitives should always be drawn on top
-   * of terrain unless they're on the opposite side of the globe.  The disadvantage of depth
-   * testing primitives against terrain is that slight numerical noise or terrain level-of-detail
-   * switched can sometimes make a primitive that should be on the surface disappear underneath it.
+   * 如果应对 billboard、polylines、labels 等基元进行深度测试，则为 True。
+   * 针对地形表面，如果此类基元应始终绘制在顶部，则为 false
+   * 的地形，除非它们位于地球的另一侧。 深度的缺点
+   * 根据地形测试基元是轻微的数值噪声或地形细节级别
+   * switched 有时会使本应位于表面上的基元在其下方消失。
    *
    * @type {boolean}
    * @default false
@@ -310,9 +310,9 @@ function Globe(ellipsoid) {
   this.depthTestAgainstTerrain = false;
 
   /**
-   * Determines whether the globe casts or receives shadows from light sources. Setting the globe
-   * to cast shadows may impact performance since the terrain is rendered again from the light's perspective.
-   * Currently only terrain that is in view casts shadows. By default the globe does not cast shadows.
+   * 确定地球是投射还是接收来自光源的阴影。设置地球仪
+   * 投射阴影可能会影响性能，因为地形会再次从光源的角度渲染。
+   * 当前，只有视野中的地形会投射阴影。默认情况下，地球不会投射阴影。
    *
    * @type {ShadowMode}
    * @default ShadowMode.RECEIVE_ONLY
@@ -320,32 +320,32 @@ function Globe(ellipsoid) {
   this.shadows = ShadowMode.RECEIVE_ONLY;
 
   /**
-   * The hue shift to apply to the atmosphere. Defaults to 0.0 (no shift).
-   * A hue shift of 1.0 indicates a complete rotation of the hues available.
+   * 应用于大气的色相偏移。默认为 0.0（无偏移）。
+   * 色相偏移 1.0 表示可用色相完全旋转。
    * @type {number}
    * @default 0.0
    */
   this.atmosphereHueShift = 0.0;
 
   /**
-   * The saturation shift to apply to the atmosphere. Defaults to 0.0 (no shift).
-   * A saturation shift of -1.0 is monochrome.
+   * 应用于大气的饱和度偏移。默认为 0.0（无偏移）。
+   * -1.0 的饱和度偏移为单色。
    * @type {number}
    * @default 0.0
    */
   this.atmosphereSaturationShift = 0.0;
 
   /**
-   * The brightness shift to apply to the atmosphere. Defaults to 0.0 (no shift).
-   * A brightness shift of -1.0 is complete darkness, which will let space show through.
+   * 应用于大气的亮度偏移。默认为 0.0（无偏移）。
+   * -1.0 的亮度偏移是完全黑暗的，这将使空间透出。
    * @type {number}
    * @default 0.0
    */
   this.atmosphereBrightnessShift = 0.0;
 
   /**
-   * Whether to show terrain skirts. Terrain skirts are geometry extending downwards from a tile's edges used to hide seams between neighboring tiles.
-   * Skirts are always hidden when the camera is underground or translucency is enabled.
+   * 是否显示地形裙边。地形裙边是从图块边缘向下延伸的几何体，用于隐藏相邻图块之间的接缝。
+   * 当摄像机位于地下或启用半透明时，裙边始终处于隐藏状态。
    *
    * @type {boolean}
    * @default true
@@ -353,7 +353,7 @@ function Globe(ellipsoid) {
   this.showSkirts = true;
 
   /**
-   * Whether to cull back-facing terrain. Back faces are not culled when the camera is underground or translucency is enabled.
+   * 是否剔除背面的地形。当摄像机位于地下或启用半透明时，不会剔除背面。
    *
    * @type {boolean}
    * @default true
@@ -364,8 +364,8 @@ function Globe(ellipsoid) {
   this._zoomedOutOceanSpecularIntensity = undefined;
 
   /**
-   * Determines the darkness of the vertex shadow.
-   * This only takes effect when <code>enableLighting</code> is <code>true</code>.
+   * 确定顶点阴影的暗度。
+   * 仅当 <code>enableLighting</code> 为 <code>true</code> 时，此选项才会生效。
    *
    * @type {number}
    * @default 0.3
@@ -375,7 +375,7 @@ function Globe(ellipsoid) {
 
 Object.defineProperties(Globe.prototype, {
   /**
-   * Gets an ellipsoid describing the shape of this globe.
+   * 获取描述此地球形状的椭球体。
    * @memberof Globe.prototype
    * @type {Ellipsoid}
    */
@@ -385,7 +385,7 @@ Object.defineProperties(Globe.prototype, {
     },
   },
   /**
-   * Gets the collection of image layers that will be rendered on this globe.
+   * 获取将在此地球上渲染的图像图层的集合。
    * @memberof Globe.prototype
    * @type {ImageryLayerCollection}
    */
@@ -395,7 +395,7 @@ Object.defineProperties(Globe.prototype, {
     },
   },
   /**
-   * Gets an event that's raised when an imagery layer is added, shown, hidden, moved, or removed.
+   * 获取在添加、显示、隐藏、移动或移除影像图层时引发的事件。
    *
    * @memberof Globe.prototype
    * @type {Event}
@@ -407,8 +407,8 @@ Object.defineProperties(Globe.prototype, {
     },
   },
   /**
-   * Returns <code>true</code> when the tile load queue is empty, <code>false</code> 否则。  When the load queue is empty,
-   * all terrain and imagery for the current view have been loaded.
+   * 当瓦片加载队列为空时返回 <code>true</code>，<code>否则返回 false</code>。 当加载队列为空时，
+   * 当前视图的所有地形和影像均已加载。
    * @memberof Globe.prototype
    * @type {boolean}
    * @readonly
@@ -439,7 +439,7 @@ Object.defineProperties(Globe.prototype, {
     },
   },
   /**
-   * A property specifying a {@link ClippingPlaneCollection} used to selectively disable rendering on the outside of each plane.
+   * 一个属性，用于指定 {@link ClippingPlaneCollection}，用于选择性地禁用每个平面外部的渲染。
    *
    * @memberof Globe.prototype
    * @type {ClippingPlaneCollection}
@@ -453,7 +453,7 @@ Object.defineProperties(Globe.prototype, {
     },
   },
   /**
-   * A property specifying a {@link ClippingPolygonCollection} used to selectively disable rendering inside or outside a list of polygons.
+   * 一个属性，用于指定 {@link ClippingPolygonCollection}，用于选择性地禁用多边形列表内部或外部的渲染。
    *
    * @memberof Globe.prototype
    * @type {ClippingPolygonCollection}
@@ -467,8 +467,8 @@ Object.defineProperties(Globe.prototype, {
     },
   },
   /**
-   * A property specifying a {@link Rectangle} used to limit globe rendering to a cartographic area.
-   * Defaults to the maximum extent of cartographic coordinates.
+   * 指定 {@link Rectangle} 的属性，用于将 globe 渲染限制为制图区域。
+   * 默认为制图坐标的最大范围。
    *
    * @memberof Globe.prototype
    * @type {Rectangle}
@@ -486,8 +486,8 @@ Object.defineProperties(Globe.prototype, {
     },
   },
   /**
-   * The normal map to use for rendering waves in the ocean.  Setting this property will
-   * only have an effect if the configured terrain provider includes a water mask.
+   * 用于渲染海洋中波浪的法线贴图。 设置此属性将
+   * 仅在配置的 terrain 提供程序包含水遮罩时有效。
    * @memberof Globe.prototype
    * @type {string}
    * @default buildModuleUrl('Assets/Textures/waterNormalsSmall.jpg')
@@ -502,7 +502,7 @@ Object.defineProperties(Globe.prototype, {
     },
   },
   /**
-   * The terrain provider providing surface geometry for this globe.
+   * 为此地球提供表面几何图形的 terrain 提供程序。
    * @type {TerrainProvider}
    *
    * @memberof Globe.prototype
@@ -524,7 +524,7 @@ Object.defineProperties(Globe.prototype, {
     },
   },
   /**
-   * Gets an event that's raised when the terrain provider is changed
+   * 获取在更改地形提供程序时引发的事件
    *
    * @memberof Globe.prototype
    * @type {Event}
@@ -536,8 +536,8 @@ Object.defineProperties(Globe.prototype, {
     },
   },
   /**
-   * Gets an event that's raised when the length of the tile load queue has changed since the last render frame.  When the load queue is empty,
-   * all terrain and imagery for the current view have been loaded.  The event passes the new length of the tile load queue.
+   * 获取一个事件，该事件在图块加载队列的长度自上一个渲染帧以来发生变化时引发。 当加载队列为空时，
+   * 当前视图的所有地形和影像均已加载。 该事件传递磁贴加载队列的新长度。
    *
    * @memberof Globe.prototype
    * @type {Event}
@@ -567,10 +567,10 @@ Object.defineProperties(Globe.prototype, {
   },
 
   /**
-   * The color to render the back side of the globe when the camera is underground or the globe is translucent,
-   * blended with the globe color based on the camera's distance.
+   * 当摄像机位于地下或地球仪为半透明时，用于渲染地球仪背面的颜色，
+   * 根据照相机的距离与地球颜色混合。
    * <br /><br />
-   * To disable underground coloring, set <code>undergroundColor</code> to <code>undefined</code>.
+   * 要禁用 underground 着色，请将 <code>undergroundColor</code> 设置为 <code>undefined</code>。
    *
    * @memberof Globe.prototype
    * @type {Color}
@@ -624,7 +624,7 @@ Object.defineProperties(Globe.prototype, {
   },
 
   /**
-   * Properties for controlling globe translucency.
+   * 用于控制地球半透明的属性。
    *
    * @memberof Globe.prototype
    * @type {GlobeTranslucency}
@@ -691,13 +691,13 @@ const scratchSphereIntersectionResult = {
 };
 
 /**
- * Find an intersection between a ray and the globe surface that was rendered. The ray must be given in world coordinates.
+ * 查找光线与渲染的地球表面之间的交集。射线必须以世界坐标给出。
  *
- * @param {Ray} ray The ray to test for intersection.
- * @param {Scene} scene The scene.
- * @param {boolean} [cullBackFaces=true] Set to true to not pick back faces.
+ * @param {Ray} ray 用于测试交集的射线。
+ * @param {Scene} scene 场景。
+ * @param {boolean} [cullBackFaces=true] 设置为 true 将不拾取背面。
  * @param {Cartesian3} [result] 要在其上存储结果的对象。
- * @returns {Cartesian3|undefined} The intersection or <code>undefined</code> if none was found.  The returned position is in projected coordinates for 2D and Columbus View.
+ * @returns {Cartesian3|undefined} 交集或 <code>undefined</code>（如果未找到）。 返回的位置位于 2D 和 Columbus View 的投影坐标中。
  *
  * @private
  */
@@ -795,17 +795,17 @@ Globe.prototype.pickWorldCoordinates = function (
 
 const cartoScratch = new Cartographic();
 /**
- * Find an intersection between a ray and the globe surface that was rendered. The ray must be given in world coordinates.
+ * 查找光线与渲染的地球表面之间的交集。射线必须以世界坐标给出。
  *
- * @param {Ray} ray The ray to test for intersection.
- * @param {Scene} scene The scene.
+ * @param {Ray} ray 用于测试交集的射线。
+ * @param {Scene} scene 场景。
  * @param {Cartesian3} [result] 要在其上存储结果的对象。
- * @returns {Cartesian3|undefined} The intersection or <code>undefined</code> if none was found.
+ * @returns {Cartesian3|undefined} 交集或 <code>undefined</code>（如果未找到）。
  *
  * @example
- * // find intersection of ray through a pixel and the globe
- * const ray = viewer.camera.getPickRay(windowCoordinates);
- * const intersection = globe.pick(ray, scene);
+ * // 求穿过像素的光线与地球的交点
+ * const ray = viewer.camera.getPickRay（windowCoordinates）;
+ * const 交集 = globe.pick（ray， scene）;
  */
 Globe.prototype.pick = function (ray, scene, result) {
   result = this.pickWorldCoordinates(ray, scene, true, result);
@@ -830,10 +830,10 @@ function tileIfContainsCartographic(tile, cartographic) {
 }
 
 /**
- * Get the height of the surface at a given cartographic.
+ * 获取给定制图处的表面高度。
  *
- * @param {Cartographic} cartographic The cartographic for which to find the height.
- * @returns {number|undefined} The height of the cartographic or undefined if it could not be found.
+ * @param {Cartographic} cartographic 要为其查找高度的制图。
+ * @returns {number|undefined} 制图的高度，如果找不到，则为 undefined。
  */
 Globe.prototype.getHeight = function (cartographic) {
   //>>includeStart('debug', pragmas.debug);
@@ -1090,12 +1090,12 @@ Globe.prototype.endFrame = function (frameState) {
 };
 
 /**
- * Returns true if this object was destroyed; otherwise, false.
+ * 如果此对象已销毁，则返回 true;否则为 false。
  * <br /><br />
- * If this object was destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.
+ * 如果此对象已销毁，则不应使用;调用
+ * <code>isDestroyed</code> 将导致 {@link DeveloperError} 异常。
  *
- * @returns {boolean} True if this object was destroyed; otherwise, false.
+ * @returns {boolean} 如果此对象被销毁，则为 True;否则为 false。
  *
  * @see Globe#destroy
  */
@@ -1104,18 +1104,18 @@ Globe.prototype.isDestroyed = function () {
 };
 
 /**
- * Destroys the WebGL resources held by this object.  Destroying an object allows for deterministic
- * release of WebGL resources, instead of relying on the garbage collector to destroy this object.
+ * 销毁此对象持有的 WebGL 资源。 销毁对象允许确定性
+ * 释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。
  * <br /><br />
- * Once an object is destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.  Therefore,
- * assign the return value (<code>undefined</code>) to the object as done in the example.
+ * 一旦对象被销毁，就不应该使用它;调用
+ * <code>isDestroyed</code> 将导致 {@link DeveloperError} 异常。 因此
+ * 将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
  *
- * @exception {DeveloperError} 这个物体被摧毁了,destroy().
+ * @exception {DeveloperError} 这个物体被摧毁了，destroy（）。
  *
  *
  * @example
- * globe = globe && globe.destroy();
+ * globe = globe & globe.destroy（）;
  *
  * @see Globe#isDestroyed
  */

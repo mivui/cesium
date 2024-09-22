@@ -5,14 +5,14 @@ import defaultValue from "../Core/defaultValue.js";
 import DeveloperError from "../Core/DeveloperError.js";
 
 /**
- * A light that gets emitted in a single direction from infinitely far away.
+ * 从无限远的地方向单个方向发射的光。
  *
  * @param {object} options 对象，具有以下属性:
- * @param {Cartesian3} options.direction The direction in which light gets emitted.
- * @param {Color} [options.color=Color.WHITE] The color of the light.
- * @param {number} [options.intensity=1.0] The intensity of the light.
+ * @param {Cartesian3} options.direction 光发射的方向。
+ * @param {Color} [options.color=Color.WHITE] 光的颜色。
+ * @param {number} [options.intensity=1.0] 光的强度。
  *
- * @exception {DeveloperError} options.direction cannot be zero-length
+ * @exception {DeveloperError} options.direction 不能为零长度
  *
  * @alias DirectionalLight
  * @constructor
@@ -27,20 +27,20 @@ function DirectionalLight(options) {
   //>>includeEnd('debug');
 
   /**
-   * The direction in which light gets emitted.
+   * 光的发射方向。
    * @type {Cartesian3}
    */
   this.direction = Cartesian3.clone(options.direction);
 
   /**
-   * The color of the light.
+   * 光的颜色。
    * @type {Color}
    * @default Color.WHITE
    */
   this.color = Color.clone(defaultValue(options.color, Color.WHITE));
 
   /**
-   * The intensity of the light.
+   * 光线的强度。
    * @type {number}
    * @default 1.0
    */

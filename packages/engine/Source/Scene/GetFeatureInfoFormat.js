@@ -5,19 +5,19 @@ import RuntimeError from "../Core/RuntimeError.js";
 import ImageryLayerFeatureInfo from "./ImageryLayerFeatureInfo.js";
 
 /**
- * Describes the format in which to request GetFeatureInfo from a Web Map Service (WMS) server.
+ * 描述从 Web 地图服务 （WMS） 服务器请求 GetFeatureInfo 的格式。
  *
  * @alias GetFeatureInfoFormat
  * @constructor
  *
- * @param {string} type The type of response to expect from a GetFeatureInfo request.  Valid
- *        values are 'json', 'xml', 'html', or 'text'.
- * @param {string} [format] The info format to request from the WMS server.  This is usually a
- *        MIME type such as 'application/json' or text/xml'.  If this parameter is not specified, the provider will request 'json'
- *        using 'application/json', 'xml' using 'text/xml', 'html' using 'text/html', and 'text' using 'text/plain'.
- * @param {Function} [callback] A function to invoke with the GetFeatureInfo response from the WMS server
- *        in order to produce an array of picked {@link ImageryLayerFeatureInfo} instances.  If this parameter is not specified,
- *        a default function for the type of response is used.
+ * @param {string} type 期望从 GetFeatureInfo 请求获得的响应类型。 有效
+ * 值为 'JSON'、'XML'、'HTML' 或 'text'。
+ * @param {string} [format] 要从 WMS 服务器请求的信息格式。 这通常是一个
+ * MIME 类型，例如 'application/json' 或 text/xml'。 如果未指定此参数，提供程序将请求 'json'
+ * 使用 'application/json'，使用 'XML'，使用 'text/xml'，使用 'HTML'，使用 'text/html'，使用 'text/plain' 的 'text'。
+ * @param {Function} [callback] 使用 WMS 服务器的 GetFeatureInfo 响应调用的函数
+ * 以生成选取的 {@link ImageryLayerFeatureInfo} 实例的数组。 如果不指定该参数，
+ * 使用响应类型的 default 函数。
  */
 function GetFeatureInfoFormat(type, format, callback) {
   //>>includeStart('debug', pragmas.debug);

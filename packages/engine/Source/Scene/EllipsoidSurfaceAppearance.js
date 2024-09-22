@@ -7,24 +7,24 @@ import Appearance from "./Appearance.js";
 import Material from "./Material.js";
 
 /**
- * An appearance for geometry on the surface of the ellipsoid like {@link PolygonGeometry}
- * and {@link RectangleGeometry}, which supports all materials like {@link MaterialAppearance}
- * with {@link MaterialAppearance.MaterialSupport.ALL}.  However, this appearance requires
- * fewer vertex attributes since the fragment shader can procedurally compute <code>normal</code>,
- * <code>tangent</code>, and <code>bitangent</code>.
+ * 椭球体表面上的几何体外观，如 {@link PolygonGeometry}
+ * 和 {@link RectangleGeometry}，它支持所有材质，如 {@link MaterialAppearance}
+ * 替换为 {@link MaterialAppearance.MaterialSupport.ALL}。 但是，此外观需要
+ * 由于片段着色器可以程序化地计算<code>法线</code>、
+ * <code>tangent</code> 和 <code>bitangent</code> 的 API 请求。
  *
  * @alias EllipsoidSurfaceAppearance
  * @constructor
  *
  * @param {object} [options] 对象，具有以下属性:
- * @param {boolean} [options.flat=false] When <code>true</code>, flat shading is used in the fragment shader, which means lighting is not taking into account.
- * @param {boolean} [options.faceForward=options.aboveGround] When <code>true</code>, the fragment shader flips the surface normal as needed to ensure that the normal faces the viewer to avoid dark spots.  This is useful when both sides of a geometry should be shaded like {@link WallGeometry}.
- * @param {boolean} [options.translucent=true] When <code>true</code>, the geometry is expected to appear translucent so {@link EllipsoidSurfaceAppearance#renderState} has alpha blending enabled.
- * @param {boolean} [options.aboveGround=false] When <code>true</code>, the geometry is expected to be on the ellipsoid's surface - not at a constant height above it - so {@link EllipsoidSurfaceAppearance#renderState} has backface culling enabled.
- * @param {Material} [options.material=Material.ColorType] The material used to determine the fragment color.
- * @param {string} [options.vertexShaderSource] Optional GLSL vertex shader source to override the default vertex shader.
- * @param {string} [options.fragmentShaderSource] Optional GLSL fragment shader source to override the default fragment shader.
- * @param {object} [options.renderState] Optional render state to override the default render state.
+ * @param {boolean} [options.flat=false] 如果为 <code>true</code>，则在片段着色器中使用平面着色，这意味着不考虑光照。
+ * @param {boolean} [options.faceForward=options.aboveGround] 如果<code>为 true</code>，则片段着色器会根据需要翻转表面法线，以确保法线面向观察者以避免出现黑点。 当几何体的两侧都应该像 {@link WallGeometry} 一样着色时，这非常有用。
+ * @param {boolean} [options.translucent=true] 如果<code>为 true</code>，则几何体应显示为半透明，因此 {@link EllipsoidSurfaceAppearance#renderState} 启用了 Alpha 混合。
+ * @param {boolean} [options.aboveGround=false] 如果为 <code>true</code>，则几何体应位于椭球体的表面上 - 而不是在其上方的恒定高度 - 因此 {@link EllipsoidSurfaceAppearance#renderState} 启用了背面剔除。
+ * @param {Material} [options.material=Material.ColorType] 用于确定片段颜色的材质。
+ * @param {string} [options.vertexShaderSource] 可选的 GLSL 顶点着色器源，用于覆盖默认顶点着色器。
+ * @param {string} [options.fragmentShaderSource] 可选的 GLSL 片段着色器源，用于覆盖默认片段着色器。
+ * @param {object} [options.renderState] 可选的渲染状态来覆盖默认的渲染状态。
  *
  * @see {@link https://github.com/CesiumGS/cesium/wiki/Fabric|Fabric}
  *
@@ -48,8 +48,8 @@ function EllipsoidSurfaceAppearance(options) {
   const aboveGround = defaultValue(options.aboveGround, false);
 
   /**
-   * The material used to determine the fragment color.  Unlike other {@link EllipsoidSurfaceAppearance}
-   * properties, this is not read-only, so an appearance's material can change on the fly.
+   * 用于确定片段颜色的材料。 与其他 {@link EllipsoidSurfaceAppearance} 不同
+   * 属性，这不是只读的，因此外观的材质可以动态更改。
    *
    * @type Material
    *
@@ -62,7 +62,7 @@ function EllipsoidSurfaceAppearance(options) {
     : Material.fromType(Material.ColorType);
 
   /**
-   * When <code>true</code>, the geometry is expected to appear translucent.
+   * <code>如果为 true</code>，则几何体应显示为半透明。
    *
    * @type {boolean}
    *
@@ -94,7 +94,7 @@ function EllipsoidSurfaceAppearance(options) {
 
 Object.defineProperties(EllipsoidSurfaceAppearance.prototype, {
   /**
-   * The GLSL source code for the vertex shader.
+   * 顶点着色器的 GLSL 源代码。
    *
    * @memberof EllipsoidSurfaceAppearance.prototype
    *
@@ -108,10 +108,10 @@ Object.defineProperties(EllipsoidSurfaceAppearance.prototype, {
   },
 
   /**
-   * The GLSL source code for the fragment shader.  The full fragment shader
-   * source is built procedurally taking into account {@link EllipsoidSurfaceAppearance#material},
-   * {@link EllipsoidSurfaceAppearance#flat}, and {@link EllipsoidSurfaceAppearance#faceForward}.
-   * Use {@link EllipsoidSurfaceAppearance#getFragmentShaderSource} to get the full source.
+   * 片段着色器的 GLSL 源代码。 完整的片段着色器
+   * source 是按照程序构建的，考虑了 {@link EllipsoidSurfaceAppearance#material}，
+   * {@link EllipsoidSurfaceAppearance#flat} 和 {@link EllipsoidSurfaceAppearance#faceForward}。
+   * 使用 {@link EllipsoidSurfaceAppearance#getFragmentShaderSource} 获取完整源代码。
    *
    * @memberof EllipsoidSurfaceAppearance.prototype
    *
@@ -125,11 +125,11 @@ Object.defineProperties(EllipsoidSurfaceAppearance.prototype, {
   },
 
   /**
-   * The WebGL fixed-function state to use when rendering the geometry.
+   * 渲染几何体时使用的 WebGL 固定函数状态。
    * <p>
-   * The render state can be explicitly defined when constructing a {@link EllipsoidSurfaceAppearance}
-   * instance, or it is set implicitly via {@link EllipsoidSurfaceAppearance#translucent}
-   * and {@link EllipsoidSurfaceAppearance#aboveGround}.
+   * 在构造 {@link EllipsoidSurfaceAppearance} 时，可以显式定义渲染状态
+   * 实例，或者通过 {@link EllipsoidSurfaceAppearance#translucent} 隐式设置
+   * 和 {@link EllipsoidSurfaceAppearance#aboveGround} 的 SurfaceSurfaceAppearance 中。
    * </p>
    *
    * @memberof EllipsoidSurfaceAppearance.prototype
@@ -144,9 +144,9 @@ Object.defineProperties(EllipsoidSurfaceAppearance.prototype, {
   },
 
   /**
-   * When <code>true</code>, the geometry is expected to be closed so
-   * {@link EllipsoidSurfaceAppearance#renderState} has backface culling enabled.
-   * If the viewer enters the geometry, it will not be visible.
+   * 如果<code>为 true</code>，则几何体应被关闭，因此
+   * {@link EllipsoidSurfaceAppearance#renderState} 已启用背面剔除。
+   * 如果查看器进入几何图形，则几何图形将不可见。
    *
    * @memberof EllipsoidSurfaceAppearance.prototype
    *
@@ -162,9 +162,9 @@ Object.defineProperties(EllipsoidSurfaceAppearance.prototype, {
   },
 
   /**
-   * The {@link VertexFormat} that this appearance instance is compatible with.
-   * A geometry can have more vertex attributes and still be compatible - at a
-   * potential performance cost - but it can't have less.
+   * 与此外观实例兼容的 {@link VertexFormat}。
+   * 几何体可以具有更多顶点属性，并且仍然兼容 - 在
+   * 潜在的性能成本 - 但不能更少。
    *
    * @memberof EllipsoidSurfaceAppearance.prototype
    *
@@ -180,8 +180,8 @@ Object.defineProperties(EllipsoidSurfaceAppearance.prototype, {
   },
 
   /**
-   * When <code>true</code>, flat shading is used in the fragment shader,
-   * which means lighting is not taking into account.
+   * 如果<code>为 true</code>，则在片段着色器中使用平面着色。
+   * 表示未考虑照明。
    *
    * @memberof EllipsoidSurfaceAppearance.prototype
    *
@@ -197,10 +197,10 @@ Object.defineProperties(EllipsoidSurfaceAppearance.prototype, {
   },
 
   /**
-   * When <code>true</code>, the fragment shader flips the surface normal
-   * as needed to ensure that the normal faces the viewer to avoid
-   * dark spots.  This is useful when both sides of a geometry should be
-   * shaded like {@link WallGeometry}.
+   * 如果<code>为 true</code>，则片段着色器将翻转表面法线
+   * 根据需要确保法线面向观看者避免
+   * 黑斑。 当几何体的两侧都应该
+   * 像 {@link WallGeometry} 一样着色。
    *
    * @memberof EllipsoidSurfaceAppearance.prototype
    *
@@ -216,9 +216,9 @@ Object.defineProperties(EllipsoidSurfaceAppearance.prototype, {
   },
 
   /**
-   * When <code>true</code>, the geometry is expected to be on the ellipsoid's
-   * surface - not at a constant height above it - so {@link EllipsoidSurfaceAppearance#renderState}
-   * has backface culling enabled.
+   * 如果<code>为 true</code>，则几何体应位于椭球体的
+   * surface - 不在其上方的恒定高度 - 因此 {@link EllipsoidSurfaceAppearance#renderState}
+   * 已启用背面剔除。
    *
    *
    * @memberof EllipsoidSurfaceAppearance.prototype
@@ -236,9 +236,9 @@ Object.defineProperties(EllipsoidSurfaceAppearance.prototype, {
 });
 
 /**
- * The {@link VertexFormat} that all {@link EllipsoidSurfaceAppearance} instances
- * are compatible with, which requires only <code>position</code> and <code>st</code>
- * attributes.  Other attributes are procedurally computed in the fragment shader.
+ * 所有 {@link EllipsoidSurfaceAppearance} 实例的 {@link VertexFormat}
+ * 兼容，只需要 <code>POSITION</code> 和 <code>ST</code>
+ *属性。 其他属性在片段着色器中按程序计算。
  *
  * @type VertexFormat
  *
@@ -247,9 +247,9 @@ Object.defineProperties(EllipsoidSurfaceAppearance.prototype, {
 EllipsoidSurfaceAppearance.VERTEX_FORMAT = VertexFormat.POSITION_AND_ST;
 
 /**
- * Procedurally creates the full GLSL fragment shader source.  For {@link EllipsoidSurfaceAppearance},
- * this is derived from {@link EllipsoidSurfaceAppearance#fragmentShaderSource}, {@link EllipsoidSurfaceAppearance#flat},
- * and {@link EllipsoidSurfaceAppearance#faceForward}.
+ * 以程序方式创建完整的 GLSL 片段着色器源。 对于 {@link EllipsoidSurfaceAppearance}，
+ * 这是从 {@link EllipsoidSurfaceAppearance#fragmentShaderSource}、{@link EllipsoidSurfaceAppearance#flat}、
+ * 和 {@link EllipsoidSurfaceAppearance#faceForward} 的 SurfaceSurfaceAppearance 中。
  *
  * @function
  *
@@ -259,23 +259,23 @@ EllipsoidSurfaceAppearance.prototype.getFragmentShaderSource =
   Appearance.prototype.getFragmentShaderSource;
 
 /**
- * Determines if the geometry is translucent based on {@link EllipsoidSurfaceAppearance#translucent} and {@link Material#isTranslucent}.
+ * 根据 {@link EllipsoidSurfaceAppearance#translucent} 和 {@link Material#isTranslucent} 确定几何体是否为半透明。
  *
  * @function
  *
- * @returns {boolean} <code>true</code> if the appearance is translucent.
+ * @returns {boolean} 如果外观为半透明，<code>则为 true</code>。
  */
 EllipsoidSurfaceAppearance.prototype.isTranslucent =
   Appearance.prototype.isTranslucent;
 
 /**
- * Creates a render state.  This is not the final render state instance; instead,
- * it can contain a subset of render state properties identical to the render state
- * created in the context.
+ * 创建渲染状态。 这不是最终的渲染状态实例;相反
+ * 它可以包含与渲染状态相同的渲染状态属性的子集
+ * 在上下文中创建。
  *
  * @function
  *
- * @returns {object} The render state.
+ * @returns {object} 渲染状态。
  */
 EllipsoidSurfaceAppearance.prototype.getRenderState =
   Appearance.prototype.getRenderState;

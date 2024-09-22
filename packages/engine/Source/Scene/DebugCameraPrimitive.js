@@ -18,18 +18,18 @@ import PerInstanceColorAppearance from "./PerInstanceColorAppearance.js";
 import Primitive from "./Primitive.js";
 
 /**
- * Draws the outline of the camera's view frustum.
+ * 绘制摄像机视锥体的轮廓。
  *
  * @alias DebugCameraPrimitive
  * @constructor
  *
  * @param {object} options 对象，具有以下属性:
- * @param {Camera} options.camera The camera.
- * @param {number[]} [options.frustumSplits] Distances to the near and far planes of the camera frustums. This overrides the camera's frustum near and far values.
- * @param {Color} [options.color=Color.CYAN] The color of the debug outline.
- * @param {boolean} [options.updateOnChange=true] Whether the primitive updates when the underlying camera changes.
- * @param {boolean} [options.show=true] Determines if this primitive will be shown.
- * @param {object} [options.id] A user-defined object to return when the instance is picked with {@link Scene#pick}.
+ * @param {Camera} options.camera 相机。
+ * @param {number[]} [options.frustumSplits] 到相机视锥体的近平面和远平面的距离。这将覆盖摄像机的 frustum near 和 far 值。
+ * @param {Color} [options.color=Color.CYAN] 调试轮廓的颜色。
+ * @param {boolean} [options.updateOnChange=true] 当底层相机发生变化时，基元是否更新。
+ * @param {boolean} [options.show=true] 决定是否显示此基元。
+ * @param {object} [options.id] 使用 {@link Scene#pick} 选取实例时返回的用户定义对象。
  *
  * @example
  * primitives.add(new Cesium.DebugCameraPrimitive({
@@ -52,7 +52,7 @@ function DebugCameraPrimitive(options) {
   this._updateOnChange = defaultValue(options.updateOnChange, true);
 
   /**
-   * Determines if this primitive will be shown.
+   * 确定是否显示此基元.
    *
    * @type {boolean}
    * @default true
@@ -60,7 +60,7 @@ function DebugCameraPrimitive(options) {
   this.show = defaultValue(options.show, true);
 
   /**
-   * User-defined value returned when the primitive is picked.
+   * 选取基元时返回的 User-defined 值。
    *
    * @type {*}
    * @default undefined
@@ -214,13 +214,13 @@ DebugCameraPrimitive.prototype.update = function (frameState) {
 };
 
 /**
- * Returns true if this object was destroyed; otherwise, false.
+ * 如果此对象已销毁，则返回 true;否则为 false。
  * <p>
- * If this object was destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.
+ * 如果此对象已销毁，则不应使用;调用
+ * <code> isDestroyed</code> 将导致 {@link DeveloperError} 异常。
  * </p>
  *
- * @returns {boolean} <code>true</code> if this object was destroyed; otherwise, <code>false</code>.
+ * @returns {boolean} 如果此对象被销毁，<code>则为 true</code>;否则为 <code>false</code>。
  *
  * @see DebugCameraPrimitive#destroy
  */
@@ -229,12 +229,12 @@ DebugCameraPrimitive.prototype.isDestroyed = function () {
 };
 
 /**
- * Destroys the WebGL resources held by this object.  Destroying an object allows for deterministic
- * release of WebGL resources, instead of relying on the garbage collector to destroy this object.
+ * 销毁此对象持有的 WebGL 资源。 销毁对象允许确定性
+ * 释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。
  * <p>
- * Once an object is destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.  Therefore,
- * assign the return value (<code>undefined</code>) to the object as done in the example.
+ * 一旦对象被销毁，就不应该使用它;调用
+ * <code>isDestroyed</code> 将导致 {@link DeveloperError} 异常。  Therefore,
+ * 将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
  * </p>
  *
  * @exception {DeveloperError} 这个物体被摧毁了,destroy().

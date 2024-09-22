@@ -28,25 +28,25 @@ import StencilFunction from "./StencilFunction.js";
 import StencilOperation from "./StencilOperation.js";
 
 /**
- * A GroundPolylinePrimitive represents a polyline draped over the terrain or 3D Tiles in the {@link Scene}.
+ * GroundPolylinePrimitive 表示覆盖在 {@link Scene} 中的 terrain 或 3D 瓦片上的多段线。
  * <p>
- * Only to be used with GeometryInstances containing {@link GroundPolylineGeometry}.
+ * 仅用于包含 {@link GroundPolylineGeometry} 的 GeometryInstances。
  * </p>
  *
  * @alias GroundPolylinePrimitive
  * @constructor
  *
  * @param {object} [options] 对象，具有以下属性:
- * @param {Array|GeometryInstance} [options.geometryInstances] GeometryInstances containing GroundPolylineGeometry
- * @param {Appearance} [options.appearance] The Appearance used to render the polyline. Defaults to a white color {@link Material} on a {@link PolylineMaterialAppearance}.
- * @param {boolean} [options.show=true] Determines if this primitive will be shown.
- * @param {boolean} [options.interleave=false] When <code>true</code>, geometry vertex attributes are interleaved, which can slightly improve rendering performance but increases load time.
- * @param {boolean} [options.releaseGeometryInstances=true] When <code>true</code>, the primitive does not keep a reference to the input <code>geometryInstances</code> to save memory.
- * @param {boolean} [options.allowPicking=true] When <code>true</code>, each geometry instance will only be pickable with {@link Scene#pick}.  When <code>false</code>, GPU memory is saved.
- * @param {boolean} [options.asynchronous=true] Determines if the primitive will be created asynchronously or block until ready. If false initializeTerrainHeights() must be called first.
- * @param {ClassificationType} [options.classificationType=ClassificationType.BOTH] Determines whether terrain, 3D Tiles or both will be classified.
- * @param {boolean} [options.debugShowBoundingVolume=false] For debugging only. Determines if this primitive's commands' bounding spheres are shown.
- * @param {boolean} [options.debugShowShadowVolume=false] For debugging only. Determines if the shadow volume for each geometry in the primitive is drawn. Must be <code>true</code> on creation to have effect.
+ * @param {Array|GeometryInstance} [options.geometryInstances] 包含 GroundPolylineGeometry 的 GeometryInstance
+ * @param {Appearance} [options.appearance] 用于渲染多段线的 Appearance。默认为 {@link PolylineMaterialAppearance} 上的白色 {@link Material}。
+ * @param {boolean} [options.show=true] 决定是否显示此基元。
+ * @param {boolean} [options.interleave=false] 如果<code>为 true</code>，则几何顶点属性是交错的，这可以略微提高渲染性能，但会增加加载时间。
+ * @param {boolean} [options.releaseGeometryInstances=true] 如果为 <code>true</code>，则基元不会保留对输入 <code>geometryInstances</code> 的引用以节省内存。
+ * @param {boolean} [options.allowPicking=true] 如果<code>为 true</code>，则每个几何体实例只能使用 {@link Scene#pick} 进行拾取。 如果<code>为 false</code>，则保存 GPU 内存。
+ * @param {boolean} [options.asynchronous=true] 确定原语是异步创建还是阻塞直到准备就绪。如果为 false，则必须先调用 initializeTerrainHeights（）。
+ * @param {ClassificationType} [options.classificationType=ClassificationType.BOTH] 确定是否对地形、3D 瓦片或两者进行分类。
+ * @param {boolean} [options.debugShowBoundingVolume=false] 仅用于调试。确定是否显示此基本体的命令的边界球体。
+ * @param {boolean} [options.debugShowShadowVolume=false] 仅用于调试。确定是否绘制基本体中每个几何体的阴影体积。必须在创建时为 <code>true</code> 才能生效。
  *
  * @example
  * // 1. Draw a polyline on terrain with a basic color material
@@ -97,11 +97,11 @@ function GroundPolylinePrimitive(options) {
   options = defaultValue(options, defaultValue.EMPTY_OBJECT);
 
   /**
-   * The geometry instances rendered with this primitive. This may
-   * be <code>undefined</code> if <code>options.releaseGeometryInstances</code>
-   * is <code>true</code> when the primitive is constructed.
+   * 使用此基元渲染的几何体实例。这可能会
+   * 如果 <code>options.releaseGeometryInstances</code> 为 <code>undefined</code>
+   * 在构造基元时为 <code>true</code>。
    * <p>
-   * Changing this property after the primitive is rendered has no effect.
+   * 在渲染基元后更改此属性不起作用。
    * </p>
    *
    * @readonly
@@ -117,10 +117,10 @@ function GroundPolylinePrimitive(options) {
     appearance = new PolylineMaterialAppearance();
   }
   /**
-   * The {@link Appearance} used to shade this primitive. Each geometry
-   * instance is shaded with the same appearance.  Some appearances, like
-   * {@link PolylineColorAppearance} allow giving each instance unique
-   * properties.
+   * 用于对此基元进行着色的 {@link Appearance}。每个几何体
+   * 实例以相同的外观进行着色。 一些外观，如
+   * {@link PolylineColorAppearance} 允许为每个实例指定唯一的
+   *性能。
    *
    * @type Appearance
    *
@@ -129,8 +129,8 @@ function GroundPolylinePrimitive(options) {
   this.appearance = appearance;
 
   /**
-   * Determines if the primitive will be shown.  This affects all geometry
-   * instances in the primitive.
+   * 确定是否显示基元。 这会影响所有几何体
+   * 实例。
    *
    * @type {boolean}
    *
@@ -139,7 +139,7 @@ function GroundPolylinePrimitive(options) {
   this.show = defaultValue(options.show, true);
 
   /**
-   * Determines whether terrain, 3D Tiles or both will be classified.
+   * 确定是否对地形、3D 瓦片或两者进行分类。
    *
    * @type {ClassificationType}
    *
@@ -151,9 +151,9 @@ function GroundPolylinePrimitive(options) {
   );
 
   /**
-   * This property is for debugging only; it is not for production use nor is it optimized.
+   * 此属性仅用于调试;它不用于生产用途，也未进行优化。
    * <p>
-   * Draws the bounding sphere for each draw command in the primitive.
+   * 为基元中的每个绘制命令绘制边界球体。
    * </p>
    *
    * @type {boolean}
@@ -216,7 +216,7 @@ function GroundPolylinePrimitive(options) {
 
 Object.defineProperties(GroundPolylinePrimitive.prototype, {
   /**
-   * Determines if geometry vertex attributes are interleaved, which can slightly improve rendering performance.
+   * 确定几何体顶点属性是否交错，这可以略微提高渲染性能。
    *
    * @memberof GroundPolylinePrimitive.prototype
    *
@@ -232,7 +232,7 @@ Object.defineProperties(GroundPolylinePrimitive.prototype, {
   },
 
   /**
-   * When <code>true</code>, the primitive does not keep a reference to the input <code>geometryInstances</code> to save memory.
+   * 如果为 <code>true</code>，则基元不会保留对输入 <code>geometryInstances</code> 的引用以节省内存。
    *
    * @memberof GroundPolylinePrimitive.prototype
    *
@@ -248,7 +248,7 @@ Object.defineProperties(GroundPolylinePrimitive.prototype, {
   },
 
   /**
-   * When <code>true</code>, each geometry instance will only be pickable with {@link Scene#pick}.  When <code>false</code>, GPU memory is saved.
+   * 如果<code>为 true</code>，则每个几何体实例只能使用 {@link Scene#pick} 进行拾取。 如果<code>为 false</code>，则保存 GPU 内存。
    *
    * @memberof GroundPolylinePrimitive.prototype
    *
@@ -264,7 +264,7 @@ Object.defineProperties(GroundPolylinePrimitive.prototype, {
   },
 
   /**
-   * Determines if the geometry instances will be created and batched on a web worker.
+   * 确定是否将在 Web Worker 上创建和批处理 geometry 实例。
    *
    * @memberof GroundPolylinePrimitive.prototype
    *
@@ -280,9 +280,9 @@ Object.defineProperties(GroundPolylinePrimitive.prototype, {
   },
 
   /**
-   * Determines if the primitive is complete and ready to render.  If this property is
-   * true, the primitive will be rendered the next time that {@link GroundPolylinePrimitive#update}
-   * is called.
+   * 确定基元是否完整并准备好进行渲染。 如果此属性为
+   * true，则基元将在下次 {@link GroundPolylinePrimitive#update} 时渲染
+   * 被调用。
    *
    * @memberof GroundPolylinePrimitive.prototype
    *
@@ -296,9 +296,9 @@ Object.defineProperties(GroundPolylinePrimitive.prototype, {
   },
 
   /**
-   * This property is for debugging only; it is not for production use nor is it optimized.
+   * 此属性仅用于调试;它不用于生产用途，也未进行优化。
    * <p>
-   * If true, draws the shadow volume for each geometry in the primitive.
+   * 如果为 true，则为基元中的每个几何体绘制阴影体积。
    * </p>
    *
    * @memberof GroundPolylinePrimitive.prototype
@@ -316,10 +316,10 @@ Object.defineProperties(GroundPolylinePrimitive.prototype, {
 });
 
 /**
- * Initializes the minimum and maximum terrain heights. This only needs to be called if you are creating the
- * GroundPolylinePrimitive synchronously.
+ * 初始化最小和最大地形高度。仅当您正在创建
+ * GroundPolylinePrimitive 同步。
  *
- * @returns {Promise<void>} A promise that will resolve once the terrain heights have been loaded.
+ * @returns {Promise<void>} 一个 Promise，一旦地形高度被加载，它就会被解析。
  */
 GroundPolylinePrimitive.initializeTerrainHeights = function () {
   return ApproximateTerrainHeights.initialize();
@@ -661,15 +661,15 @@ function updateAndQueueCommands(
 }
 
 /**
- * Called when {@link Viewer} or {@link CesiumWidget} render the scene to
- * get the draw commands needed to render this primitive.
+ * 当 {@link Viewer} 或 {@link CesiumWidget} 将场景渲染到
+ * 获取渲染此基元所需的绘制命令。
  * <p>
- * Do not call this function directly.  This is documented just to
- * list the exceptions that may be propagated when the scene is rendered:
+ * 请勿直接调用此函数。 这记录下来只是为了
+ * 列出渲染场景时可能传播的异常：
  * </p>
  *
- * @exception {DeveloperError} For synchronous GroundPolylinePrimitives, you must call GroundPolylinePrimitives.initializeTerrainHeights() and wait for the returned promise to resolve.
- * @exception {DeveloperError} All GeometryInstances must have color attributes to use PolylineColorAppearance with GroundPolylinePrimitive.
+ * @exception {DeveloperError} 对于同步 GroundPolylinePrimitives，您必须调用 GroundPolylinePrimitives.initializeTerrainHeights（） 并等待返回的 Promise 解析。
+ * @exception {DeveloperError} 所有 GeometryInstances 都必须具有颜色属性，才能将 PolylineColorAppearance 与 GroundPolylinePrimitive 一起使用。
  */
 GroundPolylinePrimitive.prototype.update = function (frameState) {
   if (!defined(this._primitive) && !defined(this.geometryInstances)) {
@@ -822,12 +822,12 @@ GroundPolylinePrimitive.prototype.update = function (frameState) {
 };
 
 /**
- * Returns the modifiable per-instance attributes for a {@link GeometryInstance}.
+ * 返回 {@link GeometryInstance} 的可修改的每实例属性。
  *
- * @param {*} id The id of the {@link GeometryInstance}.
- * @returns {object} The typed array in the attribute's format or undefined if the is no instance with id.
+ * @param {*} id {@link GeometryInstance} 的 ID。
+ * @returns {object} 属性格式的类型化数组，如果没有 id 的实例，则为 undefined。
  *
- * @exception {DeveloperError} must call update before calling getGeometryInstanceAttributes.
+ * @exception {DeveloperError} 必须在调用 getGeometryInstanceAttributes 之前调用 update。
  *
  * @example
  * const attributes = primitive.getGeometryInstanceAttributes('an id');
@@ -848,24 +848,24 @@ GroundPolylinePrimitive.prototype.getGeometryInstanceAttributes = function (
 };
 
 /**
- * Checks if the given Scene supports GroundPolylinePrimitives.
- * GroundPolylinePrimitives require support for the WEBGL_depth_texture extension.
+ * 检查给定的 Scene 是否支持 GroundPolylinePrimitives。
+ * GroundPolylinePrimitives 需要支持 WEBGL_depth_texture 扩展。
  *
- * @param {Scene} scene The current scene.
- * @returns {boolean} Whether or not the current scene supports GroundPolylinePrimitives.
+ * @param {Scene} scene 当前场景。
+ * @returns {boolean} 当前场景是否支持 GroundPolylinePrimitives。
  */
 GroundPolylinePrimitive.isSupported = function (scene) {
   return scene.frameState.context.depthTexture;
 };
 
 /**
- * Returns true if this object was destroyed; otherwise, false.
+ * 如果此对象已销毁，则返回 true;否则为 false。
  * <p>
- * If this object was destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.
+ * 如果此对象已销毁，则不应使用;调用
+ *  <code>isDestroyed</code> 将导致 {@link DeveloperError} 异常。
  * </p>
  *
- * @returns {boolean} <code>true</code> if this object was destroyed; otherwise, <code>false</code>.
+ * @returns {boolean} <code>true</code>，如果此对象被销毁;否则为 <code>false</code>。
  *
  * @see GroundPolylinePrimitive#destroy
  */
@@ -874,12 +874,12 @@ GroundPolylinePrimitive.prototype.isDestroyed = function () {
 };
 
 /**
- * Destroys the WebGL resources held by this object.  Destroying an object allows for deterministic
- * release of WebGL resources, instead of relying on the garbage collector to destroy this object.
+ * 销毁此对象持有的 WebGL 资源。 销毁对象允许确定性
+ * 释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。
  * <p>
- * Once an object is destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.  Therefore,
- * assign the return value (<code>undefined</code>) to the object as done in the example.
+ * 一旦对象被销毁，就不应该使用它;调用
+ *  <code>isDestroyed</code> 将导致 {@link DeveloperError} 异常。 因此
+ * 将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
  * </p>
  *
  * @exception {DeveloperError} 这个物体被摧毁了,destroy().

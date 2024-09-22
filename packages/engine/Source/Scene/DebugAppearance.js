@@ -4,23 +4,23 @@ import DeveloperError from "../Core/DeveloperError.js";
 import Appearance from "./Appearance.js";
 
 /**
- * Visualizes a vertex attribute by displaying it as a color for debugging.
+ * 通过将顶点属性显示为用于调试的颜色来可视化顶点属性。
  * <p>
- * Components for well-known unit-length vectors, i.e., <code>normal</code>,
- * <code>tangent</code>, and <code>bitangent</code>, are scaled and biased
- * from [-1.0, 1.0] to (-1.0, 1.0).
+ * 已知单位长度向量的分量，即<code>法向</code>向量、
+ * <code>切线</code>和<code>双切线</code>是缩放和偏置的
+ * 从[-1.0, 1.0] to (-1.0, 1.0).
  * </p>
  *
  * @alias DebugAppearance
  * @constructor
  *
  * @param {object} options 对象，具有以下属性:
- * @param {string} options.attributeName The name of the attribute to visualize.
- * @param {boolean} [options.perInstanceAttribute=false] Boolean that determines whether this attribute is a per-instance geometry attribute.
- * @param {string} [options.glslDatatype='vec3'] The GLSL datatype of the attribute.  Supported datatypes are <code>float</code>, <code>vec2</code>, <code>vec3</code>, and <code>vec4</code>.
- * @param {string} [options.vertexShaderSource] Optional GLSL vertex shader source to override the default vertex shader.
- * @param {string} [options.fragmentShaderSource] Optional GLSL fragment shader source to override the default fragment shader.
- * @param {object} [options.renderState] Optional render state to override the default render state.
+ * @param {string} options.attributeName 要可视化的属性的名称。
+ * @param {boolean} [options.perInstanceAttribute=false] 确定此属性是否为每个实例的几何属性的布尔值。
+ * @param {string} [options.glslDatatype='vec3'] 属性的 GLSL 数据类型。 支持的数据类型包括 <code>float</code>、<code>vec2</code>、<code>vec3</code> 和 <code>vec4</code>。
+ * @param {string} [options.vertexShaderSource] 可选的 GLSL 顶点着色器源，用于覆盖默认顶点着色器。
+ * @param {string} [options.fragmentShaderSource] 可选的 GLSL 片段着色器源，用于覆盖默认片段着色器。
+ * @param {object} [options.renderState] 可选的渲染状态来覆盖默认的渲染状态。
  *
  * @exception {DeveloperError} options.glslDatatype must be float, vec2, vec3, or vec4.
  *
@@ -110,8 +110,8 @@ function DebugAppearance(options) {
     `}`;
 
   /**
-   * This property is part of the {@link Appearance} interface, but is not
-   * used by {@link DebugAppearance} since a fully custom fragment shader is used.
+   * 此属性是 {@link Appearance} 接口的一部分，但不是
+   * 由 {@link DebugAppearance} 使用，因为使用的是完全自定义的片段着色器。
    *
    * @type Material
    *
@@ -120,7 +120,7 @@ function DebugAppearance(options) {
   this.material = undefined;
 
   /**
-   * When <code>true</code>, the geometry is expected to appear translucent.
+   * <code>如果为 true</code>，则几何体应显示为半透明。
    *
    * @type {boolean}
    *
@@ -145,7 +145,7 @@ function DebugAppearance(options) {
 
 Object.defineProperties(DebugAppearance.prototype, {
   /**
-   * The GLSL source code for the vertex shader.
+   * 顶点着色器的 GLSL 源代码。
    *
    * @memberof DebugAppearance.prototype
    *
@@ -159,9 +159,9 @@ Object.defineProperties(DebugAppearance.prototype, {
   },
 
   /**
-   * The GLSL source code for the fragment shader.  The full fragment shader
-   * source is built procedurally taking into account the {@link DebugAppearance#material}.
-   * Use {@link DebugAppearance#getFragmentShaderSource} to get the full source.
+   * 片段着色器的 GLSL 源代码。 完整的片段着色器
+   * source 是按照程序构建的，考虑了 {@link DebugAppearance#material}。
+   * 使用 {@link DebugAppearance#getFragmentShaderSource} 获取完整源代码。
    *
    * @memberof DebugAppearance.prototype
    *
@@ -175,7 +175,7 @@ Object.defineProperties(DebugAppearance.prototype, {
   },
 
   /**
-   * The WebGL fixed-function state to use when rendering the geometry.
+   * 渲染几何体时使用的 WebGL 固定函数状态。
    *
    * @memberof DebugAppearance.prototype
    *
@@ -189,7 +189,7 @@ Object.defineProperties(DebugAppearance.prototype, {
   },
 
   /**
-   * When <code>true</code>, the geometry is expected to be closed.
+   * 如果<code>为 true</code>，则几何图形应为闭合。
    *
    * @memberof DebugAppearance.prototype
    *
@@ -205,7 +205,7 @@ Object.defineProperties(DebugAppearance.prototype, {
   },
 
   /**
-   * The name of the attribute being visualized.
+   * 正在可视化的属性的名称。
    *
    * @memberof DebugAppearance.prototype
    *
@@ -219,7 +219,7 @@ Object.defineProperties(DebugAppearance.prototype, {
   },
 
   /**
-   * The GLSL datatype of the attribute being visualized.
+   * 正在可视化的属性的 GLSL 数据类型。
    *
    * @memberof DebugAppearance.prototype
    *
@@ -234,33 +234,33 @@ Object.defineProperties(DebugAppearance.prototype, {
 });
 
 /**
- * Returns the full GLSL fragment shader source, which for {@link DebugAppearance} is just
+ * 返回完整的 GLSL 片段着色器源，对于 {@link DebugAppearance}，它只是
  * {@link DebugAppearance#fragmentShaderSource}.
  *
  * @function
  *
- * @returns {string} The full GLSL fragment shader source.
+ * @returns {string} 完整的 GLSL 片段着色器源。
  */
 DebugAppearance.prototype.getFragmentShaderSource =
   Appearance.prototype.getFragmentShaderSource;
 
 /**
- * Determines if the geometry is translucent based on {@link DebugAppearance#translucent}.
+ * 根据 {@link DebugAppearance#translucent} 确定几何体是否为半透明。
  *
  * @function
  *
- * @returns {boolean} <code>true</code> if the appearance is translucent.
+ * @returns {boolean} <code>true</code>，如果外观是半透明的。
  */
 DebugAppearance.prototype.isTranslucent = Appearance.prototype.isTranslucent;
 
 /**
- * Creates a render state.  This is not the final render state instance; instead,
- * it can contain a subset of render state properties identical to the render state
- * created in the context.
+ * 创建渲染状态。 这不是最终的渲染状态实例;相反
+ * 它可以包含与渲染状态相同的渲染状态属性的子集
+ * 在上下文中创建。
  *
  * @function
  *
- * @returns {object} The render state.
+ * @returns {object} 渲染状态。
  */
 DebugAppearance.prototype.getRenderState = Appearance.prototype.getRenderState;
 export default DebugAppearance;

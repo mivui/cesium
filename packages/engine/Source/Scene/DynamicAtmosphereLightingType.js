@@ -1,29 +1,29 @@
 /**
- * Atmosphere lighting effects (sky atmosphere, ground atmosphere, fog) can be
- * further modified with dynamic lighting from the sun or other light source
- * that changes over time. This enum determines which light source to use.
+ * 氛围灯光效果（天空氛围、地面氛围、雾）可以
+ * 使用来自太阳或其他光源的动态照明进一步修改
+ * 随时间变化。此枚举确定要使用的光源。
  *
  * @enum {number}
  */
 const DynamicAtmosphereLightingType = {
   /**
-   * Do not use dynamic atmosphere lighting. Atmosphere lighting effects will
-   * be lit from directly above rather than using the scene's light source.
+   * 请勿使用动态氛围照明。氛围灯效将
+   * 从正上方照亮，而不是使用场景的光源。
    *
    * @type {number}
    * @constant
    */
   NONE: 0,
   /**
-   * Use the scene's current light source for dynamic atmosphere lighting.
+   * 将场景的当前光源用于动态氛围照明。
    *
    * @type {number}
    * @constant
    */
   SCENE_LIGHT: 1,
   /**
-   * Force the dynamic atmosphere lighting to always use the sunlight direction,
-   * even if the scene uses a different light source.
+   * 强制动态氛围照明始终使用阳光方向，
+   * 即使场景使用不同的光源。
    *
    * @type {number}
    * @constant
@@ -32,10 +32,10 @@ const DynamicAtmosphereLightingType = {
 };
 
 /**
- * Get the lighting enum from the older globe flags
+ * 从较旧的地球标志中获取照明枚举
  *
- * @param {Globe} globe The globe
- * @return {DynamicAtmosphereLightingType} The corresponding enum value
+ * @param {Globe} globe 地球仪
+ * @return {DynamicAtmosphereLightingType} 相应的枚举值
  *
  * @private
  */

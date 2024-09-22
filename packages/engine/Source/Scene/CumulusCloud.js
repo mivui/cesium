@@ -7,23 +7,23 @@ import defined from "../Core/defined.js";
 
 /**
  * <div class="notice">
- * A cloud is created and its initial properties are set by calling {@link CloudCollection#add}.
+ * 创建一个云，并通过调用 {@link CloudCollection#add}.
  * and {@link CloudCollection#remove}. 不要直接调用构造函数。
  * </div>
- * A cumulus cloud billboard positioned in the 3D scene, that is created and rendered using a {@link CloudCollection}.
+ * 位于 3D 场景中的积云公告牌，使用 {@link CloudCollection}.
  * <br /><br />
  * <div align='center'>
  * <img src='Images/CumulusCloud.png' width='400' height='300' /><br />
- * Example cumulus clouds
+ * 积云示例
  * </div>
  * @alias CumulusCloud
  *
- * @performance Similar to {@link Billboard}, reading a property, e.g., {@link CumulusCloud#show},
- * takes constant time. Assigning to a property is constant time but results in
- * CPU to GPU traffic when {@link CloudCollection#update} is called.  The per-cloud traffic is
- * the same regardless of how many properties were updated.  If most clouds in a collection need to be
- * updated, it may be more efficient to clear the collection with {@link CloudCollection#removeAll}
- * and add new clouds instead of modifying each one.
+ * @performance 类似于 {@link Billboard}，读取属性，例如 {@link CumulusCloud#show}，
+ * 需要恒定的时间。分配给属性是恒定时间，但会导致
+ * 调用 {@link CloudCollection#update} 时的 CPU 到 GPU 流量。 每个云的流量为
+ * 无论更新了多少个属性，都是相同的。 如果集合中的大多数云需要
+ * 已更新，使用 {@link CloudCollection#removeAll} 清除集合可能更有效
+ * 并添加新的云，而不是修改每个云。
  *
  * @see CloudCollection
  * @see CloudCollection#add
@@ -85,8 +85,8 @@ function makeDirty(cloud, propertyChanged) {
 
 Object.defineProperties(CumulusCloud.prototype, {
   /**
-   * Determines if this cumulus cloud will be shown.  Use this to hide or show a cloud, instead
-   * of removing it and re-adding it to the collection.
+   * 确定是否显示此积云。 使用它来隐藏或显示云
+   * 将其删除并重新添加到集合中。
    * @memberof CumulusCloud.prototype
    * @type {boolean}
    * @default true
@@ -108,7 +108,7 @@ Object.defineProperties(CumulusCloud.prototype, {
   },
 
   /**
-   * 获取或设置Cartesian position of this cumulus cloud.
+   * 获取或设置这个积云的笛卡尔位置。
    * @memberof CumulusCloud.prototype
    * @type {Cartesian3}
    */
@@ -130,9 +130,9 @@ Object.defineProperties(CumulusCloud.prototype, {
   },
 
   /**
-   * <p>Gets or sets the scale of the cumulus cloud billboard in meters.
-   * The <code>scale</code> property will affect the size of the billboard,
-   * but not the cloud's actual appearance.</p>
+   * <p>获取或设置积云公告牌的比例（以米为单位）。
+   * <code>scale</code> 属性会影响公告板的大小，
+   * 但不是云的实际外观。</p>
    * <div align='center'>
    * <table border='0' cellpadding='5'><tr>
    * <td align='center'>
@@ -146,8 +146,8 @@ Object.defineProperties(CumulusCloud.prototype, {
    * </tr></table>
    * </div>
    *
-   * <p>To modify the cloud's appearance, modify its <code>maximumSize</code>
-   * and <code>slice</code> properties.</p>
+   * <p>要修改云的外观，请修改其 <code>maximumSize</code>
+   * 和 <code>slice</code> 属性。</p>
    * @memberof CumulusCloud.prototype
    * @type {Cartesian2}
    *
@@ -172,13 +172,13 @@ Object.defineProperties(CumulusCloud.prototype, {
   },
 
   /**
-   * <p>Gets or sets the maximum size of the cumulus cloud rendered on the billboard.
-   * This defines a maximum ellipsoid volume that the cloud can appear in.
-   * Rather than guaranteeing a specific size, this specifies a boundary for the
-   * cloud to appear in, and changing it can affect the shape of the cloud.</p>
-   * <p>Changing the z-value of <code>maximumSize</code> has the most dramatic effect
-   * on the cloud's appearance because it changes the depth of the cloud, and thus the
-   * positions at which the cloud-shaping texture is sampled.</p>
+   * <p>获取或设置在公告牌上渲染的积云的最大大小。
+   * 这定义了云可以出现在其中的最大椭球体体积。
+   * 这并不是保证特定大小，而是为
+   * 云，更改它会影响云的形状。</p>
+   * <p>更改 <code>maximumSize</code> 的 z 值具有最显著的效果
+   * 在云的外观上，因为它会改变云的深度，从而改变
+   * 对云形成纹理进行采样的位置。</p>
    * <div align='center'>
    * <table border='0' cellpadding='5'>
    * <tr>
@@ -204,7 +204,7 @@ Object.defineProperties(CumulusCloud.prototype, {
    * </table>
    * </div>
    *
-   * <p>To modify the billboard's actual size, modify the cloud's <code>scale</code> property.</p>
+   * <p>要修改公告板的实际大小，请修改云的 <code>scale</code> 属性。</p>
    * @memberof CumulusCloud.prototype
    * @type {Cartesian3}
    *
@@ -227,7 +227,7 @@ Object.defineProperties(CumulusCloud.prototype, {
     },
   },
   /**
-   * Sets the color of the cloud
+   * 设置云的颜色
    * @memberof CumulusCloud.prototype
    * @type {Color}
    * @default Color.WHITE
@@ -249,10 +249,10 @@ Object.defineProperties(CumulusCloud.prototype, {
     },
   },
   /**
-   * <p>Gets or sets the "slice" of the cloud that is rendered on the billboard, i.e.
-   * the specific cross-section of the cloud chosen for the billboard's appearance.
-   * Given a value between 0 and 1, the slice specifies how deeply into the cloud
-   * to intersect based on its maximum size in the z-direction.</p>
+   * <p>获取或设置在公告牌上渲染的云的 “切片”，即
+   * 为 Billboard 的外观选择的云的特定横截面。
+   * 给定一个介于 0 和 1 之间的值，该切片指定在云中的深度
+   * 以根据其在 z 方向上的最大大小相交。</p>
    * <div align='center'>
    * <table border='0' cellpadding='5'><tr>
    * <td align='center'><code>cloud.slice = 0.32;</code><br/><img src='Images/CumulusCloud.slice0.32.png' width='250' height='158' /></td>
@@ -275,10 +275,10 @@ Object.defineProperties(CumulusCloud.prototype, {
    * </tr></table>
    * </div>
    *
-   * <p>If <code>slice</code> is set to a negative number, the cloud will not render a cross-section.
-   * Instead, it will render the outside of the ellipsoid that is visible. For clouds with
-   * small values of `maximumSize.z`, this can produce good-looking results, but for larger
-   * clouds, this can result in a cloud that is undesirably warped to the ellipsoid volume.</p>
+   *<p>如果 <code>slice</code> 设置为负数，则云将不会渲染横截面。
+   * 相反，它将呈现可见的椭球体外部。对于具有
+   * 较小的 'maximumSize.z' 值，这可以产生好看的结果，但对于较大的
+   * 云，这可能会导致云意外地扭曲到椭球体体积。</p>
    *
    * <div align='center'>
    * <table border='0' cellpadding='5'><tr>
@@ -314,8 +314,8 @@ Object.defineProperties(CumulusCloud.prototype, {
   },
 
   /**
-   * 获取或设置brightness of the cloud. This can be used to give clouds
-   * a darker, grayer appearance.
+   * 获取或设置云的亮度。这可用于提供 cloud
+   * 外观更暗、更灰。
    * <br /><br />
    * <div align='center'>
    * <table border='0' cellpadding='5'><tr>

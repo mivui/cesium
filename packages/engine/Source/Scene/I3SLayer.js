@@ -10,15 +10,15 @@ import I3SNode from "./I3SNode.js";
 import I3SSymbology from "./I3SSymbology.js";
 
 /**
- * This class implements an I3S layer. In CesiumJS each I3SLayer creates a Cesium3DTileset.
+ * 此类实现 I3S 层。在 CesiumJS 中，每个 I3SLayer 都会创建一个 Cesium3DTileset。
  * <p>
- * Do not construct this directly, instead access layers through {@link I3SDataProvider}.
+ * 不要直接构造此 URL，而是通过 {@link I3SDataProvider} 访问层。
  * </p>
  * @alias I3SLayer
  * @internalConstructor
- * @privateParam {I3SDataProvider} dataProvider The i3s data provider
- * @privateParam {object} layerData The layer data that is loaded from the scene layer
- * @privateParam {I3SDataProvider|I3SSublayer} parent The parent of that layer
+ * @privateParam {I3SDataProvider} dataProvider i3s 数据提供商
+ * @privateParam {object} layerData 从场景图层加载的图层数据
+ * @privateParam {I3SDataProvider|I3SSublayer} parent 该图层的父级
  */
 function I3SLayer(dataProvider, layerData, parent) {
   this._dataProvider = dataProvider;
@@ -67,7 +67,7 @@ function I3SLayer(dataProvider, layerData, parent) {
 
 Object.defineProperties(I3SLayer.prototype, {
   /**
-   * Gets the resource for the layer.
+   * 获取层的资源。
    * @memberof I3SLayer.prototype
    * @type {Resource}
    * @readonly
@@ -79,7 +79,7 @@ Object.defineProperties(I3SLayer.prototype, {
   },
 
   /**
-   * Gets the root node of this layer.
+   * 获取此层的根节点。
    * @memberof I3SLayer.prototype
    * @type {I3SNode}
    * @readonly
@@ -90,7 +90,7 @@ Object.defineProperties(I3SLayer.prototype, {
     },
   },
   /**
-   * Gets the Cesium3DTileset for this layer.
+   * 获取此层的 Cesium3DTileset。
    * @memberof I3SLayer.prototype
    * @type {Cesium3DTileset|undefined}
    * @readonly
@@ -101,7 +101,7 @@ Object.defineProperties(I3SLayer.prototype, {
     },
   },
   /**
-   * Gets the I3S data for this object.
+   * 获取此对象的 I3S 数据。
    * @memberof I3SLayer.prototype
    * @type {object}
    * @readonly
@@ -113,7 +113,7 @@ Object.defineProperties(I3SLayer.prototype, {
   },
 
   /**
-   * The version string of the loaded I3S dataset
+   * 加载的 I3S 数据集的版本字符串
    * @memberof I3SLayer.prototype
    * @type {string}
    * @readonly
@@ -125,7 +125,7 @@ Object.defineProperties(I3SLayer.prototype, {
   },
 
   /**
-   * The major version number of the loaded I3S dataset
+   * 加载的 I3S 数据集的主要版本号
    * @memberof I3SLayer.prototype
    * @type {number}
    * @readonly
@@ -137,7 +137,7 @@ Object.defineProperties(I3SLayer.prototype, {
   },
 
   /**
-   * The minor version number of the loaded I3S dataset
+   * 加载的 I3S 数据集的次要版本号
    * @memberof I3SLayer.prototype
    * @type {number}
    * @readonly
@@ -149,7 +149,7 @@ Object.defineProperties(I3SLayer.prototype, {
   },
 
   /**
-   * When <code>true</code>, when the loaded I3S version is 1.6 or older
+   * 如果<code>为 true</code>，则当加载的 I3S 版本为 1.6 或更低版本时
    * @memberof I3SLayer.prototype
    * @type {boolean}
    * @readonly
@@ -171,9 +171,9 @@ Object.defineProperties(I3SLayer.prototype, {
 });
 
 /**
- * Loads the content, including the root node definition and its children
- * @param {Cesium3DTileset.ConstructorOptions} [cesium3dTilesetOptions] options for Cesium3dTileset constructor
- * @returns {Promise<void>} A promise that is resolved when the layer data is loaded
+ * 加载内容，包括根节点定义及其子节点
+ * @param Cesium3dTileset 构造函数的 {Cesium3DTileset.ConstructorOptions} [cesium3dTilesetOptions] 选项
+ * @returns {Promise} 加载<void>层数据时解析的 Promise
  * @private
  */
 I3SLayer.prototype.load = async function (cesium3dTilesetOptions) {

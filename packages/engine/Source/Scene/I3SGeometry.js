@@ -5,10 +5,10 @@ import Matrix3 from "../Core/Matrix3.js";
 import srgbToLinear from "../Core/srgbToLinear.js";
 
 /**
- * This class implements an I3S Geometry. Each I3SGeometry
- * generates an in memory glTF to be used as content for a Cesium3DTile
+ * 此类实现 I3S Geometry。每个 I3SGeometry
+ * 生成内存中的 glTF 以用作 Cesium3DTile 的内容
  * <p>
- * Do not construct this directly, instead access tiles through {@link I3SNode}.
+ * 不要直接构造此函数，而是通过 {@link I3SNode} 访问瓦片。
  * </p>
  * @alias I3SGeometry
  * @internalConstructor
@@ -39,7 +39,7 @@ function I3SGeometry(parent, uri) {
 
 Object.defineProperties(I3SGeometry.prototype, {
   /**
-   * Gets the resource for the geometry
+   * 获取几何图形的资源
    * @memberof I3SGeometry.prototype
    * @type {Resource}
    * @readonly
@@ -51,7 +51,7 @@ Object.defineProperties(I3SGeometry.prototype, {
   },
 
   /**
-   * Gets the I3S data for this object.
+   * 获取此对象的 I3S 数据。
    * @memberof I3SGeometry.prototype
    * @type {object}
    * @readonly
@@ -62,7 +62,7 @@ Object.defineProperties(I3SGeometry.prototype, {
     },
   },
   /**
-   * Gets the custom attributes of the geometry.
+   * 获取几何体的自定义属性。
    * @memberof I3SGeometry.prototype
    * @type {object}
    * @readonly
@@ -75,8 +75,8 @@ Object.defineProperties(I3SGeometry.prototype, {
 });
 
 /**
- * Loads the content.
- * @returns {Promise<object>} A promise that is resolved when the geometry data is loaded
+ * 加载内容。
+ * @returns {Promise<object>} 加载几何数据时解析的 Promise
  * @private
  */
 I3SGeometry.prototype.load = function () {
@@ -122,15 +122,15 @@ const scratchV1p = new Cartesian3();
 const scratchV2p = new Cartesian3();
 
 /**
- * Find a triangle touching the point [px, py, pz], then return the vertex closest to the search point
- * @param {number} px The x component of the point to query
- * @param {number} py The y component of the point to query
- * @param {number} pz The z component of the point to query
- * @returns {object} A structure containing the index of the closest point,
- * the squared distance from the queried point to the point that is found,
- * the distance from the queried point to the point that is found,
- * the queried position in local space,
- * the closest position in local space
+ * 找到一个与搜索点 [px， py， pz] 接触的三角形，然后返回最接近搜索点的点
+ * @param {number} px 要查询的点的 x 分量
+ * @param {number} py 要查询的点的 y 分量
+ * @param {number} pz 要查询的点的 z 分量
+ * @returns {object} 包含最近点的索引的结构体，
+ * 从查询点到找到的点的平方距离，
+ * 从查询点到找到的点的距离，
+ * 查询的局部空间位置，
+ * 本地空间中最近的位置
  */
 I3SGeometry.prototype.getClosestPointIndexOnTriangle = function (px, py, pz) {
   if (

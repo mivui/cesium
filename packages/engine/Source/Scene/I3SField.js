@@ -2,12 +2,12 @@ import defined from "../Core/defined.js";
 import RuntimeError from "../Core/RuntimeError.js";
 
 /**
- * This class implements an I3S Field which is custom data attached
- * to nodes
+ * 此类实现一个 I3S 字段，该字段是附加的自定义数据
+ * 到节点
  * @alias I3SField
  * @internalConstructor
- * @privateParam {I3SNode} parent The parent of that geometry
- * @privateParam {object} storageInfo The structure containing the storage info of the field
+ * @privateParam {I3SNode} parent 该几何体的父级
+ * @privateParam {object} storageInfo 包含字段存储信息的结构体
  */
 function I3SField(parent, storageInfo) {
   this._storageInfo = storageInfo;
@@ -27,7 +27,7 @@ function I3SField(parent, storageInfo) {
 
 Object.defineProperties(I3SField.prototype, {
   /**
-   * Gets the resource for the fields
+   * 获取字段的资源
    * @memberof I3SField.prototype
    * @type {Resource}
    * @readonly
@@ -38,7 +38,7 @@ Object.defineProperties(I3SField.prototype, {
     },
   },
   /**
-   * Gets the header for this field.
+   * 获取此字段的标头。
    * @memberof I3SField.prototype
    * @type {object}
    * @readonly
@@ -49,7 +49,7 @@ Object.defineProperties(I3SField.prototype, {
     },
   },
   /**
-   * Gets the values for this field.
+   * 获取此字段的值。
    * @memberof I3SField.prototype
    * @type {object}
    * @readonly
@@ -69,7 +69,7 @@ Object.defineProperties(I3SField.prototype, {
     },
   },
   /**
-   * Gets the name for the field.
+   * 获取字段的名称。
    * @memberof I3SField.prototype
    * @type {string}
    * @readonly
@@ -120,8 +120,8 @@ async function load(field) {
 }
 
 /**
- * Loads the content.
- * @returns {Promise<void>} A promise that is resolved when the field data is loaded
+ * 加载内容。
+ * @returns {Promise<void>} 加载字段数据时解析的 Promise
  */
 I3SField.prototype.load = function () {
   if (defined(this._loadPromise)) {

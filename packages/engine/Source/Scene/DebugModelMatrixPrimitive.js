@@ -11,25 +11,25 @@ import PolylineColorAppearance from "./PolylineColorAppearance.js";
 import Primitive from "./Primitive.js";
 
 /**
- * Draws the axes of a reference frame defined by a matrix that transforms to world
- * coordinates, i.e., Earth's WGS84 coordinates.  The most prominent example is
- * a primitives <code>modelMatrix</code>.
+ * 绘制由转换为 world 的矩阵定义的参考系的轴
+ * 坐标，即地球的 WGS84 坐标。 最突出的例子是
+ * 一个基元 <code>modelMatrix</code>。
  * <p>
- * The X axis is red; Y is green; and Z is blue.
+ * X 轴为红色;Y 为绿色;Z 为蓝色。
  * </p>
  * <p>
- * This is for debugging only; it is not optimized for production use.
+ * 这仅用于调试;它未针对生产使用进行优化。
  * </p>
  *
  * @alias DebugModelMatrixPrimitive
  * @constructor
  *
  * @param {object} [options] 对象，具有以下属性:
- * @param {number} [options.length=10000000.0] The length of the axes in meters.
- * @param {number} [options.width=2.0] 宽度 axes in pixels.
- * @param {Matrix4} [options.modelMatrix=Matrix4.IDENTITY] The 4x4 matrix that defines the reference frame, i.e., origin plus axes, to visualize.
- * @param {boolean} [options.show=true] Determines if this primitive will be shown.
- * @param {object} [options.id] A user-defined object to return when the instance is picked with {@link Scene#pick}
+ * @param {number} [options.length=10000000.0] 轴的长度，以米为单位。
+ * @param {number} [options.width=2.0] 宽度轴（以像素为单位）。
+ * @param {Matrix4} [options.modelMatrix=Matrix4.IDENTITY] 定义要可视化的参考系（即原点加轴）的 4x4 矩阵。
+ * @param {boolean} [options.show=true] 决定是否显示此基元。
+ * @param {object} [options.id] 使用 {@link Scene#pick} 选取实例时返回的用户定义对象
  *
  * @example
  * primitives.add(new Cesium.DebugModelMatrixPrimitive({
@@ -42,7 +42,7 @@ function DebugModelMatrixPrimitive(options) {
   options = defaultValue(options, defaultValue.EMPTY_OBJECT);
 
   /**
-   * The length of the axes in meters.
+   * 轴的长度（以米为单位）。
    *
    * @type {number}
    * @default 10000000.0
@@ -51,7 +51,7 @@ function DebugModelMatrixPrimitive(options) {
   this._length = undefined;
 
   /**
-   * The width of the axes in pixels.
+   * 轴的宽度（以像素为单位）。
    *
    * @type {number}
    * @default 2.0
@@ -60,7 +60,7 @@ function DebugModelMatrixPrimitive(options) {
   this._width = undefined;
 
   /**
-   * Determines if this primitive will be shown.
+   * 确定是否显示此基元。
    *
    * @type {boolean}
    * @default true
@@ -68,7 +68,7 @@ function DebugModelMatrixPrimitive(options) {
   this.show = defaultValue(options.show, true);
 
   /**
-   * The 4x4 matrix that defines the reference frame, i.e., origin plus axes, to visualize.
+   * 定义要可视化的参考帧（即原点加轴）的 4x4 矩阵。
    *
    * @type {Matrix4}
    * @default {@link Matrix4.IDENTITY}
@@ -79,7 +79,7 @@ function DebugModelMatrixPrimitive(options) {
   this._modelMatrix = new Matrix4();
 
   /**
-   * User-defined value returned when the primitive is picked.
+   * 选取基元时返回的 User-defined 值。
    *
    * @type {*}
    * @default undefined
@@ -185,13 +185,13 @@ DebugModelMatrixPrimitive.prototype.update = function (frameState) {
 };
 
 /**
- * Returns true if this object was destroyed; otherwise, false.
+ * 如果此对象已销毁，则返回 true;否则为 false。
  * <p>
- * If this object was destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.
+ * 如果此对象已销毁，则不应使用;调用
+ *  <code> isDestroyed</code> 将导致 {@link DeveloperError} 异常。
  * </p>
  *
- * @returns {boolean} <code>true</code> if this object was destroyed; otherwise, <code>false</code>.
+ * @returns {boolean} 如果此对象被销毁，<code>则为 true</code>;否则为 <code>false</code>。
  *
  * @see DebugModelMatrixPrimitive#destroy
  */
@@ -200,12 +200,12 @@ DebugModelMatrixPrimitive.prototype.isDestroyed = function () {
 };
 
 /**
- * Destroys the WebGL resources held by this object.  Destroying an object allows for deterministic
- * release of WebGL resources, instead of relying on the garbage collector to destroy this object.
+ * 销毁此对象持有的 WebGL 资源。 销毁对象允许确定性
+ * 释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。
  * <p>
- * Once an object is destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.  Therefore,
- * assign the return value (<code>undefined</code>) to the object as done in the example.
+ * 一旦对象被销毁，就不应该使用它;调用
+ * <code>isDestroyed</code> 将导致 {@link DeveloperError} 异常。因此
+ * 将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
  * </p>
  *
  * @exception {DeveloperError} 这个物体被摧毁了,destroy().

@@ -11,25 +11,25 @@ const defaultBackgroundColor = new Color(0.0, 0.5, 0.0, 0.2);
 /**
  * @typedef {object} GridImageryProvider.ConstructorOptions
  *
- * Initialization options for the GridImageryProvider constructor
+ * GridImageryProvider 构造函数的初始化选项
  *
- * @property {TilingScheme} [tilingScheme=new GeographicTilingScheme()] The tiling scheme for which to draw tiles.
- * @property {Ellipsoid} [ellipsoid=Ellipsoid.default] The ellipsoid.  If the tilingScheme is specified,
- *                    this parameter is ignored and the tiling scheme's ellipsoid is used instead. If neither
- *                    parameter is specified, the default ellipsoid is used.
- * @property {number} [cells=8] The number of grids cells.
- * @property {Color} [color=Color(1.0, 1.0, 1.0, 0.4)] The color to draw grid lines.
- * @property {Color} [glowColor=Color(0.0, 1.0, 0.0, 0.05)] The color to draw glow for grid lines.
- * @property {number} [glowWidth=6] The width of lines used for rendering the line glow effect.
- * @property {Color} [backgroundColor=Color(0.0, 0.5, 0.0, 0.2)] Background fill color.
- * @property {number} [tileWidth=256] 宽度 tile for level-of-detail selection purposes.
- * @property {number} [tileHeight=256] 高度 tile for level-of-detail selection purposes.
- * @property {number} [canvasSize=256] The size of the canvas used for rendering.
+ * @property {TilingScheme} [tilingScheme=new GeographicTilingScheme（）] 要为其绘制瓦片的平铺方案。
+ * @property {Ellipsoid} [ellipsoid=Ellipsoid.default] 椭球体。 如果指定了 tilingScheme，则
+ * 此参数将被忽略，而使用切片方案的椭球体。如果两者都不是
+ * 参数，则使用默认椭球。
+ * @property {number} [cells=8] 网格单元格的数量。
+ * @property {Color} [color=Color(1.0, 1.0, 1.0, 0.4)] 绘制网格线的颜色。
+ * @property {Color} [glowColor=Color(0.0, 1.0, 0.0, 0.05)] 为网格线绘制发光的颜色。
+ * @property {number} [glowWidth=6] 用于渲染线条发光效果的线条宽度。
+ * @property {Color} [backgroundColor=Color(0.0, 0.5, 0.0, 0.2)] 背景填充颜色。
+ * @property {number} [tileWidth=256] 宽度 用于详细级别选择的平铺.
+ * @property {number} [tileHeight=256] 高度 用于详细级别选择的平铺.
+ * @property {number} [canvasSize=256] The 用于渲染的画布的大小.
  */
 
 /**
- * An {@link ImageryProvider} that draws a wireframe grid on every tile with controllable background and glow.
- * May be useful for custom rendering effects or debugging terrain.
+ * 一个 {@link ImageryProvider}，用于在每个图块上绘制具有可控背景和发光的线框网格。
+ * 可能对自定义渲染效果或调试地形有用。
  *
  * @alias GridImageryProvider
  * @constructor
@@ -76,7 +76,7 @@ function GridImageryProvider(options) {
 
 Object.defineProperties(GridImageryProvider.prototype, {
   /**
-   * Gets the proxy used by this provider.
+   * 获取此提供程序使用的代理。
    * @memberof GridImageryProvider.prototype
    * @type {Proxy}
    * @readonly
@@ -88,7 +88,7 @@ Object.defineProperties(GridImageryProvider.prototype, {
   },
 
   /**
-   * Gets the width of each tile, in pixels.
+   * 获取每个图块的宽度（以像素为单位）。
    * @memberof GridImageryProvider.prototype
    * @type {number}
    * @readonly
@@ -100,7 +100,7 @@ Object.defineProperties(GridImageryProvider.prototype, {
   },
 
   /**
-   * Gets the height of each tile, in pixels.
+   * 获取每个图块的高度（以像素为单位）。
    * @memberof GridImageryProvider.prototype
    * @type {number}
    * @readonly
@@ -112,7 +112,7 @@ Object.defineProperties(GridImageryProvider.prototype, {
   },
 
   /**
-   * Gets the maximum level-of-detail that can be requested.
+   * 获取可请求的最大详细级别。
    * @memberof GridImageryProvider.prototype
    * @type {number|undefined}
    * @readonly
@@ -124,7 +124,7 @@ Object.defineProperties(GridImageryProvider.prototype, {
   },
 
   /**
-   * Gets the minimum level-of-detail that can be requested.
+   * 获取可请求的最小详细级别。
    * @memberof GridImageryProvider.prototype
    * @type {number}
    * @readonly
@@ -136,7 +136,7 @@ Object.defineProperties(GridImageryProvider.prototype, {
   },
 
   /**
-   * Gets the tiling scheme used by this provider.
+   * 获取此提供程序使用的切片方案。
    * @memberof GridImageryProvider.prototype
    * @type {TilingScheme}
    * @readonly
@@ -148,7 +148,7 @@ Object.defineProperties(GridImageryProvider.prototype, {
   },
 
   /**
-   * Gets the rectangle, in radians, of the imagery provided by this instance.
+   * 获取此实例提供的图像的矩形（以弧度为单位）。
    * @memberof GridImageryProvider.prototype
    * @type {Rectangle}
    * @readonly
@@ -160,9 +160,9 @@ Object.defineProperties(GridImageryProvider.prototype, {
   },
 
   /**
-   * Gets the tile discard policy.  If not undefined, the discard policy is responsible
-   * for filtering out "missing" tiles via its shouldDiscardImage function.  If this function
-   * returns undefined, no tiles are filtered.
+   * 获取瓦片丢弃策略。 如果未 undefined，则 discard 策略负责
+   * 用于通过其 shouldDiscardImage 函数过滤掉“缺失”的瓦片。 如果此功能
+   * 返回 undefined，不过滤任何瓦片.
    * @memberof GridImageryProvider.prototype
    * @type {TileDiscardPolicy}
    * @readonly
@@ -174,9 +174,9 @@ Object.defineProperties(GridImageryProvider.prototype, {
   },
 
   /**
-   * Gets an event that is raised when the imagery provider encounters an asynchronous error.  By subscribing
-   * to the event, you will be notified of the error and can potentially recover from it.  Event listeners
-   * are passed an instance of {@link TileProviderError}.
+   * 获取在影像提供程序遇到异步错误时引发的事件。 通过订阅
+   * 时，您将收到错误通知，并可能从中恢复。 事件侦听器
+   * 将传递 {@link TileProviderError} 的实例。
    * @memberof GridImageryProvider.prototype
    * @type {Event}
    * @readonly
@@ -188,8 +188,8 @@ Object.defineProperties(GridImageryProvider.prototype, {
   },
 
   /**
-   * Gets the credit to display when this imagery provider is active.  Typically this is used to credit
-   * the source of the imagery.
+   * 获取此影像提供程序处于活动状态时要显示的点数。 通常，这用于贷记
+   * 图像的来源。
    * @memberof GridImageryProvider.prototype
    * @type {Credit}
    * @readonly
@@ -201,11 +201,11 @@ Object.defineProperties(GridImageryProvider.prototype, {
   },
 
   /**
-   * Gets a value indicating whether or not the images provided by this imagery provider
-   * include an alpha channel.  If this property is false, an alpha channel, if present, will
-   * be ignored.  If this property is true, any images without an alpha channel will be treated
-   * as if their alpha is 1.0 everywhere.  When this property is false, memory usage
-   * and texture upload time are reduced.
+   * 获取一个值，该值指示此图像提供程序是否提供图像
+   * 包括 Alpha 通道。 如果此属性为 false，则 Alpha 通道（如果存在）将
+   * 被忽略。 如果此属性为 true，则将处理任何没有 Alpha 通道的图像
+   * 就好像它们的 alpha 在所有地方都是 1.0 一样。 当此属性为 false 时，内存使用情况
+   * 和纹理上传时间缩短。
    * @memberof GridImageryProvider.prototype
    * @type {boolean}
    * @readonly
@@ -218,7 +218,7 @@ Object.defineProperties(GridImageryProvider.prototype, {
 });
 
 /**
- * Draws a grid of lines into a canvas.
+ * 在画布中绘制线条网格。
  */
 GridImageryProvider.prototype._drawGrid = function (context) {
   const minPixel = 0;
@@ -236,7 +236,7 @@ GridImageryProvider.prototype._drawGrid = function (context) {
 };
 
 /**
- * Render a grid into a canvas with background and glow
+ * 将网格渲染到具有背景和发光的画布中
  */
 GridImageryProvider.prototype._createGridCanvas = function () {
   const canvas = document.createElement("canvas");
@@ -278,40 +278,40 @@ GridImageryProvider.prototype._createGridCanvas = function () {
 };
 
 /**
- * Gets the credits to be displayed when a given tile is displayed.
+ * 获取在显示给定磁贴时要显示的制作者名单。
  *
- * @param {number} x The tile X coordinate.
- * @param {number} y The tile Y coordinate.
- * @param {number} level The tile level;
- * @returns {Credit[]} The credits to be displayed when the tile is displayed.
+ * @param {number} x 瓦片 X 坐标。
+ * @param {number} y 瓦片 Y 坐标。
+ * @param {number} level 瓦片级别;
+ * @returns {Credit[]} 显示磁贴时要显示的制作者名单。
  */
 GridImageryProvider.prototype.getTileCredits = function (x, y, level) {
   return undefined;
 };
 
 /**
- * Requests the image for a given tile.
+ * 请求给定磁贴的图像。
  *
- * @param {number} x The tile X coordinate.
- * @param {number} y The tile Y coordinate.
- * @param {number} level The tile level.
+ * @param {number} x 瓦片 X 坐标。
+ * @param {number} y 瓦片 Y 坐标。
+ * @param {number} level 瓦片级别。
  * @param {Request} [request] 请求对象。仅供内部使用。
- * @returns {Promise<HTMLCanvasElement>} The resolved image as a Canvas DOM object.
+ * @returns {Promise<HTMLCanvasElement>} 解析后的图像为 Canvas DOM 对象。
  */
 GridImageryProvider.prototype.requestImage = function (x, y, level, request) {
   return Promise.resolve(this._canvas);
 };
 
 /**
- * Picking features is not currently supported by this imagery provider, so this function simply returns
- * undefined.
+ * 此图像提供程序目前不支持选取功能，因此此函数仅返回
+ *定义。
  *
- * @param {number} x The tile X coordinate.
- * @param {number} y The tile Y coordinate.
- * @param {number} level The tile level.
- * @param {number} longitude The longitude at which to pick features.
- * @param {number} latitude  The latitude at which to pick features.
- * @return {undefined} Undefined since picking is not supported.
+ * @param {number} x 瓦片 X 坐标。
+ * @param {number} y 瓦片 Y 坐标。
+ * @param {number} level 瓦片级别。
+ * @param {number} longitude 选取特征的经度。
+ * @param {number} latitude 选取特征的纬度。
+ * @return {undefined} Undefined，因为不支持拣选。
  */
 GridImageryProvider.prototype.pickFeatures = function (
   x,

@@ -7,22 +7,22 @@ import DeveloperError from "../Core/DeveloperError.js";
 import SpecularEnvironmentCubeMap from "./SpecularEnvironmentCubeMap.js";
 
 /**
- * Properties for managing image-based lighting on tilesets and models.
- * Also manages the necessary resources and textures.
+ * 用于管理瓦片集和模型上基于图像的光照的属性。
+ * 还管理必要的资源和纹理。
  * <p>
- * If specular environment maps are used, {@link ImageBasedLighting#destroy} must be called
- * when the image-based lighting is no longer needed to clean up GPU resources properly.
- * If a model or tileset creates an instance of ImageBasedLighting, it will handle this.
- * Otherwise, the application is responsible for calling destroy().
+ * 如果使用镜面反射环境贴图，则必须调用 {@link ImageBasedLighting#destroy}
+ * 当不再需要基于图像的照明来正确清理 GPU 资源时。
+ * 如果模型或图块集创建 ImageBasedLighting 的实例，它将处理此事件。
+ * 否则，应用程序负责调用 destroy（）。
  *</p>
  *
  * @alias ImageBasedLighting
  * @constructor
  *
- * @param {Cartesian2} [options.imageBasedLightingFactor=Cartesian2(1.0, 1.0)] Scales diffuse and specular image-based lighting from the earth, sky, atmosphere and star skybox.
- * @param {number} [options.luminanceAtZenith=0.2] The sun's luminance at the zenith in kilo candela per meter squared to use for this model's procedural environment map.
- * @param {Cartesian3[]} [options.sphericalHarmonicCoefficients] The third order spherical harmonic coefficients used for the diffuse color of image-based lighting.
- * @param {string} [options.specularEnvironmentMaps] A URL to a KTX2 file that contains a cube map of the specular lighting and the convoluted specular mipmaps.
+ * @param {Cartesian2} [options.imageBasedLightingFactor=Cartesian2(1.0, 1.0)] 缩放来自地球、天空、大气和星星天空盒的基于图像的漫反射和镜面反射照明。
+ * @param {number} [options.luminanceAtZenith=0.2] 太阳在天顶的亮度，以千克坎德拉/平方米为单位，用于此模型的程序环境贴图。
+ * @param {Cartesian3[]} [options.sphericalHarmonicCoefficients] 用于基于图像的照明的漫反射颜色的三阶球谐系数。
+ * @param {string} [options.specularEnvironmentMaps] 一个指向 KTX2 文件的 URL，其中包含镜面反射照明的立方体贴图和复杂的镜面反射 mipmap。
  */
 function ImageBasedLighting(options) {
   options = defaultValue(options, defaultValue.EMPTY_OBJECT);
@@ -107,10 +107,10 @@ function ImageBasedLighting(options) {
 
 Object.defineProperties(ImageBasedLighting.prototype, {
   /**
-   * Cesium adds lighting from the earth, sky, atmosphere, and star skybox.
-   * This cartesian is used to scale the final diffuse and specular lighting
-   * contribution from those sources to the final color. A value of 0.0 will
-   * disable those light sources.
+   * Cesium 添加了来自地球、天空、大气层和星空盒的照明。
+   * 此笛卡尔用于缩放最终的漫反射和镜面反射照明
+   * 来自这些来源对最终颜色的贡献。值 0.0 将
+   * 禁用这些光源。
    *
    * @memberof ImageBasedLighting.prototype
    *
@@ -157,10 +157,10 @@ Object.defineProperties(ImageBasedLighting.prototype, {
   },
 
   /**
-   * The sun's luminance at the zenith in kilo candela per meter squared
-   * to use for this model's procedural environment map. This is used when
-   * {@link ImageBasedLighting#specularEnvironmentMaps} and {@link ImageBasedLighting#sphericalHarmonicCoefficients}
-   * are not defined.
+   * 太阳在天顶的亮度，单位为千坎德拉/平方米
+   * 用于此模型的程序环境贴图。这在以下情况下使用
+   * {@link ImageBasedLighting#specularEnvironmentMaps} 和 {@link ImageBasedLighting#sphericalHarmonicCoefficients}
+   * 未定义。
    *
    * @memberof ImageBasedLighting.prototype
    *
@@ -178,16 +178,16 @@ Object.defineProperties(ImageBasedLighting.prototype, {
   },
 
   /**
-   * The third order spherical harmonic coefficients used for the diffuse color of image-based lighting. When <code>undefined</code>, a diffuse irradiance
-   * computed from the atmosphere color is used.
+   * 用于基于图像的照明的漫反射色的三阶球谐系数。<code>如果未定义</code>，则 diffuse irradiance
+   * 使用根据大气颜色计算的。
    * <p>
-   * There are nine <code>Cartesian3</code> coefficients.
-   * The order of the coefficients is: L<sub>0,0</sub>, L<sub>1,-1</sub>, L<sub>1,0</sub>, L<sub>1,1</sub>, L<sub>2,-2</sub>, L<sub>2,-1</sub>, L<sub>2,0</sub>, L<sub>2,1</sub>, L<sub>2,2</sub>
+   * 有 9 个 <code>Cartesian3</code> 系数。
+   * 系数的顺序为：L<sub>0,0</sub>、L<sub>1，-1</sub>、L<sub>1,0</sub>、L<sub>1,1</sub>、L<sub>2，-2</sub>、L<sub>2，-1</sub>、L<sub>2,0</sub>、L<sub>2,1</sub>、L<sub>2,2</sub>
    * </p>
    *
-   * These values can be obtained by preprocessing the environment map using the <code>cmgen</code> tool of
-   * {@link https://github.com/google/filament/releases|Google's Filament project}.
-   * Be sure to use the <code>--no-mirror</code> option in <code>cmgen</code>.
+   * 这些值可以通过使用 <code>cmgen</code> 工具预处理环境贴图来获得
+   * {@link https://github.com/google/filament/releases|Google 的 Filament 项目}。
+   * 请务必使用 <code>cmgen</code> 中的 <code>--no-mirror</code> 选项。
    *
    * @memberof ImageBasedLighting.prototype
    *
@@ -213,7 +213,7 @@ Object.defineProperties(ImageBasedLighting.prototype, {
   },
 
   /**
-   * A URL to a KTX2 file that contains a cube map of the specular lighting and the convoluted specular mipmaps.
+   * 一个指向 KTX2 文件的 URL，其中包含镜面反射照明的立方体贴图和复杂的镜面反射 mipmap。
    *
    * @memberof ImageBasedLighting.prototype
    * @demo {@link https://sandcastle.cesium.com/index.html?src=Image-Based Lighting.html|Sandcastle Image Based Lighting Demo}
@@ -236,7 +236,7 @@ Object.defineProperties(ImageBasedLighting.prototype, {
   },
 
   /**
-   * Whether or not image-based lighting is enabled.
+   * 是否启用基于图像的照明。
    *
    * @memberof ImageBasedLighting.prototype
    * @type {boolean}
@@ -253,8 +253,8 @@ Object.defineProperties(ImageBasedLighting.prototype, {
   },
 
   /**
-   * Whether or not the models that use this lighting should regenerate their shaders,
-   * based on the properties and resources have changed.
+   * 使用此光照的模型是否应重新生成其着色器，
+   * 根据属性和资源已更改。
    *
    * @memberof ImageBasedLighting.prototype
    * @type {boolean}
@@ -268,7 +268,7 @@ Object.defineProperties(ImageBasedLighting.prototype, {
   },
 
   /**
-   * Whether or not to use the default spherical harmonic coefficients.
+   * 是否使用默认的球谐系数。
    *
    * @memberof ImageBasedLighting.prototype
    * @type {boolean}
@@ -282,7 +282,7 @@ Object.defineProperties(ImageBasedLighting.prototype, {
   },
 
   /**
-   * Whether or not the image-based lighting settings use spherical harmonic coefficients.
+   * 基于图像的光照设置是否使用球谐系数。
    *
    * @memberof ImageBasedLighting.prototype
    * @type {boolean}
@@ -299,7 +299,7 @@ Object.defineProperties(ImageBasedLighting.prototype, {
   },
 
   /**
-   * The cube map for the specular environment maps.
+   * 镜面反射环境贴图的立方体贴图。
    *
    * @memberof ImageBasedLighting.prototype
    * @type {SpecularEnvironmentCubeMap}
@@ -313,7 +313,7 @@ Object.defineProperties(ImageBasedLighting.prototype, {
   },
 
   /**
-   * Whether or not to use the default specular environment maps.
+   * 是否使用默认镜面反射环境贴图。
    *
    * @memberof ImageBasedLighting.prototype
    * @type {boolean}
@@ -327,7 +327,7 @@ Object.defineProperties(ImageBasedLighting.prototype, {
   },
 
   /**
-   * Whether or not the image-based lighting settings use specular environment maps.
+   * 基于图像的照明设置是否使用镜面反射环境贴图。
    *
    * @memberof ImageBasedLighting.prototype
    * @type {boolean}
@@ -472,12 +472,12 @@ ImageBasedLighting.prototype.update = function (frameState) {
 };
 
 /**
- * Returns true if this object was destroyed; otherwise, false.
+ * 如果此对象已销毁，则返回 true;否则为 false。
  * <br /><br />
- * If this object was destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.
+ * 如果此对象已销毁，则不应使用;调用
+ * <code>isDestroyed</code> 将导致 {@link DeveloperError} 异常。
  *
- * @returns {boolean} True if this object was destroyed; otherwise, false.
+ * @returns {boolean} 如果此对象被销毁，则为 True;否则为 false。
  *
  * @see ImageBasedLighting#destroy
  * @private
@@ -487,12 +487,12 @@ ImageBasedLighting.prototype.isDestroyed = function () {
 };
 
 /**
- * Destroys the WebGL resources held by this object.  Destroying an object allows for deterministic
- * release of WebGL resources, instead of relying on the garbage collector to destroy this object.
+ * 销毁此对象持有的 WebGL 资源。 销毁对象允许确定性
+ * 释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。
  * <br /><br />
- * Once an object is destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.  Therefore,
- * assign the return value (<code>undefined</code>) to the object as done in the example.
+ * 一旦对象被销毁，就不应该使用它;调用
+ *  <code>isDestroyed</code> 将导致 {@link DeveloperError} 异常。 因此
+ * 将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
  *
  * @exception {DeveloperError} 这个物体被摧毁了,destroy().
  *

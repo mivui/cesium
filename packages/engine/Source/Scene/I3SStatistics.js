@@ -3,9 +3,9 @@ import I3SDataProvider from "./I3SDataProvider.js";
 import Resource from "../Core/Resource.js";
 
 /**
- * This class implements an I3S statistics for Building Scene Layer.
+ * 此类实现 Building Scene Layer 的 I3S 统计信息。
  * <p>
- * Do not construct this directly, instead access statistics through {@link I3SDataProvider}.
+ * 不要直接构造它，而是通过 {@link I3SDataProvider} 访问统计数据。
  * </p>
  * @alias I3SStatistics
  * @internalConstructor
@@ -20,7 +20,7 @@ function I3SStatistics(dataProvider, uri) {
 
 Object.defineProperties(I3SStatistics.prototype, {
   /**
-   * Gets the resource for the statistics
+   * 获取统计信息的资源
    * @memberof I3SStatistics.prototype
    * @type {Resource}
    * @readonly
@@ -32,7 +32,7 @@ Object.defineProperties(I3SStatistics.prototype, {
   },
 
   /**
-   * Gets the I3S data for this object.
+   * 获取此对象的 I3S 数据。
    * @memberof I3SStatistics.prototype
    * @type {object}
    * @readonly
@@ -44,7 +44,7 @@ Object.defineProperties(I3SStatistics.prototype, {
   },
 
   /**
-   * Gets the collection of attribute names.
+   * 获取属性名称的集合。
    * @memberof I3SStatistics.prototype
    * @type {string[]}
    * @readonly
@@ -64,8 +64,8 @@ Object.defineProperties(I3SStatistics.prototype, {
 });
 
 /**
- * Loads the content.
- * @returns {Promise<object>} A promise that is resolved when the data of the I3S statistics is loaded
+ * 加载内容。
+ * @returns {Promise<object>} 加载 I3S 统计信息数据时解决的 Promise
  * @private
  */
 I3SStatistics.prototype.load = async function () {
