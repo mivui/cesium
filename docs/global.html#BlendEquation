@@ -165,9 +165,7 @@
 
             
 
-            <td class="description last">像素值为最小函数 （min（source， destination）） 提供。
-
-此方程式对每个像素颜色分量起作用。</td>
+            <td class="description last">像素值为最小函数 （min（source， destination）） 提供。此方程式对每个像素颜色分量起作用。</td>
         </tr>
 
     
@@ -190,9 +188,7 @@
 
             
 
-            <td class="description last">像素值为最大函数 （max（source， destination）） 提供。
-
-此方程式对每个像素颜色分量起作用。</td>
+            <td class="description last">像素值为最大函数 （max（source， destination）） 提供。此方程式对每个像素颜色分量起作用。</td>
         </tr>
 
     
@@ -329,9 +325,7 @@
 
 
 <div class="description">
-    像素值为最大函数 （max（source， destination）） 提供。
-
-此方程式对每个像素颜色分量起作用。
+    像素值为最大函数 （max（source， destination）） 提供。此方程式对每个像素颜色分量起作用。
 </div>
 
 
@@ -394,9 +388,7 @@
 
 
 <div class="description">
-    像素值为最小函数 （min（source， destination）） 提供。
-
-此方程式对每个像素颜色分量起作用。
+    像素值为最小函数 （min（source， destination）） 提供。此方程式对每个像素颜色分量起作用。
 </div>
 
 

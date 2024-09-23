@@ -122,10 +122,7 @@
 
 
 <div class="description">
-    创建一个后期处理舞台，该舞台使用黑色和白色渐变渲染输入纹理。
-<p>
-此阶段有一个统一的值，即 <code>gradations（渐变</code>），用于缩放每个像素的明亮度。
-</p>
+    创建一个后期处理舞台，该舞台使用黑色和白色渐变渲染输入纹理。<p>此阶段有一个统一的值，即 <code>gradations（渐变</code>），用于缩放每个像素的明亮度。</p>
 </div>
 
 
@@ -215,15 +212,7 @@
 
 
 <div class="description">
-    创建一个后期处理阶段，将高斯模糊应用于输入纹理。此阶段通常与另一个阶段结合使用。
-<p>
-此 stage 具有以下 uniforms：<code>delta</code>、<code>sigma</code> 和 <code>stepSize</code>。
-</p>
-<p>
-<code>delta</code> 和 <code>sigma</code> 用于计算高斯滤波器的权重。等式为 <code>exp（（-0.5 * delta * delta） / （sigma * sigma））。</code>
-<code>delta</code> 的默认值为 <code>1.0</code>。<code>sigma</code> 的默认值为 <code>2.0</code>。
-<code>stepSize</code> 是到下一个纹素的距离。默认值为 <code>1.0</code>。
-</p>
+    创建一个后期处理阶段，将高斯模糊应用于输入纹理。此阶段通常与另一个阶段结合使用。<p>此 stage 具有以下 uniforms：<code>delta</code>、<code>sigma</code> 和 <code>stepSize</code>。</p><p><code>delta</code> 和 <code>sigma</code> 用于计算高斯滤波器的权重。等式为 <code>exp（（-0.5 * delta * delta） / （sigma * sigma））。</code><code>delta</code> 的默认值为 <code>1.0</code>。<code>sigma</code> 的默认值为 <code>2.0</code>。<code>stepSize</code> 是到下一个纹素的距离。默认值为 <code>1.0</code>。</p>
 </div>
 
 
@@ -313,10 +302,7 @@
 
 
 <div class="description">
-    创建使输入纹理饱和的后期处理阶段。
-<p>
-此阶段有一个统一的值 <code>brightness</code>，用于缩放每个像素的饱和度。
-</p>
+    创建使输入纹理饱和的后期处理阶段。<p>此阶段有一个统一的值 <code>brightness</code>，用于缩放每个像素的饱和度。</p>
 </div>
 
 
@@ -406,21 +392,7 @@
 
 
 <div class="description">
-    创建应用景深效果的后期处理舞台。
-<p>
-景深模拟摄像机对焦。场景中的焦点对象
-将清晰，而未合焦的物体将变得模糊。
-</p>
-<p>
-此 stage 具有以下 uniforms：<code>focalDistance</code>、<code>delta</code>、<code>sigma</code> 和 <code>stepSize</code>。
-</p>
-<p>
-<code>focalDistance</code> 是距摄像机的距离（以米为单位），用于设置摄像机焦点。
-</p>
-<p>
-<code>delta</code>、<code>sigma</code> 和 <code>stepSize</code> 是与 <code>PostProcessStageLibrary#createBlurStage</code> 相同的属性。
-模糊应用于失焦区域。
-</p>
+    创建应用景深效果的后期处理舞台。<p>景深模拟摄像机对焦。场景中的焦点对象将清晰，而未合焦的物体将变得模糊。</p><p>此 stage 具有以下 uniforms：<code>focalDistance</code>、<code>delta</code>、<code>sigma</code> 和 <code>stepSize</code>。</p><p><code>focalDistance</code> 是距摄像机的距离（以米为单位），用于设置摄像机焦点。</p><p><code>delta</code>、<code>sigma</code> 和 <code>stepSize</code> 是与 <code>PostProcessStageLibrary#createBlurStage</code> 相同的属性。模糊应用于失焦区域。</p>
 </div>
 
 
@@ -510,20 +482,7 @@
 
 
 <div class="description">
-    创建检测边缘的后处理阶段。
-<p>
-当颜色位于边缘上时，将颜色写入输出纹理，并将 alpha 设置为 1.0。
-</p>
-<p>
-此阶段有以下制服：<code>颜色</code>和<code>长度</code>
-</p>
-<ul>
-<li><code>color</code> 是高亮显示的边缘的颜色。默认值为 <code>Color#BLACK</code>。</li>
-<li><code>length</code> 是边缘的长度（以像素为单位）。默认值为 <code>0.5</code>。</li>
-</ul>
-<p>
-2D 不支持此阶段。
-</p>
+    创建检测边缘的后处理阶段。<p>当颜色位于边缘上时，将颜色写入输出纹理，并将 alpha 设置为 1.0。</p><p>此阶段有以下制服：<code>颜色</code>和<code>长度</code></p><ul><li><code>color</code> 是高亮显示的边缘的颜色。默认值为 <code>Color#BLACK</code>。</li><li><code>length</code> 是边缘的长度（以像素为单位）。默认值为 <code>0.5</code>。</li></ul><p>2D 不支持此阶段。</p>
 </div>
 
 
@@ -581,17 +540,7 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// multiple silhouette effects
-const yellowEdge = Cesium.PostProcessStageLibrary.createEdgeDetectionStage();
-yellowEdge.uniforms.color = Cesium.Color.YELLOW;
-yellowEdge.selected = [feature0];
-
-const greenEdge = Cesium.PostProcessStageLibrary.createEdgeDetectionStage();
-greenEdge.uniforms.color = Cesium.Color.LIME;
-greenEdge.selected = [feature1];
-
-// draw edges around feature0 and feature1
-postProcessStages.add(Cesium.PostProcessStageLibrary.createSilhouetteStage([yellowEdge, greenEdge]);</code></pre>
+    <pre><code class="language-javascript">// multiple silhouette effectsconst yellowEdge = Cesium.PostProcessStageLibrary.createEdgeDetectionStage();yellowEdge.uniforms.color = Cesium.Color.YELLOW;yellowEdge.selected = [feature0];const greenEdge = Cesium.PostProcessStageLibrary.createEdgeDetectionStage();greenEdge.uniforms.color = Cesium.Color.LIME;greenEdge.selected = [feature1];// draw edges around feature0 and feature1postProcessStages.add(Cesium.PostProcessStageLibrary.createSilhouetteStage([yellowEdge, greenEdge]);</code></pre>
 
     
 
@@ -628,21 +577,7 @@ postProcessStages.add(Cesium.PostProcessStageLibrary.createSilhouetteStage([yell
 
 
 <div class="description">
-    创建一个后期处理舞台，该舞台应用模拟光线眩光的摄像机镜头。
-<p>
-此阶段有以下制服：<code>dirtTexture</code>、<code>starTexture</code>、<code>intensity</code>、<code>distortion</code>、<code>ghostDispersal</code>、
-<code>haloWidth</code>、<code>dirtAmount</code> 和 <code>earthRadius</code>。
-<ul>
-<li><code>dirtTexture</code> 是为模拟镜头上的污垢而采样的纹理。</li>
-<li><code>starTexture</code> 是为耀斑的星形图案采样的纹理。</li>
-<li><code>强度</code>是标量乘以镜头眩光的结果。默认值为 <code>2.0</code>。</li>
-<li><code>失真</code>是影响半音效果失真的标量值。默认值为 <code>10.0</code>。</li>
-<li><code>ghostDispersal</code> 是一个标量，指示光晕效果与纹理中心的距离。默认值为 <code>0.4</code>。</li>
-<li><code>haloWidth</code> 是一个标量，表示来自虚影扩散的 halo 的宽度。默认值为 <code>0.4</code>。</li>
-<li><code>dirtAmount</code> 是表示镜头上污垢量的标量。默认值为 <code>0.4</code>。</li>
-<li><code>earthRadius</code> 是地球的最大半径。默认值为 <code>Ellipsoid.WGS84.maximumRadius</code>。</li>
-</ul>
-</p>
+    创建一个后期处理舞台，该舞台应用模拟光线眩光的摄像机镜头。<p>此阶段有以下制服：<code>dirtTexture</code>、<code>starTexture</code>、<code>intensity</code>、<code>distortion</code>、<code>ghostDispersal</code>、<code>haloWidth</code>、<code>dirtAmount</code> 和 <code>earthRadius</code>。<ul><li><code>dirtTexture</code> 是为模拟镜头上的污垢而采样的纹理。</li><li><code>starTexture</code> 是为耀斑的星形图案采样的纹理。</li><li><code>强度</code>是标量乘以镜头眩光的结果。默认值为 <code>2.0</code>。</li><li><code>失真</code>是影响半音效果失真的标量值。默认值为 <code>10.0</code>。</li><li><code>ghostDispersal</code> 是一个标量，指示光晕效果与纹理中心的距离。默认值为 <code>0.4</code>。</li><li><code>haloWidth</code> 是一个标量，表示来自虚影扩散的 halo 的宽度。默认值为 <code>0.4</code>。</li><li><code>dirtAmount</code> 是表示镜头上污垢量的标量。默认值为 <code>0.4</code>。</li><li><code>earthRadius</code> 是地球的最大半径。默认值为 <code>Ellipsoid.WGS84.maximumRadius</code>。</li></ul></p>
 </div>
 
 
@@ -822,17 +757,7 @@ postProcessStages.add(Cesium.PostProcessStageLibrary.createSilhouetteStage([yell
 
 
 <div class="description">
-    创建应用剪影效果的后处理舞台。
-<p>
-剪影效果将边缘检测过程中的颜色与输入颜色纹理合成。
-</p>
-<p>
-当 <code>edgeDetectionStages</code> <code>未定义</code>时，此 stage 具有以下 uniforms：<code>color</code> 和 <code>length</code>
-</p>
-<p>
-<code>color</code> 是高亮显示的边缘的颜色。默认值为 <code>Color#BLACK</code>。
-<code>length</code> 是边缘的长度（以像素为单位）。默认值为 <code>0.5</code>。
-</p>
+    创建应用剪影效果的后处理舞台。<p>剪影效果将边缘检测过程中的颜色与输入颜色纹理合成。</p><p>当 <code>edgeDetectionStages</code> <code>未定义</code>时，此 stage 具有以下 uniforms：<code>color</code> 和 <code>length</code></p><p><code>color</code> 是高亮显示的边缘的颜色。默认值为 <code>Color#BLACK</code>。<code>length</code> 是边缘的长度（以像素为单位）。默认值为 <code>0.5</code>。</p>
 </div>
 
 
@@ -974,10 +899,7 @@ postProcessStages.add(Cesium.PostProcessStageLibrary.createSilhouetteStage([yell
 
 
 <div class="description">
-    是否支持环境光遮蔽阶段。
-<p>
-此阶段需要 WEBGL_depth_texture 扩展。
-</p>
+    是否支持环境光遮蔽阶段。<p>此阶段需要 WEBGL_depth_texture 扩展。</p>
 </div>
 
 
@@ -1119,10 +1041,7 @@ postProcessStages.add(Cesium.PostProcessStageLibrary.createSilhouetteStage([yell
 
 
 <div class="description">
-    是否支持景深舞台。
-<p>
-此阶段需要 WEBGL_depth_texture 扩展。
-</p>
+    是否支持景深舞台。<p>此阶段需要 WEBGL_depth_texture 扩展。</p>
 </div>
 
 
@@ -1264,10 +1183,7 @@ postProcessStages.add(Cesium.PostProcessStageLibrary.createSilhouetteStage([yell
 
 
 <div class="description">
-    是否支持边缘检测平台。
-<p>
-此阶段需要 WEBGL_depth_texture 扩展。
-</p>
+    是否支持边缘检测平台。<p>此阶段需要 WEBGL_depth_texture 扩展。</p>
 </div>
 
 
@@ -1409,10 +1325,7 @@ postProcessStages.add(Cesium.PostProcessStageLibrary.createSilhouetteStage([yell
 
 
 <div class="description">
-    是否支持 Silhouette 舞台。
-<p>
-此阶段需要 WEBGL_depth_texture 扩展。
-</p>
+    是否支持 Silhouette 舞台。<p>此阶段需要 WEBGL_depth_texture 扩展。</p>
 </div>
 
 

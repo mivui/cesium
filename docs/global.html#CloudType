@@ -340,9 +340,7 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">如果 （！Cesium.CloudType.validate（cloudType）） {
-throw new Cesium.DeveloperError（'cloudType must a valid value.'）;
-}</code></pre>
+    <pre><code class="language-javascript">如果 （！Cesium.CloudType.validate（cloudType）） {throw new Cesium.DeveloperError（'cloudType must a valid value.'）;}</code></pre>
 
     
 

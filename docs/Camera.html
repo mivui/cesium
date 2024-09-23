@@ -58,14 +58,7 @@
 
 
 <div class="description">
-    摄像机由位置、方向和视锥体定义。
-<br /><br />
-方向形成一个具有视图的正交基，向上和向右 = 视图 x 向上单位向量。
-<br /><br />
-视锥体由 6 个平面定义。
-每个平面都由一个 <a href="Cartesian4.html"><code>Cartesian4</code></a> 对象表示，其中 x、y 和 z 分量
-定义垂直于平面的单位向量，w 分量是
-从原点/相机位置开始的平面。
+    摄像机由位置、方向和视锥体定义。<br /><br />方向形成一个具有视图的正交基，向上和向右 = 视图 x 向上单位向量。<br /><br />视锥体由 6 个平面定义。每个平面都由一个 <a href="Cartesian4.html"><code>Cartesian4</code></a> 对象表示，其中 x、y 和 z 分量定义垂直于平面的单位向量，w 分量是从原点/相机位置开始的平面。
 </div>
 
 
@@ -159,15 +152,7 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Create a camera looking down the negative z-axis, positioned at the origin,
-// with a field of view of 60 degrees, and 1:1 aspect ratio.
-const camera = new Cesium.Camera(scene);
-camera.position = new Cesium.Cartesian3();
-camera.direction = Cesium.Cartesian3.negate(Cesium.Cartesian3.UNIT_Z, new Cesium.Cartesian3());
-camera.up = Cesium.Cartesian3.clone(Cesium.Cartesian3.UNIT_Y);
-camera.frustum.fov = Cesium.Math.PI_OVER_THREE;
-camera.frustum.near = 1.0;
-camera.frustum.far = 2.0;</code></pre>
+    <pre><code class="language-javascript">// Create a camera looking down the negative z-axis, positioned at the origin,// with a field of view of 60 degrees, and 1:1 aspect ratio.const camera = new Cesium.Camera(scene);camera.position = new Cesium.Cartesian3();camera.direction = Cesium.Cartesian3.negate(Cesium.Cartesian3.UNIT_Z, new Cesium.Cartesian3());camera.up = Cesium.Cartesian3.clone(Cesium.Cartesian3.UNIT_Y);camera.frustum.fov = Cesium.Math.PI_OVER_THREE;camera.frustum.near = 1.0;camera.frustum.far = 2.0;</code></pre>
 
     
 
@@ -288,9 +273,7 @@ camera.frustum.far = 2.0;</code></pre>
 
 
 <div class="description">
-    一个标量，用于乘以相机位置，并在设置相机以查看矩形后将其添加回来。
-值为零表示相机将查看整个 <code>Camera#DEFAULT_VIEW_RECTANGLE</code>，该值大于零
-会将其移离范围更远，小于零的值会让其靠近范围。
+    一个标量，用于乘以相机位置，并在设置相机以查看矩形后将其添加回来。值为零表示相机将查看整个 <code>Camera#DEFAULT_VIEW_RECTANGLE</code>，该值大于零会将其移离范围更远，小于零的值会让其靠近范围。
 </div>
 
 
@@ -533,8 +516,7 @@ camera.frustum.far = 2.0;</code></pre>
 
 
 <div class="description">
-    当参数不为时旋转相机的默认量
-提供给 look 方法。
+    当参数不为时旋转相机的默认量提供给 look 方法。
 </div>
 
 
@@ -597,8 +579,7 @@ camera.frustum.far = 2.0;</code></pre>
 
 
 <div class="description">
-    当参数不为
-提供给 move 方法。
+    当参数不为提供给 move 方法。
 </div>
 
 
@@ -661,8 +642,7 @@ camera.frustum.far = 2.0;</code></pre>
 
 
 <div class="description">
-    当参数不为时旋转相机的默认量
-提供给 rotate 方法。
+    当参数不为时旋转相机的默认量提供给 rotate 方法。
 </div>
 
 
@@ -725,8 +705,7 @@ camera.frustum.far = 2.0;</code></pre>
 
 
 <div class="description">
-    当参数不为
-提供给 Zoom 方法。
+    当参数不为提供给 Zoom 方法。
 </div>
 
 
@@ -1169,8 +1148,7 @@ camera.frustum.far = 2.0;</code></pre>
 
 
 <div class="description">
-    系数乘以用于确定固定摄像机位置的地图大小
-从表面缩小时。默认值为 1.5。仅对 2D 有效，并且地图是可旋转的。
+    系数乘以用于确定固定摄像机位置的地图大小从表面缩小时。默认值为 1.5。仅对 2D 有效，并且地图是可旋转的。
 </div>
 
 
@@ -1536,10 +1514,7 @@ camera.frustum.far = 2.0;</code></pre>
 
 
 <div class="description">
-    获取照相机的 <a href="Cartographic.html"><code>Cartographic</code></a> 位置，包括经度和纬度
-以弧度表示，高度以米表示。 在 2D 和 Columbus View 中，这是可能的
-表示返回的经度和纬度超出有效经度范围
-和纬度（当相机位于地图外部时）。
+    获取照相机的 <a href="Cartographic.html"><code>Cartographic</code></a> 位置，包括经度和纬度以弧度表示，高度以米表示。 在 2D 和 Columbus View 中，这是可能的表示返回的经度和纬度超出有效经度范围和纬度（当相机位于地图外部时）。
 </div>
 
 
@@ -2604,8 +2579,7 @@ camera.frustum.far = 2.0;</code></pre>
 
 
 <div class="description">
-    取消当前相机飞行并将相机保留在其当前位置。
-如果没有正在进行的航班，则此功能不执行任何操作。
+    取消当前相机飞行并将相机保留在其当前位置。如果没有正在进行的航班，则此功能不执行任何操作。
 </div>
 
 
@@ -2686,8 +2660,7 @@ camera.frustum.far = 2.0;</code></pre>
 
 
 <div class="description">
-    完成当前相机飞行并立即将相机移至最终目的地。
-如果没有正在进行的航班，则此功能不执行任何操作。
+    完成当前相机飞行并立即将相机移至最终目的地。如果没有正在进行的航班，则此功能不执行任何操作。
 </div>
 
 
@@ -3087,9 +3060,7 @@ camera.frustum.far = 2.0;</code></pre>
 
 
 <div class="description">
-    将摄像机飞至主视图。 使用 <code>camera#。DEFAULT_VIEW_RECTANGLE</code> 设置
-3D 场景的默认视图。 2D 视图和哥伦布视图的主视图显示
-整张地图。
+    将摄像机飞至主视图。 使用 <code>camera#。DEFAULT_VIEW_RECTANGLE</code> 设置3D 场景的默认视图。 2D 视图和哥伦布视图的主视图显示整张地图。
 </div>
 
 
@@ -3350,9 +3321,7 @@ camera.frustum.far = 2.0;</code></pre>
 
                 
             
-                一个包含方向和向上属性或航向、俯仰和滚动属性的对象。默认情况下，方向将指向
-在 3D 中朝向画面中心，在哥伦布视图中朝向负 z 方向。向上方向将在 3D 中指向局部北方，在正方向上指向
-哥伦布视图中的 y 方向。 在无限滚动模式下，2D 中不使用 Orientation。</td>
+                一个包含方向和向上属性或航向、俯仰和滚动属性的对象。默认情况下，方向将指向在 3D 中朝向画面中心，在哥伦布视图中朝向负 z 方向。向上方向将在 3D 中指向局部北方，在正方向上指向哥伦布视图中的 y 方向。 在无限滚动模式下，2D 中不使用 Orientation。</td>
         </tr>
 
     
@@ -3715,34 +3684,7 @@ camera.frustum.far = 2.0;</code></pre>
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// 1. Fly to a position with a top-down view
-viewer.camera.flyTo({
-    destination : Cesium.Cartesian3.fromDegrees(-117.16, 32.71, 15000.0)
-});
-
-// 2. Fly to a Rectangle with a top-down view
-viewer.camera.flyTo({
-    destination : Cesium.Rectangle.fromDegrees(west, south, east, north)
-});
-
-// 3. Fly to a position with an orientation using unit vectors.
-viewer.camera.flyTo({
-    destination : Cesium.Cartesian3.fromDegrees(-122.19, 46.25, 5000.0),
-    orientation : {
-        direction : new Cesium.Cartesian3(-0.04231243104240401, -0.20123236049443421, -0.97862924300734),
-        up : new Cesium.Cartesian3(-0.47934589305293746, -0.8553216253114552, 0.1966022179118339)
-    }
-});
-
-// 4. Fly to a position with an orientation using heading, pitch and roll.
-viewer.camera.flyTo({
-    destination : Cesium.Cartesian3.fromDegrees(-122.19, 46.25, 5000.0),
-    orientation : {
-        heading : Cesium.Math.toRadians(175.0),
-        pitch : Cesium.Math.toRadians(-35.0),
-        roll : 0.0
-    }
-});</code></pre>
+    <pre><code class="language-javascript">// 1. Fly to a position with a top-down viewviewer.camera.flyTo({    destination : Cesium.Cartesian3.fromDegrees(-117.16, 32.71, 15000.0)});// 2. Fly to a Rectangle with a top-down viewviewer.camera.flyTo({    destination : Cesium.Rectangle.fromDegrees(west, south, east, north)});// 3. Fly to a position with an orientation using unit vectors.viewer.camera.flyTo({    destination : Cesium.Cartesian3.fromDegrees(-122.19, 46.25, 5000.0),    orientation : {        direction : new Cesium.Cartesian3(-0.04231243104240401, -0.20123236049443421, -0.97862924300734),        up : new Cesium.Cartesian3(-0.47934589305293746, -0.8553216253114552, 0.1966022179118339)    }});// 4. Fly to a position with an orientation using heading, pitch and roll.viewer.camera.flyTo({    destination : Cesium.Cartesian3.fromDegrees(-122.19, 46.25, 5000.0),    orientation : {        heading : Cesium.Math.toRadians(175.0),        pitch : Cesium.Math.toRadians(-35.0),        roll : 0.0    }});</code></pre>
 
     
 
@@ -3779,16 +3721,7 @@ viewer.camera.flyTo({
 
 
 <div class="description">
-    将相机飞到当前视图包含提供的边界球体的位置。
-
-<p> 偏移量是以边界球为中心的本地北向参考系中的 heading/pitch/range。
-航向角和俯仰角在当地东西向北向上的参考系中定义。
-航向是与 y 轴成的角度，并逐渐沿 x 轴增加。Pitch 是从 xy 平面开始的旋转。正间距
-角度低于平面。负俯仰角位于平面上方。范围是距中心的距离。如果范围为
-zero，则计算一个范围，使整个边界球体可见。</p>
-
-<p>在 2D 和 Columbus View 中，必须有一个自上而下的视图。相机将放置在向下看的目标上方。高于
-target 将是范围。标题将与本地北对齐。</p>
+    将相机飞到当前视图包含提供的边界球体的位置。<p> 偏移量是以边界球为中心的本地北向参考系中的 heading/pitch/range。航向角和俯仰角在当地东西向北向上的参考系中定义。航向是与 y 轴成的角度，并逐渐沿 x 轴增加。Pitch 是从 xy 平面开始的旋转。正间距角度低于平面。负俯仰角位于平面上方。范围是距中心的距离。如果范围为zero，则计算一个范围，使整个边界球体可见。</p><p>在 2D 和 Columbus View 中，必须有一个自上而下的视图。相机将放置在向下看的目标上方。高于target 将是范围。标题将与本地北对齐。</p>
 </div>
 
 
@@ -4271,8 +4204,7 @@ target 将是范围。标题将与本地北对齐。</p>
 
 
 <div class="description">
-    获取摄像机位置的幅值。在 3D 中，这是矢量大小。在 2D 和
-哥伦布视图，这是到地图的距离。
+    获取摄像机位置的幅值。在 3D 中，这是矢量大小。在 2D 和哥伦布视图，这是到地图的距离。
 </div>
 
 
@@ -4362,8 +4294,7 @@ target 将是范围。标题将与本地北对齐。</p>
 
 
 <div class="description">
-    从相机位置通过 <code>windowPosition</code> 处的像素创建光线
-在世界坐标中。
+    从相机位置通过 <code>windowPosition</code> 处的像素创建光线在世界坐标中。
 </div>
 
 
@@ -5056,16 +4987,7 @@ target 将是范围。标题将与本地北对齐。</p>
 
 
 <div class="description">
-    使用目标和偏移量设置相机位置和方向。目标必须在
-世界坐标。偏移量可以是笛卡尔坐标，也可以是以目标为中心的本地东西向向上参考系中的航向/俯仰/范围。
-如果偏移量是笛卡尔矩阵，则它是与变换矩阵定义的参考系中心的偏移量。如果偏移量
-是航向/俯仰/范围，则航向和俯仰角在变换矩阵定义的参考系中定义。
-航向是与 y 轴成的角度，并逐渐沿 x 轴增加。Pitch 是从 xy 平面开始的旋转。正间距
-角度低于平面。负俯仰角位于平面上方。范围是距中心的距离。
-
-在 2D 中，必须有一个自上而下的视图。相机将放置在向下看的目标上方。高于
-target 将是偏移量的大小。航向将根据偏移量确定。如果标题不能为
-根据偏移量确定，航向将为北。
+    使用目标和偏移量设置相机位置和方向。目标必须在世界坐标。偏移量可以是笛卡尔坐标，也可以是以目标为中心的本地东西向向上参考系中的航向/俯仰/范围。如果偏移量是笛卡尔矩阵，则它是与变换矩阵定义的参考系中心的偏移量。如果偏移量是航向/俯仰/范围，则航向和俯仰角在变换矩阵定义的参考系中定义。航向是与 y 轴成的角度，并逐渐沿 x 轴增加。Pitch 是从 xy 平面开始的旋转。正间距角度低于平面。负俯仰角位于平面上方。范围是距中心的距离。在 2D 中，必须有一个自上而下的视图。相机将放置在向下看的目标上方。高于target 将是偏移量的大小。航向将根据偏移量确定。如果标题不能为根据偏移量确定，航向将为北。
 </div>
 
 
@@ -5199,16 +5121,7 @@ target 将是偏移量的大小。航向将根据偏移量确定。如果标题�
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// 1. Using a cartesian offset
-const center = Cesium.Cartesian3.fromDegrees(-98.0, 40.0);
-viewer.camera.lookAt(center, new Cesium.Cartesian3(0.0, -4790000.0, 3930000.0));
-
-// 2. Using a HeadingPitchRange offset
-const center = Cesium.Cartesian3.fromDegrees(-72.0, 40.0);
-const heading = Cesium.Math.toRadians(50.0);
-const pitch = Cesium.Math.toRadians(-20.0);
-const range = 5000.0;
-viewer.camera.lookAt(center, new Cesium.HeadingPitchRange(heading, pitch, range));</code></pre>
+    <pre><code class="language-javascript">// 1. Using a cartesian offsetconst center = Cesium.Cartesian3.fromDegrees(-98.0, 40.0);viewer.camera.lookAt(center, new Cesium.Cartesian3(0.0, -4790000.0, 3930000.0));// 2. Using a HeadingPitchRange offsetconst center = Cesium.Cartesian3.fromDegrees(-72.0, 40.0);const heading = Cesium.Math.toRadians(50.0);const pitch = Cesium.Math.toRadians(-20.0);const range = 5000.0;viewer.camera.lookAt(center, new Cesium.HeadingPitchRange(heading, pitch, range));</code></pre>
 
     
 
@@ -5245,15 +5158,7 @@ viewer.camera.lookAt(center, new Cesium.HeadingPitchRange(heading, pitch, range)
 
 
 <div class="description">
-    使用目标和变换矩阵设置摄像机位置和方向。偏移量可以是笛卡尔或航向/螺距/范围。
-如果偏移量是笛卡尔矩阵，则它是与变换矩阵定义的参考系中心的偏移量。如果偏移量
-是航向/俯仰/范围，则航向和俯仰角在变换矩阵定义的参考系中定义。
-航向是与 y 轴成的角度，并逐渐沿 x 轴增加。Pitch 是从 xy 平面开始的旋转。正间距
-角度低于平面。负俯仰角位于平面上方。范围是距中心的距离。
-
-在 2D 中，必须有一个自上而下的视图。照相机将放置在参考帧中心的上方。高于
-target 将是偏移量的大小。航向将根据偏移量确定。如果标题不能为
-根据偏移量确定，航向将为北。
+    使用目标和变换矩阵设置摄像机位置和方向。偏移量可以是笛卡尔或航向/螺距/范围。如果偏移量是笛卡尔矩阵，则它是与变换矩阵定义的参考系中心的偏移量。如果偏移量是航向/俯仰/范围，则航向和俯仰角在变换矩阵定义的参考系中定义。航向是与 y 轴成的角度，并逐渐沿 x 轴增加。Pitch 是从 xy 平面开始的旋转。正间距角度低于平面。负俯仰角位于平面上方。范围是距中心的距离。在 2D 中，必须有一个自上而下的视图。照相机将放置在参考帧中心的上方。高于target 将是偏移量的大小。航向将根据偏移量确定。如果标题不能为根据偏移量确定，航向将为北。
 </div>
 
 
@@ -5399,16 +5304,7 @@ target 将是偏移量的大小。航向将根据偏移量确定。如果标题�
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// 1. Using a cartesian offset
-const transform = Cesium.Transforms.eastNorthUpToFixedFrame(Cesium.Cartesian3.fromDegrees(-98.0, 40.0));
-viewer.camera.lookAtTransform(transform, new Cesium.Cartesian3(0.0, -4790000.0, 3930000.0));
-
-// 2. Using a HeadingPitchRange offset
-const transform = Cesium.Transforms.eastNorthUpToFixedFrame(Cesium.Cartesian3.fromDegrees(-72.0, 40.0));
-const heading = Cesium.Math.toRadians(50.0);
-const pitch = Cesium.Math.toRadians(-20.0);
-const range = 5000.0;
-viewer.camera.lookAtTransform(transform, new Cesium.HeadingPitchRange(heading, pitch, range));</code></pre>
+    <pre><code class="language-javascript">// 1. Using a cartesian offsetconst transform = Cesium.Transforms.eastNorthUpToFixedFrame(Cesium.Cartesian3.fromDegrees(-98.0, 40.0));viewer.camera.lookAtTransform(transform, new Cesium.Cartesian3(0.0, -4790000.0, 3930000.0));// 2. Using a HeadingPitchRange offsetconst transform = Cesium.Transforms.eastNorthUpToFixedFrame(Cesium.Cartesian3.fromDegrees(-72.0, 40.0));const heading = Cesium.Math.toRadians(50.0);const pitch = Cesium.Math.toRadians(-20.0);const range = 5000.0;viewer.camera.lookAtTransform(transform, new Cesium.HeadingPitchRange(heading, pitch, range));</code></pre>
 
     
 
@@ -5445,8 +5341,7 @@ viewer.camera.lookAtTransform(transform, new Cesium.HeadingPitchRange(heading, p
 
 
 <div class="description">
-    以弧度为单位，以相反方向围绕其右侧向量旋转摄像机
-的上方向向量（如果不在 2D 模式下）。
+    以弧度为单位，以相反方向围绕其右侧向量旋转摄像机的上方向向量（如果不在 2D 模式下）。
 </div>
 
 
@@ -5584,8 +5479,7 @@ viewer.camera.lookAtTransform(transform, new Cesium.HeadingPitchRange(heading, p
 
 
 <div class="description">
-    以相反方向按量（以弧度为单位）围绕其向上矢量旋转摄像机
-的右向量（如果不在 2D 模式下）。
+    以相反方向按量（以弧度为单位）围绕其向上矢量旋转摄像机的右向量（如果不在 2D 模式下）。
 </div>
 
 
@@ -5723,8 +5617,7 @@ viewer.camera.lookAtTransform(transform, new Cesium.HeadingPitchRange(heading, p
 
 
 <div class="description">
-    按量（以弧度为单位）沿方向围绕其上方向的向量旋转摄像机
-的右向量（如果不在 2D 模式下）。
+    按量（以弧度为单位）沿方向围绕其上方向的向量旋转摄像机的右向量（如果不在 2D 模式下）。
 </div>
 
 
@@ -5862,8 +5755,7 @@ viewer.camera.lookAtTransform(transform, new Cesium.HeadingPitchRange(heading, p
 
 
 <div class="description">
-    沿方向按量（以弧度为单位）围绕其右侧向量旋转摄像机
-的上方向向量（如果不在 2D 模式下）。
+    沿方向按量（以弧度为单位）围绕其右侧向量旋转摄像机的上方向向量（如果不在 2D 模式下）。
 </div>
 
 
@@ -6177,9 +6069,7 @@ viewer.camera.lookAtTransform(transform, new Cesium.HeadingPitchRange(heading, p
 
 
 <div class="description">
-    将摄像机的位置平移 <code>amount</code> 沿相反方向
-的 view vector。
-在 2D 模式下，这将缩小摄像机，而不是平移摄像机的位置。
+    将摄像机的位置平移 <code>amount</code> 沿相反方向的 view vector。在 2D 模式下，这将缩小摄像机，而不是平移摄像机的位置。
 </div>
 
 
@@ -6317,8 +6207,7 @@ viewer.camera.lookAtTransform(transform, new Cesium.HeadingPitchRange(heading, p
 
 
 <div class="description">
-    将摄像机的位置平移 <code>amount</code> 沿相反方向
-的上方向矢量。
+    将摄像机的位置平移 <code>amount</code> 沿相反方向的上方向矢量。
 </div>
 
 
@@ -6456,8 +6345,7 @@ viewer.camera.lookAtTransform(transform, new Cesium.HeadingPitchRange(heading, p
 
 
 <div class="description">
-    将摄像机的位置平移 <code>amount</code> 沿摄像机的视图向量。
-在 2D 模式下， 这将放大摄像机，而不是平移摄像机的位置。
+    将摄像机的位置平移 <code>amount</code> 沿摄像机的视图向量。在 2D 模式下， 这将放大摄像机，而不是平移摄像机的位置。
 </div>
 
 
@@ -6595,8 +6483,7 @@ viewer.camera.lookAtTransform(transform, new Cesium.HeadingPitchRange(heading, p
 
 
 <div class="description">
-    将摄像机的位置平移 <code>amount</code> 沿相反方向
-的摄像机的右矢量。
+    将摄像机的位置平移 <code>amount</code> 沿相反方向的摄像机的右矢量。
 </div>
 
 
@@ -7163,9 +7050,7 @@ viewer.camera.lookAtTransform(transform, new Cesium.HeadingPitchRange(heading, p
 
         
 <div class="param-desc">
-    如果选择了椭球体或映射，
-返回 World 中椭球体或地图表面的点
-坐标。如果未选取椭球体或映射，则返回 undefined。
+    如果选择了椭球体或映射，返回 World 中椭球体或地图表面的点坐标。如果未选取椭球体或映射，则返回 undefined。
 </div>
 
 
@@ -7196,10 +7081,7 @@ viewer.camera.lookAtTransform(transform, new Cesium.HeadingPitchRange(heading, p
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const canvas = viewer.scene.canvas;
-const center = new Cesium.Cartesian2(canvas.clientWidth / 2.0, canvas.clientHeight / 2.0);
-const ellipsoid = viewer.scene.ellipsoid;
-const result = viewer.camera.pickEllipsoid(center, ellipsoid);</code></pre>
+    <pre><code class="language-javascript">const canvas = viewer.scene.canvas;const center = new Cesium.Cartesian2(canvas.clientWidth / 2.0, canvas.clientHeight / 2.0);const ellipsoid = viewer.scene.ellipsoid;const result = viewer.camera.pickEllipsoid(center, ellipsoid);</code></pre>
 
     
 
@@ -7236,8 +7118,7 @@ const result = viewer.camera.pickEllipsoid(center, ellipsoid);</code></pre>
 
 
 <div class="description">
-    旋转摄像机 <code>axis</code> by <code>angle</code>. 距离
-相机到相机参考帧中心的位置保持不变。
+    旋转摄像机 <code>axis</code> by <code>angle</code>. 距离相机到相机参考帧中心的位置保持不变。
 </div>
 
 
@@ -8102,9 +7983,7 @@ const result = viewer.camera.pickEllipsoid(center, ellipsoid);</code></pre>
 
                 
             
-                一个包含方向和向上属性或航向、俯仰和滚动属性的对象。默认情况下，方向将指向
-在 3D 中朝向画面中心，在哥伦布视图中朝向负 z 方向。向上方向将在 3D 中指向局部北方，在正方向上指向
-哥伦布视图中的 y 方向。在无限滚动模式下，2D 中不使用 Orientation。</td>
+                一个包含方向和向上属性或航向、俯仰和滚动属性的对象。默认情况下，方向将指向在 3D 中朝向画面中心，在哥伦布视图中朝向负 z 方向。向上方向将在 3D 中指向局部北方，在正方向上指向哥伦布视图中的 y 方向。在无限滚动模式下，2D 中不使用 Orientation。</td>
         </tr>
 
     
@@ -8213,44 +8092,7 @@ const result = viewer.camera.pickEllipsoid(center, ellipsoid);</code></pre>
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// 1. Set position with a top-down view
-viewer.camera.setView({
-    destination : Cesium.Cartesian3.fromDegrees(-117.16, 32.71, 15000.0)
-});
-
-// 2 Set view with heading, pitch and roll
-viewer.camera.setView({
-    destination : cartesianPosition,
-    orientation: {
-        heading : Cesium.Math.toRadians(90.0), // east, default value is 0.0 (north)
-        pitch : Cesium.Math.toRadians(-90),    // default value (looking down)
-        roll : 0.0                             // default value
-    }
-});
-
-// 3. Change heading, pitch and roll with the camera position remaining the same.
-viewer.camera.setView({
-    orientation: {
-        heading : Cesium.Math.toRadians(90.0), // east, default value is 0.0 (north)
-        pitch : Cesium.Math.toRadians(-90),    // default value (looking down)
-        roll : 0.0                             // default value
-    }
-});
-
-
-// 4. View rectangle with a top-down view
-viewer.camera.setView({
-    destination : Cesium.Rectangle.fromDegrees(west, south, east, north)
-});
-
-// 5. Set position with an orientation using unit vectors.
-viewer.camera.setView({
-    destination : Cesium.Cartesian3.fromDegrees(-122.19, 46.25, 5000.0),
-    orientation : {
-        direction : new Cesium.Cartesian3(-0.04231243104240401, -0.20123236049443421, -0.97862924300734),
-        up : new Cesium.Cartesian3(-0.47934589305293746, -0.8553216253114552, 0.1966022179118339)
-    }
-});</code></pre>
+    <pre><code class="language-javascript">// 1. Set position with a top-down viewviewer.camera.setView({    destination : Cesium.Cartesian3.fromDegrees(-117.16, 32.71, 15000.0)});// 2 Set view with heading, pitch and rollviewer.camera.setView({    destination : cartesianPosition,    orientation: {        heading : Cesium.Math.toRadians(90.0), // east, default value is 0.0 (north)        pitch : Cesium.Math.toRadians(-90),    // default value (looking down)        roll : 0.0                             // default value    }});// 3. Change heading, pitch and roll with the camera position remaining the same.viewer.camera.setView({    orientation: {        heading : Cesium.Math.toRadians(90.0), // east, default value is 0.0 (north)        pitch : Cesium.Math.toRadians(-90),    // default value (looking down)        roll : 0.0                             // default value    }});// 4. View rectangle with a top-down viewviewer.camera.setView({    destination : Cesium.Rectangle.fromDegrees(west, south, east, north)});// 5. Set position with an orientation using unit vectors.viewer.camera.setView({    destination : Cesium.Cartesian3.fromDegrees(-122.19, 46.25, 5000.0),    orientation : {        direction : new Cesium.Cartesian3(-0.04231243104240401, -0.20123236049443421, -0.97862924300734),        up : new Cesium.Cartesian3(-0.47934589305293746, -0.8553216253114552, 0.1966022179118339)    }});</code></pre>
 
     
 
@@ -8287,9 +8129,7 @@ viewer.camera.setView({
 
 
 <div class="description">
-    将视锥体/投影切换为正交。
-
-此函数在 2D 中是无操作，始终为正交。
+    将视锥体/投影切换为正交。此函数在 2D 中是无操作，始终为正交。
 </div>
 
 
@@ -8370,9 +8210,7 @@ viewer.camera.setView({
 
 
 <div class="description">
-    将视锥体/投影切换到透视。
-
-此函数是 2D 中的无操作，必须始终是正交的。
+    将视锥体/投影切换到透视。此函数是 2D 中的无操作，必须始终是正交的。
 </div>
 
 
@@ -8729,17 +8567,7 @@ viewer.camera.setView({
 
 
 <div class="description">
-    设置摄像机，以便当前视图包含提供的边界球体。
-
-<p>偏移量是以边界球为中心的本地北向参考系中的 heading/pitch/range。
-航向角和俯仰角在当地东西向北向上的参考系中定义。
-航向是与 y 轴成的角度，并逐渐沿 x 轴增加。Pitch 是从 xy 平面开始的旋转。正间距
-角度低于平面。负俯仰角位于平面上方。范围是距中心的距离。如果范围为
-zero，则计算一个范围，使整个边界球体可见。</p>
-
-<p>在 2D 中，必须有一个自上而下的视图。相机将放置在向下看的目标上方。高于
-target 将是范围。航向将根据偏移量确定。如果标题不能为
-根据偏移量确定，航向将为北。</p>
+    设置摄像机，以便当前视图包含提供的边界球体。<p>偏移量是以边界球为中心的本地北向参考系中的 heading/pitch/range。航向角和俯仰角在当地东西向北向上的参考系中定义。航向是与 y 轴成的角度，并逐渐沿 x 轴增加。Pitch 是从 xy 平面开始的旋转。正间距角度低于平面。负俯仰角位于平面上方。范围是距中心的距离。如果范围为zero，则计算一个范围，使整个边界球体可见。</p><p>在 2D 中，必须有一个自上而下的视图。相机将放置在向下看的目标上方。高于target 将是范围。航向将根据偏移量确定。如果标题不能为根据偏移量确定，航向将为北。</p>
 </div>
 
 
@@ -9562,8 +9390,7 @@ target 将是范围。航向将根据偏移量确定。如果标题不能为
 
 
 <div class="description">
-    缩放 <code>amount</code> 沿 的相反方向
-摄像机的视图矢量。
+    缩放 <code>amount</code> 沿 的相反方向摄像机的视图矢量。
 </div>
 
 

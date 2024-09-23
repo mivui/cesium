@@ -58,11 +58,7 @@
 
 
 <div class="description">
-    场景周围的天空框用于绘制星星。 天空盒使用真赤道平均分 （TEME） 轴定义。
-<p>
-这仅在 3D 中受支持。 天空盒在变形为 2D 或哥伦布视图时淡出。 的大小
-天空盒不得超过 <a href="Scene.html#maximumCubeMapSize"><code>Scene#maximumCubeMapSize</code></a>。
-</p>
+    场景周围的天空框用于绘制星星。 天空盒使用真赤道平均分 （TEME） 轴定义。<p>这仅在 3D 中受支持。 天空盒在变形为 2D 或哥伦布视图时淡出。 的大小天空盒不得超过 <a href="Scene.html#maximumCubeMapSize"><code>Scene#maximumCubeMapSize</code></a>。</p>
 </div>
 
 
@@ -250,16 +246,7 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">scene.skyBox = new Cesium.SkyBox({
-  sources : {
-    positiveX : 'skybox_px.png',
-    negativeX : 'skybox_nx.png',
-    positiveY : 'skybox_py.png',
-    negativeY : 'skybox_ny.png',
-    positiveZ : 'skybox_pz.png',
-    negativeZ : 'skybox_nz.png'
-  }
-});</code></pre>
+    <pre><code class="language-javascript">scene.skyBox = new Cesium.SkyBox({  sources : {    positiveX : 'skybox_px.png',    negativeX : 'skybox_nx.png',    positiveY : 'skybox_py.png',    negativeY : 'skybox_ny.png',    positiveZ : 'skybox_pz.png',    negativeZ : 'skybox_nz.png'  }});</code></pre>
 
     
 
@@ -381,10 +368,7 @@
 
 
 <div class="description">
-    用于创建立方体贴图面的源：对象
-与 <code>positiveX</code>、<code>negativeX</code>、<code>positiveY</code>、
-<code>negativeY</code>、<code>positiveZ</code> 和 <code>negativeZ</code> 属性。
-这些可以是 URL 或 <code>Image</code> 对象。
+    用于创建立方体贴图面的源：对象与 <code>positiveX</code>、<code>negativeX</code>、<code>positiveY</code>、<code>negativeY</code>、<code>positiveZ</code> 和 <code>negativeZ</code> 属性。这些可以是 URL 或 <code>Image</code> 对象。
 </div>
 
 
@@ -549,12 +533,7 @@
 
 
 <div class="description">
-    销毁此对象持有的 WebGL 资源。 销毁对象允许确定性
-释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。
-<br /><br />
-一旦对象被销毁，就不应该使用它;调用
-<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。 因此
-将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
+    销毁此对象持有的 WebGL 资源。 销毁对象允许确定性释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。<br /><br />一旦对象被销毁，就不应该使用它;调用<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。 因此将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
 </div>
 
 
@@ -659,10 +638,7 @@
 
 
 <div class="description">
-    如果此对象已销毁，则返回 true;否则为 false。
-<br /><br />
-如果此对象已销毁，则不应使用;调用
- <code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。
+    如果此对象已销毁，则返回 true;否则为 false。<br /><br />如果此对象已销毁，则不应使用;调用 <code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。
 </div>
 
 
@@ -757,12 +733,7 @@
 
 
 <div class="description">
-    当 <a href="Viewer.html"><code>Viewer</code></a> 或 <a href="CesiumWidget.html"><code>CesiumWidget</code></a> 将场景渲染到
-获取渲染此基元所需的绘制命令。
-<p>
-请勿直接调用此函数。 这记录下来只是为了
-列出渲染场景时可能传播的异常：
-</p>
+    当 <a href="Viewer.html"><code>Viewer</code></a> 或 <a href="CesiumWidget.html"><code>CesiumWidget</code></a> 将场景渲染到获取渲染此基元所需的绘制命令。<p>请勿直接调用此函数。 这记录下来只是为了列出渲染场景时可能传播的异常：</p>
 </div>
 
 

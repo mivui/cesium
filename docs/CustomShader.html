@@ -58,26 +58,7 @@
 
 
 <div class="description">
-    用户定义的 GLSL 着色器也与 <a href="Model.html"><code>Model</code></a> 一起使用
-为 <a href="Cesium3DTileset.html"><code>Cesium3DTileset</code></a>。
-<p>
-如果使用纹理 uniform，则必须进行额外的资源管理：
-</p>
-<ul>
-  <li>
-    必须每帧调用 <code>update</code> 函数。当
-     自定义着色器传递给 <a href="Model.html"><code>Model</code></a> 或
-    <a href="Cesium3DTileset.html"><code>Cesium3DTileset</code></a>，此步骤会自动处理
-  </li>
-  <li>
-     <code>CustomShader#destroy</code> 当自定义着色器为
-     不再需要正确清理 GPU 资源。应用
-     负责调用该方法。
-  </li>
-</ul>
-<p>
-See the <a href="https://github.com/CesiumGS/cesium/tree/main/Documentation/CustomShaderGuide">Custom Shader Guide</a> for more detailed documentation.
-</p>
+    用户定义的 GLSL 着色器也与 <a href="Model.html"><code>Model</code></a> 一起使用为 <a href="Cesium3DTileset.html"><code>Cesium3DTileset</code></a>。<p>如果使用纹理 uniform，则必须进行额外的资源管理：</p><ul>  <li>    必须每帧调用 <code>update</code> 函数。当     自定义着色器传递给 <a href="Model.html"><code>Model</code></a> 或    <a href="Cesium3DTileset.html"><code>Cesium3DTileset</code></a>，此步骤会自动处理  </li>  <li>     <code>CustomShader#destroy</code> 当自定义着色器为     不再需要正确清理 GPU 资源。应用     负责调用该方法。  </li></ul><p>See the <a href="https://github.com/CesiumGS/cesium/tree/main/Documentation/CustomShaderGuide">Custom Shader Guide</a> for more detailed documentation.</p>
 </div>
 
 
@@ -437,35 +418,7 @@ See the <a href="https://github.com/CesiumGS/cesium/tree/main/Documentation/Cust
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const customShader = new CustomShader({
-  uniforms: {
-    u_colorIndex: {
-      type: Cesium.UniformType.FLOAT,
-      value: 1.0
-    },
-    u_normalMap: {
-      type: Cesium.UniformType.SAMPLER_2D,
-      value: new Cesium.TextureUniform({
-        url: "http://example.com/normal.png"
-      })
-    }
-  },
-  varyings: {
-    v_selectedColor: Cesium.VaryingType.VEC3
-  },
-  vertexShaderText: `
-  void vertexMain(VertexInput vsInput, inout czm_modelVertexOutput vsOutput) {
-    v_selectedColor = mix(vsInput.attributes.color_0, vsInput.attributes.color_1, u_colorIndex);
-    vsOutput.positionMC += 0.1 * vsInput.attributes.normal;
-  }
-  `,
-  fragmentShaderText: `
-  void fragmentMain(FragmentInput fsInput, inout czm_modelMaterial material) {
-    material.normal = texture(u_normalMap, fsInput.attributes.texCoord_0);
-    material.diffuse = v_selectedColor;
-  }
-  `
-});</code></pre>
+    <pre><code class="language-javascript">const customShader = new CustomShader({  uniforms: {    u_colorIndex: {      type: Cesium.UniformType.FLOAT,      value: 1.0    },    u_normalMap: {      type: Cesium.UniformType.SAMPLER_2D,      value: new Cesium.TextureUniform({        url: "http://example.com/normal.png"      })    }  },  varyings: {    v_selectedColor: Cesium.VaryingType.VEC3  },  vertexShaderText: `  void vertexMain(VertexInput vsInput, inout czm_modelVertexOutput vsOutput) {    v_selectedColor = mix(vsInput.attributes.color_0, vsInput.attributes.color_1, u_colorIndex);    vsOutput.positionMC += 0.1 * vsInput.attributes.normal;  }  `,  fragmentShaderText: `  void fragmentMain(FragmentInput fsInput, inout czm_modelMaterial material) {    material.normal = texture(u_normalMap, fsInput.attributes.texCoord_0);    material.diffuse = v_selectedColor;  }  `});</code></pre>
 
     
 
@@ -584,8 +537,7 @@ See the <a href="https://github.com/CesiumGS/cesium/tree/main/Documentation/Cust
 
 
 <div class="description">
-    使用自定义着色器时要使用的照明模型。
-这由 <code>CustomShaderPipelineStage</code> 使用
+    使用自定义着色器时要使用的照明模型。这由 <code>CustomShaderPipelineStage</code> 使用
 </div>
 
 
@@ -645,8 +597,7 @@ See the <a href="https://github.com/CesiumGS/cesium/tree/main/Documentation/Cust
 
 
 <div class="description">
-    一个值，用于确定自定义着色器如何与整体
-片段着色器。它由 <code>CustomShaderPipelineStage</code> 使用
+    一个值，用于确定自定义着色器如何与整体片段着色器。它由 <code>CustomShaderPipelineStage</code> 使用
 </div>
 
 
@@ -706,10 +657,7 @@ See the <a href="https://github.com/CesiumGS/cesium/tree/main/Documentation/Cust
 
 
 <div class="description">
-    半透明模式，用于确定如何应用自定义着色器。如果值为
-CustomShaderTransulcencyMode.OPAQUE 或 CustomShaderTransulcencyMode.TRANSLUCENT，自定义着色器
-将覆盖模型材质的设置。如果值为 CustomShaderTransulcencyMode.INHERIT，则
-自定义着色器将渲染为 Opaque 或 Translucent，具体取决于图元的材质设置。
+    半透明模式，用于确定如何应用自定义着色器。如果值为CustomShaderTransulcencyMode.OPAQUE 或 CustomShaderTransulcencyMode.TRANSLUCENT，自定义着色器将覆盖模型材质的设置。如果值为 CustomShaderTransulcencyMode.INHERIT，则自定义着色器将渲染为 Opaque 或 Translucent，具体取决于图元的材质设置。
 </div>
 
 
@@ -832,8 +780,7 @@ CustomShaderTransulcencyMode.OPAQUE 或 CustomShaderTransulcencyMode.TRANSLUCENT
 
 
 <div class="description">
-    用户声明的其他变化。
-这由 <code>CustomShaderPipelineStage</code> 使用
+    用户声明的其他变化。这由 <code>CustomShaderPipelineStage</code> 使用
 </div>
 
 

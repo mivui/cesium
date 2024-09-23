@@ -58,12 +58,7 @@
 
 
 <div class="description">
-    提供时间动态点云数据的回放。
-<p>
-点云帧的预取间隔由平均帧加载时间和当前时钟速度决定。
-如果无法及时加载中间帧以满足播放速度，则将跳过这些中间帧。如果帧
-small 或时钟足够慢，则不会跳过任何帧。
-</p>
+    提供时间动态点云数据的回放。<p>点云帧的预取间隔由平均帧加载时间和当前时钟速度决定。如果无法及时加载中间帧以满足播放速度，则将跳过这些中间帧。如果帧small 或时钟足够慢，则不会跳过任何帧。</p>
 </div>
 
 
@@ -658,10 +653,7 @@ small 或时钟足够慢，则不会跳过任何帧。
 
 
 <div class="description">
-    触发事件以指示已渲染新帧。
-<p>
-时间动态点云 <a href="TimeDynamicPointCloud.html"><code>TimeDynamicPointCloud</code></a> 被传递给事件监听器。
-</p>
+    触发事件以指示已渲染新帧。<p>时间动态点云 <a href="TimeDynamicPointCloud.html"><code>TimeDynamicPointCloud</code></a> 被传递给事件监听器。</p>
 </div>
 
 
@@ -693,9 +685,7 @@ small 或时钟足够慢，则不会跳过任何帧。
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">pointCloud.frameChanged.addEventListener(function(timeDynamicPointCloud) {
-    viewer.camera.viewBoundingSphere(timeDynamicPointCloud.boundingSphere);
-});</code></pre>
+    <pre><code class="language-javascript">pointCloud.frameChanged.addEventListener(function(timeDynamicPointCloud) {    viewer.camera.viewBoundingSphere(timeDynamicPointCloud.boundingSphere);});</code></pre>
 
     
 
@@ -731,17 +721,7 @@ small 或时钟足够慢，则不会跳过任何帧。
 
 
 <div class="description">
-    触发事件以指示帧加载失败。如果
-请求其 URI 失败或由于内容无效而处理失败。
-<p>
-如果没有事件侦听器，错误消息将记录到控制台。
-</p>
-<p>
-传递给侦听器的 error 对象包含两个属性：
-<ul>
-<li><code>URI</code>：失败帧的 URI。</li>
-<li><code>message</code>：错误消息。</li>
-</ul>
+    触发事件以指示帧加载失败。如果请求其 URI 失败或由于内容无效而处理失败。<p>如果没有事件侦听器，错误消息将记录到控制台。</p><p>传递给侦听器的 error 对象包含两个属性：<ul><li><code>URI</code>：失败帧的 URI。</li><li><code>message</code>：错误消息。</li></ul>
 </div>
 
 
@@ -773,10 +753,7 @@ small 或时钟足够慢，则不会跳过任何帧。
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">pointCloud.frameFailed.addEventListener(function(error) {
-    console.log(`An error occurred loading frame: ${error.uri}`);
-    console.log(`Error: ${error.message}`);
-});</code></pre>
+    <pre><code class="language-javascript">pointCloud.frameFailed.addEventListener(function(error) {    console.log(`An error occurred loading frame: ${error.uri}`);    console.log(`Error: ${error.message}`);});</code></pre>
 
     
 
@@ -812,13 +789,7 @@ small 或时钟足够慢，则不会跳过任何帧。
 
 
 <div class="description">
-    可用于缓存点云帧的最大 GPU 内存量（以 MB 为单位）。
-<p>
-未加载或渲染的帧将被卸载以强制执行此操作。
-</p>
-<p>
-如果减小此值导致卸载图块，则会在下一帧卸载图块。
-</p>
+    可用于缓存点云帧的最大 GPU 内存量（以 MB 为单位）。<p>未加载或渲染的帧将被卸载以强制执行此操作。</p><p>如果减小此值导致卸载图块，则会在下一帧卸载图块。</p>
 </div>
 
 
@@ -1009,13 +980,7 @@ small 或时钟足够慢，则不会跳过任何帧。
 
 
 <div class="description">
-    确定点云是投射还是接收来自光源的阴影。
-<p>
-启用阴影会影响性能。投射阴影的点云必须渲染两次，一次从摄像机渲染，另一次从灯光角度渲染。
-</p>
-<p>
-仅当 <a href="Viewer.html#shadows"><code>Viewer#shadows</code></a> 为 <code>true</code> 时，才会渲染阴影。
-</p>
+    确定点云是投射还是接收来自光源的阴影。<p>启用阴影会影响性能。投射阴影的点云必须渲染两次，一次从摄像机渲染，另一次从灯光角度渲染。</p><p>仅当 <a href="Viewer.html#shadows"><code>Viewer#shadows</code></a> 为 <code>true</code> 时，才会渲染阴影。</p>
 </div>
 
 
@@ -1141,13 +1106,7 @@ small 或时钟足够慢，则不会跳过任何帧。
 
 
 <div class="description">
-    样式，使用
-<a href="https://github.com/CesiumGS/3d-tiles/tree/main/specification/Styling">3D 瓦片样式语言</a>，
-应用于点云中的每个点。
-<p>
-分配 <code>undefined</code> 以删除样式，这将恢复视觉效果
-未应用样式时，点云的外观将变为默认值。
-</p>
+    样式，使用<a href="https://github.com/CesiumGS/3d-tiles/tree/main/specification/Styling">3D 瓦片样式语言</a>，应用于点云中的每个点。<p>分配 <code>undefined</code> 以删除样式，这将恢复视觉效果未应用样式时，点云的外观将变为默认值。</p>
 </div>
 
 
@@ -1176,16 +1135,7 @@ small 或时钟足够慢，则不会跳过任何帧。
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">pointCloud.style = new Cesium.Cesium3DTileStyle({
-   color : {
-       conditions : [
-           ['${Classification} === 0', 'color("purple", 0.5)'],
-           ['${Classification} === 1', 'color("red")'],
-           ['true', '${COLOR}']
-       ]
-   },
-   show : '${Classification} !== 2'
-});</code></pre>
+    <pre><code class="language-javascript">pointCloud.style = new Cesium.Cesium3DTileStyle({   color : {       conditions : [           ['${Classification} === 0', 'color("purple", 0.5)'],           ['${Classification} === 1', 'color("red")'],           ['true', '${COLOR}']       ]   },   show : '${Classification} !== 2'});</code></pre>
 
     
 
@@ -1298,12 +1248,7 @@ small 或时钟足够慢，则不会跳过任何帧。
 
 
 <div class="description">
-    销毁此对象持有的 WebGL 资源。 销毁对象允许确定性
-释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。
-<br /><br />
-一旦对象被销毁，就不应该使用它;调用
-<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。 因此
-将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
+    销毁此对象持有的 WebGL 资源。 销毁对象允许确定性释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。<br /><br />一旦对象被销毁，就不应该使用它;调用<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。 因此将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
 </div>
 
 
@@ -1408,10 +1353,7 @@ small 或时钟足够慢，则不会跳过任何帧。
 
 
 <div class="description">
-    如果此对象已销毁，则返回 true;否则为 false。
-<br /><br />
-如果此对象已销毁，则不应使用;调用
-<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。
+    如果此对象已销毁，则返回 true;否则为 false。<br /><br />如果此对象已销毁，则不应使用;调用<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。
 </div>
 
 
@@ -1506,8 +1448,7 @@ small 或时钟足够慢，则不会跳过任何帧。
 
 
 <div class="description">
-    将点云的 <a href="TimeDynamicPointCloud.html#style"><code>TimeDynamicPointCloud#style</code></a> 标记为 dirty，这将强制所有
-点以在下一帧中重新评估样式。
+    将点云的 <a href="TimeDynamicPointCloud.html#style"><code>TimeDynamicPointCloud#style</code></a> 标记为 dirty，这将强制所有点以在下一帧中重新评估样式。
 </div>
 
 

@@ -357,21 +357,7 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const primitive = new Cesium.Primitive({
-  geometryInstances : new Cesium.GeometryInstance({
-    geometry : new Cesium.PolylineGeometry({
-      positions : Cesium.Cartesian3.fromDegreesArray([
-        0.0, 0.0,
-        5.0, 0.0
-      ]),
-      width : 10.0,
-      vertexFormat : Cesium.PolylineMaterialAppearance.VERTEX_FORMAT
-    })
-  }),
-  appearance : new Cesium.PolylineMaterialAppearance({
-    material : Cesium.Material.fromType('Color')
-  })
-});</code></pre>
+    <pre><code class="language-javascript">const primitive = new Cesium.Primitive({  geometryInstances : new Cesium.GeometryInstance({    geometry : new Cesium.PolylineGeometry({      positions : Cesium.Cartesian3.fromDegreesArray([        0.0, 0.0,        5.0, 0.0      ]),      width : 10.0,      vertexFormat : Cesium.PolylineMaterialAppearance.VERTEX_FORMAT    })  }),  appearance : new Cesium.PolylineMaterialAppearance({    material : Cesium.Material.fromType('Color')  })});</code></pre>
 
     
 
@@ -428,8 +414,7 @@
 
 
 <div class="description">
-    所有 <a href="PolylineMaterialAppearance.html"><code>PolylineMaterialAppearance</code></a> 实例的 <a href="VertexFormat.html"><code>VertexFormat</code></a>
-兼容。这需要 <code>position</code> 和 <code>st</code> 属性。
+    所有 <a href="PolylineMaterialAppearance.html"><code>PolylineMaterialAppearance</code></a> 实例的 <a href="VertexFormat.html"><code>VertexFormat</code></a>兼容。这需要 <code>position</code> 和 <code>st</code> 属性。
 </div>
 
 
@@ -489,9 +474,7 @@
 
 
 <div class="description">
-    如果<code>为 true</code>，则几何体应被关闭，因此
-<a href="PolylineMaterialAppearance.html#renderState"><code>PolylineMaterialAppearance#renderState</code></a> 启用了背面剔除。
-对于 <code>PolylineMaterialAppearance</code>，此参数始终为 <code>false</code>。
+    如果<code>为 true</code>，则几何体应被关闭，因此<a href="PolylineMaterialAppearance.html#renderState"><code>PolylineMaterialAppearance#renderState</code></a> 启用了背面剔除。对于 <code>PolylineMaterialAppearance</code>，此参数始终为 <code>false</code>。
 </div>
 
 
@@ -614,8 +597,7 @@
 
 
 <div class="description">
-    用于确定片段颜色的材料。 与其他 <code>不同ialAppearance</code>
-属性，这不是只读的，因此外观的材质可以动态更改。
+    用于确定片段颜色的材料。 与其他 <code>不同ialAppearance</code>属性，这不是只读的，因此外观的材质可以动态更改。
 </div>
 
 
@@ -683,12 +665,7 @@
 
 
 <div class="description">
-    渲染几何体时使用的 WebGL 固定函数状态。
-<p>
-在构造 <a href="PolylineMaterialAppearance.html"><code>PolylineMaterialAppearance</code></a> 时，可以显式定义渲染状态
-实例，或者通过 <a href="PolylineMaterialAppearance.html#translucent"><code>PolylineMaterialAppearance#translucent</code></a> 隐式设置
-和 <a href="PolylineMaterialAppearance.html#closed"><code>PolylineMaterialAppearance#closed</code></a> 的 Package。
-</p>
+    渲染几何体时使用的 WebGL 固定函数状态。<p>在构造 <a href="PolylineMaterialAppearance.html"><code>PolylineMaterialAppearance</code></a> 时，可以显式定义渲染状态实例，或者通过 <a href="PolylineMaterialAppearance.html#translucent"><code>PolylineMaterialAppearance#translucent</code></a> 隐式设置和 <a href="PolylineMaterialAppearance.html#closed"><code>PolylineMaterialAppearance#closed</code></a> 的 Package。</p>
 </div>
 
 
@@ -748,8 +725,7 @@
 
 
 <div class="description">
-    如果<code>为 true</code>，则几何体应显示为半透明，因此
-<a href="PolylineMaterialAppearance.html#renderState"><code>PolylineMaterialAppearance#renderState</code></a> 已启用 Alpha 混合。
+    如果<code>为 true</code>，则几何体应显示为半透明，因此<a href="PolylineMaterialAppearance.html#renderState"><code>PolylineMaterialAppearance#renderState</code></a> 已启用 Alpha 混合。
 </div>
 
 
@@ -812,9 +788,7 @@
 
 
 <div class="description">
-    与此外观实例兼容的 <a href="VertexFormat.html"><code>VertexFormat</code></a>。
-几何体可以具有更多顶点属性，并且仍然兼容 - 在
-潜在的性能成本 - 但不能更少。
+    与此外观实例兼容的 <a href="VertexFormat.html"><code>VertexFormat</code></a>。几何体可以具有更多顶点属性，并且仍然兼容 - 在潜在的性能成本 - 但不能更少。
 </div>
 
 
@@ -944,8 +918,7 @@
 
 
 <div class="description">
-    以程序方式创建完整的 GLSL 片段着色器源。 对于 <a href="PolylineMaterialAppearance.html"><code>PolylineMaterialAppearance</code></a>，
-此数据源自 <a href="PolylineMaterialAppearance.html#fragmentShaderSource"><code>PolylineMaterialAppearance#fragmentShaderSource</code></a> 和 <a href="PolylineMaterialAppearance.html#material"><code>PolylineMaterialAppearance#material</code></a>。
+    以程序方式创建完整的 GLSL 片段着色器源。 对于 <a href="PolylineMaterialAppearance.html"><code>PolylineMaterialAppearance</code></a>，此数据源自 <a href="PolylineMaterialAppearance.html#fragmentShaderSource"><code>PolylineMaterialAppearance#fragmentShaderSource</code></a> 和 <a href="PolylineMaterialAppearance.html#material"><code>PolylineMaterialAppearance#material</code></a>。
 </div>
 
 
@@ -1035,9 +1008,7 @@
 
 
 <div class="description">
-    创建渲染状态。 这不是最终的渲染状态实例;相反
-它可以包含与渲染状态相同的渲染状态属性的子集
-在上下文中创建。
+    创建渲染状态。 这不是最终的渲染状态实例;相反它可以包含与渲染状态相同的渲染状态属性的子集在上下文中创建。
 </div>
 
 

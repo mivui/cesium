@@ -47,7 +47,7 @@
 
 
         
-            <div class="description">原点相对于对象的垂直位置，例如 <a href="Billboard.html"><code>Billboard</code></a>或 <code>label</code> 的 例如，将垂直原点设置为 <code>TOP</code>或 <code>BOTTOM</code> 将在上方或下方显示广告牌（在屏幕空间中）锚点位置。<br /><br /><div align='center'><img src='图片/Billboard.setVerticalOrigin.png' width='695' height='175' /><br /></div></div>
+            <div class="description">原点相对于对象的垂直位置，例如 <a href="Billboard.html"><code>Billboard</code></a>或 <code>label</code> 的 例如，将垂直原点设置为 <code>TOP</code>或 <code>BOTTOM</code> 将在上方或下方显示广告牌（在屏幕空间中）锚点位置。<br /><br /><div align='center'><img src='Images/Billboard.setVerticalOrigin.png' width='695' height='175' /><br /></div></div>
         
 
         

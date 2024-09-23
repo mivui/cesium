@@ -161,8 +161,7 @@
 
 
 <div class="description">
-    将图层添加到集合时引发的事件。 事件处理程序将传递给
-和添加它的索引。
+    将图层添加到集合时引发的事件。 事件处理程序将传递给和添加它的索引。
 </div>
 
 
@@ -225,8 +224,7 @@
 
 
 <div class="description">
-    当图层在集合中的位置发生变化时引发的事件。 事件处理程序将传递给
-已移动，移动后的新索引和移动前的旧索引。
+    当图层在集合中的位置发生变化时引发的事件。 事件处理程序将传递给已移动，移动后的新索引和移动前的旧索引。
 </div>
 
 
@@ -289,8 +287,7 @@
 
 
 <div class="description">
-    从集合中删除图层时引发的事件。 事件处理程序将传递给
-已删除，并从中删除了该索引。
+    从集合中删除图层时引发的事件。 事件处理程序将传递给已删除，并从中删除了该索引。
 </div>
 
 
@@ -353,10 +350,7 @@
 
 
 <div class="description">
-    通过设置
-<a href="ImageryLayer.html#show"><code>ImageryLayer#show</code></a> 属性。 事件处理程序将传递对此层的引用
-集合中层的索引，以及一个标志（如果层现在为 true）
-显示或 false（如果现在隐藏）。
+    通过设置<a href="ImageryLayer.html#show"><code>ImageryLayer#show</code></a> 属性。 事件处理程序将传递对此层的引用集合中层的索引，以及一个标志（如果层现在为 true）显示或 false（如果现在隐藏）。
 </div>
 
 
@@ -572,8 +566,7 @@
 
                 
             
-                要添加层的索引。 如果省略，图层将
-添加到所有现有图层的顶部。</td>
+                要添加层的索引。 如果省略，图层将添加到所有现有图层的顶部。</td>
         </tr>
 
     
@@ -630,11 +623,9 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">const imageryLayer = Cesium.ImageryLayer.fromWorldImagery();
-scene.imageryLayers.add(imageryLayer);</code></pre>
+    <pre><code class="language-javascript">const imageryLayer = Cesium.ImageryLayer.fromWorldImagery();scene.imageryLayers.add(imageryLayer);</code></pre>
 
-    <pre><code class="language-javascript">const imageryLayer = Cesium.ImageryLayer.fromProviderAsync(Cesium.IonImageryProvider.fromAssetId(3812));
-scene.imageryLayers.add(imageryLayer);</code></pre>
+    <pre><code class="language-javascript">const imageryLayer = Cesium.ImageryLayer.fromProviderAsync(Cesium.IonImageryProvider.fromAssetId(3812));scene.imageryLayers.add(imageryLayer);</code></pre>
 
     
 
@@ -757,8 +748,7 @@ scene.imageryLayers.add(imageryLayer);</code></pre>
 
                 
             
-                要添加层的索引。 如果省略，图层将
-添加到所有现有图层的顶部。</td>
+                要添加层的索引。 如果省略，图层将添加到所有现有图层的顶部。</td>
         </tr>
 
     
@@ -810,12 +800,7 @@ scene.imageryLayers.add(imageryLayer);</code></pre>
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">try {
-   const provider = await Cesium.IonImageryProvider.fromAssetId(3812);
-   scene.imageryLayers.addImageryProvider(provider);
-} catch (error) {
-  console.log(`There was an error creating the imagery layer. ${error}`)
-}</code></pre>
+    <pre><code class="language-javascript">try {   const provider = await Cesium.IonImageryProvider.fromAssetId(3812);   scene.imageryLayers.addImageryProvider(provider);} catch (error) {  console.log(`There was an error creating the imagery layer. ${error}`)}</code></pre>
 
     
 
@@ -987,13 +972,7 @@ scene.imageryLayers.add(imageryLayer);</code></pre>
 
 
 <div class="description">
-    销毁此集合中所有层所持有的 WebGL 资源。 显式销毁此
-对象允许确定性地释放 WebGL 资源，而不是依赖垃圾
-收藏家。
-<br /><br />
-此对象一旦被销毁，就不应使用;调用
-<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。 因此
-将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
+    销毁此集合中所有层所持有的 WebGL 资源。 显式销毁此对象允许确定性地释放 WebGL 资源，而不是依赖垃圾收藏家。<br /><br />此对象一旦被销毁，就不应使用;调用<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。 因此将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
 </div>
 
 
@@ -1368,10 +1347,7 @@ scene.imageryLayers.add(imageryLayer);</code></pre>
 
 
 <div class="description">
-    如果此对象已销毁，则返回 true;否则为 false。
-<br /><br />
-如果此对象已销毁，则不应使用;调用
-<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。
+    如果此对象已销毁，则返回 true;否则为 false。<br /><br />如果此对象已销毁，则不应使用;调用<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。
 </div>
 
 
@@ -1768,9 +1744,7 @@ scene.imageryLayers.add(imageryLayer);</code></pre>
 
 
 <div class="description">
-    异步确定与拾取光线相交的影像图层要素。 相交的影像
-通过为每个相交的影像图层切片调用 <a href="ImageryProvider.html#pickFeatures"><code>ImageryProvider#pickFeatures</code></a> 来查找图层要素
-通过选取射线。 要从屏幕上的某个位置计算拾取光线，请使用 <code>Camera.getPickRay</code>。
+    异步确定与拾取光线相交的影像图层要素。 相交的影像通过为每个相交的影像图层切片调用 <a href="ImageryProvider.html#pickFeatures"><code>ImageryProvider#pickFeatures</code></a> 来查找图层要素通过选取射线。 要从屏幕上的某个位置计算拾取光线，请使用 <code>Camera.getPickRay</code>。
 </div>
 
 
@@ -1865,11 +1839,7 @@ scene.imageryLayers.add(imageryLayer);</code></pre>
 
         
 <div class="param-desc">
-    一个 Promise，它解析为与拾取光线相交的特征数组。
-如果可以快速确定没有要素相交（例如，
-因为没有活动图像提供程序支持 <a href="ImageryProvider.html#pickFeatures"><code>ImageryProvider#pickFeatures</code></a>
-或因为拾取光线不与曲面相交），此函数将
-返回 undefined。
+    一个 Promise，它解析为与拾取光线相交的特征数组。如果可以快速确定没有要素相交（例如，因为没有活动图像提供程序支持 <a href="ImageryProvider.html#pickFeatures"><code>ImageryProvider#pickFeatures</code></a>或因为拾取光线不与曲面相交），此函数将返回 undefined。
 </div>
 
 
@@ -1900,19 +1870,7 @@ scene.imageryLayers.add(imageryLayer);</code></pre>
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const pickRay = viewer.camera.getPickRay(windowPosition);
-const featuresPromise = viewer.imageryLayers.pickImageryLayerFeatures(pickRay, viewer.scene);
-if (!Cesium.defined(featuresPromise)) {
-    console.log('No features picked.');
-} else {
-    Promise.resolve(featuresPromise).then(function(features) {
-        // This function is called asynchronously when the list if picked features is available.
-        console.log(`Number of features: ${features.length}`);
-        if (features.length > 0) {
-            console.log(`First feature name: ${features[0].name}`);
-        }
-    });
-}</code></pre>
+    <pre><code class="language-javascript">const pickRay = viewer.camera.getPickRay(windowPosition);const featuresPromise = viewer.imageryLayers.pickImageryLayerFeatures(pickRay, viewer.scene);if (!Cesium.defined(featuresPromise)) {    console.log('No features picked.');} else {    Promise.resolve(featuresPromise).then(function(features) {        // This function is called asynchronously when the list if picked features is available.        console.log(`Number of features: ${features.length}`);        if (features.length > 0) {            console.log(`First feature name: ${features[0].name}`);        }    });}</code></pre>
 
     
 
@@ -1949,8 +1907,7 @@ if (!Cesium.defined(featuresPromise)) {
 
 
 <div class="description">
-    确定与拾取光线相交的图像图层。要从
-location，请使用 <code>Camera.getPickRay</code>。
+    确定与拾取光线相交的图像图层。要从location，请使用 <code>Camera.getPickRay</code>。
 </div>
 
 
@@ -2045,9 +2002,7 @@ location，请使用 <code>Camera.getPickRay</code>。
 
         
 <div class="param-desc">
-    一个包含所有
-与给定拾取光线相交的图层。未定义的 if
-未选择任何图层。
+    一个包含所有与给定拾取光线相交的图层。未定义的 if未选择任何图层。
 </div>
 
 
@@ -2531,8 +2486,7 @@ location，请使用 <code>Camera.getPickRay</code>。
 
         
 <div class="param-desc">
-    true，如果图层位于集合中并被删除，
-如果图层不在集合中，则为 false。
+    true，如果图层位于集合中并被删除，如果图层不在集合中，则为 false。
 </div>
 
 

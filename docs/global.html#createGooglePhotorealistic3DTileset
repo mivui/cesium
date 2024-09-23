@@ -73,26 +73,9 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">const viewer = new Cesium.Viewer("cesiumContainer");
+    <pre><code class="language-javascript">const viewer = new Cesium.Viewer("cesiumContainer");try {  const tileset = await Cesium.createGooglePhotorealistic3DTileset();  viewer.scene.primitives.add(tileset));} catch (error) {  console.log(`Error creating tileset: ${error}`);}</code></pre>
 
-try {
-  const tileset = await Cesium.createGooglePhotorealistic3DTileset();
-  viewer.scene.primitives.add(tileset));
-} catch (error) {
-  console.log(`Error creating tileset: ${error}`);
-}</code></pre>
-
-    <pre><code class="language-javascript">// Use your own Google Maps API key
-Cesium.GoogleMaps.defaultApiKey = "your-api-key";
-
-const viewer = new Cesium.Viewer("cesiumContainer");
-
-try {
-  const tileset = await Cesium.createGooglePhotorealistic3DTileset();
-  viewer.scene.primitives.add(tileset));
-} catch (error) {
-  console.log(`Error creating tileset: ${error}`);
-}</code></pre>
+    <pre><code class="language-javascript">// Use your own Google Maps API keyCesium.GoogleMaps.defaultApiKey = "your-api-key";const viewer = new Cesium.Viewer("cesiumContainer");try {  const tileset = await Cesium.createGooglePhotorealistic3DTileset();  viewer.scene.primitives.add(tileset));} catch (error) {  console.log(`Error creating tileset: ${error}`);}</code></pre>
 
     
 

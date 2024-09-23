@@ -58,27 +58,7 @@
 
 
 <div class="description">
-    分类基元表示在 <a href="Scene.html"><code>Scene</code></a> 中封闭几何体的体积，以便高亮显示。
-<p>
-基元将几何体实例与描述完整着色的 <a href="Appearance.html"><code>Appearance</code></a> 组合在一起，包括
-<a href="Material.html"><code>Material</code></a> 和 <code>RenderState</code> 的 RenderState} 中。 粗略地说，geometry 实例定义了结构和位置，
-和外观定义视觉特征。 解耦的几何图形和外观使我们能够混合
-并匹配其中的大多数，并彼此独立地添加新的几何图形或外观。
-此时仅支持在所有实例中具有相同颜色的 <a href="PerInstanceColorAppearance.html"><code>PerInstanceColorAppearance</code></a> 使用
-ClassificationPrimitive 径直.
-要获得完整的 <a href="Appearance.html"><code>Appearance</code></a> 支持，请在对地形或 3D 瓦片进行分类时改用 <a href="GroundPrimitive.html"><code>GroundPrimitive</code></a>。
-</p>
-<p>
-为了正确渲染，此功能需要 EXT_frag_depth WebGL 扩展。对于不支持此扩展的硬件，有
-将在某些视角下渲染伪影。
-</p>
-<p>
-有效的几何图形包括 <a href="BoxGeometry.html"><code>BoxGeometry</code></a>、<a href="CylinderGeometry.html"><code>CylinderGeometry</code></a>、<a href="EllipsoidGeometry.html"><code>EllipsoidGeometry</code></a>、<a href="PolylineVolumeGeometry.html"><code>PolylineVolumeGeometry</code></a> 和 <a href="SphereGeometry.html"><code>SphereGeometry</code></a>。
-</p>
-<p>
-跟随椭球体表面的几何图形，例如 <a href="CircleGeometry.html"><code>CircleGeometry</code></a>、<a href="CorridorGeometry.html"><code>CorridorGeometry</code></a>、<a href="EllipseGeometry.html"><code>EllipseGeometry</code></a>、<a href="PolygonGeometry.html"><code>PolygonGeometry</code></a> 和 <a href="RectangleGeometry.html"><code>RectangleGeometry</code></a>，
-如果它们是凸出体积，则它们也有效;否则，它们将不会被渲染。
-</p>
+    分类基元表示在 <a href="Scene.html"><code>Scene</code></a> 中封闭几何体的体积，以便高亮显示。<p>基元将几何体实例与描述完整着色的 <a href="Appearance.html"><code>Appearance</code></a> 组合在一起，包括<a href="Material.html"><code>Material</code></a> 和 <code>RenderState</code> 的 RenderState} 中。 粗略地说，geometry 实例定义了结构和位置，和外观定义视觉特征。 解耦的几何图形和外观使我们能够混合并匹配其中的大多数，并彼此独立地添加新的几何图形或外观。此时仅支持在所有实例中具有相同颜色的 <a href="PerInstanceColorAppearance.html"><code>PerInstanceColorAppearance</code></a> 使用ClassificationPrimitive 径直.要获得完整的 <a href="Appearance.html"><code>Appearance</code></a> 支持，请在对地形或 3D 瓦片进行分类时改用 <a href="GroundPrimitive.html"><code>GroundPrimitive</code></a>。</p><p>为了正确渲染，此功能需要 EXT_frag_depth WebGL 扩展。对于不支持此扩展的硬件，有将在某些视角下渲染伪影。</p><p>有效的几何图形包括 <a href="BoxGeometry.html"><code>BoxGeometry</code></a>、<a href="CylinderGeometry.html"><code>CylinderGeometry</code></a>、<a href="EllipsoidGeometry.html"><code>EllipsoidGeometry</code></a>、<a href="PolylineVolumeGeometry.html"><code>PolylineVolumeGeometry</code></a> 和 <a href="SphereGeometry.html"><code>SphereGeometry</code></a>。</p><p>跟随椭球体表面的几何图形，例如 <a href="CircleGeometry.html"><code>CircleGeometry</code></a>、<a href="CorridorGeometry.html"><code>CorridorGeometry</code></a>、<a href="EllipseGeometry.html"><code>EllipseGeometry</code></a>、<a href="PolygonGeometry.html"><code>PolygonGeometry</code></a> 和 <a href="RectangleGeometry.html"><code>RectangleGeometry</code></a>，如果它们是凸出体积，则它们也有效;否则，它们将不会被渲染。</p>
 </div>
 
 
@@ -585,8 +565,7 @@ ClassificationPrimitive 径直.
 
                 
             
-                仅用于调试。确定是否绘制基本体中每个几何体的阴影体积。必须为 <code>true</code>
-creation （要在释放几何体之前创建的卷） 或 options.releaseGeometryInstance 必须<code>为 false</code>。</td>
+                仅用于调试。确定是否绘制基本体中每个几何体的阴影体积。必须为 <code>true</code>creation （要在释放几何体之前创建的卷） 或 options.releaseGeometryInstance 必须<code>为 false</code>。</td>
         </tr>
 
     
@@ -945,10 +924,7 @@ creation （要在释放几何体之前创建的卷） 或 options.releaseGeomet
 
 
 <div class="description">
-    此属性仅用于调试;它不用于生产用途，也未进行优化。
-<p>
-为基元中的每个绘制命令绘制边界球体。
-</p>
+    此属性仅用于调试;它不用于生产用途，也未进行优化。<p>为基元中的每个绘制命令绘制边界球体。</p>
 </div>
 
 
@@ -1011,10 +987,7 @@ creation （要在释放几何体之前创建的卷） 或 options.releaseGeomet
 
 
 <div class="description">
-    此属性仅用于调试;它不用于生产用途，也未进行优化。
-<p>
-为基本体中的每个几何体绘制阴影体积。
-</p>
+    此属性仅用于调试;它不用于生产用途，也未进行优化。<p>为基本体中的每个几何体绘制阴影体积。</p>
 </div>
 
 
@@ -1077,17 +1050,7 @@ creation （要在释放几何体之前创建的卷） 或 options.releaseGeomet
 
 
 <div class="description">
-    使用此基元渲染的 geometry 实例。 这可能会
-如果 <code>options.releaseGeometryInstances</code> 为 <code>undefined</code>
-在构造基元时为 <code>true</code>。
-<p>
-在渲染基元后更改此属性不起作用。
-</p>
-<p>
-由于使用的渲染技术，所有几何实例必须具有相同的颜色。
-如果存在具有不同颜色的实例，将引发 <code>DeveloperError</code>
-在第一次尝试渲染时。
-</p>
+    使用此基元渲染的 geometry 实例。 这可能会如果 <code>options.releaseGeometryInstances</code> 为 <code>undefined</code>在构造基元时为 <code>true</code>。<p>在渲染基元后更改此属性不起作用。</p><p>由于使用的渲染技术，所有几何实例必须具有相同的颜色。如果存在具有不同颜色的实例，将引发 <code>DeveloperError</code>在第一次尝试渲染时。</p>
 </div>
 
 
@@ -1213,9 +1176,7 @@ creation （要在释放几何体之前创建的卷） 或 options.releaseGeomet
 
 
 <div class="description">
-    确定基元是否完整并准备好进行渲染。 如果此属性为
-true，则基元将在下次 <a href="ClassificationPrimitive.html#update"><code>ClassificationPrimitive#update</code></a> 时呈现
-被调用。
+    确定基元是否完整并准备好进行渲染。 如果此属性为true，则基元将在下次 <a href="ClassificationPrimitive.html#update"><code>ClassificationPrimitive#update</code></a> 时呈现被调用。
 </div>
 
 
@@ -1338,8 +1299,7 @@ true，则基元将在下次 <a href="ClassificationPrimitive.html#update"><code
 
 
 <div class="description">
-    确定是否显示基元。 这会影响所有几何体
-实例。
+    确定是否显示基元。 这会影响所有几何体实例。
 </div>
 
 
@@ -1607,13 +1567,7 @@ true，则基元将在下次 <a href="ClassificationPrimitive.html#update"><code
 
 
 <div class="description">
-    销毁此对象持有的 WebGL 资源。 销毁对象允许确定性
-释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。
-<p>
-一旦对象被销毁，就不应该使用它;调用
-<code> isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。 因此
-将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
-</p>
+    销毁此对象持有的 WebGL 资源。 销毁对象允许确定性释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。<p>一旦对象被销毁，就不应该使用它;调用<code> isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。 因此将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。</p>
 </div>
 
 
@@ -1835,9 +1789,7 @@ true，则基元将在下次 <a href="ClassificationPrimitive.html#update"><code
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const attributes = primitive.getGeometryInstanceAttributes('an id');
-attributes.color = Cesium.ColorGeometryInstanceAttribute.toValue(Cesium.Color.AQUA);
-attributes.show = Cesium.ShowGeometryInstanceAttribute.toValue(true);</code></pre>
+    <pre><code class="language-javascript">const attributes = primitive.getGeometryInstanceAttributes('an id');attributes.color = Cesium.ColorGeometryInstanceAttribute.toValue(Cesium.Color.AQUA);attributes.show = Cesium.ShowGeometryInstanceAttribute.toValue(true);</code></pre>
 
     
 
@@ -1874,11 +1826,7 @@ attributes.show = Cesium.ShowGeometryInstanceAttribute.toValue(true);</code></pr
 
 
 <div class="description">
-    如果此对象已销毁，则返回 true;否则为 false。
-<p>
-如果此对象已销毁，则不应使用;调用
-<code> isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。
-</p>
+    如果此对象已销毁，则返回 true;否则为 false。<p>如果此对象已销毁，则不应使用;调用<code> isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。</p>
 </div>
 
 
@@ -1973,12 +1921,7 @@ attributes.show = Cesium.ShowGeometryInstanceAttribute.toValue(true);</code></pr
 
 
 <div class="description">
-    当 <a href="Viewer.html"><code>Viewer</code></a> 或 <a href="CesiumWidget.html"><code>CesiumWidget</code></a> 将场景渲染到
-获取渲染此基元所需的绘制命令。
-<p>
-请勿直接调用此函数。 这记录下来只是为了
-列出渲染场景时可能传播的异常：
-</p>
+    当 <a href="Viewer.html"><code>Viewer</code></a> 或 <a href="CesiumWidget.html"><code>CesiumWidget</code></a> 将场景渲染到获取渲染此基元所需的绘制命令。<p>请勿直接调用此函数。 这记录下来只是为了列出渲染场景时可能传播的异常：</p>
 </div>
 
 

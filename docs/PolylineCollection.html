@@ -58,25 +58,13 @@
 
 
 <div class="description">
-    多段线的可渲染集合。
-<br /><br />
-<div align="center">
-<img src="Images/Polyline.png" width="400" height="300" /><br />
-多段线示例
-</div>
-<br /><br />
-使用 <a href="PolylineCollection.html#add"><code>PolylineCollection#add</code></a> 在集合中添加和删除折线
-和 <a href="PolylineCollection.html#remove"><code>PolylineCollection#remove</code></a> 的 Package。
+    多段线的可渲染集合。<br /><br /><div align="center"><img src="Images/Polyline.png" width="400" height="300" /><br />多段线示例</div><br /><br />使用 <a href="PolylineCollection.html#add"><code>PolylineCollection#add</code></a> 在集合中添加和删除折线和 <a href="PolylineCollection.html#remove"><code>PolylineCollection#remove</code></a> 的 Package。
 </div>
 
 
 
     <h5>Performance:</h5>
-    <p class="description">为了获得最佳性能，请首选几个集合，每个集合都包含许多多段线，以便
-许多集合，每个集合只有几条折线。 组织集合，以便多段线
-具有相同的更新频率位于同一集合中，即
-更改应在一个集合中;更改每个帧的多段线应位于另一个帧中
-收集;等等。</p>
+    <p class="description">为了获得最佳性能，请首选几个集合，每个集合都包含许多多段线，以便许多集合，每个集合只有几条折线。 组织集合，以便多段线具有相同的更新频率位于同一集合中，即更改应在一个集合中;更改每个帧的多段线应位于另一个帧中收集;等等。</p>
 
 
 
@@ -306,25 +294,7 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Create a polyline collection with two polylines
-const polylines = new Cesium.PolylineCollection();
-polylines.add({
-  positions : Cesium.Cartesian3.fromDegreesArray([
-    -75.10, 39.57,
-    -77.02, 38.53,
-    -80.50, 35.14,
-    -80.12, 25.46]),
-  width : 2
-});
-
-polylines.add({
-  positions : Cesium.Cartesian3.fromDegreesArray([
-    -73.10, 37.57,
-    -75.02, 36.53,
-    -78.50, 33.14,
-    -78.12, 23.46]),
-  width : 4
-});</code></pre>
+    <pre><code class="language-javascript">// Create a polyline collection with two polylinesconst polylines = new Cesium.PolylineCollection();polylines.add({  positions : Cesium.Cartesian3.fromDegreesArray([    -75.10, 39.57,    -77.02, 38.53,    -80.50, 35.14,    -80.12, 25.46]),  width : 2});polylines.add({  positions : Cesium.Cartesian3.fromDegreesArray([    -73.10, 37.57,    -75.02, 36.53,    -78.50, 33.14,    -78.12, 23.46]),  width : 4});</code></pre>
 
     
 
@@ -387,10 +357,7 @@ polylines.add({
 
 
 <div class="description">
-    此属性仅用于调试;它不用于生产用途，也未进行优化。
-<p>
-为基元中的每个绘制命令绘制边界球体。
-</p>
+    此属性仅用于调试;它不用于生产用途，也未进行优化。<p>为基元中的每个绘制命令绘制边界球体。</p>
 </div>
 
 
@@ -453,9 +420,7 @@ polylines.add({
 
 
 <div class="description">
-    返回此集合中的多段线数。 这通常与
-<a href="PolylineCollection.html#get"><code>PolylineCollection#get</code></a> 遍历所有多段线
-在集合中。
+    返回此集合中的多段线数。 这通常与<a href="PolylineCollection.html#get"><code>PolylineCollection#get</code></a> 遍历所有多段线在集合中。
 </div>
 
 
@@ -515,10 +480,7 @@ polylines.add({
 
 
 <div class="description">
-    4x4 转换矩阵，用于将此集合中的每条折线从模型转换为世界坐标。
-当这是单位矩阵时，折线以世界坐标（即地球的 WGS84 坐标）绘制。
-可以通过提供不同的转换矩阵来使用本地参考帧，就像返回的矩阵一样
-由 <a href="Transforms.html#.eastNorthUpToFixedFrame"><code>Transforms.eastNorthUpToFixedFrame</code></a>.
+    4x4 转换矩阵，用于将此集合中的每条折线从模型转换为世界坐标。当这是单位矩阵时，折线以世界坐标（即地球的 WGS84 坐标）绘制。可以通过提供不同的转换矩阵来使用本地参考帧，就像返回的矩阵一样由 <a href="Transforms.html#.eastNorthUpToFixedFrame"><code>Transforms.eastNorthUpToFixedFrame</code></a>.
 </div>
 
 
@@ -651,16 +613,13 @@ polylines.add({
 
 
 <div class="description">
-    创建具有指定初始属性的多段线并将其添加到集合中。
-将返回添加的多段线，以便以后可以对其进行修改或从集合中删除。
+    创建具有指定初始属性的多段线并将其添加到集合中。将返回添加的多段线，以便以后可以对其进行修改或从集合中删除。
 </div>
 
 
 
     <h5>Performance:</h5>
-    <p class="description">调用 <code>add</code> 后，将调用 <a href="PolylineCollection.html#update"><code>PolylineCollection#update</code></a> 并
-集合的顶点缓冲区被重写 - 一个 <code>O（n）</code> 操作，也会导致 CPU 到 GPU 的开销。
-为了获得最佳性能，请在调用 <code>update</code> 之前添加尽可能多的多段线。</p>
+    <p class="description">调用 <code>add</code> 后，将调用 <a href="PolylineCollection.html#update"><code>PolylineCollection#update</code></a> 并集合的顶点缓冲区被重写 - 一个 <code>O（n）</code> 操作，也会导致 CPU 到 GPU 的开销。为了获得最佳性能，请在调用 <code>update</code> 之前添加尽可能多的多段线。</p>
 
 
 
@@ -781,14 +740,9 @@ polylines.add({
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Example 1:  Add a polyline, specifying all the default values.
-const p = polylines.add({
-  show : true,
-  positions : ellipsoid.cartographicArrayToCartesianArray([
+    <pre><code class="language-javascript">// Example 1:  Add a polyline, specifying all the default values.const p = polylines.add({  show : true,  positions : ellipsoid.cartographicArrayToCartesianArray([
            Cesium.Cartographic.fromDegrees(-75.10, 39.57),
-           Cesium.Cartographic.fromDegrees(-77.02, 38.53)]),
-  width : 1
-});</code></pre>
+           Cesium.Cartographic.fromDegrees(-77.02, 38.53)]),  width : 1});</code></pre>
 
     
 
@@ -974,12 +928,7 @@ const p = polylines.add({
 
 
 <div class="description">
-    销毁此对象持有的 WebGL 资源。 销毁对象允许确定性
-释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。
-<br /><br />
-一旦对象被销毁，就不应该使用它;调用
- <code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。 因此
-将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
+    销毁此对象持有的 WebGL 资源。 销毁对象允许确定性释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。<br /><br />一旦对象被销毁，就不应该使用它;调用 <code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。 因此将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
 </div>
 
 
@@ -1084,19 +1033,13 @@ const p = polylines.add({
 
 
 <div class="description">
-    返回集合中指定索引处的折线。 索引从 0 开始
-并随着多段线的添加而增加。 删除多段线将在
-它向左移动，更改其索引。 此功能通常用于
-<a href="PolylineCollection.html#length"><code>PolylineCollection#length</code></a> 遍历所有多段线
-在集合中。
+    返回集合中指定索引处的折线。 索引从 0 开始并随着多段线的添加而增加。 删除多段线将在它向左移动，更改其索引。 此功能通常用于<a href="PolylineCollection.html#length"><code>PolylineCollection#length</code></a> 遍历所有多段线在集合中。
 </div>
 
 
 
     <h5>Performance:</h5>
-    <p class="description">如果从集合中删除了多段线，并且
-<a href="PolylineCollection.html#update"><code>PolylineCollection#update</code></a> 未调用，则隐式 <code>O（n）</code>
-执行操作。</p>
+    <p class="description">如果从集合中删除了多段线，并且<a href="PolylineCollection.html#update"><code>PolylineCollection#update</code></a> 未调用，则隐式 <code>O（n）</code>执行操作。</p>
 
 
 
@@ -1210,12 +1153,7 @@ const p = polylines.add({
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Toggle the show property of every polyline in the collection
-const len = polylines.length;
-for (let i = 0; i &lt; len; ++i) {
-  const p = polylines.get(i);
-  p.show = !p.show;
-}</code></pre>
+    <pre><code class="language-javascript">// Toggle the show property of every polyline in the collectionconst len = polylines.length;for (let i = 0; i &lt; len; ++i) {  const p = polylines.get(i);  p.show = !p.show;}</code></pre>
 
     
 
@@ -1257,10 +1195,7 @@ for (let i = 0; i &lt; len; ++i) {
 
 
 <div class="description">
-    如果此对象已销毁，则返回 true;否则为 false。
-<br /><br />
-如果此对象已销毁，则不应使用;调用
-<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。
+    如果此对象已销毁，则返回 true;否则为 false。<br /><br />如果此对象已销毁，则不应使用;调用<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。
 </div>
 
 
@@ -1361,11 +1296,7 @@ for (let i = 0; i &lt; len; ++i) {
 
 
     <h5>Performance:</h5>
-    <p class="description">调用 <code>remove</code> 后，将调用 <a href="PolylineCollection.html#update"><code>PolylineCollection#update</code></a> 并
-集合的顶点缓冲区被重写 - 一个 <code>O（n）</code> 操作，也会导致 CPU 到 GPU 的开销。
-为了获得最佳性能，请在调用 <code>update</code> 之前删除尽可能多的多段线。
-如果您打算暂时隐藏多段线，则通常调用
-<a href="Polyline.html#show"><code>Polyline#show</code></a> 而不是删除并重新添加折线。</p>
+    <p class="description">调用 <code>remove</code> 后，将调用 <a href="PolylineCollection.html#update"><code>PolylineCollection#update</code></a> 并集合的顶点缓冲区被重写 - 一个 <code>O（n）</code> 操作，也会导致 CPU 到 GPU 的开销。为了获得最佳性能，请在调用 <code>update</code> 之前删除尽可能多的多段线。如果您打算暂时隐藏多段线，则通常调用<a href="Polyline.html#show"><code>Polyline#show</code></a> 而不是删除并重新添加折线。</p>
 
 
 
@@ -1479,8 +1410,7 @@ for (let i = 0; i &lt; len; ++i) {
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const p = polylines.add(...);
-polylines.remove(p);  // Returns true</code></pre>
+    <pre><code class="language-javascript">const p = polylines.add(...);polylines.remove(p);  // Returns true</code></pre>
 
     
 
@@ -1534,8 +1464,7 @@ polylines.remove(p);  // Returns true</code></pre>
 
 
     <h5>Performance:</h5>
-    <p class="description"><code>O（n）。</code> 删除所有多段线效率更高
-从集合中，然后添加新的集合，而不是完全创建一个新集合。</p>
+    <p class="description"><code>O（n）。</code> 删除所有多段线效率更高从集合中，然后添加新的集合，而不是完全创建一个新集合。</p>
 
 
 
@@ -1595,9 +1524,7 @@ polylines.remove(p);  // Returns true</code></pre>
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">polylines.add(...);
-polylines.add(...);
-polylines.removeAll();</code></pre>
+    <pre><code class="language-javascript">polylines.add(...);polylines.add(...);polylines.removeAll();</code></pre>
 
     
 
@@ -1643,12 +1570,7 @@ polylines.removeAll();</code></pre>
 
 
 <div class="description">
-    当 <a href="Viewer.html"><code>Viewer</code></a> 或 <a href="CesiumWidget.html"><code>CesiumWidget</code></a> 将场景渲染到
-获取渲染此基元所需的绘制命令。
-<p>
-请勿直接调用此函数。 这记录下来只是为了
-列出渲染场景时可能传播的异常：
-</p>
+    当 <a href="Viewer.html"><code>Viewer</code></a> 或 <a href="CesiumWidget.html"><code>CesiumWidget</code></a> 将场景渲染到获取渲染此基元所需的绘制命令。<p>请勿直接调用此函数。 这记录下来只是为了列出渲染场景时可能传播的异常：</p>
 </div>
 
 

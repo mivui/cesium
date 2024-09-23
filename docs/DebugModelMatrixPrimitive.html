@@ -58,15 +58,7 @@
 
 
 <div class="description">
-    绘制由转换为 world 的矩阵定义的参考系的轴
-坐标，即地球的 WGS84 坐标。 最突出的例子是
-一个基元 <code>modelMatrix</code>。
-<p>
-X 轴为红色;Y 为绿色;Z 为蓝色。
-</p>
-<p>
-这仅用于调试;它未针对生产使用进行优化。
-</p>
+    绘制由转换为 world 的矩阵定义的参考系的轴坐标，即地球的 WGS84 坐标。 最突出的例子是一个基元 <code>modelMatrix</code>。<p>X 轴为红色;Y 为绿色;Z 为蓝色。</p><p>这仅用于调试;它未针对生产使用进行优化。</p>
 </div>
 
 
@@ -369,11 +361,7 @@ X 轴为红色;Y 为绿色;Z 为蓝色。
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">primitives.add(new Cesium.DebugModelMatrixPrimitive({
-  modelMatrix : primitive.modelMatrix,  // primitive to debug
-  length : 100000.0,
-  width : 10.0
-}));</code></pre>
+    <pre><code class="language-javascript">primitives.add(new Cesium.DebugModelMatrixPrimitive({  modelMatrix : primitive.modelMatrix,  // primitive to debug  length : 100000.0,  width : 10.0}));</code></pre>
 
     
 
@@ -752,13 +740,7 @@ X 轴为红色;Y 为绿色;Z 为蓝色。
 
 
 <div class="description">
-    销毁此对象持有的 WebGL 资源。 销毁对象允许确定性
-释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。
-<p>
-一旦对象被销毁，就不应该使用它;调用
-<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。因此
-将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
-</p>
+    销毁此对象持有的 WebGL 资源。 销毁对象允许确定性释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。<p>一旦对象被销毁，就不应该使用它;调用<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。因此将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。</p>
 </div>
 
 
@@ -863,11 +845,7 @@ X 轴为红色;Y 为绿色;Z 为蓝色。
 
 
 <div class="description">
-    如果此对象已销毁，则返回 true;否则为 false。
-<p>
-如果此对象已销毁，则不应使用;调用
- <code> isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。
-</p>
+    如果此对象已销毁，则返回 true;否则为 false。<p>如果此对象已销毁，则不应使用;调用 <code> isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。</p>
 </div>
 
 

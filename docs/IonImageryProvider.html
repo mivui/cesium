@@ -58,11 +58,7 @@
 
 
 <div class="description">
-    <div class="notice">
-要构造 IonImageryProvider，请调用 <a href="IonImageryProvider.html#.fromAssetId"><code>IonImageryProvider.fromAssetId</code></a>. 不要直接调用构造函数。
-</div>
-
-使用 Cesium ion REST API 提供平铺图像。
+    <div class="notice">要构造 IonImageryProvider，请调用 <a href="IonImageryProvider.html#.fromAssetId"><code>IonImageryProvider.fromAssetId</code></a>. 不要直接调用构造函数。</div>使用 Cesium ion REST API 提供平铺图像。
 </div>
 
 
@@ -163,8 +159,7 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const imageryLayer = Cesium.ImageryLayer.fromProviderAsync(Cesium.IonImageryProvider.fromAssetId(3812));
-viewer.imageryLayers.add(imageryLayer);</code></pre>
+    <pre><code class="language-javascript">const imageryLayer = Cesium.ImageryLayer.fromProviderAsync(Cesium.IonImageryProvider.fromAssetId(3812));viewer.imageryLayers.add(imageryLayer);</code></pre>
 
     
 
@@ -221,8 +216,7 @@ viewer.imageryLayers.add(imageryLayer);</code></pre>
 
 
 <div class="description">
-    获取此影像提供程序处于活动状态时要显示的点数。 通常，这用于贷记
-图像的来源。
+    获取此影像提供程序处于活动状态时要显示的点数。 通常，这用于贷记图像的来源。
 </div>
 
 
@@ -282,9 +276,7 @@ viewer.imageryLayers.add(imageryLayer);</code></pre>
 
 
 <div class="description">
-    获取在影像提供程序遇到异步错误时引发的事件。 通过订阅
-时，您将收到错误通知，并可能从中恢复。 事件侦听器
-将传递 <a href="TileProviderError.html"><code>TileProviderError</code></a> 的实例。
+    获取在影像提供程序遇到异步错误时引发的事件。 通过订阅时，您将收到错误通知，并可能从中恢复。 事件侦听器将传递 <a href="TileProviderError.html"><code>TileProviderError</code></a> 的实例。
 </div>
 
 
@@ -344,11 +336,7 @@ viewer.imageryLayers.add(imageryLayer);</code></pre>
 
 
 <div class="description">
-    获取一个值，该值指示此图像提供程序是否提供图像
-包括 Alpha 通道。 如果此属性为 false，则 Alpha 通道（如果存在）将
-被忽略。 如果此属性为 true，则将处理任何没有 Alpha 通道的图像
-就好像它们的 alpha 在所有地方都是 1.0 一样。 当此属性为 false 时，内存使用情况
-和纹理上传时间缩短。
+    获取一个值，该值指示此图像提供程序是否提供图像包括 Alpha 通道。 如果此属性为 false，则 Alpha 通道（如果存在）将被忽略。 如果此属性为 true，则将处理任何没有 Alpha 通道的图像就好像它们的 alpha 在所有地方都是 1.0 一样。 当此属性为 false 时，内存使用情况和纹理上传时间缩短。
 </div>
 
 
@@ -468,11 +456,7 @@ viewer.imageryLayers.add(imageryLayer);</code></pre>
 
 
 <div class="description">
-    获取可请求的最低详细级别。一般
-仅当图像的矩形较小时，才应使用最低级别
-足以使最低级别的图块数量很少。 图像
-提供者在最低级别上拥有多个图块将导致
-渲染问题。
+    获取可请求的最低详细级别。一般仅当图像的矩形较小时，才应使用最低级别足以使最低级别的图块数量很少。 图像提供者在最低级别上拥有多个图块将导致渲染问题。
 </div>
 
 
@@ -655,9 +639,7 @@ viewer.imageryLayers.add(imageryLayer);</code></pre>
 
 
 <div class="description">
-    获取瓦片丢弃策略。 如果未 undefined，则 discard 策略负责
-用于通过其 shouldDiscardImage 函数过滤掉“缺失”的瓦片。 如果此功能
-返回 undefined，不过滤任何图块。
+    获取瓦片丢弃策略。 如果未 undefined，则 discard 策略负责用于通过其 shouldDiscardImage 函数过滤掉“缺失”的瓦片。 如果此功能返回 undefined，不过滤任何图块。
 </div>
 
 
@@ -1067,8 +1049,7 @@ viewer.imageryLayers.add(imageryLayer);</code></pre>
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const imageryLayer = Cesium.ImageryLayer.fromProviderAsync(Cesium.IonImageryProvider.fromAssetId(3812));
-viewer.imageryLayers.add(imageryLayer);</code></pre>
+    <pre><code class="language-javascript">const imageryLayer = Cesium.ImageryLayer.fromProviderAsync(Cesium.IonImageryProvider.fromAssetId(3812));viewer.imageryLayers.add(imageryLayer);</code></pre>
 
     
 
@@ -1286,8 +1267,7 @@ viewer.imageryLayers.add(imageryLayer);</code></pre>
 
 
 <div class="description">
-    异步确定哪些要素（如果有）位于给定的经度和纬度
-一个图块。此函数是可选的，因此它可能并非存在于所有 ImageryProvider 中。
+    异步确定哪些要素（如果有）位于给定的经度和纬度一个图块。此函数是可选的，因此它可能并非存在于所有 ImageryProvider 中。
 </div>
 
 
@@ -1451,10 +1431,7 @@ viewer.imageryLayers.add(imageryLayer);</code></pre>
 
         
 <div class="param-desc">
-    对所选特征的 Promise，当异步
-拣选完成。 解析的值是 <a href="ImageryLayerFeatureInfo.html"><code>ImageryLayerFeatureInfo</code></a> 的数组
-实例。 如果在给定位置未找到要素，则数组可能为空。
-如果不支持拣选，也可能为 undefined。
+    对所选特征的 Promise，当异步拣选完成。 解析的值是 <a href="ImageryLayerFeatureInfo.html"><code>ImageryLayerFeatureInfo</code></a> 的数组实例。 如果在给定位置未找到要素，则数组可能为空。如果不支持拣选，也可能为 undefined。
 </div>
 
 
@@ -1680,8 +1657,7 @@ viewer.imageryLayers.add(imageryLayer);</code></pre>
 
         
 <div class="param-desc">
-    映像的 Promise，该 Promise 将在映像可用时解析，或者
-undefined 如果对服务器的活动请求过多，则应稍后重试该请求。
+    映像的 Promise，该 Promise 将在映像可用时解析，或者undefined 如果对服务器的活动请求过多，则应稍后重试该请求。
 </div>
 
 

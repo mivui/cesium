@@ -1033,9 +1033,7 @@
 
             
 
-            <td class="description last">像素值为最小函数 （min（source， destination）） 提供。
-
-此方程式对每个像素颜色分量起作用。</td>
+            <td class="description last">像素值为最小函数 （min（source， destination）） 提供。此方程式对每个像素颜色分量起作用。</td>
         </tr>
 
     
@@ -1058,9 +1056,7 @@
 
             
 
-            <td class="description last">像素值为最大函数 （max（source， destination）） 提供。
-
-此方程式对每个像素颜色分量起作用。</td>
+            <td class="description last">像素值为最大函数 （max（source， destination）） 提供。此方程式对每个像素颜色分量起作用。</td>
         </tr>
 
     
@@ -1912,28 +1908,7 @@
 
 
 <div class="description">
-    定义从 Cesium API 或声明式样式设置的每个特征颜色如何与
-原始特征，例如 glTF 材质或瓦片中的每点颜色。
-<p>
-当使用 <code>REPLACE</code> 或 <code>MIX</code> 且源颜色是 glTF 材质时，该技术必须为
-<code>_3DTILESDIFFUSE</code> diffuse color 参数的语义。否则，仅支持 <code>HIGHLIGHT</code>。
-</p>
-<p>
-颜色计算结果为白色 （1.0， 1.0， 1.0） 的特征始终在渲染时不进行颜色混合，而不管
-图块集的颜色混合模式。
-</p>
-<pre><code>
-"techniques": {
-  "technique0": {
-    "parameters": {
-      "diffuse": {
-        "semantic": "_3DTILESDIFFUSE",
-        "type": 35666
-      }
-    }
-  }
-}
-</code></pre>
+    定义从 Cesium API 或声明式样式设置的每个特征颜色如何与原始特征，例如 glTF 材质或瓦片中的每点颜色。<p>当使用 <code>REPLACE</code> 或 <code>MIX</code> 且源颜色是 glTF 材质时，该技术必须为<code>_3DTILESDIFFUSE</code> diffuse color 参数的语义。否则，仅支持 <code>HIGHLIGHT</code>。</p><p>颜色计算结果为白色 （1.0， 1.0， 1.0） 的特征始终在渲染时不进行颜色混合，而不管图块集的颜色混合模式。</p><pre><code>"techniques": {  "technique0": {    "parameters": {      "diffuse": {        "semantic": "_3DTILESDIFFUSE",        "type": 35666      }    }  }}</code></pre>
 </div>
 
 
@@ -2746,11 +2721,7 @@
 
 
 <div class="description">
-    定义目标颜色和基元的源颜色之间的混合模式。
-
-HIGHLIGHT 将源颜色乘以目标颜色
-REPLACE 将源颜色替换为目标颜色
-MIX 将源颜色和目标颜色混合在一起
+    定义目标颜色和基元的源颜色之间的混合模式。HIGHLIGHT 将源颜色乘以目标颜色REPLACE 将源颜色替换为目标颜色MIX 将源颜色和目标颜色混合在一起
 </div>
 
 
@@ -3503,8 +3474,7 @@ MIX 将源颜色和目标颜色混合在一起
 
 
 <div class="description">
-    描述如何将 <a href="CustomShader.html"><code>CustomShader</code></a> 添加到
-片段着色器。这决定了着色器如何与材质交互。
+    描述如何将 <a href="CustomShader.html"><code>CustomShader</code></a> 添加到片段着色器。这决定了着色器如何与材质交互。
 </div>
 
 
@@ -3556,8 +3526,7 @@ MIX 将源颜色和目标颜色混合在一起
 
             
 
-            <td class="description last">自定义着色器将用于修改材质阶段的结果
-在应用照明之前。</td>
+            <td class="description last">自定义着色器将用于修改材质阶段的结果在应用照明之前。</td>
         </tr>
 
     
@@ -3580,8 +3549,7 @@ MIX 将源颜色和目标颜色混合在一起
 
             
 
-            <td class="description last">将使用自定义着色器而不是材质阶段。这是一个提示
-优化材质处理代码。</td>
+            <td class="description last">将使用自定义着色器而不是材质阶段。这是一个提示优化材质处理代码。</td>
         </tr>
 
     
@@ -3647,8 +3615,7 @@ MIX 将源颜色和目标颜色混合在一起
 
 
 <div class="description">
-    一个枚举，用于控制 <a href="CustomShader.html"><code>CustomShader</code></a> 如何处理与原始
-原始。
+    一个枚举，用于控制 <a href="CustomShader.html"><code>CustomShader</code></a> 如何处理与原始原始。
 </div>
 
 
@@ -3700,9 +3667,7 @@ MIX 将源颜色和目标颜色混合在一起
 
             
 
-            <td class="description last">从基本体的材质继承半透明设置。如果原语使用了
-Translucent 材质，则自定义着色器也将被视为 Translucent。如果 primitive
-使用了不透明材质，则自定义着色器将被视为不透明。</td>
+            <td class="description last">从基本体的材质继承半透明设置。如果原语使用了Translucent 材质，则自定义着色器也将被视为 Translucent。如果 primitive使用了不透明材质，则自定义着色器将被视为不透明。</td>
         </tr>
 
     
@@ -4086,9 +4051,7 @@ Translucent 材质，则自定义着色器也将被视为 Translucent。如果 p
 
 
 <div class="description">
-    氛围灯光效果（天空氛围、地面氛围、雾）可以
-使用来自太阳或其他光源的动态照明进一步修改
-随时间变化。此枚举确定要使用的光源。
+    氛围灯光效果（天空氛围、地面氛围、雾）可以使用来自太阳或其他光源的动态照明进一步修改随时间变化。此枚举确定要使用的光源。
 </div>
 
 
@@ -4140,8 +4103,7 @@ Translucent 材质，则自定义着色器也将被视为 Translucent。如果 p
 
             
 
-            <td class="description last">请勿使用动态氛围照明。氛围灯效将
-从正上方照亮，而不是使用场景的光源。</td>
+            <td class="description last">请勿使用动态氛围照明。氛围灯效将从正上方照亮，而不是使用场景的光源。</td>
         </tr>
 
     
@@ -4187,8 +4149,7 @@ Translucent 材质，则自定义着色器也将被视为 Translucent。如果 p
 
             
 
-            <td class="description last">强制动态氛围照明始终使用阳光方向，
-即使场景使用不同的光源。</td>
+            <td class="description last">强制动态氛围照明始终使用阳光方向，即使场景使用不同的光源。</td>
         </tr>
 
     
@@ -5047,14 +5008,7 @@ Translucent 材质，则自定义着色器也将被视为 Translucent。如果 p
 
 
 <div class="description">
-    原点相对于对象的水平位置，例如 <a href="Billboard.html"><code>Billboard</code></a>
-或 <a href="Label.html"><code>Label</code></a> 的 例如，将水平原点设置为 <code>LEFT</code>
-或 <code>RIGHT</code> 将在左侧或右侧显示广告牌（在屏幕空间中）
-的锚点位置。
-<br /><br />
-<div align='center'>
-<img src='Images/Billboard.setHorizontalOrigin.png' width='648' height='196' /><br />
-</div>
+    原点相对于对象的水平位置，例如 <a href="Billboard.html"><code>Billboard</code></a>或 <a href="Label.html"><code>Label</code></a> 的 例如，将水平原点设置为 <code>LEFT</code>或 <code>RIGHT</code> 将在左侧或右侧显示广告牌（在屏幕空间中）的锚点位置。<br /><br /><div align='center'><img src='Images/Billboard.setHorizontalOrigin.png' width='648' height='196' /><br /></div>
 </div>
 
 
@@ -6120,10 +6074,7 @@ Translucent 材质，则自定义着色器也将被视为 Translucent。如果 p
 
             
 
-            <td class="description last">使用无光照着色，即跳过光照计算。模型的
-直接使用漫射颜色（假设为线性 RGB，而不是 sRGB）
-计算 <code>out_FragColor</code> 时。Alpha 模式仍然是
-应用的。</td>
+            <td class="description last">使用无光照着色，即跳过光照计算。模型的直接使用漫射颜色（假设为线性 RGB，而不是 sRGB）计算 <code>out_FragColor</code> 时。Alpha 模式仍然是应用的。</td>
         </tr>
 
     
@@ -6146,9 +6097,7 @@ Translucent 材质，则自定义着色器也将被视为 Translucent。如果 p
 
             
 
-            <td class="description last">使用基于物理的渲染照明计算。这包括
-PBR 金属粗糙度和 PBR 镜面反射光泽度。基于图像
-如果可能，也会应用照明。</td>
+            <td class="description last">使用基于物理的渲染照明计算。这包括PBR 金属粗糙度和 PBR 镜面反射光泽度。基于图像如果可能，也会应用照明。</td>
         </tr>
 
     
@@ -6673,8 +6622,7 @@ PBR 金属粗糙度和 PBR 镜面反射光泽度。基于图像
 
 
 <div class="description">
-    元数据类型的枚举。这些元数据类型是包含
-一个或多个 <a href="global.html#MetadataComponentType"><code>MetadataComponentType</code></a> 类型的组件
+    元数据类型的枚举。这些元数据类型是包含一个或多个 <a href="global.html#MetadataComponentType"><code>MetadataComponentType</code></a> 类型的组件
 </div>
 
 
@@ -9053,8 +9001,7 @@ PBR 金属粗糙度和 PBR 镜面反射光泽度。基于图像
 
             
 
-            <td class="description last">哥伦布视图模式。 地图布局的 2.5D 透视图
-平面和高度不为零的对象将绘制在其上方。</td>
+            <td class="description last">哥伦布视图模式。 地图布局的 2.5D 透视图平面和高度不为零的对象将绘制在其上方。</td>
         </tr>
 
     
@@ -9926,8 +9873,7 @@ PBR 金属粗糙度和 PBR 镜面反射光泽度。基于图像
 
 
 <div class="description">
-    指定在以下情况下，对象是投射还是接收来自光源的阴影
-启用阴影。
+    指定在以下情况下，对象是投射还是接收来自光源的阴影启用阴影。
 </div>
 
 
@@ -11661,8 +11607,7 @@ PBR 金属粗糙度和 PBR 镜面反射光泽度。基于图像
 
 
 <div class="description">
-    基本 GLSL uniform 类型的枚举。这些可与
-<a href="CustomShader.html"><code>CustomShader</code></a> 来声明用户定义的 uniform。
+    基本 GLSL uniform 类型的枚举。这些可与<a href="CustomShader.html"><code>CustomShader</code></a> 来声明用户定义的 uniform。
 </div>
 
 
@@ -12148,8 +12093,7 @@ PBR 金属粗糙度和 PBR 镜面反射光泽度。基于图像
 
 
 <div class="description">
-    GLSL 变体类型的枚举。这些可用于声明 varyings
-在 <a href="CustomShader.html"><code>CustomShader</code></a> 中
+    GLSL 变体类型的枚举。这些可用于声明 varyings在 <a href="CustomShader.html"><code>CustomShader</code></a> 中
 </div>
 
 
@@ -12405,7 +12349,7 @@ PBR 金属粗糙度和 PBR 镜面反射光泽度。基于图像
 
 
 <div class="description">
-    原点相对于对象的垂直位置，例如 <a href="Billboard.html"><code>Billboard</code></a>或 <code>label</code> 的 例如，将垂直原点设置为 <code>TOP</code>或 <code>BOTTOM</code> 将在上方或下方显示广告牌（在屏幕空间中）锚点位置。<br /><br /><div align='center'><img src='图片/Billboard.setVerticalOrigin.png' width='695' height='175' /><br /></div>
+    原点相对于对象的垂直位置，例如 <a href="Billboard.html"><code>Billboard</code></a>或 <code>label</code> 的 例如，将垂直原点设置为 <code>TOP</code>或 <code>BOTTOM</code> 将在上方或下方显示广告牌（在屏幕空间中）锚点位置。<br /><br /><div align='center'><img src='Images/Billboard.setVerticalOrigin.png' width='695' height='175' /><br /></div>
 </div>
 
 
@@ -27703,10 +27647,7 @@ PBR 金属粗糙度和 PBR 镜面反射光泽度。基于图像
 
 
 <div class="description">
-    创建一个 <a href="Material.html"><code>Material</code></a>，该材质将多个颜色/渐变带层组合在一起，并将它们映射到地形高度。
-
-着色器对所有高度进行二进制搜索，以找出哪些颜色高于和低于给定高度，并且
-在它们之间插值以获得最终颜色。此材料以相对便宜的价格支持数百个条目。
+    创建一个 <a href="Material.html"><code>Material</code></a>，该材质将多个颜色/渐变带层组合在一起，并将它们映射到地形高度。着色器对所有高度进行二进制搜索，以找出哪些颜色高于和低于给定高度，并且在它们之间插值以获得最终颜色。此材料以相对便宜的价格支持数百个条目。
 </div>
 
 
@@ -27877,28 +27818,7 @@ PBR 金属粗糙度和 PBR 镜面反射光泽度。基于图像
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">scene.globe.material = Cesium.createElevationBandMaterial({
-    scene : scene,
-    layers : [{
-        entries : [{
-            height : 4200.0,
-            color : new Cesium.Color(0.0, 0.0, 0.0, 1.0)
-        }, {
-            height : 8848.0,
-            color : new Cesium.Color(1.0, 1.0, 1.0, 1.0)
-        }],
-        extendDownwards : true,
-        extendUpwards : true,
-    }, {
-        entries : [{
-            height : 7000.0,
-            color : new Cesium.Color(1.0, 0.0, 0.0, 0.5)
-        }, {
-            height : 7100.0,
-            color : new Cesium.Color(1.0, 0.0, 0.0, 0.5)
-        }]
-    }]
-});</code></pre>
+    <pre><code class="language-javascript">scene.globe.material = Cesium.createElevationBandMaterial({    scene : scene,    layers : [{        entries : [{            height : 4200.0,            color : new Cesium.Color(0.0, 0.0, 0.0, 1.0)        }, {            height : 8848.0,            color : new Cesium.Color(1.0, 1.0, 1.0, 1.0)        }],        extendDownwards : true,        extendUpwards : true,    }, {        entries : [{            height : 7000.0,            color : new Cesium.Color(1.0, 0.0, 0.0, 0.5)        }, {            height : 7100.0,            color : new Cesium.Color(1.0, 0.0, 0.0, 0.5)        }]    }]});</code></pre>
 
     
 
@@ -28088,26 +28008,9 @@ PBR 金属粗糙度和 PBR 镜面反射光泽度。基于图像
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">const viewer = new Cesium.Viewer("cesiumContainer");
+    <pre><code class="language-javascript">const viewer = new Cesium.Viewer("cesiumContainer");try {  const tileset = await Cesium.createGooglePhotorealistic3DTileset();  viewer.scene.primitives.add(tileset));} catch (error) {  console.log(`Error creating tileset: ${error}`);}</code></pre>
 
-try {
-  const tileset = await Cesium.createGooglePhotorealistic3DTileset();
-  viewer.scene.primitives.add(tileset));
-} catch (error) {
-  console.log(`Error creating tileset: ${error}`);
-}</code></pre>
-
-    <pre><code class="language-javascript">// Use your own Google Maps API key
-Cesium.GoogleMaps.defaultApiKey = "your-api-key";
-
-const viewer = new Cesium.Viewer("cesiumContainer");
-
-try {
-  const tileset = await Cesium.createGooglePhotorealistic3DTileset();
-  viewer.scene.primitives.add(tileset));
-} catch (error) {
-  console.log(`Error creating tileset: ${error}`);
-}</code></pre>
+    <pre><code class="language-javascript">// Use your own Google Maps API keyCesium.GoogleMaps.defaultApiKey = "your-api-key";const viewer = new Cesium.Viewer("cesiumContainer");try {  const tileset = await Cesium.createGooglePhotorealistic3DTileset();  viewer.scene.primitives.add(tileset));} catch (error) {  console.log(`Error creating tileset: ${error}`);}</code></pre>
 
     
 
@@ -28245,9 +28148,7 @@ try {
 
 
 <div class="description">
-    创建一个 <a href="Cesium3DTileset.html"><code>Cesium3DTileset</code></a> 实例 的
-<a href="https://cesium.com/content/cesium-osm-buildings/">Cesium OSM Buildings</a>
-瓦片集.
+    创建一个 <a href="Cesium3DTileset.html"><code>Cesium3DTileset</code></a> 实例 的<a href="https://cesium.com/content/cesium-osm-buildings/">Cesium OSM Buildings</a>瓦片集.
 </div>
 
 
@@ -28305,8 +28206,7 @@ try {
 
                 
             
-                构造选项。<a href="Cesium3DTileset.html"><code>Cesium3DTileset</code></a> 构造函数允许的任何选项
-可在此处指定。除此之外，还支持以下属性：
+                构造选项。<a href="Cesium3DTileset.html"><code>Cesium3DTileset</code></a> 构造函数允许的任何选项可在此处指定。除此之外，还支持以下属性：
                 
 
 <table class="params">
@@ -28360,8 +28260,7 @@ try {
 
                 
             
-                用于建筑物的默认颜色
-没有颜色。如果指定了 <code>options.style</code>，则忽略此参数。</td>
+                用于建筑物的默认颜色没有颜色。如果指定了 <code>options.style</code>，则忽略此参数。</td>
         </tr>
 
     
@@ -28395,10 +28294,7 @@ try {
 
                 
             
-                用于图块集的样式。如果不是
-指定时，将使用默认样式，该样式为每个建筑物或建筑物部分提供
-从其 OpenStreetMap <code>标签</code>推断出的颜色。如果无法推断出颜色，
-<code>options.defaultColor</code> 的</td>
+                用于图块集的样式。如果不是指定时，将使用默认样式，该样式为每个建筑物或建筑物部分提供从其 OpenStreetMap <code>标签</code>推断出的颜色。如果无法推断出颜色，<code>options.defaultColor</code> 的</td>
         </tr>
 
     
@@ -28470,8 +28366,7 @@ try {
 
                 
             
-                是否显示建筑物周围的轮廓。如果为 true，则
-显示轮廓。如果为 false，则不显示轮廓。</td>
+                是否显示建筑物周围的轮廓。如果为 true，则显示轮廓。如果为 false，则不显示轮廓。</td>
         </tr>
 
     
@@ -28525,34 +28420,9 @@ try {
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Create Cesium OSM Buildings with default styling
-const viewer = new Cesium.Viewer("cesiumContainer");
-try {
-  const tileset = await Cesium.createOsmBuildingsAsync();
-  viewer.scene.primitives.add(tileset));
-} catch (error) {
-  console.log(`Error creating tileset: ${error}`);
-}</code></pre>
+    <pre><code class="language-javascript">// Create Cesium OSM Buildings with default stylingconst viewer = new Cesium.Viewer("cesiumContainer");try {  const tileset = await Cesium.createOsmBuildingsAsync();  viewer.scene.primitives.add(tileset));} catch (error) {  console.log(`Error creating tileset: ${error}`);}</code></pre>
 
-    <pre><code class="language-javascript">// Create Cesium OSM Buildings with a custom style highlighting
-// schools and hospitals.
-const viewer = new Cesium.Viewer("cesiumContainer");
-try {
-  const tileset = await Cesium.createOsmBuildingsAsync({
-    style: new Cesium.Cesium3DTileStyle({
-      color: {
-        conditions: [
-          ["${feature['building']} === 'hospital'", "color('#0000FF')"],
-          ["${feature['building']} === 'school'", "color('#00FF00')"],
-          [true, "color('#ffffff')"]
-        ]
-      }
-    })
-  });
-  viewer.scene.primitives.add(tileset));
-} catch (error) {
-  console.log(`Error creating tileset: ${error}`);
-}</code></pre>
+    <pre><code class="language-javascript">// Create Cesium OSM Buildings with a custom style highlighting// schools and hospitals.const viewer = new Cesium.Viewer("cesiumContainer");try {  const tileset = await Cesium.createOsmBuildingsAsync({    style: new Cesium.Cesium3DTileStyle({      color: {        conditions: [          ["${feature['building']} === 'hospital'", "color('#0000FF')"],          ["${feature['building']} === 'school'", "color('#00FF00')"],          [true, "color('#ffffff')"]        ]      }    })  });  viewer.scene.primitives.add(tileset));} catch (error) {  console.log(`Error creating tileset: ${error}`);}</code></pre>
 
     
 
@@ -28594,10 +28464,7 @@ try {
 
 
 <div class="description">
-    创建一个 <a href="Primitive.html"><code>Primitive</code></a> 来可视化已知的向量顶点属性：
-<code>法线</code>、<code>切线</code>和<code>双切线</code>。 正常
-为红色;tangent 为绿色;Bitangent 是蓝色的。 如果属性不是
-present，则不绘制。
+    创建一个 <a href="Primitive.html"><code>Primitive</code></a> 来可视化已知的向量顶点属性：<code>法线</code>、<code>切线</code>和<code>双切线</code>。 正常为红色;tangent 为绿色;Bitangent 是蓝色的。 如果属性不是present，则不绘制。
 </div>
 
 
@@ -28828,11 +28695,7 @@ present，则不绘制。
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">scene.primitives.add(Cesium.createTangentSpaceDebugPrimitive({
-   geometry : instance.geometry,
-   length : 100000.0,
-   modelMatrix : instance.modelMatrix
-}));</code></pre>
+    <pre><code class="language-javascript">scene.primitives.add(Cesium.createTangentSpaceDebugPrimitive({   geometry : instance.geometry,   length : 100000.0,   modelMatrix : instance.modelMatrix}));</code></pre>
 
     
 
@@ -29249,21 +29112,9 @@ present，则不绘制。
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Create a Cesium World Imagery base layer with default settings
-try {
-  const imageryProvider = await Cesium.createWorldImageryAsync();
-} catch (error) {
-  console.log(`There was an error creating world imagery: ${error}`);
-}</code></pre>
+    <pre><code class="language-javascript">// Create a Cesium World Imagery base layer with default settingstry {  const imageryProvider = await Cesium.createWorldImageryAsync();} catch (error) {  console.log(`There was an error creating world imagery: ${error}`);}</code></pre>
 
-    <pre><code class="language-javascript">// Create Cesium World Imagery with different style
-try {
-  const imageryProvider = await Cesium.createWorldImageryAsync({
-        style: Cesium.IonWorldImageryStyle.AERIAL_WITH_LABELS
-  });
-} catch (error) {
-  console.log(`There was an error creating world imagery: ${error}`);
-}</code></pre>
+    <pre><code class="language-javascript">// Create Cesium World Imagery with different styletry {  const imageryProvider = await Cesium.createWorldImageryAsync({        style: Cesium.IonWorldImageryStyle.AERIAL_WITH_LABELS  });} catch (error) {  console.log(`There was an error creating world imagery: ${error}`);}</code></pre>
 
     
 
@@ -29854,15 +29705,7 @@ try {
 
 
 <div class="description">
-    销毁对象。 对象的每个函数（包括其原型中的函数
-替换为抛出 <a href="DeveloperError.html"><code>DeveloperError</code></a> 的函数，但对象的
-<code>isDestroyed</code> 函数，该函数设置为返回 <code>true</code> 的函数。
-对象的属性将通过 <code>delete</code> 删除。
-<br /><br />
-此函数由持有原生资源的对象使用，例如 WebGL 资源，其
-需要明确发布。 客户端代码调用对象的 <code>destroy</code> 函数
-然后释放本机资源并调用 <code>destroyObject</code> 将自身
-处于已销毁状态。
+    销毁对象。 对象的每个函数（包括其原型中的函数替换为抛出 <a href="DeveloperError.html"><code>DeveloperError</code></a> 的函数，但对象的<code>isDestroyed</code> 函数，该函数设置为返回 <code>true</code> 的函数。对象的属性将通过 <code>delete</code> 删除。<br /><br />此函数由持有原生资源的对象使用，例如 WebGL 资源，其需要明确发布。 客户端代码调用对象的 <code>destroy</code> 函数然后释放本机资源并调用 <code>destroyObject</code> 将自身处于已销毁状态。
 </div>
 
 
@@ -29948,8 +29791,7 @@ try {
 
                 
             
-                要包含在抛出的异常中的消息
-调用已销毁对象的函数。</td>
+                要包含在抛出的异常中的消息调用已销毁对象的函数。</td>
         </tr>
 
     
@@ -29992,11 +29834,7 @@ try {
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// How a texture would destroy itself.
-this.destroy = function () {
-    _gl.deleteTexture(_texture);
-    return Cesium.destroyObject(this);
-};</code></pre>
+    <pre><code class="language-javascript">// How a texture would destroy itself.this.destroy = function () {    _gl.deleteTexture(_texture);    return Cesium.destroyObject(this);};</code></pre>
 
     
 
@@ -31414,7 +31252,7 @@ this.destroy = function () {
 
 
 <div class="description">
-    获取可用于测量事件之间时间的时间戳。 时间 戳以毫秒表示，但没有指定毫秒数测量起始。 此函数使用 performance.now（）（如果可用）或 Date.now（）否则。
+    获取可用于测量事件之间时间的时间戳。 时间戳以毫秒表示，但没有指定毫秒数测量起始。 此函数使用 performance.now() 如果是 available, 或 Date.now()否则.
 </div>
 
 
@@ -36612,12 +36450,7 @@ this.destroy = function () {
 
 
 <div class="description">
-    <a href="ImageryProvider.html"><code>ImageryProvider</code></a> 方法返回图像的格式可能会
-因提供商、配置或服务器设置而异。 最常见的是
-<code>HTMLImageElement</code>、<code>HTMLCanvasElement</code> 或支持
-浏览器，<code>ImageBitmap</code>。
-
-有关每个 ImageryProvider 类如何返回图像的更多信息，请参阅每个 ImageryProvider 类的文档。
+    <a href="ImageryProvider.html"><code>ImageryProvider</code></a> 方法返回图像的格式可能会因提供商、配置或服务器设置而异。 最常见的是<code>HTMLImageElement</code>、<code>HTMLCanvasElement</code> 或支持浏览器，<code>ImageBitmap</code>。有关每个 ImageryProvider 类如何返回图像的更多信息，请参阅每个 ImageryProvider 类的文档。
 </div>
 
 

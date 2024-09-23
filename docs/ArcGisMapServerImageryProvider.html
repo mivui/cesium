@@ -58,18 +58,7 @@
 
 
 <div class="description">
-    <div class="notice">
-此对象通常不直接实例化，请使用 <a href="ArcGisMapServerImageryProvider.html#.fromBasemapType"><code>ArcGisMapServerImageryProvider.fromBasemapType</code></a> 或 <a href="ArcGisMapServerImageryProvider.html#.fromUrl"><code>ArcGisMapServerImageryProvider.fromUrl</code></a>。
-</div>
-
-提供由 ArcGIS MapServer 托管的切片影像。 默认情况下，服务器的预缓存切片为
-二手（如果有）。
-
-<br/>
-
- <a href="https://developers.arcgis.com/documentation/mapping-apis-and-services/security"> ArcGIS Access Token </a> 需要对 ArcGIS Image Tile 服务的请求进行身份验证。
-要访问安全的 ArcGIS 资源，需要创建 ArcGIS 开发人员
-帐户或 ArcGIS Online 帐户，然后实施身份验证方法以获取访问令牌。
+    <div class="notice">此对象通常不直接实例化，请使用 <a href="ArcGisMapServerImageryProvider.html#.fromBasemapType"><code>ArcGisMapServerImageryProvider.fromBasemapType</code></a> 或 <a href="ArcGisMapServerImageryProvider.html#.fromUrl"><code>ArcGisMapServerImageryProvider.fromUrl</code></a>。</div>提供由 ArcGIS MapServer 托管的切片影像。 默认情况下，服务器的预缓存切片为二手（如果有）。<br/> <a href="https://developers.arcgis.com/documentation/mapping-apis-and-services/security"> ArcGIS Access Token </a> 需要对 ArcGIS Image Tile 服务的请求进行身份验证。要访问安全的 ArcGIS 资源，需要创建 ArcGIS 开发人员帐户或 ArcGIS Online 帐户，然后实施身份验证方法以获取访问令牌。
 </div>
 
 
@@ -170,23 +159,9 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Set the default access token for accessing ArcGIS Image Tile service
-Cesium.ArcGisMapService.defaultAccessToken = "&lt;ArcGIS Access Token>";
+    <pre><code class="language-javascript">// Set the default access token for accessing ArcGIS Image Tile serviceCesium.ArcGisMapService.defaultAccessToken = "&lt;ArcGIS Access Token>";// Add a base layer from a default ArcGIS basemapconst viewer = new Cesium.Viewer("cesiumContainer", {  baseLayer: Cesium.ImageryLayer.fromProviderAsync(    Cesium.ArcGisMapServerImageryProvider.fromBasemapType(      Cesium.ArcGisBaseMapType.SATELLITE    )  ),});</code></pre>
 
-// Add a base layer from a default ArcGIS basemap
-const viewer = new Cesium.Viewer("cesiumContainer", {
-  baseLayer: Cesium.ImageryLayer.fromProviderAsync(
-    Cesium.ArcGisMapServerImageryProvider.fromBasemapType(
-      Cesium.ArcGisBaseMapType.SATELLITE
-    )
-  ),
-});</code></pre>
-
-    <pre><code class="language-javascript">// Create an imagery provider from the url directly
-const esri = await Cesium.ArcGisMapServerImageryProvider.fromUrl(
-  "https://ibasemaps-api.arcgis.com/arcgis/rest/services/World_Imagery/MapServer", {
-    token: "&lt;ArcGIS Access Token>"
-});</code></pre>
+    <pre><code class="language-javascript">// Create an imagery provider from the url directlyconst esri = await Cesium.ArcGisMapServerImageryProvider.fromUrl(  "https://ibasemaps-api.arcgis.com/arcgis/rest/services/World_Imagery/MapServer", {    token: "&lt;ArcGIS Access Token>"});</code></pre>
 
     
 
@@ -249,8 +224,7 @@ const esri = await Cesium.ArcGisMapServerImageryProvider.fromUrl(
 
 
 <div class="description">
-    获取此影像提供程序处于活动状态时要显示的点数。 通常，这用于贷记
-图像的来源。
+    获取此影像提供程序处于活动状态时要显示的点数。 通常，这用于贷记图像的来源。
 </div>
 
 
@@ -310,10 +284,7 @@ const esri = await Cesium.ArcGisMapServerImageryProvider.fromUrl(
 
 
 <div class="description">
-    获取或设置一个值，该值指示是否启用功能选取。 如果为 true，则 <a href="ArcGisMapServerImageryProvider.html#pickFeatures"><code>ArcGisMapServerImageryProvider#pickFeatures</code></a> 将
-在 ArcGIS 服务器上调用 “identify” 操作并返回响应中包含的要素。 如果为 false，则
-<a href="ArcGisMapServerImageryProvider.html#pickFeatures"><code>ArcGisMapServerImageryProvider#pickFeatures</code></a> 将立即返回 undefined（表示没有可选取的要素）
-而不与服务器通信。
+    获取或设置一个值，该值指示是否启用功能选取。 如果为 true，则 <a href="ArcGisMapServerImageryProvider.html#pickFeatures"><code>ArcGisMapServerImageryProvider#pickFeatures</code></a> 将在 ArcGIS 服务器上调用 “identify” 操作并返回响应中包含的要素。 如果为 false，则<a href="ArcGisMapServerImageryProvider.html#pickFeatures"><code>ArcGisMapServerImageryProvider#pickFeatures</code></a> 将立即返回 undefined（表示没有可选取的要素）而不与服务器通信。
 </div>
 
 
@@ -376,9 +347,7 @@ const esri = await Cesium.ArcGisMapServerImageryProvider.fromUrl(
 
 
 <div class="description">
-    获取在影像提供程序遇到异步错误时引发的事件。 通过订阅
-时，您将收到错误通知，并可能从中恢复。 事件侦听器
-将传递 <a href="TileProviderError.html"><code>TileProviderError</code></a> 的实例。
+    获取在影像提供程序遇到异步错误时引发的事件。 通过订阅时，您将收到错误通知，并可能从中恢复。 事件侦听器将传递 <a href="TileProviderError.html"><code>TileProviderError</code></a> 的实例。
 </div>
 
 
@@ -438,11 +407,7 @@ const esri = await Cesium.ArcGisMapServerImageryProvider.fromUrl(
 
 
 <div class="description">
-    获取一个值，该值指示此图像提供程序是否提供图像
-包括 Alpha 通道。 如果此属性为 false，则 Alpha 通道（如果存在）将
-被忽略。 如果此属性为 true，则将处理任何没有 Alpha 通道的图像
-就好像它们的 alpha 在所有地方都是 1.0 一样。 当此属性为 false 时，内存使用情况
-和纹理上传时间缩短。
+    获取一个值，该值指示此图像提供程序是否提供图像包括 Alpha 通道。 如果此属性为 false，则 Alpha 通道（如果存在）将被忽略。 如果此属性为 true，则将处理任何没有 Alpha 通道的图像就好像它们的 alpha 在所有地方都是 1.0 一样。 当此属性为 false 时，内存使用情况和纹理上传时间缩短。
 </div>
 
 
@@ -805,9 +770,7 @@ const esri = await Cesium.ArcGisMapServerImageryProvider.fromUrl(
 
 
 <div class="description">
-    获取瓦片丢弃策略。 如果未 undefined，则 discard 策略负责
-用于通过其 shouldDiscardImage 函数过滤掉“缺失”的瓦片。 如果此功能
-返回 undefined，不过滤任何图块。
+    获取瓦片丢弃策略。 如果未 undefined，则 discard 策略负责用于通过其 shouldDiscardImage 函数过滤掉“缺失”的瓦片。 如果此功能返回 undefined，不过滤任何图块。
 </div>
 
 
@@ -1167,8 +1130,7 @@ const esri = await Cesium.ArcGisMapServerImageryProvider.fromUrl(
 
 
 <div class="description">
-    获取一个值，该值指示此影像提供商是否正在使用
-ArcGIS 地图服务器。
+    获取一个值，该值指示此影像提供商是否正在使用ArcGIS 地图服务器。
 </div>
 
 
@@ -1376,23 +1338,9 @@ ArcGIS 地图服务器。
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Set the default access token for accessing ArcGIS Image Tile service
-Cesium.ArcGisMapService.defaultAccessToken = "&lt;ArcGIS Access Token>";
+    <pre><code class="language-javascript">// Set the default access token for accessing ArcGIS Image Tile serviceCesium.ArcGisMapService.defaultAccessToken = "&lt;ArcGIS Access Token>";// Add a base layer from a default ArcGIS basemapconst provider = await Cesium.ArcGisMapServerImageryProvider.fromBasemapType(  Cesium.ArcGisBaseMapType.SATELLITE);</code></pre>
 
-// Add a base layer from a default ArcGIS basemap
-const provider = await Cesium.ArcGisMapServerImageryProvider.fromBasemapType(
-  Cesium.ArcGisBaseMapType.SATELLITE);</code></pre>
-
-    <pre><code class="language-javascript">// Add a base layer from a default ArcGIS Basemap
-const viewer = new Cesium.Viewer("cesiumContainer", {
-  baseLayer: Cesium.ImageryLayer.fromProviderAsync(
-    Cesium.ArcGisMapServerImageryProvider.fromBasemapType(
-      Cesium.ArcGisBaseMapType.HILLSHADE, {
-        token: "&lt;ArcGIS Access Token>"
-      }
-    )
-  ),
-});</code></pre>
+    <pre><code class="language-javascript">// Add a base layer from a default ArcGIS Basemapconst viewer = new Cesium.Viewer("cesiumContainer", {  baseLayer: Cesium.ImageryLayer.fromProviderAsync(    Cesium.ArcGisMapServerImageryProvider.fromBasemapType(      Cesium.ArcGisBaseMapType.HILLSHADE, {        token: "&lt;ArcGIS Access Token>"      }    )  ),});</code></pre>
 
     
 
@@ -1429,8 +1377,7 @@ const viewer = new Cesium.Viewer("cesiumContainer", {
 
 
 <div class="description">
-    创建一个 <a href="ImageryProvider.html"><code>ImageryProvider</code></a>，该提供商由 ArcGIS MapServer 托管的切片影像。 默认情况下，服务器的预缓存切片为
-二手（如果有）。
+    创建一个 <a href="ImageryProvider.html"><code>ImageryProvider</code></a>，该提供商由 ArcGIS MapServer 托管的切片影像。 默认情况下，服务器的预缓存切片为二手（如果有）。
 </div>
 
 
@@ -1596,9 +1543,7 @@ const viewer = new Cesium.Viewer("cesiumContainer", {
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const esri = await Cesium.ArcGisMapServerImageryProvider.fromUrl(
-    "https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer"
-);</code></pre>
+    <pre><code class="language-javascript">const esri = await Cesium.ArcGisMapServerImageryProvider.fromUrl(    "https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer");</code></pre>
 
     
 
@@ -1816,8 +1761,7 @@ const viewer = new Cesium.Viewer("cesiumContainer", {
 
 
 <div class="description">
-    异步确定哪些要素（如果有）位于给定的经度和纬度
-一个图块。
+    异步确定哪些要素（如果有）位于给定的经度和纬度一个图块。
 </div>
 
 
@@ -1981,9 +1925,7 @@ const viewer = new Cesium.Viewer("cesiumContainer", {
 
         
 <div class="param-desc">
-    对所选特征的 Promise，当异步
-拣选完成。 解析的值是 <a href="ImageryLayerFeatureInfo.html"><code>ImageryLayerFeatureInfo</code></a> 的数组
-实例。 如果在给定位置未找到要素，则数组可能为空。
+    对所选特征的 Promise，当异步拣选完成。 解析的值是 <a href="ImageryLayerFeatureInfo.html"><code>ImageryLayerFeatureInfo</code></a> 的数组实例。 如果在给定位置未找到要素，则数组可能为空。
 </div>
 
 
@@ -2209,8 +2151,7 @@ const viewer = new Cesium.Viewer("cesiumContainer", {
 
         
 <div class="param-desc">
-    映像的 Promise，该 Promise 将在映像可用时解析，或者
-undefined 如果对服务器的活动请求过多，则应稍后重试该请求。
+    映像的 Promise，该 Promise 将在映像可用时解析，或者undefined 如果对服务器的活动请求过多，则应稍后重试该请求。
 </div>
 
 
@@ -2346,17 +2287,7 @@ undefined 如果对服务器的活动请求过多，则应稍后重试该请求�
                 </td>
             
 
-            <td class="description last">确定瓦片是否
-无效，应丢弃。 如果未指定此值，则默认为
-<a href="DiscardMissingTileImagePolicy.html"><code>DiscardMissingTileImagePolicy</code></a> 用于平铺地图服务器，而
-<a href="NeverTileDiscardPolicy.html"><code>NeverTileDiscardPolicy</code></a> 用于非平铺地图服务器。 在前一种情况下，
-我们在最大瓦片级别请求瓦片 0,0 并检查像素 （0,0）、（200,20）、（20,200）、
-（80,110） 和 （160， 130）。 如果所有这些像素都是透明的，则丢弃校验为
-禁用且不会丢弃任何牌。 如果其中任何一个具有不透明的颜色，则任何
-在这些像素位置具有相同值的瓦片将被丢弃。 的最终结果
-对于标准 ArcGIS Server，这些默认值应该是正确的切片丢弃。 为了确保
-没有丢弃任何图块，为此构造并传递一个 <a href="NeverTileDiscardPolicy.html"><code>NeverTileDiscardPolicy</code></a>
-参数。</td>
+            <td class="description last">确定瓦片是否无效，应丢弃。 如果未指定此值，则默认为<a href="DiscardMissingTileImagePolicy.html"><code>DiscardMissingTileImagePolicy</code></a> 用于平铺地图服务器，而<a href="NeverTileDiscardPolicy.html"><code>NeverTileDiscardPolicy</code></a> 用于非平铺地图服务器。 在前一种情况下，我们在最大瓦片级别请求瓦片 0,0 并检查像素 （0,0）、（200,20）、（20,200）、（80,110） 和 （160， 130）。 如果所有这些像素都是透明的，则丢弃校验为禁用且不会丢弃任何牌。 如果其中任何一个具有不透明的颜色，则任何在这些像素位置具有相同值的瓦片将被丢弃。 的最终结果对于标准 ArcGIS Server，这些默认值应该是正确的切片丢弃。 为了确保没有丢弃任何图块，为此构造并传递一个 <a href="NeverTileDiscardPolicy.html"><code>NeverTileDiscardPolicy</code></a>参数。</td>
         </tr>
 
     
@@ -2393,8 +2324,7 @@ undefined 如果对服务器的活动请求过多，则应稍后重试该请求�
                 </td>
             
 
-            <td class="description last">如果为 true，则服务器的预缓存
-如果有瓦片，则使用瓦片。只有已弃用的 API 才支持导出切片。</td>
+            <td class="description last">如果为 true，则服务器的预缓存如果有瓦片，则使用瓦片。只有已弃用的 API 才支持导出切片。</td>
         </tr>
 
     
@@ -2466,11 +2396,7 @@ undefined 如果对服务器的活动请求过多，则应稍后重试该请求�
                 </td>
             
 
-            <td class="description last">如果为 true，则 <a href="ArcGisMapServerImageryProvider.html#pickFeatures"><code>ArcGisMapServerImageryProvider#pickFeatures</code></a> 将调用
-MapServer 上的 Identify 服务并返回响应中包含的要素。 如果为 false，则
-<a href="ArcGisMapServerImageryProvider.html#pickFeatures"><code>ArcGisMapServerImageryProvider#pickFeatures</code></a> 将立即返回 undefined（表示没有可选取的要素）
-而不与服务器通信。 如果不希望此提供程序的功能
-是可挑选的。可以通过在对象上设置 <a href="ArcGisMapServerImageryProvider.html#enablePickFeatures"><code>ArcGisMapServerImageryProvider#enablePickFeatures</code></a> 属性来覆盖。</td>
+            <td class="description last">如果为 true，则 <a href="ArcGisMapServerImageryProvider.html#pickFeatures"><code>ArcGisMapServerImageryProvider#pickFeatures</code></a> 将调用MapServer 上的 Identify 服务并返回响应中包含的要素。 如果为 false，则<a href="ArcGisMapServerImageryProvider.html#pickFeatures"><code>ArcGisMapServerImageryProvider#pickFeatures</code></a> 将立即返回 undefined（表示没有可选取的要素）而不与服务器通信。 如果不希望此提供程序的功能是可挑选的。可以通过在对象上设置 <a href="ArcGisMapServerImageryProvider.html#enablePickFeatures"><code>ArcGisMapServerImageryProvider#enablePickFeatures</code></a> 属性来覆盖。</td>
         </tr>
 
     
@@ -2507,8 +2433,7 @@ MapServer 上的 Identify 服务并返回响应中包含的要素。 如果为 f
                 </td>
             
 
-            <td class="description last">图层的矩形。 访问
-平铺层。</td>
+            <td class="description last">图层的矩形。 访问平铺层。</td>
         </tr>
 
     
@@ -2545,8 +2470,7 @@ MapServer 上的 Identify 服务并返回响应中包含的要素。 如果为 f
                 </td>
             
 
-            <td class="description last">用于将世界划分为多个图块的平铺方案。
-访问平铺服务器时，将忽略此参数。</td>
+            <td class="description last">用于将世界划分为多个图块的平铺方案。访问平铺服务器时，将忽略此参数。</td>
         </tr>
 
     
@@ -2583,9 +2507,7 @@ MapServer 上的 Identify 服务并返回响应中包含的要素。 如果为 f
                 </td>
             
 
-            <td class="description last">椭球体。 如果指定并使用了 tilingScheme，则
-此参数将被忽略，而使用切片方案的椭球体。如果两者都不是
-参数，则使用默认椭球。</td>
+            <td class="description last">椭球体。 如果指定并使用了 tilingScheme，则此参数将被忽略，而使用切片方案的椭球体。如果两者都不是参数，则使用默认椭球。</td>
         </tr>
 
     
@@ -2732,8 +2654,7 @@ MapServer 上的 Identify 服务并返回响应中包含的要素。 如果为 f
                 </td>
             
 
-            <td class="description last">要请求的最大图块级别，如果没有最大值，则为 undefined。 访问
-平铺服务器。</td>
+            <td class="description last">要请求的最大图块级别，如果没有最大值，则为 undefined。 访问平铺服务器。</td>
         </tr>
 
     

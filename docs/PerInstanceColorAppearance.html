@@ -58,9 +58,7 @@
 
 
 <div class="description">
-    具有颜色属性的 <a href="GeometryInstance.html"><code>GeometryInstance</code></a> 实例的外观。
-这允许多个几何体实例（每个实例具有不同的颜色）执行以下操作
-使用相同的 <a href="Primitive.html"><code>Primitive</code></a> 绘制，如下面的第二个示例所示。
+    具有颜色属性的 <a href="GeometryInstance.html"><code>GeometryInstance</code></a> 实例的外观。这允许多个几何体实例（每个实例具有不同的颜色）执行以下操作使用相同的 <a href="Primitive.html"><code>Primitive</code></a> 绘制，如下面的第二个示例所示。
 </div>
 
 
@@ -431,48 +429,7 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// A solid white line segment
-const primitive = new Cesium.Primitive({
-  geometryInstances : new Cesium.GeometryInstance({
-    geometry : new Cesium.SimplePolylineGeometry({
-      positions : Cesium.Cartesian3.fromDegreesArray([
-        0.0, 0.0,
-        5.0, 0.0
-      ])
-    }),
-    attributes : {
-      color : Cesium.ColorGeometryInstanceAttribute.fromColor(new Cesium.Color(1.0, 1.0, 1.0, 1.0))
-    }
-  }),
-  appearance : new Cesium.PerInstanceColorAppearance({
-    flat : true,
-    translucent : false
-  })
-});
-
-// Two rectangles in a primitive, each with a different color
-const instance = new Cesium.GeometryInstance({
-  geometry : new Cesium.RectangleGeometry({
-    rectangle : Cesium.Rectangle.fromDegrees(0.0, 20.0, 10.0, 30.0)
-  }),
-  attributes : {
-    color : new Cesium.ColorGeometryInstanceAttribute(1.0, 0.0, 0.0, 0.5)
-  }
-});
-
-const anotherInstance = new Cesium.GeometryInstance({
-  geometry : new Cesium.RectangleGeometry({
-    rectangle : Cesium.Rectangle.fromDegrees(0.0, 40.0, 10.0, 50.0)
-  }),
-  attributes : {
-    color : new Cesium.ColorGeometryInstanceAttribute(0.0, 0.0, 1.0, 0.5)
-  }
-});
-
-const rectanglePrimitive = new Cesium.Primitive({
-  geometryInstances : [instance, anotherInstance],
-  appearance : new Cesium.PerInstanceColorAppearance()
-});</code></pre>
+    <pre><code class="language-javascript">// A solid white line segmentconst primitive = new Cesium.Primitive({  geometryInstances : new Cesium.GeometryInstance({    geometry : new Cesium.SimplePolylineGeometry({      positions : Cesium.Cartesian3.fromDegreesArray([        0.0, 0.0,        5.0, 0.0      ])    }),    attributes : {      color : Cesium.ColorGeometryInstanceAttribute.fromColor(new Cesium.Color(1.0, 1.0, 1.0, 1.0))    }  }),  appearance : new Cesium.PerInstanceColorAppearance({    flat : true,    translucent : false  })});// Two rectangles in a primitive, each with a different colorconst instance = new Cesium.GeometryInstance({  geometry : new Cesium.RectangleGeometry({    rectangle : Cesium.Rectangle.fromDegrees(0.0, 20.0, 10.0, 30.0)  }),  attributes : {    color : new Cesium.ColorGeometryInstanceAttribute(1.0, 0.0, 0.0, 0.5)  }});const anotherInstance = new Cesium.GeometryInstance({  geometry : new Cesium.RectangleGeometry({    rectangle : Cesium.Rectangle.fromDegrees(0.0, 40.0, 10.0, 50.0)  }),  attributes : {    color : new Cesium.ColorGeometryInstanceAttribute(0.0, 0.0, 1.0, 0.5)  }});const rectanglePrimitive = new Cesium.Primitive({  geometryInstances : [instance, anotherInstance],  appearance : new Cesium.PerInstanceColorAppearance()});</code></pre>
 
     
 
@@ -524,9 +481,7 @@ const rectanglePrimitive = new Cesium.Primitive({
 
 
 <div class="description">
-    所有 <a href="PerInstanceColorAppearance.html"><code>PerInstanceColorAppearance</code></a> 实例的 <a href="VertexFormat.html"><code>VertexFormat</code></a>
-与 <a href="PerInstanceColorAppearance.html#flat"><code>PerInstanceColorAppearance#flat</code></a> 为 <code>true</code> 时兼容。
-这只需要 <code>position</code> 属性。
+    所有 <a href="PerInstanceColorAppearance.html"><code>PerInstanceColorAppearance</code></a> 实例的 <a href="VertexFormat.html"><code>VertexFormat</code></a>与 <a href="PerInstanceColorAppearance.html#flat"><code>PerInstanceColorAppearance#flat</code></a> 为 <code>true</code> 时兼容。这只需要 <code>position</code> 属性。
 </div>
 
 
@@ -586,9 +541,7 @@ const rectanglePrimitive = new Cesium.Primitive({
 
 
 <div class="description">
-    所有 <a href="PerInstanceColorAppearance.html"><code>PerInstanceColorAppearance</code></a> 实例的 <a href="VertexFormat.html"><code>VertexFormat</code></a>
-兼容。 这只需要 <code>position</code> 和 <code>normal</code>
-属性。
+    所有 <a href="PerInstanceColorAppearance.html"><code>PerInstanceColorAppearance</code></a> 实例的 <a href="VertexFormat.html"><code>VertexFormat</code></a>兼容。 这只需要 <code>position</code> 和 <code>normal</code>属性。
 </div>
 
 
@@ -648,9 +601,7 @@ const rectanglePrimitive = new Cesium.Primitive({
 
 
 <div class="description">
-    如果<code>为 true</code>，则几何体应被关闭，因此
-<a href="PerInstanceColorAppearance.html#renderState"><code>PerInstanceColorAppearance#renderState</code></a> 已启用背面剔除。
-如果查看器进入几何图形，则几何图形将不可见。
+    如果<code>为 true</code>，则几何体应被关闭，因此<a href="PerInstanceColorAppearance.html#renderState"><code>PerInstanceColorAppearance#renderState</code></a> 已启用背面剔除。如果查看器进入几何图形，则几何图形将不可见。
 </div>
 
 
@@ -713,10 +664,7 @@ const rectanglePrimitive = new Cesium.Primitive({
 
 
 <div class="description">
-    如果<code>为 true</code>，则片段着色器将翻转表面法线
-根据需要确保法线面向观看者避免
-黑斑。 当几何体的两侧都应该
-像 <a href="WallGeometry.html"><code>WallGeometry</code></a> 一样着色。
+    如果<code>为 true</code>，则片段着色器将翻转表面法线根据需要确保法线面向观看者避免黑斑。 当几何体的两侧都应该像 <a href="WallGeometry.html"><code>WallGeometry</code></a> 一样着色。
 </div>
 
 
@@ -779,8 +727,7 @@ const rectanglePrimitive = new Cesium.Primitive({
 
 
 <div class="description">
-    如果<code>为 true</code>，则在片段着色器中使用平面着色。
-表示未考虑照明。
+    如果<code>为 true</code>，则在片段着色器中使用平面着色。表示未考虑照明。
 </div>
 
 
@@ -903,8 +850,7 @@ const rectanglePrimitive = new Cesium.Primitive({
 
 
 <div class="description">
-    此属性是 <a href="Appearance.html"><code>Appearance</code></a> 接口的一部分，但不是
-由 <a href="PerInstanceColorAppearance.html"><code>PerInstanceColorAppearance</code></a> 使用，因为使用了完全自定义的片段着色器。
+    此属性是 <a href="Appearance.html"><code>Appearance</code></a> 接口的一部分，但不是由 <a href="PerInstanceColorAppearance.html"><code>PerInstanceColorAppearance</code></a> 使用，因为使用了完全自定义的片段着色器。
 </div>
 
 
@@ -967,12 +913,7 @@ const rectanglePrimitive = new Cesium.Primitive({
 
 
 <div class="description">
-    渲染几何体时使用的 WebGL 固定函数状态。
-<p>
-在构造 <a href="PerInstanceColorAppearance.html"><code>PerInstanceColorAppearance</code></a> 时，可以显式定义渲染状态
-实例，或者通过 <a href="PerInstanceColorAppearance.html#translucent"><code>PerInstanceColorAppearance#translucent</code></a> 隐式设置
-and <a href="PerInstanceColorAppearance.html#closed"><code>PerInstanceColorAppearance#closed</code></a>.
-</p>
+    渲染几何体时使用的 WebGL 固定函数状态。<p>在构造 <a href="PerInstanceColorAppearance.html"><code>PerInstanceColorAppearance</code></a> 时，可以显式定义渲染状态实例，或者通过 <a href="PerInstanceColorAppearance.html#translucent"><code>PerInstanceColorAppearance#translucent</code></a> 隐式设置and <a href="PerInstanceColorAppearance.html#closed"><code>PerInstanceColorAppearance#closed</code></a>.</p>
 </div>
 
 
@@ -1032,8 +973,7 @@ and <a href="PerInstanceColorAppearance.html#closed"><code>PerInstanceColorAppea
 
 
 <div class="description">
-    如果<code>为 true</code>，则几何体应显示为半透明，因此
-<a href="PerInstanceColorAppearance.html#renderState"><code>PerInstanceColorAppearance#renderState</code></a> 已启用 Alpha 混合。
+    如果<code>为 true</code>，则几何体应显示为半透明，因此<a href="PerInstanceColorAppearance.html#renderState"><code>PerInstanceColorAppearance#renderState</code></a> 已启用 Alpha 混合。
 </div>
 
 
@@ -1096,9 +1036,7 @@ and <a href="PerInstanceColorAppearance.html#closed"><code>PerInstanceColorAppea
 
 
 <div class="description">
-    与此外观实例兼容的 <a href="VertexFormat.html"><code>VertexFormat</code></a>。
-几何体可以具有更多顶点属性，并且仍然兼容 - 在
-潜在的性能成本 - 但不能更少。
+    与此外观实例兼容的 <a href="VertexFormat.html"><code>VertexFormat</code></a>。几何体可以具有更多顶点属性，并且仍然兼容 - 在潜在的性能成本 - 但不能更少。
 </div>
 
 
@@ -1225,9 +1163,7 @@ and <a href="PerInstanceColorAppearance.html#closed"><code>PerInstanceColorAppea
 
 
 <div class="description">
-    以程序方式创建完整的 GLSL 片段着色器源。 对于 <a href="PerInstanceColorAppearance.html"><code>PerInstanceColorAppearance</code></a>，
-这是从 <a href="PerInstanceColorAppearance.html#fragmentShaderSource"><code>PerInstanceColorAppearance#fragmentShaderSource</code></a>、<a href="PerInstanceColorAppearance.html#flat"><code>PerInstanceColorAppearance#flat</code></a>、
-和 <a href="PerInstanceColorAppearance.html#faceForward"><code>PerInstanceColorAppearance#faceForward</code></a> 进行转换。
+    以程序方式创建完整的 GLSL 片段着色器源。 对于 <a href="PerInstanceColorAppearance.html"><code>PerInstanceColorAppearance</code></a>，这是从 <a href="PerInstanceColorAppearance.html#fragmentShaderSource"><code>PerInstanceColorAppearance#fragmentShaderSource</code></a>、<a href="PerInstanceColorAppearance.html#flat"><code>PerInstanceColorAppearance#flat</code></a>、和 <a href="PerInstanceColorAppearance.html#faceForward"><code>PerInstanceColorAppearance#faceForward</code></a> 进行转换。
 </div>
 
 
@@ -1317,9 +1253,7 @@ and <a href="PerInstanceColorAppearance.html#closed"><code>PerInstanceColorAppea
 
 
 <div class="description">
-    创建渲染状态。 这不是最终的渲染状态实例;相反
-它可以包含与渲染状态相同的渲染状态属性的子集
-在上下文中创建。
+    创建渲染状态。 这不是最终的渲染状态实例;相反它可以包含与渲染状态相同的渲染状态属性的子集在上下文中创建。
 </div>
 
 

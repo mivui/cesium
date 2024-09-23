@@ -58,14 +58,7 @@
 
 
 <div class="description">
-    I3SDataProvider 是 I3S 支持的主要公共类。url 选项
-应返回一个 scene 对象。当前支持的 I3S 版本为 1.6 和
-1.7/1.8 （OGC I3S 1.2）。I3SFeature 和 I3SNode 类实现
-I3S 实体的对象模型，具有公共接口。
-
-<div class="notice">
-此对象通常不会直接实例化，请使用 <a href="I3SDataProvider.html#.fromUrl"><code>I3SDataProvider.fromUrl</code></a>.
-</div>
+    I3SDataProvider 是 I3S 支持的主要公共类。url 选项应返回一个 scene 对象。当前支持的 I3S 版本为 1.6 和1.7/1.8 （OGC I3S 1.2）。I3SFeature 和 I3SNode 类实现I3S 实体的对象模型，具有公共接口。<div class="notice">此对象通常不会直接实例化，请使用 <a href="I3SDataProvider.html#.fromUrl"><code>I3SDataProvider.fromUrl</code></a>.</div>
 </div>
 
 
@@ -159,27 +152,9 @@ I3S 实体的对象模型，具有公共接口。
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">try {
-  const i3sData = await I3SDataProvider.fromUrl(
-    "https://tiles.arcgis.com/tiles/z2tnIkrLQ2BRzr6P/arcgis/rest/services/Frankfurt2017_vi3s_18/SceneServer/layers/0"
-  );
-  viewer.scene.primitives.add(i3sData);
-} catch (error) {
-  console.log(`There was an error creating the I3S Data Provider: ${error}`);
-}</code></pre>
+    <pre><code class="language-javascript">try {  const i3sData = await I3SDataProvider.fromUrl(    "https://tiles.arcgis.com/tiles/z2tnIkrLQ2BRzr6P/arcgis/rest/services/Frankfurt2017_vi3s_18/SceneServer/layers/0"  );  viewer.scene.primitives.add(i3sData);} catch (error) {  console.log(`There was an error creating the I3S Data Provider: ${error}`);}</code></pre>
 
-    <pre><code class="language-javascript">try {
-  const geoidService = await Cesium.ArcGISTiledElevationTerrainProvider.fromUrl(
-    "https://tiles.arcgis.com/tiles/z2tnIkrLQ2BRzr6P/arcgis/rest/services/EGM2008/ImageServer"
-  );
-  const i3sData = await I3SDataProvider.fromUrl(
-    "https://tiles.arcgis.com/tiles/z2tnIkrLQ2BRzr6P/arcgis/rest/services/Frankfurt2017_vi3s_18/SceneServer/layers/0", {
-      geoidTiledTerrainProvider: geoidService
-  });
-  viewer.scene.primitives.add(i3sData);
-} catch (error) {
-  console.log(`There was an error creating the I3S Data Provider: ${error}`);
-}</code></pre>
+    <pre><code class="language-javascript">try {  const geoidService = await Cesium.ArcGISTiledElevationTerrainProvider.fromUrl(    "https://tiles.arcgis.com/tiles/z2tnIkrLQ2BRzr6P/arcgis/rest/services/EGM2008/ImageServer"  );  const i3sData = await I3SDataProvider.fromUrl(    "https://tiles.arcgis.com/tiles/z2tnIkrLQ2BRzr6P/arcgis/rest/services/Frankfurt2017_vi3s_18/SceneServer/layers/0", {      geoidTiledTerrainProvider: geoidService  });  viewer.scene.primitives.add(i3sData);} catch (error) {  console.log(`There was an error creating the I3S Data Provider: ${error}`);}</code></pre>
 
     
 
@@ -965,8 +940,7 @@ I3S 实体的对象模型，具有公共接口。
 
 
 <div class="description">
-    创建 I3SDataProvider。当前支持的 I3S 版本为 1.6 和
-1.7/1.8 （OGC I3S 1.2）。
+    创建 I3SDataProvider。当前支持的 I3S 版本为 1.6 和1.7/1.8 （OGC I3S 1.2）。
 </div>
 
 
@@ -1091,27 +1065,9 @@ I3S 实体的对象模型，具有公共接口。
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">try {
-  const i3sData = await I3SDataProvider.fromUrl(
-    "https://tiles.arcgis.com/tiles/z2tnIkrLQ2BRzr6P/arcgis/rest/services/Frankfurt2017_vi3s_18/SceneServer/layers/0"
-  );
-  viewer.scene.primitives.add(i3sData);
-} catch (error) {
-  console.log(`There was an error creating the I3S Data Provider: ${error}`);
-}</code></pre>
+    <pre><code class="language-javascript">try {  const i3sData = await I3SDataProvider.fromUrl(    "https://tiles.arcgis.com/tiles/z2tnIkrLQ2BRzr6P/arcgis/rest/services/Frankfurt2017_vi3s_18/SceneServer/layers/0"  );  viewer.scene.primitives.add(i3sData);} catch (error) {  console.log(`There was an error creating the I3S Data Provider: ${error}`);}</code></pre>
 
-    <pre><code class="language-javascript">try {
-  const geoidService = await Cesium.ArcGISTiledElevationTerrainProvider.fromUrl(
-    "https://tiles.arcgis.com/tiles/z2tnIkrLQ2BRzr6P/arcgis/rest/services/EGM2008/ImageServer"
-  );
-  const i3sData = await I3SDataProvider.fromUrl(
-    "https://tiles.arcgis.com/tiles/z2tnIkrLQ2BRzr6P/arcgis/rest/services/Frankfurt2017_vi3s_18/SceneServer/layers/0", {
-      geoidTiledTerrainProvider: geoidService
-  });
-  viewer.scene.primitives.add(i3sData);
-} catch (error) {
-  console.log(`There was an error creating the I3S Data Provider: ${error}`);
-}</code></pre>
+    <pre><code class="language-javascript">try {  const geoidService = await Cesium.ArcGISTiledElevationTerrainProvider.fromUrl(    "https://tiles.arcgis.com/tiles/z2tnIkrLQ2BRzr6P/arcgis/rest/services/EGM2008/ImageServer"  );  const i3sData = await I3SDataProvider.fromUrl(    "https://tiles.arcgis.com/tiles/z2tnIkrLQ2BRzr6P/arcgis/rest/services/Frankfurt2017_vi3s_18/SceneServer/layers/0", {      geoidTiledTerrainProvider: geoidService  });  viewer.scene.primitives.add(i3sData);} catch (error) {  console.log(`There was an error creating the I3S Data Provider: ${error}`);}</code></pre>
 
     
 
@@ -1148,13 +1104,7 @@ I3S 实体的对象模型，具有公共接口。
 
 
 <div class="description">
-    销毁此对象持有的 WebGL 资源。销毁对象允许确定性
-释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。
-<p>
-一旦对象被销毁，就不应该使用它;调用
-<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。因此
-将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
-</p>
+    销毁此对象持有的 WebGL 资源。销毁对象允许确定性释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。<p>一旦对象被销毁，就不应该使用它;调用<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。因此将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。</p>
 </div>
 
 
@@ -1629,11 +1579,7 @@ I3S 实体的对象模型，具有公共接口。
 
 
 <div class="description">
-    如果此对象已销毁，则返回 true;否则为 false。
-<p>
-如果此对象已销毁，则不应使用;调用
-<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。
-</p>
+    如果此对象已销毁，则返回 true;否则为 false。<p>如果此对象已销毁，则不应使用;调用<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。</p>
 </div>
 
 
@@ -2087,22 +2033,9 @@ I3S 实体的对象模型，具有公共接口。
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Increase LOD by reducing SSE
-const cesium3dTilesetOptions = {
-  maximumScreenSpaceError: 1,
-};
-const i3sOptions = {
-  cesium3dTilesetOptions: cesium3dTilesetOptions,
-};</code></pre>
+    <pre><code class="language-javascript">// Increase LOD by reducing SSEconst cesium3dTilesetOptions = {  maximumScreenSpaceError: 1,};const i3sOptions = {  cesium3dTilesetOptions: cesium3dTilesetOptions,};</code></pre>
 
-    <pre><code class="language-javascript">// Set a custom outline color to replace the color defined in I3S symbology
-const cesium3dTilesetOptions = {
-  outlineColor: Cesium.Color.BLUE,
-};
-const i3sOptions = {
-  cesium3dTilesetOptions: cesium3dTilesetOptions,
-  applySymbology: true,
-};</code></pre>
+    <pre><code class="language-javascript">// Set a custom outline color to replace the color defined in I3S symbologyconst cesium3dTilesetOptions = {  outlineColor: Cesium.Color.BLUE,};const i3sOptions = {  cesium3dTilesetOptions: cesium3dTilesetOptions,  applySymbology: true,};</code></pre>
 
     
 

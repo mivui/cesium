@@ -47,8 +47,7 @@
 
 
         
-            <div class="description">描述如何将 <a href="CustomShader.html"><code>CustomShader</code></a> 添加到
-片段着色器。这决定了着色器如何与材质交互。</div>
+            <div class="description">描述如何将 <a href="CustomShader.html"><code>CustomShader</code></a> 添加到片段着色器。这决定了着色器如何与材质交互。</div>
         
 
         
@@ -97,8 +96,7 @@
 
             
 
-            <td class="description last">自定义着色器将用于修改材质阶段的结果
-在应用照明之前。</td>
+            <td class="description last">自定义着色器将用于修改材质阶段的结果在应用照明之前。</td>
         </tr>
 
     
@@ -121,8 +119,7 @@
 
             
 
-            <td class="description last">将使用自定义着色器而不是材质阶段。这是一个提示
-优化材质处理代码。</td>
+            <td class="description last">将使用自定义着色器而不是材质阶段。这是一个提示优化材质处理代码。</td>
         </tr>
 
     
@@ -203,8 +200,7 @@
 
 
 <div class="description">
-    自定义着色器将用于修改材质阶段的结果
-在应用照明之前。
+    自定义着色器将用于修改材质阶段的结果在应用照明之前。
 </div>
 
 
@@ -267,8 +263,7 @@
 
 
 <div class="description">
-    将使用自定义着色器而不是材质阶段。这是一个提示
-优化材质处理代码。
+    将使用自定义着色器而不是材质阶段。这是一个提示优化材质处理代码。
 </div>
 
 

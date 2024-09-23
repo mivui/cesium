@@ -58,10 +58,7 @@
 
 
 <div class="description">
-    GroundPolylinePrimitive 表示覆盖在 <a href="Scene.html"><code>Scene</code></a> 中的 terrain 或 3D 瓦片上的多段线。
-<p>
-仅用于包含 <a href="GroundPolylineGeometry.html"><code>GroundPolylineGeometry</code></a> 的 GeometryInstances。
-</p>
+    GroundPolylinePrimitive 表示覆盖在 <a href="Scene.html"><code>Scene</code></a> 中的 terrain 或 3D 瓦片上的多段线。<p>仅用于包含 <a href="GroundPolylineGeometry.html"><code>GroundPolylineGeometry</code></a> 的 GeometryInstances。</p>
 </div>
 
 
@@ -545,49 +542,7 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// 1. Draw a polyline on terrain with a basic color material
-
-const instance = new Cesium.GeometryInstance({
-  geometry : new Cesium.GroundPolylineGeometry({
-     positions : Cesium.Cartesian3.fromDegreesArray([
-         -112.1340164450331, 36.05494287836128,
-         -112.08821010582645, 36.097804071380715
-     ]),
-     width : 4.0
-  }),
-  id : 'object returned when this instance is picked and to get/set per-instance attributes'
-});
-
-scene.groundPrimitives.add(new Cesium.GroundPolylinePrimitive({
-  geometryInstances : instance,
-  appearance : new Cesium.PolylineMaterialAppearance()
-}));
-
-// 2. Draw a looped polyline on terrain with per-instance color and a distance display condition.
-// Distance display conditions for polylines on terrain are based on an approximate terrain height
-// instead of true terrain height.
-
-const instance2 = new Cesium.GeometryInstance({
-  geometry : new Cesium.GroundPolylineGeometry({
-     positions : Cesium.Cartesian3.fromDegreesArray([
-         -112.1340164450331, 36.05494287836128,
-         -112.08821010582645, 36.097804071380715,
-         -112.13296079730024, 36.168769146801104
-     ]),
-     loop : true,
-     width : 4.0
-  }),
-  attributes : {
-     color : Cesium.ColorGeometryInstanceAttribute.fromColor(Cesium.Color.fromCssColorString('green').withAlpha(0.7)),
-     distanceDisplayCondition : new Cesium.DistanceDisplayConditionGeometryInstanceAttribute(1000, 30000)
-  },
-  id : 'object returned when this instance is picked and to get/set per-instance attributes'
-});
-
-scene.groundPrimitives.add(new Cesium.GroundPolylinePrimitive({
-  geometryInstances : instance2,
-  appearance : new Cesium.PolylineColorAppearance()
-}));</code></pre>
+    <pre><code class="language-javascript">// 1. Draw a polyline on terrain with a basic color materialconst instance = new Cesium.GeometryInstance({  geometry : new Cesium.GroundPolylineGeometry({     positions : Cesium.Cartesian3.fromDegreesArray([         -112.1340164450331, 36.05494287836128,         -112.08821010582645, 36.097804071380715     ]),     width : 4.0  }),  id : 'object returned when this instance is picked and to get/set per-instance attributes'});scene.groundPrimitives.add(new Cesium.GroundPolylinePrimitive({  geometryInstances : instance,  appearance : new Cesium.PolylineMaterialAppearance()}));// 2. Draw a looped polyline on terrain with per-instance color and a distance display condition.// Distance display conditions for polylines on terrain are based on an approximate terrain height// instead of true terrain height.const instance2 = new Cesium.GeometryInstance({  geometry : new Cesium.GroundPolylineGeometry({     positions : Cesium.Cartesian3.fromDegreesArray([         -112.1340164450331, 36.05494287836128,         -112.08821010582645, 36.097804071380715,         -112.13296079730024, 36.168769146801104     ]),     loop : true,     width : 4.0  }),  attributes : {     color : Cesium.ColorGeometryInstanceAttribute.fromColor(Cesium.Color.fromCssColorString('green').withAlpha(0.7)),     distanceDisplayCondition : new Cesium.DistanceDisplayConditionGeometryInstanceAttribute(1000, 30000)  },  id : 'object returned when this instance is picked and to get/set per-instance attributes'});scene.groundPrimitives.add(new Cesium.GroundPolylinePrimitive({  geometryInstances : instance2,  appearance : new Cesium.PolylineColorAppearance()}));</code></pre>
 
     
 
@@ -702,10 +657,7 @@ scene.groundPrimitives.add(new Cesium.GroundPolylinePrimitive({
 
 
 <div class="description">
-    用于对此基元进行着色的 <a href="Appearance.html"><code>Appearance</code></a>。每个几何体
-实例以相同的外观进行着色。 一些外观，如
-<a href="PolylineColorAppearance.html"><code>PolylineColorAppearance</code></a> 允许为每个实例指定唯一的
-性能。
+    用于对此基元进行着色的 <a href="Appearance.html"><code>Appearance</code></a>。每个几何体实例以相同的外观进行着色。 一些外观，如<a href="PolylineColorAppearance.html"><code>PolylineColorAppearance</code></a> 允许为每个实例指定唯一的性能。
 </div>
 
 
@@ -894,10 +846,7 @@ scene.groundPrimitives.add(new Cesium.GroundPolylinePrimitive({
 
 
 <div class="description">
-    此属性仅用于调试;它不用于生产用途，也未进行优化。
-<p>
-为基元中的每个绘制命令绘制边界球体。
-</p>
+    此属性仅用于调试;它不用于生产用途，也未进行优化。<p>为基元中的每个绘制命令绘制边界球体。</p>
 </div>
 
 
@@ -960,10 +909,7 @@ scene.groundPrimitives.add(new Cesium.GroundPolylinePrimitive({
 
 
 <div class="description">
-    此属性仅用于调试;它不用于生产用途，也未进行优化。
-<p>
-如果为 true，则为基元中的每个几何体绘制阴影体积。
-</p>
+    此属性仅用于调试;它不用于生产用途，也未进行优化。<p>如果为 true，则为基元中的每个几何体绘制阴影体积。</p>
 </div>
 
 
@@ -1026,12 +972,7 @@ scene.groundPrimitives.add(new Cesium.GroundPolylinePrimitive({
 
 
 <div class="description">
-    使用此基元渲染的几何体实例。这可能会
-如果 <code>options.releaseGeometryInstances</code> 为 <code>undefined</code>
-在构造基元时为 <code>true</code>。
-<p>
-在渲染基元后更改此属性不起作用。
-</p>
+    使用此基元渲染的几何体实例。这可能会如果 <code>options.releaseGeometryInstances</code> 为 <code>undefined</code>在构造基元时为 <code>true</code>。<p>在渲染基元后更改此属性不起作用。</p>
 </div>
 
 
@@ -1157,9 +1098,7 @@ scene.groundPrimitives.add(new Cesium.GroundPolylinePrimitive({
 
 
 <div class="description">
-    确定基元是否完整并准备好进行渲染。 如果此属性为
-true，则基元将在下次 <a href="GroundPolylinePrimitive.html#update"><code>GroundPolylinePrimitive#update</code></a> 时渲染
-被调用。
+    确定基元是否完整并准备好进行渲染。 如果此属性为true，则基元将在下次 <a href="GroundPolylinePrimitive.html#update"><code>GroundPolylinePrimitive#update</code></a> 时渲染被调用。
 </div>
 
 
@@ -1282,8 +1221,7 @@ true，则基元将在下次 <a href="GroundPolylinePrimitive.html#update"><code
 
 
 <div class="description">
-    确定是否显示基元。 这会影响所有几何体
-实例。
+    确定是否显示基元。 这会影响所有几何体实例。
 </div>
 
 
@@ -1353,8 +1291,7 @@ true，则基元将在下次 <a href="GroundPolylinePrimitive.html#update"><code
 
 
 <div class="description">
-    初始化最小和最大地形高度。仅当您正在创建
-GroundPolylinePrimitive 同步。
+    初始化最小和最大地形高度。仅当您正在创建GroundPolylinePrimitive 同步。
 </div>
 
 
@@ -1444,8 +1381,7 @@ GroundPolylinePrimitive 同步。
 
 
 <div class="description">
-    检查给定的 Scene 是否支持 GroundPolylinePrimitives。
-GroundPolylinePrimitives 需要支持 WEBGL_depth_texture 扩展。
+    检查给定的 Scene 是否支持 GroundPolylinePrimitives。GroundPolylinePrimitives 需要支持 WEBGL_depth_texture 扩展。
 </div>
 
 
@@ -1580,13 +1516,7 @@ GroundPolylinePrimitives 需要支持 WEBGL_depth_texture 扩展。
 
 
 <div class="description">
-    销毁此对象持有的 WebGL 资源。 销毁对象允许确定性
-释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。
-<p>
-一旦对象被销毁，就不应该使用它;调用
- <code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。 因此
-将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
-</p>
+    销毁此对象持有的 WebGL 资源。 销毁对象允许确定性释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。<p>一旦对象被销毁，就不应该使用它;调用 <code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。 因此将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。</p>
 </div>
 
 
@@ -1808,9 +1738,7 @@ GroundPolylinePrimitives 需要支持 WEBGL_depth_texture 扩展。
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const attributes = primitive.getGeometryInstanceAttributes('an id');
-attributes.color = Cesium.ColorGeometryInstanceAttribute.toValue(Cesium.Color.AQUA);
-attributes.show = Cesium.ShowGeometryInstanceAttribute.toValue(true);</code></pre>
+    <pre><code class="language-javascript">const attributes = primitive.getGeometryInstanceAttributes('an id');attributes.color = Cesium.ColorGeometryInstanceAttribute.toValue(Cesium.Color.AQUA);attributes.show = Cesium.ShowGeometryInstanceAttribute.toValue(true);</code></pre>
 
     
 
@@ -1847,11 +1775,7 @@ attributes.show = Cesium.ShowGeometryInstanceAttribute.toValue(true);</code></pr
 
 
 <div class="description">
-    如果此对象已销毁，则返回 true;否则为 false。
-<p>
-如果此对象已销毁，则不应使用;调用
- <code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。
-</p>
+    如果此对象已销毁，则返回 true;否则为 false。<p>如果此对象已销毁，则不应使用;调用 <code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。</p>
 </div>
 
 
@@ -1946,12 +1870,7 @@ attributes.show = Cesium.ShowGeometryInstanceAttribute.toValue(true);</code></pr
 
 
 <div class="description">
-    当 <a href="Viewer.html"><code>Viewer</code></a> 或 <a href="CesiumWidget.html"><code>CesiumWidget</code></a> 将场景渲染到
-获取渲染此基元所需的绘制命令。
-<p>
-请勿直接调用此函数。 这记录下来只是为了
-列出渲染场景时可能传播的异常：
-</p>
+    当 <a href="Viewer.html"><code>Viewer</code></a> 或 <a href="CesiumWidget.html"><code>CesiumWidget</code></a> 将场景渲染到获取渲染此基元所需的绘制命令。<p>请勿直接调用此函数。 这记录下来只是为了列出渲染场景时可能传播的异常：</p>
 </div>
 
 

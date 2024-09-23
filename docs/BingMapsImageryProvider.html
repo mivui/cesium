@@ -58,11 +58,7 @@
 
 
 <div class="description">
-    <div class="notice">
-要构造 BingMapsImageryProvider，请调用 <a href="BingMapsImageryProvider.html#.fromUrl"><code>BingMapsImageryProvider.fromUrl</code></a>. 不要直接调用构造函数。
-</div>
-
-使用 Bing 地图图像 REST API 提供平铺图像。
+    <div class="notice">要构造 BingMapsImageryProvider，请调用 <a href="BingMapsImageryProvider.html#.fromUrl"><code>BingMapsImageryProvider.fromUrl</code></a>. 不要直接调用构造函数。</div>使用 Bing 地图图像 REST API 提供平铺图像。
 </div>
 
 
@@ -156,11 +152,7 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const bing = await Cesium.BingMapsImageryProvider.fromUrl(
-  "https://dev.virtualearth.net", {
-    key: "get-yours-at-https://www.bingmapsportal.com/",
-    mapStyle: Cesium.BingMapsStyle.AERIAL
-});</code></pre>
+    <pre><code class="language-javascript">const bing = await Cesium.BingMapsImageryProvider.fromUrl(  "https://dev.virtualearth.net", {    key: "get-yours-at-https://www.bingmapsportal.com/",    mapStyle: Cesium.BingMapsStyle.AERIAL});</code></pre>
 
     
 
@@ -297,8 +289,7 @@
 
 
 <div class="description">
-    获取此影像提供程序处于活动状态时要显示的点数。 通常，这用于贷记
-图像的来源。
+    获取此影像提供程序处于活动状态时要显示的点数。 通常，这用于贷记图像的来源。
 </div>
 
 
@@ -358,9 +349,7 @@
 
 
 <div class="description">
-    请求 Bing 地图图像时要使用的区域性。不
-支持所有区域性。参见 <a href="http://msdn.microsoft.com/en-us/library/hh441729.aspx">http://msdn.microsoft.com/en-us/library/hh441729.aspx</a>
-以获取有关受支持区域性的信息。
+    请求 Bing 地图图像时要使用的区域性。不支持所有区域性。参见 <a href="http://msdn.microsoft.com/en-us/library/hh441729.aspx">http://msdn.microsoft.com/en-us/library/hh441729.aspx</a>以获取有关受支持区域性的信息。
 </div>
 
 
@@ -420,9 +409,7 @@
 
 
 <div class="description">
-    获取在影像提供程序遇到异步错误时引发的事件。 通过订阅
-时，您将收到错误通知，并可能从中恢复。 事件侦听器
-将传递 <a href="TileProviderError.html"><code>TileProviderError</code></a> 的实例。
+    获取在影像提供程序遇到异步错误时引发的事件。 通过订阅时，您将收到错误通知，并可能从中恢复。 事件侦听器将传递 <a href="TileProviderError.html"><code>TileProviderError</code></a> 的实例。
 </div>
 
 
@@ -482,11 +469,7 @@
 
 
 <div class="description">
-    获取一个值，该值指示此图像提供程序是否提供图像
-包括 Alpha 通道。 如果此属性为 false，则 Alpha 通道（如果存在）将
-被忽略。 如果此属性为 true，则将处理任何没有 Alpha 通道的图像
-就好像它们的 alpha 在所有地方都是 1.0 一样。 将此属性设置为 false 可减少内存使用量
-和纹理上传时间。
+    获取一个值，该值指示此图像提供程序是否提供图像包括 Alpha 通道。 如果此属性为 false，则 Alpha 通道（如果存在）将被忽略。 如果此属性为 true，则将处理任何没有 Alpha 通道的图像就好像它们的 alpha 在所有地方都是 1.0 一样。 将此属性设置为 false 可减少内存使用量和纹理上传时间。
 </div>
 
 
@@ -966,9 +949,7 @@
 
 
 <div class="description">
-    获取瓦片丢弃策略。 如果未 undefined，则 discard 策略负责
-用于通过其 shouldDiscardImage 函数过滤掉“缺失”的瓦片。 如果此功能
-返回 undefined，不过滤任何图块。
+    获取瓦片丢弃策略。 如果未 undefined，则 discard 策略负责用于通过其 shouldDiscardImage 函数过滤掉“缺失”的瓦片。 如果此功能返回 undefined，不过滤任何图块。
 </div>
 
 
@@ -1418,11 +1399,7 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const bing = await Cesium.BingMapsImageryProvider.fromUrl(
-  "https://dev.virtualearth.net", {
-    key: "get-yours-at-https://www.bingmapsportal.com/",
-    mapStyle: Cesium.BingMapsStyle.AERIAL
-});</code></pre>
+    <pre><code class="language-javascript">const bing = await Cesium.BingMapsImageryProvider.fromUrl(  "https://dev.virtualearth.net", {    key: "get-yours-at-https://www.bingmapsportal.com/",    mapStyle: Cesium.BingMapsStyle.AERIAL});</code></pre>
 
     
 
@@ -1459,8 +1436,7 @@
 
 
 <div class="description">
-    将用于从 Bing Maps 服务器请求图像的瓦片的 quad 键转换为
-（x， y， level） 位置。
+    将用于从 Bing Maps 服务器请求图像的瓦片的 quad 键转换为（x， y， level） 位置。
 </div>
 
 
@@ -1593,8 +1569,7 @@
 
 
 <div class="description">
-    将图块 （x， y， level） 位置转换为用于请求图像的四边形键
-从 Bing 地图服务器。
+    将图块 （x， y， level） 位置转换为用于请求图像的四边形键从 Bing 地图服务器。
 </div>
 
 
@@ -1954,8 +1929,7 @@
 
 
 <div class="description">
-    此图像提供程序目前不支持选取功能，因此此函数仅返回
-定义。
+    此图像提供程序目前不支持选取功能，因此此函数仅返回定义。
 </div>
 
 
@@ -2345,8 +2319,7 @@
 
         
 <div class="param-desc">
-    映像的 Promise，该 Promise 将在映像可用时解析，或者
-undefined 如果对服务器的活动请求过多，则应稍后重试该请求。
+    映像的 Promise，该 Promise 将在映像可用时解析，或者undefined 如果对服务器的活动请求过多，则应稍后重试该请求。
 </div>
 
 
@@ -2482,8 +2455,7 @@ undefined 如果对服务器的活动请求过多，则应稍后重试该请求�
                 </td>
             
 
-            <td class="description last">应用程序的 Bing Maps 键，可以是
-创建于 <a href="https://www.bingmapsportal.com/">https://www.bingmapsportal.com/</a>。</td>
+            <td class="description last">应用程序的 Bing Maps 键，可以是创建于 <a href="https://www.bingmapsportal.com/">https://www.bingmapsportal.com/</a>。</td>
         </tr>
 
     
@@ -2518,8 +2490,7 @@ undefined 如果对服务器的活动请求过多，则应稍后重试该请求�
                 </td>
             
 
-            <td class="description last">加载瓦片时使用的协议，例如 'http' 或 'https'。
-默认情况下，磁贴使用与页面相同的协议加载。</td>
+            <td class="description last">加载瓦片时使用的协议，例如 'http' 或 'https'。默认情况下，磁贴使用与页面相同的协议加载。</td>
         </tr>
 
     
@@ -2628,9 +2599,7 @@ undefined 如果对服务器的活动请求过多，则应稍后重试该请求�
                 </td>
             
 
-            <td class="description last">请求 Bing 地图图像时要使用的区域性。不
-支持所有区域性。参见 <a href="http://msdn.microsoft.com/en-us/library/hh441729.aspx">http://msdn.microsoft.com/en-us/library/hh441729.aspx</a>
-以获取有关受支持区域性的信息。</td>
+            <td class="description last">请求 Bing 地图图像时要使用的区域性。不支持所有区域性。参见 <a href="http://msdn.microsoft.com/en-us/library/hh441729.aspx">http://msdn.microsoft.com/en-us/library/hh441729.aspx</a>以获取有关受支持区域性的信息。</td>
         </tr>
 
     
@@ -2702,10 +2671,7 @@ undefined 如果对服务器的活动请求过多，则应稍后重试该请求�
                 </td>
             
 
-            <td class="description last">确定瓦片是否
-无效，应丢弃。 默认情况下，<a href="DiscardEmptyTileImagePolicy.html"><code>DiscardEmptyTileImagePolicy</code></a>
-，预期 Bing 地图服务器将针对缺失的图块发送零长度响应。
-为确保不丢弃任何图块，请为此参数构造并传递 <a href="NeverTileDiscardPolicy.html"><code>NeverTileDiscardPolicy</code></a>。</td>
+            <td class="description last">确定瓦片是否无效，应丢弃。 默认情况下，<a href="DiscardEmptyTileImagePolicy.html"><code>DiscardEmptyTileImagePolicy</code></a>，预期 Bing 地图服务器将针对缺失的图块发送零长度响应。为确保不丢弃任何图块，请为此参数构造并传递 <a href="NeverTileDiscardPolicy.html"><code>NeverTileDiscardPolicy</code></a>。</td>
         </tr>
 
     

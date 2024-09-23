@@ -2827,12 +2827,7 @@
 
 
 <div class="description">
-    销毁此对象持有的 WebGL 资源。 销毁对象允许确定性
-释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。
-<br /><br />
-一旦对象被销毁，就不应该使用它;调用
-<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。 因此
-将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
+    销毁此对象持有的 WebGL 资源。 销毁对象允许确定性释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。<br /><br />一旦对象被销毁，就不应该使用它;调用<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。 因此将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
 </div>
 
 
@@ -2932,10 +2927,7 @@
 
 
 <div class="description">
-    如果此对象已销毁，则返回 true;否则为 false。
-<br /><br />
-如果此对象已销毁，则不应使用;调用
-<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。
+    如果此对象已销毁，则返回 true;否则为 false。<br /><br />如果此对象已销毁，则不应使用;调用<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。
 </div>
 
 
@@ -3036,8 +3028,7 @@
 
 
 <div class="description">
-    用于在每个时间步长修改粒子属性的函数。这可能包括 force 修改、
-颜色、尺寸等。
+    用于在每个时间步长修改粒子属性的函数。这可能包括 force 修改、颜色、尺寸等。
 </div>
 
 
@@ -3154,12 +3145,7 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">function applyGravity(particle, dt) {
-   const position = particle.position;
-   const gravityVector = Cesium.Cartesian3.normalize(position, new Cesium.Cartesian3());
-   Cesium.Cartesian3.multiplyByScalar(gravityVector, GRAVITATIONAL_CONSTANT * dt, gravityVector);
-   particle.velocity = Cesium.Cartesian3.add(particle.velocity, gravityVector, particle.velocity);
-}</code></pre>
+    <pre><code class="language-javascript">function applyGravity(particle, dt) {   const position = particle.position;   const gravityVector = Cesium.Cartesian3.normalize(position, new Cesium.Cartesian3());   Cesium.Cartesian3.multiplyByScalar(gravityVector, GRAVITATIONAL_CONSTANT * dt, gravityVector);   particle.velocity = Cesium.Cartesian3.add(particle.velocity, gravityVector, particle.velocity);}</code></pre>
 
     
 

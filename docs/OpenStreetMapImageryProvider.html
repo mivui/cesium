@@ -58,10 +58,7 @@
 
 
 <div class="description">
-    提供由 OpenStreetMap 托管的平铺图像的图像提供商
-或其他 Slippy 磁贴提供商。 默认 URL 连接到 OpenStreetMap 的志愿者运营
-服务器，因此您必须符合其
-<a href="http://wiki.openstreetmap.org/wiki/Tile_usage_policy">Tile Usage Policy</a>.
+    提供由 OpenStreetMap 托管的平铺图像的图像提供商或其他 Slippy 磁贴提供商。 默认 URL 连接到 OpenStreetMap 的志愿者运营服务器，因此您必须符合其<a href="http://wiki.openstreetmap.org/wiki/Tile_usage_policy">Tile Usage Policy</a>.
 </div>
 
 
@@ -169,9 +166,7 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const osm = new Cesium.OpenStreetMapImageryProvider({
-    url : 'https://tile.openstreetmap.org/'
-});</code></pre>
+    <pre><code class="language-javascript">const osm = new Cesium.OpenStreetMapImageryProvider({    url : 'https://tile.openstreetmap.org/'});</code></pre>
 
     
 
@@ -257,8 +252,7 @@
 
 
 <div class="description">
-    获取此影像提供程序处于活动状态时要显示的点数。 通常，这用于贷记
-图像的来源。
+    获取此影像提供程序处于活动状态时要显示的点数。 通常，这用于贷记图像的来源。
 </div>
 
 
@@ -326,11 +320,7 @@
 
 
 <div class="description">
-    获取或设置一个值，该值指示是否启用功能选取。 如果为 true，则 <a href="UrlTemplateImageryProvider.html#pickFeatures"><code>UrlTemplateImageryProvider#pickFeatures</code></a> 将
-请求 <code>options.pickFeaturesUrl</code> 并尝试解释响应中包含的功能。 如果为 false，则
-<a href="UrlTemplateImageryProvider.html#pickFeatures"><code>UrlTemplateImageryProvider#pickFeatures</code></a> 将立即返回 undefined（表示没有可选取的）
-功能），而无需与服务器通信。 如果您知道您的数据，请将此属性设置为 false
-Source 不支持选取功能，或者您不希望此提供程序的功能可选取。
+    获取或设置一个值，该值指示是否启用功能选取。 如果为 true，则 <a href="UrlTemplateImageryProvider.html#pickFeatures"><code>UrlTemplateImageryProvider#pickFeatures</code></a> 将请求 <code>options.pickFeaturesUrl</code> 并尝试解释响应中包含的功能。 如果为 false，则<a href="UrlTemplateImageryProvider.html#pickFeatures"><code>UrlTemplateImageryProvider#pickFeatures</code></a> 将立即返回 undefined（表示没有可选取的）功能），而无需与服务器通信。 如果您知道您的数据，请将此属性设置为 falseSource 不支持选取功能，或者您不希望此提供程序的功能可选取。
 </div>
 
 
@@ -398,9 +388,7 @@ Source 不支持选取功能，或者您不希望此提供程序的功能可选�
 
 
 <div class="description">
-    获取在影像提供程序遇到异步错误时引发的事件。 通过订阅
-时，您将收到错误通知，并可能从中恢复。 事件侦听器
-将传递 <a href="TileProviderError.html"><code>TileProviderError</code></a> 的实例。
+    获取在影像提供程序遇到异步错误时引发的事件。 通过订阅时，您将收到错误通知，并可能从中恢复。 事件侦听器将传递 <a href="TileProviderError.html"><code>TileProviderError</code></a> 的实例。
 </div>
 
 
@@ -465,11 +453,7 @@ Source 不支持选取功能，或者您不希望此提供程序的功能可选�
 
 
 <div class="description">
-    获取一个值，该值指示此图像提供程序是否提供图像
-包括 Alpha 通道。 如果此属性为 false，则 Alpha 通道（如果存在）将
-被忽略。 如果此属性为 true，则将处理任何没有 Alpha 通道的图像
-就好像它们的 alpha 在所有地方都是 1.0 一样。 当此属性为 false 时，内存使用情况
-和纹理上传时间缩短。
+    获取一个值，该值指示此图像提供程序是否提供图像包括 Alpha 通道。 如果此属性为 false，则 Alpha 通道（如果存在）将被忽略。 如果此属性为 true，则将处理任何没有 Alpha 通道的图像就好像它们的 alpha 在所有地方都是 1.0 一样。 当此属性为 false 时，内存使用情况和纹理上传时间缩短。
 </div>
 
 
@@ -673,21 +657,7 @@ Source 不支持选取功能，或者您不希望此提供程序的功能可选�
 
 
 <div class="description">
-    获取用于选取功能的 URL 模板。 如果未指定此属性，
-<a href="UrlTemplateImageryProvider.html#pickFeatures"><code>UrlTemplateImageryProvider#pickFeatures</code></a> 将立即返回 undefined，表示没有
-精选功能。 URL 模板支持
-<a href="UrlTemplateImageryProvider.html#url"><code>UrlTemplateImageryProvider#url</code></a> 属性，以及以下内容：
-<ul>
-<li><code>{i}</code>：选取位置的像素列（水平坐标），其中最西端的像素为 0。</li>
-<li><code>{j}</code>：选取位置的像素行（垂直坐标），其中最北端的像素为 0。</li>
-<li><code>{reverseI}</code>：选取位置的像素列（水平坐标），其中最东端的像素为 0。</li>
-<li><code>{reverseJ}</code>：选取位置的像素行（垂直坐标），其中最南端的像素为 0。</li>
-<li><code>{longitudeDegrees}</code>：选取位置的经度（以度为单位）。</li>
-<li><code>{latitudeDegrees}</code>：选取位置的纬度（以度为单位）。</li>
-<li><code>{longitudeProjected}</code>：切片方案的投影坐标中选取的位置的经度。</li>
-<li><code>{latitudeProjected}</code>：切片方案的投影坐标中选取的位置的纬度。</li>
-<li><code>{format}</code>：用于获取特征信息的格式，在 <a href="GetFeatureInfoFormat.html"><code>GetFeatureInfoFormat</code></a> 中指定。</li>
-</ul>
+    获取用于选取功能的 URL 模板。 如果未指定此属性，<a href="UrlTemplateImageryProvider.html#pickFeatures"><code>UrlTemplateImageryProvider#pickFeatures</code></a> 将立即返回 undefined，表示没有精选功能。 URL 模板支持<a href="UrlTemplateImageryProvider.html#url"><code>UrlTemplateImageryProvider#url</code></a> 属性，以及以下内容：<ul><li><code>{i}</code>：选取位置的像素列（水平坐标），其中最西端的像素为 0。</li><li><code>{j}</code>：选取位置的像素行（垂直坐标），其中最北端的像素为 0。</li><li><code>{reverseI}</code>：选取位置的像素列（水平坐标），其中最东端的像素为 0。</li><li><code>{reverseJ}</code>：选取位置的像素行（垂直坐标），其中最南端的像素为 0。</li><li><code>{longitudeDegrees}</code>：选取位置的经度（以度为单位）。</li><li><code>{latitudeDegrees}</code>：选取位置的纬度（以度为单位）。</li><li><code>{longitudeProjected}</code>：切片方案的投影坐标中选取的位置的经度。</li><li><code>{latitudeProjected}</code>：切片方案的投影坐标中选取的位置的纬度。</li><li><code>{format}</code>：用于获取特征信息的格式，在 <a href="GetFeatureInfoFormat.html"><code>GetFeatureInfoFormat</code></a> 中指定。</li></ul>
 </div>
 
 
@@ -888,9 +858,7 @@ Source 不支持选取功能，或者您不希望此提供程序的功能可选�
 
 
 <div class="description">
-    获取瓦片丢弃策略。 如果未 undefined，则 discard 策略负责
-用于通过其 shouldDiscardImage 函数过滤掉“缺失”的瓦片。 如果此功能
-返回 undefined，不过滤任何图块。
+    获取瓦片丢弃策略。 如果未 undefined，则 discard 策略负责用于通过其 shouldDiscardImage 函数过滤掉“缺失”的瓦片。 如果此功能返回 undefined，不过滤任何图块。
 </div>
 
 
@@ -1162,26 +1130,7 @@ Source 不支持选取功能，或者您不希望此提供程序的功能可选�
 
 
 <div class="description">
-    获取用于请求磁贴的 URL 模板。 它具有以下关键字：
-<ul>
-<li> <code>{z}</code>：切片方案中切片的级别。 零级是四叉树金字塔的根。</li>
-<li> <code>{x}</code>：切片方案中的切片 X 坐标，其中 0 是最西边的切片。</li>
-<li> <code>{y}</code>：平铺方案中的瓦片 Y 坐标，其中 0 是最北端的瓦片。</li>
-<li> <code>{s}</code>：可用的子域之一，用于克服浏览器对每个主机同时请求数量的限制。</li>
-<li> <code>{reverseX}</code>：平铺方案中的瓦片 X 坐标，其中 0 是最东边的瓦片。</li>
-<li> <code>{reverseY}</code>：平铺方案中的瓦片 Y 坐标，其中 0 是最南端的瓦片。</li>
-<li> <code>{reverseZ}</code>：切片方案中切片的级别，其中级别 0 是四叉树金字塔的最大级别。 要使用 reverseZ，必须定义 maximumLevel。</li>
-<li> <code>{westDegrees}</code>：瓦片的西边，以大地测量度为单位。</li>
-<li> <code>{southDegrees}</code>：瓦片的南部边缘，以大地测量度为单位。</li>
-<li> <code>{eastDegrees}</code>：瓦片的东边，以大地测量度为单位。</li>
-<li> <code>{northDegrees}</code>：瓦片的北部边缘，以大地测量度为单位。</li>
-<li> <code>{westProjected}</code>：切片方案的投影坐标中切片的西部边缘。</li>
-<li> <code>{southProjected}</code>：切片方案的投影坐标中切片的南部边缘。</li>
-<li> <code>{eastProjected}</code>：切片方案的投影坐标中切片的东边缘。</li>
-<li> <code>{northProjected}</code>：切片方案的投影坐标中切片的北部边缘。</li>
-<li> <code>{width}</code>：每个图块的宽度（以像素为单位）。</li>
-<li> <code>{height}</code>：每个图块的高度（以像素为单位）。</li>
-</ul>
+    获取用于请求磁贴的 URL 模板。 它具有以下关键字：<ul><li> <code>{z}</code>：切片方案中切片的级别。 零级是四叉树金字塔的根。</li><li> <code>{x}</code>：切片方案中的切片 X 坐标，其中 0 是最西边的切片。</li><li> <code>{y}</code>：平铺方案中的瓦片 Y 坐标，其中 0 是最北端的瓦片。</li><li> <code>{s}</code>：可用的子域之一，用于克服浏览器对每个主机同时请求数量的限制。</li><li> <code>{reverseX}</code>：平铺方案中的瓦片 X 坐标，其中 0 是最东边的瓦片。</li><li> <code>{reverseY}</code>：平铺方案中的瓦片 Y 坐标，其中 0 是最南端的瓦片。</li><li> <code>{reverseZ}</code>：切片方案中切片的级别，其中级别 0 是四叉树金字塔的最大级别。 要使用 reverseZ，必须定义 maximumLevel。</li><li> <code>{westDegrees}</code>：瓦片的西边，以大地测量度为单位。</li><li> <code>{southDegrees}</code>：瓦片的南部边缘，以大地测量度为单位。</li><li> <code>{eastDegrees}</code>：瓦片的东边，以大地测量度为单位。</li><li> <code>{northDegrees}</code>：瓦片的北部边缘，以大地测量度为单位。</li><li> <code>{westProjected}</code>：切片方案的投影坐标中切片的西部边缘。</li><li> <code>{southProjected}</code>：切片方案的投影坐标中切片的南部边缘。</li><li> <code>{eastProjected}</code>：切片方案的投影坐标中切片的东边缘。</li><li> <code>{northProjected}</code>：切片方案的投影坐标中切片的北部边缘。</li><li> <code>{width}</code>：每个图块的宽度（以像素为单位）。</li><li> <code>{height}</code>：每个图块的高度（以像素为单位）。</li></ul>
 </div>
 
 
@@ -1246,19 +1195,7 @@ Source 不支持选取功能，或者您不希望此提供程序的功能可选�
 
 
 <div class="description">
-    获取每个图块坐标的 URL 方案零填充。格式为 '000'，其中每个坐标都将填充
-左侧带有 0 以匹配传递的 0 字符串的宽度。例如：设置：
-urlSchemeZeroPadding ： { '{x}' ： '0000'}
-将导致 'x' 值 12 返回生成的 URL 中 {x} 的字符串 '0012'。
-它有以下关键词：
-<ul>
-<li> <code>{z}</code>：切片方案中瓦片级别的零填充。</li>
-<li> <code>{x}</code>：平铺方案中图块 X 坐标的零填充。</li>
-<li> <code>{y}</code>：平铺方案中图块 Y 坐标的零填充。</li>
-<li> <code>{reverseX}</code>：平铺方案中图块 reverseX 坐标的零填充。</li>
-<li> <code>{reverseY}</code>：平铺方案中图块 reverseY 坐标的零填充。</li>
-<li> <code>{reverseZ}</code>：平铺方案中瓦片的 reverseZ 坐标的零填充。</li>
-</ul>
+    获取每个图块坐标的 URL 方案零填充。格式为 '000'，其中每个坐标都将填充左侧带有 0 以匹配传递的 0 字符串的宽度。例如：设置：urlSchemeZeroPadding ： { '{x}' ： '0000'}将导致 'x' 值 12 返回生成的 URL 中 {x} 的字符串 '0012'。它有以下关键词：<ul><li> <code>{z}</code>：切片方案中瓦片级别的零填充。</li><li> <code>{x}</code>：平铺方案中图块 X 坐标的零填充。</li><li> <code>{y}</code>：平铺方案中图块 Y 坐标的零填充。</li><li> <code>{reverseX}</code>：平铺方案中图块 reverseX 坐标的零填充。</li><li> <code>{reverseY}</code>：平铺方案中图块 reverseY 坐标的零填充。</li><li> <code>{reverseZ}</code>：平铺方案中瓦片的 reverseZ 坐标的零填充。</li></ul>
 </div>
 
 
@@ -1516,8 +1453,7 @@ urlSchemeZeroPadding ： { '{x}' ： '0000'}
 
 
 <div class="description">
-    异步确定哪些要素（如果有）位于给定的经度和纬度
-一个图块。
+    异步确定哪些要素（如果有）位于给定的经度和纬度一个图块。
 </div>
 
 
@@ -1681,10 +1617,7 @@ urlSchemeZeroPadding ： { '{x}' ： '0000'}
 
         
 <div class="param-desc">
-    对所选特征的 Promise，当异步
-拣选完成。 解析的值是 <a href="ImageryLayerFeatureInfo.html"><code>ImageryLayerFeatureInfo</code></a> 的数组
-实例。 如果在给定位置未找到要素，则数组可能为空。
-如果不支持拣选，也可能为 undefined。
+    对所选特征的 Promise，当异步拣选完成。 解析的值是 <a href="ImageryLayerFeatureInfo.html"><code>ImageryLayerFeatureInfo</code></a> 的数组实例。 如果在给定位置未找到要素，则数组可能为空。如果不支持拣选，也可能为 undefined。
 </div>
 
 
@@ -1911,8 +1844,7 @@ urlSchemeZeroPadding ： { '{x}' ： '0000'}
 
         
 <div class="param-desc">
-    当镜像可用时将解析的镜像的 Promise，或者
-undefined 如果对服务器的活动请求过多，则应稍后重试该请求。
+    当镜像可用时将解析的镜像的 Promise，或者undefined 如果对服务器的活动请求过多，则应稍后重试该请求。
 </div>
 
 

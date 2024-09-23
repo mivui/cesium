@@ -47,11 +47,7 @@
 
 
         
-            <div class="description">定义目标颜色和基元的源颜色之间的混合模式。
-
-HIGHLIGHT 将源颜色乘以目标颜色
-REPLACE 将源颜色替换为目标颜色
-MIX 将源颜色和目标颜色混合在一起</div>
+            <div class="description">定义目标颜色和基元的源颜色之间的混合模式。HIGHLIGHT 将源颜色乘以目标颜色REPLACE 将源颜色替换为目标颜色MIX 将源颜色和目标颜色混合在一起</div>
         
 
         

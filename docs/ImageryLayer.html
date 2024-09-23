@@ -58,8 +58,7 @@
 
 
 <div class="description">
-    显示来自单个影像提供商的平铺影像数据的图像图层
-在 <a href="Globe.html"><code>Globe</code></a> 上。
+    显示来自单个影像提供商的平铺影像数据的图像图层在 <a href="Globe.html"><code>Globe</code></a> 上。
 </div>
 
 
@@ -190,20 +189,11 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Add an OpenStreetMaps layer
-const imageryLayer = new Cesium.ImageryLayer(new Cesium.OpenStreetMapImageryProvider({
-  url: "https://tile.openstreetmap.org/"
-}));
-scene.imageryLayers.add(imageryLayer);</code></pre>
+    <pre><code class="language-javascript">// Add an OpenStreetMaps layerconst imageryLayer = new Cesium.ImageryLayer(new Cesium.OpenStreetMapImageryProvider({  url: "https://tile.openstreetmap.org/"}));scene.imageryLayers.add(imageryLayer);</code></pre>
 
-    <pre><code class="language-javascript">// Add Cesium ion's default world imagery layer
-const imageryLayer = Cesium.ImageryLayer.fromWorldImagery();
-scene.imageryLayers.add(imageryLayer);</code></pre>
+    <pre><code class="language-javascript">// Add Cesium ion's default world imagery layerconst imageryLayer = Cesium.ImageryLayer.fromWorldImagery();scene.imageryLayers.add(imageryLayer);</code></pre>
 
-    <pre><code class="language-javascript">// Add a new transparent layer from Cesium ion
-const imageryLayer = Cesium.ImageryLayer.fromProviderAsync(Cesium.IonImageryProvider.fromAssetId(3812));
-imageryLayer.alpha = 0.5;
-scene.imageryLayers.add(imageryLayer);</code></pre>
+    <pre><code class="language-javascript">// Add a new transparent layer from Cesium ionconst imageryLayer = Cesium.ImageryLayer.fromProviderAsync(Cesium.IonImageryProvider.fromAssetId(3812));imageryLayer.alpha = 0.5;scene.imageryLayers.add(imageryLayer);</code></pre>
 
     
 
@@ -262,8 +252,7 @@ scene.imageryLayers.add(imageryLayer);</code></pre>
 
 
 <div class="description">
-    如果未提供颜色到 Alpha 的默认阈值，则此值将用作
-在施工期间或由影像提供商提供。
+    如果未提供颜色到 Alpha 的默认阈值，则此值将用作在施工期间或由影像提供商提供。
 </div>
 
 
@@ -326,8 +315,7 @@ scene.imageryLayers.add(imageryLayer);</code></pre>
 
 
 <div class="description">
-    如果在构建过程中未提供图像图层的默认亮度，则此值将用作图像图层的默认亮度
-或由图像提供商提供。此值不会修改影像的亮度。
+    如果在构建过程中未提供图像图层的默认亮度，则此值将用作图像图层的默认亮度或由图像提供商提供。此值不会修改影像的亮度。
 </div>
 
 
@@ -390,8 +378,7 @@ scene.imageryLayers.add(imageryLayer);</code></pre>
 
 
 <div class="description">
-    如果在构建过程中未提供图像图层的默认对比度，则此值将用作图像图层的默认对比度
-或由图像提供商提供。此值不会修改影像的对比度。
+    如果在构建过程中未提供图像图层的默认对比度，则此值将用作图像图层的默认对比度或由图像提供商提供。此值不会修改影像的对比度。
 </div>
 
 
@@ -454,8 +441,7 @@ scene.imageryLayers.add(imageryLayer);</code></pre>
 
 
 <div class="description">
-    如果在构建过程中未提供影像图层，则此值将用作影像图层的默认灰度系数
-或由图像提供商提供。此值不会修改影像的 Gamma。
+    如果在构建过程中未提供影像图层，则此值将用作影像图层的默认灰度系数或由图像提供商提供。此值不会修改影像的 Gamma。
 </div>
 
 
@@ -518,8 +504,7 @@ scene.imageryLayers.add(imageryLayer);</code></pre>
 
 
 <div class="description">
-    如果在构建过程中未提供图像图层的默认色调，则此值将用作图像图层的默认色调
-或由图像提供商提供。此值不会修改图像的色调。
+    如果在构建过程中未提供图像图层的默认色调，则此值将用作图像图层的默认色调或由图像提供商提供。此值不会修改图像的色调。
 </div>
 
 
@@ -582,8 +567,7 @@ scene.imageryLayers.add(imageryLayer);</code></pre>
 
 
 <div class="description">
-    如果未提供图像图层，则此值将用作图像图层的默认纹理放大滤镜
-在施工期间或由影像提供商提供。
+    如果未提供图像图层，则此值将用作图像图层的默认纹理放大滤镜在施工期间或由影像提供商提供。
 </div>
 
 
@@ -646,8 +630,7 @@ scene.imageryLayers.add(imageryLayer);</code></pre>
 
 
 <div class="description">
-    如果未提供，此值将用作影像图层的默认纹理缩小过滤器
-在施工期间或由影像提供商提供。
+    如果未提供，此值将用作影像图层的默认纹理缩小过滤器在施工期间或由影像提供商提供。
 </div>
 
 
@@ -710,8 +693,7 @@ scene.imageryLayers.add(imageryLayer);</code></pre>
 
 
 <div class="description">
-    如果在构建过程中未提供图像图层的默认饱和度，则此值将用作图像图层的默认饱和度
-或由图像提供商提供。此值不会修改影像的饱和度。
+    如果在构建过程中未提供图像图层的默认饱和度，则此值将用作图像图层的默认饱和度或由图像提供商提供。此值不会修改影像的饱和度。
 </div>
 
 
@@ -774,8 +756,7 @@ scene.imageryLayers.add(imageryLayer);</code></pre>
 
 
 <div class="description">
-    如果在构建过程中未提供影像图层，则此值将用作影像图层的默认分割
-或由图像提供商提供。
+    如果在构建过程中未提供影像图层，则此值将用作影像图层的默认分割或由图像提供商提供。
 </div>
 
 
@@ -838,8 +819,7 @@ scene.imageryLayers.add(imageryLayer);</code></pre>
 
 
 <div class="description">
-    此图层的 Alpha 混合值，其中 0.0 表示完全透明，而
-1.0 表示完全不透明。
+    此图层的 Alpha 混合值，其中 0.0 表示完全透明，而1.0 表示完全不透明。
 </div>
 
 
@@ -902,8 +882,7 @@ scene.imageryLayers.add(imageryLayer);</code></pre>
 
 
 <div class="description">
-    该层的亮度。 1.0 使用未修改的图像颜色。 小于 1.0
-使图像更暗，而大于 1.0 则使图像更亮。
+    该层的亮度。 1.0 使用未修改的图像颜色。 小于 1.0使图像更暗，而大于 1.0 则使图像更亮。
 </div>
 
 
@@ -1086,8 +1065,7 @@ scene.imageryLayers.add(imageryLayer);</code></pre>
 
 
 <div class="description">
-    这一层的对比。 1.0 使用未修改的图像颜色。 小于 1.0 会降低
-大于 1.0 时的对比度会增加它。
+    这一层的对比。 1.0 使用未修改的图像颜色。 小于 1.0 会降低大于 1.0 时的对比度会增加它。
 </div>
 
 
@@ -1210,8 +1188,7 @@ scene.imageryLayers.add(imageryLayer);</code></pre>
 
 
 <div class="description">
-    此图层在地球的日侧的 Alpha 混合值，其中 0.0 表示完全透明，而
-1.0 表示完全不透明。这仅在 <a href="Globe.html#enableLighting"><code>Globe#enableLighting</code></a> 为 <code>true</code> 时生效。
+    此图层在地球的日侧的 Alpha 混合值，其中 0.0 表示完全透明，而1.0 表示完全不透明。这仅在 <a href="Globe.html#enableLighting"><code>Globe#enableLighting</code></a> 为 <code>true</code> 时生效。
 </div>
 
 
@@ -1460,12 +1437,7 @@ scene.imageryLayers.add(imageryLayer);</code></pre>
 
 
 <div class="description">
-    要应用于此图层的 <a href="global.html#TextureMagnificationFilter"><code>TextureMagnificationFilter</code></a>。
-可能的值为 <a href="global.html#TextureMagnificationFilter#.LINEAR"><code>TextureMagnificationFilter.LINEAR</code></a>（默认值）
-和 <a href="global.html#TextureMagnificationFilter#.NEAREST"><code>TextureMagnificationFilter.NEAREST</code></a> 进行转换。
-
-要生效，必须在添加影像图层后立即设置此属性。
-加载纹理后，将无法更改使用的纹理过滤器。
+    要应用于此图层的 <a href="global.html#TextureMagnificationFilter"><code>TextureMagnificationFilter</code></a>。可能的值为 <a href="global.html#TextureMagnificationFilter#.LINEAR"><code>TextureMagnificationFilter.LINEAR</code></a>（默认值）和 <a href="global.html#TextureMagnificationFilter#.NEAREST"><code>TextureMagnificationFilter.NEAREST</code></a> 进行转换。要生效，必须在添加影像图层后立即设置此属性。加载纹理后，将无法更改使用的纹理过滤器。
 </div>
 
 
@@ -1528,12 +1500,7 @@ scene.imageryLayers.add(imageryLayer);</code></pre>
 
 
 <div class="description">
-    要应用于此图层的 <a href="global.html#TextureMinificationFilter"><code>TextureMinificationFilter</code></a>。
-可能的值为 <a href="global.html#TextureMinificationFilter#.LINEAR"><code>TextureMinificationFilter.LINEAR</code></a>（默认值）
-和 <a href="global.html#TextureMinificationFilter#.NEAREST"><code>TextureMinificationFilter.NEAREST</code></a> 的 TextureMinificationFilter.NEAREST} 中。
-
-要生效，必须在添加影像图层后立即设置此属性。
-加载纹理后，将无法更改使用的纹理过滤器。
+    要应用于此图层的 <a href="global.html#TextureMinificationFilter"><code>TextureMinificationFilter</code></a>。可能的值为 <a href="global.html#TextureMinificationFilter#.LINEAR"><code>TextureMinificationFilter.LINEAR</code></a>（默认值）和 <a href="global.html#TextureMinificationFilter#.NEAREST"><code>TextureMinificationFilter.NEAREST</code></a> 的 TextureMinificationFilter.NEAREST} 中。要生效，必须在添加影像图层后立即设置此属性。加载纹理后，将无法更改使用的纹理过滤器。
 </div>
 
 
@@ -1596,8 +1563,7 @@ scene.imageryLayers.add(imageryLayer);</code></pre>
 
 
 <div class="description">
-    此图层在地球的夜间一侧的 Alpha 混合值，其中 0.0 表示完全透明，并且
-1.0 表示完全不透明。这仅在 <a href="Globe.html#enableLighting"><code>Globe#enableLighting</code></a> 为 <code>true</code> 时生效。
+    此图层在地球的夜间一侧的 Alpha 混合值，其中 0.0 表示完全透明，并且1.0 表示完全不透明。这仅在 <a href="Globe.html#enableLighting"><code>Globe#enableLighting</code></a> 为 <code>true</code> 时生效。
 </div>
 
 
@@ -1720,8 +1686,7 @@ scene.imageryLayers.add(imageryLayer);</code></pre>
 
 
 <div class="description">
-    获取在成功创建影像提供程序时引发的事件。事件侦听器
-将传递创建的 <a href="ImageryProvider.html"><code>ImageryProvider</code></a> 实例。
+    获取在成功创建影像提供程序时引发的事件。事件侦听器将传递创建的 <a href="ImageryProvider.html"><code>ImageryProvider</code></a> 实例。
 </div>
 
 
@@ -1781,8 +1746,7 @@ scene.imageryLayers.add(imageryLayer);</code></pre>
 
 
 <div class="description">
-    获取此层的矩形。 如果此矩形小于
-<a href="ImageryProvider.html"><code>ImageryProvider</code></a>，则仅显示影像提供程序的一部分。
+    获取此层的矩形。 如果此矩形小于<a href="ImageryProvider.html"><code>ImageryProvider</code></a>，则仅显示影像提供程序的一部分。
 </div>
 
 
@@ -1842,8 +1806,7 @@ scene.imageryLayers.add(imageryLayer);</code></pre>
 
 
 <div class="description">
-    此图层的饱和度。1.0 使用未修改的图像颜色。小于 1.0 会降低
-饱和度 大于 1.0 时，饱和度会增加 Saturation。
+    此图层的饱和度。1.0 使用未修改的图像颜色。小于 1.0 会降低饱和度 大于 1.0 时，饱和度会增加 Saturation。
 </div>
 
 
@@ -2165,29 +2128,11 @@ scene.imageryLayers.add(imageryLayer);</code></pre>
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Create a new base layer
-const viewer = new Cesium.Viewer("cesiumContainer", {
-  baseLayer: Cesium.ImageryLayer.fromProviderAsync(Cesium.IonImageryProvider.fromAssetId(3812));
-});</code></pre>
+    <pre><code class="language-javascript">// Create a new base layerconst viewer = new Cesium.Viewer("cesiumContainer", {  baseLayer: Cesium.ImageryLayer.fromProviderAsync(Cesium.IonImageryProvider.fromAssetId(3812));});</code></pre>
 
-    <pre><code class="language-javascript">// Add a new transparent layer
-const imageryLayer = Cesium.ImageryLayer.fromProviderAsync(Cesium.IonImageryProvider.fromAssetId(3812));
-imageryLayer.alpha = 0.5;
-viewer.imageryLayers.add(imageryLayer);</code></pre>
+    <pre><code class="language-javascript">// Add a new transparent layerconst imageryLayer = Cesium.ImageryLayer.fromProviderAsync(Cesium.IonImageryProvider.fromAssetId(3812));imageryLayer.alpha = 0.5;viewer.imageryLayers.add(imageryLayer);</code></pre>
 
-    <pre><code class="language-javascript">// Handle loading events
-const imageryLayer = Cesium.ImageryLayer.fromProviderAsync(Cesium.IonImageryProvider.fromAssetId(3812));
-viewer.imageryLayers.add(imageryLayer);
-
-imageryLayer.readyEvent.addEventListener(provider => {
-  imageryLayer.provider.errorEvent.addEventListener(error => {
-    alert(`Encountered an error while loading imagery tiles! ${error}`);
-  });
-});
-
-imageryLayer.errorEvent.addEventListener(error => {
-  alert(`Encountered an error while creating an imagery layer! ${error}`);
-});</code></pre>
+    <pre><code class="language-javascript">// Handle loading eventsconst imageryLayer = Cesium.ImageryLayer.fromProviderAsync(Cesium.IonImageryProvider.fromAssetId(3812));viewer.imageryLayers.add(imageryLayer);imageryLayer.readyEvent.addEventListener(provider => {  imageryLayer.provider.errorEvent.addEventListener(error => {    alert(`Encountered an error while loading imagery tiles! ${error}`);  });});imageryLayer.errorEvent.addEventListener(error => {  alert(`Encountered an error while creating an imagery layer! ${error}`);});</code></pre>
 
     
 
@@ -2307,13 +2252,7 @@ imageryLayer.errorEvent.addEventListener(error => {
 
         
 <div class="param-desc">
-    创建的影像图层。
-
-* @example
-// Create a new base layer
-const viewer = new Cesium.Viewer("cesiumContainer", {
-  baseLayer: Cesium.ImageryLayer.fromWorldImagery();
-});
+    创建的影像图层。* @example// Create a new base layerconst viewer = new Cesium.Viewer("cesiumContainer", {  baseLayer: Cesium.ImageryLayer.fromWorldImagery();});
 </div>
 
 
@@ -2344,24 +2283,9 @@ const viewer = new Cesium.Viewer("cesiumContainer", {
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Add a new transparent layer
-const imageryLayer = Cesium.ImageryLayer.fromWorldImagery();
-imageryLayer.alpha = 0.5;
-viewer.imageryLayers.add(imageryLayer);</code></pre>
+    <pre><code class="language-javascript">// Add a new transparent layerconst imageryLayer = Cesium.ImageryLayer.fromWorldImagery();imageryLayer.alpha = 0.5;viewer.imageryLayers.add(imageryLayer);</code></pre>
 
-    <pre><code class="language-javascript">// Handle loading events
-const imageryLayer = Cesium.ImageryLayer.fromWorldImagery();
-viewer.imageryLayers.add(imageryLayer);
-
-imageryLayer.readyEvent.addEventListener(provider => {
-  imageryLayer.provider.errorEvent.addEventListener(error => {
-    alert(`Encountered an error while loading imagery tiles! ${error}`);
-  });
-});
-
-imageryLayer.errorEvent.addEventListener(error => {
-  alert(`Encountered an error while creating an imagery layer! ${error}`);
-});</code></pre>
+    <pre><code class="language-javascript">// Handle loading eventsconst imageryLayer = Cesium.ImageryLayer.fromWorldImagery();viewer.imageryLayers.add(imageryLayer);imageryLayer.readyEvent.addEventListener(provider => {  imageryLayer.provider.errorEvent.addEventListener(error => {    alert(`Encountered an error while loading imagery tiles! ${error}`);  });});imageryLayer.errorEvent.addEventListener(error => {  alert(`Encountered an error while creating an imagery layer! ${error}`);});</code></pre>
 
     
 
@@ -2407,12 +2331,7 @@ imageryLayer.errorEvent.addEventListener(error => {
 
 
 <div class="description">
-    销毁此对象持有的 WebGL 资源。 销毁对象允许确定性
-释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。
-<br /><br />
-一旦对象被销毁，就不应该使用它;调用
-<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。 因此
-将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
+    销毁此对象持有的 WebGL 资源。 销毁对象允许确定性释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。<br /><br />一旦对象被销毁，就不应该使用它;调用<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。 因此将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
 </div>
 
 
@@ -2517,8 +2436,7 @@ imageryLayer.errorEvent.addEventListener(error => {
 
 
 <div class="description">
-    计算此图层的矩形与影像提供商的可用性矩形的交集，
-生成此图层可生成的影像的总体边界。
+    计算此图层的矩形与影像提供商的可用性矩形的交集，生成此图层可生成的影像的总体边界。
 </div>
 
 
@@ -2576,11 +2494,7 @@ imageryLayer.errorEvent.addEventListener(error => {
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Zoom to an imagery layer.
-const imageryRectangle = imageryLayer.getImageryRectangle();
-scene.camera.flyTo({
-    destination: rectangle
-});</code></pre>
+    <pre><code class="language-javascript">// Zoom to an imagery layer.const imageryRectangle = imageryLayer.getImageryRectangle();scene.camera.flyTo({    destination: rectangle});</code></pre>
 
     
 
@@ -2617,11 +2531,7 @@ scene.camera.flyTo({
 
 
 <div class="description">
-    获取一个值，该值指示此图层是否为
-<a href="ImageryLayerCollection.html"><code>ImageryLayerCollection</code></a> 的 ImageryLayerCollection} 中。 Base Layer 是所有
-别人。 它的特殊之处在于，即使
-实际上并非如此，方法是将边缘的纹素拉伸到整个
-球。
+    获取一个值，该值指示此图层是否为<a href="ImageryLayerCollection.html"><code>ImageryLayerCollection</code></a> 的 ImageryLayerCollection} 中。 Base Layer 是所有别人。 它的特殊之处在于，即使实际上并非如此，方法是将边缘的纹素拉伸到整个球。
 </div>
 
 
@@ -2711,10 +2621,7 @@ scene.camera.flyTo({
 
 
 <div class="description">
-    如果此对象已销毁，则返回 true;否则为 false。
-<br /><br />
-如果此对象已销毁，则不应使用;调用
-<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。
+    如果此对象已销毁，则返回 true;否则为 false。<br /><br />如果此对象已销毁，则不应使用;调用<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。
 </div>
 
 
@@ -2884,8 +2791,7 @@ scene.camera.flyTo({
                 </td>
             
 
-            <td class="description last">图层的矩形。 这个矩形
-可以限制图像提供程序的可见部分。</td>
+            <td class="description last">图层的矩形。 这个矩形可以限制图像提供程序的可见部分。</td>
         </tr>
 
     
@@ -2925,12 +2831,7 @@ scene.camera.flyTo({
                 </td>
             
 
-            <td class="description last">此图层的 Alpha 混合值，范围为 0.0 到 1.0。
-这可以是一个简单的数字，也可以是带有签名的函数
-<code>function（frameState， layer， x， y， level）</code> 的 该函数将
-当前帧状态、此图层以及
-需要 Alpha 且应返回的图像模块
-用于图块的 Alpha 值。</td>
+            <td class="description last">此图层的 Alpha 混合值，范围为 0.0 到 1.0。这可以是一个简单的数字，也可以是带有签名的函数<code>function（frameState， layer， x， y， level）</code> 的 该函数将当前帧状态、此图层以及需要 Alpha 且应返回的图像模块用于图块的 Alpha 值。</td>
         </tr>
 
     
@@ -2970,12 +2871,7 @@ scene.camera.flyTo({
                 </td>
             
 
-            <td class="description last">此图层在地球的夜间一侧的 Alpha 混合值，从 0.0 到 1.0。
-这可以是一个简单的数字，也可以是带有签名的函数
-<code>function（frameState， layer， x， y， level）</code> 的 该函数将
-当前帧状态、此图层以及
-需要 Alpha 且应返回的图像模块
-用于图块的 Alpha 值。这仅在 <code>enableLighting</code> 为 <code>true</code> 时生效。</td>
+            <td class="description last">此图层在地球的夜间一侧的 Alpha 混合值，从 0.0 到 1.0。这可以是一个简单的数字，也可以是带有签名的函数<code>function（frameState， layer， x， y， level）</code> 的 该函数将当前帧状态、此图层以及需要 Alpha 且应返回的图像模块用于图块的 Alpha 值。这仅在 <code>enableLighting</code> 为 <code>true</code> 时生效。</td>
         </tr>
 
     
@@ -3015,12 +2911,7 @@ scene.camera.flyTo({
                 </td>
             
 
-            <td class="description last">此图层在地球的昼侧的 Alpha 混合值，从 0.0 到 1.0。
-这可以是一个简单的数字，也可以是带有签名的函数
-<code>function（frameState， layer， x， y， level）</code> 的 该函数将
-当前帧状态、此图层以及
-需要 Alpha 且应返回的图像模块
-用于图块的 Alpha 值。这仅在 <code>enableLighting</code> 为 <code>true</code> 时生效。</td>
+            <td class="description last">此图层在地球的昼侧的 Alpha 混合值，从 0.0 到 1.0。这可以是一个简单的数字，也可以是带有签名的函数<code>function（frameState， layer， x， y， level）</code> 的 该函数将当前帧状态、此图层以及需要 Alpha 且应返回的图像模块用于图块的 Alpha 值。这仅在 <code>enableLighting</code> 为 <code>true</code> 时生效。</td>
         </tr>
 
     
@@ -3060,14 +2951,7 @@ scene.camera.flyTo({
                 </td>
             
 
-            <td class="description last">该图层的亮度。 1.0 使用未修改的图像
-颜色。 小于 1.0 会使图像更暗，而大于 1.0 会使图像更亮。
-这可以是一个简单的数字，也可以是带有签名的函数
-<code>function（frameState， layer， x， y， level）</code> 的 该函数将
-当前帧状态、此图层以及
-需要亮度且应返回的图像模块
-用于图块的亮度值。 该函数对每个
-帧和每个图块，因此它必须很快。</td>
+            <td class="description last">该图层的亮度。 1.0 使用未修改的图像颜色。 小于 1.0 会使图像更暗，而大于 1.0 会使图像更亮。这可以是一个简单的数字，也可以是带有签名的函数<code>function（frameState， layer， x， y， level）</code> 的 该函数将当前帧状态、此图层以及需要亮度且应返回的图像模块用于图块的亮度值。 该函数对每个帧和每个图块，因此它必须很快。</td>
         </tr>
 
     
@@ -3107,14 +2991,7 @@ scene.camera.flyTo({
                 </td>
             
 
-            <td class="description last">该层的对比度。 1.0 使用未修改的图像颜色。
-小于 1.0 会降低对比度，而大于 1.0 会增加对比度。
-这可以是一个简单的数字，也可以是带有签名的函数
-<code>function（frameState， layer， x， y， level）</code> 的 该函数将
-当前帧状态、此图层以及
-需要对比度且应返回的图像模块
-用于磁贴的 contrast 值。 该函数对每个
-帧和每个图块，因此它必须很快。</td>
+            <td class="description last">该层的对比度。 1.0 使用未修改的图像颜色。小于 1.0 会降低对比度，而大于 1.0 会增加对比度。这可以是一个简单的数字，也可以是带有签名的函数<code>function（frameState， layer， x， y， level）</code> 的 该函数将当前帧状态、此图层以及需要对比度且应返回的图像模块用于磁贴的 contrast 值。 该函数对每个帧和每个图块，因此它必须很快。</td>
         </tr>
 
     
@@ -3154,13 +3031,7 @@ scene.camera.flyTo({
                 </td>
             
 
-            <td class="description last">该图层的色调。 0.0 使用未修改的影像颜色。
-这可以是一个简单的数字，也可以是带有签名的函数
-<code>function（frameState， layer， x， y， level）</code> 的 该函数将
-当前帧状态、此图层以及 X、Y 和 Level 坐标
-需要色调的图像图块，并且它应返回
-用于磁贴的 contrast 值。 该函数对每个
-帧和每个图块，因此它必须很快。</td>
+            <td class="description last">该图层的色调。 0.0 使用未修改的影像颜色。这可以是一个简单的数字，也可以是带有签名的函数<code>function（frameState， layer， x， y， level）</code> 的 该函数将当前帧状态、此图层以及 X、Y 和 Level 坐标需要色调的图像图块，并且它应返回用于磁贴的 contrast 值。 该函数对每个帧和每个图块，因此它必须很快。</td>
         </tr>
 
     
@@ -3200,14 +3071,7 @@ scene.camera.flyTo({
                 </td>
             
 
-            <td class="description last">该层的饱和度。 1.0 使用未修改的图像颜色。
-小于 1.0 会降低饱和度，而大于 1.0 会增加饱和度。
-这可以是一个简单的数字，也可以是带有签名的函数
-<code>function（frameState， layer， x， y， level）</code> 的 该函数将
-当前帧状态、此图层以及 X、Y 和 Level 坐标
-需要饱和度的影像瓦片，并且应返回
-用于磁贴的 contrast 值。 该函数对每个
-帧和每个图块，因此它必须很快。</td>
+            <td class="description last">该层的饱和度。 1.0 使用未修改的图像颜色。小于 1.0 会降低饱和度，而大于 1.0 会增加饱和度。这可以是一个简单的数字，也可以是带有签名的函数<code>function（frameState， layer， x， y， level）</code> 的 该函数将当前帧状态、此图层以及 X、Y 和 Level 坐标需要饱和度的影像瓦片，并且应返回用于磁贴的 contrast 值。 该函数对每个帧和每个图块，因此它必须很快。</td>
         </tr>
 
     
@@ -3247,13 +3111,7 @@ scene.camera.flyTo({
                 </td>
             
 
-            <td class="description last">要应用于此图层的 Gamma 校正。 1.0 使用未修改的图像颜色。
-这可以是一个简单的数字，也可以是带有签名的函数
-<code>function（frameState， layer， x， y， level）</code> 的 该函数将
-当前帧状态、此图层以及
-需要 Gamma 且应返回的图像模块
-用于图块的 Gamma 值。 该函数对每个
-帧和每个图块，因此它必须很快。</td>
+            <td class="description last">要应用于此图层的 Gamma 校正。 1.0 使用未修改的图像颜色。这可以是一个简单的数字，也可以是带有签名的函数<code>function（frameState， layer， x， y， level）</code> 的 该函数将当前帧状态、此图层以及需要 Gamma 且应返回的图像模块用于图块的 Gamma 值。 该函数对每个帧和每个图块，因此它必须很快。</td>
         </tr>
 
     
@@ -3330,10 +3188,7 @@ scene.camera.flyTo({
                 </td>
             
 
-            <td class="description last">的
-纹理缩小滤镜以应用于此图层。可能的值
-是 <code>TextureMinificationFilter.LINEAR</code> 和
-<code>TextureMinificationFilter.NEAREST的 TextureMinificationFilter.NEAREST。</code></td>
+            <td class="description last">的纹理缩小滤镜以应用于此图层。可能的值是 <code>TextureMinificationFilter.LINEAR</code> 和<code>TextureMinificationFilter.NEAREST的 TextureMinificationFilter.NEAREST。</code></td>
         </tr>
 
     
@@ -3370,10 +3225,7 @@ scene.camera.flyTo({
                 </td>
             
 
-            <td class="description last">的
-纹理缩小滤镜以应用于此图层。可能的值
-是 <code>TextureMagnificationFilter.LINEAR</code> 和
-<code>TextureMagnificationFilter.NEAREST的 TextureMagnificationFilter.NEAREST.</code></td>
+            <td class="description last">的纹理缩小滤镜以应用于此图层。可能的值是 <code>TextureMagnificationFilter.LINEAR</code> 和<code>TextureMagnificationFilter.NEAREST的 TextureMagnificationFilter.NEAREST.</code></td>
         </tr>
 
     
@@ -3447,10 +3299,7 @@ scene.camera.flyTo({
                 </td>
             
 
-            <td class="description last">要使用的最大各向异性级别
-用于纹理筛选。 如果未指定此参数，则支持的最大各向异性
-将使用 WebGL 堆栈。 较大的值会使影像在地平线中看起来更好
-视图。</td>
+            <td class="description last">要使用的最大各向异性级别用于纹理筛选。 如果未指定此参数，则支持的最大各向异性将使用 WebGL 堆栈。 较大的值会使影像在地平线中看起来更好视图。</td>
         </tr>
 
     
@@ -3485,8 +3334,7 @@ scene.camera.flyTo({
                 </td>
             
 
-            <td class="description last">显示此图像图层的最小地形细节级别，
-或 undefined 在所有级别显示它。 级别 0 是最不详细的级别。</td>
+            <td class="description last">显示此图像图层的最小地形细节级别，或 undefined 在所有级别显示它。 级别 0 是最不详细的级别。</td>
         </tr>
 
     
@@ -3521,8 +3369,7 @@ scene.camera.flyTo({
                 </td>
             
 
-            <td class="description last">显示此图像图层的最大地形细节级别，
-或 undefined 在所有级别显示它。 级别 0 是最不详细的级别。</td>
+            <td class="description last">显示此图像图层的最大地形细节级别，或 undefined 在所有级别显示它。 级别 0 是最不详细的级别。</td>
         </tr>
 
     

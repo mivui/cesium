@@ -47,8 +47,7 @@
 
 
         
-            <div class="description">GLSL 变体类型的枚举。这些可用于声明 varyings
-在 <a href="CustomShader.html"><code>CustomShader</code></a> 中</div>
+            <div class="description">GLSL 变体类型的枚举。这些可用于声明 varyings在 <a href="CustomShader.html"><code>CustomShader</code></a> 中</div>
         
 
         

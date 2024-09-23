@@ -58,25 +58,13 @@
 
 
 <div class="description">
-    标签的可渲染集合。 标签是位于 3D 场景中的视区对齐文本。
-每个标签可以有不同的字体、颜色、比例等。
-<br /><br />
-<div align='center'>
-<img src='Images/Label.png' width='400' height='300' /><br />
-示例标签
-</div>
-<br /><br />
-使用 在集合中添加和删除标签 <a href="LabelCollection.html#add"><code>LabelCollection#add</code></a>
-和 <a href="LabelCollection.html#remove"><code>LabelCollection#remove</code></a>.
+    标签的可渲染集合。 标签是位于 3D 场景中的视区对齐文本。每个标签可以有不同的字体、颜色、比例等。<br /><br /><div align='center'><img src='Images/Label.png' width='400' height='300' /><br />示例标签</div><br /><br />使用 在集合中添加和删除标签 <a href="LabelCollection.html#add"><code>LabelCollection#add</code></a>和 <a href="LabelCollection.html#remove"><code>LabelCollection#remove</code></a>.
 </div>
 
 
 
     <h5>Performance:</h5>
-    <p class="description">为了获得最佳性能，请首选几个集合（每个集合都有许多标签）到
-许多集合，每个集合只有几个标签。 避免使用某些
-标签每帧都会更改，而其他标签则不会;相反，请创建一个或多个集合
-表示静态标签，一个或多个集合表示动态标签。</p>
+    <p class="description">为了获得最佳性能，请首选几个集合（每个集合都有许多标签）到许多集合，每个集合只有几个标签。 避免使用某些标签每帧都会更改，而其他标签则不会;相反，请创建一个或多个集合表示静态标签，一个或多个集合表示动态标签。</p>
 
 
 
@@ -291,9 +279,7 @@
 
                 
             
-                标签混合选项。默认的
-用于渲染不透明和半透明标签。但是，如果所有标签都完全不透明或全部完全半透明，
-将技术设置为 BlendOption.OPAQUE 或 BlendOption.TRANSLUCENT 可以将性能提高多达 2 倍。</td>
+                标签混合选项。默认的用于渲染不透明和半透明标签。但是，如果所有标签都完全不透明或全部完全半透明，将技术设置为 BlendOption.OPAQUE 或 BlendOption.TRANSLUCENT 可以将性能提高多达 2 倍。</td>
         </tr>
 
     
@@ -378,16 +364,7 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Create a label collection with two labels
-const labels = scene.primitives.add(new Cesium.LabelCollection());
-labels.add({
-  position : new Cesium.Cartesian3(1.0, 2.0, 3.0),
-  text : 'A label'
-});
-labels.add({
-  position : new Cesium.Cartesian3(4.0, 5.0, 6.0),
-  text : 'Another label'
-});</code></pre>
+    <pre><code class="language-javascript">// Create a label collection with two labelsconst labels = scene.primitives.add(new Cesium.LabelCollection());labels.add({  position : new Cesium.Cartesian3(1.0, 2.0, 3.0),  text : 'A label'});labels.add({  position : new Cesium.Cartesian3(4.0, 5.0, 6.0),  text : 'Another label'});</code></pre>
 
     
 
@@ -455,10 +432,7 @@ labels.add({
 
 
 <div class="description">
-    标签混合选项。默认值用于渲染不透明和半透明标签。
-但是，如果所有标签都是完全不透明的，或者所有标签都是完全半透明的，
-将技术设置为 BlendOption.OPAQUE 或 BlendOption.TRANSLUCENT 可以提高
-性能提升高达 2 倍。
+    标签混合选项。默认值用于渲染不透明和半透明标签。但是，如果所有标签都是完全不透明的，或者所有标签都是完全半透明的，将技术设置为 BlendOption.OPAQUE 或 BlendOption.TRANSLUCENT 可以提高性能提升高达 2 倍。
 </div>
 
 
@@ -521,10 +495,7 @@ labels.add({
 
 
 <div class="description">
-    此属性仅用于调试;它不用于生产用途，也未进行优化。
-<p>
-为基元中的每个绘制命令绘制边界球体。
-</p>
+    此属性仅用于调试;它不用于生产用途，也未进行优化。<p>为基元中的每个绘制命令绘制边界球体。</p>
 </div>
 
 
@@ -587,9 +558,7 @@ labels.add({
 
 
 <div class="description">
-    返回此集合中的标签数。 这通常与
-<a href="LabelCollection.html#get"><code>LabelCollection#get</code></a> 遍历所有标签
-在集合中。
+    返回此集合中的标签数。 这通常与<a href="LabelCollection.html#get"><code>LabelCollection#get</code></a> 遍历所有标签在集合中。
 </div>
 
 
@@ -649,10 +618,7 @@ labels.add({
 
 
 <div class="description">
-    4x4 转换矩阵，用于将此集合中的每个标签从模型转换为世界坐标。
-当这是单位矩阵时，标签以世界坐标（即地球的 WGS84 坐标）绘制。
-可以通过提供不同的转换矩阵来使用本地参考帧，就像返回的矩阵一样
-由 <a href="Transforms.html#.eastNorthUpToFixedFrame"><code>Transforms.eastNorthUpToFixedFrame</code></a> 提供。
+    4x4 转换矩阵，用于将此集合中的每个标签从模型转换为世界坐标。当这是单位矩阵时，标签以世界坐标（即地球的 WGS84 坐标）绘制。可以通过提供不同的转换矩阵来使用本地参考帧，就像返回的矩阵一样由 <a href="Transforms.html#.eastNorthUpToFixedFrame"><code>Transforms.eastNorthUpToFixedFrame</code></a> 提供。
 </div>
 
 
@@ -684,24 +650,7 @@ labels.add({
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const center = Cesium.Cartesian3.fromDegrees(-75.59777, 40.03883);
-labels.modelMatrix = Cesium.Transforms.eastNorthUpToFixedFrame(center);
-labels.add({
-  position : new Cesium.Cartesian3(0.0, 0.0, 0.0),
-  text     : 'Center'
-});
-labels.add({
-  position : new Cesium.Cartesian3(1000000.0, 0.0, 0.0),
-  text     : 'East'
-});
-labels.add({
-  position : new Cesium.Cartesian3(0.0, 1000000.0, 0.0),
-  text     : 'North'
-});
-labels.add({
-  position : new Cesium.Cartesian3(0.0, 0.0, 1000000.0),
-  text     : 'Up'
-});</code></pre>
+    <pre><code class="language-javascript">const center = Cesium.Cartesian3.fromDegrees(-75.59777, 40.03883);labels.modelMatrix = Cesium.Transforms.eastNorthUpToFixedFrame(center);labels.add({  position : new Cesium.Cartesian3(0.0, 0.0, 0.0),  text     : 'Center'});labels.add({  position : new Cesium.Cartesian3(1000000.0, 0.0, 0.0),  text     : 'East'});labels.add({  position : new Cesium.Cartesian3(0.0, 1000000.0, 0.0),  text     : 'North'});labels.add({  position : new Cesium.Cartesian3(0.0, 0.0, 1000000.0),  text     : 'Up'});</code></pre>
 
     
 
@@ -807,17 +756,13 @@ labels.add({
 
 
 <div class="description">
-    创建具有指定初始属性的标签并将其添加到集合中。
-将返回添加的标签，以便以后可以对其进行修改或从集合中删除。
+    创建具有指定初始属性的标签并将其添加到集合中。将返回添加的标签，以便以后可以对其进行修改或从集合中删除。
 </div>
 
 
 
     <h5>Performance:</h5>
-    <p class="description">调用 <code>add</code> 是预期的常数时间。 但是，集合的顶点缓冲区
-被重写;此操作为 <code>O(n)</code> 并且还会
-CPU 到 GPU 的开销。 为了获得最佳性能，请在之前添加尽可能多的广告牌
-调用 <code>Update</code>。</p>
+    <p class="description">调用 <code>add</code> 是预期的常数时间。 但是，集合的顶点缓冲区被重写;此操作为 <code>O(n)</code> 并且还会CPU 到 GPU 的开销。 为了获得最佳性能，请在之前添加尽可能多的广告牌调用 <code>Update</code>。</p>
 
 
 
@@ -938,37 +883,9 @@ CPU 到 GPU 的开销。 为了获得最佳性能，请在之前添加尽可能�
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Example 1:  Add a label, specifying all the default values.
-const l = labels.add({
-  show : true,
-  position : Cesium.Cartesian3.ZERO,
-  text : '',
-  font : '30px sans-serif',
-  fillColor : Cesium.Color.WHITE,
-  outlineColor : Cesium.Color.BLACK,
-  outlineWidth : 1.0,
-  showBackground : false,
-  backgroundColor : new Cesium.Color(0.165, 0.165, 0.165, 0.8),
-  backgroundPadding : new Cesium.Cartesian2(7, 5),
-  style : Cesium.LabelStyle.FILL,
-  pixelOffset : Cesium.Cartesian2.ZERO,
-  eyeOffset : Cesium.Cartesian3.ZERO,
-  horizontalOrigin : Cesium.HorizontalOrigin.LEFT,
-  verticalOrigin : Cesium.VerticalOrigin.BASELINE,
-  scale : 1.0,
-  translucencyByDistance : undefined,
-  pixelOffsetScaleByDistance : undefined,
-  heightReference : HeightReference.NONE,
-  distanceDisplayCondition : undefined
-});</code></pre>
+    <pre><code class="language-javascript">// Example 1:  Add a label, specifying all the default values.const l = labels.add({  show : true,  position : Cesium.Cartesian3.ZERO,  text : '',  font : '30px sans-serif',  fillColor : Cesium.Color.WHITE,  outlineColor : Cesium.Color.BLACK,  outlineWidth : 1.0,  showBackground : false,  backgroundColor : new Cesium.Color(0.165, 0.165, 0.165, 0.8),  backgroundPadding : new Cesium.Cartesian2(7, 5),  style : Cesium.LabelStyle.FILL,  pixelOffset : Cesium.Cartesian2.ZERO,  eyeOffset : Cesium.Cartesian3.ZERO,  horizontalOrigin : Cesium.HorizontalOrigin.LEFT,  verticalOrigin : Cesium.VerticalOrigin.BASELINE,  scale : 1.0,  translucencyByDistance : undefined,  pixelOffsetScaleByDistance : undefined,  heightReference : HeightReference.NONE,  distanceDisplayCondition : undefined});</code></pre>
 
-    <pre><code class="language-javascript">// Example 2:  Specify only the label's cartographic position,
-// text, and font.
-const l = labels.add({
-  position : Cesium.Cartesian3.fromRadians(longitude, latitude, height),
-  text : 'Hello World',
-  font : '24px Helvetica',
-});</code></pre>
+    <pre><code class="language-javascript">// Example 2:  Specify only the label's cartographic position,// text, and font.const l = labels.add({  position : Cesium.Cartesian3.fromRadians(longitude, latitude, height),  text : 'Hello World',  font : '24px Helvetica',});</code></pre>
 
     
 
@@ -1152,12 +1069,7 @@ const l = labels.add({
 
 
 <div class="description">
-    销毁此对象持有的 WebGL 资源。 销毁对象允许确定性
-释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。
-<br /><br />
-一旦对象被销毁，就不应该使用它;调用
-<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。 因此
-将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
+    销毁此对象持有的 WebGL 资源。 销毁对象允许确定性释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。<br /><br />一旦对象被销毁，就不应该使用它;调用<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。 因此将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
 </div>
 
 
@@ -1262,19 +1174,13 @@ const l = labels.add({
 
 
 <div class="description">
-    返回集合中指定索引处的标签。 索引从 0 开始
-并随着标签的添加而增加。 删除标签会在
-它向左移动，更改其索引。 此功能通常用于
-<a href="LabelCollection.html#length"><code>LabelCollection#length</code></a> 遍历所有标签
-在集合中。
+    返回集合中指定索引处的标签。 索引从 0 开始并随着标签的添加而增加。 删除标签会在它向左移动，更改其索引。 此功能通常用于<a href="LabelCollection.html#length"><code>LabelCollection#length</code></a> 遍历所有标签在集合中。
 </div>
 
 
 
     <h5>Performance:</h5>
-    <p class="description">预期恒定时间。 如果从集合中删除了标签，并且
-<a href="Scene.html#render"><code>Scene#render</code></a> 未调用，则隐式 <code>O（n）</code>
-执行操作。</p>
+    <p class="description">预期恒定时间。 如果从集合中删除了标签，并且<a href="Scene.html#render"><code>Scene#render</code></a> 未调用，则隐式 <code>O（n）</code>执行操作。</p>
 
 
 
@@ -1388,12 +1294,7 @@ const l = labels.add({
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Toggle the show property of every label in the collection
-const len = labels.length;
-for (let i = 0; i &lt; len; ++i) {
-  const l = billboards.get(i);
-  l.show = !l.show;
-}</code></pre>
+    <pre><code class="language-javascript">// Toggle the show property of every label in the collectionconst len = labels.length;for (let i = 0; i &lt; len; ++i) {  const l = billboards.get(i);  l.show = !l.show;}</code></pre>
 
     
 
@@ -1435,10 +1336,7 @@ for (let i = 0; i &lt; len; ++i) {
 
 
 <div class="description">
-    如果此对象已销毁，则返回 true;否则为 false。
-<br /><br />
-如果此对象已销毁，则不应使用;调用
-<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。
+    如果此对象已销毁，则返回 true;否则为 false。<br /><br />如果此对象已销毁，则不应使用;调用<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。
 </div>
 
 
@@ -1539,11 +1437,7 @@ for (let i = 0; i &lt; len; ++i) {
 
 
     <h5>Performance:</h5>
-    <p class="description">调用 <code>remove</code> 是预期的常数时间。 但是，集合的顶点缓冲区
-被重写 - 一个<code>O(n)</code> 操作，也会产生 CPU 到 GPU 的开销。 为
-最佳性能，在调用 <code>update</code> 之前删除尽可能多的标签。
-如果您打算暂时隐藏标签，通常调用
-<a href="Label.html#show"><code>Label#show</code></a> 而不是删除并重新添加标签。</p>
+    <p class="description">调用 <code>remove</code> 是预期的常数时间。 但是，集合的顶点缓冲区被重写 - 一个<code>O(n)</code> 操作，也会产生 CPU 到 GPU 的开销。 为最佳性能，在调用 <code>update</code> 之前删除尽可能多的标签。如果您打算暂时隐藏标签，通常调用<a href="Label.html#show"><code>Label#show</code></a> 而不是删除并重新添加标签。</p>
 
 
 
@@ -1657,8 +1551,7 @@ for (let i = 0; i &lt; len; ++i) {
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const l = labels.add(...);
-labels.remove(l);  // Returns true</code></pre>
+    <pre><code class="language-javascript">const l = labels.add(...);labels.remove(l);  // Returns true</code></pre>
 
     
 
@@ -1710,8 +1603,7 @@ labels.remove(l);  // Returns true</code></pre>
 
 
     <h5>Performance:</h5>
-    <p class="description"><code>O(n)</code> 删除所有标签更有效
-从集合中，然后添加新的集合，而不是完全创建一个新集合。</p>
+    <p class="description"><code>O(n)</code> 删除所有标签更有效从集合中，然后添加新的集合，而不是完全创建一个新集合。</p>
 
 
 
@@ -1771,9 +1663,7 @@ labels.remove(l);  // Returns true</code></pre>
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">labels.add(...);
-labels.add(...);
-labels.removeAll();</code></pre>
+    <pre><code class="language-javascript">labels.add(...);labels.add(...);labels.removeAll();</code></pre>
 
     
 

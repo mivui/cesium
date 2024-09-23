@@ -47,9 +47,7 @@
 
 
         
-            <div class="description">创建一个 <a href="Cesium3DTileset.html"><code>Cesium3DTileset</code></a> 实例 的
-<a href="https://cesium.com/content/cesium-osm-buildings/">Cesium OSM Buildings</a>
-瓦片集.</div>
+            <div class="description">创建一个 <a href="Cesium3DTileset.html"><code>Cesium3DTileset</code></a> 实例 的<a href="https://cesium.com/content/cesium-osm-buildings/">Cesium OSM Buildings</a>瓦片集.</div>
         
 
         
@@ -75,34 +73,9 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Create Cesium OSM Buildings with default styling
-const viewer = new Cesium.Viewer("cesiumContainer");
-try {
-  const tileset = await Cesium.createOsmBuildingsAsync();
-  viewer.scene.primitives.add(tileset));
-} catch (error) {
-  console.log(`Error creating tileset: ${error}`);
-}</code></pre>
+    <pre><code class="language-javascript">// Create Cesium OSM Buildings with default stylingconst viewer = new Cesium.Viewer("cesiumContainer");try {  const tileset = await Cesium.createOsmBuildingsAsync();  viewer.scene.primitives.add(tileset));} catch (error) {  console.log(`Error creating tileset: ${error}`);}</code></pre>
 
-    <pre><code class="language-javascript">// Create Cesium OSM Buildings with a custom style highlighting
-// schools and hospitals.
-const viewer = new Cesium.Viewer("cesiumContainer");
-try {
-  const tileset = await Cesium.createOsmBuildingsAsync({
-    style: new Cesium.Cesium3DTileStyle({
-      color: {
-        conditions: [
-          ["${feature['building']} === 'hospital'", "color('#0000FF')"],
-          ["${feature['building']} === 'school'", "color('#00FF00')"],
-          [true, "color('#ffffff')"]
-        ]
-      }
-    })
-  });
-  viewer.scene.primitives.add(tileset));
-} catch (error) {
-  console.log(`Error creating tileset: ${error}`);
-}</code></pre>
+    <pre><code class="language-javascript">// Create Cesium OSM Buildings with a custom style highlighting// schools and hospitals.const viewer = new Cesium.Viewer("cesiumContainer");try {  const tileset = await Cesium.createOsmBuildingsAsync({    style: new Cesium.Cesium3DTileStyle({      color: {        conditions: [          ["${feature['building']} === 'hospital'", "color('#0000FF')"],          ["${feature['building']} === 'school'", "color('#00FF00')"],          [true, "color('#ffffff')"]        ]      }    })  });  viewer.scene.primitives.add(tileset));} catch (error) {  console.log(`Error creating tileset: ${error}`);}</code></pre>
 
     
 

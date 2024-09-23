@@ -58,22 +58,13 @@
 
 
 <div class="description">
-    <div class="notice">
-通过调用 <a href="PointPrimitiveCollection.html#add"><code>PointPrimitiveCollection#add</code></a> 创建一个点并设置其初始属性。 不要直接调用构造函数。
-</div>
-位于 3D 场景中创建的图形点
-并使用 <a href="PointPrimitiveCollection.html"><code>PointPrimitiveCollection</code></a> 进行渲染。
+    <div class="notice">通过调用 <a href="PointPrimitiveCollection.html#add"><code>PointPrimitiveCollection#add</code></a> 创建一个点并设置其初始属性。 不要直接调用构造函数。</div>位于 3D 场景中创建的图形点并使用 <a href="PointPrimitiveCollection.html"><code>PointPrimitiveCollection</code></a> 进行渲染。
 </div>
 
 
 
     <h5>Performance:</h5>
-    <p class="description">读取属性（例如 <a href="PointPrimitive.html#show"><code>PointPrimitive#show</code></a>）是常数时间。
-分配给属性是恒定时间，但会导致
-调用 <code>PointPrimitiveCollection#update</code> 时的 CPU 到 GPU 流量。 每个 pointPrimitive 的流量为
-无论更新了多少个属性，都是相同的。 如果集合中的大多数 pointPrimitive 都需要
-更新，使用 <a href="PointPrimitiveCollection.html#removeAll"><code>PointPrimitiveCollection#removeAll</code></a> 清除集合可能更有效。
-并添加新的 pointPrimitive 而不是修改每个 pointPrimitive。</p>
+    <p class="description">读取属性（例如 <a href="PointPrimitive.html#show"><code>PointPrimitive#show</code></a>）是常数时间。分配给属性是恒定时间，但会导致调用 <code>PointPrimitiveCollection#update</code> 时的 CPU 到 GPU 流量。 每个 pointPrimitive 的流量为无论更新了多少个属性，都是相同的。 如果集合中的大多数 pointPrimitive 都需要更新，使用 <a href="PointPrimitiveCollection.html#removeAll"><code>PointPrimitiveCollection#removeAll</code></a> 清除集合可能更有效。并添加新的 pointPrimitive 而不是修改每个 pointPrimitive。</p>
 
 
 
@@ -214,10 +205,7 @@
 
 
 <div class="description">
-    获取或设置点的内部颜色。
-红色、绿色、蓝色和 alpha 值由<code>值的</code><code>红色</code>、<code>绿色</code>、
-<code>blue</code> 和 <code>alpha</code> 属性，如示例 1 所示。 这些组件的范围从 <code>0.0</code>
-（无强度）到 <code>1.0</code>（全强度）。
+    获取或设置点的内部颜色。红色、绿色、蓝色和 alpha 值由<code>值的</code><code>红色</code>、<code>绿色</code>、<code>blue</code> 和 <code>alpha</code> 属性，如示例 1 所示。 这些组件的范围从 <code>0.0</code>（无强度）到 <code>1.0</code>（全强度）。
 </div>
 
 
@@ -246,11 +234,9 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Example 1. Assign yellow.
-p.color = Cesium.Color.YELLOW;</code></pre>
+    <pre><code class="language-javascript">// Example 1. Assign yellow.p.color = Cesium.Color.YELLOW;</code></pre>
 
-    <pre><code class="language-javascript">// Example 2. Make a pointPrimitive 50% translucent.
-p.color = new Cesium.Color(1.0, 1.0, 1.0, 0.5);</code></pre>
+    <pre><code class="language-javascript">// Example 2. Make a pointPrimitive 50% translucent.p.color = new Cesium.Color(1.0, 1.0, 1.0, 0.5);</code></pre>
 
     
 
@@ -286,8 +272,7 @@ p.color = new Cesium.Color(1.0, 1.0, 1.0, 0.5);</code></pre>
 
 
 <div class="description">
-    获取或设置与摄像机的距离，以禁用深度测试，以防止根据地形进行裁剪。
-当设置为零时，始终应用深度测试。设置为 Number.POSITIVE_INFINITY 时，从不应用深度测试。
+    获取或设置与摄像机的距离，以禁用深度测试，以防止根据地形进行裁剪。当设置为零时，始终应用深度测试。设置为 Number.POSITIVE_INFINITY 时，从不应用深度测试。
 </div>
 
 
@@ -533,8 +518,7 @@ p.color = new Cesium.Color(1.0, 1.0, 1.0, 0.5);</code></pre>
 
 
 <div class="description">
-    获取或设置轮廓宽度（以像素为单位）。 此宽度会增加 pixelSize，
-增加点的总大小。
+    获取或设置轮廓宽度（以像素为单位）。 此宽度会增加 pixelSize，增加点的总大小。
 </div>
 
 
@@ -714,13 +698,7 @@ p.color = new Cesium.Color(1.0, 1.0, 1.0, 0.5);</code></pre>
 
 
 <div class="description">
-    根据点与摄像机的距离获取或设置点的近距和远距缩放属性。
-点的比例将在 <a href="NearFarScalar.html#nearValue"><code>NearFarScalar#nearValue</code></a> 和
-<a href="NearFarScalar.html#farValue"><code>NearFarScalar#farValue</code></a> 当摄像机距离落在下限和上限内时
-指定的 <a href="NearFarScalar.html#near"><code>NearFarScalar#near</code></a> 和 <a href="NearFarScalar.html#far"><code>NearFarScalar#far</code></a> 的。
-在这些范围之外，点的刻度仍然被限制在最近的边界上。 此刻度
-将 pixelSize 和 outlineWidth 相乘以影响点的总大小。 如果未定义，则
-scaleByDistance 将被禁用。
+    根据点与摄像机的距离获取或设置点的近距和远距缩放属性。点的比例将在 <a href="NearFarScalar.html#nearValue"><code>NearFarScalar#nearValue</code></a> 和<a href="NearFarScalar.html#farValue"><code>NearFarScalar#farValue</code></a> 当摄像机距离落在下限和上限内时指定的 <a href="NearFarScalar.html#near"><code>NearFarScalar#near</code></a> 和 <a href="NearFarScalar.html#far"><code>NearFarScalar#far</code></a> 的。在这些范围之外，点的刻度仍然被限制在最近的边界上。 此刻度将 pixelSize 和 outlineWidth 相乘以影响点的总大小。 如果未定义，则scaleByDistance 将被禁用。
 </div>
 
 
@@ -749,15 +727,9 @@ scaleByDistance 将被禁用。
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Example 1.
-// Set a pointPrimitive's scaleByDistance to scale to 15 when the
-// camera is 1500 meters from the pointPrimitive and disappear as
-// the camera distance approaches 8.0e6 meters.
-p.scaleByDistance = new Cesium.NearFarScalar(1.5e2, 15, 8.0e6, 0.0);</code></pre>
+    <pre><code class="language-javascript">// Example 1.// Set a pointPrimitive's scaleByDistance to scale to 15 when the// camera is 1500 meters from the pointPrimitive and disappear as// the camera distance approaches 8.0e6 meters.p.scaleByDistance = new Cesium.NearFarScalar(1.5e2, 15, 8.0e6, 0.0);</code></pre>
 
-    <pre><code class="language-javascript">// Example 2.
-// disable scaling by distance
-p.scaleByDistance = undefined;</code></pre>
+    <pre><code class="language-javascript">// Example 2.// disable scaling by distancep.scaleByDistance = undefined;</code></pre>
 
     
 
@@ -793,8 +765,7 @@ p.scaleByDistance = undefined;</code></pre>
 
 
 <div class="description">
-    确定是否显示此点。 使用它来隐藏或显示点
-将其删除并重新添加到集合中。
+    确定是否显示此点。 使用它来隐藏或显示点将其删除并重新添加到集合中。
 </div>
 
 
@@ -917,12 +888,7 @@ p.scaleByDistance = undefined;</code></pre>
 
 
 <div class="description">
-    根据点与摄像机的距离获取或设置点的近距和远距半透明属性。
-点的半透明性将在 <a href="NearFarScalar.html#nearValue"><code>NearFarScalar#nearValue</code></a> 和
-<a href="NearFarScalar.html#farValue"><code>NearFarScalar#farValue</code></a> 当摄像机距离落在下限和上限内时
-指定的 <a href="NearFarScalar.html#near"><code>NearFarScalar#near</code></a> 和 <a href="NearFarScalar.html#far"><code>NearFarScalar#far</code></a> 的。
-在这些范围之外，点的半透明性仍然被限制在最近的边界上。 如果未定义，则
-translucencyByDistance 将被禁用。
+    根据点与摄像机的距离获取或设置点的近距和远距半透明属性。点的半透明性将在 <a href="NearFarScalar.html#nearValue"><code>NearFarScalar#nearValue</code></a> 和<a href="NearFarScalar.html#farValue"><code>NearFarScalar#farValue</code></a> 当摄像机距离落在下限和上限内时指定的 <a href="NearFarScalar.html#near"><code>NearFarScalar#near</code></a> 和 <a href="NearFarScalar.html#far"><code>NearFarScalar#far</code></a> 的。在这些范围之外，点的半透明性仍然被限制在最近的边界上。 如果未定义，则translucencyByDistance 将被禁用。
 </div>
 
 
@@ -951,15 +917,9 @@ translucencyByDistance 将被禁用。
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Example 1.
-// Set a point's translucency to 1.0 when the
-// camera is 1500 meters from the point and disappear as
-// the camera distance approaches 8.0e6 meters.
-p.translucencyByDistance = new Cesium.NearFarScalar(1.5e2, 1.0, 8.0e6, 0.0);</code></pre>
+    <pre><code class="language-javascript">// Example 1.// Set a point's translucency to 1.0 when the// camera is 1500 meters from the point and disappear as// the camera distance approaches 8.0e6 meters.p.translucencyByDistance = new Cesium.NearFarScalar(1.5e2, 1.0, 8.0e6, 0.0);</code></pre>
 
-    <pre><code class="language-javascript">// Example 2.
-// disable translucency by distance
-p.translucencyByDistance = undefined;</code></pre>
+    <pre><code class="language-javascript">// Example 2.// disable translucency by distancep.translucencyByDistance = undefined;</code></pre>
 
     
 
@@ -1002,9 +962,7 @@ p.translucencyByDistance = undefined;</code></pre>
 
 
 <div class="description">
-    计算点原点的屏幕空间位置。
-屏幕空间原点是画布的左上角;<code>x</code> 从
-从左到右，<code>y</code> 从上到下增加。
+    计算点原点的屏幕空间位置。屏幕空间原点是画布的左上角;<code>x</code> 从从左到右，<code>y</code> 从上到下增加。
 </div>
 
 
@@ -1193,8 +1151,7 @@ p.translucencyByDistance = undefined;</code></pre>
 
 
 <div class="description">
-    确定此点是否等于另一个点。 如果它们的所有属性都相等，则 Points 是相等的
-相等。 不同集合中的点可以相等。
+    确定此点是否等于另一个点。 如果它们的所有属性都相等，则 Points 是相等的相等。 不同集合中的点可以相等。
 </div>
 
 

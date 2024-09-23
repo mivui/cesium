@@ -58,16 +58,7 @@
 
 
 <div class="description">
-    <a href="Model.html"><code>Model</code></a> 的一个功能。
-<p>
-提供对存储在模型特征表中的特征属性的访问。
-</p>
-<p>
-对 <code>ModelFeature</code> 对象的修改具有模型的生命周期。
-</p>
-<p>
-不要直接构造它。通过使用 <a href="Scene.html#pick"><code>Scene#pick</code></a> 进行选取来访问它。
-</p>
+    <a href="Model.html"><code>Model</code></a> 的一个功能。<p>提供对存储在模型特征表中的特征属性的访问。</p><p>对 <code>ModelFeature</code> 对象的修改具有模型的生命周期。</p><p>不要直接构造它。通过使用 <a href="Scene.html#pick"><code>Scene#pick</code></a> 进行选取来访问它。</p>
 </div>
 
 
@@ -229,13 +220,7 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// On mouse over, display all the properties for a feature in the console log.
-handler.setInputAction(function(movement) {
-    const feature = scene.pick(movement.endPosition);
-    if (feature instanceof Cesium.ModelFeature) {
-        console.log(feature);
-    }
-}, Cesium.ScreenSpaceEventType.MOUSE_MOVE);</code></pre>
+    <pre><code class="language-javascript">// On mouse over, display all the properties for a feature in the console log.handler.setInputAction(function(movement) {    const feature = scene.pick(movement.endPosition);    if (feature instanceof Cesium.ModelFeature) {        console.log(feature);    }}, Cesium.ScreenSpaceEventType.MOUSE_MOVE);</code></pre>
 
     
 
@@ -287,9 +272,7 @@ handler.setInputAction(function(movement) {
 
 
 <div class="description">
-    获取或设置高亮颜色 （highlight color） 与特征颜色相乘。 什么时候
-这是白色的，特征的颜色不会改变。这是为所有功能设置的
-当评估样式的颜色时。
+    获取或设置高亮颜色 （highlight color） 与特征颜色相乘。 什么时候这是白色的，特征的颜色不会改变。这是为所有功能设置的当评估样式的颜色时。
 </div>
 
 
@@ -352,9 +335,7 @@ handler.setInputAction(function(movement) {
 
 
 <div class="description">
-    获取与此功能关联的功能 ID。对于 3D 瓦片 1.0，
-返回批处理 ID。对于EXT_mesh_features，这是
-所选特征 ID 集。
+    获取与此功能关联的功能 ID。对于 3D 瓦片 1.0，返回批处理 ID。对于EXT_mesh_features，这是所选特征 ID 集。
 </div>
 
 
@@ -421,8 +402,7 @@ handler.setInputAction(function(movement) {
 
 
 <div class="description">
-    获取或设置是否功能。这是为所有功能设置的
-评估样式的显示时。
+    获取或设置是否功能。这是为所有功能设置的评估样式的显示时。
 </div>
 
 
@@ -595,13 +575,7 @@ handler.setInputAction(function(movement) {
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Display all the properties for a feature in the console log.
-const propertyIds = feature.getPropertyIds();
-const length = propertyIds.length;
-for (let i = 0; i &lt; length; ++i) {
-    const propertyId = propertyIds[i];
-    console.log(propertyId + ': ' + feature.getProperty(propertyId));
-}</code></pre>
+    <pre><code class="language-javascript">// Display all the properties for a feature in the console log.const propertyIds = feature.getPropertyIds();const length = propertyIds.length;for (let i = 0; i &lt; length; ++i) {    const propertyId = propertyIds[i];    console.log(propertyId + ': ' + feature.getProperty(propertyId));}</code></pre>
 
     
 
@@ -780,18 +754,7 @@ for (let i = 0; i &lt; length; ++i) {
 
 
 <div class="description">
-    返回具有给定名称的功能属性的副本，检查所有
-来自 glTF EXT_structural_metadata 和旧版 EXT_feature_metadata 的元数据
-扩展。根据名称从最具体到最详细检查元数据
-general，并返回第一个匹配项。元数据按以下顺序检查：
-<ol>
-<li>语义的结构元数据属性</li>
-<li>按属性 ID 划分的结构元数据属性</li>
-</ol>
-<p>
-参见 <a href="https://github.com/CesiumGS/glTF/tree/3d-tiles-next/extensions/2.0/Vendor/EXT_structural_metadata">EXT_structural_metadata Extension</a> 以及
-上一页 <a href="https://github.com/CesiumGS/glTF/tree/3d-tiles-next/extensions/2.0/Vendor/EXT_feature_metadata">EXT_feature_metadata Extension</a> 来表示 glTF。
-</p>
+    返回具有给定名称的功能属性的副本，检查所有来自 glTF EXT_structural_metadata 和旧版 EXT_feature_metadata 的元数据扩展。根据名称从最具体到最详细检查元数据general，并返回第一个匹配项。元数据按以下顺序检查：<ol><li>语义的结构元数据属性</li><li>按属性 ID 划分的结构元数据属性</li></ol><p>参见 <a href="https://github.com/CesiumGS/glTF/tree/3d-tiles-next/extensions/2.0/Vendor/EXT_structural_metadata">EXT_structural_metadata Extension</a> 以及上一页 <a href="https://github.com/CesiumGS/glTF/tree/3d-tiles-next/extensions/2.0/Vendor/EXT_feature_metadata">EXT_feature_metadata Extension</a> 来表示 glTF。</p>
 </div>
 
 
@@ -1210,13 +1173,7 @@ general，并返回第一个匹配项。元数据按以下顺序检查：
         
     <pre><code class="language-javascript">const height = feature.getProperty('Height'); // e.g., the height of a building</code></pre>
 
-    <pre><code class="language-javascript">const name = 'clicked';
-if (feature.getProperty(name)) {
-    console.log('already clicked');
-} else {
-    feature.setProperty(name, true);
-    console.log('first click');
-}</code></pre>
+    <pre><code class="language-javascript">const name = 'clicked';if (feature.getProperty(name)) {    console.log('already clicked');} else {    feature.setProperty(name, true);    console.log('first click');}</code></pre>
 
     
 

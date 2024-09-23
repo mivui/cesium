@@ -58,11 +58,7 @@
 
 
 <div class="description">
-    椭球体表面上的几何体外观，如 <a href="PolygonGeometry.html"><code>PolygonGeometry</code></a>
-和 <a href="RectangleGeometry.html"><code>RectangleGeometry</code></a>，它支持所有材质，如 <a href="MaterialAppearance.html"><code>MaterialAppearance</code></a>
-替换为 <a href="MaterialAppearance.MaterialSupport.html#.ALL"><code>MaterialAppearance.MaterialSupport.ALL</code></a>。 但是，此外观需要
-由于片段着色器可以程序化地计算<code>法线</code>、
-<code>tangent</code> 和 <code>bitangent</code> 的 API 请求。
+    椭球体表面上的几何体外观，如 <a href="PolygonGeometry.html"><code>PolygonGeometry</code></a>和 <a href="RectangleGeometry.html"><code>RectangleGeometry</code></a>，它支持所有材质，如 <a href="MaterialAppearance.html"><code>MaterialAppearance</code></a>替换为 <a href="MaterialAppearance.MaterialSupport.html#.ALL"><code>MaterialAppearance.MaterialSupport.ALL</code></a>。 但是，此外观需要由于片段着色器可以程序化地计算<code>法线</code>、<code>tangent</code> 和 <code>bitangent</code> 的 API 请求。
 </div>
 
 
@@ -469,17 +465,7 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const primitive = new Cesium.Primitive({
-  geometryInstances : new Cesium.GeometryInstance({
-    geometry : new Cesium.PolygonGeometry({
-      vertexFormat : Cesium.EllipsoidSurfaceAppearance.VERTEX_FORMAT,
-      // ...
-    })
-  }),
-  appearance : new Cesium.EllipsoidSurfaceAppearance({
-    material : Cesium.Material.fromType('Stripe')
-  })
-});</code></pre>
+    <pre><code class="language-javascript">const primitive = new Cesium.Primitive({  geometryInstances : new Cesium.GeometryInstance({    geometry : new Cesium.PolygonGeometry({      vertexFormat : Cesium.EllipsoidSurfaceAppearance.VERTEX_FORMAT,      // ...    })  }),  appearance : new Cesium.EllipsoidSurfaceAppearance({    material : Cesium.Material.fromType('Stripe')  })});</code></pre>
 
     
 
@@ -536,9 +522,7 @@
 
 
 <div class="description">
-    所有 <a href="EllipsoidSurfaceAppearance.html"><code>EllipsoidSurfaceAppearance</code></a> 实例的 <a href="VertexFormat.html"><code>VertexFormat</code></a>
-兼容，只需要 <code>POSITION</code> 和 <code>ST</code>
-属性。 其他属性在片段着色器中按程序计算。
+    所有 <a href="EllipsoidSurfaceAppearance.html"><code>EllipsoidSurfaceAppearance</code></a> 实例的 <a href="VertexFormat.html"><code>VertexFormat</code></a>兼容，只需要 <code>POSITION</code> 和 <code>ST</code>属性。 其他属性在片段着色器中按程序计算。
 </div>
 
 
@@ -598,9 +582,7 @@
 
 
 <div class="description">
-    如果<code>为 true</code>，则几何体应位于椭球体的
-surface - 不在其上方的恒定高度 - 因此 <a href="EllipsoidSurfaceAppearance.html#renderState"><code>EllipsoidSurfaceAppearance#renderState</code></a>
-已启用背面剔除。
+    如果<code>为 true</code>，则几何体应位于椭球体的surface - 不在其上方的恒定高度 - 因此 <a href="EllipsoidSurfaceAppearance.html#renderState"><code>EllipsoidSurfaceAppearance#renderState</code></a>已启用背面剔除。
 </div>
 
 
@@ -663,9 +645,7 @@ surface - 不在其上方的恒定高度 - 因此 <a href="EllipsoidSurfaceAppea
 
 
 <div class="description">
-    如果<code>为 true</code>，则几何体应被关闭，因此
-<a href="EllipsoidSurfaceAppearance.html#renderState"><code>EllipsoidSurfaceAppearance#renderState</code></a> 已启用背面剔除。
-如果查看器进入几何图形，则几何图形将不可见。
+    如果<code>为 true</code>，则几何体应被关闭，因此<a href="EllipsoidSurfaceAppearance.html#renderState"><code>EllipsoidSurfaceAppearance#renderState</code></a> 已启用背面剔除。如果查看器进入几何图形，则几何图形将不可见。
 </div>
 
 
@@ -728,10 +708,7 @@ surface - 不在其上方的恒定高度 - 因此 <a href="EllipsoidSurfaceAppea
 
 
 <div class="description">
-    如果<code>为 true</code>，则片段着色器将翻转表面法线
-根据需要确保法线面向观看者避免
-黑斑。 当几何体的两侧都应该
-像 <a href="WallGeometry.html"><code>WallGeometry</code></a> 一样着色。
+    如果<code>为 true</code>，则片段着色器将翻转表面法线根据需要确保法线面向观看者避免黑斑。 当几何体的两侧都应该像 <a href="WallGeometry.html"><code>WallGeometry</code></a> 一样着色。
 </div>
 
 
@@ -794,8 +771,7 @@ surface - 不在其上方的恒定高度 - 因此 <a href="EllipsoidSurfaceAppea
 
 
 <div class="description">
-    如果<code>为 true</code>，则在片段着色器中使用平面着色。
-表示未考虑照明。
+    如果<code>为 true</code>，则在片段着色器中使用平面着色。表示未考虑照明。
 </div>
 
 
@@ -858,10 +834,7 @@ surface - 不在其上方的恒定高度 - 因此 <a href="EllipsoidSurfaceAppea
 
 
 <div class="description">
-    片段着色器的 GLSL 源代码。 完整的片段着色器
-source 是按照程序构建的，考虑了 <a href="EllipsoidSurfaceAppearance.html#material"><code>EllipsoidSurfaceAppearance#material</code></a>，
-<a href="EllipsoidSurfaceAppearance.html#flat"><code>EllipsoidSurfaceAppearance#flat</code></a> 和 <a href="EllipsoidSurfaceAppearance.html#faceForward"><code>EllipsoidSurfaceAppearance#faceForward</code></a>。
-使用 <a href="EllipsoidSurfaceAppearance.html#getFragmentShaderSource"><code>EllipsoidSurfaceAppearance#getFragmentShaderSource</code></a> 获取完整源代码。
+    片段着色器的 GLSL 源代码。 完整的片段着色器source 是按照程序构建的，考虑了 <a href="EllipsoidSurfaceAppearance.html#material"><code>EllipsoidSurfaceAppearance#material</code></a>，<a href="EllipsoidSurfaceAppearance.html#flat"><code>EllipsoidSurfaceAppearance#flat</code></a> 和 <a href="EllipsoidSurfaceAppearance.html#faceForward"><code>EllipsoidSurfaceAppearance#faceForward</code></a>。使用 <a href="EllipsoidSurfaceAppearance.html#getFragmentShaderSource"><code>EllipsoidSurfaceAppearance#getFragmentShaderSource</code></a> 获取完整源代码。
 </div>
 
 
@@ -921,8 +894,7 @@ source 是按照程序构建的，考虑了 <a href="EllipsoidSurfaceAppearance.
 
 
 <div class="description">
-    用于确定片段颜色的材料。 与其他 <a href="EllipsoidSurfaceAppearance.html"><code>EllipsoidSurfaceAppearance</code></a> 不同
-属性，这不是只读的，因此外观的材质可以动态更改。
+    用于确定片段颜色的材料。 与其他 <a href="EllipsoidSurfaceAppearance.html"><code>EllipsoidSurfaceAppearance</code></a> 不同属性，这不是只读的，因此外观的材质可以动态更改。
 </div>
 
 
@@ -990,12 +962,7 @@ source 是按照程序构建的，考虑了 <a href="EllipsoidSurfaceAppearance.
 
 
 <div class="description">
-    渲染几何体时使用的 WebGL 固定函数状态。
-<p>
-在构造 <a href="EllipsoidSurfaceAppearance.html"><code>EllipsoidSurfaceAppearance</code></a> 时，可以显式定义渲染状态
-实例，或者通过 <a href="EllipsoidSurfaceAppearance.html#translucent"><code>EllipsoidSurfaceAppearance#translucent</code></a> 隐式设置
-和 <a href="EllipsoidSurfaceAppearance.html#aboveGround"><code>EllipsoidSurfaceAppearance#aboveGround</code></a> 的 SurfaceSurfaceAppearance 中。
-</p>
+    渲染几何体时使用的 WebGL 固定函数状态。<p>在构造 <a href="EllipsoidSurfaceAppearance.html"><code>EllipsoidSurfaceAppearance</code></a> 时，可以显式定义渲染状态实例，或者通过 <a href="EllipsoidSurfaceAppearance.html#translucent"><code>EllipsoidSurfaceAppearance#translucent</code></a> 隐式设置和 <a href="EllipsoidSurfaceAppearance.html#aboveGround"><code>EllipsoidSurfaceAppearance#aboveGround</code></a> 的 SurfaceSurfaceAppearance 中。</p>
 </div>
 
 
@@ -1118,9 +1085,7 @@ source 是按照程序构建的，考虑了 <a href="EllipsoidSurfaceAppearance.
 
 
 <div class="description">
-    与此外观实例兼容的 <a href="VertexFormat.html"><code>VertexFormat</code></a>。
-几何体可以具有更多顶点属性，并且仍然兼容 - 在
-潜在的性能成本 - 但不能更少。
+    与此外观实例兼容的 <a href="VertexFormat.html"><code>VertexFormat</code></a>。几何体可以具有更多顶点属性，并且仍然兼容 - 在潜在的性能成本 - 但不能更少。
 </div>
 
 
@@ -1250,9 +1215,7 @@ source 是按照程序构建的，考虑了 <a href="EllipsoidSurfaceAppearance.
 
 
 <div class="description">
-    以程序方式创建完整的 GLSL 片段着色器源。 对于 <a href="EllipsoidSurfaceAppearance.html"><code>EllipsoidSurfaceAppearance</code></a>，
-这是从 <a href="EllipsoidSurfaceAppearance.html#fragmentShaderSource"><code>EllipsoidSurfaceAppearance#fragmentShaderSource</code></a>、<a href="EllipsoidSurfaceAppearance.html#flat"><code>EllipsoidSurfaceAppearance#flat</code></a>、
-和 <a href="EllipsoidSurfaceAppearance.html#faceForward"><code>EllipsoidSurfaceAppearance#faceForward</code></a> 的 SurfaceSurfaceAppearance 中。
+    以程序方式创建完整的 GLSL 片段着色器源。 对于 <a href="EllipsoidSurfaceAppearance.html"><code>EllipsoidSurfaceAppearance</code></a>，这是从 <a href="EllipsoidSurfaceAppearance.html#fragmentShaderSource"><code>EllipsoidSurfaceAppearance#fragmentShaderSource</code></a>、<a href="EllipsoidSurfaceAppearance.html#flat"><code>EllipsoidSurfaceAppearance#flat</code></a>、和 <a href="EllipsoidSurfaceAppearance.html#faceForward"><code>EllipsoidSurfaceAppearance#faceForward</code></a> 的 SurfaceSurfaceAppearance 中。
 </div>
 
 
@@ -1342,9 +1305,7 @@ source 是按照程序构建的，考虑了 <a href="EllipsoidSurfaceAppearance.
 
 
 <div class="description">
-    创建渲染状态。 这不是最终的渲染状态实例;相反
-它可以包含与渲染状态相同的渲染状态属性的子集
-在上下文中创建。
+    创建渲染状态。 这不是最终的渲染状态实例;相反它可以包含与渲染状态相同的渲染状态属性的子集在上下文中创建。
 </div>
 
 

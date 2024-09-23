@@ -58,8 +58,7 @@
 
 
 <div class="description">
-    任意几何体的外观（例如，与 <a href="EllipsoidSurfaceAppearance.html"><code>EllipsoidSurfaceAppearance</code></a> 相对）
-支持材质着色。
+    任意几何体的外观（例如，与 <a href="EllipsoidSurfaceAppearance.html"><code>EllipsoidSurfaceAppearance</code></a> 相对）支持材质着色。
 </div>
 
 
@@ -502,19 +501,8 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const primitive = new Cesium.Primitive({
-  geometryInstances : new Cesium.GeometryInstance({
-    geometry : new Cesium.WallGeometry({
-            materialSupport :  Cesium.MaterialAppearance.MaterialSupport.BASIC.vertexFormat,
-      // ...
-    })
-  }),
-  appearance : new Cesium.MaterialAppearance({
-    material : Cesium.Material.fromType('Color'),
-    faceForward : true
-  })
-
-});</code></pre>
+    <pre><code class="language-javascript">const primitive = new Cesium.Primitive({  geometryInstances : new Cesium.GeometryInstance({    geometry : new Cesium.WallGeometry({
+            materialSupport :  Cesium.MaterialAppearance.MaterialSupport.BASIC.vertexFormat,      // ...    })  }),  appearance : new Cesium.MaterialAppearance({    material : Cesium.Material.fromType('Color'),    faceForward : true  })});</code></pre>
 
     
 
@@ -583,9 +571,7 @@
 
 
 <div class="description">
-    如果<code>为 true</code>，则几何体应被关闭，因此
-<a href="MaterialAppearance.html#renderState"><code>MaterialAppearance#renderState</code></a> 启用了背面剔除。
-如果查看器进入几何图形，则几何图形将不可见。
+    如果<code>为 true</code>，则几何体应被关闭，因此<a href="MaterialAppearance.html#renderState"><code>MaterialAppearance#renderState</code></a> 启用了背面剔除。如果查看器进入几何图形，则几何图形将不可见。
 </div>
 
 
@@ -648,10 +634,7 @@
 
 
 <div class="description">
-    如果<code>为 true</code>，则片段着色器将翻转表面法线
-根据需要确保法线面向观看者避免
-黑斑。 当几何体的两侧都应该
-像 <a href="WallGeometry.html"><code>WallGeometry</code></a> 一样着色。
+    如果<code>为 true</code>，则片段着色器将翻转表面法线根据需要确保法线面向观看者避免黑斑。 当几何体的两侧都应该像 <a href="WallGeometry.html"><code>WallGeometry</code></a> 一样着色。
 </div>
 
 
@@ -714,8 +697,7 @@
 
 
 <div class="description">
-    如果<code>为 true</code>，则在片段着色器中使用平面着色。
-表示未考虑照明。
+    如果<code>为 true</code>，则在片段着色器中使用平面着色。表示未考虑照明。
 </div>
 
 
@@ -778,10 +760,7 @@
 
 
 <div class="description">
-    片段着色器的 GLSL 源代码。 完整的片段着色器
-源是按照程序构建的，考虑了 <a href="MaterialAppearance.html#material"><code>MaterialAppearance#material</code></a>，
-<a href="MaterialAppearance.html#flat"><code>MaterialAppearance#flat</code></a> 和 <a href="MaterialAppearance.html#faceForward"><code>MaterialAppearance#faceForward</code></a> 的
-使用 <a href="MaterialAppearance.html#getFragmentShaderSource"><code>MaterialAppearance#getFragmentShaderSource</code></a> 获取完整源代码。
+    片段着色器的 GLSL 源代码。 完整的片段着色器源是按照程序构建的，考虑了 <a href="MaterialAppearance.html#material"><code>MaterialAppearance#material</code></a>，<a href="MaterialAppearance.html#flat"><code>MaterialAppearance#flat</code></a> 和 <a href="MaterialAppearance.html#faceForward"><code>MaterialAppearance#faceForward</code></a> 的使用 <a href="MaterialAppearance.html#getFragmentShaderSource"><code>MaterialAppearance#getFragmentShaderSource</code></a> 获取完整源代码。
 </div>
 
 
@@ -841,8 +820,7 @@
 
 
 <div class="description">
-    用于确定片段颜色的材料。 与其他 <a href="MaterialAppearance.html"><code>MaterialAppearance</code></a> 不同
-属性，这不是只读的，因此外观的材质可以动态更改。
+    用于确定片段颜色的材料。 与其他 <a href="MaterialAppearance.html"><code>MaterialAppearance</code></a> 不同属性，这不是只读的，因此外观的材质可以动态更改。
 </div>
 
 
@@ -910,8 +888,7 @@
 
 
 <div class="description">
-    此实例支持的材质类型。 这会影响所需的
-<a href="VertexFormat.html"><code>VertexFormat</code></a> 以及顶点和片段着色器的复杂度。
+    此实例支持的材质类型。 这会影响所需的<a href="VertexFormat.html"><code>VertexFormat</code></a> 以及顶点和片段着色器的复杂度。
 </div>
 
 
@@ -974,12 +951,7 @@
 
 
 <div class="description">
-    渲染几何体时使用的 WebGL 固定函数状态。
-<p>
-在构造 <a href="MaterialAppearance.html"><code>MaterialAppearance</code></a> 时，可以显式定义渲染状态
-实例，或者通过 <a href="MaterialAppearance.html#translucent"><code>MaterialAppearance#translucent</code></a> 隐式设置
-和 <a href="MaterialAppearance.html#closed"><code>MaterialAppearance#closed</code></a> 的
-</p>
+    渲染几何体时使用的 WebGL 固定函数状态。<p>在构造 <a href="MaterialAppearance.html"><code>MaterialAppearance</code></a> 时，可以显式定义渲染状态实例，或者通过 <a href="MaterialAppearance.html#translucent"><code>MaterialAppearance#translucent</code></a> 隐式设置和 <a href="MaterialAppearance.html#closed"><code>MaterialAppearance#closed</code></a> 的</p>
 </div>
 
 
@@ -1102,9 +1074,7 @@
 
 
 <div class="description">
-    此外观实例兼容的 <a href="VertexFormat.html"><code>VertexFormat</code></a>.
-几何体可以具有更多顶点属性，并且仍然兼容 - 在
-潜在的性能成本 - 但不能更少。
+    此外观实例兼容的 <a href="VertexFormat.html"><code>VertexFormat</code></a>.几何体可以具有更多顶点属性，并且仍然兼容 - 在潜在的性能成本 - 但不能更少。
 </div>
 
 
@@ -1234,9 +1204,7 @@
 
 
 <div class="description">
-    以程序方式创建完整的 GLSL 片段着色器源。 对于 <a href="MaterialAppearance.html"><code>MaterialAppearance</code></a>，
-这是从 <a href="MaterialAppearance.html#fragmentShaderSource"><code>MaterialAppearance#fragmentShaderSource</code></a>、<a href="MaterialAppearance.html#material"><code>MaterialAppearance#material</code></a>、
-<a href="MaterialAppearance.html#flat"><code>MaterialAppearance#flat</code></a> 和 <a href="MaterialAppearance.html#faceForward"><code>MaterialAppearance#faceForward</code></a> 的
+    以程序方式创建完整的 GLSL 片段着色器源。 对于 <a href="MaterialAppearance.html"><code>MaterialAppearance</code></a>，这是从 <a href="MaterialAppearance.html#fragmentShaderSource"><code>MaterialAppearance#fragmentShaderSource</code></a>、<a href="MaterialAppearance.html#material"><code>MaterialAppearance#material</code></a>、<a href="MaterialAppearance.html#flat"><code>MaterialAppearance#flat</code></a> 和 <a href="MaterialAppearance.html#faceForward"><code>MaterialAppearance#faceForward</code></a> 的
 </div>
 
 
@@ -1326,9 +1294,7 @@
 
 
 <div class="description">
-    创建渲染状态。 这不是最终的渲染状态实例;相反
-它可以包含与渲染状态相同的渲染状态属性的子集
-在上下文中创建。
+    创建渲染状态。 这不是最终的渲染状态实例;相反它可以包含与渲染状态相同的渲染状态属性的子集在上下文中创建。
 </div>
 
 

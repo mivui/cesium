@@ -58,11 +58,7 @@
 
 
 <div class="description">
-    <div class="notice">
-访问模型的动画 <a href="Model.html#activeAnimations"><code>Model#activeAnimations</code></a>。不要直接调用构造函数
-</div>
-
-活动模型动画的集合。
+    <div class="notice">访问模型的动画 <a href="Model.html#activeAnimations"><code>Model#activeAnimations</code></a>。不要直接调用构造函数</div>活动模型动画的集合。
 </div>
 
 
@@ -163,10 +159,7 @@
 
 
 <div class="description">
-    如果为 true，则即使场景时间暂停，动画也会播放。然而
-是否发生动画将取决于分配的 animationTime 函数
-添加到模型的动画中。默认情况下，这是基于场景时间的，因此使用
-无论此设置如何，默认值都不会设置动画。
+    如果为 true，则即使场景时间暂停，动画也会播放。然而是否发生动画将取决于分配的 animationTime 函数添加到模型的动画中。默认情况下，这是基于场景时间的，因此使用无论此设置如何，默认值都不会设置动画。
 </div>
 
 
@@ -229,8 +222,7 @@
 
 
 <div class="description">
-    将动画添加到集合时触发的事件。 这可用于
-示例，以保持 UI 同步。
+    将动画添加到集合时触发的事件。 这可用于示例，以保持 UI 同步。
 </div>
 
 
@@ -262,9 +254,7 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">model.activeAnimations.animationAdded.addEventListener(function(model, animation) {
-  console.log(`Animation added: ${animation.name}`);
-});</code></pre>
+    <pre><code class="language-javascript">model.activeAnimations.animationAdded.addEventListener(function(model, animation) {  console.log(`Animation added: ${animation.name}`);});</code></pre>
 
     
 
@@ -300,8 +290,7 @@
 
 
 <div class="description">
-    从集合中删除动画时触发的事件。 这可用于
-示例，以保持 UI 同步。
+    从集合中删除动画时触发的事件。 这可用于示例，以保持 UI 同步。
 </div>
 
 
@@ -333,9 +322,7 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">model.activeAnimations.animationRemoved.addEventListener(function(model, animation) {
-  console.log(`Animation removed: ${animation.name}`);
-});</code></pre>
+    <pre><code class="language-javascript">model.activeAnimations.animationRemoved.addEventListener(function(model, animation) {  console.log(`Animation removed: ${animation.name}`);});</code></pre>
 
     
 
@@ -498,10 +485,7 @@
 
 
 <div class="description">
-    创建具有指定初始属性的动画并将其添加到集合中。
-<p>
-这将引发 <a href="ModelAnimationCollection.html#animationAdded"><code>ModelAnimationCollection#animationAdded</code></a> 事件，因此，例如，UI 可以保持同步。
-</p>
+    创建具有指定初始属性的动画并将其添加到集合中。<p>这将引发 <a href="ModelAnimationCollection.html#animationAdded"><code>ModelAnimationCollection#animationAdded</code></a> 事件，因此，例如，UI 可以保持同步。</p>
 </div>
 
 
@@ -1036,39 +1020,11 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Example 1. Add an animation by name
-model.activeAnimations.add({
-  name : 'animation name'
-});</code></pre>
+    <pre><code class="language-javascript">// Example 1. Add an animation by namemodel.activeAnimations.add({  name : 'animation name'});</code></pre>
 
-    <pre><code class="language-javascript">// Example 2. Add an animation by index
-model.activeAnimations.add({
-  index : 0
-});</code></pre>
+    <pre><code class="language-javascript">// Example 2. Add an animation by indexmodel.activeAnimations.add({  index : 0});</code></pre>
 
-    <pre><code class="language-javascript">// Example 3. Add an animation and provide all properties and events
-const startTime = Cesium.JulianDate.now();
-
-const animation = model.activeAnimations.add({
-  name : 'another animation name',
-  startTime : startTime,
-  delay : 0.0,                                 // Play at startTime (default)
-  stopTime : Cesium.JulianDate.addSeconds(startTime, 4.0, new Cesium.JulianDate()),
-  removeOnStop : false,                        // Do not remove when animation stops (default)
-  multiplier : 2.0,                            // Play at double speed
-  reverse : true,                              // Play in reverse
-  loop : Cesium.ModelAnimationLoop.REPEAT      // Loop the animation
-});
-
-animation.start.addEventListener(function(model, animation) {
-  console.log(`Animation started: ${animation.name}`);
-});
-animation.update.addEventListener(function(model, animation, time) {
-  console.log(`Animation updated: ${animation.name}. glTF animation time: ${time}`);
-});
-animation.stop.addEventListener(function(model, animation) {
-  console.log(`Animation stopped: ${animation.name}`);
-});</code></pre>
+    <pre><code class="language-javascript">// Example 3. Add an animation and provide all properties and eventsconst startTime = Cesium.JulianDate.now();const animation = model.activeAnimations.add({  name : 'another animation name',  startTime : startTime,  delay : 0.0,                                 // Play at startTime (default)  stopTime : Cesium.JulianDate.addSeconds(startTime, 4.0, new Cesium.JulianDate()),  removeOnStop : false,                        // Do not remove when animation stops (default)  multiplier : 2.0,                            // Play at double speed  reverse : true,                              // Play in reverse  loop : Cesium.ModelAnimationLoop.REPEAT      // Loop the animation});animation.start.addEventListener(function(model, animation) {  console.log(`Animation started: ${animation.name}`);});animation.update.addEventListener(function(model, animation, time) {  console.log(`Animation updated: ${animation.name}. glTF animation time: ${time}`);});animation.stop.addEventListener(function(model, animation) {  console.log(`Animation stopped: ${animation.name}`);});</code></pre>
 
     
 
@@ -1105,11 +1061,7 @@ animation.stop.addEventListener(function(model, animation) {
 
 
 <div class="description">
-    创建具有指定初始属性的动画并将其添加到集合中
-对于模型中的所有动画。
-<p>
-这会为每个模型引发 <a href="ModelAnimationCollection.html#animationAdded"><code>ModelAnimationCollection#animationAdded</code></a> 事件，因此，例如，UI 可以保持同步。
-</p>
+    创建具有指定初始属性的动画并将其添加到集合中对于模型中的所有动画。<p>这会为每个模型引发 <a href="ModelAnimationCollection.html#animationAdded"><code>ModelAnimationCollection#animationAdded</code></a> 事件，因此，例如，UI 可以保持同步。</p>
 </div>
 
 
@@ -1550,10 +1502,7 @@ animation.stop.addEventListener(function(model, animation) {
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">model.activeAnimations.addAll({
-  multiplier : 0.5,                            // Play at half-speed
-  loop : Cesium.ModelAnimationLoop.REPEAT      // Loop the animations
-});</code></pre>
+    <pre><code class="language-javascript">model.activeAnimations.addAll({  multiplier : 0.5,                            // Play at half-speed  loop : Cesium.ModelAnimationLoop.REPEAT      // Loop the animations});</code></pre>
 
     
 
@@ -1725,10 +1674,7 @@ animation.stop.addEventListener(function(model, animation) {
 
 
 <div class="description">
-    返回集合中指定索引处的动画。 索引从 0 开始
-并随着动画的添加而增加。 删除动画会在
-它向左移动，更改其索引。 此函数通常用于迭代
-集合中的所有动画。
+    返回集合中指定索引处的动画。 索引从 0 开始并随着动画的添加而增加。 删除动画会在它向左移动，更改其索引。 此函数通常用于迭代集合中的所有动画。
 </div>
 
 
@@ -1831,12 +1777,7 @@ animation.stop.addEventListener(function(model, animation) {
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Output the names of all the animations in the collection.
-const animations = model.activeAnimations;
-const length = animations.length;
-for (let i = 0; i &lt; length; ++i) {
-  console.log(animations.get(i).name);
-}</code></pre>
+    <pre><code class="language-javascript">// Output the names of all the animations in the collection.const animations = model.activeAnimations;const length = animations.length;for (let i = 0; i &lt; length; ++i) {  console.log(animations.get(i).name);}</code></pre>
 
     
 
@@ -1873,14 +1814,7 @@ for (let i = 0; i &lt; length; ++i) {
 
 
 <div class="description">
-    从集合中删除动画。
-<p>
-这会引发 <a href="ModelAnimationCollection.html#animationRemoved"><code>ModelAnimationCollection#animationRemoved</code></a> 事件，因此，例如，UI 可以保持同步。
-</p>
-<p>
-也可以通过将 <code>ModelAnimationCollection#removeOnStop</code> 设置为
-<code>true</code>。 删除动画时，仍会触发 <a href="ModelAnimationCollection.html#animationRemoved"><code>ModelAnimationCollection#animationRemoved</code></a> 事件。
-</p>
+    从集合中删除动画。<p>这会引发 <a href="ModelAnimationCollection.html#animationRemoved"><code>ModelAnimationCollection#animationRemoved</code></a> 事件，因此，例如，UI 可以保持同步。</p><p>也可以通过将 <code>ModelAnimationCollection#removeOnStop</code> 设置为<code>true</code>。 删除动画时，仍会触发 <a href="ModelAnimationCollection.html#animationRemoved"><code>ModelAnimationCollection#animationRemoved</code></a> 事件。</p>
 </div>
 
 
@@ -1983,10 +1917,7 @@ for (let i = 0; i &lt; length; ++i) {
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const a = model.activeAnimations.add({
-  name : 'animation name'
-});
-model.activeAnimations.remove(a); // Returns true</code></pre>
+    <pre><code class="language-javascript">const a = model.activeAnimations.add({  name : 'animation name'});model.activeAnimations.remove(a); // Returns true</code></pre>
 
     
 
@@ -2023,11 +1954,7 @@ model.activeAnimations.remove(a); // Returns true</code></pre>
 
 
 <div class="description">
-    从集合中删除所有动画。
-<p>
-这会引发 <a href="ModelAnimationCollection.html#animationRemoved"><code>ModelAnimationCollection#animationRemoved</code></a> 事件
-动画，因此，例如，UI 可以保持同步。
-</p>
+    从集合中删除所有动画。<p>这会引发 <a href="ModelAnimationCollection.html#animationRemoved"><code>ModelAnimationCollection#animationRemoved</code></a> 事件动画，因此，例如，UI 可以保持同步。</p>
 </div>
 
 

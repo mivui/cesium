@@ -47,14 +47,7 @@
 
 
         
-            <div class="description">原点相对于对象的水平位置，例如 <a href="Billboard.html"><code>Billboard</code></a>
-或 <a href="Label.html"><code>Label</code></a> 的 例如，将水平原点设置为 <code>LEFT</code>
-或 <code>RIGHT</code> 将在左侧或右侧显示广告牌（在屏幕空间中）
-的锚点位置。
-<br /><br />
-<div align='center'>
-<img src='Images/Billboard.setHorizontalOrigin.png' width='648' height='196' /><br />
-</div></div>
+            <div class="description">原点相对于对象的水平位置，例如 <a href="Billboard.html"><code>Billboard</code></a>或 <a href="Label.html"><code>Label</code></a> 的 例如，将水平原点设置为 <code>LEFT</code>或 <code>RIGHT</code> 将在左侧或右侧显示广告牌（在屏幕空间中）的锚点位置。<br /><br /><div align='center'><img src='Images/Billboard.setHorizontalOrigin.png' width='648' height='196' /><br /></div></div>
         
 
         

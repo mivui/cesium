@@ -384,10 +384,7 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">primitives.add(new Cesium.DebugCameraPrimitive({
-  camera : camera,
-  color : Cesium.Color.YELLOW
-}));</code></pre>
+    <pre><code class="language-javascript">primitives.add(new Cesium.DebugCameraPrimitive({  camera : camera,  color : Cesium.Color.YELLOW}));</code></pre>
 
     
 
@@ -577,13 +574,7 @@
 
 
 <div class="description">
-    销毁此对象持有的 WebGL 资源。 销毁对象允许确定性
-释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。
-<p>
-一旦对象被销毁，就不应该使用它;调用
-<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。  Therefore,
-将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
-</p>
+    销毁此对象持有的 WebGL 资源。 销毁对象允许确定性释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。<p>一旦对象被销毁，就不应该使用它;调用<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。  Therefore,将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。</p>
 </div>
 
 
@@ -688,11 +679,7 @@
 
 
 <div class="description">
-    如果此对象已销毁，则返回 true;否则为 false。
-<p>
-如果此对象已销毁，则不应使用;调用
-<code> isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。
-</p>
+    如果此对象已销毁，则返回 true;否则为 false。<p>如果此对象已销毁，则不应使用;调用<code> isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。</p>
 </div>
 
 

@@ -58,10 +58,7 @@
 
 
 <div class="description">
-    具有颜色属性的 <a href="GeometryInstance.html"><code>GeometryInstance</code></a> 实例的外观，以及
-<a href="PolylineGeometry.html"><code>PolylineGeometry</code></a> 或 <a href="GroundPolylineGeometry.html"><code>GroundPolylineGeometry</code></a>。
-这允许多个几何体实例（每个实例具有不同的颜色）执行以下操作
-使用相同的 <a href="Primitive.html"><code>Primitive</code></a> 绘制。
+    具有颜色属性的 <a href="GeometryInstance.html"><code>GeometryInstance</code></a> 实例的外观，以及<a href="PolylineGeometry.html"><code>PolylineGeometry</code></a> 或 <a href="GroundPolylineGeometry.html"><code>GroundPolylineGeometry</code></a>。这允许多个几何体实例（每个实例具有不同的颜色）执行以下操作使用相同的 <a href="Primitive.html"><code>Primitive</code></a> 绘制。
 </div>
 
 
@@ -324,25 +321,7 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// A solid white line segment
-const primitive = new Cesium.Primitive({
-  geometryInstances : new Cesium.GeometryInstance({
-    geometry : new Cesium.PolylineGeometry({
-      positions : Cesium.Cartesian3.fromDegreesArray([
-        0.0, 0.0,
-        5.0, 0.0
-      ]),
-      width : 10.0,
-      vertexFormat : Cesium.PolylineColorAppearance.VERTEX_FORMAT
-    }),
-    attributes : {
-      color : Cesium.ColorGeometryInstanceAttribute.fromColor(new Cesium.Color(1.0, 1.0, 1.0, 1.0))
-    }
-  }),
-  appearance : new Cesium.PolylineColorAppearance({
-    translucent : false
-  })
-});</code></pre>
+    <pre><code class="language-javascript">// A solid white line segmentconst primitive = new Cesium.Primitive({  geometryInstances : new Cesium.GeometryInstance({    geometry : new Cesium.PolylineGeometry({      positions : Cesium.Cartesian3.fromDegreesArray([        0.0, 0.0,        5.0, 0.0      ]),      width : 10.0,      vertexFormat : Cesium.PolylineColorAppearance.VERTEX_FORMAT    }),    attributes : {      color : Cesium.ColorGeometryInstanceAttribute.fromColor(new Cesium.Color(1.0, 1.0, 1.0, 1.0))    }  }),  appearance : new Cesium.PolylineColorAppearance({    translucent : false  })});</code></pre>
 
     
 
@@ -394,8 +373,7 @@ const primitive = new Cesium.Primitive({
 
 
 <div class="description">
-    所有 <a href="PolylineColorAppearance.html"><code>PolylineColorAppearance</code></a> 实例的 <a href="VertexFormat.html"><code>VertexFormat</code></a>
-兼容。这只需要 <code>position</code> 属性。
+    所有 <a href="PolylineColorAppearance.html"><code>PolylineColorAppearance</code></a> 实例的 <a href="VertexFormat.html"><code>VertexFormat</code></a>兼容。这只需要 <code>position</code> 属性。
 </div>
 
 
@@ -455,9 +433,7 @@ const primitive = new Cesium.Primitive({
 
 
 <div class="description">
-    如果<code>为 true</code>，则几何体应被关闭，因此
-<a href="PolylineColorAppearance.html#renderState"><code>PolylineColorAppearance#renderState</code></a> 已启用背面剔除。
-对于 <code>PolylineColorAppearance</code>，此参数始终为 <code>false</code>。
+    如果<code>为 true</code>，则几何体应被关闭，因此<a href="PolylineColorAppearance.html#renderState"><code>PolylineColorAppearance#renderState</code></a> 已启用背面剔除。对于 <code>PolylineColorAppearance</code>，此参数始终为 <code>false</code>。
 </div>
 
 
@@ -580,8 +556,7 @@ const primitive = new Cesium.Primitive({
 
 
 <div class="description">
-    此属性是 <a href="Appearance.html"><code>Appearance</code></a> 接口的一部分，但不是
-由 <a href="PolylineColorAppearance.html"><code>PolylineColorAppearance</code></a> 使用，因为使用了完全自定义的片段着色器。
+    此属性是 <a href="Appearance.html"><code>Appearance</code></a> 接口的一部分，但不是由 <a href="PolylineColorAppearance.html"><code>PolylineColorAppearance</code></a> 使用，因为使用了完全自定义的片段着色器。
 </div>
 
 
@@ -644,11 +619,7 @@ const primitive = new Cesium.Primitive({
 
 
 <div class="description">
-    渲染几何体时使用的 WebGL 固定函数状态。
-<p>
-在构造 <a href="PolylineColorAppearance.html"><code>PolylineColorAppearance</code></a> 时，可以显式定义渲染状态
-实例，或者通过 <a href="PolylineColorAppearance.html#translucent"><code>PolylineColorAppearance#translucent</code></a> 隐式设置。
-</p>
+    渲染几何体时使用的 WebGL 固定函数状态。<p>在构造 <a href="PolylineColorAppearance.html"><code>PolylineColorAppearance</code></a> 时，可以显式定义渲染状态实例，或者通过 <a href="PolylineColorAppearance.html#translucent"><code>PolylineColorAppearance#translucent</code></a> 隐式设置。</p>
 </div>
 
 
@@ -708,8 +679,7 @@ const primitive = new Cesium.Primitive({
 
 
 <div class="description">
-    如果<code>为 true</code>，则几何体应显示为半透明，因此
-<a href="PolylineColorAppearance.html#renderState"><code>PolylineColorAppearance#renderState</code></a> 已启用 Alpha 混合。
+    如果<code>为 true</code>，则几何体应显示为半透明，因此<a href="PolylineColorAppearance.html#renderState"><code>PolylineColorAppearance#renderState</code></a> 已启用 Alpha 混合。
 </div>
 
 
@@ -772,9 +742,7 @@ const primitive = new Cesium.Primitive({
 
 
 <div class="description">
-    与此外观实例兼容的 <a href="VertexFormat.html"><code>VertexFormat</code></a>。
-几何体可以具有更多顶点属性，并且仍然兼容 - 在
-潜在的性能成本 - 但不能更少。
+    与此外观实例兼容的 <a href="VertexFormat.html"><code>VertexFormat</code></a>。几何体可以具有更多顶点属性，并且仍然兼容 - 在潜在的性能成本 - 但不能更少。
 </div>
 
 
@@ -994,9 +962,7 @@ const primitive = new Cesium.Primitive({
 
 
 <div class="description">
-    创建渲染状态。 这不是最终的渲染状态实例;相反
-它可以包含与渲染状态相同的渲染状态属性的子集
-在上下文中创建。
+    创建渲染状态。 这不是最终的渲染状态实例;相反它可以包含与渲染状态相同的渲染状态属性的子集在上下文中创建。
 </div>
 
 

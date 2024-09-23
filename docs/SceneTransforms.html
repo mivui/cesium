@@ -122,8 +122,7 @@
 
 
 <div class="description">
-    将世界坐标中的位置转换为绘图缓冲区坐标。 这可能会产生不同的
-当浏览器缩放不是 100% 时或在高 DPI 显示器上，则由 SceneTransforms.worldToWindowCoordinates 生成。
+    将世界坐标中的位置转换为绘图缓冲区坐标。 这可能会产生不同的当浏览器缩放不是 100% 时或在高 DPI 显示器上，则由 SceneTransforms.worldToWindowCoordinates 生成。
 </div>
 
 
@@ -289,12 +288,7 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Output the window position of longitude/latitude (0, 0) every time the mouse moves.
-const position = Cesium.Cartesian3.fromDegrees(0.0, 0.0);
-const handler = new Cesium.ScreenSpaceEventHandler(scene.canvas);
-handler.setInputAction(function(movement) {
-    console.log(Cesium.SceneTransforms.worldToDrawingBufferCoordinates(scene, position));
-}, Cesium.ScreenSpaceEventType.MOUSE_MOVE);</code></pre>
+    <pre><code class="language-javascript">// Output the window position of longitude/latitude (0, 0) every time the mouse moves.const position = Cesium.Cartesian3.fromDegrees(0.0, 0.0);const handler = new Cesium.ScreenSpaceEventHandler(scene.canvas);handler.setInputAction(function(movement) {    console.log(Cesium.SceneTransforms.worldToDrawingBufferCoordinates(scene, position));}, Cesium.ScreenSpaceEventType.MOUSE_MOVE);</code></pre>
 
     
 
@@ -331,8 +325,7 @@ handler.setInputAction(function(movement) {
 
 
 <div class="description">
-    将世界（WGS84 或替代椭球体）坐标中的位置转换为窗口坐标。 这通常用于将
-HTML 元素与场景中的对象位于相同的屏幕位置。
+    将世界（WGS84 或替代椭球体）坐标中的位置转换为窗口坐标。 这通常用于将HTML 元素与场景中的对象位于相同的屏幕位置。
 </div>
 
 
@@ -498,12 +491,7 @@ HTML 元素与场景中的对象位于相同的屏幕位置。
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Output the window position of longitude/latitude (0, 0) every time the mouse moves.
-const position = Cesium.Cartesian3.fromDegrees(0.0, 0.0);
-const handler = new Cesium.ScreenSpaceEventHandler(scene.canvas);
-handler.setInputAction(function(movement) {
-    console.log(Cesium.SceneTransforms.worldToWindowCoordinates(scene, position));
-}, Cesium.ScreenSpaceEventType.MOUSE_MOVE);</code></pre>
+    <pre><code class="language-javascript">// Output the window position of longitude/latitude (0, 0) every time the mouse moves.const position = Cesium.Cartesian3.fromDegrees(0.0, 0.0);const handler = new Cesium.ScreenSpaceEventHandler(scene.canvas);handler.setInputAction(function(movement) {    console.log(Cesium.SceneTransforms.worldToWindowCoordinates(scene, position));}, Cesium.ScreenSpaceEventType.MOUSE_MOVE);</code></pre>
 
     
 

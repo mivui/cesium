@@ -58,15 +58,7 @@
 
 
 <div class="description">
-    3D 场景中的云的可渲染集合。
-<br /><br />
-<div align='center'>
-<img src='Images/CumulusCloud.png' width='400' height='300' /><br />
-积云示例
-</div>
-<br /><br />
-使用 云 在集合中添加和删除 <a href="CloudCollection.html#add"><code>CloudCollection#add</code></a>
-and <a href="CloudCollection.html#remove"><code>CloudCollection#remove</code></a>.
+    3D 场景中的云的可渲染集合。<br /><br /><div align='center'><img src='Images/CumulusCloud.png' width='400' height='300' /><br />积云示例</div><br /><br />使用 云 在集合中添加和删除 <a href="CloudCollection.html#add"><code>CloudCollection#add</code></a>and <a href="CloudCollection.html#remove"><code>CloudCollection#remove</code></a>.
 </div>
 
 
@@ -371,17 +363,7 @@ and <a href="CloudCollection.html#remove"><code>CloudCollection#remove</code></a
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Create a cloud collection with two cumulus clouds
-const clouds = scene.primitives.add(new Cesium.CloudCollection());
-clouds.add({
-  position : new Cesium.Cartesian3(1.0, 2.0, 3.0),
-  maximumSize: new Cesium.Cartesian3(20.0, 12.0, 8.0)
-});
-clouds.add({
-  position : new Cesium.Cartesian3(4.0, 5.0, 6.0),
-  maximumSize: new Cesium.Cartesian3(15.0, 9.0, 9.0),
-  slice: 0.5
-});</code></pre>
+    <pre><code class="language-javascript">// Create a cloud collection with two cumulus cloudsconst clouds = scene.primitives.add(new Cesium.CloudCollection());clouds.add({  position : new Cesium.Cartesian3(1.0, 2.0, 3.0),  maximumSize: new Cesium.Cartesian3(20.0, 12.0, 8.0)});clouds.add({  position : new Cesium.Cartesian3(4.0, 5.0, 6.0),  maximumSize: new Cesium.Cartesian3(15.0, 9.0, 9.0),  slice: 0.5});</code></pre>
 
     
 
@@ -449,10 +431,7 @@ clouds.add({
 
 
 <div class="description">
-    此属性仅用于调试;它不用于生产用途，也未进行优化。
-<p>
-为了调试，使用一种不透明颜色渲染公告板。
-</p>
+    此属性仅用于调试;它不用于生产用途，也未进行优化。<p>为了调试，使用一种不透明颜色渲染公告板。</p>
 </div>
 
 
@@ -515,11 +494,7 @@ clouds.add({
 
 
 <div class="description">
-    此属性仅用于调试;它不用于生产用途，也未进行优化。
-<p>
-为了调试，将云绘制为不透明的单色椭球体。
-如果 <code>debugBillboards</code> 也为 true，则椭球体将绘制在公告板的顶部。
-</p>
+    此属性仅用于调试;它不用于生产用途，也未进行优化。<p>为了调试，将云绘制为不透明的单色椭球体。如果 <code>debugBillboards</code> 也为 true，则椭球体将绘制在公告板的顶部。</p>
 </div>
 
 
@@ -642,25 +617,7 @@ clouds.add({
 
 
 <div class="description">
-    <p>
-控制在预计算的噪点纹理中捕获的细节量
-用于渲染积云。为了使纹理可平铺，
-这必须是 2 的幂。为获得最佳效果，请将其设置为 2 的幂数
-介于 <code>8.0</code> 和 <code>32.0</code>（含）之间。
-</p>
-
-<div align='center'>
-<table border='0' cellpadding='5'><tr>
-<td align='center'>
-  <code>clouds.noiseDetail = 8.0;</code><br/>
-  <img src='Images/CloudCollection.noiseDetail8.png' width='250' height='158' />
-</td>
-<td align='center'>
-  <code>clouds.noiseDetail = 32.0;</code><br/>
-  <img src='Images/CloudCollection.noiseDetail32.png' width='250' height='158' />
-</td>
-</tr></table>
-</div>
+    <p>控制在预计算的噪点纹理中捕获的细节量用于渲染积云。为了使纹理可平铺，这必须是 2 的幂。为获得最佳效果，请将其设置为 2 的幂数介于 <code>8.0</code> 和 <code>32.0</code>（含）之间。</p><div align='center'><table border='0' cellpadding='5'><tr><td align='center'>  <code>clouds.noiseDetail = 8.0;</code><br/>  <img src='Images/CloudCollection.noiseDetail8.png' width='250' height='158' /></td><td align='center'>  <code>clouds.noiseDetail = 32.0;</code><br/>  <img src='Images/CloudCollection.noiseDetail32.png' width='250' height='158' /></td></tr></table></div>
 </div>
 
 
@@ -723,23 +680,7 @@ clouds.add({
 
 
 <div class="description">
-    <p>
-将平移应用于噪波纹理坐标以生成不同的数据。
-如果默认噪声没有生成好看的云，则可以修改此项。
-</p>
-
-<div align='center'>
-<table border='0' cellpadding='5'><tr>
-<td align='center'>
-  <code>default</code><br/>
-  <img src='Images/CloudCollection.noiseOffsetdefault.png' width='250' height='158' />
-</td>
-<td align='center'>
-  <code>clouds.noiseOffset = new Cesium.Cartesian3(10, 20, 10);</code><br/>
-  <img src='Images/CloudCollection.noiseOffsetx10y20z10.png' width='250' height='158' />
-</td>
-</tr></table>
-</div>
+    <p>将平移应用于噪波纹理坐标以生成不同的数据。如果默认噪声没有生成好看的云，则可以修改此项。</p><div align='center'><table border='0' cellpadding='5'><tr><td align='center'>  <code>default</code><br/>  <img src='Images/CloudCollection.noiseOffsetdefault.png' width='250' height='158' /></td><td align='center'>  <code>clouds.noiseOffset = new Cesium.Cartesian3(10, 20, 10);</code><br/>  <img src='Images/CloudCollection.noiseOffsetx10y20z10.png' width='250' height='158' /></td></tr></table></div>
 </div>
 
 
@@ -872,16 +813,13 @@ clouds.add({
 
 
 <div class="description">
-    创建具有指定初始属性的云并将其添加到集合中。
-将返回添加的云，以便以后可以对其进行修改或从集合中删除。
+    创建具有指定初始属性的云并将其添加到集合中。将返回添加的云，以便以后可以对其进行修改或从集合中删除。
 </div>
 
 
 
     <h5>Performance:</h5>
-    <p class="description">调用 <code>add</code> 是预期的常数时间。 但是，集合的顶点缓冲区
-被重写 - 一个 <code>O（n）</code> 操作，也会产生 CPU 到 GPU 的开销。 为
-最佳性能，在调用 <code>Update</code> 之前添加尽可能多的云。</p>
+    <p class="description">调用 <code>add</code> 是预期的常数时间。 但是，集合的顶点缓冲区被重写 - 一个 <code>O（n）</code> 操作，也会产生 CPU 到 GPU 的开销。 为最佳性能，在调用 <code>Update</code> 之前添加尽可能多的云。</p>
 
 
 
@@ -1002,20 +940,9 @@ clouds.add({
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Example 1:  Add a cumulus cloud, specifying all the default values.
-const c = clouds.add({
-  show : true,
-  position : Cesium.Cartesian3.ZERO,
-  scale : new Cesium.Cartesian2(20.0, 12.0),
-  maximumSize: new Cesium.Cartesian3(20.0, 12.0, 12.0),
-  slice: -1.0,
-  cloudType : CloudType.CUMULUS
-});</code></pre>
+    <pre><code class="language-javascript">// Example 1:  Add a cumulus cloud, specifying all the default values.const c = clouds.add({  show : true,  position : Cesium.Cartesian3.ZERO,  scale : new Cesium.Cartesian2(20.0, 12.0),  maximumSize: new Cesium.Cartesian3(20.0, 12.0, 12.0),  slice: -1.0,  cloudType : CloudType.CUMULUS});</code></pre>
 
-    <pre><code class="language-javascript">// Example 2:  Specify only the cloud's cartographic position.
-const c = clouds.add({
-  position : Cesium.Cartesian3.fromDegrees(longitude, latitude, height)
-});</code></pre>
+    <pre><code class="language-javascript">// Example 2:  Specify only the cloud's cartographic position.const c = clouds.add({  position : Cesium.Cartesian3.fromDegrees(longitude, latitude, height)});</code></pre>
 
     
 
@@ -1138,7 +1065,7 @@ const c = clouds.add({
 
         
 <div class="param-desc">
-    true（如果此集合包含云），则为 false，否则。
+    true（如果此集合包含云），否则为 false。
 </div>
 
 
@@ -1206,12 +1133,7 @@ const c = clouds.add({
 
 
 <div class="description">
-    销毁此对象持有的 WebGL 资源。 销毁对象允许确定性
-释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。
-<br /><br />
-一旦对象被销毁，就不应该使用它;调用
-<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。 因此
-将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
+    销毁此对象持有的 WebGL 资源。 销毁对象允许确定性释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。<br /><br />一旦对象被销毁，就不应该使用它;调用<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。 因此将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
 </div>
 
 
@@ -1316,18 +1238,13 @@ const c = clouds.add({
 
 
 <div class="description">
-    返回集合中位于指定索引处的云。索引从 0 开始
-并随着云的添加而增加。移除云会在之后移动所有云
-它向左移动，更改其索引。此功能通常用于
-<a href="CloudCollection.html#length"><code>CloudCollection#length</code></a> 迭代集合中的所有云。
+    返回集合中位于指定索引处的云。索引从 0 开始并随着云的添加而增加。移除云会在之后移动所有云它向左移动，更改其索引。此功能通常用于<a href="CloudCollection.html#length"><code>CloudCollection#length</code></a> 迭代集合中的所有云。
 </div>
 
 
 
     <h5>Performance:</h5>
-    <p class="description">预期恒定时间。如果云已从集合中删除，并且
-<code>CloudCollection#update</code> 未调用，则隐式 <code>O（n）</code>
-执行操作。</p>
+    <p class="description">预期恒定时间。如果云已从集合中删除，并且<code>CloudCollection#update</code> 未调用，则隐式 <code>O（n）</code>执行操作。</p>
 
 
 
@@ -1441,12 +1358,7 @@ const c = clouds.add({
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Toggle the show property of every cloud in the collection
-const len = clouds.length;
-for (let i = 0; i &lt; len; ++i) {
-  const c = clouds.get(i);
-  c.show = !c.show;
-}</code></pre>
+    <pre><code class="language-javascript">// Toggle the show property of every cloud in the collectionconst len = clouds.length;for (let i = 0; i &lt; len; ++i) {  const c = clouds.get(i);  c.show = !c.show;}</code></pre>
 
     
 
@@ -1488,10 +1400,7 @@ for (let i = 0; i &lt; len; ++i) {
 
 
 <div class="description">
-    如果此对象已销毁，则返回 true;否则为 false。
-<br /><br />
-如果此对象已销毁，则不应使用;调用
-<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。
+    如果此对象已销毁，则返回 true;否则为 false。<br /><br />如果此对象已销毁，则不应使用;调用<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。
 </div>
 
 
@@ -1703,8 +1612,7 @@ for (let i = 0; i &lt; len; ++i) {
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const c = clouds.add(...);
-clouds.remove(c);  // Returns true</code></pre>
+    <pre><code class="language-javascript">const c = clouds.add(...);clouds.remove(c);  // Returns true</code></pre>
 
     
 
@@ -1756,8 +1664,7 @@ clouds.remove(c);  // Returns true</code></pre>
 
 
     <h5>Performance:</h5>
-    <p class="description"><code>O(n)</code> 去除所有云层更有效
-从集合中，然后添加新的集合，而不是完全创建一个新集合。</p>
+    <p class="description"><code>O(n)</code> 去除所有云层更有效从集合中，然后添加新的集合，而不是完全创建一个新集合。</p>
 
 
 
@@ -1817,9 +1724,7 @@ clouds.remove(c);  // Returns true</code></pre>
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">clouds.add(...);
-clouds.add(...);
-clouds.removeAll();</code></pre>
+    <pre><code class="language-javascript">clouds.add(...);clouds.add(...);clouds.removeAll();</code></pre>
 
     
 

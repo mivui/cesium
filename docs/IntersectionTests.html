@@ -474,15 +474,7 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const origin = Cesium.Cartesian3.fromDegrees(-75.59777, 40.03883);
-const normal = ellipsoid.geodeticSurfaceNormal(origin);
-const plane = Cesium.Plane.fromPointNormal(origin, normal);
-
-const p0 = new Cesium.Cartesian3(...);
-const p1 = new Cesium.Cartesian3(...);
-
-// find the intersection of the line segment from p0 to p1 and the tangent plane at origin.
-const intersection = Cesium.IntersectionTests.lineSegmentPlane(p0, p1, plane);</code></pre>
+    <pre><code class="language-javascript">const origin = Cesium.Cartesian3.fromDegrees(-75.59777, 40.03883);const normal = ellipsoid.geodeticSurfaceNormal(origin);const plane = Cesium.Plane.fromPointNormal(origin, normal);const p0 = new Cesium.Cartesian3(...);const p1 = new Cesium.Cartesian3(...);// find the intersection of the line segment from p0 to p1 and the tangent plane at origin.const intersection = Cesium.IntersectionTests.lineSegmentPlane(p0, p1, plane);</code></pre>
 
     
 
@@ -971,8 +963,7 @@ const intersection = Cesium.IntersectionTests.lineSegmentPlane(p0, p1, plane);</
 
                 
             
-                如果<code>为 true</code>，则仅计算与三角形正面的交点
-并返回 undefined 表示与背面的交集。</td>
+                如果<code>为 true</code>，则仅计算与三角形正面的交点并返回 undefined 表示与背面的交集。</td>
         </tr>
 
     
@@ -1644,9 +1635,7 @@ const intersection = Cesium.IntersectionTests.lineSegmentPlane(p0, p1, plane);</
 
 
 <div class="description">
-    将射线和三角形的交点计算为 Cartesian3 坐标。
-
-实现 <a href="https://cadxfem.org/inf/Fast%2520MinimumStorage%2520RayTriangle%2520Intersection.pdf"> Fast Minimum Storage Ray/Triangle Intersection</a> by Tomas Moller and Ben Trumbore.
+    将射线和三角形的交点计算为 Cartesian3 坐标。实现 {@link https://cadxfem.org/inf/Fast%20MinimumStorage%20RayTriangle%20Intersection.pdf|Fast Minimum Storage Ray/Triangle Intersection} by Tomas Moller and Ben Trumbore.
 </div>
 
 
@@ -1840,8 +1829,7 @@ const intersection = Cesium.IntersectionTests.lineSegmentPlane(p0, p1, plane);</
 
                 
             
-                如果<code>为 true</code>，则仅计算与三角形正面的交点
-并返回 undefined 表示与背面的交集。</td>
+                如果<code>为 true</code>，则仅计算与三角形正面的交点并返回 undefined 表示与背面的交集。</td>
         </tr>
 
     
@@ -1959,9 +1947,7 @@ const intersection = Cesium.IntersectionTests.lineSegmentPlane(p0, p1, plane);</
 
 
 <div class="description">
-    将射线和三角形的交点计算为沿输入射线的参数化距离。当三角形位于射线后面时，结果为负数。
-
-实现 <a href="https://cadxfem.org/inf/Fast%2520MinimumStorage%2520RayTriangle%2520Intersection.pdf"> Fast Minimum Storage Ray/Triangle Intersection</a> 作者：Tomas Moller 和 Ben Trumbore。
+    将射线和三角形的交点计算为沿输入射线的参数化距离。当三角形位于射线后面时，结果为负数。实现 {@link https://cadxfem.org/inf/Fast%20MinimumStorage%20RayTriangle%20Intersection.pdf|Fast Minimum Storage Ray/Triangle Intersection} 作者：Tomas Moller 和 Ben Trumbore。
 </div>
 
 
@@ -2155,8 +2141,7 @@ const intersection = Cesium.IntersectionTests.lineSegmentPlane(p0, p1, plane);</
 
                 
             
-                如果<code>为 true</code>，则仅计算与三角形正面的交点
-并返回 undefined 表示与背面的交集。</td>
+                如果<code>为 true</code>，则仅计算与三角形正面的交点并返回 undefined 表示与背面的交集。</td>
         </tr>
 
     
@@ -2412,16 +2397,7 @@ const intersection = Cesium.IntersectionTests.lineSegmentPlane(p0, p1, plane);</
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const origin = Cesium.Cartesian3.fromDegrees(-75.59777, 40.03883);
-const normal = ellipsoid.geodeticSurfaceNormal(origin);
-const plane = Cesium.Plane.fromPointNormal(origin, normal);
-
-const p0 = new Cesium.Cartesian3(...);
-const p1 = new Cesium.Cartesian3(...);
-const p2 = new Cesium.Cartesian3(...);
-
-// convert the triangle composed of points (p0, p1, p2) to three triangles that don't cross the plane
-const triangles = Cesium.IntersectionTests.trianglePlaneIntersection(p0, p1, p2, plane);</code></pre>
+    <pre><code class="language-javascript">const origin = Cesium.Cartesian3.fromDegrees(-75.59777, 40.03883);const normal = ellipsoid.geodeticSurfaceNormal(origin);const plane = Cesium.Plane.fromPointNormal(origin, normal);const p0 = new Cesium.Cartesian3(...);const p1 = new Cesium.Cartesian3(...);const p2 = new Cesium.Cartesian3(...);// convert the triangle composed of points (p0, p1, p2) to three triangles that don't cross the planeconst triangles = Cesium.IntersectionTests.trianglePlaneIntersection(p0, p1, p2, plane);</code></pre>
 
     
 

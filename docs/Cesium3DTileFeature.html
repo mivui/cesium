@@ -58,22 +58,7 @@
 
 
 <div class="description">
-    <a href="Cesium3DTileset.html"><code>Cesium3DTileset</code></a> 的一个功能。
-<p>
-还提供对存储在切片的批处理表中的要素属性的访问
-作为显示/隐藏特征并通过以下方式更改其高亮颜色的能力
-<a href="Cesium3DTileFeature.html#show"><code>Cesium3DTileFeature#show</code></a> 和 <a href="Cesium3DTileFeature.html#color"><code>Cesium3DTileFeature#color</code></a>。
-</p>
-<p>
-对 <code>Cesium3DTileFeature</code> 对象的修改具有瓦片的
-内容。 如果图块的内容已卸载，例如，由于它超出视图并需要
-要在缓存中为可见切片释放空间，请监听 <a href="Cesium3DTileset.html#tileUnload"><code>Cesium3DTileset#tileUnload</code></a> 事件以保存任何
-修改。此外，侦听 <a href="Cesium3DTileset.html#tileVisible"><code>Cesium3DTileset#tileVisible</code></a> 事件以重新应用任何修改。
-</p>
-<p>
-不要直接构造它。 通过 <a href="Cesium3DTileContent.html#getFeature"><code>Cesium3DTileContent#getFeature</code></a> 访问它
-或使用 <a href="Scene.html#pick"><code>Scene#pick</code></a> 进行挑选。
-</p>
+    <a href="Cesium3DTileset.html"><code>Cesium3DTileset</code></a> 的一个功能。<p>还提供对存储在切片的批处理表中的要素属性的访问作为显示/隐藏特征并通过以下方式更改其高亮颜色的能力<a href="Cesium3DTileFeature.html#show"><code>Cesium3DTileFeature#show</code></a> 和 <a href="Cesium3DTileFeature.html#color"><code>Cesium3DTileFeature#color</code></a>。</p><p>对 <code>Cesium3DTileFeature</code> 对象的修改具有瓦片的内容。 如果图块的内容已卸载，例如，由于它超出视图并需要要在缓存中为可见切片释放空间，请监听 <a href="Cesium3DTileset.html#tileUnload"><code>Cesium3DTileset#tileUnload</code></a> 事件以保存任何修改。此外，侦听 <a href="Cesium3DTileset.html#tileVisible"><code>Cesium3DTileset#tileVisible</code></a> 事件以重新应用任何修改。</p><p>不要直接构造它。 通过 <a href="Cesium3DTileContent.html#getFeature"><code>Cesium3DTileContent#getFeature</code></a> 访问它或使用 <a href="Scene.html#pick"><code>Scene#pick</code></a> 进行挑选。</p>
 </div>
 
 
@@ -122,18 +107,7 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// On mouse over, display all the properties for a feature in the console log.
-handler.setInputAction(function(movement) {
-    const feature = scene.pick(movement.endPosition);
-    if (feature instanceof Cesium.Cesium3DTileFeature) {
-        const propertyIds = feature.getPropertyIds();
-        const length = propertyIds.length;
-        for (let i = 0; i &lt; length; ++i) {
-            const propertyId = propertyIds[i];
-            console.log(`{propertyId}: ${feature.getProperty(propertyId)}`);
-        }
-    }
-}, Cesium.ScreenSpaceEventType.MOUSE_MOVE);</code></pre>
+    <pre><code class="language-javascript">// On mouse over, display all the properties for a feature in the console log.handler.setInputAction(function(movement) {    const feature = scene.pick(movement.endPosition);    if (feature instanceof Cesium.Cesium3DTileFeature) {        const propertyIds = feature.getPropertyIds();        const length = propertyIds.length;        for (let i = 0; i &lt; length; ++i) {            const propertyId = propertyIds[i];            console.log(`{propertyId}: ${feature.getProperty(propertyId)}`);        }    }}, Cesium.ScreenSpaceEventType.MOUSE_MOVE);</code></pre>
 
     
 
@@ -185,9 +159,7 @@ handler.setInputAction(function(movement) {
 
 
 <div class="description">
-    获取或设置高亮颜色 （highlight color） 与特征颜色相乘。 什么时候
-这是白色的，特征的颜色不会改变。这是为所有功能设置的
-当评估样式的颜色时。
+    获取或设置高亮颜色 （highlight color） 与特征颜色相乘。 什么时候这是白色的，特征的颜色不会改变。这是为所有功能设置的当评估样式的颜色时。
 </div>
 
 
@@ -250,9 +222,7 @@ handler.setInputAction(function(movement) {
 
 
 <div class="description">
-    获取与此功能关联的功能 ID。对于 3D 瓦片 1.0，
-返回批处理 ID。对于EXT_mesh_features，这是
-所选特征 ID 集。
+    获取与此功能关联的功能 ID。对于 3D 瓦片 1.0，返回批处理 ID。对于EXT_mesh_features，这是所选特征 ID 集。
 </div>
 
 
@@ -319,9 +289,7 @@ handler.setInputAction(function(movement) {
 
 
 <div class="description">
-    获取包含折线的 ECEF 位置的类型化数组。
-如果 <a href="Cesium3DTileset.html#vectorKeepDecodedPositions"><code>Cesium3DTileset#vectorKeepDecodedPositions</code></a> 为 false，则返回 undefined
-或特征不是矢量切片中的折线。
+    获取包含折线的 ECEF 位置的类型化数组。如果 <a href="Cesium3DTileset.html#vectorKeepDecodedPositions"><code>Cesium3DTileset#vectorKeepDecodedPositions</code></a> 为 false，则返回 undefined或特征不是矢量切片中的折线。
 </div>
 
 
@@ -388,8 +356,7 @@ handler.setInputAction(function(movement) {
 
 
 <div class="description">
-    <a href="Scene.html#pick"><code>Scene#pick</code></a> 返回的所有对象都具有 <code>primitive</code> 属性。这将返回
-包含特征的瓦片集。
+    <a href="Scene.html#pick"><code>Scene#pick</code></a> 返回的所有对象都具有 <code>primitive</code> 属性。这将返回包含特征的瓦片集。
 </div>
 
 
@@ -449,8 +416,7 @@ handler.setInputAction(function(movement) {
 
 
 <div class="description">
-    获取或设置是否功能。这是为所有功能设置的
-评估样式的显示时。
+    获取或设置是否功能。这是为所有功能设置的评估样式的显示时。
 </div>
 
 
@@ -580,33 +546,7 @@ handler.setInputAction(function(movement) {
 
 
 <div class="description">
-    返回具有给定名称的功能属性的副本，检查所有
-来自 3D Tiles 1.0 格式的元数据、EXT_structural_metadata 和旧版
-EXT_feature_metadata glTF 扩展，元数据位于
-图块集 JSON （3D Tiles 1.1） 或在 3DTILES_metadata 3D Tiles 扩展中。
-根据名称从最具体到最通用的顺序检查元数据，并且
-返回第一个匹配项。元数据按以下顺序检查：
-
-<ol>
-<li>按语义划分的批处理表（结构元数据）属性</li>
-<li>按属性 ID 的批处理表（结构元数据）属性</li>
-<li>语义的内容元数据属性</li>
-<li>按属性划分的内容元数据属性</li>
-<li>按语义划分的平铺元数据属性</li>
-<li>按属性 ID 划分的平铺元数据属性</li>
-<li>按语义划分的子树元数据属性</li>
-<li>按属性 ID 划分的子树元数据属性</li>
-<li>按语义对元数据属性进行分组</li>
-<li>按属性 ID 对元数据属性进行分组</li>
-<li>按语义划分的 Tileset 元数据属性</li>
-<li>按属性 ID 划分的瓦片集元数据属性</li>
-<li>否则，返回 undefined</li>
-</ol>
-<p>
-对于 3D Tiles Next 详细信息， 请参阅 <a href="https://github.com/CesiumGS/3d-tiles/tree/main/extensions/3DTILES_metadata">3DTILES_metadata Extension</a>
-用于 3D 瓦片，以及 <a href="https://github.com/CesiumGS/glTF/tree/3d-tiles-next/extensions/2.0/Vendor/EXT_structural_metadata">EXT_structural_metadata Extension</a>
-表示 glTF。对于旧版 glTF 扩展， 请参阅 <a href="https://github.com/CesiumGS/glTF/tree/3d-tiles-next/extensions/2.0/Vendor/EXT_feature_metadata">EXT_feature_metadata Extension</a>
-</p>
+    返回具有给定名称的功能属性的副本，检查所有来自 3D Tiles 1.0 格式的元数据、EXT_structural_metadata 和旧版EXT_feature_metadata glTF 扩展，元数据位于图块集 JSON （3D Tiles 1.1） 或在 3DTILES_metadata 3D Tiles 扩展中。根据名称从最具体到最通用的顺序检查元数据，并且返回第一个匹配项。元数据按以下顺序检查：<ol><li>按语义划分的批处理表（结构元数据）属性</li><li>按属性 ID 的批处理表（结构元数据）属性</li><li>语义的内容元数据属性</li><li>按属性划分的内容元数据属性</li><li>按语义划分的平铺元数据属性</li><li>按属性 ID 划分的平铺元数据属性</li><li>按语义划分的子树元数据属性</li><li>按属性 ID 划分的子树元数据属性</li><li>按语义对元数据属性进行分组</li><li>按属性 ID 对元数据属性进行分组</li><li>按语义划分的 Tileset 元数据属性</li><li>按属性 ID 划分的瓦片集元数据属性</li><li>否则，返回 undefined</li></ol><p>对于 3D Tiles Next 详细信息， 请参阅 <a href="https://github.com/CesiumGS/3d-tiles/tree/main/extensions/3DTILES_metadata">3DTILES_metadata Extension</a>用于 3D 瓦片，以及 <a href="https://github.com/CesiumGS/glTF/tree/3d-tiles-next/extensions/2.0/Vendor/EXT_structural_metadata">EXT_structural_metadata Extension</a>表示 glTF。对于旧版 glTF 扩展， 请参阅 <a href="https://github.com/CesiumGS/glTF/tree/3d-tiles-next/extensions/2.0/Vendor/EXT_feature_metadata">EXT_feature_metadata Extension</a></p>
 </div>
 
 
@@ -794,8 +734,7 @@ EXT_feature_metadata glTF 扩展，元数据位于
 
 
 <div class="description">
-    返回具有给定名称的功能属性的值的副本。这包括此功能的
-类和继承的类。
+    返回具有给定名称的功能属性的值的副本。这包括此功能的类和继承的类。
 </div>
 
 
@@ -898,13 +837,7 @@ EXT_feature_metadata glTF 扩展，元数据位于
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Display all the properties for a feature in the console log.
-const propertyIds = feature.getPropertyIds();
-const length = propertyIds.length;
-for (let i = 0; i &lt; length; ++i) {
-    const propertyId = propertyIds[i];
-    console.log(`{propertyId}: ${feature.getProperty(propertyId)}`);
-}</code></pre>
+    <pre><code class="language-javascript">// Display all the properties for a feature in the console log.const propertyIds = feature.getPropertyIds();const length = propertyIds.length;for (let i = 0; i &lt; length; ++i) {    const propertyId = propertyIds[i];    console.log(`{propertyId}: ${feature.getProperty(propertyId)}`);}</code></pre>
 
     
 
@@ -946,8 +879,7 @@ for (let i = 0; i &lt; length; ++i) {
 
 
 <div class="description">
-    返回功能的属性 ID 数组。这包括此功能的
-类和继承的类。
+    返回功能的属性 ID 数组。这包括此功能的类和继承的类。
 </div>
 
 
@@ -1094,8 +1026,7 @@ for (let i = 0; i &lt; length; ++i) {
 
 
 <div class="description">
-    返回功能是否包含此属性。这包括此功能的
-类和继承的类。
+    返回功能是否包含此属性。这包括此功能的类和继承的类。
 </div>
 
 
@@ -1235,10 +1166,7 @@ for (let i = 0; i &lt; length; ++i) {
 
 
 <div class="description">
-    使用给定名称设置功能属性的值。
-<p>
-如果具有给定名称的属性不存在，则会创建该属性。
-</p>
+    使用给定名称设置功能属性的值。<p>如果具有给定名称的属性不存在，则会创建该属性。</p>
 </div>
 
 
@@ -1371,13 +1299,7 @@ for (let i = 0; i &lt; length; ++i) {
         
     <pre><code class="language-javascript">const height = feature.getProperty('Height'); // e.g., the height of a building</code></pre>
 
-    <pre><code class="language-javascript">const name = 'clicked';
-if (feature.getProperty(name)) {
-    console.log('already clicked');
-} else {
-    feature.setProperty(name, true);
-    console.log('first click');
-}</code></pre>
+    <pre><code class="language-javascript">const name = 'clicked';if (feature.getProperty(name)) {    console.log('already clicked');} else {    feature.setProperty(name, true);    console.log('first click');}</code></pre>
 
     
 

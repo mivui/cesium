@@ -189,8 +189,7 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const viewportQuad = new Cesium.ViewportQuad(new Cesium.BoundingRectangle(0, 0, 80, 40));
-viewportQuad.material.uniforms.color = new Cesium.Color(1.0, 0.0, 0.0, 1.0);</code></pre>
+    <pre><code class="language-javascript">const viewportQuad = new Cesium.ViewportQuad(new Cesium.BoundingRectangle(0, 0, 80, 40));viewportQuad.material.uniforms.color = new Cesium.Color(1.0, 0.0, 0.0, 1.0);</code></pre>
 
     
 
@@ -242,11 +241,7 @@ viewportQuad.material.uniforms.color = new Cesium.Color(1.0, 0.0, 0.0, 1.0);</co
 
 
 <div class="description">
-    四边形视区的曲面外观。 这可以是几个内置 <a href="Material.html"><code>Material</code></a> 对象之一，也可以是自定义材质，脚本中使用
-<a href="https://github.com/CesiumGS/cesium/wiki/Fabric">Fabric</a> 的 Fabric。
-<p>
-默认材质为 <code>Material.ColorType</code>。
-</p>
+    四边形视区的曲面外观。 这可以是几个内置 <a href="Material.html"><code>Material</code></a> 对象之一，也可以是自定义材质，脚本中使用<a href="https://github.com/CesiumGS/cesium/wiki/Fabric">Fabric</a> 的 Fabric。<p>默认材质为 <code>Material.ColorType</code>。</p>
 </div>
 
 
@@ -275,11 +270,7 @@ viewportQuad.material.uniforms.color = new Cesium.Color(1.0, 0.0, 0.0, 1.0);</co
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// 1. Change the color of the default material to yellow
-viewportQuad.material.uniforms.color = new Cesium.Color(1.0, 1.0, 0.0, 1.0);
-
-// 2. Change material to horizontal stripes
-viewportQuad.material = Cesium.Material.fromType(Cesium.Material.StripeType);</code></pre>
+    <pre><code class="language-javascript">// 1. Change the color of the default material to yellowviewportQuad.material.uniforms.color = new Cesium.Color(1.0, 1.0, 0.0, 1.0);// 2. Change material to horizontal stripesviewportQuad.material = Cesium.Material.fromType(Cesium.Material.StripeType);</code></pre>
 
     
 
@@ -455,12 +446,7 @@ viewportQuad.material = Cesium.Material.fromType(Cesium.Material.StripeType);</c
 
 
 <div class="description">
-    销毁此对象持有的 WebGL 资源。 销毁对象允许确定性
-释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。
-<br /><br />
-一旦对象被销毁，就不应该使用它;调用
-<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。 因此
-将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
+    销毁此对象持有的 WebGL 资源。 销毁对象允许确定性释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。<br /><br />一旦对象被销毁，就不应该使用它;调用<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。 因此将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
 </div>
 
 
@@ -565,9 +551,7 @@ viewportQuad.material = Cesium.Material.fromType(Cesium.Material.StripeType);</c
 
 
 <div class="description">
-    如果此对象已销毁，则返回 true;否则为 false。
-<br /><br />
-如果此对象已销毁，则不应使用;调用
+    如果此对象已销毁，则返回 true;否则为 false。<br /><br />如果此对象已销毁，则不应使用;调用
  <code>* isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。
 </div>
 
@@ -663,12 +647,7 @@ viewportQuad.material = Cesium.Material.fromType(Cesium.Material.StripeType);</c
 
 
 <div class="description">
-    当 <a href="Viewer.html"><code>Viewer</code></a> 或 <a href="CesiumWidget.html"><code>CesiumWidget</code></a> 将场景渲染到
-获取渲染此基元所需的绘制命令。
-<p>
-请勿直接调用此函数。 这记录下来只是为了
-列出渲染场景时可能传播的异常：
-</p>
+    当 <a href="Viewer.html"><code>Viewer</code></a> 或 <a href="CesiumWidget.html"><code>CesiumWidget</code></a> 将场景渲染到获取渲染此基元所需的绘制命令。<p>请勿直接调用此函数。 这记录下来只是为了列出渲染场景时可能传播的异常：</p>
 </div>
 
 

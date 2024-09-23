@@ -47,8 +47,7 @@
 
 
         
-            <div class="description">指定在以下情况下，对象是投射还是接收来自光源的阴影
-启用阴影。</div>
+            <div class="description">指定在以下情况下，对象是投射还是接收来自光源的阴影启用阴影。</div>
         
 
         

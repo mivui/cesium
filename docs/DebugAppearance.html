@@ -58,12 +58,7 @@
 
 
 <div class="description">
-    通过将顶点属性显示为用于调试的颜色来可视化顶点属性。
-<p>
-已知单位长度向量的分量，即<code>法向</code>向量、
-<code>切线</code>和<code>双切线</code>是缩放和偏置的
-从[-1.0, 1.0] to (-1.0, 1.0).
-</p>
+    通过将顶点属性显示为用于调试的颜色来可视化顶点属性。<p>已知单位长度向量的分量，即<code>法向</code>向量、<code>切线</code>和<code>双切线</code>是缩放和偏置的从[-1.0, 1.0] to (-1.0, 1.0).</p>
 </div>
 
 
@@ -401,12 +396,7 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const primitive = new Cesium.Primitive({
-  geometryInstances : // ...
-  appearance : new Cesium.DebugAppearance({
-    attributeName : 'normal'
-  })
-});</code></pre>
+    <pre><code class="language-javascript">const primitive = new Cesium.Primitive({  geometryInstances : // ...  appearance : new Cesium.DebugAppearance({    attributeName : 'normal'  })});</code></pre>
 
     
 
@@ -581,9 +571,7 @@
 
 
 <div class="description">
-    片段着色器的 GLSL 源代码。 完整的片段着色器
-source 是按照程序构建的，考虑了 <a href="DebugAppearance.html#material"><code>DebugAppearance#material</code></a>。
-使用 <a href="DebugAppearance.html#getFragmentShaderSource"><code>DebugAppearance#getFragmentShaderSource</code></a> 获取完整源代码。
+    片段着色器的 GLSL 源代码。 完整的片段着色器source 是按照程序构建的，考虑了 <a href="DebugAppearance.html#material"><code>DebugAppearance#material</code></a>。使用 <a href="DebugAppearance.html#getFragmentShaderSource"><code>DebugAppearance#getFragmentShaderSource</code></a> 获取完整源代码。
 </div>
 
 
@@ -703,8 +691,7 @@ source 是按照程序构建的，考虑了 <a href="DebugAppearance.html#materi
 
 
 <div class="description">
-    此属性是 <a href="Appearance.html"><code>Appearance</code></a> 接口的一部分，但不是
-由 <a href="DebugAppearance.html"><code>DebugAppearance</code></a> 使用，因为使用的是完全自定义的片段着色器。
+    此属性是 <a href="Appearance.html"><code>Appearance</code></a> 接口的一部分，但不是由 <a href="DebugAppearance.html"><code>DebugAppearance</code></a> 使用，因为使用的是完全自定义的片段着色器。
 </div>
 
 
@@ -957,8 +944,7 @@ source 是按照程序构建的，考虑了 <a href="DebugAppearance.html#materi
 
 
 <div class="description">
-    返回完整的 GLSL 片段着色器源，对于 <a href="DebugAppearance.html"><code>DebugAppearance</code></a>，它只是
-<a href="DebugAppearance.html#fragmentShaderSource"><code>DebugAppearance#fragmentShaderSource</code></a>.
+    返回完整的 GLSL 片段着色器源，对于 <a href="DebugAppearance.html"><code>DebugAppearance</code></a>，它只是<a href="DebugAppearance.html#fragmentShaderSource"><code>DebugAppearance#fragmentShaderSource</code></a>.
 </div>
 
 
@@ -1048,9 +1034,7 @@ source 是按照程序构建的，考虑了 <a href="DebugAppearance.html#materi
 
 
 <div class="description">
-    创建渲染状态。 这不是最终的渲染状态实例;相反
-它可以包含与渲染状态相同的渲染状态属性的子集
-在上下文中创建。
+    创建渲染状态。 这不是最终的渲染状态实例;相反它可以包含与渲染状态相同的渲染状态属性的子集在上下文中创建。
 </div>
 
 

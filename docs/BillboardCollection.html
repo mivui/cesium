@@ -58,27 +58,13 @@
 
 
 <div class="description">
-    可渲染的广告牌集合。 公告板与视区对齐
-位于 3D 场景中的图像。
-<br /><br />
-<div align='center'>
-<img src='图片/Billboard.png' width='400' height='300' /><br />
-广告牌示例
-</div>
-<br /><br />
-使用 <a href="BillboardCollection.html#add"><code>BillboardCollection#add</code></a> 在集合中添加和删除公告牌
-和 <a href="BillboardCollection.html#remove"><code>BillboardCollection#remove</code></a>。 集合中的公告板会自动共享纹理
-表示具有相同标识符的图像。
+    可渲染的广告牌集合。 公告板与视区对齐位于 3D 场景中的图像。<br /><br /><div align='center'><img src='Images/Billboard.png' width='400' height='300' /><br />广告牌示例</div><br /><br />使用 <a href="BillboardCollection.html#add"><code>BillboardCollection#add</code></a> 在集合中添加和删除公告牌和 <a href="BillboardCollection.html#remove"><code>BillboardCollection#remove</code></a>。 集合中的公告板会自动共享纹理表示具有相同标识符的图像。
 </div>
 
 
 
     <h5>Performance:</h5>
-    <p class="description">为了获得最佳性能，最好使用几个集合，每个集合都有许多广告牌，而不是
-许多收藏，每个收藏只有几个广告牌。 组织集合，以便 billboards
-具有相同更新频率的 billboard 位于同一集合中，即
-更改应在一个集合中;更改每个帧的广告牌应该在另一个
-收集;等等。</p>
+    <p class="description">为了获得最佳性能，最好使用几个集合，每个集合都有许多广告牌，而不是许多收藏，每个收藏只有几个广告牌。 组织集合，以便 billboards具有相同更新频率的 billboard 位于同一集合中，即更改应在一个集合中;更改每个帧的广告牌应该在另一个收集;等等。</p>
 
 
 
@@ -293,9 +279,7 @@
 
                 
             
-                公告牌混合选项。默认的
-用于渲染不透明和半透明广告牌。但是，如果所有广告牌都是完全不透明的，或者所有广告牌都是完全半透明的，
-将技术设置为 BlendOption.OPAQUE 或 BlendOption.TRANSLUCENT 可以将性能提高多达 2 倍。</td>
+                公告牌混合选项。默认的用于渲染不透明和半透明广告牌。但是，如果所有广告牌都是完全不透明的，或者所有广告牌都是完全半透明的，将技术设置为 BlendOption.OPAQUE 或 BlendOption.TRANSLUCENT 可以将性能提高多达 2 倍。</td>
         </tr>
 
     
@@ -380,16 +364,7 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Create a billboard collection with two billboards
-const billboards = scene.primitives.add(new Cesium.BillboardCollection());
-billboards.add({
-  position : new Cesium.Cartesian3(1.0, 2.0, 3.0),
-  image : 'url/to/image'
-});
-billboards.add({
-  position : new Cesium.Cartesian3(4.0, 5.0, 6.0),
-  image : 'url/to/another/image'
-});</code></pre>
+    <pre><code class="language-javascript">// Create a billboard collection with two billboardsconst billboards = scene.primitives.add(new Cesium.BillboardCollection());billboards.add({  position : new Cesium.Cartesian3(1.0, 2.0, 3.0),  image : 'url/to/image'});billboards.add({  position : new Cesium.Cartesian3(4.0, 5.0, 6.0),  image : 'url/to/another/image'});</code></pre>
 
     
 
@@ -457,10 +432,7 @@ billboards.add({
 
 
 <div class="description">
-    公告牌混合选项。默认设置用于渲染不透明和半透明公告板。
-但是，如果所有广告牌都是完全不透明的，或者所有广告牌都是完全半透明的，
-将技术设置为 BlendOption.OPAQUE 或 BlendOption.TRANSLUCENT 可以提高
-性能提升高达 2 倍。
+    公告牌混合选项。默认设置用于渲染不透明和半透明公告板。但是，如果所有广告牌都是完全不透明的，或者所有广告牌都是完全半透明的，将技术设置为 BlendOption.OPAQUE 或 BlendOption.TRANSLUCENT 可以提高性能提升高达 2 倍。
 </div>
 
 
@@ -523,10 +495,7 @@ billboards.add({
 
 
 <div class="description">
-    此属性仅用于调试;它不用于生产用途，也未进行优化。
-<p>
-为基元中的每个绘制命令绘制边界球体。
-</p>
+    此属性仅用于调试;它不用于生产用途，也未进行优化。<p>为基元中的每个绘制命令绘制边界球体。</p>
 </div>
 
 
@@ -589,10 +558,7 @@ billboards.add({
 
 
 <div class="description">
-    此属性仅用于调试;它不用于生产用途，也未进行优化。
-<p>
-将此 BillboardCollection 的纹理图集绘制为全屏四边形。
-</p>
+    此属性仅用于调试;它不用于生产用途，也未进行优化。<p>将此 BillboardCollection 的纹理图集绘制为全屏四边形。</p>
 </div>
 
 
@@ -655,9 +621,7 @@ billboards.add({
 
 
 <div class="description">
-    返回此集合中的 billboard 数量。 这通常与
-<a href="BillboardCollection.html#get"><code>BillboardCollection#get</code></a> 迭代所有公告牌
-在集合中。
+    返回此集合中的 billboard 数量。 这通常与<a href="BillboardCollection.html#get"><code>BillboardCollection#get</code></a> 迭代所有公告牌在集合中。
 </div>
 
 
@@ -717,10 +681,7 @@ billboards.add({
 
 
 <div class="description">
-    4x4 转换矩阵，用于将此集合中的每个 billboard 从模型转换为世界坐标。
-当这是单位矩阵时，广告牌以世界坐标（即地球的 WGS84 坐标）绘制。
-可以通过提供不同的转换矩阵来使用本地参考帧，就像返回的矩阵一样
-由 <a href="Transforms.html#.eastNorthUpToFixedFrame"><code>Transforms.eastNorthUpToFixedFrame</code></a>.
+    4x4 转换矩阵，用于将此集合中的每个 billboard 从模型转换为世界坐标。当这是单位矩阵时，广告牌以世界坐标（即地球的 WGS84 坐标）绘制。可以通过提供不同的转换矩阵来使用本地参考帧，就像返回的矩阵一样由 <a href="Transforms.html#.eastNorthUpToFixedFrame"><code>Transforms.eastNorthUpToFixedFrame</code></a>.
 </div>
 
 
@@ -752,24 +713,7 @@ billboards.add({
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const center = Cesium.Cartesian3.fromDegrees(-75.59777, 40.03883);
-billboards.modelMatrix = Cesium.Transforms.eastNorthUpToFixedFrame(center);
-billboards.add({
-  image : 'url/to/image',
-  position : new Cesium.Cartesian3(0.0, 0.0, 0.0) // center
-});
-billboards.add({
-  image : 'url/to/image',
-  position : new Cesium.Cartesian3(1000000.0, 0.0, 0.0) // east
-});
-billboards.add({
-  image : 'url/to/image',
-  position : new Cesium.Cartesian3(0.0, 1000000.0, 0.0) // north
-});
-billboards.add({
-  image : 'url/to/image',
-  position : new Cesium.Cartesian3(0.0, 0.0, 1000000.0) // up
-});</code></pre>
+    <pre><code class="language-javascript">const center = Cesium.Cartesian3.fromDegrees(-75.59777, 40.03883);billboards.modelMatrix = Cesium.Transforms.eastNorthUpToFixedFrame(center);billboards.add({  image : 'url/to/image',  position : new Cesium.Cartesian3(0.0, 0.0, 0.0) // center});billboards.add({  image : 'url/to/image',  position : new Cesium.Cartesian3(1000000.0, 0.0, 0.0) // east});billboards.add({  image : 'url/to/image',  position : new Cesium.Cartesian3(0.0, 1000000.0, 0.0) // north});billboards.add({  image : 'url/to/image',  position : new Cesium.Cartesian3(0.0, 0.0, 1000000.0) // up});</code></pre>
 
     
 
@@ -880,16 +824,13 @@ billboards.add({
 
 
 <div class="description">
-    创建具有指定初始属性的广告牌并将其添加到集合中。
-将返回添加的公告牌，以便以后可以对其进行修改或从集合中删除它。
+    创建具有指定初始属性的广告牌并将其添加到集合中。将返回添加的公告牌，以便以后可以对其进行修改或从集合中删除它。
 </div>
 
 
 
     <h5>Performance:</h5>
-    <p class="description">调用 <code>add</code> 是预期的常数时间。 但是，集合的顶点缓冲区
-被重写 - 一个 <code>O（n）</code> 操作，也会产生 CPU 到 GPU 的开销。 为
-最佳性能，在调用 <code>update</code> 之前添加尽可能多的 billboard。</p>
+    <p class="description">调用 <code>add</code> 是预期的常数时间。 但是，集合的顶点缓冲区被重写 - 一个 <code>O（n）</code> 操作，也会产生 CPU 到 GPU 的开销。 为最佳性能，在调用 <code>update</code> 之前添加尽可能多的 billboard。</p>
 
 
 
@@ -1010,35 +951,9 @@ billboards.add({
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Example 1:  Add a billboard, specifying all the default values.
-const b = billboards.add({
-  show : true,
-  position : Cesium.Cartesian3.ZERO,
-  pixelOffset : Cesium.Cartesian2.ZERO,
-  eyeOffset : Cesium.Cartesian3.ZERO,
-  heightReference : Cesium.HeightReference.NONE,
-  horizontalOrigin : Cesium.HorizontalOrigin.CENTER,
-  verticalOrigin : Cesium.VerticalOrigin.CENTER,
-  scale : 1.0,
-  image : 'url/to/image',
-  imageSubRegion : undefined,
-  color : Cesium.Color.WHITE,
-  id : undefined,
-  rotation : 0.0,
-  alignedAxis : Cesium.Cartesian3.ZERO,
-  width : undefined,
-  height : undefined,
-  scaleByDistance : undefined,
-  translucencyByDistance : undefined,
-  pixelOffsetScaleByDistance : undefined,
-  sizeInMeters : false,
-  distanceDisplayCondition : undefined
-});</code></pre>
+    <pre><code class="language-javascript">// Example 1:  Add a billboard, specifying all the default values.const b = billboards.add({  show : true,  position : Cesium.Cartesian3.ZERO,  pixelOffset : Cesium.Cartesian2.ZERO,  eyeOffset : Cesium.Cartesian3.ZERO,  heightReference : Cesium.HeightReference.NONE,  horizontalOrigin : Cesium.HorizontalOrigin.CENTER,  verticalOrigin : Cesium.VerticalOrigin.CENTER,  scale : 1.0,  image : 'url/to/image',  imageSubRegion : undefined,  color : Cesium.Color.WHITE,  id : undefined,  rotation : 0.0,  alignedAxis : Cesium.Cartesian3.ZERO,  width : undefined,  height : undefined,  scaleByDistance : undefined,  translucencyByDistance : undefined,  pixelOffsetScaleByDistance : undefined,  sizeInMeters : false,  distanceDisplayCondition : undefined});</code></pre>
 
-    <pre><code class="language-javascript">// Example 2:  Specify only the billboard's cartographic position.
-const b = billboards.add({
-  position : Cesium.Cartesian3.fromDegrees(longitude, latitude, height)
-});</code></pre>
+    <pre><code class="language-javascript">// Example 2:  Specify only the billboard's cartographic position.const b = billboards.add({  position : Cesium.Cartesian3.fromDegrees(longitude, latitude, height)});</code></pre>
 
     
 
@@ -1161,7 +1076,7 @@ const b = billboards.add({
 
         
 <div class="param-desc">
-    true if this collection contains the billboard, false 否则。
+    true if this collection contains the billboard, 否则 false 。
 </div>
 
 
@@ -1229,12 +1144,7 @@ const b = billboards.add({
 
 
 <div class="description">
-    销毁此对象持有的 WebGL 资源。 销毁对象允许确定性
-释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。
-<br /><br />
-一旦对象被销毁，就不应该使用它;调用
-<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。 因此
-将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
+    销毁此对象持有的 WebGL 资源。 销毁对象允许确定性释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。<br /><br />一旦对象被销毁，就不应该使用它;调用<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。 因此将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
 </div>
 
 
@@ -1339,19 +1249,13 @@ const b = billboards.add({
 
 
 <div class="description">
-    返回集合中指定索引处的 billboard。 索引从 0 开始
-并随着广告牌的添加而增加。 删除公告牌后，所有公告牌都会移动
-它向左移动，更改其索引。 此功能通常用于
-<a href="BillboardCollection.html#length"><code>BillboardCollection#length</code></a> 迭代所有公告牌
-在集合中。
+    返回集合中指定索引处的 billboard。 索引从 0 开始并随着广告牌的添加而增加。 删除公告牌后，所有公告牌都会移动它向左移动，更改其索引。 此功能通常用于<a href="BillboardCollection.html#length"><code>BillboardCollection#length</code></a> 迭代所有公告牌在集合中。
 </div>
 
 
 
     <h5>Performance:</h5>
-    <p class="description">预期恒定时间。 如果从集合中删除了 billboard，并且
-<a href="BillboardCollection.html#update"><code>BillboardCollection#update</code></a> 未调用，隐式 <code>O（n）</code>
-执行操作。</p>
+    <p class="description">预期恒定时间。 如果从集合中删除了 billboard，并且<a href="BillboardCollection.html#update"><code>BillboardCollection#update</code></a> 未调用，隐式 <code>O（n）</code>执行操作。</p>
 
 
 
@@ -1465,12 +1369,7 @@ const b = billboards.add({
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Toggle the show property of every billboard in the collection
-const len = billboards.length;
-for (let i = 0; i &lt; len; ++i) {
-  const b = billboards.get(i);
-  b.show = !b.show;
-}</code></pre>
+    <pre><code class="language-javascript">// Toggle the show property of every billboard in the collectionconst len = billboards.length;for (let i = 0; i &lt; len; ++i) {  const b = billboards.get(i);  b.show = !b.show;}</code></pre>
 
     
 
@@ -1512,9 +1411,7 @@ for (let i = 0; i &lt; len; ++i) {
 
 
 <div class="description">
-    如果此对象已销毁，则返回 true;否则为 false。
-<br /><br />
-如果此对象已销毁，则不应使用;调用
+    如果此对象已销毁，则返回 true;否则为 false。<br /><br />如果此对象已销毁，则不应使用;调用
  <code>* isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。
 </div>
 
@@ -1616,11 +1513,7 @@ for (let i = 0; i &lt; len; ++i) {
 
 
     <h5>Performance:</h5>
-    <p class="description">调用 <code>remove</code> 是预期的常数时间。 但是，集合的顶点缓冲区
-被重写 - 一个 <code>O（n）</code> 操作，也会产生 CPU 到 GPU 的开销。 为
-最佳性能，在调用 <code>update</code> 之前尽可能多地移除 billboard。
-如果您打算暂时隐藏公告牌，通常调用
-<a href="Billboard.html#show"><code>Billboard#show</code></a>，而不是删除并重新添加公告牌。</p>
+    <p class="description">调用 <code>remove</code> 是预期的常数时间。 但是，集合的顶点缓冲区被重写 - 一个 <code>O（n）</code> 操作，也会产生 CPU 到 GPU 的开销。 为最佳性能，在调用 <code>update</code> 之前尽可能多地移除 billboard。如果您打算暂时隐藏公告牌，通常调用<a href="Billboard.html#show"><code>Billboard#show</code></a>，而不是删除并重新添加公告牌。</p>
 
 
 
@@ -1734,8 +1627,7 @@ for (let i = 0; i &lt; len; ++i) {
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const b = billboards.add(...);
-billboards.remove(b);  // Returns true</code></pre>
+    <pre><code class="language-javascript">const b = billboards.add(...);billboards.remove(b);  // Returns true</code></pre>
 
     
 
@@ -1787,8 +1679,7 @@ billboards.remove(b);  // Returns true</code></pre>
 
 
     <h5>Performance:</h5>
-    <p class="description"><code>O(n)</code> 移除所有广告牌效率更高
-从集合中，然后添加新的集合，而不是完全创建一个新集合。</p>
+    <p class="description"><code>O(n)</code> 移除所有广告牌效率更高从集合中，然后添加新的集合，而不是完全创建一个新集合。</p>
 
 
 
@@ -1848,9 +1739,7 @@ billboards.remove(b);  // Returns true</code></pre>
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">billboards.add(...);
-billboards.add(...);
-billboards.removeAll();</code></pre>
+    <pre><code class="language-javascript">billboards.add(...);billboards.add(...);billboards.removeAll();</code></pre>
 
     
 
@@ -1894,12 +1783,7 @@ billboards.removeAll();</code></pre>
 
 
 <div class="description">
-    当 <a href="Viewer.html"><code>Viewer</code></a> 或 <a href="CesiumWidget.html"><code>CesiumWidget</code></a> 将场景渲染到
-获取渲染此基元所需的绘制命令。
-<p>
-请勿直接调用此函数。 这记录下来只是为了
-列出渲染场景时可能传播的异常：
-</p>
+    当 <a href="Viewer.html"><code>Viewer</code></a> 或 <a href="CesiumWidget.html"><code>CesiumWidget</code></a> 将场景渲染到获取渲染此基元所需的绘制命令。<p>请勿直接调用此函数。 这记录下来只是为了列出渲染场景时可能传播的异常：</p>
 </div>
 
 

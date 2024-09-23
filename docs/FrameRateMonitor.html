@@ -58,10 +58,7 @@
 
 
 <div class="description">
-    监控 <a href="Scene.html"><code>Scene</code></a> 中的帧速率（每秒帧数），如果帧速率
-低于阈值。 稍后，如果帧速率返回到所需的级别，则会引发一个单独的事件。
-为避免为单个 <code>场景</code> 创建多个 FrameRateMonitor，请使用 <a href="FrameRateMonitor.html#.fromScene"><code>FrameRateMonitor.fromScene</code></a>
-而不是显式构造实例。
+    监控 <a href="Scene.html"><code>Scene</code></a> 中的帧速率（每秒帧数），如果帧速率低于阈值。 稍后，如果帧速率返回到所需的级别，则会引发一个单独的事件。为避免为单个 <code>场景</code> 创建多个 FrameRateMonitor，请使用 <a href="FrameRateMonitor.html#.fromScene"><code>FrameRateMonitor.fromScene</code></a>而不是显式构造实例。
 </div>
 
 
@@ -241,8 +238,7 @@
 
                 
             
-                启动时和每次页面可见时（即当用户
-切换回选项卡），然后再开始测量性能（以秒为单位）。</td>
+                启动时和每次页面可见时（即当用户切换回选项卡），然后再开始测量性能（以秒为单位）。</td>
         </tr>
 
     
@@ -278,8 +274,7 @@
 
                 
             
-                预热期的长度，以秒为单位。 在预热期间，单独的
-（通常较低） 帧速率是必需的。</td>
+                预热期的长度，以秒为单位。 在预热期间，单独的（通常较低） 帧速率是必需的。</td>
         </tr>
 
     
@@ -315,9 +310,7 @@
 
                 
             
-                在
-预热期。 如果在 warmupPeriod 期间的任何 samplingWindow 期间，帧速率平均值小于此值，则
-lowFrameRate 事件，并且页面将重定向到 redirectOnLowFrameRateUrl（如果有）。</td>
+                在预热期。 如果在 warmupPeriod 期间的任何 samplingWindow 期间，帧速率平均值小于此值，则lowFrameRate 事件，并且页面将重定向到 redirectOnLowFrameRateUrl（如果有）。</td>
         </tr>
 
     
@@ -353,9 +346,7 @@ lowFrameRate 事件，并且页面将重定向到 redirectOnLowFrameRateUrl（�
 
                 
             
-                之后可接受的性能所需的最小每秒帧数
-预热期结束。 如果在 warmupPeriod 之后的任何 samplingWindow 期间，帧速率平均值小于此值，则
-lowFrameRate 事件，并且页面将重定向到 redirectOnLowFrameRateUrl（如果有）。</td>
+                之后可接受的性能所需的最小每秒帧数预热期结束。 如果在 warmupPeriod 之后的任何 samplingWindow 期间，帧速率平均值小于此值，则lowFrameRate 事件，并且页面将重定向到 redirectOnLowFrameRateUrl（如果有）。</td>
         </tr>
 
     
@@ -451,9 +442,7 @@ lowFrameRate 事件，并且页面将重定向到 redirectOnLowFrameRateUrl（�
 
 
 <div class="description">
-    默认帧速率监控设置。 当 <a href="FrameRateMonitor.html#.fromScene"><code>FrameRateMonitor.fromScene</code></a>
-需要创建新的帧速率监视器，对于未传递到
-<a href="FrameRateMonitor.html"><code>FrameRateMonitor</code></a> 构造函数。
+    默认帧速率监控设置。 当 <a href="FrameRateMonitor.html#.fromScene"><code>FrameRateMonitor.fromScene</code></a>需要创建新的帧速率监视器，对于未传递到<a href="FrameRateMonitor.html"><code>FrameRateMonitor</code></a> 构造函数。
 </div>
 
 
@@ -513,8 +502,7 @@ lowFrameRate 事件，并且页面将重定向到 redirectOnLowFrameRateUrl（�
 
 
 <div class="description">
-    获取最近计算的最后一个 <code>samplingWindow</code> 的平均每秒帧数。
-如果尚未计算帧速率，则此属性可能未定义。
+    获取最近计算的最后一个 <code>samplingWindow</code> 的平均每秒帧数。如果尚未计算帧速率，则此属性可能未定义。
 </div>
 
 
@@ -574,9 +562,7 @@ lowFrameRate 事件，并且页面将重定向到 redirectOnLowFrameRateUrl（�
 
 
 <div class="description">
-    获取在检测到低帧速率时引发的事件。 该函数将被传递
-<a href="Scene.html"><code>Scene</code></a> 实例作为其第一个参数和每秒平均帧数
-作为其第二个参数。
+    获取在检测到低帧速率时引发的事件。 该函数将被传递<a href="Scene.html"><code>Scene</code></a> 实例作为其第一个参数和每秒平均帧数作为其第二个参数。
 </div>
 
 
@@ -636,9 +622,7 @@ lowFrameRate 事件，并且页面将重定向到 redirectOnLowFrameRateUrl（�
 
 
 <div class="description">
-    获取或设置最小 frames-per-second 之后实现可接受性能所需的
-预热期结束。 如果在 <code>warmupPeriod</code> 之后的任何 <code>samplingWindow</code> 期间，帧速率平均值小于此值，则
-<code>lowFrameRate</code> 事件，并且页面将重定向到 <code>redirectOnLowFrameRateUrl</code>（如果有）。
+    获取或设置最小 frames-per-second 之后实现可接受性能所需的预热期结束。 如果在 <code>warmupPeriod</code> 之后的任何 <code>samplingWindow</code> 期间，帧速率平均值小于此值，则<code>lowFrameRate</code> 事件，并且页面将重定向到 <code>redirectOnLowFrameRateUrl</code>（如果有）。
 </div>
 
 
@@ -698,9 +682,7 @@ lowFrameRate 事件，并且页面将重定向到 redirectOnLowFrameRateUrl（�
 
 
 <div class="description">
-    获取或设置最小 frames-per-second 在之后实现可接受性能所需的
-预热期。 如果在 <code>warmupPeriod</code> 期间的任何 <code>samplingWindow</code> 期间，帧速率平均值小于此值，则
-<code>lowFrameRate</code> 事件，并且页面将重定向到 <code>redirectOnLowFrameRateUrl</code>（如果有）。
+    获取或设置最小 frames-per-second 在之后实现可接受性能所需的预热期。 如果在 <code>warmupPeriod</code> 期间的任何 <code>samplingWindow</code> 期间，帧速率平均值小于此值，则<code>lowFrameRate</code> 事件，并且页面将重定向到 <code>redirectOnLowFrameRateUrl</code>（如果有）。
 </div>
 
 
@@ -760,9 +742,7 @@ lowFrameRate 事件，并且页面将重定向到 redirectOnLowFrameRateUrl（�
 
 
 <div class="description">
-    获取帧速率在较低水平后恢复到正常水平时引发的事件。
-该函数将传递 <a href="Scene.html"><code>Scene</code></a> 实例作为其第一个参数，并将
-采样窗口上每秒的帧数作为其第二个参数。
+    获取帧速率在较低水平后恢复到正常水平时引发的事件。该函数将传递 <a href="Scene.html"><code>Scene</code></a> 实例作为其第一个参数，并将采样窗口上每秒的帧数作为其第二个参数。
 </div>
 
 
@@ -822,8 +802,7 @@ lowFrameRate 事件，并且页面将重定向到 redirectOnLowFrameRateUrl（�
 
 
 <div class="description">
-    获取或设置启动时和每次页面可见时（即当用户
-切换回选项卡），然后再开始测量性能（以秒为单位）。
+    获取或设置启动时和每次页面可见时（即当用户切换回选项卡），然后再开始测量性能（以秒为单位）。
 </div>
 
 
@@ -1003,8 +982,7 @@ lowFrameRate 事件，并且页面将重定向到 redirectOnLowFrameRateUrl（�
 
 
 <div class="description">
-    获取或设置预热期的长度（以秒为单位）。 在预热期间，单独的
-（通常较低） 帧速率是必需的。
+    获取或设置预热期的长度（以秒为单位）。 在预热期间，单独的（通常较低） 帧速率是必需的。
 </div>
 
 
@@ -1071,8 +1049,7 @@ lowFrameRate 事件，并且页面将重定向到 redirectOnLowFrameRateUrl（�
 
 
 <div class="description">
-    获取给定场景的 <a href="FrameRateMonitor.html"><code>FrameRateMonitor</code></a>。 如果场景还没有
-一个 <a href="FrameRateMonitor.html"><code>FrameRateMonitor</code></a>，一个是使用 <a href="FrameRateMonitor.html#.defaultSettings"><code>FrameRateMonitor.defaultSettings</code></a> 创建的。
+    获取给定场景的 <a href="FrameRateMonitor.html"><code>FrameRateMonitor</code></a>。 如果场景还没有一个 <a href="FrameRateMonitor.html"><code>FrameRateMonitor</code></a>，一个是使用 <a href="FrameRateMonitor.html#.defaultSettings"><code>FrameRateMonitor.defaultSettings</code></a> 创建的。
 </div>
 
 
@@ -1207,10 +1184,7 @@ lowFrameRate 事件，并且页面将重定向到 redirectOnLowFrameRateUrl（�
 
 
 <div class="description">
-    取消订阅此实例正在侦听的所有事件。
-一旦对象被销毁，就不应该使用它;调用
-<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。 因此
-将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
+    取消订阅此实例正在侦听的所有事件。一旦对象被销毁，就不应该使用它;调用<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。 因此将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
 </div>
 
 
@@ -1310,10 +1284,7 @@ lowFrameRate 事件，并且页面将重定向到 redirectOnLowFrameRateUrl（�
 
 
 <div class="description">
-    如果此对象已销毁，则返回 true;否则为 false。
-<br /><br />
-如果此对象已销毁，则不应使用;调用
- <code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。
+    如果此对象已销毁，则返回 true;否则为 false。<br /><br />如果此对象已销毁，则不应使用;调用 <code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。
 </div>
 
 
@@ -1408,8 +1379,7 @@ lowFrameRate 事件，并且页面将重定向到 redirectOnLowFrameRateUrl（�
 
 
 <div class="description">
-    暂停帧速率的监视。 要恢复监控，<a href="FrameRateMonitor.html#unpause"><code>FrameRateMonitor#unpause</code></a>
-每次调用此函数时都必须调用一次。
+    暂停帧速率的监视。 要恢复监控，<a href="FrameRateMonitor.html#unpause"><code>FrameRateMonitor#unpause</code></a>每次调用此函数时都必须调用一次。
 </div>
 
 
@@ -1490,9 +1460,7 @@ lowFrameRate 事件，并且页面将重定向到 redirectOnLowFrameRateUrl（�
 
 
 <div class="description">
-    恢复对帧速率的监视。 如果调用了 <a href="FrameRateMonitor.html#pause"><code>FrameRateMonitor#pause</code></a>
-时，此函数必须调用相同的次数，才能
-实际上恢复监控。
+    恢复对帧速率的监视。 如果调用了 <a href="FrameRateMonitor.html#pause"><code>FrameRateMonitor#pause</code></a>时，此函数必须调用相同的次数，才能实际上恢复监控。
 </div>
 
 

@@ -47,8 +47,7 @@
 
 
         
-            <div class="description">基本 GLSL uniform 类型的枚举。这些可与
-<a href="CustomShader.html"><code>CustomShader</code></a> 来声明用户定义的 uniform。</div>
+            <div class="description">基本 GLSL uniform 类型的枚举。这些可与<a href="CustomShader.html"><code>CustomShader</code></a> 来声明用户定义的 uniform。</div>
         
 
         

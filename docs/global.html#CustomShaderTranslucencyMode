@@ -47,8 +47,7 @@
 
 
         
-            <div class="description">一个枚举，用于控制 <a href="CustomShader.html"><code>CustomShader</code></a> 如何处理与原始
-原始。</div>
+            <div class="description">一个枚举，用于控制 <a href="CustomShader.html"><code>CustomShader</code></a> 如何处理与原始原始。</div>
         
 
         
@@ -97,9 +96,7 @@
 
             
 
-            <td class="description last">从基本体的材质继承半透明设置。如果原语使用了
-Translucent 材质，则自定义着色器也将被视为 Translucent。如果 primitive
-使用了不透明材质，则自定义着色器将被视为不透明。</td>
+            <td class="description last">从基本体的材质继承半透明设置。如果原语使用了Translucent 材质，则自定义着色器也将被视为 Translucent。如果 primitive使用了不透明材质，则自定义着色器将被视为不透明。</td>
         </tr>
 
     
@@ -226,9 +223,7 @@ Translucent 材质，则自定义着色器也将被视为 Translucent。如果 p
 
 
 <div class="description">
-    从基本体的材质继承半透明设置。如果原语使用了
-Translucent 材质，则自定义着色器也将被视为 Translucent。如果 primitive
-使用了不透明材质，则自定义着色器将被视为不透明。
+    从基本体的材质继承半透明设置。如果原语使用了Translucent 材质，则自定义着色器也将被视为 Translucent。如果 primitive使用了不透明材质，则自定义着色器将被视为不透明。
 </div>
 
 

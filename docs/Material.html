@@ -58,196 +58,7 @@
 
 
 <div class="description">
-    材质通过漫反射、镜面反射、
-Normal、Emission 和 Alpha 组件。这些值是使用
-名为 Fabric 的 JSON 架构，它被解析并组装成 glsl 着色器代码
-幕后花絮。查看 <a href="https://github.com/CesiumGS/cesium/wiki/Fabric">wiki 页面</a>
-了解有关 Fabric 的更多详细信息。
-<br /><br />
-<style type="text/css">
- #materialDescriptions code {
-     font-weight: normal;
-     font-family: Consolas, 'Lucida Console', Monaco, monospace;
-     color: #A35A00;
- }
- #materialDescriptions ul, #materialDescriptions ul ul {
-     list-style-type: none;
- }
- #materialDescriptions ul ul {
-     margin-bottom: 10px;
- }
- #materialDescriptions ul ul li {
-     font-weight: normal;
-     color: #000000;
-     text-indent: -2em;
-     margin-left: 2em;
- }
- #materialDescriptions ul li {
-     font-weight: bold;
-     color: #0053CF;
- }
-</style>
-
-基础材料类型及其制服：
-<div id='materialDescriptions'>
-<ul>
- <li>Color</li>
- <ul>
-     <li><code>color</code>:  RGBA color 对象。</li>
- </ul>
- <li>Image</li>
- <ul>
-     <li><code>image</code>:  图像路径。</li>
-     <li><code>repeat</code>:  具有 x 和 y 值的对象，用于指定重复图像的次数。</li>
- </ul>
- <li>DiffuseMap</li>
- <ul>
-     <li><code>image</code>:  图像路径。</li>
-     <li><code>channels</code>:  包含 r、g、b 和 a 的任意组合的三个字符串，用于选择所需的图像通道。</li>
-     <li><code>repeat</code>:  具有 x 和 y 值的对象，用于指定重复图像的次数。</li>
- </ul>
- <li>AlphaMap</li>
- <ul>
-     <li><code>image</code>:  图像路径。</li>
-     <li><code>channel</code>:  一个包含 r、g、b 或 a 的字符串，用于选择所需的图像通道。 </li>
-     <li><code>repeat</code>:  具有 x 和 y 值的对象，用于指定重复图像的次数。</li>
- </ul>
- <li>SpecularMap</li>
- <ul>
-     <li><code>image</code>: 图像路径。</li>
-     <li><code>channel</code>: 一个包含 r、g、b 或 a 的字符串，用于选择所需的图像通道。 </li>
-     <li><code>repeat</code>: 具有 x 和 y 值的对象，用于指定重复图像的次数。</li>
- </ul>
- <li>EmissionMap</li>
- <ul>
-     <li><code>image</code>:  图像路径。</li>
-     <li><code>channels</code>:  包含 r、g、b 和 a 的任意组合的三个字符串，用于选择所需的图像通道。 </li>
-     <li><code>repeat</code>:  具有 x 和 y 值的对象，用于指定重复图像的次数。</li>
- </ul>
- <li>BumpMap</li>
- <ul>
-     <li><code>image</code>:  图像路径。</li>
-     <li><code>channel</code>:  一个包含 r、g、b 或 a 的字符串，用于选择所需的图像通道。 </li>
-     <li><code>repeat</code>:  具有 x 和 y 值的对象，用于指定重复图像的次数。</li>
-     <li><code>strength</code>:  “凹凸强度”（Bump strength）值介于 0.0 和 1.0 之间，其中 0.0 是小凹凸，1.0 是大凹凸。</li>
- </ul>
- <li>NormalMap</li>
- <ul>
-     <li><code>image</code>: 图像路径。</li>
-     <li><code>channels</code>:  包含 r、g、b 和 a 的任意组合的三个字符串，用于选择所需的图像通道。 </li>
-     <li><code>repeat</code>:  具有 x 和 y 值的对象，用于指定重复图像的次数。</li>
-     <li><code>strength</code>:  “凹凸强度”（Bump strength）值介于 0.0 和 1.0 之间，其中 0.0 表示小凹凸，1.0 表示大凹凸.</li>
- </ul>
- <li>Grid</li>
- <ul>
-<li><code>color</code>：整个材质的 RGBA 颜色对象。</li>
-<li><code>cellAlpha</code>：网格线之间单元格的 Alpha 值。 这将与 color.alpha 结合使用。</li>
-<li><code>lineCount</code>：具有 x 和 y 值的对象，分别指定列数和行数。</li>
-<li><code>lineThickness</code>：具有 x 和 y 值的对象，用于指定网格线的粗细（如果可用，则以像素为单位）。</li>
-<li><code>lineOffset</code>：具有 x 和 y 值的对象，指定网格线的偏移量（范围为 0 到 1）。</li>
- </ul>
- <li>Stripe</li>
- <ul>
-<li><code>horizontal</code>：确定条带是水平还是垂直的布尔值。</li>
-<li><code>evenColor</code>：条带的第一种颜色的 rgba 颜色对象。</li>
-<li><code>oddColor</code>：条带的第二种颜色的 rgba 颜色对象。</li>
-<li><code>offset</code>：控制在图案中的哪个点开始绘制的数字;0.0 是偶数颜色的开始，1.0 是奇数颜色的开始，2.0 是偶数颜色，任何倍数或分数值介于两者之间。</li>
-<li><code>repeat</code>：控制条纹总数的数字，一半是浅色，一半是深色。</li>
- </ul>
- <li>Checkerboard</li>
- <ul>
-<li><code>lightColor</code>：棋盘格的光交替颜色的 rgba 颜色对象。</li>
-<li><code>darkColor</code>：棋盘格的深色交替颜色的 rgba 颜色对象。</li>
-<li><code>repeat</code>：具有 x 和 y 值的对象，分别指定列数和行数。</li>
- </ul>
- <li>Dot</li>
- <ul>
-<li><code>lightColor</code>：点颜色的 rgba 颜色对象。</li>
-<li><code>darkColor</code>：背景色的 rgba 颜色对象。</li>
-<li><code>repeat</code>：具有 x 和 y 值的对象，分别指定点的列数和行数。</li>
- </ul>
- <li>Water</li>
-<ul>
-<li><code>baseWaterColor</code>：rgba 颜色对象水的底色。</li>
-<li><code>blendColor</code>：从水区域混合到非水区域时使用的 rgba 颜色对象。</li>
-<li><code>specularMap</code>：用于指示水区域的单通道纹理。</li>
-<li><code>normalMap</code>：水法线扰动的法线贴图。</li>
-<li><code>frequency</code>：控制波数的数字。</li>
-<li><code>animationSpeed</code>：控制水的动画速度的数字。</li>
-<li><code>amplitude</code>：控制水波振幅的数字。</li>
-<li><code>specularIntensity</code>：控制镜面反射强度的数字。</li>
-</ul>
-<li>RimLighting （边缘照明）</li>
-<ul>
-<li><code>颜色</code>：漫反射颜色和 Alpha。</li>
- <li><code>rimColor</code>：轮辋的漫反射颜色和 Alpha。</li>
-<li><code>width</code>：确定轮辋宽度的数字。</li>
-</ul>
-<li>淡化</li>
-<ul>
-<li><code>fadeInColor</code>：漫反射颜色和 Alpha <code>时间</code></li>
-<li><code>fadeOutColor</code>：从<code>时间</code>开始的 <code>maximumDistance</code> 处漫反射颜色和 Alpha</li>
-<li><code>maximumDistance</code>：介于 0.0 和 1.0 之间的数字，其中 <code>fadeInColor</code> 变为 <code>fadeOutColor</code>。值为 0.0 时，整个材质的颜色为 <code>fadeOutColor</code>，值为 1.0 时，整个材质的颜色为 <code>fadeInColor</code></li>
-<li><code>repeat</code>： 如果淡入淡出应该包裹在纹理坐标周围，则为 true。</li>
-<li><code>fadeDirection</code>：具有 x 和 y 值的对象，用于指定淡化是否应在 x 和 y 方向上。</li>
-<li><code>time</code>：x 和 y 值介于 <code>fadeInColor</code> 位置的 0.0 和 1.0 之间的对象</li>
-</ul>
-<li>PolylineArrow</li>
-<ul>
-<li><code>颜色</code>：漫反射颜色和 Alpha。</li>
-</ul>
-<li>多段线短划线</li>
-<ul>
-<li><code>color</code>：线条的颜色。</li>
-<li><code>gapColor</code>：线条中间隙的颜色。</li>
-<li><code>dashLength</code>：虚线长度（以像素为单位）。</li>
-<li><code>dashPattern</code>：线条的 16 位点画模式..</li>
-</ul>
-<li>PolylineGlow</li>
-<ul>
-<li><code>color</code>：线上发光的颜色和最大 Alpha。</li>
-<li><code>glowPower</code>：发光的强度，占总线宽的百分比（小于 1.0）。</li>
-<li><code>TaperPower</code>：锥度效应的强度，占总线长的百分比。 如果为 1.0 或更高，则不使用锥化效果。</li>
-</ul>
-<li>PolylineOutline</li>
-<ul>
-<li><code>color</code>：线条内部的漫反射颜色和 Alpha。</li>
-<li><code>outlineColor</code>：轮廓的漫反射颜色和 Alpha。</li>
-<li><code>outlineWidth</code>：轮廓的宽度（以像素为单位）。</li>
-</ul>
-<li>ElevationContour</li>
-<ul>
-<li><code>color</code>：等值线的颜色和 Alpha。</li>
-<li><code>spacing</code>：等值线的间距，以米为单位。</li>
-<li><code>width</code>：指定网格线宽度（以像素为单位）的数字。</li>
-</ul>
-<li>ElevationRamp</li>
-<ul>
-<li><code>image</code>：用于为地形着色的 Color Ramp 图像。</li>
-<li><code>minimumHeight</code>：渐变的最小高度。</li>
-<li><code>maximumHeight</code>：渐变的最大高度。</li>
-</ul>
-<li>SlopeRamp 坡道</li>
-<ul>
-<li><code>image</code>：用于按坡度为地形着色的 Color Ramp 图像。</li>
-</ul>
-<li>AspectRamp</li>
-<ul>
-<li><code>image</code>：用于按坡向对地形进行着色的 Color Ramp 图像。</li>
-</ul>
-<li>ElevationBand （高程带）</li>
-<ul>
-<li><code>heights</code>：从最低到最高排序的高度图像。</li>
-<li><code>colors</code>：相应高度的颜色图像。</li>
-</ul>
-<li>水面罩</li>
-<ul>
-<li><code>waterColor</code>：水覆盖区域的漫反射颜色和 Alpha。</li>
-<li><code>landColor</code>：土地覆盖区域的漫反射颜色和 Alpha。</li>
-</ul>
-</ul>
-</ul>
-</div>
+    材质通过漫反射、镜面反射、Normal、Emission 和 Alpha 组件。这些值是使用名为 Fabric 的 JSON 架构，它被解析并组装成 glsl 着色器代码幕后花絮。查看 <a href="https://github.com/CesiumGS/cesium/wiki/Fabric">wiki 页面</a>了解有关 Fabric 的更多详细信息。<br /><br /><style type="text/css"> #materialDescriptions code {     font-weight: normal;     font-family: Consolas, 'Lucida Console', Monaco, monospace;     color: #A35A00; } #materialDescriptions ul, #materialDescriptions ul ul {     list-style-type: none; } #materialDescriptions ul ul {     margin-bottom: 10px; } #materialDescriptions ul ul li {     font-weight: normal;     color: #000000;     text-indent: -2em;     margin-left: 2em; } #materialDescriptions ul li {     font-weight: bold;     color: #0053CF; }</style>基础材料类型及其制服：<div id='materialDescriptions'><ul> <li>Color</li> <ul>     <li><code>color</code>:  RGBA color 对象。</li> </ul> <li>Image</li> <ul>     <li><code>image</code>:  图像路径。</li>     <li><code>repeat</code>:  具有 x 和 y 值的对象，用于指定重复图像的次数。</li> </ul> <li>DiffuseMap</li> <ul>     <li><code>image</code>:  图像路径。</li>     <li><code>channels</code>:  包含 r、g、b 和 a 的任意组合的三个字符串，用于选择所需的图像通道。</li>     <li><code>repeat</code>:  具有 x 和 y 值的对象，用于指定重复图像的次数。</li> </ul> <li>AlphaMap</li> <ul>     <li><code>image</code>:  图像路径。</li>     <li><code>channel</code>:  一个包含 r、g、b 或 a 的字符串，用于选择所需的图像通道。 </li>     <li><code>repeat</code>:  具有 x 和 y 值的对象，用于指定重复图像的次数。</li> </ul> <li>SpecularMap</li> <ul>     <li><code>image</code>: 图像路径。</li>     <li><code>channel</code>: 一个包含 r、g、b 或 a 的字符串，用于选择所需的图像通道。 </li>     <li><code>repeat</code>: 具有 x 和 y 值的对象，用于指定重复图像的次数。</li> </ul> <li>EmissionMap</li> <ul>     <li><code>image</code>:  图像路径。</li>     <li><code>channels</code>:  包含 r、g、b 和 a 的任意组合的三个字符串，用于选择所需的图像通道。 </li>     <li><code>repeat</code>:  具有 x 和 y 值的对象，用于指定重复图像的次数。</li> </ul> <li>BumpMap</li> <ul>     <li><code>image</code>:  图像路径。</li>     <li><code>channel</code>:  一个包含 r、g、b 或 a 的字符串，用于选择所需的图像通道。 </li>     <li><code>repeat</code>:  具有 x 和 y 值的对象，用于指定重复图像的次数。</li>     <li><code>strength</code>:  “凹凸强度”（Bump strength）值介于 0.0 和 1.0 之间，其中 0.0 是小凹凸，1.0 是大凹凸。</li> </ul> <li>NormalMap</li> <ul>     <li><code>image</code>: 图像路径。</li>     <li><code>channels</code>:  包含 r、g、b 和 a 的任意组合的三个字符串，用于选择所需的图像通道。 </li>     <li><code>repeat</code>:  具有 x 和 y 值的对象，用于指定重复图像的次数。</li>     <li><code>strength</code>:  “凹凸强度”（Bump strength）值介于 0.0 和 1.0 之间，其中 0.0 表示小凹凸，1.0 表示大凹凸.</li> </ul> <li>Grid</li> <ul><li><code>color</code>：整个材质的 RGBA 颜色对象。</li><li><code>cellAlpha</code>：网格线之间单元格的 Alpha 值。 这将与 color.alpha 结合使用。</li><li><code>lineCount</code>：具有 x 和 y 值的对象，分别指定列数和行数。</li><li><code>lineThickness</code>：具有 x 和 y 值的对象，用于指定网格线的粗细（如果可用，则以像素为单位）。</li><li><code>lineOffset</code>：具有 x 和 y 值的对象，指定网格线的偏移量（范围为 0 到 1）。</li> </ul> <li>Stripe</li> <ul><li><code>horizontal</code>：确定条带是水平还是垂直的布尔值。</li><li><code>evenColor</code>：条带的第一种颜色的 rgba 颜色对象。</li><li><code>oddColor</code>：条带的第二种颜色的 rgba 颜色对象。</li><li><code>offset</code>：控制在图案中的哪个点开始绘制的数字;0.0 是偶数颜色的开始，1.0 是奇数颜色的开始，2.0 是偶数颜色，任何倍数或分数值介于两者之间。</li><li><code>repeat</code>：控制条纹总数的数字，一半是浅色，一半是深色。</li> </ul> <li>Checkerboard</li> <ul><li><code>lightColor</code>：棋盘格的光交替颜色的 rgba 颜色对象。</li><li><code>darkColor</code>：棋盘格的深色交替颜色的 rgba 颜色对象。</li><li><code>repeat</code>：具有 x 和 y 值的对象，分别指定列数和行数。</li> </ul> <li>Dot</li> <ul><li><code>lightColor</code>：点颜色的 rgba 颜色对象。</li><li><code>darkColor</code>：背景色的 rgba 颜色对象。</li><li><code>repeat</code>：具有 x 和 y 值的对象，分别指定点的列数和行数。</li> </ul> <li>Water</li><ul><li><code>baseWaterColor</code>：rgba 颜色对象水的底色。</li><li><code>blendColor</code>：从水区域混合到非水区域时使用的 rgba 颜色对象。</li><li><code>specularMap</code>：用于指示水区域的单通道纹理。</li><li><code>normalMap</code>：水法线扰动的法线贴图。</li><li><code>frequency</code>：控制波数的数字。</li><li><code>animationSpeed</code>：控制水的动画速度的数字。</li><li><code>amplitude</code>：控制水波振幅的数字。</li><li><code>specularIntensity</code>：控制镜面反射强度的数字。</li></ul><li>RimLighting （边缘照明）</li><ul><li><code>颜色</code>：漫反射颜色和 Alpha。</li> <li><code>rimColor</code>：轮辋的漫反射颜色和 Alpha。</li><li><code>width</code>：确定轮辋宽度的数字。</li></ul><li>淡化</li><ul><li><code>fadeInColor</code>：漫反射颜色和 Alpha <code>时间</code></li><li><code>fadeOutColor</code>：从<code>时间</code>开始的 <code>maximumDistance</code> 处漫反射颜色和 Alpha</li><li><code>maximumDistance</code>：介于 0.0 和 1.0 之间的数字，其中 <code>fadeInColor</code> 变为 <code>fadeOutColor</code>。值为 0.0 时，整个材质的颜色为 <code>fadeOutColor</code>，值为 1.0 时，整个材质的颜色为 <code>fadeInColor</code></li><li><code>repeat</code>： 如果淡入淡出应该包裹在纹理坐标周围，则为 true。</li><li><code>fadeDirection</code>：具有 x 和 y 值的对象，用于指定淡化是否应在 x 和 y 方向上。</li><li><code>time</code>：x 和 y 值介于 <code>fadeInColor</code> 位置的 0.0 和 1.0 之间的对象</li></ul><li>PolylineArrow</li><ul><li><code>颜色</code>：漫反射颜色和 Alpha。</li></ul><li>多段线短划线</li><ul><li><code>color</code>：线条的颜色。</li><li><code>gapColor</code>：线条中间隙的颜色。</li><li><code>dashLength</code>：虚线长度（以像素为单位）。</li><li><code>dashPattern</code>：线条的 16 位点画模式..</li></ul><li>PolylineGlow</li><ul><li><code>color</code>：线上发光的颜色和最大 Alpha。</li><li><code>glowPower</code>：发光的强度，占总线宽的百分比（小于 1.0）。</li><li><code>TaperPower</code>：锥度效应的强度，占总线长的百分比。 如果为 1.0 或更高，则不使用锥化效果。</li></ul><li>PolylineOutline</li><ul><li><code>color</code>：线条内部的漫反射颜色和 Alpha。</li><li><code>outlineColor</code>：轮廓的漫反射颜色和 Alpha。</li><li><code>outlineWidth</code>：轮廓的宽度（以像素为单位）。</li></ul><li>ElevationContour</li><ul><li><code>color</code>：等值线的颜色和 Alpha。</li><li><code>spacing</code>：等值线的间距，以米为单位。</li><li><code>width</code>：指定网格线宽度（以像素为单位）的数字。</li></ul><li>ElevationRamp</li><ul><li><code>image</code>：用于为地形着色的 Color Ramp 图像。</li><li><code>minimumHeight</code>：渐变的最小高度。</li><li><code>maximumHeight</code>：渐变的最大高度。</li></ul><li>SlopeRamp 坡道</li><ul><li><code>image</code>：用于按坡度为地形着色的 Color Ramp 图像。</li></ul><li>AspectRamp</li><ul><li><code>image</code>：用于按坡向对地形进行着色的 Color Ramp 图像。</li></ul><li>ElevationBand （高程带）</li><ul><li><code>heights</code>：从最低到最高排序的高度图像。</li><li><code>colors</code>：相应高度的颜色图像。</li></ul><li>水面罩</li><ul><li><code>waterColor</code>：水覆盖区域的漫反射颜色和 Alpha。</li><li><code>landColor</code>：土地覆盖区域的漫反射颜色和 Alpha。</li></ul></ul></ul></div>
 </div>
 
 
@@ -398,8 +209,7 @@ Normal、Emission 和 Alpha 组件。这些值是使用
 
                 
             
-                当为 <code>true</code> 或返回 <code>true</code> 的函数时，几何体
-使用此材料时，预期呈现半透明。</td>
+                当为 <code>true</code> 或返回 <code>true</code> 的函数时，几何体使用此材料时，预期呈现半透明。</td>
         </tr>
 
     
@@ -643,22 +453,7 @@ Normal、Emission 和 Alpha 组件。这些值是使用
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Create a color material with fromType:
-polygon.material = Cesium.Material.fromType('Color');
-polygon.material.uniforms.color = new Cesium.Color(1.0, 1.0, 0.0, 1.0);
-
-// Create the default material:
-polygon.material = new Cesium.Material();
-
-// Create a color material with full Fabric notation:
-polygon.material = new Cesium.Material({
-  fabric: {
-    type: 'Color',
-    uniforms: {
-      color: new Cesium.Color(1.0, 1.0, 0.0, 1.0)
-    }
-  }
-});</code></pre>
+    <pre><code class="language-javascript">// Create a color material with fromType:polygon.material = Cesium.Material.fromType('Color');polygon.material.uniforms.color = new Cesium.Color(1.0, 1.0, 0.0, 1.0);// Create the default material:polygon.material = new Cesium.Material();// Create a color material with full Fabric notation:polygon.material = new Cesium.Material({  fabric: {    type: 'Color',    uniforms: {      color: new Cesium.Color(1.0, 1.0, 0.0, 1.0)    }  }});</code></pre>
 
     
 
@@ -2466,8 +2261,7 @@ polygon.material = new Cesium.Material({
 
 
 <div class="description">
-    当 <code>true</code> 或返回 <code>true</code> 的函数时，
-几何体应显示为半透明。
+    当 <code>true</code> 或返回 <code>true</code> 的函数时，几何体应显示为半透明。
 </div>
 
 
@@ -2663,9 +2457,7 @@ polygon.material = new Cesium.Material({
 
 
 <div class="description">
-    使用现有材质类型创建新材质。
-<br /><br />
-简写： new Material({fabric : {type : type}});
+    使用现有材质类型创建新材质。<br /><br />简写： new Material({fabric : {type : type}});
 </div>
 
 
@@ -2817,9 +2609,7 @@ polygon.material = new Cesium.Material({
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const material = Cesium.Material.fromType('Color', {
-  color: new Cesium.Color(1.0, 0.0, 0.0, 1.0)
-});</code></pre>
+    <pre><code class="language-javascript">const material = Cesium.Material.fromType('Color', {  color: new Cesium.Color(1.0, 0.0, 0.0, 1.0)});</code></pre>
 
     
 
@@ -2856,12 +2646,7 @@ polygon.material = new Cesium.Material({
 
 
 <div class="description">
-    销毁此对象持有的 WebGL 资源。 销毁对象允许确定性
-释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。
-<br /><br />
-一旦对象被销毁，就不应该使用它;调用
-<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。 因此
-将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
+    销毁此对象持有的 WebGL 资源。 销毁对象允许确定性释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。<br /><br />一旦对象被销毁，就不应该使用它;调用<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。 因此将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
 </div>
 
 
@@ -2966,10 +2751,7 @@ polygon.material = new Cesium.Material({
 
 
 <div class="description">
-    如果此对象已销毁，则返回 true;否则为 false。
-<br /><br />
-如果此对象已销毁，则不应使用;调用
-<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。
+    如果此对象已销毁，则返回 true;否则为 false。<br /><br />如果此对象已销毁，则不应使用;调用<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。
 </div>
 
 

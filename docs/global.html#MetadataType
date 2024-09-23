@@ -47,8 +47,7 @@
 
 
         
-            <div class="description">元数据类型的枚举。这些元数据类型是包含
-一个或多个 <a href="global.html#MetadataComponentType"><code>MetadataComponentType</code></a> 类型的组件</div>
+            <div class="description">元数据类型的枚举。这些元数据类型是包含一个或多个 <a href="global.html#MetadataComponentType"><code>MetadataComponentType</code></a> 类型的组件</div>
         
 
         

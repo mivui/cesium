@@ -464,8 +464,7 @@
     
     <p>
         <span class="details-header important">Deprecated:</span>
-        <span>参见 https://github.com/CesiumGS/cesium/issues/7128。
-改用 'BingMapsStyle.AERIAL_WITH_LABELS_ON_DEMAND'</span>
+        <span>参见 https://github.com/CesiumGS/cesium/issues/7128。改用 'BingMapsStyle.AERIAL_WITH_LABELS_ON_DEMAND'</span>
     </p>
     
 
@@ -911,8 +910,7 @@
     
     <p>
         <span class="details-header important">Deprecated:</span>
-        <span>参见 https://github.com/CesiumGS/cesium/issues/7128。
-改用 'BingMapsStyle.ROAD_ON_DEMAND'</span>
+        <span>参见 https://github.com/CesiumGS/cesium/issues/7128。改用 'BingMapsStyle.ROAD_ON_DEMAND'</span>
     </p>
     
 

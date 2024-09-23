@@ -58,10 +58,7 @@
 
 
 <div class="description">
-    指定一组剪切多边形。剪切多边形有选择地禁用区域中的渲染
-单个 glTF 模型、3D 瓦片集或地球的指定 <a href="ClippingPolygon.html"><code>ClippingPolygon</code></a> 对象列表的内部或外部。
-
-仅在 WebGL 2 上下文中支持剪切多边形。
+    指定一组剪切多边形。剪切多边形有选择地禁用区域中的渲染单个 glTF 模型、3D 瓦片集或地球的指定 <a href="ClippingPolygon.html"><code>ClippingPolygon</code></a> 对象列表的内部或外部。仅在 WebGL 2 上下文中支持剪切多边形。
 </div>
 
 
@@ -294,26 +291,7 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const positions = Cesium.Cartesian3.fromRadiansArray([
-    -1.3194369277314022,
-    0.6988062530900625,
-    -1.31941,
-    0.69879,
-    -1.3193955980204217,
-    0.6988091578771254,
-    -1.3193931220959367,
-    0.698743632490865,
-    -1.3194358224045408,
-    0.6987471965556998,
-]);
-
-const polygon = new Cesium.ClippingPolygon({
-    positions: positions
-});
-
-const polygons = new Cesium.ClippingPolygonCollection({
-   polygons: [ polygon ]
-});</code></pre>
+    <pre><code class="language-javascript">const positions = Cesium.Cartesian3.fromRadiansArray([    -1.3194369277314022,    0.6988062530900625,    -1.31941,    0.69879,    -1.3193955980204217,    0.6988091578771254,    -1.3193931220959367,    0.698743632490865,    -1.3194358224045408,    0.6987471965556998,]);const polygon = new Cesium.ClippingPolygon({    positions: positions});const polygons = new Cesium.ClippingPolygonCollection({   polygons: [ polygon ]});</code></pre>
 
     
 
@@ -365,9 +343,7 @@ const polygons = new Cesium.ClippingPolygonCollection({
 
 
 <div class="description">
-    返回此集合中的多边形数。 这通常与
-<a href="ClippingPolygonCollection.html#get"><code>ClippingPolygonCollection#get</code></a> 迭代所有多边形
-在集合中。
+    返回此集合中的多边形数。 这通常与<a href="ClippingPolygonCollection.html#get"><code>ClippingPolygonCollection#get</code></a> 迭代所有多边形在集合中。
 </div>
 
 
@@ -427,8 +403,7 @@ const polygons = new Cesium.ClippingPolygonCollection({
 
 
 <div class="description">
-    将新的剪切多边形添加到集合时触发的事件。 事件处理程序
-的 Bean Bean Bean 的 Bean Bean S Bean 的 Polygon 和添加该 Polygon 的索引。
+    将新的剪切多边形添加到集合时触发的事件。 事件处理程序的 Bean Bean Bean 的 Bean Bean S Bean 的 Polygon 和添加该 Polygon 的索引。
 </div>
 
 
@@ -491,8 +466,7 @@ const polygons = new Cesium.ClippingPolygonCollection({
 
 
 <div class="description">
-    从集合中删除新的剪切多边形时触发的事件。 事件处理程序
-将传递新多边形和从中删除该多边形的索引。
+    从集合中删除新的剪切多边形时触发的事件。 事件处理程序将传递新多边形和从中删除该多边形的索引。
 </div>
 
 
@@ -700,9 +674,7 @@ const polygons = new Cesium.ClippingPolygonCollection({
 
 
 <div class="description">
-    将指定的 <a href="ClippingPolygon.html"><code>ClippingPolygon</code></a> 添加到集合中，以用于选择性地禁用渲染
-在每个多边形的内部。使用 <code>ClippingPolygonCollection#unionClippingRegions</code> 修改
-如何修改多个多边形的裁剪行为。
+    将指定的 <a href="ClippingPolygon.html"><code>ClippingPolygon</code></a> 添加到集合中，以用于选择性地禁用渲染在每个多边形的内部。使用 <code>ClippingPolygonCollection#unionClippingRegions</code> 修改如何修改多个多边形的裁剪行为。
 </div>
 
 
@@ -805,24 +777,7 @@ const polygons = new Cesium.ClippingPolygonCollection({
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const polygons = new Cesium.ClippingPolygonCollection();
-
-const positions = Cesium.Cartesian3.fromRadiansArray([
-    -1.3194369277314022,
-    0.6988062530900625,
-    -1.31941,
-    0.69879,
-    -1.3193955980204217,
-    0.6988091578771254,
-    -1.3193931220959367,
-    0.698743632490865,
-    -1.3194358224045408,
-    0.6987471965556998,
-]);
-
-polygons.add(new Cesium.ClippingPolygon({
-    positions: positions
-}));</code></pre>
+    <pre><code class="language-javascript">const polygons = new Cesium.ClippingPolygonCollection();const positions = Cesium.Cartesian3.fromRadiansArray([    -1.3194369277314022,    0.6988062530900625,    -1.31941,    0.69879,    -1.3193955980204217,    0.6988091578771254,    -1.3193931220959367,    0.698743632490865,    -1.3194358224045408,    0.6987471965556998,]);polygons.add(new Cesium.ClippingPolygon({    positions: positions}));</code></pre>
 
     
 
@@ -938,7 +893,7 @@ polygons.add(new Cesium.ClippingPolygon({
 
         
 <div class="param-desc">
-    如果此集合包含 ClippingPolygon，则 true， false 否则。
+    如果此集合包含 ClippingPolygon，则 true， 否则 false 。
 </div>
 
 
@@ -1006,12 +961,7 @@ polygons.add(new Cesium.ClippingPolygon({
 
 
 <div class="description">
-    销毁此对象持有的 WebGL 资源。 销毁对象允许确定性
-释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。
-<br /><br />
-一旦对象被销毁，就不应该使用它;调用
-<code> isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。 因此
-将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
+    销毁此对象持有的 WebGL 资源。 销毁对象允许确定性释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。<br /><br />一旦对象被销毁，就不应该使用它;调用<code> isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。 因此将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
 </div>
 
 
@@ -1116,11 +1066,7 @@ polygons.add(new Cesium.ClippingPolygon({
 
 
 <div class="description">
-    返回集合中指定索引处的剪切多边形。 索引从 0 开始
-并随着多边形的添加而增加。 移除 Polygon Faces 之后的所有多边形
-它向左移动，更改其索引。 此功能通常用于
-<a href="ClippingPolygonCollection.html#length"><code>ClippingPolygonCollection#length</code></a> 迭代所有多边形
-在集合中。
+    返回集合中指定索引处的剪切多边形。 索引从 0 开始并随着多边形的添加而增加。 移除 Polygon Faces 之后的所有多边形它向左移动，更改其索引。 此功能通常用于<a href="ClippingPolygonCollection.html#length"><code>ClippingPolygonCollection#length</code></a> 迭代所有多边形在集合中。
 </div>
 
 
@@ -1260,10 +1206,7 @@ polygons.add(new Cesium.ClippingPolygon({
 
 
 <div class="description">
-    如果此对象已销毁，则返回 true;否则为 false。
-<br /><br />
-如果此对象已销毁，则不应使用;调用
-<code> isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。
+    如果此对象已销毁，则返回 true;否则为 false。<br /><br />如果此对象已销毁，则不应使用;调用<code> isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。
 </div>
 
 

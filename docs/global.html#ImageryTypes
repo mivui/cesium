@@ -47,12 +47,7 @@
 
 
         
-            <div class="description"><a href="ImageryProvider.html"><code>ImageryProvider</code></a> 方法返回图像的格式可能会
-因提供商、配置或服务器设置而异。 最常见的是
-<code>HTMLImageElement</code>、<code>HTMLCanvasElement</code> 或支持
-浏览器，<code>ImageBitmap</code>。
-
-有关每个 ImageryProvider 类如何返回图像的更多信息，请参阅每个 ImageryProvider 类的文档。</div>
+            <div class="description"><a href="ImageryProvider.html"><code>ImageryProvider</code></a> 方法返回图像的格式可能会因提供商、配置或服务器设置而异。 最常见的是<code>HTMLImageElement</code>、<code>HTMLCanvasElement</code> 或支持浏览器，<code>ImageBitmap</code>。有关每个 ImageryProvider 类如何返回图像的更多信息，请参阅每个 ImageryProvider 类的文档。</div>
         
 
         

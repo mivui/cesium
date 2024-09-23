@@ -58,12 +58,7 @@
 
 
 <div class="description">
-    一个 <a href="https://github.com/CesiumGS/3d-tiles/tree/main/specification">3D Tiles tileset</a>，
-用于流式传输大量异构 3D 地理空间数据集。
-
-<div class="notice">
-此对象通常不会直接实例化，请使用 <a href="Cesium3DTileset.html#.fromUrl"><code>Cesium3DTileset.fromUrl</code></a>.
-</div>
+    一个 <a href="https://github.com/CesiumGS/3d-tiles/tree/main/specification">3D Tiles tileset</a>，用于流式传输大量异构 3D 地理空间数据集。<div class="notice">此对象通常不会直接实例化，请使用 <a href="Cesium3DTileset.html#.fromUrl"><code>Cesium3DTileset.fromUrl</code></a>.</div>
 </div>
 
 
@@ -171,48 +166,13 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">try {
-  const tileset = await Cesium.Cesium3DTileset.fromUrl(
-     "http://localhost:8002/tilesets/Seattle/tileset.json"
-  );
-  scene.primitives.add(tileset);
-} catch (error) {
-  console.error(`Error creating tileset: ${error}`);
-}</code></pre>
+    <pre><code class="language-javascript">try {  const tileset = await Cesium.Cesium3DTileset.fromUrl(     "http://localhost:8002/tilesets/Seattle/tileset.json"  );  scene.primitives.add(tileset);} catch (error) {  console.error(`Error creating tileset: ${error}`);}</code></pre>
 
-    <pre><code class="language-javascript">// Turn on camera collisions with the tileset.
-try {
-  const tileset = await Cesium.Cesium3DTileset.fromUrl(
-     "http://localhost:8002/tilesets/Seattle/tileset.json",
-     { enableCollision: true }
-  );
-  scene.primitives.add(tileset);
-} catch (error) {
-  console.error(`Error creating tileset: ${error}`);
-}</code></pre>
+    <pre><code class="language-javascript">// Turn on camera collisions with the tileset.try {  const tileset = await Cesium.Cesium3DTileset.fromUrl(     "http://localhost:8002/tilesets/Seattle/tileset.json",     { enableCollision: true }  );  scene.primitives.add(tileset);} catch (error) {  console.error(`Error creating tileset: ${error}`);}</code></pre>
 
-    <pre><code class="language-javascript">// Common setting for the skipLevelOfDetail optimization
-const tileset = await Cesium.Cesium3DTileset.fromUrl(
-  "http://localhost:8002/tilesets/Seattle/tileset.json", {
-     skipLevelOfDetail: true,
-     baseScreenSpaceError: 1024,
-     skipScreenSpaceErrorFactor: 16,
-     skipLevels: 1,
-     immediatelyLoadDesiredLevelOfDetail: false,
-     loadSiblings: false,
-     cullWithChildrenBounds: true
-});
-scene.primitives.add(tileset);</code></pre>
+    <pre><code class="language-javascript">// Common setting for the skipLevelOfDetail optimizationconst tileset = await Cesium.Cesium3DTileset.fromUrl(  "http://localhost:8002/tilesets/Seattle/tileset.json", {     skipLevelOfDetail: true,     baseScreenSpaceError: 1024,     skipScreenSpaceErrorFactor: 16,     skipLevels: 1,     immediatelyLoadDesiredLevelOfDetail: false,     loadSiblings: false,     cullWithChildrenBounds: true});scene.primitives.add(tileset);</code></pre>
 
-    <pre><code class="language-javascript">// Common settings for the dynamicScreenSpaceError optimization
-const tileset = await Cesium.Cesium3DTileset.fromUrl(
-  "http://localhost:8002/tilesets/Seattle/tileset.json", {
-     dynamicScreenSpaceError: true,
-     dynamicScreenSpaceErrorDensity: 2.0e-4,
-     dynamicScreenSpaceErrorFactor: 24.0,
-     dynamicScreenSpaceErrorHeightFalloff: 0.25
-});
-scene.primitives.add(tileset);</code></pre>
+    <pre><code class="language-javascript">// Common settings for the dynamicScreenSpaceError optimizationconst tileset = await Cesium.Cesium3DTileset.fromUrl(  "http://localhost:8002/tilesets/Seattle/tileset.json", {     dynamicScreenSpaceError: true,     dynamicScreenSpaceErrorDensity: 2.0e-4,     dynamicScreenSpaceErrorFactor: 24.0,     dynamicScreenSpaceErrorHeightFalloff: 0.25});scene.primitives.add(tileset);</code></pre>
 
     
 
@@ -269,11 +229,7 @@ scene.primitives.add(tileset);</code></pre>
 
 
 <div class="description">
-    触发事件以指示加载此帧中符合屏幕空间错误的所有图块。图块集
-已完全加载此视图。
-<p>
-此事件在场景渲染后的帧结束时触发。
-</p>
+    触发事件以指示加载此帧中符合屏幕空间错误的所有图块。图块集已完全加载此视图。<p>此事件在场景渲染后的帧结束时触发。</p>
 </div>
 
 
@@ -305,9 +261,7 @@ scene.primitives.add(tileset);</code></pre>
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">tileset.allTilesLoaded.addEventListener(function() {
-    console.log('All tiles are loaded');
-});</code></pre>
+    <pre><code class="language-javascript">tileset.allTilesLoaded.addEventListener(function() {    console.log('All tiles are loaded');});</code></pre>
 
     
 
@@ -348,11 +302,7 @@ scene.primitives.add(tileset);</code></pre>
 
 
 <div class="description">
-    获取图块集的 asset object 属性，其中包含有关图块集的元数据。
-<p>
-请参阅 <a href="https://github.com/CesiumGS/3d-tiles/tree/main/specification#reference-asset">asset schema reference</a>
-在 3D Tiles 规范中了解完整的属性集。
-</p>
+    获取图块集的 asset object 属性，其中包含有关图块集的元数据。<p>请参阅 <a href="https://github.com/CesiumGS/3d-tiles/tree/main/specification#reference-asset">asset schema reference</a>在 3D Tiles 规范中了解完整的属性集。</p>
 </div>
 
 
@@ -412,8 +362,7 @@ scene.primitives.add(tileset);</code></pre>
 
 
 <div class="description">
-    是否剔除背面的几何体。如果为 true，则确定背面剔除
-通过 glTF 材质的 doubleSided 属性;如果为 false，则禁用背面剔除。
+    是否剔除背面的几何体。如果为 true，则确定背面剔除通过 glTF 材质的 doubleSided 属性;如果为 false，则禁用背面剔除。
 </div>
 
 
@@ -541,10 +490,7 @@ scene.primitives.add(tileset);</code></pre>
 
 
 <div class="description">
-    在跳过细节级别之前必须达到的屏幕空间错误。
-<p>
-仅在 <a href="Cesium3DTileset.html#skipLevelOfDetail"><code>Cesium3DTileset#skipLevelOfDetail</code></a> 为 <code>true</code> 时使用。
-</p>
+    在跳过细节级别之前必须达到的屏幕空间错误。<p>仅在 <a href="Cesium3DTileset.html#skipLevelOfDetail"><code>Cesium3DTileset#skipLevelOfDetail</code></a> 为 <code>true</code> 时使用。</p>
 </div>
 
 
@@ -636,12 +582,7 @@ scene.primitives.add(tileset);</code></pre>
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const tileset = await Cesium.Cesium3DTileset.fromUrl("http://localhost:8002/tilesets/Seattle/tileset.json");
-
-viewer.scene.primitives.add(tileset);
-
-// Set the camera to view the newly added tileset
-viewer.camera.viewBoundingSphere(tileset.boundingSphere, new Cesium.HeadingPitchRange(0, -0.5, 0));</code></pre>
+    <pre><code class="language-javascript">const tileset = await Cesium.Cesium3DTileset.fromUrl("http://localhost:8002/tilesets/Seattle/tileset.json");viewer.scene.primitives.add(tileset);// Set the camera to view the newly added tilesetviewer.camera.viewBoundingSphere(tileset.boundingSphere, new Cesium.HeadingPitchRange(0, -0.5, 0));</code></pre>
 
     
 
@@ -677,25 +618,7 @@ viewer.camera.viewBoundingSphere(tileset.boundingSphere, new Cesium.HeadingPitch
 
 
 <div class="description">
-    用于缓存切片的 GPU 内存量（以字节为单位）。此内存使用量的估计公式为
-加载的图块的几何图形、纹理和批处理表纹理。对于点云，此值还
-包括每个点的元数据。
-<p>
-未在视图中的图块将被卸载以强制执行此操作。
-</p>
-<p>
-如果减小此值导致卸载图块，则会在下一帧卸载图块。
-</p>
-<p>
-如果需要大小大于 <code>cacheBytes</code> 的切片才能满足
-所需屏幕空间误差，由 <a href="Cesium3DTileset.html#maximumScreenSpaceError"><code>Cesium3DTileset#maximumScreenSpaceError</code></a> 确定，
-对于当前视图，则加载的瓦片的内存使用量将超过
-<code>cacheBytes</code> 最多增加 <code>maximumCacheOverflowBytes</code>。
-例如，如果 <code>cacheBytes</code> 为 500000，但为 600000 字节
-的瓦片需要满足屏幕空间错误，则 600000 字节的瓦片
-可能会加载（如果 <code>maximumCacheOverflowBytes</code> 至少为 100000）。
-当这些图块离开视野时，它们将被卸载。
-</p>
+    用于缓存切片的 GPU 内存量（以字节为单位）。此内存使用量的估计公式为加载的图块的几何图形、纹理和批处理表纹理。对于点云，此值还包括每个点的元数据。<p>未在视图中的图块将被卸载以强制执行此操作。</p><p>如果减小此值导致卸载图块，则会在下一帧卸载图块。</p><p>如果需要大小大于 <code>cacheBytes</code> 的切片才能满足所需屏幕空间误差，由 <a href="Cesium3DTileset.html#maximumScreenSpaceError"><code>Cesium3DTileset#maximumScreenSpaceError</code></a> 确定，对于当前视图，则加载的瓦片的内存使用量将超过<code>cacheBytes</code> 最多增加 <code>maximumCacheOverflowBytes</code>。例如，如果 <code>cacheBytes</code> 为 500000，但为 600000 字节的瓦片需要满足屏幕空间错误，则 600000 字节的瓦片可能会加载（如果 <code>maximumCacheOverflowBytes</code> 至少为 100000）。当这些图块离开视野时，它们将被卸载。</p>
 </div>
 
 
@@ -763,33 +686,7 @@ viewer.camera.viewBoundingSphere(tileset.boundingSphere, new Cesium.HeadingPitch
 
 
 <div class="description">
-    确定地形、3D 瓦片还是按此瓦片集对两者进行分类。
-<p>
-此选项仅适用于包含批处理 3D 模型的瓦片集，
-glTF 内容、几何数据或矢量数据。即使未定义，vector
-和几何数据必须呈现为分类，并将默认为
-在地形和其他 3D 瓦片集上渲染。
-</p>
-<p>
-当为批处理 3D 模型和 glTF 瓦片集启用时，有一些
-glTF 的要求/限制：
-<ul>
-<li>glTF 不能包含变形目标、皮肤或动画。</li>
-<li>glTF 不能包含 <code>EXT_mesh_gpu_instancing</code> 扩展。</li>
-<li>只有带有 TRIANGLES 的网格才能用于对其他资产进行分类。</li>
-<li>网格必须防水。</li>
-<li>需要 <code>POSITION</code> 语义。</li>
-<li>如果 <code>_BATCHID</code>秒和索引缓冲区都存在，则具有相同批处理 ID 的所有索引必须占据索引缓冲区的连续部分。</li>
-<li>如果存在没有索引缓冲区的 <code>_BATCHID</code>个，则具有相同批处理 ID 的所有位置必须占据位置缓冲区的连续部分。</li>
-</ul>
-</p>
-<p>
-此外，点或实例化 3D 不支持分类
-模型。
-</p>
-<p>
-接受分类的 3D 瓦片或地形必须是不透明的。
-</p>
+    确定地形、3D 瓦片还是按此瓦片集对两者进行分类。<p>此选项仅适用于包含批处理 3D 模型的瓦片集，glTF 内容、几何数据或矢量数据。即使未定义，vector和几何数据必须呈现为分类，并将默认为在地形和其他 3D 瓦片集上渲染。</p><p>当为批处理 3D 模型和 glTF 瓦片集启用时，有一些glTF 的要求/限制：<ul><li>glTF 不能包含变形目标、皮肤或动画。</li><li>glTF 不能包含 <code>EXT_mesh_gpu_instancing</code> 扩展。</li><li>只有带有 TRIANGLES 的网格才能用于对其他资产进行分类。</li><li>网格必须防水。</li><li>需要 <code>POSITION</code> 语义。</li><li>如果 <code>_BATCHID</code>秒和索引缓冲区都存在，则具有相同批处理 ID 的所有索引必须占据索引缓冲区的连续部分。</li><li>如果存在没有索引缓冲区的 <code>_BATCHID</code>个，则具有相同批处理 ID 的所有位置必须占据位置缓冲区的连续部分。</li></ul></p><p>此外，点或实例化 3D 不支持分类模型。</p><p>接受分类的 3D 瓦片或地形必须是不透明的。</p>
 </div>
 
 
@@ -979,9 +876,7 @@ glTF 的要求/限制：
 
 
 <div class="description">
-    定义当 <a href="Cesium3DTileset.html#colorBlendMode"><code>Cesium3DTileset#colorBlendMode</code></a> 为 <code>MIX</code> 时，用于在源颜色和特征颜色之间线性插值的值。
-值为 0.0 时，将生成源颜色，而值为 1.0 时，将生成特征颜色，介于两者之间的任何值
-导致源颜色和特征颜色的混合。
+    定义当 <a href="Cesium3DTileset.html#colorBlendMode"><code>Cesium3DTileset#colorBlendMode</code></a> 为 <code>MIX</code> 时，用于在源颜色和特征颜色之间线性插值的值。值为 0.0 时，将生成源颜色，而值为 1.0 时，将生成特征颜色，介于两者之间的任何值导致源颜色和特征颜色的混合。
 </div>
 
 
@@ -1044,8 +939,7 @@ glTF 的要求/限制：
 
 
 <div class="description">
-    定义从 Cesium API 或声明式样式设置的每个特征颜色如何与
-原始特征，例如 glTF 材质或瓦片中的每点颜色。
+    定义从 Cesium API 或声明式样式设置的每个特征颜色如何与原始特征，例如 glTF 材质或瓦片中的每点颜色。
 </div>
 
 
@@ -1234,9 +1128,7 @@ glTF 的要求/限制：
 
 
 <div class="description">
-    应用于图块集中所有图块的自定义着色器。仅用于
-使用 <a href="Model.html"><code>Model</code></a> 的内容。将自定义着色器与
-<a href="Cesium3DTileStyle.html"><code>Cesium3DTileStyle</code></a> 可能会导致未定义的行为。
+    应用于图块集中所有图块的自定义着色器。仅用于使用 <a href="Model.html"><code>Model</code></a> 的内容。将自定义着色器与<a href="Cesium3DTileStyle.html"><code>Cesium3DTileStyle</code></a> 可能会导致未定义的行为。
 </div>
 
 
@@ -1306,12 +1198,7 @@ glTF 的要求/限制：
 
 
 <div class="description">
-    此属性仅用于调试;它未针对生产使用进行优化。
-<p>
-如果为 true，则为每个平铺分配随机颜色。 这对于可视化
-哪些特征属于哪些瓦片，尤其是使用加法细化 WHERE 特征
-来自父切片的要素可以与来自子切片的要素交错。
-</p>
+    此属性仅用于调试;它未针对生产使用进行优化。<p>如果为 true，则为每个平铺分配随机颜色。 这对于可视化哪些特征属于哪些瓦片，尤其是使用加法细化 WHERE 特征来自父切片的要素可以与来自子切片的要素交错。</p>
 </div>
 
 
@@ -1374,12 +1261,7 @@ glTF 的要求/限制：
 
 
 <div class="description">
-    此属性仅用于调试;它未针对生产使用进行优化。
-<p>
-确定是否只应使用上一帧中的平铺进行渲染。 这
-有效地将 tileset “冻结”到前一帧，以便可以缩放
-出来，看看渲染了什么。
-</p>
+    此属性仅用于调试;它未针对生产使用进行优化。<p>确定是否只应使用上一帧中的平铺进行渲染。 这有效地将 tileset “冻结”到前一帧，以便可以缩放出来，看看渲染了什么。</p>
 </div>
 
 
@@ -1442,12 +1324,7 @@ glTF 的要求/限制：
 
 
 <div class="description">
-    此属性仅用于调试;它未针对生产使用进行优化。
-<p>
-如果为 true，则渲染每个可见瓦片的边界体积。 边界体积为
-如果磁贴具有内容边界卷或为空，则为白色;否则，它将变为红色。 不符合
-屏幕空间错误，并且仍在优化其后代是黄色的。
-</p>
+    此属性仅用于调试;它未针对生产使用进行优化。<p>如果为 true，则渲染每个可见瓦片的边界体积。 边界体积为如果磁贴具有内容边界卷或为空，则为白色;否则，它将变为红色。 不符合屏幕空间错误，并且仍在优化其后代是黄色的。</p>
 </div>
 
 
@@ -1510,11 +1387,7 @@ glTF 的要求/限制：
 
 
 <div class="description">
-    此属性仅用于调试;它未针对生产使用进行优化。
-<p>
-如果为 true，则渲染每个可见图块内容的边界体积。边界体积为
-如果磁贴具有内容边界体积，则为蓝色;否则为红色。
-</p>
+    此属性仅用于调试;它未针对生产使用进行优化。<p>如果为 true，则渲染每个可见图块内容的边界体积。边界体积为如果磁贴具有内容边界体积，则为蓝色;否则为红色。</p>
 </div>
 
 
@@ -1577,10 +1450,7 @@ glTF 的要求/限制：
 
 
 <div class="description">
-    此属性仅用于调试;它未针对生产使用进行优化。
-<p>
-如果为 true，则绘制标签以指示每个图块的几何误差。
-</p>
+    此属性仅用于调试;它未针对生产使用进行优化。<p>如果为 true，则绘制标签以指示每个图块的几何误差。</p>
 </div>
 
 
@@ -1643,10 +1513,7 @@ glTF 的要求/限制：
 
 
 <div class="description">
-    此属性仅用于调试;它未针对生产使用进行优化。
-<p>
-如果为 true，则绘制标签以指示每个瓦片的几何图形和纹理内存使用情况。
-</p>
+    此属性仅用于调试;它未针对生产使用进行优化。<p>如果为 true，则绘制标签以指示每个瓦片的几何图形和纹理内存使用情况。</p>
 </div>
 
 
@@ -1709,10 +1576,7 @@ glTF 的要求/限制：
 
 
 <div class="description">
-    此属性仅用于调试;它未针对生产使用进行优化。
-<p>
-如果为 true，则绘制标签以指示每个图块的命令、点、三角形和功能的数量。
-</p>
+    此属性仅用于调试;它未针对生产使用进行优化。<p>如果为 true，则绘制标签以指示每个图块的命令、点、三角形和功能的数量。</p>
 </div>
 
 
@@ -1775,10 +1639,7 @@ glTF 的要求/限制：
 
 
 <div class="description">
-    此属性仅用于调试;它未针对生产使用进行优化。
-<p>
-如果为 true，则绘制标签以指示每个图块的 URL。
-</p>
+    此属性仅用于调试;它未针对生产使用进行优化。<p>如果为 true，则绘制标签以指示每个图块的 URL。</p>
 </div>
 
 
@@ -1841,10 +1702,7 @@ glTF 的要求/限制：
 
 
 <div class="description">
-    此属性仅用于调试;它未针对生产使用进行优化。
-<p>
-如果为 true，则呈现每个图块的查看器请求量。
-</p>
+    此属性仅用于调试;它未针对生产使用进行优化。<p>如果为 true，则呈现每个图块的查看器请求量。</p>
 </div>
 
 
@@ -1907,10 +1765,7 @@ glTF 的要求/限制：
 
 
 <div class="description">
-    此属性仅用于调试;它未针对生产使用进行优化。
-<p>
-如果为 true，则将每个瓦片的内容呈现为线框。
-</p>
+    此属性仅用于调试;它未针对生产使用进行优化。<p>如果为 true，则将每个瓦片的内容呈现为线框。</p>
 </div>
 
 
@@ -1973,11 +1828,7 @@ glTF 的要求/限制：
 
 
 <div class="description">
-    优化选项。对于街道级别的地平线视图，请使用远离摄像机的较低分辨率图块。这减少了
-加载的数据量并缩短了图块集加载时间，但远处的视觉质量略有下降。
-<p>
-当相机靠近图块集的地平面并查看
-地平线。此外，对于紧密拟合的边界体积（如框和区域），结果更加准确。
+    优化选项。对于街道级别的地平线视图，请使用远离摄像机的较低分辨率图块。这减少了加载的数据量并缩短了图块集加载时间，但远处的视觉质量略有下降。<p>当相机靠近图块集的地平面并查看地平线。此外，对于紧密拟合的边界体积（如框和区域），结果更加准确。
 </div>
 
 
@@ -2040,22 +1891,7 @@ glTF 的要求/限制：
 
 
 <div class="description">
-    与 <a href="Fog.html#density"><code>Fog#density</code></a> 类似，此选项控制 <a href="Cesium3DTileset.html#dynamicScreenSpaceError"><code>Cesium3DTileset#dynamicScreenSpaceError</code></a> 的摄像机距离
-优化适用。较大的值将导致靠近摄像机的图块受到影响。此值必须为
-非负数。
-<p>
-此优化的工作原理是消除像钟形曲线一样的相机距离的平铺屏幕空间误差 （SSE）。
-这具有选择远离摄像机的低分辨率图块的效果。在相机附近，不进行调整
-䍬。对于较远的图块，SSE 最多可降低 <a href="Cesium3DTileset.html#dynamicScreenSpaceErrorFactor"><code>Cesium3DTileset#dynamicScreenSpaceErrorFactor</code></a>
-（以误差像素为单位）。
-</p>
-<p>
-增加密度会使钟形曲线变窄，因此更靠近摄像机的平铺会受到影响。这是类比的
-将雾移近摄像机。
-</p>
-<p>
-当密度为 0 时，优化对瓦片集没有影响。
-</p>
+    与 <a href="Fog.html#density"><code>Fog#density</code></a> 类似，此选项控制 <a href="Cesium3DTileset.html#dynamicScreenSpaceError"><code>Cesium3DTileset#dynamicScreenSpaceError</code></a> 的摄像机距离优化适用。较大的值将导致靠近摄像机的图块受到影响。此值必须为非负数。<p>此优化的工作原理是消除像钟形曲线一样的相机距离的平铺屏幕空间误差 （SSE）。这具有选择远离摄像机的低分辨率图块的效果。在相机附近，不进行调整䍬。对于较远的图块，SSE 最多可降低 <a href="Cesium3DTileset.html#dynamicScreenSpaceErrorFactor"><code>Cesium3DTileset#dynamicScreenSpaceErrorFactor</code></a>（以误差像素为单位）。</p><p>增加密度会使钟形曲线变窄，因此更靠近摄像机的平铺会受到影响。这是类比的将雾移近摄像机。</p><p>当密度为 0 时，优化对瓦片集没有影响。</p>
 </div>
 
 
@@ -2118,17 +1954,7 @@ glTF 的要求/限制：
 
 
 <div class="description">
-    一个参数，用于控制 <a href="Cesium3DTileset.html#dynamicScreenSpaceError"><code>Cesium3DTileset#dynamicScreenSpaceError</code></a> 的优化强度
-地平线上的瓷砖。较大的值会导致加载较低分辨率的图块，从而略微提高运行时性能
-降低视觉质量。该值必须为非负数。
-<p>
-更具体地说，此参数表示磁贴的屏幕空间误差 （SSE） 的最大调整值（以像素为单位）
-远离相机。有关如何操作的更多详细信息，请参阅 <a href="Cesium3DTileset.html#dynamicScreenSpaceErrorDensity"><code>Cesium3DTileset#dynamicScreenSpaceErrorDensity</code></a>
-此优化有效。
-</p>
-<p>
-当 SSE 因子设置为 0 时，优化将对图块集没有影响。
-</p>
+    一个参数，用于控制 <a href="Cesium3DTileset.html#dynamicScreenSpaceError"><code>Cesium3DTileset#dynamicScreenSpaceError</code></a> 的优化强度地平线上的瓷砖。较大的值会导致加载较低分辨率的图块，从而略微提高运行时性能降低视觉质量。该值必须为非负数。<p>更具体地说，此参数表示磁贴的屏幕空间误差 （SSE） 的最大调整值（以像素为单位）远离相机。有关如何操作的更多详细信息，请参阅 <a href="Cesium3DTileset.html#dynamicScreenSpaceErrorDensity"><code>Cesium3DTileset#dynamicScreenSpaceErrorDensity</code></a>此优化有效。</p><p>当 SSE 因子设置为 0 时，优化将对图块集没有影响。</p>
 </div>
 
 
@@ -2191,10 +2017,7 @@ glTF 的要求/限制：
 
 
 <div class="description">
-    确定 <a href="Cesium3DTileset.html#dynamicScreenSpaceError"><code>Cesium3DTileset#dynamicScreenSpaceError</code></a> 的“街道级别”的图块集高度比率
-优化。当摄像头低于此高度时，动态屏幕空间误差优化将具有最大值
-效果，并且它将在此值以上滚降。有效值介于 0.0 和 1.0 之间。
-<p>
+    确定 <a href="Cesium3DTileset.html#dynamicScreenSpaceError"><code>Cesium3DTileset#dynamicScreenSpaceError</code></a> 的“街道级别”的图块集高度比率优化。当摄像头低于此高度时，动态屏幕空间误差优化将具有最大值效果，并且它将在此值以上滚降。有效值介于 0.0 和 1.0 之间。<p>
 </div>
 
 
@@ -2507,8 +2330,7 @@ glTF 的要求/限制：
 
 
 <div class="description">
-    返回图块集 JSON 顶层的 <code>extras</code> 属性，其中包含特定于应用程序的元数据。
-如果 <code>extras</code> 不存在，则返回 <code>undefined</code>。
+    返回图块集 JSON 顶层的 <code>extras</code> 属性，其中包含特定于应用程序的元数据。如果 <code>extras</code> 不存在，则返回 <code>undefined</code>。
 </div>
 
 
@@ -2573,21 +2395,7 @@ glTF 的要求/限制：
 
 
 <div class="description">
-    用于拾取和样式设置的特征 ID 的标签。
-<p>
-对于EXT_mesh_features，这是要素 ID 的 label 属性，或者
-“featureId_N”（其中 N 是 featureIds 数组中的索引），否则
-指定。EXT_feature_metadata没有 label 字段，因此
-要素 ID 集始终标记为“featureId_N”，其中 N 是
-所有特征 ID 的列表，其中特征 ID 属性列在前面
-特征 ID 纹理。
-</p>
-<p>
-如果 featureIdLabel 设置为整数 N，则将其转换为
-字符串 “featureId_N” 自动。如果每个基元和
-存在每个实例的功能 ID，实例功能 ID 采用
-优先权。
-</p>
+    用于拾取和样式设置的特征 ID 的标签。<p>对于EXT_mesh_features，这是要素 ID 的 label 属性，或者“featureId_N”（其中 N 是 featureIds 数组中的索引），否则指定。EXT_feature_metadata没有 label 字段，因此要素 ID 集始终标记为“featureId_N”，其中 N 是所有特征 ID 的列表，其中特征 ID 属性列在前面特征 ID 纹理。</p><p>如果 featureIdLabel 设置为整数 N，则将其转换为字符串 “featureId_N” 自动。如果每个基元和存在每个实例的功能 ID，实例功能 ID 采用优先权。</p>
 </div>
 
 
@@ -2654,9 +2462,7 @@ glTF 的要求/限制：
 
 
 <div class="description">
-    优化选项。当 <a href="Cesium3DTileset.html#foveatedScreenSpaceError"><code>Cesium3DTileset#foveatedScreenSpaceError</code></a> 为 true 时使用，以控制确定延迟哪些图块的圆锥体大小。
-此圆锥体内的图块会立即加载。圆锥体外的图块可能会根据它们在圆锥体外的距离以及 <a href="Cesium3DTileset.html#foveatedInterpolationCallback"><code>Cesium3DTileset#foveatedInterpolationCallback</code></a> 和 <a href="Cesium3DTileset.html#foveatedMinimumScreenSpaceErrorRelaxation"><code>Cesium3DTileset#foveatedMinimumScreenSpaceErrorRelaxation</code></a> 进行延迟。
-将此设置为 0.0 意味着圆锥体将是摄像机位置及其视图方向形成的线。将此设置为 1.0 意味着圆锥体包含摄像机的整个视野，实质上会禁用该效果。
+    优化选项。当 <a href="Cesium3DTileset.html#foveatedScreenSpaceError"><code>Cesium3DTileset#foveatedScreenSpaceError</code></a> 为 true 时使用，以控制确定延迟哪些图块的圆锥体大小。此圆锥体内的图块会立即加载。圆锥体外的图块可能会根据它们在圆锥体外的距离以及 <a href="Cesium3DTileset.html#foveatedInterpolationCallback"><code>Cesium3DTileset#foveatedInterpolationCallback</code></a> 和 <a href="Cesium3DTileset.html#foveatedMinimumScreenSpaceErrorRelaxation"><code>Cesium3DTileset#foveatedMinimumScreenSpaceErrorRelaxation</code></a> 进行延迟。将此设置为 0.0 意味着圆锥体将是摄像机位置及其视图方向形成的线。将此设置为 1.0 意味着圆锥体包含摄像机的整个视野，实质上会禁用该效果。
 </div>
 
 
@@ -2719,8 +2525,7 @@ glTF 的要求/限制：
 
 
 <div class="description">
-    获取或设置回调以控制在注视点圆锥体之外的图块的屏幕空间误差的提高程度，
-在 <a href="Cesium3DTileset.html#foveatedMinimumScreenSpaceErrorRelaxation"><code>Cesium3DTileset#foveatedMinimumScreenSpaceErrorRelaxation</code></a> 和 <a href="Cesium3DTileset.html#maximumScreenSpaceError"><code>Cesium3DTileset#maximumScreenSpaceError</code></a> 之间插值。
+    获取或设置回调以控制在注视点圆锥体之外的图块的屏幕空间误差的提高程度，在 <a href="Cesium3DTileset.html#foveatedMinimumScreenSpaceErrorRelaxation"><code>Cesium3DTileset#foveatedMinimumScreenSpaceErrorRelaxation</code></a> 和 <a href="Cesium3DTileset.html#maximumScreenSpaceError"><code>Cesium3DTileset#maximumScreenSpaceError</code></a> 之间插值。
 </div>
 
 
@@ -2780,8 +2585,7 @@ glTF 的要求/限制：
 
 
 <div class="description">
-    优化选项。当 <a href="Cesium3DTileset.html#foveatedScreenSpaceError"><code>Cesium3DTileset#foveatedScreenSpaceError</code></a> 为 true 时使用，以控制凹圆锥体外磁贴的起始屏幕空间误差松弛。
-根据提供的 <a href="Cesium3DTileset.html#foveatedInterpolationCallback"><code>Cesium3DTileset#foveatedInterpolationCallback</code></a>，从此值开始，将引发屏幕空间错误，直到 <a href="Cesium3DTileset.html#maximumScreenSpaceError"><code>Cesium3DTileset#maximumScreenSpaceError</code></a>。
+    优化选项。当 <a href="Cesium3DTileset.html#foveatedScreenSpaceError"><code>Cesium3DTileset#foveatedScreenSpaceError</code></a> 为 true 时使用，以控制凹圆锥体外磁贴的起始屏幕空间误差松弛。根据提供的 <a href="Cesium3DTileset.html#foveatedInterpolationCallback"><code>Cesium3DTileset#foveatedInterpolationCallback</code></a>，从此值开始，将引发屏幕空间错误，直到 <a href="Cesium3DTileset.html#maximumScreenSpaceError"><code>Cesium3DTileset#maximumScreenSpaceError</code></a>。
 </div>
 
 
@@ -2844,9 +2648,7 @@ glTF 的要求/限制：
 
 
 <div class="description">
-    优化选项。通过暂时提高
-屏幕边缘图块的屏幕空间错误。屏幕空间错误在全部
-加载由 <a href="Cesium3DTileset.html#foveatedConeSize"><code>Cesium3DTileset#foveatedConeSize</code></a> 确定的屏幕中央的图块。
+    优化选项。通过暂时提高屏幕边缘图块的屏幕空间错误。屏幕空间错误在全部加载由 <a href="Cesium3DTileset.html#foveatedConeSize"><code>Cesium3DTileset#foveatedConeSize</code></a> 确定的屏幕中央的图块。
 </div>
 
 
@@ -2909,10 +2711,7 @@ glTF 的要求/限制：
 
 
 <div class="description">
-    优化选项。当 <a href="Cesium3DTileset.html#foveatedScreenSpaceError"><code>Cesium3DTileset#foveatedScreenSpaceError</code></a> 为 true 时用于控制
-在相机停止移动后，延迟图块开始加载之前要等待多长时间（以秒为单位）。
-此时间延迟可防止在摄像机移动时请求屏幕边缘的磁贴。
-将此设置为 0.0 将立即请求任何给定视图中的所有图块。
+    优化选项。当 <a href="Cesium3DTileset.html#foveatedScreenSpaceError"><code>Cesium3DTileset#foveatedScreenSpaceError</code></a> 为 true 时用于控制在相机停止移动后，延迟图块开始加载之前要等待多长时间（以秒为单位）。此时间延迟可防止在摄像机移动时请求屏幕边缘的磁贴。将此设置为 0.0 将立即请求任何给定视图中的所有图块。
 </div>
 
 
@@ -3035,11 +2834,7 @@ glTF 的要求/限制：
 
 
 <div class="description">
-    如果为 true，则只会下载满足最大屏幕空间误差的磁贴。
-跳过因素将被忽略，仅加载所需的图块。
-<p>
-仅在 <a href="Cesium3DTileset.html#skipLevelOfDetail"><code>Cesium3DTileset#skipLevelOfDetail</code></a> 为 <code>true</code> 时使用。
-</p>
+    如果为 true，则只会下载满足最大屏幕空间误差的磁贴。跳过因素将被忽略，仅加载所需的图块。<p>仅在 <a href="Cesium3DTileset.html#skipLevelOfDetail"><code>Cesium3DTileset#skipLevelOfDetail</code></a> 为 <code>true</code> 时使用。</p>
 </div>
 
 
@@ -3102,11 +2897,7 @@ glTF 的要求/限制：
 
 
 <div class="description">
-    触发事件以指示加载此帧中符合屏幕空间错误的所有图块。此活动
-在加载初始视图中的所有图块时触发一次。
-<p>
-此事件在场景渲染后的帧结束时触发。
-</p>
+    触发事件以指示加载此帧中符合屏幕空间错误的所有图块。此活动在加载初始视图中的所有图块时触发一次。<p>此事件在场景渲染后的帧结束时触发。</p>
 </div>
 
 
@@ -3138,9 +2929,7 @@ glTF 的要求/限制：
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">tileset.initialTilesLoaded.addEventListener(function() {
-    console.log('Initial tiles are loaded');
-});</code></pre>
+    <pre><code class="language-javascript">tileset.initialTilesLoaded.addEventListener(function() {    console.log('Initial tiles are loaded');});</code></pre>
 
     
 
@@ -3181,13 +2970,7 @@ glTF 的要求/限制：
 
 
 <div class="description">
-    用于选取和设置样式的实例特征 ID 集的标签。
-<p>
-如果 instanceFeatureIdLabel 设置为整数 N，则将其转换为
-字符串 “instanceFeatureId_N” 自动。
-如果每个基元和每个实例的特征 ID 都存在，则
-实例功能 ID 优先。
-</p>
+    用于选取和设置样式的实例特征 ID 集的标签。<p>如果 instanceFeatureIdLabel 设置为整数 N，则将其转换为字符串 “instanceFeatureId_N” 自动。如果每个基元和每个实例的特征 ID 都存在，则实例功能 ID 优先。</p>
 </div>
 
 
@@ -3254,12 +3037,7 @@ glTF 的要求/限制：
 
 
 <div class="description">
-    为模型着色时的光色。<code>如果未定义</code>，则使用场景的 light 颜色。
-<p>
-例如，通过设置
-<code>tileset.imageBasedLighting.imageBasedLightingFactor = 新笛卡尔2（0.0， 0.0）</code>
-会使图块集更暗。在这里，增加光源的强度将使图块集更亮。
-</p>
+    为模型着色时的光色。<code>如果未定义</code>，则使用场景的 light 颜色。<p>例如，通过设置<code>tileset.imageBasedLighting.imageBasedLightingFactor = 新笛卡尔2（0.0， 0.0）</code>会使图块集更暗。在这里，增加光源的强度将使图块集更亮。</p>
 </div>
 
 
@@ -3322,16 +3100,7 @@ glTF 的要求/限制：
 
 
 <div class="description">
-    触发事件以指示加载新图块的进度。 当新瓦片
-是请求的，当请求的磁贴完成下载，并且下载的磁贴已
-已处理并准备好渲染。
-<p>
-待处理磁贴请求的数量、<code>numberOfPendingRequests</code> 和磁贴数量
-<code>processing，numberOfTilesProcessing</code> 将传递给事件侦听器。
-</p>
-<p>
-此事件在场景渲染后的帧结束时触发。
-</p>
+    触发事件以指示加载新图块的进度。 当新瓦片是请求的，当请求的磁贴完成下载，并且下载的磁贴已已处理并准备好渲染。<p>待处理磁贴请求的数量、<code>numberOfPendingRequests</code> 和磁贴数量<code>processing，numberOfTilesProcessing</code> 将传递给事件侦听器。</p><p>此事件在场景渲染后的帧结束时触发。</p>
 </div>
 
 
@@ -3363,14 +3132,7 @@ glTF 的要求/限制：
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">tileset.loadProgress.addEventListener(function(numberOfPendingRequests, numberOfTilesProcessing) {
-    if ((numberOfPendingRequests === 0) &amp;&amp; (numberOfTilesProcessing === 0)) {
-        console.log('Stopped loading');
-        return;
-    }
-
-    console.log(`Loading: requests: ${numberOfPendingRequests}, processing: ${numberOfTilesProcessing}`);
-});</code></pre>
+    <pre><code class="language-javascript">tileset.loadProgress.addEventListener(function(numberOfPendingRequests, numberOfTilesProcessing) {    if ((numberOfPendingRequests === 0) &amp;&amp; (numberOfTilesProcessing === 0)) {        console.log('Stopped loading');        return;    }    console.log(`Loading: requests: ${numberOfPendingRequests}, processing: ${numberOfTilesProcessing}`);});</code></pre>
 
     
 
@@ -3406,11 +3168,7 @@ glTF 的要求/限制：
 
 
 <div class="description">
-    确定在遍历期间是否始终下载可见切片的同级。
-这对于确保观看者向左/向右转动时磁贴已经可用可能很有用。
-<p>
-仅在 <a href="Cesium3DTileset.html#skipLevelOfDetail"><code>Cesium3DTileset#skipLevelOfDetail</code></a> 为 <code>true</code> 时使用。
-</p>
+    确定在遍历期间是否始终下载可见切片的同级。这对于确保观看者向左/向右转动时磁贴已经可用可能很有用。<p>仅在 <a href="Cesium3DTileset.html#skipLevelOfDetail"><code>Cesium3DTileset#skipLevelOfDetail</code></a> 为 <code>true</code> 时使用。</p>
 </div>
 
 
@@ -3473,15 +3231,7 @@ glTF 的要求/限制：
 
 
 <div class="description">
-    将用于缓存切片的最大额外 GPU 内存量（以字节为单位）。
-<p>
-如果切片大小大于 <code>cacheBytes</code> 加上 <code>maximumCacheOverflowBytes</code>
-需要满足所需的屏幕空间误差，由
-<a href="Cesium3DTileset.html#maximumScreenSpaceError"><code>Cesium3DTileset#maximumScreenSpaceError</code></a> 表示当前视图，则
-<code>Cesium3DTileset#memoryAdjustedScreenSpaceError</code> 将被调整
-直到平铺所需的满足调整后的屏幕空间误差 使用较少
-大于 <code>cacheBytes</code> 加上 <code>maximumCacheOverflowBytes</code>。
-</p>
+    将用于缓存切片的最大额外 GPU 内存量（以字节为单位）。<p>如果切片大小大于 <code>cacheBytes</code> 加上 <code>maximumCacheOverflowBytes</code>需要满足所需的屏幕空间误差，由<a href="Cesium3DTileset.html#maximumScreenSpaceError"><code>Cesium3DTileset#maximumScreenSpaceError</code></a> 表示当前视图，则<code>Cesium3DTileset#memoryAdjustedScreenSpaceError</code> 将被调整直到平铺所需的满足调整后的屏幕空间误差 使用较少大于 <code>cacheBytes</code> 加上 <code>maximumCacheOverflowBytes</code>。</p>
 </div>
 
 
@@ -3549,17 +3299,7 @@ glTF 的要求/限制：
 
 
 <div class="description">
-    用于驱动细节层次优化的最大屏幕空间误差。 此值有助于确定何时显示
-优化到其后代，因此在平衡性能与视觉质量方面发挥着重要作用。
-<p>
-瓦片的屏幕空间误差大致相当于如果
-半径等于瓦片的<b>几何误差</b>，则在瓦片的位置渲染。如果此值超过
-<code>maximumScreenSpaceError</code> 磁贴细化为其后代。
-</p>
-<p>
-根据图块集，可能需要调整 <code>maximumScreenSpaceError</code> 以实现适当的平衡。
-值越高，性能越好，但视觉质量越低。
-</p>
+    用于驱动细节层次优化的最大屏幕空间误差。 此值有助于确定何时显示优化到其后代，因此在平衡性能与视觉质量方面发挥着重要作用。<p>瓦片的屏幕空间误差大致相当于如果半径等于瓦片的<b>几何误差</b>，则在瓦片的位置渲染。如果此值超过<code>maximumScreenSpaceError</code> 磁贴细化为其后代。</p><p>根据图块集，可能需要调整 <code>maximumScreenSpaceError</code> 以实现适当的平衡。值越高，性能越好，但视觉质量越低。</p>
 </div>
 
 
@@ -3654,14 +3394,7 @@ glTF 的要求/限制：
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Adjust a tileset's height from the globe's surface.
-const heightOffset = 20.0;
-const boundingSphere = tileset.boundingSphere;
-const cartographic = Cesium.Cartographic.fromCartesian(boundingSphere.center);
-const surface = Cesium.Cartesian3.fromRadians(cartographic.longitude, cartographic.latitude, 0.0);
-const offset = Cesium.Cartesian3.fromRadians(cartographic.longitude, cartographic.latitude, heightOffset);
-const translation = Cesium.Cartesian3.subtract(offset, surface, new Cesium.Cartesian3());
-tileset.modelMatrix = Cesium.Matrix4.fromTranslation(translation);</code></pre>
+    <pre><code class="language-javascript">// Adjust a tileset's height from the globe's surface.const heightOffset = 20.0;const boundingSphere = tileset.boundingSphere;const cartographic = Cesium.Cartographic.fromCartesian(boundingSphere.center);const surface = Cesium.Cartesian3.fromRadians(cartographic.longitude, cartographic.latitude, 0.0);const offset = Cesium.Cartesian3.fromRadians(cartographic.longitude, cartographic.latitude, heightOffset);const translation = Cesium.Cartesian3.subtract(offset, surface, new Cesium.Cartesian3());tileset.modelMatrix = Cesium.Matrix4.fromTranslation(translation);</code></pre>
 
     
 
@@ -4072,11 +3805,7 @@ tileset.modelMatrix = Cesium.Matrix4.fromTranslation(translation);</code></pre>
 
 
 <div class="description">
-    获取图块集的 properties 字典对象，其中包含有关每个特征属性的元数据。
-<p>
-请参阅 <a href="https://github.com/CesiumGS/3d-tiles/tree/main/specification#reference-properties">properties 架构参考</a>
-在 3D Tiles 规范中了解完整的属性集。
-</p>
+    获取图块集的 properties 字典对象，其中包含有关每个特征属性的元数据。<p>请参阅 <a href="https://github.com/CesiumGS/3d-tiles/tree/main/specification#reference-properties">properties 架构参考</a>在 3D Tiles 规范中了解完整的属性集。</p>
 </div>
 
 
@@ -4105,8 +3834,7 @@ tileset.modelMatrix = Cesium.Matrix4.fromTranslation(translation);</code></pre>
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">console.log(`Maximum building height: ${tileset.properties.height.maximum}`);
-console.log(`Minimum building height: ${tileset.properties.height.minimum}`);</code></pre>
+    <pre><code class="language-javascript">console.log(`Maximum building height: ${tileset.properties.height.maximum}`);console.log(`Minimum building height: ${tileset.properties.height.minimum}`);</code></pre>
 
     
 
@@ -4269,13 +3997,7 @@ console.log(`Minimum building height: ${tileset.properties.height.minimum}`);</c
 
 
 <div class="description">
-    确定图块集是投射还是接收来自光源的阴影。
-<p>
-启用阴影会影响性能。投射阴影的图块集必须渲染两次，一次从摄像机渲染，另一次从光源的角度渲染。
-</p>
-<p>
-仅当 <a href="Viewer.html#shadows"><code>Viewer#shadows</code></a> 为 <code>true</code> 时，才会渲染阴影。
-</p>
+    确定图块集是投射还是接收来自光源的阴影。<p>启用阴影会影响性能。投射阴影的图块集必须渲染两次，一次从摄像机渲染，另一次从光源的角度渲染。</p><p>仅当 <a href="Viewer.html#shadows"><code>Viewer#shadows</code></a> 为 <code>true</code> 时，才会渲染阴影。</p>
 </div>
 
 
@@ -4464,9 +4186,7 @@ console.log(`Minimum building height: ${tileset.properties.height.minimum}`);</c
 
 
 <div class="description">
-    是否显示使用
-<a href="https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/CESIUM_primitive_outline">CESIUM_primitive_outline</a> 扩展。
-如果为 true，则显示轮廓。如果为 false，则不显示轮廓。
+    是否显示使用<a href="https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/CESIUM_primitive_outline">CESIUM_primitive_outline</a> 扩展。如果为 true，则显示轮廓。如果为 false，则不显示轮廓。
 </div>
 
 
@@ -4529,13 +4249,7 @@ console.log(`Minimum building height: ${tileset.properties.height.minimum}`);</c
 
 
 <div class="description">
-    优化选项。确定在遍历期间是否应应用细节级别跳过。
-<p>
-替换优化遍历的常见策略是将树的所有级别存储在内存中，并且需要
-在父项可以优化之前加载所有子项。通过此优化，可以跳过树的级别
-完全，子项可以与父项一起呈现。在以下情况下，瓦片集需要的内存要少得多
-使用此优化。
-</p>
+    优化选项。确定在遍历期间是否应应用细节级别跳过。<p>替换优化遍历的常见策略是将树的所有级别存储在内存中，并且需要在父项可以优化之前加载所有子项。通过此优化，可以跳过树的级别完全，子项可以与父项一起呈现。在以下情况下，瓦片集需要的内存要少得多使用此优化。</p>
 </div>
 
 
@@ -4598,11 +4312,7 @@ console.log(`Minimum building height: ${tileset.properties.height.minimum}`);</c
 
 
 <div class="description">
-    常量定义加载图块时要跳过的最小级别数。当它为 0 时，不会跳过任何级别。
-例如，如果图块的级别为 1，则不会加载任何图块，除非它们位于大于 2 的级别。
-<p>
-仅在 <a href="Cesium3DTileset.html#skipLevelOfDetail"><code>Cesium3DTileset#skipLevelOfDetail</code></a> 为 <code>true</code> 时使用。
-</p>
+    常量定义加载图块时要跳过的最小级别数。当它为 0 时，不会跳过任何级别。例如，如果图块的级别为 1，则不会加载任何图块，除非它们位于大于 2 的级别。<p>仅在 <a href="Cesium3DTileset.html#skipLevelOfDetail"><code>Cesium3DTileset#skipLevelOfDetail</code></a> 为 <code>true</code> 时使用。</p>
 </div>
 
 
@@ -4665,12 +4375,7 @@ console.log(`Minimum building height: ${tileset.properties.height.minimum}`);</c
 
 
 <div class="description">
-    定义要跳过的最小屏幕空间误差的乘数。
-例如，如果磁贴的屏幕空间误差为 100，则不会加载任何磁贴，除非它们
-是叶子或有屏幕空间错误 <code><= 100 / skipScreenSpaceErrorFactor</code>。
-<p>
-仅在 <a href="Cesium3DTileset.html#skipLevelOfDetail"><code>Cesium3DTileset#skipLevelOfDetail</code></a> 为 <code>true</code> 时使用。
-</p>
+    定义要跳过的最小屏幕空间误差的乘数。例如，如果磁贴的屏幕空间误差为 100，则不会加载任何磁贴，除非它们是叶子或有屏幕空间错误 <code><= 100 / skipScreenSpaceErrorFactor</code>。<p>仅在 <a href="Cesium3DTileset.html#skipLevelOfDetail"><code>Cesium3DTileset#skipLevelOfDetail</code></a> 为 <code>true</code> 时使用。</p>
 </div>
 
 
@@ -4796,26 +4501,7 @@ console.log(`Minimum building height: ${tileset.properties.height.minimum}`);</c
 
 
 <div class="description">
-    样式，使用
-<a href="https://github.com/CesiumGS/3d-tiles/tree/main/specification/Styling">3D 瓦片样式语言</a>，
-应用于图块集中的每个功能。
-<p>
-分配 <code>undefined</code> 以删除样式，这将恢复视觉效果
-未应用样式时，图块集的外观为默认值。
-</p>
-<p>
-样式应用于 <a href="Cesium3DTileset.html#tileVisible"><code>Cesium3DTileset#tileVisible</code></a> 之前的瓦片
-事件，因此 <code>tileVisible</code> 中的代码可以手动设置特征的
-属性（例如 color 和 show）。什么时候
-为新样式分配任何手动设置的属性都将被覆盖。
-</p>
-<p>
-使用始终为 “true” 的条件为所有不是 “true” 的对象指定 Color
-被原有疾病覆盖。否则，默认颜色 Cesium.Color.White
-将被使用。同样，使用始终为 “true” 条件来指定 show 属性
-对于未被预先存在的条件覆盖的所有对象。否则，
-将使用默认的显示值 true。
-</p>
+    样式，使用<a href="https://github.com/CesiumGS/3d-tiles/tree/main/specification/Styling">3D 瓦片样式语言</a>，应用于图块集中的每个功能。<p>分配 <code>undefined</code> 以删除样式，这将恢复视觉效果未应用样式时，图块集的外观为默认值。</p><p>样式应用于 <a href="Cesium3DTileset.html#tileVisible"><code>Cesium3DTileset#tileVisible</code></a> 之前的瓦片事件，因此 <code>tileVisible</code> 中的代码可以手动设置特征的属性（例如 color 和 show）。什么时候为新样式分配任何手动设置的属性都将被覆盖。</p><p>使用始终为 “true” 的条件为所有不是 “true” 的对象指定 Color被原有疾病覆盖。否则，默认颜色 Cesium.Color.White将被使用。同样，使用始终为 “true” 条件来指定 show 属性对于未被预先存在的条件覆盖的所有对象。否则，将使用默认的显示值 true。</p>
 </div>
 
 
@@ -4847,19 +4533,7 @@ console.log(`Minimum building height: ${tileset.properties.height.minimum}`);</c
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">tileset.style = new Cesium.Cesium3DTileStyle({
-   color : {
-       conditions : [
-           ['${Height} >= 100', 'color("purple", 0.5)'],
-           ['${Height} >= 50', 'color("red")'],
-           ['true', 'color("blue")']
-       ]
-   },
-   show : '${Height} > 0',
-   meta : {
-       description : '"Building id ${id} has height ${Height}."'
-   }
-});</code></pre>
+    <pre><code class="language-javascript">tileset.style = new Cesium.Cesium3DTileStyle({   color : {       conditions : [           ['${Height} >= 100', 'color("purple", 0.5)'],           ['${Height} >= 50', 'color("red")'],           ['true', 'color("blue")']       ]   },   show : '${Height} > 0',   meta : {       description : '"Building id ${id} has height ${Height}."'   }});</code></pre>
 
     
 
@@ -4900,19 +4574,7 @@ console.log(`Minimum building height: ${tileset.properties.height.minimum}`);</c
 
 
 <div class="description">
-    触发事件以指示磁贴的内容无法加载。
-<p>
-如果没有事件侦听器，错误消息将记录到控制台。
-</p>
-<p>
-传递给侦听器的 error 对象包含两个属性：
-<ul>
-<li><code>URL</code>：失败磁贴的 URL。</li>
-<li><code>message</code>：错误消息。</li>
-</ul>
-<p>
-如果存在多个内容，则每个内部内容都会引发一次此事件，并出现错误。
-</p>
+    触发事件以指示磁贴的内容无法加载。<p>如果没有事件侦听器，错误消息将记录到控制台。</p><p>传递给侦听器的 error 对象包含两个属性：<ul><li><code>URL</code>：失败磁贴的 URL。</li><li><code>message</code>：错误消息。</li></ul><p>如果存在多个内容，则每个内部内容都会引发一次此事件，并出现错误。</p>
 </div>
 
 
@@ -4944,10 +4606,7 @@ console.log(`Minimum building height: ${tileset.properties.height.minimum}`);</c
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">tileset.tileFailed.addEventListener(function(error) {
-    console.log(`An error occurred loading tile: ${error.url}`);
-    console.log(`Error: ${error.message}`);
-});</code></pre>
+    <pre><code class="language-javascript">tileset.tileFailed.addEventListener(function(error) {    console.log(`An error occurred loading tile: ${error.url}`);    console.log(`Error: ${error.message}`);});</code></pre>
 
     
 
@@ -4983,15 +4642,7 @@ console.log(`Minimum building height: ${tileset.properties.height.minimum}`);</c
 
 
 <div class="description">
-    触发事件以指示磁贴的内容已加载。
-<p>
-加载的 <a href="Cesium3DTile.html"><code>Cesium3DTile</code></a> 将传递给事件侦听器。
-</p>
-<p>
-此事件在图块集遍历期间触发，同时渲染帧
-以便对图块的更新在同一帧中生效。 请勿创建或修改
-事件侦听器期间的 Cesium 实体或基元。
-</p>
+    触发事件以指示磁贴的内容已加载。<p>加载的 <a href="Cesium3DTile.html"><code>Cesium3DTile</code></a> 将传递给事件侦听器。</p><p>此事件在图块集遍历期间触发，同时渲染帧以便对图块的更新在同一帧中生效。 请勿创建或修改事件侦听器期间的 Cesium 实体或基元。</p>
 </div>
 
 
@@ -5023,9 +4674,7 @@ console.log(`Minimum building height: ${tileset.properties.height.minimum}`);</c
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">tileset.tileLoad.addEventListener(function(tile) {
-    console.log('A tile was loaded.');
-});</code></pre>
+    <pre><code class="language-javascript">tileset.tileLoad.addEventListener(function(tile) {    console.log('A tile was loaded.');});</code></pre>
 
     
 
@@ -5061,8 +4710,7 @@ console.log(`Minimum building height: ${tileset.properties.height.minimum}`);</c
 
 
 <div class="description">
-    如果<code>为 true</code>，则加载满足此帧的屏幕空间错误的所有图块。图块集为
-完全加载此视图。
+    如果<code>为 true</code>，则加载满足此帧的屏幕空间错误的所有图块。图块集为完全加载此视图。
 </div>
 
 
@@ -5130,15 +4778,7 @@ console.log(`Minimum building height: ${tileset.properties.height.minimum}`);</c
 
 
 <div class="description">
-    触发事件以指示磁贴的内容已卸载。
-<p>
-将卸载的 <a href="Cesium3DTile.html"><code>Cesium3DTile</code></a> 传递给事件侦听器。
-</p>
-<p>
-此事件在帧被卸载之前立即触发
-rendered 的 Alpha S Interface，以便事件侦听器可以访问瓦片的内容。 不创建
-或在事件侦听器期间修改 Cesium 实体或基元。
-</p>
+    触发事件以指示磁贴的内容已卸载。<p>将卸载的 <a href="Cesium3DTile.html"><code>Cesium3DTile</code></a> 传递给事件侦听器。</p><p>此事件在帧被卸载之前立即触发rendered 的 Alpha S Interface，以便事件侦听器可以访问瓦片的内容。 不创建或在事件侦听器期间修改 Cesium 实体或基元。</p>
 </div>
 
 
@@ -5170,9 +4810,7 @@ rendered 的 Alpha S Interface，以便事件侦听器可以访问瓦片的内�
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">tileset.tileUnload.addEventListener(function(tile) {
-    console.log('A tile was unloaded from the cache.');
-});</code></pre>
+    <pre><code class="language-javascript">tileset.tileUnload.addEventListener(function(tile) {    console.log('A tile was unloaded from the cache.');});</code></pre>
 
     
 
@@ -5215,16 +4853,7 @@ rendered 的 Alpha S Interface，以便事件侦听器可以访问瓦片的内�
 
 
 <div class="description">
-    此事件对帧中的每个可见图块触发一次。 这可以手动用于
-设置图块集的样式。
-<p>
-可见的 <a href="Cesium3DTile.html"><code>Cesium3DTile</code></a> 被传递给事件侦听器。
-</p>
-<p>
-此事件在图块集遍历期间触发，同时渲染帧
-以便对图块的更新在同一帧中生效。 请勿创建或修改
-事件侦听器期间的 Cesium 实体或基元。
-</p>
+    此事件对帧中的每个可见图块触发一次。 这可以手动用于设置图块集的样式。<p>可见的 <a href="Cesium3DTile.html"><code>Cesium3DTile</code></a> 被传递给事件侦听器。</p><p>此事件在图块集遍历期间触发，同时渲染帧以便对图块的更新在同一帧中生效。 请勿创建或修改事件侦听器期间的 Cesium 实体或基元。</p>
 </div>
 
 
@@ -5256,23 +4885,9 @@ rendered 的 Alpha S Interface，以便事件侦听器可以访问瓦片的内�
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">tileset.tileVisible.addEventListener(function(tile) {
-    if (tile.content instanceof Cesium.Model3DTileContent) {
-        console.log('A 3D model tile is visible.');
-    }
-});</code></pre>
+    <pre><code class="language-javascript">tileset.tileVisible.addEventListener(function(tile) {    if (tile.content instanceof Cesium.Model3DTileContent) {        console.log('A 3D model tile is visible.');    }});</code></pre>
 
-    <pre><code class="language-javascript">// Apply a red style and then manually set random colors for every other feature when the tile becomes visible.
-tileset.style = new Cesium.Cesium3DTileStyle({
-    color : 'color("red")'
-});
-tileset.tileVisible.addEventListener(function(tile) {
-    const content = tile.content;
-    const featuresLength = content.featuresLength;
-    for (let i = 0; i &lt; featuresLength; i+=2) {
-        content.getFeature(i).color = Cesium.Color.fromRandom();
-    }
-});</code></pre>
+    <pre><code class="language-javascript">// Apply a red style and then manually set random colors for every other feature when the tile becomes visible.tileset.style = new Cesium.Cesium3DTileStyle({    color : 'color("red")'});tileset.tileVisible.addEventListener(function(tile) {    const content = tile.content;    const featuresLength = content.featuresLength;    for (let i = 0; i &lt; featuresLength; i+=2) {        content.getFeature(i).color = Cesium.Color.fromRandom();    }});</code></pre>
 
     
 
@@ -5368,8 +4983,7 @@ tileset.tileVisible.addEventListener(function(tile) {
 
 
 <div class="description">
-    图块集使用的 GPU 内存总量（以字节为单位）。该值的估算公式为
-加载的图块的几何图形、纹理、批处理表纹理和二进制元数据。
+    图块集使用的 GPU 内存总量（以字节为单位）。该值的估算公式为加载的图块的几何图形、纹理、批处理表纹理和二进制元数据。
 </div>
 
 
@@ -5504,8 +5118,7 @@ tileset.tileVisible.addEventListener(function(tile) {
 
 
 <div class="description">
-    矢量瓦片是否应在内存中保留解码的位置。
-此用于 <code>Cesium3DTileFeature.getPolylinePositions</code>.
+    矢量瓦片是否应在内存中保留解码的位置。此用于 <code>Cesium3DTileFeature.getPolylinePositions</code>.
 </div>
 
 
@@ -5582,8 +5195,7 @@ tileset.tileVisible.addEventListener(function(tile) {
 
 
 <div class="description">
-    创建一个 <a href="https://github.com/CesiumGS/3d-tiles/tree/main/specification">3D Tiles 图块集</a>，
-用于从 Cesium 离子资产 ID 流式传输大量异构 3D 地理空间数据集。
+    创建一个 <a href="https://github.com/CesiumGS/3d-tiles/tree/main/specification">3D Tiles 图块集</a>，用于从 Cesium 离子资产 ID 流式传输大量异构 3D 地理空间数据集。
 </div>
 
 
@@ -5701,8 +5313,7 @@ tileset.tileVisible.addEventListener(function(tile) {
         
 <span class="param-type"><a href="RuntimeError.html">RuntimeError</a></span>
 
-: When the tileset asset version is not 0.0, 1.0, or 1.1,
-or when the tileset contains a required extension that is not supported.
+: When the tileset asset version is not 0.0, 1.0, or 1.1,or when the tileset contains a required extension that is not supported.
     </div>
 
 </li>
@@ -5732,13 +5343,7 @@ or when the tileset contains a required extension that is not supported.
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Load a Cesium3DTileset with a Cesium ion asset ID of 124624234
-try {
-  const tileset = await Cesium.Cesium3DTileset.fromIonAssetId(124624234);
-  scene.primitives.add(tileset);
-} catch (error) {
-  console.error(`Error creating tileset: ${error}`);
-}</code></pre>
+    <pre><code class="language-javascript">// Load a Cesium3DTileset with a Cesium ion asset ID of 124624234try {  const tileset = await Cesium.Cesium3DTileset.fromIonAssetId(124624234);  scene.primitives.add(tileset);} catch (error) {  console.error(`Error creating tileset: ${error}`);}</code></pre>
 
     
 
@@ -5780,8 +5385,7 @@ try {
 
 
 <div class="description">
-    创建一个 <a href="https://github.com/CesiumGS/3d-tiles/tree/main/specification">3D Tiles 图块集</a>，
-用于流式传输大量异构 3D 地理空间数据集。
+    创建一个 <a href="https://github.com/CesiumGS/3d-tiles/tree/main/specification">3D Tiles 图块集</a>，用于流式传输大量异构 3D 地理空间数据集。
 </div>
 
 
@@ -5902,8 +5506,7 @@ try {
         
 <span class="param-type"><a href="RuntimeError.html">RuntimeError</a></span>
 
-: When the tileset asset version is not 0.0, 1.0, or 1.1,
-or when the tileset contains a required extension that is not supported.
+: When the tileset asset version is not 0.0, 1.0, or 1.1,or when the tileset contains a required extension that is not supported.
     </div>
 
 </li>
@@ -5933,37 +5536,11 @@ or when the tileset contains a required extension that is not supported.
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">try {
-  const tileset = await Cesium.Cesium3DTileset.fromUrl(
-     "http://localhost:8002/tilesets/Seattle/tileset.json"
-  );
-  scene.primitives.add(tileset);
-} catch (error) {
-  console.error(`Error creating tileset: ${error}`);
-}</code></pre>
+    <pre><code class="language-javascript">try {  const tileset = await Cesium.Cesium3DTileset.fromUrl(     "http://localhost:8002/tilesets/Seattle/tileset.json"  );  scene.primitives.add(tileset);} catch (error) {  console.error(`Error creating tileset: ${error}`);}</code></pre>
 
-    <pre><code class="language-javascript">// Common setting for the skipLevelOfDetail optimization
-const tileset = await Cesium.Cesium3DTileset.fromUrl(
-  "http://localhost:8002/tilesets/Seattle/tileset.json", {
-     skipLevelOfDetail: true,
-     baseScreenSpaceError: 1024,
-     skipScreenSpaceErrorFactor: 16,
-     skipLevels: 1,
-     immediatelyLoadDesiredLevelOfDetail: false,
-     loadSiblings: false,
-     cullWithChildrenBounds: true
-});
-scene.primitives.add(tileset);</code></pre>
+    <pre><code class="language-javascript">// Common setting for the skipLevelOfDetail optimizationconst tileset = await Cesium.Cesium3DTileset.fromUrl(  "http://localhost:8002/tilesets/Seattle/tileset.json", {     skipLevelOfDetail: true,     baseScreenSpaceError: 1024,     skipScreenSpaceErrorFactor: 16,     skipLevels: 1,     immediatelyLoadDesiredLevelOfDetail: false,     loadSiblings: false,     cullWithChildrenBounds: true});scene.primitives.add(tileset);</code></pre>
 
-    <pre><code class="language-javascript">// Common settings for the dynamicScreenSpaceError optimization
-const tileset = await Cesium.Cesium3DTileset.fromUrl(
-  "http://localhost:8002/tilesets/Seattle/tileset.json", {
-     dynamicScreenSpaceError: true,
-     dynamicScreenSpaceErrorDensity: 2.0e-4,
-     dynamicScreenSpaceErrorFactor: 24.0,
-     dynamicScreenSpaceErrorHeightFalloff: 0.25
-});
-scene.primitives.add(tileset);</code></pre>
+    <pre><code class="language-javascript">// Common settings for the dynamicScreenSpaceError optimizationconst tileset = await Cesium.Cesium3DTileset.fromUrl(  "http://localhost:8002/tilesets/Seattle/tileset.json", {     dynamicScreenSpaceError: true,     dynamicScreenSpaceErrorDensity: 2.0e-4,     dynamicScreenSpaceErrorFactor: 24.0,     dynamicScreenSpaceErrorHeightFalloff: 0.25});scene.primitives.add(tileset);</code></pre>
 
     
 
@@ -6005,8 +5582,7 @@ scene.primitives.add(tileset);</code></pre>
 
 
 <div class="description">
-    提供一个钩子来覆盖用于请求图块集 json 的方法
-从远程服务器获取瓦片集时很有用
+    提供一个钩子来覆盖用于请求图块集 json 的方法从远程服务器获取瓦片集时很有用
 </div>
 
 
@@ -6144,12 +5720,7 @@ scene.primitives.add(tileset);</code></pre>
 
 
 <div class="description">
-    销毁此对象持有的 WebGL 资源。 销毁对象允许确定性
-释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。
-<br /><br />
-一旦对象被销毁，就不应该使用它;调用
- <code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。 因此
-将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
+    销毁此对象持有的 WebGL 资源。 销毁对象允许确定性释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。<br /><br />一旦对象被销毁，就不应该使用它;调用 <code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。 因此将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
 </div>
 
 
@@ -6380,10 +5951,7 @@ scene.primitives.add(tileset);</code></pre>
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const tileset = await Cesium.Cesium3DTileset.fromIonAssetId(124624234);
-scene.primitives.add(tileset);
-
-const height = tileset.getHeight(scene.camera.positionCartographic, scene);</code></pre>
+    <pre><code class="language-javascript">const tileset = await Cesium.Cesium3DTileset.fromIonAssetId(124624234);scene.primitives.add(tileset);const height = tileset.getHeight(scene.camera.positionCartographic, scene);</code></pre>
 
     
 
@@ -6555,10 +6123,7 @@ const height = tileset.getHeight(scene.camera.positionCartographic, scene);</cod
 
 
 <div class="description">
-    如果此对象已销毁，则返回 true;否则为 false。
-<br /><br />
-如果此对象已销毁，则不应使用;调用
- <code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。
+    如果此对象已销毁，则返回 true;否则为 false。<br /><br />如果此对象已销毁，则不应使用;调用 <code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。
 </div>
 
 
@@ -6653,8 +6218,7 @@ const height = tileset.getHeight(scene.camera.positionCartographic, scene);</cod
 
 
 <div class="description">
-    将图块集的 <a href="Cesium3DTileset.html#style"><code>Cesium3DTileset#style</code></a> 标记为 dirty，这将强制所有
-功能重新评估样式，在下一帧中每个都是可见的。
+    将图块集的 <a href="Cesium3DTileset.html#style"><code>Cesium3DTileset#style</code></a> 标记为 dirty，这将强制所有功能重新评估样式，在下一帧中每个都是可见的。
 </div>
 
 
@@ -6735,13 +6299,7 @@ const height = tileset.getHeight(scene.camera.positionCartographic, scene);</cod
 
 
 <div class="description">
-    卸载上一帧未选择的所有瓦片。 这可用于
-显式管理切片缓存并减少下面加载的切片总数
-<a href="Cesium3DTileset.html#cacheBytes"><code>Cesium3DTileset#cacheBytes</code></a>.
-<p>
-图块卸载发生在下一帧，以保留所有 WebGL 删除调用
-在渲染循环中。
-</p>
+    卸载上一帧未选择的所有瓦片。 这可用于显式管理切片缓存并减少下面加载的切片总数<a href="Cesium3DTileset.html#cacheBytes"><code>Cesium3DTileset#cacheBytes</code></a>.<p>图块卸载发生在下一帧，以保留所有 WebGL 删除调用在渲染循环中。</p>
 </div>
 
 
@@ -9206,8 +8764,7 @@ const height = tileset.getHeight(scene.camera.positionCartographic, scene);</cod
 
 
 <div class="description">
-    优化选项。当 <a href="Cesium3DTileset.html#foveatedScreenSpaceError"><code>Cesium3DTileset#foveatedScreenSpaceError</code></a> 为 true 时用作回调，以控制在注视点圆锥体之外的图块的屏幕空间误差的提高程度，
-在 <a href="Cesium3DTileset.html#foveatedMinimumScreenSpaceErrorRelaxation"><code>Cesium3DTileset#foveatedMinimumScreenSpaceErrorRelaxation</code></a> 和 <a href="Cesium3DTileset.html#maximumScreenSpaceError"><code>Cesium3DTileset#maximumScreenSpaceError</code></a> 之间插值。
+    优化选项。当 <a href="Cesium3DTileset.html#foveatedScreenSpaceError"><code>Cesium3DTileset#foveatedScreenSpaceError</code></a> 为 true 时用作回调，以控制在注视点圆锥体之外的图块的屏幕空间误差的提高程度，在 <a href="Cesium3DTileset.html#foveatedMinimumScreenSpaceErrorRelaxation"><code>Cesium3DTileset#foveatedMinimumScreenSpaceErrorRelaxation</code></a> 和 <a href="Cesium3DTileset.html#maximumScreenSpaceError"><code>Cesium3DTileset#maximumScreenSpaceError</code></a> 之间插值。
 </div>
 
 

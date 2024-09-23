@@ -58,13 +58,7 @@
 
 
 <div class="description">
-    <a href="PostProcessStage.html"><code>PostProcessStage</code></a> 或其他逻辑上一起执行的后处理复合阶段的集合。
-<p>
-所有阶段都按数组的顺序执行。输入纹理根据 <code>inputPreviousStageTexture</code> 的值而变化。
-如果 <code>inputPreviousStageTexture</code> 为 <code>true</code>，则每个阶段的输入是场景或之前执行的阶段渲染的输出纹理。
-如果 <code>inputPreviousStageTexture</code> 为 <code>false</code>，则合成中每个阶段的输入纹理都相同。输入纹理是场景渲染到的纹理
-或上一阶段的输出纹理。
-</p>
+    <a href="PostProcessStage.html"><code>PostProcessStage</code></a> 或其他逻辑上一起执行的后处理复合阶段的集合。<p>所有阶段都按数组的顺序执行。输入纹理根据 <code>inputPreviousStageTexture</code> 的值而变化。如果 <code>inputPreviousStageTexture</code> 为 <code>true</code>，则每个阶段的输入是场景或之前执行的阶段渲染的输出纹理。如果 <code>inputPreviousStageTexture</code> 为 <code>false</code>，则合成中每个阶段的输入纹理都相同。输入纹理是场景渲染到的纹理或上一阶段的输出纹理。</p>
 </div>
 
 
@@ -334,49 +328,11 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Example 1: separable blur filter
-// The input to blurXDirection is the texture rendered to by the scene or the output of the previous stage.
-// The input to blurYDirection is the texture rendered to by blurXDirection.
-scene.postProcessStages.add(new Cesium.PostProcessStageComposite({
-    stages : [blurXDirection, blurYDirection]
-}));</code></pre>
+    <pre><code class="language-javascript">// Example 1: separable blur filter// The input to blurXDirection is the texture rendered to by the scene or the output of the previous stage.// The input to blurYDirection is the texture rendered to by blurXDirection.scene.postProcessStages.add(new Cesium.PostProcessStageComposite({    stages : [blurXDirection, blurYDirection]}));</code></pre>
 
-    <pre><code class="language-javascript">// Example 2: referencing the output of another post-process stage
-scene.postProcessStages.add(new Cesium.PostProcessStageComposite({
-    inputPreviousStageTexture : false,
-    stages : [
-        // The same as Example 1.
-        new Cesium.PostProcessStageComposite({
-            inputPreviousStageTexture : true
-            stages : [blurXDirection, blurYDirection],
-            name : 'blur'
-        }),
-        // The input texture for this stage is the same input texture to blurXDirection since inputPreviousStageTexture is false
-        new Cesium.PostProcessStage({
-            fragmentShader : compositeShader,
-            uniforms : {
-                blurTexture : 'blur' // The output of the composite with name 'blur' (the texture that blurYDirection rendered to).
-            }
-        })
-    ]
-});</code></pre>
+    <pre><code class="language-javascript">// Example 2: referencing the output of another post-process stagescene.postProcessStages.add(new Cesium.PostProcessStageComposite({    inputPreviousStageTexture : false,    stages : [        // The same as Example 1.        new Cesium.PostProcessStageComposite({            inputPreviousStageTexture : true            stages : [blurXDirection, blurYDirection],            name : 'blur'        }),        // The input texture for this stage is the same input texture to blurXDirection since inputPreviousStageTexture is false        new Cesium.PostProcessStage({            fragmentShader : compositeShader,            uniforms : {                blurTexture : 'blur' // The output of the composite with name 'blur' (the texture that blurYDirection rendered to).            }        })    ]});</code></pre>
 
-    <pre><code class="language-javascript">// Example 3: create a uniform alias
-const uniforms = {};
-Cesium.defineProperties(uniforms, {
-    filterSize : {
-        get : function() {
-            return blurXDirection.uniforms.filterSize;
-        },
-        set : function(value) {
-            blurXDirection.uniforms.filterSize = blurYDirection.uniforms.filterSize = value;
-        }
-    }
-});
-scene.postProcessStages.add(new Cesium.PostProcessStageComposite({
-    stages : [blurXDirection, blurYDirection],
-    uniforms : uniforms
-}));</code></pre>
+    <pre><code class="language-javascript">// Example 3: create a uniform aliasconst uniforms = {};Cesium.defineProperties(uniforms, {    filterSize : {        get : function() {            return blurXDirection.uniforms.filterSize;        },        set : function(value) {            blurXDirection.uniforms.filterSize = blurYDirection.uniforms.filterSize = value;        }    }});scene.postProcessStages.add(new Cesium.PostProcessStageComposite({    stages : [blurXDirection, blurYDirection],    uniforms : uniforms}));</code></pre>
 
     
 
@@ -493,10 +449,7 @@ scene.postProcessStages.add(new Cesium.PostProcessStageComposite({
 
 
 <div class="description">
-    所有后处理阶段都按数组的顺序执行。输入纹理根据 <code>inputPreviousStageTexture</code> 的值而变化。
-如果 <code>inputPreviousStageTexture</code> 为 <code>true</code>，则每个阶段的输入是场景或之前执行的阶段渲染的输出纹理。
-如果 <code>inputPreviousStageTexture</code> 为 <code>false</code>，则合成中每个阶段的输入纹理都相同。输入纹理是场景渲染到的纹理
-或上一阶段的输出纹理。
+    所有后处理阶段都按数组的顺序执行。输入纹理根据 <code>inputPreviousStageTexture</code> 的值而变化。如果 <code>inputPreviousStageTexture</code> 为 <code>true</code>，则每个阶段的输入是场景或之前执行的阶段渲染的输出纹理。如果 <code>inputPreviousStageTexture</code> 为 <code>false</code>，则合成中每个阶段的输入纹理都相同。输入纹理是场景渲染到的纹理或上一阶段的输出纹理。
 </div>
 
 
@@ -863,13 +816,7 @@ scene.postProcessStages.add(new Cesium.PostProcessStageComposite({
 
 
 <div class="description">
-    销毁此对象持有的 WebGL 资源。 销毁对象允许确定性
-释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。
-<p>
-一旦对象被销毁，就不应该使用它;调用
-<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。 因此
-将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
-</p>
+    销毁此对象持有的 WebGL 资源。 销毁对象允许确定性释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。<p>一旦对象被销毁，就不应该使用它;调用<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。 因此将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。</p>
 </div>
 
 
@@ -1129,11 +1076,7 @@ scene.postProcessStages.add(new Cesium.PostProcessStageComposite({
 
 
 <div class="description">
-    如果此对象已销毁，则返回 true;否则为 false。
-<p>
-如果此对象已销毁，则不应使用;调用
-<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。
-</p>
+    如果此对象已销毁，则返回 true;否则为 false。<p>如果此对象已销毁，则不应使用;调用<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。</p>
 </div>
 
 

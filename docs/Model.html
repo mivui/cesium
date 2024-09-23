@@ -58,74 +58,7 @@
 
 
 <div class="description">
-    <div class="notice">
-要构造 Model，请调用 <a href="Model.html#.fromGltfAsync"><code>Model.fromGltfAsync</code></a>. 不要直接调用构造函数。
-</div>
-基于 glTF 的 3D 模型，glTF 是 WebGL、OpenGL ES 和 OpenGL 的运行时资产格式。
-<p>
-Cesium 通过以下扩展支持 glTF ：
-<ul>
- <li>
- <a href="https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/AGI_articulations/README.md">AGI_articulations</a>
- </li>
- <li>
- <a href="https://github.com/KhronosGroup/glTF/tree/main/extensions/2.0/Vendor/CESIUM_primitive_outline">CESIUM_primitive_outline</a>
- </li>
- <li>
- <a href="https://github.com/KhronosGroup/glTF/blob/master/extensions/1.0/Vendor/CESIUM_RTC/README.md">CESIUM_RTC</a>
- </li>
- <li>
- <a href="https://github.com/CesiumGS/glTF/tree/3d-tiles-next/extensions/2.0/Vendor/EXT_instance_features">EXT_instance_features</a>
- </li>
- <li>
- <a href="https://github.com/CesiumGS/glTF/tree/3d-tiles-next/extensions/2.0/Vendor/EXT_mesh_features">EXT_mesh_features</a>
- </li>
- <li>
- <a href="https://github.com/KhronosGroup/glTF/tree/main/extensions/2.0/Vendor/EXT_mesh_gpu_instancing">EXT_mesh_gpu_instancing</a>
- </li>
- <li>
- <a href="https://github.com/KhronosGroup/glTF/tree/main/extensions/2.0/Vendor/EXT_meshopt_compression">EXT_meshopt_compression</a>
- </li>
- <li>
- <a href="https://github.com/CesiumGS/glTF/tree/3d-tiles-next/extensions/2.0/Vendor/EXT_structural_metadata">EXT_structural_metadata</a>
- </li>
- <li>
- <a href="https://github.com/KhronosGroup/glTF/tree/main/extensions/2.0/Vendor/EXT_texture_webp">EXT_texture_webp</a>
- </li>
- <li>
- <a href="https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Khronos/KHR_draco_mesh_compression/README.md">KHR_draco_mesh_compression</a>
- </li>
- <li>
- <a href="https://github.com/KhronosGroup/glTF/blob/main/extensions/2.0/Archived/KHR_techniques_webgl/README.md">KHR_techniques_webgl</a>
- </li>
- <li>
- <a href="https://github.com/KhronosGroup/glTF/blob/main/extensions/1.0/Khronos/KHR_materials_common/README.md">KHR_materials_common</a>
- </li>
- <li>
- <a href="https://github.com/KhronosGroup/glTF/tree/main/extensions/2.0/Archived/KHR_materials_pbrSpecularGlossiness">KHR_materials_pbrSpecularGlossiness</a>
- </li>
- <li>
- <a href="https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_materials_unlit/README.md">KHR_materials_unlit</a>
- </li>
- <li>
- <a href="https://github.com/KhronosGroup/glTF/tree/main/extensions/2.0/Khronos/KHR_mesh_quantization">KHR_mesh_quantization</a>
- </li>
- <li>
- <a href="https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Khronos/KHR_texture_basisu">KHR_texture_basisu</a>
- </li>
- <li>
- <a href="https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Khronos/KHR_texture_transform/README.md">KHR_texture_transform</a>
- </li>
- <li>
- <a href="https://github.com/KhronosGroup/glTF/blob/main/extensions/1.0/Vendor/WEB3D_quantized_attributes/README.md">WEB3D_quantized_attributes</a>
- </li>
-</ul>
-</p>
-<p>
-注意：对于使用 KHR_texture_basisu 扩展的压缩纹理的模型，我们建议在两个维度上都具有 2 次纹理的幂
-以获得最大的兼容性。这是因为某些采样器需要 2 个纹理 （<a href="https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Using_textures_in_WebGL">在 WebGL 中使用纹理</a>）
-和 KHR_texture_basisu 需要 4 个维度的倍数 （<a href="https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Khronos/KHR_texture_basisu/README.md#additional-requirements">KHR_texture_basisu其他要求</a>）。
-</p>
+    <div class="notice">要构造 Model，请调用 <a href="Model.html#.fromGltfAsync"><code>Model.fromGltfAsync</code></a>. 不要直接调用构造函数。</div>基于 glTF 的 3D 模型，glTF 是 WebGL、OpenGL ES 和 OpenGL 的运行时资产格式。<p>Cesium 通过以下扩展支持 glTF ：<ul> <li> <a href="https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/AGI_articulations/README.md">AGI_articulations</a> </li> <li> <a href="https://github.com/KhronosGroup/glTF/tree/main/extensions/2.0/Vendor/CESIUM_primitive_outline">CESIUM_primitive_outline</a> </li> <li> <a href="https://github.com/KhronosGroup/glTF/blob/master/extensions/1.0/Vendor/CESIUM_RTC/README.md">CESIUM_RTC</a> </li> <li> <a href="https://github.com/CesiumGS/glTF/tree/3d-tiles-next/extensions/2.0/Vendor/EXT_instance_features">EXT_instance_features</a> </li> <li> <a href="https://github.com/CesiumGS/glTF/tree/3d-tiles-next/extensions/2.0/Vendor/EXT_mesh_features">EXT_mesh_features</a> </li> <li> <a href="https://github.com/KhronosGroup/glTF/tree/main/extensions/2.0/Vendor/EXT_mesh_gpu_instancing">EXT_mesh_gpu_instancing</a> </li> <li> <a href="https://github.com/KhronosGroup/glTF/tree/main/extensions/2.0/Vendor/EXT_meshopt_compression">EXT_meshopt_compression</a> </li> <li> <a href="https://github.com/CesiumGS/glTF/tree/3d-tiles-next/extensions/2.0/Vendor/EXT_structural_metadata">EXT_structural_metadata</a> </li> <li> <a href="https://github.com/KhronosGroup/glTF/tree/main/extensions/2.0/Vendor/EXT_texture_webp">EXT_texture_webp</a> </li> <li> <a href="https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Khronos/KHR_draco_mesh_compression/README.md">KHR_draco_mesh_compression</a> </li> <li> <a href="https://github.com/KhronosGroup/glTF/blob/main/extensions/2.0/Archived/KHR_techniques_webgl/README.md">KHR_techniques_webgl</a> </li> <li> <a href="https://github.com/KhronosGroup/glTF/blob/main/extensions/1.0/Khronos/KHR_materials_common/README.md">KHR_materials_common</a> </li> <li> <a href="https://github.com/KhronosGroup/glTF/tree/main/extensions/2.0/Archived/KHR_materials_pbrSpecularGlossiness">KHR_materials_pbrSpecularGlossiness</a> </li> <li> <a href="https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_materials_unlit/README.md">KHR_materials_unlit</a> </li> <li> <a href="https://github.com/KhronosGroup/glTF/tree/main/extensions/2.0/Khronos/KHR_mesh_quantization">KHR_mesh_quantization</a> </li> <li> <a href="https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Khronos/KHR_texture_basisu">KHR_texture_basisu</a> </li> <li> <a href="https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Khronos/KHR_texture_transform/README.md">KHR_texture_transform</a> </li> <li> <a href="https://github.com/KhronosGroup/glTF/blob/main/extensions/1.0/Vendor/WEB3D_quantized_attributes/README.md">WEB3D_quantized_attributes</a> </li></ul></p><p>注意：对于使用 KHR_texture_basisu 扩展的压缩纹理的模型，我们建议在两个维度上都具有 2 次纹理的幂以获得最大的兼容性。这是因为某些采样器需要 2 个纹理 （<a href="https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Using_textures_in_WebGL">在 WebGL 中使用纹理</a>）和 KHR_texture_basisu 需要 4 个维度的倍数 （<a href="https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Khronos/KHR_texture_basisu/README.md#additional-requirements">KHR_texture_basisu其他要求</a>）。</p>
 </div>
 
 
@@ -291,10 +224,7 @@ Cesium 通过以下扩展支持 glTF ：
 
 
 <div class="description">
-    是否剔除背面的几何体。如果为 true，则背面剔除为
-由材质的 doubleSided 属性确定;当 false 时，背面
-剔除已禁用。如果 <a href="Model.html#color"><code>Model#color</code></a>
-是半透明的或 <a href="Model.html#silhouetteSize"><code>Model#silhouetteSize</code></a> 大于 0.0。
+    是否剔除背面的几何体。如果为 true，则背面剔除为由材质的 doubleSided 属性确定;当 false 时，背面剔除已禁用。如果 <a href="Model.html#color"><code>Model#color</code></a>是半透明的或 <a href="Model.html#silhouetteSize"><code>Model#silhouetteSize</code></a> 大于 0.0。
 </div>
 
 
@@ -357,9 +287,7 @@ Cesium 通过以下扩展支持 glTF ：
 
 
 <div class="description">
-    获取模型在世界空间中的边界球体。这并未考虑到
-glTF 动画、皮肤或变形目标。它也没有考虑
-<a href="Model.html#minimumPixelSize"><code>Model#minimumPixelSize</code></a>.
+    获取模型在世界空间中的边界球体。这并未考虑到glTF 动画、皮肤或变形目标。它也没有考虑<a href="Model.html#minimumPixelSize"><code>Model#minimumPixelSize</code></a>.
 </div>
 
 
@@ -482,23 +410,7 @@ glTF 动画、皮肤或变形目标。它也没有考虑
 
 
 <div class="description">
-    获取模型的分类类型。这决定了 terrain、
-3D 瓦片或两者将按此模型分类。
-<p>
-此外，还有一些要求/限制：
-<ul>
-<li>glTF 不能包含变形目标、皮肤或动画。</li>
-<li>glTF 不能包含 <code>EXT_mesh_gpu_instancing</code> 扩展。</li>
-<li>只有带有 TRIANGLES 的网格才能用于对其他资产进行分类。</li>
-<li>网格必须防水。</li>
-<li>POSITION 属性是必需的。</li>
-<li>如果要素 ID 和索引缓冲区都存在，则具有相同要素 ID 的所有索引必须占据索引缓冲区的连续部分。</li>
-<li>如果存在要素 ID 而没有索引缓冲区，则具有相同要素 ID 的所有位置必须占据位置缓冲区的连续部分。</li>
-</ul>
-</p>
-<p>
-接受分类的 3D 瓦片或地形必须是不透明的。
-</p>
+    获取模型的分类类型。这决定了 terrain、3D 瓦片或两者将按此模型分类。<p>此外，还有一些要求/限制：<ul><li>glTF 不能包含变形目标、皮肤或动画。</li><li>glTF 不能包含 <code>EXT_mesh_gpu_instancing</code> 扩展。</li><li>只有带有 TRIANGLES 的网格才能用于对其他资产进行分类。</li><li>网格必须防水。</li><li>POSITION 属性是必需的。</li><li>如果要素 ID 和索引缓冲区都存在，则具有相同要素 ID 的所有索引必须占据索引缓冲区的连续部分。</li><li>如果存在要素 ID 而没有索引缓冲区，则具有相同要素 ID 的所有位置必须占据位置缓冲区的连续部分。</li></ul></p><p>接受分类的 3D 瓦片或地形必须是不透明的。</p>
 </div>
 
 
@@ -937,8 +849,7 @@ glTF 动画、皮肤或变形目标。它也没有考虑
 
 
 <div class="description">
-    模型的自定义着色器（如果存在）。将自定义着色器与 <a href="Cesium3DTileStyle.html"><code>Cesium3DTileStyle</code></a> 一起使用
-可能会导致未定义的行为。
+    模型的自定义着色器（如果存在）。将自定义着色器与 <a href="Cesium3DTileStyle.html"><code>Cesium3DTileStyle</code></a> 一起使用可能会导致未定义的行为。
 </div>
 
 
@@ -1005,10 +916,7 @@ glTF 动画、皮肤或变形目标。它也没有考虑
 
 
 <div class="description">
-    此属性仅用于调试;它不用于生产用途，也未进行优化。
-<p>
-为模型中的每个绘制命令绘制边界球体。
-</p>
+    此属性仅用于调试;它不用于生产用途，也未进行优化。<p>为模型中的每个绘制命令绘制边界球体。</p>
 </div>
 
 
@@ -1071,10 +979,7 @@ glTF 动画、皮肤或变形目标。它也没有考虑
 
 
 <div class="description">
-    此属性仅用于调试;它不用于生产用途，也未进行优化。
-<p>
-以线框形式绘制模型。
-</p>
+    此属性仅用于调试;它不用于生产用途，也未进行优化。<p>以线框形式绘制模型。</p>
 </div>
 
 
@@ -1137,8 +1042,7 @@ glTF 动画、皮肤或变形目标。它也没有考虑
 
 
 <div class="description">
-    获取或设置distance 显示条件，指定在什么距离处
-从相机将显示此模型。
+    获取或设置distance 显示条件，指定在什么距离处从相机将显示此模型。
 </div>
 
 
@@ -1233,9 +1137,7 @@ glTF 动画、皮肤或变形目标。它也没有考虑
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Exaggerate terrain by a factor of 2, but prevent model exaggeration
-scene.verticalExaggeration = 2.0;
-model.enableVerticalExaggeration = false;</code></pre>
+    <pre><code class="language-javascript">// Exaggerate terrain by a factor of 2, but prevent model exaggerationscene.verticalExaggeration = 2.0;model.enableVerticalExaggeration = false;</code></pre>
 
     
 
@@ -1271,9 +1173,7 @@ model.enableVerticalExaggeration = false;</code></pre>
 
 
 <div class="description">
-    获取模型遇到异步渲染错误时引发的事件。 通过订阅
-时，您将收到错误通知，并可能从中恢复。 事件侦听器
-的实例将传递 <code>ModelError</code> 的实例。
+    获取模型遇到异步渲染错误时引发的事件。 通过订阅时，您将收到错误通知，并可能从中恢复。 事件侦听器的实例将传递 <code>ModelError</code> 的实例。
 </div>
 
 
@@ -1333,21 +1233,7 @@ model.enableVerticalExaggeration = false;</code></pre>
 
 
 <div class="description">
-    用于拾取和样式设置的特征 ID 的标签。
-<p>
-对于EXT_mesh_features，这是要素 ID 的 label 属性，或者
-“featureId_N”（其中 N 是 featureIds 数组中的索引），否则
-指定。EXT_feature_metadata没有 label 字段，因此
-要素 ID 集始终标记为“featureId_N”，其中 N 是
-所有特征 ID 的列表，其中特征 ID 属性列在前面
-特征 ID 纹理。
-</p>
-<p>
-如果 featureIdLabel 设置为整数 N，则将其转换为
-字符串 “featureId_N” 自动。如果每个基元和
-存在每个实例的功能 ID，实例功能 ID 采用
-优先权。
-</p>
+    用于拾取和样式设置的特征 ID 的标签。<p>对于EXT_mesh_features，这是要素 ID 的 label 属性，或者“featureId_N”（其中 N 是 featureIds 数组中的索引），否则指定。EXT_feature_metadata没有 label 字段，因此要素 ID 集始终标记为“featureId_N”，其中 N 是所有特征 ID 的列表，其中特征 ID 属性列在前面特征 ID 纹理。</p><p>如果 featureIdLabel 设置为整数 N，则将其转换为字符串 “featureId_N” 自动。如果每个基元和存在每个实例的功能 ID，实例功能 ID 采用优先权。</p>
 </div>
 
 
@@ -1414,8 +1300,7 @@ model.enableVerticalExaggeration = false;</code></pre>
 
 
 <div class="description">
-    模型的高度参考，它决定了模型的绘制方式
-相对于地形。
+    模型的高度参考，它决定了模型的绘制方式相对于地形。
 </div>
 
 
@@ -1606,13 +1491,7 @@ model.enableVerticalExaggeration = false;</code></pre>
 
 
 <div class="description">
-    用于选取和设置样式的实例特征 ID 集的标签。
-<p>
-如果 instanceFeatureIdLabel 设置为整数 N，则将其转换为
-字符串 “instanceFeatureId_N” 自动。
-如果每个基元和每个实例的特征 ID 都存在，则
-实例功能 ID 优先。
-</p>
+    用于选取和设置样式的实例特征 ID 集的标签。<p>如果 instanceFeatureIdLabel 设置为整数 N，则将其转换为字符串 “instanceFeatureId_N” 自动。如果每个基元和每个实例的特征 ID 都存在，则实例功能 ID 优先。</p>
 </div>
 
 
@@ -1679,12 +1558,7 @@ model.enableVerticalExaggeration = false;</code></pre>
 
 
 <div class="description">
-    对模型进行着色时的浅色。<code>如果未定义</code>，则使用场景的 light 颜色。
-<p>
-通过设置
-<code>model.imageBasedLighting.imageBasedLightingFactor = 新笛卡尔2（0.0， 0.0）</code>
-将使模型更暗。在这里，增加光源的强度将使模型更亮。
-</p>
+    对模型进行着色时的浅色。<code>如果未定义</code>，则使用场景的 light 颜色。<p>通过设置<code>model.imageBasedLighting.imageBasedLightingFactor = 新笛卡尔2（0.0， 0.0）</code>将使模型更暗。在这里，增加光源的强度将使模型更亮。</p>
 </div>
 
 
@@ -1747,9 +1621,7 @@ model.enableVerticalExaggeration = false;</code></pre>
 
 
 <div class="description">
-    模型的最大缩放大小。这可以用来给出
-<a href="Model.html#minimumPixelSize"><code>Model#minimumPixelSize</code></a> 的上限，确保模型
-从来都不是一个不合理的比例。
+    模型的最大缩放大小。这可以用来给出<a href="Model.html#minimumPixelSize"><code>Model#minimumPixelSize</code></a> 的上限，确保模型从来都不是一个不合理的比例。
 </div>
 
 
@@ -1809,9 +1681,7 @@ model.enableVerticalExaggeration = false;</code></pre>
 
 
 <div class="description">
-    无论缩放如何，模型的近似最小像素大小。
-这可用于确保模型在查看者
-缩小。 当 <code>0.0</code> 时，不强制使用最小大小。
+    无论缩放如何，模型的近似最小像素大小。这可用于确保模型在查看者缩小。 当 <code>0.0</code> 时，不强制使用最小大小。
 </div>
 
 
@@ -1874,10 +1744,7 @@ model.enableVerticalExaggeration = false;</code></pre>
 
 
 <div class="description">
-    将模型从模型转换为世界坐标的 4x4 转换矩阵。
-当这是单位矩阵时，模型以世界坐标（即地球的笛卡尔 WGS84 坐标）绘制。
-可以通过提供不同的转换矩阵来使用本地参考帧，就像返回的矩阵一样
-由 <a href="Transforms.html#.eastNorthUpToFixedFrame"><code>Transforms.eastNorthUpToFixedFrame</code></a> 提供。
+    将模型从模型转换为世界坐标的 4x4 转换矩阵。当这是单位矩阵时，模型以世界坐标（即地球的笛卡尔 WGS84 坐标）绘制。可以通过提供不同的转换矩阵来使用本地参考帧，就像返回的矩阵一样由 <a href="Transforms.html#.eastNorthUpToFixedFrame"><code>Transforms.eastNorthUpToFixedFrame</code></a> 提供。
 </div>
 
 
@@ -1909,8 +1776,7 @@ model.enableVerticalExaggeration = false;</code></pre>
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const origin = Cesium.Cartesian3.fromDegrees(-95.0, 40.0, 200000.0);
-m.modelMatrix = Cesium.Transforms.eastNorthUpToFixedFrame(origin);</code></pre>
+    <pre><code class="language-javascript">const origin = Cesium.Cartesian3.fromDegrees(-95.0, 40.0, 200000.0);m.modelMatrix = Cesium.Transforms.eastNorthUpToFixedFrame(origin);</code></pre>
 
     
 
@@ -2009,9 +1875,7 @@ m.modelMatrix = Cesium.Transforms.eastNorthUpToFixedFrame(origin);</code></pre>
 
 
 <div class="description">
-    用于控制点云衰减的点云着色设置
-和照明。对于 3D 瓦片，这是从
-<a href="Cesium3DTileset.html"><code>Cesium3DTileset</code></a>.
+    用于控制点云衰减的点云着色设置和照明。对于 3D 瓦片，这是从<a href="Cesium3DTileset.html"><code>Cesium3DTileset</code></a>.
 </div>
 
 
@@ -2071,8 +1935,7 @@ m.modelMatrix = Cesium.Transforms.eastNorthUpToFixedFrame(origin);</code></pre>
 
 
 <div class="description">
-    如果<code>为 true</code>，则此模型已准备好渲染，即外部二进制文件 image、
-下载了着色器文件并创建了 WebGL 资源。
+    如果<code>为 true</code>，则此模型已准备好渲染，即外部二进制文件 image、下载了着色器文件并创建了 WebGL 资源。
 </div>
 
 
@@ -2135,13 +1998,7 @@ m.modelMatrix = Cesium.Transforms.eastNorthUpToFixedFrame(origin);</code></pre>
 
 
 <div class="description">
-    获取在模型加载并准备好渲染时引发的事件，即当外部资源
-已下载，并且 WebGL 资源已创建。事件侦听器
-的实例将传递 <a href="Model.html"><code>Model</code></a> 的实例。
-
-<p>
-如果 <code>Model.incrementallyLoadTextures</code> 为 true，则在所有纹理加载并准备好渲染之前，将引发此事件。订阅 <code>Model.texturesReadyEvent</code> 以在纹理准备就绪时收到通知。
-</p>
+    获取在模型加载并准备好渲染时引发的事件，即当外部资源已下载，并且 WebGL 资源已创建。事件侦听器的实例将传递 <a href="Model.html"><code>Model</code></a> 的实例。<p>如果 <code>Model.incrementallyLoadTextures</code> 为 true，则在所有纹理加载并准备好渲染之前，将引发此事件。订阅 <code>Model.texturesReadyEvent</code> 以在纹理准备就绪时收到通知。</p>
 </div>
 
 
@@ -2201,9 +2058,7 @@ m.modelMatrix = Cesium.Transforms.eastNorthUpToFixedFrame(origin);</code></pre>
 
 
 <div class="description">
-    在 <a href="Model.html#modelMatrix"><code>Model#modelMatrix</code></a> 之前应用于此模型的统一比例。
-大于 <code>1.0</code> 的值会增加模型的大小;值
-少于 <code>1.0</code> 减少。
+    在 <a href="Model.html#modelMatrix"><code>Model#modelMatrix</code></a> 之前应用于此模型的统一比例。大于 <code>1.0</code> 的值会增加模型的大小;值少于 <code>1.0</code> 减少。
 </div>
 
 
@@ -2392,8 +2247,7 @@ m.modelMatrix = Cesium.Transforms.eastNorthUpToFixedFrame(origin);</code></pre>
 
 
 <div class="description">
-    获取或设置是否显示模型的积分
-在屏幕上。
+    获取或设置是否显示模型的积分在屏幕上。
 </div>
 
 
@@ -2456,9 +2310,7 @@ m.modelMatrix = Cesium.Transforms.eastNorthUpToFixedFrame(origin);</code></pre>
 
 
 <div class="description">
-    是否显示使用
-<a href="https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/CESIUM_primitive_outline">CESIUM_primitive_outline</a> 扩展。
-如果为 true，则显示轮廓。如果为 false，则不显示轮廓。
+    是否显示使用<a href="https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/CESIUM_primitive_outline">CESIUM_primitive_outline</a> 扩展。如果为 true，则显示轮廓。如果为 false，则不显示轮廓。
 </div>
 
 
@@ -2770,9 +2622,7 @@ m.modelMatrix = Cesium.Transforms.eastNorthUpToFixedFrame(origin);</code></pre>
 
 
 <div class="description">
-    获取一个事件，如果 <code>Model.incrementallyLoadTextures</code> 为 true，则在加载模型纹理并准备好进行渲染时（即当外部资源
-已下载，并且 WebGL 资源已创建。事件侦听器
-的实例将传递 <a href="Model.html"><code>Model</code></a> 的实例。
+    获取一个事件，如果 <code>Model.incrementallyLoadTextures</code> 为 true，则在加载模型纹理并准备好进行渲染时（即当外部资源已下载，并且 WebGL 资源已创建。事件侦听器的实例将传递 <a href="Model.html"><code>Model</code></a> 的实例。
 </div>
 
 
@@ -2839,12 +2689,7 @@ m.modelMatrix = Cesium.Transforms.eastNorthUpToFixedFrame(origin);</code></pre>
 
 
 <div class="description">
-    <p>
-从 glTF 资产异步创建模型。此函数返回一个 promise，该 promise 在模型准备好渲染时进行解析，即当外部二进制文件 image 和
-并下载着色器文件并创建 WebGL 资源。
-</p>
-<p>
-模型可以是扩展名为 .gltf 的传统 glTF 资产，也可以是扩展名为 .glb 的二进制 glTF。
+    <p>从 glTF 资产异步创建模型。此函数返回一个 promise，该 promise 在模型准备好渲染时进行解析，即当外部二进制文件 image 和并下载着色器文件并创建 WebGL 资源。</p><p>模型可以是扩展名为 .gltf 的传统 glTF 资产，也可以是扩展名为 .glb 的二进制 glTF。
 </div>
 
 
@@ -4788,63 +4633,11 @@ m.modelMatrix = Cesium.Transforms.eastNorthUpToFixedFrame(origin);</code></pre>
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Load a model and add it to the scene
-try {
- const model = await Cesium.Model.fromGltfAsync({
-   url: "../../SampleData/models/CesiumMan/Cesium_Man.glb"
- });
- viewer.scene.primitives.add(model);
-} catch (error) {
- console.log(`Failed to load model. ${error}`);
-}</code></pre>
+    <pre><code class="language-javascript">// Load a model and add it to the scenetry { const model = await Cesium.Model.fromGltfAsync({   url: "../../SampleData/models/CesiumMan/Cesium_Man.glb" }); viewer.scene.primitives.add(model);} catch (error) { console.log(`Failed to load model. ${error}`);}</code></pre>
 
-    <pre><code class="language-javascript">// Position a model with modelMatrix and display it with a minimum size of 128 pixels
-const position = Cesium.Cartesian3.fromDegrees(
-  -123.0744619,
-  44.0503706,
-  5000.0
-);
-const headingPositionRoll = new Cesium.HeadingPitchRoll();
-const fixedFrameTransform = Cesium.Transforms.localFrameToFixedFrameGenerator(
-  "north",
-  "west"
-);
-try {
- const model = await Cesium.Model.fromGltfAsync({
-   url: "../../SampleData/models/CesiumAir/Cesium_Air.glb",
-   modelMatrix: Cesium.Transforms.headingPitchRollToFixedFrame(
-     position,
-     headingPositionRoll,
-     Cesium.Ellipsoid.WGS84,
-     fixedFrameTransform
-   ),
-   minimumPixelSize: 128,
- });
- viewer.scene.primitives.add(model);
-} catch (error) {
- console.log(`Failed to load model. ${error}`);
-}</code></pre>
+    <pre><code class="language-javascript">// Position a model with modelMatrix and display it with a minimum size of 128 pixelsconst position = Cesium.Cartesian3.fromDegrees(  -123.0744619,  44.0503706,  5000.0);const headingPositionRoll = new Cesium.HeadingPitchRoll();const fixedFrameTransform = Cesium.Transforms.localFrameToFixedFrameGenerator(  "north",  "west");try { const model = await Cesium.Model.fromGltfAsync({   url: "../../SampleData/models/CesiumAir/Cesium_Air.glb",   modelMatrix: Cesium.Transforms.headingPitchRollToFixedFrame(     position,     headingPositionRoll,     Cesium.Ellipsoid.WGS84,     fixedFrameTransform   ),   minimumPixelSize: 128, }); viewer.scene.primitives.add(model);} catch (error) { console.log(`Failed to load model. ${error}`);}</code></pre>
 
-    <pre><code class="language-javascript">// Load a model and play the last animation at half speed
-let animations;
-try {
- const model = await Cesium.Model.fromGltfAsync({
-   url: "../../SampleData/models/CesiumMan/Cesium_Man.glb",
-   gltfCallback: gltf => {
-     animations = gltf.animations
-   }
- });
- viewer.scene.primitives.add(model);
- model.readyEvent.addEventListener(() => {
-   model.activeAnimations.add({
-     index: animations.length - 1,
-     loop: Cesium.ModelAnimationLoop.REPEAT,
-     multiplier: 0.5,
-   });
- });
-} catch (error) {
- console.log(`Failed to load model. ${error}`);
-}</code></pre>
+    <pre><code class="language-javascript">// Load a model and play the last animation at half speedlet animations;try { const model = await Cesium.Model.fromGltfAsync({   url: "../../SampleData/models/CesiumMan/Cesium_Man.glb",   gltfCallback: gltf => {     animations = gltf.animations   } }); viewer.scene.primitives.add(model); model.readyEvent.addEventListener(() => {   model.activeAnimations.add({     index: animations.length - 1,     loop: Cesium.ModelAnimationLoop.REPEAT,     multiplier: 0.5,   }); });} catch (error) { console.log(`Failed to load model. ${error}`);}</code></pre>
 
     
 
@@ -4881,9 +4674,7 @@ try {
 
 
 <div class="description">
-    将任何修改后的接球阶段应用于每个节点的矩阵，该节点
-参加任何发音。请注意，这将覆盖任何节点
-参与节点上的转换。
+    将任何修改后的接球阶段应用于每个节点的矩阵，该节点参加任何发音。请注意，这将覆盖任何节点参与节点上的转换。
 </div>
 
 
@@ -4978,12 +4769,7 @@ try {
 
 
 <div class="description">
-    销毁此对象持有的 WebGL 资源。 销毁对象允许确定性
-释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。
-<br /><br />
-一旦对象被销毁，就不应该使用它;调用
-<code> isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。 因此
-将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
+    销毁此对象持有的 WebGL 资源。 销毁对象允许确定性释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。<br /><br />一旦对象被销毁，就不应该使用它;调用<code> isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。 因此将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
 </div>
 
 
@@ -5088,8 +4874,7 @@ try {
 
 
 <div class="description">
-    返回 glTF 中具有给定<code>名称</code>的节点。这用于
-修改用户定义的动画的节点变换。
+    返回 glTF 中具有给定<code>名称</code>的节点。这用于修改用户定义的动画的节点变换。
 </div>
 
 
@@ -5206,9 +4991,7 @@ try {
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Apply non-uniform scale to node "Hand"
-const node = model.getNode("Hand");
-node.matrix = Cesium.Matrix4.fromScale(new Cesium.Cartesian3(5.0, 1.0, 1.0), node.matrix);</code></pre>
+    <pre><code class="language-javascript">// Apply non-uniform scale to node "Hand"const node = model.getNode("Hand");node.matrix = Cesium.Matrix4.fromScale(new Cesium.Cartesian3(5.0, 1.0, 1.0), node.matrix);</code></pre>
 
     
 
@@ -5245,10 +5028,7 @@ node.matrix = Cesium.Matrix4.fromScale(new Cesium.Cartesian3(5.0, 1.0, 1.0), nod
 
 
 <div class="description">
-    如果此对象已销毁，则返回 true;否则为 false。
-<br /><br />
-如果此对象已销毁，则不应使用;调用
-<code>* isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。
+    如果此对象已销毁，则返回 true;否则为 false。<br /><br />如果此对象已销毁，则不应使用;调用<code>* isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。
 </div>
 
 
@@ -5343,8 +5123,7 @@ node.matrix = Cesium.Matrix4.fromScale(new Cesium.Cartesian3(5.0, 1.0, 1.0), nod
 
 
 <div class="description">
-    将模型的 <a href="Model.html#style"><code>Model#style</code></a> 标记为 dirty，这将强制执行所有特征
-在下一帧中重新评估样式，模型可见。
+    将模型的 <a href="Model.html#style"><code>Model#style</code></a> 标记为 dirty，这将强制执行所有特征在下一帧中重新评估样式，模型可见。
 </div>
 
 
@@ -5425,9 +5204,7 @@ node.matrix = Cesium.Matrix4.fromScale(new Cesium.Cartesian3(5.0, 1.0, 1.0), nod
 
 
 <div class="description">
-    设置清晰度阶段的当前值。 设置一个或
-多个 stage 值，调用 Model.applyArticulations（） 以
-导致重新计算节点矩阵。
+    设置清晰度阶段的当前值。 设置一个或多个 stage 值，调用 Model.applyArticulations（） 以导致重新计算节点矩阵。
 </div>
 
 
@@ -5558,8 +5335,7 @@ node.matrix = Cesium.Matrix4.fromScale(new Cesium.Cartesian3(5.0, 1.0, 1.0), nod
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Sets the value of the stage named "MoveX" belonging to the articulation named "SampleArticulation"
-model.setArticulationStage("SampleArticulation MoveX", 50.0);</code></pre>
+    <pre><code class="language-javascript">// Sets the value of the stage named "MoveX" belonging to the articulation named "SampleArticulation"model.setArticulationStage("SampleArticulation MoveX", 50.0);</code></pre>
 
     
 
@@ -5601,12 +5377,7 @@ model.setArticulationStage("SampleArticulation MoveX", 50.0);</code></pre>
 
 
 <div class="description">
-    当 <a href="Viewer.html"><code>Viewer</code></a> 或 <a href="CesiumWidget.html"><code>CesiumWidget</code></a> 将场景渲染到
-获取渲染此基元所需的绘制命令。
-<p>
-请勿直接调用此函数。 这记录下来只是为了
-列出渲染场景时可能传播的异常：
-</p>
+    当 <a href="Viewer.html"><code>Viewer</code></a> 或 <a href="CesiumWidget.html"><code>CesiumWidget</code></a> 将场景渲染到获取渲染此基元所需的绘制命令。<p>请勿直接调用此函数。 这记录下来只是为了列出渲染场景时可能传播的异常：</p>
 </div>
 
 
