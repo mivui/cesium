@@ -97,7 +97,7 @@ const attributeLocationsInstanced = {
  * 位于 3D 场景中的图像。
  * <br /><br />
  * <div align='center'>
- * <img src='图片/Billboard.png' width='400' height='300' /><br />
+ * <img src='Images/Billboard.png' width='400' height='300' /><br />
  * 广告牌示例
  * </div>
  * <br /><br />

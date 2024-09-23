@@ -5,7 +5,7 @@
  * 锚点位置。
  * <br /><br />
  * <div align='center'>
- * <img src='图片/Billboard.setVerticalOrigin.png' width='695' height='175' /><br />
+ * <img src='Images/Billboard.setVerticalOrigin.png' width='695' height='175' /><br />
  * </div>
  *
  * @enum {number}
