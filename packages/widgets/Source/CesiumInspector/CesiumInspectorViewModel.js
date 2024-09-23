@@ -955,8 +955,8 @@ CesiumInspectorViewModel.prototype.isDestroyed = function () {
 };
 
 /**
- * 销毁小部件。应该叫它永久的吗
- * 从布局中删除小部件。
+ *  销毁小部件。如果从布局中永久删除小部件，
+ *  则应该调用。
  */
 CesiumInspectorViewModel.prototype.destroy = function () {
   this._eventHandler.destroy();
