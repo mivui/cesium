@@ -43,7 +43,7 @@ import StencilOperation from "./StencilOperation.js";
  * @param {boolean} [options.interleave=false] 如果<code>为 true</code>，则几何顶点属性是交错的，这可以略微提高渲染性能，但会增加加载时间。
  * @param {boolean} [options.releaseGeometryInstances=true] 如果为 <code>true</code>，则基元不会保留对输入 <code>geometryInstances</code> 的引用以节省内存。
  * @param {boolean} [options.allowPicking=true] 如果<code>为 true</code>，则每个几何体实例只能使用 {@link Scene#pick} 进行拾取。 如果<code>为 false</code>，则保存 GPU 内存。
- * @param {boolean} [options.asynchronous=true] 确定原语是异步创建还是阻塞直到准备就绪。如果为 false，则必须先调用 initializeTerrainHeights（）。
+ * @param {boolean} [options.asynchronous=true] 确定原语是异步创建还是阻塞直到准备就绪。如果为 false，则必须先调用 initializeTerrainHeights()。
  * @param {ClassificationType} [options.classificationType=ClassificationType.BOTH] 确定是否对地形、3D 瓦片或两者进行分类。
  * @param {boolean} [options.debugShowBoundingVolume=false] 仅用于调试。确定是否显示此基本体的命令的边界球体。
  * @param {boolean} [options.debugShowShadowVolume=false] 仅用于调试。确定是否绘制基本体中每个几何体的阴影体积。必须在创建时为 <code>true</code> 才能生效。
@@ -668,7 +668,7 @@ function updateAndQueueCommands(
  * 列出渲染场景时可能传播的异常：
  * </p>
  *
- * @exception {DeveloperError} 对于同步 GroundPolylinePrimitives，您必须调用 GroundPolylinePrimitives.initializeTerrainHeights（） 并等待返回的 Promise 解析。
+ * @exception {DeveloperError} 对于同步 GroundPolylinePrimitives，您必须调用 GroundPolylinePrimitives.initializeTerrainHeights() 并等待返回的 Promise 解析。
  * @exception {DeveloperError} 所有 GeometryInstances 都必须具有颜色属性，才能将 PolylineColorAppearance 与 GroundPolylinePrimitive 一起使用。
  */
 GroundPolylinePrimitive.prototype.update = function (frameState) {

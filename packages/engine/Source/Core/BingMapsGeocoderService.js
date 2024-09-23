@@ -9,7 +9,7 @@ import DeveloperError from "./DeveloperError.js";
 const url = "https://dev.virtualearth.net/REST/v1/Locations";
 
 /**
- * Provides geocoding through Bing Maps.
+ * 通过 Bing 地图提供地理编码。
  * @alias BingMapsGeocoderService
  * @constructor
  *

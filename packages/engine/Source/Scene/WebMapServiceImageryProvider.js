@@ -49,7 +49,7 @@ const excludesReverseAxis = [
  * @property {GetFeatureInfoFormat[]} [getFeatureInfoFormats=WebMapServiceImageryProvider.DefaultGetFeatureInfoFormats] 格式
  * 在其中尝试 WMS GetFeatureInfo 请求。
  * @property {Rectangle} [rectangle=Rectangle.MAX_VALUE] 图层的矩形。
- * @property {TilingScheme} [tilingScheme=new GeographicTilingScheme（）] 用于将世界划分为多个图块的平铺方案。
+ * @property {TilingScheme} [tilingScheme=new GeographicTilingScheme()] 用于将世界划分为多个图块的平铺方案。
  * @property {Ellipsoid} [ellipsoid] 椭球体。 如果指定了 tilingScheme，则
  * 此参数将被忽略，而使用切片方案的椭球体。如果两者都不是
  * 参数，则使用 WGS84 椭球体。

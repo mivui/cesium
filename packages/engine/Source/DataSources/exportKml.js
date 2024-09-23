@@ -248,13 +248,13 @@ IdManager.prototype.get = function (id) {
  * @function exportKml
  *
  * @param {object} options  对象，具有以下属性:
- * @param {EntityCollection} options.entities The EntityCollection to export as KML.
- * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] The ellipsoid for the output file.
- * @param {exportKmlModelCallback} [options.modelCallback] A callback that will be called with a {@link ModelGraphics} instance and should return the URI to use in the KML. Required if a model exists in the entity collection.
- * @param {JulianDate} [options.time=entities.computeAvailability().start] The time value to use to get properties that are not time varying in KML.
- * @param {TimeInterval} [options.defaultAvailability=entities.computeAvailability()] The interval that will be sampled if an entity doesn't have an availability.
- * @param {number} [options.sampleDuration=60] The number of seconds to sample properties that are varying in KML.
- * @param {boolean} [options.kmz=false] If true KML and external files will be compressed into a kmz file.
+ * @param {EntityCollection} options.entities 要导出为 KML 的 EntityCollection。
+ * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] 输出文件的椭球体。
+ * @param {exportKmlModelCallback} [options.modelCallback] 将使用 {@link ModelGraphics} 实例调用的回调，并应返回要在 KML 中使用的 URI。如果实体集合中存在模型，则为必需。
+ * @param {JulianDate} [options.time=entities.computeAvailability().start] 用于获取在 KML 中不随时间变化的属性的时间值。
+ * @param {TimeInterval} [options.defaultAvailability=entities.computeAvailability()] 如果实体没有可用性，则将采样的间隔。
+ * @param {number} [options.sampleDuration=60] 对 KML 中变化的属性进行采样的秒数。
+ * @param {boolean} [options.kmz=false] 如果为 true，则 KML 和外部文件将被压缩为 kmz 文件。
  *
  * @returns {Promise<exportKmlResultKml|exportKmlResultKmz>} 一个 Promise，该 Promise 解析为包含 KML 字符串和外部文件 blob 字典的对象，如果 options.kmz 为 true，则解析为 kmz 文件作为 blob。
  * @demo {@link https://sandcastle.cesium.com/index.html?src=Export%20KML.html|Cesium Sandcastle KML 导出演示}

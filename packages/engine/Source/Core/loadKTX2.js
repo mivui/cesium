@@ -59,8 +59,8 @@ loadKTX2.setKTX2SupportedFormats = function (
  * @exception 不支持 KTX2 3D 纹理。
  * @exception {RuntimeError} 没有可用于 ETC1S 压缩 ktx2 的转码格式目标。
  * @exception {RuntimeError} 没有可用于 UASTC 压缩 ktx2 的转码格式目标。
- * @exception {RuntimeError} startTranscoding（） 失败。
- * @exception {RuntimeError} transcodeImage（） 失败。
+ * @exception {RuntimeError} startTranscoding() 失败。
+ * @exception {RuntimeError} transcodeImage() 失败。
  *
  * @example
  * // load a single URL asynchronously

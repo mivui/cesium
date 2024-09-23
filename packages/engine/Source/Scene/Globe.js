@@ -1111,11 +1111,11 @@ Globe.prototype.isDestroyed = function () {
  * <code>isDestroyed</code> 将导致 {@link DeveloperError} 异常。 因此
  * 将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
  *
- * @exception {DeveloperError} 这个物体被摧毁了，destroy（）。
+ * @exception {DeveloperError} 这个物体被摧毁了，destroy()。
  *
  *
  * @example
- * globe = globe & globe.destroy（）;
+ * globe = globe & globe.destroy();
  *
  * @see Globe#isDestroyed
  */

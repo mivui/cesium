@@ -21,7 +21,7 @@ import createCommand from "../createCommand.js";
 const DEFAULT_HEIGHT = 1000;
 
 /**
- * 视图模型 the {@link Geocoder} widget.
+ * 视图模型 {@link Geocoder} 小组件。
  * @alias GeocoderViewModel
  * @constructor
  *

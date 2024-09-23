@@ -391,18 +391,18 @@ function Context(canvas, options) {
 /**
  * @typedef {object} ContextOptions
  *
- * Options to control the setting up of a WebGL Context.
+ * 用于控制 WebGL 上下文设置的选项。
  * <p>
- * <code>allowTextureFilterAnisotropic</code> defaults to true, which enables
- * anisotropic texture filtering when the WebGL extension is supported.
- * Setting this to false will improve performance, but hurt visual quality,
- * especially for horizon views.
+ * <code>allowTextureFilterAnisotropic</code> 默认为 true，这将启用
+ * 支持 WebGL 扩展时的各向异性纹理过滤。
+ * 将此设置为 false 会提高性能，但会损害视觉质量，
+ * 特别适用于地平线视图。
  * </p>
  *
- * @property {boolean} [requestWebgl1=false] If true and the browser supports it, use a WebGL 1 rendering context
- * @property {boolean} [allowTextureFilterAnisotropic=true] If true, use anisotropic filtering during texture sampling
- * @property {WebGLOptions} [webgl] WebGL options to be passed on to canvas.getContext
- * @property {Function} [getWebGLStub] A function to create a WebGL stub for testing
+ * @property {boolean} [requestWebgl1=false] 如果为 true 且浏览器支持，则使用 WebGL 1 渲染上下文
+ * @property {boolean} [allowTextureFilterAnisotropic=true] 如果为 true，则在纹理采样期间使用各向异性过滤
+ * @property {WebGLOptions} [webgl] 要传递给 canvas.getContext 的 WebGL 选项
+ * @property {Function} [getWebGLStub] 用于创建 WebGL 存根进行测试的函数
  */
 
 /**
@@ -441,14 +441,14 @@ function getWebGLContext(canvas, webglOptions, requestWebgl1) {
  * @typedef {object} WebGLOptions
  *
  * WebGL options to be passed on to HTMLCanvasElement.getContext().
- * See {@link https://registry.khronos.org/webgl/specs/latest/1.0/#5.2|WebGLContextAttributes}
- * but note the modified defaults for 'alpha', 'stencil', and 'powerPreference'
+ * 参见 {@link https://registry.khronos.org/webgl/specs/latest/1.0/#5.2|WebGLContextAttributes}
+ * 但请注意修改后的 'alpha'、'stencil' 和 'powerPreference' 的默认值
  *
  * <p>
- * <code>alpha</code> defaults to false, which can improve performance
- * compared to the standard WebGL default of true.  If an application needs
- * to composite Cesium above other HTML elements using alpha-blending, set
- * <code>alpha</code> to true.
+ * <code>alpha</code> 默认为 false，这可以提高性能
+ * 与标准 WebGL 默认值 true 相比。 如果应用程序需要
+ * 以使用 alpha 混合将 Cesium 合成到其他 HTML 元素之上，将
+ * <code>alpha</code> 更改为 true。
  * </p>
  *
  * @property {boolean} [alpha=false]

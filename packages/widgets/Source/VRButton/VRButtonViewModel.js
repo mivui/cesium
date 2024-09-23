@@ -76,8 +76,8 @@ function toggleVR(viewModel, scene, isVRMode, isOrthographic) {
  * @alias VRButtonViewModel
  * @constructor
  *
- * @param {Scene} scene The scene.
- * @param {Element|string} [vrElement=document.body] The element or id to be placed into VR mode.
+ * @param {Scene} scene 场景。
+ * @param {Element|string} [vrElement=document.body] 要置于 VR 模式的元素或 ID。
  */
 function VRButtonViewModel(scene, vrElement) {
   //>>includeStart('debug', pragmas.debug);
@@ -104,7 +104,7 @@ function VRButtonViewModel(scene, vrElement) {
   });
 
   /**
-   * 获取或设置是否 VR functionality should be enabled.
+   * 获取或设置是否应启用 VR 功能。
    *
    * @type {boolean}
    * @see Fullscreen.enabled
@@ -120,7 +120,7 @@ function VRButtonViewModel(scene, vrElement) {
   });
 
   /**
-   * 获取工具提示。  这个属性是可观察的。
+   * 获取工具提示。这个属性是可观察的。
    *
    * @type {string}
    */
@@ -171,7 +171,7 @@ function VRButtonViewModel(scene, vrElement) {
 
 Object.defineProperties(VRButtonViewModel.prototype, {
   /**
-   * 获取或设置HTML element to place into VR mode when the
+   * 获取或设置HTML 元素置入 VR 模式时
    * 按下相应的按钮。
    * @memberof VRButtonViewModel.prototype
    *

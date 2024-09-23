@@ -47,7 +47,7 @@ import DeveloperError from "../Core/DeveloperError.js";
  * 是可挑选的。可以通过在对象上设置 {@link ArcGisMapServerImageryProvider#enablePickFeatures} 属性来覆盖。
  * @property {Rectangle} [rectangle=Rectangle.MAX_VALUE] 图层的矩形。 访问
  * 平铺层。
- * @property {TilingScheme} [tilingScheme=new GeographicTilingScheme（）] 用于将世界划分为多个图块的平铺方案。
+ * @property {TilingScheme} [tilingScheme=new GeographicTilingScheme()] 用于将世界划分为多个图块的平铺方案。
  * 访问平铺服务器时，将忽略此参数。
  * @property {Ellipsoid} [ellipsoid=Ellipsoid.default] 椭球体。 如果指定并使用了 tilingScheme，则
  * 此参数将被忽略，而使用切片方案的椭球体。如果两者都不是

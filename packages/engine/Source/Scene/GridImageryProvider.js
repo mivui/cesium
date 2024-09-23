@@ -13,7 +13,7 @@ const defaultBackgroundColor = new Color(0.0, 0.5, 0.0, 0.2);
  *
  * GridImageryProvider 构造函数的初始化选项
  *
- * @property {TilingScheme} [tilingScheme=new GeographicTilingScheme（）] 要为其绘制瓦片的平铺方案。
+ * @property {TilingScheme} [tilingScheme=new GeographicTilingScheme()] 要为其绘制瓦片的平铺方案。
  * @property {Ellipsoid} [ellipsoid=Ellipsoid.default] 椭球体。 如果指定了 tilingScheme，则
  * 此参数将被忽略，而使用切片方案的椭球体。如果两者都不是
  * 参数，则使用默认椭球。

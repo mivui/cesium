@@ -9,7 +9,7 @@
  * @returns {*} 如果不是 undefined，则返回第一个参数，否则返回第二个参数。
  *
  * @example
- * param = Cesium.defaultValue（param， '默认'）;
+ * param = Cesium.defaultValue(param, 'default');
  */
 function defaultValue(a, b) {
   if (a !== undefined && a !== null) {

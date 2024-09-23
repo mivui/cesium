@@ -36,7 +36,7 @@ import PostProcessStageSampleMode from "./PostProcessStageSampleMode.js";
  * @param {PixelDatatype} [options.pixelDatatype=PixelDatatype.UNSIGNED_BYTE] 输出纹理的像素数据类型。
  * @param {Color} [options.clearColor=Color.BLACK] 要将输出纹理清除为的颜色。
  * @param {BoundingRectangle} [options.scissorRectangle] 用于剪刀测试的矩形。
- * @param {string} [options.name=createGuid（）] 此后处理阶段的唯一名称，供合成中的其他阶段引用。如果未提供名称，将生成 GUID。
+ * @param {string} [options.name=createGuid()] 此后处理阶段的唯一名称，供合成中的其他阶段引用。如果未提供名称，将生成 GUID。
  *
  * @exception {DeveloperError} options.textureScale must be greater than 0.0 and less than or equal to 1.0.
  * @exception {DeveloperError} options.pixelFormat must be a color format.

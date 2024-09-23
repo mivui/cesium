@@ -1147,7 +1147,7 @@ Cesium3DTile.prototype.requestContent = function () {
  * <p>
  * 此实现多个内容不
  * 像 requestSingleContent 一样支持磁贴过期。如果此情况发生变化，
- * 请注意，resource.setQueryParameters（） 详细信息必须位于 {@link Multiple3DTileContent} 中，因为这是按请求提供的。
+ * 请注意，resource.setQueryParameters() 详细信息必须位于 {@link Multiple3DTileContent} 中，因为这是按请求提供的。
  * </p>
  *
  * @private

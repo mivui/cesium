@@ -1,7 +1,7 @@
 import WebGLConstants from "../Core/WebGLConstants.js";
 
 /**
- * Enumerates all possible filters used when magnifying WebGL textures.
+ * 列举放大 WebGL 纹理时使用的所有可能的过滤器。
  *
  * @enum {number}
  *
@@ -9,14 +9,14 @@ import WebGLConstants from "../Core/WebGLConstants.js";
  */
 const TextureMagnificationFilter = {
   /**
-   * Samples the texture by returning the closest pixel.
+   * 通过返回最近的像素对纹理进行采样。
    *
    * @type {number}
    * @constant
    */
   NEAREST: WebGLConstants.NEAREST,
   /**
-   * Samples the texture through bi-linear interpolation of the four nearest pixels. This produces smoother results than <code>NEAREST</code> filtering.
+   * 通过对 4 个最接近的像素进行双线性插值对纹理进行采样。这会产生比 <code>NEAREST</code> 筛选更平滑的结果。
    *
    * @type {number}
    * @constant
@@ -25,9 +25,9 @@ const TextureMagnificationFilter = {
 };
 
 /**
- * Validates the given <code>textureMinificationFilter</code> with respect to the possible enum values.
+ * 根据可能的枚举值验证给定的 <code>textureMinificationFilter</code>。
  * @param textureMagnificationFilter
- * @returns {boolean} <code>true</code> if <code>textureMagnificationFilter</code> is valid.
+ * @returns {boolean} <code>true</code>，如果 <code>textureMagnificationFilter</code> 有效。
  *
  * @private
  */

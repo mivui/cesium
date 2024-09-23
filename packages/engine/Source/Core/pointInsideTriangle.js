@@ -5,15 +5,15 @@ import defined from "./defined.js";
 const scratchBarycentricCoords = new Cartesian3();
 
 /**
- * Determines if a point is inside a triangle.
+ * 确定点是否位于三角形内。
  *
  * @function pointInsideTriangle
  *
  * @param {Cartesian2|Cartesian3} point 要测试的点。
- * @param {Cartesian2|Cartesian3} p0 The first point of the triangle.
- * @param {Cartesian2|Cartesian3} p1 The second point of the triangle.
- * @param {Cartesian2|Cartesian3} p2 The third point of the triangle.
- * @returns {boolean} <code>true</code> if the point is inside the triangle; otherwise, <code>false</code>.
+ * @param {Cartesian2|Cartesian3} p0 三角形的第一个点。
+ * @param {Cartesian2|Cartesian3} p1 三角形的第二个点。
+ * @param {Cartesian2|Cartesian3} p2 三角形的第三个点。
+ * @returns {boolean} 如果点位于三角形内部，<code>则为 true</code>;否则为 <code>false</code>。
  *
  * @example
  * // Returns true

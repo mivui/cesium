@@ -251,7 +251,7 @@ DataSourceDisplay.prototype.isDestroyed = function () {
  * <code>isDestroyed</code> 将导致 {@link DeveloperError} 异常。 因此
  * 将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
  *
- * @exception {DeveloperError} 此对象已销毁，即调用 destroy（） 。
+ * @exception {DeveloperError} 此对象已销毁，即调用 destroy() 。
  *
  *
  * @example

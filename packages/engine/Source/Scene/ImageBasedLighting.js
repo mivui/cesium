@@ -13,7 +13,7 @@ import SpecularEnvironmentCubeMap from "./SpecularEnvironmentCubeMap.js";
  * 如果使用镜面反射环境贴图，则必须调用 {@link ImageBasedLighting#destroy}
  * 当不再需要基于图像的照明来正确清理 GPU 资源时。
  * 如果模型或图块集创建 ImageBasedLighting 的实例，它将处理此事件。
- * 否则，应用程序负责调用 destroy（）。
+ * 否则，应用程序负责调用 destroy()。
  *</p>
  *
  * @alias ImageBasedLighting

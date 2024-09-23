@@ -2,7 +2,7 @@ import defined from "./defined.js";
 
 /**
  * 将错误对象格式化为 String。 如果可用，则使用 name、message 和 stack
- * 属性，否则将回退到 toString（） 上。
+ * 属性，否则将回退到 toString() 上。
  *
  * @function
  *

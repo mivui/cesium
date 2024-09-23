@@ -1726,7 +1726,7 @@ Model.prototype.getNode = function (name) {
 
 /**
  * 设置清晰度阶段的当前值。 设置一个或
- * 多个 stage 值，调用 Model.applyArticulations（） 以
+ * 多个 stage 值，调用 Model.applyArticulations() 以
  * 导致重新计算节点矩阵。
  *
  * @param {string} articulationStageKey 关节的名称、空格和舞台的名称。

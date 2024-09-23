@@ -3,18 +3,18 @@ import knockout from "../ThirdParty/knockout.js";
 import createCommand from "../createCommand.js";
 
 /**
- * A view model that represents each item in the {@link BaseLayerPicker}.
+ * 一个视图模型，表示 {@link BaseLayerPicker} 中的每个项。
  *
  * @alias ProviderViewModel
  * @constructor
  *
- * @param {object} options The object containing all parameters.
- * @param {string} options.name The name of the layer.
- * @param {string} options.tooltip The tooltip to show when the item is moused over.
- * @param {string} options.iconUrl An icon representing the layer.
- * @param {string} [options.category] A category for the layer.
- * @param {ProviderViewModel.CreationFunction|Command} options.creationFunction A function or Command
- *        that creates one or more providers which will be added to the globe when this item is selected.
+ * @param {object} options 包含所有参数的对象。
+ * @param {string} options.name 层的名称。
+ * @param {string} options.tooltip 将鼠标悬停在项目上时显示的工具提示。
+ * @param {string} options.iconUrl 表示图层的图标。
+ * @param {string} [options.category] 图层的类别。
+ * @param {ProviderViewModel.CreationFunction|Command} options.creationFunction 函数或命令
+ * 创建一个或多个提供程序，选择此项时，这些提供程序将添加到 globe 中。
  *
  * @see BaseLayerPicker
  * @see ImageryProvider
@@ -44,7 +44,7 @@ function ProviderViewModel(options) {
   this._creationCommand = creationCommand;
 
   /**
-   * Gets the display name.  这个属性是可观察的。
+   * 获取显示名称。  这个属性是可观察的。
    * @type {string}
    */
   this.name = options.name;
@@ -56,7 +56,7 @@ function ProviderViewModel(options) {
   this.tooltip = options.tooltip;
 
   /**
-   * Gets the icon.  这个属性是可观察的。
+   * 获取图标。  这个属性是可观察的。
    * @type {string}
    */
   this.iconUrl = options.iconUrl;
@@ -68,8 +68,8 @@ function ProviderViewModel(options) {
 
 Object.defineProperties(ProviderViewModel.prototype, {
   /**
-   * Gets the Command that creates one or more providers which will be added to
-   * the globe when this item is selected.
+   * 获取创建一个或多个提供程序的 Command，这些提供程序将被添加到
+   * 选择此项时的地球仪。
    * @memberof ProviderViewModel.prototype
    * @memberof ProviderViewModel.prototype
    * @type {Command}
@@ -82,7 +82,7 @@ Object.defineProperties(ProviderViewModel.prototype, {
   },
 
   /**
-   * Gets the category
+   * 获取类别
    * @type {string}
    * @memberof ProviderViewModel.prototype
    * @readonly
@@ -95,10 +95,10 @@ Object.defineProperties(ProviderViewModel.prototype, {
 });
 
 /**
- * A function which creates one or more providers.
+ * 创建一个或多个提供程序的函数。
  * @callback ProviderViewModel.CreationFunction
  * @returns {ImageryProvider|TerrainProvider|ImageryProvider[]|TerrainProvider[]|Promise<TerrainProvider>|Promise<ImageryProvider>|Promise<TerrainProvider[]>|Promise<ImageryProvider[]>}
- *          The ImageryProvider or TerrainProvider, or array of providers, to be added
- *          to the globe.
+ *          要添加的 ImageryProvider 或 TerrainProvider，或提供程序数组
+ * 到全球。
  */
 export default ProviderViewModel;

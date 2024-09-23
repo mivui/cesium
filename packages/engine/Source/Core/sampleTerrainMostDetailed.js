@@ -6,7 +6,7 @@ import sampleTerrain from "./sampleTerrain.js";
 const scratchCartesian2 = new Cartesian2();
 
 /**
- * 在 terrain 数据集的最大可用瓦片级别启动 sampleTerrain（） 请求。
+ * 在 terrain 数据集的最大可用瓦片级别启动 sampleTerrain() 请求。
  *
  * @function sampleTerrainMostDetailed
  *

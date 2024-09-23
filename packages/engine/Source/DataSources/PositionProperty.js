@@ -62,7 +62,7 @@ Object.defineProperties(PositionProperty.prototype, {
  * 获取固定帧中给定时间的属性值。
  * @function
  *
- * @param {JulianDate} [time=JulianDate.now（）] 检索值的时间。如果省略，则使用当前系统时间。
+ * @param {JulianDate} [time=JulianDate.now()] 检索值的时间。如果省略，则使用当前系统时间。
  * @param {Cartesian3} [result] 要将值存储到的对象，如果省略，则会创建并返回一个新实例。
  * @returns {Cartesian3 | undefined} 修改后的结果参数，如果未提供 result 参数，则修改后为新实例。
  */

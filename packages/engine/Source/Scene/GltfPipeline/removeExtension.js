@@ -3,12 +3,12 @@ import removeExtensionsUsed from "./removeExtensionsUsed.js";
 import defined from "../../Core/defined.js";
 
 /**
- * Removes an extension from gltf.extensions, gltf.extensionsUsed, gltf.extensionsRequired, and any other objects in the glTF if it is present.
+* 从 gltf.extensions、gltf.extensionsUsed、gltf.extensionsRequired 和 glTF 中的任何其他对象（如果存在）中删除扩展。
  *
- * @param {object} gltf A javascript object containing a glTF asset.
- * @param {string} extension The extension to remove.
+ * @param {object} gltf 一个包含 glTF 资产的 javascript 对象。
+ * @param {string} extension 要删除的扩展。
  *
- * @returns {*} The extension data removed from gltf.extensions.
+ * @returns {*} 从 gltf.extensions 中删除的扩展数据。
  */
 function removeExtension(gltf, extension) {
   removeExtensionsUsed(gltf, extension); // Also removes from extensionsRequired

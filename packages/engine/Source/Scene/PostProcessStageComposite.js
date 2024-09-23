@@ -19,7 +19,7 @@ import destroyObject from "../Core/destroyObject.js";
  * @param {object} options  对象，具有以下属性:
  * @param {Array} options.stages 要按顺序执行的 {@link 个 PostProcessStage} 或复合数组。
  * @param {boolean} [options.inputPreviousStageTexture=true] 是否执行每个后处理阶段，其中一个阶段的输入是前一个阶段的输出。否则，每个包含的阶段的输入是在合成之前执行的阶段的输出。
- * @param {string} [options.name=createGuid（）] 此后处理阶段的唯一名称，供其他合成引用。如果未提供名称，将生成 GUID。
+ * @param {string} [options.name=createGuid()] 此后处理阶段的唯一名称，供其他合成引用。如果未提供名称，将生成 GUID。
  * @param {object} [options.uniforms] 后处理阶段的 uniform 的别名。
  *
  * @exception {DeveloperError} options.stages.length must be greater than 0.0.

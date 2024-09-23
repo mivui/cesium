@@ -359,7 +359,7 @@ const hslParenthesesMatcher = /^hsla?\s*\(\s*([0-9.]+)\s*[,\s]+\s*([0-9.]+%)\s*[
 /**
  * 从 CSS 颜色值创建 Color 实例。
  *
- * @param {string} color #rgb、#rgba、#rrggbb、#rrggbbaa、rgb（）、rgba（）、hsl（） 或 hsla（） 格式的 CSS 颜色值。
+ * @param {string} color #rgb、#rgba、#rrggbb、#rrggbbaa、rgb()、rgba()、hsl() 或 hsla() 格式的 CSS 颜色值。
  * @param {Color} [result] 用于存储结果的对象，如果未定义，将创建一个新实例。
  * @returns {Color} 颜色对象，如果字符串不是有效的 CSS 颜色，则为 undefined。
  *

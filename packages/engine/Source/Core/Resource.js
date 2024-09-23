@@ -805,7 +805,7 @@ Resource.prototype.fetchArrayBuffer = function () {
 };
 
 /**
- * 创建一个 Resource 并对其调用 fetchArrayBuffer（）。
+ * 创建一个 Resource 并对其调用 fetchArrayBuffer()。
  *
  * @param {string|object} options 具有以下属性的 url 或对象
  * @param {string} options.url 资源的 URL。
@@ -849,7 +849,7 @@ Resource.prototype.fetchBlob = function () {
 };
 
 /**
- * 创建一个 Resource 并对其调用 fetchBlob（）。
+ * 创建一个 Resource 并对其调用 fetchBlob()。
  *
  * @param {string|object} options 具有以下属性的 url 或对象
  * @param {string} options.url 资源的 URL。
@@ -1064,7 +1064,7 @@ function fetchImage(options) {
 }
 
 /**
- * 创建一个 Resource 并对其调用 fetchImage（）。
+ * 创建一个 Resource 并对其调用 fetchImage()。
  *
  * @param {string|object} options 具有以下属性的 url 或对象
  * @param {string} options.url 资源的 URL。
@@ -1124,7 +1124,7 @@ Resource.prototype.fetchText = function () {
 };
 
 /**
- * 创建一个 Resource 并对其调用 fetchText（）。
+ * 创建一个 Resource 并对其调用 fetchText()。
  *
  * @param {string|object} options 具有以下属性的 url 或对象
  * @param {string} options.url 资源的 URL。
@@ -1185,7 +1185,7 @@ Resource.prototype.fetchJson = function () {
 };
 
 /**
- * 创建一个 Resource 并对其调用 fetchJson（）。
+ * 创建一个 Resource 并对其调用 fetchJson()。
  *
  * @param {string|object} options 具有以下属性的 url 或对象
  * @param {string} options.url 资源的 URL。
@@ -1234,7 +1234,7 @@ Resource.prototype.fetchXML = function () {
 };
 
 /**
- * 创建一个 Resource 并对其调用 fetchXML（）。
+ * 创建一个 Resource 并对其调用 fetchXML()。
  *
  * @param {string|object} options 具有以下属性的 url 或对象
  * @param {string} options.url 资源的 URL。
@@ -1336,7 +1336,7 @@ function fetchJsonp(resource, callbackParameterName, functionName) {
 }
 
 /**
- * 从 URL 创建一个 Resource 并对其调用 fetchJsonp（）。
+ * 从 URL 创建一个 Resource 并对其调用 fetchJsonp()。
  *
  * @param {string|object} options 具有以下属性的 url 或对象
  * @param {string} options.url 资源的 URL。
@@ -1527,7 +1527,7 @@ Resource.prototype.fetch = function (options) {
 };
 
 /**
- * 从 URL 创建一个 Resource 并对其调用 fetch（）。
+ * 从 URL 创建一个 Resource 并对其调用 fetch()。
  *
  * @param {string|object} options 具有以下属性的 url 或对象
  * @param {string} options.url 资源的 URL。
@@ -1583,7 +1583,7 @@ Resource.prototype.delete = function (options) {
 };
 
 /**
- * 从 URL 创建 Resource 并对其调用 delete（）。
+ * 从 URL 创建 Resource 并对其调用 delete()。
  *
  * @param {string|object} options 具有以下属性的 url 或对象
  * @param {string} options.url 资源的 URL。
@@ -1641,7 +1641,7 @@ Resource.prototype.head = function (options) {
 };
 
 /**
- * 从 URL 创建一个 Resource 并对其调用 head（）。
+ * 从 URL 创建一个 Resource 并对其调用 head()。
  *
  * @param {string|object} options 具有以下属性的 url 或对象
  * @param {string} options.url 资源的 URL。
@@ -1697,7 +1697,7 @@ Resource.prototype.options = function (options) {
 };
 
 /**
- * 从 URL 创建一个 Resource 并对其调用 options（）。
+ * 从 URL 创建一个 Resource 并对其调用 options()。
  *
  * @param {string|object} options 具有以下属性的 url 或对象
  * @param {string} options.url 资源的 URL。
@@ -1758,7 +1758,7 @@ Resource.prototype.post = function (data, options) {
 };
 
 /**
- * 从 URL 创建一个 Resource 并对其调用 post（）。
+ * 从 URL 创建一个 Resource 并对其调用 post()。
  *
  * @param {object} options 具有以下属性的 url 或对象
  * @param {string} options.url 资源的 URL。
@@ -1819,7 +1819,7 @@ Resource.prototype.put = function (data, options) {
 };
 
 /**
- * 从 URL 创建 Resource 并对其调用 put（）。
+ * 从 URL 创建 Resource 并对其调用 put()。
  *
  * @param {object} options 具有以下属性的 url 或对象
  * @param {string} options.url 资源的 URL。
@@ -1880,7 +1880,7 @@ Resource.prototype.patch = function (data, options) {
 };
 
 /**
- * 从 URL 创建一个 Resource 并对其调用 patch（）。
+ * 从 URL 创建一个 Resource 并对其调用 patch()。
  *
  * @param {object} options 具有以下属性的 url 或对象
  * @param {string} options.url 资源的 URL。

@@ -10,7 +10,7 @@ import parseResponseHeaders from "./parseResponseHeaders.js";
  * @param {number} [statusCode] HTTP 错误状态码，如 404。
  * @param {object} [response] 与错误一起包含的响应。
  * @param {string|object} [responseHeaders] 响应标头，表示为对象字面量或
- * XMLHttpRequest 的 getAllResponseHeaders（） 函数返回格式的字符串。
+ * XMLHttpRequest 的 getAllResponseHeaders() 函数返回格式的字符串。
  */
 function RequestErrorEvent(statusCode, response, responseHeaders) {
   /**
