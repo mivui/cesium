@@ -73,7 +73,7 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">param = Cesium.defaultValue（param， '默认'）;</code></pre>
+    <pre><code class="language-javascript">param = Cesium.defaultValue(param, 'default');</code></pre>
 
     
 

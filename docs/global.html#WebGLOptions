@@ -47,7 +47,7 @@
 
 
         
-            <div class="description">WebGL options to be passed on to HTMLCanvasElement.getContext().See <a href="https://registry.khronos.org/webgl/specs/latest/1.0/#5.2">WebGLContextAttributes</a>but note the modified defaults for 'alpha', 'stencil', and 'powerPreference'<p><code>alpha</code> defaults to false, which can improve performancecompared to the standard WebGL default of true.  If an application needsto composite Cesium above other HTML elements using alpha-blending, set<code>alpha</code> to true.</p></div>
+            <div class="description">WebGL options to be passed on to HTMLCanvasElement.getContext().参见 <a href="https://registry.khronos.org/webgl/specs/latest/1.0/#5.2">WebGLContextAttributes</a>但请注意修改后的 'alpha'、'stencil' 和 'powerPreference' 的默认值<p><code>alpha</code> 默认为 false，这可以提高性能与标准 WebGL 默认值 true 相比。 如果应用程序需要以使用 alpha 混合将 Cesium 合成到其他 HTML 元素之上，将<code>alpha</code> 更改为 true。</p></div>
         
 
         

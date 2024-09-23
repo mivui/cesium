@@ -47,7 +47,7 @@
 
 
         
-            <div class="description">Removes an extension from gltf.extensions, gltf.extensionsUsed, gltf.extensionsRequired, and any other objects in the glTF if it is present.</div>
+            <div class="description">从 gltf.extensions、gltf.extensionsUsed、gltf.extensionsRequired 和 glTF 中的任何其他对象（如果存在）中删除扩展。</div>
         
 
         

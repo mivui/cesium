@@ -47,7 +47,7 @@
 
 
         
-            <div class="description">Enumerates all possible filters used when magnifying WebGL textures.</div>
+            <div class="description">列举放大 WebGL 纹理时使用的所有可能的过滤器。</div>
         
 
         
@@ -96,7 +96,7 @@
 
             
 
-            <td class="description last">Samples the texture by returning the closest pixel.</td>
+            <td class="description last">通过返回最近的像素对纹理进行采样。</td>
         </tr>
 
     
@@ -119,7 +119,7 @@
 
             
 
-            <td class="description last">Samples the texture through bi-linear interpolation of the four nearest pixels. This produces smoother results than <code>NEAREST</code> filtering.</td>
+            <td class="description last">通过对 4 个最接近的像素进行双线性插值对纹理进行采样。这会产生比 <code>NEAREST</code> 筛选更平滑的结果。</td>
         </tr>
 
     
@@ -198,7 +198,7 @@
 
 
 <div class="description">
-    Samples the texture through bi-linear interpolation of the four nearest pixels. This produces smoother results than <code>NEAREST</code> filtering.
+    通过对 4 个最接近的像素进行双线性插值对纹理进行采样。这会产生比 <code>NEAREST</code> 筛选更平滑的结果。
 </div>
 
 
@@ -261,7 +261,7 @@
 
 
 <div class="description">
-    Samples the texture by returning the closest pixel.
+    通过返回最近的像素对纹理进行采样。
 </div>
 
 

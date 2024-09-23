@@ -47,7 +47,7 @@
 
 
         
-            <div class="description">Options to control the setting up of a WebGL Context.<p><code>allowTextureFilterAnisotropic</code> defaults to true, which enablesanisotropic texture filtering when the WebGL extension is supported.Setting this to false will improve performance, but hurt visual quality,especially for horizon views.</p></div>
+            <div class="description">用于控制 WebGL 上下文设置的选项。<p><code>allowTextureFilterAnisotropic</code> 默认为 true，这将启用支持 WebGL 扩展时的各向异性纹理过滤。将此设置为 false 会提高性能，但会损害视觉质量，特别适用于地平线视图。</p></div>
         
 
         
@@ -114,7 +114,7 @@
                 </td>
             
 
-            <td class="description last">If true and the browser supports it, use a WebGL 1 rendering context</td>
+            <td class="description last">如果为 true 且浏览器支持，则使用 WebGL 1 渲染上下文</td>
         </tr>
 
     
@@ -151,7 +151,7 @@
                 </td>
             
 
-            <td class="description last">If true, use anisotropic filtering during texture sampling</td>
+            <td class="description last">如果为 true，则在纹理采样期间使用各向异性过滤</td>
         </tr>
 
     
@@ -186,7 +186,7 @@
                 </td>
             
 
-            <td class="description last">WebGL options to be passed on to canvas.getContext</td>
+            <td class="description last">要传递给 canvas.getContext 的 WebGL 选项</td>
         </tr>
 
     
@@ -221,7 +221,7 @@
                 </td>
             
 
-            <td class="description last">A function to create a WebGL stub for testing</td>
+            <td class="description last">用于创建 WebGL 存根进行测试的函数</td>
         </tr>
 
     

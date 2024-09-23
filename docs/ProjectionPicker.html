@@ -192,7 +192,11 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// In HTML head, include a link to the ProjectionPicker.css stylesheet,// and in the body, include: &lt;div id="projectionPickerContainer">&lt;/div>// Note: This code assumes you already have a Scene instance.const projectionPicker = new Cesium.ProjectionPicker('projectionPickerContainer', scene);</code></pre>
+    <pre><code class="language-javascript">// In HTML head, include a link to the ProjectionPicker.css stylesheet,
+// and in the body, include: &lt;div id="projectionPickerContainer">&lt;/div>
+// Note: This code assumes you already have a Scene instance.
+
+const projectionPicker = new Cesium.ProjectionPicker('projectionPickerContainer', scene);</code></pre>
 
     
 
@@ -371,7 +375,8 @@
 
 
 <div class="description">
-    销毁小部件。应该叫它永久的吗从布局中删除小部件。
+    销毁小部件。如果从布局中永久删除小部件，
+ 则应该调用。
 </div>
 
 

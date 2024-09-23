@@ -10895,7 +10895,7 @@
 
 
 <div class="description">
-    Enumerates all possible filters used when magnifying WebGL textures.
+    列举放大 WebGL 纹理时使用的所有可能的过滤器。
 </div>
 
 
@@ -10947,7 +10947,7 @@
 
             
 
-            <td class="description last">Samples the texture by returning the closest pixel.</td>
+            <td class="description last">通过返回最近的像素对纹理进行采样。</td>
         </tr>
 
     
@@ -10970,7 +10970,7 @@
 
             
 
-            <td class="description last">Samples the texture through bi-linear interpolation of the four nearest pixels. This produces smoother results than <code>NEAREST</code> filtering.</td>
+            <td class="description last">通过对 4 个最接近的像素进行双线性插值对纹理进行采样。这会产生比 <code>NEAREST</code> 筛选更平滑的结果。</td>
         </tr>
 
     
@@ -11034,7 +11034,7 @@
 
 
 <div class="description">
-    Enumerates all possible filters used when minifying WebGL textures.
+    列举缩小 WebGL 纹理时使用的所有可能的过滤器。
 </div>
 
 
@@ -11086,7 +11086,7 @@
 
             
 
-            <td class="description last">Samples the texture by returning the closest pixel.</td>
+            <td class="description last">通过返回最近的像素对纹理进行采样。</td>
         </tr>
 
     
@@ -11109,7 +11109,7 @@
 
             
 
-            <td class="description last">Samples the texture through bi-linear interpolation of the four nearest pixels. This produces smoother results than <code>NEAREST</code> filtering.</td>
+            <td class="description last">通过对 4 个最接近的像素进行双线性插值对纹理进行采样。这会产生比 <code>NEAREST</code> 筛选更平滑的结果。</td>
         </tr>
 
     
@@ -11132,7 +11132,7 @@
 
             
 
-            <td class="description last">Selects the nearest mip level and applies nearest sampling within that level.<p>Requires that the texture has a mipmap. The mip level is chosen by the view angle and screen-space size of the texture.</p></td>
+            <td class="description last">选择最近的 mip 级别，并在该级别内应用最近的采样。<p>要求纹理具有 mipmap。mip 级别由纹理的视角和屏幕空间大小选择。</p></td>
         </tr>
 
     
@@ -11155,7 +11155,7 @@
 
             
 
-            <td class="description last">Selects the nearest mip level and applies linear sampling within that level.<p>Requires that the texture has a mipmap. The mip level is chosen by the view angle and screen-space size of the texture.</p></td>
+            <td class="description last">选择最近的 mip 级别，并在该级别内应用线性采样。<p>要求纹理具有 mipmap。mip 级别由纹理的视角和屏幕空间大小选择。</p></td>
         </tr>
 
     
@@ -11178,7 +11178,7 @@
 
             
 
-            <td class="description last">Read texture values with nearest sampling from two adjacent mip levels and linearly interpolate the results.<p>This option provides a good balance of visual quality and speed when sampling from a mipmapped texture.</p><p>Requires that the texture has a mipmap. The mip level is chosen by the view angle and screen-space size of the texture.</p></td>
+            <td class="description last">从两个相邻的 mip 级别使用最近的采样读取纹理值，并线性插值结果。<p>从 mipmapped 纹理采样时，此选项可在视觉质量和速度之间实现良好的平衡。</p><p>要求纹理具有 mipmap。mip 级别由纹理的视角和屏幕空间大小选择。</p></td>
         </tr>
 
     
@@ -11201,7 +11201,7 @@
 
             
 
-            <td class="description last">Read texture values with linear sampling from two adjacent mip levels and linearly interpolate the results.<p>This option provides a good balance of visual quality and speed when sampling from a mipmapped texture.</p><p>Requires that the texture has a mipmap. The mip level is chosen by the view angle and screen-space size of the texture.</p></td>
+            <td class="description last">使用线性采样从两个相邻的 mip 级别读取纹理值，并线性插值结果。<p>从 mipmapped 纹理采样时，此选项可在视觉质量和速度之间实现良好的平衡。</p><p>要求纹理具有 mipmap。mip 级别由纹理的视角和屏幕空间大小选择。</p></td>
         </tr>
 
     
@@ -11237,7 +11237,7 @@
     
     <h5>See:</h5>
     <ul class="see-list">
-        <li><a href="global.html#TextureMagnificationFilter">TextureMagnificationFilter</a></li>
+        <li>TextureMagnificationFilter （贴图放大过滤器）</li>
     </ul>
     
 
@@ -29532,7 +29532,7 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">param = Cesium.defaultValue（param， '默认'）;</code></pre>
+    <pre><code class="language-javascript">param = Cesium.defaultValue(param, 'default');</code></pre>
 
     
 
@@ -29977,7 +29977,7 @@
 
                 
             
-                The EntityCollection to export as KML.</td>
+                要导出为 KML 的 EntityCollection。</td>
         </tr>
 
     
@@ -30013,7 +30013,7 @@
 
                 
             
-                The ellipsoid for the output file.</td>
+                输出文件的椭球体。</td>
         </tr>
 
     
@@ -30047,7 +30047,7 @@
 
                 
             
-                A callback that will be called with a <a href="ModelGraphics.html"><code>ModelGraphics</code></a> instance and should return the URI to use in the KML. Required if a model exists in the entity collection.</td>
+                将使用 <a href="ModelGraphics.html"><code>ModelGraphics</code></a> 实例调用的回调，并应返回要在 KML 中使用的 URI。如果实体集合中存在模型，则为必需。</td>
         </tr>
 
     
@@ -30083,7 +30083,7 @@
 
                 
             
-                The time value to use to get properties that are not time varying in KML.</td>
+                用于获取在 KML 中不随时间变化的属性的时间值。</td>
         </tr>
 
     
@@ -30119,7 +30119,7 @@
 
                 
             
-                The interval that will be sampled if an entity doesn't have an availability.</td>
+                如果实体没有可用性，则将采样的间隔。</td>
         </tr>
 
     
@@ -30155,7 +30155,7 @@
 
                 
             
-                The number of seconds to sample properties that are varying in KML.</td>
+                对 KML 中变化的属性进行采样的秒数。</td>
         </tr>
 
     
@@ -30191,7 +30191,7 @@
 
                 
             
-                If true KML and external files will be compressed into a kmz file.</td>
+                如果为 true，则 KML 和外部文件将被压缩为 kmz 文件。</td>
         </tr>
 
     
@@ -30291,7 +30291,7 @@
 
 
 <div class="description">
-    将错误对象格式化为 String。 如果可用，则使用 name、message 和 stack属性，否则将回退到 toString（） 上。
+    将错误对象格式化为 String。 如果可用，则使用 name、message 和 stack属性，否则将回退到 toString() 上。
 </div>
 
 
@@ -31902,7 +31902,7 @@
 
 
 <div class="description">
-    Determines if a point is inside a triangle.
+    确定点是否位于三角形内。
 </div>
 
 
@@ -31982,7 +31982,7 @@
 
             <td class="description last">
             
-                The first point of the triangle.</td>
+                三角形的第一个点。</td>
         </tr>
 
     
@@ -32008,7 +32008,7 @@
 
             <td class="description last">
             
-                The second point of the triangle.</td>
+                三角形的第二个点。</td>
         </tr>
 
     
@@ -32034,7 +32034,7 @@
 
             <td class="description last">
             
-                The third point of the triangle.</td>
+                三角形的第三个点。</td>
         </tr>
 
     
@@ -32055,7 +32055,7 @@
 
         
 <div class="param-desc">
-    <code>true</code> if the point is inside the triangle; otherwise, <code>false</code>.
+    如果点位于三角形内部，<code>则为 true</code>;否则为 <code>false</code>。
 </div>
 
 
@@ -32268,7 +32268,7 @@
 
 
 <div class="description">
-    Removes an extension from gltf.extensions, gltf.extensionsUsed, gltf.extensionsRequired, and any other objects in the glTF if it is present.
+    从 gltf.extensions、gltf.extensionsUsed、gltf.extensionsRequired 和 glTF 中的任何其他对象（如果存在）中删除扩展。
 </div>
 
 
@@ -32319,7 +32319,7 @@
 
             <td class="description last">
             
-                A javascript object containing a glTF asset.</td>
+                一个包含 glTF 资产的 javascript 对象。</td>
         </tr>
 
     
@@ -32342,7 +32342,7 @@
 
             <td class="description last">
             
-                The extension to remove.</td>
+                要删除的扩展。</td>
         </tr>
 
     
@@ -32363,7 +32363,7 @@
 
         
 <div class="param-desc">
-    The extension data removed from gltf.extensions.
+    从 gltf.extensions 中删除的扩展数据。
 </div>
 
 
@@ -32682,7 +32682,7 @@
 
 
 <div class="description">
-    在 terrain 数据集的最大可用瓦片级别启动 sampleTerrain（） 请求。
+    在 terrain 数据集的最大可用瓦片级别启动 sampleTerrain() 请求。
 </div>
 
 
@@ -35134,7 +35134,7 @@
 
 
 <div class="description">
-    Options to control the setting up of a WebGL Context.<p><code>allowTextureFilterAnisotropic</code> defaults to true, which enablesanisotropic texture filtering when the WebGL extension is supported.Setting this to false will improve performance, but hurt visual quality,especially for horizon views.</p>
+    用于控制 WebGL 上下文设置的选项。<p><code>allowTextureFilterAnisotropic</code> 默认为 true，这将启用支持 WebGL 扩展时的各向异性纹理过滤。将此设置为 false 会提高性能，但会损害视觉质量，特别适用于地平线视图。</p>
 </div>
 
 
@@ -35204,7 +35204,7 @@
                 </td>
             
 
-            <td class="description last">If true and the browser supports it, use a WebGL 1 rendering context</td>
+            <td class="description last">如果为 true 且浏览器支持，则使用 WebGL 1 渲染上下文</td>
         </tr>
 
     
@@ -35241,7 +35241,7 @@
                 </td>
             
 
-            <td class="description last">If true, use anisotropic filtering during texture sampling</td>
+            <td class="description last">如果为 true，则在纹理采样期间使用各向异性过滤</td>
         </tr>
 
     
@@ -35276,7 +35276,7 @@
                 </td>
             
 
-            <td class="description last">WebGL options to be passed on to canvas.getContext</td>
+            <td class="description last">要传递给 canvas.getContext 的 WebGL 选项</td>
         </tr>
 
     
@@ -35311,7 +35311,7 @@
                 </td>
             
 
-            <td class="description last">A function to create a WebGL stub for testing</td>
+            <td class="description last">用于创建 WebGL 存根进行测试的函数</td>
         </tr>
 
     
@@ -36878,7 +36878,7 @@
 
 
 <div class="description">
-    WebGL options to be passed on to HTMLCanvasElement.getContext().See <a href="https://registry.khronos.org/webgl/specs/latest/1.0/#5.2">WebGLContextAttributes</a>but note the modified defaults for 'alpha', 'stencil', and 'powerPreference'<p><code>alpha</code> defaults to false, which can improve performancecompared to the standard WebGL default of true.  If an application needsto composite Cesium above other HTML elements using alpha-blending, set<code>alpha</code> to true.</p>
+    WebGL options to be passed on to HTMLCanvasElement.getContext().参见 <a href="https://registry.khronos.org/webgl/specs/latest/1.0/#5.2">WebGLContextAttributes</a>但请注意修改后的 'alpha'、'stencil' 和 'powerPreference' 的默认值<p><code>alpha</code> 默认为 false，这可以提高性能与标准 WebGL 默认值 true 相比。 如果应用程序需要以使用 alpha 混合将 Cesium 合成到其他 HTML 元素之上，将<code>alpha</code> 更改为 true。</p>
 </div>
 
 

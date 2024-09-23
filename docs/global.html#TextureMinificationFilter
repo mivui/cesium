@@ -47,7 +47,7 @@
 
 
         
-            <div class="description">Enumerates all possible filters used when minifying WebGL textures.</div>
+            <div class="description">列举缩小 WebGL 纹理时使用的所有可能的过滤器。</div>
         
 
         
@@ -96,7 +96,7 @@
 
             
 
-            <td class="description last">Samples the texture by returning the closest pixel.</td>
+            <td class="description last">通过返回最近的像素对纹理进行采样。</td>
         </tr>
 
     
@@ -119,7 +119,7 @@
 
             
 
-            <td class="description last">Samples the texture through bi-linear interpolation of the four nearest pixels. This produces smoother results than <code>NEAREST</code> filtering.</td>
+            <td class="description last">通过对 4 个最接近的像素进行双线性插值对纹理进行采样。这会产生比 <code>NEAREST</code> 筛选更平滑的结果。</td>
         </tr>
 
     
@@ -142,7 +142,7 @@
 
             
 
-            <td class="description last">Selects the nearest mip level and applies nearest sampling within that level.<p>Requires that the texture has a mipmap. The mip level is chosen by the view angle and screen-space size of the texture.</p></td>
+            <td class="description last">选择最近的 mip 级别，并在该级别内应用最近的采样。<p>要求纹理具有 mipmap。mip 级别由纹理的视角和屏幕空间大小选择。</p></td>
         </tr>
 
     
@@ -165,7 +165,7 @@
 
             
 
-            <td class="description last">Selects the nearest mip level and applies linear sampling within that level.<p>Requires that the texture has a mipmap. The mip level is chosen by the view angle and screen-space size of the texture.</p></td>
+            <td class="description last">选择最近的 mip 级别，并在该级别内应用线性采样。<p>要求纹理具有 mipmap。mip 级别由纹理的视角和屏幕空间大小选择。</p></td>
         </tr>
 
     
@@ -188,7 +188,7 @@
 
             
 
-            <td class="description last">Read texture values with nearest sampling from two adjacent mip levels and linearly interpolate the results.<p>This option provides a good balance of visual quality and speed when sampling from a mipmapped texture.</p><p>Requires that the texture has a mipmap. The mip level is chosen by the view angle and screen-space size of the texture.</p></td>
+            <td class="description last">从两个相邻的 mip 级别使用最近的采样读取纹理值，并线性插值结果。<p>从 mipmapped 纹理采样时，此选项可在视觉质量和速度之间实现良好的平衡。</p><p>要求纹理具有 mipmap。mip 级别由纹理的视角和屏幕空间大小选择。</p></td>
         </tr>
 
     
@@ -211,7 +211,7 @@
 
             
 
-            <td class="description last">Read texture values with linear sampling from two adjacent mip levels and linearly interpolate the results.<p>This option provides a good balance of visual quality and speed when sampling from a mipmapped texture.</p><p>Requires that the texture has a mipmap. The mip level is chosen by the view angle and screen-space size of the texture.</p></td>
+            <td class="description last">使用线性采样从两个相邻的 mip 级别读取纹理值，并线性插值结果。<p>从 mipmapped 纹理采样时，此选项可在视觉质量和速度之间实现良好的平衡。</p><p>要求纹理具有 mipmap。mip 级别由纹理的视角和屏幕空间大小选择。</p></td>
         </tr>
 
     
@@ -247,7 +247,7 @@
     
     <h5>See:</h5>
     <ul class="see-list">
-        <li><a href="global.html#TextureMagnificationFilter">TextureMagnificationFilter</a></li>
+        <li>TextureMagnificationFilter （贴图放大过滤器）</li>
     </ul>
     
 
@@ -290,7 +290,7 @@
 
 
 <div class="description">
-    Samples the texture through bi-linear interpolation of the four nearest pixels. This produces smoother results than <code>NEAREST</code> filtering.
+    通过对 4 个最接近的像素进行双线性插值对纹理进行采样。这会产生比 <code>NEAREST</code> 筛选更平滑的结果。
 </div>
 
 
@@ -353,7 +353,7 @@
 
 
 <div class="description">
-    Read texture values with linear sampling from two adjacent mip levels and linearly interpolate the results.<p>This option provides a good balance of visual quality and speed when sampling from a mipmapped texture.</p><p>Requires that the texture has a mipmap. The mip level is chosen by the view angle and screen-space size of the texture.</p>
+    使用线性采样从两个相邻的 mip 级别读取纹理值，并线性插值结果。<p>从 mipmapped 纹理采样时，此选项可在视觉质量和速度之间实现良好的平衡。</p><p>要求纹理具有 mipmap。mip 级别由纹理的视角和屏幕空间大小选择。</p>
 </div>
 
 
@@ -416,7 +416,7 @@
 
 
 <div class="description">
-    Selects the nearest mip level and applies linear sampling within that level.<p>Requires that the texture has a mipmap. The mip level is chosen by the view angle and screen-space size of the texture.</p>
+    选择最近的 mip 级别，并在该级别内应用线性采样。<p>要求纹理具有 mipmap。mip 级别由纹理的视角和屏幕空间大小选择。</p>
 </div>
 
 
@@ -479,7 +479,7 @@
 
 
 <div class="description">
-    Samples the texture by returning the closest pixel.
+    通过返回最近的像素对纹理进行采样。
 </div>
 
 
@@ -542,7 +542,7 @@
 
 
 <div class="description">
-    Read texture values with nearest sampling from two adjacent mip levels and linearly interpolate the results.<p>This option provides a good balance of visual quality and speed when sampling from a mipmapped texture.</p><p>Requires that the texture has a mipmap. The mip level is chosen by the view angle and screen-space size of the texture.</p>
+    从两个相邻的 mip 级别使用最近的采样读取纹理值，并线性插值结果。<p>从 mipmapped 纹理采样时，此选项可在视觉质量和速度之间实现良好的平衡。</p><p>要求纹理具有 mipmap。mip 级别由纹理的视角和屏幕空间大小选择。</p>
 </div>
 
 
@@ -605,7 +605,7 @@
 
 
 <div class="description">
-    Selects the nearest mip level and applies nearest sampling within that level.<p>Requires that the texture has a mipmap. The mip level is chosen by the view angle and screen-space size of the texture.</p>
+    选择最近的 mip 级别，并在该级别内应用最近的采样。<p>要求纹理具有 mipmap。mip 级别由纹理的视角和屏幕空间大小选择。</p>
 </div>
 
 
