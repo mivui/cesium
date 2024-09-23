@@ -457,12 +457,12 @@ Rectangle.clone = function (rectangle, result) {
 /**
  * 按组件比较提供的 Rectangles 并返回
  * <code>true</code> 如果它们通过了绝对或相对耐受性测试，
- * <code>false</code> 否则。
+ * 否则 <code>false</code>。
  *
  * @param {Rectangle} [left] 第一个Rectangle.
  * @param {Rectangle} [right] 第二个 Rectangle.
  * @param {number} [absoluteEpsilon=0] 用于相等性检验的绝对公差。
- * @returns {boolean} <code>true</code>如果左和右在提供的epsilon内，<code>false</code>否则。
+ * @returns {boolean} <code>true</code>如果左和右在提供的epsilon内，否则 <code>false</code>。
  */
 Rectangle.equalsEpsilon = function (left, right, absoluteEpsilon) {
   absoluteEpsilon = defaultValue(absoluteEpsilon, 0);
@@ -493,7 +493,7 @@ Rectangle.prototype.clone = function (result) {
  * <code>true</code>，否则为 <code>false</code>。
  *
  * @param {Rectangle} [other] 要比较的矩形。
- * @returns {boolean} <code>true</code> 如果 Rectangles 相等, <code>false</code> 否则。
+ * @returns {boolean} <code>true</code> 如果 Rectangles 相等, 否则 <code>false</code>。
  */
 Rectangle.prototype.equals = function (other) {
   return Rectangle.equals(this, other);
@@ -501,7 +501,7 @@ Rectangle.prototype.equals = function (other) {
 
 /**
  * 比较提供的矩形，如果它们相等，则返回 <code>true</code>，
- * <code>false</code> 否则。
+ * 否则 <code>false</code>。
  *
  * @param {Rectangle} [left] 第一个Rectangle.
  * @param {Rectangle} [right] 第二个 Rectangle.
@@ -522,7 +522,7 @@ Rectangle.equals = function (left, right) {
 /**
  * 将提供的 Rectangle 与此 Rectangle 组件进行比较，并返回
  * <code>true</code>，如果它们位于提供的 epsilon 内，
- * <code>false</code> 否则。
+ * 否则 <code>false</code>。
  *
  * @param {Rectangle} [other] 要比较的矩形。
  * @param {number} [epsilon=0] 用来检验等式。
@@ -875,7 +875,7 @@ Rectangle.expand = function (rectangle, cartographic, result) {
  *
  * @param {Rectangle} rectangle 矩形
  * @param {Cartographic} cartographic 要包含在矩形中的制图。
- * @returns {boolean} true（如果提供的制图位于矩形内），则为 false，否则。
+ * @returns {boolean} true（如果提供的制图位于矩形内），否则为 false。
  */
 Rectangle.contains = function (rectangle, cartographic) {
   //>>includeStart('debug', pragmas.debug);

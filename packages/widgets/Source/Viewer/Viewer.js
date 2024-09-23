@@ -307,7 +307,7 @@ function enableVRUI(viewer, enabled) {
  * @property {boolean} [navigationHelpButton=true] 如果设置为false，则不会创建导航帮助按钮。
  * @property {boolean} [navigationInstructionsInitiallyVisible=true] 如果导航指令最初应该是可见的，则为True;如果在用户明确单击按钮之前不应该显示，则为false。
  * @property {boolean} [scene3DOnly=false] 当<code>true</code>时,每个几何实例只会在3D中呈现,以保存GPU内存。
- * @property {boolean} [shouldAnimate=false] <code>true</code>如果时钟在默认情况下应该尝试提前模拟时间，<code>false</code>否则。此选项优先于设置 {@link Viewer#clockViewModel}.
+ * @property {boolean} [shouldAnimate=false] <code>true</code>如果时钟在默认情况下应该尝试提前模拟时间，否则 <code>false</code>。此选项优先于设置 {@link Viewer#clockViewModel}.
  * @property {ClockViewModel} [clockViewModel=new ClockViewModel(clock)] 用于控制当前时间的时钟视图模型。
  * @property {ProviderViewModel} [selectedImageryProviderViewModel] 如果不提供第一个可用底层,则使用的是当前的基本图像层。如果“baseLayerPicker”设置为true,这个值仅有效。
  * @property {ProviderViewModel[]} [imageryProviderViewModels=createDefaultImageryProviderViewModels()] 可以从BaseLayerPicker中选择的ProviderViewModels数组。此值仅在' baseLayerPicker '设置为true时有效。

@@ -516,7 +516,7 @@ Entity.registerEntityType = function (propertyName, Type) {
  * 给定时间，如果此对象在该时间内应有数据，则返回 true。
  *
  * @param {JulianDate} time 检查可用性的时间。
- * @returns {boolean} true 如果对象在提供的时间内应该有数据，则为 false 否则。
+ * @returns {boolean} true 如果对象在提供的时间内应该有数据，则为 否则 false 。
  */
 Entity.prototype.isAvailable = function (time) {
   //>>includeStart('debug', pragmas.debug);

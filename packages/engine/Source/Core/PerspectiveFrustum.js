@@ -411,12 +411,12 @@ PerspectiveFrustum.prototype.equals = function (other) {
 /**
  * 对提供的 PerspectiveFrustum 组件进行比较，并返回
  * <code>true</code> 如果它们通过了绝对或相对耐受性测试，
- * <code>false</code> 否则。
+ * 否则 <code>false</code>。
  *
  * @param {PerspectiveFrustum} other 右边 PerspectiveFrustum.
  * @param {number} relativeEpsilon 用于相等性检验的相对容差。
  * @param {number} [absoluteEpsilon=relativeEpsilon] 用于相等性检验的绝对公差。
- * @returns {boolean} <code>true</code> 如果 this 和其他都在提供的 epsilon 内, <code>false</code> 否则。
+ * @returns {boolean} <code>true</code> 如果 this 和其他都在提供的 epsilon 内, 否则 <code>false</code>。
  */
 PerspectiveFrustum.prototype.equalsEpsilon = function (
   other,

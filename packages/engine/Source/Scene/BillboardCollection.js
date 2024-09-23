@@ -581,7 +581,7 @@ BillboardCollection.prototype._updateBillboard = function (
  * Check whether this collection contains a given billboard.
  *
  * @param {Billboard} [billboard] The billboard to check for.
- * @returns {boolean} true if this collection contains the billboard, false 否则。
+ * @returns {boolean} true if this collection contains the billboard, 否则 false 。
  *
  * @see BillboardCollection#get
  */

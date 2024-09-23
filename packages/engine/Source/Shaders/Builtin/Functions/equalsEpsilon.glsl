@@ -1,6 +1,6 @@
 /**
  * Compares <code>left</code> and <code>right</code> componentwise. Returns <code>true</code>
- * if they are within <code>epsilon</code> and <code>false</code> 否则。 The inputs
+ * if they are within <code>epsilon</code> and 否则 <code>false</code>。 The inputs
  * <code>left</code> and <code>right</code> can be <code>float</code>s, <code>vec2</code>s,
  * <code>vec3</code>s, or <code>vec4</code>s.
  *
@@ -10,7 +10,7 @@
  * @param {} left The first vector.
  * @param {} right The second vector.
  * @param {float} epsilon 用来检验等式。
- * @returns {bool} <code>true</code> if the components are within <code>epsilon</code> and <code>false</code> 否则。
+ * @returns {bool} <code>true</code> if the components are within <code>epsilon</code> and 否则 <code>false</code>。
  *
  * @example
  * // GLSL declarations

@@ -180,12 +180,12 @@ function FrameState(context, creditDisplay, jobScheduler) {
   /**
    * @typedef FrameState.Passes
    * @type {object}
-   * @property {boolean} render <code>true</code> if the primitive should update for a render pass, <code>false</code> 否则。
-   * @property {boolean} pick <code>true</code> if the primitive should update for a picking pass, <code>false</code> 否则。
-   * @property {boolean} pickVoxel <code>true</code> if the primitive should update for a voxel picking pass, <code>false</code> 否则。
-   * @property {boolean} depth <code>true</code> if the primitive should update for a depth only pass, <code>false</code> 否则。
-   * @property {boolean} postProcess <code>true</code> if the primitive should update for a per-feature post-process pass, <code>false</code> 否则。
-   * @property {boolean} offscreen <code>true</code> if the primitive should update for an offscreen pass, <code>false</code> 否则。
+   * @property {boolean} render <code>true</code> if the primitive should update for a render pass, 否则 <code>false</code>。
+   * @property {boolean} pick <code>true</code> if the primitive should update for a picking pass, 否则 <code>false</code>。
+   * @property {boolean} pickVoxel <code>true</code> if the primitive should update for a voxel picking pass, 否则 <code>false</code>。
+   * @property {boolean} depth <code>true</code> if the primitive should update for a depth only pass, 否则 <code>false</code>。
+   * @property {boolean} postProcess <code>true</code> if the primitive should update for a per-feature post-process pass, 否则 <code>false</code>。
+   * @property {boolean} offscreen <code>true</code> if the primitive should update for an offscreen pass, 否则 <code>false</code>。
    */
 
   /**
@@ -259,7 +259,7 @@ function FrameState(context, creditDisplay, jobScheduler) {
   /**
    * @typedef FrameState.Fog
    * @type {object}
-   * @property {boolean} enabled <code>true</code> if fog is enabled, <code>false</code> 否则。 This affects both fog culling and rendering.
+   * @property {boolean} enabled <code>true</code> if fog is enabled, 否则 <code>false</code>。 This affects both fog culling and rendering.
    * @property {boolean} renderable <code>true</code> if fog should be rendered, <code>false</code> if not. This flag should be checked in combination with fog.enabled.
    * @property {number} density A positive number used to mix the color and fog color based on camera distance.
    * @property {number} sse A scalar used to modify the screen space error of geometry partially in fog.

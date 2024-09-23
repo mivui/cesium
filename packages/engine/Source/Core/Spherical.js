@@ -109,7 +109,7 @@ Spherical.normalize = function (spherical, result) {
  *
  * @param {Spherical} left 第一个要比较的球面。
  * @param {Spherical} right 要比较的第二个球面。
- * @returns {boolean} true，如果第一个球面等于第二个球面，则为 false，否则。
+ * @returns {boolean} true，如果第一个球面等于第二个球面，否则为 false。
  */
 Spherical.equals = function (left, right) {
   return (
@@ -128,7 +128,7 @@ Spherical.equals = function (left, right) {
  * @param {Spherical} left 第一个要比较的球面。
  * @param {Spherical} right 要比较的第二个球面。
  * @param {number} [epsilon=0.0] 要比较的 epsilon。
- * @returns {boolean} true，如果第一个球面在第二个球面提供的 epsilon 内，则为 false，否则。
+ * @returns {boolean} true，如果第一个球面在第二个球面提供的 epsilon 内，否则为 false。
  */
 Spherical.equalsEpsilon = function (left, right, epsilon) {
   epsilon = defaultValue(epsilon, 0.0);
@@ -146,7 +146,7 @@ Spherical.equalsEpsilon = function (left, right, epsilon) {
  * 如果此球面等于提供的球面，则返回 true，否则返回 false。
  *
  * @param {Spherical} other 要比较的球形。
- * @returns {boolean} true，如果此球面等于提供的球面，则为 false，否则。
+ * @returns {boolean} true，如果此球面等于提供的球面，否则为 false。
  */
 Spherical.prototype.equals = function (other) {
   return Spherical.equals(this, other);
@@ -167,7 +167,7 @@ Spherical.prototype.clone = function (result) {
  *
  * @param {Spherical} other 要比较的球形。
  * @param {number} epsilon 要比较的 epsilon。
- * 如果此球面位于提供的球面的 epsilon 内，则@returns {boolean} true， false 否则。
+ * 如果此球面位于提供的球面的 epsilon 内，则@returns {boolean} true， 否则 false 。
  */
 Spherical.prototype.equalsEpsilon = function (other, epsilon) {
   return Spherical.equalsEpsilon(this, other, epsilon);

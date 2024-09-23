@@ -324,7 +324,7 @@ ClippingPolygonCollection.prototype.get = function (index) {
  * 检查此集合是否包含等于给定 ClippingPolygon 的 ClippingPolygon。
  *
  * @param {ClippingPolygon} polygon 要检查的 ClippingPolygon。
- * @returns {boolean} 如果此集合包含 ClippingPolygon，则 true， false 否则。
+ * @returns {boolean} 如果此集合包含 ClippingPolygon，则 true， 否则 false 。
  *
  * @see ClippingPolygonCollection#get
  */

@@ -181,7 +181,7 @@ RequestScheduler.serverHasOpenSlots = function (serverKey, desiredRequests) {
  * 来自。这在 {@link Multiple3DTileContent} 中用于确定何时
  * 所有请求都可以安排
  * @param {number} desiredRequests 调用方打算发出的请求数
- * 如果堆有足够的可用槽来满足 desiredRequests，则@return {boolean} <code>true</code>。<code>false</code> 否则。
+ * 如果堆有足够的可用槽来满足 desiredRequests，则@return {boolean} <code>true</code>。否则 <code>false</code>。
  *
  * @private
  */

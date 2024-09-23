@@ -142,13 +142,13 @@ HeadingPitchRoll.equals = function (left, right) {
 /**
  * 对提供的 HeadingPitchRolls 组件进行比较，并返回
  * <code>true</code> 如果它们通过了绝对或相对耐受性测试，
- * <code>false</code> 否则。
+ * 否则 <code>false</code>。
  *
  * @param {HeadingPitchRoll} [left] 第一个HeadingPitchRoll.
  * @param {HeadingPitchRoll} [right] 第二个 HeadingPitchRoll.
  * @param {number} [relativeEpsilon=0] 用于相等性检验的相对容差。
  * @param {number} [absoluteEpsilon=relativeEpsilon] 用于相等性检验的绝对公差。
- * @returns {boolean} <code>true</code>如果左和右在提供的epsilon内，<code>false</code>否则。
+ * @returns {boolean} <code>true</code>如果左和右在提供的epsilon内，否则 <code>false</code>。
  */
 HeadingPitchRoll.equalsEpsilon = function (
   left,
@@ -205,12 +205,12 @@ HeadingPitchRoll.prototype.equals = function (right) {
 /**
  * 将此 HeadingPitchRoll 与提供的 HeadingPitchRoll 组件进行比较，并返回
  * <code>true</code> 如果它们通过了绝对或相对耐受性测试，
- * <code>false</code> 否则。
+ * 否则 <code>false</code>。
  *
  * @param {HeadingPitchRoll} [right] 右边 HeadingPitchRoll.
  * @param {number} [relativeEpsilon=0] 用于相等性检验的相对容差。
  * @param {number} [absoluteEpsilon=relativeEpsilon] 用于相等性检验的绝对公差。
- * @returns {boolean} <code>true</code>如果它们在提供的epsilon内，<code>false</code>否则。
+ * @returns {boolean} <code>true</code>如果它们在提供的epsilon内，否则 <code>false</code>。
  */
 HeadingPitchRoll.prototype.equalsEpsilon = function (
   right,

@@ -704,7 +704,7 @@ SampledProperty.prototype.addSamplesPackedArray = function (
  * 在给定时间删除样本（如果存在）。
  *
  * @param {JulianDate} time 采样时间。
- * @returns {boolean} <code>true</code> if a sample at time was removed, <code>false</code> 否则。
+ * @returns {boolean} <code>true</code> if a sample at time was removed, 否则 <code>false</code>。
  */
 SampledProperty.prototype.removeSample = function (time) {
   //>>includeStart('debug', pragmas.debug);

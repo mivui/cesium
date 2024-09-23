@@ -298,7 +298,7 @@ SampledPositionProperty.prototype.addSamplesPackedArray = function (
  * 在给定时间删除样本（如果存在）。
  *
  * @param {JulianDate} time 采样时间。
- * @returns {boolean} <code>true</code>（如果当时的样本被删除）， <code>false</code> 否则。
+ * @returns {boolean} <code>true</code>（如果当时的样本被删除）， 否则 <code>false</code>。
  */
 SampledPositionProperty.prototype.removeSample = function (time) {
   return this._property.removeSample(time);

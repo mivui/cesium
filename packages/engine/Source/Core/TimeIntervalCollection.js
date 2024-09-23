@@ -272,7 +272,7 @@ TimeIntervalCollection.prototype.indexOf = function (date) {
  * @param {object} [options] 对象，具有以下属性：
  * @param {JulianDate} [options.start] 间隔的开始时间。
  * @param {JulianDate} [options.stop] 区间的停止时间。
- * @param {boolean} [options.isStartIncluded] 如果 <code>options.start</code> 包含在区间内，<code>则为 true</code>， <code>false</code> 否则。
+ * @param {boolean} [options.isStartIncluded] 如果 <code>options.start</code> 包含在区间内，<code>则为 true</code>， 否则 <code>false</code>。
  * @param {boolean} [options.isStopIncluded] 如果区间中包含 <code>options.stop</code>，<code>则为 true</code>， <code>否则为 false</code>。
  * @returns {TimeInterval|undefined} 集合中与指定参数匹配的第一个间隔。
  */
@@ -733,10 +733,10 @@ TimeIntervalCollection.prototype.intersect = function (
  *
  * @param {object} options 对象，具有以下属性:
  * @param {JulianDate[]} options.julianDates ISO 8601 日期数组。
- * @param {boolean} [options.isStartIncluded=true] 如果间隔中包含开始时间，<code>则为 true</code>， <code>false</code> 否则。
- * @param {boolean} [options.isStopIncluded=true] 如果间隔中包含停止时间，<code>则为 true</code>， <code>false</code> 否则。
- * @param {boolean} [options.leadingInterval=false] <code>true</code> 如果要添加从 Iso8601.MINIMUM_VALUE 到开始时间的间隔， <code>false</code> 否则。
- * @param {boolean} [options.trailingInterval=false] <code>true</code> 如果要添加从停止时间到Iso8601.MAXIMUM_VALUE的间隔， <code>false</code> 否则。
+ * @param {boolean} [options.isStartIncluded=true] 如果间隔中包含开始时间，<code>则为 true</code>， 否则 <code>false</code>。
+ * @param {boolean} [options.isStopIncluded=true] 如果间隔中包含停止时间，<code>则为 true</code>， 否则 <code>false</code>。
+ * @param {boolean} [options.leadingInterval=false] <code>true</code> 如果要添加从 Iso8601.MINIMUM_VALUE 到开始时间的间隔， 否则 <code>false</code>。
+ * @param {boolean} [options.trailingInterval=false] <code>true</code> 如果要添加从停止时间到Iso8601.MAXIMUM_VALUE的间隔， 否则 <code>false</code>。
  * @param {Function} [options.dataCallback] 一个函数，该函数将返回在将其添加到集合之前在每个间隔内调用的数据。如果未指定，则数据将是集合中的索引。
  * @param {TimeIntervalCollection} [result] 用于结果的现有实例。
  * @returns {TimeIntervalCollection} 修改后的结果参数或者如果未提供任何实例，则为新实例。
@@ -983,10 +983,10 @@ const scratchDuration = new GregorianDate();
  *
  * @param {object} options 对象，具有以下属性:
  * @param {string} options.iso8601 An ISO 8601 interval.
- * @param {boolean} [options.isStartIncluded=true] 如果间隔中包含开始时间，<code>则为 true</code>， <code>false</code> 否则。
- * @param {boolean} [options.isStopIncluded=true] 如果间隔中包含停止时间，<code>则为 true</code>， <code>false</code> 否则。
- * @param {boolean} [options.leadingInterval=false] <code>true</code> 如果要添加从 Iso8601.MINIMUM_VALUE 到开始时间的间隔， <code>false</code> 否则。
- * @param {boolean} [options.trailingInterval=false] <code>true</code> 如果要添加从停止时间到Iso8601.MAXIMUM_VALUE的间隔， <code>false</code> 否则。
+ * @param {boolean} [options.isStartIncluded=true] 如果间隔中包含开始时间，<code>则为 true</code>， 否则 <code>false</code>。
+ * @param {boolean} [options.isStopIncluded=true] 如果间隔中包含停止时间，<code>则为 true</code>， 否则 <code>false</code>。
+ * @param {boolean} [options.leadingInterval=false] <code>true</code> 如果要添加从 Iso8601.MINIMUM_VALUE 到开始时间的间隔， 否则 <code>false</code>。
+ * @param {boolean} [options.trailingInterval=false] <code>true</code> 如果要添加从停止时间到Iso8601.MAXIMUM_VALUE的间隔， 否则 <code>false</code>。
  * @param {Function} [options.dataCallback] 一个函数，该函数将返回在将其添加到集合之前在每个间隔内调用的数据。如果未指定，则数据将是集合中的索引。
  * @param {TimeIntervalCollection} [result] 用于结果的现有实例。
  * @returns {TimeIntervalCollection} 修改后的结果参数或者如果未提供任何实例，则为新实例。
@@ -1040,10 +1040,10 @@ TimeIntervalCollection.fromIso8601 = function (options, result) {
  *
  * @param {object} options 对象，具有以下属性:
  * @param {string[]} options.iso8601Dates ISO 8601 日期数组。
- * @param {boolean} [options.isStartIncluded=true] 如果间隔中包含开始时间，<code>则为 true</code>， <code>false</code> 否则。
- * @param {boolean} [options.isStopIncluded=true] 如果间隔中包含停止时间，<code>则为 true</code>， <code>false</code> 否则。
- * @param {boolean} [options.leadingInterval=false] <code>true</code> 如果要添加从 Iso8601.MINIMUM_VALUE 到开始时间的间隔， <code>false</code> 否则。
- * @param {boolean} [options.trailingInterval=false] <code>true</code> 如果要添加从停止时间到Iso8601.MAXIMUM_VALUE的间隔， <code>false</code> 否则。
+ * @param {boolean} [options.isStartIncluded=true] 如果间隔中包含开始时间，<code>则为 true</code>， 否则 <code>false</code>。
+ * @param {boolean} [options.isStopIncluded=true] 如果间隔中包含停止时间，<code>则为 true</code>， 否则 <code>false</code>。
+ * @param {boolean} [options.leadingInterval=false] <code>true</code> 如果要添加从 Iso8601.MINIMUM_VALUE 到开始时间的间隔， 否则 <code>false</code>。
+ * @param {boolean} [options.trailingInterval=false] <code>true</code> 如果要添加从停止时间到Iso8601.MAXIMUM_VALUE的间隔， 否则 <code>false</code>。
  * @param {Function} [options.dataCallback] 一个函数，该函数将返回在将其添加到集合之前在每个间隔内调用的数据。如果未指定，则数据将是集合中的索引。
  * @param {TimeIntervalCollection} [result] 用于结果的现有实例。
  * @returns {TimeIntervalCollection} 修改后的结果参数或者如果未提供任何实例，则为新实例。
@@ -1080,10 +1080,10 @@ TimeIntervalCollection.fromIso8601DateArray = function (options, result) {
  * @param {JulianDate} options.epoch 持续时间相对于的日期。
  * @param {string} options.iso8601Durations ISO 8601 持续时间数组。
  * @param {boolean} [options.relativeToPrevious=false] 如果持续时间相对于前一个日期，<code>则为 true</code>，如果始终相对于纪元，则<code>为 false</code>。
- * @param {boolean} [options.isStartIncluded=true] 如果间隔中包含开始时间，<code>则为 true</code>， <code>false</code> 否则。
- * @param {boolean} [options.isStopIncluded=true] 如果间隔中包含停止时间，<code>则为 true</code>， <code>false</code> 否则。
- * @param {boolean} [options.leadingInterval=false] <code>true</code> 如果要添加从 Iso8601.MINIMUM_VALUE 到开始时间的间隔， <code>false</code> 否则。
- * @param {boolean} [options.trailingInterval=false] <code>true</code> 如果要添加从停止时间到Iso8601.MAXIMUM_VALUE的间隔， <code>false</code> 否则。
+ * @param {boolean} [options.isStartIncluded=true] 如果间隔中包含开始时间，<code>则为 true</code>， 否则 <code>false</code>。
+ * @param {boolean} [options.isStopIncluded=true] 如果间隔中包含停止时间，<code>则为 true</code>， 否则 <code>false</code>。
+ * @param {boolean} [options.leadingInterval=false] <code>true</code> 如果要添加从 Iso8601.MINIMUM_VALUE 到开始时间的间隔， 否则 <code>false</code>。
+ * @param {boolean} [options.trailingInterval=false] <code>true</code> 如果要添加从停止时间到Iso8601.MAXIMUM_VALUE的间隔， 否则 <code>false</code>。
  * @param {Function} [options.dataCallback] 一个函数，该函数将返回在将其添加到集合之前在每个间隔内调用的数据。如果未指定，则数据将是集合中的索引。
  * @param {TimeIntervalCollection} [result] 用于结果的现有实例。
  * @returns {TimeIntervalCollection} 修改后的结果参数或者如果未提供任何实例，则为新实例。

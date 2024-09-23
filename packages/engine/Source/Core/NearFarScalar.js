@@ -133,7 +133,7 @@ NearFarScalar.unpack = function (array, startingIndex, result) {
 
 /**
  * 比较提供的 NearFarScalar，如果它们相等，则返回 <code>true</code>，
- * <code>false</code> 否则。
+ * 否则 <code>false</code>。
  *
  * @param {NearFarScalar} [left] 第一个NearFarScalar.
  * @param {NearFarScalar} [right] 第二个 NearFarScalar.
@@ -163,7 +163,7 @@ NearFarScalar.prototype.clone = function (result) {
 
 /**
  * 将此实例与提供的 NearFarScalar 进行比较，如果它们相等，则返回 <code>true</code>，
- * <code>false</code> 否则。
+ * 否则 <code>false</code>。
  *
  * @param {NearFarScalar} [right] 右边 NearFarScalar.
  * 如果 left 和 right 相等，则 @returns {boolean} <code>true</code>;否则<code>为 false</code>。

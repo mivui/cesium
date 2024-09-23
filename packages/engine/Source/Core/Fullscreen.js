@@ -112,7 +112,7 @@ Object.defineProperties(Fullscreen, {
  * 检测浏览器是否支持标准的全屏 API。
  *
  * @returns {boolean} <code>true</code>，如果浏览器支持标准的全屏 API，
- * <code>false</code> 否则。
+ * 否则 <code>false</code>。
  */
 Fullscreen.supportsFullscreen = function () {
   if (defined(_supportsFullscreen)) {

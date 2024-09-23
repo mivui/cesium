@@ -290,7 +290,7 @@ Object.defineProperties(MetadataClassProperty.prototype, {
 
   /**
    * 如果属性是数组（固定长度或可变长度），则为 True，
-   * false 否则。
+   * 否则 false 。
    *
    * @memberof MetadataClassProperty.prototype
    * @type {boolean}

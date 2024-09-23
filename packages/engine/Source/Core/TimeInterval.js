@@ -14,8 +14,8 @@ import JulianDate from "./JulianDate.js";
  * @param {object} [options] 对象，具有以下属性:
  * @param {JulianDate} [options.start=new JulianDate()] 区间的开始时间。
  * @param {JulianDate} [options.stop=new JulianDate()] 区间的停止时间。
- * @param {boolean} [options.isStartIncluded=true] 如果 <code>options.start</code> 包含在区间中，则<code>为 true</code>， <code>false</code> 否则。
- * @param {boolean} [options.isStopIncluded=true] 如果 <code>options.stop</code> 包含在区间内，<code>则为 true</code>， <code>false</code> 否则。
+ * @param {boolean} [options.isStartIncluded=true] 如果 <code>options.start</code> 包含在区间中，则<code>为 true</code>， 否则 <code>false</code>。
+ * @param {boolean} [options.isStopIncluded=true] 如果 <code>options.stop</code> 包含在区间内，<code>则为 true</code>， 否则 <code>false</code>。
  * @param {object} [options.data] 与此区间关联的任意数据。
  *
  * @example
@@ -130,8 +130,8 @@ const scratchInterval = {
  *
  * @param {object} options 对象，具有以下属性:
  * @param {string} options.iso8601 ISO 8601 间隔。
- * @param {boolean} [options.isStartIncluded=true] 如果 <code>options.start</code> 包含在区间中，则<code>为 true</code>， <code>false</code> 否则。
- * @param {boolean} [options.isStopIncluded=true] 如果 <code>options.stop</code> 包含在区间内，<code>则为 true</code>， <code>false</code> 否则。
+ * @param {boolean} [options.isStartIncluded=true] 如果 <code>options.start</code> 包含在区间中，则<code>为 true</code>， 否则 <code>false</code>。
+ * @param {boolean} [options.isStopIncluded=true] 如果 <code>options.stop</code> 包含在区间内，<code>则为 true</code>， 否则 <code>false</code>。
  * @param {object} [options.data] 与此区间关联的任意数据。
  * @param {TimeInterval} [result] 用于结果的现有实例。
  * @returns {TimeInterval} 修改后的结果参数或新实例（如果未提供）。
@@ -389,7 +389,7 @@ TimeInterval.prototype.equals = function (right, dataComparer) {
  * @param {TimeInterval} [right] 右边 interval.
  * @param {number} [epsilon=0] 用来检验等式。
  * @param {TimeInterval.DataComparer} [dataComparer] 比较两个区间的数据的函数。 如果省略，则使用引用相等。
- * @returns {boolean} <code>true</code>如果它们在提供的epsilon内，<code>false</code>否则。
+ * @returns {boolean} <code>true</code>如果它们在提供的epsilon内，否则 <code>false</code>。
  */
 TimeInterval.prototype.equalsEpsilon = function (right, epsilon, dataComparer) {
   return TimeInterval.equalsEpsilon(this, right, epsilon, dataComparer);

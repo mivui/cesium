@@ -81,7 +81,7 @@ GoogleEarthEnterpriseTileInformation.prototype.setParent = function (parent) {
 /**
  * 获取子树是否可用
  *
- * @returns {boolean} true 如果 subtree 可用， false 否则。
+ * @returns {boolean} true 如果 subtree 可用， 否则 false 。
  */
 GoogleEarthEnterpriseTileInformation.prototype.hasSubtree = function () {
   return isBitSet(this._bits, cacheFlagBitmask);
@@ -90,7 +90,7 @@ GoogleEarthEnterpriseTileInformation.prototype.hasSubtree = function () {
 /**
  * 获取图像是否可用
  *
- * @returns {boolean} 如果影像可用，则为 true， false 否则。
+ * @returns {boolean} 如果影像可用，则为 true， 否则 false 。
  */
 GoogleEarthEnterpriseTileInformation.prototype.hasImagery = function () {
   return isBitSet(this._bits, imageBitmask);
@@ -99,7 +99,7 @@ GoogleEarthEnterpriseTileInformation.prototype.hasImagery = function () {
 /**
  * 获取 terrain 是否可用
  *
- * @returns {boolean} true（如果地形可用），则为 false。 否则。
+ * @returns {boolean} true（如果地形可用），否则为 false。
  */
 GoogleEarthEnterpriseTileInformation.prototype.hasTerrain = function () {
   return isBitSet(this._bits, terrainBitmask);

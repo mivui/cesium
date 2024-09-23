@@ -762,13 +762,13 @@ Cartesian4.equalsArray = function (cartesian, array, offset) {
 /**
  * 比较所提供的笛卡尔分量并返回
  * <code>true</code> 如果它们通过了绝对或相对耐受性测试，
- * <code>false</code> 否则。
+ * 否则 <code>false</code>。
  *
  * @param {Cartesian4} [left] 第一个Cartesian.
  * @param {Cartesian4} [right] 第二个 Cartesian.
  * @param {number} [relativeEpsilon=0] 用于相等性检验的相对容差。
  * @param {number} [absoluteEpsilon=relativeEpsilon] 用于相等性检验的绝对公差。
- * @returns {boolean} <code>true</code>如果左和右在提供的epsilon内，<code>false</code>否则。
+ * @returns {boolean} <code>true</code>如果左和右在提供的epsilon内，否则 <code>false</code>。
  */
 Cartesian4.equalsEpsilon = function (
   left,
@@ -879,12 +879,12 @@ Cartesian4.prototype.equals = function (right) {
 /**
  * 将此笛卡尔与提供的笛卡尔分量进行比较并返回
  * <code>true</code> 如果它们通过了绝对或相对耐受性测试，
- * <code>false</code> 否则。
+ * 否则 <code>false</code>。
  *
  * @param {Cartesian4} [right] 右边 Cartesian.
  * @param {number} [relativeEpsilon=0] 用于相等性检验的相对容差。
  * @param {number} [absoluteEpsilon=relativeEpsilon] 用于相等性检验的绝对公差。
- * @returns {boolean} <code>true</code>如果它们在提供的epsilon内，<code>false</code>否则。
+ * @returns {boolean} <code>true</code>如果它们在提供的epsilon内，否则 <code>false</code>。
  */
 Cartesian4.prototype.equalsEpsilon = function (
   right,

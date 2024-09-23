@@ -232,12 +232,12 @@ Cartographic.equals = function (left, right) {
 /**
  * 比较所提供的地图组件并返回
  * <code>true</code> 如果它们在给定的范围内，
- * <code>false</code> 否则。
+ * 否则 <code>false</code>。
  *
  * @param {Cartographic} [left] 第一个cartographic.
  * @param {Cartographic} [right] 第二个 cartographic.
  * @param {number} [epsilon=0] 用来检验等式。
- * @returns {boolean} <code>true</code>如果左和右在提供的epsilon内，<code>false</code>否则。
+ * @returns {boolean} <code>true</code>如果左和右在提供的epsilon内，否则 <code>false</code>。
  */
 Cartographic.equalsEpsilon = function (left, right, epsilon) {
   epsilon = defaultValue(epsilon, 0);
@@ -284,11 +284,11 @@ Cartographic.prototype.equals = function (right) {
 /**
  * 将所提供的与此cartographic 组件进行比较并返回
  * <code>true</code> 如果它们在给定的范围内，
- * <code>false</code> 否则。
+ * 否则 <code>false</code>。
  *
  * @param {Cartographic} [right] 第二个 cartographic.
  * @param {number} [epsilon=0] 用来检验等式。
- * @returns {boolean} <code>true</code>如果左和右在提供的epsilon内，<code>false</code>否则。
+ * @returns {boolean} <code>true</code>如果左和右在提供的epsilon内，否则 <code>false</code>。
  */
 Cartographic.prototype.equalsEpsilon = function (right, epsilon) {
   return Cartographic.equalsEpsilon(this, right, epsilon);

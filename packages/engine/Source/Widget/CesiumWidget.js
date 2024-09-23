@@ -129,7 +129,7 @@ function configureCameraFrustum(widget) {
  * @param {boolean} [options.orderIndependentTranslucency=true] If true and the configuration supports it, use order independent translucency.
  * @param {MapProjection} [options.mapProjection=new GeographicProjection(options.ellipsoid)] The map projection to use in 2D and Columbus View modes.
  * @param {Globe | false} [options.globe=new Globe(options.ellipsoid)] The globe to use in the scene.  If set to <code>false</code>, no globe will be added and the sky atmosphere will be hidden by default.
- * @param {boolean} [options.useDefaultRenderLoop=true] True if this widget should control the render loop, false 否则。
+ * @param {boolean} [options.useDefaultRenderLoop=true] True if this widget should control the render loop, 否则 false 。
  * @param {boolean} [options.useBrowserRecommendedResolution=true] If true, render at the browser's recommended resolution and ignore <code>window.devicePixelRatio</code>.
  * @param {number} [options.targetFrameRate] The target frame rate when using the default render loop.
  * @param {boolean} [options.showRenderLoopErrors=true] If true, this widget will automatically display an HTML panel to the user containing the error, if a render loop error occurs.

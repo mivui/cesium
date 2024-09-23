@@ -1640,12 +1640,12 @@ Matrix3.equals = function (left, right) {
 /**
  * 对提供的矩阵进行组件比较，并返回
  * <code>true</code>，如果它们位于提供的 epsilon 内，
- * <code>false</code> 否则。
+ * 否则 <code>false</code>。
  *
  * @param {Matrix3} [left] 第一个matrix.
  * @param {Matrix3} [right] 第二个 matrix.
  * @param {number} [epsilon=0] 用来检验等式。
- * @returns {boolean} <code>true</code>如果左和右在提供的epsilon内，<code>false</code>否则。
+ * @returns {boolean} <code>true</code>如果左和右在提供的epsilon内，否则 <code>false</code>。
  */
 Matrix3.equalsEpsilon = function (left, right, epsilon) {
   epsilon = defaultValue(epsilon, 0);
@@ -1813,11 +1813,11 @@ Matrix3.equalsArray = function (matrix, array, offset) {
 /**
  * 将此矩阵与提供的矩阵进行分量比较，并返回
  * <code>true</code>，如果它们位于提供的 epsilon 内，
- * <code>false</code> 否则。
+ * 否则 <code>false</code>。
  *
  * @param {Matrix3} [right] 右边 matrix.
  * @param {number} [epsilon=0] 用来检验等式。
- * @returns {boolean} <code>true</code>如果它们在提供的epsilon内，<code>false</code>否则。
+ * @returns {boolean} <code>true</code>如果它们在提供的epsilon内，否则 <code>false</code>。
  */
 Matrix3.prototype.equalsEpsilon = function (right, epsilon) {
   return Matrix3.equalsEpsilon(this, right, epsilon);

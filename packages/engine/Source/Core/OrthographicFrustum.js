@@ -309,7 +309,7 @@ OrthographicFrustum.prototype.equals = function (other) {
 /**
  * 按组件比较提供的 OrthographicFrustum 并返回
  * <code>true</code> 如果它们通过了绝对或相对耐受性测试，
- * <code>false</code> 否则。
+ * 否则 <code>false</code>。
  *
  * @param {OrthographicFrustum} other 右边 OrthographicFrustum.
  * @param {number} relativeEpsilon 用于相等性检验的相对容差。

@@ -509,7 +509,7 @@ TweenCollection.prototype.removeAll = function () {
  * Determines whether this collection contains a given tween.
  *
  * @param {Tween} tween The tween to check for.
- * @returns {boolean} <code>true</code> if this collection contains the tween, <code>false</code> 否则。
+ * @returns {boolean} <code>true</code> if this collection contains the tween, 否则 <code>false</code>。
  */
 TweenCollection.prototype.contains = function (tween) {
   return defined(tween) && this._tweens.indexOf(tween) !== -1;

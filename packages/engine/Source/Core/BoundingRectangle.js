@@ -296,7 +296,7 @@ BoundingRectangle.expand = function (rectangle, point, result) {
  *
  * @param {BoundingRectangle} left 检查是否有交集的矩形。
  * @param {BoundingRectangle} right 另一个要检查相交的矩形。
- * @returns {Intersect} <code>Intersect.INTERSECTING</code>如果矩形相交，<code>Intersect.OUTSIDE</code> 否则。
+ * @returns {Intersect} <code>Intersect.INTERSECTING</code>如果矩形相交，否则 <code>Intersect.OUTSIDE</code> 。
  */
 BoundingRectangle.intersect = function (left, right) {
   //>>includeStart('debug', pragmas.debug);
@@ -356,7 +356,7 @@ BoundingRectangle.prototype.clone = function (result) {
  * 确定此矩形是否与另一个矩形相交。
  *
  * @param {BoundingRectangle} right A rectangle to check for intersection.
- * @returns {Intersect} <code>Intersect.INTERSECTING</code>如果矩形相交，<code>Intersect.OUTSIDE</code> 否则。
+ * @returns {Intersect} <code>Intersect.INTERSECTING</code>如果矩形相交，否则 <code>Intersect.OUTSIDE</code> 。
  */
 BoundingRectangle.prototype.intersect = function (right) {
   return BoundingRectangle.intersect(this, right);

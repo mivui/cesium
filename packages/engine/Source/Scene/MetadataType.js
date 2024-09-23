@@ -175,7 +175,7 @@ MetadataType.getComponentCount = function (type) {
  * 获取相应的向量或矩阵类。这用于简化
  * 打包和解包代码。
  * @param {MetadataType} type 元数据类型
- * @return {object} 向量类型的适当 CartesianN 类，矩阵类型的 MatrixN 类，或 undefined 否则。
+ * @return {object} 向量类型为适当的 CartesianN 类，矩阵类型的 MatrixN 类，否则为 undefined。
  * @private
  */
 MetadataType.getMathType = function (type) {
