@@ -440,7 +440,7 @@ function getWebGLContext(canvas, webglOptions, requestWebgl1) {
 /**
  * @typedef {object} WebGLOptions
  *
- * WebGL options to be passed on to HTMLCanvasElement.getContext().
+ * 要传递给 HTMLCanvasElement.getContext().
  * 参见 {@link https://registry.khronos.org/webgl/specs/latest/1.0/#5.2|WebGLContextAttributes}
  * 但请注意修改后的 'alpha'、'stencil' 和 'powerPreference' 的默认值
  *
