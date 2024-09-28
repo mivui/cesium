@@ -4,7 +4,7 @@ on:
     workflows: [dev, prod]
     types: [completed]
     branches: 
-      - main
+      - docs
       - 'cesium.com'
       - production
 jobs:
