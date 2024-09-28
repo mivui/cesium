@@ -14,7 +14,7 @@ function IauOrientationParameters(
   rightAscension,
   declination,
   rotation,
-  rotationRate
+  rotationRate,
 ) {
   /**
    * 天体北极相对于

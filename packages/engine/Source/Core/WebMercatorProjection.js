@@ -48,7 +48,7 @@ Object.defineProperties(WebMercatorProjection.prototype, {
  * @returns {number} 以弧度为单位的大地纬度。
  */
 WebMercatorProjection.mercatorAngleToGeodeticLatitude = function (
-  mercatorAngle
+  mercatorAngle,
 ) {
   return CesiumMath.PI_OVER_TWO - 2.0 * Math.atan(Math.exp(-mercatorAngle));
 };
@@ -85,9 +85,8 @@ WebMercatorProjection.geodeticLatitudeToMercatorAngle = function (latitude) {
  *
  * @type {number}
  */
-WebMercatorProjection.MaximumLatitude = WebMercatorProjection.mercatorAngleToGeodeticLatitude(
-  Math.PI
-);
+WebMercatorProjection.MaximumLatitude =
+  WebMercatorProjection.mercatorAngleToGeodeticLatitude(Math.PI);
 
 /**
  * 将大地椭球坐标（以弧度为单位）转换为等效的 Web 墨卡托
@@ -104,7 +103,7 @@ WebMercatorProjection.prototype.project = function (cartographic, result) {
   const x = cartographic.longitude * semimajorAxis;
   const y =
     WebMercatorProjection.geodeticLatitudeToMercatorAngle(
-      cartographic.latitude
+      cartographic.latitude,
     ) * semimajorAxis;
   const z = cartographic.height;
 
@@ -138,7 +137,7 @@ WebMercatorProjection.prototype.unproject = function (cartesian, result) {
   const oneOverEarthSemimajorAxis = this._oneOverSemimajorAxis;
   const longitude = cartesian.x * oneOverEarthSemimajorAxis;
   const latitude = WebMercatorProjection.mercatorAngleToGeodeticLatitude(
-    cartesian.y * oneOverEarthSemimajorAxis
+    cartesian.y * oneOverEarthSemimajorAxis,
   );
   const height = cartesian.z;
 

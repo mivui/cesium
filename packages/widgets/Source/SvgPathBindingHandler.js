@@ -58,7 +58,7 @@ const SvgPathBindingHandler = {
             if (value.css) {
               svg.setAttribute(
                 "class",
-                `${svgClassName} ${knockout.unwrap(value.css)}`
+                `${svgClassName} ${knockout.unwrap(value.css)}`,
               );
             }
           },

@@ -17,7 +17,7 @@ function EarthOrientationParametersSample(
   yPoleWander,
   xPoleOffset,
   yPoleOffset,
-  ut1MinusUtc
+  ut1MinusUtc,
 ) {
   /**
    * 极点绕 X 轴徘徊，以弧度为单位。

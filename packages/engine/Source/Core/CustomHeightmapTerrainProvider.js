@@ -75,11 +75,12 @@ function CustomHeightmapTerrainProvider(options) {
   this._height = options.height;
   const maxTileDimensions = Math.max(this._width, this._height);
 
-  this._levelZeroMaximumGeometricError = TerrainProvider.getEstimatedLevelZeroGeometricErrorForAHeightmap(
-    this._tilingScheme.ellipsoid,
-    maxTileDimensions,
-    this._tilingScheme.getNumberOfXTilesAtLevel(0)
-  );
+  this._levelZeroMaximumGeometricError =
+    TerrainProvider.getEstimatedLevelZeroGeometricErrorForAHeightmap(
+      this._tilingScheme.ellipsoid,
+      maxTileDimensions,
+      this._tilingScheme.getNumberOfXTilesAtLevel(0),
+    );
 
   this._errorEvent = new Event();
 
@@ -216,7 +217,7 @@ CustomHeightmapTerrainProvider.prototype.requestTileGeometry = function (
   x,
   y,
   level,
-  request
+  request,
 ) {
   const promise = this._callback(x, y, level);
   if (!defined(promise)) {
@@ -247,11 +248,10 @@ CustomHeightmapTerrainProvider.prototype.requestTileGeometry = function (
  * @param {number} level 要获得最大几何误差的瓦片水平。
  * @returns {number} 最大几何误差。
  */
-CustomHeightmapTerrainProvider.prototype.getLevelMaximumGeometricError = function (
-  level
-) {
-  return this._levelZeroMaximumGeometricError / (1 << level);
-};
+CustomHeightmapTerrainProvider.prototype.getLevelMaximumGeometricError =
+  function (level) {
+    return this._levelZeroMaximumGeometricError / (1 << level);
+  };
 
 /**
  * 确定是否可以加载磁贴的数据。
@@ -264,7 +264,7 @@ CustomHeightmapTerrainProvider.prototype.getLevelMaximumGeometricError = functio
 CustomHeightmapTerrainProvider.prototype.getTileDataAvailable = function (
   x,
   y,
-  level
+  level,
 ) {
   return undefined;
 };
@@ -280,7 +280,7 @@ CustomHeightmapTerrainProvider.prototype.getTileDataAvailable = function (
 CustomHeightmapTerrainProvider.prototype.loadTileDataAvailability = function (
   x,
   y,
-  level
+  level,
 ) {
   return undefined;
 };

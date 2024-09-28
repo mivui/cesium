@@ -39,7 +39,7 @@ function Particle(options) {
    * @default Cartesian3.ZERO
    */
   this.position = Cartesian3.clone(
-    defaultValue(options.position, Cartesian3.ZERO)
+    defaultValue(options.position, Cartesian3.ZERO),
   );
   /**
    * 粒子在世界坐标中的速度。
@@ -47,7 +47,7 @@ function Particle(options) {
    * @default Cartesian3.ZERO
    */
   this.velocity = Cartesian3.clone(
-    defaultValue(options.velocity, Cartesian3.ZERO)
+    defaultValue(options.velocity, Cartesian3.ZERO),
   );
   /**
    * 粒子的寿命（以秒为单位）。
@@ -91,7 +91,7 @@ function Particle(options) {
    * @default new Cartesian(1.0, 1.0)
    */
   this.imageSize = Cartesian2.clone(
-    defaultValue(options.imageSize, defaultSize)
+    defaultValue(options.imageSize, defaultSize),
   );
 
   this._age = 0.0;

@@ -59,7 +59,7 @@ Object.defineProperties(ConstantSpline.prototype, {
 ConstantSpline.prototype.findTimeInterval = function (time) {
   //>>includeStart('debug', pragmas.debug);
   throw new DeveloperError(
-    "findTimeInterval cannot be called on a ConstantSpline."
+    "findTimeInterval cannot be called on a ConstantSpline.",
   );
   //>>includeEnd('debug');
 };

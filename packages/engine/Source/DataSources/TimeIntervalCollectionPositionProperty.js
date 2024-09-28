@@ -21,7 +21,7 @@ function TimeIntervalCollectionPositionProperty(referenceFrame) {
   this._intervals = new TimeIntervalCollection();
   this._intervals.changedEvent.addEventListener(
     TimeIntervalCollectionPositionProperty.prototype._intervalsChanged,
-    this
+    this,
   );
   this._referenceFrame = defaultValue(referenceFrame, ReferenceFrame.FIXED);
 }
@@ -90,7 +90,7 @@ const timeScratch = new JulianDate();
  */
 TimeIntervalCollectionPositionProperty.prototype.getValue = function (
   time,
-  result
+  result,
 ) {
   if (!defined(time)) {
     time = JulianDate.now(timeScratch);
@@ -106,32 +106,29 @@ TimeIntervalCollectionPositionProperty.prototype.getValue = function (
  * @param {Cartesian3} [result] 要将值存储到的对象，如果省略，则会创建并返回一个新实例。
  * @returns {Cartesian3 | undefined} 修改后的结果参数或者，如果未提供 result 参数，则为新实例。
  */
-TimeIntervalCollectionPositionProperty.prototype.getValueInReferenceFrame = function (
-  time,
-  referenceFrame,
-  result
-) {
-  //>>includeStart('debug', pragmas.debug);
-  if (!defined(time)) {
-    throw new DeveloperError("time is required.");
-  }
-  if (!defined(referenceFrame)) {
-    throw new DeveloperError("referenceFrame is required.");
-  }
-  //>>includeEnd('debug');
+TimeIntervalCollectionPositionProperty.prototype.getValueInReferenceFrame =
+  function (time, referenceFrame, result) {
+    //>>includeStart('debug', pragmas.debug);
+    if (!defined(time)) {
+      throw new DeveloperError("time is required.");
+    }
+    if (!defined(referenceFrame)) {
+      throw new DeveloperError("referenceFrame is required.");
+    }
+    //>>includeEnd('debug');
 
-  const position = this._intervals.findDataForIntervalContainingDate(time);
-  if (defined(position)) {
-    return PositionProperty.convertToReferenceFrame(
-      time,
-      position,
-      this._referenceFrame,
-      referenceFrame,
-      result
-    );
-  }
-  return undefined;
-};
+    const position = this._intervals.findDataForIntervalContainingDate(time);
+    if (defined(position)) {
+      return PositionProperty.convertToReferenceFrame(
+        time,
+        position,
+        this._referenceFrame,
+        referenceFrame,
+        result,
+      );
+    }
+    return undefined;
+  };
 
 /**
  * 将此属性与提供的属性进行比较，并返回
@@ -152,7 +149,8 @@ TimeIntervalCollectionPositionProperty.prototype.equals = function (other) {
 /**
  * @private
  */
-TimeIntervalCollectionPositionProperty.prototype._intervalsChanged = function () {
-  this._definitionChanged.raiseEvent(this);
-};
+TimeIntervalCollectionPositionProperty.prototype._intervalsChanged =
+  function () {
+    this._definitionChanged.raiseEvent(this);
+  };
 export default TimeIntervalCollectionPositionProperty;

@@ -47,7 +47,7 @@ function TerrainMesh(
   westIndicesSouthToNorth,
   southIndicesEastToWest,
   eastIndicesNorthToSouth,
-  northIndicesWestToEast
+  northIndicesWestToEast,
 ) {
   /**
    * 瓦片的中心。 顶点位置是相对于此中心指定的。
