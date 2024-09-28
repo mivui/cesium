@@ -36,7 +36,7 @@ import DeveloperError from "../Core/DeveloperError.js";
  * 在这些像素位置具有相同值的瓦片将被丢弃。 的最终结果
  * 对于标准 ArcGIS Server，这些默认值应该是正确的切片丢弃。 为了确保
  * 没有丢弃任何图块，为此构造并传递一个 {@link NeverTileDiscardPolicy}
- *参数。
+ * 参数。
  * @property {boolean} [usePreCachedTilesIfAvailable=true] 如果为 true，则服务器的预缓存
  * 如果有瓦片，则使用瓦片。只有已弃用的 API 才支持导出切片。
  * @property {string} [layers] 要显示的图层的逗号分隔列表，如果应显示所有图层，则为 undefined。
@@ -260,9 +260,9 @@ async function requestMetadata(resource, imageryProviderBuilder) {
  *
  * 提供由 ArcGIS MapServer 托管的切片影像。 默认情况下，服务器的预缓存切片为
  * 二手（如果有）。
- * 
+ *
  * <br/>
- * 
+ *
  *  {@link https://developers.arcgis.com/documentation/mapping-apis-and-services/security| ArcGIS Access Token } 需要对 ArcGIS Image Tile 服务的请求进行身份验证。
  * 要访问安全的 ArcGIS 资源，需要创建 ArcGIS 开发人员
  * 帐户或 ArcGIS Online 帐户，然后实施身份验证方法以获取访问令牌。
@@ -278,7 +278,7 @@ async function requestMetadata(resource, imageryProviderBuilder) {
  * @example
  * // Set the default access token for accessing ArcGIS Image Tile service
  * Cesium.ArcGisMapService.defaultAccessToken = "<ArcGIS Access Token>";
- * 
+ *
  * // Add a base layer from a default ArcGIS basemap
  * const viewer = new Cesium.Viewer("cesiumContainer", {
  *   baseLayer: Cesium.ImageryLayer.fromProviderAsync(

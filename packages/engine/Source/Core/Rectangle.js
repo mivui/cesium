@@ -7,6 +7,7 @@ import Ellipsoid from "./Ellipsoid.js";
 import CesiumMath from "./Math.js";
 import Transforms from "./Transforms.js";
 import Matrix4 from "./Matrix4.js";
+import deprecationWarning from "./deprecationWarning.js";
 
 /**
  * 指定为经度和纬度坐标的二维区域。
@@ -541,8 +542,28 @@ Rectangle.prototype.equalsEpsilon = function (other, epsilon) {
  * @exception {DeveloperError} <code>south</code> 必须在区间 [<code>-Pi/2</code>， <code>Pi/2</code>] 内。
  * @exception {DeveloperError} <code>east</code> 必须在区间 [<code>-Pi</code>， <code>Pi</code>] 内。
  * @exception {DeveloperError} <code>west</code> 必须在区间 [<code>-Pi</code>， <code>Pi</code>] 内。
+ * @deprecated 此功能已弃用，并将在 Cesium 1.124 中删除。 See <a href="https://github.com/CesiumGS/cesium/issues/4921">Issue 4921</a>
  */
 Rectangle.validate = function (rectangle) {
+  deprecationWarning(
+    "Rectangle.validate",
+    "Rectangle.validate is a no-op and has been deprecated. It will be removed in Cesium 1.124."
+  );
+  return Rectangle._validate(rectangle);
+};
+
+/**
+ * 检查 Rectangle 的属性，如果它们不在有效范围内，则抛出 Bracket。
+ *
+ * @param {Rectangle} rectangle 要验证的矩形
+ *
+ * @exception {DeveloperError} <code>north</code> 必须在区间 [<code>-Pi/2</code>, <code>Pi/2</code>].
+ * @exception {DeveloperError} <code>south</code> 必须在区间 [<code>-Pi/2</code>, <code>Pi/2</code>].
+ * @exception {DeveloperError} <code>east</code> 必须在区间 [<code>-Pi</code>, <code>Pi</code>].
+ * @exception {DeveloperError} <code>west</code> 必须在区间 [<code>-Pi</code>, <code>Pi</code>].
+ * @private
+ */
+Rectangle._validate = function (rectangle) {
   //>>includeStart('debug', pragmas.debug);
   Check.typeOf.object("rectangle", rectangle);
 
