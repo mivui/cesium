@@ -3,21 +3,21 @@ import Check from "../../../../Core/Check.js";
 /**
  * @typedef {object} AnchorPointDirect.ConstructorOptions
  *
- * Initialization options for the AnchorPointDirect constructor
+ * AnchorPointDirect 构造函数的初始化选项
  *
- * @property {Cartesian3} position  Anchor point geographic coordinates
- * @property {Cartesian3} adjustmentParams The adjustment values in meters
+ * @property {Cartesian3} position  锚点地理坐标
+ * @property {Cartesian3} adjustmentParams 以米为单位的调整值
  */
 
 /**
- * Metadata for one stored anchor point using direct storage.
+ * 使用直接存储的一个存储锚点的元数据。
  *
- * This reflects the `anchronPointDirect` definition of the
- * {@link https://nsgreg.nga.mil/csmwg.jsp|NGA_gpm_local} glTF extension.
+ * 这反映了 `anchronPointDirect` 的定义
+ * {@link https://nsgreg.nga.mil/csmwg.jsp|NGA_gpm_local} glTF 扩展。
  *
  * @constructor
- * @param {AnchorPointDirect.ConstructorOptions} options An object describing initialization options
- * @experimental This feature is not final and is subject to change without Cesium's standard deprecation policy.
+ * @param {AnchorPointDirect.ConstructorOptions} options 描述初始化选项的对象
+ * @experimental 此功能不是最终的，在没有 Cesium 的标准弃用政策的情况下可能会发生变化。
  */
 function AnchorPointDirect(options) {
   //>>includeStart('debug', pragmas.debug);
@@ -31,7 +31,7 @@ function AnchorPointDirect(options) {
 
 Object.defineProperties(AnchorPointDirect.prototype, {
   /**
-   * Anchor point geographic coordinates in meters as X/Easting, Y/Northing, Z/HAE
+   * 锚点地理坐标（以米为单位），如 X/Easting、Y/Northing、Z/HAE
    *
    * @memberof AnchorPointDirect.prototype
    * @type {Cartesian3}
@@ -44,8 +44,8 @@ Object.defineProperties(AnchorPointDirect.prototype, {
   },
 
   /**
-   * The delta-x delta-y delta-z adjustment values in meters per anchor
-   * point.
+   * delta-x delta-y delta-z 调整值（以米为单位/锚点）
+   * 点。
    *
    * @memberof AnchorPointDirect.prototype
    * @type {Cartesian3}

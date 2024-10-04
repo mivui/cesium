@@ -10,23 +10,23 @@ import Spdcf from "./Spdcf.js";
 import StorageType from "./StorageType.js";
 
 /**
- * Loads glTF NGA_gpm_local from the root of a glTF object
+ * 从 glTF 对象的根加载 glTF NGA_gpm_local
  *
  * @alias GltfGpmLoader
  * @constructor
  *
- * @param {object} options Object with the following properties:
+ * @param {object} options Object 具有以下属性：
  * @param {object} options.gltf The glTF JSON.
- * @param {string} [options.extension] The <code>NGA_gpm_local</code> extension object.
+ * @param {string} [options.extension] <code>NGA_gpm_local</code> 扩展对象。
  *
  * @private
  */
 function GltfGpmLoader() {}
 
 /**
- * Creates a Matrix3 that describes a covariance matrix (which is
- * symmetric) from the array containing the upper triangle, in
- * column-major order.
+ * 创建一个描述协方差矩阵（即
+ * symmetric） 从包含上三角形的数组中，在
+ * 列优先顺序。
  *
  * @param {number[]} array The input array
  * @returns {Matrix3} The Matrix3
@@ -47,10 +47,10 @@ function createCovarianceMatrixFromUpperTriangle(array) {
 }
 
 /**
- * Creates an `AnchorPointDirect` from the given JSON representation
+ * 从给定的 JSON 表示形式创建 'AnchorPointDirect'
  *
- * @param {object} anchorPointDirectJson The input JSON
- * @returns {AnchorPointDirect} The direct anchor point
+ * @param {object} anchorPointDirectJson 输入 JSON
+ * @returns {AnchorPointDirect} 直接锚点
  */
 function createAnchorPointDirect(anchorPointDirectJson) {
   const position = Cartesian3.fromArray(
@@ -71,10 +71,10 @@ function createAnchorPointDirect(anchorPointDirectJson) {
 }
 
 /**
- * Creates an `AnchorPointIndirect` from the given JSON representation
+ * 从给定的 JSON 表示形式创建 'AnchorPointIndirect'
  *
- * @param {object} anchorPointIndirectJson The input JSON
- * @returns {AnchorPointIndirect} The indirect anchor point
+ * @param {object} anchorPointIndirectJson 输入 JSON
+ * @returns {AnchorPointIndirect} 间接锚点
  */
 function createAnchorPointIndirect(anchorPointIndirectJson) {
   const position = Cartesian3.fromArray(
@@ -99,10 +99,10 @@ function createAnchorPointIndirect(anchorPointIndirectJson) {
 }
 
 /**
- * Creates a `CorrelationGroup` from the given JSON representation
+ * 从给定的 JSON 表示形式创建 'CorrelationGroup'
  *
- * @param {object} correlationGroupJson The input JSON
- * @returns {CorrelationGroup} The correlation group
+ * @param {object} correlationGroupJson 输入 JSON
+ * @returns {CorrelationGroup} 相关组
  */
 function createCorrelationGroup(correlationGroupJson) {
   const groupFlags = correlationGroupJson.groupFlags;

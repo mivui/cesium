@@ -3,22 +3,22 @@ import Check from "../../../../Core/Check.js";
 /**
  * @typedef {object} AnchorPointIndirect.ConstructorOptions
  *
- * Initialization options for the AnchorPointIndirect constructor
+ * AnchorPointIndirect 构造函数的初始化选项
  *
- * @property {Cartesian3} position  Anchor point geographic coordinates
- * @property {Cartesian3} adjustmentParams The adjustment values in meters
- * @property {Matrix3} covarianceMatrix The 3x3 covariance matrix
+ * @property {Cartesian3} position  锚点地理坐标
+ * @property {Cartesian3} adjustmentParams 以米为单位的调整值
+ * @property {Matrix3} covarianceMatrix 3x3 协方差矩阵
  */
 
 /**
- * Metadata for one stored anchor point.
+ * 一个存储的锚点的元数据。
  *
- * This reflects the `anchronPointIndirect` definition of the
- * {@link https://nsgreg.nga.mil/csmwg.jsp|NGA_gpm_local} glTF extension.
+ * 这反映了 `anchronPointIndirect` 的定义
+ * {@link https://nsgreg.nga.mil/csmwg.jsp|NGA_gpm_local} glTF 扩展。
  *
  * @constructor
- * @param {AnchorPointIndirect.ConstructorOptions} options An object describing initialization options
- * @experimental This feature is not final and is subject to change without Cesium's standard deprecation policy.
+ * @param {AnchorPointIndirect.ConstructorOptions} options 描述初始化选项的对象
+ * @experimental 此功能不是最终的，在没有 Cesium 的标准弃用政策的情况下可能会发生变化。
  */
 function AnchorPointIndirect(options) {
   //>>includeStart('debug', pragmas.debug);
@@ -34,7 +34,7 @@ function AnchorPointIndirect(options) {
 
 Object.defineProperties(AnchorPointIndirect.prototype, {
   /**
-   * Anchor point geographic coordinates in meters as X/Easting, Y/Northing, Z/HAE
+   * 锚点地理坐标（以米为单位），如 X/Easting、Y/Northing、Z/HAE
    *
    * @memberof AnchorPointIndirect.prototype
    * @type {Cartesian3}
@@ -47,8 +47,8 @@ Object.defineProperties(AnchorPointIndirect.prototype, {
   },
 
   /**
-   * The delta-x delta-y delta-z adjustment values in meters per anchor
-   * point.
+   * delta-x delta-y delta-z 调整值（以米为单位/锚点）
+   * 点。
    *
    * @memberof AnchorPointIndirect.prototype
    * @type {Cartesian3}
@@ -61,7 +61,7 @@ Object.defineProperties(AnchorPointIndirect.prototype, {
   },
 
   /**
-   * The 3x3 covariance matrix.
+   * 3x3 协方差矩阵。
    *
    * @memberof AnchorPointIndirect.prototype
    * @type {Matrix3}

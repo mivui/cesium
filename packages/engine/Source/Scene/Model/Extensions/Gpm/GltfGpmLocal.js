@@ -6,48 +6,48 @@ import StorageType from "./StorageType.js";
 /**
  * @typedef {object} GltfGpmLocal.ConstructorOptions
  *
- * Initialization options for the GltfGpmLocal constructor
+ * GltfGpmLocal 构造函数的初始化选项
  *
- * @property {string} storageType The storage type.
- * This must be one of the `StorageType` constants, i.e. `Direct` or `Indirect`.
- * @property {AnchorPointIndirect[]|undefined} [anchorPointsIndirect] The indirect anchor points.
- * This must be present if and only if the storage type is `Indirect`.
- * @property {CorrelationGroup[]|undefined} [intraTileCorrelationGroups] The intra-tile correlation groups.
- * This must be present if and only if the storage type is `Indirect`.
- * @property {AnchorPointDirect[]|undefined} [anchorPointsDirect] The direct anchor points.
- * This must be present if and only if the storage type is `Direct`.
- * @property {Matrix3|undefined} [covarianceDirect] The covariance of anchor point parameters.
- * This must be present if and only if the storage type is `Direct`.
+ * @property {string} storageType 存储类型。
+ * 这必须是 'StorageType' 常量之一，即 'Direct' 或 'Indirect'。
+ * @property {AnchorPointIndirect[]|undefined} [anchorPointsIndirect] 间接锚点。
+ * 当且仅当存储类型为 'Indirect' 时，必须存在此项。
+ * @property {CorrelationGroup[]|undefined} [intraTileCorrelationGroups] 图块内相关组。
+ * 当且仅当存储类型为 'Indirect' 时，必须存在此项。
+ * @property {AnchorPointDirect[]|undefined} [anchorPointsDirect] 直接锚点。
+ * 当且仅当存储类型为 'Direct' 时，必须存在此项。
+ * @property {Matrix3|undefined} [covarianceDirect] 锚点参数的协方差。
+ * 当且仅当存储类型为 'Direct' 时，必须存在此项。
  */
 
 /**
- * The GPM metadata for a Ground-Space Indirect implementation stored
- * locally (i.e. a tile and/or leaf node).
+ * 存储了 Ground-Space Indirect 实现的 GPM 元数据
+ * 本地（即瓦片和/或叶节点）。
  *
- * This reflects the root extension object of the {@link https://nsgreg.nga.mil/csmwg.jsp|NGA_gpm_local}
- * glTF extension. When a model that contains this extension was loaded,
- * then an object of this type can be obtained by calling
+ * 这反映了 {@link https://nsgreg.nga.mil/csmwg.jsp|NGA_gpm_local}
+ * glTF 扩展。加载包含此扩展的模型时，
+ * 则可以通过调用
  * ```
  * const gltfGpmLocal = model.getExtension("NGA_gpm_local");
  * ```
  *
- * The storage type determines the presence of the optional properties:
+ * 存储类型决定了是否存在可选属性：
  * <ul>
  *  <li>
- *   When the storage type is `StorageType.Indirect`, then the
- *   `anchorPointsIndirect` and `intraTileCorrelationGroups`
- *   are present.
+ *   当存储类型为 'StorageType.Indirect' 时，则
+ *   'anchorPointsIndirect' 和 'intraTileCorrelationGroups'
+ *   存在。
  *  </li>
  *  <li>
- *   When the storage type is `StorageType.Direct`, then the
- *   `anchorPointsDirect` and `covarianceDirect` are present.
+ *   当存储类型为 'StorageType.Direct' 时，则
+ *   存在 'anchorPointsDirect' 和 'covarianceDirect'。
  *  </li>
  * </ul>
  *
  * @constructor
- * @param {GltfGpmLocal.ConstructorOptions} options An object describing initialization options
+ * @param {GltfGpmLocal.ConstructorOptions} options 描述初始化选项的对象
  *
- * @experimental This feature is not final and is subject to change without Cesium's standard deprecation policy.
+ * @experimental 此功能不是最终的，在没有 Cesium 的标准弃用政策的情况下可能会发生变化。
  */
 function GltfGpmLocal(options) {
   //>>includeStart('debug', pragmas.debug);
@@ -110,7 +110,7 @@ function GltfGpmLocal(options) {
 
 Object.defineProperties(GltfGpmLocal.prototype, {
   /**
-   * Specifies if covariance storage is indirect or direct.
+   * 指定协方差存储是间接存储还是直接存储。
    *
    * @memberof GltfGpmLocal.prototype
    * @type {StorageType}
@@ -123,7 +123,7 @@ Object.defineProperties(GltfGpmLocal.prototype, {
   },
 
   /**
-   * Array of stored indirect anchor points
+   * 存储的间接锚点数组
    *
    * @memberof GltfGpmLocal.prototype
    * @type {AnchorPointIndirect[]|undefined}
@@ -136,7 +136,7 @@ Object.defineProperties(GltfGpmLocal.prototype, {
   },
 
   /**
-   * Array of stored direct anchor points
+   * 存储的直接锚点数组
    *
    * @memberof GltfGpmLocal.prototype
    * @type {AnchorPointDirect[]|undefined}
@@ -149,8 +149,8 @@ Object.defineProperties(GltfGpmLocal.prototype, {
   },
 
   /**
-   * Metadata identifying parameters using same correlation modeling and
-   * associated correlation parameters
+   * 使用相同的关联建模标识参数的元数据，以及
+   * 关联的相关参数
    *
    * @memberof GltfGpmLocal.prototype
    * @type {CorrelationGroup[]|undefined}
@@ -163,7 +163,7 @@ Object.defineProperties(GltfGpmLocal.prototype, {
   },
 
   /**
-   * The full covariance of anchor point parameters
+   * 锚点参数的完全协方差
    *
    * @memberof GltfGpmLocal.prototype
    * @type {Matrix3|undefined}
