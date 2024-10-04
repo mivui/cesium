@@ -4458,13 +4458,13 @@ Scene.prototype.pickMetadata = function (
 };
 
 /**
- * Pick the schema of the metadata of the object at the given position
+ * 在给定位置选择对象的元数据的架构
  *
- * @param {Cartesian2} windowPosition Window coordinates to perform picking on.
- * @returns {MetadataSchema} The metadata schema, or `undefined` if there is no object with
- * associated metadata at the given position.
+ * @param {Cartesian2} windowPosition 要执行选取的窗口坐标。
+ * @returns {MetadataSchema} 元数据架构, 或者 'undefined' 如果没有
+ * 给定位置的关联元数据。
  *
- * @experimental This feature is not final and is subject to change without Cesium's standard deprecation policy.
+ * @experimental 此功能不是最终的，在没有 Cesium 的标准弃用政策的情况下可能会发生变化。
  */
 Scene.prototype.pickMetadataSchema = function (windowPosition) {
   //>>includeStart('debug', pragmas.debug);
@@ -4480,12 +4480,12 @@ Scene.prototype.pickMetadataSchema = function (windowPosition) {
 };
 
 /**
- * Returns the cartesian position reconstructed from the depth buffer and window position.
- * The returned position is in world coordinates. Used internally by camera functions to
- * prevent conversion to projected 2D coordinates and then back.
+ * 返回从深度缓冲区和窗口位置重建的笛卡尔位置。
+ * 返回的位置在世界坐标中。由相机功能在内部用于
+ * 防止转换为投影的 2D 坐标，然后再转换回来。
  * <p>
- * Set {@link Scene#pickTranslucentDepth} to <code>true</code> to include the depth of
- * translucent primitives; otherwise, this essentially picks through translucent primitives.
+ * 将 {@link Scene#pickTranslucentDepth} 设置为 <code>true</code>，以包含
+ * 半透明基元;否则，这基本上会选择 Translucent Primitives。
  * </p>
  *
  * @private
@@ -4494,7 +4494,7 @@ Scene.prototype.pickMetadataSchema = function (windowPosition) {
  * @param {Cartesian3} [result] 要恢复结果的对象。
  * @returns {Cartesian3} 世界坐标中的笛卡尔位置。
  *
- * @exception {DeveloperError} Picking from the depth buffer is not supported. Check pickPositionSupported.
+ * @exception {DeveloperError} 不支持从深度缓冲区选取。检查 pickPositionSupported。
  */
 Scene.prototype.pickPositionWorldCoordinates = function (
   windowPosition,

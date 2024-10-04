@@ -1775,43 +1775,16 @@ Model.prototype.applyArticulations = function () {
 };
 
 /**
- * Returns the object that was created for the given extension.
+ * 返回为给定扩展创建的对象。
  *
- * The given name may be the name of a glTF extension, like `"EXT_example_extension"`.
- * If the specified extension was present in the root of the underlying glTF asset,
- * and a loder for the specified extension has processed the extension data, then
- * this will return the model representation of the extension.
+ * given name 可以是 glTF 扩展的名称，例如 '“EXT_example_extension”'。
+ * 如果指定的扩展名存在于底层 glTF 资产的根目录中，
+ * 并且指定扩展的 LODER 已处理扩展数据，则
+ * 这将返回扩展的模型表示形式。
  *
- * @param {string} extensionName The name of the extension
- * @returns {object|undefined} The object, or `undefined`
- * @exception {DeveloperError} The model is not loaded. Use Model.readyEvent or wait for Model.ready to be true.
- *
- * @experimental This feature is not final and is subject to change without Cesium's standard deprecation policy.
- */
-Model.prototype.getExtension = function (extensionName) {
-  //>>includeStart('debug', pragmas.debug);
-  Check.typeOf.string("extensionName", extensionName);
-  if (!this._ready) {
-    throw new DeveloperError(
-      "The model is not loaded. Use Model.readyEvent or wait for Model.ready to be true.",
-    );
-  }
-  //>>includeEnd('debug');
-  const components = this._loader.components;
-  return components.extensions[extensionName];
-};
-
-/**
- * Returns the object that was created for the given extension.
- *
- * The given name may be the name of a glTF extension, like `"EXT_example_extension"`.
- * If the specified extension was present in the root of the underlying glTF asset,
- * and a loder for the specified extension has processed the extension data, then
- * this will return the model representation of the extension.
- *
- * @param {string} extensionName The name of the extension
- * @returns {object|undefined} The object, or `undefined`
- * @exception {DeveloperError} The model is not loaded. Use Model.readyEvent or wait for Model.ready to be true.
+ * @param {string} extensionName 扩展的名称
+ * @returns {object|undefined} 对象或 'undefined'
+ * @exception {DeveloperError} 模型未加载。使用 Model.readyEvent 或等待 Model.ready 为 true。
  *
  * @experimental 此功能不是最终的，在没有 Cesium 的标准弃用政策的情况下可能会发生变化。
  */
