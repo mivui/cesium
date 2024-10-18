@@ -51,7 +51,7 @@ MapProjection.prototype.project = DeveloperError.throwInstantiationError;
  * @memberof MapProjection
  * @function
  *
- * @param {Cartesian3} 笛卡尔 高度 （z） 取消投影的笛卡尔位置，以米为单位。
+ * @param {Cartesian3} cartesian 高度 （z） 取消投影的笛卡尔位置，以米为单位。
  * @param {Cartographic} [result] 要将结果复制到其中的实例。 如果该参数为
  * undefined，则创建并返回一个新实例。
  * @returns {Cartographic} 未投影的坐标。 如果 result 参数不是 undefined，则

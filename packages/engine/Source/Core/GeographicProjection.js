@@ -74,7 +74,7 @@ GeographicProjection.prototype.project = function (cartographic, result) {
  * 坐标，以弧度为单位。 Longitude 和 Latitude 分别是 X 和 Y 坐标。
  * 除以椭球体的最大半径。 Height 是未修改的 Z 坐标。
  *
- * @param {Cartesian3} 笛卡尔 高度 （z） 取消投影的笛卡尔位置，以米为单位。
+ * @param {Cartesian3} cartesian 高度 （z） 取消投影的笛卡尔位置，以米为单位。
  * @param {Cartographic} [result] 要将结果复制到其中的实例。 如果该参数为
  * undefined，则创建并返回一个新实例。
  * @returns {Cartographic} 未投影的坐标。 如果 result 参数不是 undefined，则

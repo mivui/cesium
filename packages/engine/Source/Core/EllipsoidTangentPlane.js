@@ -154,7 +154,7 @@ const scratchProjectPointOntoPlaneCartesian3 = new Cartesian3();
 /**
  * 计算提供的 3D 位置在 2D 平面上的投影，从 {@link EllipsoidTangentPlane.ellipsoid} 坐标系原点向外径向投影。
  *
- * @param {Cartesian3} 笛卡尔 投影点。
+ * @param {Cartesian3} cartesian 投影点。
  * @param {Cartesian2} [result] 要在其上存储结果的对象。
  * @returns {Cartesian2} 修改后的结果参数或新的 Cartesian2 实例（如果未提供）。如果没有交点，则为 Undefined
  */
@@ -241,7 +241,7 @@ EllipsoidTangentPlane.prototype.projectPointsOntoPlane = function (
 /**
  * 计算提供的 3D 位置沿平面法线在 2D 平面上的投影。
  *
- * @param {Cartesian3} 笛卡尔 投影点。
+ * @param {Cartesian3} cartesian 投影点。
  * @param {Cartesian2} [result] 要在其上存储结果的对象。
  * @returns {Cartesian2} 修改后的结果参数或新的 Cartesian2 实例（如果未提供）。
  */
@@ -321,7 +321,7 @@ const projectPointsOntoEllipsoidScratch = new Cartesian3();
 /**
  * 计算提供的 2D 位置在 3D 椭球体上的投影。
  *
- * @param {Cartesian2} 笛卡尔 指向投影的点。
+ * @param {Cartesian2} cartesian 指向投影的点。
  * @param {Cartesian3} [result] 用于存储结果的 Cartesian3 实例。
  * @returns {Cartesian3} 修改后的结果参数或新的 Cartesian3 实例（如果未提供）。
  */

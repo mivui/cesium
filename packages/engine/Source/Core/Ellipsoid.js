@@ -351,7 +351,7 @@ Ellipsoid.unpack = function (array, startingIndex, result) {
  * 计算从此椭球体中心指向提供的笛卡尔位置的单位向量。
  * @function
  *
- * @param {Cartesian3} 笛卡尔 用于确定地心法线的笛卡尔。
+ * @param {Cartesian3} cartesian 用于确定地心法线的笛卡尔。
  * @param {Cartesian3} [result] 要在其上存储结果的对象。
  * @returns {Cartesian3} 修改后的结果参数或新的 Cartesian3 实例（如果未提供）。
  */
@@ -392,7 +392,7 @@ Ellipsoid.prototype.geodeticSurfaceNormalCartographic = function (
 /**
  * 计算在给定位置处与椭球体表面相切的平面的法线。
  *
- * @param {Cartesian3} 笛卡尔 用于确定表面法线的笛卡尔位置。
+ * @param {Cartesian3} cartesian 用于确定表面法线的笛卡尔位置。
  * @param {Cartesian3} [result] 要在其上存储结果的对象。
  * @returns {Cartesian3} 修改后的结果参数或新的 Cartesian3 实例（如果未提供），则为 undefined（如果未找到法线）。
  */
@@ -492,7 +492,7 @@ const cartesianToCartographicH = new Cartesian3();
  * 将提供的笛卡尔表示转换为制图表示。
  * 笛卡尔坐标在椭球体的中心未定义。
  *
- * @param {Cartesian3} 笛卡尔 要转换为制图表示的笛卡尔位置。
+ * @param {Cartesian3} cartesian 要转换为制图表示的笛卡尔位置。
  * @param {Cartographic} [result] 要在其上存储结果的对象。
  * @returns {Cartographic} 修改后的结果参数，如果未提供任何实例，则为新制图实例，如果笛卡尔位于椭球体的中心，则为 undefined。
  *
@@ -565,7 +565,7 @@ Ellipsoid.prototype.cartesianArrayToCartographicArray = function (
  * 使其位于此椭球体的表面上。 如果位置为
  * 在椭球体的中心，此函数返回 undefined。
  *
- * @param {Cartesian3} 笛卡尔 刻度的笛卡尔位置。
+ * @param {Cartesian3} cartesian 刻度的笛卡尔位置。
  * @param {Cartesian3} [result] 要在其上存储结果的对象。
  * @returns {Cartesian3} 修改后的结果参数，如果未提供，则为新的 Cartesian3 实例，如果位置位于中心，则为 undefined。
  */
@@ -583,7 +583,7 @@ Ellipsoid.prototype.scaleToGeodeticSurface = function (cartesian, result) {
  * 沿地心表面法线缩放提供的笛卡尔位置
  * 使其位于此椭球体的表面上。
  *
- * @param {Cartesian3} 笛卡尔 刻度的笛卡尔位置。
+ * @param {Cartesian3} cartesian 刻度的笛卡尔位置。
  * @param {Cartesian3} [result] 要在其上存储结果的对象。
  * @returns {Cartesian3} 修改后的结果参数或新的 Cartesian3 实例（如果未提供）。
  */

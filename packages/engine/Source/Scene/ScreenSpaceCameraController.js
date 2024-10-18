@@ -272,12 +272,12 @@ function ScreenSpaceCameraController(scene) {
    */
   this.enableCollisionDetection = true;
   /**
-   * The angle, relative to the ellipsoid normal, restricting the maximum amount that the user can tilt the camera. If <code>undefined</code>, the angle of the camera tilt is unrestricted.
+   * 相对于椭球法线的角度，限制了用户可以倾斜相机的最大数量。<code>如果未定义</code>，则摄像机倾斜的角度不受限制。
    * @type {number|undefined}
    * @default undefined
    *
    * @example
-   * // Prevent the camera from tilting below the ellipsoid surface
+   * //防止相机倾斜到椭球体表面以下
    * viewer.scene.screenSpaceCameraController.maximumTiltAngle = Math.PI / 2.0;
    */
   this.maximumTiltAngle = undefined;

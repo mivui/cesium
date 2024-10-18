@@ -1972,7 +1972,7 @@ Matrix4.multiplyTransformation = function (left, right, result) {
  * 通过 3x3 旋转矩阵。 这是一种优化
  * 为 <code>Matrix4.multiply(m, Matrix4.fromRotationTranslation(rotation), m);</code>分配和算术运算较少。
  *
- * @param {Matrix4} 矩阵 左侧的矩阵。
+ * @param {Matrix2} matrix 左侧的矩阵。
  * @param {Matrix3} rotation 右侧的 3x3 旋转矩阵。
  * @param {Matrix4} result 要在其上存储结果的对象。
  * @returns {Matrix4} 修改后的结果参数。

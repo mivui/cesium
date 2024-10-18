@@ -326,7 +326,7 @@ Matrix2.fromRotation = function (angle, result) {
  * 从提供的 Matrix2 实例创建一个 Array。
  * 数组将按列优先顺序排列。
  *
- * @param {Matrix2} 矩阵 要使用的矩阵..
+ * @param {Matrix2} matrix 要使用的矩阵..
  * @param {number[]} [result] 要在其中存储结果的数组。
  * @returns {number[]} 修改后的 Array 参数或新的 Array 实例（如果未提供）。
  */
@@ -566,7 +566,7 @@ const scratchColumn = new Cartesian2();
 /**
  * 提取非均匀尺度，假设矩阵是仿射变换。
  *
- * @param {Matrix2} 矩阵 矩阵。
+ * @param {Matrix2} matrix 矩阵。
  * @param {Cartesian2} result 要在其上存储结果的对象。
  * @returns {Cartesian2} 修改后的结果参数。
  *
@@ -598,7 +598,7 @@ const scaleScratch3 = new Cartesian2();
  * 计算假设矩阵是仿射变换的最大小数位数。
  * 最大比例是列向量的最大长度。
  *
- * @param {Matrix2} 矩阵 矩阵。
+ * @param {Matrix2} matrix 矩阵。
  * @returns {number} 最大刻度。
  */
 Matrix2.getMaximumScale = function (matrix) {
@@ -611,7 +611,7 @@ const scaleScratch4 = new Cartesian2();
 /**
  * 设置假设矩阵是仿射变换的旋转。
  *
- * @param {Matrix2} 矩阵 矩阵。
+ * @param {Matrix2} matrix 矩阵。
  * @param {Matrix2} rotation 旋转矩阵。
  * @param {Matrix2} result 要在其上存储结果的对象。
  * @returns {Matrix2} 修改后的结果参数。
@@ -640,7 +640,7 @@ const scaleScratch5 = new Cartesian2();
 /**
  * 提取旋转矩阵，假设矩阵是仿射变换。
  *
- * @param {Matrix2} 矩阵 矩阵。
+ * @param {Matrix2} matrix 矩阵。
  * @param {Matrix2} result 要在其上存储结果的对象。
  * @returns {Matrix2} 修改后的结果参数。
  *
@@ -737,8 +737,8 @@ Matrix2.subtract = function (left, right, result) {
 /**
  * 计算矩阵和列向量的乘积。
  *
- * @param {Matrix2} 矩阵 矩阵。
- * @param {Cartesian2} 笛卡尔 列。
+ * @param {Matrix2} matrix 矩阵。
+ * @param {Cartesian2} cartesian 列。
  * @param {Cartesian2} result 要在其上存储结果的对象。
  * @returns {Cartesian2} 修改后的结果参数。
  */
@@ -760,7 +760,7 @@ Matrix2.multiplyByVector = function (matrix, cartesian, result) {
 /**
  * 计算矩阵和标量的乘积。
  *
- * @param {Matrix2} 矩阵 矩阵。
+ * @param {Matrix2} matrix 矩阵。
  * @param {number} scalar 要乘以的数字。
  * @param {Matrix2} result 要在其上存储结果的对象。
  * @returns {Matrix2} 修改后的结果参数。
@@ -782,7 +782,7 @@ Matrix2.multiplyByScalar = function (matrix, scalar, result) {
 /**
  * 计算矩阵乘以（非均匀）刻度的乘积，就像刻度是刻度矩阵一样。
  *
- * @param {Matrix2} 矩阵 左侧的矩阵。
+ * @param {Matrix2} matrix 左侧的矩阵。
  * @param {Cartesian2} scale 右侧的非均匀刻度。
  * @param {Matrix2} result 要在其上存储结果的对象。
  * @returns {Matrix2} 修改后的结果参数。
@@ -817,7 +817,7 @@ Matrix2.multiplyByScale = function (matrix, scale, result) {
 /**
  * 计算矩阵乘以均匀小数位数的乘积，就好像小数位数是小数位数矩阵一样。
  *
- * @param {Matrix2} 矩阵 左侧的矩阵。
+ * @param {Matrix2} matrix 左侧的矩阵。
  * @param {number} scale 右侧的统一比例。
  * @param {Matrix2} result 要在其上存储结果的对象。
  * @returns {Matrix2} 修改后的结果参数。
@@ -896,7 +896,7 @@ Matrix2.transpose = function (matrix, result) {
 /**
  * 计算一个矩阵，其中包含所提供矩阵元素的绝对 （无符号） 值。
  *
- * @param {Matrix2} 矩阵 具有有符号元素的矩阵。
+ * @param {Matrix2} matrix 具有有符号元素的矩阵。
  * @param {Matrix2} result 要在其上存储结果的对象。
  * @returns {Matrix2} 修改后的结果参数。
  */
