@@ -47,8 +47,7 @@
 
 
         
-            <div class="description">Compute the rectangle that describes the part of the drawing buffer
-that is relevant for picking.</div>
+            <div class="description">Compute the rectangle that describes the part of the drawing bufferthat is relevant for picking.</div>
         
 
         

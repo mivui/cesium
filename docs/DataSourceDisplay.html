@@ -227,7 +227,8 @@
 
                 
             
-                创建用于可视化的可视化工具数组的函数。如果未定义，则使用所有标准可视化工具。</td>
+                创建用于可视化的可视化工具数组的函数。
+如果未定义，则使用所有标准可视化工具。</td>
         </tr>
 
     
@@ -383,7 +384,10 @@
 
 
 <div class="description">
-    获取默认数据源实例，该实例可用于手动创建和可视化未绑定到的实体特定数据源。此实例始终可用中，并且不会显示在列表 dataSources 集合中。
+    获取默认数据源实例，该实例可用于
+手动创建和可视化未绑定到的实体
+特定数据源。此实例始终可用
+中，并且不会显示在列表 dataSources 集合中。
 </div>
 
 
@@ -570,7 +574,8 @@
 
 
 <div class="description">
-    获取或设置default 函数，该函数创建用于可视化的可视化工具数组。默认情况下，此功能使用所有标准可视化工具。
+    获取或设置default 函数，该函数创建用于可视化的可视化工具数组。
+默认情况下，此功能使用所有标准可视化工具。
 </div>
 
 
@@ -651,7 +656,12 @@
 
 
 <div class="description">
-    销毁此对象持有的 WebGL 资源。 销毁对象允许确定性释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。<br /><br />一旦对象被销毁，就不应该使用它;调用<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。 因此将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
+    销毁此对象持有的 WebGL 资源。 销毁对象允许确定性
+释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。
+<br /><br />
+一旦对象被销毁，就不应该使用它;调用
+<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。 因此
+将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
 </div>
 
 
@@ -756,7 +766,10 @@
 
 
 <div class="description">
-    如果此对象已销毁，则返回 true;否则为 false。<br /><br />如果此对象已销毁，则不应使用;调用<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常.
+    如果此对象已销毁，则返回 true;否则为 false。
+<br /><br />
+如果此对象已销毁，则不应使用;调用
+<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常.
 </div>
 
 
@@ -1141,7 +1154,9 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">function createVisualizers(scene, entityCluster, dataSource) {    return [new Cesium.BillboardVisualizer(entityCluster, dataSource.entities)];}</code></pre>
+    <pre><code class="language-javascript">function createVisualizers(scene, entityCluster, dataSource) {
+    return [new Cesium.BillboardVisualizer(entityCluster, dataSource.entities)];
+}</code></pre>
 
     
 

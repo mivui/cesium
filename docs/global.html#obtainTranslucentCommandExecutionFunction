@@ -47,12 +47,7 @@
 
 
         
-            <div class="description">Determine how translucent surfaces will be handled.
-
-When OIT is enabled, then this will delegate to OIT.executeCommands.
-Otherwise, it will just be executeTranslucentCommandsBackToFront
-for render passes, or executeTranslucentCommandsFrontToBack for
-other passes.</div>
+            <div class="description">Determine how translucent surfaces will be handled.When OIT is enabled, then this will delegate to OIT.executeCommands.Otherwise, it will just be executeTranslucentCommandsBackToFrontfor render passes, or executeTranslucentCommandsFrontToBack forother passes.</div>
         
 
         

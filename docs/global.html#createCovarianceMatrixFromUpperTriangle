@@ -47,9 +47,7 @@
 
 
         
-            <div class="description">创建一个描述协方差矩阵（即
-symmetric） 从包含上三角形的数组中，在
-列优先顺序。</div>
+            <div class="description">创建一个描述协方差矩阵（即symmetric） 从包含上三角形的数组中，在列优先顺序。</div>
         
 
         

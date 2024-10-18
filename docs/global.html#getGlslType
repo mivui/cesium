@@ -47,10 +47,7 @@
 
 
         
-            <div class="description">Returns the type that the given class property has in a GLSL shader.
-
-It returns the same string as `PropertyTextureProperty.prototype.getGlslType`
-for a property texture property with the given class property</div>
+            <div class="description">Returns the type that the given class property has in a GLSL shader.It returns the same string as `PropertyTextureProperty.prototype.getGlslType`for a property texture property with the given class property</div>
         
 
         
