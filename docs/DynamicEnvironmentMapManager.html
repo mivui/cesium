@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>RequestState - Cesium Documentation</title>
+    <title>DynamicEnvironmentMapManager - Cesium Documentation</title>
 
     <!--[if lt IE 9]>
       <script src="javascript/html5.js"></script>
@@ -18,7 +18,7 @@
 
     <h1 class="page-title">
         <a href="index.html"><img src="Images/CesiumLogo.png" class="cesiumLogo"></a>
-        RequestState
+        DynamicEnvironmentMapManager
         <div class="titleCenterer"></div>
     </h1>
 
@@ -39,18 +39,1113 @@
 
     
         
+    <div class="nameContainer">
+    <h4 class="name" id="DynamicEnvironmentMapManager">
+        <a href="#DynamicEnvironmentMapManager" class="doc-link"></a>
+        new Cesium.DynamicEnvironmentMapManager<span class="signature">(<span class="optional">options</span>)</span>
+        
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.123/packages/engine/Source/Core/RequestState.js#L6">engine/Source/Core/RequestState.js 6</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.123/packages/engine/Source/Scene/DynamicEnvironmentMapManager.js#L68">engine/Source/Scene/DynamicEnvironmentMapManager.js 68</a>
+</div>
+
+
+    </h4>
+
+    </div>
+
+    
+
+
+<div class="description">
+    Generates an environment map at the given position based on scene's current lighting conditions. From this, it produces multiple levels of specular maps and spherical harmonic coefficients than can be used with <a href="ImageBasedLighting.html"><code>ImageBasedLighting</code></a> for models or tilesets.
 </div>
 
 
 
+
+
+
+
+
+
+
+
+    
+
+<table class="params">
+    <thead>
+    <tr>
         
-            <div class="description">请求的状态。</div>
+        <th>Name</th>
         
 
+        <th>Type</th>
+
         
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="DynamicEnvironmentMapManager.html#.ConstructorOptions">DynamicEnvironmentMapManager.ConstructorOptions</a></span>
+
+
+            
+            </td>
+
+            
+
+            <td class="description last">
+            
+                
+                        <span class="optional">optional</span>
+                
+                
+
+                
+            
+                An object describing initialization options.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h5>Examples:</h5>
+        
+    <pre><code class="language-javascript">// Enable time-of-day environment mapping in a scene
+scene.atmosphere.dynamicLighting = Cesium.DynamicAtmosphereLightingType.SUNLIGHT;
+
+// Decrease the directional lighting contribution
+scene.light.intensity = 0.5
+
+// Increase the intensity of of the environment map lighting contribution
+const environmentMapManager = tileset.environmentMapManager;
+environmentMapManager.atmosphereScatteringIntensity = 3.0;</code></pre>
+
+    <pre><code class="language-javascript">// Change the ground color used for a model's environment map to a forest green
+const environmentMapManager = model.environmentMapManager;
+environmentMapManager.groundColor = Cesium.Color.fromCssColorString("#203b34");</code></pre>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Members</h3>
+
+        
+            
+<div class="nameContainer">
+<h4 class="name" id=".AVERAGE_EARTH_GROUND_COLOR">
+    <a href="#.AVERAGE_EARTH_GROUND_COLOR" class="doc-link"></a>
+    <span class="type-signature attribute-static">static</span> Cesium.DynamicEnvironmentMapManager.AVERAGE_EARTH_GROUND_COLOR<span class="type-signature"> : <a href="Color.html">Color</a></span>
+    
+
+<div class="source-link rightLinks">
+    <a href="https://github.com/CesiumGS/cesium/blob/1.123/packages/engine/Source/Scene/DynamicEnvironmentMapManager.js#L848">engine/Source/Scene/DynamicEnvironmentMapManager.js 848</a>
+</div>
+
+
+</h4>
+
+</div>
+
+
+
+<div class="description">
+    Average hue of ground color on earth, a warm green-gray.
+</div>
+
+
+
+
+
+<dl class="details">
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+        
+            
+<div class="nameContainer">
+<h4 class="name" id="atmosphereScatteringIntensity">
+    <a href="#atmosphereScatteringIntensity" class="doc-link"></a>
+    atmosphereScatteringIntensity<span class="type-signature"> : number</span>
+    
+
+<div class="source-link rightLinks">
+    <a href="https://github.com/CesiumGS/cesium/blob/1.123/packages/engine/Source/Scene/DynamicEnvironmentMapManager.js#L153">engine/Source/Scene/DynamicEnvironmentMapManager.js 153</a>
+</div>
+
+
+</h4>
+
+</div>
+
+
+
+<div class="description">
+    The intensity of the scattered light emitted from the atmosphere. This should be adjusted relative to the value of <code>Scene.light</code> intensity.
+</div>
+
+
+
+
+
+<dl class="details">
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <span class="details-header">Default Value:</span>
+    <code class="language-javascript">2.0</code>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>See:</h5>
+    <ul class="see-list">
+        <li>DirectionalLight.intensity</li>
+    
+        <li>SunLight.intensity</li>
+    </ul>
+    
+
+    
+</dl>
+
+
+        
+            
+<div class="nameContainer">
+<h4 class="name" id="brightness">
+    <a href="#brightness" class="doc-link"></a>
+    brightness<span class="type-signature"> : number</span>
+    
+
+<div class="source-link rightLinks">
+    <a href="https://github.com/CesiumGS/cesium/blob/1.123/packages/engine/Source/Scene/DynamicEnvironmentMapManager.js#L171">engine/Source/Scene/DynamicEnvironmentMapManager.js 171</a>
+</div>
+
+
+</h4>
+
+</div>
+
+
+
+<div class="description">
+    The brightness of light emitted from the environment. 1.0 uses the unmodified emitted environment color. Less than 1.0
+makes the light darker while greater than 1.0 makes it brighter.
+</div>
+
+
+
+
+
+<dl class="details">
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <span class="details-header">Default Value:</span>
+    <code class="language-javascript">1.0</code>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+        
+            
+<div class="nameContainer">
+<h4 class="name" id="enabled">
+    <a href="#enabled" class="doc-link"></a>
+    enabled<span class="type-signature"> : boolean</span>
+    
+
+<div class="source-link rightLinks">
+    <a href="https://github.com/CesiumGS/cesium/blob/1.123/packages/engine/Source/Scene/DynamicEnvironmentMapManager.js#L117">engine/Source/Scene/DynamicEnvironmentMapManager.js 117</a>
+</div>
+
+
+</h4>
+
+</div>
+
+
+
+<div class="description">
+    If true, the environment map and related properties will continue to update.
+</div>
+
+
+
+
+
+<dl class="details">
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <span class="details-header">Default Value:</span>
+    <code class="language-javascript">true</code>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+        
+            
+<div class="nameContainer">
+<h4 class="name" id="gamma">
+    <a href="#gamma" class="doc-link"></a>
+    gamma<span class="type-signature"> : number</span>
+    
+
+<div class="source-link rightLinks">
+    <a href="https://github.com/CesiumGS/cesium/blob/1.123/packages/engine/Source/Scene/DynamicEnvironmentMapManager.js#L163">engine/Source/Scene/DynamicEnvironmentMapManager.js 163</a>
+</div>
+
+
+</h4>
+
+</div>
+
+
+
+<div class="description">
+    The gamma correction to apply to the range of light emitted from the environment. 1.0 uses the unmodified incoming light color.
+</div>
+
+
+
+
+
+<dl class="details">
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <span class="details-header">Default Value:</span>
+    <code class="language-javascript">1.0</code>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+        
+            
+<div class="nameContainer">
+<h4 class="name" id="groundAlbedo">
+    <a href="#groundAlbedo" class="doc-link"></a>
+    groundAlbedo<span class="type-signature"> : number</span>
+    
+
+<div class="source-link rightLinks">
+    <a href="https://github.com/CesiumGS/cesium/blob/1.123/packages/engine/Source/Scene/DynamicEnvironmentMapManager.js#L196">engine/Source/Scene/DynamicEnvironmentMapManager.js 196</a>
+</div>
+
+
+</h4>
+
+</div>
+
+
+
+<div class="description">
+    The percentage of light reflected from the ground. The average earth albedo is 0.31.
+</div>
+
+
+
+
+
+<dl class="details">
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <span class="details-header">Default Value:</span>
+    <code class="language-javascript">0.31</code>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+        
+            
+<div class="nameContainer">
+<h4 class="name" id="groundColor">
+    <a href="#groundColor" class="doc-link"></a>
+    groundColor<span class="type-signature"> : <a href="Color.html">Color</a></span>
+    
+
+<div class="source-link rightLinks">
+    <a href="https://github.com/CesiumGS/cesium/blob/1.123/packages/engine/Source/Scene/DynamicEnvironmentMapManager.js#L186">engine/Source/Scene/DynamicEnvironmentMapManager.js 186</a>
+</div>
+
+
+</h4>
+
+</div>
+
+
+
+<div class="description">
+    Solid color used to represent the ground.
+</div>
+
+
+
+
+
+<dl class="details">
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <span class="details-header">Default Value:</span>
+    <code class="language-javascript">DynamicEnvironmentMapManager.AVERAGE_EARTH_GROUND_COLOR</code>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+        
+            
+<div class="nameContainer">
+<h4 class="name" id="maximumPositionEpsilon">
+    <a href="#maximumPositionEpsilon" class="doc-link"></a>
+    maximumPositionEpsilon<span class="type-signature"> : number</span>
+    
+
+<div class="source-link rightLinks">
+    <a href="https://github.com/CesiumGS/cesium/blob/1.123/packages/engine/Source/Scene/DynamicEnvironmentMapManager.js#L141">engine/Source/Scene/DynamicEnvironmentMapManager.js 141</a>
+</div>
+
+
+</h4>
+
+</div>
+
+
+
+<div class="description">
+    The maximum difference in position before a new environment map is created, in meters. Small differences in position will not visibly affect results.
+</div>
+
+
+
+
+
+<dl class="details">
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <span class="details-header">Default Value:</span>
+    <code class="language-javascript">1000</code>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+        
+            
+<div class="nameContainer">
+<h4 class="name" id="maximumSecondsDifference">
+    <a href="#maximumSecondsDifference" class="doc-link"></a>
+    maximumSecondsDifference<span class="type-signature"> : number</span>
+    
+
+<div class="source-link rightLinks">
+    <a href="https://github.com/CesiumGS/cesium/blob/1.123/packages/engine/Source/Scene/DynamicEnvironmentMapManager.js#L131">engine/Source/Scene/DynamicEnvironmentMapManager.js 131</a>
+</div>
+
+
+</h4>
+
+</div>
+
+
+
+<div class="description">
+    The maximum amount of elapsed seconds before a new environment map is created.
+</div>
+
+
+
+
+
+<dl class="details">
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <span class="details-header">Default Value:</span>
+    <code class="language-javascript">3600</code>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+        
+            
+<div class="nameContainer">
+<h4 class="name" id="position">
+    <a href="#position" class="doc-link"></a>
+    position<span class="type-signature"> : <a href="Cartesian3.html">Cartesian3</a>|undefined</span>
+    
+
+<div class="source-link rightLinks">
+    <a href="https://github.com/CesiumGS/cesium/blob/1.123/packages/engine/Source/Scene/DynamicEnvironmentMapManager.js#L231">engine/Source/Scene/DynamicEnvironmentMapManager.js 231</a>
+</div>
+
+
+</h4>
+
+</div>
+
+
+
+<div class="description">
+    The position around which the environment map is generated.
+</div>
+
+
+
+
+
+<dl class="details">
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+        
+            
+<div class="nameContainer">
+<h4 class="name" id="saturation">
+    <a href="#saturation" class="doc-link"></a>
+    saturation<span class="type-signature"> : number</span>
+    
+
+<div class="source-link rightLinks">
+    <a href="https://github.com/CesiumGS/cesium/blob/1.123/packages/engine/Source/Scene/DynamicEnvironmentMapManager.js#L179">engine/Source/Scene/DynamicEnvironmentMapManager.js 179</a>
+</div>
+
+
+</h4>
+
+</div>
+
+
+
+<div class="description">
+    The saturation of the light emitted from the environment. 1.0 uses the unmodified emitted environment color. Less than 1.0 reduces the
+saturation while greater than 1.0 increases it.
+</div>
+
+
+
+
+
+<dl class="details">
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <span class="details-header">Default Value:</span>
+    <code class="language-javascript">1.0</code>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+        
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+    <div class="nameContainer">
+    <h4 class="name" id="destroy">
+        <a href="#destroy" class="doc-link"></a>
+        destroy<span class="signature">()</span>
+        
+
+<div class="source-link rightLinks">
+    <a href="https://github.com/CesiumGS/cesium/blob/1.123/packages/engine/Source/Scene/DynamicEnvironmentMapManager.js#L809">engine/Source/Scene/DynamicEnvironmentMapManager.js 809</a>
+</div>
+
+
+    </h4>
+
+    </div>
+
+    
+
+
+<div class="description">
+    Destroys the WebGL resources held by this object.  Destroying an object allows for deterministic
+release of WebGL resources, instead of relying on the garbage collector to destroy this object.
+<br /><br />
+Once an object is destroyed, it should not be used; calling any function other than
+<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.  Therefore,
+assign the return value (<code>undefined</code>) to the object as done in the example.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Throws:</h5>
+<ul>
+        <li>
+
+    <div class="param-desc">
+        
+<span class="param-type"><a href="DeveloperError.html">DeveloperError</a></span>
+
+: This object was destroyed, i.e., destroy() was called.
+    </div>
+
+</li>
+    </ul>
+
+
+
+<dl class="details">
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h5>Example:</h5>
+        
+    <pre><code class="language-javascript">mapManager = mapManager &amp;&amp; mapManager.destroy();</code></pre>
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>See:</h5>
+    <ul class="see-list">
+        <li><a href="DynamicEnvironmentMapManager.html#isDestroyed">DynamicEnvironmentMapManager#isDestroyed</a></li>
+    </ul>
+    
+
+    
+</dl>
+
+
+        
+            
+    <div class="nameContainer">
+    <h4 class="name" id="isDestroyed">
+        <a href="#isDestroyed" class="doc-link"></a>
+        isDestroyed<span class="signature">()</span> &rarr; <span class="type-signature returnType">boolean</span>
+        
+
+<div class="source-link rightLinks">
+    <a href="https://github.com/CesiumGS/cesium/blob/1.123/packages/engine/Source/Scene/DynamicEnvironmentMapManager.js#L793">engine/Source/Scene/DynamicEnvironmentMapManager.js 793</a>
+</div>
+
+
+    </h4>
+
+    </div>
+
+    
+
+
+<div class="description">
+    Returns true if this object was destroyed; otherwise, false.
+<br /><br />
+If this object was destroyed, it should not be used; calling any function other than
+<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <code>true</code> if this object was destroyed; otherwise, <code>false</code>.
+</div>
+
+
+    
+
+
+
+
+<dl class="details">
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>See:</h5>
+    <ul class="see-list">
+        <li><a href="DynamicEnvironmentMapManager.html#destroy">DynamicEnvironmentMapManager#destroy</a></li>
+    </ul>
+    
+
+    
+</dl>
+
+
+        
+    
+
+    
+        <h3 class="subsection-title">Type Definitions</h3>
+
+        
+                
+<div class="nameContainer">
+<h4 class="name" id=".ConstructorOptions">
+    <a href="#.ConstructorOptions" class="doc-link"></a>
+    Cesium.DynamicEnvironmentMapManager.ConstructorOptions
+    
+
+<div class="source-link rightLinks">
+    <a href="https://github.com/CesiumGS/cesium/blob/1.123/packages/engine/Source/Scene/DynamicEnvironmentMapManager.js#L31">engine/Source/Scene/DynamicEnvironmentMapManager.js 31</a>
+</div>
+
+
+</h4>
+
+</div>
+
+
+
+<div class="description">
+    Options for the DynamicEnvironmentMapManager constructor
+</div>
+
+
+
+
+
 <dl class="details">
 
 
@@ -68,7 +1163,11 @@
         <th>Type</th>
 
         
+        <th>Attributes</th>
+        
 
+        
+        <th>Default</th>
         
 
         <th class="last">Description</th>
@@ -80,30 +1179,44 @@
 
         <tr>
             
-                <td class="name"><code>UNISSUED</code></td>
+                <td class="name"><code>enabled</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">number</span>
+<span class="param-type">boolean</span>
 
 
             
             </td>
 
             
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
 
+                
+                </td>
             
 
-            <td class="description last">初始未颁发状态。</td>
+            
+                <td class="default">
+                
+                    true
+                
+                </td>
+            
+
+            <td class="description last">If true, the environment map and related properties will continue to update.</td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>ISSUED</code></td>
+                <td class="name"><code>mipmapLevels</code></td>
             
 
             <td class="type">
@@ -116,17 +1229,31 @@
             </td>
 
             
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
 
+                
+                </td>
             
 
-            <td class="description last">已发布但尚未激活。当空位可用时，将变为激活状态。</td>
+            
+                <td class="default">
+                
+                    10
+                
+                </td>
+            
+
+            <td class="description last">The number of mipmap levels to generate for specular maps. More mipmap levels will produce a higher resolution specular reflection.</td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>ACTIVE</code></td>
+                <td class="name"><code>maximumSecondsDifference</code></td>
             
 
             <td class="type">
@@ -139,17 +1266,31 @@
             </td>
 
             
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
 
+                
+                </td>
             
 
-            <td class="description last">实际的 http 请求已发送。</td>
+            
+                <td class="default">
+                
+                    3600
+                
+                </td>
+            
+
+            <td class="description last">The maximum amount of elapsed seconds before a new environment map is created.</td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>RECEIVED</code></td>
+                <td class="name"><code>maximumPositionEpsilon</code></td>
             
 
             <td class="type">
@@ -162,17 +1303,31 @@
             </td>
 
             
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
 
+                
+                </td>
             
 
-            <td class="description last">请求已成功完成。</td>
+            
+                <td class="default">
+                
+                    1000
+                
+                </td>
+            
+
+            <td class="description last">The maximum difference in position before a new environment map is created, in meters. Small differences in position will not visibly affect results.</td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>CANCELLED</code></td>
+                <td class="name"><code>atmosphereScatteringIntensity</code></td>
             
 
             <td class="type">
@@ -185,17 +1340,31 @@
             </td>
 
             
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
 
+                
+                </td>
             
 
-            <td class="description last">由于优先级低，请求已显式或自动取消。</td>
+            
+                <td class="default">
+                
+                    2.0
+                
+                </td>
+            
+
+            <td class="description last">The intensity of the scattered light emitted from the atmosphere. This should be adjusted relative to the value of <code>Scene.light</code> intensity.</td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>FAILED</code></td>
+                <td class="name"><code>gamma</code></td>
             
 
             <td class="type">
@@ -208,10 +1377,172 @@
             </td>
 
             
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
 
+                
+                </td>
             
 
-            <td class="description last">请求失败。</td>
+            
+                <td class="default">
+                
+                    1.0
+                
+                </td>
+            
+
+            <td class="description last">The gamma correction to apply to the range of light emitted from the environment. 1.0 uses the unmodified emitted light color.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>brightness</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    1.0
+                
+                </td>
+            
+
+            <td class="description last">The brightness of light emitted from the environment. 1.0 uses the unmodified emitted environment color. Less than 1.0 makes the light darker while greater than 1.0 makes it brighter.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>saturation</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    1.0
+                
+                </td>
+            
+
+            <td class="description last">The saturation of the light emitted from the environment. 1.0 uses the unmodified emitted environment color. Less than 1.0 reduces the saturation while greater than 1.0 increases it.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>groundColor</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Color.html">Color</a></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    DynamicEnvironmentMapManager.AVERAGE_EARTH_GROUND_COLOR
+                
+                </td>
+            
+
+            <td class="description last">Solid color used to represent the ground.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>groundAlbedo</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    0.31
+                
+                </td>
+            
+
+            <td class="description last">The percentage of light reflected from the ground. The average earth albedo is 0.31.</td>
         </tr>
 
     
@@ -249,402 +1580,8 @@
     
 </dl>
 
-    
-    </div>
 
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <h3 class="subsection-title">Members</h3>
-
-        
             
-<div class="nameContainer">
-<h4 class="name" id=".ACTIVE">
-    <a href="#.ACTIVE" class="doc-link"></a>
-    <span class="type-signature attribute-static">static</span> <span class="type-signature attribute-constant">constant</span> Cesium.RequestState.ACTIVE<span class="type-signature"> : number</span>
-    
-
-<div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.123/packages/engine/Source/Core/RequestState.js#L29">engine/Source/Core/RequestState.js 29</a>
-</div>
-
-
-</h4>
-
-</div>
-
-
-
-<div class="description">
-    实际的 http 请求已发送。
-</div>
-
-
-
-
-
-<dl class="details">
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <span class="details-header">Default Value:</span>
-    <code class="language-javascript">2</code>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-        
-            
-<div class="nameContainer">
-<h4 class="name" id=".CANCELLED">
-    <a href="#.CANCELLED" class="doc-link"></a>
-    <span class="type-signature attribute-static">static</span> <span class="type-signature attribute-constant">constant</span> Cesium.RequestState.CANCELLED<span class="type-signature"> : number</span>
-    
-
-<div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.123/packages/engine/Source/Core/RequestState.js#L45">engine/Source/Core/RequestState.js 45</a>
-</div>
-
-
-</h4>
-
-</div>
-
-
-
-<div class="description">
-    由于优先级低，请求已显式或自动取消。
-</div>
-
-
-
-
-
-<dl class="details">
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <span class="details-header">Default Value:</span>
-    <code class="language-javascript">4</code>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-        
-            
-<div class="nameContainer">
-<h4 class="name" id=".FAILED">
-    <a href="#.FAILED" class="doc-link"></a>
-    <span class="type-signature attribute-static">static</span> <span class="type-signature attribute-constant">constant</span> Cesium.RequestState.FAILED<span class="type-signature"> : number</span>
-    
-
-<div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.123/packages/engine/Source/Core/RequestState.js#L53">engine/Source/Core/RequestState.js 53</a>
-</div>
-
-
-</h4>
-
-</div>
-
-
-
-<div class="description">
-    请求失败。
-</div>
-
-
-
-
-
-<dl class="details">
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <span class="details-header">Default Value:</span>
-    <code class="language-javascript">5</code>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-        
-            
-<div class="nameContainer">
-<h4 class="name" id=".ISSUED">
-    <a href="#.ISSUED" class="doc-link"></a>
-    <span class="type-signature attribute-static">static</span> <span class="type-signature attribute-constant">constant</span> Cesium.RequestState.ISSUED<span class="type-signature"> : number</span>
-    
-
-<div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.123/packages/engine/Source/Core/RequestState.js#L21">engine/Source/Core/RequestState.js 21</a>
-</div>
-
-
-</h4>
-
-</div>
-
-
-
-<div class="description">
-    已发布但尚未激活。当空位可用时，将变为激活状态。
-</div>
-
-
-
-
-
-<dl class="details">
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <span class="details-header">Default Value:</span>
-    <code class="language-javascript">1</code>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-        
-            
-<div class="nameContainer">
-<h4 class="name" id=".RECEIVED">
-    <a href="#.RECEIVED" class="doc-link"></a>
-    <span class="type-signature attribute-static">static</span> <span class="type-signature attribute-constant">constant</span> Cesium.RequestState.RECEIVED<span class="type-signature"> : number</span>
-    
-
-<div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.123/packages/engine/Source/Core/RequestState.js#L37">engine/Source/Core/RequestState.js 37</a>
-</div>
-
-
-</h4>
-
-</div>
-
-
-
-<div class="description">
-    请求已成功完成。
-</div>
-
-
-
-
-
-<dl class="details">
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <span class="details-header">Default Value:</span>
-    <code class="language-javascript">3</code>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-        
-            
-<div class="nameContainer">
-<h4 class="name" id=".UNISSUED">
-    <a href="#.UNISSUED" class="doc-link"></a>
-    <span class="type-signature attribute-static">static</span> <span class="type-signature attribute-constant">constant</span> Cesium.RequestState.UNISSUED<span class="type-signature"> : number</span>
-    
-
-<div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.123/packages/engine/Source/Core/RequestState.js#L13">engine/Source/Core/RequestState.js 13</a>
-</div>
-
-
-</h4>
-
-</div>
-
-
-
-<div class="description">
-    初始未颁发状态。
-</div>
-
-
-
-
-
-<dl class="details">
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-        
-    
-
-    
-
     
 
     
