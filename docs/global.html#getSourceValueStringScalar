@@ -47,8 +47,8 @@
 
 
         
-            <div class="description">Creates a shader statement that returns the value of the specified
-property, normalized to the range [0, 1].</div>
+            <div class="description">创建一个 shader 语句，该语句返回指定
+属性，规范化为 [0, 1] 范围。</div>
         
 
         

@@ -58,7 +58,8 @@
 
 
 <div class="description">
-    由开始和停止时间定义的间隔;（可选）将这些时间作为间隔的一部分包括在内。可以选择将任意数据与每个实例相关联，以便与 <a href="TimeIntervalCollection.html"><code>TimeIntervalCollection</code></a> 一起使用。
+    由开始和停止时间定义的间隔;(可选)将这些时间作为间隔的一部分包括在内。
+可以选择将任意数据与每个实例相关联，以便与 <a href="TimeIntervalCollection.html"><code>TimeIntervalCollection</code></a> 一起使用。
 </div>
 
 
@@ -242,7 +243,7 @@
 
                 
             
-                如果 <code>options.start</code> 包含在区间中，则为 <code>true</code>， 否则 <code>false</code>。</td>
+                如果 <code>options.start</code> 包含在区间中，则为 <code>true</code>, 否则 <code>false</code>。</td>
         </tr>
 
     
@@ -278,7 +279,7 @@
 
                 
             
-                如果 <code>options.stop</code> 包含在区间内，<code>则为 true</code>， 否则 <code>false</code>。</td>
+                如果 <code>options.stop</code> 包含在区间内，<code>则为 true</code>, 否则 <code>false</code>。</td>
         </tr>
 
     
@@ -361,11 +362,41 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Create an instance that spans August 1st, 1980 and is associated// with a Cartesian position.const timeInterval = new Cesium.TimeInterval({    start : Cesium.JulianDate.fromIso8601('1980-08-01T00:00:00Z'),    stop : Cesium.JulianDate.fromIso8601('1980-08-02T00:00:00Z'),    isStartIncluded : true,    isStopIncluded : false,    data : Cesium.Cartesian3.fromDegrees(39.921037, -75.170082)});</code></pre>
+    <pre><code class="language-javascript">// Create an instance that spans August 1st, 1980 and is associated
+// with a Cartesian position.
+const timeInterval = new Cesium.TimeInterval({
+    start : Cesium.JulianDate.fromIso8601('1980-08-01T00:00:00Z'),
+    stop : Cesium.JulianDate.fromIso8601('1980-08-02T00:00:00Z'),
+    isStartIncluded : true,
+    isStopIncluded : false,
+    data : Cesium.Cartesian3.fromDegrees(39.921037, -75.170082)
+});</code></pre>
 
-    <pre><code class="language-javascript">// Create two instances from ISO 8601 intervals with associated numeric data// then compute their intersection, summing the data they contain.const left = Cesium.TimeInterval.fromIso8601({    iso8601 : '2000/2010',    data : 2});const right = Cesium.TimeInterval.fromIso8601({    iso8601 : '1995/2005',    data : 3});//The result of the below intersection will be an interval equivalent to//const intersection = Cesium.TimeInterval.fromIso8601({//  iso8601 : '2000/2005',//  data : 5//});const intersection = new Cesium.TimeInterval();Cesium.TimeInterval.intersect(left, right, intersection, function(leftData, rightData) {    return leftData + rightData;});</code></pre>
+    <pre><code class="language-javascript">// Create two instances from ISO 8601 intervals with associated numeric data
+// then compute their intersection, summing the data they contain.
+const left = Cesium.TimeInterval.fromIso8601({
+    iso8601 : '2000/2010',
+    data : 2
+});
 
-    <pre><code class="language-javascript">// Check if an interval contains a specific time.const dateToCheck = Cesium.JulianDate.fromIso8601('1982-09-08T11:30:00Z');const containsDate = Cesium.TimeInterval.contains(timeInterval, dateToCheck);</code></pre>
+const right = Cesium.TimeInterval.fromIso8601({
+    iso8601 : '1995/2005',
+    data : 3
+});
+
+//The result of the below intersection will be an interval equivalent to
+//const intersection = Cesium.TimeInterval.fromIso8601({
+//  iso8601 : '2000/2005',
+//  data : 5
+//});
+const intersection = new Cesium.TimeInterval();
+Cesium.TimeInterval.intersect(left, right, intersection, function(leftData, rightData) {
+    return leftData + rightData;
+});</code></pre>
+
+    <pre><code class="language-javascript">// Check if an interval contains a specific time.
+const dateToCheck = Cesium.JulianDate.fromIso8601('1982-09-08T11:30:00Z');
+const containsDate = Cesium.TimeInterval.contains(timeInterval, dateToCheck);</code></pre>
 
     
 
@@ -959,7 +990,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数或新实例（如果未提供）。
+    修改后的结果参数或新实例(如果未提供)。
 </div>
 
 
@@ -1117,7 +1148,7 @@
 
         
 <div class="param-desc">
-    <code>true</code>（如果区间包含指定日期），否则 <code>false</code>，。
+    <code>true</code>(如果区间包含指定日期)，否则 <code>false</code>，。
 </div>
 
 
@@ -1382,7 +1413,10 @@
 
 
 <div class="description">
-    比较两个实例<code>，如果它们在</code> <code></code>彼此。 也就是说，为了将日期视为相等（并且此函数返回 <code>true</code>），则表示它们之间差值的绝对值，在秒，必须小于 <code>epsilon</code>。
+    比较两个实例<code>，如果它们在</code> <code></code>
+彼此。 也就是说，为了将日期视为相等(并且
+此函数返回 <code>true</code>)，则表示它们之间差值的绝对值，在
+秒，必须小于 <code>epsilon</code>。
 </div>
 
 
@@ -1634,7 +1668,9 @@
 
 
 <div class="description">
-    从 <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> 间隔。如果 options.iso8601 与正确的格式不匹配，则@throws DeveloperError。
+    从 <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> 间隔。
+
+如果 options.iso8601 与正确的格式不匹配，则@throws DeveloperError。
 </div>
 
 
@@ -1776,7 +1812,7 @@
 
                 
             
-                如果 <code>options.start</code> 包含在区间中，则为 <code>true</code>， 否则 <code>false</code>。</td>
+                如果 <code>options.start</code> 包含在区间中，则为 <code>true</code>, 否则 <code>false</code>。</td>
         </tr>
 
     
@@ -1812,7 +1848,7 @@
 
                 
             
-                如果 <code>options.stop</code> 包含在区间内，<code>则为 true</code>， 否则 <code>false</code>。</td>
+                如果 <code>options.stop</code> 包含在区间内，<code>则为 true</code>, 否则 <code>false</code>。</td>
         </tr>
 
     
@@ -1903,7 +1939,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数或新实例（如果未提供）。
+    修改后的结果参数或新实例(如果未提供)。
 </div>
 
 
@@ -2508,7 +2544,8 @@
 
 
 <div class="description">
-    将此实例与提供的实例 componentwise 进行比较，并返回<code>true</code>，否则为 <code>false</code>。
+    将此实例与提供的实例 componentwise 进行比较，并返回
+<code>true</code>，否则为 <code>false</code>。
 </div>
 
 
@@ -2680,7 +2717,9 @@
 
 
 <div class="description">
-    将此实例与提供的实例 componentwise 进行比较，并返回<code>true</code>，如果它们位于提供的 epsilon 内，否则<code>false</code> 。
+    将此实例与提供的实例 componentwise 进行比较，并返回
+<code>true</code>，如果它们位于提供的 epsilon 内，
+否则<code>false</code> 。
 </div>
 
 
@@ -3089,7 +3128,7 @@
 
         
 <div class="param-desc">
-    <code>true</code>（如果提供的实例相等），否则 <code>false</code>。
+    <code>true</code>(如果提供的实例相等)，否则 <code>false</code>。
 </div>
 
 

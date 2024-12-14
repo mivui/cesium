@@ -119,7 +119,7 @@
 
                 
             
-                创建此集合的数据源（或复合实体集合）。</td>
+                创建此集合的数据源(或复合实体集合)。</td>
         </tr>
 
     
@@ -209,7 +209,8 @@
 
 
 <div class="description">
-    获取在集合中添加或删除实体时触发的事件。生成的事件是 <a href="EntityCollection.html#.CollectionChangedEventCallback"><code>EntityCollection.CollectionChangedEventCallback</code></a>。
+    获取在集合中添加或删除实体时触发的事件。
+生成的事件是 <a href="EntityCollection.html#.CollectionChangedEventCallback"><code>EntityCollection.CollectionChangedEventCallback</code></a>。
 </div>
 
 
@@ -389,7 +390,9 @@
 
 
 <div class="description">
-    获取是否此实体集合应为显示。 如果为 true，则仅当它自己的 show 属性也是 true。
+    获取是否此实体集合应为
+显示。 如果为 true，则仅当
+它自己的 show 属性也是 true。
 </div>
 
 
@@ -449,7 +452,8 @@
 
 
 <div class="description">
-    获取集合中的 Entity 实例的数组。此数组不应直接修改。
+    获取集合中的 Entity 实例的数组。
+此数组不应直接修改。
 </div>
 
 
@@ -668,7 +672,10 @@
 
 
 <div class="description">
-    计算集合中实体的最大可用性。如果集合包含无限可用数据和非无限数据的混合，它将仅返回与非无限数据相关的间隔。 如果所有data 是无限的，则返回无限间隔。
+    计算集合中实体的最大可用性。
+如果集合包含无限可用数据和非无限数据的混合，
+它将仅返回与非无限数据相关的间隔。 如果所有
+data 是无限的，则返回无限间隔。
 </div>
 
 
@@ -830,7 +837,7 @@
 
         
 <div class="param-desc">
-    true（如果提供的实体在此集合中）或 false。
+    true(如果提供的实体在此集合中)或 false。
 </div>
 
 
@@ -1028,7 +1035,7 @@
 
 
 <div class="description">
-    获取具有指定 ID 的实体，或者创建该实体并将其添加到集合中（如果该实体不存在）。
+    获取具有指定 ID 的实体，或者创建该实体并将其添加到集合中(如果该实体不存在)。
 </div>
 
 
@@ -1235,7 +1242,7 @@
 
         
 <div class="param-desc">
-    true（如果项被删除），则为 false（如果它不存在于集合中）。
+    true(如果项被删除)，则为 false(如果它不存在于集合中)。
 </div>
 
 
@@ -1451,7 +1458,7 @@
 
         
 <div class="param-desc">
-    true（如果项已删除），则为 false（如果集合中不存在具有提供的 ID 的项）。
+    true(如果项已删除)，则为 false(如果集合中不存在具有提供的 ID 的项)。
 </div>
 
 
@@ -1514,7 +1521,11 @@
 
 
 <div class="description">
-    立即恢复引发 <a href="EntityCollection.html#collectionChanged"><code>EntityCollection#collectionChanged</code></a> 事件添加或删除项时。 在活动暂停期间所做的任何修改将作为单个事件触发。此函数是引用计数的，只要存在是对 <a href="EntityCollection.html#resumeEvents"><code>EntityCollection#resumeEvents</code></a> 的相应调用。
+    立即恢复引发 <a href="EntityCollection.html#collectionChanged"><code>EntityCollection#collectionChanged</code></a> 事件
+添加或删除项时。 在活动暂停期间所做的任何修改
+将作为单个事件触发。
+此函数是引用计数的，只要存在
+是对 <a href="EntityCollection.html#resumeEvents"><code>EntityCollection#resumeEvents</code></a> 的相应调用。
 </div>
 
 
@@ -1609,7 +1620,12 @@
 
 
 <div class="description">
-    防止引发 <a href="EntityCollection.html#collectionChanged"><code>EntityCollection#collectionChanged</code></a> 事件直到对 <a href="EntityCollection.html#resumeEvents"><code>EntityCollection#resumeEvents</code></a> 进行相应的调用，此时点将引发涵盖所有暂停操作的单个事件。这允许有效地添加和删除许多项目。只要有是对 <a href="EntityCollection.html#resumeEvents"><code>EntityCollection#resumeEvents</code></a> 的相应调用。
+    防止引发 <a href="EntityCollection.html#collectionChanged"><code>EntityCollection#collectionChanged</code></a> 事件
+直到对 <a href="EntityCollection.html#resumeEvents"><code>EntityCollection#resumeEvents</code></a> 进行相应的调用，此时
+点将引发涵盖所有暂停操作的单个事件。
+这允许有效地添加和删除许多项目。
+只要有
+是对 <a href="EntityCollection.html#resumeEvents"><code>EntityCollection#resumeEvents</code></a> 的相应调用。
 </div>
 
 

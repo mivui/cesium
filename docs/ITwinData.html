@@ -134,11 +134,7 @@
 
 
 <div class="description">
-    为指定的实况数据 ID 创建正确类型的数据源。
-此功能仅适用于 KML 和 GeoJSON 类型的数据。
-
-如果未提供 <code>type</code> 或 <code>rootDocument</code> 此函数
-将首先请求指定实况数据的完整元数据以填充这些值。
+    为指定的实况数据 ID 创建正确类型的数据源。此功能仅适用于 KML 和 GeoJSON 类型的数据。如果未提供 <code>type</code> 或 <code>rootDocument</code> 此函数将首先请求指定实况数据的完整元数据以填充这些值。
 </div>
 
 
@@ -376,11 +372,7 @@
 
 
 <div class="description">
-    为指定的现实数据 ID 创建瓦片集。此功能仅有效
-使用 3D 瓦片网格和点云。
-
-如果未提供 <code>type</code> 或 <code>rootDocument</code> 此函数
-将首先请求指定实况数据的完整元数据以填充这些值。
+    为指定的现实数据 ID 创建瓦片集。此功能仅有效使用 3D 瓦片网格和点云。如果未提供 <code>type</code> 或 <code>rootDocument</code> 此函数将首先请求指定实况数据的完整元数据以填充这些值。
 </div>
 
 
@@ -625,11 +617,7 @@
 
 
 <div class="description">
-    使用 iTwin 的网格导出 API 为给定的 iModel ID 创建一个 <a href="Cesium3DTileset.html"><code>Cesium3DTileset</code></a>。
-
-如果给定的 iModel ID 没有可用的已完成导出，则返回的 Promise 将解析为 <code>undefined</code>。
-我们建议等待 10-20 秒，然后再次尝试加载图块集。
-如果所有导出都无效，这将引发错误。
+    使用 iTwin 的网格导出 API 为给定的 iModel ID 创建一个 <a href="Cesium3DTileset.html"><code>Cesium3DTileset</code></a>。如果给定的 iModel ID 没有可用的已完成导出，则返回的 Promise 将解析为 <code>undefined</code>。我们建议等待 10-20 秒，然后再次尝试加载图块集。如果所有导出都无效，这将引发错误。
 </div>
 
 
@@ -792,10 +780,7 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const tileset = await Cesium.ITwinData.createTilesetFromIModelId(iModelId);
-if (Cesium.defined(tileset)) {
-  viewer.scene.primitives.add(tileset);
-}</code></pre>
+    <pre><code class="language-javascript">const tileset = await Cesium.ITwinData.createTilesetFromIModelId(iModelId);if (Cesium.defined(tileset)) {  viewer.scene.primitives.add(tileset);}</code></pre>
 
     
 

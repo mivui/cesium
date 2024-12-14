@@ -58,7 +58,8 @@
 
 
 <div class="description">
-    单个瓦片的地形数据，其中地形数据表示为高度贴图。 高度贴图是按行优先顺序从北到南、从西到东排列的矩形高度数组。
+    单个瓦片的地形数据，其中地形数据表示为高度贴图。 高度贴图
+是按行优先顺序从北到南、从西到东排列的矩形高度数组。
 </div>
 
 
@@ -212,7 +213,7 @@
 
                 
             
-                高度贴图的宽度（经度方向），以样本为单位。</td>
+                高度贴图的宽度(经度方向)，以样本为单位。</td>
         </tr>
 
     
@@ -244,7 +245,7 @@
 
                 
             
-                高度贴图的高度（纬度方向），以样本为单位。</td>
+                高度贴图的高度(纬度方向)，以样本为单位。</td>
         </tr>
 
     
@@ -280,7 +281,17 @@
 
                 
             
-                一个位掩码，指示此图块的四个子图块中存在哪一个。如果设置了子位，则当该图块是必需的。 如果清除该位，则不会请求子平铺，并且 geometry 为而是从父级进行上采样。 位值如下所示：<table><tr><th>Bit Position</th><th>位值</th><th>子平铺</th></tr><tr><td>0</td><td>1</td><td>西南</td></tr><tr><td>1</td><td>2</td><td>东南</td></tr><tr><td>2</td><td>4</td><td>西北</td></tr><tr><td>3</td><td>8</td><td>东北</td></tr></table></td>
+                一个位掩码，指示此图块的四个子图块中存在哪一个。
+如果设置了子位，则当该图块
+是必需的。 如果清除该位，则不会请求子平铺，并且 geometry 为
+而是从父级进行上采样。 位值如下所示：
+<table>
+<tr><th>Bit Position</th><th>位值</th><th>子平铺</th></tr>
+<tr><td>0</td><td>1</td><td>西南</td></tr>
+<tr><td>1</td><td>2</td><td>东南</td></tr>
+<tr><td>2</td><td>4</td><td>西北</td></tr>
+<tr><td>3</td><td>8</td><td>东北</td></tr>
+</table></td>
         </tr>
 
     
@@ -314,7 +325,9 @@
 
                 
             
-                此地形数据中包含的水掩膜 （如果有）。 水面罩是一个正方形                   Uint8Array 或图像，其中值 255 表示水，值 0 表示陆地。                   允许介于 0 和 255 之间的值，以便在陆地和水之间平滑混合。</td>
+                此地形数据中包含的水掩膜 (如果有)。 水面罩是一个正方形
+                   Uint8Array 或图像，其中值 255 表示水，值 0 表示陆地。
+                   允许介于 0 和 255 之间的值，以便在陆地和水之间平滑混合。</td>
         </tr>
 
     
@@ -402,7 +415,9 @@
 
                 
             
-                将高度样本相乘以获得heightOffset 以上的高度，以米为单位。 heightOffset 将添加到生成的乘以刻度后的高度。</td>
+                将高度样本相乘以获得
+heightOffset 以上的高度，以米为单位。 heightOffset 将添加到生成的
+乘以刻度后的高度。</td>
         </tr>
 
     
@@ -438,7 +453,9 @@
 
                 
             
-                要添加到缩放高度以获得最终高度（以米为单位）。 偏移量是在高度样本乘以heightScale 的</td>
+                要添加到缩放高度以获得最终
+高度(以米为单位)。 偏移量是在高度样本乘以
+heightScale 的</td>
         </tr>
 
     
@@ -474,7 +491,10 @@
 
                 
             
-                缓冲区中构成单个高度的元素数样本。 这通常为 1，表示每个元素都是一个单独的高度样本。 如果大于 1，则该数量的元素一起构成高度样本，即根据 structure.elementMultiplier 和 structure.isBigEndian 属性计算。</td>
+                缓冲区中构成单个高度的元素数
+样本。 这通常为 1，表示每个元素都是一个单独的高度样本。 如果
+大于 1，则该数量的元素一起构成高度样本，即
+根据 structure.elementMultiplier 和 structure.isBigEndian 属性计算。</td>
         </tr>
 
     
@@ -510,7 +530,8 @@
 
                 
             
-                从 的第一个元素开始跳过的元素数一个高度到下一个高度的第一个元素。</td>
+                从 的第一个元素开始跳过的元素数
+一个高度到下一个高度的第一个元素。</td>
         </tr>
 
     
@@ -546,7 +567,12 @@
 
                 
             
-                用于计算高度值的乘数，当stride 属性大于 1。 例如，如果 stride 为 4，并且 strideMultiplier为 256，则高度的计算方式如下：'高度 = 缓冲区[索引] + 缓冲区[索引 + 1] * 256 + 缓冲区[索引 + 2] * 256 * 256 + 缓冲区[索引 + 3] * 256 * 256 * 256'这是假设 isBigEndian 属性为 false。 如果为 true，则元素被反转。</td>
+                用于计算高度值的乘数，当
+stride 属性大于 1。 例如，如果 stride 为 4，并且 strideMultiplier
+为 256，则高度的计算方式如下：
+'高度 = 缓冲区[索引] + 缓冲区[索引 + 1] * 256 + 缓冲区[索引 + 2] * 256 * 256 + 缓冲区[索引 + 3] * 256 * 256 * 256'
+这是假设 isBigEndian 属性为 false。 如果为 true，则
+元素被反转。</td>
         </tr>
 
     
@@ -582,7 +608,9 @@
 
                 
             
-                表示缓冲区中元素的字节序，当stride 属性大于 1。 如果此属性为 false，则第一个元素是低阶元素。 如果为 true，则第一个元素是高阶元素。</td>
+                表示缓冲区中元素的字节序，当
+stride 属性大于 1。 如果此属性为 false，则第一个元素是
+低阶元素。 如果为 true，则第一个元素是高阶元素。</td>
         </tr>
 
     
@@ -616,7 +644,10 @@
 
                 
             
-                高度缓冲区中可以存储的最小值。 任何较低的高度小于该值，在使用 'heightScale' 和 'heightOffset' 编码后，该值被固定到该值。 例如，如果 heightbuffer 是 'Uint16Array'，此值应为 0，因为 'Uint16Array' 无法存储负数。 如果该参数为未指定，不强制执行最小值。</td>
+                高度缓冲区中可以存储的最小值。 任何较低的高度
+小于该值，在使用 'heightScale' 和 'heightOffset' 编码后，该值被固定到该值。 例如，如果 height
+buffer 是 'Uint16Array'，此值应为 0，因为 'Uint16Array' 无法存储负数。 如果该参数为
+未指定，不强制执行最小值。</td>
         </tr>
 
     
@@ -650,7 +681,10 @@
 
                 
             
-                高度缓冲区中可以存储的最大值。 任何更高的高度小于该值，在使用 'heightScale' 和 'heightOffset' 编码后，该值被固定到该值。 例如，如果 heightbuffer 是 'Uint16Array'，此值应为 '256 * 256 - 1' 或 65535，因为 'Uint16Array' 无法存储更大的数字比 65535 多。 如果未指定此参数，则不强制实施最大值。</td>
+                高度缓冲区中可以存储的最大值。 任何更高的高度
+小于该值，在使用 'heightScale' 和 'heightOffset' 编码后，该值被固定到该值。 例如，如果 height
+buffer 是 'Uint16Array'，此值应为 '256 * 256 - 1' 或 65535，因为 'Uint16Array' 无法存储更大的数字
+比 65535 多。 如果未指定此参数，则不强制实施最大值。</td>
         </tr>
 
     
@@ -728,7 +762,8 @@
 
                 
             
-                如果此实例是通过对另一个实例进行上采样创建的，则为 True;否则为 false。</td>
+                如果此实例是通过对另一个实例进行上采样创建的，则为 True;
+否则为 false。</td>
         </tr>
 
     
@@ -777,7 +812,17 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const buffer = ...const heightBuffer = new Uint16Array(buffer, 0, that._heightmapWidth * that._heightmapWidth);const childTileMask = new Uint8Array(buffer, heightBuffer.byteLength, 1)[0];const waterMask = new Uint8Array(buffer, heightBuffer.byteLength + 1, buffer.byteLength - heightBuffer.byteLength - 1);const terrainData = new Cesium.HeightmapTerrainData({  buffer : heightBuffer,  width : 65,  height : 65,  childTileMask : childTileMask,  waterMask : waterMask});</code></pre>
+    <pre><code class="language-javascript">const buffer = ...
+const heightBuffer = new Uint16Array(buffer, 0, that._heightmapWidth * that._heightmapWidth);
+const childTileMask = new Uint8Array(buffer, heightBuffer.byteLength, 1)[0];
+const waterMask = new Uint8Array(buffer, heightBuffer.byteLength + 1, buffer.byteLength - heightBuffer.byteLength - 1);
+const terrainData = new Cesium.HeightmapTerrainData({
+  buffer : heightBuffer,
+  width : 65,
+  height : 65,
+  childTileMask : childTileMask,
+  waterMask : waterMask
+});</code></pre>
 
     
 
@@ -898,7 +943,9 @@
 
 
 <div class="description">
-    此地形数据中包含的水面罩（如果有）。 水面罩是一个正方形Uint8Array 或图像，其中值 255 表示水，值 0 表示陆地。允许介于 0 和 255 之间的值，以便在陆地和水之间平滑混合。
+    此地形数据中包含的水面罩(如果有)。 水面罩是一个正方形
+Uint8Array 或图像，其中值 255 表示水，值 0 表示陆地。
+允许介于 0 和 255 之间的值，以便在陆地和水之间平滑混合。
 </div>
 
 
@@ -1083,7 +1130,9 @@
 
         
 <div class="param-desc">
-    指定位置的地形高度。 如果位置在矩形之外，这个方法会推断高度，很可能会很疯狂对于远在矩形之外的位置不正确。
+    指定位置的地形高度。 如果位置
+在矩形之外，这个方法会推断高度，很可能会很疯狂
+对于远在矩形之外的位置不正确。
 </div>
 
 
@@ -1146,7 +1195,10 @@
 
 
 <div class="description">
-    根据<code>HeightmapTerrainData.childTileMask</code> 中。 假定给定的子图块坐标成为此牌的四个子牌之一。 如果非子图块坐标为给定，则返回 southeast child tile 的可用性。
+    根据
+<code>HeightmapTerrainData.childTileMask</code> 中。 假定给定的子图块坐标
+成为此牌的四个子牌之一。 如果非子图块坐标为
+给定，则返回 southeast child tile 的可用性。
 </div>
 
 
@@ -1197,7 +1249,7 @@
 
             <td class="description last">
             
-                此（父）瓦片的瓦片 X 坐标。</td>
+                此(父)瓦片的瓦片 X 坐标。</td>
         </tr>
 
     
@@ -1220,7 +1272,7 @@
 
             <td class="description last">
             
-                此（父）瓦片的瓦片 Y 坐标。</td>
+                此(父)瓦片的瓦片 Y 坐标。</td>
         </tr>
 
     
@@ -1350,7 +1402,8 @@
 
 
 <div class="description">
-    对此地形数据进行上采样，以供后代瓦片使用。 生成的实例将包含高度样本，必要时进行插值。
+    对此地形数据进行上采样，以供后代瓦片使用。 生成的实例将包含
+高度样本，必要时进行插值。
 </div>
 
 
@@ -1560,7 +1613,8 @@
 
         
 <div class="param-desc">
-    为后代瓦片提供上采样高度贴图地形数据的承诺，或 undefined 如果网格不可用。
+    为后代瓦片提供上采样高度贴图地形数据的承诺，
+或 undefined 如果网格不可用。
 </div>
 
 
@@ -1623,7 +1677,10 @@
 
 
 <div class="description">
-    获取一个值，该值指示此地形数据是否是通过对较低分辨率的上采样创建的地形数据。 如果此值为 false，则数据是从其他来源获取的，例如从远程服务器下载。 对于实例，此方法应返回 true从调用 <a href="HeightmapTerrainData.html#upsample"><code>HeightmapTerrainData#upsample</code></a> 返回。
+    获取一个值，该值指示此地形数据是否是通过对较低分辨率的上采样创建的
+地形数据。 如果此值为 false，则数据是从其他来源获取的，例如
+从远程服务器下载。 对于实例，此方法应返回 true
+从调用 <a href="HeightmapTerrainData.html#upsample"><code>HeightmapTerrainData#upsample</code></a> 返回。
 </div>
 
 

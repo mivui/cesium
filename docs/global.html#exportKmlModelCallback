@@ -47,7 +47,9 @@
 
 
         
-            <div class="description">由于 KML 不支持 glTF 模型，因此在 KML 文档中指定模型使用的 URL 时需要使用此回调。它还可用于向 <code>externalFiles</code> 对象添加其他文件，该对象是嵌入在导出的 KMZ 中的文件列表。或导出时返回 KML 字符串。</div>
+            <div class="description">由于 KML 不支持 glTF 模型，因此在 KML 文档中指定模型使用的 URL 时需要使用此回调。
+它还可用于向 <code>externalFiles</code> 对象添加其他文件，该对象是嵌入在导出的 KMZ 中的文件列表。
+或导出时返回 KML 字符串。</div>
         
 
         

@@ -47,7 +47,18 @@
 
 
         
-            <div class="description">通过以下方式对 <a href="Cartographic.html"><code>Cartographic</code></a> 位置数组启动地形高度查询向地形提供商请求瓦片、采样和插值。 插值匹配用于在指定级别渲染地形的三角形。 查询异步发生，因此此函数返回一个 Promise，该 Promise 在查询完成。 每个点高度都已就地修改。 如果高度不能确定，因为该位置的指定标高没有可用的地形数据，或发生其他错误时，高度将设置为 undefined。 作为典型的<a href="Cartographic.html"><code>Cartographic</code></a> 类型，则提供的高度是高于参考椭球体的高度（例如 <a href="Ellipsoid.html#.WGS84"><code>Ellipsoid.WGS84</code></a>），而不是高于平均海平面的高度。 在其他单词，如果在 Ocean 中采样，它不一定是 0.0。此函数需要地形细节级别作为输入，如果您需要精确获取地形的高度尽可能 （即具有最高级别的细节） 使用 <a href="global.html#sampleTerrainMostDetailed"><code>sampleTerrainMostDetailed</code></a>。</div>
+            <div class="description">通过以下方式对 <a href="Cartographic.html"><code>Cartographic</code></a> 位置数组启动地形高度查询
+向地形提供商请求瓦片、采样和插值。 插值
+匹配用于在指定级别渲染地形的三角形。 查询
+异步发生，因此此函数返回一个 Promise，该 Promise 在
+查询完成。 每个点高度都已就地修改。 如果高度不能
+确定，因为该位置的指定标高没有可用的地形数据，
+或发生其他错误时，高度将设置为 undefined。 作为典型的
+<a href="Cartographic.html"><code>Cartographic</code></a> 类型，则提供的高度是高于参考椭球体的高度
+(例如 <a href="Ellipsoid.html#.WGS84"><code>Ellipsoid.WGS84</code></a>)，而不是高于平均海平面的高度。 在其他
+单词，如果在 Ocean 中采样，它不一定是 0.0。此函数需要
+地形细节级别作为输入，如果您需要精确获取地形的高度
+尽可能 (即具有最高级别的细节) 使用 <a href="global.html#sampleTerrainMostDetailed"><code>sampleTerrainMostDetailed</code></a>。</div>
         
 
         
@@ -73,7 +84,22 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Query the terrain height of two Cartographic positionsconst terrainProvider = await Cesium.createWorldTerrainAsync();const positions = [    Cesium.Cartographic.fromDegrees(86.925145, 27.988257),    Cesium.Cartographic.fromDegrees(87.0, 28.0)];const updatedPositions = await Cesium.sampleTerrain(terrainProvider, 11, positions);// positions[0].height and positions[1].height have been updated.// updatedPositions is just a reference to positions.// To handle tile errors, pass true for the rejectOnTileFail parameter.try {   const updatedPositions = await Cesium.sampleTerrain(terrainProvider, 11, positions, true);} catch (error) {  // A tile request error occurred.}</code></pre>
+    <pre><code class="language-javascript">// Query the terrain height of two Cartographic positions
+const terrainProvider = await Cesium.createWorldTerrainAsync();
+const positions = [
+    Cesium.Cartographic.fromDegrees(86.925145, 27.988257),
+    Cesium.Cartographic.fromDegrees(87.0, 28.0)
+];
+const updatedPositions = await Cesium.sampleTerrain(terrainProvider, 11, positions);
+// positions[0].height and positions[1].height have been updated.
+// updatedPositions is just a reference to positions.
+
+// To handle tile errors, pass true for the rejectOnTileFail parameter.
+try {
+   const updatedPositions = await Cesium.sampleTerrain(terrainProvider, 11, positions, true);
+} catch (error) {
+  // A tile request error occurred.
+}</code></pre>
 
     
 

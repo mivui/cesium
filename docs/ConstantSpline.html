@@ -58,7 +58,8 @@
 
 
 <div class="description">
-    计算结果为常量值的样条曲线。虽然这遵循 <a href="Spline.html"><code>Spline</code></a> 接口，它不维护内部时间数组，因为它的值永远不会改变。
+    计算结果为常量值的样条曲线。虽然这遵循 <a href="Spline.html"><code>Spline</code></a> 接口，
+它不维护内部时间数组，因为它的值永远不会改变。
 </div>
 
 
@@ -158,7 +159,10 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const position = new Cesium.Cartesian3(1.0, 2.0, 3.0);const spline = new Cesium.ConstantSpline(position);const p0 = spline.evaluate(0.0);</code></pre>
+    <pre><code class="language-javascript">const position = new Cesium.Cartesian3(1.0, 2.0, 3.0);
+const spline = new Cesium.ConstantSpline(position);
+
+const p0 = spline.evaluate(0.0);</code></pre>
 
     
 
@@ -598,7 +602,10 @@
 
 
 <div class="description">
-    在<code>times</code>中查找索引 <code>i</code>，使得参数<code>times</code>在区间 <code>[times[i]， times[i + 1]]</code> 中。由于常量样条没有内部 times 数组，这将引发错误。
+    在<code>times</code>中查找索引 <code>i</code>，使得参数
+<code>times</code>在区间 <code>[times[i], times[i + 1]]</code> 中。
+
+由于常量样条没有内部 times 数组，这将引发错误。
 </div>
 
 

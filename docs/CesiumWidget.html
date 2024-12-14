@@ -58,7 +58,7 @@
 
 
 <div class="description">
-    A widget containing a Cesium scene.
+    包含 Cesium 场景的小部件。
 </div>
 
 
@@ -147,7 +147,7 @@
 
                 
             
-                对象，具有以下属性:
+                对象，具有以下属性：
                 
 
 <table class="params">
@@ -201,7 +201,7 @@
 
                 
             
-                The clock to use to control current time.</td>
+                用于控制当前时间的时钟。</td>
         </tr>
 
     
@@ -237,7 +237,7 @@
 
                 
             
-                <code>true</code> if the clock should attempt to advance simulation time by default, <code>false</code> otherwise.</td>
+                如果时钟默认尝试提前模拟时间，则为 <code>true</code>，否则<code>为 false</code>。</td>
         </tr>
 
     
@@ -273,7 +273,7 @@
 
                 
             
-                The default ellipsoid.</td>
+                默认的椭球体。</td>
         </tr>
 
     
@@ -312,7 +312,7 @@
 
                 
             
-                The bottommost imagery layer applied to the globe. If set to <code>false</code>, no imagery provider will be added.</td>
+                应用于地球的最底部图像图层。如果设置为 <code>false</code>，则不会添加任何影像提供程序。</td>
         </tr>
 
     
@@ -348,7 +348,7 @@
 
                 
             
-                The terrain provider.</td>
+                地形提供程序。</td>
         </tr>
 
     
@@ -382,7 +382,7 @@
 
                 
             
-                A terrain object which handles asynchronous terrain provider. Can only specify if options.terrainProvider is undefined.</td>
+                一个处理异步地形提供程序的地形对象。只能指定 options.terrainProvider 为 undefined 时。</td>
         </tr>
 
     
@@ -419,7 +419,7 @@
 
                 
             
-                The skybox used to render the stars. When <code>undefined</code> and the WGS84 ellipsoid used, the default stars are used. If set to <code>false</code>, no skyBox, Sun, or Moon will be added.</td>
+                用于渲染星星的天空盒。<code>如果未定义</code>且使用 WGS84 椭球体，则使用默认星形。如果设置为 <code>false</code>，则不会添加 skyBox、Sun 或 Moon。</td>
         </tr>
 
     
@@ -456,7 +456,7 @@
 
                 
             
-                Blue sky, and the glow around the Earth's limb. Enabled when the default ellipsoid used. Set to <code>false</code> to turn it off.</td>
+                蓝天，以及地球边缘周围的辉光。在使用默认椭球时启用。设置为 <code>false</code> 可将其关闭。</td>
         </tr>
 
     
@@ -492,7 +492,7 @@
 
                 
             
-                The initial scene mode.</td>
+                初始场景模式。</td>
         </tr>
 
     
@@ -528,7 +528,7 @@
 
                 
             
-                When <code>true</code>, each geometry instance will only be rendered in 3D to save GPU memory.</td>
+                如果<code>为 true</code>，则每个几何体实例将仅以 3D 形式渲染，以节省 GPU 内存。</td>
         </tr>
 
     
@@ -564,7 +564,7 @@
 
                 
             
-                If true and the configuration supports it, use order independent translucency.</td>
+                如果为 true 且配置支持，则使用顺序无关的半透明。</td>
         </tr>
 
     
@@ -600,7 +600,7 @@
 
                 
             
-                The map projection to use in 2D and Columbus View modes.</td>
+                在 2D 和 Columbus View 模式下使用的地图投影。</td>
         </tr>
 
     
@@ -639,7 +639,7 @@
 
                 
             
-                The globe to use in the scene.  If set to <code>false</code>, no globe will be added and the sky atmosphere will be hidden by default.</td>
+                要在场景中使用的地球。 如果设置为 <code>false</code>，则不会添加地球仪，并且默认情况下将隐藏天空大气。</td>
         </tr>
 
     
@@ -675,7 +675,7 @@
 
                 
             
-                True if this widget should control the render loop, 否则 false 。</td>
+                如果此小部件应该控制渲染循环，则为 True，否则 false 。</td>
         </tr>
 
     
@@ -711,7 +711,7 @@
 
                 
             
-                If true, render at the browser's recommended resolution and ignore <code>window.devicePixelRatio</code>.</td>
+                如果为 true，则以浏览器建议的分辨率渲染并忽略 <code>window.devicePixelRatio</code>。</td>
         </tr>
 
     
@@ -745,7 +745,7 @@
 
                 
             
-                The target frame rate when using the default render loop.</td>
+                使用默认渲染循环时的目标帧速率。</td>
         </tr>
 
     
@@ -781,7 +781,7 @@
 
                 
             
-                If true, this widget will automatically display an HTML panel to the user containing the error, if a render loop error occurs.</td>
+                如果为 true，则如果发生渲染循环错误，此小部件将自动向用户显示包含错误的 HTML 面板。</td>
         </tr>
 
     
@@ -817,7 +817,7 @@
 
                 
             
-                If true, this widget will automatically track the clock settings of newly added DataSources, updating if the DataSource's clock changes.  Set this to false if you want to configure the clock independently.</td>
+                如果为 true，则此小部件将自动跟踪新添加的 DataSource 的时钟设置，并在 DataSource 的时钟发生变化时进行更新。 如果要独立配置 clock ，请将其设置为 false 。</td>
         </tr>
 
     
@@ -851,7 +851,7 @@
 
                 
             
-                Context and WebGL creation properties passed to <a href="Scene.html"><code>Scene</code></a>.</td>
+                传递给 <a href="Scene.html"><code>Scene</code></a> 的上下文和 WebGL 创建属性。</td>
         </tr>
 
     
@@ -888,7 +888,8 @@
 
                 
             
-                The DOM element or ID that will contain the <a href="CreditDisplay.html"><code>CreditDisplay</code></a>.  If not specified, the credits are added       to the bottom of the widget itself.</td>
+                将包含 <a href="CreditDisplay.html"><code>CreditDisplay</code></a> 的 DOM 元素或 ID。 如果未指定，则添加积分
+拖动到小组件本身的底部。</td>
         </tr>
 
     
@@ -925,7 +926,7 @@
 
                 
             
-                The DOM element or ID that will contain the credit pop up created by the <a href="CreditDisplay.html"><code>CreditDisplay</code></a>.  If not specified, it will appear over the widget itself.</td>
+                将包含由 <a href="CreditDisplay.html"><code>CreditDisplay</code></a> 创建的信用弹出窗口的 DOM 元素或 ID。 如果未指定，它将出现在 widget 本身上。</td>
         </tr>
 
     
@@ -961,7 +962,8 @@
 
                 
             
-                The collection of data sources visualized by the widget.  If this parameter is provided,                              the instance is assumed to be owned by the caller and will not be destroyed when the widget is destroyed.</td>
+                小组件可视化的数据源集合。 如果提供此参数，则
+假定实例归调用方所有，并且在销毁 widget 时不会销毁。</td>
         </tr>
 
     
@@ -997,7 +999,7 @@
 
                 
             
-                Determines if shadows are cast by light sources.</td>
+                确定阴影是否由光源投射。</td>
         </tr>
 
     
@@ -1033,7 +1035,7 @@
 
                 
             
-                Determines if the terrain casts or receives shadows from light sources.</td>
+                确定地形是投射还是接收来自光源的阴影。</td>
         </tr>
 
     
@@ -1069,7 +1071,7 @@
 
                 
             
-                Determines if the 2D map is rotatable or can be scrolled infinitely in the horizontal direction.</td>
+                确定 2D 地图是可旋转的，还是可以在水平方向上无限滚动。</td>
         </tr>
 
     
@@ -1105,7 +1107,7 @@
 
                 
             
-                If true, the active element will blur when the widget's canvas is clicked. Setting this to false is useful for cases when the canvas is clicked only for retrieving position or an entity data without actually meaning to set the canvas to be the active element.</td>
+                如果为 true，则当单击小部件的画布时，活动元素将模糊。如果单击画布仅用于检索位置或实体数据，而实际上没有将画布设置为活动元素，则将其设置为 false 非常有用。</td>
         </tr>
 
     
@@ -1141,7 +1143,7 @@
 
                 
             
-                If true, rendering a frame will only occur when needed as determined by changes within the scene. Enabling improves performance of the application, but requires using <a href="Scene.html#requestRender"><code>Scene#requestRender</code></a> to render a new frame explicitly in this mode. This will be necessary in many cases after making changes to the scene in other parts of the API. See <a href="https://cesium.com/blog/2018/01/24/cesium-scene-rendering-performance/">Improving Performance with Explicit Rendering</a>.</td>
+                如果为 true，则仅在需要时渲染帧，具体取决于场景中的变化。启用可以提高应用程序的性能，但需要使用 <a href="Scene.html#requestRender"><code>Scene#requestRender</code></a> 在此模式下显式渲染新帧。在 API 的其他部分对场景进行更改后，这在许多情况下是必需的。参见 <a href="https://cesium.com/blog/2018/01/24/cesium-scene-rendering-performance/">通过显式渲染提高性能</a>。</td>
         </tr>
 
     
@@ -1177,7 +1179,7 @@
 
                 
             
-                If requestRenderMode is true, this value defines the maximum change in simulation time allowed before a render is requested. See <a href="https://cesium.com/blog/2018/01/24/cesium-scene-rendering-performance/">Improving Performance with Explicit Rendering</a>.</td>
+                如果 requestRenderMode 为 true，则此值定义在请求渲染之前允许的模拟时间的最大变化。参见 <a href="https://cesium.com/blog/2018/01/24/cesium-scene-rendering-performance/">通过显式渲染提高性能</a>。</td>
         </tr>
 
     
@@ -1213,7 +1215,7 @@
 
                 
             
-                If provided, this value controls the rate of multisample antialiasing. Typical multisampling rates are 2, 4, and sometimes 8 samples per pixel. Higher sampling rates of MSAA may impact performance in exchange for improved visual quality. This value only applies to WebGL2 contexts that support multisample render targets. Set to 1 to disable MSAA.</td>
+                如果提供，此值将控制多重采样抗锯齿的速率。典型的多重采样率为每像素 2 个、4 个样本，有时甚至 8 个样本。较高的 MSAA 采样率可能会影响性能，以换取提高的视觉质量。此值仅适用于支持多重采样渲染目标的 WebGL2 上下文。设置为 1 可禁用 MSAA。</td>
         </tr>
 
     
@@ -1276,7 +1278,30 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// For each example, include a link to CesiumWidget.css stylesheet in HTML head,// and in the body, include: &lt;div id="cesiumContainer">&lt;/div>// Widget with no terrain and default Bing Maps imagery provider.const widget = new Cesium.CesiumWidget("cesiumContainer");// Widget with ion imagery and Cesium World Terrain.const widget2 = new Cesium.CesiumWidget("cesiumContainer", {    baseLayer: Cesium.ImageryLayer.fromWorldTerrain(),    terrain: Cesium.Terrain.fromWorldTerrain()    skyBox: new Cesium.SkyBox({      sources: {        positiveX: "stars/TychoSkymapII.t3_08192x04096_80_px.jpg",        negativeX: "stars/TychoSkymapII.t3_08192x04096_80_mx.jpg",        positiveY: "stars/TychoSkymapII.t3_08192x04096_80_py.jpg",        negativeY: "stars/TychoSkymapII.t3_08192x04096_80_my.jpg",        positiveZ: "stars/TychoSkymapII.t3_08192x04096_80_pz.jpg",        negativeZ: "stars/TychoSkymapII.t3_08192x04096_80_mz.jpg"      }    }),    // Show Columbus View map with Web Mercator projection    sceneMode: Cesium.SceneMode.COLUMBUS_VIEW,    mapProjection: new Cesium.WebMercatorProjection()});</code></pre>
+    <pre><code class="language-javascript">// For each example, include a link to CesiumWidget.css stylesheet in HTML head,
+// and in the body, include: &lt;div id="cesiumContainer">&lt;/div>
+
+// Widget with no terrain and default Bing Maps imagery provider.
+const widget = new Cesium.CesiumWidget("cesiumContainer");
+
+// Widget with ion imagery and Cesium World Terrain.
+const widget2 = new Cesium.CesiumWidget("cesiumContainer", {
+    baseLayer: Cesium.ImageryLayer.fromWorldTerrain(),
+    terrain: Cesium.Terrain.fromWorldTerrain()
+    skyBox: new Cesium.SkyBox({
+      sources: {
+        positiveX: "stars/TychoSkymapII.t3_08192x04096_80_px.jpg",
+        negativeX: "stars/TychoSkymapII.t3_08192x04096_80_mx.jpg",
+        positiveY: "stars/TychoSkymapII.t3_08192x04096_80_py.jpg",
+        negativeY: "stars/TychoSkymapII.t3_08192x04096_80_my.jpg",
+        positiveZ: "stars/TychoSkymapII.t3_08192x04096_80_pz.jpg",
+        negativeZ: "stars/TychoSkymapII.t3_08192x04096_80_mz.jpg"
+      }
+    }),
+    // Show Columbus View map with Web Mercator projection
+    sceneMode: Cesium.SceneMode.COLUMBUS_VIEW,
+    mapProjection: new Cesium.WebMercatorProjection()
+});</code></pre>
 
     
 
@@ -1333,7 +1358,10 @@
 
 
 <div class="description">
-    Gets or sets whether or not data sources can temporarily pauseanimation in order to avoid showing an incomplete picture to the user.For example, if asynchronous primitives are being processed in thebackground, the clock will not advance until the geometry is ready.
+    获取或设置数据源是否可以暂时暂停
+动画，以避免向用户显示不完整的图片。
+例如，如果异步基元正在
+background，则在几何图形准备就绪之前，时钟不会前进。
 </div>
 
 
@@ -1393,7 +1421,7 @@
 
 
 <div class="description">
-    Gets the camera.
+    获取相机。
 </div>
 
 
@@ -1453,7 +1481,7 @@
 
 
 <div class="description">
-    Gets the canvas.
+    获取画布。
 </div>
 
 
@@ -1513,7 +1541,7 @@
 
 
 <div class="description">
-    Gets the clock.
+    获取时钟。
 </div>
 
 
@@ -1573,7 +1601,7 @@
 
 
 <div class="description">
-    Gets or sets the data source to track with the widget's clock.
+    获取或设置要使用小组件的时钟进行跟踪的数据源。
 </div>
 
 
@@ -1693,7 +1721,7 @@
 
 
 <div class="description">
-    Gets the credit container.
+    获取 credit 容器。
 </div>
 
 
@@ -1753,7 +1781,7 @@
 
 
 <div class="description">
-    Manages the list of credits to display on screen and in the lightbox.
+    管理要在屏幕上和灯箱中显示的积分列表。
 </div>
 
 
@@ -1813,7 +1841,7 @@
 
 
 <div class="description">
-    Gets the credit viewport
+    获取信用视区
 </div>
 
 
@@ -1873,7 +1901,7 @@
 
 
 <div class="description">
-    Gets the display used for <a href="DataSource.html"><code>DataSource</code></a> visualization.
+    获取用于 <a href="DataSource.html"><code>DataSource</code></a> 可视化的显示。
 </div>
 
 
@@ -1933,7 +1961,7 @@
 
 
 <div class="description">
-    Gets the set of <a href="DataSource.html"><code>DataSource</code></a> instances to be visualized.
+    获取要可视化的 <a href="DataSource.html"><code>DataSource</code></a> 实例的集合。
 </div>
 
 
@@ -1993,7 +2021,7 @@
 
 
 <div class="description">
-    Gets the default ellipsoid for the scene.
+    获取场景的默认椭球体。
 </div>
 
 
@@ -2053,7 +2081,8 @@
 
 
 <div class="description">
-    Gets the collection of entities not tied to a particular data source.This is a shortcut to <a href="CesiumWidget.html#dataSourceDisplay"><code>dataSourceDisplay.defaultDataSource.entities</code></a>.
+    获取未绑定到特定数据源的实体的集合。
+这是 <a href="CesiumWidget.html#dataSourceDisplay"><code>dataSourceDisplay.defaultDataSource.entities</code></a> 的快捷方式。
 </div>
 
 
@@ -2113,7 +2142,7 @@
 
 
 <div class="description">
-    Gets the collection of image layers that will be rendered on the globe.
+    获取将在地球上渲染的图像图层的集合。
 </div>
 
 
@@ -2173,7 +2202,12 @@
 
 
 <div class="description">
-    Gets or sets a scaling factor for rendering resolution.  Values less than 1.0 can improveperformance on less powerful devices while values greater than 1.0 will render at a higherresolution and then scale down, resulting in improved visual fidelity.For example, if the widget is laid out at a size of 640x480, setting this value to 0.5will cause the scene to be rendered at 320x240 and then scaled up while settingit to 2.0 will cause the scene to be rendered at 1280x960 and then scaled down.
+    获取或设置渲染分辨率的缩放因子。 小于 1.0 的值可以提高
+性能在功能较弱的设备上，而大于 1.0 的值将以更高的
+分辨率，然后按比例缩小，从而提高视觉保真度。
+例如，如果 Widget 的布局大小为 640x480，请将此值设置为 0.5
+将导致场景以 320x240 渲染，然后在设置
+设置为 2.0 将导致场景以 1280x960 渲染，然后缩小。
 </div>
 
 
@@ -2296,7 +2330,7 @@
 
 
 <div class="description">
-    Gets the screen space event handler.
+    获取屏幕空间事件处理程序。
 </div>
 
 
@@ -2356,7 +2390,10 @@
 
 
 <div class="description">
-    获取或设置target frame rate of the widget when <code>useDefaultRenderLoop</code>is true. If undefined, the browser's requestAnimationFrame implementationdetermines the frame rate.  If defined, this value must be greater than 0.  A value higherthan the underlying requestAnimationFrame implementation will have no effect.
+    获取或设置<code>使用 DefaultRenderLoop</code> 时 widget 的目标帧率
+为 true。如果未定义，则浏览器的 requestAnimationFrame 实现
+确定帧速率。 如果已定义，则此值必须大于 0。 更高的值
+时，底层的 requestAnimationFrame 实现将不起作用。
 </div>
 
 
@@ -2416,7 +2453,7 @@
 
 
 <div class="description">
-    The terrain provider providing surface geometry for the globe.
+    提供地球表面几何图形的 terrain 提供程序。
 </div>
 
 
@@ -2476,7 +2513,7 @@
 
 
 <div class="description">
-    Gets or sets the Entity instance currently being tracked by the camera.
+    获取或设置相机当前正在跟踪的 Entity 实例。
 </div>
 
 
@@ -2536,7 +2573,7 @@
 
 
 <div class="description">
-    Gets the event that is raised when the tracked entity changes.
+    获取在跟踪的实体更改时引发的事件。
 </div>
 
 
@@ -2596,7 +2633,12 @@
 
 
 <div class="description">
-    Boolean flag indicating if the browser's recommended resolution is used.If true, the browser's device pixel ratio is ignored and 1.0 is used instead,effectively rendering based on CSS pixels instead of device pixels. This can improveperformance on less powerful devices that have high pixel density. When false, renderingwill be in device pixels. <a href="CesiumWidget.html#resolutionScale"><code>CesiumWidget#resolutionScale</code></a> will still take effect whetherthis flag is true or false.
+    布尔标志，指示是否使用浏览器的推荐分辨率。
+如果为 true，则忽略浏览器的设备像素比，改用 1.0，
+基于 CSS 像素而不是设备像素进行有效渲染。这可以改善
+在具有高像素密度的较弱设备上的性能。当 false 时，渲染
+将以设备像素为单位。<a href="CesiumWidget.html#resolutionScale"><code>CesiumWidget#resolutionScale</code></a> 仍然会生效
+此标志为 true 或 false。
 </div>
 
 
@@ -2659,7 +2701,15 @@
 
 
 <div class="description">
-    获取或设置是否 this widget should control the render loop.If true the widget will use requestAnimationFrame toperform rendering and resizing of the widget, as well as drive thesimulation clock. If set to false, you must manually call the<code>resize</code>, <code>render</code> methods as part of a customrender loop.  If an error occurs during rendering, <a href="Scene.html"><code>Scene</code></a>'s<code>renderError</code> event will be raised and this propertywill be set to false.  It must be set back to true to continue renderingafter the error.
+    获取或设置是否此小部件应控制渲染循环。
+如果为 true，则 widget 将使用 requestAnimationFrame 来
+执行 widget 的渲染和大小调整，以及驱动
+模拟时钟。如果设置为 false，则必须手动调用
+<code>调整大小</code>，<code>将方法作为自定义的一部分进行渲染</code>
+渲染循环。 如果在渲染过程中发生错误，则 <a href="Scene.html"><code>Scene</code></a> 的
+<code>renderError</code> 事件，并且此属性
+将设置为 false。 必须将其设置回 true 才能继续渲染
+after the error.
 </div>
 
 
@@ -2726,7 +2776,8 @@
 
 
 <div class="description">
-    销毁小部件。如果从布局中永久删除小部件， 则应该调用。
+    销毁小部件。如果从布局中永久删除小部件，
+ 则应该调用。
 </div>
 
 
@@ -2807,7 +2858,19 @@
 
 
 <div class="description">
-    Flies the camera to the provided entity, entities, or data source.If the data source is still in the process of loading or the visualization is otherwise still loading,this method waits for the data to be ready before performing the flight.<p>The offset is heading/pitch/range in the local east-north-up reference frame centered at the center of the bounding sphere.The heading and the pitch angles are defined in the local east-north-up reference frame.The heading is the angle from y axis and increasing towards the x axis. Pitch is the rotation from the xy-plane. Positive pitchangles are above the plane. Negative pitch angles are below the plane. The range is the distance from the center. If the range iszero, a range will be computed such that the whole bounding sphere is visible.</p><p>In 2D, there must be a top down view. The camera will be placed above the target looking down. The height above thetarget will be the range. The heading will be determined from the offset. If the heading cannot bedetermined from the offset, the heading will be north.</p>
+    将摄像机飞到提供的实体、实体或数据源。
+如果数据源仍在加载过程中，或者可视化图表仍在加载中，
+此方法在执行 Flight 之前等待数据准备就绪。
+
+<p>偏移量是以边界球体中心为中心的本地北向参考系中的航向/俯仰/范围。
+航向角和俯仰角在当地东西向北向上的参考系中定义。
+航向是与 y 轴成的角度，并逐渐沿 x 轴增加。Pitch 是从 xy 平面开始的旋转。正间距
+角度位于平面上方。负俯仰角位于平面下方。范围是距中心的距离。如果范围为
+zero，则计算一个范围，使整个边界球体可见。</p>
+
+<p>在 2D 中，必须有一个自上而下的视图。相机将放置在向下看的目标上方。高于
+target 将是范围。航向将根据偏移量确定。如果标题不能为
+根据偏移量确定，航向将为北。</p>
 </div>
 
 
@@ -2884,7 +2947,7 @@
 
                 
             
-                The entity, array of entities, entity collection, data source, Cesium3DTileset, point cloud, or imagery layer to view. You can also pass a promise that resolves to one of the previously mentioned types.</td>
+                要查看的实体、实体数组、实体集合、数据源、Cesium3DTileset、点云或图像图层。您还可以传递一个 Promise，该 Promise 解析为前面提到的类型之一。</td>
         </tr>
 
     
@@ -2914,7 +2977,7 @@
 
                 
             
-                Object with the following properties:
+                对象具有以下属性：
                 
 
 <table class="params">
@@ -2968,7 +3031,7 @@
 
                 
             
-                The duration of the flight in seconds.</td>
+                飞行的持续时间，以秒为单位。</td>
         </tr>
 
     
@@ -3002,7 +3065,7 @@
 
                 
             
-                The maximum height at the peak of the flight.</td>
+                航班高峰期的最大高度。</td>
         </tr>
 
     
@@ -3036,7 +3099,7 @@
 
                 
             
-                The offset from the target in the local east-north-up reference frame centered at the target.</td>
+                以目标为中心的本地北向向上参考系中与目标的偏移量。</td>
         </tr>
 
     
@@ -3063,7 +3126,7 @@
 
         
 <div class="param-desc">
-    A Promise that resolves to true if the flight was successful or false if the target is not currently visualized in the scene or the flight was cancelled. //TODO: Cleanup entity mentions
+    如果飞行成功，则解析为 true，如果目标当前未在场景中可视化或飞行已取消，则解析为 false。//TODO： 清理实体提及
 </div>
 
 
@@ -3212,7 +3275,8 @@
 
 
 <div class="description">
-    Renders the scene.  This function is called automaticallyunless <code>useDefaultRenderLoop</code> is set to false;
+    渲染场景。 此函数是自动调用的
+除非 <code>useDefaultRenderLoop</code> 设置为 false;
 </div>
 
 
@@ -3293,7 +3357,9 @@
 
 
 <div class="description">
-    Updates the canvas size, camera aspect ratio, and viewport size.This function is called automatically as needed unless<code>useDefaultRenderLoop</code> is set to false.
+    更新画布大小、摄像机纵横比和视口大小。
+此函数会根据需要自动调用，除非
+<code>useDefaultRenderLoop</code> 设置为 false。
 </div>
 
 
@@ -3374,7 +3440,10 @@
 
 
 <div class="description">
-    Show an error panel to the user containing a title and a longer error message,which can be dismissed using an OK button.  This panel is displayed automaticallywhen a render loop error occurs, if showRenderLoopErrors was not false when thewidget was constructed.
+    向用户显示包含标题和较长错误消息的错误面板，
+可以使用 OK 按钮关闭。 此面板将自动显示
+当渲染循环发生错误时，如果 showRenderLoopErrors 不是 false，则
+小部件。
 </div>
 
 
@@ -3430,7 +3499,7 @@
 
                 
             
-                The title to be displayed on the error panel.  This string is interpreted as text.</td>
+                要在错误面板上显示的标题。 此字符串被解释为文本。</td>
         </tr>
 
     
@@ -3460,7 +3529,7 @@
 
                 
             
-                A helpful, user-facing message to display prior to the detailed error information.  This string is interpreted as HTML.</td>
+                在详细的错误信息之前显示一条面向用户的有用消息。 此字符串被解释为 HTML。</td>
         </tr>
 
     
@@ -3490,7 +3559,7 @@
 
                 
             
-                The error to be displayed on the error panel.  This string is formatted using <a href="global.html#formatError"><code>formatError</code></a> and then displayed as text.</td>
+                错误面板上显示的错误。 此字符串使用 <a href="global.html#formatError"><code>formatError</code></a> 进行格式设置，然后显示为文本。</td>
         </tr>
 
     
@@ -3565,7 +3634,19 @@
 
 
 <div class="description">
-    Asynchronously sets the camera to view the provided entity, entities, or data source.If the data source is still in the process of loading or the visualization is otherwise still loading,this method waits for the data to be ready before performing the zoom.<p>The offset is heading/pitch/range in the local east-north-up reference frame centered at the center of the bounding sphere.The heading and the pitch angles are defined in the local east-north-up reference frame.The heading is the angle from y axis and increasing towards the x axis. Pitch is the rotation from the xy-plane. Positive pitchangles are above the plane. Negative pitch angles are below the plane. The range is the distance from the center. If the range iszero, a range will be computed such that the whole bounding sphere is visible.</p><p>In 2D, there must be a top down view. The camera will be placed above the target looking down. The height above thetarget will be the range. The heading will be determined from the offset. If the heading cannot bedetermined from the offset, the heading will be north.</p>
+    异步设置摄像机以查看提供的实体、实体或数据源。
+如果数据源仍在加载过程中，或者可视化图表仍在加载中，
+此方法在执行缩放之前等待数据准备就绪。
+
+<p>偏移量是以边界球体中心为中心的本地北向参考系中的航向/俯仰/范围。
+航向角和俯仰角在当地东西向北向上的参考系中定义。
+航向是与 y 轴成的角度，并逐渐沿 x 轴增加。Pitch 是从 xy 平面开始的旋转。正间距
+角度位于平面上方。负俯仰角位于平面下方。范围是距中心的距离。如果范围为
+zero，则计算一个范围，使整个边界球体可见。</p>
+
+<p>在 2D 中，必须有一个自上而下的视图。相机将放置在向下看的目标上方。高于
+target 将是范围。航向将根据偏移量确定。如果标题不能为
+根据偏移量确定，航向将为北。</p>
 </div>
 
 
@@ -3642,7 +3723,7 @@
 
                 
             
-                The entity, array of entities, entity collection, data source, Cesium3DTileset, point cloud, or imagery layer to view. You can also pass a promise that resolves to one of the previously mentioned types.</td>
+                要查看的实体、实体数组、实体集合、数据源、Cesium3DTileset、点云或图像图层。您还可以传递一个 Promise，该 Promise 解析为前面提到的类型之一。</td>
         </tr>
 
     
@@ -3672,7 +3753,7 @@
 
                 
             
-                The offset from the center of the entity in the local east-north-up reference frame.</td>
+                在本地东西向向上参考系中与实体中心的偏移量。</td>
         </tr>
 
     
@@ -3693,7 +3774,7 @@
 
         
 <div class="param-desc">
-    A Promise that resolves to true if the zoom was successful or false if the target is not currently visualized in the scene or the zoom was cancelled.
+    一个 Promise，如果缩放成功，则解析为 true，如果目标当前未在场景中可视化或缩放已取消，则解析为 false。
 </div>
 
 

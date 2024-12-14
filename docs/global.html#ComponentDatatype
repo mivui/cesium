@@ -47,7 +47,8 @@
 
 
         
-            <div class="description">WebGL 组件数据类型。 组件是 intrinsic，哪些形式属性，哪些形式顶点。</div>
+            <div class="description">WebGL 组件数据类型。 组件是 intrinsic，
+哪些形式属性，哪些形式顶点。</div>
         
 
         
@@ -96,7 +97,8 @@
 
             
 
-            <td class="description last">对应的8位带符号字节 <code>gl.BYTE</code> 还有类型元素的 <code>Int8Array</code>.</td>
+            <td class="description last">对应的8位带符号字节 <code>gl.BYTE</code> 还有类型
+元素的 <code>Int8Array</code>.</td>
         </tr>
 
     
@@ -119,7 +121,8 @@
 
             
 
-            <td class="description last">8-bit unsigned byte对应 <code>UNSIGNED_BYTE</code> 和类型元素的 <code>Uint8Array</code>.</td>
+            <td class="description last">8-bit unsigned byte对应 <code>UNSIGNED_BYTE</code> 和类型
+元素的 <code>Uint8Array</code>.</td>
         </tr>
 
     
@@ -142,7 +145,8 @@
 
             
 
-            <td class="description last">16-bit signed short 对应<code>SHORT</code> 和类型元素的 <code>Int16Array</code>.</td>
+            <td class="description last">16-bit signed short 对应<code>SHORT</code> 和类型
+元素的 <code>Int16Array</code>.</td>
         </tr>
 
     
@@ -165,7 +169,8 @@
 
             
 
-            <td class="description last">16-bit unsigned short 对应 <code>UNSIGNED_SHORT</code> 和类型元素的 <code>Uint16Array</code>.</td>
+            <td class="description last">16-bit unsigned short 对应 <code>UNSIGNED_SHORT</code> 和类型
+元素的 <code>Uint16Array</code>.</td>
         </tr>
 
     
@@ -188,7 +193,8 @@
 
             
 
-            <td class="description last">32-bit signed int 对应 <code>INT</code> 和类型元素的 <code>Int32Array</code>.</td>
+            <td class="description last">32-bit signed int 对应 <code>INT</code> 和类型
+元素的 <code>Int32Array</code>.</td>
         </tr>
 
     
@@ -211,7 +217,8 @@
 
             
 
-            <td class="description last">32-bit unsigned int 对应 <code>UNSIGNED_INT</code> 和类型元素的 <code>Uint32Array</code>.</td>
+            <td class="description last">32-bit unsigned int 对应 <code>UNSIGNED_INT</code> 和类型
+元素的 <code>Uint32Array</code>.</td>
         </tr>
 
     
@@ -234,7 +241,8 @@
 
             
 
-            <td class="description last">32-bit 浮点型 对应 <code>FLOAT</code> 和类型元素的 <code>Float32Array</code>.</td>
+            <td class="description last">32-bit 浮点型 对应 <code>FLOAT</code> 和类型
+元素的 <code>Float32Array</code>.</td>
         </tr>
 
     
@@ -257,7 +265,9 @@
 
             
 
-            <td class="description last">64 位浮点对应 <code>gl.DOUBLE</code>（在桌面 OpenGL 中;这在 WebGL 中不受支持，在 Cesium 中通过 <a href="GeometryPipeline.html#.encodeAttribute"><code>GeometryPipeline.encodeAttribute</code></a> 进行模拟）和类型 元素的 <code>Float64Array</code>.</td>
+            <td class="description last">64 位浮点对应 <code>gl.DOUBLE</code>(在桌面 OpenGL 中;
+这在 WebGL 中不受支持，在 Cesium 中通过 <a href="GeometryPipeline.html#.encodeAttribute"><code>GeometryPipeline.encodeAttribute</code></a> 进行模拟)
+和类型 元素的 <code>Float64Array</code>.</td>
         </tr>
 
     
@@ -331,7 +341,8 @@
 
 
 <div class="description">
-    对应的8位带符号字节 <code>gl.BYTE</code> 还有类型元素的 <code>Int8Array</code>.
+    对应的8位带符号字节 <code>gl.BYTE</code> 还有类型
+元素的 <code>Int8Array</code>.
 </div>
 
 
@@ -394,7 +405,9 @@
 
 
 <div class="description">
-    64 位浮点对应 <code>gl.DOUBLE</code>（在桌面 OpenGL 中;这在 WebGL 中不受支持，在 Cesium 中通过 <a href="GeometryPipeline.html#.encodeAttribute"><code>GeometryPipeline.encodeAttribute</code></a> 进行模拟）和类型 元素的 <code>Float64Array</code>.
+    64 位浮点对应 <code>gl.DOUBLE</code>(在桌面 OpenGL 中;
+这在 WebGL 中不受支持，在 Cesium 中通过 <a href="GeometryPipeline.html#.encodeAttribute"><code>GeometryPipeline.encodeAttribute</code></a> 进行模拟)
+和类型 元素的 <code>Float64Array</code>.
 </div>
 
 
@@ -457,7 +470,8 @@
 
 
 <div class="description">
-    32-bit 浮点型 对应 <code>FLOAT</code> 和类型元素的 <code>Float32Array</code>.
+    32-bit 浮点型 对应 <code>FLOAT</code> 和类型
+元素的 <code>Float32Array</code>.
 </div>
 
 
@@ -520,7 +534,8 @@
 
 
 <div class="description">
-    32-bit signed int 对应 <code>INT</code> 和类型元素的 <code>Int32Array</code>.
+    32-bit signed int 对应 <code>INT</code> 和类型
+元素的 <code>Int32Array</code>.
 </div>
 
 
@@ -583,7 +598,8 @@
 
 
 <div class="description">
-    16-bit signed short 对应<code>SHORT</code> 和类型元素的 <code>Int16Array</code>.
+    16-bit signed short 对应<code>SHORT</code> 和类型
+元素的 <code>Int16Array</code>.
 </div>
 
 
@@ -646,7 +662,8 @@
 
 
 <div class="description">
-    8-bit unsigned byte对应 <code>UNSIGNED_BYTE</code> 和类型元素的 <code>Uint8Array</code>.
+    8-bit unsigned byte对应 <code>UNSIGNED_BYTE</code> 和类型
+元素的 <code>Uint8Array</code>.
 </div>
 
 
@@ -709,7 +726,8 @@
 
 
 <div class="description">
-    32-bit unsigned int 对应 <code>UNSIGNED_INT</code> 和类型元素的 <code>Uint32Array</code>.
+    32-bit unsigned int 对应 <code>UNSIGNED_INT</code> 和类型
+元素的 <code>Uint32Array</code>.
 </div>
 
 
@@ -772,7 +790,8 @@
 
 
 <div class="description">
-    16-bit unsigned short 对应 <code>UNSIGNED_SHORT</code> 和类型元素的 <code>Uint16Array</code>.
+    16-bit unsigned short 对应 <code>UNSIGNED_SHORT</code> 和类型
+元素的 <code>Uint16Array</code>.
 </div>
 
 
@@ -956,7 +975,7 @@
 
                 
             
-                视图中第一个元素的偏移量（以字节为单位）。</td>
+                视图中第一个元素的偏移量(以字节为单位)。</td>
         </tr>
 
     
@@ -1227,7 +1246,8 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// creates a Float32Array with length of 100const typedArray = Cesium.ComponentDatatype.createTypedArray(Cesium.ComponentDatatype.FLOAT, 100);</code></pre>
+    <pre><code class="language-javascript">// creates a Float32Array with length of 100
+const typedArray = Cesium.ComponentDatatype.createTypedArray(Cesium.ComponentDatatype.FLOAT, 100);</code></pre>
 
     
 
@@ -1569,7 +1589,7 @@
 
 
 <div class="description">
-    返回相应数据类型的大小 （以字节为单位）。
+    返回相应数据类型的大小 (以字节为单位)。
 </div>
 
 
@@ -1641,7 +1661,7 @@
 
         
 <div class="param-desc">
-    大小（以字节为单位）。
+    大小(以字节为单位)。
 </div>
 
 
@@ -1686,7 +1706,8 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Returns Int8Array.BYTES_PER_ELEMENTconst size = Cesium.ComponentDatatype.getSizeInBytes(Cesium.ComponentDatatype.BYTE);</code></pre>
+    <pre><code class="language-javascript">// Returns Int8Array.BYTES_PER_ELEMENT
+const size = Cesium.ComponentDatatype.getSizeInBytes(Cesium.ComponentDatatype.BYTE);</code></pre>
 
     
 
@@ -1826,7 +1847,9 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">if (!Cesium.ComponentDatatype.validate(componentDatatype)) {  throw new Cesium.DeveloperError('componentDatatype must be a valid value.');}</code></pre>
+    <pre><code class="language-javascript">if (!Cesium.ComponentDatatype.validate(componentDatatype)) {
+  throw new Cesium.DeveloperError('componentDatatype must be a valid value.');
+}</code></pre>
 
     
 

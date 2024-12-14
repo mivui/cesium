@@ -142,8 +142,7 @@
 
             
 
-            <td class="description last">Use the default geocoder as set on the server.  Used when neither Bing or
-Google data is used.</td>
+            <td class="description last">Use the default geocoder as set on the server.  Used when neither Bing orGoogle data is used.</td>
         </tr>
 
     
@@ -280,8 +279,7 @@ Google data is used.</td>
 
 
 <div class="description">
-    Use the default geocoder as set on the server.  Used when neither Bing or
-Google data is used.
+    Use the default geocoder as set on the server.  Used when neither Bing orGoogle data is used.
 </div>
 
 

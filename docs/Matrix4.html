@@ -58,7 +58,8 @@
 
 
 <div class="description">
-    一个 4x4 矩阵，可作为列优先顺序数组进行索引。构造函数参数按行优先顺序排列，以提高代码可读性。
+    一个 4x4 矩阵，可作为列优先顺序数组进行索引。
+构造函数参数按行优先顺序排列，以提高代码可读性。
 </div>
 
 
@@ -2083,7 +2084,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数或者一个新的 Matrix4 实例（如果未提供）。
+    修改后的结果参数或者一个新的 Matrix4 实例(如果未提供)。
 </div>
 
 
@@ -2146,7 +2147,8 @@
 
 
 <div class="description">
-    将此矩阵与提供的矩阵进行分量比较，并返回<code>true</code>，否则为<code>false</code>。
+    将此矩阵与提供的矩阵进行分量比较，并返回
+<code>true</code>，否则为<code>false</code>。
 </div>
 
 
@@ -2288,7 +2290,9 @@
 
 
 <div class="description">
-    将此矩阵与提供的矩阵进行分量比较，并返回<code>true</code>，如果它们位于提供的 epsilon 内，否则 <code>false</code>。
+    将此矩阵与提供的矩阵进行分量比较，并返回
+<code>true</code>，如果它们位于提供的 epsilon 内，
+否则 <code>false</code>。
 </div>
 
 
@@ -2472,7 +2476,8 @@
 
 
 <div class="description">
-    计算表示此 Matrix 的字符串，每行为在单独的行上，格式为 '（column0， column1， column2， column3）'。
+    计算表示此 Matrix 的字符串，每行为
+在单独的行上，格式为 '(column0, column1, column2, column3)'。
 </div>
 
 
@@ -2562,7 +2567,7 @@
 
 
 <div class="description">
-    计算一个矩阵，其中包含所提供矩阵元素的绝对 （无符号） 值。
+    计算一个矩阵，其中包含所提供矩阵元素的绝对 (无符号) 值。
 </div>
 
 
@@ -3008,7 +3013,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数 或者一个新的 Matrix4 实例（如果未提供）。（如果 matrix 未定义，则返回 undefined）
+    修改后的结果参数 或者一个新的 Matrix4 实例(如果未提供)。(如果 matrix 未定义，则返回 undefined)
 </div>
 
 
@@ -4592,7 +4597,13 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Create viewport transformation using an explicit viewport and depth range.const m = Cesium.Matrix4.computeViewportTransformation({    x : 0.0,    y : 0.0,    width : 1024.0,    height : 768.0}, 0.0, 1.0, new Cesium.Matrix4());</code></pre>
+    <pre><code class="language-javascript">// Create viewport transformation using an explicit viewport and depth range.
+const m = Cesium.Matrix4.computeViewportTransformation({
+    x : 0.0,
+    y : 0.0,
+    width : 1024.0,
+    height : 768.0
+}, 0.0, 1.0, new Cesium.Matrix4());</code></pre>
 
     
 
@@ -4629,7 +4640,8 @@
 
 
 <div class="description">
-    对提供的矩阵进行组件比较，并返回<code>true</code>，否则为<code>false</code>。
+    对提供的矩阵进行组件比较，并返回
+<code>true</code>，否则为<code>false</code>。
 </div>
 
 
@@ -4769,7 +4781,25 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">//compares two Matrix4 instances// a = [10.0, 14.0, 18.0, 22.0]//     [11.0, 15.0, 19.0, 23.0]//     [12.0, 16.0, 20.0, 24.0]//     [13.0, 17.0, 21.0, 25.0]// b = [10.0, 14.0, 18.0, 22.0]//     [11.0, 15.0, 19.0, 23.0]//     [12.0, 16.0, 20.0, 24.0]//     [13.0, 17.0, 21.0, 25.0]if(Cesium.Matrix4.equals(a,b)) {     console.log("Both matrices are equal");} else {     console.log("They are not equal");}//Prints "Both matrices are equal" on the console</code></pre>
+    <pre><code class="language-javascript">//compares two Matrix4 instances
+
+// a = [10.0, 14.0, 18.0, 22.0]
+//     [11.0, 15.0, 19.0, 23.0]
+//     [12.0, 16.0, 20.0, 24.0]
+//     [13.0, 17.0, 21.0, 25.0]
+
+// b = [10.0, 14.0, 18.0, 22.0]
+//     [11.0, 15.0, 19.0, 23.0]
+//     [12.0, 16.0, 20.0, 24.0]
+//     [13.0, 17.0, 21.0, 25.0]
+
+if(Cesium.Matrix4.equals(a,b)) {
+     console.log("Both matrices are equal");
+} else {
+     console.log("They are not equal");
+}
+
+//Prints "Both matrices are equal" on the console</code></pre>
 
     
 
@@ -4806,7 +4836,9 @@
 
 
 <div class="description">
-    对提供的矩阵进行组件比较，并返回<code>true</code>，如果它们位于提供的 epsilon 内，否则 <code>false</code>。
+    对提供的矩阵进行组件比较，并返回
+<code>true</code>，如果它们位于提供的 epsilon 内，
+否则 <code>false</code>。
 </div>
 
 
@@ -4992,7 +5024,25 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">//compares two Matrix4 instances// a = [10.5, 14.5, 18.5, 22.5]//     [11.5, 15.5, 19.5, 23.5]//     [12.5, 16.5, 20.5, 24.5]//     [13.5, 17.5, 21.5, 25.5]// b = [10.0, 14.0, 18.0, 22.0]//     [11.0, 15.0, 19.0, 23.0]//     [12.0, 16.0, 20.0, 24.0]//     [13.0, 17.0, 21.0, 25.0]if(Cesium.Matrix4.equalsEpsilon(a,b,0.1)){     console.log("Difference between both the matrices is less than 0.1");} else {     console.log("Difference between both the matrices is not less than 0.1");}//Prints "Difference between both the matrices is not less than 0.1" on the console</code></pre>
+    <pre><code class="language-javascript">//compares two Matrix4 instances
+
+// a = [10.5, 14.5, 18.5, 22.5]
+//     [11.5, 15.5, 19.5, 23.5]
+//     [12.5, 16.5, 20.5, 24.5]
+//     [13.5, 17.5, 21.5, 25.5]
+
+// b = [10.0, 14.0, 18.0, 22.0]
+//     [11.0, 15.0, 19.0, 23.0]
+//     [12.0, 16.0, 20.0, 24.0]
+//     [13.0, 17.0, 21.0, 25.0]
+
+if(Cesium.Matrix4.equalsEpsilon(a,b,0.1)){
+     console.log("Difference between both the matrices is less than 0.1");
+} else {
+     console.log("Difference between both the matrices is not less than 0.1");
+}
+
+//Prints "Difference between both the matrices is not less than 0.1" on the console</code></pre>
 
     
 
@@ -5029,7 +5079,8 @@
 
 
 <div class="description">
-    `从数组中的 16 个连续元素创建 Matrix4。
+    `
+从数组中的 16 个连续元素创建 Matrix4。
 </div>
 
 
@@ -5182,7 +5233,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数或者一个新的 Matrix4 实例（如果未提供）。
+    修改后的结果参数或者一个新的 Matrix4 实例(如果未提供)。
 </div>
 
 
@@ -5213,7 +5264,18 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Create the Matrix4:// [1.0, 2.0, 3.0, 4.0]// [1.0, 2.0, 3.0, 4.0]// [1.0, 2.0, 3.0, 4.0]// [1.0, 2.0, 3.0, 4.0]const v = [1.0, 1.0, 1.0, 1.0, 2.0, 2.0, 2.0, 2.0, 3.0, 3.0, 3.0, 3.0, 4.0, 4.0, 4.0, 4.0];const m = Cesium.Matrix4.fromArray(v);// Create same Matrix4 with using an offset into an arrayconst v2 = [0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 2.0, 2.0, 2.0, 2.0, 3.0, 3.0, 3.0, 3.0, 4.0, 4.0, 4.0, 4.0];const m2 = Cesium.Matrix4.fromArray(v2, 2);</code></pre>
+    <pre><code class="language-javascript">// Create the Matrix4:
+// [1.0, 2.0, 3.0, 4.0]
+// [1.0, 2.0, 3.0, 4.0]
+// [1.0, 2.0, 3.0, 4.0]
+// [1.0, 2.0, 3.0, 4.0]
+
+const v = [1.0, 1.0, 1.0, 1.0, 2.0, 2.0, 2.0, 2.0, 3.0, 3.0, 3.0, 3.0, 4.0, 4.0, 4.0, 4.0];
+const m = Cesium.Matrix4.fromArray(v);
+
+// Create same Matrix4 with using an offset into an array
+const v2 = [0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 2.0, 2.0, 2.0, 2.0, 3.0, 3.0, 3.0, 3.0, 4.0, 4.0, 4.0, 4.0];
+const m2 = Cesium.Matrix4.fromArray(v2, 2);</code></pre>
 
     
 
@@ -5357,7 +5419,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数,或者一个新的 Matrix4 实例（如果未提供）。
+    修改后的结果参数,或者一个新的 Matrix4 实例(如果未提供)。
 </div>
 
 
@@ -5527,7 +5589,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数,或者一个新的 Matrix4 实例（如果未提供）。
+    修改后的结果参数,或者一个新的 Matrix4 实例(如果未提供)。
 </div>
 
 
@@ -5697,7 +5759,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数,或者一个新的 Matrix4 实例（如果未提供）。
+    修改后的结果参数,或者一个新的 Matrix4 实例(如果未提供)。
 </div>
 
 
@@ -5760,7 +5822,8 @@
 
 
 <div class="description">
-    从表示旋转的 Matrix3 计算 Matrix4 实例和一个表示翻译的笛卡尔 3。
+    从表示旋转的 Matrix3 计算 Matrix4 实例
+和一个表示翻译的笛卡尔 3。
 </div>
 
 
@@ -5913,7 +5976,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数,或者一个新的 Matrix4 实例（如果未提供）。
+    修改后的结果参数,或者一个新的 Matrix4 实例(如果未提供)。
 </div>
 
 
@@ -5976,7 +6039,8 @@
 
 
 <div class="description">
-    从行优先顺序数组计算 Matrix4 实例。生成的矩阵将按列优先顺序排列。
+    从行优先顺序数组计算 Matrix4 实例。
+生成的矩阵将按列优先顺序排列。
 </div>
 
 
@@ -6083,7 +6147,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数,或者一个新的 Matrix4 实例（如果未提供）。
+    修改后的结果参数,或者一个新的 Matrix4 实例(如果未提供)。
 </div>
 
 
@@ -6253,7 +6317,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数,或者一个新的 Matrix4 实例（如果未提供）。
+    修改后的结果参数,或者一个新的 Matrix4 实例(如果未提供)。
 </div>
 
 
@@ -6284,7 +6348,12 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Creates//   [7.0, 0.0, 0.0, 0.0]//   [0.0, 8.0, 0.0, 0.0]//   [0.0, 0.0, 9.0, 0.0]//   [0.0, 0.0, 0.0, 1.0]const m = Cesium.Matrix4.fromScale(new Cesium.Cartesian3(7.0, 8.0, 9.0));</code></pre>
+    <pre><code class="language-javascript">// Creates
+//   [7.0, 0.0, 0.0, 0.0]
+//   [0.0, 8.0, 0.0, 0.0]
+//   [0.0, 0.0, 9.0, 0.0]
+//   [0.0, 0.0, 0.0, 1.0]
+const m = Cesium.Matrix4.fromScale(new Cesium.Cartesian3(7.0, 8.0, 9.0));</code></pre>
 
     
 
@@ -6428,7 +6497,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数,或者一个新的 Matrix4 实例（如果未提供）。
+    修改后的结果参数,或者一个新的 Matrix4 实例(如果未提供)。
 </div>
 
 
@@ -6496,7 +6565,8 @@
 
 
 <div class="description">
-    根据平移、旋转和缩放 （TRS） 计算 Matrix4 实例表示形式，其中旋转表示为四元数。
+    根据平移、旋转和缩放 (TRS) 计算 Matrix4 实例
+表示形式，其中旋转表示为四元数。
 </div>
 
 
@@ -6659,7 +6729,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数,或者一个新的 Matrix4 实例（如果未提供）。
+    修改后的结果参数,或者一个新的 Matrix4 实例(如果未提供)。
 </div>
 
 
@@ -6690,7 +6760,11 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const result = Cesium.Matrix4.fromTranslationQuaternionRotationScale(  new Cesium.Cartesian3(1.0, 2.0, 3.0), // translation  Cesium.Quaternion.IDENTITY,           // rotation  new Cesium.Cartesian3(7.0, 8.0, 9.0), // scale  result);</code></pre>
+    <pre><code class="language-javascript">const result = Cesium.Matrix4.fromTranslationQuaternionRotationScale(
+  new Cesium.Cartesian3(1.0, 2.0, 3.0), // translation
+  Cesium.Quaternion.IDENTITY,           // rotation
+  new Cesium.Cartesian3(7.0, 8.0, 9.0), // scale
+  result);</code></pre>
 
     
 
@@ -6834,7 +6908,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数,或者一个新的 Matrix4 实例（如果未提供）。
+    修改后的结果参数,或者一个新的 Matrix4 实例(如果未提供)。
 </div>
 
 
@@ -7004,7 +7078,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数,或者一个新的 Matrix4 实例（如果未提供）。
+    修改后的结果参数,或者一个新的 Matrix4 实例(如果未提供)。
 </div>
 
 
@@ -7035,7 +7109,12 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Creates//   [2.0, 0.0, 0.0, 0.0]//   [0.0, 2.0, 0.0, 0.0]//   [0.0, 0.0, 2.0, 0.0]//   [0.0, 0.0, 0.0, 1.0]const m = Cesium.Matrix4.fromUniformScale(2.0);</code></pre>
+    <pre><code class="language-javascript">// Creates
+//   [2.0, 0.0, 0.0, 0.0]
+//   [0.0, 2.0, 0.0, 0.0]
+//   [0.0, 0.0, 2.0, 0.0]
+//   [0.0, 0.0, 0.0, 1.0]
+const m = Cesium.Matrix4.fromUniformScale(2.0);</code></pre>
 
     
 
@@ -7235,9 +7314,20 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">//returns a Cartesian4 instance with values from the specified column// m = [10.0, 11.0, 12.0, 13.0]//     [14.0, 15.0, 16.0, 17.0]//     [18.0, 19.0, 20.0, 21.0]//     [22.0, 23.0, 24.0, 25.0]//Example 1: Creates an instance of Cartesianconst a = Cesium.Matrix4.getColumn(m, 2, new Cesium.Cartesian4());</code></pre>
+    <pre><code class="language-javascript">//returns a Cartesian4 instance with values from the specified column
+// m = [10.0, 11.0, 12.0, 13.0]
+//     [14.0, 15.0, 16.0, 17.0]
+//     [18.0, 19.0, 20.0, 21.0]
+//     [22.0, 23.0, 24.0, 25.0]
 
-    <pre><code class="language-javascript">//Example 2: Sets values for Cartesian instanceconst a = new Cesium.Cartesian4();Cesium.Matrix4.getColumn(m, 2, a);// a.x = 12.0; a.y = 16.0; a.z = 20.0; a.w = 24.0;</code></pre>
+//Example 1: Creates an instance of Cartesian
+const a = Cesium.Matrix4.getColumn(m, 2, new Cesium.Cartesian4());</code></pre>
+
+    <pre><code class="language-javascript">//Example 2: Sets values for Cartesian instance
+const a = new Cesium.Cartesian4();
+Cesium.Matrix4.getColumn(m, 2, a);
+
+// a.x = 12.0; a.y = 16.0; a.z = 20.0; a.w = 24.0;</code></pre>
 
     
 
@@ -7425,7 +7515,10 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const myMatrix = new Cesium.Matrix4();const column1Row0Index = Cesium.Matrix4.getElementIndex(1, 0);const column1Row0 = myMatrix[column1Row0Index];myMatrix[column1Row0Index] = 10.0;</code></pre>
+    <pre><code class="language-javascript">const myMatrix = new Cesium.Matrix4();
+const column1Row0Index = Cesium.Matrix4.getElementIndex(1, 0);
+const column1Row0 = myMatrix[column1Row0Index];
+myMatrix[column1Row0Index] = 10.0;</code></pre>
 
     
 
@@ -7588,7 +7681,19 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// returns a Matrix3 instance from a Matrix4 instance// m = [10.0, 14.0, 18.0, 22.0]//     [11.0, 15.0, 19.0, 23.0]//     [12.0, 16.0, 20.0, 24.0]//     [13.0, 17.0, 21.0, 25.0]const b = new Cesium.Matrix3();Cesium.Matrix4.getMatrix3(m,b);// b = [10.0, 14.0, 18.0]//     [11.0, 15.0, 19.0]//     [12.0, 16.0, 20.0]</code></pre>
+    <pre><code class="language-javascript">// returns a Matrix3 instance from a Matrix4 instance
+
+// m = [10.0, 14.0, 18.0, 22.0]
+//     [11.0, 15.0, 19.0, 23.0]
+//     [12.0, 16.0, 20.0, 24.0]
+//     [13.0, 17.0, 21.0, 25.0]
+
+const b = new Cesium.Matrix3();
+Cesium.Matrix4.getMatrix3(m,b);
+
+// b = [10.0, 14.0, 18.0]
+//     [11.0, 15.0, 19.0]
+//     [12.0, 16.0, 20.0]</code></pre>
 
     
 
@@ -7625,7 +7730,9 @@
 
 
 <div class="description">
-    计算假设矩阵是仿射变换的最大小数位数。最大比例是左上角列向量的最大长度3x3 矩阵。
+    计算假设矩阵是仿射变换的最大小数位数。
+最大比例是左上角列向量的最大长度
+3x3 矩阵。
 </div>
 
 
@@ -8088,9 +8195,20 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">//returns a Cartesian4 instance with values from the specified column// m = [10.0, 11.0, 12.0, 13.0]//     [14.0, 15.0, 16.0, 17.0]//     [18.0, 19.0, 20.0, 21.0]//     [22.0, 23.0, 24.0, 25.0]//Example 1: Returns an instance of Cartesianconst a = Cesium.Matrix4.getRow(m, 2, new Cesium.Cartesian4());</code></pre>
+    <pre><code class="language-javascript">//returns a Cartesian4 instance with values from the specified column
+// m = [10.0, 11.0, 12.0, 13.0]
+//     [14.0, 15.0, 16.0, 17.0]
+//     [18.0, 19.0, 20.0, 21.0]
+//     [22.0, 23.0, 24.0, 25.0]
 
-    <pre><code class="language-javascript">//Example 2: Sets values for a Cartesian instanceconst a = new Cesium.Cartesian4();Cesium.Matrix4.getRow(m, 2, a);// a.x = 18.0; a.y = 19.0; a.z = 20.0; a.w = 21.0;</code></pre>
+//Example 1: Returns an instance of Cartesian
+const a = Cesium.Matrix4.getRow(m, 2, new Cesium.Cartesian4());</code></pre>
+
+    <pre><code class="language-javascript">//Example 2: Sets values for a Cartesian instance
+const a = new Cesium.Cartesian4();
+Cesium.Matrix4.getRow(m, 2, a);
+
+// a.x = 18.0; a.y = 19.0; a.z = 20.0; a.w = 21.0;</code></pre>
 
     
 
@@ -8458,7 +8576,10 @@
 
 
 <div class="description">
-    使用 Cramers 规则计算所提供矩阵的逆矩阵。如果行列式为零，则矩阵不能反转，并引发异常。如果矩阵是适当的刚体变换，则效率更高将其与 <a href="Matrix4.html#.inverseTransformation"><code>Matrix4.inverseTransformation</code></a> 进行反转。
+    使用 Cramers 规则计算所提供矩阵的逆矩阵。
+如果行列式为零，则矩阵不能反转，并引发异常。
+如果矩阵是适当的刚体变换，则效率更高
+将其与 <a href="Matrix4.html#.inverseTransformation"><code>Matrix4.inverseTransformation</code></a> 进行反转。
 </div>
 
 
@@ -8630,7 +8751,13 @@
 
 
 <div class="description">
-    计算所提供矩阵的逆矩阵，假设它是一个合适的刚体矩阵，其中左上角的 3x3 元素是旋转矩阵，和第四列中的上三个元素是翻译。底行假定为 [0， 0， 0， 1]。未验证矩阵的格式是否正确。此方法比计算一般 4x4 的逆运算更快矩阵使用 <a href="Matrix4.html#.inverse"><code>Matrix4.inverse</code></a>。
+    计算所提供矩阵的逆矩阵，假设它是一个合适的刚体矩阵，
+其中左上角的 3x3 元素是旋转矩阵，
+和第四列中的上三个元素是翻译。
+底行假定为 [0, 0, 0, 1]。
+未验证矩阵的格式是否正确。
+此方法比计算一般 4x4 的逆运算更快
+矩阵使用 <a href="Matrix4.html#.inverse"><code>Matrix4.inverse</code></a>。
 </div>
 
 
@@ -9127,7 +9254,9 @@
 
 
 <div class="description">
-    将转换矩阵相乘（底行为 <code>[0.0， 0.0， 0.0， 1.0]）</code>通过 3x3 旋转矩阵。 这是一种优化为 <code>Matrix4.multiply(m, Matrix4.fromRotationTranslation(rotation), m);</code>分配和算术运算较少。
+    将转换矩阵相乘(底行为 <code>[0.0, 0.0, 0.0, 1.0])</code>
+通过 3x3 旋转矩阵。 这是一种优化
+为 <code>Matrix4.multiply(m, Matrix4.fromRotationTranslation(rotation), m);</code>分配和算术运算较少。
 </div>
 
 
@@ -9276,7 +9405,8 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Instead of Cesium.Matrix4.multiply(m, Cesium.Matrix4.fromRotationTranslation(rotation), m);Cesium.Matrix4.multiplyByMatrix3(m, rotation, m);</code></pre>
+    <pre><code class="language-javascript">// Instead of Cesium.Matrix4.multiply(m, Cesium.Matrix4.fromRotationTranslation(rotation), m);
+Cesium.Matrix4.multiplyByMatrix3(m, rotation, m);</code></pre>
 
     
 
@@ -9463,7 +9593,8 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const p = new Cesium.Cartesian3(1.0, 2.0, 3.0);const result = Cesium.Matrix4.multiplyByPoint(matrix, p, new Cesium.Cartesian3());</code></pre>
+    <pre><code class="language-javascript">const p = new Cesium.Cartesian3(1.0, 2.0, 3.0);
+const result = Cesium.Matrix4.multiplyByPoint(matrix, p, new Cesium.Cartesian3());</code></pre>
 
     
 
@@ -9500,7 +9631,8 @@
 
 
 <div class="description">
-    计算矩阵和 <a href="Cartesian3.html"><code>Cartesian3</code></a> 的乘积。 这相当于调用 <a href="Matrix4.html#.multiplyByVector"><code>Matrix4.multiplyByVector</code></a>替换为 <a href="Cartesian4.html"><code>Cartesian4</code></a>，<code>其中 w</code> 分量为零。
+    计算矩阵和 <a href="Cartesian3.html"><code>Cartesian3</code></a> 的乘积。 这相当于调用 <a href="Matrix4.html#.multiplyByVector"><code>Matrix4.multiplyByVector</code></a>
+替换为 <a href="Cartesian4.html"><code>Cartesian4</code></a>，<code>其中 w</code> 分量为零。
 </div>
 
 
@@ -9649,7 +9781,11 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const p = new Cesium.Cartesian3(1.0, 2.0, 3.0);const result = Cesium.Matrix4.multiplyByPointAsVector(matrix, p, new Cesium.Cartesian3());// A shortcut for//   Cartesian3 p = ...//   Cesium.Matrix4.multiplyByVector(matrix, new Cesium.Cartesian4(p.x, p.y, p.z, 0.0), result);</code></pre>
+    <pre><code class="language-javascript">const p = new Cesium.Cartesian3(1.0, 2.0, 3.0);
+const result = Cesium.Matrix4.multiplyByPointAsVector(matrix, p, new Cesium.Cartesian3());
+// A shortcut for
+//   Cartesian3 p = ...
+//   Cesium.Matrix4.multiplyByVector(matrix, new Cesium.Cartesian4(p.x, p.y, p.z, 0.0), result);</code></pre>
 
     
 
@@ -9835,7 +9971,19 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">//create a Matrix4 instance which is a scaled version of the supplied Matrix4// m = [10.0, 11.0, 12.0, 13.0]//     [14.0, 15.0, 16.0, 17.0]//     [18.0, 19.0, 20.0, 21.0]//     [22.0, 23.0, 24.0, 25.0]const a = Cesium.Matrix4.multiplyByScalar(m, -2, new Cesium.Matrix4());// m remains the same// a = [-20.0, -22.0, -24.0, -26.0]//     [-28.0, -30.0, -32.0, -34.0]//     [-36.0, -38.0, -40.0, -42.0]//     [-44.0, -46.0, -48.0, -50.0]</code></pre>
+    <pre><code class="language-javascript">//create a Matrix4 instance which is a scaled version of the supplied Matrix4
+// m = [10.0, 11.0, 12.0, 13.0]
+//     [14.0, 15.0, 16.0, 17.0]
+//     [18.0, 19.0, 20.0, 21.0]
+//     [22.0, 23.0, 24.0, 25.0]
+
+const a = Cesium.Matrix4.multiplyByScalar(m, -2, new Cesium.Matrix4());
+
+// m remains the same
+// a = [-20.0, -22.0, -24.0, -26.0]
+//     [-28.0, -30.0, -32.0, -34.0]
+//     [-36.0, -38.0, -40.0, -42.0]
+//     [-44.0, -46.0, -48.0, -50.0]</code></pre>
 
     
 
@@ -9872,7 +10020,11 @@
 
 
 <div class="description">
-    将仿射变换矩阵相乘（底行为 <code>[0.0， 0.0， 0.0， 1.0]）</code>通过隐式非均匀刻度矩阵。这是一种优化对于 <code>Matrix4.multiply（m， Matrix4.fromUniformScale（scale）， m）;</code>，其中<code>m</code> 必须是仿射矩阵。此函数执行较少的分配和算术运算。
+    将仿射变换矩阵相乘(底行为 <code>[0.0, 0.0, 0.0, 1.0])</code>
+通过隐式非均匀刻度矩阵。这是一种优化
+对于 <code>Matrix4.multiply(m, Matrix4.fromUniformScale(scale), m);</code>，其中
+<code>m</code> 必须是仿射矩阵。
+此函数执行较少的分配和算术运算。
 </div>
 
 
@@ -10021,7 +10173,8 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Instead of Cesium.Matrix4.multiply(m, Cesium.Matrix4.fromScale(scale), m);Cesium.Matrix4.multiplyByScale(m, scale, m);</code></pre>
+    <pre><code class="language-javascript">// Instead of Cesium.Matrix4.multiply(m, Cesium.Matrix4.fromScale(scale), m);
+Cesium.Matrix4.multiplyByScale(m, scale, m);</code></pre>
 
     
 
@@ -10073,7 +10226,9 @@
 
 
 <div class="description">
-    将转换矩阵相乘（底行为 <code>[0.0， 0.0， 0.0， 1.0]）</code>由由 <a href="Cartesian3.html"><code>Cartesian3</code></a> 定义的隐式转换矩阵。 这是一种优化对于 <code>Matrix4.multiply(m, Matrix4.fromTranslation(position), m);分配和算术运算较少。
+    将转换矩阵相乘(底行为 <code>[0.0, 0.0, 0.0, 1.0])</code>
+由由 <a href="Cartesian3.html"><code>Cartesian3</code></a> 定义的隐式转换矩阵。 这是一种优化
+对于 <code>Matrix4.multiply(m, Matrix4.fromTranslation(position), m);分配和算术运算较少。
 </div>
 
 
@@ -10222,7 +10377,8 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Instead of Cesium.Matrix4.multiply(m, Cesium.Matrix4.fromTranslation(position), m);Cesium.Matrix4.multiplyByTranslation(m, position, m);</code></pre>
+    <pre><code class="language-javascript">// Instead of Cesium.Matrix4.multiply(m, Cesium.Matrix4.fromTranslation(position), m);
+Cesium.Matrix4.multiplyByTranslation(m, position, m);</code></pre>
 
     
 
@@ -10408,7 +10564,8 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Instead of Cesium.Matrix4.multiply(m, Cesium.Matrix4.fromUniformScale(scale), m);Cesium.Matrix4.multiplyByUniformScale(m, scale, m);</code></pre>
+    <pre><code class="language-javascript">// Instead of Cesium.Matrix4.multiply(m, Cesium.Matrix4.fromUniformScale(scale), m);
+Cesium.Matrix4.multiplyByUniformScale(m, scale, m);</code></pre>
 
     
 
@@ -10641,7 +10798,13 @@
 
 
 <div class="description">
-    计算两个矩阵的乘积，假设矩阵是仿射变换矩阵，，其中左上角的 3x3 元素是任何矩阵，并且第四列中的上三个元素是翻译。底行假定为 [0， 0， 0， 1]。未验证矩阵的格式是否正确。此方法比一般 4x4 计算乘积更快使用 <a href="Matrix4.html#.multiply"><code>Matrix4.multiply</code></a> 的矩阵。
+    计算两个矩阵的乘积，假设矩阵是仿射变换矩阵，
+，其中左上角的 3x3 元素是任何矩阵，并且
+第四列中的上三个元素是翻译。
+底行假定为 [0, 0, 0, 1]。
+未验证矩阵的格式是否正确。
+此方法比一般 4x4 计算乘积更快
+使用 <a href="Matrix4.html#.multiply"><code>Matrix4.multiply</code></a> 的矩阵。
 </div>
 
 
@@ -10790,7 +10953,9 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const m1 = new Cesium.Matrix4(1.0, 6.0, 7.0, 0.0, 2.0, 5.0, 8.0, 0.0, 3.0, 4.0, 9.0, 0.0, 0.0, 0.0, 0.0, 1.0);const m2 = Cesium.Transforms.eastNorthUpToFixedFrame(new Cesium.Cartesian3(1.0, 1.0, 1.0));const m3 = Cesium.Matrix4.multiplyTransformation(m1, m2, new Cesium.Matrix4());</code></pre>
+    <pre><code class="language-javascript">const m1 = new Cesium.Matrix4(1.0, 6.0, 7.0, 0.0, 2.0, 5.0, 8.0, 0.0, 3.0, 4.0, 9.0, 0.0, 0.0, 0.0, 0.0, 1.0);
+const m2 = Cesium.Transforms.eastNorthUpToFixedFrame(new Cesium.Cartesian3(1.0, 1.0, 1.0));
+const m3 = Cesium.Matrix4.multiplyTransformation(m1, m2, new Cesium.Matrix4());</code></pre>
 
     
 
@@ -10953,7 +11118,19 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">//create a new Matrix4 instance which is a negation of a Matrix4// m = [10.0, 11.0, 12.0, 13.0]//     [14.0, 15.0, 16.0, 17.0]//     [18.0, 19.0, 20.0, 21.0]//     [22.0, 23.0, 24.0, 25.0]const a = Cesium.Matrix4.negate(m, new Cesium.Matrix4());// m remains the same// a = [-10.0, -11.0, -12.0, -13.0]//     [-14.0, -15.0, -16.0, -17.0]//     [-18.0, -19.0, -20.0, -21.0]//     [-22.0, -23.0, -24.0, -25.0]</code></pre>
+    <pre><code class="language-javascript">//create a new Matrix4 instance which is a negation of a Matrix4
+// m = [10.0, 11.0, 12.0, 13.0]
+//     [14.0, 15.0, 16.0, 17.0]
+//     [18.0, 19.0, 20.0, 21.0]
+//     [22.0, 23.0, 24.0, 25.0]
+
+const a = Cesium.Matrix4.negate(m, new Cesium.Matrix4());
+
+// m remains the same
+// a = [-10.0, -11.0, -12.0, -13.0]
+//     [-14.0, -15.0, -16.0, -17.0]
+//     [-18.0, -19.0, -20.0, -21.0]
+//     [-22.0, -23.0, -24.0, -25.0]</code></pre>
 
     
 
@@ -11204,7 +11381,8 @@
 
 
 <div class="description">
-    将 Matrix4 数组展平为组件数组。组件按列优先顺序存储。
+    将 Matrix4 数组展平为组件数组。组件
+按列优先顺序存储。
 </div>
 
 
@@ -11290,7 +11468,7 @@
 
                 
             
-                要在其中存储结果的数组。 如果这是一个类型化数组，它必须有 array.length * 16 个组件，否则会有一个 <a href="DeveloperError.html"><code>DeveloperError</code></a> 将被抛出。如果它是一个常规数组，它的大小将被调整为具有 （array.length * 16） 个元素。</td>
+                要在其中存储结果的数组。 如果这是一个类型化数组，它必须有 array.length * 16 个组件，否则会有一个 <a href="DeveloperError.html"><code>DeveloperError</code></a> 将被抛出。如果它是一个常规数组，它的大小将被调整为具有 (array.length * 16) 个元素。</td>
         </tr>
 
     
@@ -11560,7 +11738,19 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">//creates a new Matrix4 instance with new column values from the Cartesian4 instance// m = [10.0, 11.0, 12.0, 13.0]//     [14.0, 15.0, 16.0, 17.0]//     [18.0, 19.0, 20.0, 21.0]//     [22.0, 23.0, 24.0, 25.0]const a = Cesium.Matrix4.setColumn(m, 2, new Cesium.Cartesian4(99.0, 98.0, 97.0, 96.0), new Cesium.Matrix4());// m remains the same// a = [10.0, 11.0, 99.0, 13.0]//     [14.0, 15.0, 98.0, 17.0]//     [18.0, 19.0, 97.0, 21.0]//     [22.0, 23.0, 96.0, 25.0]</code></pre>
+    <pre><code class="language-javascript">//creates a new Matrix4 instance with new column values from the Cartesian4 instance
+// m = [10.0, 11.0, 12.0, 13.0]
+//     [14.0, 15.0, 16.0, 17.0]
+//     [18.0, 19.0, 20.0, 21.0]
+//     [22.0, 23.0, 24.0, 25.0]
+
+const a = Cesium.Matrix4.setColumn(m, 2, new Cesium.Cartesian4(99.0, 98.0, 97.0, 96.0), new Cesium.Matrix4());
+
+// m remains the same
+// a = [10.0, 11.0, 99.0, 13.0]
+//     [14.0, 15.0, 98.0, 17.0]
+//     [18.0, 19.0, 97.0, 21.0]
+//     [22.0, 23.0, 96.0, 25.0]</code></pre>
 
     
 
@@ -11971,7 +12161,19 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">//create a new Matrix4 instance with new row values from the Cartesian4 instance// m = [10.0, 11.0, 12.0, 13.0]//     [14.0, 15.0, 16.0, 17.0]//     [18.0, 19.0, 20.0, 21.0]//     [22.0, 23.0, 24.0, 25.0]const a = Cesium.Matrix4.setRow(m, 2, new Cesium.Cartesian4(99.0, 98.0, 97.0, 96.0), new Cesium.Matrix4());// m remains the same// a = [10.0, 11.0, 12.0, 13.0]//     [14.0, 15.0, 16.0, 17.0]//     [99.0, 98.0, 97.0, 96.0]//     [22.0, 23.0, 24.0, 25.0]</code></pre>
+    <pre><code class="language-javascript">//create a new Matrix4 instance with new row values from the Cartesian4 instance
+// m = [10.0, 11.0, 12.0, 13.0]
+//     [14.0, 15.0, 16.0, 17.0]
+//     [18.0, 19.0, 20.0, 21.0]
+//     [22.0, 23.0, 24.0, 25.0]
+
+const a = Cesium.Matrix4.setRow(m, 2, new Cesium.Cartesian4(99.0, 98.0, 97.0, 96.0), new Cesium.Matrix4());
+
+// m remains the same
+// a = [10.0, 11.0, 12.0, 13.0]
+//     [14.0, 15.0, 16.0, 17.0]
+//     [99.0, 98.0, 97.0, 96.0]
+//     [22.0, 23.0, 24.0, 25.0]</code></pre>
 
     
 
@@ -12008,7 +12210,8 @@
 
 
 <div class="description">
-    计算一个新矩阵，该矩阵将小数位数替换为提供的小数位数。这假设矩阵是仿射变换。
+    计算一个新矩阵，该矩阵将小数位数替换为提供的小数位数。
+这假设矩阵是仿射变换。
 </div>
 
 
@@ -12204,7 +12407,8 @@
 
 
 <div class="description">
-    计算一个新的矩阵，该矩阵替换提供的矩阵。这假设矩阵是仿射变换。
+    计算一个新的矩阵，该矩阵替换提供的
+矩阵。这假设矩阵是仿射变换。
 </div>
 
 
@@ -12385,7 +12589,8 @@
 
 
 <div class="description">
-    计算一个新矩阵，该矩阵将小数位数替换为提供的均匀小数位数。这假设矩阵是仿射变换。
+    计算一个新矩阵，该矩阵将小数位数替换为提供的均匀小数位数。
+这假设矩阵是仿射变换。
 </div>
 
 
@@ -12762,7 +12967,8 @@
 
 
 <div class="description">
-    从提供的 Matrix4 实例计算 Array。数组将按列优先顺序排列。
+    从提供的 Matrix4 实例计算 Array。
+数组将按列优先顺序排列。
 </div>
 
 
@@ -12869,7 +13075,7 @@
 
         
 <div class="param-desc">
-    修改后的 Array 参数或新的 Array 实例（如果未提供）。
+    修改后的 Array 参数或新的 Array 实例(如果未提供)。
 </div>
 
 
@@ -12900,7 +13106,15 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">//create an array from an instance of Matrix4// m = [10.0, 14.0, 18.0, 22.0]//     [11.0, 15.0, 19.0, 23.0]//     [12.0, 16.0, 20.0, 24.0]//     [13.0, 17.0, 21.0, 25.0]const a = Cesium.Matrix4.toArray(m);// m remains the same//creates a = [10.0, 11.0, 12.0, 13.0, 14.0, 15.0, 16.0, 17.0, 18.0, 19.0, 20.0, 21.0, 22.0, 23.0, 24.0, 25.0]</code></pre>
+    <pre><code class="language-javascript">//create an array from an instance of Matrix4
+// m = [10.0, 14.0, 18.0, 22.0]
+//     [11.0, 15.0, 19.0, 23.0]
+//     [12.0, 16.0, 20.0, 24.0]
+//     [13.0, 17.0, 21.0, 25.0]
+const a = Cesium.Matrix4.toArray(m);
+
+// m remains the same
+//creates a = [10.0, 11.0, 12.0, 13.0, 14.0, 15.0, 16.0, 17.0, 18.0, 19.0, 20.0, 21.0, 22.0, 23.0, 24.0, 25.0]</code></pre>
 
     
 
@@ -13063,7 +13277,19 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">//returns transpose of a Matrix4// m = [10.0, 11.0, 12.0, 13.0]//     [14.0, 15.0, 16.0, 17.0]//     [18.0, 19.0, 20.0, 21.0]//     [22.0, 23.0, 24.0, 25.0]const a = Cesium.Matrix4.transpose(m, new Cesium.Matrix4());// m remains the same// a = [10.0, 14.0, 18.0, 22.0]//     [11.0, 15.0, 19.0, 23.0]//     [12.0, 16.0, 20.0, 24.0]//     [13.0, 17.0, 21.0, 25.0]</code></pre>
+    <pre><code class="language-javascript">//returns transpose of a Matrix4
+// m = [10.0, 11.0, 12.0, 13.0]
+//     [14.0, 15.0, 16.0, 17.0]
+//     [18.0, 19.0, 20.0, 21.0]
+//     [22.0, 23.0, 24.0, 25.0]
+
+const a = Cesium.Matrix4.transpose(m, new Cesium.Matrix4());
+
+// m remains the same
+// a = [10.0, 14.0, 18.0, 22.0]
+//     [11.0, 15.0, 19.0, 23.0]
+//     [12.0, 16.0, 20.0, 24.0]
+//     [13.0, 17.0, 21.0, 25.0]</code></pre>
 
     
 
@@ -13253,7 +13479,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数或者一个新的 Matrix4 实例（如果未提供）。
+    修改后的结果参数或者一个新的 Matrix4 实例(如果未提供)。
 </div>
 
 

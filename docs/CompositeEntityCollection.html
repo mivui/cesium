@@ -58,7 +58,12 @@
 
 
 <div class="description">
-    以非破坏性方式将多个 <a href="EntityCollection.html"><code>EntityCollection</code></a> 实例合成为单个集合。如果具有相同 ID 的实体存在于多个集合中，则它是非破坏性的合并到单个新实体实例中。 如果实体在多个collections，列表 it 的最后一个集合中 Entity 的属性属于 被使用。 CompositeEntityCollection 几乎可以在任何使用 EntityCollection。
+    以非破坏性方式将多个 <a href="EntityCollection.html"><code>EntityCollection</code></a> 实例合成为单个集合。
+如果具有相同 ID 的实体存在于多个集合中，则它是非破坏性的
+合并到单个新实体实例中。 如果实体在多个
+collections，列表 it 的最后一个集合中 Entity 的属性
+属于 被使用。 CompositeEntityCollection 几乎可以在任何
+使用 EntityCollection。
 </div>
 
 
@@ -149,7 +154,7 @@
 
                 
             
-                创建此集合的数据源（或复合实体集合）。</td>
+                创建此集合的数据源(或复合实体集合)。</td>
         </tr>
 
     
@@ -239,7 +244,8 @@
 
 
 <div class="description">
-    获取在集合中添加或删除实体时触发的事件。生成的事件是 <code>EntityCollection.collectionChangedEventCallback</code>。
+    获取在集合中添加或删除实体时触发的事件。
+生成的事件是 <code>EntityCollection.collectionChangedEventCallback</code>。
 </div>
 
 
@@ -419,7 +425,8 @@
 
 
 <div class="description">
-    获取集合中的 Entity 实例的数组。此数组不应直接修改。
+    获取集合中的 Entity 实例的数组。
+此数组不应直接修改。
 </div>
 
 
@@ -572,7 +579,8 @@
 
                 
             
-                要添加集合的索引。 如果省略，则集合将添加到所有现有集合之上。</td>
+                要添加集合的索引。 如果省略，则集合将
+添加到所有现有集合之上。</td>
         </tr>
 
     
@@ -661,7 +669,10 @@
 
 
 <div class="description">
-    计算集合中实体的最大可用性。如果集合包含无限可用数据和非无限数据的混合，它将仅返回与非无限数据相关的间隔。 如果所有data 是无限的，则返回无限间隔。
+    计算集合中实体的最大可用性。
+如果集合包含无限可用数据和非无限数据的混合，
+它将仅返回与非无限数据相关的间隔。 如果所有
+data 是无限的，则返回无限间隔。
 </div>
 
 
@@ -823,7 +834,7 @@
 
         
 <div class="param-desc">
-    true（如果提供的实体在此集合中）或 false。
+    true(如果提供的实体在此集合中)或 false。
 </div>
 
 
@@ -958,7 +969,7 @@
 
         
 <div class="param-desc">
-    true（如果复合包含集合），否则 false。
+    true(如果复合包含集合)，否则 false。
 </div>
 
 
@@ -2139,7 +2150,7 @@
 
 
 <div class="description">
-    从此组合中删除集合（如果存在）。
+    从此组合中删除集合(如果存在)。
 </div>
 
 
@@ -2211,7 +2222,8 @@
 
         
 <div class="param-desc">
-    true，如果集合位于复合集合中并被删除，如果集合不在复合组中，则为 false。
+    true，如果集合位于复合集合中并被删除，
+如果集合不在复合组中，则为 false。
 </div>
 
 
@@ -2274,7 +2286,12 @@
 
 
 <div class="description">
-    立即恢复引发 <a href="EntityCollection.html#collectionChanged"><code>EntityCollection#collectionChanged</code></a> 事件添加或删除项时。 在活动暂停期间所做的任何修改将作为单个事件触发。 此功能还确保如果事件也恢复，则集合将重新合成。此函数是引用计数的，只要存在是对 <a href="EntityCollection.html#resumeEvents"><code>EntityCollection#resumeEvents</code></a> 的相应调用。
+    立即恢复引发 <a href="EntityCollection.html#collectionChanged"><code>EntityCollection#collectionChanged</code></a> 事件
+添加或删除项时。 在活动暂停期间所做的任何修改
+将作为单个事件触发。 此功能还确保
+如果事件也恢复，则集合将重新合成。
+此函数是引用计数的，只要存在
+是对 <a href="EntityCollection.html#resumeEvents"><code>EntityCollection#resumeEvents</code></a> 的相应调用。
 </div>
 
 
@@ -2369,7 +2386,14 @@
 
 
 <div class="description">
-    防止引发 <a href="EntityCollection.html#collectionChanged"><code>EntityCollection#collectionChanged</code></a> 事件直到对 <a href="EntityCollection.html#resumeEvents"><code>EntityCollection#resumeEvents</code></a> 进行相应的调用，此时点将引发涵盖所有暂停操作的单个事件。这允许有效地添加和删除许多项目。当事件暂停时，集合的重新合成将也被暂停，因为这可能是一个昂贵的操作。只要有是对 <a href="EntityCollection.html#resumeEvents"><code>EntityCollection#resumeEvents</code></a> 的相应调用。
+    防止引发 <a href="EntityCollection.html#collectionChanged"><code>EntityCollection#collectionChanged</code></a> 事件
+直到对 <a href="EntityCollection.html#resumeEvents"><code>EntityCollection#resumeEvents</code></a> 进行相应的调用，此时
+点将引发涵盖所有暂停操作的单个事件。
+这允许有效地添加和删除许多项目。
+当事件暂停时，集合的重新合成将
+也被暂停，因为这可能是一个昂贵的操作。
+只要有
+是对 <a href="EntityCollection.html#resumeEvents"><code>EntityCollection#resumeEvents</code></a> 的相应调用。
 </div>
 
 

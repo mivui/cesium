@@ -47,7 +47,7 @@
 
 
         
-            <div class="description">Constants for identifying well-known tracking reference frames.</div>
+            <div class="description">用于识别已知跟踪参考帧的常量。</div>
         
 
         
@@ -96,11 +96,11 @@
 
             
 
-            <td class="description last">Auto-detect algorithm. The reference frame used to track the Entity will
-be automatically selected based on its trajectory: near-surface slow moving
-objects will be tracked in the entity's local east-north-up reference
-frame, while faster objects like satellites will use VVLH (Vehicle Velocity,
-Local Horizontal).</td>
+            <td class="description last">自动检测算法。用于跟踪 Entity 的参考帧将
+根据其轨迹自动选择：near-surface slow moving
+对象将在实体的本地 east-north-up 引用中进行跟踪
+帧，而卫星等速度较快的物体将使用 VVLH(车辆速度、
+本地水平)。</td>
         </tr>
 
     
@@ -123,7 +123,7 @@ Local Horizontal).</td>
 
             
 
-            <td class="description last">The entity's local East-North-Up reference frame.</td>
+            <td class="description last">实体的本地 East-North-Up 参考系。</td>
         </tr>
 
     
@@ -146,8 +146,8 @@ Local Horizontal).</td>
 
             
 
-            <td class="description last">The entity's inertial reference frame. If entity has no defined orientation
-property, it falls back to auto-detect algorithm.</td>
+            <td class="description last">实体的惯性参考系。如果实体没有定义方向
+属性，它会回退到自动检测算法。</td>
         </tr>
 
     
@@ -170,8 +170,8 @@ property, it falls back to auto-detect algorithm.</td>
 
             
 
-            <td class="description last">The entity's inertial reference frame with orientation fixed to its
-<a href="VelocityOrientationProperty.html"><code>VelocityOrientationProperty</code></a>, ignoring its own orientation.</td>
+            <td class="description last">实体的惯性参考系，其方向固定到其
+<a href="VelocityOrientationProperty.html"><code>VelocityOrientationProperty</code></a>，忽略其自身的方向。</td>
         </tr>
 
     
@@ -245,11 +245,11 @@ property, it falls back to auto-detect algorithm.</td>
 
 
 <div class="description">
-    Auto-detect algorithm. The reference frame used to track the Entity will
-be automatically selected based on its trajectory: near-surface slow moving
-objects will be tracked in the entity's local east-north-up reference
-frame, while faster objects like satellites will use VVLH (Vehicle Velocity,
-Local Horizontal).
+    自动检测算法。用于跟踪 Entity 的参考帧将
+根据其轨迹自动选择：near-surface slow moving
+对象将在实体的本地 east-north-up 引用中进行跟踪
+帧，而卫星等速度较快的物体将使用 VVLH(车辆速度、
+本地水平)。
 </div>
 
 
@@ -309,7 +309,7 @@ Local Horizontal).
 
 
 <div class="description">
-    The entity's local East-North-Up reference frame.
+    实体的本地 East-North-Up 参考系。
 </div>
 
 
@@ -372,8 +372,8 @@ Local Horizontal).
 
 
 <div class="description">
-    The entity's inertial reference frame. If entity has no defined orientation
-property, it falls back to auto-detect algorithm.
+    实体的惯性参考系。如果实体没有定义方向
+属性，它会回退到自动检测算法。
 </div>
 
 
@@ -436,8 +436,8 @@ property, it falls back to auto-detect algorithm.
 
 
 <div class="description">
-    The entity's inertial reference frame with orientation fixed to its
-<a href="VelocityOrientationProperty.html"><code>VelocityOrientationProperty</code></a>, ignoring its own orientation.
+    实体的惯性参考系，其方向固定到其
+<a href="VelocityOrientationProperty.html"><code>VelocityOrientationProperty</code></a>，忽略其自身的方向。
 </div>
 
 

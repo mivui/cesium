@@ -122,7 +122,10 @@
 
 
 <div class="description">
-    计算旋转矩阵以从地球固定坐标系轴 （ITRF） 转换点或矢量至国际天体参考系 （GCRF/ICRF） 惯性系轴在给定时间。 如果数据需要执行尚未加载的转换。
+    计算旋转矩阵以从地球固定坐标系轴 (ITRF) 转换点或矢量
+至国际天体参考系 (GCRF/ICRF) 惯性系轴
+在给定时间。 如果数据需要
+执行尚未加载的转换。
 </div>
 
 
@@ -208,7 +211,8 @@
 
                 
             
-                要在其上存储结果的对象。 如果该参数为未指定，则创建并返回一个新实例。</td>
+                要在其上存储结果的对象。 如果该参数为
+未指定，则创建并返回一个新实例。</td>
         </tr>
 
     
@@ -229,7 +233,8 @@
 
         
 <div class="param-desc">
-    旋转矩阵，如果执行尚未加载转换。
+    旋转矩阵，如果执行
+尚未加载转换。
 </div>
 
 
@@ -260,7 +265,14 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Transform a point from the Fixed axes to the ICRF axes.const now = Cesium.JulianDate.now();const pointInFixed = Cesium.Cartesian3.fromDegrees(0.0, 0.0);const fixedToIcrf = Cesium.Transforms.computeFixedToIcrfMatrix(now);let pointInInertial = new Cesium.Cartesian3();if (Cesium.defined(fixedToIcrf)) {    pointInInertial = Cesium.Matrix3.multiplyByVector(fixedToIcrf, pointInFixed, pointInInertial);}</code></pre>
+    <pre><code class="language-javascript">// Transform a point from the Fixed axes to the ICRF axes.
+const now = Cesium.JulianDate.now();
+const pointInFixed = Cesium.Cartesian3.fromDegrees(0.0, 0.0);
+const fixedToIcrf = Cesium.Transforms.computeFixedToIcrfMatrix(now);
+let pointInInertial = new Cesium.Cartesian3();
+if (Cesium.defined(fixedToIcrf)) {
+    pointInInertial = Cesium.Matrix3.multiplyByVector(fixedToIcrf, pointInFixed, pointInInertial);
+}</code></pre>
 
     
 
@@ -302,7 +314,10 @@
 
 
 <div class="description">
-    用于计算旋转矩阵以转换国际天体的点或向量的默认函数参考系 （GCRF/ICRF） 惯性系轴到中心体，通常是地球，固定系轴位于给定的用于照明和从惯性参考系转换的时间。如果执行转换所需的数据尚未加载。
+    用于计算旋转矩阵以转换国际天体的点或向量的默认函数
+参考系 (GCRF/ICRF) 惯性系轴到中心体，通常是地球，固定系轴位于给定的
+用于照明和从惯性参考系转换的时间。如果
+执行转换所需的数据尚未加载。
 </div>
 
 
@@ -388,7 +403,8 @@
 
                 
             
-                要在其上存储结果的对象。如果该参数为未指定，则创建并返回一个新实例。</td>
+                要在其上存储结果的对象。如果该参数为
+未指定，则创建并返回一个新实例。</td>
         </tr>
 
     
@@ -409,7 +425,8 @@
 
         
 <div class="param-desc">
-    旋转矩阵，如果执行尚未加载转换。
+    旋转矩阵，如果执行
+尚未加载转换。
 </div>
 
 
@@ -440,7 +457,8 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Set the default ICRF to fixed transformation to that of the Moon.Cesium.Transforms.computeIcrfToCentralBodyFixedMatrix = Cesium.Transforms.computeIcrfToMoonFixedMatrix;</code></pre>
+    <pre><code class="language-javascript">// Set the default ICRF to fixed transformation to that of the Moon.
+Cesium.Transforms.computeIcrfToCentralBodyFixedMatrix = Cesium.Transforms.computeIcrfToMoonFixedMatrix;</code></pre>
 
     
 
@@ -486,7 +504,10 @@
 
 
 <div class="description">
-    计算旋转矩阵以转换 International Celestial 中的点或向量参考系 （GCRF/ICRF） 惯性系轴到地球固定系轴 （ITRF）在给定时间。 如果数据需要执行尚未加载的转换。
+    计算旋转矩阵以转换 International Celestial 中的点或向量
+参考系 (GCRF/ICRF) 惯性系轴到地球固定系轴 (ITRF)
+在给定时间。 如果数据需要
+执行尚未加载的转换。
 </div>
 
 
@@ -572,7 +593,8 @@
 
                 
             
-                要在其上存储结果的对象。 如果该参数为未指定，则创建并返回一个新实例。</td>
+                要在其上存储结果的对象。 如果该参数为
+未指定，则创建并返回一个新实例。</td>
         </tr>
 
     
@@ -593,7 +615,8 @@
 
         
 <div class="param-desc">
-    旋转矩阵，如果执行尚未加载转换。
+    旋转矩阵，如果执行
+尚未加载转换。
 </div>
 
 
@@ -624,7 +647,15 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">scene.postUpdate.addEventListener(function(scene, time) {  // View in ICRF.  const icrfToFixed = Cesium.Transforms.computeIcrfToFixedMatrix(time);  if (Cesium.defined(icrfToFixed)) {    const offset = Cesium.Cartesian3.clone(camera.position);    const transform = Cesium.Matrix4.fromRotationTranslation(icrfToFixed);    camera.lookAtTransform(transform, offset);  }});</code></pre>
+    <pre><code class="language-javascript">scene.postUpdate.addEventListener(function(scene, time) {
+  // View in ICRF.
+  const icrfToFixed = Cesium.Transforms.computeIcrfToFixedMatrix(time);
+  if (Cesium.defined(icrfToFixed)) {
+    const offset = Cesium.Cartesian3.clone(camera.position);
+    const transform = Cesium.Matrix4.fromRotationTranslation(icrfToFixed);
+    camera.lookAtTransform(transform, offset);
+  }
+});</code></pre>
 
     
 
@@ -666,7 +697,9 @@
 
 
 <div class="description">
-    计算旋转矩阵以转换 International Celestial 中的点或向量参考系 （GCRF/ICRF） 惯性系轴到月球固定系轴在给定时间。
+    计算旋转矩阵以转换 International Celestial 中的点或向量
+参考系 (GCRF/ICRF) 惯性系轴到月球固定系轴
+在给定时间。
 </div>
 
 
@@ -752,7 +785,8 @@
 
                 
             
-                要在其上存储结果的对象。 如果该参数为未指定，则创建并返回一个新实例。</td>
+                要在其上存储结果的对象。 如果该参数为
+未指定，则创建并返回一个新实例。</td>
         </tr>
 
     
@@ -804,7 +838,8 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Set the default ICRF to fixed transformation to that of the Moon.Cesium.Transforms.computeIcrfToCentralBodyFixedMatrix = Cesium.Transforms.computeIcrfToMoonFixedMatrix;</code></pre>
+    <pre><code class="language-javascript">// Set the default ICRF to fixed transformation to that of the Moon.
+Cesium.Transforms.computeIcrfToCentralBodyFixedMatrix = Cesium.Transforms.computeIcrfToMoonFixedMatrix;</code></pre>
 
     
 
@@ -841,7 +876,9 @@
 
 
 <div class="description">
-    计算旋转矩阵以从 Moon-Fixed 帧轴转换点或向量至国际天体参考系 （GCRF/ICRF） 惯性系轴在给定时间。
+    计算旋转矩阵以从 Moon-Fixed 帧轴转换点或向量
+至国际天体参考系 (GCRF/ICRF) 惯性系轴
+在给定时间。
 </div>
 
 
@@ -927,7 +964,8 @@
 
                 
             
-                要在其上存储结果的对象。 如果该参数为未指定，则创建并返回一个新实例。</td>
+                要在其上存储结果的对象。 如果该参数为
+未指定，则创建并返回一个新实例。</td>
         </tr>
 
     
@@ -979,7 +1017,14 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Transform a point from the Fixed axes to the ICRF axes.const now = Cesium.JulianDate.now();const pointInFixed = Cesium.Cartesian3.fromDegrees(0.0, 0.0);const fixedToIcrf = Cesium.Transforms.computeMoonFixedToIcrfMatrix(now);let pointInInertial = new Cesium.Cartesian3();if (Cesium.defined(fixedToIcrf)) {    pointInInertial = Cesium.Matrix3.multiplyByVector(fixedToIcrf, pointInFixed, pointInInertial);}</code></pre>
+    <pre><code class="language-javascript">// Transform a point from the Fixed axes to the ICRF axes.
+const now = Cesium.JulianDate.now();
+const pointInFixed = Cesium.Cartesian3.fromDegrees(0.0, 0.0);
+const fixedToIcrf = Cesium.Transforms.computeMoonFixedToIcrfMatrix(now);
+let pointInInertial = new Cesium.Cartesian3();
+if (Cesium.defined(fixedToIcrf)) {
+    pointInInertial = Cesium.Matrix3.multiplyByVector(fixedToIcrf, pointInFixed, pointInInertial);
+}</code></pre>
 
     
 
@@ -1016,7 +1061,8 @@
 
 
 <div class="description">
-    计算旋转矩阵，以将点或向量从真赤道平均分 （TEME） 轴变换到给定时间的伪固定轴。 此方法将 UT1 时间标准视为等效于 UTC。
+    计算旋转矩阵，以将点或向量从真赤道平均分 (TEME) 轴变换到
+给定时间的伪固定轴。 此方法将 UT1 时间标准视为等效于 UTC。
 </div>
 
 
@@ -1123,7 +1169,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数或者新的 Matrix3 实例（如果未提供）。
+    修改后的结果参数或者新的 Matrix3 实例(如果未提供)。
 </div>
 
 
@@ -1154,7 +1200,15 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">//Set the view to the inertial frame.scene.postUpdate.addEventListener(function(scene, time) {   const now = Cesium.JulianDate.now();   const offset = Cesium.Matrix4.multiplyByPoint(camera.transform, camera.position, new Cesium.Cartesian3());   const transform = Cesium.Matrix4.fromRotationTranslation(Cesium.Transforms.computeTemeToPseudoFixedMatrix(now));   const inverseTransform = Cesium.Matrix4.inverseTransformation(transform, new Cesium.Matrix4());   Cesium.Matrix4.multiplyByPoint(inverseTransform, offset, offset);   camera.lookAtTransform(transform, offset);});</code></pre>
+    <pre><code class="language-javascript">//Set the view to the inertial frame.
+scene.postUpdate.addEventListener(function(scene, time) {
+   const now = Cesium.JulianDate.now();
+   const offset = Cesium.Matrix4.multiplyByPoint(camera.transform, camera.position, new Cesium.Cartesian3());
+   const transform = Cesium.Matrix4.fromRotationTranslation(Cesium.Transforms.computeTemeToPseudoFixedMatrix(now));
+   const inverseTransform = Cesium.Matrix4.inverseTransformation(transform, new Cesium.Matrix4());
+   Cesium.Matrix4.multiplyByPoint(inverseTransform, offset, offset);
+   camera.lookAtTransform(transform, offset);
+});</code></pre>
 
     
 
@@ -1191,7 +1245,14 @@
 
 
 <div class="description">
-    从具有东-北向上轴的参考系计算 4x4 变换矩阵以提供的原点为中心，以提供的椭球体的固定参考系为中心。局部轴定义为：<ul><li><code>x</code> 轴指向本地东方向。</li><li><code>y</code> 轴指向本地北方向。</li><li><code>z</code> 轴指向通过该位置的椭球体表面法线的方向。</li></ul>
+    从具有东-北向上轴的参考系计算 4x4 变换矩阵
+以提供的原点为中心，以提供的椭球体的固定参考系为中心。
+局部轴定义为：
+<ul>
+<li><code>x</code> 轴指向本地东方向。</li>
+<li><code>y</code> 轴指向本地北方向。</li>
+<li><code>z</code> 轴指向通过该位置的椭球体表面法线的方向。</li>
+</ul>
 </div>
 
 
@@ -1344,7 +1405,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数或者一个新的 Matrix4 实例（如果未提供）。
+    修改后的结果参数或者一个新的 Matrix4 实例(如果未提供)。
 </div>
 
 
@@ -1375,7 +1436,9 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Get the transform from local east-north-up at cartographic (0.0, 0.0) to Earth's fixed frame.const center = Cesium.Cartesian3.fromDegrees(0.0, 0.0);const transform = Cesium.Transforms.eastNorthUpToFixedFrame(center);</code></pre>
+    <pre><code class="language-javascript">// Get the transform from local east-north-up at cartographic (0.0, 0.0) to Earth's fixed frame.
+const center = Cesium.Cartesian3.fromDegrees(0.0, 0.0);
+const transform = Cesium.Transforms.eastNorthUpToFixedFrame(center);</code></pre>
 
     
 
@@ -1412,7 +1475,9 @@
 
 
 <div class="description">
-    根据特定参考系中的变换计算航向-俯仰-滚动角度。航向是从当地向东开始的旋转正角度向东增加的方向。Pitch 是从本地东西向北平面的旋转。正俯仰角位于平面上方。负俯仰角位于平面下方。Roll 是围绕本地东轴应用的第一个旋转。
+    根据特定参考系中的变换计算航向-俯仰-滚动角度。航向是从当地向东开始的旋转
+正角度向东增加的方向。Pitch 是从本地东西向北平面的旋转。正俯仰角
+位于平面上方。负俯仰角位于平面下方。Roll 是围绕本地东轴应用的第一个旋转。
 </div>
 
 
@@ -1546,7 +1611,8 @@
 
                 
             
-                4x4 变换从参考系到提供的椭球体的固定参考系的矩阵</td>
+                4x4 变换
+从参考系到提供的椭球体的固定参考系的矩阵</td>
         </tr>
 
     
@@ -1601,7 +1667,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数或者新的 HeadingPitchRoll 实例（如果未提供）。
+    修改后的结果参数或者新的 HeadingPitchRoll 实例(如果未提供)。
 </div>
 
 
@@ -1664,7 +1730,10 @@
 
 
 <div class="description">
-    从参考系计算四元数，轴从航向-俯仰-滚动角度计算以提供的原点为中心。航向是从当地向东开始的旋转正角度向东增加的方向。Pitch 是从本地东西向北平面的旋转。正俯仰角位于平面上方。负俯仰角位于平面下方。Roll 是围绕本地东轴应用的第一个旋转。
+    从参考系计算四元数，轴从航向-俯仰-滚动角度计算
+以提供的原点为中心。航向是从当地向东开始的旋转
+正角度向东增加的方向。Pitch 是从本地东西向北平面的旋转。正俯仰角
+位于平面上方。负俯仰角位于平面下方。Roll 是围绕本地东轴应用的第一个旋转。
 </div>
 
 
@@ -1830,7 +1899,8 @@
 
                 
             
-                4x4 变换从参考系到提供的椭球体的固定参考系的矩阵</td>
+                4x4 变换
+从参考系到提供的椭球体的固定参考系的矩阵</td>
         </tr>
 
     
@@ -1885,7 +1955,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数或者新的 Quaternion 实例（如果未提供）。
+    修改后的结果参数或者新的 Quaternion 实例(如果未提供)。
 </div>
 
 
@@ -1916,7 +1986,13 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Get the quaternion from local heading-pitch-roll at cartographic (0.0, 0.0) to Earth's fixed frame.const center = Cesium.Cartesian3.fromDegrees(0.0, 0.0);const heading = -Cesium.Math.PI_OVER_TWO;const pitch = Cesium.Math.PI_OVER_FOUR;const roll = 0.0;const hpr = new HeadingPitchRoll(heading, pitch, roll);const quaternion = Cesium.Transforms.headingPitchRollQuaternion(center, hpr);</code></pre>
+    <pre><code class="language-javascript">// Get the quaternion from local heading-pitch-roll at cartographic (0.0, 0.0) to Earth's fixed frame.
+const center = Cesium.Cartesian3.fromDegrees(0.0, 0.0);
+const heading = -Cesium.Math.PI_OVER_TWO;
+const pitch = Cesium.Math.PI_OVER_FOUR;
+const roll = 0.0;
+const hpr = new HeadingPitchRoll(heading, pitch, roll);
+const quaternion = Cesium.Transforms.headingPitchRollQuaternion(center, hpr);</code></pre>
 
     
 
@@ -1953,7 +2029,10 @@
 
 
 <div class="description">
-    从参考系计算 4x4 变换矩阵，其轴根据航向-俯仰-滚动角度计算以提供的原点为中心，以提供的椭球体的固定参考系为中心。航向是从当地向东开始的旋转正角度向东增加的方向。Pitch 是从本地东西向北平面的旋转。正俯仰角位于平面上方。负俯仰角位于平面下方。Roll 是围绕本地东轴应用的第一个旋转。
+    从参考系计算 4x4 变换矩阵，其轴根据航向-俯仰-滚动角度计算
+以提供的原点为中心，以提供的椭球体的固定参考系为中心。航向是从当地向东开始的旋转
+正角度向东增加的方向。Pitch 是从本地东西向北平面的旋转。正俯仰角
+位于平面上方。负俯仰角位于平面下方。Roll 是围绕本地东轴应用的第一个旋转。
 </div>
 
 
@@ -2119,7 +2198,8 @@
 
                 
             
-                4x4 变换从参考系到提供的椭球体的固定参考系的矩阵</td>
+                4x4 变换
+从参考系到提供的椭球体的固定参考系的矩阵</td>
         </tr>
 
     
@@ -2174,7 +2254,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数或者一个新的 Matrix4 实例（如果未提供）。
+    修改后的结果参数或者一个新的 Matrix4 实例(如果未提供)。
 </div>
 
 
@@ -2205,7 +2285,13 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Get the transform from local heading-pitch-roll at cartographic (0.0, 0.0) to Earth's fixed frame.const center = Cesium.Cartesian3.fromDegrees(0.0, 0.0);const heading = -Cesium.Math.PI_OVER_TWO;const pitch = Cesium.Math.PI_OVER_FOUR;const roll = 0.0;const hpr = new Cesium.HeadingPitchRoll(heading, pitch, roll);const transform = Cesium.Transforms.headingPitchRollToFixedFrame(center, hpr);</code></pre>
+    <pre><code class="language-javascript">// Get the transform from local heading-pitch-roll at cartographic (0.0, 0.0) to Earth's fixed frame.
+const center = Cesium.Cartesian3.fromDegrees(0.0, 0.0);
+const heading = -Cesium.Math.PI_OVER_TWO;
+const pitch = Cesium.Math.PI_OVER_FOUR;
+const roll = 0.0;
+const hpr = new Cesium.HeadingPitchRoll(heading, pitch, roll);
+const transform = Cesium.Transforms.headingPitchRollToFixedFrame(center, hpr);</code></pre>
 
     
 
@@ -2242,7 +2328,8 @@
 
 
 <div class="description">
-    生成一个函数，该函数从参考帧计算 4x4 变换矩阵以提供的原点为中心，以提供的椭球体的固定参考系为中心。
+    生成一个函数，该函数从参考帧计算 4x4 变换矩阵
+以提供的原点为中心，以提供的椭球体的固定参考系为中心。
 </div>
 
 
@@ -2293,7 +2380,8 @@
 
             <td class="description last">
             
-                局部参考帧的第一个轴的名称。必须为 'east', 'north', 'up', 'west', 'south' 或 'down'.</td>
+                局部参考帧的第一个轴的名称。必须为
+ 'east', 'north', 'up', 'west', 'south' 或 'down'.</td>
         </tr>
 
     
@@ -2316,7 +2404,8 @@
 
             <td class="description last">
             
-                本地参考帧的第二个轴的名称。必须为 'east', 'north', 'up', 'west', 'south' 或 'down'.</td>
+                本地参考帧的第二个轴的名称。必须为
+ 'east', 'north', 'up', 'west', 'south' 或 'down'.</td>
         </tr>
 
     
@@ -2337,7 +2426,8 @@
 
         
 <div class="param-desc">
-    将计算来自参考系的 4x4 变换矩阵，其中第一轴和第二轴符合参数，
+    将计算
+来自参考系的 4x4 变换矩阵，其中第一轴和第二轴符合参数，
 </div>
 
 
@@ -2400,7 +2490,14 @@
 
 
 <div class="description">
-    从具有东北向下轴的参考帧计算 4x4 变换矩阵以提供的原点为中心，以提供的椭球体的固定参考系为中心。局部轴定义为：<ul><li><code>x</code> 轴指向本地北向。</li><li><code>y</code> 轴指向本地东方向。</li><li><code>z</code> 轴指向通过该位置的椭球体表面法线的相反方向。</li></ul>
+    从具有东北向下轴的参考帧计算 4x4 变换矩阵
+以提供的原点为中心，以提供的椭球体的固定参考系为中心。
+局部轴定义为：
+<ul>
+<li><code>x</code> 轴指向本地北向。</li>
+<li><code>y</code> 轴指向本地东方向。</li>
+<li><code>z</code> 轴指向通过该位置的椭球体表面法线的相反方向。</li>
+</ul>
 </div>
 
 
@@ -2553,7 +2650,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数或者一个新的 Matrix4 实例（如果未提供）。
+    修改后的结果参数或者一个新的 Matrix4 实例(如果未提供)。
 </div>
 
 
@@ -2584,7 +2681,9 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Get the transform from local north-east-down at cartographic (0.0, 0.0) to Earth's fixed frame.const center = Cesium.Cartesian3.fromDegrees(0.0, 0.0);const transform = Cesium.Transforms.northEastDownToFixedFrame(center);</code></pre>
+    <pre><code class="language-javascript">// Get the transform from local north-east-down at cartographic (0.0, 0.0) to Earth's fixed frame.
+const center = Cesium.Cartesian3.fromDegrees(0.0, 0.0);
+const transform = Cesium.Transforms.northEastDownToFixedFrame(center);</code></pre>
 
     
 
@@ -2621,7 +2720,14 @@
 
 
 <div class="description">
-    从具有北向上东轴的参考系计算 4x4 变换矩阵以提供的原点为中心，以提供的椭球体的固定参考系为中心。局部轴定义为：<ul><li><code>x</code> 轴指向本地北向。</li><li><code>y</code> 轴指向通过该位置的椭球体表面法线的方向。</li><li><code>z</code> 轴指向本地东方向。</li></ul>
+    从具有北向上东轴的参考系计算 4x4 变换矩阵
+以提供的原点为中心，以提供的椭球体的固定参考系为中心。
+局部轴定义为：
+<ul>
+<li><code>x</code> 轴指向本地北向。</li>
+<li><code>y</code> 轴指向通过该位置的椭球体表面法线的方向。</li>
+<li><code>z</code> 轴指向本地东方向。</li>
+</ul>
 </div>
 
 
@@ -2774,7 +2880,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数或者一个新的 Matrix4 实例（如果未提供）。
+    修改后的结果参数或者一个新的 Matrix4 实例(如果未提供)。
 </div>
 
 
@@ -2805,7 +2911,9 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Get the transform from local north-up-east at cartographic (0.0, 0.0) to Earth's fixed frame.const center = Cesium.Cartesian3.fromDegrees(0.0, 0.0);const transform = Cesium.Transforms.northUpEastToFixedFrame(center);</code></pre>
+    <pre><code class="language-javascript">// Get the transform from local north-up-east at cartographic (0.0, 0.0) to Earth's fixed frame.
+const center = Cesium.Cartesian3.fromDegrees(0.0, 0.0);
+const transform = Cesium.Transforms.northUpEastToFixedFrame(center);</code></pre>
 
     
 
@@ -2842,7 +2950,14 @@
 
 
 <div class="description">
-    从西北向上轴的参考系计算 4x4 变换矩阵以提供的原点为中心，以提供的椭球体的固定参考系为中心。局部轴定义为：<ul><li><code>x</code> 轴指向本地北向。</li><li><code>y</code> 轴指向本地西方向。</li><li><code>z</code> 轴指向通过该位置的椭球体表面法线的方向。</li></ul>
+    从西北向上轴的参考系计算 4x4 变换矩阵
+以提供的原点为中心，以提供的椭球体的固定参考系为中心。
+局部轴定义为：
+<ul>
+<li><code>x</code> 轴指向本地北向。</li>
+<li><code>y</code> 轴指向本地西方向。</li>
+<li><code>z</code> 轴指向通过该位置的椭球体表面法线的方向。</li>
+</ul>
 </div>
 
 
@@ -2995,7 +3110,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数或者一个新的 Matrix4 实例（如果未提供）。
+    修改后的结果参数或者一个新的 Matrix4 实例(如果未提供)。
 </div>
 
 
@@ -3026,7 +3141,9 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Get the transform from local north-West-Up at cartographic (0.0, 0.0) to Earth's fixed frame.const center = Cesium.Cartesian3.fromDegrees(0.0, 0.0);const transform = Cesium.Transforms.northWestUpToFixedFrame(center);</code></pre>
+    <pre><code class="language-javascript">// Get the transform from local north-West-Up at cartographic (0.0, 0.0) to Earth's fixed frame.
+const center = Cesium.Cartesian3.fromDegrees(0.0, 0.0);
+const transform = Cesium.Transforms.northWestUpToFixedFrame(center);</code></pre>
 
     
 
@@ -3289,7 +3406,9 @@
 
 
 <div class="description">
-    预加载在 ICRF 轴和固定轴之间转换所需的数据，包括方向，在给定的间隔内。 此函数返回一个 Promise，当解析时，表示预加载已完成。
+    预加载在 ICRF 轴和固定轴之间转换所需的数据，包括
+方向，在给定的间隔内。 此函数返回一个 Promise，当解析时，
+表示预加载已完成。
 </div>
 
 
@@ -3361,7 +3480,9 @@
 
         
 <div class="param-desc">
-    一个 Promise，当解析时，表示预加载已完成对固定轴和 ICRF 轴之间的变换的评估将不再在间隔内的某个时间内返回 undefined。
+    一个 Promise，当解析时，表示预加载已完成
+对固定轴和 ICRF 轴之间的变换的评估将
+不再在间隔内的某个时间内返回 undefined。
 </div>
 
 
@@ -3392,7 +3513,9 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const interval = new Cesium.TimeInterval(...);await Cesium.Transforms.preloadIcrfFixed(interval));// the data is now loaded</code></pre>
+    <pre><code class="language-javascript">const interval = new Cesium.TimeInterval(...);
+await Cesium.Transforms.preloadIcrfFixed(interval));
+// the data is now loaded</code></pre>
 
     
 
@@ -3621,7 +3744,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数或者新的 Matrix3 实例（如果未提供）。
+    修改后的结果参数或者新的 Matrix3 实例(如果未提供)。
 </div>
 
 
@@ -3690,7 +3813,8 @@
 
 
 <div class="description">
-    从参考系计算 4x4 变换矩阵以提供的原点为中心，以提供的椭球体的固定参考系为中心。
+    从参考系计算 4x4 变换矩阵
+以提供的原点为中心，以提供的椭球体的固定参考系为中心。
 </div>
 
 
@@ -3843,7 +3967,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数或者一个新的 Matrix4 实例（如果未提供）。
+    修改后的结果参数或者一个新的 Matrix4 实例(如果未提供)。
 </div>
 
 

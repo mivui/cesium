@@ -47,8 +47,8 @@
 
 
         
-            <div class="description">The the `MetadataClassProperty` that is described by this
-structure, as obtained from the `MetadataSchema`</div>
+            <div class="description">由此描述的 'MetadataClassProperty'
+结构，从 'MetadataSchema' 获取</div>
         
 
         

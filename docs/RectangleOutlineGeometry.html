@@ -267,7 +267,7 @@
 
                 
             
-                矩形和椭球体表面之间的距离（以米为单位）。</td>
+                矩形和椭球体表面之间的距离(以米为单位)。</td>
         </tr>
 
     
@@ -337,7 +337,7 @@
 
                 
             
-                矩形的拉伸面与椭球体表面之间的距离（以米为单位）。</td>
+                矩形的拉伸面与椭球体表面之间的距离(以米为单位)。</td>
         </tr>
 
     
@@ -370,7 +370,7 @@
         
 <span class="param-type"><a href="DeveloperError.html">DeveloperError</a></span>
 
-: <code>options.rectangle.north</code> 必须在区间 [<code>-Pi/2</code>， <code>Pi/2</code>] 内。
+: <code>options.rectangle.north</code> 必须在区间 [<code>-Pi/2</code>, <code>Pi/2</code>] 内。
     </div>
 
 </li>
@@ -381,7 +381,7 @@
         
 <span class="param-type"><a href="DeveloperError.html">DeveloperError</a></span>
 
-: <code>options.rectangle.south</code> 必须在区间 [<code>-Pi/2</code>， <code>Pi/2</code>] 内。
+: <code>options.rectangle.south</code> 必须在区间 [<code>-Pi/2</code>, <code>Pi/2</code>] 内。
     </div>
 
 </li>
@@ -392,7 +392,7 @@
         
 <span class="param-type"><a href="DeveloperError.html">DeveloperError</a></span>
 
-: <code>options.rectangle.east</code> 必须在区间 [<code>-Pi</code>， <code>Pi</code>] 内。
+: <code>options.rectangle.east</code> 必须在区间 [<code>-Pi</code>, <code>Pi</code>] 内。
     </div>
 
 </li>
@@ -403,7 +403,7 @@
         
 <span class="param-type"><a href="DeveloperError.html">DeveloperError</a></span>
 
-: <code>options.rectangle.west</code> 必须在区间 [<code>-Pi</code>， <code>Pi</code>] 内。
+: <code>options.rectangle.west</code> 必须在区间 [<code>-Pi</code>, <code>Pi</code>] 内。
     </div>
 
 </li>
@@ -444,7 +444,12 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const rectangle = new Cesium.RectangleOutlineGeometry({  ellipsoid : Cesium.Ellipsoid.WGS84,  rectangle : Cesium.Rectangle.fromDegrees(-80.0, 39.0, -74.0, 42.0),  height : 10000.0});const geometry = Cesium.RectangleOutlineGeometry.createGeometry(rectangle);</code></pre>
+    <pre><code class="language-javascript">const rectangle = new Cesium.RectangleOutlineGeometry({
+  ellipsoid : Cesium.Ellipsoid.WGS84,
+  rectangle : Cesium.Rectangle.fromDegrees(-80.0, 39.0, -74.0, 42.0),
+  height : 10000.0
+});
+const geometry = Cesium.RectangleOutlineGeometry.createGeometry(rectangle);</code></pre>
 
     
 
@@ -1084,7 +1089,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数或者新的 Quaternion 实例（如果未提供）。
+    修改后的结果参数或者新的 Quaternion 实例(如果未提供)。
 </div>
 
 

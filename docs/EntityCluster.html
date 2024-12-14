@@ -58,7 +58,7 @@
 
 
 <div class="description">
-    定义屏幕空间对象（广告牌、点、标签）的群集方式。
+    定义屏幕空间对象(广告牌、点、标签)的群集方式。
 </div>
 
 
@@ -977,7 +977,12 @@
 
 
 <div class="description">
-    销毁此对象持有的 WebGL 资源。 销毁对象允许确定性释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。<p>与使用 WebGL 资源的其他对象不同，此对象可以重复使用。例如，如果删除了数据源从数据源集合并添加到另一个数据源集合。</p>
+    销毁此对象持有的 WebGL 资源。 销毁对象允许确定性
+释放 WebGL 资源，而不是依赖垃圾回收器来销毁这个对象。
+<p>
+与使用 WebGL 资源的其他对象不同，此对象可以重复使用。例如，如果删除了数据源
+从数据源集合并添加到另一个数据源集合。
+</p>
 </div>
 
 
@@ -1138,7 +1143,8 @@
 
             <td class="description last">
             
-                An object containing the Billboard, Label, and Pointprimitives that represent this cluster of entities.
+                An object containing the Billboard, Label, and Point
+primitives that represent this cluster of entities.
                 
 
 <table class="params">
@@ -1272,7 +1278,11 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// The default cluster values.dataSource.clustering.clusterEvent.addEventListener(function(entities, cluster) {    cluster.label.show = true;    cluster.label.text = entities.length.toLocaleString();});</code></pre>
+    <pre><code class="language-javascript">// The default cluster values.
+dataSource.clustering.clusterEvent.addEventListener(function(entities, cluster) {
+    cluster.label.show = true;
+    cluster.label.text = entities.length.toLocaleString();
+});</code></pre>
 
     
 

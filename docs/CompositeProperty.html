@@ -58,7 +58,9 @@
 
 
 <div class="description">
-    由 <a href="TimeIntervalCollection.html"><code>TimeIntervalCollection</code></a> 定义的 <a href="Property.html"><code>Property</code></a>，其中data 属性是@link另一个 Property 实例，即在提供的时间进行评估。
+    由 <a href="TimeIntervalCollection.html"><code>TimeIntervalCollection</code></a> 定义的 <a href="Property.html"><code>Property</code></a>，其中
+data 属性是一个 <a href="Property.html"><code>Property</code></a> 实例，即
+在提供的时间进行评估。
 </div>
 
 
@@ -107,7 +109,24 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const constantProperty = ...;const sampledProperty = ...;//Create a composite property from two previously defined properties//where the property is valid on August 1st, 2012 and uses a constant//property for the first half of the day and a sampled property for the//remaining half.const composite = new Cesium.CompositeProperty();composite.intervals.addInterval(Cesium.TimeInterval.fromIso8601({    iso8601 : '2012-08-01T00:00:00.00Z/2012-08-01T12:00:00.00Z',    data : constantProperty}));composite.intervals.addInterval(Cesium.TimeInterval.fromIso8601({    iso8601 : '2012-08-01T12:00:00.00Z/2012-08-02T00:00:00.00Z',    isStartIncluded : false,    isStopIncluded : false,    data : sampledProperty}));</code></pre>
+    <pre><code class="language-javascript">const constantProperty = ...;
+const sampledProperty = ...;
+
+//Create a composite property from two previously defined properties
+//where the property is valid on August 1st, 2012 and uses a constant
+//property for the first half of the day and a sampled property for the
+//remaining half.
+const composite = new Cesium.CompositeProperty();
+composite.intervals.addInterval(Cesium.TimeInterval.fromIso8601({
+    iso8601 : '2012-08-01T00:00:00.00Z/2012-08-01T12:00:00.00Z',
+    data : constantProperty
+}));
+composite.intervals.addInterval(Cesium.TimeInterval.fromIso8601({
+    iso8601 : '2012-08-01T12:00:00.00Z/2012-08-02T00:00:00.00Z',
+    isStartIncluded : false,
+    isStopIncluded : false,
+    data : sampledProperty
+}));</code></pre>
 
     
 
@@ -166,7 +185,9 @@
 
 
 <div class="description">
-    获取此属性的定义发生更改时引发的事件。每当使用不同的数据调用 setValue 时，定义都会更改比当前值。
+    获取此属性的定义发生更改时引发的事件。
+每当使用不同的数据调用 setValue 时，定义都会更改
+比当前值。
 </div>
 
 
@@ -286,7 +307,8 @@
 
 
 <div class="description">
-    获取一个值，该值指示此属性是否为 constant。 将属性视为常量（如果 getValue 始终为当前定义返回相同的结果）。
+    获取一个值，该值指示此属性是否为 constant。 将属性视为
+常量(如果 getValue 始终为当前定义返回相同的结果)。
 </div>
 
 
@@ -353,7 +375,8 @@
 
 
 <div class="description">
-    将此属性与提供的属性进行比较，并返回<code>true</code>，否则为 <code>false</code>。
+    将此属性与提供的属性进行比较，并返回
+<code>true</code>，否则为 <code>false</code>。
 </div>
 
 

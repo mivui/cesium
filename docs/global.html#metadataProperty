@@ -47,10 +47,10 @@
 
 
         
-            <div class="description">The `PropertyTextureProperty` or `PropertyAttributeProperty` that
-is described by this structure, as obtained from the property texture
-or property attribute of the `StructuralMetadata` that matches the
-class name and property name.</div>
+            <div class="description">'PropertyTextureProperty' 或 'PropertyAttributeProperty'
+由此结构描述，如从 texture 属性
+或与
+类名和属性名。</div>
         
 
         

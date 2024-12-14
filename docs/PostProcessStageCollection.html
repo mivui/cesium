@@ -164,7 +164,7 @@
 
 
 <div class="description">
-    将基于地平线的环境光遮蔽 （HBAO） 应用于输入纹理的后处理阶段。
+    将基于地平线的环境光遮蔽 (HBAO) 应用于输入纹理的后处理阶段。
 <p>
 环境光遮挡模拟环境光的阴影。当
 Surface 接收光线，而不管光线的位置如何。
@@ -179,7 +179,7 @@ uniforms 具有以下属性：
 采样在当前方向停止。默认值为 <code>0.26</code>.</li>
 <li><code>directionCount</code> 是光线行进搜索遮挡物所沿的方向数。默认值为 <code>8</code>.</li>
 <li><code>stepCount</code> 是光线行进沿每个方向所走的步数。默认值为 <code>32</code>.</li>
-<li><code>randomTexture</code> 是一个纹理，其中红色通道是 [0.0， 1.0] 中的随机值。默认值为 <code>undefined</code>. 需要设置此纹理。</li>
+<li><code>randomTexture</code> 是一个纹理，其中红色通道是 [0.0, 1.0] 中的随机值。默认值为 <code>undefined</code>. 需要设置此纹理。</li>
 <li><code>ambientOcclusionOnly</code> 是布尔值。如果<code>为 true</code>，则仅将生成的阴影写入输出。什么时候 <code>false</code>, Input Texture 被调制
 与 Ambient Occlusion 一起使用。这是一个有用的调试选项，用于查看更改 uniform 值的效果。默认值为 <code>false</code>.</li>
 </ul>
@@ -254,9 +254,9 @@ uniforms 具有以下属性：
 <code>delta</code>、<code>sigma</code> 和 <code>stepSize</code>。
 </p>
 <ul>
-<li><code>contrast</code> 是 [-255.0， 255.0] 范围内的标量值，会影响效果的收缩。默认值为 <code>128.0</code>。</li>
+<li><code>contrast</code> 是 [-255.0, 255.0] 范围内的标量值，会影响效果的收缩。默认值为 <code>128.0</code>。</li>
 
-<li><code>brightness</code> 是一个标量值。输入纹理 RGB 值转换为色相、饱和度和亮度 （HSB），则该值为
+<li><code>brightness</code> 是一个标量值。输入纹理 RGB 值转换为色相、饱和度和亮度 (HSB)，则该值为
 添加到亮度。默认值为 <code>-0.3</code>。</li>
 
    <li><code>glowOnly</code> 是一个布尔值。如果为 <code>true</code>，则仅显示发光效果。如果为 <code>false</code>，则发光将添加到输入纹理中。
@@ -950,7 +950,7 @@ uniforms 具有以下属性：
 <p>
 一旦对象被销毁，就不应该使用它;调用
 <code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。 因此
-将返回值 （<code>undefined</code>） 分配给对象，如示例中所示。
+将返回值 (<code>undefined</code>) 分配给对象，如示例中所示。
 </p>
 </div>
 

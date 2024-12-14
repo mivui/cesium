@@ -350,7 +350,15 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const polygonGeometry = new Cesium.CoplanarPolygonGeometry({ polygonHierarchy: new Cesium.PolygonHierarchy(    Cesium.Cartesian3.fromDegreesArrayHeights([     -90.0, 30.0, 0.0,     -90.0, 30.0, 300000.0,     -80.0, 30.0, 300000.0,     -80.0, 30.0, 0.0  ]))});</code></pre>
+    <pre><code class="language-javascript">const polygonGeometry = new Cesium.CoplanarPolygonGeometry({
+ polygonHierarchy: new Cesium.PolygonHierarchy(
+    Cesium.Cartesian3.fromDegreesArrayHeights([
+     -90.0, 30.0, 0.0,
+     -90.0, 30.0, 300000.0,
+     -80.0, 30.0, 300000.0,
+     -80.0, 30.0, 0.0
+  ]))
+});</code></pre>
 
     
 
@@ -901,7 +909,17 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// create a polygon from pointsconst polygon = Cesium.CoplanarPolygonGeometry.fromPositions({  positions : Cesium.Cartesian3.fromDegreesArray([    -72.0, 40.0,    -70.0, 35.0,    -75.0, 30.0,    -70.0, 30.0,    -68.0, 40.0  ])});const geometry = Cesium.PolygonGeometry.createGeometry(polygon);</code></pre>
+    <pre><code class="language-javascript">// create a polygon from points
+const polygon = Cesium.CoplanarPolygonGeometry.fromPositions({
+  positions : Cesium.Cartesian3.fromDegreesArray([
+    -72.0, 40.0,
+    -70.0, 35.0,
+    -75.0, 30.0,
+    -70.0, 30.0,
+    -68.0, 40.0
+  ])
+});
+const geometry = Cesium.PolygonGeometry.createGeometry(polygon);</code></pre>
 
     
 
@@ -1310,7 +1328,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数 或者新的 CoplanarPolygonGeometry 实例（如果未提供）。
+    修改后的结果参数 或者新的 CoplanarPolygonGeometry 实例(如果未提供)。
 </div>
 
 

@@ -47,8 +47,8 @@
 
 
         
-            <div class="description">Returns a shader statement that applies the inverse of the
-normalization, based on the given component type</div>
+            <div class="description">返回一个 shader 语句，该语句应用
+归一化，基于给定的组件类型</div>
         
 
         

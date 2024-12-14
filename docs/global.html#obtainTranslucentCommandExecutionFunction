@@ -47,12 +47,12 @@
 
 
         
-            <div class="description">Determine how translucent surfaces will be handled.
+            <div class="description">确定如何处理半透明表面。
 
-When OIT is enabled, then this will delegate to OIT.executeCommands.
-Otherwise, it will just be executeTranslucentCommandsBackToFront
-for render passes, or executeTranslucentCommandsFrontToBack for
-other passes.</div>
+启用 OIT 后，这将委托给 OIT.executeCommands。
+否则，它将只是 executeTranslucentCommandsBackToFront
+用于渲染通道，或 executeTranslucentCommandsFrontToBack 用于
+其他通行证。</div>
         
 
         

@@ -58,7 +58,9 @@
 
 
 <div class="description">
-    Google 地图、Bing 地图和大多数 ArcGIS Online 使用的地图投影，EPSG：3857。 这投影使用用 WGS84 表示的经度和纬度，并使用球形（而不是椭球体）方程。
+    Google 地图、Bing 地图和大多数 ArcGIS Online 使用的地图投影，EPSG：3857。 这
+投影使用用 WGS84 表示的经度和纬度，并使用
+球形(而不是椭球体)方程。
 </div>
 
 
@@ -219,7 +221,16 @@
 
 
 <div class="description">
-    Web 墨卡托支持的最大纬度（北纬和南纬）（EPSG：3857） 预测。 从技术上讲，墨卡托投影是定义的对于任何纬度，最高可达（但不包括）90 度，但这是有道理的以更早地切断它，因为它随着纬度的增加呈指数增长。此特定截止值背后的逻辑，即Google Maps、Bing Maps 和 Esri 是它进行投影广场。 也就是说，矩形在 X 和 Y 方向上相等。常量值通过调用来计算：WebMercatorProjection.mercatorAngleToGeodeticLatitude （Math.PI）
+    Web 墨卡托支持的最大纬度(北纬和南纬)
+(EPSG：3857) 预测。 从技术上讲，墨卡托投影是定义的
+对于任何纬度，最高可达(但不包括)90 度，但这是有道理的
+以更早地切断它，因为它随着纬度的增加呈指数增长。
+此特定截止值背后的逻辑，即
+Google Maps、Bing Maps 和 Esri 是它进行投影
+广场。 也就是说，矩形在 X 和 Y 方向上相等。
+
+常量值通过调用来计算：
+WebMercatorProjection.mercatorAngleToGeodeticLatitude (Math.PI)
 </div>
 
 
@@ -346,7 +357,8 @@
 
 
 <div class="description">
-    将 -PI/2 到 PI/2 范围内的弧度（以弧度为单位）转换为墨卡托角度在 -PI 到 PI 范围内。
+    将 -PI/2 到 PI/2 范围内的弧度(以弧度为单位)转换为墨卡托
+角度在 -PI 到 PI 范围内。
 </div>
 
 
@@ -481,7 +493,8 @@
 
 
 <div class="description">
-    将 -PI 到 PI 范围内的墨卡托角转换为大地纬度在 -PI/2 到 PI/2 范围内。
+    将 -PI 到 PI 范围内的墨卡托角转换为大地纬度
+在 -PI/2 到 PI/2 范围内。
 </div>
 
 
@@ -616,7 +629,9 @@
 
 
 <div class="description">
-    将大地椭球坐标（以弧度为单位）转换为等效的 Web 墨卡托X、Y、Z 坐标以米表示，并以 <a href="Cartesian3.html"><code>Cartesian3</code></a> 返回。 高度将原封不动地复制到 z坐标。
+    将大地椭球坐标(以弧度为单位)转换为等效的 Web 墨卡托
+X、Y、Z 坐标以米表示，并以 <a href="Cartesian3.html"><code>Cartesian3</code></a> 返回。 高度
+将原封不动地复制到 z坐标。
 </div>
 
 
@@ -702,7 +717,8 @@
 
                 
             
-                要将结果复制到的实例，如果应创建新实例。</td>
+                要将结果复制到的实例，如果
+应创建新实例。</td>
         </tr>
 
     
@@ -786,7 +802,9 @@
 
 
 <div class="description">
-    将 Web 墨卡托 X、Y 坐标（以米表示）转换为 <code>制图</code>包含大地椭球体坐标。 Z 坐标将原封不动地复制到高度。
+    将 Web 墨卡托 X、Y 坐标(以米表示)转换为 <code>制图</code>
+包含大地椭球体坐标。 Z 坐标将原封不动地复制到
+高度。
 </div>
 
 
@@ -842,7 +860,7 @@
 
                 
             
-                Web 墨卡托笛卡尔位置与高度 （z） 展开投影，以米为单位。</td>
+                Web 墨卡托笛卡尔位置与高度 (z) 展开投影，以米为单位。</td>
         </tr>
 
     
@@ -872,7 +890,8 @@
 
                 
             
-                要将结果复制到的实例，如果应创建新实例。</td>
+                要将结果复制到的实例，如果
+应创建新实例。</td>
         </tr>
 
     

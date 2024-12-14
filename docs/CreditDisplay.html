@@ -42,7 +42,7 @@
     <div class="nameContainer">
     <h4 class="name" id="CreditDisplay">
         <a href="#CreditDisplay" class="doc-link"></a>
-        new Cesium.CreditDisplay<span class="signature">(container, <span class="optional">delimiter</span>, <span class="optional">viewport</span>)</span>
+        new Cesium.CreditDisplay<span class="signature">(容器, <span class="optional">delimiter</span>, <span class="optional">viewport</span>)</span>
         
 
 <div class="source-link rightLinks">
@@ -58,7 +58,7 @@
 
 
 <div class="description">
-    The credit display is responsible for displaying credits on screen.
+    演职员表显示负责在屏幕上显示演职员表。
 </div>
 
 
@@ -95,7 +95,7 @@
 
         <tr>
             
-                <td class="name"><code>container</code></td>
+                <td class="name"><code>容器</code></td>
             
 
             <td class="type">
@@ -120,7 +120,7 @@
 
                 
             
-                The HTML element where credits will be displayed</td>
+                将显示制作人员名单的 HTML 元素</td>
         </tr>
 
     
@@ -156,7 +156,7 @@
 
                 
             
-                The string to separate text credits</td>
+                用于分隔文本演职员表的字符串</td>
         </tr>
 
     
@@ -192,7 +192,7 @@
 
                 
             
-                The HTML element that will contain the credits popup</td>
+                将包含致谢弹出窗口的 HTML 元素</td>
         </tr>
 
     
@@ -235,9 +235,13 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Add a credit with a tooltip, image and link to display onscreenconst credit = new Cesium.Credit(`&lt;a href="https://cesium.com/" target="_blank">&lt;img src="/images/cesium_logo.png" title="Cesium"/>&lt;/a>`, true);viewer.creditDisplay.addStaticCredit(credit);</code></pre>
+    <pre><code class="language-javascript">// Add a credit with a tooltip, image and link to display onscreen
+const credit = new Cesium.Credit(`&lt;a href="https://cesium.com/" target="_blank">&lt;img src="/images/cesium_logo.png" title="Cesium"/>&lt;/a>`, true);
+viewer.creditDisplay.addStaticCredit(credit);</code></pre>
 
-    <pre><code class="language-javascript">// Add a credit with a plaintext link to display in the lightboxconst credit = new Cesium.Credit('&lt;a href="https://cesium.com/" target="_blank">Cesium&lt;/a>');viewer.creditDisplay.addStaticCredit(credit);</code></pre>
+    <pre><code class="language-javascript">// Add a credit with a plaintext link to display in the lightbox
+const credit = new Cesium.Credit('&lt;a href="https://cesium.com/" target="_blank">Cesium&lt;/a>');
+viewer.creditDisplay.addStaticCredit(credit);</code></pre>
 
     
 
@@ -416,7 +420,8 @@
 
 
 <div class="description">
-    Adds a <a href="Credit.html"><code>Credit</code></a> that will show on screen or in the lightbox untilthe next frame. This is mostly for internal use. Use <code>CreditDisplay.addStaticCredit</code> to add a persistent credit to the screen.
+    添加 <a href="Credit.html"><code>Credit</code></a>，该积分将在屏幕上或灯箱中显示，直到
+下一帧。这主要供内部使用。使用 <code>CreditDisplay.addStaticCredit</code> 向屏幕添加永久信用。
 </div>
 
 
@@ -467,7 +472,7 @@
 
             <td class="description last">
             
-                The credit to display in the next frame.</td>
+                (要显示在下一帧中的) credit。</td>
         </tr>
 
     
@@ -547,7 +552,7 @@
 
 
 <div class="description">
-    Adds a <a href="Credit.html"><code>Credit</code></a> that will show on screen or in the lightbox until removed with <code>CreditDisplay.removeStaticCredit</code>.
+    添加一个 <a href="Credit.html"><code>Credit</code></a>，该积分将显示在屏幕或灯箱中，直到使用 <code>CreditDisplay.removeStaticCredit</code> 删除。
 </div>
 
 
@@ -598,7 +603,7 @@
 
             <td class="description last">
             
-                The credit to added</td>
+                要添加的功劳</td>
         </tr>
 
     
@@ -641,9 +646,13 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Add a credit with a tooltip, image and link to display onscreenconst credit = new Cesium.Credit(`&lt;a href="https://cesium.com/" target="_blank">&lt;img src="/images/cesium_logo.png" title="Cesium"/>&lt;/a>`, true);viewer.creditDisplay.addStaticCredit(credit);</code></pre>
+    <pre><code class="language-javascript">// 添加带有工具提示、图像和链接的制作者名单以在屏幕上显示
+const credit = new Cesium.Credit(`&lt;a href="https://cesium.com/" target="_blank">&lt;img src="/images/cesium_logo.png" title="Cesium"/>&lt;/a>`, true);
+viewer.creditDisplay.addStaticCredit(credit);</code></pre>
 
-    <pre><code class="language-javascript">// Add a credit with a plaintext link to display in the lightboxconst credit = new Cesium.Credit('&lt;a href="https://cesium.com/" target="_blank">Cesium&lt;/a>');viewer.creditDisplay.addStaticCredit(credit);</code></pre>
+    <pre><code class="language-javascript">// 添加带有纯文本链接的制作者名单以显示在灯箱中
+const credit = new Cesium.Credit('&lt;a href="https://cesium.com/" target="_blank">Cesium&lt;/a>');
+viewer.creditDisplay.addStaticCredit(credit);</code></pre>
 
     
 
@@ -680,7 +689,7 @@
 
 
 <div class="description">
-    Resets the credit display to a beginning of frame state, clearing out current credits.
+    将演职员表显示重置为帧状态的开头，从而清除当前演职员表。
 </div>
 
 
@@ -761,7 +770,12 @@
 
 
 <div class="description">
-    Destroys the resources held by this object.  Destroying an object allows for deterministicrelease of resources, instead of relying on the garbage collector to destroy this object.<br /><br />Once an object is destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.  Therefore,assign the return value (<code>undefined</code>) to the object as done in the example.
+    销毁此对象持有的资源。 销毁对象允许确定性
+释放资源，而不是依赖垃圾回收器来销毁此对象。
+<br /><br />
+一旦对象被销毁，就不应该使用它;调用
+<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。 因此
+将返回值 (<code>undefined</code>) 分配给对象，如示例中所示。
 </div>
 
 
@@ -856,7 +870,7 @@
 
 
 <div class="description">
-    Sets the credit display to the end of frame state, displaying credits from the last frame in the credit container.
+    将演职员表显示设置为帧状态的结尾，显示演职员表中最后一帧的演职员表。
 </div>
 
 
@@ -937,7 +951,8 @@
 
 
 <div class="description">
-    Returns true if this object was destroyed; otherwise, false.<br /><br />
+    如果此对象已销毁，则返回 true;否则为 false。
+<br /><br />
 </div>
 
 
@@ -964,7 +979,7 @@
 
         
 <div class="param-desc">
-    <code>true</code> if this object was destroyed; otherwise, <code>false</code>.
+    <code>true</code>，如果此对象被销毁;否则为 <code>false</code>。
 </div>
 
 
@@ -1027,7 +1042,7 @@
 
 
 <div class="description">
-    Removes a static credit shown on screen or in the lightbox.
+    删除屏幕或灯箱中显示的静态信用。
 </div>
 
 
@@ -1078,7 +1093,7 @@
 
             <td class="description last">
             
-                The credit to be removed.</td>
+                要删除的信用。</td>
         </tr>
 
     
@@ -1153,7 +1168,7 @@
 
 
 <div class="description">
-    Updates the credit display before a new frame is rendered.
+    在渲染新帧之前更新制作人员名单显示。
 </div>
 
 

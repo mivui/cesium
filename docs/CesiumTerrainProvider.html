@@ -58,7 +58,16 @@
 
 
 <div class="description">
-    <div class="notice">要构造一个CesiumTerrainProvider，调用 <a href="CesiumTerrainProvider.html#.fromIonAssetId"><code>CesiumTerrainProvider.fromIonAssetId</code></a> 或 <a href="CesiumTerrainProvider.html#.fromUrl"><code>CesiumTerrainProvider.fromUrl</code></a>. 不要直接调用构造函数。</div><a href="TerrainProvider.html"><code>TerrainProvider</code></a> 以cesium地形格式访问地形数据。地形格式可以是以下其中一种:<ul><li> <a href="https://github.com/AnalyticalGraphicsInc/quantized-mesh">Quantized Mesh</a> </li><li> <a href="https://github.com/AnalyticalGraphicsInc/cesium/wiki/heightmap-1.0">Height Map</a> </li></ul>
+    <div class="notice">
+要构造一个CesiumTerrainProvider，调用 <a href="CesiumTerrainProvider.html#.fromIonAssetId"><code>CesiumTerrainProvider.fromIonAssetId</code></a> 或 <a href="CesiumTerrainProvider.html#.fromUrl"><code>CesiumTerrainProvider.fromUrl</code></a>. 不要直接调用构造函数。
+</div>
+
+<a href="TerrainProvider.html"><code>TerrainProvider</code></a> 以cesium地形格式访问地形数据。
+地形格式可以是以下其中一种:
+<ul>
+<li> <a href="https://github.com/AnalyticalGraphicsInc/quantized-mesh">Quantized Mesh</a> </li>
+<li> <a href="https://github.com/AnalyticalGraphicsInc/cesium/wiki/heightmap-1.0">Height Map</a> </li>
+</ul>
 </div>
 
 
@@ -159,7 +168,16 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Create Arctic DEM terrain with normals.try {  const viewer = new Cesium.Viewer("cesiumContainer", {    terrainProvider: await Cesium.CesiumTerrainProvider.fromIonAssetId(3956, {      requestVertexNormals: true    })  });} catch (error) {  console.log(error);}</code></pre>
+    <pre><code class="language-javascript">// Create Arctic DEM terrain with normals.
+try {
+  const viewer = new Cesium.Viewer("cesiumContainer", {
+    terrainProvider: await Cesium.CesiumTerrainProvider.fromIonAssetId(3956, {
+      requestVertexNormals: true
+    })
+  });
+} catch (error) {
+  console.log(error);
+}</code></pre>
 
     
 
@@ -222,7 +240,12 @@
 
 
 <div class="description">
-    获取一个对象，该对象可用于从此提供程序确定地形的可用性，例如在点和矩形中。如果可用，此属性可能未定义信息不可用。请注意，这反映了当前已知可用的磁贴。将来可能会发现其他可用的瓷砖，例如可用性信息存在于树的更深处，而不是在根节点都可以发现。然而，一个瓷砖现在可用，将来不会不可用。
+    获取一个对象，该对象可用于从此提供程序确定地形的可用性，例如
+在点和矩形中。如果可用，此属性可能未定义
+信息不可用。请注意，这反映了当前已知可用的磁贴。
+将来可能会发现其他可用的瓷砖，例如可用性信息
+存在于树的更深处，而不是在根节点都可以发现。然而，一个瓷砖
+现在可用，将来不会不可用。
 </div>
 
 
@@ -282,7 +305,8 @@
 
 
 <div class="description">
-    获取此地形提供程序处于活动状态时要显示的信用值。这通常用于信贷地形的来源。
+    获取此地形提供程序处于活动状态时要显示的信用值。这通常用于信贷
+地形的来源。
 </div>
 
 
@@ -342,7 +366,9 @@
 
 
 <div class="description">
-    获取地形提供程序遇到异步错误时引发的事件。通过订阅到事件，您将收到错误通知，并可能从中恢复。事件监听器传递 <a href="TileProviderError.html"><code>TileProviderError</code></a> 的实例.
+    获取地形提供程序遇到异步错误时引发的事件。通过订阅
+到事件，您将收到错误通知，并可能从中恢复。事件监听器
+传递 <a href="TileProviderError.html"><code>TileProviderError</code></a> 的实例.
 </div>
 
 
@@ -522,7 +548,9 @@
 
 
 <div class="description">
-    获取一个值，该值指示提供程序是否包含水掩码。水面罩表示地球上哪些区域是水而不是陆地，因此它们可以被渲染作为具有动画波的反射表面。
+    获取一个值，该值指示提供程序是否包含水掩码。水面罩
+表示地球上哪些区域是水而不是陆地，因此它们可以被渲染
+作为具有动画波的反射表面。
 </div>
 
 
@@ -582,7 +610,9 @@
 
 
 <div class="description">
-    布尔标志，表示客户端是否应该从服务器请求元数据。只有当客户端请求元数据和元数据时，才会将元数据添加到标准网格数据中如果服务器提供元数据。
+    布尔标志，表示客户端是否应该从服务器请求元数据。
+只有当客户端请求元数据和元数据时，才会将元数据添加到标准网格数据中
+如果服务器提供元数据。
 </div>
 
 
@@ -642,7 +672,9 @@
 
 
 <div class="description">
-    布尔标志，表示客户端是否应该从服务器请求顶点法线。顶点法线数据只有在客户端请求顶点法线和顶点法线时才会添加到标准贴图网格数据中如果服务器提供顶点法线。
+    布尔标志，表示客户端是否应该从服务器请求顶点法线。
+顶点法线数据只有在客户端请求顶点法线和顶点法线时才会添加到标准贴图网格数据中
+如果服务器提供顶点法线。
 </div>
 
 
@@ -702,7 +734,9 @@
 
 
 <div class="description">
-    布尔标志，表示客户端是否应该从服务器请求一个水掩码。只有当客户端请求水掩码和时，水掩码数据才会被附加到标准贴图网格数据中如果服务器提供了一个掩码。
+    布尔标志，表示客户端是否应该从服务器请求一个水掩码。
+只有当客户端请求水掩码和时，水掩码数据才会被附加到标准贴图网格数据中
+如果服务器提供了一个掩码。
 </div>
 
 
@@ -829,7 +863,12 @@
 
 
 <div class="description">
-    从cesium资产ID创建 <a href="TerrainProvider.html"><code>TerrainProvider</code></a>，以铯地形格式访问地形数据地形格式可以是以下其中一种:<ul><li> <a href="https://github.com/AnalyticalGraphicsInc/quantized-mesh">Quantized Mesh</a> </li><li> <a href="https://github.com/AnalyticalGraphicsInc/cesium/wiki/heightmap-1.0">Height Map</a> </li></ul>
+    从cesium资产ID创建 <a href="TerrainProvider.html"><code>TerrainProvider</code></a>，以铯地形格式访问地形数据
+地形格式可以是以下其中一种:
+<ul>
+<li> <a href="https://github.com/AnalyticalGraphicsInc/quantized-mesh">Quantized Mesh</a> </li>
+<li> <a href="https://github.com/AnalyticalGraphicsInc/cesium/wiki/heightmap-1.0">Height Map</a> </li>
+</ul>
 </div>
 
 
@@ -1021,7 +1060,16 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Create Arctic DEM terrain with normals.try {  const viewer = new Cesium.Viewer("cesiumContainer", {    terrainProvider: await Cesium.CesiumTerrainProvider.fromIonAssetId(3956, {        requestVertexNormals: true    })  });} catch (error) {  console.log(error);}</code></pre>
+    <pre><code class="language-javascript">// Create Arctic DEM terrain with normals.
+try {
+  const viewer = new Cesium.Viewer("cesiumContainer", {
+    terrainProvider: await Cesium.CesiumTerrainProvider.fromIonAssetId(3956, {
+        requestVertexNormals: true
+    })
+  });
+} catch (error) {
+  console.log(error);
+}</code></pre>
 
     
 
@@ -1058,7 +1106,12 @@
 
 
 <div class="description">
-    创建 <a href="TerrainProvider.html"><code>TerrainProvider</code></a> 以cesium地形格式访问地形数据。地形格式可以是以下其中一种:<ul><li> <a href="https://github.com/AnalyticalGraphicsInc/quantized-mesh">Quantized Mesh</a> </li><li> <a href="https://github.com/AnalyticalGraphicsInc/cesium/wiki/heightmap-1.0">Height Map</a> </li></ul>
+    创建 <a href="TerrainProvider.html"><code>TerrainProvider</code></a> 以cesium地形格式访问地形数据。
+地形格式可以是以下其中一种:
+<ul>
+<li> <a href="https://github.com/AnalyticalGraphicsInc/quantized-mesh">Quantized Mesh</a> </li>
+<li> <a href="https://github.com/AnalyticalGraphicsInc/cesium/wiki/heightmap-1.0">Height Map</a> </li>
+</ul>
 </div>
 
 
@@ -1123,7 +1176,7 @@
 
                 
             
-                The URL of the Cesium terrain server.</td>
+                Cesium 地形服务器的 URL。</td>
         </tr>
 
     
@@ -1153,7 +1206,7 @@
 
                 
             
-                An 描述初始化选项的对象.</td>
+                描述初始化选项的对象</td>
         </tr>
 
     
@@ -1185,7 +1238,7 @@
         
 <span class="param-type"><a href="RuntimeError.html">RuntimeError</a></span>
 
-: layer.json does not specify a format
+: layer.json未指定格式
     </div>
 
 </li>
@@ -1196,7 +1249,7 @@
         
 <span class="param-type"><a href="RuntimeError.html">RuntimeError</a></span>
 
-: layer.json specifies an unknown format
+: layer.json 指定未知格式
     </div>
 
 </li>
@@ -1207,7 +1260,7 @@
         
 <span class="param-type"><a href="RuntimeError.html">RuntimeError</a></span>
 
-: layer.json specifies an unsupported quantized-mesh version
+: layer.json 指定不支持的量化网格版本
     </div>
 
 </li>
@@ -1218,7 +1271,7 @@
         
 <span class="param-type"><a href="RuntimeError.html">RuntimeError</a></span>
 
-: layer.json does not specify a tiles property, or specifies an empty array
+: layer.json未指定 tiles 属性，或指定空数组
     </div>
 
 </li>
@@ -1229,7 +1282,7 @@
         
 <span class="param-type"><a href="RuntimeError.html">RuntimeError</a></span>
 
-: layer.json does not specify any tile URL templates
+: layer.json未指定任何瓦片 URL 模板
     </div>
 
 </li>
@@ -1259,7 +1312,17 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Create Arctic DEM terrain with normals.try {  const viewer = new Cesium.Viewer("cesiumContainer", {    terrainProvider: await Cesium.CesiumTerrainProvider.fromUrl(      Cesium.IonResource.fromAssetId(3956), {        requestVertexNormals: true    })  });} catch (error) {  console.log(error);}</code></pre>
+    <pre><code class="language-javascript">// Create Arctic DEM terrain with normals.
+try {
+  const viewer = new Cesium.Viewer("cesiumContainer", {
+    terrainProvider: await Cesium.CesiumTerrainProvider.fromUrl(
+      Cesium.IonResource.fromAssetId(3956), {
+        requestVertexNormals: true
+    })
+  });
+} catch (error) {
+  console.log(error);
+}</code></pre>
 
     
 
@@ -1793,7 +1856,8 @@
 
 
 <div class="description">
-    请求给定贴图的几何图形。结果必须包括地形数据和可选地包括一个水罩和指示哪些子瓦片可用。
+    请求给定贴图的几何图形。结果必须包括地形数据和
+可选地包括一个水罩和指示哪些子瓦片可用。
 </div>
 
 
@@ -1956,7 +2020,9 @@
 
         
 <div class="param-desc">
-    对所请求几何图形的承诺。如果这种方法        返回未定义而不是承诺，这表明已经有太多请求        等待中，请求将稍后重试。
+    对所请求几何图形的承诺。如果这种方法
+        返回未定义而不是承诺，这表明已经有太多请求
+        等待中，请求将稍后重试。
 </div>
 
 

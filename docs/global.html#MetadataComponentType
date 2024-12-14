@@ -280,7 +280,7 @@
 
             
 
-            <td class="description last">一个 32 位（单精度）浮点数</td>
+            <td class="description last">一个 32 位(单精度)浮点数</td>
         </tr>
 
     
@@ -303,7 +303,7 @@
 
             
 
-            <td class="description last">一个 64 位（双精度）浮点数</td>
+            <td class="description last">一个 64 位(双精度)浮点数</td>
         </tr>
 
     
@@ -384,7 +384,7 @@
 
 
 <div class="description">
-    一个 32 位（单精度）浮点数
+    一个 32 位(单精度)浮点数
 </div>
 
 
@@ -447,7 +447,7 @@
 
 
 <div class="description">
-    一个 64 位（双精度）浮点数
+    一个 64 位(双精度)浮点数
 </div>
 
 

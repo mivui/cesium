@@ -309,7 +309,7 @@
 
         
 <div class="param-desc">
-    <code>true</code>（如果提供的云类型为有效值）;否则为 <code>false</code>。
+    <code>true</code>(如果提供的云类型为有效值);否则为 <code>false</code>。
 </div>
 
 
@@ -340,7 +340,9 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">如果 （！Cesium.CloudType.validate（cloudType）） {throw new Cesium.DeveloperError（'cloudType must a valid value.'）;}</code></pre>
+    <pre><code class="language-javascript">如果 (！Cesium.CloudType.validate(cloudType)) {
+throw new Cesium.DeveloperError('cloudType must a valid value.');
+}</code></pre>
 
     
 

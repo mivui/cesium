@@ -58,7 +58,9 @@
 
 
 <div class="description">
-    建模为线带的多段线的描述;前两个位置定义线段，每个额外的位置定义从前一个位置开始的线段。多段线能够使用材质显示。
+    建模为线带的多段线的描述;前两个位置定义线段
+，每个额外的位置定义从前一个位置开始的线段。多段线能够
+使用材质显示。
 </div>
 
 
@@ -337,7 +339,7 @@
 
                 
             
-                如果 options.arcType 不是 ArcType.NONE，则每个纬度和经度之间的距离（以弧度为单位）。确定缓冲区中的位置数。</td>
+                如果 options.arcType 不是 ArcType.NONE，则每个纬度和经度之间的距离(以弧度为单位)。确定缓冲区中的位置数。</td>
         </tr>
 
     
@@ -494,7 +496,16 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// A polyline with two connected line segmentsconst polyline = new Cesium.PolylineGeometry({  positions : Cesium.Cartesian3.fromDegreesArray([    0.0, 0.0,    5.0, 0.0,    5.0, 5.0  ]),  width : 10.0});const geometry = Cesium.PolylineGeometry.createGeometry(polyline);</code></pre>
+    <pre><code class="language-javascript">// A polyline with two connected line segments
+const polyline = new Cesium.PolylineGeometry({
+  positions : Cesium.Cartesian3.fromDegreesArray([
+    0.0, 0.0,
+    5.0, 0.0,
+    5.0, 5.0
+  ]),
+  width : 10.0
+});
+const geometry = Cesium.PolylineGeometry.createGeometry(polyline);</code></pre>
 
     
 
@@ -1125,7 +1136,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数或新的 PolylineGeometry 实例（如果未提供）。
+    修改后的结果参数或新的 PolylineGeometry 实例(如果未提供)。
 </div>
 
 

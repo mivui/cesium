@@ -124,7 +124,7 @@
 <div class="description">
     创建一个后期处理舞台，该舞台使用黑色和白色渐变渲染输入纹理。
 <p>
-此阶段有一个统一的值，即 <code>gradations（渐变</code>），用于缩放每个像素的明亮度。
+此阶段有一个统一的值，即 <code>gradations(渐变</code>)，用于缩放每个像素的明亮度。
 </p>
 </div>
 
@@ -220,7 +220,7 @@
 此 stage 具有以下 uniforms：<code>delta</code>、<code>sigma</code> 和 <code>stepSize</code>。
 </p>
 <p>
-<code>delta</code> 和 <code>sigma</code> 用于计算高斯滤波器的权重。等式为 <code>exp（（-0.5 * delta * delta） / （sigma * sigma））。</code>
+<code>delta</code> 和 <code>sigma</code> 用于计算高斯滤波器的权重。等式为 <code>exp((-0.5 * delta * delta) / (sigma * sigma))。</code>
 <code>delta</code> 的默认值为 <code>1.0</code>。<code>sigma</code> 的默认值为 <code>2.0</code>。
 <code>stepSize</code> 是到下一个纹素的距离。默认值为 <code>1.0</code>。
 </p>
@@ -415,7 +415,7 @@
 此 stage 具有以下 uniforms：<code>focalDistance</code>、<code>delta</code>、<code>sigma</code> 和 <code>stepSize</code>。
 </p>
 <p>
-<code>focalDistance</code> 是距摄像机的距离（以米为单位），用于设置摄像机焦点。
+<code>focalDistance</code> 是距摄像机的距离(以米为单位)，用于设置摄像机焦点。
 </p>
 <p>
 <code>delta</code>、<code>sigma</code> 和 <code>stepSize</code> 是与 <code>PostProcessStageLibrary#createBlurStage</code> 相同的属性。
@@ -519,7 +519,7 @@
 </p>
 <ul>
 <li><code>color</code> 是高亮显示的边缘的颜色。默认值为 <code>Color#BLACK</code>。</li>
-<li><code>length</code> 是边缘的长度（以像素为单位）。默认值为 <code>0.5</code>。</li>
+<li><code>length</code> 是边缘的长度(以像素为单位)。默认值为 <code>0.5</code>。</li>
 </ul>
 <p>
 2D 不支持此阶段。
@@ -831,7 +831,7 @@ postProcessStages.add(Cesium.PostProcessStageLibrary.createSilhouetteStage([yell
 </p>
 <p>
 <code>color</code> 是高亮显示的边缘的颜色。默认值为 <code>Color#BLACK</code>。
-<code>length</code> 是边缘的长度（以像素为单位）。默认值为 <code>0.5</code>。
+<code>length</code> 是边缘的长度(以像素为单位)。默认值为 <code>0.5</code>。
 </p>
 </div>
 

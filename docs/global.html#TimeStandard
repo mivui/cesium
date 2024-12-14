@@ -96,7 +96,11 @@
 
             
 
-            <td class="description last">表示协调世界时 （UTC） 时间标准。UTC 与 TAI 的关系根据关系<code>UTC = TAI - deltaT</code>，其中 <code>deltaT</code> 是跳跃数秒数，这些秒数已引入 TAI 中。</td>
+            <td class="description last">表示协调世界时 (UTC) 时间标准。
+
+UTC 与 TAI 的关系根据关系
+<code>UTC = TAI - deltaT</code>，其中 <code>deltaT</code> 是跳跃数
+秒数，这些秒数已引入 TAI 中。</td>
         </tr>
 
     
@@ -119,7 +123,8 @@
 
             
 
-            <td class="description last">表示国际原子时 （TAI） 时间标准。TAI 是与其他时间标准相关的主要时间标准。</td>
+            <td class="description last">表示国际原子时 (TAI) 时间标准。
+TAI 是与其他时间标准相关的主要时间标准。</td>
         </tr>
 
     
@@ -198,7 +203,8 @@
 
 
 <div class="description">
-    表示国际原子时 （TAI） 时间标准。TAI 是与其他时间标准相关的主要时间标准。
+    表示国际原子时 (TAI) 时间标准。
+TAI 是与其他时间标准相关的主要时间标准。
 </div>
 
 
@@ -261,7 +267,11 @@
 
 
 <div class="description">
-    表示协调世界时 （UTC） 时间标准。UTC 与 TAI 的关系根据关系<code>UTC = TAI - deltaT</code>，其中 <code>deltaT</code> 是跳跃数秒数，这些秒数已引入 TAI 中。
+    表示协调世界时 (UTC) 时间标准。
+
+UTC 与 TAI 的关系根据关系
+<code>UTC = TAI - deltaT</code>，其中 <code>deltaT</code> 是跳跃数
+秒数，这些秒数已引入 TAI 中。
 </div>
 
 

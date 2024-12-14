@@ -58,7 +58,8 @@
 
 
 <div class="description">
-    由 <a href="TimeIntervalCollection.html"><code>TimeIntervalCollection</code></a> 定义的 <a href="Property.html"><code>Property</code></a>，其中data 属性表示 @link time 的值。
+    由 <a href="TimeIntervalCollection.html"><code>TimeIntervalCollection</code></a> 定义的 <a href="Property.html"><code>Property</code></a>，其中
+data 属性表示 @link time 的值。
 </div>
 
 
@@ -107,7 +108,33 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">//Create a Cartesian2 interval property which contains data on August 1st, 2012//and uses a different value every 6 hours.const composite = new Cesium.TimeIntervalCollectionProperty();composite.intervals.addInterval(Cesium.TimeInterval.fromIso8601({    iso8601 : '2012-08-01T00:00:00.00Z/2012-08-01T06:00:00.00Z',    isStartIncluded : true,    isStopIncluded : false,    data : new Cesium.Cartesian2(2.0, 3.4)}));composite.intervals.addInterval(Cesium.TimeInterval.fromIso8601({    iso8601 : '2012-08-01T06:00:00.00Z/2012-08-01T12:00:00.00Z',    isStartIncluded : true,    isStopIncluded : false,    data : new Cesium.Cartesian2(12.0, 2.7)}));composite.intervals.addInterval(Cesium.TimeInterval.fromIso8601({    iso8601 : '2012-08-01T12:00:00.00Z/2012-08-01T18:00:00.00Z',    isStartIncluded : true,    isStopIncluded : false,    data : new Cesium.Cartesian2(5.0, 12.4)}));composite.intervals.addInterval(Cesium.TimeInterval.fromIso8601({    iso8601 : '2012-08-01T18:00:00.00Z/2012-08-02T00:00:00.00Z',    isStartIncluded : true,    isStopIncluded : true,    data : new Cesium.Cartesian2(85.0, 4.1)}));</code></pre>
+    <pre><code class="language-javascript">//Create a Cartesian2 interval property which contains data on August 1st, 2012
+//and uses a different value every 6 hours.
+const composite = new Cesium.TimeIntervalCollectionProperty();
+composite.intervals.addInterval(Cesium.TimeInterval.fromIso8601({
+    iso8601 : '2012-08-01T00:00:00.00Z/2012-08-01T06:00:00.00Z',
+    isStartIncluded : true,
+    isStopIncluded : false,
+    data : new Cesium.Cartesian2(2.0, 3.4)
+}));
+composite.intervals.addInterval(Cesium.TimeInterval.fromIso8601({
+    iso8601 : '2012-08-01T06:00:00.00Z/2012-08-01T12:00:00.00Z',
+    isStartIncluded : true,
+    isStopIncluded : false,
+    data : new Cesium.Cartesian2(12.0, 2.7)
+}));
+composite.intervals.addInterval(Cesium.TimeInterval.fromIso8601({
+    iso8601 : '2012-08-01T12:00:00.00Z/2012-08-01T18:00:00.00Z',
+    isStartIncluded : true,
+    isStopIncluded : false,
+    data : new Cesium.Cartesian2(5.0, 12.4)
+}));
+composite.intervals.addInterval(Cesium.TimeInterval.fromIso8601({
+    iso8601 : '2012-08-01T18:00:00.00Z/2012-08-02T00:00:00.00Z',
+    isStartIncluded : true,
+    isStopIncluded : true,
+    data : new Cesium.Cartesian2(85.0, 4.1)
+}));</code></pre>
 
     
 
@@ -159,7 +186,9 @@
 
 
 <div class="description">
-    获取此属性的定义发生更改时引发的事件。每当使用不同的数据调用 setValue 时，定义都会更改比当前值。
+    获取此属性的定义发生更改时引发的事件。
+每当使用不同的数据调用 setValue 时，定义都会更改
+比当前值。
 </div>
 
 
@@ -279,7 +308,8 @@
 
 
 <div class="description">
-    获取一个值，该值指示此属性是否为 constant。 将属性视为常量（如果 getValue 始终为当前定义返回相同的结果）。
+    获取一个值，该值指示此属性是否为 constant。 将属性视为
+常量(如果 getValue 始终为当前定义返回相同的结果)。
 </div>
 
 
@@ -346,7 +376,8 @@
 
 
 <div class="description">
-    将此属性与提供的属性进行比较，并返回<code>true</code>，否则为 <code>false</code>。
+    将此属性与提供的属性进行比较，并返回
+<code>true</code>，否则为 <code>false</code>。
 </div>
 
 
@@ -609,7 +640,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数或新实例（如果未提供 result 参数）。
+    修改后的结果参数或新实例(如果未提供 result 参数)。
 </div>
 
 

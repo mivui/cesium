@@ -47,8 +47,8 @@
 
 
         
-            <div class="description">Compute the rectangle that describes the part of the drawing buffer
-that is relevant for picking.</div>
+            <div class="description">计算描述绘图缓冲区部分的矩形
+这与拣选相关。</div>
         
 
         

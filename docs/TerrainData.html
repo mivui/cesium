@@ -58,7 +58,8 @@
 
 
 <div class="description">
-    单个图块的地形数据。 此类型描述接口，并且不打算直接实例化。
+    单个图块的地形数据。 此类型描述
+接口，并且不打算直接实例化。
 </div>
 
 
@@ -223,7 +224,9 @@
 
 
 <div class="description">
-    此地形数据中包含的水面罩（如果有）。 水面罩是矩形的Uint8Array 或图像，其中值 255 表示水，值 0 表示陆地。允许介于 0 和 255 之间的值，以便在陆地和水之间平滑混合。
+    此地形数据中包含的水面罩(如果有)。 水面罩是矩形的
+Uint8Array 或图像，其中值 255 表示水，值 0 表示陆地。
+允许介于 0 和 255 之间的值，以便在陆地和水之间平滑混合。
 </div>
 
 
@@ -408,7 +411,9 @@
 
         
 <div class="param-desc">
-    指定位置的地形高度。 如果位置在矩形之外，这个方法会推断高度，很可能会很疯狂对于远在矩形之外的位置不正确。
+    指定位置的地形高度。 如果位置
+在矩形之外，这个方法会推断高度，很可能会很疯狂
+对于远在矩形之外的位置不正确。
 </div>
 
 
@@ -471,7 +476,10 @@
 
 
 <div class="description">
-    根据<code>TerrainData#childTileMask</code> 的 SurfaceData 中。 假定给定的子图块坐标成为此牌的四个子牌之一。 如果非子图块坐标为给定，则返回 southeast child tile 的可用性。
+    根据
+<code>TerrainData#childTileMask</code> 的 SurfaceData 中。 假定给定的子图块坐标
+成为此牌的四个子牌之一。 如果非子图块坐标为
+给定，则返回 southeast child tile 的可用性。
 </div>
 
 
@@ -522,7 +530,7 @@
 
             <td class="description last">
             
-                此（父）瓦片的瓦片 X 坐标。</td>
+                此(父)瓦片的瓦片 X 坐标。</td>
         </tr>
 
     
@@ -545,7 +553,7 @@
 
             <td class="description last">
             
-                此（父）瓦片的瓦片 Y 坐标。</td>
+                此(父)瓦片的瓦片 Y 坐标。</td>
         </tr>
 
     
@@ -885,7 +893,9 @@
 
         
 <div class="param-desc">
-    后代瓦片的上采样地形数据的承诺，或 undefined 如果正在进行的异步 Upsample 操作过多，并且请求已被递延。
+    后代瓦片的上采样地形数据的承诺，
+或 undefined 如果正在进行的异步 Upsample 操作过多，并且请求已被
+递延。
 </div>
 
 
@@ -948,7 +958,10 @@
 
 
 <div class="description">
-    获取一个值，该值指示此地形数据是否是通过对较低分辨率的上采样创建的地形数据。 如果此值为 false，则数据是从其他来源获取的，例如从远程服务器下载。 对于实例，此方法应返回 true从调用 <a href="TerrainData.html#upsample"><code>TerrainData#upsample</code></a> 返回。
+    获取一个值，该值指示此地形数据是否是通过对较低分辨率的上采样创建的
+地形数据。 如果此值为 false，则数据是从其他来源获取的，例如
+从远程服务器下载。 对于实例，此方法应返回 true
+从调用 <a href="TerrainData.html#upsample"><code>TerrainData#upsample</code></a> 返回。
 </div>
 
 

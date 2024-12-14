@@ -156,7 +156,7 @@
             
                 <td class="default">
                 
-                    <code class="language-javascript">Cartesian3（1.0， 1.0， 1.0）</code>
+                    <code class="language-javascript">Cartesian3(1.0, 1.0, 1.0)</code>
                 
                 </td>
             
@@ -386,7 +386,7 @@
 
                 
             
-                椭球体的堆栈数（比平行线的数量大 1）。</td>
+                椭球体的堆栈数(比平行线的数量大 1)。</td>
         </tr>
 
     
@@ -422,7 +422,7 @@
 
                 
             
-                椭球体的切片数（等于径向线的数量）。</td>
+                椭球体的切片数(等于径向线的数量)。</td>
         </tr>
 
     
@@ -543,7 +543,12 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const ellipsoid = new Cesium.EllipsoidOutlineGeometry({  radii : new Cesium.Cartesian3(1000000.0, 500000.0, 500000.0),  stackPartitions: 6,  slicePartitions: 5});const geometry = Cesium.EllipsoidOutlineGeometry.createGeometry(ellipsoid);</code></pre>
+    <pre><code class="language-javascript">const ellipsoid = new Cesium.EllipsoidOutlineGeometry({
+  radii : new Cesium.Cartesian3(1000000.0, 500000.0, 500000.0),
+  stackPartitions: 6,
+  slicePartitions: 5
+});
+const geometry = Cesium.EllipsoidOutlineGeometry.createGeometry(ellipsoid);</code></pre>
 
     
 
@@ -1164,7 +1169,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数 或新的 EllipsoidOutlineGeometry 实例（如果未提供）。
+    修改后的结果参数 或新的 EllipsoidOutlineGeometry 实例(如果未提供)。
 </div>
 
 

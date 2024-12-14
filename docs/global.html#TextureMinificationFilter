@@ -142,7 +142,10 @@
 
             
 
-            <td class="description last">选择最近的 mip 级别，并在该级别内应用最近的采样。<p>要求纹理具有 mipmap。mip 级别由纹理的视角和屏幕空间大小选择。</p></td>
+            <td class="description last">选择最近的 mip 级别，并在该级别内应用最近的采样。
+<p>
+要求纹理具有 mipmap。mip 级别由纹理的视角和屏幕空间大小选择。
+</p></td>
         </tr>
 
     
@@ -165,7 +168,10 @@
 
             
 
-            <td class="description last">选择最近的 mip 级别，并在该级别内应用线性采样。<p>要求纹理具有 mipmap。mip 级别由纹理的视角和屏幕空间大小选择。</p></td>
+            <td class="description last">选择最近的 mip 级别，并在该级别内应用线性采样。
+<p>
+要求纹理具有 mipmap。mip 级别由纹理的视角和屏幕空间大小选择。
+</p></td>
         </tr>
 
     
@@ -188,7 +194,13 @@
 
             
 
-            <td class="description last">从两个相邻的 mip 级别使用最近的采样读取纹理值，并线性插值结果。<p>从 mipmapped 纹理采样时，此选项可在视觉质量和速度之间实现良好的平衡。</p><p>要求纹理具有 mipmap。mip 级别由纹理的视角和屏幕空间大小选择。</p></td>
+            <td class="description last">从两个相邻的 mip 级别使用最近的采样读取纹理值，并线性插值结果。
+<p>
+从 mipmapped 纹理采样时，此选项可在视觉质量和速度之间实现良好的平衡。
+</p>
+<p>
+要求纹理具有 mipmap。mip 级别由纹理的视角和屏幕空间大小选择。
+</p></td>
         </tr>
 
     
@@ -211,7 +223,13 @@
 
             
 
-            <td class="description last">使用线性采样从两个相邻的 mip 级别读取纹理值，并线性插值结果。<p>从 mipmapped 纹理采样时，此选项可在视觉质量和速度之间实现良好的平衡。</p><p>要求纹理具有 mipmap。mip 级别由纹理的视角和屏幕空间大小选择。</p></td>
+            <td class="description last">使用线性采样从两个相邻的 mip 级别读取纹理值，并线性插值结果。
+<p>
+从 mipmapped 纹理采样时，此选项可在视觉质量和速度之间实现良好的平衡。
+</p>
+<p>
+要求纹理具有 mipmap。mip 级别由纹理的视角和屏幕空间大小选择。
+</p></td>
         </tr>
 
     
@@ -247,7 +265,7 @@
     
     <h5>See:</h5>
     <ul class="see-list">
-        <li>TextureMagnificationFilter （贴图放大过滤器）</li>
+        <li>TextureMagnificationFilter (贴图放大过滤器)</li>
     </ul>
     
 
@@ -353,7 +371,13 @@
 
 
 <div class="description">
-    使用线性采样从两个相邻的 mip 级别读取纹理值，并线性插值结果。<p>从 mipmapped 纹理采样时，此选项可在视觉质量和速度之间实现良好的平衡。</p><p>要求纹理具有 mipmap。mip 级别由纹理的视角和屏幕空间大小选择。</p>
+    使用线性采样从两个相邻的 mip 级别读取纹理值，并线性插值结果。
+<p>
+从 mipmapped 纹理采样时，此选项可在视觉质量和速度之间实现良好的平衡。
+</p>
+<p>
+要求纹理具有 mipmap。mip 级别由纹理的视角和屏幕空间大小选择。
+</p>
 </div>
 
 
@@ -416,7 +440,10 @@
 
 
 <div class="description">
-    选择最近的 mip 级别，并在该级别内应用线性采样。<p>要求纹理具有 mipmap。mip 级别由纹理的视角和屏幕空间大小选择。</p>
+    选择最近的 mip 级别，并在该级别内应用线性采样。
+<p>
+要求纹理具有 mipmap。mip 级别由纹理的视角和屏幕空间大小选择。
+</p>
 </div>
 
 
@@ -542,7 +569,13 @@
 
 
 <div class="description">
-    从两个相邻的 mip 级别使用最近的采样读取纹理值，并线性插值结果。<p>从 mipmapped 纹理采样时，此选项可在视觉质量和速度之间实现良好的平衡。</p><p>要求纹理具有 mipmap。mip 级别由纹理的视角和屏幕空间大小选择。</p>
+    从两个相邻的 mip 级别使用最近的采样读取纹理值，并线性插值结果。
+<p>
+从 mipmapped 纹理采样时，此选项可在视觉质量和速度之间实现良好的平衡。
+</p>
+<p>
+要求纹理具有 mipmap。mip 级别由纹理的视角和屏幕空间大小选择。
+</p>
 </div>
 
 
@@ -605,7 +638,10 @@
 
 
 <div class="description">
-    选择最近的 mip 级别，并在该级别内应用最近的采样。<p>要求纹理具有 mipmap。mip 级别由纹理的视角和屏幕空间大小选择。</p>
+    选择最近的 mip 级别，并在该级别内应用最近的采样。
+<p>
+要求纹理具有 mipmap。mip 级别由纹理的视角和屏幕空间大小选择。
+</p>
 </div>
 
 

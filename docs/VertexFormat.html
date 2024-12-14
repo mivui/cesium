@@ -58,7 +58,9 @@
 
 
 <div class="description">
-    顶点格式定义构成顶点的属性。 可以提供 VertexFormat更改为 <a href="Geometry.html"><code>Geometry</code></a> 以请求计算某些属性，例如，仅计算 position，位置和法线等。
+    顶点格式定义构成顶点的属性。 可以提供 VertexFormat
+更改为 <a href="Geometry.html"><code>Geometry</code></a> 以请求计算某些属性，例如，仅计算 position，
+位置和法线等。
 </div>
 
 
@@ -159,7 +161,11 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Create a vertex format with position and 2D texture coordinate attributes.const format = new Cesium.VertexFormat({  position : true,  st : true});</code></pre>
+    <pre><code class="language-javascript">// Create a vertex format with position and 2D texture coordinate attributes.
+const format = new Cesium.VertexFormat({
+  position : true,
+  st : true
+});</code></pre>
 
     
 
@@ -291,7 +297,10 @@
 
 
 <div class="description">
-    具有 position、normal 和 st 属性的不可变顶点格式。这与大多数外观和材料兼容;然而normal 和 st 属性并不总是必需的。 当这是事先知道，应该使用另一个 <code>VertexFormat</code>。
+    具有 position、normal 和 st 属性的不可变顶点格式。
+这与大多数外观和材料兼容;然而
+normal 和 st 属性并不总是必需的。 当这是
+事先知道，应该使用另一个 <code>VertexFormat</code>。
 </div>
 
 
@@ -485,7 +494,8 @@
 
 
 <div class="description">
-    具有 position 和 normal 属性的不可变顶点格式。这与每个实例的颜色外观兼容，例如 <a href="PerInstanceColorAppearance.html"><code>PerInstanceColorAppearance</code></a>。
+    具有 position 和 normal 属性的不可变顶点格式。
+这与每个实例的颜色外观兼容，例如 <a href="PerInstanceColorAppearance.html"><code>PerInstanceColorAppearance</code></a>。
 </div>
 
 
@@ -552,7 +562,8 @@
 
 
 <div class="description">
-    具有 position 和 st 属性的不可变顶点格式。这与 <a href="EllipsoidSurfaceAppearance.html"><code>EllipsoidSurfaceAppearance</code></a> 兼容。
+    具有 position 和 st 属性的不可变顶点格式。
+这与 <a href="EllipsoidSurfaceAppearance.html"><code>EllipsoidSurfaceAppearance</code></a> 兼容。
 </div>
 
 
@@ -619,7 +630,9 @@
 
 
 <div class="description">
-    具有 position、normal 和 st 属性的不可变顶点格式。这与 <a href="MaterialAppearance.html"><code>MaterialAppearance</code></a> 兼容，当 <a href="MaterialAppearance.html#materialSupport"><code>MaterialAppearance#materialSupport</code></a>为 <code>TEXTURED/code>。
+    具有 position、normal 和 st 属性的不可变顶点格式。
+这与 <a href="MaterialAppearance.html"><code>MaterialAppearance</code></a> 兼容，当 <a href="MaterialAppearance.html#materialSupport"><code>MaterialAppearance#materialSupport</code></a>
+为 <code>TEXTURED/code>。
 </div>
 
 
@@ -753,7 +766,10 @@
 
 
 <div class="description">
-    如果为 <code>true</code>，则顶点具有双切线属性 （规格化），该属性用于凹凸贴图等切线空间效果。<p>32 位浮点。 每个属性 3 个组件。</p>
+    如果为 <code>true</code>，则顶点具有双切线属性 (规格化)，该属性用于凹凸贴图等切线空间效果。
+<p>
+32 位浮点。 每个属性 3 个组件。
+</p>
 </div>
 
 
@@ -816,7 +832,10 @@
 
 
 <div class="description">
-    如果为 <code>true</code>，则顶点具有 RGB 颜色属性。<p>8 位无符号字节。 每个属性 3 个组件。</p>
+    如果为 <code>true</code>，则顶点具有 RGB 颜色属性。
+<p>
+8 位无符号字节。 每个属性 3 个组件。
+</p>
 </div>
 
 
@@ -879,7 +898,10 @@
 
 
 <div class="description">
-    如果为 <code>true</code>，则顶点具有 normal 属性（规格化），该属性通常用于照明。<p>32 位浮点。 每个属性 3 个组件。</p>
+    如果为 <code>true</code>，则顶点具有 normal 属性(规格化)，该属性通常用于照明。
+<p>
+32 位浮点。 每个属性 3 个组件。
+</p>
 </div>
 
 
@@ -942,7 +964,10 @@
 
 
 <div class="description">
-    如果为 <code>true</code>，则顶点具有 3D 位置属性。<p>64 位浮点（用于精度）。 每个属性 3 个组件。</p>
+    如果为 <code>true</code>，则顶点具有 3D 位置属性。
+<p>
+64 位浮点(用于精度)。 每个属性 3 个组件。
+</p>
 </div>
 
 
@@ -1005,7 +1030,10 @@
 
 
 <div class="description">
-    如果为 <code>true</code>，则顶点具有 2D 纹理坐标属性。<p>32 位浮点。 每个属性 2 个组件</p>
+    如果为 <code>true</code>，则顶点具有 2D 纹理坐标属性。
+<p>
+32 位浮点。 每个属性 2 个组件
+</p>
 </div>
 
 
@@ -1068,7 +1096,10 @@
 
 
 <div class="description">
-    如果为 <code>true</code>，则顶点具有切线属性（规格化），该属性用于凹凸贴图等切线空间效果。<p>32 位浮点。 每个属性 3 个组件。</p>
+    如果为 <code>true</code>，则顶点具有切线属性(规格化)，该属性用于凹凸贴图等切线空间效果。
+<p>
+32 位浮点。 每个属性 3 个组件。
+</p>
 </div>
 
 
@@ -1245,7 +1276,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数或者一个新的 VertexFormat 实例（如果未提供）。（如果 vertexFormat 未定义，则返回 undefined）
+    修改后的结果参数或者一个新的 VertexFormat 实例(如果未提供)。(如果 vertexFormat 未定义，则返回 undefined)
 </div>
 
 
@@ -1675,7 +1706,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数或者一个新的 VertexFormat 实例（如果未提供）。
+    修改后的结果参数或者一个新的 VertexFormat 实例(如果未提供)。
 </div>
 
 

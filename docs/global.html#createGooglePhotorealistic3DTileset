@@ -47,13 +47,7 @@
 
 
         
-            <div class="description">为 Google 照片级真实感 3D 创建一个 <a href="Cesium3DTileset.html"><code>Cesium3DTileset</code></a> 实例
-瓦片图块集。
-
-Google 逼真 3D 瓦片只能与 Google 地理编码器一起使用。 自
-确认您了解此限制通行证
-'usingOnlyWithGoogleGeocoder： true' 添加到 apiOptions。 否则为一次性
-调用此函数时将显示警告。</div>
+            <div class="description">为 Google 照片级真实感 3D 创建一个 <a href="Cesium3DTileset.html"><code>Cesium3DTileset</code></a> 实例瓦片图块集。Google 逼真 3D 瓦片只能与 Google 地理编码器一起使用。 自确认您了解此限制通行证'usingOnlyWithGoogleGeocoder： true' 添加到 apiOptions。 否则为一次性调用此函数时将显示警告。</div>
         
 
         
@@ -79,34 +73,9 @@ Google 逼真 3D 瓦片只能与 Google 地理编码器一起使用。 自
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">const viewer = new Cesium.Viewer("cesiumContainer", {
-  geocoder: Cesium.IonGeocodeProviderType.GOOGLE
-});
+    <pre><code class="language-javascript">const viewer = new Cesium.Viewer("cesiumContainer", {  geocoder: Cesium.IonGeocodeProviderType.GOOGLE});try {  const tileset = await Cesium.createGooglePhotorealistic3DTileset({     onlyUsingWithGoogleGeocoder: true,  });  viewer.scene.primitives.add(tileset));} catch (error) {  console.log(`Error creating tileset: ${error}`);}</code></pre>
 
-try {
-  const tileset = await Cesium.createGooglePhotorealistic3DTileset({
-     onlyUsingWithGoogleGeocoder: true,
-  });
-  viewer.scene.primitives.add(tileset));
-} catch (error) {
-  console.log(`Error creating tileset: ${error}`);
-}</code></pre>
-
-    <pre><code class="language-javascript">// Use your own Google Maps API key
-Cesium.GoogleMaps.defaultApiKey = "your-api-key";
-
-const viewer = new Cesium.Viewer("cesiumContainer". {
-  geocoder: Cesium.IonGeocodeProviderType.GOOGLE
-});
-
-try {
-  const tileset = await Cesium.createGooglePhotorealistic3DTileset({
-     onlyUsingWithGoogleGeocoder: true,
-  });
-  viewer.scene.primitives.add(tileset));
-} catch (error) {
-  console.log(`Error creating tileset: ${error}`);
-}</code></pre>
+    <pre><code class="language-javascript">// Use your own Google Maps API keyCesium.GoogleMaps.defaultApiKey = "your-api-key";const viewer = new Cesium.Viewer("cesiumContainer". {  geocoder: Cesium.IonGeocodeProviderType.GOOGLE});try {  const tileset = await Cesium.createGooglePhotorealistic3DTileset({     onlyUsingWithGoogleGeocoder: true,  });  viewer.scene.primitives.add(tileset));} catch (error) {  console.log(`Error creating tileset: ${error}`);}</code></pre>
 
     
 

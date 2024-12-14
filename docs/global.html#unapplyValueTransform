@@ -47,9 +47,9 @@
 
 
         
-            <div class="description">Returns a shader statement that applies the inverse of the
-value transform to the given value, based on the given offset
-and scale.</div>
+            <div class="description">返回一个 shader 语句，该语句应用
+value 根据给定的偏移量转换为给定的值
+和缩放。</div>
         
 
         

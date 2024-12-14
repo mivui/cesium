@@ -124,7 +124,7 @@
 
                 
             
-                The origin of the ray.</td>
+                射线的原点。</td>
         </tr>
 
     
@@ -160,7 +160,7 @@
 
                 
             
-                The direction of the ray.</td>
+                光线的方向。</td>
         </tr>
 
     
@@ -487,7 +487,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数或者新的 Ray 实例（如果未提供）。（如果 ray 未定义，则返回 undefined）
+    修改后的结果参数或者新的 Ray 实例(如果未提供)。(如果 ray 未定义，则返回 undefined)
 </div>
 
 
@@ -550,7 +550,8 @@
 
 
 <div class="description">
-    计算沿射线的点，由 r（t） = o + t*d，其中 o 是射线的原点，d 是方向。
+    计算沿射线的点，由 r(t) = o + t*d，
+其中 o 是射线的原点，d 是方向。
 </div>
 
 
@@ -716,7 +717,9 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">//Get the first intersection point of a ray and an ellipsoid.const intersection = Cesium.IntersectionTests.rayEllipsoid(ray, ellipsoid);const point = Cesium.Ray.getPoint(ray, intersection.start);</code></pre>
+    <pre><code class="language-javascript">//获取射线和椭球体的第一个交点。
+const intersection = Cesium.IntersectionTests.rayEllipsoid(ray, ellipsoid);
+const point = Cesium.Ray.getPoint(ray, intersection.start);</code></pre>
 
     
 

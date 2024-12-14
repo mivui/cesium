@@ -58,7 +58,9 @@
 
 
 <div class="description">
-    Aggregates input events. For example, suppose the following inputs are received between frames:left mouse button down, mouse move, mouse move, left mouse button up. These events will be aggregated intoone event with a start and end position of the mouse.
+    聚合输入事件。例如，假设在帧之间收到以下输入：
+鼠标左键按下、鼠标移动、鼠标移动、鼠标左键向上。这些事件将聚合到
+一个具有鼠标开始和结束位置的事件。
 </div>
 
 
@@ -124,7 +126,7 @@
 
                 
             
-                The element to handle events for.</td>
+                要为其处理事件的元素。</td>
         </tr>
 
     
@@ -219,7 +221,7 @@
 
 
 <div class="description">
-    Gets whether any mouse button is down, a touch has started, or the wheel has been moved.
+    获取是否按下任何鼠标按钮、是否开始触摸或移动滚轮。
 </div>
 
 
@@ -346,7 +348,11 @@
 
 
 <div class="description">
-    Removes mouse listeners held by this object.<br /><br />Once an object is destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.  Therefore,assign the return value (<code>undefined</code>) to the object as done in the example.
+    删除此对象持有的鼠标侦听器。
+<br /><br />
+一旦对象被销毁，就不应该使用它;调用
+<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。 因此
+将返回值 (<code>undefined</code>) 分配给对象，如示例中所示。
 </div>
 
 
@@ -451,7 +457,7 @@
 
 
 <div class="description">
-    Gets the time the button was pressed or the touch was started.
+    获取按下按钮或开始触摸的时间。
 </div>
 
 
@@ -507,7 +513,7 @@
 
                 
             
-                The camera event type.</td>
+                摄像机事件类型。</td>
         </tr>
 
     
@@ -537,7 +543,7 @@
 
                 
             
-                The keyboard modifier.</td>
+                键盘修饰符。</td>
         </tr>
 
     
@@ -558,7 +564,7 @@
 
         
 <div class="param-desc">
-    The time the button was pressed or the touch was started.
+    按下按钮或开始触摸的时间。
 </div>
 
 
@@ -621,7 +627,7 @@
 
 
 <div class="description">
-    Gets the time the button was released or the touch was ended.
+    获取松开按钮或结束触摸的时间。
 </div>
 
 
@@ -677,7 +683,7 @@
 
                 
             
-                The camera event type.</td>
+                摄像机事件类型。</td>
         </tr>
 
     
@@ -707,7 +713,7 @@
 
                 
             
-                The keyboard modifier.</td>
+                键盘修饰符。</td>
         </tr>
 
     
@@ -728,7 +734,7 @@
 
         
 <div class="param-desc">
-    The time the button was released or the touch was ended.
+    松开按钮或结束触摸的时间。
 </div>
 
 
@@ -791,7 +797,7 @@
 
 
 <div class="description">
-    Gets the start and end position of the last move event (not the aggregated event).
+    获取最后一个移动事件(不是聚合事件)的开始和结束位置。
 </div>
 
 
@@ -847,7 +853,7 @@
 
                 
             
-                The camera event type.</td>
+                相机事件类型。</td>
         </tr>
 
     
@@ -877,7 +883,7 @@
 
                 
             
-                The keyboard modifier.</td>
+                键盘修饰符。</td>
         </tr>
 
     
@@ -898,7 +904,7 @@
 
         
 <div class="param-desc">
-    An object with two <a href="Cartesian2.html"><code>Cartesian2</code></a> properties: <code>startPosition</code> and <code>endPosition</code> or <code>undefined</code>.
+    具有 2 个 <a href="Cartesian2.html"><code>Cartesian2</code></a> 属性： <code>startPosition</code> 和 <code>endPosition</code> 或 <code>undefined</code>。
 </div>
 
 
@@ -961,7 +967,7 @@
 
 
 <div class="description">
-    Gets the aggregated start and end position of the current event.
+    获取当前事件的聚合开始和结束位置。
 </div>
 
 
@@ -1017,7 +1023,7 @@
 
                 
             
-                The camera event type.</td>
+                摄像机事件类型。</td>
         </tr>
 
     
@@ -1047,7 +1053,7 @@
 
                 
             
-                The keyboard modifier.</td>
+                键盘修饰符。</td>
         </tr>
 
     
@@ -1068,7 +1074,7 @@
 
         
 <div class="param-desc">
-    An object with two <a href="Cartesian2.html"><code>Cartesian2</code></a> properties: <code>startPosition</code> and <code>endPosition</code>.
+    具有两个 <a href="Cartesian2.html"><code>Cartesian2</code></a> 属性的对象：<code>startPosition</code> 和 <code>endPosition</code>。
 </div>
 
 
@@ -1131,7 +1137,7 @@
 
 
 <div class="description">
-    Gets the mouse position that started the aggregation.
+    获取启动聚合的鼠标位置。
 </div>
 
 
@@ -1187,7 +1193,7 @@
 
                 
             
-                The camera event type.</td>
+                摄像机事件类型。</td>
         </tr>
 
     
@@ -1217,7 +1223,7 @@
 
                 
             
-                The keyboard modifier.</td>
+                键盘修饰符。</td>
         </tr>
 
     
@@ -1238,7 +1244,7 @@
 
         
 <div class="param-desc">
-    The mouse position.
+    鼠标位置。
 </div>
 
 
@@ -1301,7 +1307,7 @@
 
 
 <div class="description">
-    Gets whether the mouse button is down or a touch has started.
+    获取鼠标按钮是按下还是已开始触摸。
 </div>
 
 
@@ -1357,7 +1363,7 @@
 
                 
             
-                The camera event type.</td>
+                摄像机事件类型。</td>
         </tr>
 
     
@@ -1387,7 +1393,7 @@
 
                 
             
-                The keyboard modifier.</td>
+                键盘修饰符。</td>
         </tr>
 
     
@@ -1408,7 +1414,7 @@
 
         
 <div class="param-desc">
-    Whether the mouse button is down or a touch has started.
+    鼠标按钮是按下还是已经开始触摸。
 </div>
 
 
@@ -1471,7 +1477,10 @@
 
 
 <div class="description">
-    Returns true if this object was destroyed; otherwise, false.<br /><br />If this object was destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.
+    如果此对象已销毁，则返回 true;否则为 false。
+<br /><br />
+如果此对象已销毁，则不应使用;调用
+<code>isDestroyed</code> 将导致 <a href="DeveloperError.html"><code>DeveloperError</code></a> 异常。
 </div>
 
 
@@ -1498,7 +1507,7 @@
 
         
 <div class="param-desc">
-    <code>true</code> if this object was destroyed; otherwise, <code>false</code>.
+    <code>true</code>，如果此对象被销毁;否则为 <code>false</code>。
 </div>
 
 
@@ -1566,7 +1575,7 @@
 
 
 <div class="description">
-    获取 a mouse button down or touch has started and has been moved.
+    获取鼠标按下或触摸已启动并已移动。
 </div>
 
 
@@ -1622,7 +1631,7 @@
 
                 
             
-                The camera event type.</td>
+                相机事件类型。</td>
         </tr>
 
     
@@ -1652,7 +1661,7 @@
 
                 
             
-                The keyboard modifier.</td>
+                键盘修饰符。</td>
         </tr>
 
     
@@ -1673,7 +1682,7 @@
 
         
 <div class="param-desc">
-    Returns <code>true</code> if a mouse button down or touch has started and has been moved; otherwise, <code>false</code>
+    如果鼠标按下或触摸已开始并已移动，则返回 <code>true</code>;否则为 <code>false</code>
 </div>
 
 
@@ -1736,7 +1745,7 @@
 
 
 <div class="description">
-    Signals that all of the events have been handled and the aggregator should be reset to handle new events.
+    表示所有事件都已处理，并且应重置聚合器以处理新事件。
 </div>
 
 

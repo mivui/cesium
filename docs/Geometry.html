@@ -58,7 +58,13 @@
 
 
 <div class="description">
-    具有构成顶点的属性和可选索引数据的几何表示定义基元。 几何图形和 <code>外观</code>（描述阴影）、可以分配给 <a href="Primitive.html"><code>Primitive</code></a> 以进行可视化。 <code>Primitive</code> 可以由许多异构 - 在许多情况下 - 几何图形创建以提高性能。<p>可以使用 <a href="GeometryPipeline.html"><code>GeometryPipeline</code></a> 中的函数转换和优化几何图形。</p>
+    具有构成顶点的属性和可选索引数据的几何表示
+定义基元。 几何图形和 <code>外观</code>(描述阴影)、
+可以分配给 <a href="Primitive.html"><code>Primitive</code></a> 以进行可视化。 <code>Primitive</code> 可以
+由许多异构 - 在许多情况下 - 几何图形创建以提高性能。
+<p>
+可以使用 <a href="GeometryPipeline.html"><code>GeometryPipeline</code></a> 中的函数转换和优化几何图形。
+</p>
 </div>
 
 
@@ -315,7 +321,25 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Create geometry with a position attribute and indexed lines.const positions = new Float64Array([  0.0, 0.0, 0.0,  7500000.0, 0.0, 0.0,  0.0, 7500000.0, 0.0]);const geometry = new Cesium.Geometry({  attributes : {    position : new Cesium.GeometryAttribute({      componentDatatype : Cesium.ComponentDatatype.DOUBLE,      componentsPerAttribute : 3,      values : positions    })  },  indices : new Uint16Array([0, 1, 1, 2, 2, 0]),  primitiveType : Cesium.PrimitiveType.LINES,  boundingSphere : Cesium.BoundingSphere.fromVertices(positions)});</code></pre>
+    <pre><code class="language-javascript">// Create geometry with a position attribute and indexed lines.
+const positions = new Float64Array([
+  0.0, 0.0, 0.0,
+  7500000.0, 0.0, 0.0,
+  0.0, 7500000.0, 0.0
+]);
+
+const geometry = new Cesium.Geometry({
+  attributes : {
+    position : new Cesium.GeometryAttribute({
+      componentDatatype : Cesium.ComponentDatatype.DOUBLE,
+      componentsPerAttribute : 3,
+      values : positions
+    })
+  },
+  indices : new Uint16Array([0, 1, 1, 2, 2, 0]),
+  primitiveType : Cesium.PrimitiveType.LINES,
+  boundingSphere : Cesium.BoundingSphere.fromVertices(positions)
+});</code></pre>
 
     
 
@@ -391,7 +415,35 @@
 
 
 <div class="description">
-    属性，构成几何体的顶点。 此对象中的每个属性都对应于一个<a href="GeometryAttribute.html"><code>GeometryAttribute</code></a> 包含属性的数据。<p>属性始终以非交错方式存储在 Geometry 中。</p><p>存在具有已知语义的保留属性名称。 以下属性由 Geometry 创建（取决于提供的 <a href="VertexFormat.html"><code>VertexFormat</code></a>）。<ul><li><code>position</code> - 3D 顶点位置。 64 位浮点（用于精度）。 每个属性 3 个组件。 参见 <a href="VertexFormat.html#position"><code>VertexFormat#position</code></a>。</li><li><code>normal</code> - 正常（标准化），通常用于照明。 32 位浮点。 每个属性 3 个组件。 参见 <a href="VertexFormat.html#normal"><code>VertexFormat#normal</code></a>。</li><li><code>st</code> - 2D 纹理坐标。 32 位浮点。 每个属性 2 个组件。 参见 <a href="VertexFormat.html#st"><code>VertexFormat#st</code></a>。</li><li><code>bitangent</code> - 双切线（标准化），用于凹凸贴图等切线空间效果。 32 位浮点。 每个属性 3 个组件。 参见 <a href="VertexFormat.html#bitangent"><code>VertexFormat#bitangent</code></a>。</li><li><code>tangent</code> - 切线（规格化），用于凹凸贴图等切线空间效果。 32 位浮点。 每个属性 3 个组件。 参见 <a href="VertexFormat.html#tangent"><code>VertexFormat#tangent</code></a>。</li></ul></p><p>以下属性名称通常不是由 Geometry 创建的，而是添加的通过 <a href="Primitive.html"><code>Primitive</code></a> 或 <a href="GeometryPipeline.html"><code>GeometryPipeline</code></a> 函数准备用于渲染的几何体。<ul><li><code>position3DHigh</code> - 使用 <a href="GeometryPipeline.html#.encodeAttribute"><code>GeometryPipeline.encodeAttribute</code></a> 计算的编码 64 位的高 32 位。 32 位浮点。 每个属性 4 个组件。</li><li><code>position3DLow</code> - 对于使用 <a href="GeometryPipeline.html#.encodeAttribute"><code>GeometryPipeline.encodeAttribute</code></a> 计算的编码 64 位位置，为低 32 位。 32 位浮点。 每个属性 4 个组件。</li><li><code>position2DHigh</code> - 使用 <a href="GeometryPipeline.html#.encodeAttribute"><code>GeometryPipeline.encodeAttribute</code></a> 计算的编码 64 位 2D（哥伦布视图）位置的高 32 位。 32 位浮点。 每个属性 4 个组件。</li><li><code>position2DLow</code> - 对于使用 <a href="GeometryPipeline.html#.encodeAttribute"><code>GeometryPipeline.encodeAttribute</code></a> 计算的编码 64 位 2D（哥伦布视图）位置，为低 32 位。 32 位浮点。 每个属性 4 个组件。</li><li><code>color</code> - RGBA 颜色（标准化），通常来自 <code>GeometryInstance#color</code>。 32 位浮点。 每个属性 4 个组件。</li><li><code>pickColor</code> - 用于拾取的 RGBA 颜色。 32 位浮点。 每个属性 4 个组件。</li></ul></p>
+    属性，构成几何体的顶点。 此对象中的每个属性都对应于一个
+<a href="GeometryAttribute.html"><code>GeometryAttribute</code></a> 包含属性的数据。
+<p>
+属性始终以非交错方式存储在 Geometry 中。
+</p>
+<p>
+存在具有已知语义的保留属性名称。 以下属性
+由 Geometry 创建(取决于提供的 <a href="VertexFormat.html"><code>VertexFormat</code></a>)。
+<ul>
+<li><code>position</code> - 3D 顶点位置。 64 位浮点(用于精度)。 每个属性 3 个组件。 参见 <a href="VertexFormat.html#position"><code>VertexFormat#position</code></a>。</li>
+<li><code>normal</code> - 正常(标准化)，通常用于照明。 32 位浮点。 每个属性 3 个组件。 参见 <a href="VertexFormat.html#normal"><code>VertexFormat#normal</code></a>。</li>
+<li><code>st</code> - 2D 纹理坐标。 32 位浮点。 每个属性 2 个组件。 参见 <a href="VertexFormat.html#st"><code>VertexFormat#st</code></a>。</li>
+<li><code>bitangent</code> - 双切线(标准化)，用于凹凸贴图等切线空间效果。 32 位浮点。 每个属性 3 个组件。 参见 <a href="VertexFormat.html#bitangent"><code>VertexFormat#bitangent</code></a>。</li>
+<li><code>tangent</code> - 切线(规格化)，用于凹凸贴图等切线空间效果。 32 位浮点。 每个属性 3 个组件。 参见 <a href="VertexFormat.html#tangent"><code>VertexFormat#tangent</code></a>。</li>
+</ul>
+</p>
+<p>
+以下属性名称通常不是由 Geometry 创建的，而是添加的
+通过 <a href="Primitive.html"><code>Primitive</code></a> 或 <a href="GeometryPipeline.html"><code>GeometryPipeline</code></a> 函数准备
+用于渲染的几何体。
+<ul>
+<li><code>position3DHigh</code> - 使用 <a href="GeometryPipeline.html#.encodeAttribute"><code>GeometryPipeline.encodeAttribute</code></a> 计算的编码 64 位的高 32 位。 32 位浮点。 每个属性 4 个组件。</li>
+<li><code>position3DLow</code> - 对于使用 <a href="GeometryPipeline.html#.encodeAttribute"><code>GeometryPipeline.encodeAttribute</code></a> 计算的编码 64 位位置，为低 32 位。 32 位浮点。 每个属性 4 个组件。</li>
+<li><code>position2DHigh</code> - 使用 <a href="GeometryPipeline.html#.encodeAttribute"><code>GeometryPipeline.encodeAttribute</code></a> 计算的编码 64 位 2D(哥伦布视图)位置的高 32 位。 32 位浮点。 每个属性 4 个组件。</li>
+<li><code>position2DLow</code> - 对于使用 <a href="GeometryPipeline.html#.encodeAttribute"><code>GeometryPipeline.encodeAttribute</code></a> 计算的编码 64 位 2D(哥伦布视图)位置，为低 32 位。 32 位浮点。 每个属性 4 个组件。</li>
+<li><code>color</code> - RGBA 颜色(标准化)，通常来自 <code>GeometryInstance#color</code>。 32 位浮点。 每个属性 4 个组件。</li>
+<li><code>pickColor</code> - 用于拾取的 RGBA 颜色。 32 位浮点。 每个属性 4 个组件。</li>
+</ul>
+</p>
 </div>
 
 
@@ -420,7 +472,11 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">geometry.attributes.position = new Cesium.GeometryAttribute({  componentDatatype : Cesium.ComponentDatatype.FLOAT,  componentsPerAttribute : 3,  values : new Float32Array(0)});</code></pre>
+    <pre><code class="language-javascript">geometry.attributes.position = new Cesium.GeometryAttribute({
+  componentDatatype : Cesium.ComponentDatatype.FLOAT,
+  componentsPerAttribute : 3,
+  values : new Float32Array(0)
+});</code></pre>
 
     
 
@@ -463,7 +519,8 @@
 
 
 <div class="description">
-    一个完全封闭几何体的可选边界球体。 这是通常用于剔除。
+    一个完全封闭几何体的可选边界球体。 这是
+通常用于剔除。
 </div>
 
 
@@ -526,7 +583,8 @@
 
 
 <div class="description">
-    可选的索引数据 - 以及 <a href="Geometry.html#primitiveType"><code>Geometry#primitiveType</code></a> -确定几何体中的基元。
+    可选的索引数据 - 以及 <a href="Geometry.html#primitiveType"><code>Geometry#primitiveType</code></a> -
+确定几何体中的基元。
 </div>
 
 
@@ -589,7 +647,8 @@
 
 
 <div class="description">
-    几何体中基元的类型。 这通常是 <a href="global.html#PrimitiveType#.TRIANGLES"><code>PrimitiveType.TRIANGLES</code></a>，但可以根据特定几何图形而变化。
+    几何体中基元的类型。 这通常是 <a href="global.html#PrimitiveType#.TRIANGLES"><code>PrimitiveType.TRIANGLES</code></a>，
+但可以根据特定几何图形而变化。
 </div>
 
 
@@ -659,7 +718,8 @@
 
 
 <div class="description">
-    计算几何图形中的顶点数。 运行时间与相对于顶点中的属性数，而不是顶点数。
+    计算几何图形中的顶点数。 运行时间与
+相对于顶点中的属性数，而不是顶点数。
 </div>
 
 

@@ -58,7 +58,8 @@
 
 
 <div class="description">
-    Provides voxel data. Intended to be used with <a href="VoxelPrimitive.html"><code>VoxelPrimitive</code></a>.This type describes an interface and is not intended to be instantiated directly.
+    提供体素数据。旨在与 <a href="VoxelPrimitive.html"><code>VoxelPrimitive</code></a> 一起使用。
+此类型描述接口，不打算直接实例化。
 </div>
 
 
@@ -114,7 +115,7 @@
     <div class="tag-experimental">
         <h5>Experimental</h5>
         
-            <p>This feature is not final and is subject to change without Cesium's standard deprecation policy.</p>
+            <p>此功能不是最终的，在没有 Cesium 的标准弃用政策的情况下可能会发生变化。</p>
         
     </div>
     
@@ -170,7 +171,8 @@
 
 
 <div class="description">
-    Gets the metadata component types.This should not be called before <code>VoxelProvider#ready</code> returns true.
+    获取元数据组件类型。
+在 <code>VoxelProvider#ready</code> 返回 true 之前，不应调用此函数。
 </div>
 
 
@@ -230,7 +232,8 @@
 
 
 <div class="description">
-    Gets the number of voxels per dimension of a tile. This is the same for all tiles in the dataset.This should not be called before <code>VoxelProvider#ready</code> returns true.
+    获取图块的每个维度的体素数。数据集中的所有切片都是相同的。
+在 <code>VoxelProvider#ready</code> 返回 true 之前，不应调用此函数。
 </div>
 
 
@@ -290,7 +293,7 @@
 
 
 <div class="description">
-    A transform from local space to global space. If undefined, the identity matrix will be used instead.
+    从局部空间到全局空间的转换。如果未定义，则将使用单位矩阵。
 </div>
 
 
@@ -350,7 +353,9 @@
 
 
 <div class="description">
-    Gets the maximum bounds.If undefined, the shape's default maximum bounds will be used instead.This should not be called before <code>VoxelProvider#ready</code> returns true.
+    获取最大边界。
+如果未定义，则将使用形状的默认最大边界。
+在 <code>VoxelProvider#ready</code> 返回 true 之前，不应调用此函数。
 </div>
 
 
@@ -410,7 +415,8 @@
 
 
 <div class="description">
-    The maximum number of tiles that exist for this provider. This value is used as a hint to the voxel renderer to allocate an appropriate amount of GPU memory. If this value is not known it can be undefined.This should not be called before <code>VoxelProvider#ready</code> returns true.
+    此提供商存在的最大磁贴数。此值用作体素渲染器的提示，以分配适当数量的 GPU 内存。如果此值未知，则可以为 undefined。
+在 <code>VoxelProvider#ready</code> 返回 true 之前，不应调用此函数。
 </div>
 
 
@@ -470,7 +476,8 @@
 
 
 <div class="description">
-    Gets the metadata maximum values.This should not be called before <code>VoxelProvider#ready</code> returns true.
+    获取元数据最大值。
+在 <code>VoxelProvider#ready</code> 返回 true 之前，不应调用此函数。
 </div>
 
 
@@ -530,7 +537,9 @@
 
 
 <div class="description">
-    Gets the minimum bounds.If undefined, the shape's default minimum bounds will be used instead.This should not be called before <code>VoxelProvider#ready</code> returns true.
+    获取最小边界。
+如果未定义，则将使用形状的默认最小边界。
+在 <code>VoxelProvider#ready</code> 返回 true 之前，不应调用此函数。
 </div>
 
 
@@ -590,7 +599,8 @@
 
 
 <div class="description">
-    Gets the metadata minimum values.This should not be called before <code>VoxelProvider#ready</code> returns true.
+    获取元数据最小值。
+在 <code>VoxelProvider#ready</code> 返回 true 之前，不应调用此函数。
 </div>
 
 
@@ -650,7 +660,8 @@
 
 
 <div class="description">
-    Gets the metadata names.This should not be called before <code>VoxelProvider#ready</code> returns true.
+    获取元数据名称。
+在 <code>VoxelProvider#ready</code> 返回 true 之前，不应调用此函数。
 </div>
 
 
@@ -710,7 +721,8 @@
 
 
 <div class="description">
-    Gets the number of padding voxels after the tile. This improves rendering quality when sampling the edge of a tile, but it increases memory usage.This should not be called before <code>VoxelProvider#ready</code> returns true.
+    获取图块之后的填充体素数。这可以提高对图块边缘进行采样时的渲染质量，但会增加内存使用量。
+在 <code>VoxelProvider#ready</code> 返回 true 之前，不应调用此函数。
 </div>
 
 
@@ -770,7 +782,8 @@
 
 
 <div class="description">
-    Gets the number of padding voxels before the tile. This improves rendering quality when sampling the edge of a tile, but it increases memory usage.This should not be called before <code>VoxelProvider#ready</code> returns true.
+    获取图块之前的填充体素数。这可以提高对图块边缘进行采样时的渲染质量，但会增加内存使用量。
+在 <code>VoxelProvider#ready</code> 返回 true 之前，不应调用此函数。
 </div>
 
 
@@ -830,7 +843,8 @@
 
 
 <div class="description">
-    Gets the <a href="global.html#VoxelShapeType"><code>VoxelShapeType</code></a>This should not be called before <code>VoxelProvider#ready</code> returns true.
+    获取 <a href="global.html#VoxelShapeType"><code>VoxelShapeType</code></a>
+在 <code>VoxelProvider#ready</code> 返回 true 之前，不应调用此函数。
 </div>
 
 
@@ -890,7 +904,7 @@
 
 
 <div class="description">
-    A transform from shape space to local space. If undefined, the identity matrix will be used instead.
+    从形状空间到局部空间的转换。如果未定义，则将使用单位矩阵。
 </div>
 
 
@@ -950,7 +964,8 @@
 
 
 <div class="description">
-    Gets the metadata types.This should not be called before <code>VoxelProvider#ready</code> returns true.
+    获取元数据类型。
+在 <code>VoxelProvider#ready</code> 返回 true 之前，不应调用此函数。
 </div>
 
 
@@ -1017,7 +1032,8 @@
 
 
 <div class="description">
-    Requests the data for a given tile. The data is a flattened 3D array ordered by X, then Y, then Z.This function should not be called before <code>VoxelProvider#ready</code> returns true.
+    请求给定磁贴的数据。数据是按 X、Y 和 Z 排序的扁平化 3D 数组。
+在 <code>VoxelProvider#ready</code> 返回 true 之前，不应调用此函数。
 </div>
 
 
@@ -1075,7 +1091,7 @@
 
                 
             
-                对象，具有以下属性:
+                对象，具有以下属性：
                 
 
 <table class="params">
@@ -1129,7 +1145,7 @@
 
                 
             
-                The tile's level.</td>
+                瓦片的级别。</td>
         </tr>
 
     
@@ -1165,7 +1181,7 @@
 
                 
             
-                The tile's X coordinate.</td>
+                瓦片的 X 坐标。</td>
         </tr>
 
     
@@ -1201,7 +1217,7 @@
 
                 
             
-                The tile's Y coordinate.</td>
+                瓦片的 Y 坐标。</td>
         </tr>
 
     
@@ -1237,7 +1253,7 @@
 
                 
             
-                The tile's Z coordinate.</td>
+                瓦片的 Z 坐标。</td>
         </tr>
 
     
@@ -1264,7 +1280,7 @@
 
         
 <div class="param-desc">
-    A promise to an array of typed arrays containing the requested voxel data or undefined if there was a problem loading the data.
+    对包含所请求的体素数据的类型化数组数组的承诺，如果加载数据时出现问题，则为 undefined。
 </div>
 
 

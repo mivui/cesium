@@ -58,7 +58,12 @@
 
 
 <div class="description">
-    由方程<code>（x / a）^2 + （y / b）^2 + （z / c）^2 = 1</code>. 主要用途由 Cesium 表示行星体的形状。而不是直接构造此对象，而是提供的常量。
+    由方程
+<code>(x / a)^2 + (y / b)^2 + (z / c)^2 = 1</code>. 主要用途
+由 Cesium 表示行星体的形状。
+
+而不是直接构造此对象，而是提供的
+常量。
 </div>
 
 
@@ -338,7 +343,13 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">Cesium.Ellipsoid.default = Cesium.Ellipsoid.MOON;// Apollo 11 landing siteconst position = Cesium.Cartesian3.fromRadians(  0.67416,  23.47315,);</code></pre>
+    <pre><code class="language-javascript">Cesium.Ellipsoid.default = Cesium.Ellipsoid.MOON;
+
+// Apollo 11 landing site
+const position = Cesium.Cartesian3.fromRadians(
+  0.67416,
+  23.47315,
+);</code></pre>
 
     
 
@@ -494,7 +505,7 @@
 
 
 <div class="description">
-    初始化为半径 （1.0， 1.0， 1.0） 的 Ellipsoid 实例。
+    初始化为半径 (1.0, 1.0, 1.0) 的 Ellipsoid 实例。
 </div>
 
 
@@ -1127,7 +1138,8 @@
 
                 
             
-                存储结果的对象，如果新的、实例。</td>
+                存储结果的对象，如果新的、
+实例。</td>
         </tr>
 
     
@@ -1148,7 +1160,7 @@
 
         
 <div class="param-desc">
-    克隆的 Ellipsoid。（如果省略球体为 undefined，则返回 undefined）
+    克隆的 Ellipsoid。(如果省略球体为 undefined，则返回 undefined)
 </div>
 
 
@@ -1311,7 +1323,8 @@
 
                 
             
-                存储结果的对象，如果新的、实例。</td>
+                存储结果的对象，如果新的、
+实例。</td>
         </tr>
 
     
@@ -1783,7 +1796,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数 或者一个新的 Ellipsoid 实例（如果未提供）。
+    修改后的结果参数 或者一个新的 Ellipsoid 实例(如果未提供)。
 </div>
 
 
@@ -1953,7 +1966,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数或新的 Array 实例（如果未提供）。
+    修改后的结果参数或新的 Array 实例(如果未提供)。
 </div>
 
 
@@ -1984,7 +1997,11 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">//Create an array of Cartesians and determine their Cartographic representation on a WGS84 ellipsoid.const positions = [new Cesium.Cartesian3(17832.12, 83234.52, 952313.73),                 new Cesium.Cartesian3(17832.13, 83234.53, 952313.73),                 new Cesium.Cartesian3(17832.14, 83234.54, 952313.73)]const cartographicPositions = Cesium.Ellipsoid.WGS84.cartesianArrayToCartographicArray(positions);</code></pre>
+    <pre><code class="language-javascript">//Create an array of Cartesians and determine their Cartographic representation on a WGS84 ellipsoid.
+const positions = [new Cesium.Cartesian3(17832.12, 83234.52, 952313.73),
+                 new Cesium.Cartesian3(17832.13, 83234.53, 952313.73),
+                 new Cesium.Cartesian3(17832.14, 83234.54, 952313.73)]
+const cartographicPositions = Cesium.Ellipsoid.WGS84.cartesianArrayToCartographicArray(positions);</code></pre>
 
     
 
@@ -2021,7 +2038,8 @@
 
 
 <div class="description">
-    将提供的笛卡尔表示转换为制图表示。笛卡尔坐标在椭球体的中心未定义。
+    将提供的笛卡尔表示转换为制图表示。
+笛卡尔坐标在椭球体的中心未定义。
 </div>
 
 
@@ -2159,7 +2177,9 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">//Create a Cartesian and determine it's Cartographic representation on a WGS84 ellipsoid.const position = new Cesium.Cartesian3(17832.12, 83234.52, 952313.73);const cartographicPosition = Cesium.Ellipsoid.WGS84.cartesianToCartographic(position);</code></pre>
+    <pre><code class="language-javascript">//Create a Cartesian and determine it's Cartographic representation on a WGS84 ellipsoid.
+const position = new Cesium.Cartesian3(17832.12, 83234.52, 952313.73);
+const cartographicPosition = Cesium.Ellipsoid.WGS84.cartesianToCartographic(position);</code></pre>
 
     
 
@@ -2303,7 +2323,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数或新的 Array 实例（如果未提供）。
+    修改后的结果参数或新的 Array 实例(如果未提供)。
 </div>
 
 
@@ -2334,7 +2354,11 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">//Convert an array of Cartographics and determine their Cartesian representation on a WGS84 ellipsoid.const positions = [new Cesium.Cartographic(Cesium.Math.toRadians(21), Cesium.Math.toRadians(78), 0),                 new Cesium.Cartographic(Cesium.Math.toRadians(21.321), Cesium.Math.toRadians(78.123), 100),                 new Cesium.Cartographic(Cesium.Math.toRadians(21.645), Cesium.Math.toRadians(78.456), 250)];const cartesianPositions = Cesium.Ellipsoid.WGS84.cartographicArrayToCartesianArray(positions);</code></pre>
+    <pre><code class="language-javascript">//Convert an array of Cartographics and determine their Cartesian representation on a WGS84 ellipsoid.
+const positions = [new Cesium.Cartographic(Cesium.Math.toRadians(21), Cesium.Math.toRadians(78), 0),
+                 new Cesium.Cartographic(Cesium.Math.toRadians(21.321), Cesium.Math.toRadians(78.123), 100),
+                 new Cesium.Cartographic(Cesium.Math.toRadians(21.645), Cesium.Math.toRadians(78.456), 250)];
+const cartesianPositions = Cesium.Ellipsoid.WGS84.cartographicArrayToCartesianArray(positions);</code></pre>
 
     
 
@@ -2478,7 +2502,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数或新的 Cartesian3 实例（如果未提供）。
+    修改后的结果参数或新的 Cartesian3 实例(如果未提供)。
 </div>
 
 
@@ -2509,7 +2533,9 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">//Create a Cartographic and determine it's Cartesian representation on a WGS84 ellipsoid.const position = new Cesium.Cartographic(Cesium.Math.toRadians(21), Cesium.Math.toRadians(78), 5000);const cartesianPosition = Cesium.Ellipsoid.WGS84.cartographicToCartesian(position);</code></pre>
+    <pre><code class="language-javascript">//Create a Cartographic and determine it's Cartesian representation on a WGS84 ellipsoid.
+const position = new Cesium.Cartographic(Cesium.Math.toRadians(21), Cesium.Math.toRadians(78), 5000);
+const cartesianPosition = Cesium.Ellipsoid.WGS84.cartographicToCartesian(position);</code></pre>
 
     
 
@@ -2604,7 +2630,8 @@
 
                 
             
-                存储结果的对象，如果新的、实例。</td>
+                存储结果的对象，如果新的、
+实例。</td>
         </tr>
 
     
@@ -2688,7 +2715,8 @@
 
 
 <div class="description">
-    将此 Ellipsoid 与提供的 Ellipsoid 组件进行比较，并返回<code>true</code>，否则为 <code>false</code>。
+    将此 Ellipsoid 与提供的 Ellipsoid 组件进行比较，并返回
+<code>true</code>，否则为 <code>false</code>。
 </div>
 
 
@@ -2937,7 +2965,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数或新的 Cartesian3 实例（如果未提供）。
+    修改后的结果参数或新的 Cartesian3 实例(如果未提供)。
 </div>
 
 
@@ -3107,7 +3135,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数或新的 Cartesian3 实例（如果未提供），则为 undefined（如果未找到法线）。
+    修改后的结果参数或新的 Cartesian3 实例(如果未提供)，则为 undefined(如果未找到法线)。
 </div>
 
 
@@ -3277,7 +3305,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数或新的 Cartesian3 实例（如果未提供）。
+    修改后的结果参数或新的 Cartesian3 实例(如果未提供)。
 </div>
 
 
@@ -3447,7 +3475,7 @@
 
         
 <div class="param-desc">
-    椭球体表面在提供位置（东向和北向）的局部曲率。
+    椭球体表面在提供位置(东向和北向)的局部曲率。
 </div>
 
 
@@ -3622,7 +3650,10 @@
 
                 
             
-                检查点是否在椭球体内时要从椭球大小中减去的缓冲区。在地球情况下，对于公共地球基准面，不需要此缓冲区，因为交点总是（相对）非常靠近中心。在 WGS84 基准面中，交点位于最大 z = +-42841.31151331382（z 轴的 0.673%）处。如果 MajorAxis / AxisOfRotation 的比率大于 2 的平方根，则交点可能位于椭球体之外</td>
+                检查点是否在椭球体内时要从椭球大小中减去的缓冲区。
+在地球情况下，对于公共地球基准面，不需要此缓冲区，因为交点总是(相对)非常靠近中心。
+在 WGS84 基准面中，交点位于最大 z = +-42841.31151331382(z 轴的 0.673%)处。
+如果 MajorAxis / AxisOfRotation 的比率大于 2 的平方根，则交点可能位于椭球体之外</td>
         </tr>
 
     
@@ -3656,7 +3687,8 @@
 
                 
             
-                要将结果复制到的笛卡尔坐标，或 undefined 来创建 和返回一个新实例。</td>
+                要将结果复制到的笛卡尔坐标，或 undefined 来创建 和
+返回一个新实例。</td>
         </tr>
 
     
@@ -3703,7 +3735,7 @@
         
 <span class="param-type"><a href="DeveloperError.html">DeveloperError</a></span>
 
-: 椭球体必须是公转的椭球体 （radii.x == radii.y）。
+: 椭球体必须是公转的椭球体 (radii.x == radii.y)。
     </div>
 
 </li>
@@ -3776,7 +3808,8 @@
 
 
 <div class="description">
-    沿地心表面法线缩放提供的笛卡尔位置使其位于此椭球体的表面上。
+    沿地心表面法线缩放提供的笛卡尔位置
+使其位于此椭球体的表面上。
 </div>
 
 
@@ -3883,7 +3916,7 @@
 
         
 <div class="param-desc">
-    修改后的结果参数或新的 Cartesian3 实例（如果未提供）。
+    修改后的结果参数或新的 Cartesian3 实例(如果未提供)。
 </div>
 
 
@@ -3946,7 +3979,9 @@
 
 
 <div class="description">
-    沿大地测量表面法线缩放提供的笛卡尔位置使其位于此椭球体的表面上。 如果位置为在椭球体的中心，此函数返回 undefined。
+    沿大地测量表面法线缩放提供的笛卡尔位置
+使其位于此椭球体的表面上。 如果位置为
+在椭球体的中心，此函数返回 undefined。
 </div>
 
 
@@ -4116,7 +4151,8 @@
 
 
 <div class="description">
-    计算矩形在椭球体表面上的表面积的近似值Gauss-Legendre 10 阶求积。
+    计算矩形在椭球体表面上的表面积的近似值
+Gauss-Legendre 10 阶求积。
 </div>
 
 
@@ -4251,7 +4287,7 @@
 
 
 <div class="description">
-    创建一个字符串，表示此椭球体，格式为 '（radii.x， radii.y， radii.z）'。
+    创建一个字符串，表示此椭球体，格式为 '(radii.x, radii.y, radii.z)'。
 </div>
 
 
@@ -4278,7 +4314,7 @@
 
         
 <div class="param-desc">
-    表示此椭球体的字符串，格式为 '（radii.x， radii.y， radii.z）'。
+    表示此椭球体的字符串，格式为 '(radii.x, radii.y, radii.z)'。
 </div>
 
 
@@ -4341,7 +4377,8 @@
 
 
 <div class="description">
-    通过乘以其分量由 <a href="Ellipsoid.html#radii"><code>Ellipsoid#radii</code></a> 的结果。
+    通过乘以
+其分量由 <a href="Ellipsoid.html#radii"><code>Ellipsoid#radii</code></a> 的结果。
 </div>
 
 
@@ -4427,7 +4464,8 @@
 
                 
             
-                将结果复制到的位置，或 undefined 创建 和返回一个新实例。</td>
+                将结果复制到的位置，或 undefined 创建 和
+返回一个新实例。</td>
         </tr>
 
     
@@ -4448,7 +4486,8 @@
 
         
 <div class="param-desc">
-    在未缩放空间中表示的位置。 返回的实例是如果它不是 undefined，则作为 result 参数传递的，或者它是它的新实例。
+    在未缩放空间中表示的位置。 返回的实例是
+如果它不是 undefined，则作为 result 参数传递的，或者它是它的新实例。
 </div>
 
 
@@ -4511,7 +4550,8 @@
 
 
 <div class="description">
-    通过乘法将笛卡尔 X、Y、Z 位置转换为椭球标度空间其组件由 <a href="Ellipsoid.html#oneOverRadii"><code>Ellipsoid#oneOverRadii</code></a> 的结果。
+    通过乘法将笛卡尔 X、Y、Z 位置转换为椭球标度空间
+其组件由 <a href="Ellipsoid.html#oneOverRadii"><code>Ellipsoid#oneOverRadii</code></a> 的结果。
 </div>
 
 
@@ -4597,7 +4637,8 @@
 
                 
             
-                将结果复制到的位置，或 undefined 创建 和返回一个新实例。</td>
+                将结果复制到的位置，或 undefined 创建 和
+返回一个新实例。</td>
         </tr>
 
     
@@ -4618,7 +4659,8 @@
 
         
 <div class="param-desc">
-    在缩放空间中表示的位置。 返回的实例是如果它不是 undefined，则作为 result 参数传递的，或者它是它的新实例。
+    在缩放空间中表示的位置。 返回的实例是
+如果它不是 undefined，则作为 result 参数传递的，或者它是它的新实例。
 </div>
 
 

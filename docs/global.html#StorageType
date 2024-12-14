@@ -47,7 +47,10 @@
 
 
         
-            <div class="description">协方差信息的存储类型的枚举。这反映了<a href="https://nsgreg.nga.mil/csmwg.jsp">NGA_gpm_local</a> glTF 扩展。</div>
+            <div class="description">协方差信息的存储类型的枚举。
+
+这反映了
+<a href="https://nsgreg.nga.mil/csmwg.jsp">NGA_gpm_local</a> glTF 扩展。</div>
         
 
         
@@ -119,7 +122,9 @@
 
             
 
-            <td class="description last">A full covariance matrix is stored for each of the anchor points. However, in this case thecross-covariance terms are not directly stored, but can be computed by a set of spatialcorrelation function parameters which are stored in the metadata.</td>
+            <td class="description last">为每个锚点存储一个完整的协方差矩阵。但是，在这种情况下，
+交叉协方差项不直接存储，但可以通过一组空间
+存储在元数据中的相关函数参数。</td>
         </tr>
 
     
@@ -263,7 +268,9 @@
 
 
 <div class="description">
-    A full covariance matrix is stored for each of the anchor points. However, in this case thecross-covariance terms are not directly stored, but can be computed by a set of spatialcorrelation function parameters which are stored in the metadata.
+    为每个锚点存储一个完整的协方差矩阵。但是，在这种情况下，
+交叉协方差项不直接存储，但可以通过一组空间
+存储在元数据中的相关函数参数。
 </div>
 
 

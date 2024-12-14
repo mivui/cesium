@@ -47,10 +47,10 @@
 
 
         
-            <div class="description">Returns the type that the given class property has in a GLSL shader.
+            <div class="description">返回给定类属性在 GLSL 着色器中具有的类型。
 
-It returns the same string as `PropertyTextureProperty.prototype.getGlslType`
-for a property texture property with the given class property</div>
+返回与 'PropertyTextureProperty.prototype.getGlslType' 相同的字符串
+对于具有给定类属性的属性 texture 属性</div>
         
 
         
