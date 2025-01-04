@@ -41,34 +41,13 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Cesium3DTileColorBlendMode.js#L27">engine/Source/Scene/Cesium3DTileColorBlendMode.js 27</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Cesium3DTileColorBlendMode.js#L27">engine/Source/Scene/Cesium3DTileColorBlendMode.js 27</a>
 </div>
 
 
 
         
-            <div class="description">定义从 Cesium API 或声明式样式设置的每个特征颜色如何与
-原始特征，例如 glTF 材质或瓦片中的每点颜色。
-<p>
-当使用 <code>REPLACE</code> 或 <code>MIX</code> 且源颜色是 glTF 材质时，该技术必须为
-<code>_3DTILESDIFFUSE</code> diffuse color 参数的语义。否则，仅支持 <code>HIGHLIGHT</code>。
-</p>
-<p>
-颜色计算结果为白色 (1.0, 1.0, 1.0) 的特征始终在渲染时不进行颜色混合，而不管
-图块集的颜色混合模式。
-</p>
-<pre><code>
-"techniques": {
-  "technique0": {
-    "parameters": {
-      "diffuse": {
-        "semantic": "_3DTILESDIFFUSE",
-        "type": 35666
-      }
-    }
-  }
-}
-</code></pre></div>
+            <div class="description">定义从 Cesium API 或声明式样式设置的每个特征颜色如何与原始特征，例如 glTF 材质或瓦片中的每点颜色。<p>当使用 <code>REPLACE</code> 或 <code>MIX</code> 且源颜色是 glTF 材质时，该技术必须为<code>_3DTILESDIFFUSE</code> diffuse color 参数的语义。否则，仅支持 <code>HIGHLIGHT</code>。</p><p>颜色计算结果为白色 (1.0, 1.0, 1.0) 的特征始终在渲染时不进行颜色混合，而不管图块集的颜色混合模式。</p><pre><code>"techniques": {  "technique0": {    "parameters": {      "diffuse": {        "semantic": "_3DTILESDIFFUSE",        "type": 35666      }    }  }}</code></pre></div>
         
 
         
@@ -226,7 +205,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Cesium3DTileColorBlendMode.js#L34">engine/Source/Scene/Cesium3DTileColorBlendMode.js 34</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Cesium3DTileColorBlendMode.js#L34">engine/Source/Scene/Cesium3DTileColorBlendMode.js 34</a>
 </div>
 
 
@@ -286,7 +265,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Cesium3DTileColorBlendMode.js#L50">engine/Source/Scene/Cesium3DTileColorBlendMode.js 50</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Cesium3DTileColorBlendMode.js#L50">engine/Source/Scene/Cesium3DTileColorBlendMode.js 50</a>
 </div>
 
 
@@ -349,7 +328,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Cesium3DTileColorBlendMode.js#L42">engine/Source/Scene/Cesium3DTileColorBlendMode.js 42</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Cesium3DTileColorBlendMode.js#L42">engine/Source/Scene/Cesium3DTileColorBlendMode.js 42</a>
 </div>
 
 

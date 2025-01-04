@@ -41,16 +41,13 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Model/Extensions/Gpm/StorageType.js#L10">engine/Source/Scene/Model/Extensions/Gpm/StorageType.js 10</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Model/Extensions/Gpm/StorageType.js#L10">engine/Source/Scene/Model/Extensions/Gpm/StorageType.js 10</a>
 </div>
 
 
 
         
-            <div class="description">协方差信息的存储类型的枚举。
-
-这反映了
-<a href="https://nsgreg.nga.mil/csmwg.jsp">NGA_gpm_local</a> glTF 扩展。</div>
+            <div class="description">协方差信息的存储类型的枚举。这反映了<a href="https://nsgreg.nga.mil/csmwg.jsp">NGA_gpm_local</a> glTF 扩展。</div>
         
 
         
@@ -122,9 +119,7 @@
 
             
 
-            <td class="description last">为每个锚点存储一个完整的协方差矩阵。但是，在这种情况下，
-交叉协方差项不直接存储，但可以通过一组空间
-存储在元数据中的相关函数参数。</td>
+            <td class="description last">为每个锚点存储一个完整的协方差矩阵。但是，在这种情况下，交叉协方差项不直接存储，但可以通过一组空间存储在元数据中的相关函数参数。</td>
         </tr>
 
     
@@ -194,7 +189,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Model/Extensions/Gpm/StorageType.js#L17">engine/Source/Scene/Model/Extensions/Gpm/StorageType.js 17</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Model/Extensions/Gpm/StorageType.js#L17">engine/Source/Scene/Model/Extensions/Gpm/StorageType.js 17</a>
 </div>
 
 
@@ -257,7 +252,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Model/Extensions/Gpm/StorageType.js#L27">engine/Source/Scene/Model/Extensions/Gpm/StorageType.js 27</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Model/Extensions/Gpm/StorageType.js#L27">engine/Source/Scene/Model/Extensions/Gpm/StorageType.js 27</a>
 </div>
 
 
@@ -268,9 +263,7 @@
 
 
 <div class="description">
-    为每个锚点存储一个完整的协方差矩阵。但是，在这种情况下，
-交叉协方差项不直接存储，但可以通过一组空间
-存储在元数据中的相关函数参数。
+    为每个锚点存储一个完整的协方差矩阵。但是，在这种情况下，交叉协方差项不直接存储，但可以通过一组空间存储在元数据中的相关函数参数。
 </div>
 
 

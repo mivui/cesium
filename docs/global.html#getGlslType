@@ -41,16 +41,13 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/DerivedCommand.js#L406">engine/Source/Scene/DerivedCommand.js 406</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/DerivedCommand.js#L406">engine/Source/Scene/DerivedCommand.js 406</a>
 </div>
 
 
 
         
-            <div class="description">返回给定类属性在 GLSL 着色器中具有的类型。
-
-返回与 'PropertyTextureProperty.prototype.getGlslType' 相同的字符串
-对于具有给定类属性的属性 texture 属性</div>
+            <div class="description">返回给定类属性在 GLSL 着色器中具有的类型。返回与 'PropertyTextureProperty.prototype.getGlslType' 相同的字符串对于具有给定类属性的属性 texture 属性</div>
         
 
         

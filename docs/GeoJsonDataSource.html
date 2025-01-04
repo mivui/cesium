@@ -46,7 +46,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/GeoJsonDataSource.js#L593">engine/Source/DataSources/GeoJsonDataSource.js 593</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/GeoJsonDataSource.js#L593">engine/Source/DataSources/GeoJsonDataSource.js 593</a>
 </div>
 
 
@@ -58,10 +58,7 @@
 
 
 <div class="description">
-    一个 <a href="DataSource.html"><code>DataSource</code></a>，它处理
-<a href="http://www.geojson.org/">GeoJSON</a> 和 <a href="https://github.com/mbostock/topojson">TopoJSON</a> 数据。
-<a href="https://github.com/mapbox/simplestyle-spec">simplestyle-spec</a> 属性也将在以下情况下被使用
-存在。
+    一个 <a href="DataSource.html"><code>DataSource</code></a>，它处理<a href="http://www.geojson.org/">GeoJSON</a> 和 <a href="https://github.com/mbostock/topojson">TopoJSON</a> 数据。<a href="https://github.com/mapbox/simplestyle-spec">simplestyle-spec</a> 属性也将在以下情况下被使用存在。
 </div>
 
 
@@ -119,8 +116,7 @@
 
                 
             
-                此数据源的名称。 如果未定义，则名称将从
-GeoJSON 文件的名称。</td>
+                此数据源的名称。 如果未定义，则名称将从GeoJSON 文件的名称。</td>
         </tr>
 
     
@@ -163,13 +159,7 @@ GeoJSON 文件的名称。</td>
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const viewer = new Cesium.Viewer('cesiumContainer');
-viewer.dataSources.add(Cesium.GeoJsonDataSource.load('../../SampleData/ne_10m_us_states.topojson', {
-  stroke: Cesium.Color.HOTPINK,
-  fill: Cesium.Color.PINK,
-  strokeWidth: 3,
-  markerSymbol: '?'
-}));</code></pre>
+    <pre><code class="language-javascript">const viewer = new Cesium.Viewer('cesiumContainer');viewer.dataSources.add(Cesium.GeoJsonDataSource.load('../../SampleData/ne_10m_us_states.topojson', {  stroke: Cesium.Color.HOTPINK,  fill: Cesium.Color.PINK,  strokeWidth: 3,  markerSymbol: '?'}));</code></pre>
 
     
 
@@ -217,7 +207,7 @@ viewer.dataSources.add(Cesium.GeoJsonDataSource.load('../../SampleData/ne_10m_us
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/GeoJsonDataSource.js#L711">engine/Source/DataSources/GeoJsonDataSource.js 711</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/GeoJsonDataSource.js#L711">engine/Source/DataSources/GeoJsonDataSource.js 711</a>
 </div>
 
 
@@ -280,7 +270,7 @@ viewer.dataSources.add(Cesium.GeoJsonDataSource.load('../../SampleData/ne_10m_us
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/GeoJsonDataSource.js#L743">engine/Source/DataSources/GeoJsonDataSource.js 743</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/GeoJsonDataSource.js#L743">engine/Source/DataSources/GeoJsonDataSource.js 743</a>
 </div>
 
 
@@ -291,11 +281,7 @@ viewer.dataSources.add(Cesium.GeoJsonDataSource.load('../../SampleData/ne_10m_us
 
 
 <div class="description">
-    获取将 crs 链接的 href 属性映射到回调函数的对象
-它接受 crs properties 对象并返回一个 Promise，该 Promise 解析
-转换为一个函数，该函数采用 GeoJSON 坐标并将其转换为 WGS84 地球固定笛卡尔坐标。
-此对象中的项目优先于 <code>crsLinkHrefs</code> 中定义的项目，假设
-链接指定了类型。
+    获取将 crs 链接的 href 属性映射到回调函数的对象它接受 crs properties 对象并返回一个 Promise，该 Promise 解析转换为一个函数，该函数采用 GeoJSON 坐标并将其转换为 WGS84 地球固定笛卡尔坐标。此对象中的项目优先于 <code>crsLinkHrefs</code> 中定义的项目，假设链接指定了类型。
 </div>
 
 
@@ -344,7 +330,7 @@ viewer.dataSources.add(Cesium.GeoJsonDataSource.load('../../SampleData/ne_10m_us
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/GeoJsonDataSource.js#L757">engine/Source/DataSources/GeoJsonDataSource.js 757</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/GeoJsonDataSource.js#L757">engine/Source/DataSources/GeoJsonDataSource.js 757</a>
 </div>
 
 
@@ -355,10 +341,7 @@ viewer.dataSources.add(Cesium.GeoJsonDataSource.load('../../SampleData/ne_10m_us
 
 
 <div class="description">
-    获取将 crs 链接的 type 属性映射到回调函数的对象
-它接受 crs properties 对象并返回一个 Promise，该 Promise 解析
-转换为一个函数，该函数采用 GeoJSON 坐标并将其转换为 WGS84 地球固定笛卡尔坐标。
-<code>crsLinkHrefs</code> 中的项优先于此对象。
+    获取将 crs 链接的 type 属性映射到回调函数的对象它接受 crs properties 对象并返回一个 Promise，该 Promise 解析转换为一个函数，该函数采用 GeoJSON 坐标并将其转换为 WGS84 地球固定笛卡尔坐标。<code>crsLinkHrefs</code> 中的项优先于此对象。
 </div>
 
 
@@ -407,7 +390,7 @@ viewer.dataSources.add(Cesium.GeoJsonDataSource.load('../../SampleData/ne_10m_us
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/GeoJsonDataSource.js#L728">engine/Source/DataSources/GeoJsonDataSource.js 728</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/GeoJsonDataSource.js#L728">engine/Source/DataSources/GeoJsonDataSource.js 728</a>
 </div>
 
 
@@ -418,10 +401,7 @@ viewer.dataSources.add(Cesium.GeoJsonDataSource.load('../../SampleData/ne_10m_us
 
 
 <div class="description">
-    获取一个对象，该对象将 crs 的名称映射到一个采用 GeoJSON 坐标的回调函数
-并将其转换为 WGS84 地球固定笛卡尔矩阵。 旧版本的 GeoJSON
-支持的 EPSG 类型也可以添加到此列表中，只需指定完整的 EPSG 名称即可。
-例如：'EPSG：4326'。
+    获取一个对象，该对象将 crs 的名称映射到一个采用 GeoJSON 坐标的回调函数并将其转换为 WGS84 地球固定笛卡尔矩阵。 旧版本的 GeoJSON支持的 EPSG 类型也可以添加到此列表中，只需指定完整的 EPSG 名称即可。例如：'EPSG：4326'。
 </div>
 
 
@@ -470,7 +450,7 @@ viewer.dataSources.add(Cesium.GeoJsonDataSource.load('../../SampleData/ne_10m_us
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/GeoJsonDataSource.js#L697">engine/Source/DataSources/GeoJsonDataSource.js 697</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/GeoJsonDataSource.js#L697">engine/Source/DataSources/GeoJsonDataSource.js 697</a>
 </div>
 
 
@@ -533,7 +513,7 @@ viewer.dataSources.add(Cesium.GeoJsonDataSource.load('../../SampleData/ne_10m_us
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/GeoJsonDataSource.js#L655">engine/Source/DataSources/GeoJsonDataSource.js 655</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/GeoJsonDataSource.js#L655">engine/Source/DataSources/GeoJsonDataSource.js 655</a>
 </div>
 
 
@@ -596,7 +576,7 @@ viewer.dataSources.add(Cesium.GeoJsonDataSource.load('../../SampleData/ne_10m_us
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/GeoJsonDataSource.js#L626">engine/Source/DataSources/GeoJsonDataSource.js 626</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/GeoJsonDataSource.js#L626">engine/Source/DataSources/GeoJsonDataSource.js 626</a>
 </div>
 
 
@@ -659,7 +639,7 @@ viewer.dataSources.add(Cesium.GeoJsonDataSource.load('../../SampleData/ne_10m_us
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/GeoJsonDataSource.js#L641">engine/Source/DataSources/GeoJsonDataSource.js 641</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/GeoJsonDataSource.js#L641">engine/Source/DataSources/GeoJsonDataSource.js 641</a>
 </div>
 
 
@@ -670,9 +650,7 @@ viewer.dataSources.add(Cesium.GeoJsonDataSource.load('../../SampleData/ne_10m_us
 
 
 <div class="description">
-    获取或设置为每个点创建的 Map Pin 的默认元件。
-这可以是任何有效的 <a href="http://mapbox.com/maki/">Maki</a> 标识符、任何单个字符、
-如果不要使用符号，则为空。
+    获取或设置为每个点创建的 Map Pin 的默认元件。这可以是任何有效的 <a href="http://mapbox.com/maki/">Maki</a> 标识符、任何单个字符、如果不要使用符号，则为空。
 </div>
 
 
@@ -721,7 +699,7 @@ viewer.dataSources.add(Cesium.GeoJsonDataSource.load('../../SampleData/ne_10m_us
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/GeoJsonDataSource.js#L669">engine/Source/DataSources/GeoJsonDataSource.js 669</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/GeoJsonDataSource.js#L669">engine/Source/DataSources/GeoJsonDataSource.js 669</a>
 </div>
 
 
@@ -784,7 +762,7 @@ viewer.dataSources.add(Cesium.GeoJsonDataSource.load('../../SampleData/ne_10m_us
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/GeoJsonDataSource.js#L683">engine/Source/DataSources/GeoJsonDataSource.js 683</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/GeoJsonDataSource.js#L683">engine/Source/DataSources/GeoJsonDataSource.js 683</a>
 </div>
 
 
@@ -847,7 +825,7 @@ viewer.dataSources.add(Cesium.GeoJsonDataSource.load('../../SampleData/ne_10m_us
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/GeoJsonDataSource.js#L815">engine/Source/DataSources/GeoJsonDataSource.js 815</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/GeoJsonDataSource.js#L815">engine/Source/DataSources/GeoJsonDataSource.js 815</a>
 </div>
 
 
@@ -907,7 +885,7 @@ viewer.dataSources.add(Cesium.GeoJsonDataSource.load('../../SampleData/ne_10m_us
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/GeoJsonDataSource.js#L786">engine/Source/DataSources/GeoJsonDataSource.js 786</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/GeoJsonDataSource.js#L786">engine/Source/DataSources/GeoJsonDataSource.js 786</a>
 </div>
 
 
@@ -967,7 +945,7 @@ viewer.dataSources.add(Cesium.GeoJsonDataSource.load('../../SampleData/ne_10m_us
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/GeoJsonDataSource.js#L860">engine/Source/DataSources/GeoJsonDataSource.js 860</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/GeoJsonDataSource.js#L860">engine/Source/DataSources/GeoJsonDataSource.js 860</a>
 </div>
 
 
@@ -1027,7 +1005,7 @@ viewer.dataSources.add(Cesium.GeoJsonDataSource.load('../../SampleData/ne_10m_us
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/GeoJsonDataSource.js#L878">engine/Source/DataSources/GeoJsonDataSource.js 878</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/GeoJsonDataSource.js#L878">engine/Source/DataSources/GeoJsonDataSource.js 878</a>
 </div>
 
 
@@ -1087,7 +1065,7 @@ viewer.dataSources.add(Cesium.GeoJsonDataSource.load('../../SampleData/ne_10m_us
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/GeoJsonDataSource.js#L795">engine/Source/DataSources/GeoJsonDataSource.js 795</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/GeoJsonDataSource.js#L795">engine/Source/DataSources/GeoJsonDataSource.js 795</a>
 </div>
 
 
@@ -1147,7 +1125,7 @@ viewer.dataSources.add(Cesium.GeoJsonDataSource.load('../../SampleData/ne_10m_us
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/GeoJsonDataSource.js#L825">engine/Source/DataSources/GeoJsonDataSource.js 825</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/GeoJsonDataSource.js#L825">engine/Source/DataSources/GeoJsonDataSource.js 825</a>
 </div>
 
 
@@ -1207,7 +1185,7 @@ viewer.dataSources.add(Cesium.GeoJsonDataSource.load('../../SampleData/ne_10m_us
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/GeoJsonDataSource.js#L805">engine/Source/DataSources/GeoJsonDataSource.js 805</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/GeoJsonDataSource.js#L805">engine/Source/DataSources/GeoJsonDataSource.js 805</a>
 </div>
 
 
@@ -1267,7 +1245,7 @@ viewer.dataSources.add(Cesium.GeoJsonDataSource.load('../../SampleData/ne_10m_us
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/GeoJsonDataSource.js#L835">engine/Source/DataSources/GeoJsonDataSource.js 835</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/GeoJsonDataSource.js#L835">engine/Source/DataSources/GeoJsonDataSource.js 835</a>
 </div>
 
 
@@ -1327,7 +1305,7 @@ viewer.dataSources.add(Cesium.GeoJsonDataSource.load('../../SampleData/ne_10m_us
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/GeoJsonDataSource.js#L770">engine/Source/DataSources/GeoJsonDataSource.js 770</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/GeoJsonDataSource.js#L770">engine/Source/DataSources/GeoJsonDataSource.js 770</a>
 </div>
 
 
@@ -1387,7 +1365,7 @@ viewer.dataSources.add(Cesium.GeoJsonDataSource.load('../../SampleData/ne_10m_us
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/GeoJsonDataSource.js#L845">engine/Source/DataSources/GeoJsonDataSource.js 845</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/GeoJsonDataSource.js#L845">engine/Source/DataSources/GeoJsonDataSource.js 845</a>
 </div>
 
 
@@ -1453,7 +1431,7 @@ viewer.dataSources.add(Cesium.GeoJsonDataSource.load('../../SampleData/ne_10m_us
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/GeoJsonDataSource.js#L615">engine/Source/DataSources/GeoJsonDataSource.js 615</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/GeoJsonDataSource.js#L615">engine/Source/DataSources/GeoJsonDataSource.js 615</a>
 </div>
 
 
@@ -1629,7 +1607,7 @@ viewer.dataSources.add(Cesium.GeoJsonDataSource.load('../../SampleData/ne_10m_us
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/GeoJsonDataSource.js#L893">engine/Source/DataSources/GeoJsonDataSource.js 893</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/GeoJsonDataSource.js#L893">engine/Source/DataSources/GeoJsonDataSource.js 893</a>
 </div>
 
 
@@ -1805,7 +1783,7 @@ viewer.dataSources.add(Cesium.GeoJsonDataSource.load('../../SampleData/ne_10m_us
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/GeoJsonDataSource.js#L905">engine/Source/DataSources/GeoJsonDataSource.js 905</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/GeoJsonDataSource.js#L905">engine/Source/DataSources/GeoJsonDataSource.js 905</a>
 </div>
 
 
@@ -1981,7 +1959,7 @@ viewer.dataSources.add(Cesium.GeoJsonDataSource.load('../../SampleData/ne_10m_us
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/GeoJsonDataSource.js#L981">engine/Source/DataSources/GeoJsonDataSource.js 981</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/GeoJsonDataSource.js#L981">engine/Source/DataSources/GeoJsonDataSource.js 981</a>
 </div>
 
 
@@ -1993,10 +1971,7 @@ viewer.dataSources.add(Cesium.GeoJsonDataSource.load('../../SampleData/ne_10m_us
 
 
 <div class="description">
-    将数据源更新为提供的时间。 此功能是可选的，并且
-不需要实施。 它适用于以下数据源
-根据当前动画时间或场景状态检索数据。
-如果实现，则 <a href="DataSourceDisplay.html"><code>DataSourceDisplay</code></a> 将每帧调用一次 update。
+    将数据源更新为提供的时间。 此功能是可选的，并且不需要实施。 它适用于以下数据源根据当前动画时间或场景状态检索数据。如果实现，则 <a href="DataSourceDisplay.html"><code>DataSourceDisplay</code></a> 将每帧调用一次 update。
 </div>
 
 
@@ -2125,7 +2100,7 @@ viewer.dataSources.add(Cesium.GeoJsonDataSource.load('../../SampleData/ne_10m_us
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/GeoJsonDataSource.js#L1058">engine/Source/DataSources/GeoJsonDataSource.js 1058</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/GeoJsonDataSource.js#L1058">engine/Source/DataSources/GeoJsonDataSource.js 1058</a>
 </div>
 
 
@@ -2274,7 +2249,7 @@ viewer.dataSources.add(Cesium.GeoJsonDataSource.load('../../SampleData/ne_10m_us
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/GeoJsonDataSource.js#L552">engine/Source/DataSources/GeoJsonDataSource.js 552</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/GeoJsonDataSource.js#L552">engine/Source/DataSources/GeoJsonDataSource.js 552</a>
 </div>
 
 

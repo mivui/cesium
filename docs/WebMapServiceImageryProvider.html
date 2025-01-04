@@ -46,7 +46,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/WebMapServiceImageryProvider.js#L103">engine/Source/Scene/WebMapServiceImageryProvider.js 103</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/WebMapServiceImageryProvider.js#L103">engine/Source/Scene/WebMapServiceImageryProvider.js 103</a>
 </div>
 
 
@@ -152,13 +152,7 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const provider = new Cesium.WebMapServiceImageryProvider({
-    url : 'https://sampleserver1.arcgisonline.com/ArcGIS/services/Specialty/ESRI_StatesCitiesRivers_USA/MapServer/WMSServer',
-    layers : '0',
-    proxy: new Cesium.DefaultProxy('/proxy/')
-});
-const imageryLayer = new Cesium.ImageryLayer(provider);
-viewer.imageryLayers.add(imageryLayer);</code></pre>
+    <pre><code class="language-javascript">const provider = new Cesium.WebMapServiceImageryProvider({    url : 'https://sampleserver1.arcgisonline.com/ArcGIS/services/Specialty/ESRI_StatesCitiesRivers_USA/MapServer/WMSServer',    layers : '0',    proxy: new Cesium.DefaultProxy('/proxy/')});const imageryLayer = new Cesium.ImageryLayer(provider);viewer.imageryLayers.add(imageryLayer);</code></pre>
 
     
 
@@ -222,7 +216,7 @@ viewer.imageryLayers.add(imageryLayer);</code></pre>
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/WebMapServiceImageryProvider.js#L617">engine/Source/Scene/WebMapServiceImageryProvider.js 617</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/WebMapServiceImageryProvider.js#L617">engine/Source/Scene/WebMapServiceImageryProvider.js 617</a>
 </div>
 
 
@@ -233,12 +227,7 @@ viewer.imageryLayers.add(imageryLayer);</code></pre>
 
 
 <div class="description">
-    WMS URL 中用于获取图像的默认参数。 值如下所示：
-   service=WMS
-   version=1.1.1
-   request=GetMap
-   styles=
-   format=image/jpeg
+    WMS URL 中用于获取图像的默认参数。 值如下所示：   service=WMS   version=1.1.1   request=GetMap   styles=   format=image/jpeg
 </div>
 
 
@@ -287,7 +276,7 @@ viewer.imageryLayers.add(imageryLayer);</code></pre>
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/WebMapServiceImageryProvider.js#L634">engine/Source/Scene/WebMapServiceImageryProvider.js 634</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/WebMapServiceImageryProvider.js#L634">engine/Source/Scene/WebMapServiceImageryProvider.js 634</a>
 </div>
 
 
@@ -298,10 +287,7 @@ viewer.imageryLayers.add(imageryLayer);</code></pre>
 
 
 <div class="description">
-    要包含在 WMS URL 中以获取要素信息的默认参数。 值如下所示：
-    service=WMS
-    version=1.1.1
-    request=GetFeatureInfo
+    要包含在 WMS URL 中以获取要素信息的默认参数。 值如下所示：    service=WMS    version=1.1.1    request=GetFeatureInfo
 </div>
 
 
@@ -350,7 +336,7 @@ viewer.imageryLayers.add(imageryLayer);</code></pre>
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/WebMapServiceImageryProvider.js#L490">engine/Source/Scene/WebMapServiceImageryProvider.js 490</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/WebMapServiceImageryProvider.js#L490">engine/Source/Scene/WebMapServiceImageryProvider.js 490</a>
 </div>
 
 
@@ -410,7 +396,7 @@ viewer.imageryLayers.add(imageryLayer);</code></pre>
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/WebMapServiceImageryProvider.js#L444">engine/Source/Scene/WebMapServiceImageryProvider.js 444</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/WebMapServiceImageryProvider.js#L444">engine/Source/Scene/WebMapServiceImageryProvider.js 444</a>
 </div>
 
 
@@ -421,8 +407,7 @@ viewer.imageryLayers.add(imageryLayer);</code></pre>
 
 
 <div class="description">
-    获取此影像提供程序处于活动状态时要显示的点数。 通常，这用于贷记
-图像的来源。
+    获取此影像提供程序处于活动状态时要显示的点数。 通常，这用于贷记图像的来源。
 </div>
 
 
@@ -471,7 +456,7 @@ viewer.imageryLayers.add(imageryLayer);</code></pre>
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/WebMapServiceImageryProvider.js#L476">engine/Source/Scene/WebMapServiceImageryProvider.js 476</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/WebMapServiceImageryProvider.js#L476">engine/Source/Scene/WebMapServiceImageryProvider.js 476</a>
 </div>
 
 
@@ -482,11 +467,7 @@ viewer.imageryLayers.add(imageryLayer);</code></pre>
 
 
 <div class="description">
-    获取或设置一个值，该值指示是否启用功能选取。 如果为 true，则 <a href="WebMapServiceImageryProvider.html#pickFeatures"><code>WebMapServiceImageryProvider#pickFeatures</code></a> 将
-调用 WMS 服务器上的 <code>GetFeatureInfo</code> 服务，并尝试解释响应中包含的功能。 如果为 false，则
-<a href="WebMapServiceImageryProvider.html#pickFeatures"><code>WebMapServiceImageryProvider#pickFeatures</code></a> 将立即返回 undefined(表示没有可选取的
-功能)，而无需与服务器通信。 如果您知道您的数据，请将此属性设置为 false
-Source 不支持选取功能，或者您不希望此提供程序的功能可选取。
+    获取或设置一个值，该值指示是否启用功能选取。 如果为 true，则 <a href="WebMapServiceImageryProvider.html#pickFeatures"><code>WebMapServiceImageryProvider#pickFeatures</code></a> 将调用 WMS 服务器上的 <code>GetFeatureInfo</code> 服务，并尝试解释响应中包含的功能。 如果为 false，则<a href="WebMapServiceImageryProvider.html#pickFeatures"><code>WebMapServiceImageryProvider#pickFeatures</code></a> 将立即返回 undefined(表示没有可选取的功能)，而无需与服务器通信。 如果您知道您的数据，请将此属性设置为 falseSource 不支持选取功能，或者您不希望此提供程序的功能可选取。
 </div>
 
 
@@ -538,7 +519,7 @@ Source 不支持选取功能，或者您不希望此提供程序的功能可选�
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/WebMapServiceImageryProvider.js#L431">engine/Source/Scene/WebMapServiceImageryProvider.js 431</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/WebMapServiceImageryProvider.js#L431">engine/Source/Scene/WebMapServiceImageryProvider.js 431</a>
 </div>
 
 
@@ -549,9 +530,7 @@ Source 不支持选取功能，或者您不希望此提供程序的功能可选�
 
 
 <div class="description">
-    获取在影像提供程序遇到异步错误时引发的事件。 通过订阅
-时，您将收到错误通知，并可能从中恢复。 事件侦听器
-将传递 <a href="TileProviderError.html"><code>TileProviderError</code></a> 的实例。
+    获取在影像提供程序遇到异步错误时引发的事件。 通过订阅时，您将收到错误通知，并可能从中恢复。 事件侦听器将传递 <a href="TileProviderError.html"><code>TileProviderError</code></a> 的实例。
 </div>
 
 
@@ -600,7 +579,7 @@ Source 不支持选取功能，或者您不希望此提供程序的功能可选�
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/WebMapServiceImageryProvider.js#L520">engine/Source/Scene/WebMapServiceImageryProvider.js 520</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/WebMapServiceImageryProvider.js#L520">engine/Source/Scene/WebMapServiceImageryProvider.js 520</a>
 </div>
 
 
@@ -660,7 +639,7 @@ Source 不支持选取功能，或者您不希望此提供程序的功能可选�
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/WebMapServiceImageryProvider.js#L460">engine/Source/Scene/WebMapServiceImageryProvider.js 460</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/WebMapServiceImageryProvider.js#L460">engine/Source/Scene/WebMapServiceImageryProvider.js 460</a>
 </div>
 
 
@@ -671,11 +650,7 @@ Source 不支持选取功能，或者您不希望此提供程序的功能可选�
 
 
 <div class="description">
-    获取一个值，该值指示此图像提供程序是否提供图像
-包括 Alpha 通道。 如果此属性为 false，则 Alpha 通道(如果存在)将
-被忽略。 如果此属性为 true，则将处理任何没有 Alpha 通道的图像
-就好像它们的 alpha 在所有地方都是 1.0 一样。 当此属性为 false 时，内存使用情况
-和纹理上传时间缩短。
+    获取一个值，该值指示此图像提供程序是否提供图像包括 Alpha 通道。 如果此属性为 false，则 Alpha 通道(如果存在)将被忽略。 如果此属性为 true，则将处理任何没有 Alpha 通道的图像就好像它们的 alpha 在所有地方都是 1.0 一样。 当此属性为 false 时，内存使用情况和纹理上传时间缩短。
 </div>
 
 
@@ -724,7 +699,7 @@ Source 不支持选取功能，或者您不希望此提供程序的功能可选�
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/WebMapServiceImageryProvider.js#L331">engine/Source/Scene/WebMapServiceImageryProvider.js 331</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/WebMapServiceImageryProvider.js#L331">engine/Source/Scene/WebMapServiceImageryProvider.js 331</a>
 </div>
 
 
@@ -784,7 +759,7 @@ Source 不支持选取功能，或者您不希望此提供程序的功能可选�
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/WebMapServiceImageryProvider.js#L367">engine/Source/Scene/WebMapServiceImageryProvider.js 367</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/WebMapServiceImageryProvider.js#L367">engine/Source/Scene/WebMapServiceImageryProvider.js 367</a>
 </div>
 
 
@@ -844,7 +819,7 @@ Source 不支持选取功能，或者您不希望此提供程序的功能可选�
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/WebMapServiceImageryProvider.js#L379">engine/Source/Scene/WebMapServiceImageryProvider.js 379</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/WebMapServiceImageryProvider.js#L379">engine/Source/Scene/WebMapServiceImageryProvider.js 379</a>
 </div>
 
 
@@ -904,7 +879,7 @@ Source 不支持选取功能，或者您不希望此提供程序的功能可选�
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/WebMapServiceImageryProvider.js#L319">engine/Source/Scene/WebMapServiceImageryProvider.js 319</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/WebMapServiceImageryProvider.js#L319">engine/Source/Scene/WebMapServiceImageryProvider.js 319</a>
 </div>
 
 
@@ -964,7 +939,7 @@ Source 不支持选取功能，或者您不希望此提供程序的功能可选�
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/WebMapServiceImageryProvider.js#L403">engine/Source/Scene/WebMapServiceImageryProvider.js 403</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/WebMapServiceImageryProvider.js#L403">engine/Source/Scene/WebMapServiceImageryProvider.js 403</a>
 </div>
 
 
@@ -1024,7 +999,7 @@ Source 不支持选取功能，或者您不希望此提供程序的功能可选�
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/WebMapServiceImageryProvider.js#L417">engine/Source/Scene/WebMapServiceImageryProvider.js 417</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/WebMapServiceImageryProvider.js#L417">engine/Source/Scene/WebMapServiceImageryProvider.js 417</a>
 </div>
 
 
@@ -1035,9 +1010,7 @@ Source 不支持选取功能，或者您不希望此提供程序的功能可选�
 
 
 <div class="description">
-    获取瓦片丢弃策略。 如果未 undefined，则 discard 策略负责
-用于通过其 shouldDiscardImage 函数过滤掉“缺失”的瓦片。 如果此功能
-返回 undefined，不过滤任何图块。
+    获取瓦片丢弃策略。 如果未 undefined，则 discard 策略负责用于通过其 shouldDiscardImage 函数过滤掉“缺失”的瓦片。 如果此功能返回 undefined，不过滤任何图块。
 </div>
 
 
@@ -1086,7 +1059,7 @@ Source 不支持选取功能，或者您不希望此提供程序的功能可选�
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/WebMapServiceImageryProvider.js#L355">engine/Source/Scene/WebMapServiceImageryProvider.js 355</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/WebMapServiceImageryProvider.js#L355">engine/Source/Scene/WebMapServiceImageryProvider.js 355</a>
 </div>
 
 
@@ -1146,7 +1119,7 @@ Source 不支持选取功能，或者您不希望此提供程序的功能可选�
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/WebMapServiceImageryProvider.js#L343">engine/Source/Scene/WebMapServiceImageryProvider.js 343</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/WebMapServiceImageryProvider.js#L343">engine/Source/Scene/WebMapServiceImageryProvider.js 343</a>
 </div>
 
 
@@ -1206,7 +1179,7 @@ Source 不支持选取功能，或者您不希望此提供程序的功能可选�
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/WebMapServiceImageryProvider.js#L391">engine/Source/Scene/WebMapServiceImageryProvider.js 391</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/WebMapServiceImageryProvider.js#L391">engine/Source/Scene/WebMapServiceImageryProvider.js 391</a>
 </div>
 
 
@@ -1266,7 +1239,7 @@ Source 不支持选取功能，或者您不希望此提供程序的功能可选�
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/WebMapServiceImageryProvider.js#L505">engine/Source/Scene/WebMapServiceImageryProvider.js 505</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/WebMapServiceImageryProvider.js#L505">engine/Source/Scene/WebMapServiceImageryProvider.js 505</a>
 </div>
 
 
@@ -1277,9 +1250,7 @@ Source 不支持选取功能，或者您不希望此提供程序的功能可选�
 
 
 <div class="description">
-    获取或设置用于获取时间动态参数的时间间隔集合。每个
-TimeInterval 是一个对象，其中包含在
-磁贴请求。
+    获取或设置用于获取时间动态参数的时间间隔集合。每个TimeInterval 是一个对象，其中包含在磁贴请求。
 </div>
 
 
@@ -1328,7 +1299,7 @@ TimeInterval 是一个对象，其中包含在
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/WebMapServiceImageryProvider.js#L307">engine/Source/Scene/WebMapServiceImageryProvider.js 307</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/WebMapServiceImageryProvider.js#L307">engine/Source/Scene/WebMapServiceImageryProvider.js 307</a>
 </div>
 
 
@@ -1394,7 +1365,7 @@ TimeInterval 是一个对象，其中包含在
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/WebMapServiceImageryProvider.js#L535">engine/Source/Scene/WebMapServiceImageryProvider.js 535</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/WebMapServiceImageryProvider.js#L535">engine/Source/Scene/WebMapServiceImageryProvider.js 535</a>
 </div>
 
 
@@ -1575,7 +1546,7 @@ TimeInterval 是一个对象，其中包含在
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/WebMapServiceImageryProvider.js#L591">engine/Source/Scene/WebMapServiceImageryProvider.js 591</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/WebMapServiceImageryProvider.js#L591">engine/Source/Scene/WebMapServiceImageryProvider.js 591</a>
 </div>
 
 
@@ -1587,8 +1558,7 @@ TimeInterval 是一个对象，其中包含在
 
 
 <div class="description">
-    异步确定哪些要素(如果有)位于给定的经度和纬度
-一个图块。
+    异步确定哪些要素(如果有)位于给定的经度和纬度一个图块。
 </div>
 
 
@@ -1752,9 +1722,7 @@ TimeInterval 是一个对象，其中包含在
 
         
 <div class="param-desc">
-    对所选特征的 Promise，当异步
-拣选完成。 解析的值是 <a href="ImageryLayerFeatureInfo.html"><code>ImageryLayerFeatureInfo</code></a> 的数组
-实例。 如果在给定位置未找到要素，则数组可能为空。
+    对所选特征的 Promise，当异步拣选完成。 解析的值是 <a href="ImageryLayerFeatureInfo.html"><code>ImageryLayerFeatureInfo</code></a> 的数组实例。 如果在给定位置未找到要素，则数组可能为空。
 </div>
 
 
@@ -1805,7 +1773,7 @@ TimeInterval 是一个对象，其中包含在
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/WebMapServiceImageryProvider.js#L549">engine/Source/Scene/WebMapServiceImageryProvider.js 549</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/WebMapServiceImageryProvider.js#L549">engine/Source/Scene/WebMapServiceImageryProvider.js 549</a>
 </div>
 
 
@@ -1980,8 +1948,7 @@ TimeInterval 是一个对象，其中包含在
 
         
 <div class="param-desc">
-    当镜像可用时将解析的镜像的 Promise，或者
-undefined 如果对服务器的活动请求过多，则应稍后重试该请求。
+    当镜像可用时将解析的镜像的 Promise，或者undefined 如果对服务器的活动请求过多，则应稍后重试该请求。
 </div>
 
 
@@ -2038,7 +2005,7 @@ undefined 如果对服务器的活动请求过多，则应稍后重试该请求�
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/WebMapServiceImageryProvider.js#L34">engine/Source/Scene/WebMapServiceImageryProvider.js 34</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/WebMapServiceImageryProvider.js#L34">engine/Source/Scene/WebMapServiceImageryProvider.js 34</a>
 </div>
 
 
@@ -2262,12 +2229,7 @@ undefined 如果对服务器的活动请求过多，则应稍后重试该请求�
                 </td>
             
 
-            <td class="description last">如果为 true，则 <a href="WebMapServiceImageryProvider.html#pickFeatures"><code>WebMapServiceImageryProvider#pickFeatures</code></a> 将调用
-在 WMS 服务器上执行 GetFeatureInfo 操作，并返回响应中包含的要素。 如果为 false，则
-<a href="WebMapServiceImageryProvider.html#pickFeatures"><code>WebMapServiceImageryProvider#pickFeatures</code></a> 将立即返回 undefined(表示没有可选取的特征)
-而不与服务器通信。 如果您知道 WMS 服务器不支持，请将此属性设置为 false
-GetFeatureInfo 或者您不希望此提供商的功能是可选择的。请注意，这可以是动态的
-通过修改 WebMapServiceImageryProvider#enablePickFeatures 属性进行覆盖。</td>
+            <td class="description last">如果为 true，则 <a href="WebMapServiceImageryProvider.html#pickFeatures"><code>WebMapServiceImageryProvider#pickFeatures</code></a> 将调用在 WMS 服务器上执行 GetFeatureInfo 操作，并返回响应中包含的要素。 如果为 false，则<a href="WebMapServiceImageryProvider.html#pickFeatures"><code>WebMapServiceImageryProvider#pickFeatures</code></a> 将立即返回 undefined(表示没有可选取的特征)而不与服务器通信。 如果您知道 WMS 服务器不支持，请将此属性设置为 falseGetFeatureInfo 或者您不希望此提供商的功能是可选择的。请注意，这可以是动态的通过修改 WebMapServiceImageryProvider#enablePickFeatures 属性进行覆盖。</td>
         </tr>
 
     
@@ -2304,8 +2266,7 @@ GetFeatureInfo 或者您不希望此提供商的功能是可选择的。请注�
                 </td>
             
 
-            <td class="description last">格式
-在其中尝试 WMS GetFeatureInfo 请求。</td>
+            <td class="description last">格式在其中尝试 WMS GetFeatureInfo 请求。</td>
         </tr>
 
     
@@ -2414,9 +2375,7 @@ GetFeatureInfo 或者您不希望此提供商的功能是可选择的。请注�
                 </td>
             
 
-            <td class="description last">椭球体。 如果指定了 tilingScheme，则
-此参数将被忽略，而使用切片方案的椭球体。如果两者都不是
-参数，则使用 WGS84 椭球体。</td>
+            <td class="description last">椭球体。 如果指定了 tilingScheme，则此参数将被忽略，而使用切片方案的椭球体。如果两者都不是参数，则使用 WGS84 椭球体。</td>
         </tr>
 
     
@@ -2527,9 +2486,7 @@ GetFeatureInfo 或者您不希望此提供商的功能是可选择的。请注�
                 </td>
             
 
-            <td class="description last">图像提供商支持的最低细节层次。 当
-指定最低级别的瓦片数量较少，例如 4 或更少。 更大的数字是
-可能会导致渲染问题。</td>
+            <td class="description last">图像提供商支持的最低细节层次。 当指定最低级别的瓦片数量较少，例如 4 或更少。 更大的数字是可能会导致渲染问题。</td>
         </tr>
 
     
@@ -2564,8 +2521,7 @@ GetFeatureInfo 或者您不希望此提供商的功能是可选择的。请注�
                 </td>
             
 
-            <td class="description last">图像提供商支持的最大细节层次，如果没有限制，则为 undefined。
-如果未指定，则没有限制。</td>
+            <td class="description last">图像提供商支持的最大细节层次，如果没有限制，则为 undefined。如果未指定，则没有限制。</td>
         </tr>
 
     
@@ -2713,9 +2669,7 @@ GetFeatureInfo 或者您不希望此提供商的功能是可选择的。请注�
                 </td>
             
 
-            <td class="description last">用于 URL 模板中 <code>{s}</code> 占位符的子域。
-如果此参数是单个字符串，则字符串中的每个字符都是一个子域。 如果是
-一个数组，数组中的每个元素都是一个子域。</td>
+            <td class="description last">用于 URL 模板中 <code>{s}</code> 占位符的子域。如果此参数是单个字符串，则字符串中的每个字符都是一个子域。 如果是一个数组，数组中的每个元素都是一个子域。</td>
         </tr>
 
     

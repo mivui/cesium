@@ -41,7 +41,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/GeometryPipeline.js#L27">engine/Source/Core/GeometryPipeline.js 27</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/GeometryPipeline.js#L27">engine/Source/Core/GeometryPipeline.js 27</a>
 </div>
 
 
@@ -115,7 +115,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/GeometryPipeline.js#L1481">engine/Source/Core/GeometryPipeline.js 1481</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/GeometryPipeline.js#L1481">engine/Source/Core/GeometryPipeline.js 1481</a>
 </div>
 
 
@@ -255,7 +255,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/GeometryPipeline.js#L1163">engine/Source/Core/GeometryPipeline.js 1163</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/GeometryPipeline.js#L1163">engine/Source/Core/GeometryPipeline.js 1163</a>
 </div>
 
 
@@ -267,9 +267,7 @@
 
 
 <div class="description">
-    <code>通过平均</code>
-所有三角形都入射到顶点。 结果是向几何体添加了新的<code>TRIANGLES</code>属性。
-这假设了逆时针绕组顺序。
+    <code>通过平均</code>所有三角形都入射到顶点。 结果是向几何体添加了新的<code>TRIANGLES</code>属性。这假设了逆时针绕组顺序。
 </div>
 
 
@@ -422,7 +420,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/GeometryPipeline.js#L1334">engine/Source/Core/GeometryPipeline.js 1334</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/GeometryPipeline.js#L1334">engine/Source/Core/GeometryPipeline.js 1334</a>
 </div>
 
 
@@ -434,13 +432,7 @@
 
 
 <div class="description">
-    计算包含 <code>TRIANGLES</code> 的几何体的每顶点切线和双切线。
-结果是新的 <code>tangent</code> 和 <code>bitangent</code> 添加到几何体的属性。
-这假设了逆时针绕组顺序。
-<p>
-Based on <a href="http://www.terathon.com/code/tangent.html">Computing Tangent Space Basis Vectors
-for an Arbitrary Mesh</a> by Eric Lengyel.
-</p>
+    计算包含 <code>TRIANGLES</code> 的几何体的每顶点切线和双切线。结果是新的 <code>tangent</code> 和 <code>bitangent</code> 添加到几何体的属性。这假设了逆时针绕组顺序。<p>Based on <a href="http://www.terathon.com/code/tangent.html">Computing Tangent Space Basis Vectorsfor an Arbitrary Mesh</a> by Eric Lengyel.</p>
 </div>
 
 
@@ -593,7 +585,7 @@ for an Arbitrary Mesh</a> by Eric Lengyel.
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/GeometryPipeline.js#L241">engine/Source/Core/GeometryPipeline.js 241</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/GeometryPipeline.js#L241">engine/Source/Core/GeometryPipeline.js 241</a>
 </div>
 
 
@@ -605,8 +597,7 @@ for an Arbitrary Mesh</a> by Eric Lengyel.
 
 
 <div class="description">
-    创建一个将属性名称映射到唯一位置(索引)的对象
-用于匹配顶点属性和着色器程序。
+    创建一个将属性名称映射到唯一位置(索引)的对象用于匹配顶点属性和着色器程序。
 </div>
 
 
@@ -709,12 +700,7 @@ for an Arbitrary Mesh</a> by Eric Lengyel.
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const attributeLocations = Cesium.GeometryPipeline.createAttributeLocations(geometry);
-// Example output
-// {
-//   'position' : 0,
-//   'normal' : 1
-// }</code></pre>
+    <pre><code class="language-javascript">const attributeLocations = Cesium.GeometryPipeline.createAttributeLocations(geometry);// Example output// {//   'position' : 0,//   'normal' : 1// }</code></pre>
 
     
 
@@ -739,7 +725,7 @@ for an Arbitrary Mesh</a> by Eric Lengyel.
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/GeometryPipeline.js#L167">engine/Source/Core/GeometryPipeline.js 167</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/GeometryPipeline.js#L167">engine/Source/Core/GeometryPipeline.js 167</a>
 </div>
 
 
@@ -751,9 +737,7 @@ for an Arbitrary Mesh</a> by Eric Lengyel.
 
 
 <div class="description">
-    创建一个新的 <a href="Geometry.html"><code>Geometry</code></a>，其中 <code>LINES</code> 表示提供的
-属性 (<code>attributeName</code>) 为提供的几何图形。 这用于
-可视化向量属性，如法线、切线和双切线。
+    创建一个新的 <a href="Geometry.html"><code>Geometry</code></a>，其中 <code>LINES</code> 表示提供的属性 (<code>attributeName</code>) 为提供的几何图形。 这用于可视化向量属性，如法线、切线和双切线。
 </div>
 
 
@@ -978,7 +962,7 @@ for an Arbitrary Mesh</a> by Eric Lengyel.
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/GeometryPipeline.js#L728">engine/Source/Core/GeometryPipeline.js 728</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/GeometryPipeline.js#L728">engine/Source/Core/GeometryPipeline.js 728</a>
 </div>
 
 
@@ -990,11 +974,7 @@ for an Arbitrary Mesh</a> by Eric Lengyel.
 
 
 <div class="description">
-    将浮点几何属性值编码为两个单独的属性以提高
-渲染精度。
-<p>
-这通常用于创建高精度位置顶点属性。
-</p>
+    将浮点几何属性值编码为两个单独的属性以提高渲染精度。<p>这通常用于创建高精度位置顶点属性。</p>
 </div>
 
 
@@ -1216,7 +1196,7 @@ for an Arbitrary Mesh</a> by Eric Lengyel.
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/GeometryPipeline.js#L496">engine/Source/Core/GeometryPipeline.js 496</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/GeometryPipeline.js#L496">engine/Source/Core/GeometryPipeline.js 496</a>
 </div>
 
 
@@ -1228,12 +1208,7 @@ for an Arbitrary Mesh</a> by Eric Lengyel.
 
 
 <div class="description">
-    如有必要，将一个几何拆分为多个几何，以确保
-<code>indices</code>适合 unsigned shorts。 这用于满足 WebGL 要求
-当不支持 unsigned int 索引时。
-<p>
-如果几何图形没有任何<code>索引</code>，则此函数无效。
-</p>
+    如有必要，将一个几何拆分为多个几何，以确保<code>indices</code>适合 unsigned shorts。 这用于满足 WebGL 要求当不支持 unsigned int 索引时。<p>如果几何图形没有任何<code>索引</code>，则此函数无效。</p>
 </div>
 
 
@@ -1386,7 +1361,7 @@ for an Arbitrary Mesh</a> by Eric Lengyel.
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/GeometryPipeline.js#L617">engine/Source/Core/GeometryPipeline.js 617</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/GeometryPipeline.js#L617">engine/Source/Core/GeometryPipeline.js 617</a>
 </div>
 
 
@@ -1398,11 +1373,7 @@ for an Arbitrary Mesh</a> by Eric Lengyel.
 
 
 <div class="description">
-    将几何体的 3D <code>position</code>属性投影到 2D ，替换<code>position</code>
-属性具有单独的 <code>position3D</code> 和 <code>position2D</code> 属性。
-<p>
-如果几何体没有<code>position</code>，则此功能无效。
-</p>
+    将几何体的 3D <code>position</code>属性投影到 2D ，替换<code>position</code>属性具有单独的 <code>position3D</code> 和 <code>position2D</code> 属性。<p>如果几何体没有<code>position</code>，则此功能无效。</p>
 </div>
 
 
@@ -1709,7 +1680,7 @@ for an Arbitrary Mesh</a> by Eric Lengyel.
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/GeometryPipeline.js#L410">engine/Source/Core/GeometryPipeline.js 410</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/GeometryPipeline.js#L410">engine/Source/Core/GeometryPipeline.js 410</a>
 </div>
 
 
@@ -1721,9 +1692,7 @@ for an Arbitrary Mesh</a> by Eric Lengyel.
 
 
 <div class="description">
-    对几何体的<code>indices</code>进行重新排序，以获得更好的 GPU 性能
-使用 Tipsify 算法进行顶点着色器后缓存。 如果几何体 <code>primitiveType</code>
-不是 <code>TRIANGLES</code> 或几何图形没有<code>索引</code>，则此函数无效。
+    对几何体的<code>indices</code>进行重新排序，以获得更好的 GPU 性能使用 Tipsify 算法进行顶点着色器后缓存。 如果几何体 <code>primitiveType</code>不是 <code>TRIANGLES</code> 或几何图形没有<code>索引</code>，则此函数无效。
 </div>
 
 
@@ -1902,8 +1871,7 @@ for an Arbitrary Mesh</a> by Eric Lengyel.
     <ul class="see-list">
         <li><a href="GeometryPipeline.html#.reorderForPreVertexCache">GeometryPipeline.reorderForPreVertexCache</a></li>
     
-        <li><a href="http://gfx.cs.princ0eton.edu/pubs/Sander_2007_%253ETR/tipsy.pdf">Fast Triangle Reordering for Vertex Locality and Reduced Overdraw</a>
-by Sander, Nehab, and Barczak</li>
+        <li><a href="http://gfx.cs.princ0eton.edu/pubs/Sander_2007_%253ETR/tipsy.pdf">Fast Triangle Reordering for Vertex Locality and Reduced Overdraw</a>by Sander, Nehab, and Barczak</li>
     </ul>
     
 
@@ -1920,7 +1888,7 @@ by Sander, Nehab, and Barczak</li>
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/GeometryPipeline.js#L316">engine/Source/Core/GeometryPipeline.js 316</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/GeometryPipeline.js#L316">engine/Source/Core/GeometryPipeline.js 316</a>
 </div>
 
 
@@ -2079,7 +2047,7 @@ by Sander, Nehab, and Barczak</li>
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/GeometryPipeline.js#L119">engine/Source/Core/GeometryPipeline.js 119</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/GeometryPipeline.js#L119">engine/Source/Core/GeometryPipeline.js 119</a>
 </div>
 
 
@@ -2091,12 +2059,7 @@ by Sander, Nehab, and Barczak</li>
 
 
 <div class="description">
-    将几何图形的三角形索引转换为线条索引。 如果几何图形具有<code>索引</code>
-及其 <code>primitiveType</code> 为 <code>TRIANGLES</code>、<code>TRIANGLE_STRIP</code>、
-<code>TRIANGLE_FAN</code>，它被转换为 <code>LINES;</code>否则，几何图形不会更改。
-<p>
-这通常用于创建用于可视化调试的线框几何体。
-</p>
+    将几何图形的三角形索引转换为线条索引。 如果几何图形具有<code>索引</code>及其 <code>primitiveType</code> 为 <code>TRIANGLES</code>、<code>TRIANGLE_STRIP</code>、<code>TRIANGLE_FAN</code>，它被转换为 <code>LINES;</code>否则，几何图形不会更改。<p>这通常用于创建用于可视化调试的线框几何体。</p>
 </div>
 
 
@@ -2238,7 +2201,7 @@ by Sander, Nehab, and Barczak</li>
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/GeometryPipeline.js#L836">engine/Source/Core/GeometryPipeline.js 836</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/GeometryPipeline.js#L836">engine/Source/Core/GeometryPipeline.js 836</a>
 </div>
 
 
@@ -2250,10 +2213,7 @@ by Sander, Nehab, and Barczak</li>
 
 
 <div class="description">
-    将几何体实例转换为世界坐标。 这会改变
-实例的 <code>modelMatrix</code> 转换为 <a href="Matrix4.html#.IDENTITY"><code>Matrix4.IDENTITY</code></a>，并将
-如果存在以下属性：<code>position</code>、<code>normal</code>、
-<code>tangent</code> 和 <code>bitangent</code> 的 API 请求。
+    将几何体实例转换为世界坐标。 这会改变实例的 <code>modelMatrix</code> 转换为 <a href="Matrix4.html#.IDENTITY"><code>Matrix4.IDENTITY</code></a>，并将如果存在以下属性：<code>position</code>、<code>normal</code>、<code>tangent</code> 和 <code>bitangent</code> 的 API 请求。
 </div>
 
 

@@ -46,7 +46,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/widgets/Source/Viewer/Viewer.js#L396">widgets/Source/Viewer/Viewer.js 396</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/widgets/Source/Viewer/Viewer.js#L396">widgets/Source/Viewer/Viewer.js 396</a>
 </div>
 
 
@@ -58,8 +58,7 @@
 
 
 <div class="description">
-    用于构建应用程序的基本小部件。它将所有标准cesium组件组合到一个可重用的包中。
-小部件总是可以通过使用mixins来扩展，它可以添加对各种应用程序有用的功能。
+    用于构建应用程序的基本小部件。它将所有标准cesium组件组合到一个可重用的包中。小部件总是可以通过使用mixins来扩展，它可以添加对各种应用程序有用的功能。
 </div>
 
 
@@ -227,44 +226,7 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Initialize the viewer widget with several custom options and mixins.
-try {
-  const viewer = new Cesium.Viewer("cesiumContainer", {
-    // Start in Columbus Viewer
-    sceneMode: Cesium.SceneMode.COLUMBUS_VIEW,
-    // Use Cesium World Terrain
-    terrain: Cesium.Terrain.fromWorldTerrain(),
-    // Hide the base layer picker
-    baseLayerPicker: false,
-    // Use OpenStreetMaps
-    baseLayer: new Cesium.ImageryLayer(new Cesium.OpenStreetMapImageryProvider({
-      url: "https://tile.openstreetmap.org/"
-    })),
-    skyBox: new Cesium.SkyBox({
-      sources: {
-        positiveX: "stars/TychoSkymapII.t3_08192x04096_80_px.jpg",
-        negativeX: "stars/TychoSkymapII.t3_08192x04096_80_mx.jpg",
-        positiveY: "stars/TychoSkymapII.t3_08192x04096_80_py.jpg",
-        negativeY: "stars/TychoSkymapII.t3_08192x04096_80_my.jpg",
-        positiveZ: "stars/TychoSkymapII.t3_08192x04096_80_pz.jpg",
-        negativeZ: "stars/TychoSkymapII.t3_08192x04096_80_mz.jpg"
-      }
-    }),
-    // Show Columbus View map with Web Mercator projection
-    mapProjection: new Cesium.WebMercatorProjection()
-  });
-} catch (error) {
-  console.log(error);
-}
-
-// Add basic drag and drop functionality
-viewer.extend(Cesium.viewerDragDropMixin);
-
-// Show a pop-up alert if we encounter an error when processing a dropped file
-viewer.dropError.addEventListener(function(dropHandler, name, error) {
-  console.log(error);
-  window.alert(error);
-});</code></pre>
+    <pre><code class="language-javascript">// Initialize the viewer widget with several custom options and mixins.try {  const viewer = new Cesium.Viewer("cesiumContainer", {    // Start in Columbus Viewer    sceneMode: Cesium.SceneMode.COLUMBUS_VIEW,    // Use Cesium World Terrain    terrain: Cesium.Terrain.fromWorldTerrain(),    // Hide the base layer picker    baseLayerPicker: false,    // Use OpenStreetMaps    baseLayer: new Cesium.ImageryLayer(new Cesium.OpenStreetMapImageryProvider({      url: "https://tile.openstreetmap.org/"    })),    skyBox: new Cesium.SkyBox({      sources: {        positiveX: "stars/TychoSkymapII.t3_08192x04096_80_px.jpg",        negativeX: "stars/TychoSkymapII.t3_08192x04096_80_mx.jpg",        positiveY: "stars/TychoSkymapII.t3_08192x04096_80_py.jpg",        negativeY: "stars/TychoSkymapII.t3_08192x04096_80_my.jpg",        positiveZ: "stars/TychoSkymapII.t3_08192x04096_80_pz.jpg",        negativeZ: "stars/TychoSkymapII.t3_08192x04096_80_mz.jpg"      }    }),    // Show Columbus View map with Web Mercator projection    mapProjection: new Cesium.WebMercatorProjection()  });} catch (error) {  console.log(error);}// Add basic drag and drop functionalityviewer.extend(Cesium.viewerDragDropMixin);// Show a pop-up alert if we encounter an error when processing a dropped fileviewer.dropError.addEventListener(function(dropHandler, name, error) {  console.log(error);  window.alert(error);});</code></pre>
 
     
 
@@ -329,7 +291,7 @@ viewer.dropError.addEventListener(function(dropHandler, name, error) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/widgets/Source/Viewer/Viewer.js#L1428">widgets/Source/Viewer/Viewer.js 1428</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/widgets/Source/Viewer/Viewer.js#L1428">widgets/Source/Viewer/Viewer.js 1428</a>
 </div>
 
 
@@ -340,10 +302,7 @@ viewer.dropError.addEventListener(function(dropHandler, name, error) {
 
 
 <div class="description">
-    获取或设置是否数据源可以暂时暂停
-动画，以避免显示一个不完整的图片给用户。
-例如，如果异步原语正在处理
-背景，时钟将不会前进，直到几何就绪。
+    获取或设置是否数据源可以暂时暂停动画，以避免显示一个不完整的图片给用户。例如，如果异步原语正在处理背景，时钟将不会前进，直到几何就绪。
 </div>
 
 
@@ -392,7 +351,7 @@ viewer.dropError.addEventListener(function(dropHandler, name, error) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/widgets/Source/Viewer/Viewer.js#L1088">widgets/Source/Viewer/Viewer.js 1088</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/widgets/Source/Viewer/Viewer.js#L1088">widgets/Source/Viewer/Viewer.js 1088</a>
 </div>
 
 
@@ -452,7 +411,7 @@ viewer.dropError.addEventListener(function(dropHandler, name, error) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/widgets/Source/Viewer/Viewer.js#L1064">widgets/Source/Viewer/Viewer.js 1064</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/widgets/Source/Viewer/Viewer.js#L1064">widgets/Source/Viewer/Viewer.js 1064</a>
 </div>
 
 
@@ -512,7 +471,7 @@ viewer.dropError.addEventListener(function(dropHandler, name, error) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/widgets/Source/Viewer/Viewer.js#L968">widgets/Source/Viewer/Viewer.js 968</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/widgets/Source/Viewer/Viewer.js#L968">widgets/Source/Viewer/Viewer.js 968</a>
 </div>
 
 
@@ -523,8 +482,7 @@ viewer.dropError.addEventListener(function(dropHandler, name, error) {
 
 
 <div class="description">
-    控件所在窗口底部区域的DOM元素
-<a href="CreditDisplay.html"><code>CreditDisplay</code></a> 还有其他潜在的问题。
+    控件所在窗口底部区域的DOM元素<a href="CreditDisplay.html"><code>CreditDisplay</code></a> 还有其他潜在的问题。
 </div>
 
 
@@ -573,7 +531,7 @@ viewer.dropError.addEventListener(function(dropHandler, name, error) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/widgets/Source/Viewer/Viewer.js#L1266">widgets/Source/Viewer/Viewer.js 1266</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/widgets/Source/Viewer/Viewer.js#L1266">widgets/Source/Viewer/Viewer.js 1266</a>
 </div>
 
 
@@ -633,7 +591,7 @@ viewer.dropError.addEventListener(function(dropHandler, name, error) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/widgets/Source/Viewer/Viewer.js#L1173">widgets/Source/Viewer/Viewer.js 1173</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/widgets/Source/Viewer/Viewer.js#L1173">widgets/Source/Viewer/Viewer.js 1173</a>
 </div>
 
 
@@ -693,7 +651,7 @@ viewer.dropError.addEventListener(function(dropHandler, name, error) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/widgets/Source/Viewer/Viewer.js#L980">widgets/Source/Viewer/Viewer.js 980</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/widgets/Source/Viewer/Viewer.js#L980">widgets/Source/Viewer/Viewer.js 980</a>
 </div>
 
 
@@ -753,7 +711,7 @@ viewer.dropError.addEventListener(function(dropHandler, name, error) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/widgets/Source/Viewer/Viewer.js#L1305">widgets/Source/Viewer/Viewer.js 1305</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/widgets/Source/Viewer/Viewer.js#L1305">widgets/Source/Viewer/Viewer.js 1305</a>
 </div>
 
 
@@ -813,7 +771,7 @@ viewer.dropError.addEventListener(function(dropHandler, name, error) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/widgets/Source/Viewer/Viewer.js#L1508">widgets/Source/Viewer/Viewer.js 1508</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/widgets/Source/Viewer/Viewer.js#L1508">widgets/Source/Viewer/Viewer.js 1508</a>
 </div>
 
 
@@ -873,7 +831,7 @@ viewer.dropError.addEventListener(function(dropHandler, name, error) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/widgets/Source/Viewer/Viewer.js#L1317">widgets/Source/Viewer/Viewer.js 1317</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/widgets/Source/Viewer/Viewer.js#L1317">widgets/Source/Viewer/Viewer.js 1317</a>
 </div>
 
 
@@ -933,7 +891,7 @@ viewer.dropError.addEventListener(function(dropHandler, name, error) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/widgets/Source/Viewer/Viewer.js#L943">widgets/Source/Viewer/Viewer.js 943</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/widgets/Source/Viewer/Viewer.js#L943">widgets/Source/Viewer/Viewer.js 943</a>
 </div>
 
 
@@ -993,7 +951,7 @@ viewer.dropError.addEventListener(function(dropHandler, name, error) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/widgets/Source/Viewer/Viewer.js#L955">widgets/Source/Viewer/Viewer.js 955</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/widgets/Source/Viewer/Viewer.js#L955">widgets/Source/Viewer/Viewer.js 955</a>
 </div>
 
 
@@ -1053,7 +1011,7 @@ viewer.dropError.addEventListener(function(dropHandler, name, error) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/widgets/Source/Viewer/Viewer.js#L1136">widgets/Source/Viewer/Viewer.js 1136</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/widgets/Source/Viewer/Viewer.js#L1136">widgets/Source/Viewer/Viewer.js 1136</a>
 </div>
 
 
@@ -1113,7 +1071,7 @@ viewer.dropError.addEventListener(function(dropHandler, name, error) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/widgets/Source/Viewer/Viewer.js#L1161">widgets/Source/Viewer/Viewer.js 1161</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/widgets/Source/Viewer/Viewer.js#L1161">widgets/Source/Viewer/Viewer.js 1161</a>
 </div>
 
 
@@ -1173,7 +1131,7 @@ viewer.dropError.addEventListener(function(dropHandler, name, error) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/widgets/Source/Viewer/Viewer.js#L1280">widgets/Source/Viewer/Viewer.js 1280</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/widgets/Source/Viewer/Viewer.js#L1280">widgets/Source/Viewer/Viewer.js 1280</a>
 </div>
 
 
@@ -1236,7 +1194,7 @@ viewer.dropError.addEventListener(function(dropHandler, name, error) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/widgets/Source/Viewer/Viewer.js#L1149">widgets/Source/Viewer/Viewer.js 1149</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/widgets/Source/Viewer/Viewer.js#L1149">widgets/Source/Viewer/Viewer.js 1149</a>
 </div>
 
 
@@ -1247,8 +1205,7 @@ viewer.dropError.addEventListener(function(dropHandler, name, error) {
 
 
 <div class="description">
-    获取没有绑定到特定数据源的实体集合。
-这是一个捷径 <a href="Viewer.html#dataSourceDisplay"><code>dataSourceDisplay.defaultDataSource.entities</code></a>.
+    获取没有绑定到特定数据源的实体集合。这是一个捷径 <a href="Viewer.html#dataSourceDisplay"><code>dataSourceDisplay.defaultDataSource.entities</code></a>.
 </div>
 
 
@@ -1297,7 +1254,7 @@ viewer.dropError.addEventListener(function(dropHandler, name, error) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/widgets/Source/Viewer/Viewer.js#L1112">widgets/Source/Viewer/Viewer.js 1112</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/widgets/Source/Viewer/Viewer.js#L1112">widgets/Source/Viewer/Viewer.js 1112</a>
 </div>
 
 
@@ -1357,7 +1314,7 @@ viewer.dropError.addEventListener(function(dropHandler, name, error) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/widgets/Source/Viewer/Viewer.js#L1016">widgets/Source/Viewer/Viewer.js 1016</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/widgets/Source/Viewer/Viewer.js#L1016">widgets/Source/Viewer/Viewer.js 1016</a>
 </div>
 
 
@@ -1417,7 +1374,7 @@ viewer.dropError.addEventListener(function(dropHandler, name, error) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/widgets/Source/Viewer/Viewer.js#L1028">widgets/Source/Viewer/Viewer.js 1028</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/widgets/Source/Viewer/Viewer.js#L1028">widgets/Source/Viewer/Viewer.js 1028</a>
 </div>
 
 
@@ -1477,7 +1434,7 @@ viewer.dropError.addEventListener(function(dropHandler, name, error) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/widgets/Source/Viewer/Viewer.js#L1238">widgets/Source/Viewer/Viewer.js 1238</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/widgets/Source/Viewer/Viewer.js#L1238">widgets/Source/Viewer/Viewer.js 1238</a>
 </div>
 
 
@@ -1537,7 +1494,7 @@ viewer.dropError.addEventListener(function(dropHandler, name, error) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/widgets/Source/Viewer/Viewer.js#L1004">widgets/Source/Viewer/Viewer.js 1004</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/widgets/Source/Viewer/Viewer.js#L1004">widgets/Source/Viewer/Viewer.js 1004</a>
 </div>
 
 
@@ -1597,7 +1554,7 @@ viewer.dropError.addEventListener(function(dropHandler, name, error) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/widgets/Source/Viewer/Viewer.js#L1076">widgets/Source/Viewer/Viewer.js 1076</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/widgets/Source/Viewer/Viewer.js#L1076">widgets/Source/Viewer/Viewer.js 1076</a>
 </div>
 
 
@@ -1657,7 +1614,7 @@ viewer.dropError.addEventListener(function(dropHandler, name, error) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/widgets/Source/Viewer/Viewer.js#L1293">widgets/Source/Viewer/Viewer.js 1293</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/widgets/Source/Viewer/Viewer.js#L1293">widgets/Source/Viewer/Viewer.js 1293</a>
 </div>
 
 
@@ -1717,7 +1674,7 @@ viewer.dropError.addEventListener(function(dropHandler, name, error) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/widgets/Source/Viewer/Viewer.js#L1052">widgets/Source/Viewer/Viewer.js 1052</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/widgets/Source/Viewer/Viewer.js#L1052">widgets/Source/Viewer/Viewer.js 1052</a>
 </div>
 
 
@@ -1777,7 +1734,7 @@ viewer.dropError.addEventListener(function(dropHandler, name, error) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/widgets/Source/Viewer/Viewer.js#L1388">widgets/Source/Viewer/Viewer.js 1388</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/widgets/Source/Viewer/Viewer.js#L1388">widgets/Source/Viewer/Viewer.js 1388</a>
 </div>
 
 
@@ -1788,12 +1745,7 @@ viewer.dropError.addEventListener(function(dropHandler, name, error) {
 
 
 <div class="description">
-    获取或设置渲染分辨率的缩放因子。值小于1.0可以改善
-性能在较弱的设备上，而值大于1.0将以更高的渲染
-分辨率，然后按比例缩小，从而提高视觉保真度。
-例如，如果小部件的尺寸为640x480，则将此值设置为0.5
-将导致场景以320x240渲染，然后在设置时缩放
-它到2.0将导致场景渲染为1280x960，然后缩小。
+    获取或设置渲染分辨率的缩放因子。值小于1.0可以改善性能在较弱的设备上，而值大于1.0将以更高的渲染分辨率，然后按比例缩小，从而提高视觉保真度。例如，如果小部件的尺寸为640x480，则将此值设置为0.5将导致场景以320x240渲染，然后在设置时缩放它到2.0将导致场景渲染为1280x960，然后缩小。
 </div>
 
 
@@ -1845,7 +1797,7 @@ viewer.dropError.addEventListener(function(dropHandler, name, error) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/widgets/Source/Viewer/Viewer.js#L1185">widgets/Source/Viewer/Viewer.js 1185</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/widgets/Source/Viewer/Viewer.js#L1185">widgets/Source/Viewer/Viewer.js 1185</a>
 </div>
 
 
@@ -1905,7 +1857,7 @@ viewer.dropError.addEventListener(function(dropHandler, name, error) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/widgets/Source/Viewer/Viewer.js#L1040">widgets/Source/Viewer/Viewer.js 1040</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/widgets/Source/Viewer/Viewer.js#L1040">widgets/Source/Viewer/Viewer.js 1040</a>
 </div>
 
 
@@ -1965,7 +1917,7 @@ viewer.dropError.addEventListener(function(dropHandler, name, error) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/widgets/Source/Viewer/Viewer.js#L1329">widgets/Source/Viewer/Viewer.js 1329</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/widgets/Source/Viewer/Viewer.js#L1329">widgets/Source/Viewer/Viewer.js 1329</a>
 </div>
 
 
@@ -2025,7 +1977,7 @@ viewer.dropError.addEventListener(function(dropHandler, name, error) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/widgets/Source/Viewer/Viewer.js#L1459">widgets/Source/Viewer/Viewer.js 1459</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/widgets/Source/Viewer/Viewer.js#L1459">widgets/Source/Viewer/Viewer.js 1459</a>
 </div>
 
 
@@ -2036,11 +1988,7 @@ viewer.dropError.addEventListener(function(dropHandler, name, error) {
 
 
 <div class="description">
-    获取或设置对象实例，为其显示选择指示符。
-
-如果用户交互选择一个cesium3dtiesfeature实例，那么这个属性
-将包含一个瞬态实体实例，其属性名为“feature”
-被选中的实例。
+    获取或设置对象实例，为其显示选择指示符。如果用户交互选择一个cesium3dtiesfeature实例，那么这个属性将包含一个瞬态实体实例，其属性名为“feature”被选中的实例。
 </div>
 
 
@@ -2089,7 +2037,7 @@ viewer.dropError.addEventListener(function(dropHandler, name, error) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/widgets/Source/Viewer/Viewer.js#L1487">widgets/Source/Viewer/Viewer.js 1487</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/widgets/Source/Viewer/Viewer.js#L1487">widgets/Source/Viewer/Viewer.js 1487</a>
 </div>
 
 
@@ -2149,7 +2097,7 @@ viewer.dropError.addEventListener(function(dropHandler, name, error) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/widgets/Source/Viewer/Viewer.js#L992">widgets/Source/Viewer/Viewer.js 992</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/widgets/Source/Viewer/Viewer.js#L992">widgets/Source/Viewer/Viewer.js 992</a>
 </div>
 
 
@@ -2209,7 +2157,7 @@ viewer.dropError.addEventListener(function(dropHandler, name, error) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/widgets/Source/Viewer/Viewer.js#L1225">widgets/Source/Viewer/Viewer.js 1225</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/widgets/Source/Viewer/Viewer.js#L1225">widgets/Source/Viewer/Viewer.js 1225</a>
 </div>
 
 
@@ -2269,7 +2217,7 @@ viewer.dropError.addEventListener(function(dropHandler, name, error) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/widgets/Source/Viewer/Viewer.js#L1196">widgets/Source/Viewer/Viewer.js 1196</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/widgets/Source/Viewer/Viewer.js#L1196">widgets/Source/Viewer/Viewer.js 1196</a>
 </div>
 
 
@@ -2329,7 +2277,7 @@ viewer.dropError.addEventListener(function(dropHandler, name, error) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/widgets/Source/Viewer/Viewer.js#L1344">widgets/Source/Viewer/Viewer.js 1344</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/widgets/Source/Viewer/Viewer.js#L1344">widgets/Source/Viewer/Viewer.js 1344</a>
 </div>
 
 
@@ -2340,10 +2288,7 @@ viewer.dropError.addEventListener(function(dropHandler, name, error) {
 
 
 <div class="description">
-    获取或设置当<code>useDefaultRenderLoop</code>时小部件的目标帧率
-为true。如果未定义，则浏览器的requestAnimationFrame实现
-决定帧速率。如果已定义，则此值必须大于0。一个更高的值
-底层的requestAnimationFrame实现将没有效果。
+    获取或设置当<code>useDefaultRenderLoop</code>时小部件的目标帧率为true。如果未定义，则浏览器的requestAnimationFrame实现决定帧速率。如果已定义，则此值必须大于0。一个更高的值底层的requestAnimationFrame实现将没有效果。
 </div>
 
 
@@ -2392,7 +2337,7 @@ viewer.dropError.addEventListener(function(dropHandler, name, error) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/widgets/Source/Viewer/Viewer.js#L1250">widgets/Source/Viewer/Viewer.js 1250</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/widgets/Source/Viewer/Viewer.js#L1250">widgets/Source/Viewer/Viewer.js 1250</a>
 </div>
 
 
@@ -2452,7 +2397,7 @@ viewer.dropError.addEventListener(function(dropHandler, name, error) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/widgets/Source/Viewer/Viewer.js#L1210">widgets/Source/Viewer/Viewer.js 1210</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/widgets/Source/Viewer/Viewer.js#L1210">widgets/Source/Viewer/Viewer.js 1210</a>
 </div>
 
 
@@ -2512,7 +2457,7 @@ viewer.dropError.addEventListener(function(dropHandler, name, error) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/widgets/Source/Viewer/Viewer.js#L1100">widgets/Source/Viewer/Viewer.js 1100</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/widgets/Source/Viewer/Viewer.js#L1100">widgets/Source/Viewer/Viewer.js 1100</a>
 </div>
 
 
@@ -2572,7 +2517,7 @@ viewer.dropError.addEventListener(function(dropHandler, name, error) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/widgets/Source/Viewer/Viewer.js#L1442">widgets/Source/Viewer/Viewer.js 1442</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/widgets/Source/Viewer/Viewer.js#L1442">widgets/Source/Viewer/Viewer.js 1442</a>
 </div>
 
 
@@ -2632,7 +2577,7 @@ viewer.dropError.addEventListener(function(dropHandler, name, error) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/widgets/Source/Viewer/Viewer.js#L1498">widgets/Source/Viewer/Viewer.js 1498</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/widgets/Source/Viewer/Viewer.js#L1498">widgets/Source/Viewer/Viewer.js 1498</a>
 </div>
 
 
@@ -2692,7 +2637,7 @@ viewer.dropError.addEventListener(function(dropHandler, name, error) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/widgets/Source/Viewer/Viewer.js#L1409">widgets/Source/Viewer/Viewer.js 1409</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/widgets/Source/Viewer/Viewer.js#L1409">widgets/Source/Viewer/Viewer.js 1409</a>
 </div>
 
 
@@ -2703,12 +2648,7 @@ viewer.dropError.addEventListener(function(dropHandler, name, error) {
 
 
 <div class="description">
-    布尔标志，表示是否使用浏览器推荐的分辨率。
-如果为true，浏览器的设备像素比将被忽略，而使用1.0。
-有效地渲染基于CSS像素而不是设备像素。这可以改善
-性能较弱的设备，具有高像素密度。当为false时，渲染
-的单位是设备像素。<a href="Viewer.html#resolutionScale"><code>Viewer#resolutionScale</code></a> 仍然会生效
-这个标志是真还是假。
+    布尔标志，表示是否使用浏览器推荐的分辨率。如果为true，浏览器的设备像素比将被忽略，而使用1.0。有效地渲染基于CSS像素而不是设备像素。这可以改善性能较弱的设备，具有高像素密度。当为false时，渲染的单位是设备像素。<a href="Viewer.html#resolutionScale"><code>Viewer#resolutionScale</code></a> 仍然会生效这个标志是真还是假。
 </div>
 
 
@@ -2760,7 +2700,7 @@ viewer.dropError.addEventListener(function(dropHandler, name, error) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/widgets/Source/Viewer/Viewer.js#L1367">widgets/Source/Viewer/Viewer.js 1367</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/widgets/Source/Viewer/Viewer.js#L1367">widgets/Source/Viewer/Viewer.js 1367</a>
 </div>
 
 
@@ -2771,15 +2711,7 @@ viewer.dropError.addEventListener(function(dropHandler, name, error) {
 
 
 <div class="description">
-    获取或设置是否这个小部件应该控制渲染循环。
-如果为true，小部件将使用requestAnimationFrame
-执行渲染和调整小部件的大小，以及驱动
-模拟时钟。如果设置为false，则必须手动调用
- <code>resize</code>, <code>render</code>方法
-作为自定义渲染循环的一部分。如果渲染过程中出现错误，<a href="Scene.html"><code>Scene</code></a>
- <code>renderError</code>事件将被引发
-将被设置为false。必须将其设置为true才能继续渲染
-后的错误。
+    获取或设置是否这个小部件应该控制渲染循环。如果为true，小部件将使用requestAnimationFrame执行渲染和调整小部件的大小，以及驱动模拟时钟。如果设置为false，则必须手动调用 <code>resize</code>, <code>render</code>方法作为自定义渲染循环的一部分。如果渲染过程中出现错误，<a href="Scene.html"><code>Scene</code></a> <code>renderError</code>事件将被引发将被设置为false。必须将其设置为true才能继续渲染后的错误。
 </div>
 
 
@@ -2828,7 +2760,7 @@ viewer.dropError.addEventListener(function(dropHandler, name, error) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/widgets/Source/Viewer/Viewer.js#L1124">widgets/Source/Viewer/Viewer.js 1124</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/widgets/Source/Viewer/Viewer.js#L1124">widgets/Source/Viewer/Viewer.js 1124</a>
 </div>
 
 
@@ -2894,7 +2826,7 @@ viewer.dropError.addEventListener(function(dropHandler, name, error) {
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/widgets/Source/Viewer/Viewer.js#L1679">widgets/Source/Viewer/Viewer.js 1679</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/widgets/Source/Viewer/Viewer.js#L1679">widgets/Source/Viewer/Viewer.js 1679</a>
 </div>
 
 
@@ -2906,8 +2838,7 @@ viewer.dropError.addEventListener(function(dropHandler, name, error) {
 
 
 <div class="description">
-    销毁小部件。如果从布局中永久删除小部件，
- 则应该调用。
+    销毁小部件。如果从布局中永久删除小部件， 则应该调用。
 </div>
 
 
@@ -2976,7 +2907,7 @@ viewer.dropError.addEventListener(function(dropHandler, name, error) {
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/widgets/Source/Viewer/Viewer.js#L1531">widgets/Source/Viewer/Viewer.js 1531</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/widgets/Source/Viewer/Viewer.js#L1531">widgets/Source/Viewer/Viewer.js 1531</a>
 </div>
 
 
@@ -2988,9 +2919,7 @@ viewer.dropError.addEventListener(function(dropHandler, name, error) {
 
 
 <div class="description">
-    使用提供的mixin扩展基本查看器功能。
-mixin可以添加额外的属性、函数或其他行为
-到所提供的查看器实例。
+    使用提供的mixin扩展基本查看器功能。mixin可以添加额外的属性、函数或其他行为到所提供的查看器实例。
 </div>
 
 
@@ -3144,7 +3073,7 @@ mixin可以添加额外的属性、函数或其他行为
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/widgets/Source/Viewer/Viewer.js#L2024">widgets/Source/Viewer/Viewer.js 2024</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/widgets/Source/Viewer/Viewer.js#L2024">widgets/Source/Viewer/Viewer.js 2024</a>
 </div>
 
 
@@ -3156,19 +3085,7 @@ mixin可以添加额外的属性、函数或其他行为
 
 
 <div class="description">
-    将相机飞到提供的实体、实体或数据源。
-如果数据源仍在加载过程中或可视化仍在加载中，
-这个方法在执行飞行之前等待数据准备好。
-
-<p>偏移量是在以边界球中心为中心的本地东-北-上参考系中的头部/俯仰/范围。
-航向和俯仰角在当地的东-北-上参考系中定义。
-航向是从y轴到x轴增加的角度。螺距是x平面的旋转。积极的推销
-个角在平面的上方。负俯仰角在平面以下。距离是到中心的距离。如果范围是
-0，计算一个范围，使整个边界球可见。</p>
-
-<p>在2D中，必须有一个自上而下的视图。摄像机将放置在目标上方向下看。高于地面的高度
-目标将是范围。标题将根据偏移量确定。如果标题不能
-由偏移量决定，标题将向北。</p>
+    将相机飞到提供的实体、实体或数据源。如果数据源仍在加载过程中或可视化仍在加载中，这个方法在执行飞行之前等待数据准备好。<p>偏移量是在以边界球中心为中心的本地东-北-上参考系中的头部/俯仰/范围。航向和俯仰角在当地的东-北-上参考系中定义。航向是从y轴到x轴增加的角度。螺距是x平面的旋转。积极的推销个角在平面的上方。负俯仰角在平面以下。距离是到中心的距离。如果范围是0，计算一个范围，使整个边界球可见。</p><p>在2D中，必须有一个自上而下的视图。摄像机将放置在目标上方向下看。高于地面的高度目标将是范围。标题将根据偏移量确定。如果标题不能由偏移量决定，标题将向北。</p>
 </div>
 
 
@@ -3475,7 +3392,7 @@ mixin可以添加额外的属性、函数或其他行为
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/widgets/Source/Viewer/Viewer.js#L1655">widgets/Source/Viewer/Viewer.js 1655</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/widgets/Source/Viewer/Viewer.js#L1655">widgets/Source/Viewer/Viewer.js 1655</a>
 </div>
 
 
@@ -3487,8 +3404,7 @@ mixin可以添加额外的属性、函数或其他行为
 
 
 <div class="description">
-    这迫使小部件重新考虑其布局，包括
-小部件大小和信用位置。
+    这迫使小部件重新考虑其布局，包括小部件大小和信用位置。
 </div>
 
 
@@ -3557,7 +3473,7 @@ mixin可以添加额外的属性、函数或其他行为
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/widgets/Source/Viewer/Viewer.js#L1671">widgets/Source/Viewer/Viewer.js 1671</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/widgets/Source/Viewer/Viewer.js#L1671">widgets/Source/Viewer/Viewer.js 1671</a>
 </div>
 
 
@@ -3643,7 +3559,7 @@ mixin可以添加额外的属性、函数或其他行为
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/widgets/Source/Viewer/Viewer.js#L1664">widgets/Source/Viewer/Viewer.js 1664</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/widgets/Source/Viewer/Viewer.js#L1664">widgets/Source/Viewer/Viewer.js 1664</a>
 </div>
 
 
@@ -3655,8 +3571,7 @@ mixin可以添加额外的属性、函数或其他行为
 
 
 <div class="description">
-    渲染场景。这个函数是自动调用的
-除非<code>useDefaultRenderLoop</code>设置为false;
+    渲染场景。这个函数是自动调用的除非<code>useDefaultRenderLoop</code>设置为false;
 </div>
 
 
@@ -3725,7 +3640,7 @@ mixin可以添加额外的属性、函数或其他行为
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/widgets/Source/Viewer/Viewer.js#L1546">widgets/Source/Viewer/Viewer.js 1546</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/widgets/Source/Viewer/Viewer.js#L1546">widgets/Source/Viewer/Viewer.js 1546</a>
 </div>
 
 
@@ -3737,9 +3652,7 @@ mixin可以添加额外的属性、函数或其他行为
 
 
 <div class="description">
-    调整小部件的大小以匹配容器的大小。
-此函数在需要时自动调用，除非
-<code>useDefaultRenderLoop</code>设置为false。
+    调整小部件的大小以匹配容器的大小。此函数在需要时自动调用，除非<code>useDefaultRenderLoop</code>设置为false。
 </div>
 
 
@@ -3808,7 +3721,7 @@ mixin可以添加额外的属性、函数或其他行为
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/widgets/Source/Viewer/Viewer.js#L1998">widgets/Source/Viewer/Viewer.js 1998</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/widgets/Source/Viewer/Viewer.js#L1998">widgets/Source/Viewer/Viewer.js 1998</a>
 </div>
 
 
@@ -3820,19 +3733,7 @@ mixin可以添加额外的属性、函数或其他行为
 
 
 <div class="description">
-    异步设置相机查看提供的实体、实体或数据源。
-如果数据源仍在加载过程中或可视化仍在加载中，
-这个方法在执行缩放之前等待数据准备好。
-
-<p>偏移量是在以边界球中心为中心的本地东-北-上参考系中的头部/俯仰/范围。
-航向和俯仰角在当地的东-北-上参考系中定义。
-航向是从y轴到x轴增加的角度。螺距是x平面的旋转。积极的推销
-个角在平面的上方。负俯仰角在平面以下。距离是到中心的距离。如果范围是
-0，计算一个范围，使整个边界球可见。</p>
-
-<p>在2D中，必须有一个自上而下的视图。摄像机将放置在目标上方向下看。高于地面的高度
-目标将是范围。标题将根据偏移量确定。如果标题不能
-由偏移量决定，标题将向北。</p>
+    异步设置相机查看提供的实体、实体或数据源。如果数据源仍在加载过程中或可视化仍在加载中，这个方法在执行缩放之前等待数据准备好。<p>偏移量是在以边界球中心为中心的本地东-北-上参考系中的头部/俯仰/范围。航向和俯仰角在当地的东-北-上参考系中定义。航向是从y轴到x轴增加的角度。螺距是x平面的旋转。积极的推销个角在平面的上方。负俯仰角在平面以下。距离是到中心的距离。如果范围是0，计算一个范围，使整个边界球可见。</p><p>在2D中，必须有一个自上而下的视图。摄像机将放置在目标上方向下看。高于地面的高度目标将是范围。标题将根据偏移量确定。如果标题不能由偏移量决定，标题将向北。</p>
 </div>
 
 
@@ -4017,7 +3918,7 @@ mixin可以添加额外的属性、函数或其他行为
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/widgets/Source/Viewer/Viewer.js#L275">widgets/Source/Viewer/Viewer.js 275</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/widgets/Source/Viewer/Viewer.js#L275">widgets/Source/Viewer/Viewer.js 275</a>
 </div>
 
 
@@ -5513,8 +5414,7 @@ mixin可以添加额外的属性、函数或其他行为
                 </td>
             
 
-            <td class="description last">小组件可视化的数据源集合。 如果提供此参数，则
-                              假定该实例归调用方所有，并且在销毁查看器时不会销毁。</td>
+            <td class="description last">小组件可视化的数据源集合。 如果提供此参数，则                              假定该实例归调用方所有，并且在销毁查看器时不会销毁。</td>
         </tr>
 
     
@@ -5895,7 +5795,7 @@ mixin可以添加额外的属性、函数或其他行为
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/widgets/Source/Viewer/Viewer.js#L2028">widgets/Source/Viewer/Viewer.js 2028</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/widgets/Source/Viewer/Viewer.js#L2028">widgets/Source/Viewer/Viewer.js 2028</a>
 </div>
 
 

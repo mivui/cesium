@@ -41,7 +41,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Model/LightingModel.js#L8">engine/Source/Scene/Model/LightingModel.js 8</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Model/LightingModel.js#L8">engine/Source/Scene/Model/LightingModel.js 8</a>
 </div>
 
 
@@ -96,10 +96,7 @@
 
             
 
-            <td class="description last">使用无光照着色，即跳过光照计算。模型的
-直接使用漫射颜色(假设为线性 RGB，而不是 sRGB)
-计算 <code>out_FragColor</code> 时。Alpha 模式仍然是
-应用的。</td>
+            <td class="description last">使用无光照着色，即跳过光照计算。模型的直接使用漫射颜色(假设为线性 RGB，而不是 sRGB)计算 <code>out_FragColor</code> 时。Alpha 模式仍然是应用的。</td>
         </tr>
 
     
@@ -122,9 +119,7 @@
 
             
 
-            <td class="description last">使用基于物理的渲染照明计算。这包括
-PBR 金属粗糙度和 PBR 镜面反射光泽度。基于图像
-如果可能，也会应用照明。</td>
+            <td class="description last">使用基于物理的渲染照明计算。这包括PBR 金属粗糙度和 PBR 镜面反射光泽度。基于图像如果可能，也会应用照明。</td>
         </tr>
 
     
@@ -194,7 +189,7 @@ PBR 金属粗糙度和 PBR 镜面反射光泽度。基于图像
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Model/LightingModel.js#L27">engine/Source/Scene/Model/LightingModel.js 27</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Model/LightingModel.js#L27">engine/Source/Scene/Model/LightingModel.js 27</a>
 </div>
 
 
@@ -205,9 +200,7 @@ PBR 金属粗糙度和 PBR 镜面反射光泽度。基于图像
 
 
 <div class="description">
-    使用基于物理的渲染照明计算。这包括
-PBR 金属粗糙度和 PBR 镜面反射光泽度。基于图像
-如果可能，也会应用照明。
+    使用基于物理的渲染照明计算。这包括PBR 金属粗糙度和 PBR 镜面反射光泽度。基于图像如果可能，也会应用照明。
 </div>
 
 
@@ -259,7 +252,7 @@ PBR 金属粗糙度和 PBR 镜面反射光泽度。基于图像
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Model/LightingModel.js#L18">engine/Source/Scene/Model/LightingModel.js 18</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Model/LightingModel.js#L18">engine/Source/Scene/Model/LightingModel.js 18</a>
 </div>
 
 
@@ -270,10 +263,7 @@ PBR 金属粗糙度和 PBR 镜面反射光泽度。基于图像
 
 
 <div class="description">
-    使用无光照着色，即跳过光照计算。模型的
-直接使用漫射颜色(假设为线性 RGB，而不是 sRGB)
-计算 <code>out_FragColor</code> 时。Alpha 模式仍然是
-应用的。
+    使用无光照着色，即跳过光照计算。模型的直接使用漫射颜色(假设为线性 RGB，而不是 sRGB)计算 <code>out_FragColor</code> 时。Alpha 模式仍然是应用的。
 </div>
 
 

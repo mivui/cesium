@@ -41,28 +41,13 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/MetadataType.js#L10">engine/Source/Scene/MetadataType.js 10</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/MetadataType.js#L10">engine/Source/Scene/MetadataType.js 10</a>
 </div>
 
 
 
         
-            <div class="description">元数据值的实例。<br>
-<br>
-这可以是以下类型之一：
-<ul>
-  <li><code>number</code> 用于类型 <code>SCALAR</code> 以及除 <code>INT64</code> 或 <code>UINT64</code> 之外的数字组件类型</li>
-  <li><code>bigint</code> 用于类型 <code>SCALAR</code> 元件类型 <code>INT64</code> 或 <code>UINT64</code></li>
-  <li><code>string</code> 用于类型 <code>STRING</code>或 <code>ENUM</code></li>
-  <li><code>boolean</code> 用于类型 <code>BOOLEAN</code></li>
-  <li><code>Cartesian2</code> 用于类型 <code>VEC2</code></li>
-  <li><code>Cartesian3</code> 用于类型 <code>VEC3</code></li>
-  <li><code>Cartesian4</code> 用于类型 <code>VEC4</code></li>
-  <li><code>Matrix2</code> 用于类型 <code>MAT2</code></li>
-  <li><code>Matrix3</code> 用于类型 <code>MAT3</code></li>
-  <li><code>Matrix4</code> 用于类型 <code>MAT4</code></li>
-  <li>当元数据值为数组时，这些类型的数组</li>
-</ul></div>
+            <div class="description">元数据值的实例。<br><br>这可以是以下类型之一：<ul>  <li><code>number</code> 用于类型 <code>SCALAR</code> 以及除 <code>INT64</code> 或 <code>UINT64</code> 之外的数字组件类型</li>  <li><code>bigint</code> 用于类型 <code>SCALAR</code> 元件类型 <code>INT64</code> 或 <code>UINT64</code></li>  <li><code>string</code> 用于类型 <code>STRING</code>或 <code>ENUM</code></li>  <li><code>boolean</code> 用于类型 <code>BOOLEAN</code></li>  <li><code>Cartesian2</code> 用于类型 <code>VEC2</code></li>  <li><code>Cartesian3</code> 用于类型 <code>VEC3</code></li>  <li><code>Cartesian4</code> 用于类型 <code>VEC4</code></li>  <li><code>Matrix2</code> 用于类型 <code>MAT2</code></li>  <li><code>Matrix3</code> 用于类型 <code>MAT3</code></li>  <li><code>Matrix4</code> 用于类型 <code>MAT4</code></li>  <li>当元数据值为数组时，这些类型的数组</li></ul></div>
         
 
         

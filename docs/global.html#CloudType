@@ -41,7 +41,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/CloudType.js#L7">engine/Source/Scene/CloudType.js 7</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/CloudType.js#L7">engine/Source/Scene/CloudType.js 7</a>
 </div>
 
 
@@ -159,7 +159,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/CloudType.js#L14">engine/Source/Scene/CloudType.js 14</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/CloudType.js#L14">engine/Source/Scene/CloudType.js 14</a>
 </div>
 
 
@@ -225,7 +225,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/CloudType.js#L29">engine/Source/Scene/CloudType.js 29</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/CloudType.js#L29">engine/Source/Scene/CloudType.js 29</a>
 </div>
 
 
@@ -340,9 +340,7 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">如果 (！Cesium.CloudType.validate(cloudType)) {
-throw new Cesium.DeveloperError('cloudType must a valid value.');
-}</code></pre>
+    <pre><code class="language-javascript">如果 (！Cesium.CloudType.validate(cloudType)) {throw new Cesium.DeveloperError('cloudType must a valid value.');}</code></pre>
 
     
 

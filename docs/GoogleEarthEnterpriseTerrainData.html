@@ -46,7 +46,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/GoogleEarthEnterpriseTerrainData.js#L57">engine/Source/Core/GoogleEarthEnterpriseTerrainData.js 57</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/GoogleEarthEnterpriseTerrainData.js#L57">engine/Source/Core/GoogleEarthEnterpriseTerrainData.js 57</a>
 </div>
 
 
@@ -259,17 +259,7 @@
 
                 
             
-                一个位掩码，指示此图块的四个子图块中存在哪一个。
-如果设置了子位，则当该图块
-是必需的。 如果清除该位，则不会请求子平铺，并且 geometry 为
-而是从父级进行上采样。 位值如下所示：
-<table>
-<tr><th>Bit Position</th><th>位值</th><th>子平铺</th></tr>
-<tr><td>0</td><td>1</td><td>西南</td></tr>
-<tr><td>1</td><td>2</td><td>东南</td></tr>
-<tr><td>2</td><td>4</td><td>东北</td></tr>部
-<tr><td>3</td><td>8</td><td>西北</td></tr>
-</table></td>
+                一个位掩码，指示此图块的四个子图块中存在哪一个。如果设置了子位，则当该图块是必需的。 如果清除该位，则不会请求子平铺，并且 geometry 为而是从父级进行上采样。 位值如下所示：<table><tr><th>Bit Position</th><th>位值</th><th>子平铺</th></tr><tr><td>0</td><td>1</td><td>西南</td></tr><tr><td>1</td><td>2</td><td>东南</td></tr><tr><td>2</td><td>4</td><td>东北</td></tr>部<tr><td>3</td><td>8</td><td>西北</td></tr></table></td>
         </tr>
 
     
@@ -305,8 +295,7 @@
 
                 
             
-                如果此实例是通过对另一个实例进行上采样创建的，则为 True;
-否则为 false。</td>
+                如果此实例是通过对另一个实例进行上采样创建的，则为 True;否则为 false。</td>
         </tr>
 
     
@@ -389,12 +378,7 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const buffer = ...
-const childTileMask = ...
-const terrainData = new Cesium.GoogleEarthEnterpriseTerrainData({
-  buffer : heightBuffer,
-  childTileMask : childTileMask
-});</code></pre>
+    <pre><code class="language-javascript">const buffer = ...const childTileMask = ...const terrainData = new Cesium.GoogleEarthEnterpriseTerrainData({  buffer : heightBuffer,  childTileMask : childTileMask});</code></pre>
 
     
 
@@ -444,7 +428,7 @@ const terrainData = new Cesium.GoogleEarthEnterpriseTerrainData({
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/GoogleEarthEnterpriseTerrainData.js#L101">engine/Source/Core/GoogleEarthEnterpriseTerrainData.js 101</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/GoogleEarthEnterpriseTerrainData.js#L101">engine/Source/Core/GoogleEarthEnterpriseTerrainData.js 101</a>
 </div>
 
 
@@ -504,7 +488,7 @@ const terrainData = new Cesium.GoogleEarthEnterpriseTerrainData({
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/GoogleEarthEnterpriseTerrainData.js#L113">engine/Source/Core/GoogleEarthEnterpriseTerrainData.js 113</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/GoogleEarthEnterpriseTerrainData.js#L113">engine/Source/Core/GoogleEarthEnterpriseTerrainData.js 113</a>
 </div>
 
 
@@ -515,9 +499,7 @@ const terrainData = new Cesium.GoogleEarthEnterpriseTerrainData({
 
 
 <div class="description">
-    此地形数据中包含的水面罩(如果有)。 水面罩是矩形的
-Uint8Array 或图像，其中值 255 表示水，值 0 表示陆地。
-允许介于 0 和 255 之间的值，以便在陆地和水之间平滑混合。
+    此地形数据中包含的水面罩(如果有)。 水面罩是矩形的Uint8Array 或图像，其中值 255 表示水，值 0 表示陆地。允许介于 0 和 255 之间的值，以便在陆地和水之间平滑混合。
 </div>
 
 
@@ -572,7 +554,7 @@ Uint8Array 或图像，其中值 255 表示水，值 0 表示陆地。
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/GoogleEarthEnterpriseTerrainData.js#L246">engine/Source/Core/GoogleEarthEnterpriseTerrainData.js 246</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/GoogleEarthEnterpriseTerrainData.js#L246">engine/Source/Core/GoogleEarthEnterpriseTerrainData.js 246</a>
 </div>
 
 
@@ -702,9 +684,7 @@ Uint8Array 或图像，其中值 255 表示水，值 0 表示陆地。
 
         
 <div class="param-desc">
-    指定位置的地形高度。 如果位置
-在矩形之外，这个方法会推断高度，很可能会很疯狂
-对于远在矩形之外的位置不正确。
+    指定位置的地形高度。 如果位置在矩形之外，这个方法会推断高度，很可能会很疯狂对于远在矩形之外的位置不正确。
 </div>
 
 
@@ -755,7 +735,7 @@ Uint8Array 或图像，其中值 255 表示水，值 0 表示陆地。
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/GoogleEarthEnterpriseTerrainData.js#L396">engine/Source/Core/GoogleEarthEnterpriseTerrainData.js 396</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/GoogleEarthEnterpriseTerrainData.js#L396">engine/Source/Core/GoogleEarthEnterpriseTerrainData.js 396</a>
 </div>
 
 
@@ -767,10 +747,7 @@ Uint8Array 或图像，其中值 255 表示水，值 0 表示陆地。
 
 
 <div class="description">
-    根据
-<code>HeightmapTerrainData.childTileMask</code> 中。 假定给定的子图块坐标
-成为此牌的四个子牌之一。 如果非子图块坐标为
-给定，则返回 southeast child tile 的可用性。
+    根据<code>HeightmapTerrainData.childTileMask</code> 中。 假定给定的子图块坐标成为此牌的四个子牌之一。 如果非子图块坐标为给定，则返回 southeast child tile 的可用性。
 </div>
 
 
@@ -962,7 +939,7 @@ Uint8Array 或图像，其中值 255 表示水，值 0 表示陆地。
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/GoogleEarthEnterpriseTerrainData.js#L289">engine/Source/Core/GoogleEarthEnterpriseTerrainData.js 289</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/GoogleEarthEnterpriseTerrainData.js#L289">engine/Source/Core/GoogleEarthEnterpriseTerrainData.js 289</a>
 </div>
 
 
@@ -974,8 +951,7 @@ Uint8Array 或图像，其中值 255 表示水，值 0 表示陆地。
 
 
 <div class="description">
-    对此地形数据进行上采样，以供后代瓦片使用。 生成的实例将包含
-高度样本，必要时进行插值。
+    对此地形数据进行上采样，以供后代瓦片使用。 生成的实例将包含高度样本，必要时进行插值。
 </div>
 
 
@@ -1185,9 +1161,7 @@ Uint8Array 或图像，其中值 255 表示水，值 0 表示陆地。
 
         
 <div class="param-desc">
-    为后代瓦片提供上采样高度贴图地形数据的承诺，
-或 undefined 如果正在进行的异步 Upsample 操作过多，并且请求已被
-递延。
+    为后代瓦片提供上采样高度贴图地形数据的承诺，或 undefined 如果正在进行的异步 Upsample 操作过多，并且请求已被递延。
 </div>
 
 
@@ -1238,7 +1212,7 @@ Uint8Array 或图像，其中值 255 表示水，值 0 表示陆地。
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/GoogleEarthEnterpriseTerrainData.js#L428">engine/Source/Core/GoogleEarthEnterpriseTerrainData.js 428</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/GoogleEarthEnterpriseTerrainData.js#L428">engine/Source/Core/GoogleEarthEnterpriseTerrainData.js 428</a>
 </div>
 
 
@@ -1250,10 +1224,7 @@ Uint8Array 或图像，其中值 255 表示水，值 0 表示陆地。
 
 
 <div class="description">
-    获取一个值，该值指示此地形数据是否是通过对较低分辨率的上采样创建的
-地形数据。 如果此值为 false，则数据是从其他来源获取的，例如
-从远程服务器下载。 对于实例，此方法应返回 true
-从调用 <a href="HeightmapTerrainData.html#upsample"><code>HeightmapTerrainData#upsample</code></a> 返回。
+    获取一个值，该值指示此地形数据是否是通过对较低分辨率的上采样创建的地形数据。 如果此值为 false，则数据是从其他来源获取的，例如从远程服务器下载。 对于实例，此方法应返回 true从调用 <a href="HeightmapTerrainData.html#upsample"><code>HeightmapTerrainData#upsample</code></a> 返回。
 </div>
 
 

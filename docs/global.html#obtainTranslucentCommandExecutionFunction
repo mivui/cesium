@@ -41,18 +41,13 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Scene.js#L2428">engine/Source/Scene/Scene.js 2428</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Scene.js#L2428">engine/Source/Scene/Scene.js 2428</a>
 </div>
 
 
 
         
-            <div class="description">确定如何处理半透明表面。
-
-启用 OIT 后，这将委托给 OIT.executeCommands。
-否则，它将只是 executeTranslucentCommandsBackToFront
-用于渲染通道，或 executeTranslucentCommandsFrontToBack 用于
-其他通行证。</div>
+            <div class="description">确定如何处理半透明表面。启用 OIT 后，这将委托给 OIT.executeCommands。否则，它将只是 executeTranslucentCommandsBackToFront用于渲染通道，或 executeTranslucentCommandsFrontToBack 用于其他通行证。</div>
         
 
         

@@ -41,7 +41,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/BlendEquation.js#L8">engine/Source/Scene/BlendEquation.js 8</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/BlendEquation.js#L8">engine/Source/Scene/BlendEquation.js 8</a>
 </div>
 
 
@@ -165,9 +165,7 @@
 
             
 
-            <td class="description last">像素值为最小函数 (min(source, destination)) 提供。
-
-此方程式对每个像素颜色分量起作用。</td>
+            <td class="description last">像素值为最小函数 (min(source, destination)) 提供。此方程式对每个像素颜色分量起作用。</td>
         </tr>
 
     
@@ -190,9 +188,7 @@
 
             
 
-            <td class="description last">像素值为最大函数 (max(source, destination)) 提供。
-
-此方程式对每个像素颜色分量起作用。</td>
+            <td class="description last">像素值为最大函数 (max(source, destination)) 提供。此方程式对每个像素颜色分量起作用。</td>
         </tr>
 
     
@@ -255,7 +251,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/BlendEquation.js#L15">engine/Source/Scene/BlendEquation.js 15</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/BlendEquation.js#L15">engine/Source/Scene/BlendEquation.js 15</a>
 </div>
 
 
@@ -318,7 +314,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/BlendEquation.js#L51">engine/Source/Scene/BlendEquation.js 51</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/BlendEquation.js#L51">engine/Source/Scene/BlendEquation.js 51</a>
 </div>
 
 
@@ -329,9 +325,7 @@
 
 
 <div class="description">
-    像素值为最大函数 (max(source, destination)) 提供。
-
-此方程式对每个像素颜色分量起作用。
+    像素值为最大函数 (max(source, destination)) 提供。此方程式对每个像素颜色分量起作用。
 </div>
 
 
@@ -383,7 +377,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/BlendEquation.js#L41">engine/Source/Scene/BlendEquation.js 41</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/BlendEquation.js#L41">engine/Source/Scene/BlendEquation.js 41</a>
 </div>
 
 
@@ -394,9 +388,7 @@
 
 
 <div class="description">
-    像素值为最小函数 (min(source, destination)) 提供。
-
-此方程式对每个像素颜色分量起作用。
+    像素值为最小函数 (min(source, destination)) 提供。此方程式对每个像素颜色分量起作用。
 </div>
 
 
@@ -448,7 +440,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/BlendEquation.js#L31">engine/Source/Scene/BlendEquation.js 31</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/BlendEquation.js#L31">engine/Source/Scene/BlendEquation.js 31</a>
 </div>
 
 
@@ -511,7 +503,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/BlendEquation.js#L23">engine/Source/Scene/BlendEquation.js 23</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/BlendEquation.js#L23">engine/Source/Scene/BlendEquation.js 23</a>
 </div>
 
 

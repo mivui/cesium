@@ -46,7 +46,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/TimeInterval.js#L60">engine/Source/Core/TimeInterval.js 60</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/TimeInterval.js#L60">engine/Source/Core/TimeInterval.js 60</a>
 </div>
 
 
@@ -58,8 +58,7 @@
 
 
 <div class="description">
-    由开始和停止时间定义的间隔;(可选)将这些时间作为间隔的一部分包括在内。
-可以选择将任意数据与每个实例相关联，以便与 <a href="TimeIntervalCollection.html"><code>TimeIntervalCollection</code></a> 一起使用。
+    由开始和停止时间定义的间隔;(可选)将这些时间作为间隔的一部分包括在内。可以选择将任意数据与每个实例相关联，以便与 <a href="TimeIntervalCollection.html"><code>TimeIntervalCollection</code></a> 一起使用。
 </div>
 
 
@@ -362,41 +361,11 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Create an instance that spans August 1st, 1980 and is associated
-// with a Cartesian position.
-const timeInterval = new Cesium.TimeInterval({
-    start : Cesium.JulianDate.fromIso8601('1980-08-01T00:00:00Z'),
-    stop : Cesium.JulianDate.fromIso8601('1980-08-02T00:00:00Z'),
-    isStartIncluded : true,
-    isStopIncluded : false,
-    data : Cesium.Cartesian3.fromDegrees(39.921037, -75.170082)
-});</code></pre>
+    <pre><code class="language-javascript">// Create an instance that spans August 1st, 1980 and is associated// with a Cartesian position.const timeInterval = new Cesium.TimeInterval({    start : Cesium.JulianDate.fromIso8601('1980-08-01T00:00:00Z'),    stop : Cesium.JulianDate.fromIso8601('1980-08-02T00:00:00Z'),    isStartIncluded : true,    isStopIncluded : false,    data : Cesium.Cartesian3.fromDegrees(39.921037, -75.170082)});</code></pre>
 
-    <pre><code class="language-javascript">// Create two instances from ISO 8601 intervals with associated numeric data
-// then compute their intersection, summing the data they contain.
-const left = Cesium.TimeInterval.fromIso8601({
-    iso8601 : '2000/2010',
-    data : 2
-});
+    <pre><code class="language-javascript">// Create two instances from ISO 8601 intervals with associated numeric data// then compute their intersection, summing the data they contain.const left = Cesium.TimeInterval.fromIso8601({    iso8601 : '2000/2010',    data : 2});const right = Cesium.TimeInterval.fromIso8601({    iso8601 : '1995/2005',    data : 3});//The result of the below intersection will be an interval equivalent to//const intersection = Cesium.TimeInterval.fromIso8601({//  iso8601 : '2000/2005',//  data : 5//});const intersection = new Cesium.TimeInterval();Cesium.TimeInterval.intersect(left, right, intersection, function(leftData, rightData) {    return leftData + rightData;});</code></pre>
 
-const right = Cesium.TimeInterval.fromIso8601({
-    iso8601 : '1995/2005',
-    data : 3
-});
-
-//The result of the below intersection will be an interval equivalent to
-//const intersection = Cesium.TimeInterval.fromIso8601({
-//  iso8601 : '2000/2005',
-//  data : 5
-//});
-const intersection = new Cesium.TimeInterval();
-Cesium.TimeInterval.intersect(left, right, intersection, function(leftData, rightData) {
-    return leftData + rightData;
-});</code></pre>
-
-    <pre><code class="language-javascript">// Check if an interval contains a specific time.
-const dateToCheck = Cesium.JulianDate.fromIso8601('1982-09-08T11:30:00Z');
-const containsDate = Cesium.TimeInterval.contains(timeInterval, dateToCheck);</code></pre>
+    <pre><code class="language-javascript">// Check if an interval contains a specific time.const dateToCheck = Cesium.JulianDate.fromIso8601('1982-09-08T11:30:00Z');const containsDate = Cesium.TimeInterval.contains(timeInterval, dateToCheck);</code></pre>
 
     
 
@@ -437,7 +406,7 @@ const containsDate = Cesium.TimeInterval.contains(timeInterval, dateToCheck);</c
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/TimeInterval.js#L413">engine/Source/Core/TimeInterval.js 413</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/TimeInterval.js#L413">engine/Source/Core/TimeInterval.js 413</a>
 </div>
 
 
@@ -497,7 +466,7 @@ const containsDate = Cesium.TimeInterval.contains(timeInterval, dateToCheck);</c
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/TimeInterval.js#L82">engine/Source/Core/TimeInterval.js 82</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/TimeInterval.js#L82">engine/Source/Core/TimeInterval.js 82</a>
 </div>
 
 
@@ -557,7 +526,7 @@ const containsDate = Cesium.TimeInterval.contains(timeInterval, dateToCheck);</c
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/TimeInterval.js#L106">engine/Source/Core/TimeInterval.js 106</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/TimeInterval.js#L106">engine/Source/Core/TimeInterval.js 106</a>
 </div>
 
 
@@ -617,7 +586,7 @@ const containsDate = Cesium.TimeInterval.contains(timeInterval, dateToCheck);</c
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/TimeInterval.js#L89">engine/Source/Core/TimeInterval.js 89</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/TimeInterval.js#L89">engine/Source/Core/TimeInterval.js 89</a>
 </div>
 
 
@@ -680,7 +649,7 @@ const containsDate = Cesium.TimeInterval.contains(timeInterval, dateToCheck);</c
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/TimeInterval.js#L96">engine/Source/Core/TimeInterval.js 96</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/TimeInterval.js#L96">engine/Source/Core/TimeInterval.js 96</a>
 </div>
 
 
@@ -743,7 +712,7 @@ const containsDate = Cesium.TimeInterval.contains(timeInterval, dateToCheck);</c
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/TimeInterval.js#L66">engine/Source/Core/TimeInterval.js 66</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/TimeInterval.js#L66">engine/Source/Core/TimeInterval.js 66</a>
 </div>
 
 
@@ -803,7 +772,7 @@ const containsDate = Cesium.TimeInterval.contains(timeInterval, dateToCheck);</c
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/TimeInterval.js#L74">engine/Source/Core/TimeInterval.js 74</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/TimeInterval.js#L74">engine/Source/Core/TimeInterval.js 74</a>
 </div>
 
 
@@ -869,7 +838,7 @@ const containsDate = Cesium.TimeInterval.contains(timeInterval, dateToCheck);</c
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/TimeInterval.js#L199">engine/Source/Core/TimeInterval.js 199</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/TimeInterval.js#L199">engine/Source/Core/TimeInterval.js 199</a>
 </div>
 
 
@@ -1041,7 +1010,7 @@ const containsDate = Cesium.TimeInterval.contains(timeInterval, dateToCheck);</c
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/TimeInterval.js#L336">engine/Source/Core/TimeInterval.js 336</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/TimeInterval.js#L336">engine/Source/Core/TimeInterval.js 336</a>
 </div>
 
 
@@ -1199,7 +1168,7 @@ const containsDate = Cesium.TimeInterval.contains(timeInterval, dateToCheck);</c
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/TimeInterval.js#L222">engine/Source/Core/TimeInterval.js 222</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/TimeInterval.js#L222">engine/Source/Core/TimeInterval.js 222</a>
 </div>
 
 
@@ -1401,7 +1370,7 @@ const containsDate = Cesium.TimeInterval.contains(timeInterval, dateToCheck);</c
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/TimeInterval.js#L249">engine/Source/Core/TimeInterval.js 249</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/TimeInterval.js#L249">engine/Source/Core/TimeInterval.js 249</a>
 </div>
 
 
@@ -1413,10 +1382,7 @@ const containsDate = Cesium.TimeInterval.contains(timeInterval, dateToCheck);</c
 
 
 <div class="description">
-    比较两个实例<code>，如果它们在</code> <code></code>
-彼此。 也就是说，为了将日期视为相等(并且
-此函数返回 <code>true</code>)，则表示它们之间差值的绝对值，在
-秒，必须小于 <code>epsilon</code>。
+    比较两个实例<code>，如果它们在</code> <code></code>彼此。 也就是说，为了将日期视为相等(并且此函数返回 <code>true</code>)，则表示它们之间差值的绝对值，在秒，必须小于 <code>epsilon</code>。
 </div>
 
 
@@ -1656,7 +1622,7 @@ const containsDate = Cesium.TimeInterval.contains(timeInterval, dateToCheck);</c
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/TimeInterval.js#L139">engine/Source/Core/TimeInterval.js 139</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/TimeInterval.js#L139">engine/Source/Core/TimeInterval.js 139</a>
 </div>
 
 
@@ -1668,9 +1634,7 @@ const containsDate = Cesium.TimeInterval.contains(timeInterval, dateToCheck);</c
 
 
 <div class="description">
-    从 <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> 间隔。
-
-如果 options.iso8601 与正确的格式不匹配，则@throws DeveloperError。
+    从 <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> 间隔。如果 options.iso8601 与正确的格式不匹配，则@throws DeveloperError。
 </div>
 
 
@@ -1990,7 +1954,7 @@ const containsDate = Cesium.TimeInterval.contains(timeInterval, dateToCheck);</c
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/TimeInterval.js#L275">engine/Source/Core/TimeInterval.js 275</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/TimeInterval.js#L275">engine/Source/Core/TimeInterval.js 275</a>
 </div>
 
 
@@ -2220,7 +2184,7 @@ const containsDate = Cesium.TimeInterval.contains(timeInterval, dateToCheck);</c
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/TimeInterval.js#L181">engine/Source/Core/TimeInterval.js 181</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/TimeInterval.js#L181">engine/Source/Core/TimeInterval.js 181</a>
 </div>
 
 
@@ -2390,7 +2354,7 @@ const containsDate = Cesium.TimeInterval.contains(timeInterval, dateToCheck);</c
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/TimeInterval.js#L368">engine/Source/Core/TimeInterval.js 368</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/TimeInterval.js#L368">engine/Source/Core/TimeInterval.js 368</a>
 </div>
 
 
@@ -2532,7 +2496,7 @@ const containsDate = Cesium.TimeInterval.contains(timeInterval, dateToCheck);</c
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/TimeInterval.js#L380">engine/Source/Core/TimeInterval.js 380</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/TimeInterval.js#L380">engine/Source/Core/TimeInterval.js 380</a>
 </div>
 
 
@@ -2544,8 +2508,7 @@ const containsDate = Cesium.TimeInterval.contains(timeInterval, dateToCheck);</c
 
 
 <div class="description">
-    将此实例与提供的实例 componentwise 进行比较，并返回
-<code>true</code>，否则为 <code>false</code>。
+    将此实例与提供的实例 componentwise 进行比较，并返回<code>true</code>，否则为 <code>false</code>。
 </div>
 
 
@@ -2705,7 +2668,7 @@ const containsDate = Cesium.TimeInterval.contains(timeInterval, dateToCheck);</c
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/TimeInterval.js#L394">engine/Source/Core/TimeInterval.js 394</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/TimeInterval.js#L394">engine/Source/Core/TimeInterval.js 394</a>
 </div>
 
 
@@ -2717,9 +2680,7 @@ const containsDate = Cesium.TimeInterval.contains(timeInterval, dateToCheck);</c
 
 
 <div class="description">
-    将此实例与提供的实例 componentwise 进行比较，并返回
-<code>true</code>，如果它们位于提供的 epsilon 内，
-否则<code>false</code> 。
+    将此实例与提供的实例 componentwise 进行比较，并返回<code>true</code>，如果它们位于提供的 epsilon 内，否则<code>false</code> 。
 </div>
 
 
@@ -2925,7 +2886,7 @@ const containsDate = Cesium.TimeInterval.contains(timeInterval, dateToCheck);</c
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/TimeInterval.js#L403">engine/Source/Core/TimeInterval.js 403</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/TimeInterval.js#L403">engine/Source/Core/TimeInterval.js 403</a>
 </div>
 
 
@@ -3021,7 +2982,7 @@ const containsDate = Cesium.TimeInterval.contains(timeInterval, dateToCheck);</c
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/TimeInterval.js#L431">engine/Source/Core/TimeInterval.js 431</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/TimeInterval.js#L431">engine/Source/Core/TimeInterval.js 431</a>
 </div>
 
 
@@ -3179,7 +3140,7 @@ const containsDate = Cesium.TimeInterval.contains(timeInterval, dateToCheck);</c
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/TimeInterval.js#L422">engine/Source/Core/TimeInterval.js 422</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/TimeInterval.js#L422">engine/Source/Core/TimeInterval.js 422</a>
 </div>
 
 

@@ -41,20 +41,13 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/VerticalOrigin.js#L16">engine/Source/Scene/VerticalOrigin.js 16</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/VerticalOrigin.js#L16">engine/Source/Scene/VerticalOrigin.js 16</a>
 </div>
 
 
 
         
-            <div class="description">原点相对于对象的垂直位置，例如 <a href="Billboard.html"><code>Billboard</code></a>
-或 <code>label</code> 的 例如，将垂直原点设置为 <code>TOP</code>
-或 <code>BOTTOM</code> 将在上方或下方显示广告牌(在屏幕空间中)
-锚点位置。
-<br /><br />
-<div align='center'>
-<img src='Images/Billboard.setVerticalOrigin.png' width='695' height='175' /><br />
-</div></div>
+            <div class="description">原点相对于对象的垂直位置，例如 <a href="Billboard.html"><code>Billboard</code></a>或 <code>label</code> 的 例如，将垂直原点设置为 <code>TOP</code>或 <code>BOTTOM</code> 将在上方或下方显示广告牌(在屏幕空间中)锚点位置。<br /><br /><div align='center'><img src='Images/Billboard.setVerticalOrigin.png' width='695' height='175' /><br /></div></div>
         
 
         
@@ -242,7 +235,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/VerticalOrigin.js#L39">engine/Source/Scene/VerticalOrigin.js 39</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/VerticalOrigin.js#L39">engine/Source/Scene/VerticalOrigin.js 39</a>
 </div>
 
 
@@ -305,7 +298,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/VerticalOrigin.js#L31">engine/Source/Scene/VerticalOrigin.js 31</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/VerticalOrigin.js#L31">engine/Source/Scene/VerticalOrigin.js 31</a>
 </div>
 
 
@@ -368,7 +361,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/VerticalOrigin.js#L23">engine/Source/Scene/VerticalOrigin.js 23</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/VerticalOrigin.js#L23">engine/Source/Scene/VerticalOrigin.js 23</a>
 </div>
 
 
@@ -428,7 +421,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/VerticalOrigin.js#L47">engine/Source/Scene/VerticalOrigin.js 47</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/VerticalOrigin.js#L47">engine/Source/Scene/VerticalOrigin.js 47</a>
 </div>
 
 

@@ -46,7 +46,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/KmlDataSource.js#L3602">engine/Source/DataSources/KmlDataSource.js 3602</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/KmlDataSource.js#L3602">engine/Source/DataSources/KmlDataSource.js 3602</a>
 </div>
 
 
@@ -58,19 +58,7 @@
 
 
 <div class="description">
-    处理 Keyhole 标记语言 2.2 (KML) 的 <a href="DataSource.html"><code>DataSource</code></a>。
-<p>
-Cesium 中的 KML 支持不完整，但大量标准，
-以及 Google 的 <code>gx</code> 扩展命名空间。请参阅 Github 问题
-<a href="https://github.com/CesiumGS/cesium/issues/873">#873</a> 用于
-支持和不支持的内容的详细列表。Cesium 还会将信息写入
-控制台(当遇到大多数不受支持的功能时)。
-</p>
-<p>
-非可视特征数据，例如 <code>atom：author</code> 和 <code>ExtendedData</code>
-通过 <a href="KmlFeatureData.html"><code>KmlFeatureData</code></a> 的实例公开，该实例将添加到每个 <a href="Entity.html"><code>Entity</code></a>
-在 <code>kml</code> 属性下。
-</p>
+    处理 Keyhole 标记语言 2.2 (KML) 的 <a href="DataSource.html"><code>DataSource</code></a>。<p>Cesium 中的 KML 支持不完整，但大量标准，以及 Google 的 <code>gx</code> 扩展命名空间。请参阅 Github 问题<a href="https://github.com/CesiumGS/cesium/issues/873">#873</a> 用于支持和不支持的内容的详细列表。Cesium 还会将信息写入控制台(当遇到大多数不受支持的功能时)。</p><p>非可视特征数据，例如 <code>atom：author</code> 和 <code>ExtendedData</code>通过 <a href="KmlFeatureData.html"><code>KmlFeatureData</code></a> 的实例公开，该实例将添加到每个 <a href="Entity.html"><code>Entity</code></a>在 <code>kml</code> 属性下。</p>
 </div>
 
 
@@ -171,13 +159,7 @@ Cesium 中的 KML 支持不完整，但大量标准，
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const viewer = new Cesium.Viewer('cesiumContainer');
-viewer.dataSources.add(Cesium.KmlDataSource.load('../../SampleData/facilities.kmz',
-     {
-          camera: viewer.scene.camera,
-          canvas: viewer.scene.canvas
-     })
-);</code></pre>
+    <pre><code class="language-javascript">const viewer = new Cesium.Viewer('cesiumContainer');viewer.dataSources.add(Cesium.KmlDataSource.load('../../SampleData/facilities.kmz',     {          camera: viewer.scene.camera,          canvas: viewer.scene.canvas     }));</code></pre>
 
     
 
@@ -230,7 +212,7 @@ viewer.dataSources.add(Cesium.KmlDataSource.load('../../SampleData/facilities.km
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/KmlDataSource.js#L3637">engine/Source/DataSources/KmlDataSource.js 3637</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/KmlDataSource.js#L3637">engine/Source/DataSources/KmlDataSource.js 3637</a>
 </div>
 
 
@@ -241,10 +223,7 @@ viewer.dataSources.add(Cesium.KmlDataSource.load('../../SampleData/facilities.km
 
 
 <div class="description">
-    此 <a href="Camera.html"><code>Camera</code></a> 的位置和方向将用于
-在发出网络请求时填充各种摄像机参数。
-在以下情况下，摄像机移动将决定何时触发 NetworkLink 刷新
-<code>viewRefreshMode</code> 为 <code>onStop</code>。
+    此 <a href="Camera.html"><code>Camera</code></a> 的位置和方向将用于在发出网络请求时填充各种摄像机参数。在以下情况下，摄像机移动将决定何时触发 NetworkLink 刷新<code>viewRefreshMode</code> 为 <code>onStop</code>。
 </div>
 
 
@@ -293,7 +272,7 @@ viewer.dataSources.add(Cesium.KmlDataSource.load('../../SampleData/facilities.km
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/KmlDataSource.js#L3627">engine/Source/DataSources/KmlDataSource.js 3627</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/KmlDataSource.js#L3627">engine/Source/DataSources/KmlDataSource.js 3627</a>
 </div>
 
 
@@ -304,8 +283,7 @@ viewer.dataSources.add(Cesium.KmlDataSource.load('../../SampleData/facilities.km
 
 
 <div class="description">
-    此 Canvas 的当前大小将用于填充 Link 参数
-表示客户端高度和宽度。
+    此 Canvas 的当前大小将用于填充 Link 参数表示客户端高度和宽度。
 </div>
 
 
@@ -354,7 +332,7 @@ viewer.dataSources.add(Cesium.KmlDataSource.load('../../SampleData/facilities.km
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/KmlDataSource.js#L3736">engine/Source/DataSources/KmlDataSource.js 3736</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/KmlDataSource.js#L3736">engine/Source/DataSources/KmlDataSource.js 3736</a>
 </div>
 
 
@@ -414,7 +392,7 @@ viewer.dataSources.add(Cesium.KmlDataSource.load('../../SampleData/facilities.km
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/KmlDataSource.js#L3706">engine/Source/DataSources/KmlDataSource.js 3706</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/KmlDataSource.js#L3706">engine/Source/DataSources/KmlDataSource.js 3706</a>
 </div>
 
 
@@ -425,9 +403,7 @@ viewer.dataSources.add(Cesium.KmlDataSource.load('../../SampleData/facilities.km
 
 
 <div class="description">
-    获取由加载的 KML 定义的时钟设置。这表示总计
-所有时间动态数据的可用性间隔。如果 KML 不包含
-time-dynamic data，此值未定义。
+    获取由加载的 KML 定义的时钟设置。这表示总计所有时间动态数据的可用性间隔。如果 KML 不包含time-dynamic data，此值未定义。
 </div>
 
 
@@ -476,7 +452,7 @@ time-dynamic data，此值未定义。
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/KmlDataSource.js#L3801">engine/Source/DataSources/KmlDataSource.js 3801</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/KmlDataSource.js#L3801">engine/Source/DataSources/KmlDataSource.js 3801</a>
 </div>
 
 
@@ -536,7 +512,7 @@ time-dynamic data，此值未定义。
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/KmlDataSource.js#L3819">engine/Source/DataSources/KmlDataSource.js 3819</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/KmlDataSource.js#L3819">engine/Source/DataSources/KmlDataSource.js 3819</a>
 </div>
 
 
@@ -596,7 +572,7 @@ time-dynamic data，此值未定义。
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/KmlDataSource.js#L3716">engine/Source/DataSources/KmlDataSource.js 3716</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/KmlDataSource.js#L3716">engine/Source/DataSources/KmlDataSource.js 3716</a>
 </div>
 
 
@@ -656,7 +632,7 @@ time-dynamic data，此值未定义。
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/KmlDataSource.js#L3746">engine/Source/DataSources/KmlDataSource.js 3746</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/KmlDataSource.js#L3746">engine/Source/DataSources/KmlDataSource.js 3746</a>
 </div>
 
 
@@ -716,7 +692,7 @@ time-dynamic data，此值未定义。
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/KmlDataSource.js#L3726">engine/Source/DataSources/KmlDataSource.js 3726</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/KmlDataSource.js#L3726">engine/Source/DataSources/KmlDataSource.js 3726</a>
 </div>
 
 
@@ -776,7 +752,7 @@ time-dynamic data，此值未定义。
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/KmlDataSource.js#L3829">engine/Source/DataSources/KmlDataSource.js 3829</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/KmlDataSource.js#L3829">engine/Source/DataSources/KmlDataSource.js 3829</a>
 </div>
 
 
@@ -836,7 +812,7 @@ time-dynamic data，此值未定义。
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/KmlDataSource.js#L3756">engine/Source/DataSources/KmlDataSource.js 3756</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/KmlDataSource.js#L3756">engine/Source/DataSources/KmlDataSource.js 3756</a>
 </div>
 
 
@@ -896,7 +872,7 @@ time-dynamic data，此值未定义。
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/KmlDataSource.js#L3688">engine/Source/DataSources/KmlDataSource.js 3688</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/KmlDataSource.js#L3688">engine/Source/DataSources/KmlDataSource.js 3688</a>
 </div>
 
 
@@ -907,8 +883,7 @@ time-dynamic data，此值未定义。
 
 
 <div class="description">
-    获取或设置此实例的可读名称。
-这将在加载时自动设置为 KML 文档名称。
+    获取或设置此实例的可读名称。这将在加载时自动设置为 KML 文档名称。
 </div>
 
 
@@ -957,7 +932,7 @@ time-dynamic data，此值未定义。
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/KmlDataSource.js#L3766">engine/Source/DataSources/KmlDataSource.js 3766</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/KmlDataSource.js#L3766">engine/Source/DataSources/KmlDataSource.js 3766</a>
 </div>
 
 
@@ -1017,7 +992,7 @@ time-dynamic data，此值未定义。
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/KmlDataSource.js#L3786">engine/Source/DataSources/KmlDataSource.js 3786</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/KmlDataSource.js#L3786">engine/Source/DataSources/KmlDataSource.js 3786</a>
 </div>
 
 
@@ -1077,7 +1052,7 @@ time-dynamic data，此值未定义。
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/KmlDataSource.js#L3776">engine/Source/DataSources/KmlDataSource.js 3776</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/KmlDataSource.js#L3776">engine/Source/DataSources/KmlDataSource.js 3776</a>
 </div>
 
 
@@ -1143,7 +1118,7 @@ time-dynamic data，此值未定义。
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/KmlDataSource.js#L3675">engine/Source/DataSources/KmlDataSource.js 3675</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/KmlDataSource.js#L3675">engine/Source/DataSources/KmlDataSource.js 3675</a>
 </div>
 
 
@@ -1322,7 +1297,7 @@ time-dynamic data，此值未定义。
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/KmlDataSource.js#L3929">engine/Source/DataSources/KmlDataSource.js 3929</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/KmlDataSource.js#L3929">engine/Source/DataSources/KmlDataSource.js 3929</a>
 </div>
 
 
@@ -1403,7 +1378,7 @@ time-dynamic data，此值未定义。
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/KmlDataSource.js#L3844">engine/Source/DataSources/KmlDataSource.js 3844</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/KmlDataSource.js#L3844">engine/Source/DataSources/KmlDataSource.js 3844</a>
 </div>
 
 
@@ -1582,7 +1557,7 @@ time-dynamic data，此值未定义。
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/KmlDataSource.js#L4118">engine/Source/DataSources/KmlDataSource.js 4118</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/KmlDataSource.js#L4118">engine/Source/DataSources/KmlDataSource.js 4118</a>
 </div>
 
 
@@ -1723,7 +1698,7 @@ time-dynamic data，此值未定义。
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/KmlDataSource.js#L3552">engine/Source/DataSources/KmlDataSource.js 3552</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/KmlDataSource.js#L3552">engine/Source/DataSources/KmlDataSource.js 3552</a>
 </div>
 
 
@@ -2070,7 +2045,7 @@ time-dynamic data，此值未定义。
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/KmlDataSource.js#L3541">engine/Source/DataSources/KmlDataSource.js 3541</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/KmlDataSource.js#L3541">engine/Source/DataSources/KmlDataSource.js 3541</a>
 </div>
 
 

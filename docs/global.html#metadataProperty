@@ -41,16 +41,13 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/PickedMetadataInfo.js#L55">engine/Source/Scene/PickedMetadataInfo.js 55</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/PickedMetadataInfo.js#L55">engine/Source/Scene/PickedMetadataInfo.js 55</a>
 </div>
 
 
 
         
-            <div class="description">'PropertyTextureProperty' 或 'PropertyAttributeProperty'
-由此结构描述，如从 texture 属性
-或与
-类名和属性名。</div>
+            <div class="description">'PropertyTextureProperty' 或 'PropertyAttributeProperty'由此结构描述，如从 texture 属性或与类名和属性名。</div>
         
 
         

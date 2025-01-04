@@ -41,7 +41,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/PrimitiveType.js#L8">engine/Source/Core/PrimitiveType.js 8</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/PrimitiveType.js#L8">engine/Source/Core/PrimitiveType.js 8</a>
 </div>
 
 
@@ -142,8 +142,7 @@
 
             
 
-            <td class="description last">Line loop 基元，其中第一个顶点(或索引)之后的每个顶点(或索引)将一条线连接到
-前一个顶点，最后一个顶点隐式连接到第一个顶点。</td>
+            <td class="description last">Line loop 基元，其中第一个顶点(或索引)之后的每个顶点(或索引)将一条线连接到前一个顶点，最后一个顶点隐式连接到第一个顶点。</td>
         </tr>
 
     
@@ -212,8 +211,7 @@
 
             
 
-            <td class="description last">三角形条带基元，其中前两个顶点(或索引)之后的每个顶点(或索引)都连接到其中
-前两个顶点形成一个三角形。 例如，这可用于对墙进行建模。</td>
+            <td class="description last">三角形条带基元，其中前两个顶点(或索引)之后的每个顶点(或索引)都连接到其中前两个顶点形成一个三角形。 例如，这可用于对墙进行建模。</td>
         </tr>
 
     
@@ -236,9 +234,7 @@
 
             
 
-            <td class="description last">三角形扇形基元，其中前两个顶点(或索引)之后的每个顶点(或索引)都连接到其中
-前一个顶点和第一个顶点形成一个三角形。 例如，this can be used
-对圆锥体或圆进行建模。</td>
+            <td class="description last">三角形扇形基元，其中前两个顶点(或索引)之后的每个顶点(或索引)都连接到其中前一个顶点和第一个顶点形成一个三角形。 例如，this can be used对圆锥体或圆进行建模。</td>
         </tr>
 
     
@@ -301,7 +297,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/PrimitiveType.js#L32">engine/Source/Core/PrimitiveType.js 32</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/PrimitiveType.js#L32">engine/Source/Core/PrimitiveType.js 32</a>
 </div>
 
 
@@ -312,8 +308,7 @@
 
 
 <div class="description">
-    Line loop 基元，其中第一个顶点(或索引)之后的每个顶点(或索引)将一条线连接到
-前一个顶点，最后一个顶点隐式连接到第一个顶点。
+    Line loop 基元，其中第一个顶点(或索引)之后的每个顶点(或索引)将一条线连接到前一个顶点，最后一个顶点隐式连接到第一个顶点。
 </div>
 
 
@@ -365,7 +360,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/PrimitiveType.js#L40">engine/Source/Core/PrimitiveType.js 40</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/PrimitiveType.js#L40">engine/Source/Core/PrimitiveType.js 40</a>
 </div>
 
 
@@ -428,7 +423,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/PrimitiveType.js#L23">engine/Source/Core/PrimitiveType.js 23</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/PrimitiveType.js#L23">engine/Source/Core/PrimitiveType.js 23</a>
 </div>
 
 
@@ -491,7 +486,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/PrimitiveType.js#L15">engine/Source/Core/PrimitiveType.js 15</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/PrimitiveType.js#L15">engine/Source/Core/PrimitiveType.js 15</a>
 </div>
 
 
@@ -554,7 +549,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/PrimitiveType.js#L67">engine/Source/Core/PrimitiveType.js 67</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/PrimitiveType.js#L67">engine/Source/Core/PrimitiveType.js 67</a>
 </div>
 
 
@@ -565,9 +560,7 @@
 
 
 <div class="description">
-    三角形扇形基元，其中前两个顶点(或索引)之后的每个顶点(或索引)都连接到其中
-前一个顶点和第一个顶点形成一个三角形。 例如，this can be used
-对圆锥体或圆进行建模。
+    三角形扇形基元，其中前两个顶点(或索引)之后的每个顶点(或索引)都连接到其中前一个顶点和第一个顶点形成一个三角形。 例如，this can be used对圆锥体或圆进行建模。
 </div>
 
 
@@ -619,7 +612,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/PrimitiveType.js#L57">engine/Source/Core/PrimitiveType.js 57</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/PrimitiveType.js#L57">engine/Source/Core/PrimitiveType.js 57</a>
 </div>
 
 
@@ -630,8 +623,7 @@
 
 
 <div class="description">
-    三角形条带基元，其中前两个顶点(或索引)之后的每个顶点(或索引)都连接到其中
-前两个顶点形成一个三角形。 例如，这可用于对墙进行建模。
+    三角形条带基元，其中前两个顶点(或索引)之后的每个顶点(或索引)都连接到其中前两个顶点形成一个三角形。 例如，这可用于对墙进行建模。
 </div>
 
 
@@ -683,7 +675,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/PrimitiveType.js#L48">engine/Source/Core/PrimitiveType.js 48</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/PrimitiveType.js#L48">engine/Source/Core/PrimitiveType.js 48</a>
 </div>
 
 

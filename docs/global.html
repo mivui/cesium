@@ -102,7 +102,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/ArcGisBaseMapType.js#L7">engine/Source/Scene/ArcGisBaseMapType.js 7</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/ArcGisBaseMapType.js#L7">engine/Source/Scene/ArcGisBaseMapType.js 7</a>
 </div>
 
 
@@ -264,7 +264,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/ArcType.js#L6">engine/Source/Core/ArcType.js 6</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/ArcType.js#L6">engine/Source/Core/ArcType.js 6</a>
 </div>
 
 
@@ -421,7 +421,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Axis.js#L10">engine/Source/Scene/Axis.js 10</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Axis.js#L10">engine/Source/Scene/Axis.js 10</a>
 </div>
 
 
@@ -578,7 +578,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/BingMapsStyle.js#L8">engine/Source/Scene/BingMapsStyle.js 8</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/BingMapsStyle.js#L8">engine/Source/Scene/BingMapsStyle.js 8</a>
 </div>
 
 
@@ -901,7 +901,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/BlendEquation.js#L8">engine/Source/Scene/BlendEquation.js 8</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/BlendEquation.js#L8">engine/Source/Scene/BlendEquation.js 8</a>
 </div>
 
 
@@ -1033,9 +1033,7 @@
 
             
 
-            <td class="description last">像素值为最小函数 (min(source, destination)) 提供。
-
-此方程式对每个像素颜色分量起作用。</td>
+            <td class="description last">像素值为最小函数 (min(source, destination)) 提供。此方程式对每个像素颜色分量起作用。</td>
         </tr>
 
     
@@ -1058,9 +1056,7 @@
 
             
 
-            <td class="description last">像素值为最大函数 (max(source, destination)) 提供。
-
-此方程式对每个像素颜色分量起作用。</td>
+            <td class="description last">像素值为最大函数 (max(source, destination)) 提供。此方程式对每个像素颜色分量起作用。</td>
         </tr>
 
     
@@ -1108,7 +1104,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/BlendFunction.js#L8">engine/Source/Scene/BlendFunction.js 8</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/BlendFunction.js#L8">engine/Source/Scene/BlendFunction.js 8</a>
 </div>
 
 
@@ -1541,7 +1537,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/BlendOption.js#L6">engine/Source/Scene/BlendOption.js 6</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/BlendOption.js#L6">engine/Source/Scene/BlendOption.js 6</a>
 </div>
 
 
@@ -1698,7 +1694,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/CameraEventType.js#L6">engine/Source/Scene/CameraEventType.js 6</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/CameraEventType.js#L6">engine/Source/Scene/CameraEventType.js 6</a>
 </div>
 
 
@@ -1901,7 +1897,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Cesium3DTileColorBlendMode.js#L27">engine/Source/Scene/Cesium3DTileColorBlendMode.js 27</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Cesium3DTileColorBlendMode.js#L27">engine/Source/Scene/Cesium3DTileColorBlendMode.js 27</a>
 </div>
 
 
@@ -1912,28 +1908,7 @@
 
 
 <div class="description">
-    定义从 Cesium API 或声明式样式设置的每个特征颜色如何与
-原始特征，例如 glTF 材质或瓦片中的每点颜色。
-<p>
-当使用 <code>REPLACE</code> 或 <code>MIX</code> 且源颜色是 glTF 材质时，该技术必须为
-<code>_3DTILESDIFFUSE</code> diffuse color 参数的语义。否则，仅支持 <code>HIGHLIGHT</code>。
-</p>
-<p>
-颜色计算结果为白色 (1.0, 1.0, 1.0) 的特征始终在渲染时不进行颜色混合，而不管
-图块集的颜色混合模式。
-</p>
-<pre><code>
-"techniques": {
-  "technique0": {
-    "parameters": {
-      "diffuse": {
-        "semantic": "_3DTILESDIFFUSE",
-        "type": 35666
-      }
-    }
-  }
-}
-</code></pre>
+    定义从 Cesium API 或声明式样式设置的每个特征颜色如何与原始特征，例如 glTF 材质或瓦片中的每点颜色。<p>当使用 <code>REPLACE</code> 或 <code>MIX</code> 且源颜色是 glTF 材质时，该技术必须为<code>_3DTILESDIFFUSE</code> diffuse color 参数的语义。否则，仅支持 <code>HIGHLIGHT</code>。</p><p>颜色计算结果为白色 (1.0, 1.0, 1.0) 的特征始终在渲染时不进行颜色混合，而不管图块集的颜色混合模式。</p><pre><code>"techniques": {  "technique0": {    "parameters": {      "diffuse": {        "semantic": "_3DTILESDIFFUSE",        "type": 35666      }    }  }}</code></pre>
 </div>
 
 
@@ -2079,7 +2054,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/Check.js#L8">engine/Source/Core/Check.js 8</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/Check.js#L8">engine/Source/Core/Check.js 8</a>
 </div>
 
 
@@ -2139,7 +2114,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/ClassificationType.js#L6">engine/Source/Scene/ClassificationType.js 6</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/ClassificationType.js#L6">engine/Source/Scene/ClassificationType.js 6</a>
 </div>
 
 
@@ -2296,7 +2271,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/PickedMetadataInfo.js#L31">engine/Source/Scene/PickedMetadataInfo.js 31</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/PickedMetadataInfo.js#L31">engine/Source/Scene/PickedMetadataInfo.js 31</a>
 </div>
 
 
@@ -2356,7 +2331,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/PickedMetadataInfo.js#L45">engine/Source/Scene/PickedMetadataInfo.js 45</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/PickedMetadataInfo.js#L45">engine/Source/Scene/PickedMetadataInfo.js 45</a>
 </div>
 
 
@@ -2367,8 +2342,7 @@
 
 
 <div class="description">
-    由此描述的 'MetadataClassProperty'
-结构，从 'MetadataSchema' 获取
+    由此描述的 'MetadataClassProperty'结构，从 'MetadataSchema' 获取
 </div>
 
 
@@ -2417,7 +2391,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/ClockRange.js#L10">engine/Source/Core/ClockRange.js 10</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/ClockRange.js#L10">engine/Source/Core/ClockRange.js 10</a>
 </div>
 
 
@@ -2581,7 +2555,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/ClockStep.js#L10">engine/Source/Core/ClockStep.js 10</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/ClockStep.js#L10">engine/Source/Core/ClockStep.js 10</a>
 </div>
 
 
@@ -2745,7 +2719,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/CloudType.js#L7">engine/Source/Scene/CloudType.js 7</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/CloudType.js#L7">engine/Source/Scene/CloudType.js 7</a>
 </div>
 
 
@@ -2856,7 +2830,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/ColorBlendMode.js#L14">engine/Source/Scene/ColorBlendMode.js 14</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/ColorBlendMode.js#L14">engine/Source/Scene/ColorBlendMode.js 14</a>
 </div>
 
 
@@ -3018,7 +2992,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/ComponentDatatype.js#L12">engine/Source/Core/ComponentDatatype.js 12</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/ComponentDatatype.js#L12">engine/Source/Core/ComponentDatatype.js 12</a>
 </div>
 
 
@@ -3029,8 +3003,7 @@
 
 
 <div class="description">
-    WebGL 组件数据类型。 组件是 intrinsic，
-哪些形式属性，哪些形式顶点。
+    WebGL 组件数据类型。 组件是 intrinsic，哪些形式属性，哪些形式顶点。
 </div>
 
 
@@ -3082,8 +3055,7 @@
 
             
 
-            <td class="description last">对应的8位带符号字节 <code>gl.BYTE</code> 还有类型
-元素的 <code>Int8Array</code>.</td>
+            <td class="description last">对应的8位带符号字节 <code>gl.BYTE</code> 还有类型元素的 <code>Int8Array</code>.</td>
         </tr>
 
     
@@ -3106,8 +3078,7 @@
 
             
 
-            <td class="description last">8-bit unsigned byte对应 <code>UNSIGNED_BYTE</code> 和类型
-元素的 <code>Uint8Array</code>.</td>
+            <td class="description last">8-bit unsigned byte对应 <code>UNSIGNED_BYTE</code> 和类型元素的 <code>Uint8Array</code>.</td>
         </tr>
 
     
@@ -3130,8 +3101,7 @@
 
             
 
-            <td class="description last">16-bit signed short 对应<code>SHORT</code> 和类型
-元素的 <code>Int16Array</code>.</td>
+            <td class="description last">16-bit signed short 对应<code>SHORT</code> 和类型元素的 <code>Int16Array</code>.</td>
         </tr>
 
     
@@ -3154,8 +3124,7 @@
 
             
 
-            <td class="description last">16-bit unsigned short 对应 <code>UNSIGNED_SHORT</code> 和类型
-元素的 <code>Uint16Array</code>.</td>
+            <td class="description last">16-bit unsigned short 对应 <code>UNSIGNED_SHORT</code> 和类型元素的 <code>Uint16Array</code>.</td>
         </tr>
 
     
@@ -3178,8 +3147,7 @@
 
             
 
-            <td class="description last">32-bit signed int 对应 <code>INT</code> 和类型
-元素的 <code>Int32Array</code>.</td>
+            <td class="description last">32-bit signed int 对应 <code>INT</code> 和类型元素的 <code>Int32Array</code>.</td>
         </tr>
 
     
@@ -3202,8 +3170,7 @@
 
             
 
-            <td class="description last">32-bit unsigned int 对应 <code>UNSIGNED_INT</code> 和类型
-元素的 <code>Uint32Array</code>.</td>
+            <td class="description last">32-bit unsigned int 对应 <code>UNSIGNED_INT</code> 和类型元素的 <code>Uint32Array</code>.</td>
         </tr>
 
     
@@ -3226,8 +3193,7 @@
 
             
 
-            <td class="description last">32-bit 浮点型 对应 <code>FLOAT</code> 和类型
-元素的 <code>Float32Array</code>.</td>
+            <td class="description last">32-bit 浮点型 对应 <code>FLOAT</code> 和类型元素的 <code>Float32Array</code>.</td>
         </tr>
 
     
@@ -3250,9 +3216,7 @@
 
             
 
-            <td class="description last">64 位浮点对应 <code>gl.DOUBLE</code>(在桌面 OpenGL 中;
-这在 WebGL 中不受支持，在 Cesium 中通过 <a href="GeometryPipeline.html#.encodeAttribute"><code>GeometryPipeline.encodeAttribute</code></a> 进行模拟)
-和类型 元素的 <code>Float64Array</code>.</td>
+            <td class="description last">64 位浮点对应 <code>gl.DOUBLE</code>(在桌面 OpenGL 中;这在 WebGL 中不受支持，在 Cesium 中通过 <a href="GeometryPipeline.html#.encodeAttribute"><code>GeometryPipeline.encodeAttribute</code></a> 进行模拟)和类型 元素的 <code>Float64Array</code>.</td>
         </tr>
 
     
@@ -3300,7 +3264,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/CornerType.js#L9">engine/Source/Core/CornerType.js 9</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/CornerType.js#L9">engine/Source/Core/CornerType.js 9</a>
 </div>
 
 
@@ -3462,7 +3426,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/CullFace.js#L8">engine/Source/Scene/CullFace.js 8</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/CullFace.js#L8">engine/Source/Scene/CullFace.js 8</a>
 </div>
 
 
@@ -3619,7 +3583,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Model/CustomShaderMode.js#L9">engine/Source/Scene/Model/CustomShaderMode.js 9</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Model/CustomShaderMode.js#L9">engine/Source/Scene/Model/CustomShaderMode.js 9</a>
 </div>
 
 
@@ -3760,7 +3724,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Model/CustomShaderTranslucencyMode.js#L9">engine/Source/Scene/Model/CustomShaderTranslucencyMode.js 9</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Model/CustomShaderTranslucencyMode.js#L9">engine/Source/Scene/Model/CustomShaderTranslucencyMode.js 9</a>
 </div>
 
 
@@ -3924,7 +3888,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/DepthFunction.js#L8">engine/Source/Scene/DepthFunction.js 8</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/DepthFunction.js#L8">engine/Source/Scene/DepthFunction.js 8</a>
 </div>
 
 
@@ -4196,7 +4160,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/DynamicAtmosphereLightingType.js#L8">engine/Source/Scene/DynamicAtmosphereLightingType.js 8</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/DynamicAtmosphereLightingType.js#L8">engine/Source/Scene/DynamicAtmosphereLightingType.js 8</a>
 </div>
 
 
@@ -4207,9 +4171,7 @@
 
 
 <div class="description">
-    氛围灯光效果(天空氛围、地面氛围、雾)可以
-使用来自太阳或其他光源的动态照明进一步修改
-随时间变化。此枚举确定要使用的光源。
+    氛围灯光效果(天空氛围、地面氛围、雾)可以使用来自太阳或其他光源的动态照明进一步修改随时间变化。此枚举确定要使用的光源。
 </div>
 
 
@@ -4261,8 +4223,7 @@
 
             
 
-            <td class="description last">请勿使用动态氛围照明。氛围灯效将
-从正上方照亮，而不是使用场景的光源。</td>
+            <td class="description last">请勿使用动态氛围照明。氛围灯效将从正上方照亮，而不是使用场景的光源。</td>
         </tr>
 
     
@@ -4308,8 +4269,7 @@
 
             
 
-            <td class="description last">强制动态氛围照明始终使用阳光方向，
-即使场景使用不同的光源。</td>
+            <td class="description last">强制动态氛围照明始终使用阳光方向，即使场景使用不同的光源。</td>
         </tr>
 
     
@@ -4357,7 +4317,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/WebMapServiceImageryProvider.js#L29">engine/Source/Scene/WebMapServiceImageryProvider.js 29</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/WebMapServiceImageryProvider.js#L29">engine/Source/Scene/WebMapServiceImageryProvider.js 29</a>
 </div>
 
 
@@ -4417,7 +4377,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/ExtrapolationType.js#L9">engine/Source/Core/ExtrapolationType.js 9</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/ExtrapolationType.js#L9">engine/Source/Core/ExtrapolationType.js 9</a>
 </div>
 
 
@@ -4579,7 +4539,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/GeocodeType.js#L6">engine/Source/Core/GeocodeType.js 6</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/GeocodeType.js#L6">engine/Source/Core/GeocodeType.js 6</a>
 </div>
 
 
@@ -4718,7 +4678,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/GeometryUpdaterSet.js#L16">engine/Source/DataSources/GeometryUpdaterSet.js 16</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/GeometryUpdaterSet.js#L16">engine/Source/DataSources/GeometryUpdaterSet.js 16</a>
 </div>
 
 
@@ -4774,7 +4734,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/HeightmapEncoding.js#L6">engine/Source/Core/HeightmapEncoding.js 6</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/HeightmapEncoding.js#L6">engine/Source/Core/HeightmapEncoding.js 6</a>
 </div>
 
 
@@ -4908,7 +4868,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/HeightReference.js#L6">engine/Source/Scene/HeightReference.js 6</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/HeightReference.js#L6">engine/Source/Scene/HeightReference.js 6</a>
 </div>
 
 
@@ -5157,7 +5117,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/HorizontalOrigin.js#L16">engine/Source/Scene/HorizontalOrigin.js 16</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/HorizontalOrigin.js#L16">engine/Source/Scene/HorizontalOrigin.js 16</a>
 </div>
 
 
@@ -5168,14 +5128,7 @@
 
 
 <div class="description">
-    原点相对于对象的水平位置，例如 <a href="Billboard.html"><code>Billboard</code></a>
-或 <a href="Label.html"><code>Label</code></a> 的 例如，将水平原点设置为 <code>LEFT</code>
-或 <code>RIGHT</code> 将在左侧或右侧显示广告牌(在屏幕空间中)
-的锚点位置。
-<br /><br />
-<div align='center'>
-<img src='Images/Billboard.setHorizontalOrigin.png' width='648' height='196' /><br />
-</div>
+    原点相对于对象的水平位置，例如 <a href="Billboard.html"><code>Billboard</code></a>或 <a href="Label.html"><code>Label</code></a> 的 例如，将水平原点设置为 <code>LEFT</code>或 <code>RIGHT</code> 将在左侧或右侧显示广告牌(在屏幕空间中)的锚点位置。<br /><br /><div align='center'><img src='Images/Billboard.setHorizontalOrigin.png' width='648' height='196' /><br /></div>
 </div>
 
 
@@ -5328,7 +5281,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/WebMapServiceImageryProvider.js#L16">engine/Source/Scene/WebMapServiceImageryProvider.js 16</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/WebMapServiceImageryProvider.js#L16">engine/Source/Scene/WebMapServiceImageryProvider.js 16</a>
 </div>
 
 
@@ -5388,7 +5341,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/IndexDatatype.js#L12">engine/Source/Core/IndexDatatype.js 12</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/IndexDatatype.js#L12">engine/Source/Core/IndexDatatype.js 12</a>
 </div>
 
 
@@ -5399,8 +5352,7 @@
 
 
 <div class="description">
-    WebGL 索引数据类型的常量。 这些对应于
-<code>type</code> 参数的 <a href="http://www.khronos.org/opengles/sdk/docs/man/xhtml/glDrawElements.xml">drawElements</a> 的 intent 参数。
+    WebGL 索引数据类型的常量。 这些对应于<code>type</code> 参数的 <a href="http://www.khronos.org/opengles/sdk/docs/man/xhtml/glDrawElements.xml">drawElements</a> 的 intent 参数。
 </div>
 
 
@@ -5452,8 +5404,7 @@
 
             
 
-            <td class="description last">8-bit unsigned 字节对应于 <code>UNSIGNED_BYTE</code> 和 类型
-的元素 <code>Uint8Array</code>.</td>
+            <td class="description last">8-bit unsigned 字节对应于 <code>UNSIGNED_BYTE</code> 和 类型的元素 <code>Uint8Array</code>.</td>
         </tr>
 
     
@@ -5476,8 +5427,7 @@
 
             
 
-            <td class="description last">16-bit unsigned short 对应于 <code>UNSIGNED_SHORT</code> 和 类型
- 的元素<code>Uint16Array</code>.</td>
+            <td class="description last">16-bit unsigned short 对应于 <code>UNSIGNED_SHORT</code> 和 类型 的元素<code>Uint16Array</code>.</td>
         </tr>
 
     
@@ -5500,8 +5450,7 @@
 
             
 
-            <td class="description last">32-bit unsigned int 对应于 <code>UNSIGNED_INT</code> 和类型
- 的元素<code>Uint32Array</code>.</td>
+            <td class="description last">32-bit unsigned int 对应于 <code>UNSIGNED_INT</code> 和类型 的元素<code>Uint32Array</code>.</td>
         </tr>
 
     
@@ -5549,7 +5498,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/Intersect.js#L9">engine/Source/Core/Intersect.js 9</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/Intersect.js#L9">engine/Source/Core/Intersect.js 9</a>
 </div>
 
 
@@ -5560,10 +5509,7 @@
 
 
 <div class="description">
-    此枚举类型用于确定相对于 frustum 的
-对象。对象可以完全包含在视锥体 (INSIDE) 中，
-部分在视锥体内部，部分在外侧(相交)，或完全在某个地方
-在视锥体的 6 个平面之外 (OUTSIDE)。
+    此枚举类型用于确定相对于 frustum 的对象。对象可以完全包含在视锥体 (INSIDE) 中，部分在视锥体内部，部分在外侧(相交)，或完全在某个地方在视锥体的 6 个平面之外 (OUTSIDE)。
 </div>
 
 
@@ -5709,7 +5655,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/IonGeocodeProviderType.js#L6">engine/Source/Core/IonGeocodeProviderType.js 6</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/IonGeocodeProviderType.js#L6">engine/Source/Core/IonGeocodeProviderType.js 6</a>
 </div>
 
 
@@ -5866,7 +5812,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/IonWorldImageryStyle.js#L8">engine/Source/Scene/IonWorldImageryStyle.js 8</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/IonWorldImageryStyle.js#L8">engine/Source/Scene/IonWorldImageryStyle.js 8</a>
 </div>
 
 
@@ -6023,7 +5969,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/KeyboardEventModifier.js#L7">engine/Source/Core/KeyboardEventModifier.js 7</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/KeyboardEventModifier.js#L7">engine/Source/Core/KeyboardEventModifier.js 7</a>
 </div>
 
 
@@ -6180,7 +6126,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/LabelStyle.js#L8">engine/Source/Scene/LabelStyle.js 8</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/LabelStyle.js#L8">engine/Source/Scene/LabelStyle.js 8</a>
 </div>
 
 
@@ -6342,7 +6288,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Model/LightingModel.js#L8">engine/Source/Scene/Model/LightingModel.js 8</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Model/LightingModel.js#L8">engine/Source/Scene/Model/LightingModel.js 8</a>
 </div>
 
 
@@ -6405,10 +6351,7 @@
 
             
 
-            <td class="description last">使用无光照着色，即跳过光照计算。模型的
-直接使用漫射颜色(假设为线性 RGB，而不是 sRGB)
-计算 <code>out_FragColor</code> 时。Alpha 模式仍然是
-应用的。</td>
+            <td class="description last">使用无光照着色，即跳过光照计算。模型的直接使用漫射颜色(假设为线性 RGB，而不是 sRGB)计算 <code>out_FragColor</code> 时。Alpha 模式仍然是应用的。</td>
         </tr>
 
     
@@ -6431,9 +6374,7 @@
 
             
 
-            <td class="description last">使用基于物理的渲染照明计算。这包括
-PBR 金属粗糙度和 PBR 镜面反射光泽度。基于图像
-如果可能，也会应用照明。</td>
+            <td class="description last">使用基于物理的渲染照明计算。这包括PBR 金属粗糙度和 PBR 镜面反射光泽度。基于图像如果可能，也会应用照明。</td>
         </tr>
 
     
@@ -6488,7 +6429,7 @@ PBR 金属粗糙度和 PBR 镜面反射光泽度。基于图像
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/MapMode2D.js#L6">engine/Source/Scene/MapMode2D.js 6</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/MapMode2D.js#L6">engine/Source/Scene/MapMode2D.js 6</a>
 </div>
 
 
@@ -6622,7 +6563,7 @@ PBR 金属粗糙度和 PBR 镜面反射光泽度。基于图像
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/MetadataComponentType.js#L13">engine/Source/Scene/MetadataComponentType.js 13</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/MetadataComponentType.js#L13">engine/Source/Scene/MetadataComponentType.js 13</a>
 </div>
 
 
@@ -6947,7 +6888,7 @@ PBR 金属粗糙度和 PBR 镜面反射光泽度。基于图像
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/PickedMetadataInfo.js#L55">engine/Source/Scene/PickedMetadataInfo.js 55</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/PickedMetadataInfo.js#L55">engine/Source/Scene/PickedMetadataInfo.js 55</a>
 </div>
 
 
@@ -6958,10 +6899,7 @@ PBR 金属粗糙度和 PBR 镜面反射光泽度。基于图像
 
 
 <div class="description">
-    'PropertyTextureProperty' 或 'PropertyAttributeProperty'
-由此结构描述，如从 texture 属性
-或与
-类名和属性名。
+    'PropertyTextureProperty' 或 'PropertyAttributeProperty'由此结构描述，如从 texture 属性或与类名和属性名。
 </div>
 
 
@@ -7010,7 +6948,7 @@ PBR 金属粗糙度和 PBR 镜面反射光泽度。基于图像
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/MetadataType.js#L37">engine/Source/Scene/MetadataType.js 37</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/MetadataType.js#L37">engine/Source/Scene/MetadataType.js 37</a>
 </div>
 
 
@@ -7021,8 +6959,7 @@ PBR 金属粗糙度和 PBR 镜面反射光泽度。基于图像
 
 
 <div class="description">
-    元数据类型的枚举。这些元数据类型是包含
-一个或多个 <a href="global.html#MetadataComponentType"><code>MetadataComponentType</code></a> 类型的组件
+    元数据类型的枚举。这些元数据类型是包含一个或多个 <a href="global.html#MetadataComponentType"><code>MetadataComponentType</code></a> 类型的组件
 </div>
 
 
@@ -7336,7 +7273,7 @@ PBR 金属粗糙度和 PBR 镜面反射光泽度。基于图像
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/ModelAnimationLoop.js#L8">engine/Source/Scene/ModelAnimationLoop.js 8</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/ModelAnimationLoop.js#L8">engine/Source/Scene/ModelAnimationLoop.js 8</a>
 </div>
 
 
@@ -7498,7 +7435,7 @@ PBR 金属粗糙度和 PBR 镜面反射光泽度。基于图像
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Renderer/PixelDatatype.js#L9">engine/Source/Renderer/PixelDatatype.js 9</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Renderer/PixelDatatype.js#L9">engine/Source/Renderer/PixelDatatype.js 9</a>
 </div>
 
 
@@ -7798,7 +7735,7 @@ PBR 金属粗糙度和 PBR 镜面反射光泽度。基于图像
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/PixelFormat.js#L9">engine/Source/Core/PixelFormat.js 9</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/PixelFormat.js#L9">engine/Source/Core/PixelFormat.js 9</a>
 </div>
 
 
@@ -8392,7 +8329,7 @@ PBR 金属粗糙度和 PBR 镜面反射光泽度。基于图像
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/PostProcessStageSampleMode.js#L6">engine/Source/Scene/PostProcessStageSampleMode.js 6</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/PostProcessStageSampleMode.js#L6">engine/Source/Scene/PostProcessStageSampleMode.js 6</a>
 </div>
 
 
@@ -8526,7 +8463,7 @@ PBR 金属粗糙度和 PBR 镜面反射光泽度。基于图像
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/PrimitiveType.js#L8">engine/Source/Core/PrimitiveType.js 8</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/PrimitiveType.js#L8">engine/Source/Core/PrimitiveType.js 8</a>
 </div>
 
 
@@ -8635,8 +8572,7 @@ PBR 金属粗糙度和 PBR 镜面反射光泽度。基于图像
 
             
 
-            <td class="description last">Line loop 基元，其中第一个顶点(或索引)之后的每个顶点(或索引)将一条线连接到
-前一个顶点，最后一个顶点隐式连接到第一个顶点。</td>
+            <td class="description last">Line loop 基元，其中第一个顶点(或索引)之后的每个顶点(或索引)将一条线连接到前一个顶点，最后一个顶点隐式连接到第一个顶点。</td>
         </tr>
 
     
@@ -8705,8 +8641,7 @@ PBR 金属粗糙度和 PBR 镜面反射光泽度。基于图像
 
             
 
-            <td class="description last">三角形条带基元，其中前两个顶点(或索引)之后的每个顶点(或索引)都连接到其中
-前两个顶点形成一个三角形。 例如，这可用于对墙进行建模。</td>
+            <td class="description last">三角形条带基元，其中前两个顶点(或索引)之后的每个顶点(或索引)都连接到其中前两个顶点形成一个三角形。 例如，这可用于对墙进行建模。</td>
         </tr>
 
     
@@ -8729,9 +8664,7 @@ PBR 金属粗糙度和 PBR 镜面反射光泽度。基于图像
 
             
 
-            <td class="description last">三角形扇形基元，其中前两个顶点(或索引)之后的每个顶点(或索引)都连接到其中
-前一个顶点和第一个顶点形成一个三角形。 例如，this can be used
-对圆锥体或圆进行建模。</td>
+            <td class="description last">三角形扇形基元，其中前两个顶点(或索引)之后的每个顶点(或索引)都连接到其中前一个顶点和第一个顶点形成一个三角形。 例如，this can be used对圆锥体或圆进行建模。</td>
         </tr>
 
     
@@ -8779,7 +8712,7 @@ PBR 金属粗糙度和 PBR 镜面反射光泽度。基于图像
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/PickedMetadataInfo.js#L37">engine/Source/Scene/PickedMetadataInfo.js 37</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/PickedMetadataInfo.js#L37">engine/Source/Scene/PickedMetadataInfo.js 37</a>
 </div>
 
 
@@ -8839,7 +8772,7 @@ PBR 金属粗糙度和 PBR 镜面反射光泽度。基于图像
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/ReferenceFrame.js#L6">engine/Source/Core/ReferenceFrame.js 6</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/ReferenceFrame.js#L6">engine/Source/Core/ReferenceFrame.js 6</a>
 </div>
 
 
@@ -8973,7 +8906,7 @@ PBR 金属粗糙度和 PBR 镜面反射光泽度。基于图像
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/RequestState.js#L6">engine/Source/Core/RequestState.js 6</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/RequestState.js#L6">engine/Source/Core/RequestState.js 6</a>
 </div>
 
 
@@ -9199,7 +9132,7 @@ PBR 金属粗糙度和 PBR 镜面反射光泽度。基于图像
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/RequestType.js#L6">engine/Source/Core/RequestType.js 6</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/RequestType.js#L6">engine/Source/Core/RequestType.js 6</a>
 </div>
 
 
@@ -9379,7 +9312,7 @@ PBR 金属粗糙度和 PBR 镜面反射光泽度。基于图像
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/SceneMode.js#L7">engine/Source/Scene/SceneMode.js 7</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/SceneMode.js#L7">engine/Source/Scene/SceneMode.js 7</a>
 </div>
 
 
@@ -9564,7 +9497,7 @@ PBR 金属粗糙度和 PBR 镜面反射光泽度。基于图像
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/PickedMetadataInfo.js#L25">engine/Source/Scene/PickedMetadataInfo.js 25</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/PickedMetadataInfo.js#L25">engine/Source/Scene/PickedMetadataInfo.js 25</a>
 </div>
 
 
@@ -9624,7 +9557,7 @@ PBR 金属粗糙度和 PBR 镜面反射光泽度。基于图像
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/ScreenSpaceEventType.js#L6">engine/Source/Core/ScreenSpaceEventType.js 6</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/ScreenSpaceEventType.js#L6">engine/Source/Core/ScreenSpaceEventType.js 6</a>
 </div>
 
 
@@ -10057,7 +9990,7 @@ PBR 金属粗糙度和 PBR 镜面反射光泽度。基于图像
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/SensorVolumePortionToDisplay.js#L8">engine/Source/Scene/SensorVolumePortionToDisplay.js 8</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/SensorVolumePortionToDisplay.js#L8">engine/Source/Scene/SensorVolumePortionToDisplay.js 8</a>
 </div>
 
 
@@ -10214,7 +10147,7 @@ PBR 金属粗糙度和 PBR 镜面反射光泽度。基于图像
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/VoxelShape.js#L82">engine/Source/Scene/VoxelShape.js 82</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/VoxelShape.js#L82">engine/Source/Scene/VoxelShape.js 82</a>
 </div>
 
 
@@ -10270,7 +10203,7 @@ PBR 金属粗糙度和 PBR 镜面反射光泽度。基于图像
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/VoxelShape.js#L91">engine/Source/Scene/VoxelShape.js 91</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/VoxelShape.js#L91">engine/Source/Scene/VoxelShape.js 91</a>
 </div>
 
 
@@ -10330,7 +10263,7 @@ PBR 金属粗糙度和 PBR 镜面反射光泽度。基于图像
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/VoxelShape.js#L74">engine/Source/Scene/VoxelShape.js 74</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/VoxelShape.js#L74">engine/Source/Scene/VoxelShape.js 74</a>
 </div>
 
 
@@ -10386,7 +10319,7 @@ PBR 金属粗糙度和 PBR 镜面反射光泽度。基于图像
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/ShadowMode.js#L7">engine/Source/Scene/ShadowMode.js 7</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/ShadowMode.js#L7">engine/Source/Scene/ShadowMode.js 7</a>
 </div>
 
 
@@ -10566,7 +10499,7 @@ PBR 金属粗糙度和 PBR 镜面反射光泽度。基于图像
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/SplitDirection.js#L9">engine/Source/Scene/SplitDirection.js 9</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/SplitDirection.js#L9">engine/Source/Scene/SplitDirection.js 9</a>
 </div>
 
 
@@ -10730,7 +10663,7 @@ PBR 金属粗糙度和 PBR 镜面反射光泽度。基于图像
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/StencilFunction.js#L8">engine/Source/Scene/StencilFunction.js 8</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/StencilFunction.js#L8">engine/Source/Scene/StencilFunction.js 8</a>
 </div>
 
 
@@ -11002,7 +10935,7 @@ PBR 金属粗糙度和 PBR 镜面反射光泽度。基于图像
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/StencilOperation.js#L8">engine/Source/Scene/StencilOperation.js 8</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/StencilOperation.js#L8">engine/Source/Scene/StencilOperation.js 8</a>
 </div>
 
 
@@ -11274,7 +11207,7 @@ PBR 金属粗糙度和 PBR 镜面反射光泽度。基于图像
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Model/Extensions/Gpm/StorageType.js#L10">engine/Source/Scene/Model/Extensions/Gpm/StorageType.js 10</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Model/Extensions/Gpm/StorageType.js#L10">engine/Source/Scene/Model/Extensions/Gpm/StorageType.js 10</a>
 </div>
 
 
@@ -11285,10 +11218,7 @@ PBR 金属粗糙度和 PBR 镜面反射光泽度。基于图像
 
 
 <div class="description">
-    协方差信息的存储类型的枚举。
-
-这反映了
-<a href="https://nsgreg.nga.mil/csmwg.jsp">NGA_gpm_local</a> glTF 扩展。
+    协方差信息的存储类型的枚举。这反映了<a href="https://nsgreg.nga.mil/csmwg.jsp">NGA_gpm_local</a> glTF 扩展。
 </div>
 
 
@@ -11363,9 +11293,7 @@ PBR 金属粗糙度和 PBR 镜面反射光泽度。基于图像
 
             
 
-            <td class="description last">为每个锚点存储一个完整的协方差矩阵。但是，在这种情况下，
-交叉协方差项不直接存储，但可以通过一组空间
-存储在元数据中的相关函数参数。</td>
+            <td class="description last">为每个锚点存储一个完整的协方差矩阵。但是，在这种情况下，交叉协方差项不直接存储，但可以通过一组空间存储在元数据中的相关函数参数。</td>
         </tr>
 
     
@@ -11420,7 +11348,7 @@ PBR 金属粗糙度和 PBR 镜面反射光泽度。基于图像
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/StripeOrientation.js#L6">engine/Source/DataSources/StripeOrientation.js 6</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/StripeOrientation.js#L6">engine/Source/DataSources/StripeOrientation.js 6</a>
 </div>
 
 
@@ -11554,7 +11482,7 @@ PBR 金属粗糙度和 PBR 镜面反射光泽度。基于图像
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Renderer/TextureMagnificationFilter.js#L10">engine/Source/Renderer/TextureMagnificationFilter.js 10</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Renderer/TextureMagnificationFilter.js#L10">engine/Source/Renderer/TextureMagnificationFilter.js 10</a>
 </div>
 
 
@@ -11693,7 +11621,7 @@ PBR 金属粗糙度和 PBR 镜面反射光泽度。基于图像
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Renderer/TextureMinificationFilter.js#L10">engine/Source/Renderer/TextureMinificationFilter.js 10</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Renderer/TextureMinificationFilter.js#L10">engine/Source/Renderer/TextureMinificationFilter.js 10</a>
 </div>
 
 
@@ -11802,10 +11730,7 @@ PBR 金属粗糙度和 PBR 镜面反射光泽度。基于图像
 
             
 
-            <td class="description last">选择最近的 mip 级别，并在该级别内应用最近的采样。
-<p>
-要求纹理具有 mipmap。mip 级别由纹理的视角和屏幕空间大小选择。
-</p></td>
+            <td class="description last">选择最近的 mip 级别，并在该级别内应用最近的采样。<p>要求纹理具有 mipmap。mip 级别由纹理的视角和屏幕空间大小选择。</p></td>
         </tr>
 
     
@@ -11828,10 +11753,7 @@ PBR 金属粗糙度和 PBR 镜面反射光泽度。基于图像
 
             
 
-            <td class="description last">选择最近的 mip 级别，并在该级别内应用线性采样。
-<p>
-要求纹理具有 mipmap。mip 级别由纹理的视角和屏幕空间大小选择。
-</p></td>
+            <td class="description last">选择最近的 mip 级别，并在该级别内应用线性采样。<p>要求纹理具有 mipmap。mip 级别由纹理的视角和屏幕空间大小选择。</p></td>
         </tr>
 
     
@@ -11854,13 +11776,7 @@ PBR 金属粗糙度和 PBR 镜面反射光泽度。基于图像
 
             
 
-            <td class="description last">从两个相邻的 mip 级别使用最近的采样读取纹理值，并线性插值结果。
-<p>
-从 mipmapped 纹理采样时，此选项可在视觉质量和速度之间实现良好的平衡。
-</p>
-<p>
-要求纹理具有 mipmap。mip 级别由纹理的视角和屏幕空间大小选择。
-</p></td>
+            <td class="description last">从两个相邻的 mip 级别使用最近的采样读取纹理值，并线性插值结果。<p>从 mipmapped 纹理采样时，此选项可在视觉质量和速度之间实现良好的平衡。</p><p>要求纹理具有 mipmap。mip 级别由纹理的视角和屏幕空间大小选择。</p></td>
         </tr>
 
     
@@ -11883,13 +11799,7 @@ PBR 金属粗糙度和 PBR 镜面反射光泽度。基于图像
 
             
 
-            <td class="description last">使用线性采样从两个相邻的 mip 级别读取纹理值，并线性插值结果。
-<p>
-从 mipmapped 纹理采样时，此选项可在视觉质量和速度之间实现良好的平衡。
-</p>
-<p>
-要求纹理具有 mipmap。mip 级别由纹理的视角和屏幕空间大小选择。
-</p></td>
+            <td class="description last">使用线性采样从两个相邻的 mip 级别读取纹理值，并线性插值结果。<p>从 mipmapped 纹理采样时，此选项可在视觉质量和速度之间实现良好的平衡。</p><p>要求纹理具有 mipmap。mip 级别由纹理的视角和屏幕空间大小选择。</p></td>
         </tr>
 
     
@@ -11942,7 +11852,7 @@ PBR 金属粗糙度和 PBR 镜面反射光泽度。基于图像
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/TimeStandard.js#L8">engine/Source/Core/TimeStandard.js 8</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/TimeStandard.js#L8">engine/Source/Core/TimeStandard.js 8</a>
 </div>
 
 
@@ -12005,11 +11915,7 @@ PBR 金属粗糙度和 PBR 镜面反射光泽度。基于图像
 
             
 
-            <td class="description last">表示协调世界时 (UTC) 时间标准。
-
-UTC 与 TAI 的关系根据关系
-<code>UTC = TAI - deltaT</code>，其中 <code>deltaT</code> 是跳跃数
-秒数，这些秒数已引入 TAI 中。</td>
+            <td class="description last">表示协调世界时 (UTC) 时间标准。UTC 与 TAI 的关系根据关系<code>UTC = TAI - deltaT</code>，其中 <code>deltaT</code> 是跳跃数秒数，这些秒数已引入 TAI 中。</td>
         </tr>
 
     
@@ -12032,8 +11938,7 @@ UTC 与 TAI 的关系根据关系
 
             
 
-            <td class="description last">表示国际原子时 (TAI) 时间标准。
-TAI 是与其他时间标准相关的主要时间标准。</td>
+            <td class="description last">表示国际原子时 (TAI) 时间标准。TAI 是与其他时间标准相关的主要时间标准。</td>
         </tr>
 
     
@@ -12086,7 +11991,7 @@ TAI 是与其他时间标准相关的主要时间标准。</td>
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Tonemapper.js#L6">engine/Source/Scene/Tonemapper.js 6</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Tonemapper.js#L6">engine/Source/Scene/Tonemapper.js 6</a>
 </div>
 
 
@@ -12289,7 +12194,7 @@ TAI 是与其他时间标准相关的主要时间标准。</td>
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/TrackingReferenceFrame.js#L6">engine/Source/Core/TrackingReferenceFrame.js 6</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/TrackingReferenceFrame.js#L6">engine/Source/Core/TrackingReferenceFrame.js 6</a>
 </div>
 
 
@@ -12352,11 +12257,7 @@ TAI 是与其他时间标准相关的主要时间标准。</td>
 
             
 
-            <td class="description last">自动检测算法。用于跟踪 Entity 的参考帧将
-根据其轨迹自动选择：near-surface slow moving
-对象将在实体的本地 east-north-up 引用中进行跟踪
-帧，而卫星等速度较快的物体将使用 VVLH(车辆速度、
-本地水平)。</td>
+            <td class="description last">自动检测算法。用于跟踪 Entity 的参考帧将根据其轨迹自动选择：near-surface slow moving对象将在实体的本地 east-north-up 引用中进行跟踪帧，而卫星等速度较快的物体将使用 VVLH(车辆速度、本地水平)。</td>
         </tr>
 
     
@@ -12402,8 +12303,7 @@ TAI 是与其他时间标准相关的主要时间标准。</td>
 
             
 
-            <td class="description last">实体的惯性参考系。如果实体没有定义方向
-属性，它会回退到自动检测算法。</td>
+            <td class="description last">实体的惯性参考系。如果实体没有定义方向属性，它会回退到自动检测算法。</td>
         </tr>
 
     
@@ -12426,8 +12326,7 @@ TAI 是与其他时间标准相关的主要时间标准。</td>
 
             
 
-            <td class="description last">实体的惯性参考系，其方向固定到其
-<a href="VelocityOrientationProperty.html"><code>VelocityOrientationProperty</code></a>，忽略其自身的方向。</td>
+            <td class="description last">实体的惯性参考系，其方向固定到其<a href="VelocityOrientationProperty.html"><code>VelocityOrientationProperty</code></a>，忽略其自身的方向。</td>
         </tr>
 
     
@@ -12475,7 +12374,7 @@ TAI 是与其他时间标准相关的主要时间标准。</td>
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Model/UniformType.js#L9">engine/Source/Scene/Model/UniformType.js 9</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Model/UniformType.js#L9">engine/Source/Scene/Model/UniformType.js 9</a>
 </div>
 
 
@@ -12961,7 +12860,7 @@ TAI 是与其他时间标准相关的主要时间标准。</td>
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Model/VaryingType.js#L9">engine/Source/Scene/Model/VaryingType.js 9</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Model/VaryingType.js#L9">engine/Source/Scene/Model/VaryingType.js 9</a>
 </div>
 
 
@@ -13217,7 +13116,7 @@ TAI 是与其他时间标准相关的主要时间标准。</td>
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/VerticalOrigin.js#L16">engine/Source/Scene/VerticalOrigin.js 16</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/VerticalOrigin.js#L16">engine/Source/Scene/VerticalOrigin.js 16</a>
 </div>
 
 
@@ -13228,14 +13127,7 @@ TAI 是与其他时间标准相关的主要时间标准。</td>
 
 
 <div class="description">
-    原点相对于对象的垂直位置，例如 <a href="Billboard.html"><code>Billboard</code></a>
-或 <code>label</code> 的 例如，将垂直原点设置为 <code>TOP</code>
-或 <code>BOTTOM</code> 将在上方或下方显示广告牌(在屏幕空间中)
-锚点位置。
-<br /><br />
-<div align='center'>
-<img src='Images/Billboard.setVerticalOrigin.png' width='695' height='175' /><br />
-</div>
+    原点相对于对象的垂直位置，例如 <a href="Billboard.html"><code>Billboard</code></a>或 <code>label</code> 的 例如，将垂直原点设置为 <code>TOP</code>或 <code>BOTTOM</code> 将在上方或下方显示广告牌(在屏幕空间中)锚点位置。<br /><br /><div align='center'><img src='Images/Billboard.setVerticalOrigin.png' width='695' height='175' /><br /></div>
 </div>
 
 
@@ -13411,7 +13303,7 @@ TAI 是与其他时间标准相关的主要时间标准。</td>
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/Visibility.js#L9">engine/Source/Core/Visibility.js 9</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/Visibility.js#L9">engine/Source/Core/Visibility.js 9</a>
 </div>
 
 
@@ -13422,10 +13314,7 @@ TAI 是与其他时间标准相关的主要时间标准。</td>
 
 
 <div class="description">
-    此枚举类型用于确定对象 occludee、
-在水平面剔除期间可见。遮挡物可能会完全阻塞被遮挡物，在这种情况下
-它没有可见性，可能会部分阻挡被遮挡对象的视野，或者可能根本不阻挡它，
-实现完全可见性。
+    此枚举类型用于确定对象 occludee、在水平面剔除期间可见。遮挡物可能会完全阻塞被遮挡物，在这种情况下它没有可见性，可能会部分阻挡被遮挡对象的视野，或者可能根本不阻挡它，实现完全可见性。
 </div>
 
 
@@ -13571,7 +13460,7 @@ TAI 是与其他时间标准相关的主要时间标准。</td>
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/VoxelShapeType.js#L13">engine/Source/Scene/VoxelShapeType.js 13</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/VoxelShapeType.js#L13">engine/Source/Scene/VoxelShapeType.js 13</a>
 </div>
 
 
@@ -13735,7 +13624,7 @@ TAI 是与其他时间标准相关的主要时间标准。</td>
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/WebGLConstants.js#L12">engine/Source/Core/WebGLConstants.js 12</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/WebGLConstants.js#L12">engine/Source/Core/WebGLConstants.js 12</a>
 </div>
 
 
@@ -13746,13 +13635,7 @@ TAI 是与其他时间标准相关的主要时间标准。</td>
 
 
 <div class="description">
-    按名称包含 WebGL 常量值的枚举。
-在没有活动 WebGL 上下文的情况下使用，或者在使用 WebGL 上下文时某些常量不可用的情况下使用
-(例如，在 <a href="https://github.com/CesiumGS/cesium/issues/2989">Safari 9</a> 中)。
-
-这些与 <a href="https://www.khronos.org/registry/webgl/specs/latest/1.0/">WebGL 1.0</a> 中的常量匹配
-和 <a href="https://www.khronos.org/registry/webgl/specs/latest/2.0/">WebGL 2.0</a>
-规格。
+    按名称包含 WebGL 常量值的枚举。在没有活动 WebGL 上下文的情况下使用，或者在使用 WebGL 上下文时某些常量不可用的情况下使用(例如，在 <a href="https://github.com/CesiumGS/cesium/issues/2989">Safari 9</a> 中)。这些与 <a href="https://www.khronos.org/registry/webgl/specs/latest/1.0/">WebGL 1.0</a> 中的常量匹配和 <a href="https://www.khronos.org/registry/webgl/specs/latest/2.0/">WebGL 2.0</a>规格。
 </div>
 
 
@@ -27215,7 +27098,7 @@ TAI 是与其他时间标准相关的主要时间标准。</td>
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/WindingOrder.js#L8">engine/Source/Core/WindingOrder.js 8</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/WindingOrder.js#L8">engine/Source/Core/WindingOrder.js 8</a>
 </div>
 
 
@@ -27355,7 +27238,7 @@ TAI 是与其他时间标准相关的主要时间标准。</td>
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/barycentricCoordinates.js#L31">engine/Source/Core/barycentricCoordinates.js 31</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/barycentricCoordinates.js#L31">engine/Source/Core/barycentricCoordinates.js 31</a>
 </div>
 
 
@@ -27626,7 +27509,7 @@ TAI 是与其他时间标准相关的主要时间标准。</td>
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/binarySearch.js#L24">engine/Source/Core/binarySearch.js 24</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/binarySearch.js#L24">engine/Source/Core/binarySearch.js 24</a>
 </div>
 
 
@@ -27812,7 +27695,7 @@ TAI 是与其他时间标准相关的主要时间标准。</td>
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/buildModuleUrl.js#L109">engine/Source/Core/buildModuleUrl.js 109</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/buildModuleUrl.js#L109">engine/Source/Core/buildModuleUrl.js 109</a>
 </div>
 
 
@@ -27952,7 +27835,7 @@ TAI 是与其他时间标准相关的主要时间标准。</td>
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/clone.js#L12">engine/Source/Core/clone.js 12</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/clone.js#L12">engine/Source/Core/clone.js 12</a>
 </div>
 
 
@@ -28134,7 +28017,7 @@ TAI 是与其他时间标准相关的主要时间标准。</td>
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/combine.js#L35">engine/Source/Core/combine.js 35</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/combine.js#L35">engine/Source/Core/combine.js 35</a>
 </div>
 
 
@@ -28357,7 +28240,7 @@ TAI 是与其他时间标准相关的主要时间标准。</td>
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Picking.js#L251">engine/Source/Scene/Picking.js 251</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Picking.js#L251">engine/Source/Scene/Picking.js 251</a>
 </div>
 
 
@@ -28369,8 +28252,7 @@ TAI 是与其他时间标准相关的主要时间标准。</td>
 
 
 <div class="description">
-    计算描述绘图缓冲区部分的矩形
-这与拣选相关。
+    计算描述绘图缓冲区部分的矩形这与拣选相关。
 </div>
 
 
@@ -28470,8 +28352,7 @@ TAI 是与其他时间标准相关的主要时间标准。</td>
 
             <td class="description last">
             
-                矩形的宽度，假设为
-为奇数，默认值：3.0</td>
+                矩形的宽度，假设为为奇数，默认值：3.0</td>
         </tr>
 
     
@@ -28497,8 +28378,7 @@ TAI 是与其他时间标准相关的主要时间标准。</td>
 
             <td class="description last">
             
-                矩形的高度。如果未指定，则
-height 将默认为 <code>width</code> 的值</td>
+                矩形的高度。如果未指定，则height 将默认为 <code>width</code> 的值</td>
         </tr>
 
     
@@ -28593,7 +28473,7 @@ height 将默认为 <code>width</code> 的值</td>
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Model/Extensions/Gpm/GltfGpmLoader.js#L55">engine/Source/Scene/Model/Extensions/Gpm/GltfGpmLoader.js 55</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Model/Extensions/Gpm/GltfGpmLoader.js#L55">engine/Source/Scene/Model/Extensions/Gpm/GltfGpmLoader.js 55</a>
 </div>
 
 
@@ -28728,7 +28608,7 @@ height 将默认为 <code>width</code> 的值</td>
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Model/Extensions/Gpm/GltfGpmLoader.js#L79">engine/Source/Scene/Model/Extensions/Gpm/GltfGpmLoader.js 79</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Model/Extensions/Gpm/GltfGpmLoader.js#L79">engine/Source/Scene/Model/Extensions/Gpm/GltfGpmLoader.js 79</a>
 </div>
 
 
@@ -28863,7 +28743,7 @@ height 将默认为 <code>width</code> 的值</td>
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/widgets/Source/createCommand.js#L17">widgets/Source/createCommand.js 17</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/widgets/Source/createCommand.js#L17">widgets/Source/createCommand.js 17</a>
 </div>
 
 
@@ -29036,7 +28916,7 @@ height 将默认为 <code>width</code> 的值</td>
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Model/Extensions/Gpm/GltfGpmLoader.js#L107">engine/Source/Scene/Model/Extensions/Gpm/GltfGpmLoader.js 107</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Model/Extensions/Gpm/GltfGpmLoader.js#L107">engine/Source/Scene/Model/Extensions/Gpm/GltfGpmLoader.js 107</a>
 </div>
 
 
@@ -29171,7 +29051,7 @@ height 将默认为 <code>width</code> 的值</td>
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Model/Extensions/Gpm/GltfGpmLoader.js#L34">engine/Source/Scene/Model/Extensions/Gpm/GltfGpmLoader.js 34</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Model/Extensions/Gpm/GltfGpmLoader.js#L34">engine/Source/Scene/Model/Extensions/Gpm/GltfGpmLoader.js 34</a>
 </div>
 
 
@@ -29183,9 +29063,7 @@ height 将默认为 <code>width</code> 的值</td>
 
 
 <div class="description">
-    创建一个描述协方差矩阵(即
-symmetric) 从包含上三角形的数组中，在
-列优先顺序。
+    创建一个描述协方差矩阵(即symmetric) 从包含上三角形的数组中，在列优先顺序。
 </div>
 
 
@@ -29308,7 +29186,7 @@ symmetric) 从包含上三角形的数组中，在
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/createElevationBandMaterial.js#L425">engine/Source/Scene/createElevationBandMaterial.js 425</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/createElevationBandMaterial.js#L425">engine/Source/Scene/createElevationBandMaterial.js 425</a>
 </div>
 
 
@@ -29521,7 +29399,7 @@ symmetric) 从包含上三角形的数组中，在
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/createGooglePhotorealistic3DTileset.js#L60">engine/Source/Scene/createGooglePhotorealistic3DTileset.js 60</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/createGooglePhotorealistic3DTileset.js#L60">engine/Source/Scene/createGooglePhotorealistic3DTileset.js 60</a>
 </div>
 
 
@@ -29795,7 +29673,7 @@ symmetric) 从包含上三角形的数组中，在
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/createGuid.js#L14">engine/Source/Core/createGuid.js 14</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/createGuid.js#L14">engine/Source/Core/createGuid.js 14</a>
 </div>
 
 
@@ -29891,7 +29769,7 @@ symmetric) 从包含上三角形的数组中，在
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/createOsmBuildingsAsync.js#L60">engine/Source/Scene/createOsmBuildingsAsync.js 60</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/createOsmBuildingsAsync.js#L60">engine/Source/Scene/createOsmBuildingsAsync.js 60</a>
 </div>
 
 
@@ -30207,7 +30085,7 @@ symmetric) 从包含上三角形的数组中，在
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/createTangentSpaceDebugPrimitive.js#L32">engine/Source/Scene/createTangentSpaceDebugPrimitive.js 32</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/createTangentSpaceDebugPrimitive.js#L32">engine/Source/Scene/createTangentSpaceDebugPrimitive.js 32</a>
 </div>
 
 
@@ -30475,7 +30353,7 @@ symmetric) 从包含上三角形的数组中，在
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/createWorldBathymetryAsync.js#L38">engine/Source/Core/createWorldBathymetryAsync.js 38</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/createWorldBathymetryAsync.js#L38">engine/Source/Core/createWorldBathymetryAsync.js 38</a>
 </div>
 
 
@@ -30657,25 +30535,9 @@ symmetric) 从包含上三角形的数组中，在
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Create Cesium World Bathymetry with default settings
-try {
-  const viewer = new Cesium.Viewer("cesiumContainer", {
-    terrainProvider: await Cesium.createWorldBathymetryAsync();
-  });
-} catch (error) {
-  console.log(error);
-}</code></pre>
+    <pre><code class="language-javascript">// Create Cesium World Bathymetry with default settingstry {  const viewer = new Cesium.Viewer("cesiumContainer", {    terrainProvider: await Cesium.createWorldBathymetryAsync();  });} catch (error) {  console.log(error);}</code></pre>
 
-    <pre><code class="language-javascript">// Create Cesium World Bathymetry with normals.
-try {
-  const viewer1 = new Cesium.Viewer("cesiumContainer", {
-    terrainProvider: await Cesium.createWorldBathymetryAsync({
-      requestVertexNormals: true
-    });
-  });
-} catch (error) {
-  console.log(error);
-}</code></pre>
+    <pre><code class="language-javascript">// Create Cesium World Bathymetry with normals.try {  const viewer1 = new Cesium.Viewer("cesiumContainer", {    terrainProvider: await Cesium.createWorldBathymetryAsync({      requestVertexNormals: true    });  });} catch (error) {  console.log(error);}</code></pre>
 
     
 
@@ -30705,7 +30567,7 @@ try {
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/createWorldImageryAsync.js#L34">engine/Source/Scene/createWorldImageryAsync.js 34</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/createWorldImageryAsync.js#L34">engine/Source/Scene/createWorldImageryAsync.js 34</a>
 </div>
 
 
@@ -30883,21 +30745,9 @@ try {
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Create a Cesium World Imagery base layer with default settings
-try {
-  const imageryProvider = await Cesium.createWorldImageryAsync();
-} catch (error) {
-  console.log(`There was an error creating world imagery: ${error}`);
-}</code></pre>
+    <pre><code class="language-javascript">// Create a Cesium World Imagery base layer with default settingstry {  const imageryProvider = await Cesium.createWorldImageryAsync();} catch (error) {  console.log(`There was an error creating world imagery: ${error}`);}</code></pre>
 
-    <pre><code class="language-javascript">// Create Cesium World Imagery with different style
-try {
-  const imageryProvider = await Cesium.createWorldImageryAsync({
-        style: Cesium.IonWorldImageryStyle.AERIAL_WITH_LABELS
-  });
-} catch (error) {
-  console.log(`There was an error creating world imagery: ${error}`);
-}</code></pre>
+    <pre><code class="language-javascript">// Create Cesium World Imagery with different styletry {  const imageryProvider = await Cesium.createWorldImageryAsync({        style: Cesium.IonWorldImageryStyle.AERIAL_WITH_LABELS  });} catch (error) {  console.log(`There was an error creating world imagery: ${error}`);}</code></pre>
 
     
 
@@ -30927,7 +30777,7 @@ try {
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/createWorldTerrainAsync.js#L41">engine/Source/Core/createWorldTerrainAsync.js 41</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/createWorldTerrainAsync.js#L41">engine/Source/Core/createWorldTerrainAsync.js 41</a>
 </div>
 
 
@@ -31145,26 +30995,9 @@ try {
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Create Cesium World Terrain with default settings
-try {
-  const viewer = new Cesium.Viewer("cesiumContainer", {
-    terrainProvider: await Cesium.createWorldTerrainAsync();
-  });
-} catch (error) {
-  console.log(error);
-}</code></pre>
+    <pre><code class="language-javascript">// Create Cesium World Terrain with default settingstry {  const viewer = new Cesium.Viewer("cesiumContainer", {    terrainProvider: await Cesium.createWorldTerrainAsync();  });} catch (error) {  console.log(error);}</code></pre>
 
-    <pre><code class="language-javascript">// Create Cesium World Terrain with water and normals.
-try {
-  const viewer1 = new Cesium.Viewer("cesiumContainer", {
-    terrainProvider: await Cesium.createWorldTerrainAsync({
-      requestWaterMask: true,
-      requestVertexNormals: true
-    });
-  });
-} catch (error) {
-  console.log(error);
-}</code></pre>
+    <pre><code class="language-javascript">// Create Cesium World Terrain with water and normals.try {  const viewer1 = new Cesium.Viewer("cesiumContainer", {    terrainProvider: await Cesium.createWorldTerrainAsync({      requestWaterMask: true,      requestVertexNormals: true    });  });} catch (error) {  console.log(error);}</code></pre>
 
     
 
@@ -31194,7 +31027,7 @@ try {
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/defaultValue.js#L14">engine/Source/Core/defaultValue.js 14</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/defaultValue.js#L14">engine/Source/Core/defaultValue.js 14</a>
 </div>
 
 
@@ -31357,7 +31190,7 @@ try {
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/defined.js#L14">engine/Source/Core/defined.js 14</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/defined.js#L14">engine/Source/Core/defined.js 14</a>
 </div>
 
 
@@ -31493,7 +31326,7 @@ try {
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/destroyObject.js#L35">engine/Source/Core/destroyObject.js 35</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/destroyObject.js#L35">engine/Source/Core/destroyObject.js 35</a>
 </div>
 
 
@@ -31505,15 +31338,7 @@ try {
 
 
 <div class="description">
-    销毁对象。 对象的每个函数(包括其原型中的函数
-替换为抛出 <a href="DeveloperError.html"><code>DeveloperError</code></a> 的函数，但对象的
-<code>isDestroyed</code> 函数，该函数设置为返回 <code>true</code> 的函数。
-对象的属性将通过 <code>delete</code> 删除。
-<br /><br />
-此函数由持有原生资源的对象使用，例如 WebGL 资源，其
-需要明确发布。 客户端代码调用对象的 <code>destroy</code> 函数
-然后释放本机资源并调用 <code>destroyObject</code> 将自身
-处于已销毁状态。
+    销毁对象。 对象的每个函数(包括其原型中的函数替换为抛出 <a href="DeveloperError.html"><code>DeveloperError</code></a> 的函数，但对象的<code>isDestroyed</code> 函数，该函数设置为返回 <code>true</code> 的函数。对象的属性将通过 <code>delete</code> 删除。<br /><br />此函数由持有原生资源的对象使用，例如 WebGL 资源，其需要明确发布。 客户端代码调用对象的 <code>destroy</code> 函数然后释放本机资源并调用 <code>destroyObject</code> 将自身处于已销毁状态。
 </div>
 
 
@@ -31599,8 +31424,7 @@ try {
 
                 
             
-                要包含在抛出的异常中的消息
-调用已销毁对象的函数。</td>
+                要包含在抛出的异常中的消息调用已销毁对象的函数。</td>
         </tr>
 
     
@@ -31643,11 +31467,7 @@ try {
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// How a texture would destroy itself.
-this.destroy = function () {
-    _gl.deleteTexture(_texture);
-    return Cesium.destroyObject(this);
-};</code></pre>
+    <pre><code class="language-javascript">// How a texture would destroy itself.this.destroy = function () {    _gl.deleteTexture(_texture);    return Cesium.destroyObject(this);};</code></pre>
 
     
 
@@ -31677,7 +31497,7 @@ this.destroy = function () {
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/exportKml.js#L238">engine/Source/DataSources/exportKml.js 238</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/exportKml.js#L238">engine/Source/DataSources/exportKml.js 238</a>
 </div>
 
 
@@ -31689,14 +31509,7 @@ this.destroy = function () {
 
 
 <div class="description">
-    将 EntityCollection 导出为 KML 文档。仅点、公告牌、模型、路径、多边形、折线几何图形
-将被导出。请注意，图元属性与 KML 要素属性之间没有 1 对 1 的映射。为
-例如，如果实体属性是时间动态的，但在 KML 中不能是动态的，则导出时其值为
-options.time 或 EntityCollection 的时间间隔的开始时间(如果未指定)。对于时间动态属性
-中支持的 API 中，如果它是 <a href="SampledProperty.html"><code>SampledProperty</code></a>，则使用样本，否则我们使用
-options.sampleDuration 的 Duration。将导出具有时间动态位置的 Point、Billboard、Model 和 Path 几何图形
-如 gx：Track Features。并非所有材质都可以在 KML 中表示，因此对于更高级的材质，只有主要材质
-使用颜色。Canvas 对象导出为 PNG 图像。
+    将 EntityCollection 导出为 KML 文档。仅点、公告牌、模型、路径、多边形、折线几何图形将被导出。请注意，图元属性与 KML 要素属性之间没有 1 对 1 的映射。为例如，如果实体属性是时间动态的，但在 KML 中不能是动态的，则导出时其值为options.time 或 EntityCollection 的时间间隔的开始时间(如果未指定)。对于时间动态属性中支持的 API 中，如果它是 <a href="SampledProperty.html"><code>SampledProperty</code></a>，则使用样本，否则我们使用options.sampleDuration 的 Duration。将导出具有时间动态位置的 Point、Billboard、Model 和 Path 几何图形如 gx：Track Features。并非所有材质都可以在 KML 中表示，因此对于更高级的材质，只有主要材质使用颜色。Canvas 对象导出为 PNG 图像。
 </div>
 
 
@@ -32069,18 +31882,7 @@ options.sampleDuration 的 Duration。将导出具有时间动态位置的 Point
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">Cesium.exportKml({
-     entities: entityCollection
- })
-  .then(function(result) {
-    // The XML string is in result.kml
-
-    const externalFiles = result.externalFiles
-    for(const file in externalFiles) {
-      // file is the name of the file used in the KML document as the href
-      // externalFiles[file] is a blob with the contents of the file
-    }
-  });</code></pre>
+    <pre><code class="language-javascript">Cesium.exportKml({     entities: entityCollection })  .then(function(result) {    // The XML string is in result.kml    const externalFiles = result.externalFiles    for(const file in externalFiles) {      // file is the name of the file used in the KML document as the href      // externalFiles[file] is a blob with the contents of the file    }  });</code></pre>
 
     
 
@@ -32110,7 +31912,7 @@ options.sampleDuration 的 Duration。将导出具有时间动态位置的 Point
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/formatError.js#L12">engine/Source/Core/formatError.js 12</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/formatError.js#L12">engine/Source/Core/formatError.js 12</a>
 </div>
 
 
@@ -32245,7 +32047,7 @@ options.sampleDuration 的 Duration。将导出具有时间动态位置的 Point
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/getAbsoluteUri.js#L18">engine/Source/Core/getAbsoluteUri.js 18</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/getAbsoluteUri.js#L18">engine/Source/Core/getAbsoluteUri.js 18</a>
 </div>
 
 
@@ -32420,7 +32222,7 @@ options.sampleDuration 的 Duration。将导出具有时间动态位置的 Point
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/getBaseUri.js#L20">engine/Source/Core/getBaseUri.js 20</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/getBaseUri.js#L20">engine/Source/Core/getBaseUri.js 20</a>
 </div>
 
 
@@ -32607,7 +32409,7 @@ options.sampleDuration 的 Duration。将导出具有时间动态位置的 Point
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/getExtensionFromUri.js#L5">engine/Source/Core/getExtensionFromUri.js 5</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/getExtensionFromUri.js#L5">engine/Source/Core/getExtensionFromUri.js 5</a>
 </div>
 
 
@@ -32747,7 +32549,7 @@ options.sampleDuration 的 Duration。将导出具有时间动态位置的 Point
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/getFilenameFromUri.js#L5">engine/Source/Core/getFilenameFromUri.js 5</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/getFilenameFromUri.js#L5">engine/Source/Core/getFilenameFromUri.js 5</a>
 </div>
 
 
@@ -32887,7 +32689,7 @@ options.sampleDuration 的 Duration。将导出具有时间动态位置的 Point
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/DerivedCommand.js#L406">engine/Source/Scene/DerivedCommand.js 406</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/DerivedCommand.js#L406">engine/Source/Scene/DerivedCommand.js 406</a>
 </div>
 
 
@@ -32899,10 +32701,7 @@ options.sampleDuration 的 Duration。将导出具有时间动态位置的 Point
 
 
 <div class="description">
-    返回给定类属性在 GLSL 着色器中具有的类型。
-
-返回与 'PropertyTextureProperty.prototype.getGlslType' 相同的字符串
-对于具有给定类属性的属性 texture 属性
+    返回给定类属性在 GLSL 着色器中具有的类型。返回与 'PropertyTextureProperty.prototype.getGlslType' 相同的字符串对于具有给定类属性的属性 texture 属性
 </div>
 
 
@@ -33025,7 +32824,7 @@ options.sampleDuration 的 Duration。将导出具有时间动态位置的 Point
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/getImagePixels.js#L5">engine/Source/Core/getImagePixels.js 5</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/getImagePixels.js#L5">engine/Source/Core/getImagePixels.js 5</a>
 </div>
 
 
@@ -33209,7 +33008,7 @@ options.sampleDuration 的 Duration。将导出具有时间动态位置的 Point
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/DerivedCommand.js#L484">engine/Source/Scene/DerivedCommand.js 484</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/DerivedCommand.js#L484">engine/Source/Scene/DerivedCommand.js 484</a>
 </div>
 
 
@@ -33221,8 +33020,7 @@ options.sampleDuration 的 Duration。将导出具有时间动态位置的 Point
 
 
 <div class="description">
-    创建一个 shader 语句，该语句返回指定
-组件，标准化为范围 [0, 1]。
+    创建一个 shader 语句，该语句返回指定组件，标准化为范围 [0, 1]。
 </div>
 
 
@@ -33296,8 +33094,7 @@ options.sampleDuration 的 Duration。将导出具有时间动态位置的 Point
 
             <td class="description last">
             
-                元数据属性，或者
-一个 'PropertyTextureProperty' 或 'PropertyAttributeProperty'</td>
+                元数据属性，或者一个 'PropertyTextureProperty' 或 'PropertyAttributeProperty'</td>
         </tr>
 
     
@@ -33392,7 +33189,7 @@ options.sampleDuration 的 Duration。将导出具有时间动态位置的 Point
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/DerivedCommand.js#L456">engine/Source/Scene/DerivedCommand.js 456</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/DerivedCommand.js#L456">engine/Source/Scene/DerivedCommand.js 456</a>
 </div>
 
 
@@ -33404,8 +33201,7 @@ options.sampleDuration 的 Duration。将导出具有时间动态位置的 Point
 
 
 <div class="description">
-    创建一个 shader 语句，该语句返回指定
-属性，规范化为 [0, 1] 范围。
+    创建一个 shader 语句，该语句返回指定属性，规范化为 [0, 1] 范围。
 </div>
 
 
@@ -33479,8 +33275,7 @@ options.sampleDuration 的 Duration。将导出具有时间动态位置的 Point
 
             <td class="description last">
             
-                元数据属性，或者
-一个 'PropertyTextureProperty' 或 'PropertyAttributeProperty'</td>
+                元数据属性，或者一个 'PropertyTextureProperty' 或 'PropertyAttributeProperty'</td>
         </tr>
 
     
@@ -33552,7 +33347,7 @@ options.sampleDuration 的 Duration。将导出具有时间动态位置的 Point
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/getTimestamp.js#L1">engine/Source/Core/getTimestamp.js 1</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/getTimestamp.js#L1">engine/Source/Core/getTimestamp.js 1</a>
 </div>
 
 
@@ -33564,10 +33359,7 @@ options.sampleDuration 的 Duration。将导出具有时间动态位置的 Point
 
 
 <div class="description">
-    获取可用于测量事件之间时间的时间戳。 时间戳
-以毫秒表示，但没有指定毫秒数
-测量起始。 此函数使用 performance.now() 如果是 available, 或 Date.now()
-否则.
+    获取可用于测量事件之间时间的时间戳。 时间戳以毫秒表示，但没有指定毫秒数测量起始。 此函数使用 performance.now() 如果是 available, 或 Date.now()否则.
 </div>
 
 
@@ -33645,7 +33437,7 @@ options.sampleDuration 的 Duration。将导出具有时间动态位置的 Point
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/isLeapYear.js#L3">engine/Source/Core/isLeapYear.js 3</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/isLeapYear.js#L3">engine/Source/Core/isLeapYear.js 3</a>
 </div>
 
 
@@ -33785,7 +33577,7 @@ options.sampleDuration 的 Duration。将导出具有时间动态位置的 Point
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/GltfLoader.js#L366">engine/Source/Scene/GltfLoader.js 366</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/GltfLoader.js#L366">engine/Source/Scene/GltfLoader.js 366</a>
 </div>
 
 
@@ -33866,7 +33658,7 @@ options.sampleDuration 的 Duration。将导出具有时间动态位置的 Point
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/mergeSort.js#L55">engine/Source/Core/mergeSort.js 55</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/mergeSort.js#L55">engine/Source/Core/mergeSort.js 55</a>
 </div>
 
 
@@ -34060,7 +33852,7 @@ options.sampleDuration 的 Duration。将导出具有时间动态位置的 Point
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/objectToQuery.js#L4">engine/Source/Core/objectToQuery.js 4</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/objectToQuery.js#L4">engine/Source/Core/objectToQuery.js 4</a>
 </div>
 
 
@@ -34205,7 +33997,7 @@ options.sampleDuration 的 Duration。将导出具有时间动态位置的 Point
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Scene.js#L2428">engine/Source/Scene/Scene.js 2428</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Scene.js#L2428">engine/Source/Scene/Scene.js 2428</a>
 </div>
 
 
@@ -34217,12 +34009,7 @@ options.sampleDuration 的 Duration。将导出具有时间动态位置的 Point
 
 
 <div class="description">
-    确定如何处理半透明表面。
-
-启用 OIT 后，这将委托给 OIT.executeCommands。
-否则，它将只是 executeTranslucentCommandsBackToFront
-用于渲染通道，或 executeTranslucentCommandsFrontToBack 用于
-其他通行证。
+    确定如何处理半透明表面。启用 OIT 后，这将委托给 OIT.executeCommands。否则，它将只是 executeTranslucentCommandsBackToFront用于渲染通道，或 executeTranslucentCommandsFrontToBack 用于其他通行证。
 </div>
 
 
@@ -34345,7 +34132,7 @@ options.sampleDuration 的 Duration。将导出具有时间动态位置的 Point
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/pointInsideTriangle.js#L7">engine/Source/Core/pointInsideTriangle.js 7</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/pointInsideTriangle.js#L7">engine/Source/Core/pointInsideTriangle.js 7</a>
 </div>
 
 
@@ -34566,7 +34353,7 @@ options.sampleDuration 的 Duration。将导出具有时间动态位置的 Point
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/queryToObject.js#L4">engine/Source/Core/queryToObject.js 4</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/queryToObject.js#L4">engine/Source/Core/queryToObject.js 4</a>
 </div>
 
 
@@ -34711,7 +34498,7 @@ options.sampleDuration 的 Duration。将导出具有时间动态位置的 Point
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/GltfPipeline/removeExtension.js#L13">engine/Source/Scene/GltfPipeline/removeExtension.js 13</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/GltfPipeline/removeExtension.js#L13">engine/Source/Scene/GltfPipeline/removeExtension.js 13</a>
 </div>
 
 
@@ -34869,7 +34656,7 @@ options.sampleDuration 的 Duration。将导出具有时间动态位置的 Point
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/sampleTerrain.js#L4">engine/Source/Core/sampleTerrain.js 4</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/sampleTerrain.js#L4">engine/Source/Core/sampleTerrain.js 4</a>
 </div>
 
 
@@ -34881,18 +34668,7 @@ options.sampleDuration 的 Duration。将导出具有时间动态位置的 Point
 
 
 <div class="description">
-    通过以下方式对 <a href="Cartographic.html"><code>Cartographic</code></a> 位置数组启动地形高度查询
-向地形提供商请求瓦片、采样和插值。 插值
-匹配用于在指定级别渲染地形的三角形。 查询
-异步发生，因此此函数返回一个 Promise，该 Promise 在
-查询完成。 每个点高度都已就地修改。 如果高度不能
-确定，因为该位置的指定标高没有可用的地形数据，
-或发生其他错误时，高度将设置为 undefined。 作为典型的
-<a href="Cartographic.html"><code>Cartographic</code></a> 类型，则提供的高度是高于参考椭球体的高度
-(例如 <a href="Ellipsoid.html#.WGS84"><code>Ellipsoid.WGS84</code></a>)，而不是高于平均海平面的高度。 在其他
-单词，如果在 Ocean 中采样，它不一定是 0.0。此函数需要
-地形细节级别作为输入，如果您需要精确获取地形的高度
-尽可能 (即具有最高级别的细节) 使用 <a href="global.html#sampleTerrainMostDetailed"><code>sampleTerrainMostDetailed</code></a>。
+    通过以下方式对 <a href="Cartographic.html"><code>Cartographic</code></a> 位置数组启动地形高度查询向地形提供商请求瓦片、采样和插值。 插值匹配用于在指定级别渲染地形的三角形。 查询异步发生，因此此函数返回一个 Promise，该 Promise 在查询完成。 每个点高度都已就地修改。 如果高度不能确定，因为该位置的指定标高没有可用的地形数据，或发生其他错误时，高度将设置为 undefined。 作为典型的<a href="Cartographic.html"><code>Cartographic</code></a> 类型，则提供的高度是高于参考椭球体的高度(例如 <a href="Ellipsoid.html#.WGS84"><code>Ellipsoid.WGS84</code></a>)，而不是高于平均海平面的高度。 在其他单词，如果在 Ocean 中采样，它不一定是 0.0。此函数需要地形细节级别作为输入，如果您需要精确获取地形的高度尽可能 (即具有最高级别的细节) 使用 <a href="global.html#sampleTerrainMostDetailed"><code>sampleTerrainMostDetailed</code></a>。
 </div>
 
 
@@ -35106,22 +34882,7 @@ options.sampleDuration 的 Duration。将导出具有时间动态位置的 Point
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Query the terrain height of two Cartographic positions
-const terrainProvider = await Cesium.createWorldTerrainAsync();
-const positions = [
-    Cesium.Cartographic.fromDegrees(86.925145, 27.988257),
-    Cesium.Cartographic.fromDegrees(87.0, 28.0)
-];
-const updatedPositions = await Cesium.sampleTerrain(terrainProvider, 11, positions);
-// positions[0].height and positions[1].height have been updated.
-// updatedPositions is just a reference to positions.
-
-// To handle tile errors, pass true for the rejectOnTileFail parameter.
-try {
-   const updatedPositions = await Cesium.sampleTerrain(terrainProvider, 11, positions, true);
-} catch (error) {
-  // A tile request error occurred.
-}</code></pre>
+    <pre><code class="language-javascript">// Query the terrain height of two Cartographic positionsconst terrainProvider = await Cesium.createWorldTerrainAsync();const positions = [    Cesium.Cartographic.fromDegrees(86.925145, 27.988257),    Cesium.Cartographic.fromDegrees(87.0, 28.0)];const updatedPositions = await Cesium.sampleTerrain(terrainProvider, 11, positions);// positions[0].height and positions[1].height have been updated.// updatedPositions is just a reference to positions.// To handle tile errors, pass true for the rejectOnTileFail parameter.try {   const updatedPositions = await Cesium.sampleTerrain(terrainProvider, 11, positions, true);} catch (error) {  // A tile request error occurred.}</code></pre>
 
     
 
@@ -35151,7 +34912,7 @@ try {
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/sampleTerrainMostDetailed.js#L8">engine/Source/Core/sampleTerrainMostDetailed.js 8</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/sampleTerrainMostDetailed.js#L8">engine/Source/Core/sampleTerrainMostDetailed.js 8</a>
 </div>
 
 
@@ -35370,7 +35131,7 @@ try {
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/srgbToLinear.js#L17">engine/Source/Core/srgbToLinear.js 17</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/srgbToLinear.js#L17">engine/Source/Core/srgbToLinear.js 17</a>
 </div>
 
 
@@ -35510,7 +35271,7 @@ try {
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/Stereographic.js#L19">engine/Source/Core/Stereographic.js 19</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/Stereographic.js#L19">engine/Source/Core/Stereographic.js 19</a>
 </div>
 
 
@@ -35522,9 +35283,7 @@ try {
 
 
 <div class="description">
-    表示立体坐标中的点，可以通过将笛卡尔坐标从一个极点投影到另一个极点的切平面上来获得。
-立体投影忠实地表示通过其中心点的所有大圆的相对方向。
-为了忠实地表示所有位置的角度，这是一种等角投影，这意味着点被投影到任意球体上。
+    表示立体坐标中的点，可以通过将笛卡尔坐标从一个极点投影到另一个极点的切平面上来获得。立体投影忠实地表示通过其中心点的所有大圆的相对方向。为了忠实地表示所有位置的角度，这是一种等角投影，这意味着点被投影到任意球体上。
 </div>
 
 
@@ -35675,7 +35434,7 @@ try {
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/subdivideArray.js#L4">engine/Source/Core/subdivideArray.js 4</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/subdivideArray.js#L4">engine/Source/Core/subdivideArray.js 4</a>
 </div>
 
 
@@ -35838,7 +35597,7 @@ try {
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/DerivedCommand.js#L430">engine/Source/Scene/DerivedCommand.js 430</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/DerivedCommand.js#L430">engine/Source/Scene/DerivedCommand.js 430</a>
 </div>
 
 
@@ -35850,9 +35609,7 @@ try {
 
 
 <div class="description">
-    返回一个 shader 语句，该语句应用
-value 根据给定的偏移量转换为给定的值
-和缩放。
+    返回一个 shader 语句，该语句应用value 根据给定的偏移量转换为给定的值和缩放。
 </div>
 
 
@@ -36021,7 +35778,7 @@ value 根据给定的偏移量转换为给定的值
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/DerivedCommand.js#L442">engine/Source/Scene/DerivedCommand.js 442</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/DerivedCommand.js#L442">engine/Source/Scene/DerivedCommand.js 442</a>
 </div>
 
 
@@ -36033,8 +35790,7 @@ value 根据给定的偏移量转换为给定的值
 
 
 <div class="description">
-    返回一个 shader 语句，该语句应用
-归一化，基于给定的组件类型
+    返回一个 shader 语句，该语句应用归一化，基于给定的组件类型
 </div>
 
 
@@ -36180,7 +35936,7 @@ value 根据给定的偏移量转换为给定的值
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/widgets/Source/Viewer/viewerCesium3DTilesInspectorMixin.js#L16">widgets/Source/Viewer/viewerCesium3DTilesInspectorMixin.js 16</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/widgets/Source/Viewer/viewerCesium3DTilesInspectorMixin.js#L16">widgets/Source/Viewer/viewerCesium3DTilesInspectorMixin.js 16</a>
 </div>
 
 
@@ -36311,7 +36067,7 @@ value 根据给定的偏移量转换为给定的值
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/widgets/Source/Viewer/viewerCesiumInspectorMixin.js#L20">widgets/Source/Viewer/viewerCesiumInspectorMixin.js 20</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/widgets/Source/Viewer/viewerCesiumInspectorMixin.js#L20">widgets/Source/Viewer/viewerCesiumInspectorMixin.js 20</a>
 </div>
 
 
@@ -36461,7 +36217,7 @@ value 根据给定的偏移量转换为给定的值
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/widgets/Source/Viewer/viewerDragDropMixin.js#L13">widgets/Source/Viewer/viewerDragDropMixin.js 13</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/widgets/Source/Viewer/viewerDragDropMixin.js#L13">widgets/Source/Viewer/viewerDragDropMixin.js 13</a>
 </div>
 
 
@@ -36890,7 +36646,7 @@ value 根据给定的偏移量转换为给定的值
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/widgets/Source/Viewer/viewerPerformanceWatchdogMixin.js#L24">widgets/Source/Viewer/viewerPerformanceWatchdogMixin.js 24</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/widgets/Source/Viewer/viewerPerformanceWatchdogMixin.js#L24">widgets/Source/Viewer/viewerPerformanceWatchdogMixin.js 24</a>
 </div>
 
 
@@ -37130,7 +36886,7 @@ value 根据给定的偏移量转换为给定的值
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/widgets/Source/Viewer/viewerVoxelInspectorMixin.js#L16">widgets/Source/Viewer/viewerVoxelInspectorMixin.js 16</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/widgets/Source/Viewer/viewerVoxelInspectorMixin.js#L16">widgets/Source/Viewer/viewerVoxelInspectorMixin.js 16</a>
 </div>
 
 
@@ -37261,7 +37017,7 @@ value 根据给定的偏移量转换为给定的值
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/writeTextToCanvas.js#L100">engine/Source/Core/writeTextToCanvas.js 100</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/writeTextToCanvas.js#L100">engine/Source/Core/writeTextToCanvas.js 100</a>
 </div>
 
 
@@ -37785,7 +37541,7 @@ value 根据给定的偏移量转换为给定的值
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/binarySearch.js#L52">engine/Source/Core/binarySearch.js 52</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/binarySearch.js#L52">engine/Source/Core/binarySearch.js 52</a>
 </div>
 
 
@@ -37948,7 +37704,7 @@ value 根据给定的偏移量转换为给定的值
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Renderer/Context.js#L391">engine/Source/Renderer/Context.js 391</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Renderer/Context.js#L391">engine/Source/Renderer/Context.js 391</a>
 </div>
 
 
@@ -38184,7 +37940,7 @@ value 根据给定的偏移量转换为给定的值
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/createElevationBandMaterial.js#L417">engine/Source/Scene/createElevationBandMaterial.js 417</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/createElevationBandMaterial.js#L417">engine/Source/Scene/createElevationBandMaterial.js 417</a>
 </div>
 
 
@@ -38379,7 +38135,7 @@ value 根据给定的偏移量转换为给定的值
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/createElevationBandMaterial.js#L411">engine/Source/Scene/createElevationBandMaterial.js 411</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/createElevationBandMaterial.js#L411">engine/Source/Scene/createElevationBandMaterial.js 411</a>
 </div>
 
 
@@ -38509,7 +38265,7 @@ value 根据给定的偏移量转换为给定的值
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Camera.js#L32">engine/Source/Scene/Camera.js 32</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Camera.js#L32">engine/Source/Scene/Camera.js 32</a>
 </div>
 
 
@@ -38643,7 +38399,7 @@ value 根据给定的偏移量转换为给定的值
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/exportKml.js#L1511">engine/Source/DataSources/exportKml.js 1511</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/exportKml.js#L1511">engine/Source/DataSources/exportKml.js 1511</a>
 </div>
 
 
@@ -38655,9 +38411,7 @@ value 根据给定的偏移量转换为给定的值
 
 
 <div class="description">
-    由于 KML 不支持 glTF 模型，因此在 KML 文档中指定模型使用的 URL 时需要使用此回调。
-它还可用于向 <code>externalFiles</code> 对象添加其他文件，该对象是嵌入在导出的 KMZ 中的文件列表。
-或导出时返回 KML 字符串。
+    由于 KML 不支持 glTF 模型，因此在 KML 文档中指定模型使用的 URL 时需要使用此回调。它还可用于向 <code>externalFiles</code> 对象添加其他文件，该对象是嵌入在导出的 KMZ 中的文件列表。或导出时返回 KML 字符串。
 </div>
 
 
@@ -38826,7 +38580,7 @@ value 根据给定的偏移量转换为给定的值
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/exportKml.js#L225">engine/Source/DataSources/exportKml.js 225</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/exportKml.js#L225">engine/Source/DataSources/exportKml.js 225</a>
 </div>
 
 
@@ -38956,7 +38710,7 @@ value 根据给定的偏移量转换为给定的值
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/exportKml.js#L232">engine/Source/DataSources/exportKml.js 232</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/exportKml.js#L232">engine/Source/DataSources/exportKml.js 232</a>
 </div>
 
 
@@ -39063,7 +38817,7 @@ value 根据给定的偏移量转换为给定的值
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Camera.js#L40">engine/Source/Scene/Camera.js 40</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Camera.js#L40">engine/Source/Scene/Camera.js 40</a>
 </div>
 
 
@@ -39266,7 +39020,7 @@ value 根据给定的偏移量转换为给定的值
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/ImageryProvider.js#L7">engine/Source/Scene/ImageryProvider.js 7</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/ImageryProvider.js#L7">engine/Source/Scene/ImageryProvider.js 7</a>
 </div>
 
 
@@ -39277,12 +39031,7 @@ value 根据给定的偏移量转换为给定的值
 
 
 <div class="description">
-    <a href="ImageryProvider.html"><code>ImageryProvider</code></a> 方法返回图像的格式可能会
-因提供商、配置或服务器设置而异。 最常见的是
-<code>HTMLImageElement</code>、<code>HTMLCanvasElement</code> 或支持
-浏览器，<code>ImageBitmap</code>。
-
-有关每个 ImageryProvider 类如何返回图像的更多信息，请参阅每个 ImageryProvider 类的文档。
+    <a href="ImageryProvider.html"><code>ImageryProvider</code></a> 方法返回图像的格式可能会因提供商、配置或服务器设置而异。 最常见的是<code>HTMLImageElement</code>、<code>HTMLCanvasElement</code> 或支持浏览器，<code>ImageBitmap</code>。有关每个 ImageryProvider 类如何返回图像的更多信息，请参阅每个 ImageryProvider 类的文档。
 </div>
 
 
@@ -39331,7 +39080,7 @@ value 根据给定的偏移量转换为给定的值
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/mergeSort.js#L95">engine/Source/Core/mergeSort.js 95</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/mergeSort.js#L95">engine/Source/Core/mergeSort.js 95</a>
 </div>
 
 
@@ -39534,7 +39283,7 @@ value 根据给定的偏移量转换为给定的值
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/MetadataType.js#L10">engine/Source/Scene/MetadataType.js 10</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/MetadataType.js#L10">engine/Source/Scene/MetadataType.js 10</a>
 </div>
 
 
@@ -39545,22 +39294,7 @@ value 根据给定的偏移量转换为给定的值
 
 
 <div class="description">
-    元数据值的实例。<br>
-<br>
-这可以是以下类型之一：
-<ul>
-  <li><code>number</code> 用于类型 <code>SCALAR</code> 以及除 <code>INT64</code> 或 <code>UINT64</code> 之外的数字组件类型</li>
-  <li><code>bigint</code> 用于类型 <code>SCALAR</code> 元件类型 <code>INT64</code> 或 <code>UINT64</code></li>
-  <li><code>string</code> 用于类型 <code>STRING</code>或 <code>ENUM</code></li>
-  <li><code>boolean</code> 用于类型 <code>BOOLEAN</code></li>
-  <li><code>Cartesian2</code> 用于类型 <code>VEC2</code></li>
-  <li><code>Cartesian3</code> 用于类型 <code>VEC3</code></li>
-  <li><code>Cartesian4</code> 用于类型 <code>VEC4</code></li>
-  <li><code>Matrix2</code> 用于类型 <code>MAT2</code></li>
-  <li><code>Matrix3</code> 用于类型 <code>MAT3</code></li>
-  <li><code>Matrix4</code> 用于类型 <code>MAT4</code></li>
-  <li>当元数据值为数组时，这些类型的数组</li>
-</ul>
+    元数据值的实例。<br><br>这可以是以下类型之一：<ul>  <li><code>number</code> 用于类型 <code>SCALAR</code> 以及除 <code>INT64</code> 或 <code>UINT64</code> 之外的数字组件类型</li>  <li><code>bigint</code> 用于类型 <code>SCALAR</code> 元件类型 <code>INT64</code> 或 <code>UINT64</code></li>  <li><code>string</code> 用于类型 <code>STRING</code>或 <code>ENUM</code></li>  <li><code>boolean</code> 用于类型 <code>BOOLEAN</code></li>  <li><code>Cartesian2</code> 用于类型 <code>VEC2</code></li>  <li><code>Cartesian3</code> 用于类型 <code>VEC3</code></li>  <li><code>Cartesian4</code> 用于类型 <code>VEC4</code></li>  <li><code>Matrix2</code> 用于类型 <code>MAT2</code></li>  <li><code>Matrix3</code> 用于类型 <code>MAT3</code></li>  <li><code>Matrix4</code> 用于类型 <code>MAT4</code></li>  <li>当元数据值为数组时，这些类型的数组</li></ul>
 </div>
 
 
@@ -39609,7 +39343,7 @@ value 根据给定的偏移量转换为给定的值
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Picking.js#L532">engine/Source/Scene/Picking.js 532</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Picking.js#L532">engine/Source/Scene/Picking.js 532</a>
 </div>
 
 
@@ -39792,7 +39526,7 @@ value 根据给定的偏移量转换为给定的值
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Model/CustomShader.js#L11">engine/Source/Scene/Model/CustomShader.js 11</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Model/CustomShader.js#L11">engine/Source/Scene/Model/CustomShader.js 11</a>
 </div>
 
 
@@ -39957,7 +39691,7 @@ value 根据给定的偏移量转换为给定的值
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Renderer/Context.js#L440">engine/Source/Renderer/Context.js 440</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Renderer/Context.js#L440">engine/Source/Renderer/Context.js 440</a>
 </div>
 
 

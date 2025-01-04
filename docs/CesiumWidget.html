@@ -46,7 +46,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Widget/CesiumWidget.js#L206">engine/Source/Widget/CesiumWidget.js 206</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Widget/CesiumWidget.js#L206">engine/Source/Widget/CesiumWidget.js 206</a>
 </div>
 
 
@@ -888,8 +888,7 @@
 
                 
             
-                将包含 <a href="CreditDisplay.html"><code>CreditDisplay</code></a> 的 DOM 元素或 ID。 如果未指定，则添加积分
-拖动到小组件本身的底部。</td>
+                将包含 <a href="CreditDisplay.html"><code>CreditDisplay</code></a> 的 DOM 元素或 ID。 如果未指定，则添加积分拖动到小组件本身的底部。</td>
         </tr>
 
     
@@ -962,8 +961,7 @@
 
                 
             
-                小组件可视化的数据源集合。 如果提供此参数，则
-假定实例归调用方所有，并且在销毁 widget 时不会销毁。</td>
+                小组件可视化的数据源集合。 如果提供此参数，则假定实例归调用方所有，并且在销毁 widget 时不会销毁。</td>
         </tr>
 
     
@@ -1278,30 +1276,7 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// For each example, include a link to CesiumWidget.css stylesheet in HTML head,
-// and in the body, include: &lt;div id="cesiumContainer">&lt;/div>
-
-// Widget with no terrain and default Bing Maps imagery provider.
-const widget = new Cesium.CesiumWidget("cesiumContainer");
-
-// Widget with ion imagery and Cesium World Terrain.
-const widget2 = new Cesium.CesiumWidget("cesiumContainer", {
-    baseLayer: Cesium.ImageryLayer.fromWorldTerrain(),
-    terrain: Cesium.Terrain.fromWorldTerrain()
-    skyBox: new Cesium.SkyBox({
-      sources: {
-        positiveX: "stars/TychoSkymapII.t3_08192x04096_80_px.jpg",
-        negativeX: "stars/TychoSkymapII.t3_08192x04096_80_mx.jpg",
-        positiveY: "stars/TychoSkymapII.t3_08192x04096_80_py.jpg",
-        negativeY: "stars/TychoSkymapII.t3_08192x04096_80_my.jpg",
-        positiveZ: "stars/TychoSkymapII.t3_08192x04096_80_pz.jpg",
-        negativeZ: "stars/TychoSkymapII.t3_08192x04096_80_mz.jpg"
-      }
-    }),
-    // Show Columbus View map with Web Mercator projection
-    sceneMode: Cesium.SceneMode.COLUMBUS_VIEW,
-    mapProjection: new Cesium.WebMercatorProjection()
-});</code></pre>
+    <pre><code class="language-javascript">// For each example, include a link to CesiumWidget.css stylesheet in HTML head,// and in the body, include: &lt;div id="cesiumContainer">&lt;/div>// Widget with no terrain and default Bing Maps imagery provider.const widget = new Cesium.CesiumWidget("cesiumContainer");// Widget with ion imagery and Cesium World Terrain.const widget2 = new Cesium.CesiumWidget("cesiumContainer", {    baseLayer: Cesium.ImageryLayer.fromWorldTerrain(),    terrain: Cesium.Terrain.fromWorldTerrain()    skyBox: new Cesium.SkyBox({      sources: {        positiveX: "stars/TychoSkymapII.t3_08192x04096_80_px.jpg",        negativeX: "stars/TychoSkymapII.t3_08192x04096_80_mx.jpg",        positiveY: "stars/TychoSkymapII.t3_08192x04096_80_py.jpg",        negativeY: "stars/TychoSkymapII.t3_08192x04096_80_my.jpg",        positiveZ: "stars/TychoSkymapII.t3_08192x04096_80_pz.jpg",        negativeZ: "stars/TychoSkymapII.t3_08192x04096_80_mz.jpg"      }    }),    // Show Columbus View map with Web Mercator projection    sceneMode: Cesium.SceneMode.COLUMBUS_VIEW,    mapProjection: new Cesium.WebMercatorProjection()});</code></pre>
 
     
 
@@ -1347,7 +1322,7 @@ const widget2 = new Cesium.CesiumWidget("cesiumContainer", {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Widget/CesiumWidget.js#L821">engine/Source/Widget/CesiumWidget.js 821</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Widget/CesiumWidget.js#L821">engine/Source/Widget/CesiumWidget.js 821</a>
 </div>
 
 
@@ -1358,10 +1333,7 @@ const widget2 = new Cesium.CesiumWidget("cesiumContainer", {
 
 
 <div class="description">
-    获取或设置数据源是否可以暂时暂停
-动画，以避免向用户显示不完整的图片。
-例如，如果异步基元正在
-background，则在几何图形准备就绪之前，时钟不会前进。
+    获取或设置数据源是否可以暂时暂停动画，以避免向用户显示不完整的图片。例如，如果异步基元正在background，则在几何图形准备就绪之前，时钟不会前进。
 </div>
 
 
@@ -1410,7 +1382,7 @@ background，则在几何图形准备就绪之前，时钟不会前进。
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Widget/CesiumWidget.js#L660">engine/Source/Widget/CesiumWidget.js 660</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Widget/CesiumWidget.js#L660">engine/Source/Widget/CesiumWidget.js 660</a>
 </div>
 
 
@@ -1470,7 +1442,7 @@ background，则在几何图形准备就绪之前，时钟不会前进。
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Widget/CesiumWidget.js#L531">engine/Source/Widget/CesiumWidget.js 531</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Widget/CesiumWidget.js#L531">engine/Source/Widget/CesiumWidget.js 531</a>
 </div>
 
 
@@ -1530,7 +1502,7 @@ background，则在几何图形准备就绪之前，时钟不会前进。
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Widget/CesiumWidget.js#L686">engine/Source/Widget/CesiumWidget.js 686</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Widget/CesiumWidget.js#L686">engine/Source/Widget/CesiumWidget.js 686</a>
 </div>
 
 
@@ -1590,7 +1562,7 @@ background，则在几何图形准备就绪之前，时钟不会前进。
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Widget/CesiumWidget.js#L897">engine/Source/Widget/CesiumWidget.js 897</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Widget/CesiumWidget.js#L897">engine/Source/Widget/CesiumWidget.js 897</a>
 </div>
 
 
@@ -1650,7 +1622,7 @@ background，则在几何图形准备就绪之前，时钟不会前进。
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Widget/CesiumWidget.js#L518">engine/Source/Widget/CesiumWidget.js 518</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Widget/CesiumWidget.js#L518">engine/Source/Widget/CesiumWidget.js 518</a>
 </div>
 
 
@@ -1710,7 +1682,7 @@ background，则在几何图形准备就绪之前，时钟不会前进。
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Widget/CesiumWidget.js#L544">engine/Source/Widget/CesiumWidget.js 544</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Widget/CesiumWidget.js#L544">engine/Source/Widget/CesiumWidget.js 544</a>
 </div>
 
 
@@ -1770,7 +1742,7 @@ background，则在几何图形准备就绪之前，时钟不会前进。
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Widget/CesiumWidget.js#L610">engine/Source/Widget/CesiumWidget.js 610</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Widget/CesiumWidget.js#L610">engine/Source/Widget/CesiumWidget.js 610</a>
 </div>
 
 
@@ -1830,7 +1802,7 @@ background，则在几何图形准备就绪之前，时钟不会前进。
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Widget/CesiumWidget.js#L557">engine/Source/Widget/CesiumWidget.js 557</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Widget/CesiumWidget.js#L557">engine/Source/Widget/CesiumWidget.js 557</a>
 </div>
 
 
@@ -1890,7 +1862,7 @@ background，则在几何图形准备就绪之前，时钟不会前进。
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Widget/CesiumWidget.js#L622">engine/Source/Widget/CesiumWidget.js 622</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Widget/CesiumWidget.js#L622">engine/Source/Widget/CesiumWidget.js 622</a>
 </div>
 
 
@@ -1950,7 +1922,7 @@ background，则在几何图形准备就绪之前，时钟不会前进。
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Widget/CesiumWidget.js#L647">engine/Source/Widget/CesiumWidget.js 647</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Widget/CesiumWidget.js#L647">engine/Source/Widget/CesiumWidget.js 647</a>
 </div>
 
 
@@ -2010,7 +1982,7 @@ background，则在几何图形准备就绪之前，时钟不会前进。
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Widget/CesiumWidget.js#L673">engine/Source/Widget/CesiumWidget.js 673</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Widget/CesiumWidget.js#L673">engine/Source/Widget/CesiumWidget.js 673</a>
 </div>
 
 
@@ -2070,7 +2042,7 @@ background，则在几何图形准备就绪之前，时钟不会前进。
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Widget/CesiumWidget.js#L635">engine/Source/Widget/CesiumWidget.js 635</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Widget/CesiumWidget.js#L635">engine/Source/Widget/CesiumWidget.js 635</a>
 </div>
 
 
@@ -2081,8 +2053,7 @@ background，则在几何图形准备就绪之前，时钟不会前进。
 
 
 <div class="description">
-    获取未绑定到特定数据源的实体的集合。
-这是 <a href="CesiumWidget.html#dataSourceDisplay"><code>dataSourceDisplay.defaultDataSource.entities</code></a> 的快捷方式。
+    获取未绑定到特定数据源的实体的集合。这是 <a href="CesiumWidget.html#dataSourceDisplay"><code>dataSourceDisplay.defaultDataSource.entities</code></a> 的快捷方式。
 </div>
 
 
@@ -2131,7 +2102,7 @@ background，则在几何图形准备就绪之前，时钟不会前进。
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Widget/CesiumWidget.js#L583">engine/Source/Widget/CesiumWidget.js 583</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Widget/CesiumWidget.js#L583">engine/Source/Widget/CesiumWidget.js 583</a>
 </div>
 
 
@@ -2191,7 +2162,7 @@ background，则在几何图形准备就绪之前，时钟不会前进。
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Widget/CesiumWidget.js#L770">engine/Source/Widget/CesiumWidget.js 770</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Widget/CesiumWidget.js#L770">engine/Source/Widget/CesiumWidget.js 770</a>
 </div>
 
 
@@ -2202,12 +2173,7 @@ background，则在几何图形准备就绪之前，时钟不会前进。
 
 
 <div class="description">
-    获取或设置渲染分辨率的缩放因子。 小于 1.0 的值可以提高
-性能在功能较弱的设备上，而大于 1.0 的值将以更高的
-分辨率，然后按比例缩小，从而提高视觉保真度。
-例如，如果 Widget 的布局大小为 640x480，请将此值设置为 0.5
-将导致场景以 320x240 渲染，然后在设置
-设置为 2.0 将导致场景以 1280x960 渲染，然后缩小。
+    获取或设置渲染分辨率的缩放因子。 小于 1.0 的值可以提高性能在功能较弱的设备上，而大于 1.0 的值将以更高的分辨率，然后按比例缩小，从而提高视觉保真度。例如，如果 Widget 的布局大小为 640x480，请将此值设置为 0.5将导致场景以 320x240 渲染，然后在设置设置为 2.0 将导致场景以 1280x960 渲染，然后缩小。
 </div>
 
 
@@ -2259,7 +2225,7 @@ background，则在几何图形准备就绪之前，时钟不会前进。
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Widget/CesiumWidget.js#L570">engine/Source/Widget/CesiumWidget.js 570</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Widget/CesiumWidget.js#L570">engine/Source/Widget/CesiumWidget.js 570</a>
 </div>
 
 
@@ -2319,7 +2285,7 @@ background，则在几何图形准备就绪之前，时钟不会前进。
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Widget/CesiumWidget.js#L699">engine/Source/Widget/CesiumWidget.js 699</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Widget/CesiumWidget.js#L699">engine/Source/Widget/CesiumWidget.js 699</a>
 </div>
 
 
@@ -2379,7 +2345,7 @@ background，则在几何图形准备就绪之前，时钟不会前进。
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Widget/CesiumWidget.js#L714">engine/Source/Widget/CesiumWidget.js 714</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Widget/CesiumWidget.js#L714">engine/Source/Widget/CesiumWidget.js 714</a>
 </div>
 
 
@@ -2390,10 +2356,7 @@ background，则在几何图形准备就绪之前，时钟不会前进。
 
 
 <div class="description">
-    获取或设置<code>使用 DefaultRenderLoop</code> 时 widget 的目标帧率
-为 true。如果未定义，则浏览器的 requestAnimationFrame 实现
-确定帧速率。 如果已定义，则此值必须大于 0。 更高的值
-时，底层的 requestAnimationFrame 实现将不起作用。
+    获取或设置<code>使用 DefaultRenderLoop</code> 时 widget 的目标帧率为 true。如果未定义，则浏览器的 requestAnimationFrame 实现确定帧速率。 如果已定义，则此值必须大于 0。 更高的值时，底层的 requestAnimationFrame 实现将不起作用。
 </div>
 
 
@@ -2442,7 +2405,7 @@ background，则在几何图形准备就绪之前，时钟不会前进。
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Widget/CesiumWidget.js#L595">engine/Source/Widget/CesiumWidget.js 595</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Widget/CesiumWidget.js#L595">engine/Source/Widget/CesiumWidget.js 595</a>
 </div>
 
 
@@ -2502,7 +2465,7 @@ background，则在几何图形准备就绪之前，时钟不会前进。
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Widget/CesiumWidget.js#L835">engine/Source/Widget/CesiumWidget.js 835</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Widget/CesiumWidget.js#L835">engine/Source/Widget/CesiumWidget.js 835</a>
 </div>
 
 
@@ -2562,7 +2525,7 @@ background，则在几何图形准备就绪之前，时钟不会前进。
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Widget/CesiumWidget.js#L886">engine/Source/Widget/CesiumWidget.js 886</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Widget/CesiumWidget.js#L886">engine/Source/Widget/CesiumWidget.js 886</a>
 </div>
 
 
@@ -2622,7 +2585,7 @@ background，则在几何图形准备就绪之前，时钟不会前进。
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Widget/CesiumWidget.js#L799">engine/Source/Widget/CesiumWidget.js 799</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Widget/CesiumWidget.js#L799">engine/Source/Widget/CesiumWidget.js 799</a>
 </div>
 
 
@@ -2633,12 +2596,7 @@ background，则在几何图形准备就绪之前，时钟不会前进。
 
 
 <div class="description">
-    布尔标志，指示是否使用浏览器的推荐分辨率。
-如果为 true，则忽略浏览器的设备像素比，改用 1.0，
-基于 CSS 像素而不是设备像素进行有效渲染。这可以改善
-在具有高像素密度的较弱设备上的性能。当 false 时，渲染
-将以设备像素为单位。<a href="CesiumWidget.html#resolutionScale"><code>CesiumWidget#resolutionScale</code></a> 仍然会生效
-此标志为 true 或 false。
+    布尔标志，指示是否使用浏览器的推荐分辨率。如果为 true，则忽略浏览器的设备像素比，改用 1.0，基于 CSS 像素而不是设备像素进行有效渲染。这可以改善在具有高像素密度的较弱设备上的性能。当 false 时，渲染将以设备像素为单位。<a href="CesiumWidget.html#resolutionScale"><code>CesiumWidget#resolutionScale</code></a> 仍然会生效此标志为 true 或 false。
 </div>
 
 
@@ -2690,7 +2648,7 @@ background，则在几何图形准备就绪之前，时钟不会前进。
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Widget/CesiumWidget.js#L744">engine/Source/Widget/CesiumWidget.js 744</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Widget/CesiumWidget.js#L744">engine/Source/Widget/CesiumWidget.js 744</a>
 </div>
 
 
@@ -2701,15 +2659,7 @@ background，则在几何图形准备就绪之前，时钟不会前进。
 
 
 <div class="description">
-    获取或设置是否此小部件应控制渲染循环。
-如果为 true，则 widget 将使用 requestAnimationFrame 来
-执行 widget 的渲染和大小调整，以及驱动
-模拟时钟。如果设置为 false，则必须手动调用
-<code>调整大小</code>，<code>将方法作为自定义的一部分进行渲染</code>
-渲染循环。 如果在渲染过程中发生错误，则 <a href="Scene.html"><code>Scene</code></a> 的
-<code>renderError</code> 事件，并且此属性
-将设置为 false。 必须将其设置回 true 才能继续渲染
-after the error.
+    获取或设置是否此小部件应控制渲染循环。如果为 true，则 widget 将使用 requestAnimationFrame 来执行 widget 的渲染和大小调整，以及驱动模拟时钟。如果设置为 false，则必须手动调用<code>调整大小</code>，<code>将方法作为自定义的一部分进行渲染</code>渲染循环。 如果在渲染过程中发生错误，则 <a href="Scene.html"><code>Scene</code></a> 的<code>renderError</code> 事件，并且此属性将设置为 false。 必须将其设置回 true 才能继续渲染after the error.
 </div>
 
 
@@ -2764,7 +2714,7 @@ after the error.
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Widget/CesiumWidget.js#L1030">engine/Source/Widget/CesiumWidget.js 1030</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Widget/CesiumWidget.js#L1030">engine/Source/Widget/CesiumWidget.js 1030</a>
 </div>
 
 
@@ -2776,8 +2726,7 @@ after the error.
 
 
 <div class="description">
-    销毁小部件。如果从布局中永久删除小部件，
- 则应该调用。
+    销毁小部件。如果从布局中永久删除小部件， 则应该调用。
 </div>
 
 
@@ -2846,7 +2795,7 @@ after the error.
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Widget/CesiumWidget.js#L1287">engine/Source/Widget/CesiumWidget.js 1287</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Widget/CesiumWidget.js#L1287">engine/Source/Widget/CesiumWidget.js 1287</a>
 </div>
 
 
@@ -2858,19 +2807,7 @@ after the error.
 
 
 <div class="description">
-    将摄像机飞到提供的实体、实体或数据源。
-如果数据源仍在加载过程中，或者可视化图表仍在加载中，
-此方法在执行 Flight 之前等待数据准备就绪。
-
-<p>偏移量是以边界球体中心为中心的本地北向参考系中的航向/俯仰/范围。
-航向角和俯仰角在当地东西向北向上的参考系中定义。
-航向是与 y 轴成的角度，并逐渐沿 x 轴增加。Pitch 是从 xy 平面开始的旋转。正间距
-角度位于平面上方。负俯仰角位于平面下方。范围是距中心的距离。如果范围为
-zero，则计算一个范围，使整个边界球体可见。</p>
-
-<p>在 2D 中，必须有一个自上而下的视图。相机将放置在向下看的目标上方。高于
-target 将是范围。航向将根据偏移量确定。如果标题不能为
-根据偏移量确定，航向将为北。</p>
+    将摄像机飞到提供的实体、实体或数据源。如果数据源仍在加载过程中，或者可视化图表仍在加载中，此方法在执行 Flight 之前等待数据准备就绪。<p>偏移量是以边界球体中心为中心的本地北向参考系中的航向/俯仰/范围。航向角和俯仰角在当地东西向北向上的参考系中定义。航向是与 y 轴成的角度，并逐渐沿 x 轴增加。Pitch 是从 xy 平面开始的旋转。正间距角度位于平面上方。负俯仰角位于平面下方。范围是距中心的距离。如果范围为zero，则计算一个范围，使整个边界球体可见。</p><p>在 2D 中，必须有一个自上而下的视图。相机将放置在向下看的目标上方。高于target 将是范围。航向将根据偏移量确定。如果标题不能为根据偏移量确定，航向将为北。</p>
 </div>
 
 
@@ -3177,7 +3114,7 @@ target 将是范围。航向将根据偏移量确定。如果标题不能为
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Widget/CesiumWidget.js#L1022">engine/Source/Widget/CesiumWidget.js 1022</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Widget/CesiumWidget.js#L1022">engine/Source/Widget/CesiumWidget.js 1022</a>
 </div>
 
 
@@ -3263,7 +3200,7 @@ target 将是范围。航向将根据偏移量确定。如果标题不能为
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Widget/CesiumWidget.js#L1084">engine/Source/Widget/CesiumWidget.js 1084</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Widget/CesiumWidget.js#L1084">engine/Source/Widget/CesiumWidget.js 1084</a>
 </div>
 
 
@@ -3275,8 +3212,7 @@ target 将是范围。航向将根据偏移量确定。如果标题不能为
 
 
 <div class="description">
-    渲染场景。 此函数是自动调用的
-除非 <code>useDefaultRenderLoop</code> 设置为 false;
+    渲染场景。 此函数是自动调用的除非 <code>useDefaultRenderLoop</code> 设置为 false;
 </div>
 
 
@@ -3345,7 +3281,7 @@ target 将是范围。航向将根据偏移量确定。如果标题不能为
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Widget/CesiumWidget.js#L1062">engine/Source/Widget/CesiumWidget.js 1062</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Widget/CesiumWidget.js#L1062">engine/Source/Widget/CesiumWidget.js 1062</a>
 </div>
 
 
@@ -3357,9 +3293,7 @@ target 将是范围。航向将根据偏移量确定。如果标题不能为
 
 
 <div class="description">
-    更新画布大小、摄像机纵横比和视口大小。
-此函数会根据需要自动调用，除非
-<code>useDefaultRenderLoop</code> 设置为 false。
+    更新画布大小、摄像机纵横比和视口大小。此函数会根据需要自动调用，除非<code>useDefaultRenderLoop</code> 设置为 false。
 </div>
 
 
@@ -3428,7 +3362,7 @@ target 将是范围。航向将根据偏移量确定。如果标题不能为
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Widget/CesiumWidget.js#L920">engine/Source/Widget/CesiumWidget.js 920</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Widget/CesiumWidget.js#L920">engine/Source/Widget/CesiumWidget.js 920</a>
 </div>
 
 
@@ -3440,10 +3374,7 @@ target 将是范围。航向将根据偏移量确定。如果标题不能为
 
 
 <div class="description">
-    向用户显示包含标题和较长错误消息的错误面板，
-可以使用 OK 按钮关闭。 此面板将自动显示
-当渲染循环发生错误时，如果 showRenderLoopErrors 不是 false，则
-小部件。
+    向用户显示包含标题和较长错误消息的错误面板，可以使用 OK 按钮关闭。 此面板将自动显示当渲染循环发生错误时，如果 showRenderLoopErrors 不是 false，则小部件。
 </div>
 
 
@@ -3622,7 +3553,7 @@ target 将是范围。航向将根据偏移量确定。如果标题不能为
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Widget/CesiumWidget.js#L1258">engine/Source/Widget/CesiumWidget.js 1258</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Widget/CesiumWidget.js#L1258">engine/Source/Widget/CesiumWidget.js 1258</a>
 </div>
 
 
@@ -3634,19 +3565,7 @@ target 将是范围。航向将根据偏移量确定。如果标题不能为
 
 
 <div class="description">
-    异步设置摄像机以查看提供的实体、实体或数据源。
-如果数据源仍在加载过程中，或者可视化图表仍在加载中，
-此方法在执行缩放之前等待数据准备就绪。
-
-<p>偏移量是以边界球体中心为中心的本地北向参考系中的航向/俯仰/范围。
-航向角和俯仰角在当地东西向北向上的参考系中定义。
-航向是与 y 轴成的角度，并逐渐沿 x 轴增加。Pitch 是从 xy 平面开始的旋转。正间距
-角度位于平面上方。负俯仰角位于平面下方。范围是距中心的距离。如果范围为
-zero，则计算一个范围，使整个边界球体可见。</p>
-
-<p>在 2D 中，必须有一个自上而下的视图。相机将放置在向下看的目标上方。高于
-target 将是范围。航向将根据偏移量确定。如果标题不能为
-根据偏移量确定，航向将为北。</p>
+    异步设置摄像机以查看提供的实体、实体或数据源。如果数据源仍在加载过程中，或者可视化图表仍在加载中，此方法在执行缩放之前等待数据准备就绪。<p>偏移量是以边界球体中心为中心的本地北向参考系中的航向/俯仰/范围。航向角和俯仰角在当地东西向北向上的参考系中定义。航向是与 y 轴成的角度，并逐渐沿 x 轴增加。Pitch 是从 xy 平面开始的旋转。正间距角度位于平面上方。负俯仰角位于平面下方。范围是距中心的距离。如果范围为zero，则计算一个范围，使整个边界球体可见。</p><p>在 2D 中，必须有一个自上而下的视图。相机将放置在向下看的目标上方。高于target 将是范围。航向将根据偏移量确定。如果标题不能为根据偏移量确定，航向将为北。</p>
 </div>
 
 

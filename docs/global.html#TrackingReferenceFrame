@@ -41,7 +41,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/TrackingReferenceFrame.js#L6">engine/Source/Core/TrackingReferenceFrame.js 6</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/TrackingReferenceFrame.js#L6">engine/Source/Core/TrackingReferenceFrame.js 6</a>
 </div>
 
 
@@ -96,11 +96,7 @@
 
             
 
-            <td class="description last">自动检测算法。用于跟踪 Entity 的参考帧将
-根据其轨迹自动选择：near-surface slow moving
-对象将在实体的本地 east-north-up 引用中进行跟踪
-帧，而卫星等速度较快的物体将使用 VVLH(车辆速度、
-本地水平)。</td>
+            <td class="description last">自动检测算法。用于跟踪 Entity 的参考帧将根据其轨迹自动选择：near-surface slow moving对象将在实体的本地 east-north-up 引用中进行跟踪帧，而卫星等速度较快的物体将使用 VVLH(车辆速度、本地水平)。</td>
         </tr>
 
     
@@ -146,8 +142,7 @@
 
             
 
-            <td class="description last">实体的惯性参考系。如果实体没有定义方向
-属性，它会回退到自动检测算法。</td>
+            <td class="description last">实体的惯性参考系。如果实体没有定义方向属性，它会回退到自动检测算法。</td>
         </tr>
 
     
@@ -170,8 +165,7 @@
 
             
 
-            <td class="description last">实体的惯性参考系，其方向固定到其
-<a href="VelocityOrientationProperty.html"><code>VelocityOrientationProperty</code></a>，忽略其自身的方向。</td>
+            <td class="description last">实体的惯性参考系，其方向固定到其<a href="VelocityOrientationProperty.html"><code>VelocityOrientationProperty</code></a>，忽略其自身的方向。</td>
         </tr>
 
     
@@ -234,7 +228,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/TrackingReferenceFrame.js#L17">engine/Source/Core/TrackingReferenceFrame.js 17</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/TrackingReferenceFrame.js#L17">engine/Source/Core/TrackingReferenceFrame.js 17</a>
 </div>
 
 
@@ -245,11 +239,7 @@
 
 
 <div class="description">
-    自动检测算法。用于跟踪 Entity 的参考帧将
-根据其轨迹自动选择：near-surface slow moving
-对象将在实体的本地 east-north-up 引用中进行跟踪
-帧，而卫星等速度较快的物体将使用 VVLH(车辆速度、
-本地水平)。
+    自动检测算法。用于跟踪 Entity 的参考帧将根据其轨迹自动选择：near-surface slow moving对象将在实体的本地 east-north-up 引用中进行跟踪帧，而卫星等速度较快的物体将使用 VVLH(车辆速度、本地水平)。
 </div>
 
 
@@ -298,7 +288,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/TrackingReferenceFrame.js#L25">engine/Source/Core/TrackingReferenceFrame.js 25</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/TrackingReferenceFrame.js#L25">engine/Source/Core/TrackingReferenceFrame.js 25</a>
 </div>
 
 
@@ -361,7 +351,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/TrackingReferenceFrame.js#L34">engine/Source/Core/TrackingReferenceFrame.js 34</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/TrackingReferenceFrame.js#L34">engine/Source/Core/TrackingReferenceFrame.js 34</a>
 </div>
 
 
@@ -372,8 +362,7 @@
 
 
 <div class="description">
-    实体的惯性参考系。如果实体没有定义方向
-属性，它会回退到自动检测算法。
+    实体的惯性参考系。如果实体没有定义方向属性，它会回退到自动检测算法。
 </div>
 
 
@@ -425,7 +414,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/TrackingReferenceFrame.js#L43">engine/Source/Core/TrackingReferenceFrame.js 43</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/TrackingReferenceFrame.js#L43">engine/Source/Core/TrackingReferenceFrame.js 43</a>
 </div>
 
 
@@ -436,8 +425,7 @@
 
 
 <div class="description">
-    实体的惯性参考系，其方向固定到其
-<a href="VelocityOrientationProperty.html"><code>VelocityOrientationProperty</code></a>，忽略其自身的方向。
+    实体的惯性参考系，其方向固定到其<a href="VelocityOrientationProperty.html"><code>VelocityOrientationProperty</code></a>，忽略其自身的方向。
 </div>
 
 

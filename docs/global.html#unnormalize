@@ -41,14 +41,13 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/DerivedCommand.js#L442">engine/Source/Scene/DerivedCommand.js 442</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/DerivedCommand.js#L442">engine/Source/Scene/DerivedCommand.js 442</a>
 </div>
 
 
 
         
-            <div class="description">返回一个 shader 语句，该语句应用
-归一化，基于给定的组件类型</div>
+            <div class="description">返回一个 shader 语句，该语句应用归一化，基于给定的组件类型</div>
         
 
         

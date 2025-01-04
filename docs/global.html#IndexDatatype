@@ -41,14 +41,13 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/IndexDatatype.js#L12">engine/Source/Core/IndexDatatype.js 12</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/IndexDatatype.js#L12">engine/Source/Core/IndexDatatype.js 12</a>
 </div>
 
 
 
         
-            <div class="description">WebGL 索引数据类型的常量。 这些对应于
-<code>type</code> 参数的 <a href="http://www.khronos.org/opengles/sdk/docs/man/xhtml/glDrawElements.xml">drawElements</a> 的 intent 参数。</div>
+            <div class="description">WebGL 索引数据类型的常量。 这些对应于<code>type</code> 参数的 <a href="http://www.khronos.org/opengles/sdk/docs/man/xhtml/glDrawElements.xml">drawElements</a> 的 intent 参数。</div>
         
 
         
@@ -97,8 +96,7 @@
 
             
 
-            <td class="description last">8-bit unsigned 字节对应于 <code>UNSIGNED_BYTE</code> 和 类型
-的元素 <code>Uint8Array</code>.</td>
+            <td class="description last">8-bit unsigned 字节对应于 <code>UNSIGNED_BYTE</code> 和 类型的元素 <code>Uint8Array</code>.</td>
         </tr>
 
     
@@ -121,8 +119,7 @@
 
             
 
-            <td class="description last">16-bit unsigned short 对应于 <code>UNSIGNED_SHORT</code> 和 类型
- 的元素<code>Uint16Array</code>.</td>
+            <td class="description last">16-bit unsigned short 对应于 <code>UNSIGNED_SHORT</code> 和 类型 的元素<code>Uint16Array</code>.</td>
         </tr>
 
     
@@ -145,8 +142,7 @@
 
             
 
-            <td class="description last">32-bit unsigned int 对应于 <code>UNSIGNED_INT</code> 和类型
- 的元素<code>Uint32Array</code>.</td>
+            <td class="description last">32-bit unsigned int 对应于 <code>UNSIGNED_INT</code> 和类型 的元素<code>Uint32Array</code>.</td>
         </tr>
 
     
@@ -209,7 +205,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/IndexDatatype.js#L20">engine/Source/Core/IndexDatatype.js 20</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/IndexDatatype.js#L20">engine/Source/Core/IndexDatatype.js 20</a>
 </div>
 
 
@@ -220,8 +216,7 @@
 
 
 <div class="description">
-    8-bit unsigned 字节对应于 <code>UNSIGNED_BYTE</code> 和 类型
-的元素 <code>Uint8Array</code>.
+    8-bit unsigned 字节对应于 <code>UNSIGNED_BYTE</code> 和 类型的元素 <code>Uint8Array</code>.
 </div>
 
 
@@ -273,7 +268,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/IndexDatatype.js#L38">engine/Source/Core/IndexDatatype.js 38</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/IndexDatatype.js#L38">engine/Source/Core/IndexDatatype.js 38</a>
 </div>
 
 
@@ -284,8 +279,7 @@
 
 
 <div class="description">
-    32-bit unsigned int 对应于 <code>UNSIGNED_INT</code> 和类型
- 的元素<code>Uint32Array</code>.
+    32-bit unsigned int 对应于 <code>UNSIGNED_INT</code> 和类型 的元素<code>Uint32Array</code>.
 </div>
 
 
@@ -337,7 +331,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/IndexDatatype.js#L29">engine/Source/Core/IndexDatatype.js 29</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/IndexDatatype.js#L29">engine/Source/Core/IndexDatatype.js 29</a>
 </div>
 
 
@@ -348,8 +342,7 @@
 
 
 <div class="description">
-    16-bit unsigned short 对应于 <code>UNSIGNED_SHORT</code> 和 类型
- 的元素<code>Uint16Array</code>.
+    16-bit unsigned short 对应于 <code>UNSIGNED_SHORT</code> 和 类型 的元素<code>Uint16Array</code>.
 </div>
 
 
@@ -407,7 +400,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/IndexDatatype.js#L122">engine/Source/Core/IndexDatatype.js 122</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/IndexDatatype.js#L122">engine/Source/Core/IndexDatatype.js 122</a>
 </div>
 
 
@@ -419,8 +412,7 @@
 
 
 <div class="description">
-    使用 <code><Uint16Array</code> 创建将存储索引的类型化数组
-或 <code>Uint32Array</code>，具体取决于顶点的数量。
+    使用 <code><Uint16Array</code> 创建将存储索引的类型化数组或 <code>Uint32Array</code>，具体取决于顶点的数量。
 </div>
 
 
@@ -574,7 +566,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/IndexDatatype.js#L150">engine/Source/Core/IndexDatatype.js 150</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/IndexDatatype.js#L150">engine/Source/Core/IndexDatatype.js 150</a>
 </div>
 
 
@@ -586,8 +578,7 @@
 
 
 <div class="description">
-    从源数组缓冲区创建类型化数组。 生成的类型化数组将使用 <code><Uint16Array</code> 存储索引
-或 <code>Uint32Array</code>，具体取决于顶点的数量。
+    从源数组缓冲区创建类型化数组。 生成的类型化数组将使用 <code><Uint16Array</code> 存储索引或 <code>Uint32Array</code>，具体取决于顶点的数量。
 </div>
 
 
@@ -779,7 +770,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/IndexDatatype.js#L74">engine/Source/Core/IndexDatatype.js 74</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/IndexDatatype.js#L74">engine/Source/Core/IndexDatatype.js 74</a>
 </div>
 
 
@@ -914,7 +905,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/IndexDatatype.js#L181">engine/Source/Core/IndexDatatype.js 181</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/IndexDatatype.js#L181">engine/Source/Core/IndexDatatype.js 181</a>
 </div>
 
 
@@ -1055,7 +1046,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/IndexDatatype.js#L51">engine/Source/Core/IndexDatatype.js 51</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/IndexDatatype.js#L51">engine/Source/Core/IndexDatatype.js 51</a>
 </div>
 
 
@@ -1170,8 +1161,7 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Returns 2
-const size = Cesium.IndexDatatype.getSizeInBytes(Cesium.IndexDatatype.UNSIGNED_SHORT);</code></pre>
+    <pre><code class="language-javascript">// Returns 2const size = Cesium.IndexDatatype.getSizeInBytes(Cesium.IndexDatatype.UNSIGNED_SHORT);</code></pre>
 
     
 
@@ -1196,7 +1186,7 @@ const size = Cesium.IndexDatatype.getSizeInBytes(Cesium.IndexDatatype.UNSIGNED_S
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/IndexDatatype.js#L102">engine/Source/Core/IndexDatatype.js 102</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/IndexDatatype.js#L102">engine/Source/Core/IndexDatatype.js 102</a>
 </div>
 
 
@@ -1311,9 +1301,7 @@ const size = Cesium.IndexDatatype.getSizeInBytes(Cesium.IndexDatatype.UNSIGNED_S
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">if (!Cesium.IndexDatatype.validate(indexDatatype)) {
-  throw new Cesium.DeveloperError('indexDatatype must be a valid value.');
-}</code></pre>
+    <pre><code class="language-javascript">if (!Cesium.IndexDatatype.validate(indexDatatype)) {  throw new Cesium.DeveloperError('indexDatatype must be a valid value.');}</code></pre>
 
     
 

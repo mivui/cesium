@@ -46,7 +46,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/MorphWeightSpline.js#L42">engine/Source/Core/MorphWeightSpline.js 42</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/MorphWeightSpline.js#L42">engine/Source/Core/MorphWeightSpline.js 42</a>
 </div>
 
 
@@ -148,8 +148,7 @@
 
             <td class="description last">
             
-                每个点的严格递增、无单位的浮点时间数组。
-               这些值与 clock time 没有任何关系。它们是曲线的参数化。</td>
+                每个点的严格递增、无单位的浮点时间数组。               这些值与 clock time 没有任何关系。它们是曲线的参数化。</td>
         </tr>
 
     
@@ -172,10 +171,7 @@
 
             <td class="description last">
             
-                给定的浮点控制权重数组。权重的排序方式是这样的
-               目标的所有权重都按时间顺序和它们出现的顺序给出
-               变形目标来自的 glTF。这意味着对于 2 个目标, weights = [w(0,0), w(0,1), w(1,0), w(1,1) ...]
-               其中 i 和 j 在 w(i,j) 分别是时间索引和目标索引。</td>
+                给定的浮点控制权重数组。权重的排序方式是这样的               目标的所有权重都按时间顺序和它们出现的顺序给出               变形目标来自的 glTF。这意味着对于 2 个目标, weights = [w(0,0), w(0,1), w(1,0), w(1,1) ...]               其中 i 和 j 在 w(i,j) 分别是时间索引和目标索引。</td>
         </tr>
 
     
@@ -249,14 +245,7 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const times = [ 0.0, 1.5, 3.0, 4.5, 6.0 ];
-const weights = [0.0, 1.0, 0.25, 0.75, 0.5, 0.5, 0.75, 0.25, 1.0, 0.0]; //Two targets
-const spline = new Cesium.WeightSpline({
-    times : times,
-    weights : weights
-});
-
-const p0 = spline.evaluate(times[0]);</code></pre>
+    <pre><code class="language-javascript">const times = [ 0.0, 1.5, 3.0, 4.5, 6.0 ];const weights = [0.0, 1.0, 0.25, 0.75, 0.5, 0.5, 0.75, 0.25, 1.0, 0.0]; //Two targetsconst spline = new Cesium.WeightSpline({    times : times,    weights : weights});const p0 = spline.evaluate(times[0]);</code></pre>
 
     
 
@@ -314,7 +303,7 @@ const p0 = spline.evaluate(times[0]);</code></pre>
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/MorphWeightSpline.js#L127">engine/Source/Core/MorphWeightSpline.js 127</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/MorphWeightSpline.js#L127">engine/Source/Core/MorphWeightSpline.js 127</a>
 </div>
 
 
@@ -449,7 +438,7 @@ const p0 = spline.evaluate(times[0]);</code></pre>
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/MorphWeightSpline.js#L140">engine/Source/Core/MorphWeightSpline.js 140</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/MorphWeightSpline.js#L140">engine/Source/Core/MorphWeightSpline.js 140</a>
 </div>
 
 
@@ -583,9 +572,7 @@ const p0 = spline.evaluate(times[0]);</code></pre>
         
 <span class="param-type"><a href="DeveloperError.html">DeveloperError</a></span>
 
-: 时间必须在 <code>[t<sub>0</sub>, t<sub>n</sub>]</code> 范围内，其中 <code>t<sub>0</sub></code>
-是数组中的第一个元素 <code>times</code> 和 <code>t<sub>n</sub></code> 是最后一个元素
-在数组<code>times</code>。
+: 时间必须在 <code>[t<sub>0</sub>, t<sub>n</sub>]</code> 范围内，其中 <code>t<sub>0</sub></code>是数组中的第一个元素 <code>times</code> 和 <code>t<sub>n</sub></code> 是最后一个元素在数组<code>times</code>。
     </div>
 
 </li>
@@ -635,7 +622,7 @@ const p0 = spline.evaluate(times[0]);</code></pre>
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/MorphWeightSpline.js#L108">engine/Source/Core/MorphWeightSpline.js 108</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/MorphWeightSpline.js#L108">engine/Source/Core/MorphWeightSpline.js 108</a>
 </div>
 
 
@@ -647,8 +634,7 @@ const p0 = spline.evaluate(times[0]);</code></pre>
 
 
 <div class="description">
-    在<code>times</code>中查找索引 <code>i</code>，使得参数
-<code>times</code>在区间 <code>[times[i], times[i + 1]]</code> 中。
+    在<code>times</code>中查找索引 <code>i</code>，使得参数<code>times</code>在区间 <code>[times[i], times[i + 1]]</code> 中。
 </div>
 
 
@@ -735,9 +721,7 @@ const p0 = spline.evaluate(times[0]);</code></pre>
         
 <span class="param-type"><a href="DeveloperError.html">DeveloperError</a></span>
 
-: 时间必须在 <code>[t<sub>0</sub>, t<sub>n</sub>]</code> 范围内，其中 <code>t<sub>0</sub></code>
-是数组中的第一个元素 <code>times</code> 和 <code>t<sub>n</sub></code> 是最后一个元素
-在数组<code>times</code>。
+: 时间必须在 <code>[t<sub>0</sub>, t<sub>n</sub>]</code> 范围内，其中 <code>t<sub>0</sub></code>是数组中的第一个元素 <code>times</code> 和 <code>t<sub>n</sub></code> 是最后一个元素在数组<code>times</code>。
     </div>
 
 </li>
@@ -787,7 +771,7 @@ const p0 = spline.evaluate(times[0]);</code></pre>
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/MorphWeightSpline.js#L118">engine/Source/Core/MorphWeightSpline.js 118</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/MorphWeightSpline.js#L118">engine/Source/Core/MorphWeightSpline.js 118</a>
 </div>
 
 

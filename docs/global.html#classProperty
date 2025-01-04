@@ -41,14 +41,13 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/PickedMetadataInfo.js#L45">engine/Source/Scene/PickedMetadataInfo.js 45</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/PickedMetadataInfo.js#L45">engine/Source/Scene/PickedMetadataInfo.js 45</a>
 </div>
 
 
 
         
-            <div class="description">由此描述的 'MetadataClassProperty'
-结构，从 'MetadataSchema' 获取</div>
+            <div class="description">由此描述的 'MetadataClassProperty'结构，从 'MetadataSchema' 获取</div>
         
 
         

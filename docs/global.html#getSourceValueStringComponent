@@ -41,14 +41,13 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/DerivedCommand.js#L484">engine/Source/Scene/DerivedCommand.js 484</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/DerivedCommand.js#L484">engine/Source/Scene/DerivedCommand.js 484</a>
 </div>
 
 
 
         
-            <div class="description">创建一个 shader 语句，该语句返回指定
-组件，标准化为范围 [0, 1]。</div>
+            <div class="description">创建一个 shader 语句，该语句返回指定组件，标准化为范围 [0, 1]。</div>
         
 
         

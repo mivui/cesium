@@ -46,7 +46,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/SteppedSpline.js#L41">engine/Source/Core/SteppedSpline.js 41</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/SteppedSpline.js#L41">engine/Source/Core/SteppedSpline.js 41</a>
 </div>
 
 
@@ -251,19 +251,7 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const times = [ 0.0, 1.5, 3.0, 4.5, 6.0 ];
-const spline = new Cesium.SteppedSpline({
-    times : times,
-    points : [
-        new Cesium.Cartesian3(1235398.0, -4810983.0, 4146266.0),
-        new Cesium.Cartesian3(1372574.0, -5345182.0, 4606657.0),
-        new Cesium.Cartesian3(-757983.0, -5542796.0, 4514323.0),
-        new Cesium.Cartesian3(-2821260.0, -5248423.0, 4021290.0),
-        new Cesium.Cartesian3(-2539788.0, -4724797.0, 3620093.0)
-    ]
-});
-
-const p0 = spline.evaluate(times[0]);</code></pre>
+    <pre><code class="language-javascript">const times = [ 0.0, 1.5, 3.0, 4.5, 6.0 ];const spline = new Cesium.SteppedSpline({    times : times,    points : [        new Cesium.Cartesian3(1235398.0, -4810983.0, 4146266.0),        new Cesium.Cartesian3(1372574.0, -5345182.0, 4606657.0),        new Cesium.Cartesian3(-757983.0, -5542796.0, 4514323.0),        new Cesium.Cartesian3(-2821260.0, -5248423.0, 4021290.0),        new Cesium.Cartesian3(-2539788.0, -4724797.0, 3620093.0)    ]});const p0 = spline.evaluate(times[0]);</code></pre>
 
     
 
@@ -319,7 +307,7 @@ const p0 = spline.evaluate(times[0]);</code></pre>
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/SteppedSpline.js#L91">engine/Source/Core/SteppedSpline.js 91</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/SteppedSpline.js#L91">engine/Source/Core/SteppedSpline.js 91</a>
 </div>
 
 
@@ -379,7 +367,7 @@ const p0 = spline.evaluate(times[0]);</code></pre>
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/SteppedSpline.js#L77">engine/Source/Core/SteppedSpline.js 77</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/SteppedSpline.js#L77">engine/Source/Core/SteppedSpline.js 77</a>
 </div>
 
 
@@ -445,7 +433,7 @@ const p0 = spline.evaluate(times[0]);</code></pre>
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/SteppedSpline.js#L129">engine/Source/Core/SteppedSpline.js 129</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/SteppedSpline.js#L129">engine/Source/Core/SteppedSpline.js 129</a>
 </div>
 
 
@@ -580,7 +568,7 @@ const p0 = spline.evaluate(times[0]);</code></pre>
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/SteppedSpline.js#L142">engine/Source/Core/SteppedSpline.js 142</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/SteppedSpline.js#L142">engine/Source/Core/SteppedSpline.js 142</a>
 </div>
 
 
@@ -717,9 +705,7 @@ const p0 = spline.evaluate(times[0]);</code></pre>
         
 <span class="param-type"><a href="DeveloperError.html">DeveloperError</a></span>
 
-: 时间必须在 <code>[t<sub>0</sub>, t<sub>n</sub>]</code> 范围内，其中 <code>t<sub>0</sub></code>
-是数组中的第一个元素 <code>times</code> 和 <code>t<sub>n</sub></code> 是最后一个元素
-在数组<code>时间</code>。
+: 时间必须在 <code>[t<sub>0</sub>, t<sub>n</sub>]</code> 范围内，其中 <code>t<sub>0</sub></code>是数组中的第一个元素 <code>times</code> 和 <code>t<sub>n</sub></code> 是最后一个元素在数组<code>时间</code>。
     </div>
 
 </li>
@@ -769,7 +755,7 @@ const p0 = spline.evaluate(times[0]);</code></pre>
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/SteppedSpline.js#L111">engine/Source/Core/SteppedSpline.js 111</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/SteppedSpline.js#L111">engine/Source/Core/SteppedSpline.js 111</a>
 </div>
 
 
@@ -781,8 +767,7 @@ const p0 = spline.evaluate(times[0]);</code></pre>
 
 
 <div class="description">
-    在<code>times</code>中查找索引 <code>i</code>，使得参数
-<code>times</code>在区间 <code>[times[i], times[i + 1]]</code> 中。
+    在<code>times</code>中查找索引 <code>i</code>，使得参数<code>times</code>在区间 <code>[times[i], times[i + 1]]</code> 中。
 </div>
 
 
@@ -892,9 +877,7 @@ const p0 = spline.evaluate(times[0]);</code></pre>
         
 <span class="param-type"><a href="DeveloperError.html">DeveloperError</a></span>
 
-: 时间必须在 <code>[t<sub>0</sub>, t<sub>n</sub>]</code> 范围内，其中 <code>t<sub>0</sub></code>
-是数组中的第一个元素 <code>times</code> 和 <code>t<sub>n</sub></code> 是最后一个元素
-在数组<code>时间</code>。
+: 时间必须在 <code>[t<sub>0</sub>, t<sub>n</sub>]</code> 范围内，其中 <code>t<sub>0</sub></code>是数组中的第一个元素 <code>times</code> 和 <code>t<sub>n</sub></code> 是最后一个元素在数组<code>时间</code>。
     </div>
 
 </li>
@@ -944,7 +927,7 @@ const p0 = spline.evaluate(times[0]);</code></pre>
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/SteppedSpline.js#L120">engine/Source/Core/SteppedSpline.js 120</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/SteppedSpline.js#L120">engine/Source/Core/SteppedSpline.js 120</a>
 </div>
 
 

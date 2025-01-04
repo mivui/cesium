@@ -41,15 +41,13 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Model/Extensions/Gpm/GltfGpmLoader.js#L34">engine/Source/Scene/Model/Extensions/Gpm/GltfGpmLoader.js 34</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Model/Extensions/Gpm/GltfGpmLoader.js#L34">engine/Source/Scene/Model/Extensions/Gpm/GltfGpmLoader.js 34</a>
 </div>
 
 
 
         
-            <div class="description">创建一个描述协方差矩阵(即
-symmetric) 从包含上三角形的数组中，在
-列优先顺序。</div>
+            <div class="description">创建一个描述协方差矩阵(即symmetric) 从包含上三角形的数组中，在列优先顺序。</div>
         
 
         

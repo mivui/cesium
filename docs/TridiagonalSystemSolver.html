@@ -41,14 +41,13 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/TridiagonalSystemSolver.js#L5">engine/Source/Core/TridiagonalSystemSolver.js 5</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/TridiagonalSystemSolver.js#L5">engine/Source/Core/TridiagonalSystemSolver.js 5</a>
 </div>
 
 
 
         
-            <div class="description">使用三对角矩阵算法(也称为 Thomas 算法)进行求解
-一种线性方程组，其中系数矩阵是三对角矩阵。</div>
+            <div class="description">使用三对角矩阵算法(也称为 Thomas 算法)进行求解一种线性方程组，其中系数矩阵是三对角矩阵。</div>
         
 
         
@@ -111,7 +110,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/TridiagonalSystemSolver.js#L43">engine/Source/Core/TridiagonalSystemSolver.js 43</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/TridiagonalSystemSolver.js#L43">engine/Source/Core/TridiagonalSystemSolver.js 43</a>
 </div>
 
 
@@ -334,18 +333,7 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">const lowerDiagonal = [1.0, 1.0, 1.0, 1.0];
-const diagonal = [2.0, 4.0, 4.0, 4.0, 2.0];
-const upperDiagonal = [1.0, 1.0, 1.0, 1.0];
-const rightHandSide = [
-    new Cesium.Cartesian3(410757.0, -1595711.0, 1375302.0),
-    new Cesium.Cartesian3(-5986705.0, -2190640.0, 1099600.0),
-    new Cesium.Cartesian3(-12593180.0, 288588.0, -1755549.0),
-    new Cesium.Cartesian3(-5349898.0, 2457005.0, -2685438.0),
-    new Cesium.Cartesian3(845820.0, 1573488.0, -1205591.0)
-];
-
-const solution = Cesium.TridiagonalSystemSolver.solve(lowerDiagonal, diagonal, upperDiagonal, rightHandSide);</code></pre>
+    <pre><code class="language-javascript">const lowerDiagonal = [1.0, 1.0, 1.0, 1.0];const diagonal = [2.0, 4.0, 4.0, 4.0, 2.0];const upperDiagonal = [1.0, 1.0, 1.0, 1.0];const rightHandSide = [    new Cesium.Cartesian3(410757.0, -1595711.0, 1375302.0),    new Cesium.Cartesian3(-5986705.0, -2190640.0, 1099600.0),    new Cesium.Cartesian3(-12593180.0, 288588.0, -1755549.0),    new Cesium.Cartesian3(-5349898.0, 2457005.0, -2685438.0),    new Cesium.Cartesian3(845820.0, 1573488.0, -1205591.0)];const solution = Cesium.TridiagonalSystemSolver.solve(lowerDiagonal, diagonal, upperDiagonal, rightHandSide);</code></pre>
 
     
 

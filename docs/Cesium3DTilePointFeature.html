@@ -46,7 +46,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Cesium3DTilePointFeature.js#L44">engine/Source/Scene/Cesium3DTilePointFeature.js 44</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Cesium3DTilePointFeature.js#L44">engine/Source/Scene/Cesium3DTilePointFeature.js 44</a>
 </div>
 
 
@@ -58,21 +58,7 @@
 
 
 <div class="description">
-    <a href="Cesium3DTileset.html"><code>Cesium3DTileset</code></a> 的点特征。
-<p>
-还提供对存储在切片的批处理表中的要素属性的访问
-作为显示/隐藏特征和更改其点属性的能力
-</p>
-<p>
-对 <code>Cesium3DTilePointFeature</code> 对象的修改具有瓦片的
-内容。 如果图块的内容已卸载，例如，由于它超出视图并需要
-要在缓存中为可见切片释放空间，请监听 <a href="Cesium3DTileset.html#tileUnload"><code>Cesium3DTileset#tileUnload</code></a> 事件以保存任何
-修改。此外，侦听 <a href="Cesium3DTileset.html#tileVisible"><code>Cesium3DTileset#tileVisible</code></a> 事件以重新应用任何修改。
-</p>
-<p>
-不要直接构造它。 通过 <a href="Cesium3DTileContent.html#getFeature"><code>Cesium3DTileContent#getFeature</code></a> 访问它
-或使用 <a href="Scene.html#pick"><code>Scene#pick</code></a> 和 <a href="Scene.html#pickPosition"><code>Scene#pickPosition</code></a> 进行挑选。
-</p>
+    <a href="Cesium3DTileset.html"><code>Cesium3DTileset</code></a> 的点特征。<p>还提供对存储在切片的批处理表中的要素属性的访问作为显示/隐藏特征和更改其点属性的能力</p><p>对 <code>Cesium3DTilePointFeature</code> 对象的修改具有瓦片的内容。 如果图块的内容已卸载，例如，由于它超出视图并需要要在缓存中为可见切片释放空间，请监听 <a href="Cesium3DTileset.html#tileUnload"><code>Cesium3DTileset#tileUnload</code></a> 事件以保存任何修改。此外，侦听 <a href="Cesium3DTileset.html#tileVisible"><code>Cesium3DTileset#tileVisible</code></a> 事件以重新应用任何修改。</p><p>不要直接构造它。 通过 <a href="Cesium3DTileContent.html#getFeature"><code>Cesium3DTileContent#getFeature</code></a> 访问它或使用 <a href="Scene.html#pick"><code>Scene#pick</code></a> 和 <a href="Scene.html#pickPosition"><code>Scene#pickPosition</code></a> 进行挑选。</p>
 </div>
 
 
@@ -121,18 +107,7 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// On mouse over, display all the properties for a feature in the console log.
-handler.setInputAction(function(movement) {
-    const feature = scene.pick(movement.endPosition);
-    if (feature instanceof Cesium.Cesium3DTilePointFeature) {
-        const propertyIds = feature.getPropertyIds();
-        const length = propertyIds.length;
-        for (let i = 0; i &lt; length; ++i) {
-            const propertyId = propertyIds[i];
-            console.log(`{propertyId}: ${feature.getProperty(propertyId)}`);
-        }
-    }
-}, Cesium.ScreenSpaceEventType.MOUSE_MOVE);</code></pre>
+    <pre><code class="language-javascript">// On mouse over, display all the properties for a feature in the console log.handler.setInputAction(function(movement) {    const feature = scene.pick(movement.endPosition);    if (feature instanceof Cesium.Cesium3DTilePointFeature) {        const propertyIds = feature.getPropertyIds();        const length = propertyIds.length;        for (let i = 0; i &lt; length; ++i) {            const propertyId = propertyIds[i];            console.log(`{propertyId}: ${feature.getProperty(propertyId)}`);        }    }}, Cesium.ScreenSpaceEventType.MOUSE_MOVE);</code></pre>
 
     
 
@@ -180,7 +155,7 @@ handler.setInputAction(function(movement) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Cesium3DTilePointFeature.js#L461">engine/Source/Scene/Cesium3DTilePointFeature.js 461</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Cesium3DTilePointFeature.js#L461">engine/Source/Scene/Cesium3DTilePointFeature.js 461</a>
 </div>
 
 
@@ -191,10 +166,7 @@ handler.setInputAction(function(movement) {
 
 
 <div class="description">
-    获取或设置anchor line 的颜色。
-<p>
-仅在定义 <code>heightOffset</code> 时应用。
-</p>
+    获取或设置anchor line 的颜色。<p>仅在定义 <code>heightOffset</code> 时应用。</p>
 </div>
 
 
@@ -243,7 +215,7 @@ handler.setInputAction(function(movement) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Cesium3DTilePointFeature.js#L442">engine/Source/Scene/Cesium3DTilePointFeature.js 442</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Cesium3DTilePointFeature.js#L442">engine/Source/Scene/Cesium3DTilePointFeature.js 442</a>
 </div>
 
 
@@ -254,10 +226,7 @@ handler.setInputAction(function(movement) {
 
 
 <div class="description">
-    获取或设置是否显示锚点线。
-<p>
-仅在定义 <code>heightOffset</code> 时应用。
-</p>
+    获取或设置是否显示锚点线。<p>仅在定义 <code>heightOffset</code> 时应用。</p>
 </div>
 
 
@@ -306,7 +275,7 @@ handler.setInputAction(function(movement) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Cesium3DTilePointFeature.js#L303">engine/Source/Scene/Cesium3DTilePointFeature.js 303</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Cesium3DTilePointFeature.js#L303">engine/Source/Scene/Cesium3DTilePointFeature.js 303</a>
 </div>
 
 
@@ -317,10 +286,7 @@ handler.setInputAction(function(movement) {
 
 
 <div class="description">
-    获取或设置此功能的文本的背景颜色。
-<p>
-仅在定义 <code>labelText</code> 时应用。
-</p>
+    获取或设置此功能的文本的背景颜色。<p>仅在定义 <code>labelText</code> 时应用。</p>
 </div>
 
 
@@ -369,7 +335,7 @@ handler.setInputAction(function(movement) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Cesium3DTilePointFeature.js#L341">engine/Source/Scene/Cesium3DTilePointFeature.js 341</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Cesium3DTilePointFeature.js#L341">engine/Source/Scene/Cesium3DTilePointFeature.js 341</a>
 </div>
 
 
@@ -380,10 +346,7 @@ handler.setInputAction(function(movement) {
 
 
 <div class="description">
-    获取或设置是否显示此功能的文本背景。
-<p>
-仅在定义 <code>labelText</code> 时应用。
-</p>
+    获取或设置是否显示此功能的文本背景。<p>仅在定义 <code>labelText</code> 时应用。</p>
 </div>
 
 
@@ -432,7 +395,7 @@ handler.setInputAction(function(movement) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Cesium3DTilePointFeature.js#L322">engine/Source/Scene/Cesium3DTilePointFeature.js 322</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Cesium3DTilePointFeature.js#L322">engine/Source/Scene/Cesium3DTilePointFeature.js 322</a>
 </div>
 
 
@@ -443,10 +406,7 @@ handler.setInputAction(function(movement) {
 
 
 <div class="description">
-    获取或设置此功能的文本的背景填充。
-<p>
-仅在定义 <code>labelText</code> 时应用。
-</p>
+    获取或设置此功能的文本的背景填充。<p>仅在定义 <code>labelText</code> 时应用。</p>
 </div>
 
 
@@ -495,7 +455,7 @@ handler.setInputAction(function(movement) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Cesium3DTilePointFeature.js#L108">engine/Source/Scene/Cesium3DTilePointFeature.js 108</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Cesium3DTilePointFeature.js#L108">engine/Source/Scene/Cesium3DTilePointFeature.js 108</a>
 </div>
 
 
@@ -506,10 +466,7 @@ handler.setInputAction(function(movement) {
 
 
 <div class="description">
-    获取或设置此特征的点的颜色。
-<p>
-仅在<code>图像未定义</code>时应用。<code></code>
-</p>
+    获取或设置此特征的点的颜色。<p>仅在<code>图像未定义</code>时应用。<code></code></p>
 </div>
 
 
@@ -558,7 +515,7 @@ handler.setInputAction(function(movement) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Cesium3DTilePointFeature.js#L500">engine/Source/Scene/Cesium3DTilePointFeature.js 500</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Cesium3DTilePointFeature.js#L500">engine/Source/Scene/Cesium3DTilePointFeature.js 500</a>
 </div>
 
 
@@ -618,7 +575,7 @@ handler.setInputAction(function(movement) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Cesium3DTilePointFeature.js#L391">engine/Source/Scene/Cesium3DTilePointFeature.js 391</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Cesium3DTilePointFeature.js#L391">engine/Source/Scene/Cesium3DTilePointFeature.js 391</a>
 </div>
 
 
@@ -678,7 +635,7 @@ handler.setInputAction(function(movement) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Cesium3DTilePointFeature.js#L246">engine/Source/Scene/Cesium3DTilePointFeature.js 246</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Cesium3DTilePointFeature.js#L246">engine/Source/Scene/Cesium3DTilePointFeature.js 246</a>
 </div>
 
 
@@ -689,10 +646,7 @@ handler.setInputAction(function(movement) {
 
 
 <div class="description">
-    获取或设置字体。
-<p>
-仅在定义 <code>labelText</code> 时应用。
-</p>
+    获取或设置字体。<p>仅在定义 <code>labelText</code> 时应用。</p>
 </div>
 
 
@@ -741,7 +695,7 @@ handler.setInputAction(function(movement) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Cesium3DTilePointFeature.js#L409">engine/Source/Scene/Cesium3DTilePointFeature.js 409</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Cesium3DTilePointFeature.js#L409">engine/Source/Scene/Cesium3DTilePointFeature.js 409</a>
 </div>
 
 
@@ -801,7 +755,7 @@ handler.setInputAction(function(movement) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Cesium3DTilePointFeature.js#L518">engine/Source/Scene/Cesium3DTilePointFeature.js 518</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Cesium3DTilePointFeature.js#L518">engine/Source/Scene/Cesium3DTilePointFeature.js 518</a>
 </div>
 
 
@@ -812,8 +766,7 @@ handler.setInputAction(function(movement) {
 
 
 <div class="description">
-    获取或设置此点的水平原点，用于确定该点是否为
-拖动到其锚点位置的左侧、中间或右侧。
+    获取或设置此点的水平原点，用于确定该点是否为拖动到其锚点位置的左侧、中间或右侧。
 </div>
 
 
@@ -862,7 +815,7 @@ handler.setInputAction(function(movement) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Cesium3DTilePointFeature.js#L480">engine/Source/Scene/Cesium3DTilePointFeature.js 480</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Cesium3DTilePointFeature.js#L480">engine/Source/Scene/Cesium3DTilePointFeature.js 480</a>
 </div>
 
 
@@ -922,7 +875,7 @@ handler.setInputAction(function(movement) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Cesium3DTilePointFeature.js#L188">engine/Source/Scene/Cesium3DTilePointFeature.js 188</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Cesium3DTilePointFeature.js#L188">engine/Source/Scene/Cesium3DTilePointFeature.js 188</a>
 </div>
 
 
@@ -933,10 +886,7 @@ handler.setInputAction(function(movement) {
 
 
 <div class="description">
-    获取或设置标签颜色。
-<p>
-如果定义了 <code>labelText</code>，则颜色将应用于标签。
-</p>
+    获取或设置标签颜色。<p>如果定义了 <code>labelText</code>，则颜色将应用于标签。</p>
 </div>
 
 
@@ -985,7 +935,7 @@ handler.setInputAction(function(movement) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Cesium3DTilePointFeature.js#L552">engine/Source/Scene/Cesium3DTilePointFeature.js 552</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Cesium3DTilePointFeature.js#L552">engine/Source/Scene/Cesium3DTilePointFeature.js 552</a>
 </div>
 
 
@@ -996,8 +946,7 @@ handler.setInputAction(function(movement) {
 
 
 <div class="description">
-    获取或设置此点的文本的水平原点，用于确定该点的文本是否为
-拖动到其锚点位置的左侧、中间或右侧。
+    获取或设置此点的文本的水平原点，用于确定该点的文本是否为拖动到其锚点位置的左侧、中间或右侧。
 </div>
 
 
@@ -1046,7 +995,7 @@ handler.setInputAction(function(movement) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Cesium3DTilePointFeature.js#L208">engine/Source/Scene/Cesium3DTilePointFeature.js 208</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Cesium3DTilePointFeature.js#L208">engine/Source/Scene/Cesium3DTilePointFeature.js 208</a>
 </div>
 
 
@@ -1057,10 +1006,7 @@ handler.setInputAction(function(movement) {
 
 
 <div class="description">
-    获取或设置标签轮廓颜色。
-<p>
-如果定义了 <code>labelText</code>，则轮廓颜色将应用于标签。
-</p>
+    获取或设置标签轮廓颜色。<p>如果定义了 <code>labelText</code>，则轮廓颜色将应用于标签。</p>
 </div>
 
 
@@ -1109,7 +1055,7 @@ handler.setInputAction(function(movement) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Cesium3DTilePointFeature.js#L227">engine/Source/Scene/Cesium3DTilePointFeature.js 227</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Cesium3DTilePointFeature.js#L227">engine/Source/Scene/Cesium3DTilePointFeature.js 227</a>
 </div>
 
 
@@ -1120,10 +1066,7 @@ handler.setInputAction(function(movement) {
 
 
 <div class="description">
-    获取或设置轮廓宽度(以像素为单位)。
-<p>
-如果定义了 <code>labelText</code>，则轮廓宽度将应用于该点。
-</p>
+    获取或设置轮廓宽度(以像素为单位)。<p>如果定义了 <code>labelText</code>，则轮廓宽度将应用于该点。</p>
 </div>
 
 
@@ -1172,7 +1115,7 @@ handler.setInputAction(function(movement) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Cesium3DTilePointFeature.js#L265">engine/Source/Scene/Cesium3DTilePointFeature.js 265</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Cesium3DTilePointFeature.js#L265">engine/Source/Scene/Cesium3DTilePointFeature.js 265</a>
 </div>
 
 
@@ -1183,10 +1126,7 @@ handler.setInputAction(function(movement) {
 
 
 <div class="description">
-    获取或设置fill 和轮廓样式。
-<p>
-仅在定义 <code>labelText</code> 时应用。
-</p>
+    获取或设置fill 和轮廓样式。<p>仅在定义 <code>labelText</code> 时应用。</p>
 </div>
 
 
@@ -1235,7 +1175,7 @@ handler.setInputAction(function(movement) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Cesium3DTilePointFeature.js#L281">engine/Source/Scene/Cesium3DTilePointFeature.js 281</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Cesium3DTilePointFeature.js#L281">engine/Source/Scene/Cesium3DTilePointFeature.js 281</a>
 </div>
 
 
@@ -1295,7 +1235,7 @@ handler.setInputAction(function(movement) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Cesium3DTilePointFeature.js#L569">engine/Source/Scene/Cesium3DTilePointFeature.js 569</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Cesium3DTilePointFeature.js#L569">engine/Source/Scene/Cesium3DTilePointFeature.js 569</a>
 </div>
 
 
@@ -1306,8 +1246,7 @@ handler.setInputAction(function(movement) {
 
 
 <div class="description">
-    获取或设置此点文本的垂直原点，这决定了该点的文本是否为
-拖动到其锚点的底部、中心、顶部或基线。
+    获取或设置此点文本的垂直原点，这决定了该点的文本是否为拖动到其锚点的底部、中心、顶部或基线。
 </div>
 
 
@@ -1356,7 +1295,7 @@ handler.setInputAction(function(movement) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Cesium3DTilePointFeature.js#L148">engine/Source/Scene/Cesium3DTilePointFeature.js 148</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Cesium3DTilePointFeature.js#L148">engine/Source/Scene/Cesium3DTilePointFeature.js 148</a>
 </div>
 
 
@@ -1367,10 +1306,7 @@ handler.setInputAction(function(movement) {
 
 
 <div class="description">
-    获取或设置点轮廓颜色。
-<p>
-仅在<code>图像未定义</code>时应用。<code></code>
-</p>
+    获取或设置点轮廓颜色。<p>仅在<code>图像未定义</code>时应用。<code></code></p>
 </div>
 
 
@@ -1419,7 +1355,7 @@ handler.setInputAction(function(movement) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Cesium3DTilePointFeature.js#L168">engine/Source/Scene/Cesium3DTilePointFeature.js 168</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Cesium3DTilePointFeature.js#L168">engine/Source/Scene/Cesium3DTilePointFeature.js 168</a>
 </div>
 
 
@@ -1430,10 +1366,7 @@ handler.setInputAction(function(movement) {
 
 
 <div class="description">
-    获取或设置点轮廓宽度(以像素为单位)。
-<p>
-仅在<code>图像未定义</code>时应用。<code></code>
-</p>
+    获取或设置点轮廓宽度(以像素为单位)。<p>仅在<code>图像未定义</code>时应用。<code></code></p>
 </div>
 
 
@@ -1482,7 +1415,7 @@ handler.setInputAction(function(movement) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Cesium3DTilePointFeature.js#L128">engine/Source/Scene/Cesium3DTilePointFeature.js 128</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Cesium3DTilePointFeature.js#L128">engine/Source/Scene/Cesium3DTilePointFeature.js 128</a>
 </div>
 
 
@@ -1493,10 +1426,7 @@ handler.setInputAction(function(movement) {
 
 
 <div class="description">
-    获取或设置磅值。
-<p>
-仅在<code>图像未定义</code>时应用。<code></code>
-</p>
+    获取或设置磅值。<p>仅在<code>图像未定义</code>时应用。<code></code></p>
 </div>
 
 
@@ -1545,7 +1475,7 @@ handler.setInputAction(function(movement) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Cesium3DTilePointFeature.js#L619">engine/Source/Scene/Cesium3DTilePointFeature.js 619</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Cesium3DTilePointFeature.js#L619">engine/Source/Scene/Cesium3DTilePointFeature.js 619</a>
 </div>
 
 
@@ -1556,8 +1486,7 @@ handler.setInputAction(function(movement) {
 
 
 <div class="description">
-    <a href="Scene.html#pick"><code>Scene#pick</code></a> 返回的所有对象都具有 <code>primitive</code> 属性。这将返回
-包含特征的瓦片集。
+    <a href="Scene.html#pick"><code>Scene#pick</code></a> 返回的所有对象都具有 <code>primitive</code> 属性。这将返回包含特征的瓦片集。
 </div>
 
 
@@ -1606,7 +1535,7 @@ handler.setInputAction(function(movement) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Cesium3DTilePointFeature.js#L357">engine/Source/Scene/Cesium3DTilePointFeature.js 357</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Cesium3DTilePointFeature.js#L357">engine/Source/Scene/Cesium3DTilePointFeature.js 357</a>
 </div>
 
 
@@ -1666,7 +1595,7 @@ handler.setInputAction(function(movement) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Cesium3DTilePointFeature.js#L87">engine/Source/Scene/Cesium3DTilePointFeature.js 87</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Cesium3DTilePointFeature.js#L87">engine/Source/Scene/Cesium3DTilePointFeature.js 87</a>
 </div>
 
 
@@ -1677,8 +1606,7 @@ handler.setInputAction(function(movement) {
 
 
 <div class="description">
-    获取或设置是否功能。这是为所有功能设置的
-评估样式的显示时。
+    获取或设置是否功能。这是为所有功能设置的评估样式的显示时。
 </div>
 
 
@@ -1730,7 +1658,7 @@ handler.setInputAction(function(movement) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Cesium3DTilePointFeature.js#L603">engine/Source/Scene/Cesium3DTilePointFeature.js 603</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Cesium3DTilePointFeature.js#L603">engine/Source/Scene/Cesium3DTilePointFeature.js 603</a>
 </div>
 
 
@@ -1790,7 +1718,7 @@ handler.setInputAction(function(movement) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Cesium3DTilePointFeature.js#L374">engine/Source/Scene/Cesium3DTilePointFeature.js 374</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Cesium3DTilePointFeature.js#L374">engine/Source/Scene/Cesium3DTilePointFeature.js 374</a>
 </div>
 
 
@@ -1850,7 +1778,7 @@ handler.setInputAction(function(movement) {
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Cesium3DTilePointFeature.js#L535">engine/Source/Scene/Cesium3DTilePointFeature.js 535</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Cesium3DTilePointFeature.js#L535">engine/Source/Scene/Cesium3DTilePointFeature.js 535</a>
 </div>
 
 
@@ -1861,8 +1789,7 @@ handler.setInputAction(function(movement) {
 
 
 <div class="description">
-    获取或设置此点的垂直原点，用于确定该点是否为
-拖动到其锚点位置的底部、中心或顶部。
+    获取或设置此点的垂直原点，用于确定该点是否为拖动到其锚点位置的底部、中心或顶部。
 </div>
 
 
@@ -1917,7 +1844,7 @@ handler.setInputAction(function(movement) {
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Cesium3DTilePointFeature.js#L760">engine/Source/Scene/Cesium3DTilePointFeature.js 760</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Cesium3DTilePointFeature.js#L760">engine/Source/Scene/Cesium3DTilePointFeature.js 760</a>
 </div>
 
 
@@ -1929,8 +1856,7 @@ handler.setInputAction(function(movement) {
 
 
 <div class="description">
-    返回具有给定名称的功能属性的值的副本。这包括此功能的
-类和继承的类。
+    返回具有给定名称的功能属性的值的副本。这包括此功能的类和继承的类。
 </div>
 
 
@@ -2033,13 +1959,7 @@ handler.setInputAction(function(movement) {
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Display all the properties for a feature in the console log.
-const propertyIds = feature.getPropertyIds();
-const length = propertyIds.length;
-for (let i = 0; i &lt; length; ++i) {
-    const propertyId = propertyIds[i];
-    console.log(`{propertyId} : ${feature.getProperty(propertyId)}`);
-}</code></pre>
+    <pre><code class="language-javascript">// Display all the properties for a feature in the console log.const propertyIds = feature.getPropertyIds();const length = propertyIds.length;for (let i = 0; i &lt; length; ++i) {    const propertyId = propertyIds[i];    console.log(`{propertyId} : ${feature.getProperty(propertyId)}`);}</code></pre>
 
     
 
@@ -2069,7 +1989,7 @@ for (let i = 0; i &lt; length; ++i) {
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Cesium3DTilePointFeature.js#L738">engine/Source/Scene/Cesium3DTilePointFeature.js 738</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Cesium3DTilePointFeature.js#L738">engine/Source/Scene/Cesium3DTilePointFeature.js 738</a>
 </div>
 
 
@@ -2081,8 +2001,7 @@ for (let i = 0; i &lt; length; ++i) {
 
 
 <div class="description">
-    返回功能的属性 ID 数组。这包括此功能的
-类和继承的类。
+    返回功能的属性 ID 数组。这包括此功能的类和继承的类。
 </div>
 
 
@@ -2217,7 +2136,7 @@ for (let i = 0; i &lt; length; ++i) {
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Cesium3DTilePointFeature.js#L725">engine/Source/Scene/Cesium3DTilePointFeature.js 725</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Cesium3DTilePointFeature.js#L725">engine/Source/Scene/Cesium3DTilePointFeature.js 725</a>
 </div>
 
 
@@ -2229,8 +2148,7 @@ for (let i = 0; i &lt; length; ++i) {
 
 
 <div class="description">
-    返回功能是否包含此属性。这包括此功能的
-类和继承的类。
+    返回功能是否包含此属性。这包括此功能的类和继承的类。
 </div>
 
 
@@ -2358,7 +2276,7 @@ for (let i = 0; i &lt; length; ++i) {
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Cesium3DTilePointFeature.js#L811">engine/Source/Scene/Cesium3DTilePointFeature.js 811</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Cesium3DTilePointFeature.js#L811">engine/Source/Scene/Cesium3DTilePointFeature.js 811</a>
 </div>
 
 
@@ -2370,10 +2288,7 @@ for (let i = 0; i &lt; length; ++i) {
 
 
 <div class="description">
-    使用给定名称设置功能属性的值。
-<p>
-如果具有给定名称的属性不存在，则会创建该属性。
-</p>
+    使用给定名称设置功能属性的值。<p>如果具有给定名称的属性不存在，则会创建该属性。</p>
 </div>
 
 
@@ -2506,13 +2421,7 @@ for (let i = 0; i &lt; length; ++i) {
         
     <pre><code class="language-javascript">const height = feature.getProperty('Height'); // e.g., the height of a building</code></pre>
 
-    <pre><code class="language-javascript">const name = 'clicked';
-if (feature.getProperty(name)) {
-    console.log('already clicked');
-} else {
-    feature.setProperty(name, true);
-    console.log('first click');
-}</code></pre>
+    <pre><code class="language-javascript">const name = 'clicked';if (feature.getProperty(name)) {    console.log('already clicked');} else {    feature.setProperty(name, true);    console.log('first click');}</code></pre>
 
     
 

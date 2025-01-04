@@ -41,15 +41,13 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/Stereographic.js#L19">engine/Source/Core/Stereographic.js 19</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/Stereographic.js#L19">engine/Source/Core/Stereographic.js 19</a>
 </div>
 
 
 
         
-            <div class="description">表示立体坐标中的点，可以通过将笛卡尔坐标从一个极点投影到另一个极点的切平面上来获得。
-立体投影忠实地表示通过其中心点的所有大圆的相对方向。
-为了忠实地表示所有位置的角度，这是一种等角投影，这意味着点被投影到任意球体上。</div>
+            <div class="description">表示立体坐标中的点，可以通过将笛卡尔坐标从一个极点投影到另一个极点的切平面上来获得。立体投影忠实地表示通过其中心点的所有大圆的相对方向。为了忠实地表示所有位置的角度，这是一种等角投影，这意味着点被投影到任意球体上。</div>
         
 
         
@@ -110,7 +108,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/Stereographic.js#L229">engine/Source/Core/Stereographic.js 229</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/Stereographic.js#L229">engine/Source/Core/Stereographic.js 229</a>
 </div>
 
 
@@ -170,7 +168,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/Stereographic.js#L70">engine/Source/Core/Stereographic.js 70</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/Stereographic.js#L70">engine/Source/Core/Stereographic.js 70</a>
 </div>
 
 
@@ -230,7 +228,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/Stereographic.js#L37">engine/Source/Core/Stereographic.js 37</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/Stereographic.js#L37">engine/Source/Core/Stereographic.js 37</a>
 </div>
 
 
@@ -290,7 +288,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/Stereographic.js#L84">engine/Source/Core/Stereographic.js 84</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/Stereographic.js#L84">engine/Source/Core/Stereographic.js 84</a>
 </div>
 
 
@@ -350,7 +348,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/Stereographic.js#L48">engine/Source/Core/Stereographic.js 48</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/Stereographic.js#L48">engine/Source/Core/Stereographic.js 48</a>
 </div>
 
 
@@ -410,7 +408,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/Stereographic.js#L59">engine/Source/Core/Stereographic.js 59</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/Stereographic.js#L59">engine/Source/Core/Stereographic.js 59</a>
 </div>
 
 
@@ -476,7 +474,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/Stereographic.js#L206">engine/Source/Core/Stereographic.js 206</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/Stereographic.js#L206">engine/Source/Core/Stereographic.js 206</a>
 </div>
 
 
@@ -646,7 +644,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/Stereographic.js#L132">engine/Source/Core/Stereographic.js 132</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/Stereographic.js#L132">engine/Source/Core/Stereographic.js 132</a>
 </div>
 
 
@@ -816,7 +814,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/Stereographic.js#L182">engine/Source/Core/Stereographic.js 182</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/Stereographic.js#L182">engine/Source/Core/Stereographic.js 182</a>
 </div>
 
 
@@ -986,7 +984,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/Stereographic.js#L105">engine/Source/Core/Stereographic.js 105</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/Stereographic.js#L105">engine/Source/Core/Stereographic.js 105</a>
 </div>
 
 

@@ -46,7 +46,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Atmosphere.js#L39">engine/Source/Scene/Atmosphere.js 39</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Atmosphere.js#L39">engine/Source/Scene/Atmosphere.js 39</a>
 </div>
 
 
@@ -58,14 +58,7 @@
 
 
 <div class="description">
-    3D 瓦片和模型用于渲染天空大气、地面大气和雾的常见大气设置。
-
-<p>
-不要将此类与负责渲染天空的 <a href="SkyAtmosphere.html"><code>SkyAtmosphere</code></a> 混淆。
-</p>
-<p>
-虽然大气设置会影响雾的颜色，请参阅 <a href="Fog.html"><code>Fog</code></a> 来控制雾的渲染方式。
-</p>
+    3D 瓦片和模型用于渲染天空大气、地面大气和雾的常见大气设置。<p>不要将此类与负责渲染天空的 <a href="SkyAtmosphere.html"><code>SkyAtmosphere</code></a> 混淆。</p><p>虽然大气设置会影响雾的颜色，请参阅 <a href="Fog.html"><code>Fog</code></a> 来控制雾的渲染方式。</p>
 </div>
 
 
@@ -114,19 +107,11 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Turn on dynamic atmosphere lighting using the sun direction
-scene.atmosphere.dynamicLighting = Cesium.DynamicAtmosphereLightingType.SUNLIGHT;</code></pre>
+    <pre><code class="language-javascript">// Turn on dynamic atmosphere lighting using the sun directionscene.atmosphere.dynamicLighting = Cesium.DynamicAtmosphereLightingType.SUNLIGHT;</code></pre>
 
-    <pre><code class="language-javascript">// Turn on dynamic lighting using whatever light source is in the scene
-scene.light = new Cesium.DirectionalLight({
-  direction: new Cesium.Cartesian3(1, 0, 0)
-});
-scene.atmosphere.dynamicLighting = Cesium.DynamicAtmosphereLightingType.SCENE_LIGHT;</code></pre>
+    <pre><code class="language-javascript">// Turn on dynamic lighting using whatever light source is in the scenescene.light = new Cesium.DirectionalLight({  direction: new Cesium.Cartesian3(1, 0, 0)});scene.atmosphere.dynamicLighting = Cesium.DynamicAtmosphereLightingType.SCENE_LIGHT;</code></pre>
 
-    <pre><code class="language-javascript">// Adjust the color of the atmosphere effects.
-scene.atmosphere.hueShift = 0.4; // Cycle 40% around the color wheel
-scene.atmosphere.brightnessShift = 0.25; // Increase the brightness
-scene.atmosphere.saturationShift = -0.1; // Desaturate the colors</code></pre>
+    <pre><code class="language-javascript">// Adjust the color of the atmosphere effects.scene.atmosphere.hueShift = 0.4; // Cycle 40% around the color wheelscene.atmosphere.brightnessShift = 0.25; // Increase the brightnessscene.atmosphere.saturationShift = -0.1; // Desaturate the colors</code></pre>
 
     
 
@@ -176,7 +161,7 @@ scene.atmosphere.saturationShift = -0.1; // Desaturate the colors</code></pre>
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Atmosphere.js#L116">engine/Source/Scene/Atmosphere.js 116</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Atmosphere.js#L116">engine/Source/Scene/Atmosphere.js 116</a>
 </div>
 
 
@@ -187,8 +172,7 @@ scene.atmosphere.saturationShift = -0.1; // Desaturate the colors</code></pre>
 
 
 <div class="description">
-    应用于大气的亮度偏移。默认为 0.0(无偏移)。
--1.0 的亮度偏移是完全黑暗的，这将使空间透出。
+    应用于大气的亮度偏移。默认为 0.0(无偏移)。-1.0 的亮度偏移是完全黑暗的，这将使空间透出。
 </div>
 
 
@@ -240,7 +224,7 @@ scene.atmosphere.saturationShift = -0.1; // Desaturate the colors</code></pre>
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Atmosphere.js#L125">engine/Source/Scene/Atmosphere.js 125</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Atmosphere.js#L125">engine/Source/Scene/Atmosphere.js 125</a>
 </div>
 
 
@@ -251,8 +235,7 @@ scene.atmosphere.saturationShift = -0.1; // Desaturate the colors</code></pre>
 
 
 <div class="description">
-    当不是 DynamicAtmosphereLightingType.NONE 时，所选光源将会
-用于动态照亮所有与大气相关的渲染效果。
+    当不是 DynamicAtmosphereLightingType.NONE 时，所选光源将会用于动态照亮所有与大气相关的渲染效果。
 </div>
 
 
@@ -304,7 +287,7 @@ scene.atmosphere.saturationShift = -0.1; // Desaturate the colors</code></pre>
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Atmosphere.js#L98">engine/Source/Scene/Atmosphere.js 98</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Atmosphere.js#L98">engine/Source/Scene/Atmosphere.js 98</a>
 </div>
 
 
@@ -315,8 +298,7 @@ scene.atmosphere.saturationShift = -0.1; // Desaturate the colors</code></pre>
 
 
 <div class="description">
-    应用于大气的色相偏移。默认为 0.0(无偏移)。
-色相偏移 1.0 表示可用色相完全旋转。
+    应用于大气的色相偏移。默认为 0.0(无偏移)。色相偏移 1.0 表示可用色相完全旋转。
 </div>
 
 
@@ -368,7 +350,7 @@ scene.atmosphere.saturationShift = -0.1; // Desaturate the colors</code></pre>
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Atmosphere.js#L46">engine/Source/Scene/Atmosphere.js 46</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Atmosphere.js#L46">engine/Source/Scene/Atmosphere.js 46</a>
 </div>
 
 
@@ -431,7 +413,7 @@ scene.atmosphere.saturationShift = -0.1; // Desaturate the colors</code></pre>
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Atmosphere.js#L89">engine/Source/Scene/Atmosphere.js 89</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Atmosphere.js#L89">engine/Source/Scene/Atmosphere.js 89</a>
 </div>
 
 
@@ -442,10 +424,7 @@ scene.atmosphere.saturationShift = -0.1; // Desaturate the colors</code></pre>
 
 
 <div class="description">
-    米氏散射要考虑的介质的各向异性。
-<p>
-有效值介于 -1.0 和 1.0 之间。
-</p>
+    米氏散射要考虑的介质的各向异性。<p>有效值介于 -1.0 和 1.0 之间。</p>
 </div>
 
 
@@ -497,7 +476,7 @@ scene.atmosphere.saturationShift = -0.1; // Desaturate the colors</code></pre>
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Atmosphere.js#L62">engine/Source/Scene/Atmosphere.js 62</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Atmosphere.js#L62">engine/Source/Scene/Atmosphere.js 62</a>
 </div>
 
 
@@ -560,7 +539,7 @@ scene.atmosphere.saturationShift = -0.1; // Desaturate the colors</code></pre>
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Atmosphere.js#L78">engine/Source/Scene/Atmosphere.js 78</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Atmosphere.js#L78">engine/Source/Scene/Atmosphere.js 78</a>
 </div>
 
 
@@ -623,7 +602,7 @@ scene.atmosphere.saturationShift = -0.1; // Desaturate the colors</code></pre>
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Atmosphere.js#L54">engine/Source/Scene/Atmosphere.js 54</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Atmosphere.js#L54">engine/Source/Scene/Atmosphere.js 54</a>
 </div>
 
 
@@ -686,7 +665,7 @@ scene.atmosphere.saturationShift = -0.1; // Desaturate the colors</code></pre>
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Atmosphere.js#L70">engine/Source/Scene/Atmosphere.js 70</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Atmosphere.js#L70">engine/Source/Scene/Atmosphere.js 70</a>
 </div>
 
 
@@ -749,7 +728,7 @@ scene.atmosphere.saturationShift = -0.1; // Desaturate the colors</code></pre>
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Atmosphere.js#L107">engine/Source/Scene/Atmosphere.js 107</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Atmosphere.js#L107">engine/Source/Scene/Atmosphere.js 107</a>
 </div>
 
 
@@ -760,8 +739,7 @@ scene.atmosphere.saturationShift = -0.1; // Desaturate the colors</code></pre>
 
 
 <div class="description">
-    应用于大气的饱和度偏移。默认为 0.0(无偏移)。
--1.0 的饱和度偏移为单色。
+    应用于大气的饱和度偏移。默认为 0.0(无偏移)。-1.0 的饱和度偏移为单色。
 </div>
 
 
@@ -819,7 +797,7 @@ scene.atmosphere.saturationShift = -0.1; // Desaturate the colors</code></pre>
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Atmosphere.js#L133">engine/Source/Scene/Atmosphere.js 133</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Atmosphere.js#L133">engine/Source/Scene/Atmosphere.js 133</a>
 </div>
 
 

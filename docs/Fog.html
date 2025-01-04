@@ -46,7 +46,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Fog.js#L16">engine/Source/Scene/Fog.js 16</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Fog.js#L16">engine/Source/Scene/Fog.js 16</a>
 </div>
 
 
@@ -58,8 +58,7 @@
 
 
 <div class="description">
-    将大气与远离摄像机的几何体混合，以获得地平线视图。允许额外的
-通过渲染更少的几何体和调度更少的地形请求来提高性能。
+    将大气与远离摄像机的几何体混合，以获得地平线视图。允许额外的通过渲染更少的几何体和调度更少的地形请求来提高性能。
 </div>
 
 
@@ -149,7 +148,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Fog.js#L49">engine/Source/Scene/Fog.js 49</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Fog.js#L49">engine/Source/Scene/Fog.js 49</a>
 </div>
 
 
@@ -160,11 +159,7 @@
 
 
 <div class="description">
-    确定雾密度的标量。处于全雾中的地形将被剔除。
-当这个数字接近 1.0 时，雾的密度会增加，当它接近 0 时，雾的密度会变得不那么密集。
-雾越浓，地形被剔除的程度就越高。例如，如果相机的高度为
-在椭球体上方 1000.0m 处，将值增加到 3.0e-3 将导致靠近观察者的许多图块被剔除。
-减小该值会将雾推离查看器，但会降低性能，因为渲染的地形更多。
+    确定雾密度的标量。处于全雾中的地形将被剔除。当这个数字接近 1.0 时，雾的密度会增加，当它接近 0 时，雾的密度会变得不那么密集。雾越浓，地形被剔除的程度就越高。例如，如果相机的高度为在椭球体上方 1000.0m 处，将值增加到 3.0e-3 将导致靠近观察者的许多图块被剔除。减小该值会将雾推离查看器，但会降低性能，因为渲染的地形更多。
 </div>
 
 
@@ -196,8 +191,7 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// 将默认雾密度加倍
-viewer.scene.fog.density = 0.0012;</code></pre>
+    <pre><code class="language-javascript">// 将默认雾密度加倍viewer.scene.fog.density = 0.0012;</code></pre>
 
     
 
@@ -222,7 +216,7 @@ viewer.scene.fog.density = 0.0012;</code></pre>
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Fog.js#L25">engine/Source/Scene/Fog.js 25</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Fog.js#L25">engine/Source/Scene/Fog.js 25</a>
 </div>
 
 
@@ -265,8 +259,7 @@ viewer.scene.fog.density = 0.0012;</code></pre>
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// 在场景中禁用雾
-viewer.scene.fog.enabled = false;</code></pre>
+    <pre><code class="language-javascript">// 在场景中禁用雾viewer.scene.fog.enabled = false;</code></pre>
 
     
 
@@ -291,7 +284,7 @@ viewer.scene.fog.enabled = false;</code></pre>
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Fog.js#L100">engine/Source/Scene/Fog.js 100</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Fog.js#L100">engine/Source/Scene/Fog.js 100</a>
 </div>
 
 
@@ -302,8 +295,7 @@ viewer.scene.fog.enabled = false;</code></pre>
 
 
 <div class="description">
-    函数中使用的指数因子，用于根据摄像机在椭球体上方的高度调整密度的变化方式。值越小，随着摄像机高度的增加，产生的过渡就越平缓。
-值必须大于 0。
+    函数中使用的指数因子，用于根据摄像机在椭球体上方的高度调整密度的变化方式。值越小，随着摄像机高度的增加，产生的过渡就越平缓。值必须大于 0。
 </div>
 
 
@@ -355,7 +347,7 @@ viewer.scene.fog.enabled = false;</code></pre>
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Fog.js#L55">engine/Source/Scene/Fog.js 55</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Fog.js#L55">engine/Source/Scene/Fog.js 55</a>
 </div>
 
 
@@ -418,7 +410,7 @@ viewer.scene.fog.enabled = false;</code></pre>
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Fog.js#L62">engine/Source/Scene/Fog.js 62</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Fog.js#L62">engine/Source/Scene/Fog.js 62</a>
 </div>
 
 
@@ -481,7 +473,7 @@ viewer.scene.fog.enabled = false;</code></pre>
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Fog.js#L89">engine/Source/Scene/Fog.js 89</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Fog.js#L89">engine/Source/Scene/Fog.js 89</a>
 </div>
 
 
@@ -492,8 +484,7 @@ viewer.scene.fog.enabled = false;</code></pre>
 
 
 <div class="description">
-    照明产生的雾色的最小亮度。值为 0.0 时，雾将完全变黑。值 1.0 不会影响
-亮度。
+    照明产生的雾色的最小亮度。值为 0.0 时，雾将完全变黑。值 1.0 不会影响亮度。
 </div>
 
 
@@ -545,7 +536,7 @@ viewer.scene.fog.enabled = false;</code></pre>
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Fog.js#L36">engine/Source/Scene/Fog.js 36</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Fog.js#L36">engine/Source/Scene/Fog.js 36</a>
 </div>
 
 
@@ -556,8 +547,7 @@ viewer.scene.fog.enabled = false;</code></pre>
 
 
 <div class="description">
-    如果雾在着色器中可渲染，则为 <code>true</code>, 否则<code>false</code>。
-这允许从基于雾密度的优化平铺加载策略中受益，而无需实际的视觉渲染。
+    如果雾在着色器中可渲染，则为 <code>true</code>, 否则<code>false</code>。这允许从基于雾密度的优化平铺加载策略中受益，而无需实际的视觉渲染。
 </div>
 
 
@@ -589,9 +579,7 @@ viewer.scene.fog.enabled = false;</code></pre>
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// 使用雾消隐但不渲染它
-viewer.scene.fog.enabled = true;
-viewer.scene.fog.renderable = false;</code></pre>
+    <pre><code class="language-javascript">// 使用雾消隐但不渲染它viewer.scene.fog.enabled = true;viewer.scene.fog.renderable = false;</code></pre>
 
     
 
@@ -616,7 +604,7 @@ viewer.scene.fog.renderable = false;</code></pre>
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Fog.js#L82">engine/Source/Scene/Fog.js 82</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Fog.js#L82">engine/Source/Scene/Fog.js 82</a>
 </div>
 
 
@@ -627,10 +615,7 @@ viewer.scene.fog.renderable = false;</code></pre>
 
 
 <div class="description">
-    当地形瓦片部分处于雾中时，用于增加地形瓦片的屏幕空间误差的系数。效果是减少
-请求渲染的地形瓦片的数量。如果设置为 0，该功能将被禁用。如果该值增加
-对于山区，需要请求的图块较少，但地平线附近的地形网格可能会明显增加
-分辨率较低。如果在相对平坦的区域增加该值，则地平线上几乎没有明显的变化。
+    当地形瓦片部分处于雾中时，用于增加地形瓦片的屏幕空间误差的系数。效果是减少请求渲染的地形瓦片的数量。如果设置为 0，该功能将被禁用。如果该值增加对于山区，需要请求的图块较少，但地平线附近的地形网格可能会明显增加分辨率较低。如果在相对平坦的区域增加该值，则地平线上几乎没有明显的变化。
 </div>
 
 
@@ -682,7 +667,7 @@ viewer.scene.fog.renderable = false;</code></pre>
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Fog.js#L73">engine/Source/Scene/Fog.js 73</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Fog.js#L73">engine/Source/Scene/Fog.js 73</a>
 </div>
 
 
@@ -693,8 +678,7 @@ viewer.scene.fog.renderable = false;</code></pre>
 
 
 <div class="description">
-    影响雾的视觉密度的标量。此值不会影响地形的剔除。
-与 <code>Fog.density</code> 结合使用，可使雾看起来更浓或更浓。
+    影响雾的视觉密度的标量。此值不会影响地形的剔除。与 <code>Fog.density</code> 结合使用，可使雾看起来更浓或更浓。
 </div>
 
 
@@ -726,8 +710,7 @@ viewer.scene.fog.renderable = false;</code></pre>
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// 增加雾化外观效果
-viewer.scene.fog.visualDensityScalar = 0.6;</code></pre>
+    <pre><code class="language-javascript">// 增加雾化外观效果viewer.scene.fog.visualDensityScalar = 0.6;</code></pre>
 
     
 

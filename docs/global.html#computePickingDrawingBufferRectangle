@@ -41,14 +41,13 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/Picking.js#L251">engine/Source/Scene/Picking.js 251</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/Picking.js#L251">engine/Source/Scene/Picking.js 251</a>
 </div>
 
 
 
         
-            <div class="description">计算描述绘图缓冲区部分的矩形
-这与拣选相关。</div>
+            <div class="description">计算描述绘图缓冲区部分的矩形这与拣选相关。</div>
         
 
         

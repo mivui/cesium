@@ -41,7 +41,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/createWorldTerrainAsync.js#L41">engine/Source/Core/createWorldTerrainAsync.js 41</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/createWorldTerrainAsync.js#L41">engine/Source/Core/createWorldTerrainAsync.js 41</a>
 </div>
 
 
@@ -73,26 +73,9 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Create Cesium World Terrain with default settings
-try {
-  const viewer = new Cesium.Viewer("cesiumContainer", {
-    terrainProvider: await Cesium.createWorldTerrainAsync();
-  });
-} catch (error) {
-  console.log(error);
-}</code></pre>
+    <pre><code class="language-javascript">// Create Cesium World Terrain with default settingstry {  const viewer = new Cesium.Viewer("cesiumContainer", {    terrainProvider: await Cesium.createWorldTerrainAsync();  });} catch (error) {  console.log(error);}</code></pre>
 
-    <pre><code class="language-javascript">// Create Cesium World Terrain with water and normals.
-try {
-  const viewer1 = new Cesium.Viewer("cesiumContainer", {
-    terrainProvider: await Cesium.createWorldTerrainAsync({
-      requestWaterMask: true,
-      requestVertexNormals: true
-    });
-  });
-} catch (error) {
-  console.log(error);
-}</code></pre>
+    <pre><code class="language-javascript">// Create Cesium World Terrain with water and normals.try {  const viewer1 = new Cesium.Viewer("cesiumContainer", {    terrainProvider: await Cesium.createWorldTerrainAsync({      requestWaterMask: true,      requestVertexNormals: true    });  });} catch (error) {  console.log(error);}</code></pre>
 
     
 

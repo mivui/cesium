@@ -41,14 +41,13 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/MetadataType.js#L37">engine/Source/Scene/MetadataType.js 37</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/MetadataType.js#L37">engine/Source/Scene/MetadataType.js 37</a>
 </div>
 
 
 
         
-            <div class="description">元数据类型的枚举。这些元数据类型是包含
-一个或多个 <a href="global.html#MetadataComponentType"><code>MetadataComponentType</code></a> 类型的组件</div>
+            <div class="description">元数据类型的枚举。这些元数据类型是包含一个或多个 <a href="global.html#MetadataComponentType"><code>MetadataComponentType</code></a> 类型的组件</div>
         
 
         
@@ -374,7 +373,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/MetadataType.js#L93">engine/Source/Scene/MetadataType.js 93</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/MetadataType.js#L93">engine/Source/Scene/MetadataType.js 93</a>
 </div>
 
 
@@ -437,7 +436,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/MetadataType.js#L109">engine/Source/Scene/MetadataType.js 109</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/MetadataType.js#L109">engine/Source/Scene/MetadataType.js 109</a>
 </div>
 
 
@@ -505,7 +504,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/MetadataType.js#L72">engine/Source/Scene/MetadataType.js 72</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/MetadataType.js#L72">engine/Source/Scene/MetadataType.js 72</a>
 </div>
 
 
@@ -568,7 +567,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/MetadataType.js#L79">engine/Source/Scene/MetadataType.js 79</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/MetadataType.js#L79">engine/Source/Scene/MetadataType.js 79</a>
 </div>
 
 
@@ -631,7 +630,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/MetadataType.js#L86">engine/Source/Scene/MetadataType.js 86</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/MetadataType.js#L86">engine/Source/Scene/MetadataType.js 86</a>
 </div>
 
 
@@ -694,7 +693,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/MetadataType.js#L44">engine/Source/Scene/MetadataType.js 44</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/MetadataType.js#L44">engine/Source/Scene/MetadataType.js 44</a>
 </div>
 
 
@@ -757,7 +756,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/MetadataType.js#L100">engine/Source/Scene/MetadataType.js 100</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/MetadataType.js#L100">engine/Source/Scene/MetadataType.js 100</a>
 </div>
 
 
@@ -820,7 +819,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/MetadataType.js#L51">engine/Source/Scene/MetadataType.js 51</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/MetadataType.js#L51">engine/Source/Scene/MetadataType.js 51</a>
 </div>
 
 
@@ -883,7 +882,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/MetadataType.js#L58">engine/Source/Scene/MetadataType.js 58</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/MetadataType.js#L58">engine/Source/Scene/MetadataType.js 58</a>
 </div>
 
 
@@ -946,7 +945,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Scene/MetadataType.js#L65">engine/Source/Scene/MetadataType.js 65</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Scene/MetadataType.js#L65">engine/Source/Scene/MetadataType.js 65</a>
 </div>
 
 

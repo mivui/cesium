@@ -46,7 +46,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/SampledProperty.js#L159">engine/Source/DataSources/SampledProperty.js 159</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/SampledProperty.js#L159">engine/Source/DataSources/SampledProperty.js 159</a>
 </div>
 
 
@@ -58,8 +58,7 @@
 
 
 <div class="description">
-    一个 <a href="Property.html"><code>Property</code></a>，其值在给定时间内从
-提供样本集和指定的插值算法和度数。
+    一个 <a href="Property.html"><code>Property</code></a>，其值在给定时间内从提供样本集和指定的插值算法和度数。
 </div>
 
 
@@ -191,35 +190,9 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">//Create a linearly interpolated Cartesian2
-const property = new Cesium.SampledProperty(Cesium.Cartesian2);
+    <pre><code class="language-javascript">//Create a linearly interpolated Cartesian2const property = new Cesium.SampledProperty(Cesium.Cartesian2);//Populate it with dataproperty.addSample(Cesium.JulianDate.fromIso8601('2012-08-01T00:00:00.00Z'), new Cesium.Cartesian2(0, 0));property.addSample(Cesium.JulianDate.fromIso8601('2012-08-02T00:00:00.00Z'), new Cesium.Cartesian2(4, 7));//Retrieve an interpolated valueconst result = property.getValue(Cesium.JulianDate.fromIso8601('2012-08-01T12:00:00.00Z'));</code></pre>
 
-//Populate it with data
-property.addSample(Cesium.JulianDate.fromIso8601('2012-08-01T00:00:00.00Z'), new Cesium.Cartesian2(0, 0));
-property.addSample(Cesium.JulianDate.fromIso8601('2012-08-02T00:00:00.00Z'), new Cesium.Cartesian2(4, 7));
-
-//Retrieve an interpolated value
-const result = property.getValue(Cesium.JulianDate.fromIso8601('2012-08-01T12:00:00.00Z'));</code></pre>
-
-    <pre><code class="language-javascript">//Create a simple numeric SampledProperty that uses third degree Hermite Polynomial Approximation
-const property = new Cesium.SampledProperty(Number);
-property.setInterpolationOptions({
-    interpolationDegree : 3,
-    interpolationAlgorithm : Cesium.HermitePolynomialApproximation
-});
-
-//Populate it with data
-property.addSample(Cesium.JulianDate.fromIso8601('2012-08-01T00:00:00.00Z'), 1.0);
-property.addSample(Cesium.JulianDate.fromIso8601('2012-08-01T00:01:00.00Z'), 6.0);
-property.addSample(Cesium.JulianDate.fromIso8601('2012-08-01T00:02:00.00Z'), 12.0);
-property.addSample(Cesium.JulianDate.fromIso8601('2012-08-01T00:03:30.00Z'), 5.0);
-property.addSample(Cesium.JulianDate.fromIso8601('2012-08-01T00:06:30.00Z'), 2.0);
-
-//Samples can be added in any order.
-property.addSample(Cesium.JulianDate.fromIso8601('2012-08-01T00:00:30.00Z'), 6.2);
-
-//Retrieve an interpolated value
-const result = property.getValue(Cesium.JulianDate.fromIso8601('2012-08-01T00:02:34.00Z'));</code></pre>
+    <pre><code class="language-javascript">//Create a simple numeric SampledProperty that uses third degree Hermite Polynomial Approximationconst property = new Cesium.SampledProperty(Number);property.setInterpolationOptions({    interpolationDegree : 3,    interpolationAlgorithm : Cesium.HermitePolynomialApproximation});//Populate it with dataproperty.addSample(Cesium.JulianDate.fromIso8601('2012-08-01T00:00:00.00Z'), 1.0);property.addSample(Cesium.JulianDate.fromIso8601('2012-08-01T00:01:00.00Z'), 6.0);property.addSample(Cesium.JulianDate.fromIso8601('2012-08-01T00:02:00.00Z'), 12.0);property.addSample(Cesium.JulianDate.fromIso8601('2012-08-01T00:03:30.00Z'), 5.0);property.addSample(Cesium.JulianDate.fromIso8601('2012-08-01T00:06:30.00Z'), 2.0);//Samples can be added in any order.property.addSample(Cesium.JulianDate.fromIso8601('2012-08-01T00:00:30.00Z'), 6.2);//Retrieve an interpolated valueconst result = property.getValue(Cesium.JulianDate.fromIso8601('2012-08-01T00:02:34.00Z'));</code></pre>
 
     
 
@@ -265,7 +238,7 @@ const result = property.getValue(Cesium.JulianDate.fromIso8601('2012-08-01T00:02
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/SampledProperty.js#L349">engine/Source/DataSources/SampledProperty.js 349</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/SampledProperty.js#L349">engine/Source/DataSources/SampledProperty.js 349</a>
 </div>
 
 
@@ -276,8 +249,7 @@ const result = property.getValue(Cesium.JulianDate.fromIso8601('2012-08-01T00:02
 
 
 <div class="description">
-    获取或设置向后推断的时间量
-之前。 值 0 将永远外推。
+    获取或设置向后推断的时间量之前。 值 0 将永远外推。
 </div>
 
 
@@ -329,7 +301,7 @@ const result = property.getValue(Cesium.JulianDate.fromIso8601('2012-08-01T00:02
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/SampledProperty.js#L331">engine/Source/DataSources/SampledProperty.js 331</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/SampledProperty.js#L331">engine/Source/DataSources/SampledProperty.js 331</a>
 </div>
 
 
@@ -340,8 +312,7 @@ const result = property.getValue(Cesium.JulianDate.fromIso8601('2012-08-01T00:02
 
 
 <div class="description">
-    获取或设置当值
-在任何可用样品之前请求。
+    获取或设置当值在任何可用样品之前请求。
 </div>
 
 
@@ -393,7 +364,7 @@ const result = property.getValue(Cesium.JulianDate.fromIso8601('2012-08-01T00:02
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/SampledProperty.js#L241">engine/Source/DataSources/SampledProperty.js 241</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/SampledProperty.js#L241">engine/Source/DataSources/SampledProperty.js 241</a>
 </div>
 
 
@@ -404,9 +375,7 @@ const result = property.getValue(Cesium.JulianDate.fromIso8601('2012-08-01T00:02
 
 
 <div class="description">
-    获取此属性的定义发生更改时引发的事件。
-如果对 getValue 的调用会返回 getValue，则认为定义已更改
-同一时间的不同结果。
+    获取此属性的定义发生更改时引发的事件。如果对 getValue 的调用会返回 getValue，则认为定义已更改同一时间的不同结果。
 </div>
 
 
@@ -455,7 +424,7 @@ const result = property.getValue(Cesium.JulianDate.fromIso8601('2012-08-01T00:02
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/SampledProperty.js#L261">engine/Source/DataSources/SampledProperty.js 261</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/SampledProperty.js#L261">engine/Source/DataSources/SampledProperty.js 261</a>
 </div>
 
 
@@ -515,7 +484,7 @@ const result = property.getValue(Cesium.JulianDate.fromIso8601('2012-08-01T00:02
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/SampledProperty.js#L313">engine/Source/DataSources/SampledProperty.js 313</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/SampledProperty.js#L313">engine/Source/DataSources/SampledProperty.js 313</a>
 </div>
 
 
@@ -526,8 +495,7 @@ const result = property.getValue(Cesium.JulianDate.fromIso8601('2012-08-01T00:02
 
 
 <div class="description">
-    获取或设置之前向前推断的时间量
-属性变为 undefined。 值 0 将永远外推。
+    获取或设置之前向前推断的时间量属性变为 undefined。 值 0 将永远外推。
 </div>
 
 
@@ -579,7 +547,7 @@ const result = property.getValue(Cesium.JulianDate.fromIso8601('2012-08-01T00:02
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/SampledProperty.js#L295">engine/Source/DataSources/SampledProperty.js 295</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/SampledProperty.js#L295">engine/Source/DataSources/SampledProperty.js 295</a>
 </div>
 
 
@@ -590,8 +558,7 @@ const result = property.getValue(Cesium.JulianDate.fromIso8601('2012-08-01T00:02
 
 
 <div class="description">
-    获取或设置当值
-在任何可用样品之后请求。
+    获取或设置当值在任何可用样品之后请求。
 </div>
 
 
@@ -643,7 +610,7 @@ const result = property.getValue(Cesium.JulianDate.fromIso8601('2012-08-01T00:02
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/SampledProperty.js#L283">engine/Source/DataSources/SampledProperty.js 283</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/SampledProperty.js#L283">engine/Source/DataSources/SampledProperty.js 283</a>
 </div>
 
 
@@ -706,7 +673,7 @@ const result = property.getValue(Cesium.JulianDate.fromIso8601('2012-08-01T00:02
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/SampledProperty.js#L272">engine/Source/DataSources/SampledProperty.js 272</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/SampledProperty.js#L272">engine/Source/DataSources/SampledProperty.js 272</a>
 </div>
 
 
@@ -769,7 +736,7 @@ const result = property.getValue(Cesium.JulianDate.fromIso8601('2012-08-01T00:02
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/SampledProperty.js#L227">engine/Source/DataSources/SampledProperty.js 227</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/SampledProperty.js#L227">engine/Source/DataSources/SampledProperty.js 227</a>
 </div>
 
 
@@ -780,8 +747,7 @@ const result = property.getValue(Cesium.JulianDate.fromIso8601('2012-08-01T00:02
 
 
 <div class="description">
-    获取一个值，该值指示此属性是否为 constant。 将属性视为
-常量(如果 getValue 始终为当前定义返回相同的结果)。
+    获取一个值，该值指示此属性是否为 constant。 将属性视为常量(如果 getValue 始终为当前定义返回相同的结果)。
 </div>
 
 
@@ -830,7 +796,7 @@ const result = property.getValue(Cesium.JulianDate.fromIso8601('2012-08-01T00:02
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/SampledProperty.js#L251">engine/Source/DataSources/SampledProperty.js 251</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/SampledProperty.js#L251">engine/Source/DataSources/SampledProperty.js 251</a>
 </div>
 
 
@@ -896,7 +862,7 @@ const result = property.getValue(Cesium.JulianDate.fromIso8601('2012-08-01T00:02
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/SampledProperty.js#L583">engine/Source/DataSources/SampledProperty.js 583</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/SampledProperty.js#L583">engine/Source/DataSources/SampledProperty.js 583</a>
 </div>
 
 
@@ -1085,7 +1051,7 @@ const result = property.getValue(Cesium.JulianDate.fromIso8601('2012-08-01T00:02
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/SampledProperty.js#L627">engine/Source/DataSources/SampledProperty.js 627</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/SampledProperty.js#L627">engine/Source/DataSources/SampledProperty.js 627</a>
 </div>
 
 
@@ -1299,7 +1265,7 @@ const result = property.getValue(Cesium.JulianDate.fromIso8601('2012-08-01T00:02
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/SampledProperty.js#L709">engine/Source/DataSources/SampledProperty.js 709</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/SampledProperty.js#L709">engine/Source/DataSources/SampledProperty.js 709</a>
 </div>
 
 
@@ -1311,8 +1277,7 @@ const result = property.getValue(Cesium.JulianDate.fromIso8601('2012-08-01T00:02
 
 
 <div class="description">
-    将样本添加为单个打包数组，其中每个新样本都表示为日期，
-后跟相应值和导数的打包表示形式。
+    将样本添加为单个打包数组，其中每个新样本都表示为日期，后跟相应值和导数的打包表示形式。
 </div>
 
 
@@ -1461,7 +1426,7 @@ const result = property.getValue(Cesium.JulianDate.fromIso8601('2012-08-01T00:02
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/SampledProperty.js#L792">engine/Source/DataSources/SampledProperty.js 792</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/SampledProperty.js#L792">engine/Source/DataSources/SampledProperty.js 792</a>
 </div>
 
 
@@ -1473,8 +1438,7 @@ const result = property.getValue(Cesium.JulianDate.fromIso8601('2012-08-01T00:02
 
 
 <div class="description">
-    将此属性与提供的属性进行比较，并返回
-<code>true</code>，否则为 <code>false</code>。
+    将此属性与提供的属性进行比较，并返回<code>true</code>，否则为 <code>false</code>。
 </div>
 
 
@@ -1604,7 +1568,7 @@ const result = property.getValue(Cesium.JulianDate.fromIso8601('2012-08-01T00:02
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/SampledProperty.js#L684">engine/Source/DataSources/SampledProperty.js 684</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/SampledProperty.js#L684">engine/Source/DataSources/SampledProperty.js 684</a>
 </div>
 
 
@@ -1616,8 +1580,7 @@ const result = property.getValue(Cesium.JulianDate.fromIso8601('2012-08-01T00:02
 
 
 <div class="description">
-    将样本添加为单个打包数组，其中每个新样本都表示为日期，
-后跟相应值和导数的 packed 表示形式。
+    将样本添加为单个打包数组，其中每个新样本都表示为日期，后跟相应值和导数的 packed 表示形式。
 </div>
 
 
@@ -1740,7 +1703,7 @@ const result = property.getValue(Cesium.JulianDate.fromIso8601('2012-08-01T00:02
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/SampledProperty.js#L371">engine/Source/DataSources/SampledProperty.js 371</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/SampledProperty.js#L371">engine/Source/DataSources/SampledProperty.js 371</a>
 </div>
 
 
@@ -1924,7 +1887,7 @@ const result = property.getValue(Cesium.JulianDate.fromIso8601('2012-08-01T00:02
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/SampledProperty.js#L734">engine/Source/DataSources/SampledProperty.js 734</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/SampledProperty.js#L734">engine/Source/DataSources/SampledProperty.js 734</a>
 </div>
 
 
@@ -2059,7 +2022,7 @@ const result = property.getValue(Cesium.JulianDate.fromIso8601('2012-08-01T00:02
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/SampledProperty.js#L763">engine/Source/DataSources/SampledProperty.js 763</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/SampledProperty.js#L763">engine/Source/DataSources/SampledProperty.js 763</a>
 </div>
 
 
@@ -2185,7 +2148,7 @@ const result = property.getValue(Cesium.JulianDate.fromIso8601('2012-08-01T00:02
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/DataSources/SampledProperty.js#L544">engine/Source/DataSources/SampledProperty.js 544</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/DataSources/SampledProperty.js#L544">engine/Source/DataSources/SampledProperty.js 544</a>
 </div>
 
 

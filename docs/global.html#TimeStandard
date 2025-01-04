@@ -41,7 +41,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/TimeStandard.js#L8">engine/Source/Core/TimeStandard.js 8</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/TimeStandard.js#L8">engine/Source/Core/TimeStandard.js 8</a>
 </div>
 
 
@@ -96,11 +96,7 @@
 
             
 
-            <td class="description last">表示协调世界时 (UTC) 时间标准。
-
-UTC 与 TAI 的关系根据关系
-<code>UTC = TAI - deltaT</code>，其中 <code>deltaT</code> 是跳跃数
-秒数，这些秒数已引入 TAI 中。</td>
+            <td class="description last">表示协调世界时 (UTC) 时间标准。UTC 与 TAI 的关系根据关系<code>UTC = TAI - deltaT</code>，其中 <code>deltaT</code> 是跳跃数秒数，这些秒数已引入 TAI 中。</td>
         </tr>
 
     
@@ -123,8 +119,7 @@ UTC 与 TAI 的关系根据关系
 
             
 
-            <td class="description last">表示国际原子时 (TAI) 时间标准。
-TAI 是与其他时间标准相关的主要时间标准。</td>
+            <td class="description last">表示国际原子时 (TAI) 时间标准。TAI 是与其他时间标准相关的主要时间标准。</td>
         </tr>
 
     
@@ -192,7 +187,7 @@ TAI 是与其他时间标准相关的主要时间标准。</td>
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/TimeStandard.js#L28">engine/Source/Core/TimeStandard.js 28</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/TimeStandard.js#L28">engine/Source/Core/TimeStandard.js 28</a>
 </div>
 
 
@@ -203,8 +198,7 @@ TAI 是与其他时间标准相关的主要时间标准。</td>
 
 
 <div class="description">
-    表示国际原子时 (TAI) 时间标准。
-TAI 是与其他时间标准相关的主要时间标准。
+    表示国际原子时 (TAI) 时间标准。TAI 是与其他时间标准相关的主要时间标准。
 </div>
 
 
@@ -256,7 +250,7 @@ TAI 是与其他时间标准相关的主要时间标准。
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.124/packages/engine/Source/Core/TimeStandard.js#L19">engine/Source/Core/TimeStandard.js 19</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.125/packages/engine/Source/Core/TimeStandard.js#L19">engine/Source/Core/TimeStandard.js 19</a>
 </div>
 
 
@@ -267,11 +261,7 @@ TAI 是与其他时间标准相关的主要时间标准。
 
 
 <div class="description">
-    表示协调世界时 (UTC) 时间标准。
-
-UTC 与 TAI 的关系根据关系
-<code>UTC = TAI - deltaT</code>，其中 <code>deltaT</code> 是跳跃数
-秒数，这些秒数已引入 TAI 中。
+    表示协调世界时 (UTC) 时间标准。UTC 与 TAI 的关系根据关系<code>UTC = TAI - deltaT</code>，其中 <code>deltaT</code> 是跳跃数秒数，这些秒数已引入 TAI 中。
 </div>
 
 
