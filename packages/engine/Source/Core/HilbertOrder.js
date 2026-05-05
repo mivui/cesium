@@ -2,19 +2,19 @@ import Check from "./Check.js";
 import DeveloperError from "./DeveloperError.js";
 
 /**
- * Hilbert Order helper functions.
+ * Hilbert 顺序辅助函数。
  *
  * @namespace HilbertOrder
  */
 const HilbertOrder = {};
 
 /**
- * Computes the Hilbert index at the given level from 2D coordinates.
+ * 从 2D 坐标计算给定级别的 Hilbert 索引。
  *
- * @param {number} level The level of the curve
- * @param {number} x The X coordinate
- * @param {number} y The Y coordinate
- * @returns {number} The Hilbert index.
+ * @param {number} level 曲线的级别
+ * @param {number} x X 坐标
+ * @param {number} y Y 坐标
+ * @returns {number} Hilbert 索引。
  * @private
  */
 HilbertOrder.encode2D = function (level, x, y) {
@@ -24,10 +24,10 @@ HilbertOrder.encode2D = function (level, x, y) {
   Check.typeOf.number("x", x);
   Check.typeOf.number("y", y);
   if (level < 1) {
-    throw new DeveloperError("Hilbert level cannot be less than 1.");
+    throw new DeveloperError("Hilbert 级别不能小于 1。");
   }
   if (x < 0 || x >= n || y < 0 || y >= n) {
-    throw new DeveloperError("Invalid coordinates for given level.");
+    throw new DeveloperError("给定级别的坐标无效。");
   }
   //>>includeEnd('debug');
 
@@ -51,11 +51,11 @@ HilbertOrder.encode2D = function (level, x, y) {
 };
 
 /**
- * Computes the 2D coordinates from the Hilbert index at the given level.
+ * 从给定级别的 Hilbert 索引计算 2D 坐标。
  *
- * @param {number} level The level of the curve
- * @param {bigint} index The Hilbert index
- * @returns {number[]} An array containing the 2D coordinates ([x, y]) corresponding to the Morton index.
+ * @param {number} level 曲线的级别
+ * @param {bigint} index Hilbert 索引
+ * @returns {number[]} 包含对应于 Morton 索引的 2D 坐标（[x, y]）的数组。
  * @private
  */
 HilbertOrder.decode2D = function (level, index) {
@@ -63,11 +63,11 @@ HilbertOrder.decode2D = function (level, index) {
   Check.typeOf.number("level", level);
   Check.typeOf.bigint("index", index);
   if (level < 1) {
-    throw new DeveloperError("Hilbert level cannot be less than 1.");
+    throw new DeveloperError("Hilbert 级别不能小于 1。");
   }
   if (index < BigInt(0) || index >= BigInt(Math.pow(4, level))) {
     throw new DeveloperError(
-      "Hilbert index exceeds valid maximum for given level.",
+      "Hilbert 索引超出给定级别的有效最大值。",
     );
   }
   //>>includeEnd('debug');

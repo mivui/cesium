@@ -1042,25 +1042,25 @@ function computeRectangle(positions, ellipsoid, width, cornerType, result) {
 }
 
 /**
- * A description of a corridor. Corridor geometry can be rendered with both {@link Primitive} and {@link GroundPrimitive}.
+ * 描述一条走廊。走廊几何可以同时用 {@link Primitive} 和 {@link GroundPrimitive} 渲染。
  *
  * @alias CorridorGeometry
  * @constructor
  *
- * @param {object} options Object with the following properties:
- * @param {Cartesian3[]} options.positions An array of positions that define the center of the corridor.
- * @param {number} options.width The distance between the edges of the corridor in meters.
- * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] The ellipsoid to be used as a reference.
- * @param {number} [options.granularity=CesiumMath.RADIANS_PER_DEGREE] The distance, in radians, between each latitude and longitude. Determines the number of positions in the buffer.
- * @param {number} [options.height=0] The distance in meters between the ellipsoid surface and the positions.
- * @param {number} [options.extrudedHeight] The distance in meters between the ellipsoid surface and the extruded face.
- * @param {VertexFormat} [options.vertexFormat=VertexFormat.DEFAULT] The vertex attributes to be computed.
- * @param {CornerType} [options.cornerType=CornerType.ROUNDED] Determines the style of the corners.
+ * @param {object} options 具有以下属性的对象：
+ * @param {Cartesian3[]} options.positions 定义走廊中心的笛卡尔坐标数组。
+ * @param {number} options.width 走廊两侧边缘之间的距离（以米为单位）。
+ * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] 要用作参考的椭球体。
+ * @param {number} [options.granularity=CesiumMath.RADIANS_PER_DEGREE] 每个纬度和经度之间的距离（以弧度为单位）。决定缓冲区中的位置数量。
+ * @param {number} [options.height=0.0] 椭球表面与坐标之间的距离（以米为单位）。
+ * @param {number} [options.extrudedHeight] 椭球表面与拉伸面之间的距离（以米为单位）。
+ * @param {VertexFormat} [options.vertexFormat=VertexFormat.DEFAULT] 要计算的顶点属性。
+ * @param {CornerType} [options.cornerType=CornerType.ROUNDED] 决定角落的样式。
  *
  * @see CorridorGeometry.createGeometry
  * @see Packable
  *
- * @demo {@link https://sandcastle.cesium.com/index.html?id=corridor|Cesium Sandcastle Corridor Demo}
+ * @demo {@link https://sandcastle.cesium.com/index.html?id=corridor|Cesium Sandcastle 走廊演示}
  *
  * @example
  * const corridor = new Cesium.CorridorGeometry({

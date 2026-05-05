@@ -12,18 +12,18 @@ let nextCreditId = 0;
 const creditToId = {};
 
 /**
- * A credit contains data pertaining to how to display attributions/credits for certain content on the screen.
+ * 包含有关如何在屏幕上显示特定内容的归属/署名的数据。
  *
  * @example
- * // Create a credit with a tooltip, image and link
+ * // 创建带有工具提示、图像和链接的署名
  * const credit = new Cesium.Credit('<a href="https://cesium.com/" target="_blank"><img src="/images/cesium_logo.png"  style="vertical-align: -7px" title="Cesium"/></a>');
  */
 class Credit {
   /**
-   * @param {string} html An string representing an html code snippet
-   * @param {boolean} [showOnScreen=false] If true, the credit will be visible in the main credit container.  Otherwise, it will appear in a popover. All credits are displayed `inline`, if you have an image we recommend sizing it correctly to match the text or use css to `vertical-align` it.
+   * @param {string} html 表示HTML代码片段的字符串
+   * @param {boolean} [showOnScreen=false] 如果为true，署名将在主署名容器中可见。否则，它将出现在弹出框中。所有署名都以内联方式显示，如果有图像，建议正确调整其大小以匹配文本或使用css进行`vertical-align`。
    *
-   * @exception {DeveloperError} html is required.
+   * @exception {DeveloperError} html是必需的。
    */
   constructor(html, showOnScreen) {
     //>>includeStart('debug', pragmas.debug);
@@ -49,7 +49,7 @@ class Credit {
   }
 
   /**
-   * The credit content
+   * 署名内容
    * @type {string}
    * @readonly
    */
@@ -68,7 +68,7 @@ class Credit {
   }
 
   /**
-   * Whether the credit should be displayed on screen or in a lightbox
+   * 署名应该显示在屏幕上还是灯箱中
    * @type {boolean}
    */
   get showOnScreen() {
@@ -80,7 +80,7 @@ class Credit {
   }
 
   /**
-   * Gets the credit element
+   * 获取署名元素
    * @type {HTMLElement}
    * @readonly
    */
@@ -106,11 +106,11 @@ class Credit {
   }
 
   /**
-   * Returns true if the credits are equal
+   * 如果署名相等则返回true
    *
-   * @param {Credit} [left] The first credit
-   * @param {Credit} [right] The second credit
-   * @returns {boolean} <code>true</code> if left and right are equal, <code>false</code> otherwise.
+   * @param {Credit} [left] 第一个署名
+   * @param {Credit} [right] 第二个署名
+   * @returns {boolean} 如果left和right相等则返回<code>true</code>，否则返回<code>false</code>。
    */
   static equals(left, right) {
     return (
@@ -123,10 +123,10 @@ class Credit {
   }
 
   /**
-   * Returns true if the credits are equal
+   * 如果署名相等则返回true
    *
-   * @param {Credit} [credit] The credit to compare to.
-   * @returns {boolean} <code>true</code> if left and right are equal, <code>false</code> otherwise.
+   * @param {Credit} [credit] 要比较的署名。
+   * @returns {boolean} 如果相等则返回<code>true</code>，否则返回<code>false</code>。
    */
   equals(credit) {
     return Credit.equals(this, credit);
@@ -154,10 +154,10 @@ class Credit {
   }
 
   /**
-   * Duplicates a Credit instance.
+   * 复制Credit实例。
    *
-   * @param {Credit} [credit] The Credit to duplicate.
-   * @returns {Credit} A new Credit instance that is a duplicate of the one provided. (Returns undefined if the credit is undefined)
+   * @param {Credit} [credit] 要复制的Credit。
+   * @returns {Credit} 与提供实例相同的新Credit实例。（如果credit未定义则返回undefined）
    */
   static clone(credit) {
     if (defined(credit)) {

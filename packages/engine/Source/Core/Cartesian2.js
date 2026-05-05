@@ -10,7 +10,7 @@ import CesiumMath from "./Math.js";
 /** @import Cartesian4 from "./Cartesian4.js"; */
 
 /**
- * A 2D Cartesian point.
+ * 二维笛卡尔点。
  *
  * @see Cartesian3
  * @see Cartesian4
@@ -22,28 +22,28 @@ class Cartesian2 {
    * @param {number} [y=0.0] The Y component.
    */
   constructor(x, y) {
-    /**
-     * The X component.
-     * @type {number}
-     * @default 0.0
-     */
+  /**
+   * X分量。
+   * @type {number}
+   * @default 0.0
+   */
     this.x = x ?? 0.0;
 
-    /**
-     * The Y component.
-     * @type {number}
-     * @default 0.0
-     */
+  /**
+   * Y分量。
+   * @type {number}
+   * @default 0.0
+   */
     this.y = y ?? 0.0;
   }
 
   /**
-   * Creates a Cartesian2 instance from x and y coordinates.
+   * 从x和y坐标创建Cartesian2实例。
    *
-   * @param {number} x The x coordinate.
-   * @param {number} y The y coordinate.
-   * @param {Cartesian2} [result] The object onto which to store the result.
-   * @returns {Cartesian2} The modified result parameter or a new Cartesian2 instance if one was not provided.
+   * @param {number} x x坐标。
+   * @param {number} y y坐标。
+   * @param {Cartesian2} [result] 存储结果的对象。
+   * @returns {Cartesian2} 修改后的结果参数；如果未提供则返回新的Cartesian2实例。
    */
   static fromElements(x, y, result) {
     if (!defined(result)) {
@@ -56,11 +56,11 @@ class Cartesian2 {
   }
 
   /**
-   * Duplicates a Cartesian2 instance.
+   * 复制Cartesian2实例。
    *
-   * @param {Cartesian2} cartesian The Cartesian to duplicate.
-   * @param {Cartesian2} [result] The object onto which to store the result.
-   * @returns {Cartesian2} The modified result parameter or a new Cartesian2 instance if one was not provided. (Returns undefined if cartesian is undefined)
+   * @param {Cartesian2} cartesian 要复制的笛卡尔坐标。
+   * @param {Cartesian2} [result] 存储结果的对象。
+   * @returns {Cartesian2} 修改后的结果参数；如果未提供则返回新的Cartesian2实例。（如果cartesian未定义则返回undefined）
    */
   static clone(cartesian, result) {
     if (!defined(cartesian)) {
@@ -76,13 +76,13 @@ class Cartesian2 {
   }
 
   /**
-   * Stores the provided instance into the provided array.
+   * 将提供的实例存储到提供的数组中。
    *
-   * @param {Cartesian2} value The value to pack.
-   * @param {number[]} array The array to pack into.
-   * @param {number} [startingIndex=0] The index into the array at which to start packing the elements.
+   * @param {Cartesian2} value 要打包的值。
+   * @param {number[]} array 要打包到的数组。
+   * @param {number} [startingIndex=0] 开始打包元素的数组索引。
    *
-   * @returns {number[]} The array that was packed into
+   * @returns {number[]} 已打包的数组
    */
   static pack(value, array, startingIndex) {
     //>>includeStart('debug', pragmas.debug);
@@ -99,12 +99,12 @@ class Cartesian2 {
   }
 
   /**
-   * Retrieves an instance from a packed array.
+   * 从打包数组中检索实例。
    *
-   * @param {number[]} array The packed array.
-   * @param {number} [startingIndex=0] The starting index of the element to be unpacked.
-   * @param {Cartesian2} [result] The object into which to store the result.
-   * @returns {Cartesian2} The modified result parameter or a new Cartesian2 instance if one was not provided.
+   * @param {number[]} array 打包数组。
+   * @param {number} [startingIndex=0] 要解包元素的起始索引。
+   * @param {Cartesian2} [result] 存储结果的对象。
+   * @returns {Cartesian2} 修改后的结果参数；如果未提供则返回新的Cartesian2实例。
    */
   static unpack(array, startingIndex, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -122,11 +122,11 @@ class Cartesian2 {
   }
 
   /**
-   * Flattens an array of Cartesian2s into an array of components.
+   * 将Cartesian2数组展平为分量数组。
    *
-   * @param {Cartesian2[]} array The array of cartesians to pack.
-   * @param {number[]} [result] The array onto which to store the result. If this is a typed array, it must have array.length * 2 components, else a {@link DeveloperError} will be thrown. If it is a regular array, it will be resized to have (array.length * 2) elements.
-   * @returns {number[]} The packed array.
+   * @param {Cartesian2[]} array 要打包的笛卡尔坐标数组。
+   * @param {number[]} [result] 存储结果的数组。如果是类型化数组，则必须包含array.length * 2个分量，否则将抛出{@link DeveloperError}。如果是常规数组，则会调整大小以具有(array.length * 2)个元素。
+   * @returns {number[]} 打包后的数组。
    */
   static packArray(array, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -156,11 +156,11 @@ class Cartesian2 {
   }
 
   /**
-   * Unpacks an array of cartesian components into an array of Cartesian2s.
+   * 将笛卡尔分量数组解包为Cartesian2数组。
    *
-   * @param {number[]} array The array of components to unpack.
-   * @param {Cartesian2[]} [result] The array onto which to store the result.
-   * @returns {Cartesian2[]} The unpacked array.
+   * @param {number[]} array 要解包的分量数组。
+   * @param {Cartesian2[]} [result] 存储结果的数组。
+   * @returns {Cartesian2[]} 解包后的数组。
    */
   static unpackArray(array, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -186,10 +186,10 @@ class Cartesian2 {
   }
 
   /**
-   * Computes the value of the maximum component for the supplied Cartesian.
+   * 计算提供的笛卡尔坐标的最大分量值。
    *
-   * @param {Cartesian2} cartesian The cartesian to use.
-   * @returns {number} The value of the maximum component.
+   * @param {Cartesian2} cartesian 要使用的笛卡尔坐标。
+   * @returns {number} 最大分量的值。
    */
   static maximumComponent(cartesian) {
     //>>includeStart('debug', pragmas.debug);
@@ -200,10 +200,10 @@ class Cartesian2 {
   }
 
   /**
-   * Computes the value of the minimum component for the supplied Cartesian.
+   * 计算提供的笛卡尔坐标的最小分量值。
    *
-   * @param {Cartesian2} cartesian The cartesian to use.
-   * @returns {number} The value of the minimum component.
+   * @param {Cartesian2} cartesian 要使用的笛卡尔坐标。
+   * @returns {number} 最小分量的值。
    */
   static minimumComponent(cartesian) {
     //>>includeStart('debug', pragmas.debug);
@@ -214,12 +214,12 @@ class Cartesian2 {
   }
 
   /**
-   * Compares two Cartesians and computes a Cartesian which contains the minimum components of the supplied Cartesians.
+   * 比较两个笛卡尔坐标并计算包含两者最小分量的笛卡尔坐标。
    *
-   * @param {Cartesian2} first A cartesian to compare.
-   * @param {Cartesian2} second A cartesian to compare.
-   * @param {Cartesian2} result The object into which to store the result.
-   * @returns {Cartesian2} A cartesian with the minimum components.
+   * @param {Cartesian2} first 要比较的笛卡尔坐标。
+   * @param {Cartesian2} second 要比较的笛卡尔坐标。
+   * @param {Cartesian2} result 存储结果的对象。
+   * @returns {Cartesian2} 包含最小分量的笛卡尔坐标。
    */
   static minimumByComponent(first, second, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -235,12 +235,12 @@ class Cartesian2 {
   }
 
   /**
-   * Compares two Cartesians and computes a Cartesian which contains the maximum components of the supplied Cartesians.
+   * 比较两个笛卡尔坐标并计算包含两者最大分量的笛卡尔坐标。
    *
-   * @param {Cartesian2} first A cartesian to compare.
-   * @param {Cartesian2} second A cartesian to compare.
-   * @param {Cartesian2} result The object into which to store the result.
-   * @returns {Cartesian2} A cartesian with the maximum components.
+   * @param {Cartesian2} first 要比较的笛卡尔坐标。
+   * @param {Cartesian2} second 要比较的笛卡尔坐标。
+   * @param {Cartesian2} result 存储结果的对象。
+   * @returns {Cartesian2} 包含最大分量的笛卡尔坐标。
    */
   static maximumByComponent(first, second, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -255,13 +255,13 @@ class Cartesian2 {
   }
 
   /**
-   * Constrain a value to lie between two values.
+   * 将值限制在两个值之间。
    *
-   * @param {Cartesian2} value The value to clamp.
-   * @param {Cartesian2} min The minimum bound.
-   * @param {Cartesian2} max The maximum bound.
-   * @param {Cartesian2} result The object into which to store the result.
-   * @returns {Cartesian2} The clamped value such that min <= result <= max.
+   * @param {Cartesian2} value 要限制的值。
+   * @param {Cartesian2} min 最小边界。
+   * @param {Cartesian2} max 最大边界。
+   * @param {Cartesian2} result 存储结果的对象。
+   * @returns {Cartesian2} 限制后的值，满足 min <= result <= max。
    */
   static clamp(value, min, max, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -281,10 +281,10 @@ class Cartesian2 {
   }
 
   /**
-   * Computes the provided Cartesian's squared magnitude.
+   * 计算提供的笛卡尔坐标的平方模长。
    *
-   * @param {Cartesian2} cartesian The Cartesian instance whose squared magnitude is to be computed.
-   * @returns {number} The squared magnitude.
+   * @param {Cartesian2} cartesian 要计算平方模长的笛卡尔实例。
+   * @returns {number} 平方模长。
    */
   static magnitudeSquared(cartesian) {
     //>>includeStart('debug', pragmas.debug);
@@ -295,24 +295,24 @@ class Cartesian2 {
   }
 
   /**
-   * Computes the Cartesian's magnitude (length).
+   * 计算笛卡尔坐标的模长（长度）。
    *
-   * @param {Cartesian2} cartesian The Cartesian instance whose magnitude is to be computed.
-   * @returns {number} The magnitude.
+   * @param {Cartesian2} cartesian 要计算模长的笛卡尔实例。
+   * @returns {number} 模长。
    */
   static magnitude(cartesian) {
     return Math.sqrt(Cartesian2.magnitudeSquared(cartesian));
   }
 
   /**
-   * Computes the distance between two points.
+   * 计算两点之间的距离。
    *
-   * @param {Cartesian2} left The first point to compute the distance from.
-   * @param {Cartesian2} right The second point to compute the distance to.
-   * @returns {number} The distance between two points.
+   * @param {Cartesian2} left 要计算距离的的第一个点。
+   * @param {Cartesian2} right 要计算距离的第二个点。
+   * @returns {number} 两点之间的距离。
    *
    * @example
-   * // Returns 1.0
+   * // 返回 1.0
    * const d = Cesium.Cartesian2.distance(new Cesium.Cartesian2(1.0, 0.0), new Cesium.Cartesian2(2.0, 0.0));
    */
   static distance(left, right) {
@@ -326,15 +326,15 @@ class Cartesian2 {
   }
 
   /**
-   * Computes the squared distance between two points.  Comparing squared distances
-   * using this function is more efficient than comparing distances using {@link Cartesian2#distance}.
+   * 计算两点之间的平方距离。使用此函数
+   * 比较平方距离比使用{@link Cartesian2#distance}比较距离更高效。
    *
-   * @param {Cartesian2} left The first point to compute the distance from.
-   * @param {Cartesian2} right The second point to compute the distance to.
-   * @returns {number} The distance between two points.
+   * @param {Cartesian2} left 要计算距离的的第一个点。
+   * @param {Cartesian2} right 要计算距离的第二个点。
+   * @returns {number} 两点之间的距离平方。
    *
    * @example
-   * // Returns 4.0, not 2.0
+   * // 返回 4.0，不是 2.0
    * const d = Cesium.Cartesian2.distance(new Cesium.Cartesian2(1.0, 0.0), new Cesium.Cartesian2(3.0, 0.0));
    */
   static distanceSquared(left, right) {
@@ -348,11 +348,11 @@ class Cartesian2 {
   }
 
   /**
-   * Computes the normalized form of the supplied Cartesian.
+   * 计算提供的笛卡尔坐标的归一化形式。
    *
-   * @param {Cartesian2} cartesian The Cartesian to be normalized.
-   * @param {Cartesian2} result The object onto which to store the result.
-   * @returns {Cartesian2} The modified result parameter.
+   * @param {Cartesian2} cartesian 要归一化的笛卡尔坐标。
+   * @param {Cartesian2} result 存储结果的对象。
+   * @returns {Cartesian2} 修改后的结果参数。
    */
   static normalize(cartesian, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -375,11 +375,11 @@ class Cartesian2 {
   }
 
   /**
-   * Computes the dot (scalar) product of two Cartesians.
+   * 计算两个笛卡尔坐标的点积（标量积）。
    *
-   * @param {Cartesian2} left The first Cartesian.
-   * @param {Cartesian2} right The second Cartesian.
-   * @returns {number} The dot product.
+   * @param {Cartesian2} left 第一个笛卡尔坐标。
+   * @param {Cartesian2} right 第二个笛卡尔坐标。
+   * @returns {number} 点积。
    */
   static dot(left, right) {
     //>>includeStart('debug', pragmas.debug);
@@ -391,11 +391,11 @@ class Cartesian2 {
   }
 
   /**
-   * Computes the magnitude of the cross product that would result from implicitly setting the Z coordinate of the input vectors to 0
+   * 计算将输入向量的Z坐标隐式设为0后得到的叉积模长。
    *
-   * @param {Cartesian2} left The first Cartesian.
-   * @param {Cartesian2} right The second Cartesian.
-   * @returns {number} The cross product.
+   * @param {Cartesian2} left 第一个笛卡尔坐标。
+   * @param {Cartesian2} right 第二个笛卡尔坐标。
+   * @returns {number} 叉积。
    */
   static cross(left, right) {
     //>>includeStart('debug', pragmas.debug);
@@ -407,12 +407,12 @@ class Cartesian2 {
   }
 
   /**
-   * Computes the componentwise product of two Cartesians.
+   * 计算两个笛卡尔坐标的分量积。
    *
-   * @param {Cartesian2} left The first Cartesian.
-   * @param {Cartesian2} right The second Cartesian.
-   * @param {Cartesian2} result The object onto which to store the result.
-   * @returns {Cartesian2} The modified result parameter.
+   * @param {Cartesian2} left 第一个笛卡尔坐标。
+   * @param {Cartesian2} right 第二个笛卡尔坐标。
+   * @param {Cartesian2} result 存储结果的对象。
+   * @returns {Cartesian2} 修改后的结果参数。
    */
   static multiplyComponents(left, right, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -427,12 +427,12 @@ class Cartesian2 {
   }
 
   /**
-   * Computes the componentwise quotient of two Cartesians.
+   * 计算两个笛卡尔坐标的分量商。
    *
-   * @param {Cartesian2} left The first Cartesian.
-   * @param {Cartesian2} right The second Cartesian.
-   * @param {Cartesian2} result The object onto which to store the result.
-   * @returns {Cartesian2} The modified result parameter.
+   * @param {Cartesian2} left 第一个笛卡尔坐标。
+   * @param {Cartesian2} right 第二个笛卡尔坐标。
+   * @param {Cartesian2} result 存储结果的对象。
+   * @returns {Cartesian2} 修改后的结果参数。
    */
   static divideComponents(left, right, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -447,12 +447,12 @@ class Cartesian2 {
   }
 
   /**
-   * Computes the componentwise sum of two Cartesians.
+   * 计算两个笛卡尔坐标的分量和。
    *
-   * @param {Cartesian2} left The first Cartesian.
-   * @param {Cartesian2} right The second Cartesian.
-   * @param {Cartesian2} result The object onto which to store the result.
-   * @returns {Cartesian2} The modified result parameter.
+   * @param {Cartesian2} left 第一个笛卡尔坐标。
+   * @param {Cartesian2} right 第二个笛卡尔坐标。
+   * @param {Cartesian2} result 存储结果的对象。
+   * @returns {Cartesian2} 修改后的结果参数。
    */
   static add(left, right, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -467,12 +467,12 @@ class Cartesian2 {
   }
 
   /**
-   * Computes the componentwise difference of two Cartesians.
+   * 计算两个笛卡尔坐标的分量差。
    *
-   * @param {Cartesian2} left The first Cartesian.
-   * @param {Cartesian2} right The second Cartesian.
-   * @param {Cartesian2} result The object onto which to store the result.
-   * @returns {Cartesian2} The modified result parameter.
+   * @param {Cartesian2} left 第一个笛卡尔坐标。
+   * @param {Cartesian2} right 第二个笛卡尔坐标。
+   * @param {Cartesian2} result 存储结果的对象。
+   * @returns {Cartesian2} 修改后的结果参数。
    */
   static subtract(left, right, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -487,12 +487,12 @@ class Cartesian2 {
   }
 
   /**
-   * Multiplies the provided Cartesian componentwise by the provided scalar.
+   * 将提供的笛卡尔坐标按分量乘以提供的标量。
    *
-   * @param {Cartesian2} cartesian The Cartesian to be scaled.
-   * @param {number} scalar The scalar to multiply with.
-   * @param {Cartesian2} result The object onto which to store the result.
-   * @returns {Cartesian2} The modified result parameter.
+   * @param {Cartesian2} cartesian 要缩放的笛卡尔坐标。
+   * @param {number} scalar 要相乘的标量。
+   * @param {Cartesian2} result 存储结果的对象。
+   * @returns {Cartesian2} 修改后的结果参数。
    */
   static multiplyByScalar(cartesian, scalar, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -507,12 +507,12 @@ class Cartesian2 {
   }
 
   /**
-   * Divides the provided Cartesian componentwise by the provided scalar.
+   * 将提供的笛卡尔坐标按分量除以提供的标量。
    *
-   * @param {Cartesian2} cartesian The Cartesian to be divided.
-   * @param {number} scalar The scalar to divide by.
-   * @param {Cartesian2} result The object onto which to store the result.
-   * @returns {Cartesian2} The modified result parameter.
+   * @param {Cartesian2} cartesian 要除的笛卡尔坐标。
+   * @param {number} scalar 要除以的标量。
+   * @param {Cartesian2} result 存储结果的对象。
+   * @returns {Cartesian2} 修改后的结果参数。
    */
   static divideByScalar(cartesian, scalar, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -527,11 +527,11 @@ class Cartesian2 {
   }
 
   /**
-   * Negates the provided Cartesian.
+   * 对提供的笛卡尔坐标取反。
    *
-   * @param {Cartesian2} cartesian The Cartesian to be negated.
-   * @param {Cartesian2} result The object onto which to store the result.
-   * @returns {Cartesian2} The modified result parameter.
+   * @param {Cartesian2} cartesian 要取反的笛卡尔坐标。
+   * @param {Cartesian2} result 存储结果的对象。
+   * @returns {Cartesian2} 修改后的结果参数。
    */
   static negate(cartesian, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -545,11 +545,11 @@ class Cartesian2 {
   }
 
   /**
-   * Computes the absolute value of the provided Cartesian.
+   * 计算提供的笛卡尔坐标的绝对值。
    *
-   * @param {Cartesian2} cartesian The Cartesian whose absolute value is to be computed.
-   * @param {Cartesian2} result The object onto which to store the result.
-   * @returns {Cartesian2} The modified result parameter.
+   * @param {Cartesian2} cartesian 要计算绝对值的笛卡尔坐标。
+   * @param {Cartesian2} result 存储结果的对象。
+   * @returns {Cartesian2} 修改后的结果参数。
    */
   static abs(cartesian, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -563,13 +563,13 @@ class Cartesian2 {
   }
 
   /**
-   * Computes the linear interpolation or extrapolation at t using the provided cartesians.
+   * 使用提供的笛卡尔坐标计算t处的线性插值或外推。
    *
-   * @param {Cartesian2} start The value corresponding to t at 0.0.
-   * @param {Cartesian2} end The value corresponding to t at 1.0.
-   * @param {number} t The point along t at which to interpolate.
-   * @param {Cartesian2} result The object onto which to store the result.
-   * @returns {Cartesian2} The modified result parameter.
+   * @param {Cartesian2} start t为0.0时对应的值。
+   * @param {Cartesian2} end t为1.0时对应的值。
+   * @param {number} t 要插值的t点。
+   * @param {Cartesian2} result 存储结果的对象。
+   * @returns {Cartesian2} 修改后的结果参数。
    */
   static lerp(start, end, t, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -585,11 +585,11 @@ class Cartesian2 {
   }
 
   /**
-   * Returns the angle, in radians, between the provided Cartesians.
+   * 返回提供的笛卡尔坐标之间的角度（弧度）。
    *
-   * @param {Cartesian2} left The first Cartesian.
-   * @param {Cartesian2} right The second Cartesian.
-   * @returns {number} The angle between the Cartesians.
+   * @param {Cartesian2} left 第一个笛卡尔坐标。
+   * @param {Cartesian2} right 第二个笛卡尔坐标。
+   * @returns {number} 笛卡尔坐标之间的角度。
    */
   static angleBetween(left, right) {
     //>>includeStart('debug', pragmas.debug);
@@ -605,11 +605,11 @@ class Cartesian2 {
   }
 
   /**
-   * Returns the axis that is most orthogonal to the provided Cartesian.
+   * 返回与提供的笛卡尔坐标最正交的轴。
    *
-   * @param {Cartesian2} cartesian The Cartesian on which to find the most orthogonal axis.
-   * @param {Cartesian2} result The object onto which to store the result.
-   * @returns {Cartesian2} The most orthogonal axis.
+   * @param {Cartesian2} cartesian 要在其上查找最正交轴的笛卡尔坐标。
+   * @param {Cartesian2} result 存储结果的对象。
+   * @returns {Cartesian2} 最正交的轴。
    */
   static mostOrthogonalAxis(cartesian, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -630,12 +630,12 @@ class Cartesian2 {
   }
 
   /**
-   * Compares the provided Cartesians componentwise and returns
-   * <code>true</code> if they are equal, <code>false</code> otherwise.
+   * 逐分量比较提供的笛卡尔坐标，如果相等则返回
+   * <code>true</code>，否则返回<code>false</code>。
    *
-   * @param {Cartesian2} [left] The first Cartesian.
-   * @param {Cartesian2} [right] The second Cartesian.
-   * @returns {boolean} <code>true</code> if left and right are equal, <code>false</code> otherwise.
+   * @param {Cartesian2} [left] 第一个笛卡尔坐标。
+   * @param {Cartesian2} [right] 第二个笛卡尔坐标。
+   * @returns {boolean} 如果left和right相等则返回<code>true</code>，否则返回<code>false</code>。
    */
   static equals(left, right) {
     return (
@@ -658,15 +658,14 @@ class Cartesian2 {
   }
 
   /**
-   * Compares the provided Cartesians componentwise and returns
-   * <code>true</code> if they pass an absolute or relative tolerance test,
-   * <code>false</code> otherwise.
+   * 逐分量比较提供的笛卡尔坐标，如果通过绝对或相对容差测试则返回
+   * <code>true</code>，否则返回<code>false</code>。
    *
-   * @param {Cartesian2} [left] The first Cartesian.
-   * @param {Cartesian2} [right] The second Cartesian.
-   * @param {number} [relativeEpsilon=0] The relative epsilon tolerance to use for equality testing.
-   * @param {number} [absoluteEpsilon=relativeEpsilon] The absolute epsilon tolerance to use for equality testing.
-   * @returns {boolean} <code>true</code> if left and right are within the provided epsilon, <code>false</code> otherwise.
+   * @param {Cartesian2} [left] 第一个笛卡尔坐标。
+   * @param {Cartesian2} [right] 第二个笛卡尔坐标。
+   * @param {number} [relativeEpsilon=0] 用于相等性测试的相对epsilon容差。
+   * @param {number} [absoluteEpsilon=relativeEpsilon] 用于相等性测试的绝对epsilon容差。
+   * @returns {boolean} 如果left和right在提供的epsilon范围内则返回<code>true</code>，否则返回<code>false</code>。
    */
   static equalsEpsilon(left, right, relativeEpsilon, absoluteEpsilon) {
     return (
@@ -689,35 +688,34 @@ class Cartesian2 {
   }
 
   /**
-   * Duplicates this Cartesian2 instance.
+   * 复制此Cartesian2实例。
    *
-   * @param {Cartesian2} [result] The object onto which to store the result.
-   * @returns {Cartesian2} The modified result parameter or a new Cartesian2 instance if one was not provided.
+   * @param {Cartesian2} [result] 存储结果的对象。
+   * @returns {Cartesian2} 修改后的结果参数；如果未提供则返回新的Cartesian2实例。
    */
   clone(result) {
     return Cartesian2.clone(this, result);
   }
 
   /**
-   * Compares this Cartesian against the provided Cartesian componentwise and returns
-   * <code>true</code> if they are equal, <code>false</code> otherwise.
+   * 逐分量将此笛卡尔坐标与提供的笛卡尔坐标进行比较，如果相等则返回
+   * <code>true</code>，否则返回<code>false</code>。
    *
-   * @param {Cartesian2} [right] The right hand side Cartesian.
-   * @returns {boolean} <code>true</code> if they are equal, <code>false</code> otherwise.
+   * @param {Cartesian2} [right] 右侧的笛卡尔坐标。
+   * @returns {boolean} 如果相等则返回<code>true</code>，否则返回<code>false</code>。
    */
   equals(right) {
     return Cartesian2.equals(this, right);
   }
 
   /**
-   * Compares this Cartesian against the provided Cartesian componentwise and returns
-   * <code>true</code> if they pass an absolute or relative tolerance test,
-   * <code>false</code> otherwise.
+   * 逐分量将此笛卡尔坐标与提供的笛卡尔坐标进行比较，如果通过绝对或相对容差测试则返回
+   * <code>true</code>，否则返回<code>false</code>。
    *
-   * @param {Cartesian2} [right] The right hand side Cartesian.
-   * @param {number} [relativeEpsilon=0] The relative epsilon tolerance to use for equality testing.
-   * @param {number} [absoluteEpsilon=relativeEpsilon] The absolute epsilon tolerance to use for equality testing.
-   * @returns {boolean} <code>true</code> if they are within the provided epsilon, <code>false</code> otherwise.
+   * @param {Cartesian2} [right] 右侧的笛卡尔坐标。
+   * @param {number} [relativeEpsilon=0] 用于相等性测试的相对epsilon容差。
+   * @param {number} [absoluteEpsilon=relativeEpsilon] 用于相等性测试的绝对epsilon容差。
+   * @returns {boolean} 如果它们在提供的epsilon范围内则返回<code>true</code>，否则返回<code>false</code>。
    */
   equalsEpsilon(right, relativeEpsilon, absoluteEpsilon) {
     return Cartesian2.equalsEpsilon(
@@ -729,9 +727,9 @@ class Cartesian2 {
   }
 
   /**
-   * Creates a string representing this Cartesian in the format '(x, y)'.
+   * 创建表示此笛卡尔坐标的字符串，格式为'(x, y)'。
    *
-   * @returns {string} A string representing the provided Cartesian in the format '(x, y)'.
+   * @returns {string} 表示此笛卡尔坐标的字符串，格式为'(x, y)'。
    */
   toString() {
     return `(${this.x}, ${this.y})`;
@@ -739,48 +737,48 @@ class Cartesian2 {
 }
 
 /**
- * Creates a Cartesian2 instance from an existing Cartesian3.  This simply takes the
- * x and y properties of the Cartesian3 and drops z.
+ * 从现有Cartesian3创建Cartesian2实例。这只需
+ * 取Cartesian3的x和y属性并丢弃z。
  * @function
  *
- * @param {Cartesian3} cartesian The Cartesian3 instance to create a Cartesian2 instance from.
- * @param {Cartesian2} [result] The object onto which to store the result.
- * @returns {Cartesian2} The modified result parameter or a new Cartesian2 instance if one was not provided.
+ * @param {Cartesian3} cartesian 要从中创建Cartesian2实例的Cartesian3实例。
+ * @param {Cartesian2} [result] 存储结果的对象。
+ * @returns {Cartesian2} 修改后的结果参数；如果未提供则返回新的Cartesian2实例。
  */
 Cartesian2.fromCartesian3 = Cartesian2.clone;
 
 /**
- * Creates a Cartesian2 instance from an existing Cartesian4.  This simply takes the
- * x and y properties of the Cartesian4 and drops z and w.
+ * 从现有Cartesian4创建Cartesian2实例。这只需
+ * 取Cartesian4的x和y属性并丢弃z和w。
  * @function
  *
- * @param {Cartesian4} cartesian The Cartesian4 instance to create a Cartesian2 instance from.
- * @param {Cartesian2} [result] The object onto which to store the result.
- * @returns {Cartesian2} The modified result parameter or a new Cartesian2 instance if one was not provided.
+ * @param {Cartesian4} cartesian 要从中创建Cartesian2实例的Cartesian4实例。
+ * @param {Cartesian2} [result] 存储结果的对象。
+ * @returns {Cartesian2} 修改后的结果参数；如果未提供则返回新的Cartesian2实例。
  */
 Cartesian2.fromCartesian4 = Cartesian2.clone;
 
 /**
- * The number of elements used to pack the object into an array.
+ * 用于将对象打包到数组中的元素数量。
  * @type {number}
  */
 Cartesian2.packedLength = 2;
 
 /**
- * Creates a Cartesian2 from two consecutive elements in an array.
+ * 从数组中两个连续元素创建Cartesian2。
  * @function
  *
- * @param {number[]} array The array whose two consecutive elements correspond to the x and y components, respectively.
- * @param {number} [startingIndex=0] The offset into the array of the first element, which corresponds to the x component.
- * @param {Cartesian2} [result] The object onto which to store the result.
- * @returns {Cartesian2} The modified result parameter or a new Cartesian2 instance if one was not provided.
+ * @param {number[]} array 其两个连续元素分别对应x和y分量的数组。
+ * @param {number} [startingIndex=0] 第一个元素（对应x分量）在数组中的偏移量。
+ * @param {Cartesian2} [result] 存储结果的对象。
+ * @returns {Cartesian2} 修改后的结果参数；如果未提供则返回新的Cartesian2实例。
  *
  * @example
- * // Create a Cartesian2 with (1.0, 2.0)
+ * // 创建具有(1.0, 2.0)的Cartesian2
  * const v = [1.0, 2.0];
  * const p = Cesium.Cartesian2.fromArray(v);
  *
- * // Create a Cartesian2 with (1.0, 2.0) using an offset into an array
+ * // 使用数组偏移量创建具有(1.0, 2.0)的Cartesian2
  * const v2 = [0.0, 0.0, 1.0, 2.0];
  * const p2 = Cesium.Cartesian2.fromArray(v2, 2);
  */
@@ -796,7 +794,7 @@ const angleBetweenScratch2 = new Cartesian2();
 const mostOrthogonalAxisScratch = new Cartesian2();
 
 /**
- * An immutable Cartesian2 instance initialized to (0.0, 0.0).
+ * 初始化为(0.0, 0.0)的不可变Cartesian2实例。
  *
  * @type {Cartesian2}
  * @constant
@@ -804,7 +802,7 @@ const mostOrthogonalAxisScratch = new Cartesian2();
 Cartesian2.ZERO = Object.freeze(new Cartesian2(0.0, 0.0));
 
 /**
- * An immutable Cartesian2 instance initialized to (1.0, 1.0).
+ * 初始化为(1.0, 1.0)的不可变Cartesian2实例。
  *
  * @type {Cartesian2}
  * @constant
@@ -812,7 +810,7 @@ Cartesian2.ZERO = Object.freeze(new Cartesian2(0.0, 0.0));
 Cartesian2.ONE = Object.freeze(new Cartesian2(1.0, 1.0));
 
 /**
- * An immutable Cartesian2 instance initialized to (1.0, 0.0).
+ * 初始化为(1.0, 0.0)的不可变Cartesian2实例。
  *
  * @type {Cartesian2}
  * @constant
@@ -820,7 +818,7 @@ Cartesian2.ONE = Object.freeze(new Cartesian2(1.0, 1.0));
 Cartesian2.UNIT_X = Object.freeze(new Cartesian2(1.0, 0.0));
 
 /**
- * An immutable Cartesian2 instance initialized to (0.0, 1.0).
+ * 初始化为(0.0, 1.0)的不可变Cartesian2实例。
  *
  * @type {Cartesian2}
  * @constant

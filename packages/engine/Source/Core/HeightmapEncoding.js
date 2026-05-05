@@ -1,13 +1,13 @@
 // @ts-check
 
 /**
- * The encoding that is used for a heightmap
+ * 高度图所使用的编码方式
  *
  * @enum {number}
  */
 const HeightmapEncoding = {
   /**
-   * No encoding
+   * 无编码
    *
    * @type {number}
    * @constant
@@ -15,12 +15,12 @@ const HeightmapEncoding = {
   NONE: 0,
 
   /**
-   * LERC encoding
+   * LERC 编码
    *
    * @type {number}
    * @constant
    *
-   * @see {@link https://github.com/Esri/lerc|The LERC specification}
+   * @see {@link https://github.com/Esri/lerc|LERC 规范}
    */
   LERC: 1,
 };

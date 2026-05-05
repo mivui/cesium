@@ -5,19 +5,19 @@ import EllipsoidGeometry from "./EllipsoidGeometry.js";
 import VertexFormat from "./VertexFormat.js";
 
 /**
- * A description of a sphere centered at the origin.
+ * 以原点为中心的球体的描述。
  *
  * @alias SphereGeometry
  * @constructor
  *
- * @param {object} [options] Object with the following properties:
- * @param {number} [options.radius=1.0] The radius of the sphere.
- * @param {number} [options.stackPartitions=64] The number of times to partition the ellipsoid into stacks.
- * @param {number} [options.slicePartitions=64] The number of times to partition the ellipsoid into radial slices.
- * @param {VertexFormat} [options.vertexFormat=VertexFormat.DEFAULT] The vertex attributes to be computed.
+ * @param {object} [options] 具有以下属性的对象：
+ * @param {number} [options.radius=1.0] 球体的半径。
+ * @param {number} [options.stackPartitions=64] 将椭球体划分为堆栈的次数。
+ * @param {number} [options.slicePartitions=64] 将椭球体划分为径向切片的次数。
+ * @param {VertexFormat} [options.vertexFormat=VertexFormat.DEFAULT] 要计算的顶点属性。
  *
- * @exception {DeveloperError} options.slicePartitions cannot be less than three.
- * @exception {DeveloperError} options.stackPartitions cannot be less than three.
+ * @exception {DeveloperError} options.slicePartitions不能小于三。
+ * @exception {DeveloperError} options.stackPartitions不能小于三。
  *
  * @see SphereGeometry#createGeometry
  *
@@ -43,19 +43,19 @@ function SphereGeometry(options) {
 }
 
 /**
- * The number of elements used to pack the object into an array.
+ * 用于将对象打包到数组中的元素数量。
  * @type {number}
  */
 SphereGeometry.packedLength = EllipsoidGeometry.packedLength;
 
 /**
- * Stores the provided instance into the provided array.
+ * 将提供的实例存储到提供的数组中。
  *
- * @param {SphereGeometry} value The value to pack.
- * @param {number[]} array The array to pack into.
- * @param {number} [startingIndex=0] The index into the array at which to start packing the elements.
+ * @param {SphereGeometry} value 要打包的值。
+ * @param {number[]} array 要打包到的数组。
+ * @param {number} [startingIndex=0] 开始打包元素的数组索引。
  *
- * @returns {number[]} The array that was packed into
+ * @returns {number[]} 被打包到的数组
  */
 SphereGeometry.pack = function (value, array, startingIndex) {
   //>>includeStart('debug', pragmas.debug);
@@ -75,12 +75,12 @@ const scratchOptions = {
 };
 
 /**
- * Retrieves an instance from a packed array.
+ * 从打包的数组中检索实例。
  *
- * @param {number[]} array The packed array.
- * @param {number} [startingIndex=0] The starting index of the element to be unpacked.
- * @param {SphereGeometry} [result] The object into which to store the result.
- * @returns {SphereGeometry} The modified result parameter or a new SphereGeometry instance if one was not provided.
+ * @param {number[]} array 打包数组。
+ * @param {number} [startingIndex=0] 要解包的元素起始索引。
+ * @param {SphereGeometry} [result] 存储结果的对象。
+ * @returns {SphereGeometry} 修改后的结果参数，如果未提供则返回新的SphereGeometry实例。
  */
 SphereGeometry.unpack = function (array, startingIndex, result) {
   const ellipsoidGeometry = EllipsoidGeometry.unpack(
@@ -106,10 +106,10 @@ SphereGeometry.unpack = function (array, startingIndex, result) {
 };
 
 /**
- * Computes the geometric representation of a sphere, including its vertices, indices, and a bounding sphere.
+ * 计算球体的几何表示，包括其顶点、索引和边界球。
  *
- * @param {SphereGeometry} sphereGeometry A description of the sphere.
- * @returns {Geometry|undefined} The computed vertices and indices.
+ * @param {SphereGeometry} sphereGeometry 球体的描述。
+ * @returns {Geometry|undefined} 计算得到的顶点和索引。
  */
 SphereGeometry.createGeometry = function (sphereGeometry) {
   return EllipsoidGeometry.createGeometry(sphereGeometry._ellipsoidGeometry);

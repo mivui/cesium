@@ -1,33 +1,33 @@
 import defined from "./defined.js";
 
 /**
- * Constructs an exception object that is thrown due to a developer error, e.g., invalid argument,
- * argument out of range, etc.  This exception should only be thrown during development;
- * it usually indicates a bug in the calling code.  This exception should never be
- * caught; instead the calling code should strive not to generate it.
+ * 构造因开发者错误而抛出的异常对象，例如无效参数、
+ * 参数超出范围等。此异常应仅在开发期间抛出；
+ * 通常表示调用代码中存在错误。此异常永远不应被
+ * 捕获；相反，调用代码应努力不产生此异常。
  * <br /><br />
- * On the other hand, a {@link RuntimeError} indicates an exception that may
- * be thrown at runtime, e.g., out of memory, that the calling code should be prepared
- * to catch.
+ * 另一方面，{@link RuntimeError}表示可能在运行时
+ * 抛出的异常，例如内存不足，调用代码应准备
+ * 捕获它。
  *
  * @alias DeveloperError
  * @constructor
  * @extends Error
  *
- * @param {string} [message] The error message for this exception.
+ * @param {string} [message] 此异常的错误消息。
  *
  * @see RuntimeError
  */
 function DeveloperError(message) {
   /**
-   * 'DeveloperError' indicating that this exception was thrown due to a developer error.
+   * 'DeveloperError'表示此异常因开发者错误而抛出。
    * @type {string}
    * @readonly
    */
   this.name = "DeveloperError";
 
   /**
-   * The explanation for why this exception was thrown.
+   * 解释为何抛出此异常。
    * @type {string}
    * @readonly
    */
@@ -42,7 +42,7 @@ function DeveloperError(message) {
   }
 
   /**
-   * The stack trace of this exception, if available.
+   * 此异常的堆栈跟踪（如果可用）。
    * @type {string}
    * @readonly
    */
@@ -70,7 +70,7 @@ DeveloperError.prototype.toString = function () {
  */
 DeveloperError.throwInstantiationError = function () {
   throw new DeveloperError(
-    "This function defines an interface and should not be called directly.",
+    "此函数定义接口，不应直接调用。",
   );
 };
 export default DeveloperError;

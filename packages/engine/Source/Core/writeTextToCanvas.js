@@ -4,11 +4,10 @@ import defined from "./defined.js";
 import DeveloperError from "./DeveloperError.js";
 
 /**
- * Computes dimensions for text, based on current canvas state.
+ * 根据当前画布状态计算文本的尺寸。
  *
- * Rounds metrics, excluding width, to whole pixels. This is purely to minimize
- * rendering differences with migration to in-browser measureText(), and may be
- * revised in the future. See: github.com/CesiumGS/cesium/pull/13081
+ * 将指标（不包括宽度）四舍五入为整像素。这纯粹是为了最小化
+ * 迁移到浏览器内 measureText() 时的渲染差异，未来可能会修订。参见：github.com/CesiumGS/cesium/pull/13081
  */
 function measureText(context2D, textString) {
   const metrics = context2D.measureText(textString);
@@ -24,12 +23,12 @@ function measureText(context2D, textString) {
     };
   }
 
-  // Baseline alignment requires `height = ascent + descent`. Rounding (if any)
-  // must be done before summing, or glyph pairs like "ij" may be misaligned.
+  // 基线对齐需要 `height = ascent + descent`。四舍五入（如有）
+  // 必须在求和之前完成，否则像 "ij" 这样的字形对可能会错位。
   const ascent = Math.round(metrics.actualBoundingBoxAscent);
   const descent = Math.round(metrics.actualBoundingBoxDescent);
 
-  // Characters like "_" may have height <0.5 at some sizes, don't round to zero.
+  // 某些字符如 "_" 在某些尺寸下 height 可能小于 0.5，不要四舍五入为零。
   const height = Math.max(ascent + descent, 1);
 
   return {
@@ -44,22 +43,21 @@ function measureText(context2D, textString) {
 let imageSmoothingEnabledName;
 
 /**
- * Writes the given text into a new canvas.  The canvas will be sized to fit the text.
- * If text is blank, returns undefined.
+ * 将给定文本写入新的画布。画布将调整大小以适应文本。
+ * 如果文本为空，则返回 undefined。
  *
- * @param {string} text The text to write.
- * @param {object} [options] Object with the following properties:
- * @param {string} [options.font='10px sans-serif'] The CSS font to use.
- * @param {boolean} [options.fill=true] Whether to fill the text.
- * @param {boolean} [options.stroke=false] Whether to stroke the text.
- * @param {Color} [options.fillColor=Color.WHITE] The fill color.
- * @param {Color} [options.strokeColor=Color.BLACK] The stroke color.
- * @param {number} [options.strokeWidth=1] The stroke width.
- * @param {Color} [options.backgroundColor=Color.TRANSPARENT] The background color of the canvas.
- * @param {number} [options.padding=0] The pixel size of the padding to add around the text.
- * @returns {HTMLCanvasElement|undefined} A new canvas with the given text drawn into it.  The dimensions object
- *                   from measureText will also be added to the returned canvas. If text is
- *                   blank, returns undefined.
+ * @param {string} text 要写入的文本。
+ * @param {object} [options] 包含以下属性的对象：
+ * @param {string} [options.font='10px sans-serif'] 要使用的 CSS 字体。
+ * @param {boolean} [options.fill=true] 是否填充文本。
+ * @param {boolean} [options.stroke=false] 是否描边文本。
+ * @param {Color} [options.fillColor=Color.WHITE] 填充颜色。
+ * @param {Color} [options.strokeColor=Color.BLACK] 描边颜色。
+ * @param {number} [options.strokeWidth=1] 描边宽度。
+ * @param {Color} [options.backgroundColor=Color.TRANSPARENT] 画布的背景颜色。
+ * @param {number} [options.padding=0] 要在文本周围添加的填充像素大小。
+ * @returns {HTMLCanvasElement|undefined} 一个绘制了给定文本的新画布。来自 measureText 的尺寸对象
+ *                   也将添加到返回的画布上。如果文本为空，则返回 undefined。
  * @function writeTextToCanvas
  */
 function writeTextToCanvas(text, options) {

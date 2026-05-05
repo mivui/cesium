@@ -2,30 +2,30 @@ import Check from "./Check.js";
 import defined from "./defined.js";
 
 /**
- * A set of curvilinear 3-dimensional coordinates.
+ * 一组曲线3维坐标。
  *
  * @alias Spherical
  * @constructor
  *
- * @param {number} [clock=0.0] The angular coordinate lying in the xy-plane measured from the positive x-axis and toward the positive y-axis.
- * @param {number} [cone=0.0] The angular coordinate measured from the positive z-axis and toward the negative z-axis.
- * @param {number} [magnitude=1.0] The linear coordinate measured from the origin.
+ * @param {number} [clock=0.0] 位于xy平面内的角坐标，从正x轴测量向正y轴。
+ * @param {number} [cone=0.0] 从正z轴测量向负z轴的角坐标。
+ * @param {number} [magnitude=1.0] 从原点测量的线性坐标。
  */
 function Spherical(clock, cone, magnitude) {
   /**
-   * The clock component.
+   * 时钟分量。
    * @type {number}
    * @default 0.0
    */
   this.clock = clock ?? 0.0;
   /**
-   * The cone component.
+   * 锥体分量。
    * @type {number}
    * @default 0.0
    */
   this.cone = cone ?? 0.0;
   /**
-   * The magnitude component.
+   * 幅度分量。
    * @type {number}
    * @default 1.0
    */
@@ -33,11 +33,11 @@ function Spherical(clock, cone, magnitude) {
 }
 
 /**
- * Converts the provided Cartesian3 into Spherical coordinates.
+ * 将提供的Cartesian3转换为球坐标。
  *
- * @param {Cartesian3} cartesian3 The Cartesian3 to be converted to Spherical.
- * @param {Spherical} [result] The object in which the result will be stored, if undefined a new instance will be created.
- * @returns {Spherical} The modified result parameter, or a new instance if one was not provided.
+ * @param {Cartesian3} cartesian3 要转换为球坐标的Cartesian3。
+ * @param {Spherical} [result] 存储结果的对象，如果未定义则创建新实例。
+ * @returns {Spherical} 修改后的结果参数，如果未提供则返回新实例。
  */
 Spherical.fromCartesian3 = function (cartesian3, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -60,11 +60,11 @@ Spherical.fromCartesian3 = function (cartesian3, result) {
 };
 
 /**
- * Creates a duplicate of a Spherical.
+ * 创建球坐标的副本。
  *
- * @param {Spherical} spherical The spherical to clone.
- * @param {Spherical} [result] The object to store the result into, if undefined a new instance will be created.
- * @returns {Spherical} The modified result parameter or a new instance if result was undefined. (Returns undefined if spherical is undefined)
+ * @param {Spherical} spherical 要克隆的球坐标。
+ * @param {Spherical} [result] 存储结果的对象，如果未定义则创建新实例。
+ * @returns {Spherical} 修改后的结果参数，如果结果为undefined则返回新实例。（如果spherical未定义则返回undefined）
  */
 Spherical.clone = function (spherical, result) {
   if (!defined(spherical)) {
@@ -82,11 +82,11 @@ Spherical.clone = function (spherical, result) {
 };
 
 /**
- * Computes the normalized version of the provided spherical.
+ * 计算提供的球坐标的归一化版本。
  *
- * @param {Spherical} spherical The spherical to be normalized.
- * @param {Spherical} [result] The object to store the result into, if undefined a new instance will be created.
- * @returns {Spherical} The modified result parameter or a new instance if result was undefined.
+ * @param {Spherical} spherical 要归一化的球坐标。
+ * @param {Spherical} [result] 存储结果的对象，如果未定义则创建新实例。
+ * @returns {Spherical} 修改后的结果参数，如果结果为undefined则返回新实例。
  */
 Spherical.normalize = function (spherical, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -104,11 +104,11 @@ Spherical.normalize = function (spherical, result) {
 };
 
 /**
- * Returns true if the first spherical is equal to the second spherical, false otherwise.
+ * 如果第一个球坐标等于第二个球坐标则返回true，否则返回false。
  *
- * @param {Spherical} [left] The first Spherical to be compared.
- * @param {Spherical} [right] The second Spherical to be compared.
- * @returns {boolean} true if the first spherical is equal to the second spherical, false otherwise.
+ * @param {Spherical} [left] 第一个要比较的球坐标。
+ * @param {Spherical} [right] 第二个要比较的球坐标。
+ * @returns {boolean} 如果第一个球坐标等于第二个则返回true，否则返回false。
  */
 Spherical.equals = function (left, right) {
   return (

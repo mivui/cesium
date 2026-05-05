@@ -6,32 +6,31 @@ import sampleTerrain from "./sampleTerrain.js";
 const scratchCartesian2 = new Cartesian2();
 
 /**
- * Initiates a sampleTerrain() request at the maximum available tile level for a terrain dataset.
+ * 为地形数据集在最大可用瓦片层级发起sampleTerrain()请求。
  *
  * @function sampleTerrainMostDetailed
  *
- * @param {TerrainProvider} terrainProvider The terrain provider from which to query heights.
- * @param {Cartographic[]} positions The positions to update with terrain heights.
- * @param {boolean} [rejectOnTileFail=false] If true, for a failed terrain tile request the promise will be rejected. If false, returned heights will be undefined.
- * @returns {Promise<Cartographic[]>} A promise that resolves to the provided list of positions when terrain the query has completed.  This
- *                                     promise will reject if the terrain provider's `availability` property is undefined.
+ * @param {TerrainProvider} terrainProvider 要从中查询高度的地形提供程序。
+ * @param {Cartographic[]} positions 要用地形高度更新的位置。
+ * @param {boolean} [rejectOnTileFail=false] 如果为true，对于失败的地形瓦片请求，Promise将被拒绝。如果为false，返回的高度将为undefined。
+ * @returns {Promise<Cartographic[]>} 当地形查询完成时，解析为提供的位置列表的Promise。如果地形提供程序的`availability`属性为undefined，此Promise将被拒绝。
  *
  * @example
- * // Query the terrain height of two Cartographic positions
+ * // 查询两个Cartographic位置的地形高度
  * const terrainProvider = await Cesium.createWorldTerrainAsync();
  * const positions = [
  *     Cesium.Cartographic.fromDegrees(86.925145, 27.988257),
  *     Cesium.Cartographic.fromDegrees(87.0, 28.0)
  * ];
  * const updatedPositions = await Cesium.sampleTerrainMostDetailed(terrainProvider, positions);
- * // positions[0].height and positions[1].height have been updated.
- * // updatedPositions is just a reference to positions.
+ * // positions[0].height和positions[1].height已被更新。
+ * // updatedPositions只是positions的引用。
  *
- * // To handle tile errors, pass true for the rejectOnTileFail parameter.
+ * // 要处理瓦片错误，请为rejectOnTileFail参数传递true。
  * try {
  *    const updatedPositions = await Cesium.sampleTerrainMostDetailed(terrainProvider, positions, true);
  * } catch (error) {
- *   // A tile request error occurred.
+ *   // 发生瓦片请求错误。
  * }
  */
 async function sampleTerrainMostDetailed(

@@ -1,7 +1,7 @@
 import DeveloperError from "./DeveloperError.js";
 
 /**
- * Base class for proxying requested made by {@link Resource}.
+ * 用于代理{@link Resource}发出的请求的基础类。
  *
  * @alias Proxy
  * @constructor

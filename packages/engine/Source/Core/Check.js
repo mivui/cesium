@@ -2,13 +2,13 @@ import defined from "./defined.js";
 import DeveloperError from "./DeveloperError.js";
 
 /**
- * Contains functions for checking that supplied arguments are of a specified type
- * or meet specified conditions
+ * 包含用于检查提供的参数是否为指定类型
+ * 或满足指定条件的函数
  */
 const Check = {};
 
 /**
- * Contains type checking functions, all using the typeof operator
+ * 包含类型检查函数，均使用typeof运算符
  */
 Check.typeOf = {};
 
@@ -21,11 +21,11 @@ function getFailedTypeErrorMessage(actual, expected, name) {
 }
 
 /**
- * Throws if test is not defined
+ * 如果test未定义则抛出异常
  *
- * @param {string} name The name of the variable being tested
- * @param {*} test The value that is to be checked
- * @exception {DeveloperError} test must be defined
+ * @param {string} name 被测试变量的名称
+ * @param {*} test 要检查的值
+ * @exception {DeveloperError} test必须已定义
  */
 Check.defined = function (name, test) {
   if (!defined(test)) {
@@ -34,11 +34,11 @@ Check.defined = function (name, test) {
 };
 
 /**
- * Throws if test is not typeof 'function'
+ * 如果test的类型不是'function'则抛出异常
  *
- * @param {string} name The name of the variable being tested
- * @param {*} test The value to test
- * @exception {DeveloperError} test must be typeof 'function'
+ * @param {string} name 被测试变量的名称
+ * @param {*} test 要测试的值
+ * @exception {DeveloperError} test的类型必须是'function'
  */
 Check.typeOf.func = function (name, test) {
   if (typeof test !== "function") {
@@ -49,11 +49,11 @@ Check.typeOf.func = function (name, test) {
 };
 
 /**
- * Throws if test is not typeof 'string'
+ * 如果test的类型不是'string'则抛出异常
  *
- * @param {string} name The name of the variable being tested
- * @param {*} test The value to test
- * @exception {DeveloperError} test must be typeof 'string'
+ * @param {string} name 被测试变量的名称
+ * @param {*} test 要测试的值
+ * @exception {DeveloperError} test的类型必须是'string'
  */
 Check.typeOf.string = function (name, test) {
   if (typeof test !== "string") {
@@ -64,11 +64,11 @@ Check.typeOf.string = function (name, test) {
 };
 
 /**
- * Throws if test is not typeof 'number'
+ * 如果test的类型不是'number'则抛出异常
  *
- * @param {string} name The name of the variable being tested
- * @param {*} test The value to test
- * @exception {DeveloperError} test must be typeof 'number'
+ * @param {string} name 被测试变量的名称
+ * @param {*} test 要测试的值
+ * @exception {DeveloperError} test的类型必须是'number'
  */
 Check.typeOf.number = function (name, test) {
   if (typeof test !== "number") {
@@ -79,12 +79,12 @@ Check.typeOf.number = function (name, test) {
 };
 
 /**
- * Throws if test is not typeof 'number' and less than limit
+ * 如果test的类型不是'number'或小于限制值则抛出异常
  *
- * @param {string} name The name of the variable being tested
- * @param {*} test The value to test
- * @param {number} limit The limit value to compare against
- * @exception {DeveloperError} test must be typeof 'number' and less than limit
+ * @param {string} name 被测试变量的名称
+ * @param {*} test 要测试的值
+ * @param {number} limit 要比较的限制值
+ * @exception {DeveloperError} test的类型必须是'number'且小于限制值
  */
 Check.typeOf.number.lessThan = function (name, test, limit) {
   Check.typeOf.number(name, test);
@@ -96,12 +96,12 @@ Check.typeOf.number.lessThan = function (name, test, limit) {
 };
 
 /**
- * Throws if test is not typeof 'number' and less than or equal to limit
+ * 如果test的类型不是'number'或小于等于限制值则抛出异常
  *
- * @param {string} name The name of the variable being tested
- * @param {*} test The value to test
- * @param {number} limit The limit value to compare against
- * @exception {DeveloperError} test must be typeof 'number' and less than or equal to limit
+ * @param {string} name 被测试变量的名称
+ * @param {*} test 要测试的值
+ * @param {number} limit 要比较的限制值
+ * @exception {DeveloperError} test的类型必须是'number'且小于等于限制值
  */
 Check.typeOf.number.lessThanOrEquals = function (name, test, limit) {
   Check.typeOf.number(name, test);
@@ -113,12 +113,12 @@ Check.typeOf.number.lessThanOrEquals = function (name, test, limit) {
 };
 
 /**
- * Throws if test is not typeof 'number' and greater than limit
+ * 如果test的类型不是'number'或大于限制值则抛出异常
  *
- * @param {string} name The name of the variable being tested
- * @param {*} test The value to test
- * @param {number} limit The limit value to compare against
- * @exception {DeveloperError} test must be typeof 'number' and greater than limit
+ * @param {string} name 被测试变量的名称
+ * @param {*} test 要测试的值
+ * @param {number} limit 要比较的限制值
+ * @exception {DeveloperError} test的类型必须是'number'且大于限制值
  */
 Check.typeOf.number.greaterThan = function (name, test, limit) {
   Check.typeOf.number(name, test);
@@ -130,12 +130,12 @@ Check.typeOf.number.greaterThan = function (name, test, limit) {
 };
 
 /**
- * Throws if test is not typeof 'number' and greater than or equal to limit
+ * 如果test的类型不是'number'或大于等于限制值则抛出异常
  *
- * @param {string} name The name of the variable being tested
- * @param {*} test The value to test
- * @param {number} limit The limit value to compare against
- * @exception {DeveloperError} test must be typeof 'number' and greater than or equal to limit
+ * @param {string} name 被测试变量的名称
+ * @param {*} test 要测试的值
+ * @param {number} limit 要比较的限制值
+ * @exception {DeveloperError} test的类型必须是'number'且大于等于限制值
  */
 Check.typeOf.number.greaterThanOrEquals = function (name, test, limit) {
   Check.typeOf.number(name, test);
@@ -147,11 +147,11 @@ Check.typeOf.number.greaterThanOrEquals = function (name, test, limit) {
 };
 
 /**
- * Throws if test is not typeof 'object'
+ * 如果test的类型不是'object'则抛出异常
  *
- * @param {string} name The name of the variable being tested
- * @param {*} test The value to test
- * @exception {DeveloperError} test must be typeof 'object'
+ * @param {string} name 被测试变量的名称
+ * @param {*} test 要测试的值
+ * @exception {DeveloperError} test的类型必须是'object'
  */
 Check.typeOf.object = function (name, test) {
   if (typeof test !== "object") {
@@ -162,11 +162,11 @@ Check.typeOf.object = function (name, test) {
 };
 
 /**
- * Throws if test is not typeof 'boolean'
+ * 如果test的类型不是'boolean'则抛出异常
  *
- * @param {string} name The name of the variable being tested
- * @param {*} test The value to test
- * @exception {DeveloperError} test must be typeof 'boolean'
+ * @param {string} name 被测试变量的名称
+ * @param {*} test 要测试的值
+ * @exception {DeveloperError} test的类型必须是'boolean'
  */
 Check.typeOf.bool = function (name, test) {
   if (typeof test !== "boolean") {
@@ -177,11 +177,11 @@ Check.typeOf.bool = function (name, test) {
 };
 
 /**
- * Throws if test is not typeof 'bigint'
+ * 如果test的类型不是'bigint'则抛出异常
  *
- * @param {string} name The name of the variable being tested
- * @param {*} test The value to test
- * @exception {DeveloperError} test must be typeof 'bigint'
+ * @param {string} name 被测试变量的名称
+ * @param {*} test 要测试的值
+ * @exception {DeveloperError} test的类型必须是'bigint'
  */
 Check.typeOf.bigint = function (name, test) {
   if (typeof test !== "bigint") {
@@ -192,13 +192,13 @@ Check.typeOf.bigint = function (name, test) {
 };
 
 /**
- * Throws if test1 and test2 is not typeof 'number' and not equal in value
+ * 如果test1和test2的类型不是'number'或值不相等则抛出异常
  *
- * @param {string} name1 The name of the first variable being tested
- * @param {string} name2 The name of the second variable being tested against
- * @param {*} test1 The value to test
- * @param {*} test2 The value to test against
- * @exception {DeveloperError} test1 and test2 should be type of 'number' and be equal in value
+ * @param {string} name1 第一个被测试变量的名称
+ * @param {string} name2 第二个被测试变量的名称
+ * @param {*} test1 要测试的值
+ * @param {*} test2 要比较的值
+ * @exception {DeveloperError} test1和test2的类型必须是'number'且值相等
  */
 Check.typeOf.number.equals = function (name1, name2, test1, test2) {
   Check.typeOf.number(name1, test1);

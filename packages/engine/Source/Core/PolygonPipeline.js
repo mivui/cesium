@@ -22,7 +22,7 @@ const scaleToGeodeticHeightP = new Cartesian3();
 const PolygonPipeline = {};
 
 /**
- * @exception {DeveloperError} At least three positions are required.
+ * @exception {DeveloperError} 至少需要三个位置。
  */
 PolygonPipeline.computeArea2D = function (positions) {
   //>>includeStart('debug', pragmas.debug);
@@ -48,9 +48,9 @@ PolygonPipeline.computeArea2D = function (positions) {
 };
 
 /**
- * @returns {WindingOrder} The winding order.
+ * @returns {WindingOrder} 环绕顺序。
  *
- * @exception {DeveloperError} At least three positions are required.
+ * @exception {DeveloperError} 至少需要三个位置。
  */
 PolygonPipeline.computeWindingOrder2D = function (positions) {
   const area = PolygonPipeline.computeArea2D(positions);
@@ -58,11 +58,11 @@ PolygonPipeline.computeWindingOrder2D = function (positions) {
 };
 
 /**
- * Triangulate a polygon.
+ * 对多边形进行三角剖分。
  *
- * @param {Cartesian2[]} positions Cartesian2 array containing the vertices of the polygon
- * @param {number[]} [holes] An array of the staring indices of the holes.
- * @returns {number[]} Index array representing triangles that fill the polygon
+ * @param {Cartesian2[]} positions 包含多边形顶点的Cartesian2数组
+ * @param {number[]} [holes] 孔洞的起始索引数组。
+ * @returns {number[]} 表示填充多边形的三角形的索引数组
  */
 PolygonPipeline.triangulate = function (positions, holes) {
   //>>includeStart('debug', pragmas.debug);
@@ -86,17 +86,17 @@ const subdivisionT2Scratch = new Cartesian2();
 const subdivisionTexcoordMidScratch = new Cartesian2();
 
 /**
- * Subdivides positions and raises points to the surface of the ellipsoid.
+ * 细分位置并将点提升到椭球表面。
  *
- * @param {Ellipsoid} ellipsoid The ellipsoid the polygon in on.
- * @param {Cartesian3[]} positions An array of {@link Cartesian3} positions of the polygon.
- * @param {number[]} indices An array of indices that determines the triangles in the polygon.
- * @param {Cartesian2[]} texcoords An optional array of {@link Cartesian2} texture coordinates of the polygon.
- * @param {number} [granularity=CesiumMath.RADIANS_PER_DEGREE] The distance, in radians, between each latitude and longitude. Determines the number of positions in the buffer.
+ * @param {Ellipsoid} ellipsoid 多边形所在的椭球体。
+ * @param {Cartesian3[]} positions 多边形的{@link Cartesian3}位置数组。
+ * @param {number[]} indices 确定多边形中三角形的索引数组。
+ * @param {Cartesian2[]} texcoords 多边形的可选{@link Cartesian2}纹理坐标数组。
+ * @param {number} [granularity=CesiumMath.RADIANS_PER_DEGREE] 每个经纬度之间的角距离（弧度）。决定缓冲区中的位置数量。
  *
- * @exception {DeveloperError} At least three indices are required.
- * @exception {DeveloperError} The number of indices must be divisable by three.
- * @exception {DeveloperError} Granularity must be greater than zero.
+ * @exception {DeveloperError} 至少需要三个索引。
+ * @exception {DeveloperError} 索引数量必须能被三整除。
+ * @exception {DeveloperError} 粒度必须大于零。
  */
 PolygonPipeline.computeSubdivision = function (
   ellipsoid,
@@ -221,7 +221,7 @@ PolygonPipeline.computeSubdivision = function (
     let mid;
     let midTexcoord;
 
-    // if the max length squared of a triangle edge is greater than the chord length of squared
+    // if the max length squared of a triangle edge is greater than the chord length squared
     // of the granularity, subdivide the triangle
     if (max > minDistanceSqrd) {
       if (g0 === max) {
@@ -321,17 +321,17 @@ const subdivisionC2Scratch = new Cartographic();
 const subdivisionCartographicScratch = new Cartographic();
 
 /**
- * Subdivides positions on rhumb lines and raises points to the surface of the ellipsoid.
+ * 沿等角航线细分位置并将点提升到椭球表面。
  *
- * @param {Ellipsoid} ellipsoid The ellipsoid the polygon in on.
- * @param {Cartesian3[]} positions An array of {@link Cartesian3} positions of the polygon.
- * @param {number[]} indices An array of indices that determines the triangles in the polygon.
- * @param {Cartesian2[]} texcoords An optional array of {@link Cartesian2} texture coordinates of the polygon.
- * @param {number} [granularity=CesiumMath.RADIANS_PER_DEGREE] The distance, in radians, between each latitude and longitude. Determines the number of positions in the buffer.
+ * @param {Ellipsoid} ellipsoid 多边形所在的椭球体。
+ * @param {Cartesian3[]} positions 多边形的{@link Cartesian3}位置数组。
+ * @param {number[]} indices 确定多边形中三角形的索引数组。
+ * @param {Cartesian2[]} texcoords 多边形的可选{@link Cartesian2}纹理坐标数组。
+ * @param {number} [granularity=CesiumMath.RADIANS_PER_DEGREE] 每个经纬度之间的角距离（弧度）。决定缓冲区中的位置数量。
  *
- * @exception {DeveloperError} At least three indices are required.
- * @exception {DeveloperError} The number of indices must be divisable by three.
- * @exception {DeveloperError} Granularity must be greater than zero.
+ * @exception {DeveloperError} 至少需要三个索引。
+ * @exception {DeveloperError} 索引数量必须能被三整除。
+ * @exception {DeveloperError} 粒度必须大于零。
  */
 PolygonPipeline.computeRhumbLineSubdivision = function (
   ellipsoid,
@@ -446,7 +446,7 @@ PolygonPipeline.computeRhumbLineSubdivision = function (
     let midCartesian3;
     let midTexcoord;
 
-    // if the max length squared of a triangle edge is greater than granularity, subdivide the triangle
+    // if the max length of a triangle edge is greater than granularity, subdivide the triangle
     if (max > minDistance) {
       if (g0 === max) {
         edge = `${Math.min(i0, i1)} ${Math.max(i0, i1)}`;
@@ -582,13 +582,13 @@ PolygonPipeline.computeRhumbLineSubdivision = function (
 };
 
 /**
- * Scales each position of a geometry's position attribute to a height, in place.
+ * 就地将几何体位置属性的每个位置缩放到指定高度。
  *
- * @param {number[]} positions The array of numbers representing the positions to be scaled
- * @param {number} [height=0.0] The desired height to add to the positions
- * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] The ellipsoid on which the positions lie.
- * @param {boolean} [scaleToSurface=true] <code>true</code> if the positions need to be scaled to the surface before the height is added.
- * @returns {number[]} The input array of positions, scaled to height
+ * @param {number[]} positions 表示待缩放位置的数值数组。
+ * @param {number} [height=0.0] 要添加到位置的高度。
+ * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] 位置所在的椭球体。
+ * @param {boolean} [scaleToSurface=true] 如果需要在添加高度前将位置缩放到表面，则为<code>true</code>。
+ * @returns {number[]} 输入的位置数组，已缩放到指定高度。
  */
 PolygonPipeline.scaleToGeodeticHeight = function (
   positions,

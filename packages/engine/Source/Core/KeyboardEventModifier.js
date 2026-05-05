@@ -1,14 +1,13 @@
 // @ts-check
 
 /**
- * This enumerated type is for representing keyboard modifiers. These are keys
- * that are held down in addition to other event types.
+ * 此枚举类型表示键盘修饰键。这些是除其他事件类型外按下的键。
  *
  * @enum {number}
  */
 const KeyboardEventModifier = {
   /**
-   * Represents the shift key being held down.
+   * 表示shift键被按下。
    *
    * @type {number}
    * @constant
@@ -16,7 +15,7 @@ const KeyboardEventModifier = {
   SHIFT: 0,
 
   /**
-   * Represents the control key being held down.
+   * 表示control键被按下。
    *
    * @type {number}
    * @constant
@@ -24,7 +23,7 @@ const KeyboardEventModifier = {
   CTRL: 1,
 
   /**
-   * Represents the alt key being held down.
+   * 表示alt键被按下。
    *
    * @type {number}
    * @constant

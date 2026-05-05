@@ -2,13 +2,13 @@ import PixelDatatype from "../Renderer/PixelDatatype.js";
 import WebGLConstants from "./WebGLConstants.js";
 
 /**
- * The format of a pixel, i.e., the number of components it has and what they represent.
+ * 像素的格式，即其包含的组件数量及这些组件的含义。
  *
  * @enum {number}
  */
 const PixelFormat = {
   /**
-   * A pixel format containing a depth value.
+   * 包含深度值的像素格式。
    *
    * @type {number}
    * @constant
@@ -16,7 +16,7 @@ const PixelFormat = {
   DEPTH_COMPONENT: WebGLConstants.DEPTH_COMPONENT,
 
   /**
-   * A pixel format containing a depth and stencil value, most often used with {@link PixelDatatype.UNSIGNED_INT_24_8}.
+   * 包含深度和模板值的像素格式，最常与{@link PixelDatatype.UNSIGNED_INT_24_8}一起使用。
    *
    * @type {number}
    * @constant
@@ -24,7 +24,7 @@ const PixelFormat = {
   DEPTH_STENCIL: WebGLConstants.DEPTH_STENCIL,
 
   /**
-   * A pixel format containing an alpha channel.
+   * 包含Alpha通道的像素格式。
    *
    * @type {number}
    * @constant
@@ -32,7 +32,7 @@ const PixelFormat = {
   ALPHA: WebGLConstants.ALPHA,
 
   /**
-   * A pixel format containing a red channel
+   * 包含红色通道的像素格式
    *
    * @type {number}
    * @constant
@@ -40,7 +40,7 @@ const PixelFormat = {
   RED: WebGLConstants.RED,
 
   /**
-   * A pixel format containing red and green channels.
+   * 包含红色和绿色通道的像素格式。
    *
    * @type {number}
    * @constant
@@ -48,7 +48,7 @@ const PixelFormat = {
   RG: WebGLConstants.RG,
 
   /**
-   * A pixel format containing red, green, and blue channels.
+   * 包含红色、绿色和蓝色通道的像素格式。
    *
    * @type {number}
    * @constant
@@ -56,7 +56,7 @@ const PixelFormat = {
   RGB: WebGLConstants.RGB,
 
   /**
-   * A pixel format containing red, green, blue, and alpha channels.
+   * 包含红色、绿色、蓝色和Alpha通道的像素格式。
    *
    * @type {number}
    * @constant
@@ -64,35 +64,35 @@ const PixelFormat = {
   RGBA: WebGLConstants.RGBA,
 
   /**
-   * A pixel format containing a red channel as an integer.
+   * 将红色通道作为整数表示的像素格式。
    * @type {number}
    * @constant
    */
   RED_INTEGER: WebGLConstants.RED_INTEGER,
 
   /**
-   * A pixel format containing red and green channels as integers.
+   * 将红色和绿色通道作为整数表示的像素格式。
    * @type {number}
    * @constant
    */
   RG_INTEGER: WebGLConstants.RG_INTEGER,
 
   /**
-   * A pixel format containing red, green, and blue channels as integers.
+   * 将红色、绿色和蓝色通道作为整数表示的像素格式。
    * @type {number}
    * @constant
    */
   RGB_INTEGER: WebGLConstants.RGB_INTEGER,
 
   /**
-   * A pixel format containing red, green, blue, and alpha channels as integers.
+   * 将红色、绿色、蓝色和Alpha通道作为整数表示的像素格式。
    * @type {number}
    * @constant
    */
   RGBA_INTEGER: WebGLConstants.RGBA_INTEGER,
 
   /**
-   * A pixel format containing a luminance (intensity) channel.
+   * 包含亮度（强度）通道的像素格式。
    *
    * @type {number}
    * @constant
@@ -100,7 +100,7 @@ const PixelFormat = {
   LUMINANCE: WebGLConstants.LUMINANCE,
 
   /**
-   * A pixel format containing luminance (intensity) and alpha channels.
+   * 包含亮度（强度）和Alpha通道的像素格式。
    *
    * @type {number}
    * @constant
@@ -108,7 +108,7 @@ const PixelFormat = {
   LUMINANCE_ALPHA: WebGLConstants.LUMINANCE_ALPHA,
 
   /**
-   * A pixel format containing red, green, and blue channels that is DXT1 compressed.
+   * 包含红色、绿色和蓝色通道的像素格式，使用DXT1压缩。
    *
    * @type {number}
    * @constant
@@ -116,7 +116,7 @@ const PixelFormat = {
   RGB_DXT1: WebGLConstants.COMPRESSED_RGB_S3TC_DXT1_EXT,
 
   /**
-   * A pixel format containing red, green, blue, and alpha channels that is DXT1 compressed.
+   * 包含红色、绿色、蓝色和Alpha通道的像素格式，使用DXT1压缩。
    *
    * @type {number}
    * @constant
@@ -124,7 +124,7 @@ const PixelFormat = {
   RGBA_DXT1: WebGLConstants.COMPRESSED_RGBA_S3TC_DXT1_EXT,
 
   /**
-   * A pixel format containing red, green, blue, and alpha channels that is DXT3 compressed.
+   * 包含红色、绿色、蓝色和Alpha通道的像素格式，使用DXT3压缩。
    *
    * @type {number}
    * @constant
@@ -132,7 +132,7 @@ const PixelFormat = {
   RGBA_DXT3: WebGLConstants.COMPRESSED_RGBA_S3TC_DXT3_EXT,
 
   /**
-   * A pixel format containing red, green, blue, and alpha channels that is DXT5 compressed.
+   * 包含红色、绿色、蓝色和Alpha通道的像素格式，使用DXT5压缩。
    *
    * @type {number}
    * @constant
@@ -140,7 +140,7 @@ const PixelFormat = {
   RGBA_DXT5: WebGLConstants.COMPRESSED_RGBA_S3TC_DXT5_EXT,
 
   /**
-   * A pixel format containing red, green, and blue channels that is PVR 4bpp compressed.
+   * 包含红色、绿色和蓝色通道的像素格式，使用PVR 4bpp压缩。
    *
    * @type {number}
    * @constant
@@ -148,7 +148,7 @@ const PixelFormat = {
   RGB_PVRTC_4BPPV1: WebGLConstants.COMPRESSED_RGB_PVRTC_4BPPV1_IMG,
 
   /**
-   * A pixel format containing red, green, and blue channels that is PVR 2bpp compressed.
+   * 包含红色、绿色和蓝色通道的像素格式，使用PVR 2bpp压缩。
    *
    * @type {number}
    * @constant
@@ -156,7 +156,7 @@ const PixelFormat = {
   RGB_PVRTC_2BPPV1: WebGLConstants.COMPRESSED_RGB_PVRTC_2BPPV1_IMG,
 
   /**
-   * A pixel format containing red, green, blue, and alpha channels that is PVR 4bpp compressed.
+   * 包含红色、绿色、蓝色和Alpha通道的像素格式，使用PVR 4bpp压缩。
    *
    * @type {number}
    * @constant
@@ -164,7 +164,7 @@ const PixelFormat = {
   RGBA_PVRTC_4BPPV1: WebGLConstants.COMPRESSED_RGBA_PVRTC_4BPPV1_IMG,
 
   /**
-   * A pixel format containing red, green, blue, and alpha channels that is PVR 2bpp compressed.
+   * 包含红色、绿色、蓝色和Alpha通道的像素格式，使用PVR 2bpp压缩。
    *
    * @type {number}
    * @constant
@@ -172,7 +172,7 @@ const PixelFormat = {
   RGBA_PVRTC_2BPPV1: WebGLConstants.COMPRESSED_RGBA_PVRTC_2BPPV1_IMG,
 
   /**
-   * A pixel format containing red, green, blue, and alpha channels that is ASTC compressed.
+   * 包含红色、绿色、蓝色和Alpha通道的像素格式，使用ASTC压缩。
    *
    * @type {number}
    * @constant
@@ -180,7 +180,7 @@ const PixelFormat = {
   RGBA_ASTC: WebGLConstants.COMPRESSED_RGBA_ASTC_4x4_WEBGL,
 
   /**
-   * A pixel format containing red, green, and blue channels that is ETC1 compressed.
+   * 包含红色、绿色和蓝色通道的像素格式，使用ETC1压缩。
    *
    * @type {number}
    * @constant
@@ -188,7 +188,7 @@ const PixelFormat = {
   RGB_ETC1: WebGLConstants.COMPRESSED_RGB_ETC1_WEBGL,
 
   /**
-   * A pixel format containing red, green, and blue channels that is ETC2 compressed.
+   * 包含红色、绿色和蓝色通道的像素格式，使用ETC2压缩。
    *
    * @type {number}
    * @constant
@@ -196,7 +196,7 @@ const PixelFormat = {
   RGB8_ETC2: WebGLConstants.COMPRESSED_RGB8_ETC2,
 
   /**
-   * A pixel format containing red, green, blue, and alpha channels that is ETC2 compressed.
+   * 包含红色、绿色、蓝色和Alpha通道的像素格式，使用ETC2压缩。
    *
    * @type {number}
    * @constant
@@ -204,7 +204,7 @@ const PixelFormat = {
   RGBA8_ETC2_EAC: WebGLConstants.COMPRESSED_RGBA8_ETC2_EAC,
 
   /**
-   * A pixel format containing red, green, blue, and alpha channels that is BC7 compressed.
+   * 包含红色、绿色、蓝色和Alpha通道的像素格式，使用BC7压缩。
    *
    * @type {number}
    * @constant

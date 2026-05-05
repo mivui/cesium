@@ -11,13 +11,13 @@ import PrimitiveType from "./PrimitiveType.js";
 import VertexFormat from "./VertexFormat.js";
 
 /**
- * Describes geometry representing a plane centered at the origin, with a unit width and length.
+ * 描述一个以原点为中心的平面几何体，具有单位宽度和长度。
  *
  * @alias PlaneGeometry
  * @constructor
  *
- * @param {object} [options] Object with the following properties:
- * @param {VertexFormat} [options.vertexFormat=VertexFormat.DEFAULT] The vertex attributes to be computed.
+ * @param {object} [options] 具有以下属性的对象：
+ * @param {VertexFormat} [options.vertexFormat=VertexFormat.DEFAULT] 要计算的顶点属性。
  *
  * @example
  * const planeGeometry = new Cesium.PlaneGeometry({
@@ -34,19 +34,19 @@ function PlaneGeometry(options) {
 }
 
 /**
- * The number of elements used to pack the object into an array.
+ * 用于将对象打包到数组中的元素数量。
  * @type {number}
  */
 PlaneGeometry.packedLength = VertexFormat.packedLength;
 
 /**
- * Stores the provided instance into the provided array.
+ * 将提供的实例存储到提供的数组中。
  *
- * @param {PlaneGeometry} value The value to pack.
- * @param {number[]} array The array to pack into.
- * @param {number} [startingIndex=0] The index into the array at which to start packing the elements.
+ * @param {PlaneGeometry} value 要打包的值。
+ * @param {number[]} array 要打包到的数组。
+ * @param {number} [startingIndex=0] 开始打包元素的数组索引。
  *
- * @returns {number[]} The array that was packed into
+ * @returns {number[]} 被打包到的数组
  */
 PlaneGeometry.pack = function (value, array, startingIndex) {
   //>>includeStart('debug', pragmas.debug);
@@ -67,12 +67,12 @@ const scratchOptions = {
 };
 
 /**
- * Retrieves an instance from a packed array.
+ * 从打包的数组中检索实例。
  *
- * @param {number[]} array The packed array.
- * @param {number} [startingIndex=0] The starting index of the element to be unpacked.
- * @param {PlaneGeometry} [result] The object into which to store the result.
- * @returns {PlaneGeometry} The modified result parameter or a new PlaneGeometry instance if one was not provided.
+ * @param {number[]} array 打包数组。
+ * @param {number} [startingIndex=0] 要解包的元素起始索引。
+ * @param {PlaneGeometry} [result] 存储结果的对象。
+ * @returns {PlaneGeometry} 修改后的结果参数，如果未提供则返回新的PlaneGeometry实例。
  */
 PlaneGeometry.unpack = function (array, startingIndex, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -100,10 +100,10 @@ const min = new Cartesian3(-0.5, -0.5, 0.0);
 const max = new Cartesian3(0.5, 0.5, 0.0);
 
 /**
- * Computes the geometric representation of a plane, including its vertices, indices, and a bounding sphere.
+ * 计算平面的几何表示，包括其顶点、索引和边界球。
  *
- * @param {PlaneGeometry} planeGeometry A description of the plane.
- * @returns {Geometry|undefined} The computed vertices and indices.
+ * @param {PlaneGeometry} planeGeometry 平面的描述。
+ * @returns {Geometry|undefined} 计算得到的顶点和索引。
  */
 PlaneGeometry.createGeometry = function (planeGeometry) {
   const vertexFormat = planeGeometry._vertexFormat;

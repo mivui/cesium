@@ -353,19 +353,19 @@ function computePositionsExtruded(params) {
 }
 
 /**
- * A description of a corridor outline.
+ * 描述走廊轮廓线。
  *
  * @alias CorridorOutlineGeometry
  * @constructor
  *
- * @param {object} options Object with the following properties:
- * @param {Cartesian3[]} options.positions An array of positions that define the center of the corridor outline.
- * @param {number} options.width The distance between the edges of the corridor outline.
- * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] The ellipsoid to be used as a reference.
- * @param {number} [options.granularity=CesiumMath.RADIANS_PER_DEGREE] The distance, in radians, between each latitude and longitude. Determines the number of positions in the buffer.
- * @param {number} [options.height=0] The distance in meters between the positions and the ellipsoid surface.
- * @param {number} [options.extrudedHeight] The distance in meters between the extruded face and the ellipsoid surface.
- * @param {CornerType} [options.cornerType=CornerType.ROUNDED] Determines the style of the corners.
+ * @param {object} options 具有以下属性的对象：
+ * @param {Cartesian3[]} options.positions 定义走廊轮廓线中心的笛卡尔坐标数组。
+ * @param {number} options.width 走廊轮廓线两侧边缘之间的距离。
+ * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] 要用作参考的椭球体。
+ * @param {number} [options.granularity=CesiumMath.RADIANS_PER_DEGREE] 每个纬度和经度之间的距离（以弧度为单位）。决定缓冲区中的位置数量。
+ * @param {number} [options.height=0] 坐标与椭球表面之间的距离（以米为单位）。
+ * @param {number} [options.extrudedHeight] 拉伸面与椭球表面之间的距离（以米为单位）。
+ * @param {CornerType} [options.cornerType=CornerType.ROUNDED] 决定角落的样式。
  *
  * @see CorridorOutlineGeometry.createGeometry
  *

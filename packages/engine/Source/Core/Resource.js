@@ -39,31 +39,31 @@ const xhrBlobSupported = (function () {
 /**
  * @typedef {object} Resource.ConstructorOptions
  *
- * Initialization options for the Resource constructor
+ * Resource构造函数的初始化选项
  *
- * @property {string} url The url of the resource.
- * @property {object} [queryParameters] An object containing query parameters that will be sent when retrieving the resource.
- * @property {object} [templateValues] Key/Value pairs that are used to replace template values (eg. {x}).
- * @property {object} [headers={}] Additional HTTP headers that will be sent.
- * @property {Proxy} [proxy] A proxy to be used when loading the resource.
- * @property {Resource.RetryCallback} [retryCallback] The Function to call when a request for this resource fails. If it returns true, the request will be retried.
- * @property {number} [retryAttempts=0] The number of times the retryCallback should be called before giving up.
- * @property {Request} [request] A Request object that will be used. Intended for internal use only.
- * @property {boolean} [parseUrl=true] If true, parse the url for query parameters; otherwise store the url without change
+ * @property {string} url 资源的URL。
+ * @property {object} [queryParameters] 包含检索资源时将发送的查询参数的对象。
+ * @property {object} [templateValues] 用于替换模板值（例如{x}）的键值对。
+ * @property {object} [headers={}] 将发送的额外HTTP标头。
+ * @property {Proxy} [proxy] 加载资源时要使用的代理。
+ * @property {Resource.RetryCallback} [retryCallback] 此资源请求失败时调用的函数。如果返回true，将重试请求。
+ * @property {number} [retryAttempts=0] 在放弃之前应调用retryCallback的次数。
+ * @property {Request} [request] 将使用的Request对象。仅供内部使用。
+ * @property {boolean} [parseUrl=true] 如果为true，解析URL中的查询参数；否则原样存储URL
  */
 
 /**
- * A resource that includes the location and any other parameters we need to retrieve it or create derived resources. It also provides the ability to retry requests.
+ * 包含位置以及检索或创建派生资源所需的其他参数的资源。它还提供重试请求的能力。
  *
  * @alias Resource
  * @constructor
  *
- * @param {string|Resource.ConstructorOptions} options A url or an object describing initialization options
+ * @param {string|Resource.ConstructorOptions} options URL或描述初始化选项的对象
  *
  * @example
  * function refreshTokenRetryCallback(resource, error) {
  *   if (error.statusCode === 403) {
- *     // 403 status code means a new token should be generated
+ *     // 403状态码表示应生成新令牌
  *     return getNewAccessToken()
  *       .then(function(token) {
  *         resource.queryParameters.access_token = token;
@@ -107,28 +107,28 @@ function Resource(options) {
   this._queryParameters = defaultClone(options.queryParameters, {});
 
   /**
-   * Additional HTTP headers that will be sent with the request.
+   * 将随请求发送的额外HTTP标头。
    *
    * @type {object}
    */
   this.headers = defaultClone(options.headers, {});
 
   /**
-   * A Request object that will be used. Intended for internal use only.
+   * 将使用的Request对象。仅供内部使用。
    *
    * @type {Request}
    */
   this.request = options.request ?? new Request();
 
   /**
-   * A proxy to be used when loading the resource.
+   * 加载资源时要使用的代理。
    *
    * @type {Proxy}
    */
   this.proxy = options.proxy;
 
   /**
-   * Function to call when a request for this resource fails. If it returns true or a Promise that resolves to true, the request will be retried.
+   * 此资源请求失败时调用的函数。如果返回true或解析为true的Promise，将重试请求。
    *
    * @type {Function}
    */
@@ -153,12 +153,12 @@ function Resource(options) {
 }
 
 /**
- * Clones a value if it is defined, otherwise returns the default value
+ * 如果值已定义则克隆该值，否则返回默认值
  *
- * @param {object} [value] The value to clone.
- * @param {object} [defaultValue] The default value.
+ * @param {object} [value] 要克隆的值。
+ * @param {object} [defaultValue] 默认值。
  *
- * @returns {object} A clone of value or the defaultValue.
+ * @returns {object} 值的克隆或默认值。
  *
  * @private
  */
@@ -167,11 +167,11 @@ function defaultClone(value, defaultValue) {
 }
 
 /**
- * A helper function to create a resource depending on whether we have a String or a Resource
+ * 根据是String还是Resource来创建资源的辅助函数
  *
- * @param {Resource|string} resource A Resource or a String to use when creating a new Resource.
+ * @param {Resource|string} resource 创建新Resource时要使用的Resource或字符串。
  *
- * @returns {Resource} If resource is a String, a Resource constructed with the url and options. Otherwise the resource parameter is returned.
+ * @returns {Resource} 如果resource是字符串，则返回用URL和选项构造的Resource。否则返回resource参数。
  *
  * @private
  */
@@ -197,9 +197,9 @@ Resource.createIfNeeded = function (resource) {
 
 let supportsImageBitmapOptionsPromise;
 /**
- * A helper function to check whether createImageBitmap supports passing ImageBitmapOptions.
+ * 检查createImageBitmap是否支持传递ImageBitmapOptions的辅助函数。
  *
- * @returns {Promise<boolean>} A promise that resolves to true if this browser supports creating an ImageBitmap with options.
+ * @returns {Promise<boolean>} 如果此浏览器支持使用选项创建ImageBitmap则返回解析为true的Promise。
  *
  * @private
  */
@@ -257,7 +257,7 @@ Resource.supportsImageBitmapOptions = function () {
 
 Object.defineProperties(Resource, {
   /**
-   * Returns true if blobs are supported.
+   * 如果支持blobs则返回true。
    *
    * @memberof Resource
    * @type {boolean}
@@ -273,7 +273,7 @@ Object.defineProperties(Resource, {
 
 Object.defineProperties(Resource.prototype, {
   /**
-   * Query parameters appended to the url.
+   * 追加到URL的查询参数。
    *
    * @memberof Resource.prototype
    * @type {object}
@@ -287,7 +287,7 @@ Object.defineProperties(Resource.prototype, {
   },
 
   /**
-   * The key/value pairs used to replace template parameters in the url.
+   * 用于替换URL中模板参数的键值对。
    *
    * @memberof Resource.prototype
    * @type {object}
@@ -301,7 +301,7 @@ Object.defineProperties(Resource.prototype, {
   },
 
   /**
-   * The url to the resource with template values replaced, query string appended and encoded by proxy if one was set.
+   * 替换模板值后、追加查询字符串并由代理编码（如果设置了代理）的资源URL。
    *
    * @memberof Resource.prototype
    * @type {string}
@@ -316,7 +316,7 @@ Object.defineProperties(Resource.prototype, {
   },
 
   /**
-   * The file extension of the resource.
+   * 资源的文件扩展名。
    *
    * @memberof Resource.prototype
    * @type {string}
@@ -354,7 +354,7 @@ Object.defineProperties(Resource.prototype, {
   },
 
   /**
-   * True if the Resource refers to a cross origin URL.
+   * 如果Resource引用跨域URL则为true。
    *
    * @memberof Resource.prototype
    * @type {boolean}
@@ -366,7 +366,7 @@ Object.defineProperties(Resource.prototype, {
   },
 
   /**
-   * True if the Resource has request headers. This is equivalent to checking if the headers property has any keys.
+   * 如果Resource有请求标头则为true。这等同于检查headers属性是否有任何键。
    *
    * @memberof Resource.prototype
    * @type {boolean}
@@ -378,7 +378,7 @@ Object.defineProperties(Resource.prototype, {
   },
 
   /**
-   * Gets the credits required for attribution of an asset.
+   * 获取资产归属所需的信用。
    * @private
    */
   credits: {
@@ -389,22 +389,21 @@ Object.defineProperties(Resource.prototype, {
 });
 
 /**
- * Override Object#toString so that implicit string conversion gives the
- * complete URL represented by this Resource.
+ * 重写Object#toString，使隐式字符串转换给出此Resource表示的完整URL。
  *
- * @returns {string} The URL represented by this Resource
+ * @returns {string} 此Resource表示的URL
  */
 Resource.prototype.toString = function () {
   return this.getUrlComponent(true, true);
 };
 
 /**
- * Parse a url string, and store its info
+ * 解析URL字符串并存储其信息
  *
- * @param {string} url The input url string.
- * @param {boolean} merge If true, we'll merge with the resource's existing queryParameters. Otherwise they will be replaced.
- * @param {boolean} preserveQuery If true duplicate parameters will be concatenated into an array. If false, keys in url will take precedence.
- * @param {string} [baseUrl] If supplied, and input url is a relative url, it will be made absolute relative to baseUrl
+ * @param {string} url 输入URL字符串。
+ * @param {boolean} merge 如果为true，将与资源的现有queryParameters合并。否则将被替换。
+ * @param {boolean} preserveQuery 如果为true，重复的参数将被连接成数组。如果为false，URL中的键将优先。
+ * @param {string} [baseUrl] 如果提供，且输入URL是相对URL，将相对于baseUrl绝对化
  *
  * @private
  */
@@ -428,9 +427,9 @@ Resource.prototype.parseUrl = function (url, merge, preserveQuery, baseUrl) {
 };
 
 /**
- * Parses a query string and returns the object equivalent.
+ * 解析查询字符串并返回等效的对象。
  *
- * @param {string} queryString The query string
+ * @param {string} queryString 查询字符串
  * @returns {object}
  *
  * @private
@@ -449,13 +448,13 @@ function parseQueryString(queryString) {
 }
 
 /**
- * This combines a map of query parameters.
+ * 合并查询参数映射。
  *
- * @param {object} q1 The first map of query parameters. Values in this map will take precedence if preserveQueryParameters is false.
- * @param {object} q2 The second map of query parameters.
- * @param {boolean} preserveQueryParameters If true duplicate parameters will be concatenated into an array. If false, keys in q1 will take precedence.
+ * @param {object} q1 第一个查询参数映射。如果preserveQueryParameters为false，此映射中的值将优先。
+ * @param {object} q2 第二个查询参数映射。
+ * @param {boolean} preserveQueryParameters 如果为true，重复的参数将被连接成数组。如果为false，q1中的键将优先。
  *
- * @returns {object} The combined map of query parameters.
+ * @returns {object} 合并后的查询参数映射。
  *
  * @example
  * const q1 = {
@@ -471,7 +470,7 @@ function parseQueryString(queryString) {
  *   d: 7
  * }
  *
- * // Returns
+ * // 返回
  * // {
  * //   a: [1, 3],
  * //   b: 2,
@@ -479,7 +478,7 @@ function parseQueryString(queryString) {
  * // };
  * combineQueryParameters(q1, q2, true);
  *
- * // Returns
+ * // 返回
  * // {
  * //   a: 1,
  * //   b: 2,
@@ -487,7 +486,7 @@ function parseQueryString(queryString) {
  * // };
  * combineQueryParameters(q1, q2, false);
  *
- * // Returns
+ * // 返回
  * // {
  * //   a: 1,
  * //   b: [2, 5, 6],
@@ -495,7 +494,7 @@ function parseQueryString(queryString) {
  * // };
  * combineQueryParameters(q1, q3, true);
  *
- * // Returns
+ * // 返回
  * // {
  * //   a: 1,
  * //   b: 2,
@@ -531,12 +530,12 @@ function combineQueryParameters(q1, q2, preserveQueryParameters) {
 }
 
 /**
- * Returns the url, optional with the query string and processed by a proxy.
+ * 返回URL，可选包含查询字符串并由代理处理。
  *
- * @param {boolean} [query=false] If true, the query string is included.
- * @param {boolean} [proxy=false] If true, the url is processed by the proxy object, if defined.
+ * @param {boolean} [query=false] 如果为true，则包含查询字符串。
+ * @param {boolean} [proxy=false] 如果为true，则URL由代理对象处理（如果已定义）。
  *
- * @returns {string} The url with all the requested components.
+ * @returns {string} 包含所有请求组件的URL。
  */
 Resource.prototype.getUrlComponent = function (query, proxy) {
   if (this.isDataUri) {
@@ -572,9 +571,9 @@ Resource.prototype.getUrlComponent = function (query, proxy) {
 };
 
 /**
- * Converts a query object into a string.
+ * 将查询对象转换为字符串。
  *
- * @param {object} queryObject The object with query parameters
+ * @param {object} queryObject 包含查询参数的对象
  * @returns {string}
  *
  * @private
@@ -594,11 +593,11 @@ function stringifyQuery(queryObject) {
 }
 
 /**
- * Combines the specified object and the existing query parameters. This allows you to add many parameters at once,
- *  as opposed to adding them one at a time to the queryParameters property. If a value is already set, it will be replaced with the new value.
+ * 合并指定对象和现有查询参数。这允许您一次添加多个参数，
+ * 而不是一次添加一个参数到queryParameters属性。如果值已设置，它将被新值替换。
  *
- * @param {object} params The query parameters
- * @param {boolean} [useAsDefault=false] If true the params will be used as the default values, so they will only be set if they are undefined.
+ * @param {object} params 查询参数
+ * @param {boolean} [useAsDefault=false] 如果为true，参数将用作默认值，仅在未定义时设置。
  */
 Resource.prototype.setQueryParameters = function (params, useAsDefault) {
   if (useAsDefault) {
@@ -617,10 +616,10 @@ Resource.prototype.setQueryParameters = function (params, useAsDefault) {
 };
 
 /**
- * Combines the specified object and the existing query parameters. This allows you to add many parameters at once,
- *  as opposed to adding them one at a time to the queryParameters property.
+ * 合并指定对象和现有查询参数。这允许您一次添加多个参数，
+ * 而不是一次添加一个参数到queryParameters属性。
  *
- * @param {object} params The query parameters
+ * @param {object} params 查询参数
  */
 Resource.prototype.appendQueryParameters = function (params) {
   this._queryParameters = combineQueryParameters(
@@ -631,11 +630,11 @@ Resource.prototype.appendQueryParameters = function (params) {
 };
 
 /**
- * Combines the specified object and the existing template values. This allows you to add many values at once,
- *  as opposed to adding them one at a time to the templateValues property. If a value is already set, it will become an array and the new value will be appended.
+ * 合并指定对象和现有模板值。这允许您一次添加多个值，
+ * 而不是一次添加一个值到templateValues属性。如果值已设置，它将变成数组并追加新值。
  *
- * @param {object} template The template values
- * @param {boolean} [useAsDefault=false] If true the values will be used as the default values, so they will only be set if they are undefined.
+ * @param {object} template 模板值
+ * @param {boolean} [useAsDefault=false] 如果为true，值将用作默认值，仅在未定义时设置。
  */
 Resource.prototype.setTemplateValues = function (template, useAsDefault) {
   if (useAsDefault) {
@@ -646,20 +645,20 @@ Resource.prototype.setTemplateValues = function (template, useAsDefault) {
 };
 
 /**
- * Returns a resource relative to the current instance. All properties remain the same as the current instance unless overridden in options.
+ * 返回相对于当前实例的资源。除非在选项中重写，否则所有属性保持与当前实例相同。
  *
- * @param {object} options An object with the following properties
- * @param {string} [options.url]  The url that will be resolved relative to the url of the current instance.
- * @param {object} [options.queryParameters] An object containing query parameters that will be combined with those of the current instance.
- * @param {object} [options.templateValues] Key/Value pairs that are used to replace template values (eg. {x}). These will be combined with those of the current instance.
- * @param {object} [options.headers={}] Additional HTTP headers that will be sent.
- * @param {Proxy} [options.proxy] A proxy to be used when loading the resource.
- * @param {Resource.RetryCallback} [options.retryCallback] The function to call when loading the resource fails.
- * @param {number} [options.retryAttempts] The number of times the retryCallback should be called before giving up.
- * @param {Request} [options.request] A Request object that will be used. Intended for internal use only.
- * @param {boolean} [options.preserveQueryParameters=false] If true, this will keep all query parameters from the current resource and derived resource. If false, derived parameters will replace those of the current resource.
+ * @param {object} options 具有下列属性的对象
+ * @param {string} [options.url]  将相对于当前实例URL解析的URL。
+ * @param {object} [options.queryParameters] 包含将与当前实例参数合并的查询参数的对象。
+ * @param {object} [options.templateValues] 用于替换模板值（例如{x}）的键值对。这些将与当前实例的值合并。
+ * @param {object} [options.headers={}] 将发送的额外HTTP标头。
+ * @param {Proxy} [options.proxy] 加载资源时要使用的代理。
+ * @param {Resource.RetryCallback} [options.retryCallback] 加载资源失败时调用的函数。
+ * @param {number} [options.retryAttempts] 在放弃之前应调用retryCallback的次数。
+ * @param {Request} [options.request] 将使用的Request对象。仅供内部使用。
+ * @param {boolean} [options.preserveQueryParameters=false] 如果为true，将保留当前资源和派生资源的所有查询参数。如果为false，派生参数将替换当前资源的参数。
  *
- * @returns {Resource} The resource derived from the current one.
+ * @returns {Resource} 从当前资源派生的资源。
  */
 Resource.prototype.getDerivedResource = function (options) {
   const resource = this.clone();
@@ -702,11 +701,11 @@ Resource.prototype.getDerivedResource = function (options) {
 };
 
 /**
- * Called when a resource fails to load. This will call the retryCallback function if defined until retryAttempts is reached.
+ * 资源加载失败时调用。如果定义了retryCallback函数，将调用该函数直到达到retryAttempts。
  *
- * @param {RequestErrorEvent} [error] The error that was encountered.
+ * @param {RequestErrorEvent} [error] 遇到的错误。
  *
- * @returns {Promise<boolean>} A promise to a boolean, that if true will cause the resource request to be retried.
+ * @returns {Promise<boolean>} 解析为布尔值的Promise，如果为true将导致重试资源请求。
  *
  * @private
  */
@@ -728,11 +727,11 @@ Resource.prototype.retryOnError = function (error) {
 };
 
 /**
- * Duplicates a Resource instance.
+ * 复制资源实例。
  *
- * @param {Resource} [result] The object onto which to store the result.
+ * @param {Resource} [result] 存储结果的对象。
  *
- * @returns {Resource} The modified result parameter or a new Resource instance if one was not provided.
+ * @returns {Resource} 修改后的结果参数，如果未提供则返回新的Resource实例。
  */
 Resource.prototype.clone = function (result) {
   if (!defined(result)) {
@@ -764,40 +763,39 @@ Resource.prototype.clone = function (result) {
 };
 
 /**
- * Returns the base path of the Resource.
+ * 返回Resource的基础路径。
  *
- * @param {boolean} [includeQuery = false] Whether or not to include the query string and fragment form the uri
+ * @param {boolean} [includeQuery = false] 是否包含URI中的查询字符串和片段
  *
- * @returns {string} The base URI of the resource
+ * @returns {string} 资源的基础URI
  */
 Resource.prototype.getBaseUri = function (includeQuery) {
   return getBaseUri(this.getUrlComponent(includeQuery), includeQuery);
 };
 
 /**
- * Appends a forward slash to the URL.
+ * 向URL追加正斜杠。
  */
 Resource.prototype.appendForwardSlash = function () {
   this._url = appendForwardSlash(this._url);
 };
 
 /**
- * Asynchronously loads the resource as raw binary data.  Returns a promise that will resolve to
- * an ArrayBuffer once loaded, or reject if the resource failed to load.  The data is loaded
- * using XMLHttpRequest, which means that in order to make requests to another origin,
- * the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
+ * 异步加载资源为原始二进制数据。返回一个Promise，加载后将解析为
+ * ArrayBuffer，如果资源加载失败则拒绝。数据使用XMLHttpRequest加载，
+ * 这意味着要向后端发出请求，服务器必须启用跨域资源共享（CORS）标头。
  *
- * @returns {Promise<ArrayBuffer>|undefined} a promise that will resolve to the requested data when loaded. Returns undefined if <code>request.throttle</code> is true and the request does not have high enough priority.
+ * @returns {Promise<ArrayBuffer>|undefined} 加载后将解析为请求数据的Promise。如果<code>request.throttle</code>为true且请求优先级不够高，则返回undefined。
  *
  * @example
- * // load a single URL asynchronously
+ * // 异步加载单个URL
  * resource.fetchArrayBuffer().then(function(arrayBuffer) {
- *     // use the data
+ *     // 使用数据
  * }).catch(function(error) {
- *     // an error occurred
+ *     // 发生错误
  * });
  *
- * @see {@link http://www.w3.org/TR/cors/|Cross-Origin Resource Sharing}
+ * @see {@link http://www.w3.org/TR/cors/|跨域资源共享}
  * @see {@link http://wiki.commonjs.org/wiki/Promises/A|CommonJS Promises/A}
  */
 Resource.prototype.fetchArrayBuffer = function () {
@@ -807,18 +805,18 @@ Resource.prototype.fetchArrayBuffer = function () {
 };
 
 /**
- * Creates a Resource and calls fetchArrayBuffer() on it.
+ * 创建资源并在其上调用fetchArrayBuffer()。
  *
- * @param {string|object} options A url or an object with the following properties
- * @param {string} options.url The url of the resource.
- * @param {object} [options.queryParameters] An object containing query parameters that will be sent when retrieving the resource.
- * @param {object} [options.templateValues] Key/Value pairs that are used to replace template values (eg. {x}).
- * @param {object} [options.headers={}] Additional HTTP headers that will be sent.
- * @param {Proxy} [options.proxy] A proxy to be used when loading the resource.
- * @param {Resource.RetryCallback} [options.retryCallback] The Function to call when a request for this resource fails. If it returns true, the request will be retried.
- * @param {number} [options.retryAttempts=0] The number of times the retryCallback should be called before giving up.
- * @param {Request} [options.request] A Request object that will be used. Intended for internal use only.
- * @returns {Promise<ArrayBuffer>|undefined} a promise that will resolve to the requested data when loaded. Returns undefined if <code>request.throttle</code> is true and the request does not have high enough priority.
+ * @param {string|object} options URL或具有下列属性的对象
+ * @param {string} options.url 资源的URL。
+ * @param {object} [options.queryParameters] 包含检索资源时将发送的查询参数的对象。
+ * @param {object} [options.templateValues] 用于替换模板值（例如{x}）的键值对。
+ * @param {object} [options.headers={}] 将发送的额外HTTP标头。
+ * @param {Proxy} [options.proxy] 加载资源时要使用的代理。
+ * @param {Resource.RetryCallback} [options.retryCallback] 此资源请求失败时调用的函数。如果返回true，将重试请求。
+ * @param {number} [options.retryAttempts=0] 在放弃之前应调用retryCallback的次数。
+ * @param {Request} [options.request] 将使用的Request对象。仅供内部使用。
+ * @returns {Promise<ArrayBuffer>|undefined} 加载后将解析为请求数据的Promise。如果<code>request.throttle</code>为true且请求优先级不够高，则返回undefined。
  */
 Resource.fetchArrayBuffer = function (options) {
   const resource = new Resource(options);
@@ -851,18 +849,21 @@ Resource.prototype.fetchBlob = function () {
 };
 
 /**
- * Creates a Resource and calls fetchBlob() on it.
+ * 从URL创建资源并在其上调用patch()。
  *
- * @param {string|object} options A url or an object with the following properties
- * @param {string} options.url The url of the resource.
- * @param {object} [options.queryParameters] An object containing query parameters that will be sent when retrieving the resource.
- * @param {object} [options.templateValues] Key/Value pairs that are used to replace template values (eg. {x}).
- * @param {object} [options.headers={}] Additional HTTP headers that will be sent.
- * @param {Proxy} [options.proxy] A proxy to be used when loading the resource.
- * @param {Resource.RetryCallback} [options.retryCallback] The Function to call when a request for this resource fails. If it returns true, the request will be retried.
- * @param {number} [options.retryAttempts=0] The number of times the retryCallback should be called before giving up.
- * @param {Request} [options.request] A Request object that will be used. Intended for internal use only.
- * @returns {Promise<Blob>|undefined} a promise that will resolve to the requested data when loaded. Returns undefined if <code>request.throttle</code> is true and the request does not have high enough priority.
+ * @param {object} options URL或具有下列属性的对象
+ * @param {string} options.url 资源的URL。
+ * @param {object} options.data 随资源发布的数据。
+ * @param {object} [options.queryParameters] 包含检索资源时将发送的查询参数的对象。
+ * @param {object} [options.templateValues] 用于替换模板值（例如{x}）的键值对。
+ * @param {object} [options.headers={}] 将发送的额外HTTP标头。
+ * @param {Proxy} [options.proxy] 加载资源时要使用的代理。
+ * @param {Resource.RetryCallback} [options.retryCallback] 此资源请求失败时调用的函数。如果返回true，将重试请求。
+ * @param {number} [options.retryAttempts=0] 在放弃之前应调用retryCallback的次数。
+ * @param {Request} [options.request] 将使用的Request对象。仅供内部使用。
+ * @param {string} [options.responseType] 响应类型。这控制返回项的类型。
+ * @param {string} [options.overrideMimeType] 覆盖服务器返回的MIME类型。
+ * @returns {Promise<any>|undefined} 加载后将解析为请求数据的Promise。如果<code>request.throttle</code>为true且请求优先级不够高，则返回undefined。
  */
 Resource.fetchBlob = function (options) {
   const resource = new Resource(options);
@@ -995,12 +996,12 @@ Resource.prototype.fetchImage = function (options) {
 };
 
 /**
- * Fetches an image and returns a promise to it.
- * @param {object} [options] An object with the following properties.
- * @param {boolean} [options.preferImageBitmap] If true, image will be decoded during fetch and an <code>ImageBitmap</code> is returned.
- * @param {boolean} [options.flipY] If true, image will be vertically flipped during decode. Only applies if the browser supports <code>createImageBitmap</code>.
- * @param {boolean} [options.skipColorSpaceConversion=false] If true, any custom gamma or color profiles in the image will be ignored. Only applies if the browser supports <code>createImageBitmap</code>.
- * @returns {Promise<ImageBitmap|HTMLImageElement>|undefined} a promise that will resolve to the requested data when loaded. Returns undefined if the request has been throttled and cannot be made at this time.
+ * 获取图像并返回其Promise。
+ * @param {object} [options] 具有下列属性的对象。
+ * @param {boolean} [options.preferImageBitmap] 如果为true，图像将在获取期间解码并返回<code>ImageBitmap</code>。
+ * @param {boolean} [options.flipY] 如果为true，图像将在解码期间垂直翻转。仅当浏览器支持<code>createImageBitmap</code>时适用。
+ * @param {boolean} [options.skipColorSpaceConversion=false] 如果为true，图像中的任何自定义gamma或颜色配置文件将被忽略。仅当浏览器支持<code>createImageBitmap</code>时适用。
+ * @returns {Promise<ImageBitmap|HTMLImageElement>|undefined} 加载后将解析为请求数据的Promise。如果请求已被限制且此时无法发出，则返回undefined。
  * @private
  */
 Resource.prototype._fetchImage = function (options) {
@@ -1060,22 +1061,22 @@ Resource.prototype._fetchImage = function (options) {
 };
 
 /**
- * Creates a Resource and calls fetchImage() on it.
+ * 创建资源并在其上调用fetchImage()。
  *
- * @param {string|object} options A url or an object with the following properties
- * @param {string} options.url The url of the resource.
- * @param {object} [options.queryParameters] An object containing query parameters that will be sent when retrieving the resource.
- * @param {object} [options.templateValues] Key/Value pairs that are used to replace template values (eg. {x}).
- * @param {object} [options.headers={}] Additional HTTP headers that will be sent.
- * @param {Proxy} [options.proxy] A proxy to be used when loading the resource.
- * @param {boolean} [options.flipY=false] Whether to vertically flip the image during fetch and decode. Only applies when requesting an image and the browser supports <code>createImageBitmap</code>.
- * @param {Resource.RetryCallback} [options.retryCallback] The Function to call when a request for this resource fails. If it returns true, the request will be retried.
- * @param {number} [options.retryAttempts=0] The number of times the retryCallback should be called before giving up.
- * @param {Request} [options.request] A Request object that will be used. Intended for internal use only.
- * @param {boolean} [options.preferBlob=false]  If true, we will load the image via a blob.
- * @param {boolean} [options.preferImageBitmap=false] If true, image will be decoded during fetch and an <code>ImageBitmap</code> is returned.
- * @param {boolean} [options.skipColorSpaceConversion=false] If true, any custom gamma or color profiles in the image will be ignored. Only applies when requesting an image and the browser supports <code>createImageBitmap</code>.
- * @returns {Promise<ImageBitmap|HTMLImageElement>|undefined} a promise that will resolve to the requested data when loaded. Returns undefined if <code>request.throttle</code> is true and the request does not have high enough priority.
+ * @param {string|object} options URL或具有下列属性的对象
+ * @param {string} options.url 资源的URL。
+ * @param {object} [options.queryParameters] 包含检索资源时将发送的查询参数的对象。
+ * @param {object} [options.templateValues] 用于替换模板值（例如{x}）的键值对。
+ * @param {object} [options.headers={}] 将发送的额外HTTP标头。
+ * @param {Proxy} [options.proxy] 加载资源时要使用的代理。
+ * @param {boolean} [options.flipY=false] 是否在获取和解码期间垂直翻转图像。仅当请求图像且浏览器支持<code>createImageBitmap</code>时适用。
+ * @param {Resource.RetryCallback} [options.retryCallback] 此资源请求失败时调用的函数。如果返回true，将重试请求。
+ * @param {number} [options.retryAttempts] 在放弃之前应调用retryCallback的次数。
+ * @param {Request} [options.request] 将使用的Request对象。仅供内部使用。
+ * @param {boolean} [options.preferBlob=false]  如果为true，将通过blob加载图像。
+ * @param {boolean} [options.preferImageBitmap=false] 如果为true，图像将在获取期间解码并返回<code>ImageBitmap</code>。
+ * @param {boolean} [options.skipColorSpaceConversion=false] 如果为true，图像中的任何自定义gamma或颜色配置文件将被忽略。仅当请求图像且浏览器支持<code>createImageBitmap</code>时适用。
+ * @returns {Promise<ImageBitmap|HTMLImageElement>|undefined} 加载后将解析为请求数据的Promise。如果<code>request.throttle</code>为true且请求优先级不够高，则返回undefined。
  */
 Resource.fetchImage = function (options) {
   const resource = new Resource(options);
@@ -1088,15 +1089,14 @@ Resource.fetchImage = function (options) {
 };
 
 /**
- * Asynchronously loads the given resource as text.  Returns a promise that will resolve to
- * a String once loaded, or reject if the resource failed to load.  The data is loaded
- * using XMLHttpRequest, which means that in order to make requests to another origin,
- * the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
+ * 异步加载给定资源为文本。返回一个Promise，加载后将解析为
+ * 字符串，如果资源加载失败则拒绝。数据使用XMLHttpRequest加载，
+ * 这意味着要向后端发出请求，服务器必须启用跨域资源共享（CORS）标头。
  *
- * @returns {Promise<string>|undefined} a promise that will resolve to the requested data when loaded. Returns undefined if <code>request.throttle</code> is true and the request does not have high enough priority.
+ * @returns {Promise<string>|undefined} 加载后将解析为请求数据的Promise。如果<code>request.throttle</code>为true且请求优先级不够高，则返回undefined。
  *
  * @example
- * // load text from a URL, setting a custom header
+ * // 从URL加载文本，设置自定义标头
  * const resource = new Resource({
  *   url: 'http://someUrl.com/someJson.txt',
  *   headers: {
@@ -1104,13 +1104,13 @@ Resource.fetchImage = function (options) {
  *   }
  * });
  * resource.fetchText().then(function(text) {
- *     // Do something with the text
+ *     // 对文本执行某些操作
  * }).catch(function(error) {
- *     // an error occurred
+ *     // 发生错误
  * });
  *
  * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest|XMLHttpRequest}
- * @see {@link http://www.w3.org/TR/cors/|Cross-Origin Resource Sharing}
+ * @see {@link http://www.w3.org/TR/cors/|跨域资源共享}
  * @see {@link http://wiki.commonjs.org/wiki/Promises/A|CommonJS Promises/A}
  */
 Resource.prototype.fetchText = function () {
@@ -1120,18 +1120,18 @@ Resource.prototype.fetchText = function () {
 };
 
 /**
- * Creates a Resource and calls fetchText() on it.
+ * 创建资源并在其上调用fetchText()。
  *
- * @param {string|object} options A url or an object with the following properties
- * @param {string} options.url The url of the resource.
- * @param {object} [options.queryParameters] An object containing query parameters that will be sent when retrieving the resource.
- * @param {object} [options.templateValues] Key/Value pairs that are used to replace template values (eg. {x}).
- * @param {object} [options.headers={}] Additional HTTP headers that will be sent.
- * @param {Proxy} [options.proxy] A proxy to be used when loading the resource.
- * @param {Resource.RetryCallback} [options.retryCallback] The Function to call when a request for this resource fails. If it returns true, the request will be retried.
- * @param {number} [options.retryAttempts=0] The number of times the retryCallback should be called before giving up.
- * @param {Request} [options.request] A Request object that will be used. Intended for internal use only.
- * @returns {Promise<string>|undefined} a promise that will resolve to the requested data when loaded. Returns undefined if <code>request.throttle</code> is true and the request does not have high enough priority.
+ * @param {string|object} options URL或具有下列属性的对象
+ * @param {string} options.url 资源的URL。
+ * @param {object} [options.queryParameters] 包含检索资源时将发送的查询参数的对象。
+ * @param {object} [options.templateValues] 用于替换模板值（例如{x}）的键值对。
+ * @param {object} [options.headers={}] 将发送的额外HTTP标头。
+ * @param {Proxy} [options.proxy] 加载资源时要使用的代理。
+ * @param {Resource.RetryCallback} [options.retryCallback] 此资源请求失败时调用的函数。如果返回true，将重试请求。
+ * @param {number} [options.retryAttempts=0] 在放弃之前应调用retryCallback的次数。
+ * @param {Request} [options.request] 将使用的Request对象。仅供内部使用。
+ * @returns {Promise<string>|undefined} 加载后将解析为请求数据的Promise。如果<code>request.throttle</code>为true且请求优先级不够高，则返回undefined。
  */
 Resource.fetchText = function (options) {
   const resource = new Resource(options);
@@ -1181,18 +1181,18 @@ Resource.prototype.fetchJson = function () {
 };
 
 /**
- * Creates a Resource and calls fetchJson() on it.
+ * 创建资源并在其上调用fetchJson()。
  *
- * @param {string|object} options A url or an object with the following properties
- * @param {string} options.url The url of the resource.
- * @param {object} [options.queryParameters] An object containing query parameters that will be sent when retrieving the resource.
- * @param {object} [options.templateValues] Key/Value pairs that are used to replace template values (eg. {x}).
- * @param {object} [options.headers={}] Additional HTTP headers that will be sent.
- * @param {Proxy} [options.proxy] A proxy to be used when loading the resource.
- * @param {Resource.RetryCallback} [options.retryCallback] The Function to call when a request for this resource fails. If it returns true, the request will be retried.
- * @param {number} [options.retryAttempts=0] The number of times the retryCallback should be called before giving up.
- * @param {Request} [options.request] A Request object that will be used. Intended for internal use only.
- * @returns {Promise<any>|undefined} a promise that will resolve to the requested data when loaded. Returns undefined if <code>request.throttle</code> is true and the request does not have high enough priority.
+ * @param {string|object} options URL或具有下列属性的对象
+ * @param {string} options.url 资源的URL。
+ * @param {object} [options.queryParameters] 包含检索资源时将发送的查询参数的对象。
+ * @param {object} [options.templateValues] 用于替换模板值（例如{x}）的键值对。
+ * @param {object} [options.headers={}] 将发送的额外HTTP标头。
+ * @param {Proxy} [options.proxy] 加载资源时要使用的代理。
+ * @param {Resource.RetryCallback} [options.retryCallback] 此资源请求失败时调用的函数。如果返回true，将重试请求。
+ * @param {number} [options.retryAttempts=0] 在放弃之前应调用retryCallback的次数。
+ * @param {Request} [options.request] 将使用的Request对象。仅供内部使用。
+ * @returns {Promise<any>|undefined} 加载后将解析为请求数据的Promise。如果<code>request.throttle</code>为true且请求优先级不够高，则返回undefined。
  */
 Resource.fetchJson = function (options) {
   const resource = new Resource(options);
@@ -1200,26 +1200,25 @@ Resource.fetchJson = function (options) {
 };
 
 /**
- * Asynchronously loads the given resource as XML.  Returns a promise that will resolve to
- * an XML Document once loaded, or reject if the resource failed to load.  The data is loaded
- * using XMLHttpRequest, which means that in order to make requests to another origin,
- * the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
+ * 异步加载给定资源为XML。返回一个Promise，加载后将解析为
+ * XML文档，如果资源加载失败则拒绝。数据使用XMLHttpRequest加载，
+ * 这意味着要向后端发出请求，服务器必须启用跨域资源共享（CORS）标头。
  *
- * @returns {Promise<XMLDocument>|undefined} a promise that will resolve to the requested data when loaded. Returns undefined if <code>request.throttle</code> is true and the request does not have high enough priority.
+ * @returns {Promise<XMLDocument>|undefined} 加载后将解析为请求数据的Promise。如果<code>request.throttle</code>为true且请求优先级不够高，则返回undefined。
  *
  *
  * @example
- * // load XML from a URL, setting a custom header
+ * // 从URL加载XML，设置自定义标头
  * Cesium.loadXML('http://someUrl.com/someXML.xml', {
  *   'X-Custom-Header' : 'some value'
  * }).then(function(document) {
- *     // Do something with the document
+ *     // 对文档执行某些操作
  * }).catch(function(error) {
- *     // an error occurred
+ *     // 发生错误
  * });
  *
  * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest|XMLHttpRequest}
- * @see {@link http://www.w3.org/TR/cors/|Cross-Origin Resource Sharing}
+ * @see {@link http://www.w3.org/TR/cors/|跨域资源共享}
  * @see {@link http://wiki.commonjs.org/wiki/Promises/A|CommonJS Promises/A}
  */
 Resource.prototype.fetchXML = function () {
@@ -1230,18 +1229,18 @@ Resource.prototype.fetchXML = function () {
 };
 
 /**
- * Creates a Resource and calls fetchXML() on it.
+ * 创建资源并在其上调用fetchXML()。
  *
- * @param {string|object} options A url or an object with the following properties
- * @param {string} options.url The url of the resource.
- * @param {object} [options.queryParameters] An object containing query parameters that will be sent when retrieving the resource.
- * @param {object} [options.templateValues] Key/Value pairs that are used to replace template values (eg. {x}).
- * @param {object} [options.headers={}] Additional HTTP headers that will be sent.
- * @param {Proxy} [options.proxy] A proxy to be used when loading the resource.
- * @param {Resource.RetryCallback} [options.retryCallback] The Function to call when a request for this resource fails. If it returns true, the request will be retried.
- * @param {number} [options.retryAttempts=0] The number of times the retryCallback should be called before giving up.
- * @param {Request} [options.request] A Request object that will be used. Intended for internal use only.
- * @returns {Promise<XMLDocument>|undefined} a promise that will resolve to the requested data when loaded. Returns undefined if <code>request.throttle</code> is true and the request does not have high enough priority.
+ * @param {string|object} options URL或具有下列属性的对象
+ * @param {string} options.url 资源的URL。
+ * @param {object} [options.queryParameters] 包含检索资源时将发送的查询参数的对象。
+ * @param {object} [options.templateValues] 用于替换模板值（例如{x}）的键值对。
+ * @param {object} [options.headers={}] 将发送的额外HTTP标头。
+ * @param {Proxy} [options.proxy] 加载资源时要使用的代理。
+ * @param {Resource.RetryCallback} [options.retryCallback] 此资源请求失败时调用的函数。如果返回true，将重试请求。
+ * @param {number} [options.retryAttempts=0] 在放弃之前应调用retryCallback的次数。
+ * @param {Request} [options.request] 将使用的Request对象。仅供内部使用。
+ * @returns {Promise<XMLDocument>|undefined} 加载后将解析为请求数据的Promise。如果<code>request.throttle</code>为true且请求优先级不够高，则返回undefined。
  */
 Resource.fetchXML = function (options) {
   const resource = new Resource(options);
@@ -1249,18 +1248,18 @@ Resource.fetchXML = function (options) {
 };
 
 /**
- * Requests a resource using JSONP.
+ * 使用JSONP请求资源。
  *
- * @param {string} [callbackParameterName='callback'] The callback parameter name that the server expects.
- * @returns {Promise<any>|undefined} a promise that will resolve to the requested data when loaded. Returns undefined if <code>request.throttle</code> is true and the request does not have high enough priority.
+ * @param {string} [callbackParameterName='callback'] 服务器期望的回调参数名。
+ * @returns {Promise<any>|undefined} 加载后将解析为请求数据的Promise。如果<code>request.throttle</code>为true且请求优先级不够高，则返回undefined。
  *
  *
  * @example
- * // load a data asynchronously
+ * // 异步加载数据
  * resource.fetchJsonp().then(function(data) {
- *     // use the loaded data
+ *     // 使用加载的数据
  * }).catch(function(error) {
- *     // an error occurred
+ *     // 发生错误
  * });
  *
  * @see {@link http://wiki.commonjs.org/wiki/Promises/A|CommonJS Promises/A}
@@ -1332,19 +1331,19 @@ function fetchJsonp(resource, callbackParameterName, functionName) {
 }
 
 /**
- * Creates a Resource from a URL and calls fetchJsonp() on it.
+ * 从URL创建资源并在其上调用fetchJsonp()。
  *
- * @param {string|object} options A url or an object with the following properties
- * @param {string} options.url The url of the resource.
- * @param {object} [options.queryParameters] An object containing query parameters that will be sent when retrieving the resource.
- * @param {object} [options.templateValues] Key/Value pairs that are used to replace template values (eg. {x}).
- * @param {object} [options.headers={}] Additional HTTP headers that will be sent.
- * @param {Proxy} [options.proxy] A proxy to be used when loading the resource.
- * @param {Resource.RetryCallback} [options.retryCallback] The Function to call when a request for this resource fails. If it returns true, the request will be retried.
- * @param {number} [options.retryAttempts=0] The number of times the retryCallback should be called before giving up.
- * @param {Request} [options.request] A Request object that will be used. Intended for internal use only.
- * @param {string} [options.callbackParameterName='callback'] The callback parameter name that the server expects.
- * @returns {Promise<any>|undefined} a promise that will resolve to the requested data when loaded. Returns undefined if <code>request.throttle</code> is true and the request does not have high enough priority.
+ * @param {string|object} options URL或具有下列属性的对象
+ * @param {string} options.url 资源的URL。
+ * @param {object} [options.queryParameters] 包含检索资源时将发送的查询参数的对象。
+ * @param {object} [options.templateValues] 用于替换模板值（例如{x}）的键值对。
+ * @param {object} [options.headers={}] 将发送的额外HTTP标头。
+ * @param {Proxy} [options.proxy] 加载资源时要使用的代理。
+ * @param {Resource.RetryCallback} [options.retryCallback] 此资源请求失败时调用的函数。如果返回true，将重试请求。
+ * @param {number} [options.retryAttempts=0] 在放弃之前应调用retryCallback的次数。
+ * @param {Request} [options.request] 将使用的Request对象。仅供内部使用。
+ * @param {string} [options.callbackParameterName='callback'] 服务器期望的回调参数名。
+ * @returns {Promise<any>|undefined} 加载后将解析为请求数据的Promise。如果<code>request.throttle</code>为true且请求优先级不够高，则返回undefined。
  */
 Resource.fetchJsonp = function (options) {
   const resource = new Resource(options);
@@ -1418,9 +1417,9 @@ Resource.prototype._makeRequest = function (options) {
 };
 
 /**
- * Checks to make sure the Resource isn't already being requested.
+ * 检查以确保Resource尚未被请求。
  *
- * @param {Request} request The request to check.
+ * @param {Request} request 要检查请求。
  *
  * @private
  */
@@ -1491,28 +1490,27 @@ function decodeDataUri(dataUriRegexResult, responseType) {
 }
 
 /**
- * Asynchronously loads the given resource.  Returns a promise that will resolve to
- * the result once loaded, or reject if the resource failed to load.  The data is loaded
- * using XMLHttpRequest, which means that in order to make requests to another origin,
- * the server must have Cross-Origin Resource Sharing (CORS) headers enabled. It's recommended that you use
- * the more specific functions eg. fetchJson, fetchBlob, etc.
+ * 异步加载给定资源。返回一个Promise，加载后将解析为
+ * 结果，如果资源加载失败则拒绝。数据使用XMLHttpRequest加载，
+ * 这意味着要向后端发出请求，服务器必须启用跨域资源共享（CORS）标头。建议您使用
+ * 更具体的函数，例如fetchJson、fetchBlob等。
  *
- * @param {object} [options] Object with the following properties:
- * @param {string} [options.responseType] The type of response.  This controls the type of item returned.
- * @param {object} [options.headers] Additional HTTP headers to send with the request, if any.
- * @param {string} [options.overrideMimeType] Overrides the MIME type returned by the server.
- * @returns {Promise<any>|undefined} a promise that will resolve to the requested data when loaded. Returns undefined if <code>request.throttle</code> is true and the request does not have high enough priority.
+ * @param {object} [options] 具有下列属性的对象：
+ * @param {string} [options.responseType] 响应类型。这控制返回项的类型。
+ * @param {object} [options.headers] 随请求发送的额外HTTP标头（如果有）。
+ * @param {string} [options.overrideMimeType] 覆盖服务器返回的MIME类型。
+ * @returns {Promise<any>|undefined} 加载后将解析为请求数据的Promise。如果<code>request.throttle</code>为true且请求优先级不够高，则返回undefined。
  *
  *
  * @example
  * resource.fetch()
  *   .then(function(body) {
- *       // use the data
+ *       // 使用数据
  *   }).catch(function(error) {
- *       // an error occurred
+ *       // 发生错误
  *   });
  *
- * @see {@link http://www.w3.org/TR/cors/|Cross-Origin Resource Sharing}
+ * @see {@link http://www.w3.org/TR/cors/|跨域资源共享}
  * @see {@link http://wiki.commonjs.org/wiki/Promises/A|CommonJS Promises/A}
  */
 Resource.prototype.fetch = function (options) {
@@ -1523,20 +1521,20 @@ Resource.prototype.fetch = function (options) {
 };
 
 /**
- * Creates a Resource from a URL and calls fetch() on it.
+ * 从URL创建资源并在其上调用fetch()。
  *
- * @param {string|object} options A url or an object with the following properties
- * @param {string} options.url The url of the resource.
- * @param {object} [options.queryParameters] An object containing query parameters that will be sent when retrieving the resource.
- * @param {object} [options.templateValues] Key/Value pairs that are used to replace template values (eg. {x}).
- * @param {object} [options.headers={}] Additional HTTP headers that will be sent.
- * @param {Proxy} [options.proxy] A proxy to be used when loading the resource.
- * @param {Resource.RetryCallback} [options.retryCallback] The Function to call when a request for this resource fails. If it returns true, the request will be retried.
- * @param {number} [options.retryAttempts=0] The number of times the retryCallback should be called before giving up.
- * @param {Request} [options.request] A Request object that will be used. Intended for internal use only.
- * @param {string} [options.responseType] The type of response.  This controls the type of item returned.
- * @param {string} [options.overrideMimeType] Overrides the MIME type returned by the server.
- * @returns {Promise<any>|undefined} a promise that will resolve to the requested data when loaded. Returns undefined if <code>request.throttle</code> is true and the request does not have high enough priority.
+ * @param {string|object} options URL或具有下列属性的对象
+ * @param {string} options.url 资源的URL。
+ * @param {object} [options.queryParameters] 包含检索资源时将发送的查询参数的对象。
+ * @param {object} [options.templateValues] 用于替换模板值（例如{x}）的键值对。
+ * @param {object} [options.headers={}] 将发送的额外HTTP标头。
+ * @param {Proxy} [options.proxy] 加载资源时要使用的代理。
+ * @param {Resource.RetryCallback} [options.retryCallback] 此资源请求失败时调用的函数。如果返回true，将重试请求。
+ * @param {number} [options.retryAttempts=0] 在放弃之前应调用retryCallback的次数。
+ * @param {Request} [options.request] 将使用的Request对象。仅供内部使用。
+ * @param {string} [options.responseType] 响应类型。这控制返回项的类型。
+ * @param {string} [options.overrideMimeType] 覆盖服务器返回的MIME类型。
+ * @returns {Promise<any>|undefined} 加载后将解析为请求数据的Promise。如果<code>request.throttle</code>为true且请求优先级不够高，则返回undefined。
  */
 Resource.fetch = function (options) {
   const resource = new Resource(options);
@@ -1548,27 +1546,26 @@ Resource.fetch = function (options) {
 };
 
 /**
- * Asynchronously deletes the given resource.  Returns a promise that will resolve to
- * the result once loaded, or reject if the resource failed to load.  The data is loaded
- * using XMLHttpRequest, which means that in order to make requests to another origin,
- * the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
+ * 异步删除给定资源。返回一个Promise，加载后将解析为
+ * 结果，如果资源加载失败则拒绝。数据使用XMLHttpRequest加载，
+ * 这意味着要向后端发出请求，服务器必须启用跨域资源共享（CORS）标头。
  *
- * @param {object} [options] Object with the following properties:
- * @param {string} [options.responseType] The type of response.  This controls the type of item returned.
- * @param {object} [options.headers] Additional HTTP headers to send with the request, if any.
- * @param {string} [options.overrideMimeType] Overrides the MIME type returned by the server.
- * @returns {Promise<any>|undefined} a promise that will resolve to the requested data when loaded. Returns undefined if <code>request.throttle</code> is true and the request does not have high enough priority.
+ * @param {object} [options] 具有下列属性的对象：
+ * @param {string} [options.responseType] 响应类型。这控制返回项的类型。
+ * @param {object} [options.headers] 随请求发送的额外HTTP标头（如果有）。
+ * @param {string} [options.overrideMimeType] 覆盖服务器返回的MIME类型。
+ * @returns {Promise<any>|undefined} 加载后将解析为请求数据的Promise。如果<code>request.throttle</code>为true且请求优先级不够高，则返回undefined。
  *
  *
  * @example
  * resource.delete()
  *   .then(function(body) {
- *       // use the data
+ *       // 使用数据
  *   }).catch(function(error) {
- *       // an error occurred
+ *       // 发生错误
  *   });
  *
- * @see {@link http://www.w3.org/TR/cors/|Cross-Origin Resource Sharing}
+ * @see {@link http://www.w3.org/TR/cors/|跨域资源共享}
  * @see {@link http://wiki.commonjs.org/wiki/Promises/A|CommonJS Promises/A}
  */
 Resource.prototype.delete = function (options) {
@@ -1579,21 +1576,21 @@ Resource.prototype.delete = function (options) {
 };
 
 /**
- * Creates a Resource from a URL and calls delete() on it.
+ * 从URL创建资源并在其上调用delete()。
  *
- * @param {string|object} options A url or an object with the following properties
- * @param {string} options.url The url of the resource.
- * @param {object} [options.data] Data that is posted with the resource.
- * @param {object} [options.queryParameters] An object containing query parameters that will be sent when retrieving the resource.
- * @param {object} [options.templateValues] Key/Value pairs that are used to replace template values (eg. {x}).
- * @param {object} [options.headers={}] Additional HTTP headers that will be sent.
- * @param {Proxy} [options.proxy] A proxy to be used when loading the resource.
- * @param {Resource.RetryCallback} [options.retryCallback] The Function to call when a request for this resource fails. If it returns true, the request will be retried.
- * @param {number} [options.retryAttempts=0] The number of times the retryCallback should be called before giving up.
- * @param {Request} [options.request] A Request object that will be used. Intended for internal use only.
- * @param {string} [options.responseType] The type of response.  This controls the type of item returned.
- * @param {string} [options.overrideMimeType] Overrides the MIME type returned by the server.
- * @returns {Promise<any>|undefined} a promise that will resolve to the requested data when loaded. Returns undefined if <code>request.throttle</code> is true and the request does not have high enough priority.
+ * @param {string|object} options URL或具有下列属性的对象
+ * @param {string} options.url 资源的URL。
+ * @param {object} [options.data] 随资源发布的数据。
+ * @param {object} [options.queryParameters] 包含检索资源时将发送的查询参数的对象。
+ * @param {object} [options.templateValues] 用于替换模板值（例如{x}）的键值对。
+ * @param {object} [options.headers={}] 将发送的额外HTTP标头。
+ * @param {Proxy} [options.proxy] 加载资源时要使用的代理。
+ * @param {Resource.RetryCallback} [options.retryCallback] 此资源请求失败时调用的函数。如果返回true，将重试请求。
+ * @param {number} [options.retryAttempts=0] 在放弃之前应调用retryCallback的次数。
+ * @param {Request} [options.request] 将使用的Request对象。仅供内部使用。
+ * @param {string} [options.responseType] 响应类型。这控制返回项的类型。
+ * @param {string} [options.overrideMimeType] 覆盖服务器返回的MIME类型。
+ * @returns {Promise<any>|undefined} 加载后将解析为请求数据的Promise。如果<code>request.throttle</code>为true且请求优先级不够高，则返回undefined。
  */
 Resource.delete = function (options) {
   const resource = new Resource(options);
@@ -1606,27 +1603,26 @@ Resource.delete = function (options) {
 };
 
 /**
- * Asynchronously gets headers the given resource.  Returns a promise that will resolve to
- * the result once loaded, or reject if the resource failed to load.  The data is loaded
- * using XMLHttpRequest, which means that in order to make requests to another origin,
- * the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
+ * 异步获取给定资源的标头。返回一个Promise，加载后将解析为
+ * 结果，如果资源加载失败则拒绝。数据使用XMLHttpRequest加载，
+ * 这意味着要向后端发出请求，服务器必须启用跨域资源共享（CORS）标头。
  *
- * @param {object} [options] Object with the following properties:
- * @param {string} [options.responseType] The type of response.  This controls the type of item returned.
- * @param {object} [options.headers] Additional HTTP headers to send with the request, if any.
- * @param {string} [options.overrideMimeType] Overrides the MIME type returned by the server.
- * @returns {Promise<any>|undefined} a promise that will resolve to the requested data when loaded. Returns undefined if <code>request.throttle</code> is true and the request does not have high enough priority.
+ * @param {object} [options] 具有下列属性的对象：
+ * @param {string} [options.responseType] 响应类型。这控制返回项的类型。
+ * @param {object} [options.headers] 随请求发送的额外HTTP标头（如果有）。
+ * @param {string} [options.overrideMimeType] 覆盖服务器返回的MIME类型。
+ * @returns {Promise<any>|undefined} 加载后将解析为请求数据的Promise。如果<code>request.throttle</code>为true且请求优先级不够高，则返回undefined。
  *
  *
  * @example
  * resource.head()
  *   .then(function(headers) {
- *       // use the data
+ *       // 使用数据
  *   }).catch(function(error) {
- *       // an error occurred
+ *       // 发生错误
  *   });
  *
- * @see {@link http://www.w3.org/TR/cors/|Cross-Origin Resource Sharing}
+ * @see {@link http://www.w3.org/TR/cors/|跨域资源共享}
  * @see {@link http://wiki.commonjs.org/wiki/Promises/A|CommonJS Promises/A}
  */
 Resource.prototype.head = function (options) {
@@ -1637,20 +1633,20 @@ Resource.prototype.head = function (options) {
 };
 
 /**
- * Creates a Resource from a URL and calls head() on it.
+ * 从URL创建资源并在其上调用head()。
  *
- * @param {string|object} options A url or an object with the following properties
- * @param {string} options.url The url of the resource.
- * @param {object} [options.queryParameters] An object containing query parameters that will be sent when retrieving the resource.
- * @param {object} [options.templateValues] Key/Value pairs that are used to replace template values (eg. {x}).
- * @param {object} [options.headers={}] Additional HTTP headers that will be sent.
- * @param {Proxy} [options.proxy] A proxy to be used when loading the resource.
- * @param {Resource.RetryCallback} [options.retryCallback] The Function to call when a request for this resource fails. If it returns true, the request will be retried.
- * @param {number} [options.retryAttempts=0] The number of times the retryCallback should be called before giving up.
- * @param {Request} [options.request] A Request object that will be used. Intended for internal use only.
- * @param {string} [options.responseType] The type of response.  This controls the type of item returned.
- * @param {string} [options.overrideMimeType] Overrides the MIME type returned by the server.
- * @returns {Promise<any>|undefined} a promise that will resolve to the requested data when loaded. Returns undefined if <code>request.throttle</code> is true and the request does not have high enough priority.
+ * @param {string|object} options URL或具有下列属性的对象
+ * @param {string} options.url 资源的URL。
+ * @param {object} [options.queryParameters] 包含检索资源时将发送的查询参数的对象。
+ * @param {object} [options.templateValues] 用于替换模板值（例如{x}）的键值对。
+ * @param {object} [options.headers={}] 将发送的额外HTTP标头。
+ * @param {Proxy} [options.proxy] 加载资源时要使用的代理。
+ * @param {Resource.RetryCallback} [options.retryCallback] 此资源请求失败时调用的函数。如果返回true，将重试请求。
+ * @param {number} [options.retryAttempts=0] 在放弃之前应调用retryCallback的次数。
+ * @param {Request} [options.request] 将使用的Request对象。仅供内部使用。
+ * @param {string} [options.responseType] 响应类型。这控制返回项的类型。
+ * @param {string} [options.overrideMimeType] 覆盖服务器返回的MIME类型。
+ * @returns {Promise<any>|undefined} 加载后将解析为请求数据的Promise。如果<code>request.throttle</code>为true且请求优先级不够高，则返回undefined。
  */
 Resource.head = function (options) {
   const resource = new Resource(options);
@@ -1718,29 +1714,27 @@ Resource.options = function (options) {
 };
 
 /**
- * Asynchronously posts data to the given resource.  Returns a promise that will resolve to
- * the result once loaded, or reject if the resource failed to load.  The data is loaded
- * using XMLHttpRequest, which means that in order to make requests to another origin,
- * the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
+ * 异步向给定资源打补丁数据。返回一个Promise，加载后将解析为
+ * 结果，如果资源加载失败则拒绝。数据使用XMLHttpRequest加载，
+ * 这意味着要向后端发出请求，服务器必须启用跨域资源共享（CORS）标头。
  *
- * @param {object} data Data that is posted with the resource.
- * @param {object} [options] Object with the following properties:
- * @param {object} [options.data] Data that is posted with the resource.
- * @param {string} [options.responseType] The type of response.  This controls the type of item returned.
- * @param {object} [options.headers] Additional HTTP headers to send with the request, if any.
- * @param {string} [options.overrideMimeType] Overrides the MIME type returned by the server.
- * @returns {Promise<any>|undefined} a promise that will resolve to the requested data when loaded. Returns undefined if <code>request.throttle</code> is true and the request does not have high enough priority.
+ * @param {object} data 随资源发布的数据。
+ * @param {object} [options] 具有下列属性的对象：
+ * @param {string} [options.responseType] 响应类型。这控制返回项的类型。
+ * @param {object} [options.headers] 随请求发送的额外HTTP标头（如果有）。
+ * @param {string} [options.overrideMimeType] 覆盖服务器返回的MIME类型。
+ * @returns {Promise<any>|undefined} 加载后将解析为请求数据的Promise。如果<code>request.throttle</code>为true且请求优先级不够高，则返回undefined。
  *
  *
  * @example
- * resource.post(data)
+ * resource.patch(data)
  *   .then(function(result) {
- *       // use the result
+ *       // 使用结果
  *   }).catch(function(error) {
- *       // an error occurred
+ *       // 发生错误
  *   });
  *
- * @see {@link http://www.w3.org/TR/cors/|Cross-Origin Resource Sharing}
+ * @see {@link http://www.w3.org/TR/cors/|跨域资源共享}
  * @see {@link http://wiki.commonjs.org/wiki/Promises/A|CommonJS Promises/A}
  */
 Resource.prototype.post = function (data, options) {
@@ -1754,21 +1748,21 @@ Resource.prototype.post = function (data, options) {
 };
 
 /**
- * Creates a Resource from a URL and calls post() on it.
+ * 从URL创建资源并在其上调用post()。
  *
- * @param {object} options A url or an object with the following properties
- * @param {string} options.url The url of the resource.
- * @param {object} options.data Data that is posted with the resource.
- * @param {object} [options.queryParameters] An object containing query parameters that will be sent when retrieving the resource.
- * @param {object} [options.templateValues] Key/Value pairs that are used to replace template values (eg. {x}).
- * @param {object} [options.headers={}] Additional HTTP headers that will be sent.
- * @param {Proxy} [options.proxy] A proxy to be used when loading the resource.
- * @param {Resource.RetryCallback} [options.retryCallback] The Function to call when a request for this resource fails. If it returns true, the request will be retried.
- * @param {number} [options.retryAttempts=0] The number of times the retryCallback should be called before giving up.
- * @param {Request} [options.request] A Request object that will be used. Intended for internal use only.
- * @param {string} [options.responseType] The type of response.  This controls the type of item returned.
- * @param {string} [options.overrideMimeType] Overrides the MIME type returned by the server.
- * @returns {Promise<any>|undefined} a promise that will resolve to the requested data when loaded. Returns undefined if <code>request.throttle</code> is true and the request does not have high enough priority.
+ * @param {string|object} options URL或具有下列属性的对象
+ * @param {string} options.url 资源的URL。
+ * @param {object} options.data 随资源发布的数据。
+ * @param {object} [options.queryParameters] 包含检索资源时将发送的查询参数的对象。
+ * @param {object} [options.templateValues] 用于替换模板值（例如{x}）的键值对。
+ * @param {object} [options.headers={}] 将发送的额外HTTP标头。
+ * @param {Proxy} [options.proxy] 加载资源时要使用的代理。
+ * @param {Resource.RetryCallback} [options.retryCallback] 此资源请求失败时调用的函数。如果返回true，将重试请求。
+ * @param {number} [options.retryAttempts=0] 在放弃之前应调用retryCallback的次数。
+ * @param {Request} [options.request] 将使用的Request对象。仅供内部使用。
+ * @param {string} [options.responseType] 响应类型。这控制返回项的类型。
+ * @param {string} [options.overrideMimeType] 覆盖服务器返回的MIME类型。
+ * @returns {Promise<any>|undefined} 加载后将解析为请求数据的Promise。如果<code>request.throttle</code>为true且请求优先级不够高，则返回undefined。
  */
 Resource.post = function (options) {
   const resource = new Resource(options);
@@ -1780,28 +1774,27 @@ Resource.post = function (options) {
 };
 
 /**
- * Asynchronously puts data to the given resource.  Returns a promise that will resolve to
- * the result once loaded, or reject if the resource failed to load.  The data is loaded
- * using XMLHttpRequest, which means that in order to make requests to another origin,
- * the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
+ * 异步放置数据到给定资源。返回一个Promise，加载后将解析为
+ * 结果，如果资源加载失败则拒绝。数据使用XMLHttpRequest加载，
+ * 这意味着要向后端发出请求，服务器必须启用跨域资源共享（CORS）标头。
  *
- * @param {object} data Data that is posted with the resource.
- * @param {object} [options] Object with the following properties:
- * @param {string} [options.responseType] The type of response.  This controls the type of item returned.
- * @param {object} [options.headers] Additional HTTP headers to send with the request, if any.
- * @param {string} [options.overrideMimeType] Overrides the MIME type returned by the server.
- * @returns {Promise<any>|undefined} a promise that will resolve to the requested data when loaded. Returns undefined if <code>request.throttle</code> is true and the request does not have high enough priority.
+ * @param {object} data 随资源发布的数据。
+ * @param {object} [options] 具有下列属性的对象：
+ * @param {string} [options.responseType] 响应类型。这控制返回项的类型。
+ * @param {object} [options.headers] 随请求发送的额外HTTP标头（如果有）。
+ * @param {string} [options.overrideMimeType] 覆盖服务器返回的MIME类型。
+ * @returns {Promise<any>|undefined} 加载后将解析为请求数据的Promise。如果<code>request.throttle</code>为true且请求优先级不够高，则返回undefined。
  *
  *
  * @example
  * resource.put(data)
  *   .then(function(result) {
- *       // use the result
+ *       // 使用结果
  *   }).catch(function(error) {
- *       // an error occurred
+ *       // 发生错误
  *   });
  *
- * @see {@link http://www.w3.org/TR/cors/|Cross-Origin Resource Sharing}
+ * @see {@link http://www.w3.org/TR/cors/|跨域资源共享}
  * @see {@link http://wiki.commonjs.org/wiki/Promises/A|CommonJS Promises/A}
  */
 Resource.prototype.put = function (data, options) {
@@ -1815,21 +1808,21 @@ Resource.prototype.put = function (data, options) {
 };
 
 /**
- * Creates a Resource from a URL and calls put() on it.
+ * 从URL创建资源并在其上调用post()。
  *
- * @param {object} options A url or an object with the following properties
- * @param {string} options.url The url of the resource.
- * @param {object} options.data Data that is posted with the resource.
- * @param {object} [options.queryParameters] An object containing query parameters that will be sent when retrieving the resource.
- * @param {object} [options.templateValues] Key/Value pairs that are used to replace template values (eg. {x}).
- * @param {object} [options.headers={}] Additional HTTP headers that will be sent.
- * @param {Proxy} [options.proxy] A proxy to be used when loading the resource.
- * @param {Resource.RetryCallback} [options.retryCallback] The Function to call when a request for this resource fails. If it returns true, the request will be retried.
- * @param {number} [options.retryAttempts=0] The number of times the retryCallback should be called before giving up.
- * @param {Request} [options.request] A Request object that will be used. Intended for internal use only.
- * @param {string} [options.responseType] The type of response.  This controls the type of item returned.
- * @param {string} [options.overrideMimeType] Overrides the MIME type returned by the server.
- * @returns {Promise<any>|undefined} a promise that will resolve to the requested data when loaded. Returns undefined if <code>request.throttle</code> is true and the request does not have high enough priority.
+ * @param {object} options URL或具有下列属性的对象
+ * @param {string} options.url 资源的URL。
+ * @param {object} options.data 随资源发布的数据。
+ * @param {object} [options.queryParameters] 包含检索资源时将发送的查询参数的对象。
+ * @param {object} [options.templateValues] 用于替换模板值（例如{x}）的键值对。
+ * @param {object} [options.headers={}] 将发送的额外HTTP标头。
+ * @param {Proxy} [options.proxy] 加载资源时要使用的代理。
+ * @param {Resource.RetryCallback} [options.retryCallback] 此资源请求失败时调用的函数。如果返回true，将重试请求。
+ * @param {number} [options.retryAttempts=0] 在放弃之前应调用retryCallback的次数。
+ * @param {Request} [options.request] 将使用的Request对象。仅供内部使用。
+ * @param {string} [options.responseType] 响应类型。这控制返回项的类型。
+ * @param {string} [options.overrideMimeType] 覆盖服务器返回的MIME类型。
+ * @returns {Promise<any>|undefined} 加载后将解析为请求数据的Promise。如果<code>request.throttle</code>为true且请求优先级不够高，则返回undefined。
  */
 Resource.put = function (options) {
   const resource = new Resource(options);
@@ -1841,28 +1834,27 @@ Resource.put = function (options) {
 };
 
 /**
- * Asynchronously patches data to the given resource.  Returns a promise that will resolve to
- * the result once loaded, or reject if the resource failed to load.  The data is loaded
- * using XMLHttpRequest, which means that in order to make requests to another origin,
- * the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
+ * 异步放置数据到给定资源。返回一个Promise，加载后将解析为
+ * 结果，如果资源加载失败则拒绝。数据使用XMLHttpRequest加载，
+ * 这意味着要向后端发出请求，服务器必须启用跨域资源共享（CORS）标头。
  *
- * @param {object} data Data that is posted with the resource.
- * @param {object} [options] Object with the following properties:
- * @param {string} [options.responseType] The type of response.  This controls the type of item returned.
- * @param {object} [options.headers] Additional HTTP headers to send with the request, if any.
- * @param {string} [options.overrideMimeType] Overrides the MIME type returned by the server.
- * @returns {Promise<any>|undefined} a promise that will resolve to the requested data when loaded. Returns undefined if <code>request.throttle</code> is true and the request does not have high enough priority.
+ * @param {object} data 随资源发布的数据。
+ * @param {object} [options] 具有下列属性的对象：
+ * @param {string} [options.responseType] 响应类型。这控制返回项的类型。
+ * @param {object} [options.headers] 随请求发送的额外HTTP标头（如果有）。
+ * @param {string} [options.overrideMimeType] 覆盖服务器返回的MIME类型。
+ * @returns {Promise<any>|undefined} 加载后将解析为请求数据的Promise。如果<code>request.throttle</code>为true且请求优先级不够高，则返回undefined。
  *
  *
  * @example
- * resource.patch(data)
+ * resource.put(data)
  *   .then(function(result) {
- *       // use the result
+ *       // 使用结果
  *   }).catch(function(error) {
- *       // an error occurred
+ *       // 发生错误
  *   });
  *
- * @see {@link http://www.w3.org/TR/cors/|Cross-Origin Resource Sharing}
+ * @see {@link http://www.w3.org/TR/cors/|跨域资源共享}
  * @see {@link http://wiki.commonjs.org/wiki/Promises/A|CommonJS Promises/A}
  */
 Resource.prototype.patch = function (data, options) {
@@ -1876,21 +1868,21 @@ Resource.prototype.patch = function (data, options) {
 };
 
 /**
- * Creates a Resource from a URL and calls patch() on it.
+ * 从URL创建资源并在其上调用put()。
  *
- * @param {object} options A url or an object with the following properties
- * @param {string} options.url The url of the resource.
- * @param {object} options.data Data that is posted with the resource.
- * @param {object} [options.queryParameters] An object containing query parameters that will be sent when retrieving the resource.
- * @param {object} [options.templateValues] Key/Value pairs that are used to replace template values (eg. {x}).
- * @param {object} [options.headers={}] Additional HTTP headers that will be sent.
- * @param {Proxy} [options.proxy] A proxy to be used when loading the resource.
- * @param {Resource.RetryCallback} [options.retryCallback] The Function to call when a request for this resource fails. If it returns true, the request will be retried.
- * @param {number} [options.retryAttempts=0] The number of times the retryCallback should be called before giving up.
- * @param {Request} [options.request] A Request object that will be used. Intended for internal use only.
- * @param {string} [options.responseType] The type of response.  This controls the type of item returned.
- * @param {string} [options.overrideMimeType] Overrides the MIME type returned by the server.
- * @returns {Promise<any>|undefined} a promise that will resolve to the requested data when loaded. Returns undefined if <code>request.throttle</code> is true and the request does not have high enough priority.
+ * @param {object} options URL或具有下列属性的对象
+ * @param {string} options.url 资源的URL。
+ * @param {object} options.data 随资源发布的数据。
+ * @param {object} [options.queryParameters] 包含检索资源时将发送的查询参数的对象。
+ * @param {object} [options.templateValues] 用于替换模板值（例如{x}）的键值对。
+ * @param {object} [options.headers={}] 将发送的额外HTTP标头。
+ * @param {Proxy} [options.proxy] 加载资源时要使用的代理。
+ * @param {Resource.RetryCallback} [options.retryCallback] 此资源请求失败时调用的函数。如果返回true，将重试请求。
+ * @param {number} [options.retryAttempts=0] 在放弃之前应调用retryCallback的次数。
+ * @param {Request} [options.request] 将使用的Request对象。仅供内部使用。
+ * @param {string} [options.responseType] 响应类型。这控制返回项的类型。
+ * @param {string} [options.overrideMimeType] 覆盖服务器返回的MIME类型。
+ * @returns {Promise<any>|undefined} 加载后将解析为请求数据的Promise。如果<code>request.throttle</code>为true且请求优先级不够高，则返回undefined。
  */
 Resource.patch = function (options) {
   const resource = new Resource(options);
@@ -1902,7 +1894,7 @@ Resource.patch = function (options) {
 };
 
 /**
- * Contains implementations of functions that can be replaced for testing
+ * 包含可被替换以进行测试的函数实现
  *
  * @private
  */
@@ -2022,15 +2014,15 @@ Resource._Implementations.createImage = function (
 };
 
 /**
- * Wrapper for createImageBitmap
+ * createImageBitmap的包装器
  *
  * @private
- * @param {Blob} blob The image blob.
- * @param {object} options An object containing the following properties:
- * @param {boolean} options.flipY Whether to flip the image Y axis.
- * @param {boolean} options.premultiplyAlpha Whether to premultiply the alpha channel.
- * @param {boolean} options.skipColorSpaceConversion Whether to skip color space conversion.
- * @returns {Promise<ImageBitmap>} A promise that resolves to the created image bitmap.
+ * @param {Blob} blob 图像blob。
+ * @param {object} options 包含下列属性的对象：
+ * @param {boolean} options.flipY 是否翻转图像Y轴。
+ * @param {boolean} options.premultiplyAlpha 是否预乘alpha通道。
+ * @param {boolean} options.skipColorSpaceConversion 是否跳过颜色空间转换。
+ * @returns {Promise<ImageBitmap>} 解析为创建的图像位图的Promise。
  */
 Resource.createImageBitmapFromBlob = function (blob, options) {
   Check.defined("options", options);

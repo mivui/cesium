@@ -10,19 +10,19 @@ import QuarticRealPolynomial from "./QuarticRealPolynomial.js";
 import Ray from "./Ray.js";
 
 /**
- * Functions for computing the intersection between geometries such as rays, planes, triangles, and ellipsoids.
+ * 用于计算射线、平面、三角形和椭球体等几何体之间相交关系的函数。
  *
  * @namespace IntersectionTests
  */
 const IntersectionTests = {};
 
 /**
- * Computes the intersection of a ray and a plane.
+ * 计算射线与平面的交点。
  *
- * @param {Ray} ray The ray.
- * @param {Plane} plane The plane.
- * @param {Cartesian3} [result] The object onto which to store the result.
- * @returns {Cartesian3} The intersection point or undefined if there is no intersections.
+ * @param {Ray} ray 射线。
+ * @param {Plane} plane 平面。
+ * @param {Cartesian3} [result] 存储结果的对象。
+ * @returns {Cartesian3} 交点，若无交点则返回 undefined。
  */
 IntersectionTests.rayPlane = function (ray, plane, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -65,20 +65,20 @@ const scratchTVec = new Cartesian3();
 const scratchQVec = new Cartesian3();
 
 /**
- * Computes the intersection of a ray and a triangle as a parametric distance along the input ray. The result is negative when the triangle is behind the ray.
+ * 计算射线与三角形的交点，以沿输入射线的参数距离表示。当三角形在射线后方时结果为负。
  *
- * Implements {@link https://cadxfem.org/inf/Fast MinimumStorage RayTriangle Intersection.pdf|
- * Fast Minimum Storage Ray/Triangle Intersection} by Tomas Moller and Ben Trumbore.
+ * 实现自 Tomas Moller 和 Ben Trumbore 的 {@link https://cadxfem.org/inf/Fast MinimumStorage RayTriangle Intersection.pdf|
+ * Fast Minimum Storage Ray/Triangle Intersection}。
  *
  * @memberof IntersectionTests
  *
- * @param {Ray} ray The ray.
- * @param {Cartesian3} p0 The first vertex of the triangle.
- * @param {Cartesian3} p1 The second vertex of the triangle.
- * @param {Cartesian3} p2 The third vertex of the triangle.
- * @param {boolean} [cullBackFaces=false] If <code>true</code>, will only compute an intersection with the front face of the triangle
- *                  and return undefined for intersections with the back face.
- * @returns {number} The intersection as a parametric distance along the ray, or undefined if there is no intersection.
+ * @param {Ray} ray 射线。
+ * @param {Cartesian3} p0 三角形的第一个顶点。
+ * @param {Cartesian3} p1 三角形的第二个顶点。
+ * @param {Cartesian3} p2 三角形的第三个顶点。
+ * @param {boolean} [cullBackFaces=false] 如果为 <code>true</code>，则仅计算与三角形正面的交点，
+ *                  与背面的交点将返回 undefined。
+ * @returns {number} 沿射线的参数距离交点，若无交点则返回 undefined。
  */
 IntersectionTests.rayTriangleParametric = function (
   ray,
@@ -165,21 +165,21 @@ IntersectionTests.rayTriangleParametric = function (
 };
 
 /**
- * Computes the intersection of a ray and a triangle as a Cartesian3 coordinate.
+ * 计算射线与三角形的交点，以笛卡尔坐标表示。
  *
- * Implements {@link https://cadxfem.org/inf/Fast MinimumStorage RayTriangle Intersection.pdf|
- * Fast Minimum Storage Ray/Triangle Intersection} by Tomas Moller and Ben Trumbore.
+ * 实现自 Tomas Moller 和 Ben Trumbore 的 {@link https://cadxfem.org/inf/Fast MinimumStorage RayTriangle Intersection.pdf|
+ * Fast Minimum Storage Ray/Triangle Intersection}。
  *
  * @memberof IntersectionTests
  *
- * @param {Ray} ray The ray.
- * @param {Cartesian3} p0 The first vertex of the triangle.
- * @param {Cartesian3} p1 The second vertex of the triangle.
- * @param {Cartesian3} p2 The third vertex of the triangle.
- * @param {boolean} [cullBackFaces=false] If <code>true</code>, will only compute an intersection with the front face of the triangle
- *                  and return undefined for intersections with the back face.
- * @param {Cartesian3} [result] The <code>Cartesian3</code> onto which to store the result.
- * @returns {Cartesian3} The intersection point or undefined if there is no intersections.
+ * @param {Ray} ray 射线。
+ * @param {Cartesian3} p0 三角形的第一个顶点。
+ * @param {Cartesian3} p1 三角形的第二个顶点。
+ * @param {Cartesian3} p2 三角形的第三个顶点。
+ * @param {boolean} [cullBackFaces=false] 如果为 <code>true</code>，则仅计算与三角形正面的交点，
+ *                  与背面的交点将返回 undefined。
+ * @param {Cartesian3} [result] 存储结果的 <code>Cartesian3</code> 对象。
+ * @returns {Cartesian3} 交点，若无交点则返回 undefined。
  */
 IntersectionTests.rayTriangle = function (
   ray,
@@ -211,18 +211,18 @@ IntersectionTests.rayTriangle = function (
 const scratchLineSegmentTriangleRay = new Ray();
 
 /**
- * Computes the intersection of a line segment and a triangle.
+ * 计算线段与三角形的交点。
  * @memberof IntersectionTests
  *
- * @param {Cartesian3} v0 The an end point of the line segment.
- * @param {Cartesian3} v1 The other end point of the line segment.
- * @param {Cartesian3} p0 The first vertex of the triangle.
- * @param {Cartesian3} p1 The second vertex of the triangle.
- * @param {Cartesian3} p2 The third vertex of the triangle.
- * @param {boolean} [cullBackFaces=false] If <code>true</code>, will only compute an intersection with the front face of the triangle
- *                  and return undefined for intersections with the back face.
- * @param {Cartesian3} [result] The <code>Cartesian3</code> onto which to store the result.
- * @returns {Cartesian3} The intersection point or undefined if there is no intersections.
+ * @param {Cartesian3} v0 线段的一个端点。
+ * @param {Cartesian3} v1 线段的另一个端点。
+ * @param {Cartesian3} p0 三角形的第一个顶点。
+ * @param {Cartesian3} p1 三角形的第二个顶点。
+ * @param {Cartesian3} p2 三角形的第三个顶点。
+ * @param {boolean} [cullBackFaces=false] 如果为 <code>true</code>，则仅计算与三角形正面的交点，
+ *                  与背面的交点将返回 undefined。
+ * @param {Cartesian3} [result] 存储结果的 <code>Cartesian3</code> 对象。
+ * @returns {Cartesian3} 交点，若无交点则返回 undefined。
  */
 IntersectionTests.lineSegmentTriangle = function (
   v0,
@@ -338,13 +338,13 @@ function raySphere(ray, sphere, result) {
 }
 
 /**
- * Computes the intersection points of a ray with a sphere.
+ * 计算射线与球体的交点。
  * @memberof IntersectionTests
  *
- * @param {Ray} ray The ray.
- * @param {BoundingSphere} sphere The sphere.
- * @param {Interval} [result] The result onto which to store the result.
- * @returns {Interval} The interval containing scalar points along the ray or undefined if there are no intersections.
+ * @param {Ray} ray 射线。
+ * @param {BoundingSphere} sphere 球体。
+ * @param {Interval} [result] 存储结果的对象。
+ * @returns {Interval} 包含沿射线标量点的区间，若无交点则返回 undefined。
  */
 IntersectionTests.raySphere = function (ray, sphere, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -368,14 +368,14 @@ IntersectionTests.raySphere = function (ray, sphere, result) {
 const scratchLineSegmentRay = new Ray();
 
 /**
- * Computes the intersection points of a line segment with a sphere.
+ * 计算线段与球体的交点。
  * @memberof IntersectionTests
  *
- * @param {Cartesian3} p0 An end point of the line segment.
- * @param {Cartesian3} p1 The other end point of the line segment.
- * @param {BoundingSphere} sphere The sphere.
- * @param {Interval} [result] The result onto which to store the result.
- * @returns {Interval} The interval containing scalar points along the ray or undefined if there are no intersections.
+ * @param {Cartesian3} p0 线段的一个端点。
+ * @param {Cartesian3} p1 线段的另一个端点。
+ * @param {BoundingSphere} sphere 球体。
+ * @param {Interval} [result] 存储结果的对象。
+ * @returns {Interval} 包含沿射线标量点的区间，若无交点则返回 undefined。
  */
 IntersectionTests.lineSegmentSphere = function (p0, p1, sphere, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -411,11 +411,11 @@ const scratchQ = new Cartesian3();
 const scratchW = new Cartesian3();
 
 /**
- * Computes the intersection points of a ray with an ellipsoid.
+ * 计算射线与椭球体的交点。
  *
- * @param {Ray} ray The ray.
- * @param {Ellipsoid} ellipsoid The ellipsoid.
- * @returns {Interval} The interval containing scalar points along the ray or undefined if there are no intersections.
+ * @param {Ray} ray 射线。
+ * @param {Ellipsoid} ellipsoid 椭球体。
+ * @returns {Interval} 包含沿射线标量点的区间，若无交点则返回 undefined。
  */
 IntersectionTests.rayEllipsoid = function (ray, ellipsoid) {
   //>>includeStart('debug', pragmas.debug);
@@ -500,11 +500,11 @@ const scratchRayIntervalY = new Interval();
 const scratchRayIntervalZ = new Interval();
 
 /**
- * Computes the intersection points of a ray with an axis-aligned bounding box. (axis-aligned in the same space as the ray)
+ * 计算射线与轴对齐包围盒的交点（与射线同空间的轴对齐）。
  *
- * @param {Ray} ray The ray.
- * @param {AxisAlignedBoundingBox} box The axis-aligned bounding box.
- * @param {Interval | undefined} result The interval containing scalar points along the ray or undefined if there are no intersections.
+ * @param {Ray} ray 射线。
+ * @param {AxisAlignedBoundingBox} box 轴对齐包围盒。
+ * @param {Interval | undefined} result 包含沿射线标量点的区间，若无交点则返回 undefined。
  */
 IntersectionTests.rayAxisAlignedBoundingBox = function (ray, box, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -735,11 +735,11 @@ const closestScratch = new Cartesian3();
 const surfPointScratch = new Cartographic();
 
 /**
- * Provides the point along the ray which is nearest to the ellipsoid.
+ * 返回射线上距离椭球体最近的点。
  *
- * @param {Ray} ray The ray.
- * @param {Ellipsoid} ellipsoid The ellipsoid.
- * @returns {Cartesian3} The nearest planetodetic point on the ray.
+ * @param {Ray} ray 射线。
+ * @param {Ellipsoid} ellipsoid 椭球体。
+ * @returns {Cartesian3} 射线上最近的测地坐标点。
  */
 IntersectionTests.grazingAltitudeLocation = function (ray, ellipsoid) {
   //>>includeStart('debug', pragmas.debug);
@@ -875,24 +875,13 @@ IntersectionTests.grazingAltitudeLocation = function (ray, ellipsoid) {
 const lineSegmentPlaneDifference = new Cartesian3();
 
 /**
- * Computes the intersection of a line segment and a plane.
+ * 计算线段与平面的交点。
  *
- * @param {Cartesian3} endPoint0 An end point of the line segment.
- * @param {Cartesian3} endPoint1 The other end point of the line segment.
- * @param {Plane} plane The plane.
- * @param {Cartesian3} [result] The object onto which to store the result.
- * @returns {Cartesian3} The intersection point or undefined if there is no intersection.
- *
- * @example
- * const origin = Cesium.Cartesian3.fromDegrees(-75.59777, 40.03883);
- * const normal = ellipsoid.geodeticSurfaceNormal(origin);
- * const plane = Cesium.Plane.fromPointNormal(origin, normal);
- *
- * const p0 = new Cesium.Cartesian3(...);
- * const p1 = new Cesium.Cartesian3(...);
- *
- * // find the intersection of the line segment from p0 to p1 and the tangent plane at origin.
- * const intersection = Cesium.IntersectionTests.lineSegmentPlane(p0, p1, plane);
+ * @param {Cartesian3} endPoint0 线段的一个端点。
+ * @param {Cartesian3} endPoint1 线段的另一个端点。
+ * @param {Plane} plane 平面。
+ * @param {Cartesian3} [result] 存储结果的对象。
+ * @returns {Cartesian3} 交点，若无交点则返回 undefined。
  */
 IntersectionTests.lineSegmentPlane = function (
   endPoint0,
@@ -944,25 +933,13 @@ IntersectionTests.lineSegmentPlane = function (
 };
 
 /**
- * Computes the intersection of a triangle and a plane
+ * 计算三角形与平面的交点。
  *
- * @param {Cartesian3} p0 First point of the triangle
- * @param {Cartesian3} p1 Second point of the triangle
- * @param {Cartesian3} p2 Third point of the triangle
- * @param {Plane} plane Intersection plane
- * @returns {object} An object with properties <code>positions</code> and <code>indices</code>, which are arrays that represent three triangles that do not cross the plane. (Undefined if no intersection exists)
- *
- * @example
- * const origin = Cesium.Cartesian3.fromDegrees(-75.59777, 40.03883);
- * const normal = ellipsoid.geodeticSurfaceNormal(origin);
- * const plane = Cesium.Plane.fromPointNormal(origin, normal);
- *
- * const p0 = new Cesium.Cartesian3(...);
- * const p1 = new Cesium.Cartesian3(...);
- * const p2 = new Cesium.Cartesian3(...);
- *
- * // convert the triangle composed of points (p0, p1, p2) to three triangles that don't cross the plane
- * const triangles = Cesium.IntersectionTests.trianglePlaneIntersection(p0, p1, p2, plane);
+ * @param {Cartesian3} p0 三角形的第一个点。
+ * @param {Cartesian3} p1 三角形的第二个点。
+ * @param {Cartesian3} p2 三角形的第三个点。
+ * @param {Plane} plane 相交平面。
+ * @returns {object} 包含 <code>positions</code> 和 <code>indices</code> 属性的对象，这两个数组表示不跨越平面的三个三角形（若无交点则返回 undefined）。
  */
 IntersectionTests.trianglePlaneIntersection = function (p0, p1, p2, plane) {
   //>>includeStart('debug', pragmas.debug);

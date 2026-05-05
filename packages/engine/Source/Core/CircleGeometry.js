@@ -7,29 +7,29 @@ import Ellipsoid from "./Ellipsoid.js";
 import VertexFormat from "./VertexFormat.js";
 
 /**
- * A description of a circle on the ellipsoid. Circle geometry can be rendered with both {@link Primitive} and {@link GroundPrimitive}.
+ * 椭球上圆形的描述。圆形几何体可以使用{@link Primitive}和{@link GroundPrimitive}渲染。
  *
  * @alias CircleGeometry
  * @constructor
  *
- * @param {object} options Object with the following properties:
- * @param {Cartesian3} options.center The circle's center point in the fixed frame.
- * @param {number} options.radius The radius in meters.
- * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] The ellipsoid the circle will be on.
- * @param {number} [options.height=0.0] The distance in meters between the circle and the ellipsoid surface.
- * @param {number} [options.granularity=0.02] The angular distance between points on the circle in radians.
- * @param {VertexFormat} [options.vertexFormat=VertexFormat.DEFAULT] The vertex attributes to be computed.
- * @param {number} [options.extrudedHeight=0.0] The distance in meters between the circle's extruded face and the ellipsoid surface.
- * @param {number} [options.stRotation=0.0] The rotation of the texture coordinates, in radians. A positive rotation is counter-clockwise.
+ * @param {object} options 具有以下属性的对象：
+ * @param {Cartesian3} options.center 固定坐标系中的圆心点。
+ * @param {number} options.radius 半径（米）。
+ * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] 圆形所在的椭球体。
+ * @param {number} [options.height=0.0] 圆形与椭球表面之间的距离（米）。
+ * @param {number} [options.granularity=0.02] 圆形上点之间的角距离（弧度）。
+ * @param {VertexFormat} [options.vertexFormat=VertexFormat.DEFAULT] 要计算的顶点属性。
+ * @param {number} [options.extrudedHeight=0.0] 圆形拉伸面与椭球表面之间的距离（米）。
+ * @param {number} [options.stRotation=0.0] 纹理坐标的旋转角度（弧度）。正旋转为逆时针方向。
  *
- * @exception {DeveloperError} radius must be greater than zero.
- * @exception {DeveloperError} granularity must be greater than zero.
+ * @exception {DeveloperError} 半径必须大于零。
+ * @exception {DeveloperError} 粒度必须大于零。
  *
  * @see CircleGeometry.createGeometry
  * @see Packable
  *
  * @example
- * // Create a circle.
+ * // 创建一个圆形。
  * const circle = new Cesium.CircleGeometry({
  *   center : Cesium.Cartesian3.fromDegrees(-75.59777, 40.03883),
  *   radius : 100000.0
@@ -61,19 +61,19 @@ function CircleGeometry(options) {
 }
 
 /**
- * The number of elements used to pack the object into an array.
+ * 用于将对象打包到数组中的元素数量。
  * @type {number}
  */
 CircleGeometry.packedLength = EllipseGeometry.packedLength;
 
 /**
- * Stores the provided instance into the provided array.
+ * 将提供的实例存储到提供的数组中。
  *
- * @param {CircleGeometry} value The value to pack.
- * @param {number[]} array The array to pack into.
- * @param {number} [startingIndex=0] The index into the array at which to start packing the elements.
+ * @param {CircleGeometry} value 要打包的值。
+ * @param {number[]} array 要打包到的数组。
+ * @param {number} [startingIndex=0] 开始打包元素的数组索引。
  *
- * @returns {number[]} The array that was packed into
+ * @returns {number[]} 被打包到的数组
  */
 CircleGeometry.pack = function (value, array, startingIndex) {
   //>>includeStart('debug', pragmas.debug);
@@ -102,12 +102,12 @@ const scratchOptions = {
 };
 
 /**
- * Retrieves an instance from a packed array.
+ * 从打包的数组中检索实例。
  *
- * @param {number[]} array The packed array.
- * @param {number} [startingIndex=0] The starting index of the element to be unpacked.
- * @param {CircleGeometry} [result] The object into which to store the result.
- * @returns {CircleGeometry} The modified result parameter or a new CircleGeometry instance if one was not provided.
+ * @param {number[]} array 打包数组。
+ * @param {number} [startingIndex=0] 要解包的元素起始索引。
+ * @param {CircleGeometry} [result] 存储结果的对象。
+ * @returns {CircleGeometry} 修改后的结果参数，如果未提供则返回新的CircleGeometry实例。
  */
 CircleGeometry.unpack = function (array, startingIndex, result) {
   const ellipseGeometry = EllipseGeometry.unpack(
@@ -149,10 +149,10 @@ CircleGeometry.unpack = function (array, startingIndex, result) {
 };
 
 /**
- * Computes the geometric representation of a circle on an ellipsoid, including its vertices, indices, and a bounding sphere.
+ * 计算椭球上圆形的几何表示，包括其顶点、索引和边界球。
  *
- * @param {CircleGeometry} circleGeometry A description of the circle.
- * @returns {Geometry|undefined} The computed vertices and indices.
+ * @param {CircleGeometry} circleGeometry 圆形的描述。
+ * @returns {Geometry|undefined} 计算得到的顶点和索引。
  */
 CircleGeometry.createGeometry = function (circleGeometry) {
   return EllipseGeometry.createGeometry(circleGeometry._ellipseGeometry);
@@ -195,7 +195,7 @@ Object.defineProperties(CircleGeometry.prototype, {
     },
   },
   /**
-   * For remapping texture coordinates when rendering CircleGeometries as GroundPrimitives.
+   * 用于渲染CircleGeometries作为GroundPrimitives时重新映射纹理坐标。
    * @private
    */
   textureCoordinateRotationPoints: {

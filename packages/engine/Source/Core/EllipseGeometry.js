@@ -68,8 +68,8 @@ function computeTopBottomAttributes(positions, options, extrude) {
 
   let textureCoordIndex = 0;
 
-  // Raise positions to a height above the ellipsoid and compute the
-  // texture coordinates, normals, tangents, and bitangents.
+  // 将位置提升到椭球上方的高度，并计算
+  // 纹理坐标、法线、切线和副切线。
   let normal = scratchNormal;
   let tangent = scratchTangent;
   let bitangent = scratchBitangent;
@@ -312,11 +312,11 @@ function computeTopBottomAttributes(positions, options, extrude) {
 }
 
 function topIndices(numPts) {
-  // numTriangles in half = 3 + 8 + 12 + ... = -1 + 4 + (4 + 4) + (4 + 4 + 4) + ... = -1 + 4 * (1 + 2 + 3 + ...)
+  // 一半中的三角形数 = 3 + 8 + 12 + ... = -1 + 4 + (4 + 4) + (4 + 4 + 4) + ... = -1 + 4 * (1 + 2 + 3 + ...)
   //              = -1 + 4 * ((n * ( n + 1)) / 2)
-  // total triangles = 2 * numTriangles in half
-  // indices = total triangles * 3;
-  // Substitute numPts for n above
+  // 总三角形数 = 2 * 一半中的三角形数
+  // 索引数 = 总三角形数 * 3；
+  // 用numPts替换上面的n
 
   const indices = new Array(12 * (numPts * (numPts + 1)) - 6);
   let indicesIndex = 0;
@@ -325,7 +325,7 @@ function topIndices(numPts) {
   let positionIndex;
   let i;
   let j;
-  // Indices triangles to the 'right' of the north vector
+  // 北向量"右侧"的三角形索引
 
   prevIndex = 0;
   positionIndex = 1;
@@ -359,7 +359,7 @@ function topIndices(numPts) {
     indices[indicesIndex++] = positionIndex;
   }
 
-  // Indices for center column of triangles
+  // 中心列三角形的索引
   numInterior = numPts * 2;
   ++positionIndex;
   ++prevIndex;
@@ -381,7 +381,7 @@ function topIndices(numPts) {
   indices[indicesIndex++] = prevIndex++;
   indices[indicesIndex++] = prevIndex;
 
-  // Reverse the process creating indices to the 'left' of the north vector
+  // 反转过程，创建北向量"左侧"的索引
   ++prevIndex;
   for (i = numPts - 1; i > 1; --i) {
     indices[indicesIndex++] = prevIndex++;
@@ -398,6 +398,10 @@ function topIndices(numPts) {
       indices[indicesIndex++] = prevIndex;
       indices[indicesIndex++] = positionIndex;
     }
+
+    indices[indicesIndex++] = prevIndex++;
+    indices[indicesIndex++] = prevIndex++;
+    indices[indicesIndex++] = positionIndex++;
 
     indices[indicesIndex++] = prevIndex++;
     indices[indicesIndex++] = prevIndex++;
@@ -475,8 +479,8 @@ function computeWallAttributes(positions, options) {
 
   let textureCoordIndex = 0;
 
-  // Raise positions to a height above the ellipsoid and compute the
-  // texture coordinates, normals, tangents, and bitangents.
+  // 将位置提升到椭球上方的高度，并计算
+  // 纹理坐标、法线、切线和副切线。
   let normal = scratchNormal;
   let tangent = scratchTangent;
   let bitangent = scratchBitangent;
@@ -623,8 +627,8 @@ function computeWallAttributes(positions, options) {
         tangents[i2] = tangent.z;
 
         tangents[i + length] = tangent.x;
-        tangents[i + 1 + length] = tangent.y;
-        tangents[i + 2 + length] = tangent.z;
+        tangents[i1 + length] = tangent.y;
+        tangents[i2 + length] = tangent.z;
       }
 
       if (vertexFormat.bitangent) {
@@ -865,8 +869,8 @@ function computeRectangle(
     positions[i] = Cartesian3.fromArray(positionsFlat, i * 3);
   }
   const rectangle = Rectangle.fromCartesianArray(positions, ellipsoid, result);
-  // Rectangle width goes beyond 180 degrees when the ellipse crosses a pole.
-  // When this happens, make the rectangle into a "circle" around the pole
+  // 当椭圆跨越极点时，矩形宽度超过180度。
+  // 发生这种情况时，将矩形变为围绕极点的"圆形"
   if (rectangle.width > CesiumMath.PI) {
     rectangle.north =
       rectangle.north > 0.0
@@ -883,30 +887,30 @@ function computeRectangle(
 }
 
 /**
- * A description of an ellipse on an ellipsoid. Ellipse geometry can be rendered with both {@link Primitive} and {@link GroundPrimitive}.
+ * 椭球上椭圆的描述。椭圆几何体可以使用{@link Primitive}和{@link GroundPrimitive}渲染。
  *
  * @alias EllipseGeometry
  * @constructor
  *
- * @param {object} options Object with the following properties:
- * @param {Cartesian3} options.center The ellipse's center point in the fixed frame.
- * @param {number} options.semiMajorAxis The length of the ellipse's semi-major axis in meters.
- * @param {number} options.semiMinorAxis The length of the ellipse's semi-minor axis in meters.
- * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] The ellipsoid the ellipse will be on.
- * @param {number} [options.height=0.0] The distance in meters between the ellipse and the ellipsoid surface.
- * @param {number} [options.extrudedHeight] The distance in meters between the ellipse's extruded face and the ellipsoid surface.
- * @param {number} [options.rotation=0.0] The angle of rotation counter-clockwise from north.
- * @param {number} [options.stRotation=0.0] The rotation of the texture coordinates counter-clockwise from north.
- * @param {number} [options.granularity=CesiumMath.RADIANS_PER_DEGREE] The angular distance between points on the ellipse in radians.
- * @param {VertexFormat} [options.vertexFormat=VertexFormat.DEFAULT] The vertex attributes to be computed.
+ * @param {object} options 具有以下属性的对象：
+ * @param {Cartesian3} options.center 固定坐标系中的椭圆中心点。
+ * @param {number} options.semiMajorAxis 椭圆半长轴的长度（米）。
+ * @param {number} options.semiMinorAxis 椭圆半短轴的长度（米）。
+ * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] 椭圆所在的椭球体。
+ * @param {number} [options.height=0.0] 椭圆与椭球表面之间的距离（米）。
+ * @param {number} [options.extrudedHeight] 椭圆拉伸面与椭球表面之间的距离（米）。
+ * @param {number} [options.rotation=0.0] 从北向逆时针方向的旋转角度。
+ * @param {number} [options.stRotation=0.0] 纹理坐标从北向逆时针方向的旋转角度。
+ * @param {number} [options.granularity=CesiumMath.RADIANS_PER_DEGREE] 椭圆上点之间的角距离（弧度）。
+ * @param {VertexFormat} [options.vertexFormat=VertexFormat.DEFAULT] 要计算的顶点属性。
  *
- * @exception {DeveloperError} semiMajorAxis and semiMinorAxis must be greater than zero.
- * @exception {DeveloperError} semiMajorAxis must be greater than or equal to the semiMinorAxis.
- * @exception {DeveloperError} granularity must be greater than zero.
+ * @exception {DeveloperError} semiMajorAxis和semiMinorAxis必须大于零。
+ * @exception {DeveloperError} semiMajorAxis必须大于或等于semiMinorAxis。
+ * @exception {DeveloperError} 粒度必须大于零。
  *
  *
  * @example
- * // Create an ellipse.
+ * // 创建一个椭圆。
  * const ellipse = new Cesium.EllipseGeometry({
  *   center : Cesium.Cartesian3.fromDegrees(-75.59777, 40.03883),
  *   semiMajorAxis : 500000.0,
@@ -963,7 +967,7 @@ function EllipseGeometry(options) {
 }
 
 /**
- * The number of elements used to pack the object into an array.
+ * 用于将对象打包到数组中的元素数量。
  * @type {number}
  */
 EllipseGeometry.packedLength =
@@ -973,17 +977,17 @@ EllipseGeometry.packedLength =
   9;
 
 /**
- * Stores the provided instance into the provided array.
+ * 将提供的实例存储到提供的数组中。
  *
- * @param {EllipseGeometry} value The value to pack.
- * @param {number[]} array The array to pack into.
- * @param {number} [startingIndex=0] The index into the array at which to start packing the elements.
+ * @param {EllipseGeometry} value 要打包的值。
+ * @param {number[]} array 要打包到的数组。
+ * @param {number} [startingIndex=0] 开始打包元素的数组索引。
  *
- * @returns {number[]} The array that was packed into
+ * @returns {number[]} 被打包到的数组
  */
 EllipseGeometry.pack = function (value, array, startingIndex) {
   //>>includeStart('debug', pragmas.debug);
-  Check.defined("value", value);
+  Check.typeOf.object("value", value);
   Check.defined("array", array);
   //>>includeEnd('debug');
 
@@ -1030,12 +1034,12 @@ const scratchOptions = {
 };
 
 /**
- * Retrieves an instance from a packed array.
+ * 从打包的数组中检索实例。
  *
- * @param {number[]} array The packed array.
- * @param {number} [startingIndex=0] The starting index of the element to be unpacked.
- * @param {EllipseGeometry} [result] The object into which to store the result.
- * @returns {EllipseGeometry} The modified result parameter or a new EllipseGeometry instance if one was not provided.
+ * @param {number[]} array 打包数组。
+ * @param {number} [startingIndex=0] 要解包的元素起始索引。
+ * @param {EllipseGeometry} [result] 存储结果的对象。
+ * @returns {EllipseGeometry} 修改后的结果参数，如果未提供则返回新的EllipseGeometry实例。
  */
 EllipseGeometry.unpack = function (array, startingIndex, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -1100,18 +1104,18 @@ EllipseGeometry.unpack = function (array, startingIndex, result) {
 };
 
 /**
- * Computes the bounding rectangle based on the provided options
+ * 根据提供的选项计算边界矩形
  *
- * @param {object} options Object with the following properties:
- * @param {Cartesian3} options.center The ellipse's center point in the fixed frame.
- * @param {number} options.semiMajorAxis The length of the ellipse's semi-major axis in meters.
- * @param {number} options.semiMinorAxis The length of the ellipse's semi-minor axis in meters.
- * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] The ellipsoid the ellipse will be on.
- * @param {number} [options.rotation=0.0] The angle of rotation counter-clockwise from north.
- * @param {number} [options.granularity=CesiumMath.RADIANS_PER_DEGREE] The angular distance between points on the ellipse in radians.
- * @param {Rectangle} [result] An object in which to store the result
+ * @param {object} options 具有以下属性的对象：
+ * @param {Cartesian3} options.center 固定坐标系中的椭圆中心点。
+ * @param {number} options.semiMajorAxis 椭圆半长轴的长度（米）。
+ * @param {number} options.semiMinorAxis 椭圆半短轴的长度（米）。
+ * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] 椭圆所在的椭球体。
+ * @param {number} [options.rotation=0.0] 从北向逆时针方向的旋转角度。
+ * @param {number} [options.granularity=CesiumMath.RADIANS_PER_DEGREE] 椭圆上点之间的角距离（弧度）。
+ * @param {Rectangle} [result] 用于存储结果的对象
  *
- * @returns {Rectangle} The result rectangle
+ * @returns {Rectangle} 结果矩形
  */
 EllipseGeometry.computeRectangle = function (options, result) {
   options = options ?? Frozen.EMPTY_OBJECT;
@@ -1149,10 +1153,10 @@ EllipseGeometry.computeRectangle = function (options, result) {
 };
 
 /**
- * Computes the geometric representation of a ellipse on an ellipsoid, including its vertices, indices, and a bounding sphere.
+ * 计算椭球上椭圆的几何表示，包括其顶点、索引和边界球。
  *
- * @param {EllipseGeometry} ellipseGeometry A description of the ellipse.
- * @returns {Geometry|undefined} The computed vertices and indices.
+ * @param {EllipseGeometry} ellipseGeometry 椭圆的描述。
+ * @returns {Geometry|undefined} 计算得到的顶点和索引。
  */
 EllipseGeometry.createGeometry = function (ellipseGeometry) {
   if (
@@ -1302,7 +1306,7 @@ Object.defineProperties(EllipseGeometry.prototype, {
     },
   },
   /**
-   * For remapping texture coordinates when rendering EllipseGeometries as GroundPrimitives.
+   * 用于渲染EllipseGeometries作为GroundPrimitives时重新映射纹理坐标。
    * @private
    */
   textureCoordinateRotationPoints: {

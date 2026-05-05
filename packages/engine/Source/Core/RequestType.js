@@ -1,13 +1,13 @@
 // @ts-check
 
 /**
- * An enum identifying the type of request. Used for finer grained logging and priority sorting.
+ * 标识请求类型的枚举。用于更细粒度的日志记录和优先级排序。
  *
  * @enum {number}
  */
 const RequestType = {
   /**
-   * Terrain request.
+   * 地形请求。
    *
    * @type {number}
    * @constant
@@ -15,7 +15,7 @@ const RequestType = {
   TERRAIN: 0,
 
   /**
-   * Imagery request.
+   * 影像请求。
    *
    * @type {number}
    * @constant
@@ -23,7 +23,7 @@ const RequestType = {
   IMAGERY: 1,
 
   /**
-   * 3D Tiles request.
+   * 3D瓦片请求。
    *
    * @type {number}
    * @constant
@@ -31,7 +31,7 @@ const RequestType = {
   TILES3D: 2,
 
   /**
-   * Other request.
+   * 其他请求。
    *
    * @type {number}
    * @constant

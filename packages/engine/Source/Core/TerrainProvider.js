@@ -4,9 +4,9 @@ import IndexDatatype from "./IndexDatatype.js";
 import CesiumMath from "./Math.js";
 
 /**
- * Provides terrain or other geometry for the surface of an ellipsoid.  The surface geometry is
- * organized into a pyramid of tiles according to a {@link TilingScheme}.  This type describes an
- * interface and is not intended to be instantiated directly.
+ * 为椭球体表面提供地形或其他几何数据。表面几何按
+ * {@link TilingScheme} 组织成金字塔状的瓦片结构。此类型描述了一个
+ * 接口，不打算直接实例化。
  *
  * @alias TerrainProvider
  * @constructor
@@ -24,9 +24,9 @@ function TerrainProvider() {
 
 Object.defineProperties(TerrainProvider.prototype, {
   /**
-   * Gets an event that is raised when the terrain provider encounters an asynchronous error.  By subscribing
-   * to the event, you will be notified of the error and can potentially recover from it.  Event listeners
-   * are passed an instance of {@link TileProviderError}.
+   * 获取当地形提供者遇到异步错误时触发的事件。通过订阅
+   * 该事件，您将收到错误通知并可能从中恢复。事件监听器
+   * 会收到一个 {@link TileProviderError} 实例。
    * @memberof TerrainProvider.prototype
    * @type {Event<TerrainProvider.ErrorEvent>}
    * @readonly
@@ -36,8 +36,8 @@ Object.defineProperties(TerrainProvider.prototype, {
   },
 
   /**
-   * Gets the credit to display when this terrain provider is active.  Typically this is used to credit
-   * the source of the terrain.
+   * 获取当地形提供者激活时要显示的署名信息。通常用于
+   * 署名地形的来源。
    * @memberof TerrainProvider.prototype
    * @type {Credit}
    * @readonly
@@ -47,7 +47,7 @@ Object.defineProperties(TerrainProvider.prototype, {
   },
 
   /**
-   * Gets the tiling scheme used by the provider.
+   * 获取提供者使用的瓦片方案。
    * @memberof TerrainProvider.prototype
    * @type {TilingScheme}
    * @readonly
@@ -57,9 +57,9 @@ Object.defineProperties(TerrainProvider.prototype, {
   },
 
   /**
-   * Gets a value indicating whether or not the provider includes a water mask.  The water mask
-   * indicates which areas of the globe are water rather than land, so they can be rendered
-   * as a reflective surface with animated waves.
+   * 获取一个值，指示提供者是否包含水掩码。水掩码
+   * 指示地球上的哪些区域是水域而非陆地，从而可以将其渲染为
+   * 带有动画波浪的反射表面。
    * @memberof TerrainProvider.prototype
    * @type {boolean}
    * @readonly
@@ -69,7 +69,7 @@ Object.defineProperties(TerrainProvider.prototype, {
   },
 
   /**
-   * Gets a value indicating whether or not the requested tiles include vertex normals.
+   * 获取一个值，指示请求的瓦片是否包含顶点法线。
    * @memberof TerrainProvider.prototype
    * @type {boolean}
    * @readonly
@@ -79,9 +79,9 @@ Object.defineProperties(TerrainProvider.prototype, {
   },
 
   /**
-   * Gets an object that can be used to determine availability of terrain from this provider, such as
-   * at points and in rectangles. This property may be undefined if availability
-   * information is not available.
+   * 获取一个可用于确定此提供者地形可用性的对象，例如在
+   * 点和矩形中。如果可用性信息不可用，
+   * 此属性可能为 undefined。
    * @memberof TerrainProvider.prototype
    * @type {TileAvailability|undefined}
    * @readonly
@@ -94,14 +94,13 @@ Object.defineProperties(TerrainProvider.prototype, {
 const regularGridIndicesCache = [];
 
 /**
- * Gets a list of indices for a triangle mesh representing a regular grid.  Calling
- * this function multiple times with the same grid width and height returns the
- * same list of indices.  The total number of vertices must be less than or equal
- * to 65536.
+ * 获取表示规则网格的三角形网格索引列表。多次使用
+ * 相同的网格宽度和高度调用此函数将返回
+ * 相同的索引列表。顶点总数必须小于或等于 65536。
  *
- * @param {number} width The number of vertices in the regular grid in the horizontal direction.
- * @param {number} height The number of vertices in the regular grid in the vertical direction.
- * @returns {Uint16Array|Uint32Array} The list of indices. Uint16Array gets returned for 64KB or less and Uint32Array for 4GB or less.
+ * @param {number} width 规则网格水平方向的顶点数。
+ * @param {number} height 规则网格垂直方向的顶点数。
+ * @returns {Uint16Array|Uint32Array} 索引列表。64KB 或以下返回 Uint16Array，4GB 或以下返回 Uint32Array。
  */
 TerrainProvider.getRegularGridIndices = function (width, height) {
   //>>includeStart('debug', pragmas.debug);
@@ -238,13 +237,13 @@ TerrainProvider.getRegularGridAndSkirtIndicesAndEdgeIndices = function (
 };
 
 /**
- * Calculates the number of skirt vertices given the edge indices.
+ * 根据边缘索引计算裙边顶点数。
  * @private
- * @param {number[]|Uint8Array|Uint16Array|Uint32Array} westIndicesSouthToNorth Edge indices along the west side of the tile.
- * @param {number[]|Uint8Array|Uint16Array|Uint32Array} southIndicesEastToWest Edge indices along the south side of the tile.
- * @param {number[]|Uint8Array|Uint16Array|Uint32Array} eastIndicesNorthToSouth Edge indices along the east side of the tile.
- * @param {number[]|Uint8Array|Uint16Array|Uint32Array} northIndicesWestToEast Edge indices along the north side of the tile.
- * @returns {number} The number of skirt vertices.
+ * @param {number[]|Uint8Array|Uint16Array|Uint32Array} westIndicesSouthToNorth 瓦片西侧边缘索引。
+ * @param {number[]|Uint8Array|Uint16Array|Uint32Array} southIndicesEastToWest 瓦片南侧边缘索引。
+ * @param {number[]|Uint8Array|Uint16Array|Uint32Array} eastIndicesNorthToSouth 瓦片东侧边缘索引。
+ * @param {number[]|Uint8Array|Uint16Array|Uint32Array} northIndicesWestToEast 瓦片北侧边缘索引。
+ * @returns {number} 裙边顶点数。
  */
 TerrainProvider.getSkirtVertexCount = function (
   westIndicesSouthToNorth,
@@ -261,39 +260,39 @@ TerrainProvider.getSkirtVertexCount = function (
 };
 
 /**
- * Compute the number of skirt indices given the number of skirt vertices.
- * Consider a 3x3 grid of vertices. There will be 8 skirt vertices around the edge:
- * - 16 edge triangles
- * - 48 indices
+ * 根据裙边顶点数计算裙边索引数。
+ * 考虑一个 3x3 的顶点网格。边缘周围将有 8 个裙边顶点：
+ * - 16 个边缘三角形
+ * - 48 个索引
  *
  *   |\|\|
- * |/|   |/|
- * |/|   |/|
+ *   |/|   |/|
+ *   |/|   |/|
  *   |\|\|
  *
  * @private
- * @param {number} skirtVertexCount
- * @returns {number}
+ * @param {number} skirtVertexCount 裙边顶点数
+ * @returns {number} 裙边索引数
  */
 TerrainProvider.getSkirtIndexCount = function (skirtVertexCount) {
   return (skirtVertexCount - 4) * 2 * 3;
 };
 
 /**
- * Compute the number of skirt indices given the number of skirt vertices with filled corners.
- * Consider a 3x3 grid of vertices. There will be 8 skirt vertices around the edge:
- * - 16 edge triangles
- * - 4 cap triangles
- * - 60 indices
+ * 根据裙边顶点数计算带填充角的裙边索引数。
+ * 考虑一个 3x3 的顶点网格。边缘周围将有 8 个裙边顶点：
+ * - 16 个边缘三角形
+ * - 4 个帽三角形
+ * - 60 个索引
  *
  *  /|\|\|\
- * |/|   |/|
- * |/|   |/|
- *  \|\|\|/
+ *  |/|   |/|
+ *  |/|   |/|
+ *   \|\|\|/
  *
  * @private
- * @param {number} skirtVertexCount
- * @returns {number}
+ * @param {number} skirtVertexCount 裙边顶点数
+ * @returns {number} 裙边索引数
  */
 TerrainProvider.getSkirtIndexCountWithFilledCorners = function (
   skirtVertexCount,
@@ -302,16 +301,16 @@ TerrainProvider.getSkirtIndexCountWithFilledCorners = function (
 };
 
 /**
- * Adds skirt indices.
- * This does not add filled corners. Use {@link TerrainProvider.addSkirtIndicesWithFilledCorners} to add skirt indices with filled corners.
+ * 添加裙边索引。
+ * 这不会添加填充角。使用 {@link TerrainProvider.addSkirtIndicesWithFilledCorners} 可添加带填充角的裙边索引。
  * @private
- * @param {number[]|Uint8Array|Uint16Array|Uint32Array} westIndicesSouthToNorth The indices of the vertices on the Western edge of the tile, ordered from South to North.
- * @param {number[]|Uint8Array|Uint16Array|Uint32Array} southIndicesEastToWest The indices of the vertices on the Southern edge of the tile, ordered from East to West.
- * @param {number[]|Uint8Array|Uint16Array|Uint32Array} eastIndicesNorthToSouth The indices of the vertices on the Eastern edge of the tile, ordered from North to South.
- * @param {number[]|Uint8Array|Uint16Array|Uint32Array} northIndicesWestToEast The indices of the vertices on the Northern edge of the tile, ordered from West to East.
- * @param {number} vertexCount The number of vertices in the tile before adding skirt vertices.
- * @param {Uint16Array|Uint32Array} indices The array of indices to which skirt indices are added.
- * @param {number} offset The offset into the indices array at which to start adding skirt indices.
+ * @param {number[]|Uint8Array|Uint16Array|Uint32Array} westIndicesSouthToNorth 瓦片西边缘顶点索引，按从南到北排序。
+ * @param {number[]|Uint8Array|Uint16Array|Uint32Array} southIndicesEastToWest 瓦片南边缘顶点索引，按从东到西排序。
+ * @param {number[]|Uint8Array|Uint16Array|Uint32Array} eastIndicesNorthToSouth 瓦片东边缘顶点索引，按从北到南排序。
+ * @param {number[]|Uint8Array|Uint16Array|Uint32Array} northIndicesWestToEast 瓦片北边缘顶点索引，按从西到东排序。
+ * @param {number} vertexCount 添加裙边顶点前瓦片中的顶点数。
+ * @param {Uint16Array|Uint32Array} indices 要添加裙边索引的索引数组。
+ * @param {number} offset 索引数组中开始添加裙边索引的偏移量。
  */
 TerrainProvider.addSkirtIndices = function (
   westIndicesSouthToNorth,
@@ -348,15 +347,15 @@ TerrainProvider.addSkirtIndices = function (
 };
 
 /**
- * Adds skirt indices with filled corners.
+ * 添加带填充角的裙边索引。
  * @private
- * @param {number[]|Uint8Array|Uint16Array|Uint32Array} westIndicesSouthToNorth The indices of the vertices on the Western edge of the tile, ordered from South to North.
- * @param {number[]|Uint8Array|Uint16Array|Uint32Array} southIndicesEastToWest The indices of the vertices on the Southern edge of the tile, ordered from East to West.
- * @param {number[]|Uint8Array|Uint16Array|Uint32Array} eastIndicesNorthToSouth The indices of the vertices on the Eastern edge of the tile, ordered from North to South.
- * @param {number[]|Uint8Array|Uint16Array|Uint32Array} northIndicesWestToEast The indices of the vertices on the Northern edge of the tile, ordered from West to East.
- * @param {number} vertexCount The number of vertices in the tile before adding skirt vertices.
- * @param {Uint16Array|Uint32Array} indices The array of indices to which skirt indices are added.
- * @param {number} offset The offset into the indices array at which to start adding skirt indices.
+ * @param {number[]|Uint8Array|Uint16Array|Uint32Array} westIndicesSouthToNorth 瓦片西边缘顶点索引，按从南到北排序。
+ * @param {number[]|Uint8Array|Uint16Array|Uint32Array} southIndicesEastToWest 瓦片南边缘顶点索引，按从东到西排序。
+ * @param {number[]|Uint8Array|Uint16Array|Uint32Array} eastIndicesNorthToSouth 瓦片东边缘顶点索引，按从北到南排序。
+ * @param {number[]|Uint8Array|Uint16Array|Uint32Array} northIndicesWestToEast 瓦片北边缘顶点索引，按从西到东排序。
+ * @param {number} vertexCount 添加裙边顶点前瓦片中的顶点数。
+ * @param {Uint16Array|Uint32Array} indices 要添加裙边索引的索引数组。
+ * @param {number} offset 索引数组中开始添加裙边索引的偏移量。
  */
 TerrainProvider.addSkirtIndicesWithFilledCorners = function (
   westIndicesSouthToNorth,
@@ -493,22 +492,22 @@ function addSkirtIndices(edgeIndices, vertexIndex, indices, offset) {
 }
 
 /**
- * Specifies the quality of terrain created from heightmaps.  A value of 1.0 will
- * ensure that adjacent heightmap vertices are separated by no more than
- * {@link Globe.maximumScreenSpaceError} screen pixels and will probably go very slowly.
- * A value of 0.5 will cut the estimated level zero geometric error in half, allowing twice the
- * screen pixels between adjacent heightmap vertices and thus rendering more quickly.
+ * 指定从高度图创建的地形质量。值为 1.0 将
+ * 确保相邻高度图顶点之间的间距不超过
+ * {@link Globe.maximumScreenSpaceError} 屏幕像素，但可能会非常慢。
+ * 值为 0.5 将使估计的零级几何误差减半，允许相邻
+ * 高度图顶点之间有双倍的屏幕像素，从而渲染更快。
  * @type {number}
  */
 TerrainProvider.heightmapTerrainQuality = 0.25;
 
 /**
- * Determines an appropriate geometric error estimate when the geometry comes from a heightmap.
+ * 当地形几何来自高度图时，确定合适的几何误差估计值。
  *
- * @param {Ellipsoid} ellipsoid The ellipsoid to which the terrain is attached.
- * @param {number} tileImageWidth The width, in pixels, of the heightmap associated with a single tile.
- * @param {number} numberOfTilesAtLevelZero The number of tiles in the horizontal direction at tile level zero.
- * @returns {number} An estimated geometric error.
+ * @param {Ellipsoid} ellipsoid 地形所附加的椭球体。
+ * @param {number} tileImageWidth 与单个瓦片关联的高度图宽度（像素）。
+ * @param {number} numberOfTilesAtLevelZero 零级瓦片水平方向的数量。
+ * @returns {number} 估计的几何误差。
  */
 TerrainProvider.getEstimatedLevelZeroGeometricErrorForAHeightmap = function (
   ellipsoid,
@@ -525,61 +524,61 @@ TerrainProvider.getEstimatedLevelZeroGeometricErrorForAHeightmap = function (
 };
 
 /**
- * Requests the geometry for a given tile. The result must include terrain data and
- * may optionally include a water mask and an indication of which child tiles are available.
+ * 请求给定瓦片的几何数据。结果必须包含地形数据，
+ * 并可选择性地包含水掩码和可用子瓦片的指示。
  * @function
  *
- * @param {number} x The X coordinate of the tile for which to request geometry.
- * @param {number} y The Y coordinate of the tile for which to request geometry.
- * @param {number} level The level of the tile for which to request geometry.
- * @param {Request} [request] The request object. Intended for internal use only.
+ * @param {number} x 要请求几何的瓦片 X 坐标。
+ * @param {number} y 要请求几何的瓦片 Y 坐标。
+ * @param {number} level 要请求几何的瓦片层级。
+ * @param {Request} [request] 请求对象。仅供内部使用。
  *
- * @returns {Promise<TerrainData>|undefined} A promise for the requested geometry.  If this method
- *          returns undefined instead of a promise, it is an indication that too many requests are already
- *          pending and the request will be retried later.
+ * @returns {Promise<TerrainData>|undefined} 请求几何的 Promise。如果此方法
+ *          返回 undefined 而非 Promise，则表示已有太多待处理请求，
+ *          该请求将在稍后重试。
  */
 TerrainProvider.prototype.requestTileGeometry =
   DeveloperError.throwInstantiationError;
 
 /**
- * Gets the maximum geometric error allowed in a tile at a given level.
+ * 获取给定层级瓦片允许的最大几何误差。
  * @function
  *
- * @param {number} level The tile level for which to get the maximum geometric error.
- * @returns {number} The maximum geometric error.
+ * @param {number} level 要获取最大几何误差的瓦片层级。
+ * @returns {number} 最大几何误差。
  */
 TerrainProvider.prototype.getLevelMaximumGeometricError =
   DeveloperError.throwInstantiationError;
 
 /**
- * Determines whether data for a tile is available to be loaded.
+ * 确定瓦片数据是否可加载。
  * @function
  *
- * @param {number} x The X coordinate of the tile for which to request geometry.
- * @param {number} y The Y coordinate of the tile for which to request geometry.
- * @param {number} level The level of the tile for which to request geometry.
- * @returns {boolean|undefined} Undefined if not supported by the terrain provider, otherwise true or false.
+ * @param {number} x 要请求几何的瓦片 X 坐标。
+ * @param {number} y 要请求几何的瓦片 Y 坐标。
+ * @param {number} level 要请求几何的瓦片层级。
+ * @returns {boolean|undefined} 如果地形提供者不支持则返回 undefined，否则返回 true 或 false。
  */
 TerrainProvider.prototype.getTileDataAvailable =
   DeveloperError.throwInstantiationError;
 
 /**
- * Makes sure we load availability data for a tile
+ * 确保为瓦片加载可用性数据。
  * @function
  *
- * @param {number} x The X coordinate of the tile for which to request geometry.
- * @param {number} y The Y coordinate of the tile for which to request geometry.
- * @param {number} level The level of the tile for which to request geometry.
- * @returns {undefined|Promise<void>} Undefined if nothing need to be loaded or a Promise that resolves when all required tiles are loaded
+ * @param {number} x 要请求几何的瓦片 X 坐标。
+ * @param {number} y 要请求几何的瓦片 Y 坐标。
+ * @param {number} level 要请求几何的瓦片层级。
+ * @returns {undefined|Promise<void>} 如果无需加载任何数据则返回 undefined，否则返回在所有必需瓦片加载完成后解析的 Promise。
  */
 TerrainProvider.prototype.loadTileDataAvailability =
   DeveloperError.throwInstantiationError;
 export default TerrainProvider;
 
 /**
- * A function that is called when an error occurs.
+ * 发生错误时调用的函数。
  * @callback TerrainProvider.ErrorEvent
  *
  * @this TerrainProvider
- * @param {TileProviderError} err An object holding details about the error that occurred.
+ * @param {TileProviderError} err 包含所发生的错误详细信息的对象。
  */

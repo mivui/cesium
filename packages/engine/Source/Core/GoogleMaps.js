@@ -2,14 +2,13 @@ import Credit from "./Credit.js";
 import Resource from "./Resource.js";
 
 /**
- * Default settings for accessing the Google Maps API.
+ * 访问谷歌地图API的默认设置。
  * <br/>
- * An API key is only required if you are directly using any Google Maps APIs, such as through {@link createGooglePhotorealistic3DTileset}.
- * Follow instructions for managing API keys for the Google Maps Platform at {@link https://developers.google.com/maps/documentation/embed/get-api-key}.
+ * 仅当您直接使用任何谷歌地图API（例如通过{@link createGooglePhotorealistic3DTileset}）时才需要API密钥。
+ * 请按照{@link https://developers.google.com/maps/documentation/embed/get-api-key}中的说明管理谷歌地图平台的API密钥。
  * <br/>
- * You can enable multiple Google Maps Platform APIs on a single API key.
- * However, a separate {@link GoogleMaps.defaultStreetViewStaticApiKey}
- * is available if you prefer to use a dedicated key for the Street View Static API.
+ * 您可以在单个API密钥上启用多个谷歌地图平台API。
+ * 不过，如果您希望为街景静态API使用专用密钥，可以使用单独的{@link GoogleMaps.defaultStreetViewStaticApiKey}。
  *
  * @see createGooglePhotorealistic3DTileset
  * @see https://developers.google.com/maps/documentation/embed/get-api-key
@@ -19,14 +18,14 @@ import Resource from "./Resource.js";
 const GoogleMaps = {};
 
 /**
- * Gets or sets the default Google Maps API key.
+ * 获取或设置默认的谷歌地图API密钥。
  *
  * @type {undefined|string}
  */
 GoogleMaps.defaultApiKey = undefined;
 
 /**
- * Gets or sets the default Google Map Tiles API endpoint.
+ * 获取或设置默认的谷歌地图瓦片API端点。
  *
  * @type {string|Resource}
  * @default https://tile.googleapis.com/
@@ -36,14 +35,14 @@ GoogleMaps.mapTilesApiEndpoint = new Resource({
 });
 
 /**
- * Gets or sets the default Google Maps Street View Static API key.
+ * 获取或设置默认的谷歌地图街景静态API密钥。
  *
  * @type {undefined|string}
  */
 GoogleMaps.defaultStreetViewStaticApiKey = undefined;
 
 /**
- * Gets or sets the default Google Street View Static API endpoint.
+ * 获取或设置默认的谷歌街景静态API端点。
  *
  * @type {string|Resource}
  * @default https://maps.googleapis.com/maps/api/streetview

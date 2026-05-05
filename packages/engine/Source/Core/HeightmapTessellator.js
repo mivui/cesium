@@ -15,7 +15,7 @@ import Transforms from "./Transforms.js";
 import WebMercatorProjection from "./WebMercatorProjection.js";
 
 /**
- * Contains functions to create a mesh from a heightmap image.
+ * 包含从高度图图像创建网格的函数。
  *
  * @namespace HeightmapTessellator
  *
@@ -24,7 +24,7 @@ import WebMercatorProjection from "./WebMercatorProjection.js";
 const HeightmapTessellator = {};
 
 /**
- * The default structure of a heightmap, as given to {@link HeightmapTessellator.computeVertices}.
+ * 高度图的默认结构，传递给{@link HeightmapTessellator.computeVertices}。
  *
  * @constant
  */
@@ -43,55 +43,47 @@ const minimumScratch = new Cartesian3();
 const maximumScratch = new Cartesian3();
 
 /**
- * Fills an array of vertices from a heightmap image.
+ * 从高度图图像填充顶点数组。
  *
- * @param {object} options Object with the following properties:
- * @param {Int8Array|Uint8Array|Int16Array|Uint16Array|Int32Array|Uint32Array|Float32Array|Float64Array} options.heightmap The heightmap to tessellate.
- * @param {number} options.width The width of the heightmap, in height samples.
- * @param {number} options.height The height of the heightmap, in height samples.
- * @param {number} options.skirtHeight The height of skirts to drape at the edges of the heightmap.
- * @param {Rectangle} options.nativeRectangle A rectangle in the native coordinates of the heightmap's projection.  For
- *                 a heightmap with a geographic projection, this is degrees.  For the web mercator
- *                 projection, this is meters.
- * @param {number} [options.exaggeration=1.0] The scale used to exaggerate the terrain.
- * @param {number} [options.exaggerationRelativeHeight=0.0] The height from which terrain is exaggerated.
- * @param {Rectangle} [options.rectangle] The rectangle covered by the heightmap, in geodetic coordinates with north, south, east and
- *                 west properties in radians.  Either rectangle or nativeRectangle must be provided.  If both
- *                 are provided, they're assumed to be consistent.
- * @param {boolean} [options.isGeographic=true] True if the heightmap uses a {@link GeographicProjection}, or false if it uses
- *                  a {@link WebMercatorProjection}.
- * @param {Cartesian3} [options.relativeToCenter=Cartesian3.ZERO] The positions will be computed as <code>Cartesian3.subtract(worldPosition, relativeToCenter)</code>.
- * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] The ellipsoid to which the heightmap applies.
- * @param {object} [options.structure] An object describing the structure of the height data.
- * @param {number} [options.structure.heightScale=1.0] The factor by which to multiply height samples in order to obtain
- *                 the height above the heightOffset, in meters.  The heightOffset is added to the resulting
- *                 height after multiplying by the scale.
- * @param {number} [options.structure.heightOffset=0.0] The offset to add to the scaled height to obtain the final
- *                 height in meters.  The offset is added after the height sample is multiplied by the
- *                 heightScale.
- * @param {number} [options.structure.elementsPerHeight=1] The number of elements in the buffer that make up a single height
- *                 sample.  This is usually 1, indicating that each element is a separate height sample.  If
- *                 it is greater than 1, that number of elements together form the height sample, which is
- *                 computed according to the structure.elementMultiplier and structure.isBigEndian properties.
- * @param {number} [options.structure.stride=1] The number of elements to skip to get from the first element of
- *                 one height to the first element of the next height.
- * @param {number} [options.structure.elementMultiplier=256.0] The multiplier used to compute the height value when the
- *                 stride property is greater than 1.  For example, if the stride is 4 and the strideMultiplier
- *                 is 256, the height is computed as follows:
+ * @param {object} options 具有以下属性的对象：
+ * @param {Int8Array|Uint8Array|Int16Array|Uint16Array|Int32Array|Uint32Array|Float32Array|Float64Array} options.heightmap 要细分的高度图。
+ * @param {number} options.width 高度图的宽度，以高度采样数表示。
+ * @param {number} options.height 高度图的高度，以高度采样数表示。
+ * @param {number} options.skirtHeight 在高度图边缘悬挂的裙边高度。
+ * @param {Rectangle} options.nativeRectangle 高度图投影的本地坐标中的矩形。对于
+ *                 具有地理投影的高度图，这是度数。对于Web墨卡托
+ *                 投影，这是米。
+ * @param {number} [options.exaggeration=1.0] 用于夸大地形的比例。
+ * @param {number} [options.exaggerationRelativeHeight=0.0] 地形被夸大的相对高度。
+ * @param {Rectangle} [options.rectangle] 高度图覆盖的矩形，以大地坐标表示，北、南、东和
+ *                 西属性以弧度表示。必须提供rectangle或nativeRectangle之一。如果两者
+ *                 都提供，则假定它们是一致的。
+ * @param {boolean} [options.isGeographic=true] 如果高度图使用{@link GeographicProjection}则为true，如果使用
+ *                  {@link WebMercatorProjection}则为false。
+ * @param {Cartesian3} [options.relativeToCenter=Cartesian3.ZERO] 位置将计算为<code>Cartesian3.subtract(worldPosition, relativeToCenter)</code>。
+ * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] 高度图适用的椭球体。
+ * @param {object} [options.structure] 描述高度数据结构的对象。
+ * @param {number} [options.structure.heightScale=1.0] 要乘以高度采样以获得
+ *                 heightOffset以上高度（以米为单位）的因子。heightOffset在乘以比例后添加到结果高度。
+ * @param {number} [options.structure.heightOffset=0.0] 要添加到缩放高度的偏移量，以获得最终高度
+ *                 （以米为单位）。偏移量在高度采样乘以heightScale后添加。
+ * @param {number} [options.structure.elementsPerHeight=1] 缓冲区中组成单个高度
+ *                 采样的元素数。通常这是1，表示每个元素是一个单独的高度采样。如果
+ *                 大于1，则该数量的元素一起构成高度采样，根据structure.elementMultiplier和structure.isBigEndian属性计算。
+ * @param {number} [options.structure.stride=1] 从一个高度的第一个元素到下一个高度的第一个元素要跳过的元素数。
+ * @param {number} [options.structure.elementMultiplier=256.0] 当stride属性大于1时用于计算高度值的乘数。例如，如果stride为4且strideMultiplier
+ *                 为256，则高度计算如下：
  *                 `height = buffer[index] + buffer[index + 1] * 256 + buffer[index + 2] * 256 * 256 + buffer[index + 3] * 256 * 256 * 256`
- *                 This is assuming that the isBigEndian property is false.  If it is true, the order of the
- *                 elements is reversed.
- * @param {number} [options.structure.lowestEncodedHeight] The lowest value that can be stored in the height buffer.  Any heights that are lower
- *                 than this value after encoding with the `heightScale` and `heightOffset` are clamped to this value.  For example, if the height
- *                 buffer is a `Uint16Array`, this value should be 0 because a `Uint16Array` cannot store negative numbers.  If this parameter is
- *                 not specified, no minimum value is enforced.
- * @param {number} [options.structure.highestEncodedHeight] The highest value that can be stored in the height buffer.  Any heights that are higher
- *                 than this value after encoding with the `heightScale` and `heightOffset` are clamped to this value.  For example, if the height
- *                 buffer is a `Uint16Array`, this value should be `256 * 256 - 1` or 65535 because a `Uint16Array` cannot store numbers larger
- *                 than 65535.  If this parameter is not specified, no maximum value is enforced.
- * @param {boolean} [options.structure.isBigEndian=false] Indicates endianness of the elements in the buffer when the
- *                  stride property is greater than 1.  If this property is false, the first element is the
- *                  low-order element.  If it is true, the first element is the high-order element.
+ *                 这是假设isBigEndian属性为false。如果为true，则元素的顺序相反。
+ * @param {number} [options.structure.lowestEncodedHeight] 可以存储在高度缓冲区中的最低值。使用`heightScale`和`heightOffset`编码后，
+ *                 任何低于此值的高度都将被限制为此值。例如，如果高度缓冲区是`Uint16Array`，
+ *                 则此值应为0，因为`Uint16Array`无法存储负数。如果未指定此参数，则不强制执行最小值。
+ * @param {number} [options.structure.highestEncodedHeight] 可以存储在高度缓冲区中的最高值。使用`heightScale`和`heightOffset`编码后，
+ *                 任何高于此值的高度都将被限制为此值。例如，如果高度缓冲区是`Uint16Array`，
+ *                 则此值应为`256 * 256 - 1`或65535，因为`Uint16Array`无法存储大于65535的数字。
+ *                 如果未指定此参数，则不强制执行最大值。
+ * @param {boolean} [options.structure.isBigEndian=false] 当stride属性大于1时，指示缓冲区中元素的字节序。如果此属性为false，
+ *                  则第一个元素是最低有效位元素。如果为true，则第一个元素是最高有效位元素。
  *
  * @example
  * const width = 5;

@@ -1,16 +1,14 @@
 // @ts-check
 
 /**
- * This enumerated type is used in determining where, relative to the frustum, an
- * object is located. The object can either be fully contained within the frustum (INSIDE),
- * partially inside the frustum and partially outside (INTERSECTING), or somewhere entirely
- * outside of the frustum's 6 planes (OUTSIDE).
+ * 此枚举类型用于确定对象相对于视锥体的位置。对象可以完全位于视锥体内（INSIDE），
+ * 部分位于视锥体内部分位于视锥体外（INTERSECTING），或完全位于视锥体的6个平面之外（OUTSIDE）。
  *
  * @enum {number}
  */
 const Intersect = {
   /**
-   * Represents that an object is not contained within the frustum.
+   * 表示对象不在视锥体内。
    *
    * @type {number}
    * @constant
@@ -18,7 +16,7 @@ const Intersect = {
   OUTSIDE: -1,
 
   /**
-   * Represents that an object intersects one of the frustum's planes.
+   * 表示对象与视锥体的一个平面相交。
    *
    * @type {number}
    * @constant
@@ -26,7 +24,7 @@ const Intersect = {
   INTERSECTING: 0,
 
   /**
-   * Represents that an object is fully within the frustum.
+   * 表示对象完全位于视锥体内。
    *
    * @type {number}
    * @constant

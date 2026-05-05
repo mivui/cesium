@@ -1,7 +1,7 @@
 import DeveloperError from "./DeveloperError.js";
 
 /**
- * The interface for interpolation algorithms.
+ * 插值算法的接口。
  *
  * @interface InterpolationAlgorithm
  *
@@ -12,54 +12,54 @@ import DeveloperError from "./DeveloperError.js";
 const InterpolationAlgorithm = {};
 
 /**
- * Gets the name of this interpolation algorithm.
+ * 获取此插值算法的名称。
  * @type {string}
  */
 InterpolationAlgorithm.type = undefined;
 
 /**
- * Given the desired degree, returns the number of data points required for interpolation.
+ * 给定所需的阶数，返回插值所需的数据点数量。
  * @function
  *
- * @param {number} degree The desired degree of interpolation.
- * @returns {number} The number of required data points needed for the desired degree of interpolation.
+ * @param {number} degree 所需的插值阶数。
+ * @returns {number} 所需插值阶数所需的数据点数量。
  */
 InterpolationAlgorithm.getRequiredDataPoints =
   DeveloperError.throwInstantiationError;
 
 /**
- * Performs zero order interpolation.
+ * 执行零阶插值。
  * @function
  *
- * @param {number} x The independent variable for which the dependent variables will be interpolated.
- * @param {number[]} xTable The array of independent variables to use to interpolate.  The values
- * in this array must be in increasing order and the same value must not occur twice in the array.
- * @param {number[]} yTable The array of dependent variables to use to interpolate.  For a set of three
- * dependent values (p,q,w) at time 1 and time 2 this should be as follows: {p1, q1, w1, p2, q2, w2}.
- * @param {number} yStride The number of dependent variable values in yTable corresponding to
- * each independent variable value in xTable.
- * @param {number[]} [result] An existing array into which to store the result.
+ * @param {number} x 要插值的因变量的自变量。
+ * @param {number[]} xTable 用于插值的自变量数组。此数组中的值
+ * 必须按递增顺序排列，且数组中不得出现相同的值两次。
+ * @param {number[]} yTable 用于插值的因变量数组。对于时间1和时间2处的一组三个
+ * 因变量值(p,q,w)，应如下所示：{p1, q1, w1, p2, q2, w2}。
+ * @param {number} yStride yTable中对应于xTable中每个自变量值的
+ * 因变量值的数量。
+ * @param {number[]} [result] 用于存储结果的现有数组。
  *
- * @returns {number[]} The array of interpolated values, or the result parameter if one was provided.
+ * @returns {number[]} 插值值数组，如果提供了result参数则返回该参数。
  */
 InterpolationAlgorithm.interpolateOrderZero =
   DeveloperError.throwInstantiationError;
 
 /**
- * Performs higher order interpolation.  Not all interpolators need to support high-order interpolation,
- * if this function remains undefined on implementing objects, interpolateOrderZero will be used instead.
+ * 执行高阶插值。并非所有插值器都需要支持高阶插值，
+ * 如果此函数在实现对象上保持未定义，则将改用interpolateOrderZero。
  * @function
- * @param {number} x The independent variable for which the dependent variables will be interpolated.
- * @param {number[]} xTable The array of independent variables to use to interpolate.  The values
- * in this array must be in increasing order and the same value must not occur twice in the array.
- * @param {number[]} yTable The array of dependent variables to use to interpolate.  For a set of three
- * dependent values (p,q,w) at time 1 and time 2 this should be as follows: {p1, q1, w1, p2, q2, w2}.
- * @param {number} yStride The number of dependent variable values in yTable corresponding to
- * each independent variable value in xTable.
- * @param {number} inputOrder The number of derivatives supplied for input.
- * @param {number} outputOrder The number of derivatives desired for output.
- * @param {number[]} [result] An existing array into which to store the result.
- * @returns {number[]} The array of interpolated values, or the result parameter if one was provided.
+ * @param {number} x 要插值的因变量的自变量。
+ * @param {number[]} xTable 用于插值的自变量数组。此数组中的值
+ * 必须按递增顺序排列，且数组中不得出现相同的值两次。
+ * @param {number[]} yTable 用于插值的因变量数组。对于时间1和时间2处的一组三个
+ * 因变量值(p,q,w)，应如下所示：{p1, q1, w1, p2, q2, w2}。
+ * @param {number} yStride yTable中对应于xTable中每个自变量值的
+ * 因变量值的数量。
+ * @param {number} inputOrder 输入提供的导数数量。
+ * @param {number} outputOrder 输出所需的导数数量。
+ * @param {number[]} [result] 用于存储结果的现有数组。
+ * @returns {number[]} 插值值数组，如果提供了result参数则返回该参数。
  */
 InterpolationAlgorithm.interpolate = DeveloperError.throwInstantiationError;
 export default InterpolationAlgorithm;

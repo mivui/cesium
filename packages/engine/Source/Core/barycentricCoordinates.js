@@ -9,16 +9,16 @@ const scratchCartesian2 = new Cartesian3();
 const scratchCartesian3 = new Cartesian3();
 
 /**
- * Computes the barycentric coordinates for a point with respect to a triangle.
+ * 计算点相对于三角形的重心坐标。
  *
  * @function
  *
- * @param {Cartesian2|Cartesian3} point The point to test.
- * @param {Cartesian2|Cartesian3} p0 The first point of the triangle, corresponding to the barycentric x-axis.
- * @param {Cartesian2|Cartesian3} p1 The second point of the triangle, corresponding to the barycentric y-axis.
- * @param {Cartesian2|Cartesian3} p2 The third point of the triangle, corresponding to the barycentric z-axis.
- * @param {Cartesian3} [result] The object onto which to store the result.
- * @returns {Cartesian3|undefined} The modified result parameter or a new Cartesian3 instance if one was not provided. If the triangle is degenerate the function will return undefined.
+ * @param {Cartesian2|Cartesian3} point 要测试的点。
+ * @param {Cartesian2|Cartesian3} p0 三角形的第一个点，对应重心坐标系的x轴。
+ * @param {Cartesian2|Cartesian3} p1 三角形的第二个点，对应重心坐标系的y轴。
+ * @param {Cartesian2|Cartesian3} p2 三角形的第三个点，对应重心坐标系的z轴。
+ * @param {Cartesian3} [result] 用于存储结果的对象。
+ * @returns {Cartesian3|undefined} 修改后的结果参数，如果未提供则返回一个新Cartesian3实例。如果三角形退化，函数将返回undefined。
  *
  * @example
  * // Returns Cartesian3.UNIT_X

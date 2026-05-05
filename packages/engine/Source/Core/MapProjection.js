@@ -7,8 +7,7 @@ import DeveloperError from "./DeveloperError.js";
 /** @import Ellipsoid from "./Ellipsoid.js"; */
 
 /**
- * Defines how geodetic ellipsoid coordinates ({@link Cartographic}) project to a
- * flat map like Cesium's 2D and Columbus View modes.
+ * 定义大地椭球坐标（{@link Cartographic}）如何投影到平面地图，如Cesium的2D和Columbus View模式。
  *
  * @see GeographicProjection
  * @see WebMercatorProjection
@@ -17,7 +16,7 @@ import DeveloperError from "./DeveloperError.js";
  */
 class MapProjection {
   /**
-   * Gets the {@link Ellipsoid}.
+   * 获取{@link Ellipsoid}。
    *
    * @type {Ellipsoid}
    * @readonly
@@ -25,29 +24,26 @@ class MapProjection {
   ellipsoid;
 
   /**
-   * Projects {@link Cartographic} coordinates, in radians, to projection-specific map coordinates, in meters.
+   * 将弧度制的{@link Cartographic}坐标投影到特定投影的地图坐标（以米为单位）。
    *
-   * @param {Cartographic} cartographic The coordinates to project.
-   * @param {Cartesian3} [result] An instance into which to copy the result.  If this parameter is
-   *        undefined, a new instance is created and returned.
-   * @returns {Cartesian3} The projected coordinates.  If the result parameter is not undefined, the
-   *          coordinates are copied there and that instance is returned.  Otherwise, a new instance is
-   *          created and returned.
+   * @param {Cartographic} cartographic 要投影的坐标。
+   * @param {Cartesian3} [result] 用于复制结果的实例。如果此参数
+   *        未定义，则创建并返回一个新实例。
+   * @returns {Cartesian3} 投影后的坐标。如果result参数未定义，则
+   *         坐标将复制到该处并返回该实例。否则，将创建并返回一个新实例。
    */
   project(cartographic, result) {
     DeveloperError.throwInstantiationError();
   }
 
   /**
-   * Unprojects projection-specific map {@link Cartesian3} coordinates, in meters, to {@link Cartographic}
-   * coordinates, in radians.
+   * 将特定投影的地图{@link Cartesian3}坐标（以米为单位）反投影到{@link Cartographic}坐标（以弧度为单位）。
    *
-   * @param {Cartesian3} cartesian The Cartesian position to unproject with height (z) in meters.
-   * @param {Cartographic} [result] An instance into which to copy the result.  If this parameter is
-   *        undefined, a new instance is created and returned.
-   * @returns {Cartographic} The unprojected coordinates.  If the result parameter is not undefined, the
-   *          coordinates are copied there and that instance is returned.  Otherwise, a new instance is
-   *          created and returned.
+   * @param {Cartesian3} cartesian 要反投影的笛卡尔位置，高度（z）以米为单位。
+   * @param {Cartographic} [result] 用于复制结果的实例。如果此参数
+   *        未定义，则创建并返回一个新实例。
+   * @returns {Cartographic} 反投影后的坐标。如果result参数未定义，则
+   *         坐标将复制到该处并返回该实例。否则，将创建并返回一个新实例。
    */
   unproject(cartesian, result) {
     DeveloperError.throwInstantiationError();

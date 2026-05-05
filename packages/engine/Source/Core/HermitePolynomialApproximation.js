@@ -61,7 +61,7 @@ function calculateCoefficientTerm(
 }
 
 /**
- * An {@link InterpolationAlgorithm} for performing Hermite interpolation.
+ * 用于执行 Hermite 插值的 {@link InterpolationAlgorithm}。
  *
  * @namespace HermitePolynomialApproximation
  */
@@ -70,13 +70,13 @@ const HermitePolynomialApproximation = {
 };
 
 /**
- * Given the desired degree, returns the number of data points required for interpolation.
+ * 给定期望的次数，返回插值所需的数据点数量。
  *
- * @param {number} degree The desired degree of interpolation.
- * @param {number} [inputOrder=0]  The order of the inputs (0 means just the data, 1 means the data and its derivative, etc).
- * @returns {number} The number of required data points needed for the desired degree of interpolation.
- * @exception {DeveloperError} degree must be 0 or greater.
- * @exception {DeveloperError} inputOrder must be 0 or greater.
+ * @param {number} degree 期望的插值次数。
+ * @param {number} [inputOrder=0]  输入的阶数（0 表示仅数据，1 表示数据及其导数，以此类推）。
+ * @returns {number} 期望插值次数所需的必需数据点数量。
+ * @exception {DeveloperError} degree 必须大于或等于 0。
+ * @exception {DeveloperError} inputOrder 必须大于或等于 0。
  */
 HermitePolynomialApproximation.getRequiredDataPoints = function (
   degree,
@@ -100,17 +100,17 @@ HermitePolynomialApproximation.getRequiredDataPoints = function (
 };
 
 /**
- * Interpolates values using Hermite Polynomial Approximation.
+ * 使用 Hermite 多项式逼近进行插值。
  *
- * @param {number} x The independent variable for which the dependent variables will be interpolated.
- * @param {number[]} xTable The array of independent variables to use to interpolate.  The values
- * in this array must be in increasing order and the same value must not occur twice in the array.
- * @param {number[]} yTable The array of dependent variables to use to interpolate.  For a set of three
- * dependent values (p,q,w) at time 1 and time 2 this should be as follows: {p1, q1, w1, p2, q2, w2}.
- * @param {number} yStride The number of dependent variable values in yTable corresponding to
- * each independent variable value in xTable.
- * @param {number[]} [result] An existing array into which to store the result.
- * @returns {number[]} The array of interpolated values, or the result parameter if one was provided.
+ * @param {number} x 要对因变量进行插值的自变量。
+ * @param {number[]} xTable 用于插值的自变量数组。数组中的值
+ * 必须按递增顺序排列，且相同的值不能在数组中出现两次。
+ * @param {number[]} yTable 用于插值的因变量数组。对于在时间 1 和时间 2 处的一组三个
+ * 因变量值 (p,q,w)，应如下所示：{p1, q1, w1, p2, q2, w2}。
+ * @param {number} yStride yTable 中与 xTable 中每个自变量值对应的
+ * 因变量值的数量。
+ * @param {number[]} [result] 用于存储结果的现有数组。
+ * @returns {number[]} 插值值数组，如果提供了 result 参数则返回该参数。
  */
 HermitePolynomialApproximation.interpolateOrderZero = function (
   x,
@@ -196,20 +196,20 @@ HermitePolynomialApproximation.interpolateOrderZero = function (
 const arrayScratch = [];
 
 /**
- * Interpolates values using Hermite Polynomial Approximation.
+ * 使用 Hermite 多项式逼近进行插值。
  *
- * @param {number} x The independent variable for which the dependent variables will be interpolated.
- * @param {number[]} xTable The array of independent variables to use to interpolate.  The values
- * in this array must be in increasing order and the same value must not occur twice in the array.
- * @param {number[]} yTable The array of dependent variables to use to interpolate.  For a set of three
- * dependent values (p,q,w) at time 1 and time 2 this should be as follows: {p1, q1, w1, p2, q2, w2}.
- * @param {number} yStride The number of dependent variable values in yTable corresponding to
- * each independent variable value in xTable.
- * @param {number} inputOrder The number of derivatives supplied for input.
- * @param {number} outputOrder The number of derivatives desired for output.
- * @param {number[]} [result] An existing array into which to store the result.
+ * @param {number} x 要对因变量进行插值的自变量。
+ * @param {number[]} xTable 用于插值的自变量数组。数组中的值
+ * 必须按递增顺序排列，且相同的值不能在数组中出现两次。
+ * @param {number[]} yTable 用于插值的因变量数组。对于在时间 1 和时间 2 处的一组三个
+ * 因变量值 (p,q,w)，应如下所示：{p1, q1, w1, p2, q2, w2}。
+ * @param {number} yStride yTable 中与 xTable 中每个自变量值对应的
+ * 因变量值的数量。
+ * @param {number} inputOrder 为输入提供的导数数量。
+ * @param {number} outputOrder 期望输出的导数数量。
+ * @param {number[]} [result] 用于存储结果的现有数组。
  *
- * @returns {number[]} The array of interpolated values, or the result parameter if one was provided.
+ * @returns {number[]} 插值值数组，如果提供了 result 参数则返回该参数。
  */
 HermitePolynomialApproximation.interpolate = function (
   x,

@@ -4,20 +4,20 @@ import defined from "./defined.js";
 import EllipsoidOutlineGeometry from "./EllipsoidOutlineGeometry.js";
 
 /**
- * A description of the outline of a sphere.
+ * 球体轮廓的描述。
  *
  * @alias SphereOutlineGeometry
  * @constructor
  *
- * @param {object} [options] Object with the following properties:
- * @param {number} [options.radius=1.0] The radius of the sphere.
- * @param {number} [options.stackPartitions=10] The count of stacks for the sphere (1 greater than the number of parallel lines).
- * @param {number} [options.slicePartitions=8] The count of slices for the sphere (Equal to the number of radial lines).
- * @param {number} [options.subdivisions=200] The number of points per line, determining the granularity of the curvature .
+ * @param {object} [options] 具有以下属性的对象：
+ * @param {number} [options.radius=1.0] 球体的半径。
+ * @param {number} [options.stackPartitions=10] 球体的堆栈数量（比平行线条数大1）。
+ * @param {number} [options.slicePartitions=8] 球体的切片数量（等于径向线条数）。
+ * @param {number} [options.subdivisions=200] 每条线的点数，决定曲率的粒度。
  *
- * @exception {DeveloperError} options.stackPartitions must be greater than or equal to one.
- * @exception {DeveloperError} options.slicePartitions must be greater than or equal to zero.
- * @exception {DeveloperError} options.subdivisions must be greater than or equal to zero.
+ * @exception {DeveloperError} options.stackPartitions必须大于或等于一。
+ * @exception {DeveloperError} options.slicePartitions必须大于或等于零。
+ * @exception {DeveloperError} options.subdivisions必须大于或等于零。
  *
  * @example
  * const sphere = new Cesium.SphereOutlineGeometry({
@@ -42,19 +42,19 @@ function SphereOutlineGeometry(options) {
 }
 
 /**
- * The number of elements used to pack the object into an array.
+ * 用于将对象打包到数组中的元素数量。
  * @type {number}
  */
 SphereOutlineGeometry.packedLength = EllipsoidOutlineGeometry.packedLength;
 
 /**
- * Stores the provided instance into the provided array.
+ * 将提供的实例存储到提供的数组中。
  *
- * @param {SphereOutlineGeometry} value The value to pack.
- * @param {number[]} array The array to pack into.
- * @param {number} [startingIndex=0] The index into the array at which to start packing the elements.
+ * @param {SphereOutlineGeometry} value 要打包的值。
+ * @param {number[]} array 要打包到的数组。
+ * @param {number} [startingIndex=0] 开始打包元素的数组索引。
  *
- * @returns {number[]} The array that was packed into
+ * @returns {number[]} 被打包到的数组
  */
 SphereOutlineGeometry.pack = function (value, array, startingIndex) {
   //>>includeStart('debug', pragmas.debug);
@@ -78,12 +78,12 @@ const scratchOptions = {
 };
 
 /**
- * Retrieves an instance from a packed array.
+ * 从打包的数组中检索实例。
  *
- * @param {number[]} array The packed array.
- * @param {number} [startingIndex=0] The starting index of the element to be unpacked.
- * @param {SphereOutlineGeometry} [result] The object into which to store the result.
- * @returns {SphereOutlineGeometry} The modified result parameter or a new SphereOutlineGeometry instance if one was not provided.
+ * @param {number[]} array 打包数组。
+ * @param {number} [startingIndex=0] 要解包的元素起始索引。
+ * @param {SphereOutlineGeometry} [result] 存储结果的对象。
+ * @returns {SphereOutlineGeometry} 修改后的结果参数，如果未提供则返回新的SphereOutlineGeometry实例。
  */
 SphereOutlineGeometry.unpack = function (array, startingIndex, result) {
   const ellipsoidGeometry = EllipsoidOutlineGeometry.unpack(
@@ -106,10 +106,10 @@ SphereOutlineGeometry.unpack = function (array, startingIndex, result) {
 };
 
 /**
- * Computes the geometric representation of an outline of a sphere, including its vertices, indices, and a bounding sphere.
+ * 计算球体轮廓的几何表示，包括其顶点、索引和边界球。
  *
- * @param {SphereOutlineGeometry} sphereGeometry A description of the sphere outline.
- * @returns {Geometry|undefined} The computed vertices and indices.
+ * @param {SphereOutlineGeometry} sphereGeometry 球体轮廓的描述。
+ * @returns {Geometry|undefined} 计算得到的顶点和索引。
  */
 SphereOutlineGeometry.createGeometry = function (sphereGeometry) {
   return EllipsoidOutlineGeometry.createGeometry(

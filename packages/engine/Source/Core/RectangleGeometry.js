@@ -970,33 +970,33 @@ function computeRectangle(rectangle, granularity, rotation, ellipsoid, result) {
 }
 
 /**
- * A description of a cartographic rectangle on an ellipsoid centered at the origin. Rectangle geometry can be rendered with both {@link Primitive} and {@link GroundPrimitive}.
+ * 位于原点为中心的椭球上的测绘矩形的描述。矩形几何体可以使用 {@link Primitive} 和 {@link GroundPrimitive} 渲染。
  *
  * @alias RectangleGeometry
  * @constructor
  *
- * @param {object} options Object with the following properties:
- * @param {Rectangle} options.rectangle A cartographic rectangle with north, south, east and west properties in radians.
- * @param {VertexFormat} [options.vertexFormat=VertexFormat.DEFAULT] The vertex attributes to be computed.
- * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] The ellipsoid on which the rectangle lies.
- * @param {number} [options.granularity=CesiumMath.RADIANS_PER_DEGREE] The distance, in radians, between each latitude and longitude. Determines the number of positions in the buffer.
- * @param {number} [options.height=0.0] The distance in meters between the rectangle and the ellipsoid surface.
- * @param {number} [options.rotation=0.0] The rotation of the rectangle, in radians. A positive rotation is counter-clockwise.
- * @param {number} [options.stRotation=0.0] The rotation of the texture coordinates, in radians. A positive rotation is counter-clockwise.
- * @param {number} [options.extrudedHeight] The distance in meters between the rectangle's extruded face and the ellipsoid surface.
+ * @param {object} options 具有以下属性的对象：
+ * @param {Rectangle} options.rectangle 具有以弧度为单位的北、南、东和西属性的测绘矩形。
+ * @param {VertexFormat} [options.vertexFormat=VertexFormat.DEFAULT] 要计算的顶点属性。
+ * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] 矩形所在的椭球体。
+ * @param {number} [options.granularity=CesiumMath.RADIANS_PER_DEGREE] 每个纬度和经度之间的距离（以弧度为单位）。确定缓冲区中的位置数。
+ * @param {number} [options.height=0.0] 矩形与椭球体表面之间的距离（以米为单位）。
+ * @param {number} [options.rotation=0.0] 矩形的旋转角度（以弧度为单位）。正旋转为逆时针方向。
+ * @param {number} [options.stRotation=0.0] 纹理坐标的旋转角度（以弧度为单位）。正旋转为逆时针方向。
+ * @param {number} [options.extrudedHeight] 矩形的拉伸面与椭球体表面之间的距离（以米为单位）。
  *
- * @exception {DeveloperError} <code>options.rectangle.north</code> must be in the interval [<code>-Pi/2</code>, <code>Pi/2</code>].
- * @exception {DeveloperError} <code>options.rectangle.south</code> must be in the interval [<code>-Pi/2</code>, <code>Pi/2</code>].
- * @exception {DeveloperError} <code>options.rectangle.east</code> must be in the interval [<code>-Pi</code>, <code>Pi</code>].
- * @exception {DeveloperError} <code>options.rectangle.west</code> must be in the interval [<code>-Pi</code>, <code>Pi</code>].
- * @exception {DeveloperError} <code>options.rectangle.north</code> must be greater than <code>options.rectangle.south</code>.
+ * @exception {DeveloperError} <code>options.rectangle.north</code> 必须在区间 [<code>-Pi/2</code>, <code>Pi/2</code>] 内。
+ * @exception {DeveloperError} <code>options.rectangle.south</code> 必须在区间 [<code>-Pi/2</code>, <code>Pi/2</code>] 内。
+ * @exception {DeveloperError} <code>options.rectangle.east</code> 必须在区间 [<code>-Pi</code>, <code>Pi</code>] 内。
+ * @exception {DeveloperError} <code>options.rectangle.west</code> 必须在区间 [<code>-Pi</code>, <code>Pi</code>] 内。
+ * @exception {DeveloperError} <code>options.rectangle.north</code> 必须大于 <code>options.rectangle.south</code>。
  *
  * @see RectangleGeometry#createGeometry
  *
- * @demo {@link https://sandcastle.cesium.com/index.html?id=rectangle|Cesium Sandcastle Rectangle Demo}
+ * @demo {@link https://sandcastle.cesium.com/index.html?id=rectangle|Cesium Sandcastle Rectangle 演示}
  *
  * @example
- * // 1. create a rectangle
+ * // 1. 创建矩形
  * const rectangle = new Cesium.RectangleGeometry({
  *   ellipsoid : Cesium.Ellipsoid.default,
  *   rectangle : Cesium.Rectangle.fromDegrees(-80.0, 39.0, -74.0, 42.0),
@@ -1004,7 +1004,7 @@ function computeRectangle(rectangle, granularity, rotation, ellipsoid, result) {
  * });
  * const geometry = Cesium.RectangleGeometry.createGeometry(rectangle);
  *
- * // 2. create an extruded rectangle without a top
+ * // 2. 创建没有顶部的拉伸矩形
  * const rectangle = new Cesium.RectangleGeometry({
  *   ellipsoid : Cesium.Ellipsoid.default,
  *   rectangle : Cesium.Rectangle.fromDegrees(-80.0, 39.0, -74.0, 42.0),
@@ -1050,7 +1050,7 @@ function RectangleGeometry(options) {
 }
 
 /**
- * The number of elements used to pack the object into an array.
+ * 用于将对象打包到数组中的元素数量。
  * @type {number}
  */
 RectangleGeometry.packedLength =
@@ -1060,13 +1060,13 @@ RectangleGeometry.packedLength =
   7;
 
 /**
- * Stores the provided instance into the provided array.
+ * 将提供的实例存储到提供的数组中。
  *
- * @param {RectangleGeometry} value The value to pack.
- * @param {number[]} array The array to pack into.
- * @param {number} [startingIndex=0] The index into the array at which to start packing the elements.
+ * @param {RectangleGeometry} value 要打包的值。
+ * @param {number[]} array 要打包到的数组。
+ * @param {number} [startingIndex=0] 数组中开始打包元素的索引。
  *
- * @returns {number[]} The array that was packed into
+ * @returns {number[]} 打包到的数组
  */
 RectangleGeometry.pack = function (value, array, startingIndex) {
   //>>includeStart('debug', pragmas.debug);
@@ -1112,12 +1112,12 @@ const scratchOptions = {
 };
 
 /**
- * Retrieves an instance from a packed array.
+ * 从打包的数组中检索实例。
  *
- * @param {number[]} array The packed array.
- * @param {number} [startingIndex=0] The starting index of the element to be unpacked.
- * @param {RectangleGeometry} [result] The object into which to store the result.
- * @returns {RectangleGeometry} The modified result parameter or a new RectangleGeometry instance if one was not provided.
+ * @param {number[]} array 打包的数组。
+ * @param {number} [startingIndex=0] 要解包元素的起始索引。
+ * @param {RectangleGeometry} [result] 用于存储结果的对象。
+ * @returns {RectangleGeometry} 修改后的 result 参数，如果未提供，则为新的 RectangleGeometry 实例。
  */
 RectangleGeometry.unpack = function (array, startingIndex, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -1176,16 +1176,16 @@ RectangleGeometry.unpack = function (array, startingIndex, result) {
 };
 
 /**
- * Computes the bounding rectangle based on the provided options
+ * 根据提供的选项计算边界矩形
  *
- * @param {object} options Object with the following properties:
- * @param {Rectangle} options.rectangle A cartographic rectangle with north, south, east and west properties in radians.
- * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] The ellipsoid on which the rectangle lies.
- * @param {number} [options.granularity=CesiumMath.RADIANS_PER_DEGREE] The distance, in radians, between each latitude and longitude. Determines the number of positions in the buffer.
- * @param {number} [options.rotation=0.0] The rotation of the rectangle, in radians. A positive rotation is counter-clockwise.
- * @param {Rectangle} [result] An object in which to store the result.
+ * @param {object} options 具有以下属性的对象：
+ * @param {Rectangle} options.rectangle 具有以弧度为单位的北、南、东和西属性的测绘矩形。
+ * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] 矩形所在的椭球体。
+ * @param {number} [options.granularity=CesiumMath.RADIANS_PER_DEGREE] 每个纬度和经度之间的距离（以弧度为单位）。确定缓冲区中的位置数。
+ * @param {number} [options.rotation=0.0] 矩形的旋转角度（以弧度为单位）。正旋转为逆时针方向。
+ * @param {Rectangle} [result] 用于存储结果的对象。
  *
- * @returns {Rectangle} The result rectangle
+ * @returns {Rectangle} 结果矩形
  */
 RectangleGeometry.computeRectangle = function (options, result) {
   options = options ?? Frozen.EMPTY_OBJECT;
@@ -1213,12 +1213,12 @@ const tangentRotationMatrixScratch = new Matrix3();
 const quaternionScratch = new Quaternion();
 const centerScratch = new Cartographic();
 /**
- * Computes the geometric representation of a rectangle, including its vertices, indices, and a bounding sphere.
+ * 计算矩形的几何表示，包括其顶点、索引和包围球。
  *
- * @param {RectangleGeometry} rectangleGeometry A description of the rectangle.
- * @returns {Geometry|undefined} The computed vertices and indices.
+ * @param {RectangleGeometry} rectangleGeometry 矩形的描述。
+ * @returns {Geometry|undefined} 计算出的顶点和索引。
  *
- * @exception {DeveloperError} Rotated rectangle is invalid.
+ * @exception {DeveloperError} 旋转后的矩形无效。
  */
 RectangleGeometry.createGeometry = function (rectangleGeometry) {
   if (

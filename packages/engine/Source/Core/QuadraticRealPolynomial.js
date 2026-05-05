@@ -2,19 +2,19 @@ import DeveloperError from "./DeveloperError.js";
 import CesiumMath from "./Math.js";
 
 /**
- * Defines functions for 2nd order polynomial functions of one variable with only real coefficients.
+ * 定义仅含实系数的一元二次（2次）多项式函数。
  *
  * @namespace QuadraticRealPolynomial
  */
 const QuadraticRealPolynomial = {};
 
 /**
- * Provides the discriminant of the quadratic equation from the supplied coefficients.
+ * 根据提供的系数计算二次方程的判别式。
  *
- * @param {number} a The coefficient of the 2nd order monomial.
- * @param {number} b The coefficient of the 1st order monomial.
- * @param {number} c The coefficient of the 0th order monomial.
- * @returns {number} The value of the discriminant.
+ * @param {number} a 二次项系数。
+ * @param {number} b 一次项系数。
+ * @param {number} c 常数项系数。
+ * @returns {number} 判别式的值。
  */
 QuadraticRealPolynomial.computeDiscriminant = function (a, b, c) {
   //>>includeStart('debug', pragmas.debug);
@@ -46,12 +46,12 @@ function addWithCancellationCheck(left, right, tolerance) {
 }
 
 /**
- * Provides the real valued roots of the quadratic polynomial with the provided coefficients.
+ * 计算给定系数的二次多项式的实根。
  *
- * @param {number} a The coefficient of the 2nd order monomial.
- * @param {number} b The coefficient of the 1st order monomial.
- * @param {number} c The coefficient of the 0th order monomial.
- * @returns {number[]} The real valued roots.
+ * @param {number} a 二次项系数。
+ * @param {number} b 一次项系数。
+ * @param {number} c 常数项系数。
+ * @returns {number[]} 实根数组。
  */
 QuadraticRealPolynomial.computeRealRoots = function (a, b, c) {
   //>>includeStart('debug', pragmas.debug);

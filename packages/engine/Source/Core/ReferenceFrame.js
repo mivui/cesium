@@ -1,13 +1,13 @@
 // @ts-check
 
 /**
- * Constants for identifying well-known reference frames.
+ * 用于标识已知参考系的常量。
  *
  * @enum {number}
  */
 const ReferenceFrame = {
   /**
-   * The fixed frame.
+   * 固定参考系。
    *
    * @type {number}
    * @constant
@@ -15,7 +15,7 @@ const ReferenceFrame = {
   FIXED: 0,
 
   /**
-   * The inertial frame.
+   * 惯性参考系。
    *
    * @type {number}
    * @constant

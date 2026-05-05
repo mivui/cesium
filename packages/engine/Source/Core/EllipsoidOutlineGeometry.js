@@ -18,25 +18,25 @@ const cos = Math.cos;
 const sin = Math.sin;
 
 /**
- * A description of the outline of an ellipsoid centered at the origin.
+ * 描述以原点为中心的椭球轮廓。
  *
  * @alias EllipsoidOutlineGeometry
  * @constructor
  *
- * @param {object} [options] Object with the following properties:
- * @param {Cartesian3} [options.radii=Cartesian3(1.0, 1.0, 1.0)] The radii of the ellipsoid in the x, y, and z directions.
- * @param {Cartesian3} [options.innerRadii=options.radii] The inner radii of the ellipsoid in the x, y, and z directions.
- * @param {number} [options.minimumClock=0.0] The minimum angle lying in the xy-plane measured from the positive x-axis and toward the positive y-axis.
- * @param {number} [options.maximumClock=2*PI] The maximum angle lying in the xy-plane measured from the positive x-axis and toward the positive y-axis.
- * @param {number} [options.minimumCone=0.0] The minimum angle measured from the positive z-axis and toward the negative z-axis.
- * @param {number} [options.maximumCone=PI] The maximum angle measured from the positive z-axis and toward the negative z-axis.
- * @param {number} [options.stackPartitions=10] The count of stacks for the ellipsoid (1 greater than the number of parallel lines).
- * @param {number} [options.slicePartitions=8] The count of slices for the ellipsoid (Equal to the number of radial lines).
- * @param {number} [options.subdivisions=128] The number of points per line, determining the granularity of the curvature.
+ * @param {object} [options] 具有以下属性的对象：
+ * @param {Cartesian3} [options.radii=Cartesian3(1.0, 1.0, 1.0)] 椭球在x、y和z方向的半径。
+ * @param {Cartesian3} [options.innerRadii=options.radii] 椭球在x、y和z方向的内半径。
+ * @param {number} [options.minimumClock=0.0] xy平面内从正x轴朝向正y轴测量的最小角度。
+ * @param {number} [options.maximumClock=2*PI] xy平面内从正x轴朝向正y轴测量的最大角度。
+ * @param {number} [options.minimumCone=0.0] 从正z轴朝向负z轴测量的最小角度。
+ * @param {number} [options.maximumCone=PI] 从正z轴朝向负z轴测量的最大角度。
+ * @param {number} [options.stackPartitions=10] 椭球的堆叠数（比平行线数量大1）。
+ * @param {number} [options.slicePartitions=8] 椭球的切片数（等于径向线数量）。
+ * @param {number} [options.subdivisions=128] 每条线的点数，决定曲率的粒度。
  *
- * @exception {DeveloperError} options.stackPartitions must be greater than or equal to one.
- * @exception {DeveloperError} options.slicePartitions must be greater than or equal to zero.
- * @exception {DeveloperError} options.subdivisions must be greater than or equal to zero.
+ * @exception {DeveloperError} options.stackPartitions必须大于或等于1。
+ * @exception {DeveloperError} options.slicePartitions必须大于或等于0。
+ * @exception {DeveloperError} options.subdivisions必须大于或等于0。
  *
  * @example
  * const ellipsoid = new Cesium.EllipsoidOutlineGeometry({
@@ -95,19 +95,19 @@ function EllipsoidOutlineGeometry(options) {
 }
 
 /**
- * The number of elements used to pack the object into an array.
+ * 用于将对象打包到数组中的元素数量。
  * @type {number}
  */
 EllipsoidOutlineGeometry.packedLength = 2 * Cartesian3.packedLength + 8;
 
 /**
- * Stores the provided instance into the provided array.
+ * 将提供的实例存储到提供的数组中。
  *
- * @param {EllipsoidOutlineGeometry} value The value to pack.
- * @param {number[]} array The array to pack into.
- * @param {number} [startingIndex=0] The index into the array at which to start packing the elements.
+ * @param {EllipsoidOutlineGeometry} value 要打包的值。
+ * @param {number[]} array 要打包到的数组。
+ * @param {number} [startingIndex=0] 开始打包元素的数组索引。
  *
- * @returns {number[]} The array that was packed into
+ * @returns {number[]} 被打包到的数组
  */
 EllipsoidOutlineGeometry.pack = function (value, array, startingIndex) {
   //>>includeStart('debug', pragmas.debug);
@@ -155,12 +155,12 @@ const scratchOptions = {
 };
 
 /**
- * Retrieves an instance from a packed array.
+ * 从打包数组中检索实例。
  *
- * @param {number[]} array The packed array.
- * @param {number} [startingIndex=0] The starting index of the element to be unpacked.
- * @param {EllipsoidOutlineGeometry} [result] The object into which to store the result.
- * @returns {EllipsoidOutlineGeometry} The modified result parameter or a new EllipsoidOutlineGeometry instance if one was not provided.
+ * @param {number[]} array 打包数组。
+ * @param {number} [startingIndex=0] 要解包元素的起始索引。
+ * @param {EllipsoidOutlineGeometry} [result] 存储结果的对象。
+ * @returns {EllipsoidOutlineGeometry} 修改后的结果参数，如果未提供则返回新的EllipsoidOutlineGeometry实例。
  */
 EllipsoidOutlineGeometry.unpack = function (array, startingIndex, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -215,10 +215,10 @@ EllipsoidOutlineGeometry.unpack = function (array, startingIndex, result) {
 };
 
 /**
- * Computes the geometric representation of an outline of an ellipsoid, including its vertices, indices, and a bounding sphere.
+ * 计算椭球轮廓的几何表示，包括其顶点、索引和包围球。
  *
- * @param {EllipsoidOutlineGeometry} ellipsoidGeometry A description of the ellipsoid outline.
- * @returns {Geometry|undefined} The computed vertices and indices.
+ * @param {EllipsoidOutlineGeometry} ellipsoidGeometry 椭球轮廓的描述。
+ * @returns {Geometry|undefined} 计算得到的顶点和索引。
  */
 EllipsoidOutlineGeometry.createGeometry = function (ellipsoidGeometry) {
   const radii = ellipsoidGeometry._radii;

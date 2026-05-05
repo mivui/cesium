@@ -56,27 +56,27 @@ function interpolateColors(p0, p1, color0, color1, minDistance, array, offset) {
 }
 
 /**
- * A description of a polyline modeled as a line strip; the first two positions define a line segment,
- * and each additional position defines a line segment from the previous position.
+ * 描述以线带建模的折线；前两个位置定义一条线段，
+ * 每个附加位置定义从前一个位置开始的线段。
  *
  * @alias SimplePolylineGeometry
  * @constructor
  *
- * @param {object} options Object with the following properties:
- * @param {Cartesian3[]} options.positions An array of {@link Cartesian3} defining the positions in the polyline as a line strip.
- * @param {Color[]} [options.colors] An Array of {@link Color} defining the per vertex or per segment colors.
- * @param {boolean} [options.colorsPerVertex=false] A boolean that determines whether the colors will be flat across each segment of the line or interpolated across the vertices.
- * @param {ArcType} [options.arcType=ArcType.GEODESIC] The type of line the polyline segments must follow.
- * @param {number} [options.granularity=CesiumMath.RADIANS_PER_DEGREE] The distance, in radians, between each latitude and longitude if options.arcType is not ArcType.NONE. Determines the number of positions in the buffer.
- * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] The ellipsoid to be used as a reference.
+ * @param {object} options 具有以下属性的对象：
+ * @param {Cartesian3[]} options.positions 定义折线中作为线带的位置的 {@link Cartesian3} 数组。
+ * @param {Color[]} [options.colors] 定义每个顶点或每个线段颜色的 {@link Color} 数组。
+ * @param {boolean} [options.colorsPerVertex=false] 布尔值，确定颜色是在线的每个线段上保持不变还是在顶点之间进行插值。
+ * @param {ArcType} [options.arcType=ArcType.GEODESIC] 折线线段必须遵循的线类型。
+ * @param {number} [options.granularity=CesiumMath.RADIANS_PER_DEGREE] 如果 options.arcType 不是 ArcType.NONE，则每个纬度和经度之间的距离（以弧度为单位）。确定缓冲区中的位置数。
+ * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] 用作参考的椭球体。
  *
- * @exception {DeveloperError} At least two positions are required.
- * @exception {DeveloperError} colors has an invalid length.
+ * @exception {DeveloperError} 至少需要两个位置。
+ * @exception {DeveloperError} colors 的长度无效。
  *
  * @see SimplePolylineGeometry#createGeometry
  *
  * @example
- * // A polyline with two connected line segments
+ * // 具有两个连接线段的折线
  * const polyline = new Cesium.SimplePolylineGeometry({
  *   positions : Cesium.Cartesian3.fromDegreesArray([
  *     0.0, 0.0,
@@ -118,20 +118,20 @@ function SimplePolylineGeometry(options) {
   numComponents += defined(colors) ? 1 + colors.length * Color.packedLength : 1;
 
   /**
-   * The number of elements used to pack the object into an array.
+   * 用于将对象打包到数组中的元素数量。
    * @type {number}
    */
   this.packedLength = numComponents + Ellipsoid.packedLength + 3;
 }
 
 /**
- * Stores the provided instance into the provided array.
+ * 将提供的实例存储到提供的数组中。
  *
- * @param {SimplePolylineGeometry} value The value to pack.
- * @param {number[]} array The array to pack into.
- * @param {number} [startingIndex=0] The index into the array at which to start packing the elements.
+ * @param {SimplePolylineGeometry} value 要打包的值。
+ * @param {number[]} array 要打包到的数组。
+ * @param {number} [startingIndex=0] 数组中开始打包元素的索引。
  *
- * @returns {number[]} The array that was packed into
+ * @returns {number[]} 打包到的数组
  */
 SimplePolylineGeometry.pack = function (value, array, startingIndex) {
   //>>includeStart('debug', pragmas.debug);
@@ -174,12 +174,12 @@ SimplePolylineGeometry.pack = function (value, array, startingIndex) {
 };
 
 /**
- * Retrieves an instance from a packed array.
+ * 从打包的数组中检索实例。
  *
- * @param {number[]} array The packed array.
- * @param {number} [startingIndex=0] The starting index of the element to be unpacked.
- * @param {SimplePolylineGeometry} [result] The object into which to store the result.
- * @returns {SimplePolylineGeometry} The modified result parameter or a new SimplePolylineGeometry instance if one was not provided.
+ * @param {number[]} array 打包的数组。
+ * @param {number} [startingIndex=0] 要解包元素的起始索引。
+ * @param {SimplePolylineGeometry} [result] 用于存储结果的对象。
+ * @returns {SimplePolylineGeometry} 修改后的 result 参数，如果未提供，则为新的 SimplePolylineGeometry 实例。
  */
 SimplePolylineGeometry.unpack = function (array, startingIndex, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -245,10 +245,10 @@ const generateArcOptionsScratch = {
 };
 
 /**
- * Computes the geometric representation of a simple polyline, including its vertices, indices, and a bounding sphere.
+ * 计算简单折线的几何表示，包括其顶点、索引和包围球。
  *
- * @param {SimplePolylineGeometry} simplePolylineGeometry A description of the polyline.
- * @returns {Geometry|undefined} The computed vertices and indices.
+ * @param {SimplePolylineGeometry} simplePolylineGeometry 折线的描述。
+ * @returns {Geometry|undefined} 计算出的顶点和索引。
  */
 SimplePolylineGeometry.createGeometry = function (simplePolylineGeometry) {
   const positions = simplePolylineGeometry._positions;

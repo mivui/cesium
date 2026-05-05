@@ -273,14 +273,14 @@ function computeProperties(ellipsoidGeodesic, start, end, ellipsoid) {
 }
 
 /**
- * Initializes a geodesic on the ellipsoid connecting the two provided planetodetic points.
+ * 初始化连接两个提供的行星测地点的椭球面上的测地线。
  *
  * @alias EllipsoidGeodesic
  * @constructor
  *
- * @param {Cartographic} [start] The initial planetodetic point on the path.
- * @param {Cartographic} [end] The final planetodetic point on the path.
- * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] The ellipsoid on which the geodesic lies.
+ * @param {Cartographic} [start] 路径上的起始行星测地点。
+ * @param {Cartographic} [end] 路径上的终止行星测地点。
+ * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] 测地线所在的椭球。
  */
 function EllipsoidGeodesic(start, end, ellipsoid) {
   const e = ellipsoid ?? Ellipsoid.default;
@@ -301,7 +301,7 @@ function EllipsoidGeodesic(start, end, ellipsoid) {
 
 Object.defineProperties(EllipsoidGeodesic.prototype, {
   /**
-   * Gets the ellipsoid.
+   * 获取椭球。
    * @memberof EllipsoidGeodesic.prototype
    * @type {Ellipsoid}
    * @readonly
@@ -313,7 +313,7 @@ Object.defineProperties(EllipsoidGeodesic.prototype, {
   },
 
   /**
-   * Gets the surface distance between the start and end point
+   * 获取起点和终点之间的表面距离。
    * @memberof EllipsoidGeodesic.prototype
    * @type {number}
    * @readonly
@@ -329,7 +329,7 @@ Object.defineProperties(EllipsoidGeodesic.prototype, {
   },
 
   /**
-   * Gets the initial planetodetic point on the path.
+   * 获取路径上的起始行星测地点。
    * @memberof EllipsoidGeodesic.prototype
    * @type {Cartographic}
    * @readonly
@@ -341,7 +341,7 @@ Object.defineProperties(EllipsoidGeodesic.prototype, {
   },
 
   /**
-   * Gets the final planetodetic point on the path.
+   * 获取路径上的终止行星测地点。
    * @memberof EllipsoidGeodesic.prototype
    * @type {Cartographic}
    * @readonly
@@ -353,7 +353,7 @@ Object.defineProperties(EllipsoidGeodesic.prototype, {
   },
 
   /**
-   * Gets the heading at the initial point.
+   * 获取起始点的方位角。
    * @memberof EllipsoidGeodesic.prototype
    * @type {number}
    * @readonly
@@ -369,7 +369,7 @@ Object.defineProperties(EllipsoidGeodesic.prototype, {
   },
 
   /**
-   * Gets the heading at the final point.
+   * 获取终止点的方位角。
    * @memberof EllipsoidGeodesic.prototype
    * @type {number}
    * @readonly
@@ -386,10 +386,10 @@ Object.defineProperties(EllipsoidGeodesic.prototype, {
 });
 
 /**
- * Sets the start and end points of the geodesic
+ * 设置测地线的起点和终点。
  *
- * @param {Cartographic} start The initial planetodetic point on the path.
- * @param {Cartographic} end The final planetodetic point on the path.
+ * @param {Cartographic} start 路径上的起始行星测地点。
+ * @param {Cartographic} end 路径上的终止行星测地点。
  */
 EllipsoidGeodesic.prototype.setEndPoints = function (start, end) {
   //>>includeStart('debug', pragmas.debug);

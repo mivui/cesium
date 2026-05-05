@@ -16,37 +16,36 @@ import TerrainEncoding from "./TerrainEncoding.js";
 import TerrainMesh from "./TerrainMesh.js";
 
 /**
- * Terrain data for a single tile where the terrain data is represented as a glb (binary glTF).
+ * 单个瓦片的地形数据，其中地形数据以 glb（二进制 glTF）表示。
  *
  * @alias Cesium3DTilesTerrainData
- * @experimental This feature is not final and is subject to change without Cesium's standard deprecation policy.
+ * @experimental 此功能尚未最终确定，可能会在不遵循 Cesium 标准弃用政策的情况下更改。
  * @constructor
  *
- * @param {object} options Object with the following properties:
- * @param {Object.<string,*>} options.gltf The parsed glTF JSON.
- * @param {number} options.minimumHeight The minimum terrain height within the tile, in meters above the ellipsoid.
- * @param {number} options.maximumHeight The maximum terrain height within the tile, in meters above the ellipsoid.
- * @param {BoundingSphere} options.boundingSphere A sphere bounding all of the vertices in the mesh.
- * @param {OrientedBoundingBox} options.orientedBoundingBox An oriented bounding box containing all of the vertices in the mesh.
- * @param {Cartesian3} options.horizonOcclusionPoint The horizon occlusion point of the mesh. If this point
- *                      is below the horizon, the entire tile is assumed to be below the horizon as well.
- *                      The point is expressed in ellipsoid-scaled coordinates.
- * @param {number} options.skirtHeight The height of the skirt to add on the edges of the tile.
- * @param {boolean} [options.requestVertexNormals=false] Indicates whether normals should be loaded.
- * @param {boolean} [options.requestWaterMask=false] Indicates whether water mask data should be loaded.
- * @param {Credit[]} [options.credits] Array of credits for this tile.
- * @param {number} [options.childTileMask=15] A bit mask indicating which of this tile's four children exist.
- *                 If a child's bit is set, geometry will be requested for that tile as well when it
- *                 is needed.  If the bit is cleared, the child tile is not requested and geometry is
- *                 instead upsampled from the parent.  The bit values are as follows:
+ * @param {object} options 具有以下属性的对象：
+ * @param {Object.<string,*>} options.gltf 已解析的 glTF JSON。
+ * @param {number} options.minimumHeight 瓦片内的最小地形高度，以椭球体上方的米为单位。
+ * @param {number} options.maximumHeight 瓦片内的最大地形高度，以椭球体上方的米为单位。
+ * @param {BoundingSphere} options.boundingSphere 包围网格中所有顶点的球体。
+ * @param {OrientedBoundingBox} options.orientedBoundingBox 包含网格中所有顶点的定向包围盒。
+ * @param {Cartesian3} options.horizonOcclusionPoint 网格的地平线遮挡点。如果该点
+ *                      低于地平线，则假定整个瓦片也低于地平线。
+ *                      该点以椭球体缩放坐标表示。
+ * @param {number} options.skirtHeight 要在瓦片边缘添加的裙边高度。
+ * @param {boolean} [options.requestVertexNormals=false] 指示是否应加载法线。
+ * @param {boolean} [options.requestWaterMask=false] 指示是否应加载水掩码数据。
+ * @param {Credit[]} [options.credits] 此瓦片的署名信息数组。
+ * @param {number} [options.childTileMask=15] 指示此瓦片四个子瓦片中哪些存在的位掩码。
+ *                 如果设置了某个子瓦片的位，则在需要时也会请求该瓦片的几何数据。
+ *                 如果位被清除，则不会请求子瓦片，而是从父瓦片向上采样几何数据。位值如下：
  *                 <table>
- *                  <tr><th>Bit Position</th><th>Bit Value</th><th>Child Tile</th></tr>
- *                  <tr><td>0</td><td>1</td><td>Southwest</td></tr>
- *                  <tr><td>1</td><td>2</td><td>Southeast</td></tr>
- *                  <tr><td>2</td><td>4</td><td>Northwest</td></tr>
- *                  <tr><td>3</td><td>8</td><td>Northeast</td></tr>
+ *                  <tr><th>位位置</th><th>位值</th><th>子瓦片</th></tr>
+ *                  <tr><td>0</td><td>1</td><td>西南</td></tr>
+ *                  <tr><td>1</td><td>2</td><td>东南</td></tr>
+ *                  <tr><td>2</td><td>4</td><td>西北</td></tr>
+ *                  <tr><td>3</td><td>8</td><td>东北</td></tr>
  *                 </table>
- * @param {Uint8Array} [options.waterMask] The buffer containing the water mask.
+ * @param {Uint8Array} [options.waterMask] 包含水掩码的缓冲区。
  * @see TerrainData
  * @see QuantizedMeshTerrainData
  * @see HeightmapTerrainData

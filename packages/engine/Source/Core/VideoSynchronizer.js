@@ -5,18 +5,18 @@ import Iso8601 from "./Iso8601.js";
 import JulianDate from "./JulianDate.js";
 
 /**
- * Synchronizes a video element with a simulation clock.
+ * 将视频元素与模拟时钟同步。
  *
  * @alias VideoSynchronizer
  * @constructor
  *
- * @param {object} [options] Object with the following properties:
- * @param {Clock} [options.clock] The clock instance used to drive the video.
- * @param {HTMLVideoElement} [options.element] The video element to be synchronized.
- * @param {JulianDate} [options.epoch=Iso8601.MINIMUM_VALUE] The simulation time that marks the start of the video.
- * @param {number} [options.tolerance=1.0] The maximum amount of time, in seconds, that the clock and video can diverge.
+ * @param {object} [options] 具有以下属性的对象：
+ * @param {Clock} [options.clock] 用于驱动视频的时钟实例。
+ * @param {HTMLVideoElement} [options.element] 要同步的视频元素。
+ * @param {JulianDate} [options.epoch=Iso8601.MINIMUM_VALUE] 标记视频开始时间的模拟时间。
+ * @param {number} [options.tolerance=1.0] 时钟和视频可以偏离的最大时间量（以秒为单位）。
  *
- * @demo {@link https://sandcastle.cesium.com/index.html?id=video|Video Material Demo}
+ * @demo {@link https://sandcastle.cesium.com/index.html?id=video|视频材质演示}
  */
 function VideoSynchronizer(options) {
   options = options ?? Frozen.EMPTY_OBJECT;
@@ -30,22 +30,21 @@ function VideoSynchronizer(options) {
   this.clock = options.clock;
   this.element = options.element;
 
-  /**
-   * Gets or sets the simulation time that marks the start of the video.
-   * @type {JulianDate}
-   * @default Iso8601.MINIMUM_VALUE
-   */
+/**
+ * 获取或设置标记视频开始时间的模拟时间。
+ * @type {JulianDate}
+ * @default Iso8601.MINIMUM_VALUE
+ */
   this.epoch = options.epoch ?? Iso8601.MINIMUM_VALUE;
 
-  /**
-   * Gets or sets the amount of time in seconds the video's currentTime
-   * and the clock's currentTime can diverge before a video seek is performed.
-   * Lower values make the synchronization more accurate but video
-   * performance might suffer.  Higher values provide better performance
-   * but at the cost of accuracy.
-   * @type {number}
-   * @default 1.0
-   */
+/**
+ * 获取或设置视频的currentTime与时钟的currentTime在
+ * 执行视频搜索之前可以偏离的秒数。
+ * 较低的值使同步更准确，但视频性能可能会受影响。
+ * 较高的值提供更好的性能，但会以准确性为代价。
+ * @type {number}
+ * @default 1.0
+ */
   this.tolerance = options.tolerance ?? 1.0;
 
   this._seeking = false;
@@ -54,12 +53,12 @@ function VideoSynchronizer(options) {
 }
 
 Object.defineProperties(VideoSynchronizer.prototype, {
-  /**
-   * Gets or sets the clock used to drive the video element.
-   *
-   * @memberof VideoSynchronizer.prototype
-   * @type {Clock}
-   */
+/**
+ * 获取或设置用于驱动视频元素的时钟。
+ *
+ * @memberof VideoSynchronizer.prototype
+ * @type {Clock}
+ */
   clock: {
     get: function () {
       return this._clock;
@@ -86,12 +85,12 @@ Object.defineProperties(VideoSynchronizer.prototype, {
       this._clock = value;
     },
   },
-  /**
-   * Gets or sets the video element to synchronize.
-   *
-   * @memberof VideoSynchronizer.prototype
-   * @type {HTMLVideoElement}
-   */
+/**
+ * 获取或设置要同步的视频元素。
+ *
+ * @memberof VideoSynchronizer.prototype
+ * @type {HTMLVideoElement}
+ */
   element: {
     get: function () {
       return this._element;
@@ -121,9 +120,9 @@ Object.defineProperties(VideoSynchronizer.prototype, {
 });
 
 /**
- * Destroys and resources used by the object.  Once an object is destroyed, it should not be used.
+ * 销毁该对象使用的资源。一旦对象被销毁，就不应再使用。
  *
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 此对象已被销毁，即已调用destroy()。
  */
 VideoSynchronizer.prototype.destroy = function () {
   this.element = undefined;
@@ -132,9 +131,9 @@ VideoSynchronizer.prototype.destroy = function () {
 };
 
 /**
- * Returns true if this object was destroyed; otherwise, false.
+ * 如果此对象已被销毁则返回true；否则返回false。
  *
- * @returns {boolean} True if this object was destroyed; otherwise, false.
+ * @returns {boolean} 如果此对象已被销毁则为true；否则为false。
  */
 VideoSynchronizer.prototype.isDestroyed = function () {
   return false;

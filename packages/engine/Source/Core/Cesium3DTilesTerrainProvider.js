@@ -29,32 +29,32 @@ import TerrainProvider from "./TerrainProvider.js";
 /**
  * @typedef {object} Cesium3DTilesTerrainProvider.ConstructorOptions
  *
- * Initialization options for the Cesium3DTilesTerrainProvider constructor
+ * Cesium3DTilesTerrainProvider 构造函数的初始化选项。
  *
- * @property {boolean} [requestVertexNormals=false] Flag that indicates if the client should request additional lighting information from the server, in the form of per vertex normals if available.
- * @property {boolean} [requestWaterMask=false] Flag that indicates if the client should request per tile water masks from the server, if available.
- * @property {Ellipsoid} [ellipsoid=Ellipsoid.default] The ellipsoid.  If not specified, the WGS84 ellipsoid is used.
- * @property {Credit|string} [credit] A credit for the data source, which is displayed on the canvas.
+ * @property {boolean} [requestVertexNormals=false] 指示客户端是否应从服务器请求附加光照信息的标志，格式为逐顶点法线（如果可用）。
+ * @property {boolean} [requestWaterMask=false] 指示客户端是否应从服务器请求逐瓦片水掩码的标志（如果可用）。
+ * @property {Ellipsoid} [ellipsoid=Ellipsoid.default] 椭球体。如果未指定，则使用 WGS84 椭球体。
+ * @property {Credit|string} [credit] 数据源的署名信息，显示在画布上。
  */
 
 /**
  * <div class="notice">
- * To construct a Cesium3DTilesTerrainProvider, call {@link Cesium3DTilesTerrainProvider.fromIonAssetId} or {@link Cesium3DTilesTerrainProvider.fromUrl}. Do not call the constructor directly.
+ * 要构造 Cesium3DTilesTerrainProvider，请调用 {@link Cesium3DTilesTerrainProvider.fromIonAssetId} 或 {@link Cesium3DTilesTerrainProvider.fromUrl}。不要直接调用构造函数。
  * </div>
  *
- * A {@link TerrainProvider} that accesses terrain data in a 3D Tiles format.
+ * 以 3D Tiles 格式访问地形数据的 {@link TerrainProvider}。
  *
  * @alias Cesium3DTilesTerrainProvider
- * @experimental This feature is not final and is subject to change without Cesium's standard deprecation policy.
+ * @experimental 此功能尚未最终确定，可能会在不遵循 Cesium 标准弃用政策的情况下更改。
  * @constructor
  *
- * @param {Cesium3DTilesTerrainProvider.ConstructorOptions}[options] An object describing initialization options
+ * @param {Cesium3DTilesTerrainProvider.ConstructorOptions}[options] 描述初始化选项的对象。
  *
  * @see TerrainProvider
  * @see Cesium3DTilesTerrainProvider.fromUrl
  * @see Cesium3DTilesTerrainProvider.fromIonAssetId
  *
- * // Create GTOPO30 with vertex normals
+ * // 创建带顶点法线的 GTOPO30
  * try {
  *   const viewer = new Cesium.Viewer("cesiumContainer", {
  *     terrainProvider: await Cesium.Cesium3DTilesTerrainProvider.fromIonAssetId(2732686, {

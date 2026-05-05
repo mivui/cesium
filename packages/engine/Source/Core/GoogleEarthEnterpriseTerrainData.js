@@ -17,29 +17,28 @@ import TerrainEncoding from "./TerrainEncoding.js";
 import TerrainMesh from "./TerrainMesh.js";
 
 /**
- * Terrain data for a single tile from a Google Earth Enterprise server.
+ * 来自 Google Earth Enterprise 服务器的单个图块的地形数据。
  *
  * @alias GoogleEarthEnterpriseTerrainData
  * @constructor
  *
- * @param {object} options Object with the following properties:
- * @param {ArrayBuffer} options.buffer The buffer containing terrain data.
- * @param {number} options.negativeAltitudeExponentBias Multiplier for negative terrain heights that are encoded as very small positive values.
- * @param {number} options.negativeElevationThreshold Threshold for negative values
- * @param {number} [options.childTileMask=15] A bit mask indicating which of this tile's four children exist.
- *                 If a child's bit is set, geometry will be requested for that tile as well when it
- *                 is needed.  If the bit is cleared, the child tile is not requested and geometry is
- *                 instead upsampled from the parent.  The bit values are as follows:
+ * @param {object} options 包含以下属性的对象：
+ * @param {ArrayBuffer} options.buffer 包含地形数据的缓冲区。
+ * @param {number} options.negativeAltitudeExponentBias 用于编码为非常小正值的负地形高度的乘数。
+ * @param {number} options.negativeElevationThreshold 负值的阈值。
+ * @param {number} [options.childTileMask=15] 指示此图块的四个子图块中哪些存在的位掩码。
+ *                 如果设置了子图块的位，则将在需要时请求该图块的几何体。如果位被清除，则不请求子图块，几何体
+ *                 而是从父图块上采样。位值如下：
  *                 <table>
- *                  <tr><th>Bit Position</th><th>Bit Value</th><th>Child Tile</th></tr>
- *                  <tr><td>0</td><td>1</td><td>Southwest</td></tr>
- *                  <tr><td>1</td><td>2</td><td>Southeast</td></tr>
- *                  <tr><td>2</td><td>4</td><td>Northeast</td></tr>
- *                  <tr><td>3</td><td>8</td><td>Northwest</td></tr>
+ *                  <tr><th>位位置</th><th>位值</th><th>子图块</th></tr>
+ *                  <tr><td>0</td><td>1</td><td>西南</td></tr>
+ *                  <tr><td>1</td><td>2</td><td>东南</td></tr>
+ *                  <tr><td>2</td><td>4</td><td>东北</td></tr>
+ *                  <tr><td>3</td><td>8</td><td>西北</td></tr>
  *                 </table>
- * @param {boolean} [options.createdByUpsampling=false] True if this instance was created by upsampling another instance;
- *                  otherwise, false.
- * @param {Credit[]} [options.credits] Array of credits for this tile.
+ * @param {boolean} [options.createdByUpsampling=false] 如果此实例是通过上采样另一个实例创建的，则为 true；
+ *                  否则为 false。
+ * @param {Credit[]} [options.credits] 此图块的 credits 数组。
  *
  *
  * @example

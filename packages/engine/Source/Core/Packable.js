@@ -1,9 +1,7 @@
 import DeveloperError from "./DeveloperError.js";
 
 /**
- * Static interface for types which can store their values as packed
- * elements in an array.  These methods and properties are expected to be
- * defined on a constructor function.
+ * 可将值存储为数组中的打包元素的类型的静态接口。这些方法和属性应在构造函数上定义。
  *
  * @interface Packable
  *
@@ -11,29 +9,29 @@ import DeveloperError from "./DeveloperError.js";
  */
 const Packable = {
   /**
-   * The number of elements used to pack the object into an array.
+   * 用于将对象打包到数组中的元素数量。
    * @type {number}
    */
   packedLength: undefined,
 
   /**
-   * Stores the provided instance into the provided array.
+   * 将提供的实例存储到提供的数组中。
    * @function
    *
-   * @param {*} value The value to pack.
-   * @param {number[]} array The array to pack into.
-   * @param {number} [startingIndex=0] The index into the array at which to start packing the elements.
+   * @param {*} value 要打包的值。
+   * @param {number[]} array 要打包到的数组。
+   * @param {number} [startingIndex=0] 数组中开始打包元素的索引。
    */
   pack: DeveloperError.throwInstantiationError,
 
   /**
-   * Retrieves an instance from a packed array.
+   * 从打包的数组中检索实例。
    * @function
    *
-   * @param {number[]} array The packed array.
-   * @param {number} [startingIndex=0] The starting index of the element to be unpacked.
-   * @param {object} [result] The object into which to store the result.
-   * @returns {object} The modified result parameter or a new Object instance if one was not provided.
+   * @param {number[]} array 打包的数组。
+   * @param {number} [startingIndex=0] 要解包的元素起始索引。
+   * @param {object} [result] 用于存储结果的对象。
+   * @returns {object} 修改后的result参数，如果未提供则返回一个新的Object实例。
    */
   unpack: DeveloperError.throwInstantiationError,
 };

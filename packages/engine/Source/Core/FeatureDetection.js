@@ -261,8 +261,8 @@ if (typeof ArrayBuffer !== "undefined") {
 }
 
 /**
- * A set of functions to detect whether the current browser supports
- * various features.
+ * 一组用于检测当前浏览器是否支持
+ * 各种特性的函数。
  *
  * @namespace FeatureDetection
  */
@@ -289,75 +289,75 @@ const FeatureDetection = {
 };
 
 /**
- * Detects whether the current browser supports Basis Universal textures and the web assembly modules needed to transcode them.
+ * 检测当前浏览器是否支持Basis Universal纹理以及转码所需的WebAssembly模块。
  *
  * @param {Scene} scene
- * @returns {boolean} true if the browser supports web assembly modules and the scene supports Basis Universal textures, false if not.
+ * @returns {boolean} 如果浏览器支持WebAssembly模块且场景支持Basis Universal纹理则返回true，否则返回false。
  */
 FeatureDetection.supportsBasis = function (scene) {
   return FeatureDetection.supportsWebAssembly() && scene.context.supportsBasis;
 };
 
 /**
- * Detects whether the current browser supports the full screen standard.
+ * 检测当前浏览器是否支持全屏标准。
  *
- * @returns {boolean} true if the browser supports the full screen standard, false if not.
+ * @returns {boolean} 如果浏览器支持全屏标准则返回true，否则返回false。
  *
  * @see Fullscreen
- * @see {@link http://dvcs.w3.org/hg/fullscreen/raw-file/tip/Overview.html|W3C Fullscreen Living Specification}
+ * @see {@link http://dvcs.w3.org/hg/fullscreen/raw-file/tip/Overview.html|W3C全屏实时规范}
  */
 FeatureDetection.supportsFullscreen = function () {
   return Fullscreen.supportsFullscreen();
 };
 
 /**
- * Detects whether the current browser supports typed arrays.
+ * 检测当前浏览器是否支持类型化数组。
  *
- * @returns {boolean} true if the browser supports typed arrays, false if not.
+ * @returns {boolean} 如果浏览器支持类型化数组则返回true，否则返回false。
  *
- * @see {@link https://tc39.es/ecma262/#sec-typedarray-objects|Typed Array Specification}
+ * @see {@link https://tc39.es/ecma262/#sec-typedarray-objects|类型化数组规范}
  */
 FeatureDetection.supportsTypedArrays = function () {
   return typeof ArrayBuffer !== "undefined";
 };
 
 /**
- * Detects whether the current browser supports BigInt64Array typed arrays.
+ * 检测当前浏览器是否支持BigInt64Array类型化数组。
  *
- * @returns {boolean} true if the browser supports BigInt64Array typed arrays, false if not.
+ * @returns {boolean} 如果浏览器支持BigInt64Array类型化数组则返回true，否则返回false。
  *
- * @see {@link https://tc39.es/ecma262/#sec-typedarray-objects|Typed Array Specification}
+ * @see {@link https://tc39.es/ecma262/#sec-typedarray-objects|类型化数组规范}
  */
 FeatureDetection.supportsBigInt64Array = function () {
   return typeof BigInt64Array !== "undefined";
 };
 
 /**
- * Detects whether the current browser supports BigUint64Array typed arrays.
+ * 检测当前浏览器是否支持BigUint64Array类型化数组。
  *
- * @returns {boolean} true if the browser supports BigUint64Array typed arrays, false if not.
+ * @returns {boolean} 如果浏览器支持BigUint64Array类型化数组则返回true，否则返回false。
  *
- * @see {@link https://tc39.es/ecma262/#sec-typedarray-objects|Typed Array Specification}
+ * @see {@link https://tc39.es/ecma262/#sec-typedarray-objects|类型化数组规范}
  */
 FeatureDetection.supportsBigUint64Array = function () {
   return typeof BigUint64Array !== "undefined";
 };
 
 /**
- * Detects whether the current browser supports BigInt.
+ * 检测当前浏览器是否支持BigInt。
  *
- * @returns {boolean} true if the browser supports BigInt, false if not.
+ * @returns {boolean} 如果浏览器支持BigInt则返回true，否则返回false。
  *
- * @see {@link https://tc39.es/ecma262/#sec-bigint-objects|BigInt Specification}
+ * @see {@link https://tc39.es/ecma262/#sec-bigint-objects|BigInt规范}
  */
 FeatureDetection.supportsBigInt = function () {
   return typeof BigInt !== "undefined";
 };
 
 /**
- * Detects whether the current browser supports Web Workers.
+ * 检测当前浏览器是否支持Web Workers。
  *
- * @returns {boolean} true if the browsers supports Web Workers, false if not.
+ * @returns {boolean} 如果浏览器支持Web Workers则返回true，否则返回false。
  *
  * @see {@link http://www.w3.org/TR/workers/}
  */
@@ -366,9 +366,9 @@ FeatureDetection.supportsWebWorkers = function () {
 };
 
 /**
- * Detects whether the current browser supports Web Assembly.
+ * 检测当前浏览器是否支持WebAssembly。
  *
- * @returns {boolean} true if the browsers supports Web Assembly, false if not.
+ * @returns {boolean} 如果浏览器支持WebAssembly则返回true，否则返回false。
  *
  * @see {@link https://developer.mozilla.org/en-US/docs/WebAssembly}
  */

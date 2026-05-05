@@ -1,8 +1,8 @@
 // @ts-check
 
 /**
- * Constants to determine how an interpolated value is extrapolated
- * when querying outside the bounds of available data.
+ * 用于在查询超出可用数据范围时确定插值值的
+ * 外推方式的常量。
  *
  * @enum {number}
  *
@@ -10,7 +10,7 @@
  */
 const ExtrapolationType = {
   /**
-   * No extrapolation occurs.
+   * 不进行外推。
    *
    * @type {number}
    * @constant
@@ -18,7 +18,7 @@ const ExtrapolationType = {
   NONE: 0,
 
   /**
-   * The first or last value is used when outside the range of sample data.
+   * 在样本数据范围之外时使用第一个或最后一个值。
    *
    * @type {number}
    * @constant
@@ -26,7 +26,7 @@ const ExtrapolationType = {
   HOLD: 1,
 
   /**
-   * The value is extrapolated.
+   * 对值进行外推。
    *
    * @type {number}
    * @constant

@@ -2,8 +2,8 @@ import Cartesian3 from "./Cartesian3.js";
 import Check from "./Check.js";
 
 /**
- * Geocodes queries containing longitude and latitude coordinates and an optional height.
- * Query format: `longitude latitude (height)` with longitude/latitude in degrees and height in meters.
+ * 对包含经度和纬度坐标及可选高度的查询进行地理编码。
+ * 查询格式：`经度 纬度 (高度)`，其中经度/纬度以度为单位，高度以米为单位。
  *
  * @alias CartographicGeocoderService
  * @constructor
@@ -12,8 +12,7 @@ function CartographicGeocoderService() {}
 
 Object.defineProperties(CartographicGeocoderService.prototype, {
   /**
-   * Gets the credit to display after a geocode is performed. Typically this is used to credit
-   * the geocoder service.
+   * 获取地理编码执行后要显示的信用信息。通常用于给地理编码服务署名。
    * @memberof CartographicGeocoderService.prototype
    * @type {Credit|undefined}
    * @readonly
@@ -28,7 +27,7 @@ Object.defineProperties(CartographicGeocoderService.prototype, {
 /**
  * @function
  *
- * @param {string} query The query to be sent to the geocoder service
+ * @param {string} query 要发送到地理编码服务的查询。
  * @returns {Promise<GeocoderService.Result[]>}
  */
 CartographicGeocoderService.prototype.geocode = function (query) {

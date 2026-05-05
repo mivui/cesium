@@ -3,24 +3,23 @@ import defined from "./defined.js";
 import DeveloperError from "./DeveloperError.js";
 
 /**
- * A singleton that contains all of the servers that are trusted. Credentials will be sent with
- * any requests to these servers.
+ * 包含所有受信任服务器的单例。凭证将随任何对这些服务器的请求一起发送。
  *
  * @namespace TrustedServers
  *
- * @see {@link http://www.w3.org/TR/cors/|Cross-Origin Resource Sharing}
+ * @see {@link http://www.w3.org/TR/cors/|跨源资源共享}
  */
 const TrustedServers = {};
 let _servers = {};
 
 /**
- * Adds a trusted server to the registry
+ * 向注册表添加受信任的服务器
  *
- * @param {string} host The host to be added.
- * @param {number} port The port used to access the host.
+ * @param {string} host 要添加的主机。
+ * @param {number} port 用于访问该主机的端口。
  *
  * @example
- * // Add a trusted server
+ * // 添加受信任的服务器
  * TrustedServers.add('my.server.com', 80);
  */
 TrustedServers.add = function (host, port) {
@@ -40,13 +39,13 @@ TrustedServers.add = function (host, port) {
 };
 
 /**
- * Removes a trusted server from the registry
+ * 从注册表中移除受信任的服务器
  *
- * @param {string} host The host to be removed.
- * @param {number} port The port used to access the host.
+ * @param {string} host 要移除的主机。
+ * @param {number} port 用于访问该主机的端口。
  *
  * @example
- * // Remove a trusted server
+ * // 移除受信任的服务器
  * TrustedServers.remove('my.server.com', 80);
  */
 TrustedServers.remove = function (host, port) {
@@ -101,22 +100,22 @@ function getAuthority(url) {
 }
 
 /**
- * Tests whether a server is trusted or not. The server must have been added with the port if it is included in the url.
+ * 测试服务器是否受信任。如果URL中包含端口，则必须使用端口添加服务器。
  *
- * @param {string} url The url to be tested against the trusted list
+ * @param {string} url 要根据受信任列表进行测试的URL
  *
- * @returns {boolean} Returns true if url is trusted, false otherwise.
+ * @returns {boolean} 如果URL受信任则返回true，否则返回false。
  *
  * @example
- * // Add server
+ * // 添加服务器
  * TrustedServers.add('my.server.com', 81);
  *
- * // Check if server is trusted
+ * // 检查服务器是否受信任
  * if (TrustedServers.contains('https://my.server.com:81/path/to/file.png')) {
- *     // my.server.com:81 is trusted
+ *     // my.server.com:81 受信任
  * }
  * if (TrustedServers.contains('https://my.server.com/path/to/file.png')) {
- *     // my.server.com isn't trusted
+ *     // my.server.com 不受信任
  * }
  */
 TrustedServers.contains = function (url) {

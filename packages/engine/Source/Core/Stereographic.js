@@ -10,11 +10,11 @@ import CesiumMath from "./Math.js";
 import Ray from "./Ray.js";
 
 /**
- * Represents a point in stereographic coordinates, which can be obtained by projecting a cartesian coordinate from one pole onto a tangent plane at the other pole.
- * The stereographic projection faithfully represents the relative directions of all great circles passing through its center point.
- * To faithfully represents angles everywhere, this is a conformal projection, which means points are projected onto an arbrary sphere.
- * @param {Cartesian2} [position] The steroegraphic coordinates.
- * @param {EllipseGeometry} [tangentPlane] The tangent plane onto which the point was projected.
+ * 表示立体投影坐标中的点，可通过将笛卡尔坐标从一个极点投影到另一个极点的切平面获得。
+ * 立体投影能准确表示通过其中心点的所有大圆的相对方向。
+ * 为准确表示各处的角度，这是一种共形投影，意味着点被投影到一个任意球面上。
+ * @param {Cartesian2} [position] 立体投影坐标。
+ * @param {EllipsoidTangentPlane} [tangentPlane] 点被投影到的切平面。
  */
 function Stereographic(position, tangentPlane) {
   this.position = position;
@@ -30,7 +30,7 @@ function Stereographic(position, tangentPlane) {
 
 Object.defineProperties(Stereographic.prototype, {
   /**
-   * Gets the ellipsoid.
+   * 获取椭球。
    * @memberof Stereographic.prototype
    * @type {Ellipsoid}
    */
@@ -41,7 +41,7 @@ Object.defineProperties(Stereographic.prototype, {
   },
 
   /**
-   * Gets the x coordinate
+   * 获取 x 坐标
    * @memberof Stereographic.prototype
    * @type {number}
    */
@@ -52,7 +52,7 @@ Object.defineProperties(Stereographic.prototype, {
   },
 
   /**
-   * Gets the y coordinate
+   * 获取 y 坐标
    * @memberof Stereographic.prototype
    * @type {number}
    */
@@ -63,7 +63,7 @@ Object.defineProperties(Stereographic.prototype, {
   },
 
   /**
-   * Computes the conformal latitude, or the ellipsoidal latitude projected onto an arbitrary sphere.
+   * 计算共形纬度，即椭球纬度投影到任意球面上。
    * @memberof Stereographic.prototype
    * @type {number}
    */
@@ -77,7 +77,7 @@ Object.defineProperties(Stereographic.prototype, {
   },
 
   /**
-   * Computes the longitude
+   * 计算经度
    * @memberof Stereographic.prototype
    * @type {number}
    */
@@ -97,10 +97,10 @@ const scratchCartographic = new Cartographic();
 const scratchCartesian = new Cartesian3();
 
 /**
- * Computes the latitude based on an ellipsoid.
+ * 基于椭球计算纬度。
  *
- * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] The ellipsoid on which to compute the longitude.
- * @returns {number} The latitude
+ * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] 计算纬度所用的椭球。
+ * @returns {number} 纬度
  */
 Stereographic.prototype.getLatitude = function (ellipsoid) {
   if (!defined(ellipsoid)) {
@@ -123,11 +123,11 @@ const scratchProjectPointOntoPlaneRayDirection = new Cartesian3();
 const scratchProjectPointOntoPlaneCartesian3 = new Cartesian3();
 
 /**
- * Computes the projection of the provided 3D position onto the 2D polar plane, radially outward from the provided origin.
+ * 计算所提供的3D位置到2D极平面的投影，沿径向从所提供的原点向外。
  *
- * @param {Cartesian3} cartesian The point to project.
- * @param {Stereographic} [result] The object onto which to store the result.
- * @returns {Sterographic} The modified result parameter or a new Sterographic instance if none was provided.
+ * @param {Cartesian3} cartesian 要投影的点。
+ * @param {Stereographic} [result] 用于存储结果的对象。
+ * @returns {Stereographic} 修改后的结果参数或新的 Sterographic 实例（如果未提供）。
  */
 Stereographic.fromCartesian = function (cartesian, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -173,11 +173,11 @@ Stereographic.fromCartesian = function (cartesian, result) {
 };
 
 /**
- * Computes the projection of the provided 3D positions onto the 2D polar plane, radially outward from the provided origin.
+ * 计算所提供的3D位置到2D极平面的投影，沿径向从所提供的原点向外。
  *
- * @param {Cartesian3[]} cartesians The points to project.
- * @param {Stereographic[]} [result] The object onto which to store the result.
- * @returns {Sterographic[]} The modified result parameter or a new Sterographic instance if none was provided.
+ * @param {Cartesian3[]} cartesians 要投影的点。
+ * @param {Stereographic[]} [result] 用于存储结果的对象。
+ * @returns {Stereographic[]} 修改后的结果参数或新的 Sterographic 实例数组（如果未提供）。
  */
 Stereographic.fromCartesianArray = function (cartesians, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -197,11 +197,11 @@ Stereographic.fromCartesianArray = function (cartesians, result) {
 };
 
 /**
- * Duplicates a Stereographic instance.
+ * 复制一个 Stereographic 实例。
  *
- * @param {Stereographic} stereographic The Stereographic to duplicate.
- * @param {Stereographic} [result] The object onto which to store the result.
- * @returns {Stereographic} The modified result parameter or a new Stereographic instance if one was not provided. (Returns undefined if stereographic is undefined)
+ * @param {Stereographic} stereographic 要复制的 Stereographic。
+ * @param {Stereographic} [result] 用于存储结果的对象。
+ * @returns {Stereographic} 修改后的结果参数或新的 Stereographic 实例（如果未提供）。（如果 stereographic 未定义则返回 undefined）
  */
 Stereographic.clone = function (stereographic, result) {
   if (!defined(stereographic)) {
@@ -221,7 +221,7 @@ Stereographic.clone = function (stereographic, result) {
 };
 
 /**
- * An Ellipsoid instance initialized to radii of (0.5, 0.5, 0.5).
+ * 一个椭球实例，其半径初始化为 (0.5, 0.5, 0.5)。
  *
  * @type {Stereographic}
  * @constant

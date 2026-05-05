@@ -188,14 +188,14 @@ PolygonGeometryLibrary.subdivideRhumbLineCount = function (
 };
 
 /**
- * Subdivides texture coordinates based on the subdivision of the associated world positions.
+ * 根据关联世界坐标的细分来细分纹理坐标。
  *
- * @param {Cartesian2} t0 First texture coordinate.
- * @param {Cartesian2} t1 Second texture coordinate.
- * @param {Cartesian3} p0 First world position.
- * @param {Cartesian3} p1 Second world position.
- * @param {number} minDistance Minimum distance for a segment.
- * @param {Cartesian2[]} result The subdivided texture coordinates.
+ * @param {Cartesian2} t0 第一个纹理坐标。
+ * @param {Cartesian2} t1 第二个纹理坐标。
+ * @param {Cartesian3} p0 第一个世界坐标位置。
+ * @param {Cartesian3} p1 第二个世界坐标位置。
+ * @param {number} minDistance 线段的最小距离。
+ * @param {Cartesian2[]} result 细分后的纹理坐标。
  *
  * @private
  */
@@ -261,15 +261,15 @@ PolygonGeometryLibrary.subdivideLine = function (p0, p1, minDistance, result) {
 };
 
 /**
- * Subdivides texture coordinates based on the subdivision of the associated world positions using a rhumb line.
+ * 使用等角航线根据关联世界坐标的细分来细分纹理坐标。
  *
- * @param {Cartesian2} t0 First texture coordinate.
- * @param {Cartesian2} t1 Second texture coordinate.
- * @param {Ellipsoid} ellipsoid The ellipsoid.
- * @param {Cartesian3} p0 First world position.
- * @param {Cartesian3} p1 Second world position.
- * @param {number} minDistance Minimum distance for a segment.
- * @param {Cartesian2[]} result The subdivided texture coordinates.
+ * @param {Cartesian2} t0 第一个纹理坐标。
+ * @param {Cartesian2} t1 第二个纹理坐标。
+ * @param {Ellipsoid} ellipsoid 椭球体。
+ * @param {Cartesian3} p0 第一个世界坐标位置。
+ * @param {Cartesian3} p1 第二个世界坐标位置。
+ * @param {number} minDistance 线段的最小距离。
+ * @param {Cartesian2[]} result 细分后的纹理坐标。
  *
  * @private
  */
@@ -312,16 +312,16 @@ PolygonGeometryLibrary.subdivideTexcoordRhumbLine = function (
 };
 
 /**
- * Subdivide the line between 2 points every minDistance length
- * If the points are already closer than minDistance the first will be returned
+ * 每隔minDistance长度细分两点之间的线段
+ * 如果点之间的距离已小于minDistance，则返回第一个点
  *
  * @private
- * @param {Ellipsoid} ellipsoid
- * @param {Cartesian3} p0 start point
- * @param {Cartesian3} p1 end point
- * @param {number} minDistance minimum distance between points in radians
- * @param {number[]} [result] if provided positions will be packed into this array starting at index 0
- * @returns {number[]} Cartesian3 positions packed into an array
+ * @param {Ellipsoid} ellipsoid 椭球体
+ * @param {Cartesian3} p0 起点
+ * @param {Cartesian3} p1 终点
+ * @param {number} minDistance 点之间的最小距离（弧度）
+ * @param {number[]} [result] 如果提供，位置将从此数组的索引0开始打包
+ * @returns {number[]} 打包到数组中的Cartesian3位置
  */
 PolygonGeometryLibrary.subdivideRhumbLine = function (
   ellipsoid,
@@ -707,14 +707,14 @@ function wirePolygon(
 }
 
 /**
- * Splits an array of polygons, defined as a list of Cartesian3 positions in counter-clockwise winding order, along the equator.
+ * 将按逆时针环绕顺序定义的Cartesian3位置列表所表示的多边形数组沿赤道分割。
  *
- * @param {Array<Cartesian3[]>} outerRings An array of polygons, defined as a list of Cartesian3 positions in counter-clockwise winding order.
- * @param {Ellipsoid} ellipsoid The ellipsoid to be used as a reference.
- * @param {ArcType} arcType The type of line the polygon edges must follow. Valid options are {@link ArcType.GEODESIC} and {@link ArcType.RHUMB}.
- * @param {Array<Cartesian3[]>} [result] An array of split polygons.
+ * @param {Array<Cartesian3[]>} outerRings 多边形数组，按逆时针环绕顺序定义为Cartesian3位置列表。
+ * @param {Ellipsoid} ellipsoid 用作参考的椭球体。
+ * @param {ArcType} arcType 多边形边必须遵循的线类型。有效选项为{@link ArcType.GEODESIC}和{@link ArcType.RHUMB}。
+ * @param {Array<Cartesian3[]>} [result] 分割后的多边形数组。
  *
- * @returns {Array<Cartesian3[]>} An array of split polygons.
+ * @returns {Array<Cartesian3[]>} 分割后的多边形数组。
  */
 PolygonGeometryLibrary.splitPolygonsOnEquator = function (
   outerRings,
@@ -741,7 +741,7 @@ PolygonGeometryLibrary.splitPolygonsOnEquator = function (
       continue;
     }
 
-    // Step 1: Get all edges which intersect the split line, splciing any found intersections points into the list of positions
+    // Step 1: Get all edges which intersect the split line, splicing any found intersections points into the list of positions
     const edgesOnPlane = computeEdgesOnPlane(positions, ellipsoid, arcType);
     // If nothing intersected (no point were added), or there is only a single point on the plane, use the original polygon
     if (positions.length === outerRing.length || edgesOnPlane.length <= 1) {

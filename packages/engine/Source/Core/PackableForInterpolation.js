@@ -1,9 +1,7 @@
 import DeveloperError from "./DeveloperError.js";
 
 /**
- * Static interface for {@link Packable} types which are interpolated in a
- * different representation than their packed value.  These methods and
- * properties are expected to be defined on a constructor function.
+ * {@link Packable}类型的静态接口，这些类型以其打包值的不同表示形式进行插值。这些方法和属性应在构造函数上定义。
  *
  * @namespace PackableForInterpolation
  *
@@ -11,32 +9,32 @@ import DeveloperError from "./DeveloperError.js";
  */
 const PackableForInterpolation = {
   /**
-   * The number of elements used to store the object into an array in its interpolatable form.
+   * 以其可插值形式将对象存储到数组中所需的元素数量。
    * @type {number}
    */
   packedInterpolationLength: undefined,
 
   /**
-   * Converts a packed array into a form suitable for interpolation.
+   * 将打包数组转换为适合插值的形式。
    * @function
    *
-   * @param {number[]} packedArray The packed array.
-   * @param {number} [startingIndex=0] The index of the first element to be converted.
-   * @param {number} [lastIndex=packedArray.length] The index of the last element to be converted.
-   * @param {number[]} [result] The object into which to store the result.
+   * @param {number[]} packedArray 打包数组。
+   * @param {number} [startingIndex=0] 要转换的第一个元素的索引。
+   * @param {number} [lastIndex=packedArray.length] 要转换的最后一个元素的索引。
+   * @param {number[]} [result] 用于存储结果的对象。
    */
   convertPackedArrayForInterpolation: DeveloperError.throwInstantiationError,
 
   /**
-   * Retrieves an instance from a packed array converted with {@link PackableForInterpolation.convertPackedArrayForInterpolation}.
+   * 从使用{@link PackableForInterpolation.convertPackedArrayForInterpolation}转换的打包数组中检索实例。
    * @function
    *
-   * @param {number[]} array The array previously packed for interpolation.
-   * @param {number[]} sourceArray The original packed array.
-   * @param {number} [startingIndex=0] The startingIndex used to convert the array.
-   * @param {number} [lastIndex=packedArray.length] The lastIndex used to convert the array.
-   * @param {object} [result] The object into which to store the result.
-   * @returns {object} The modified result parameter or a new Object instance if one was not provided.
+   * @param {number[]} array 之前为插值打包的数组。
+   * @param {number[]} sourceArray 原始打包数组。
+   * @param {number} [startingIndex=0] 用于转换数组的startingIndex。
+   * @param {number} [lastIndex=packedArray.length] 用于转换数组的lastIndex。
+   * @param {object} [result] 用于存储结果的对象。
+   * @returns {object} 修改后的result参数，如果未提供则返回一个新的Object实例。
    */
   unpackInterpolationResult: DeveloperError.throwInstantiationError,
 };

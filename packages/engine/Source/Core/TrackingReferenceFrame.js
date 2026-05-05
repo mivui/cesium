@@ -1,17 +1,17 @@
 // @ts-check
 
 /**
- * Constants for identifying well-known tracking reference frames.
+ * 用于标识已知跟踪参考系的常量。
  *
  * @enum {number}
  */
 const TrackingReferenceFrame = {
   /**
-   * Auto-detect algorithm. The reference frame used to track the Entity will
-   * be automatically selected based on its trajectory: near-surface slow moving
-   * objects will be tracked in the entity's local east-north-up reference
-   * frame, while faster objects like satellites will use VVLH (Vehicle Velocity,
-   * Local Horizontal).
+   * 自动检测算法。用于跟踪实体的参考系将
+   * 根据其轨迹自动选择：近地表慢速移动
+   * 对象将在实体的局部东-北-上参考系中跟踪，
+   * 而卫星等快速对象将使用 VVLH（载体速度，
+   * 局部水平）。
    *
    * @type {number}
    * @constant
@@ -19,7 +19,7 @@ const TrackingReferenceFrame = {
   AUTODETECT: 0,
 
   /**
-   * The entity's local East-North-Up reference frame.
+   * 实体的局部东-北-上参考系。
    *
    * @type {number}
    * @constant
@@ -27,8 +27,8 @@ const TrackingReferenceFrame = {
   ENU: 1,
 
   /**
-   * The entity's inertial reference frame. If entity has no defined orientation
-   * property, it falls back to auto-detect algorithm.
+   * 实体的惯性参考系。如果实体没有定义方向
+   * 属性，则回退到自动检测算法。
    *
    * @type {number}
    * @constant
@@ -36,8 +36,8 @@ const TrackingReferenceFrame = {
   INERTIAL: 2,
 
   /**
-   * The entity's inertial reference frame with orientation fixed to its
-   * {@link VelocityOrientationProperty}, ignoring its own orientation.
+   * 实体的惯性参考系，其方向固定为
+   * {@link VelocityOrientationProperty}，忽略其自身方向。
    *
    * @type {number}
    * @constant

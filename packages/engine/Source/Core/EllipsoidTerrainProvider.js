@@ -7,19 +7,14 @@ import HeightmapTerrainData from "./HeightmapTerrainData.js";
 import TerrainProvider from "./TerrainProvider.js";
 
 /**
- * A very simple {@link TerrainProvider} that produces geometry by tessellating an ellipsoidal
- * surface.
+ * 一个非常简单的{@link TerrainProvider}，通过对椭球表面进行细分来生成几何图形。
  *
  * @alias EllipsoidTerrainProvider
  * @constructor
  *
- * @param {object} [options] Object with the following properties:
- * @param {TilingScheme} [options.tilingScheme] The tiling scheme specifying how the ellipsoidal
- * surface is broken into tiles.  If this parameter is not provided, a {@link GeographicTilingScheme}
- * is used.
- * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] The ellipsoid.  If the tilingScheme is specified,
- * this parameter is ignored and the tiling scheme's ellipsoid is used instead. If neither
- * parameter is specified, the default ellipsoid is used.
+ * @param {object} [options] 具有以下属性的对象：
+ * @param {TilingScheme} [options.tilingScheme] 指定椭球表面如何分割为瓦片的瓦片方案。如果未提供此参数，则使用{@link GeographicTilingScheme}。
+ * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] 椭球体。如果指定了tilingScheme，则此参数将被忽略，转而使用瓦片方案的椭球体。如果两者都未指定，则使用默认椭球体。
  *
  * @see TerrainProvider
  */
@@ -47,9 +42,7 @@ function EllipsoidTerrainProvider(options) {
 
 Object.defineProperties(EllipsoidTerrainProvider.prototype, {
   /**
-   * Gets an event that is raised when the terrain provider encounters an asynchronous error.  By subscribing
-   * to the event, you will be notified of the error and can potentially recover from it.  Event listeners
-   * are passed an instance of {@link TileProviderError}.
+   * 获取当地形提供程序遇到异步错误时引发的事件。通过订阅此事件，您将收到错误通知并可能从中恢复。事件监听器会收到{@link TileProviderError}的实例。
    * @memberof EllipsoidTerrainProvider.prototype
    * @type {Event}
    * @readonly
@@ -61,8 +54,7 @@ Object.defineProperties(EllipsoidTerrainProvider.prototype, {
   },
 
   /**
-   * Gets the credit to display when this terrain provider is active.  Typically this is used to credit
-   * the source of the terrain.
+   * 获取当此地形提供程序处于活动状态时要显示的信用声明。通常用于标注地形的来源。
    * @memberof EllipsoidTerrainProvider.prototype
    * @type {Credit}
    * @readonly
@@ -74,7 +66,7 @@ Object.defineProperties(EllipsoidTerrainProvider.prototype, {
   },
 
   /**
-   * Gets the tiling scheme used by this provider.
+   * 获取此提供程序使用的瓦片方案。
    * @memberof EllipsoidTerrainProvider.prototype
    * @type {GeographicTilingScheme}
    * @readonly
@@ -86,9 +78,7 @@ Object.defineProperties(EllipsoidTerrainProvider.prototype, {
   },
 
   /**
-   * Gets a value indicating whether or not the provider includes a water mask.  The water mask
-   * indicates which areas of the globe are water rather than land, so they can be rendered
-   * as a reflective surface with animated waves.
+   * 获取一个值，指示提供程序是否包含水掩码。水掩码用于标识地球上的水域区域而非陆地，以便将其渲染为带有动画波纹的反射表面。
    * @memberof EllipsoidTerrainProvider.prototype
    * @type {boolean}
    * @readonly
@@ -100,7 +90,7 @@ Object.defineProperties(EllipsoidTerrainProvider.prototype, {
   },
 
   /**
-   * Gets a value indicating whether or not the requested tiles include vertex normals.
+   * 获取一个值，指示请求的瓦片是否包含顶点法线。
    * @memberof EllipsoidTerrainProvider.prototype
    * @type {boolean}
    * @readonly
@@ -111,9 +101,7 @@ Object.defineProperties(EllipsoidTerrainProvider.prototype, {
     },
   },
   /**
-   * Gets an object that can be used to determine availability of terrain from this provider, such as
-   * at points and in rectangles. This property may be undefined if availability
-   * information is not available.
+   * 获取一个可用于确定此提供程序地形可用性的对象，例如在点和矩形中。如果可用性信息不可用，此属性可能为undefined。
    * @memberof EllipsoidTerrainProvider.prototype
    * @type {TileAvailability|undefined}
    * @readonly
@@ -126,17 +114,14 @@ Object.defineProperties(EllipsoidTerrainProvider.prototype, {
 });
 
 /**
- * Requests the geometry for a given tile. The result includes terrain
- * data and indicates that all child tiles are available.
+ * 请求给定瓦片的几何数据。结果包含地形数据并指示所有子瓦片都可用。
  *
- * @param {number} x The X coordinate of the tile for which to request geometry.
- * @param {number} y The Y coordinate of the tile for which to request geometry.
- * @param {number} level The level of the tile for which to request geometry.
- * @param {Request} [request] The request object. Intended for internal use only.
+ * @param {number} x 请求几何数据的瓦片X坐标。
+ * @param {number} y 请求几何数据的瓦片Y坐标。
+ * @param {number} level 请求几何数据的瓦片层级。
+ * @param {Request} [request] 请求对象。仅供内部使用。
  *
- * @returns {Promise<TerrainData>|undefined} A promise for the requested geometry.  If this method
- *          returns undefined instead of a promise, it is an indication that too many requests are already
- *          pending and the request will be retried later.
+ * @returns {Promise<TerrainData>|undefined} 请求几何数据的Promise。如果此方法返回undefined而不是Promise，则表示已有太多待处理请求，稍后将重试该请求。
  */
 EllipsoidTerrainProvider.prototype.requestTileGeometry = function (
   x,
@@ -156,10 +141,10 @@ EllipsoidTerrainProvider.prototype.requestTileGeometry = function (
 };
 
 /**
- * Gets the maximum geometric error allowed in a tile at a given level.
+ * 获取给定层级瓦片允许的最大几何误差。
  *
- * @param {number} level The tile level for which to get the maximum geometric error.
- * @returns {number} The maximum geometric error.
+ * @param {number} level 要获取最大几何误差的瓦片层级。
+ * @returns {number} 最大几何误差。
  */
 EllipsoidTerrainProvider.prototype.getLevelMaximumGeometricError = function (
   level,
@@ -168,12 +153,12 @@ EllipsoidTerrainProvider.prototype.getLevelMaximumGeometricError = function (
 };
 
 /**
- * Determines whether data for a tile is available to be loaded.
+ * 确定瓦片的数据是否可加载。
  *
- * @param {number} x The X coordinate of the tile for which to request geometry.
- * @param {number} y The Y coordinate of the tile for which to request geometry.
- * @param {number} level The level of the tile for which to request geometry.
- * @returns {boolean|undefined} Undefined if not supported, otherwise true or false.
+ * @param {number} x 请求几何数据的瓦片X坐标。
+ * @param {number} y 请求几何数据的瓦片Y坐标。
+ * @param {number} level 请求几何数据的瓦片层级。
+ * @returns {boolean|undefined} 如果不支持则返回undefined，否则返回true或false。
  */
 EllipsoidTerrainProvider.prototype.getTileDataAvailable = function (
   x,
@@ -184,12 +169,12 @@ EllipsoidTerrainProvider.prototype.getTileDataAvailable = function (
 };
 
 /**
- * Makes sure we load availability data for a tile
+ * 确保我们为瓦片加载可用性数据
  *
- * @param {number} x The X coordinate of the tile for which to request geometry.
- * @param {number} y The Y coordinate of the tile for which to request geometry.
- * @param {number} level The level of the tile for which to request geometry.
- * @returns {undefined} This provider does not support loading availability.
+ * @param {number} x 请求几何数据的瓦片X坐标。
+ * @param {number} y 请求几何数据的瓦片Y坐标。
+ * @param {number} level 请求几何数据的瓦片层级。
+ * @returns {undefined} 此提供程序不支持加载可用性数据。
  */
 EllipsoidTerrainProvider.prototype.loadTileDataAvailability = function (
   x,

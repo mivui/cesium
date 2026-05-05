@@ -30,11 +30,11 @@ const defaultKey = stringToBuffer(
 
 /**
  * <div class="notice">
- * To construct GoogleEarthEnterpriseMetadata, call {@link GoogleEarthEnterpriseMetadata.fromUrl}. Do not call the constructor directly.
+ * 要构造 GoogleEarthEnterpriseMetadata，请调用 {@link GoogleEarthEnterpriseMetadata.fromUrl}。不要直接调用构造函数。
  * </div>
  *
- * Provides metadata using the Google Earth Enterprise REST API. This is used by the GoogleEarthEnterpriseImageryProvider
- *  and GoogleEarthEnterpriseTerrainProvider to share metadata requests.
+ * 使用 Google Earth Enterprise REST API 提供元数据。这由 GoogleEarthEnterpriseImageryProvider
+ * 和 GoogleEarthEnterpriseTerrainProvider 使用以共享元数据请求。
  *
  * @alias GoogleEarthEnterpriseMetadata
  * @constructor
@@ -45,49 +45,49 @@ const defaultKey = stringToBuffer(
  */
 function GoogleEarthEnterpriseMetadata(resourceOrUrl) {
   /**
-   * True if imagery is available.
+   * 如果影像可用则为 true。
    * @type {boolean}
    * @default true
    */
   this.imageryPresent = true;
 
   /**
-   * True if imagery is sent as a protocol buffer, false if sent as plain images. If undefined we will try both.
+   * 如果影像以协议缓冲区形式发送则为 true，如果以普通图像形式发送则为 false。如果未定义，我们将两者都尝试。
    * @type {boolean|undefined}
    * @default undefined
    */
   this.protoImagery = undefined;
 
   /**
-   * True if terrain is available.
+   * 如果地形可用则为 true。
    * @type {boolean}
    * @default true
    */
   this.terrainPresent = true;
 
   /**
-   * Exponent used to compute constant to calculate negative height values.
+   * 用于计算常量以计算负高度值的指数。
    * @type {number}
    * @default 32
    */
   this.negativeAltitudeExponentBias = 32;
 
   /**
-   * Threshold where any numbers smaller are actually negative values. They are multiplied by -2^negativeAltitudeExponentBias.
+   * 小于该值的数字实际上是负值的阈值。它们将乘以 -2^negativeAltitudeExponentBias。
    * @type {number}
    * @default EPSILON12
    */
   this.negativeAltitudeThreshold = CesiumMath.EPSILON12;
 
   /**
-   * Dictionary of provider id to copyright strings.
+   * 提供者 ID 到版权字符串的字典。
    * @type {object}
    * @default {}
    */
   this.providers = {};
 
   /**
-   * Key used to decode packets
+   * 用于解码数据包的密钥。
    * @type {ArrayBuffer}
    */
   this.key = undefined;
@@ -100,7 +100,7 @@ function GoogleEarthEnterpriseMetadata(resourceOrUrl) {
 
 Object.defineProperties(GoogleEarthEnterpriseMetadata.prototype, {
   /**
-   * Gets the name of the Google Earth Enterprise server.
+   * 获取 Google Earth Enterprise 服务器的名称。
    * @memberof GoogleEarthEnterpriseMetadata.prototype
    * @type {string}
    * @readonly
@@ -112,7 +112,7 @@ Object.defineProperties(GoogleEarthEnterpriseMetadata.prototype, {
   },
 
   /**
-   * Gets the proxy used for metadata requests.
+   * 获取用于元数据请求的代理。
    * @memberof GoogleEarthEnterpriseMetadata.prototype
    * @type {Proxy}
    * @readonly
@@ -124,7 +124,7 @@ Object.defineProperties(GoogleEarthEnterpriseMetadata.prototype, {
   },
 
   /**
-   * Gets the resource used for metadata requests.
+   * 获取用于元数据请求的资源。
    * @memberof GoogleEarthEnterpriseMetadata.prototype
    * @type {Resource}
    * @readonly
@@ -137,12 +137,12 @@ Object.defineProperties(GoogleEarthEnterpriseMetadata.prototype, {
 });
 
 /**
- * Creates a metadata object using the Google Earth Enterprise REST API. This is used by the GoogleEarthEnterpriseImageryProvider
- * and GoogleEarthEnterpriseTerrainProvider to share metadata requests.
+ * 使用 Google Earth Enterprise REST API 创建元数据对象。这由 GoogleEarthEnterpriseImageryProvider
+ * 和 GoogleEarthEnterpriseTerrainProvider 使用以共享元数据请求。
  *
- * @param {Resource|string} resourceOrUrl The url of the Google Earth Enterprise server hosting the imagery.
+ * @param {Resource|string} resourceOrUrl 托管影像的 Google Earth Enterprise 服务器的 URL。
  *
- * @returns {Promise<GoogleEarthEnterpriseMetadata>} A promise which resolves to the created GoogleEarthEnterpriseMetadata instance/
+ * @returns {Promise<GoogleEarthEnterpriseMetadata>} 一个 Promise，解析为创建的 GoogleEarthEnterpriseMetadata 实例。
  */
 GoogleEarthEnterpriseMetadata.fromUrl = async function (resourceOrUrl) {
   //>>includeStart('debug', pragmas.debug);
@@ -179,12 +179,11 @@ GoogleEarthEnterpriseMetadata.fromUrl = async function (resourceOrUrl) {
 };
 
 /**
- * Converts a tiles (x, y, level) position into a quadkey used to request an image
- * from a Google Earth Enterprise server.
+ * 将图块的 (x, y, level) 位置转换为用于从 Google Earth Enterprise 服务器请求影像的四叉树键。
  *
- * @param {number} x The tile's x coordinate.
- * @param {number} y The tile's y coordinate.
- * @param {number} level The tile's zoom level.
+ * @param {number} x 图块的 x 坐标。
+ * @param {number} y 图块的 y 坐标。
+ * @param {number} level 图块的缩放级别。
  *
  * @see GoogleEarthEnterpriseMetadata#quadKeyToTileXY
  */
@@ -221,10 +220,9 @@ GoogleEarthEnterpriseMetadata.tileXYToQuadKey = function (x, y, level) {
 };
 
 /**
- * Converts a tile's quadkey used to request an image from a Google Earth Enterprise server into the
- * (x, y, level) position.
+ * 将用于从 Google Earth Enterprise 服务器请求影像的四叉树键转换为图块的 (x, y, level) 位置。
  *
- * @param {string} quadkey The tile's quad key
+ * @param {string} quadkey 图块的四叉树键。
  *
  * @see GoogleEarthEnterpriseMetadata#tileXYToQuadKey
  */

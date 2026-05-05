@@ -9,15 +9,15 @@ import DeveloperError from "./DeveloperError.js";
 const url = "https://dev.virtualearth.net/REST/v1/Locations";
 
 /**
- * Provides geocoding through Bing Maps.
+ * 通过必应地图提供地理编码服务。
  *
  * @see {@link https://www.microsoft.com/en-us/maps/bing-maps/product|Microsoft Bing Maps Platform APIs Terms Of Use}
  * @alias BingMapsGeocoderService
  * @constructor
  *
- * @param {object} options Object with the following properties:
- * @param {string} options.key A key to use with the Bing Maps geocoding service
- * @param {string} [options.culture] A Bing Maps {@link https://docs.microsoft.com/en-us/bingmaps/rest-services/common-parameters-and-types/supported-culture-codes|Culture Code} to return results in a specific culture and language.
+ * @param {object} options 具有下列属性的对象：
+ * @param {string} options.key 用于必应地图地理编码服务的密钥
+ * @param {string} [options.culture] 必应地图{@link https://docs.microsoft.com/en-us/bingmaps/rest-services/common-parameters-and-types/supported-culture-codes|文化代码}，用于以特定文化和语言返回结果。
  */
 function BingMapsGeocoderService(options) {
   options = options ?? Frozen.EMPTY_OBJECT;
@@ -51,7 +51,7 @@ function BingMapsGeocoderService(options) {
 
 Object.defineProperties(BingMapsGeocoderService.prototype, {
   /**
-   * The URL endpoint for the Bing geocoder service
+   * 必应地理编码服务的URL端点
    * @type {string}
    * @memberof BingMapsGeocoderService.prototype
    * @readonly
@@ -63,7 +63,7 @@ Object.defineProperties(BingMapsGeocoderService.prototype, {
   },
 
   /**
-   * The key for the Bing geocoder service
+   * 必应地理编码服务的密钥
    * @type {string}
    * @memberof BingMapsGeocoderService.prototype
    * @readonly
@@ -74,8 +74,7 @@ Object.defineProperties(BingMapsGeocoderService.prototype, {
     },
   },
   /**
-   * Gets the credit to display after a geocode is performed. Typically this is used to credit
-   * the geocoder service.
+   * 获取地理编码执行后要显示的信用信息。通常用于给地理编码服务署名。
    * @memberof BingMapsGeocoderService.prototype
    * @type {Credit|undefined}
    * @readonly
@@ -90,7 +89,7 @@ Object.defineProperties(BingMapsGeocoderService.prototype, {
 /**
  * @function
  *
- * @param {string} query The query to be sent to the geocoder service
+ * @param {string} query 要发送到地理编码服务的查询
  * @returns {Promise<GeocoderService.Result[]>}
  */
 BingMapsGeocoderService.prototype.geocode = async function (query) {

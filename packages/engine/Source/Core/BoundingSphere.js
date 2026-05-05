@@ -20,7 +20,7 @@ import Rectangle from "./Rectangle.js";
 /** @import Occluder from "./Occluder.js"; */
 
 /**
- * A bounding sphere with a center and a radius.
+ * 具有中心和半径的边界球。
  *
  * @see AxisAlignedBoundingBox
  * @see BoundingRectangle
@@ -32,31 +32,31 @@ class BoundingSphere {
    * @param {number} [radius=0.0] The radius of the bounding sphere.
    */
   constructor(center, radius) {
-    /**
-     * The center point of the sphere.
-     * @type {Cartesian3}
-     * @default {@link Cartesian3.ZERO}
-     */
+  /**
+   * 球体的中心点。
+   * @type {Cartesian3}
+   * @default {@link Cartesian3.ZERO}
+   */
     this.center = Cartesian3.clone(center ?? Cartesian3.ZERO);
 
-    /**
-     * The radius of the sphere.
-     * @type {number}
-     * @default 0.0
-     */
+  /**
+   * 球体的半径。
+   * @type {number}
+   * @default 0.0
+   */
     this.radius = radius ?? 0.0;
   }
 
   /**
-   * Computes a tight-fitting bounding sphere enclosing a list of 3D Cartesian points.
-   * The bounding sphere is computed by running two algorithms, a naive algorithm and
-   * Ritter's algorithm. The smaller of the two spheres is used to ensure a tight fit.
+   * 计算包围3D笛卡尔点列表的紧密边界球。
+   * 边界球通过运行两种算法来计算：朴素算法和
+   * Ritter算法。使用两个球中较小的那个以确保紧密拟合。
    *
-   * @param {Cartesian3[]} [positions] An array of points that the bounding sphere will enclose.  Each point must have <code>x</code>, <code>y</code>, and <code>z</code> properties.
-   * @param {BoundingSphere} [result] The object onto which to store the result.
-   * @returns {BoundingSphere} The modified result parameter or a new BoundingSphere instance if one was not provided.
+   * @param {Cartesian3[]} [positions] 边界球将包围的点数组。每个点必须具有<code>x</code>、<code>y</code>和<code>z</code>属性。
+   * @param {BoundingSphere} [result] 存储结果的对象。
+   * @returns {BoundingSphere} 修改后的结果参数；如果未提供则返回新的BoundingSphere实例。
    *
-   * @see {@link http://help.agi.com/AGIComponents/html/BlogBoundingSphere.htm|Bounding Sphere computation article}
+   * @see {@link http://help.agi.com/AGIComponents/html/BlogBoundingSphere.htm|边界球计算文章}
    */
   static fromPoints(positions, result) {
     if (!defined(result)) {
@@ -217,12 +217,12 @@ class BoundingSphere {
   }
 
   /**
-   * Computes a bounding sphere from a rectangle projected in 2D.
+   * 从投影到2D的矩形计算边界球。
    *
-   * @param {Rectangle} [rectangle] The rectangle around which to create a bounding sphere.
-   * @param {MapProjection} [projection=GeographicProjection] The projection used to project the rectangle into 2D.
-   * @param {BoundingSphere} [result] The object onto which to store the result.
-   * @returns {BoundingSphere} The modified result parameter or a new BoundingSphere instance if none was provided.
+   * @param {Rectangle} [rectangle] 要创建边界球的矩形。
+   * @param {MapProjection} [projection=GeographicProjection] 用于将矩形投影到2D的投影。
+   * @param {BoundingSphere} [result] 存储结果的对象。
+   * @returns {BoundingSphere} 修改后的结果参数；如果未提供则返回新的BoundingSphere实例。
    */
   static fromRectangle2D(rectangle, projection, result) {
     return BoundingSphere.fromRectangleWithHeights2D(
@@ -235,15 +235,15 @@ class BoundingSphere {
   }
 
   /**
-   * Computes a bounding sphere from a rectangle projected in 2D.  The bounding sphere accounts for the
-   * object's minimum and maximum heights over the rectangle.
+   * 从投影到2D的矩形计算边界球。边界球考虑了
+   * 矩形上对象的最小和最大高度。
    *
-   * @param {Rectangle} [rectangle] The rectangle around which to create a bounding sphere.
-   * @param {MapProjection} [projection=GeographicProjection] The projection used to project the rectangle into 2D.
-   * @param {number} [minimumHeight=0.0] The minimum height over the rectangle.
-   * @param {number} [maximumHeight=0.0] The maximum height over the rectangle.
-   * @param {BoundingSphere} [result] The object onto which to store the result.
-   * @returns {BoundingSphere} The modified result parameter or a new BoundingSphere instance if none was provided.
+   * @param {Rectangle} [rectangle] 要创建边界球的矩形。
+   * @param {MapProjection} [projection=GeographicProjection] 用于将矩形投影到2D的投影。
+   * @param {number} [minimumHeight=0.0] 矩形上的最小高度。
+   * @param {number} [maximumHeight=0.0] 矩形上的最大高度。
+   * @param {BoundingSphere} [result] 存储结果的对象。
+   * @returns {BoundingSphere} 修改后的结果参数；如果未提供则返回新的BoundingSphere实例。
    */
   static fromRectangleWithHeights2D(
     rectangle,
@@ -293,14 +293,14 @@ class BoundingSphere {
   }
 
   /**
-   * Computes a bounding sphere from a rectangle in 3D. The bounding sphere is created using a subsample of points
-   * on the ellipsoid and contained in the rectangle. It may not be accurate for all rectangles on all types of ellipsoids.
+   * 从3D矩形计算边界球。边界球使用椭球上并包含在矩形中的
+   * 点的子采样创建。对于所有类型的椭球上的所有矩形，这可能不准确。
    *
-   * @param {Rectangle} [rectangle] The valid rectangle used to create a bounding sphere.
-   * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] The ellipsoid used to determine positions of the rectangle.
-   * @param {number} [surfaceHeight=0.0] The height above the surface of the ellipsoid.
-   * @param {BoundingSphere} [result] The object onto which to store the result.
-   * @returns {BoundingSphere} The modified result parameter or a new BoundingSphere instance if none was provided.
+   * @param {Rectangle} [rectangle] 用于创建边界球的有效矩形。
+   * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] 用于确定矩形位置的椭球。
+   * @param {number} [surfaceHeight=0.0] 椭球表面以上的高度。
+   * @param {BoundingSphere} [result] 存储结果的对象。
+   * @returns {BoundingSphere} 修改后的结果参数；如果未提供则返回新的BoundingSphere实例。
    */
   static fromRectangle3D(rectangle, ellipsoid, surfaceHeight, result) {
     ellipsoid = ellipsoid ?? Ellipsoid.default;
@@ -326,36 +326,36 @@ class BoundingSphere {
   }
 
   /**
-   * Computes a tight-fitting bounding sphere enclosing a list of 3D points, where the points are
-   * stored in a flat array in X, Y, Z, order.  The bounding sphere is computed by running two
-   * algorithms, a naive algorithm and Ritter's algorithm. The smaller of the two spheres is used to
-   * ensure a tight fit.
+   * 计算包围3D点列表的紧密边界球，其中点以
+   * X、Y、Z顺序存储在扁平数组中。边界球通过运行两种
+   * 算法来计算：朴素算法和Ritter算法。使用两个球中较小的那个来
+   * 确保紧密拟合。
    *
-   * @param {number[]|TypedArray} [positions] An array of points that the bounding sphere will enclose.  Each point
-   *        is formed from three elements in the array in the order X, Y, Z.
-   * @param {Cartesian3} [center=Cartesian3.ZERO] The position to which the positions are relative, which need not be the
-   *        origin of the coordinate system.  This is useful when the positions are to be used for
-   *        relative-to-center (RTC) rendering.
-   * @param {number} [stride=3] The number of array elements per vertex.  It must be at least 3, but it may
-   *        be higher.  Regardless of the value of this parameter, the X coordinate of the first position
-   *        is at array index 0, the Y coordinate is at array index 1, and the Z coordinate is at array index
-   *        2.  When stride is 3, the X coordinate of the next position then begins at array index 3.  If
-   *        the stride is 5, however, two array elements are skipped and the next position begins at array
-   *        index 5.
-   * @param {BoundingSphere} [result] The object onto which to store the result.
-   * @returns {BoundingSphere} The modified result parameter or a new BoundingSphere instance if one was not provided.
+   * @param {number[]|TypedArray} [positions] 边界球将包围的点数组。每个点
+   *        由数组中三个元素按X、Y、Z顺序组成。
+   * @param {Cartesian3} [center=Cartesian3.ZERO] 位置相对于的参考点，不必是
+   *        坐标系的原点。当位置用于
+   *        相对中心（RTC）渲染时，这很有用。
+   * @param {number} [stride=3] 每个顶点的数组元素数量。必须至少为3，但可以
+   *        更高。无论此参数的值如何，第一个位置的X坐标
+   *        位于数组索引0，Y坐标位于数组索引1，Z坐标位于数组索引
+   *        2。当步幅为3时，下一个位置的X坐标从数组索引3开始。如果
+   *        步幅为5，则跳过两个数组元素，下一个位置从数组
+   *        索引5开始。
+   * @param {BoundingSphere} [result] 存储结果的对象。
+   * @returns {BoundingSphere} 修改后的结果参数；如果未提供则返回新的BoundingSphere实例。
    *
    * @example
-   * // Compute the bounding sphere from 3 positions, each specified relative to a center.
-   * // In addition to the X, Y, and Z coordinates, the points array contains two additional
-   * // elements per point which are ignored for the purpose of computing the bounding sphere.
+   * // 从3个位置计算边界球，每个位置相对于一个中心指定。
+   * // 除了X、Y和Z坐标外，点数组还包含每个点额外的
+   * // 两个元素，在计算边界球时会被忽略。
    * const center = new Cesium.Cartesian3(1.0, 2.0, 3.0);
    * const points = [1.0, 2.0, 3.0, 0.1, 0.2,
    *               4.0, 5.0, 6.0, 0.1, 0.2,
    *               7.0, 8.0, 9.0, 0.1, 0.2];
    * const sphere = Cesium.BoundingSphere.fromVertices(points, center, 5);
    *
-   * @see {@link http://blogs.agi.com/insight3d/index.php/2008/02/04/a-bounding/|Bounding Sphere computation article}
+   * @see {@link http://blogs.agi.com/insight3d/index.php/2008/02/04/a-bounding/|边界球计算文章}
    */
   static fromVertices(positions, center, stride, result) {
     if (!defined(result)) {
@@ -531,19 +531,19 @@ class BoundingSphere {
   }
 
   /**
-   * Computes a tight-fitting bounding sphere enclosing a list of EncodedCartesian3s, where the points are
-   * stored in parallel flat arrays in X, Y, Z, order.  The bounding sphere is computed by running two
-   * algorithms, a naive algorithm and Ritter's algorithm. The smaller of the two spheres is used to
-   * ensure a tight fit.
+   * 计算包围EncodedCartesian3列表的紧密边界球，其中点
+   * 以X、Y、Z顺序存储在并行扁平数组中。边界球通过运行两种
+   * 算法来计算：朴素算法和Ritter算法。使用两个球中较小的那个来
+   * 确保紧密拟合。
    *
-   * @param {number[]} [positionsHigh] An array of high bits of the encoded cartesians that the bounding sphere will enclose.  Each point
-   *        is formed from three elements in the array in the order X, Y, Z.
-   * @param {number[]} [positionsLow] An array of low bits of the encoded cartesians that the bounding sphere will enclose.  Each point
-   *        is formed from three elements in the array in the order X, Y, Z.
-   * @param {BoundingSphere} [result] The object onto which to store the result.
-   * @returns {BoundingSphere} The modified result parameter or a new BoundingSphere instance if one was not provided.
+   * @param {number[]} [positionsHigh] 边界球将包围的编码笛卡尔坐标高位位数组。每个点
+   *        由数组中三个元素按X、Y、Z顺序组成。
+   * @param {number[]} [positionsLow] 边界球将包围的编码笛卡尔坐标低位位数组。每个点
+   *        由数组中三个元素按X、Y、Z顺序组成。
+   * @param {BoundingSphere} [result] 存储结果的对象。
+   * @returns {BoundingSphere} 修改后的结果参数；如果未提供则返回新的BoundingSphere实例。
    *
-   * @see {@link http://blogs.agi.com/insight3d/index.php/2008/02/04/a-bounding/|Bounding Sphere computation article}
+   * @see {@link http://blogs.agi.com/insight3d/index.php/2008/02/04/a-bounding/|边界球计算文章}
    */
   static fromEncodedCartesianVertices(positionsHigh, positionsLow, result) {
     if (!defined(result)) {
@@ -716,16 +716,16 @@ class BoundingSphere {
   }
 
   /**
-   * Computes a bounding sphere from the corner points of an axis-aligned bounding box.  The sphere
-   * tightly and fully encompasses the box.
+   * 从轴对齐边界框的角点计算边界球。该球
+   * 紧密且完全包围该框。
    *
-   * @param {Cartesian3} [corner] The minimum height over the rectangle.
-   * @param {Cartesian3} [oppositeCorner] The maximum height over the rectangle.
-   * @param {BoundingSphere} [result] The object onto which to store the result.
-   * @returns {BoundingSphere} The modified result parameter or a new BoundingSphere instance if none was provided.
+   * @param {Cartesian3} [corner] 矩形上的最小高度。
+   * @param {Cartesian3} [oppositeCorner] 矩形上的最大高度。
+   * @param {BoundingSphere} [result] 存储结果的对象。
+   * @returns {BoundingSphere} 修改后的结果参数；如果未提供则返回新的BoundingSphere实例。
    *
    * @example
-   * // Create a bounding sphere around the unit cube
+   * // 在单位立方体周围创建边界球
    * const sphere = Cesium.BoundingSphere.fromCornerPoints(new Cesium.Cartesian3(-0.5, -0.5, -0.5), new Cesium.Cartesian3(0.5, 0.5, 0.5));
    */
   static fromCornerPoints(corner, oppositeCorner, result) {
@@ -744,11 +744,11 @@ class BoundingSphere {
   }
 
   /**
-   * Creates a bounding sphere encompassing an ellipsoid.
+   * 创建包围椭球的边界球。
    *
-   * @param {Ellipsoid} ellipsoid The ellipsoid around which to create a bounding sphere.
-   * @param {BoundingSphere} [result] The object onto which to store the result.
-   * @returns {BoundingSphere} The modified result parameter or a new BoundingSphere instance if none was provided.
+   * @param {Ellipsoid} ellipsoid 要创建边界球的椭球。
+   * @param {BoundingSphere} [result] 存储结果的对象。
+   * @returns {BoundingSphere} 修改后的结果参数；如果未提供则返回新的BoundingSphere实例。
    *
    * @example
    * const boundingSphere = Cesium.BoundingSphere.fromEllipsoid(ellipsoid);
@@ -768,11 +768,11 @@ class BoundingSphere {
   }
 
   /**
-   * Computes a tight-fitting bounding sphere enclosing the provided array of bounding spheres.
+   * 计算包围提供的边界球数组的紧密边界球。
    *
-   * @param {BoundingSphere[]} [boundingSpheres] The array of bounding spheres.
-   * @param {BoundingSphere} [result] The object onto which to store the result.
-   * @returns {BoundingSphere} The modified result parameter or a new BoundingSphere instance if none was provided.
+   * @param {BoundingSphere[]} [boundingSpheres] 边界球数组。
+   * @param {BoundingSphere} [result] 存储结果的对象。
+   * @returns {BoundingSphere} 修改后的结果参数；如果未提供则返回新的BoundingSphere实例。
    */
   static fromBoundingSpheres(boundingSpheres, result) {
     if (!defined(result)) {
@@ -821,11 +821,11 @@ class BoundingSphere {
   }
 
   /**
-   * Computes a tight-fitting bounding sphere enclosing the provided oriented bounding box.
+   * 计算包围提供的定向边界框的紧密边界球。
    *
-   * @param {OrientedBoundingBox} orientedBoundingBox The oriented bounding box.
-   * @param {BoundingSphere} [result] The object onto which to store the result.
-   * @returns {BoundingSphere} The modified result parameter or a new BoundingSphere instance if none was provided.
+   * @param {OrientedBoundingBox} orientedBoundingBox 定向边界框。
+   * @param {BoundingSphere} [result] 存储结果的对象。
+   * @returns {BoundingSphere} 修改后的结果参数；如果未提供则返回新的BoundingSphere实例。
    */
   static fromOrientedBoundingBox(orientedBoundingBox, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -851,11 +851,11 @@ class BoundingSphere {
   }
 
   /**
-   * Computes a tight-fitting bounding sphere enclosing the provided affine transformation.
+   * 计算包围提供的仿射变换的紧密边界球。
    *
-   * @param {Matrix4} transformation The affine transformation.
-   * @param {BoundingSphere} [result] The object onto which to store the result.
-   * @returns {BoundingSphere} The modified result parameter or a new BoundingSphere instance if none was provided.
+   * @param {Matrix4} transformation 仿射变换。
+   * @param {BoundingSphere} [result] 存储结果的对象。
+   * @returns {BoundingSphere} 修改后的结果参数；如果未提供则返回新的BoundingSphere实例。
    */
   static fromTransformation(transformation, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -882,11 +882,11 @@ class BoundingSphere {
   }
 
   /**
-   * Duplicates a BoundingSphere instance.
+   * 复制BoundingSphere实例。
    *
-   * @param {BoundingSphere} sphere The bounding sphere to duplicate.
-   * @param {BoundingSphere} [result] The object onto which to store the result.
-   * @returns {BoundingSphere} The modified result parameter or a new BoundingSphere instance if none was provided. (Returns undefined if sphere is undefined)
+   * @param {BoundingSphere} sphere 要复制的边界球。
+   * @param {BoundingSphere} [result] 存储结果的对象。
+   * @returns {BoundingSphere} 修改后的结果参数；如果未提供则返回新的BoundingSphere实例。（如果sphere未定义则返回undefined）
    */
   static clone(sphere, result) {
     if (!defined(sphere)) {
@@ -903,13 +903,13 @@ class BoundingSphere {
   }
 
   /**
-   * Stores the provided instance into the provided array.
+   * 将提供的实例存储到提供的数组中。
    *
-   * @param {BoundingSphere} value The value to pack.
-   * @param {number[]} array The array to pack into.
-   * @param {number} [startingIndex=0] The index into the array at which to start packing the elements.
+   * @param {BoundingSphere} value 要打包的值。
+   * @param {number[]} array 要打包到的数组。
+   * @param {number} [startingIndex=0] 开始打包元素的数组索引。
    *
-   * @returns {number[]} The array that was packed into
+   * @returns {number[]} 已打包的数组
    */
   static pack(value, array, startingIndex) {
     //>>includeStart('debug', pragmas.debug);
@@ -929,12 +929,12 @@ class BoundingSphere {
   }
 
   /**
-   * Retrieves an instance from a packed array.
+   * 从打包数组中检索实例。
    *
-   * @param {number[]} array The packed array.
-   * @param {number} [startingIndex=0] The starting index of the element to be unpacked.
-   * @param {BoundingSphere} [result] The object into which to store the result.
-   * @returns {BoundingSphere} The modified result parameter or a new BoundingSphere instance if one was not provided.
+   * @param {number[]} array 打包数组。
+   * @param {number} [startingIndex=0] 要解包元素的起始索引。
+   * @param {BoundingSphere} [result] 存储结果的对象。
+   * @returns {BoundingSphere} 修改后的结果参数；如果未提供则返回新的BoundingSphere实例。
    */
   static unpack(array, startingIndex, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -956,12 +956,12 @@ class BoundingSphere {
   }
 
   /**
-   * Computes a bounding sphere that contains both the left and right bounding spheres.
+   * 计算同时包含左右边界球的边界球。
    *
-   * @param {BoundingSphere} left A sphere to enclose in a bounding sphere.
-   * @param {BoundingSphere} right A sphere to enclose in a bounding sphere.
-   * @param {BoundingSphere} [result] The object onto which to store the result.
-   * @returns {BoundingSphere} The modified result parameter or a new BoundingSphere instance if none was provided.
+   * @param {BoundingSphere} left 要包含在边界球中的球。
+   * @param {BoundingSphere} right 要包含在边界球中的球。
+   * @param {BoundingSphere} [result] 存储结果的对象。
+   * @returns {BoundingSphere} 修改后的结果参数；如果未提供则返回新的BoundingSphere实例。
    */
   static union(left, right, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -1015,12 +1015,12 @@ class BoundingSphere {
   }
 
   /**
-   * Computes a bounding sphere by enlarging the provided sphere to contain the provided point.
+   * 通过扩大提供的球以包含提供的点来计算边界球。
    *
-   * @param {BoundingSphere} sphere A sphere to expand.
-   * @param {Cartesian3} point A point to enclose in a bounding sphere.
-   * @param {BoundingSphere} [result] The object onto which to store the result.
-   * @returns {BoundingSphere} The modified result parameter or a new BoundingSphere instance if none was provided.
+   * @param {BoundingSphere} sphere 要扩展的球。
+   * @param {Cartesian3} point 要包含在边界球中的点。
+   * @param {BoundingSphere} [result] 存储结果的对象。
+   * @returns {BoundingSphere} 修改后的结果参数；如果未提供则返回新的BoundingSphere实例。
    */
   static expand(sphere, point, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -1041,14 +1041,13 @@ class BoundingSphere {
   }
 
   /**
-   * Determines which side of a plane a sphere is located.
+   * 确定球位于平面的哪一侧。
    *
-   * @param {BoundingSphere} sphere The bounding sphere to test.
-   * @param {Plane} plane The plane to test against.
-   * @returns {Intersect} {@link Intersect.INSIDE} if the entire sphere is on the side of the plane
-   *                      the normal is pointing, {@link Intersect.OUTSIDE} if the entire sphere is
-   *                      on the opposite side, and {@link Intersect.INTERSECTING} if the sphere
-   *                      intersects the plane.
+   * @param {BoundingSphere} sphere 要测试的边界球。
+   * @param {Plane} plane 要测试的平面。
+   * @returns {Intersect} 如果整个球位于法线指向的平面一侧则返回{@link Intersect.INSIDE}，
+   *                      如果整个球位于相反一侧则返回{@link Intersect.OUTSIDE}，
+   *                      如果球与平面相交则返回{@link Intersect.INTERSECTING}。
    */
   static intersectPlane(sphere, plane) {
     //>>includeStart('debug', pragmas.debug);
@@ -1072,12 +1071,12 @@ class BoundingSphere {
   }
 
   /**
-   * Applies a 4x4 affine transformation matrix to a bounding sphere.
+   * 将4x4仿射变换矩阵应用于边界球。
    *
-   * @param {BoundingSphere} sphere The bounding sphere to apply the transformation to.
-   * @param {Matrix4} transform The transformation matrix to apply to the bounding sphere.
-   * @param {BoundingSphere} [result] The object onto which to store the result.
-   * @returns {BoundingSphere} The modified result parameter or a new BoundingSphere instance if none was provided.
+   * @param {BoundingSphere} sphere 要应用变换的边界球。
+   * @param {Matrix4} transform 要应用于边界球的变换矩阵。
+   * @param {BoundingSphere} [result] 存储结果的对象。
+   * @returns {BoundingSphere} 修改后的结果参数；如果未提供则返回新的BoundingSphere实例。
    */
   static transform(sphere, transform, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -1100,14 +1099,14 @@ class BoundingSphere {
   }
 
   /**
-   * Computes the estimated distance squared from the closest point on a bounding sphere to a point.
+   * 计算从边界球上最近点到某点的估计距离的平方。
    *
-   * @param {BoundingSphere} sphere The sphere.
-   * @param {Cartesian3} cartesian The point
-   * @returns {number} The distance squared from the bounding sphere to the point. Returns 0 if the point is inside the sphere.
+   * @param {BoundingSphere} sphere 球体。
+   * @param {Cartesian3} cartesian 该点
+   * @returns {number} 从边界球到该点的距离平方。如果该点在球内则返回0。
    *
    * @example
-   * // Sort bounding spheres from back to front
+   * // 从后到前对边界球排序
    * spheres.sort(function(a, b) {
    *     return Cesium.BoundingSphere.distanceSquaredTo(b, camera.positionWC) - Cesium.BoundingSphere.distanceSquaredTo(a, camera.positionWC);
    * });
@@ -1133,14 +1132,14 @@ class BoundingSphere {
   }
 
   /**
-   * Applies a 4x4 affine transformation matrix to a bounding sphere where there is no scale
-   * The transformation matrix is not verified to have a uniform scale of 1.
-   * This method is faster than computing the general bounding sphere transform using {@link BoundingSphere.transform}.
+   * 将4x4仿射变换矩阵应用于没有缩放的边界球。
+   * 变换矩阵未经验证是否具有统一的1倍缩放。
+   * 此方法比使用{@link BoundingSphere.transform}计算通用边界球变换更快。
    *
-   * @param {BoundingSphere} sphere The bounding sphere to apply the transformation to.
-   * @param {Matrix4} transform The transformation matrix to apply to the bounding sphere.
-   * @param {BoundingSphere} [result] The object onto which to store the result.
-   * @returns {BoundingSphere} The modified result parameter or a new BoundingSphere instance if none was provided.
+   * @param {BoundingSphere} sphere 要应用变换的边界球。
+   * @param {Matrix4} transform 要应用于边界球的变换矩阵。
+   * @param {BoundingSphere} [result] 存储结果的对象。
+   * @returns {BoundingSphere} 修改后的结果参数；如果未提供则返回新的BoundingSphere实例。
    *
    * @example
    * const modelMatrix = Cesium.Transforms.eastNorthUpToFixedFrame(positionOnEllipsoid);
@@ -1168,17 +1167,17 @@ class BoundingSphere {
   }
 
   /**
-   * The distances calculated by the vector from the center of the bounding sphere to position projected onto direction
-   * plus/minus the radius of the bounding sphere.
+   * 通过从边界球中心到位置的向量投影到方向计算的距离，
+   * 加上/减去边界球的半径。
    * <br>
-   * If you imagine the infinite number of planes with normal direction, this computes the smallest distance to the
-   * closest and farthest planes from position that intersect the bounding sphere.
+   * 如果想象无限多个具有法线方向的平面，这将计算从位置到
+   * 与边界球相交的最近和最远平面的最小距离。
    *
-   * @param {BoundingSphere} sphere The bounding sphere to calculate the distance to.
-   * @param {Cartesian3} position The position to calculate the distance from.
-   * @param {Cartesian3} direction The direction from position.
-   * @param {Interval} [result] A Interval to store the nearest and farthest distances.
-   * @returns {Interval} The nearest and farthest distances on the bounding sphere from position in direction.
+   * @param {BoundingSphere} sphere 要计算距离的边界球。
+   * @param {Cartesian3} position 要计算距离的位置。
+   * @param {Cartesian3} direction 从位置出发的方向。
+   * @param {Interval} [result] 用于存储最近和最远距离的Interval。
+   * @returns {Interval} 从位置沿方向到边界球的最近和最远距离。
    */
   static computePlaneDistances(sphere, position, direction, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -1204,12 +1203,12 @@ class BoundingSphere {
   }
 
   /**
-   * Creates a bounding sphere in 2D from a bounding sphere in 3D world coordinates.
+   * 从3D世界坐标中的边界球创建2D边界球。
    *
-   * @param {BoundingSphere} sphere The bounding sphere to transform to 2D.
-   * @param {MapProjection} [projection=GeographicProjection] The projection to 2D.
-   * @param {BoundingSphere} [result] The object onto which to store the result.
-   * @returns {BoundingSphere} The modified result parameter or a new BoundingSphere instance if none was provided.
+   * @param {BoundingSphere} sphere 要转换到2D的边界球。
+   * @param {MapProjection} [projection=GeographicProjection] 到2D的投影。
+   * @param {BoundingSphere} [result] 存储结果的对象。
+   * @returns {BoundingSphere} 修改后的结果参数；如果未提供则返回新的BoundingSphere实例。
    */
   static projectTo2D(sphere, projection, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -1320,11 +1319,11 @@ class BoundingSphere {
   }
 
   /**
-   * Determines whether or not a sphere is hidden from view by the occluder.
+   * 确定球是否被遮挡物遮挡而不可见。
    *
-   * @param {BoundingSphere} sphere The bounding sphere surrounding the occluded object.
-   * @param {Occluder} occluder The occluder.
-   * @returns {boolean} <code>true</code> if the sphere is not visible; otherwise <code>false</code>.
+   * @param {BoundingSphere} sphere 包围被遮挡对象的边界球。
+   * @param {Occluder} occluder 遮挡物。
+   * @returns {boolean} 如果球不可见则返回<code>true</code>；否则返回<code>false</code>。
    */
   static isOccluded(sphere, occluder) {
     //>>includeStart('debug', pragmas.debug);
@@ -1335,12 +1334,12 @@ class BoundingSphere {
   }
 
   /**
-   * Compares the provided BoundingSphere componentwise and returns
-   * <code>true</code> if they are equal, <code>false</code> otherwise.
+   * 逐组件比较提供的BoundingSphere，如果相等则返回
+   * <code>true</code>，否则返回<code>false</code>。
    *
-   * @param {BoundingSphere} [left] The first BoundingSphere.
-   * @param {BoundingSphere} [right] The second BoundingSphere.
-   * @returns {boolean} <code>true</code> if left and right are equal, <code>false</code> otherwise.
+   * @param {BoundingSphere} [left] 第一个BoundingSphere。
+   * @param {BoundingSphere} [right] 第二个BoundingSphere。
+   * @returns {boolean} 如果left和right相等则返回<code>true</code>，否则返回<code>false</code>。
    */
   static equals(left, right) {
     return (
@@ -1353,26 +1352,25 @@ class BoundingSphere {
   }
 
   /**
-   * Determines which side of a plane the sphere is located.
+   * 确定球位于平面的哪一侧。
    *
-   * @param {Plane} plane The plane to test against.
-   * @returns {Intersect} {@link Intersect.INSIDE} if the entire sphere is on the side of the plane
-   *                      the normal is pointing, {@link Intersect.OUTSIDE} if the entire sphere is
-   *                      on the opposite side, and {@link Intersect.INTERSECTING} if the sphere
-   *                      intersects the plane.
+   * @param {Plane} plane 要测试的平面。
+   * @returns {Intersect} 如果整个球位于法线指向的平面一侧则返回{@link Intersect.INSIDE}，
+   *                      如果整个球位于相反一侧则返回{@link Intersect.OUTSIDE}，
+   *                      如果球与平面相交则返回{@link Intersect.INTERSECTING}。
    */
   intersectPlane(plane) {
     return BoundingSphere.intersectPlane(this, plane);
   }
 
   /**
-   * Computes the estimated distance squared from the closest point on a bounding sphere to a point.
+   * 计算从边界球上最近点到某点的估计距离的平方。
    *
-   * @param {Cartesian3} cartesian The point
-   * @returns {number} The estimated distance squared from the bounding sphere to the point.
+   * @param {Cartesian3} cartesian 该点
+   * @returns {number} 从边界球到该点的估计距离平方。
    *
    * @example
-   * // Sort bounding spheres from back to front
+   * // 从后到前对边界球排序
    * spheres.sort(function(a, b) {
    *     return b.distanceSquaredTo(camera.positionWC) - a.distanceSquaredTo(camera.positionWC);
    * });
@@ -1382,16 +1380,16 @@ class BoundingSphere {
   }
 
   /**
-   * The distances calculated by the vector from the center of the bounding sphere to position projected onto direction
-   * plus/minus the radius of the bounding sphere.
+   * 通过从边界球中心到位置的向量投影到方向计算的距离，
+   * 加上/减去边界球的半径。
    * <br>
-   * If you imagine the infinite number of planes with normal direction, this computes the smallest distance to the
-   * closest and farthest planes from position that intersect the bounding sphere.
+   * 如果想象无限多个具有法线方向的平面，这将计算从位置到
+   * 与边界球相交的最近和最远平面的最小距离。
    *
-   * @param {Cartesian3} position The position to calculate the distance from.
-   * @param {Cartesian3} direction The direction from position.
-   * @param {Interval} [result] A Interval to store the nearest and farthest distances.
-   * @returns {Interval} The nearest and farthest distances on the bounding sphere from position in direction.
+   * @param {Cartesian3} position 要计算距离的位置。
+   * @param {Cartesian3} direction 从位置出发的方向。
+   * @param {Interval} [result] 用于存储最近和最远距离的Interval。
+   * @returns {Interval} 从位置沿方向到边界球的最近和最远距离。
    */
   computePlaneDistances(position, direction, result) {
     return BoundingSphere.computePlaneDistances(
@@ -1403,39 +1401,39 @@ class BoundingSphere {
   }
 
   /**
-   * Determines whether or not a sphere is hidden from view by the occluder.
+   * 确定球是否被遮挡物遮挡而不可见。
    *
-   * @param {Occluder} occluder The occluder.
-   * @returns {boolean} <code>true</code> if the sphere is not visible; otherwise <code>false</code>.
+   * @param {Occluder} occluder 遮挡物。
+   * @returns {boolean} 如果球不可见则返回<code>true</code>；否则返回<code>false</code>。
    */
   isOccluded(occluder) {
     return BoundingSphere.isOccluded(this, occluder);
   }
 
   /**
-   * Compares this BoundingSphere against the provided BoundingSphere componentwise and returns
-   * <code>true</code> if they are equal, <code>false</code> otherwise.
+   * 逐组件将此BoundingSphere与提供的BoundingSphere进行比较，如果相等则返回
+   * <code>true</code>，否则返回<code>false</code>。
    *
-   * @param {BoundingSphere} [right] The right hand side BoundingSphere.
-   * @returns {boolean} <code>true</code> if they are equal, <code>false</code> otherwise.
+   * @param {BoundingSphere} [right] 右侧的BoundingSphere。
+   * @returns {boolean} 如果相等则返回<code>true</code>，否则返回<code>false</code>。
    */
   equals(right) {
     return BoundingSphere.equals(this, right);
   }
 
   /**
-   * Duplicates this BoundingSphere instance.
+   * 复制此BoundingSphere实例。
    *
-   * @param {BoundingSphere} [result] The object onto which to store the result.
-   * @returns {BoundingSphere} The modified result parameter or a new BoundingSphere instance if none was provided.
+   * @param {BoundingSphere} [result] 存储结果的对象。
+   * @returns {BoundingSphere} 修改后的结果参数；如果未提供则返回新的BoundingSphere实例。
    */
   clone(result) {
     return BoundingSphere.clone(this, result);
   }
 
   /**
-   * Computes the radius of the BoundingSphere.
-   * @returns {number} The radius of the BoundingSphere.
+   * 计算BoundingSphere的半径。
+   * @returns {number} BoundingSphere的半径。
    */
   volume() {
     const radius = this.radius;
@@ -1444,7 +1442,7 @@ class BoundingSphere {
 }
 
 /**
- * The number of elements used to pack the object into an array.
+ * 用于将对象打包到数组中的元素数量。
  * @type {number}
  */
 BoundingSphere.packedLength = 4;

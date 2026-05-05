@@ -11,14 +11,14 @@ const API_URL = "https://maps.googleapis.com/maps/api/geocode/json";
 const CREDIT_HTML = `<img alt="Google" src="https://assets.ion.cesium.com/google-credit.png" style="vertical-align:-5px">`;
 
 /**
- * Provides geocoding through Google.
+ * 通过谷歌提供地理编码服务。
  *
  * @see {@link https://developers.google.com/maps/documentation/geocoding/policies|Google Geocoding Policies}
  * @alias GoogleGeocoderService
  * @constructor
  *
- * @param {object} options Object with the following properties:
- * @param {string} options.key An API key to use with the Google geocoding service
+ * @param {object} options 具有以下属性的对象：
+ * @param {string} options.key 用于谷歌地理编码服务的API密钥
  */
 function GoogleGeocoderService(options) {
   options = options ?? Frozen.EMPTY_OBJECT;
@@ -39,8 +39,7 @@ function GoogleGeocoderService(options) {
 
 Object.defineProperties(GoogleGeocoderService.prototype, {
   /**
-   * Gets the credit to display after a geocode is performed. Typically this is used to credit
-   * the geocoder service.
+   * 获取地理编码执行后要显示的信用信息。通常用于给地理编码服务署名。
    * @memberof GoogleGeocoderService.prototype
    * @type {Credit|undefined}
    * @readonly
@@ -53,13 +52,13 @@ Object.defineProperties(GoogleGeocoderService.prototype, {
 });
 
 /**
- * Get a list of possible locations that match a search string.
+ * 获取与搜索字符串匹配的可能位置列表。
  *
  * @function
  *
- * @param {string} query The query to be sent to the geocoder service
+ * @param {string} query 要发送到地理编码服务的查询
  * @returns {Promise<GeocoderService.Result[]>}
- * @throws {RuntimeError} If the services returns a status other than <code>OK</code> or <code>ZERO_RESULTS</code>
+ * @throws {RuntimeError} 如果服务返回的状态不是<code>OK</code>或<code>ZERO_RESULTS</code>
  */
 GoogleGeocoderService.prototype.geocode = async function (query) {
   // See API documentation at https://developers.google.com/maps/documentation/geocoding/requests-geocoding

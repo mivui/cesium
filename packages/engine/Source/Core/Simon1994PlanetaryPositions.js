@@ -8,32 +8,31 @@ import TimeConstants from "./TimeConstants.js";
 import TimeStandard from "./TimeStandard.js";
 
 /**
- * Contains functions for finding the Cartesian coordinates of the sun and the moon in the
- * Earth-centered inertial frame.
+ * 包含用于查找地心惯性系中太阳和月球笛卡尔坐标的函数。
  *
  * @namespace Simon1994PlanetaryPositions
  */
 const Simon1994PlanetaryPositions = {};
 
 function computeTdbMinusTtSpice(daysSinceJ2000InTerrestrialTime) {
-  /* STK Comments ------------------------------------------------------
-   * This function uses constants designed to be consistent with
-   * the SPICE Toolkit from JPL version N0051 (unitim.c)
+  /* STK 注释 ------------------------------------------------------
+   * 此函数使用的常量旨在与
+   * JPL 的 SPICE 工具包 N0051 版本（unitim.c）保持一致
    * M0 = 6.239996
    * M0Dot = 1.99096871e-7 rad/s = 0.01720197 rad/d
    * EARTH_ECC = 1.671e-2
    * TDB_AMPL = 1.657e-3 secs
    *--------------------------------------------------------------------*/
 
-  //* Values taken as specified in STK Comments except: 0.01720197 rad/day = 1.99096871e-7 rad/sec
-  //* Here we use the more precise value taken from the SPICE value 1.99096871e-7 rad/sec converted to rad/day
-  //* All other constants are consistent with the SPICE implementation of the TDB conversion
-  //* except where we treat the independent time parameter to be in TT instead of TDB.
-  //* This is an approximation made to facilitate performance due to the higher prevalance of
-  //* the TT2TDB conversion over TDB2TT in order to avoid having to iterate when converting to TDB for the JPL ephemeris.
-  //* Days are used instead of seconds to provide a slight improvement in numerical precision.
+  //* 使用 STK 注释中指定的值，除了：0.01720197 rad/day = 1.99096871e-7 rad/sec
+  //* 这里我们使用从 SPICE 值 1.99096871e-7 rad/sec 转换为 rad/day 的更精确值
+  //* 所有其他常量与 SPICE 的 TDB 转换实现一致
+  //* 除了我们这里将独立时间参数视为 TT 而不是 TDB。
+  //* 这是一种近似，为了性能而做，因为 TT2TDB 的转换比 TDB2TT 更普遍，
+  //* 以避免在转换为 TDB 以用于 JPL 星历表时必须迭代。
+  //* 使用天而不是秒来提供数值精度的小幅改进。
 
-  //* For more information see:
+  //* 更多信息参见：
   //* http://www.cv.nrao.edu/~rfisher/Ephemerides/times.html#TDB
   //* ftp://ssd.jpl.nasa.gov/pub/eph/planets/ioms/ExplSupplChap8.pdf
 
@@ -44,21 +43,21 @@ function computeTdbMinusTtSpice(daysSinceJ2000InTerrestrialTime) {
 const TdtMinusTai = 32.184;
 const J2000d = 2451545;
 function taiToTdb(date, result) {
-  //Converts TAI to TT
+  //将 TAI 转换为 TT
   result = JulianDate.addSeconds(date, TdtMinusTai, result);
 
-  //Converts TT to TDB
+  //将 TT 转换为 TDB
   const days = JulianDate.totalDays(result) - J2000d;
   result = JulianDate.addSeconds(result, computeTdbMinusTtSpice(days), result);
 
   return result;
 }
 
-const epoch = new JulianDate(2451545, 0, TimeStandard.TAI); //Actually TDB (not TAI)
+const epoch = new JulianDate(2451545, 0, TimeStandard.TAI); //实际上是 TDB（不是 TAI）
 const MetersPerKilometer = 1000.0;
 const RadiansPerDegree = CesiumMath.RADIANS_PER_DEGREE;
 const RadiansPerArcSecond = CesiumMath.RADIANS_PER_ARCSECOND;
-const MetersPerAstronomicalUnit = 1.4959787e11; // IAU 1976 value
+const MetersPerAstronomicalUnit = 1.4959787e11; // IAU 1976 值
 
 const perifocalToEquatorial = new Matrix3();
 function elementsToCartesian(
@@ -78,7 +77,7 @@ function elementsToCartesian(
   //>>includeStart('debug', pragmas.debug);
   if (inclination < 0 || inclination > CesiumMath.PI) {
     throw new DeveloperError(
-      "The inclination is out of range. Inclination must be greater than or equal to zero and less than or equal to Pi radians.",
+      "倾角超出范围。倾角必须大于或等于零且小于或等于 Pi 弧度。",
     );
   }
   //>>includeEnd('debug');
@@ -99,7 +98,7 @@ function elementsToCartesian(
       Math.acos(-1.0 / eccentricity)
   ) {
     throw new DeveloperError(
-      "The true anomaly of the hyperbolic orbit lies outside of the bounds of the hyperbola.",
+      "双曲线轨道的真近点角超出双曲线范围。",
     );
   }
   //>>includeEnd('debug');
@@ -118,7 +117,7 @@ function elementsToCartesian(
 
   //>>includeStart('debug', pragmas.debug);
   if (denom <= CesiumMath.Epsilon10) {
-    throw new DeveloperError("elements cannot be converted to cartesian");
+    throw new DeveloperError("无法将要素转换为笛卡尔坐标");
   }
   //>>includeEnd('debug');
 
@@ -137,7 +136,7 @@ function elementsToCartesian(
 function chooseOrbit(eccentricity, tolerance) {
   //>>includeStart('debug', pragmas.debug);
   if (eccentricity < 0) {
-    throw new DeveloperError("eccentricity cannot be negative.");
+    throw new DeveloperError("偏心率不能为负。");
   }
   //>>includeEnd('debug');
 
@@ -151,11 +150,11 @@ function chooseOrbit(eccentricity, tolerance) {
   return "Hyperbolic";
 }
 
-// Calculates the true anomaly given the mean anomaly and the eccentricity.
+// 根据平均近点角和偏心率计算真近点角。
 function meanAnomalyToTrueAnomaly(meanAnomaly, eccentricity) {
   //>>includeStart('debug', pragmas.debug);
   if (eccentricity < 0.0 || eccentricity >= 1.0) {
-    throw new DeveloperError("eccentricity out of range.");
+    throw new DeveloperError("偏心率超出范围。");
   }
   //>>includeEnd('debug');
 
@@ -168,26 +167,23 @@ function meanAnomalyToTrueAnomaly(meanAnomaly, eccentricity) {
 
 const maxIterationCount = 50;
 const keplerEqConvergence = CesiumMath.EPSILON8;
-// Calculates the eccentric anomaly given the mean anomaly and the eccentricity.
+// 根据平均近点角和偏心率计算偏近点角。
 function meanAnomalyToEccentricAnomaly(meanAnomaly, eccentricity) {
   //>>includeStart('debug', pragmas.debug);
   if (eccentricity < 0.0 || eccentricity >= 1.0) {
-    throw new DeveloperError("eccentricity out of range.");
+    throw new DeveloperError("偏心率超出范围。");
   }
   //>>includeEnd('debug');
 
   const revs = Math.floor(meanAnomaly / CesiumMath.TWO_PI);
 
-  // Find angle in current revolution
-  meanAnomaly -= revs * CesiumMath.TWO_PI;
-
-  // calculate starting value for iteration sequence
+  // 计算迭代序列的起始值
   let iterationValue =
     meanAnomaly +
     (eccentricity * Math.sin(meanAnomaly)) /
       (1.0 - Math.sin(meanAnomaly + eccentricity) + Math.sin(meanAnomaly));
 
-  // Perform Newton-Raphson iteration on Kepler's equation
+  // 对开普勒方程执行牛顿-拉夫逊迭代
   let eccentricAnomaly = Number.MAX_VALUE;
 
   let count;
@@ -208,9 +204,9 @@ function meanAnomalyToEccentricAnomaly(meanAnomaly, eccentricity) {
 
   //>>includeStart('debug', pragmas.debug);
   if (count >= maxIterationCount) {
-    throw new DeveloperError("Kepler equation did not converge");
-    // STK Components uses a numerical method to find the eccentric anomaly in the case that Kepler's
-    // equation does not converge. We don't expect that to ever be necessary for the reasonable orbits used here.
+    throw new DeveloperError("开普勒方程未收敛");
+    // STK Components 在开普勒方程未收敛时使用数值方法来查找偏近点角。
+    // 我们预计这里不需要，因为使用的轨道都是合理的。
   }
   //>>includeEnd('debug');
 
@@ -218,41 +214,40 @@ function meanAnomalyToEccentricAnomaly(meanAnomaly, eccentricity) {
   return eccentricAnomaly;
 }
 
-// Calculates the true anomaly given the eccentric anomaly and the eccentricity.
+// 根据偏近点角和偏心率计算真近点角。
 function eccentricAnomalyToTrueAnomaly(eccentricAnomaly, eccentricity) {
   //>>includeStart('debug', pragmas.debug);
   if (eccentricity < 0.0 || eccentricity >= 1.0) {
-    throw new DeveloperError("eccentricity out of range.");
+    throw new DeveloperError("偏心率超出范围。");
   }
   //>>includeEnd('debug');
 
-  // Calculate the number of previous revolutions
+  // 计算前一个旋转的圈数
   const revs = Math.floor(eccentricAnomaly / CesiumMath.TWO_PI);
 
-  // Find angle in current revolution
+  // 查找当前旋转中的角度
   eccentricAnomaly -= revs * CesiumMath.TWO_PI;
 
-  // Calculate true anomaly from eccentric anomaly
+  // 根据偏近点角计算真近点角
   const trueAnomalyX = Math.cos(eccentricAnomaly) - eccentricity;
   const trueAnomalyY =
     Math.sin(eccentricAnomaly) * Math.sqrt(1 - eccentricity * eccentricity);
 
   let trueAnomaly = Math.atan2(trueAnomalyY, trueAnomalyX);
 
-  // Ensure the correct quadrant
+  // 确保正确的象限
   trueAnomaly = CesiumMath.zeroToTwoPi(trueAnomaly);
   if (eccentricAnomaly < 0) {
     trueAnomaly -= CesiumMath.TWO_PI;
   }
 
-  // Add on previous revolutions
+  // 添加前一个旋转
   trueAnomaly += revs * CesiumMath.TWO_PI;
 
   return trueAnomaly;
 }
 
-// Calculates the transformation matrix to convert from the perifocal (PQW) coordinate
-// system to inertial cartesian coordinates.
+// 计算从地心惯性系到固定参考系的变换矩阵。
 function perifocalToCartesianMatrix(
   argumentOfPeriapsis,
   inclination,
@@ -261,7 +256,7 @@ function perifocalToCartesianMatrix(
 ) {
   //>>includeStart('debug', pragmas.debug);
   if (inclination < 0 || inclination > CesiumMath.PI) {
-    throw new DeveloperError("inclination out of range");
+    throw new DeveloperError("倾角超出范围");
   }
   //>>includeEnd('debug');
 
@@ -301,12 +296,12 @@ function perifocalToCartesianMatrix(
   return result;
 }
 
-// From section 5.8
+// 来自第 5.8 节
 const semiMajorAxis0 = 1.0000010178 * MetersPerAstronomicalUnit;
 const meanLongitude0 = 100.46645683 * RadiansPerDegree;
 const meanLongitude1 = 1295977422.83429 * RadiansPerArcSecond;
 
-// From table 6
+// 来自表 6
 const p1u = 16002;
 const p2u = 21863;
 const p3u = 32004;
@@ -362,9 +357,9 @@ const Sl7 = -112 * 1e-7;
 const Sl8 = -80 * 1e-7;
 
 const scratchDate = new JulianDate(0, 0.0, TimeStandard.TAI);
-// Gets a point describing the motion of the Earth-Moon barycenter according to the equations described in section 6.
+// 获取根据第 6 节所述方程描述的地月系统质心的点。
 function computeSimonEarthMoonBarycenter(date, result) {
-  // t is thousands of years from J2000 TDB
+  // t 是从 J2000 TDB 开始的千年数
   taiToTdb(date, scratchDate);
   const x =
     scratchDate.dayNumber -
@@ -412,7 +407,7 @@ function computeSimonEarthMoonBarycenter(date, result) {
     Cl8 * Math.cos(q8u * u) +
     Sl8 * Math.sin(q8u * u);
 
-  // All constants in this part are from section 5.8
+  // 本节的所有常量来自第 5.8 节
   const eccentricity = 0.0167086342 - 0.0004203654 * t;
   const longitudeOfPerigee =
     102.93734808 * RadiansPerDegree + 11612.3529 * RadiansPerArcSecond * t;
@@ -431,7 +426,7 @@ function computeSimonEarthMoonBarycenter(date, result) {
   );
 }
 
-// Gets a point describing the position of the moon according to the equations described in section 4.
+// 获取根据第 4 节所述方程描述的月球位置。
 function computeSimonMoon(date, result) {
   taiToTdb(date, scratchDate);
   const x =
@@ -444,7 +439,7 @@ function computeSimonMoon(date, result) {
   const t3 = t2 * t;
   const t4 = t3 * t;
 
-  // Terms from section 3.4 (b.1)
+  // 第 3.4 节 (b.1) 中的项
   let semimajorAxis = 383397.7725 + 0.004 * t;
   let eccentricity = 0.055545526 - 0.000000016 * t;
   const inclinationConstant = 5.15668983 * RadiansPerDegree;
@@ -460,7 +455,7 @@ function computeSimonMoon(date, result) {
   let meanLongitudeSecPart =
     1732559343.4847 * t - 6.391 * t2 + 0.006588 * t3 - 0.00003169 * t4;
 
-  // Delaunay arguments from section 3.5 b
+  // 第 3.5 b 节中的德拉奈参数
   const D =
     297.85019547 * RadiansPerDegree +
     RadiansPerArcSecond *
@@ -482,7 +477,7 @@ function computeSimonMoon(date, result) {
     RadiansPerArcSecond *
       (6967051.436 * t + 6.2068 * t2 + 0.007618 * t3 - 0.00003219 * t4);
 
-  // Add terms from Table 4
+  // 添加表 4 中的项
   const twoD = 2.0 * D;
   const fourD = 4.0 * D;
   const sixD = 6.0 * D;
@@ -531,9 +526,7 @@ function computeSimonMoon(date, result) {
     2376 * Math.sin(twoD) -
     2075 * Math.sin(twoD - threel) -
     1883 * Math.sin(twol) -
-    1736 * Math.sin(sixD - 5.0 * l) +
-    1626 * Math.sin(lprime) -
-    1370 * Math.sin(sixD - threel);
+    1736 * Math.sin(sixD - threel);
   longitudeOfNodeSecPart +=
     -5392 * Math.sin(twoD - twoF) -
     540 * Math.sin(lprime) -
@@ -547,7 +540,7 @@ function computeSimonMoon(date, result) {
     396.3 * Math.sin(l) -
     218.0 * Math.sin(twoD - lprime);
 
-  // Add terms from Table 5
+  // 添加表 5 中的项
   const twoPsi = 2.0 * psi;
   const threePsi = 3.0 * psi;
   inclinationSecPart +=
@@ -560,6 +553,7 @@ function computeSimonMoon(date, result) {
     0.00016 * Math.cos(psi) * t3 +
     0.00004 * Math.cos(threePsi) * t3 +
     0.00004 * Math.cos(twoPsi) * t3;
+
   const perigeeAndMean =
     2.116 * Math.sin(psi) * t -
     0.111 * Math.sin(twoD - twoF - psi) * t -
@@ -579,7 +573,7 @@ function computeSimonMoon(date, result) {
     0.0011 * Math.sin(threePsi) * t3 -
     0.0009 * Math.sin(twoPsi) * t3;
 
-  // Add constants and convert units
+  // 添加常量并转换单位
   semimajorAxis *= MetersPerKilometer;
   const inclination =
     inclinationConstant + inclinationSecPart * RadiansPerArcSecond;
@@ -602,18 +596,18 @@ function computeSimonMoon(date, result) {
   );
 }
 
-// Gets a point describing the motion of the Earth.  This point uses the Moon point and
-// the 1992 mu value (ratio between Moon and Earth masses) in Table 2 of the paper in order
-// to determine the position of the Earth relative to the Earth-Moon barycenter.
-const moonEarthMassRatio = 0.012300034; // From 1992 mu value in Table 2
+// 获取地球的运动。此点使用月球点和
+// 表 2 中的 1992 年 μ 值（月球与地球质量比）来确定
+// 地月系统质心相对的地球位置。
+const moonEarthMassRatio = 0.012300034; // 来自表 2 中的 1992 μ 值
 const factor = (moonEarthMassRatio / (moonEarthMassRatio + 1.0)) * -1;
 function computeSimonEarth(date, result) {
   result = computeSimonMoon(date, result);
   return Cartesian3.multiplyByScalar(result, factor, result);
 }
 
-// Values for the <code>axesTransformation</code> needed for the rotation were found using the STK Components
-// GeographicTransformer on the position of the sun center of mass point and the earth J2000 frame.
+// 用于旋转的 <code>axesTransformation</code> 值是使用 STK Components
+// 对太阳质心和地球 J2000 坐标系的变换得到的。
 
 const axesTransformation = new Matrix3(
   1.0000000000000002,
@@ -629,11 +623,11 @@ const axesTransformation = new Matrix3(
 let translation = new Cartesian3();
 
 /**
- * Computes the position of the Sun in the Earth-centered inertial frame
+ * 计算地心惯性系中太阳的位置
  *
- * @param {JulianDate} [julianDate] The time at which to compute the Sun's position, if not provided the current system time is used.
- * @param {Cartesian3} [result] The object onto which to store the result.
- * @returns {Cartesian3} Calculated sun position
+ * @param {JulianDate} [julianDate] 计算太阳位置的时间，如果未提供则使用当前系统时间。
+ * @param {Cartesian3} [result] 用于存储结果的对象。
+ * @returns {Cartesian3} 计算出的太阳位置
  */
 Simon1994PlanetaryPositions.computeSunPositionInEarthInertialFrame = function (
   julianDate,
@@ -647,11 +641,11 @@ Simon1994PlanetaryPositions.computeSunPositionInEarthInertialFrame = function (
     result = new Cartesian3();
   }
 
-  //first forward transformation
+  //第一个前向变换
   translation = computeSimonEarthMoonBarycenter(julianDate, translation);
   result = Cartesian3.negate(translation, result);
 
-  //second forward transformation
+  //第二个前向变换
   computeSimonEarth(julianDate, translation);
 
   Cartesian3.subtract(result, translation, result);
@@ -661,11 +655,11 @@ Simon1994PlanetaryPositions.computeSunPositionInEarthInertialFrame = function (
 };
 
 /**
- * Computes the position of the Moon in the Earth-centered inertial frame
+ * 计算地心惯性系中月球的位置
  *
- * @param {JulianDate} [julianDate] The time at which to compute the Moon's position, if not provided the current system time is used.
- * @param {Cartesian3} [result] The object onto which to store the result.
- * @returns {Cartesian3} Calculated moon position
+ * @param {JulianDate} [julianDate] 计算月球位置的时间，如果未提供则使用当前系统时间。
+ * @param {Cartesian3} [result] 用于存储结果的对象。
+ * @returns {Cartesian3} 计算出的月球位置
  */
 Simon1994PlanetaryPositions.computeMoonPositionInEarthInertialFrame = function (
   julianDate,

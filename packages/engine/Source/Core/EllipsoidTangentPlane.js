@@ -14,16 +14,16 @@ import Transforms from "./Transforms.js";
 
 const scratchCart4 = new Cartesian4();
 /**
- * A plane tangent to the provided ellipsoid at the provided origin.
- * If origin is not on the surface of the ellipsoid, it's surface projection will be used.
- * If origin is at the center of the ellipsoid, an exception will be thrown.
+ * 在给定原点处与提供的椭球相切的平面。
+ * 如果原点不在椭球表面，将使用其表面投影。
+ * 如果原点在椭球中心，将抛出异常。
  * @alias EllipsoidTangentPlane
  * @constructor
  *
- * @param {Cartesian3} origin The point on the surface of the ellipsoid where the tangent plane touches.
- * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] The ellipsoid to use.
+ * @param {Cartesian3} origin 切平面与椭球表面接触的椭球面上的点。
+ * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] 要使用的椭球。
  *
- * @exception {DeveloperError} origin must not be at the center of the ellipsoid.
+ * @exception {DeveloperError} 原点不能在椭球中心。
  */
 function EllipsoidTangentPlane(origin, ellipsoid) {
   //>>includeStart('debug', pragmas.debug);
@@ -59,7 +59,7 @@ function EllipsoidTangentPlane(origin, ellipsoid) {
 
 Object.defineProperties(EllipsoidTangentPlane.prototype, {
   /**
-   * Gets the ellipsoid.
+   * 获取椭球。
    * @memberof EllipsoidTangentPlane.prototype
    * @type {Ellipsoid}
    */
@@ -70,7 +70,7 @@ Object.defineProperties(EllipsoidTangentPlane.prototype, {
   },
 
   /**
-   * Gets the origin.
+   * 获取原点。
    * @memberof EllipsoidTangentPlane.prototype
    * @type {Cartesian3}
    */
@@ -81,7 +81,7 @@ Object.defineProperties(EllipsoidTangentPlane.prototype, {
   },
 
   /**
-   * Gets the plane which is tangent to the ellipsoid.
+   * 获取与椭球相切的平面。
    * @memberof EllipsoidTangentPlane.prototype
    * @readonly
    * @type {Plane}
@@ -93,7 +93,7 @@ Object.defineProperties(EllipsoidTangentPlane.prototype, {
   },
 
   /**
-   * Gets the local X-axis (east) of the tangent plane.
+   * 获取切平面的局部X轴（东）。
    * @memberof EllipsoidTangentPlane.prototype
    * @readonly
    * @type {Cartesian3}
@@ -105,7 +105,7 @@ Object.defineProperties(EllipsoidTangentPlane.prototype, {
   },
 
   /**
-   * Gets the local Y-axis (north) of the tangent plane.
+   * 获取切平面的局部Y轴（北）。
    * @memberof EllipsoidTangentPlane.prototype
    * @readonly
    * @type {Cartesian3}
@@ -117,7 +117,7 @@ Object.defineProperties(EllipsoidTangentPlane.prototype, {
   },
 
   /**
-   * Gets the local Z-axis (up) of the tangent plane.
+   * 获取切平面的局部Z轴（上）。
    * @memberof EllipsoidTangentPlane.prototype
    * @readonly
    * @type {Cartesian3}
@@ -131,12 +131,11 @@ Object.defineProperties(EllipsoidTangentPlane.prototype, {
 
 const tmp = new AxisAlignedBoundingBox();
 /**
- * Creates a new instance from the provided ellipsoid and the center
- * point of the provided Cartesians.
+ * 从提供的椭球和提供的笛卡尔坐标的中心点创建新实例。
  *
- * @param {Cartesian3[]} cartesians The list of positions surrounding the center point.
- * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] The ellipsoid to use.
- * @returns {EllipsoidTangentPlane} The new instance of EllipsoidTangentPlane.
+ * @param {Cartesian3[]} cartesians 围绕中心点的位置列表。
+ * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] 要使用的椭球。
+ * @returns {EllipsoidTangentPlane} 新的EllipsoidTangentPlane实例。
  */
 EllipsoidTangentPlane.fromPoints = function (cartesians, ellipsoid) {
   //>>includeStart('debug', pragmas.debug);
@@ -151,11 +150,11 @@ const scratchProjectPointOntoPlaneRay = new Ray();
 const scratchProjectPointOntoPlaneCartesian3 = new Cartesian3();
 
 /**
- * Computes the projection of the provided 3D position onto the 2D plane, radially outward from the {@link EllipsoidTangentPlane.ellipsoid} coordinate system origin.
+ * 计算提供的3D位置到2D平面上的投影，沿{@link EllipsoidTangentPlane.ellipsoid}坐标系原点的径向向外。
  *
- * @param {Cartesian3} cartesian The point to project.
- * @param {Cartesian2} [result] The object onto which to store the result.
- * @returns {Cartesian2} The modified result parameter or a new Cartesian2 instance if none was provided. Undefined if there is no intersection point
+ * @param {Cartesian3} cartesian 要投影的点。
+ * @param {Cartesian2} [result] 存储结果的对象。
+ * @returns {Cartesian2} 修改后的结果参数，如果未提供则返回新的Cartesian2实例。若无交点则返回undefined。
  */
 EllipsoidTangentPlane.prototype.projectPointOntoPlane = function (
   cartesian,
@@ -203,14 +202,14 @@ EllipsoidTangentPlane.prototype.projectPointOntoPlane = function (
 };
 
 /**
- * Computes the projection of the provided 3D positions onto the 2D plane (where possible), radially outward from the global origin.
- * The resulting array may be shorter than the input array - if a single projection is impossible it will not be included.
+ * 计算提供的3D位置到2D平面上的投影（在可能的情况下），沿全局原点的径向向外。
+ * 结果数组可能比输入数组短——如果单个投影不可能，则不会包含在结果中。
  *
  * @see EllipsoidTangentPlane.projectPointOntoPlane
  *
- * @param {Cartesian3[]} cartesians The array of points to project.
- * @param {Cartesian2[]} [result] The array of Cartesian2 instances onto which to store results.
- * @returns {Cartesian2[]} The modified result parameter or a new array of Cartesian2 instances if none was provided.
+ * @param {Cartesian3[]} cartesians 要投影的点数组。
+ * @param {Cartesian2[]} [result] 存储结果的Cartesian2实例数组。
+ * @returns {Cartesian2[]} 修改后的结果参数，如果未提供则返回新的Cartesian2实例数组。
  */
 EllipsoidTangentPlane.prototype.projectPointsOntoPlane = function (
   cartesians,
@@ -238,11 +237,11 @@ EllipsoidTangentPlane.prototype.projectPointsOntoPlane = function (
 };
 
 /**
- * Computes the projection of the provided 3D position onto the 2D plane, along the plane normal.
+ * 计算提供的3D位置沿平面法线到2D平面上的投影。
  *
- * @param {Cartesian3} cartesian The point to project.
- * @param {Cartesian2} [result] The object onto which to store the result.
- * @returns {Cartesian2} The modified result parameter or a new Cartesian2 instance if none was provided.
+ * @param {Cartesian3} cartesian 要投影的点。
+ * @param {Cartesian2} [result] 存储结果的对象。
+ * @returns {Cartesian2} 修改后的结果参数，如果未提供则返回新的Cartesian2实例。
  */
 EllipsoidTangentPlane.prototype.projectPointToNearestOnPlane = function (
   cartesian,
@@ -288,13 +287,13 @@ EllipsoidTangentPlane.prototype.projectPointToNearestOnPlane = function (
 };
 
 /**
- * Computes the projection of the provided 3D positions onto the 2D plane, along the plane normal.
+ * 计算提供的3D位置沿平面法线到2D平面上的投影。
  *
  * @see EllipsoidTangentPlane.projectPointToNearestOnPlane
  *
- * @param {Cartesian3[]} cartesians The array of points to project.
- * @param {Cartesian2[]} [result] The array of Cartesian2 instances onto which to store results.
- * @returns {Cartesian2[]} The modified result parameter or a new array of Cartesian2 instances if none was provided. This will have the same length as <code>cartesians</code>.
+ * @param {Cartesian3[]} cartesians 要投影的点数组。
+ * @param {Cartesian2[]} [result] 存储结果的Cartesian2实例数组。
+ * @returns {Cartesian2[]} 修改后的结果参数，如果未提供则返回新的Cartesian2实例数组。长度与<code>cartesians</code>相同。
  */
 EllipsoidTangentPlane.prototype.projectPointsToNearestOnPlane = function (
   cartesians,
@@ -318,11 +317,11 @@ EllipsoidTangentPlane.prototype.projectPointsToNearestOnPlane = function (
 
 const projectPointsOntoEllipsoidScratch = new Cartesian3();
 /**
- * Computes the projection of the provided 2D position onto the 3D ellipsoid.
+ * 计算提供的2D位置到3D椭球上的投影。
  *
- * @param {Cartesian2} cartesian The points to project.
- * @param {Cartesian3} [result] The Cartesian3 instance to store result.
- * @returns {Cartesian3} The modified result parameter or a new Cartesian3 instance if none was provided.
+ * @param {Cartesian2} cartesian 要投影的点。
+ * @param {Cartesian3} [result] 存储结果的Cartesian3实例。
+ * @returns {Cartesian3} 修改后的结果参数，如果未提供则返回新的Cartesian3实例。
  */
 EllipsoidTangentPlane.prototype.projectPointOntoEllipsoid = function (
   cartesian,
@@ -352,11 +351,11 @@ EllipsoidTangentPlane.prototype.projectPointOntoEllipsoid = function (
 };
 
 /**
- * Computes the projection of the provided 2D positions onto the 3D ellipsoid.
+ * 计算提供的2D位置到3D椭球上的投影。
  *
- * @param {Cartesian2[]} cartesians The array of points to project.
- * @param {Cartesian3[]} [result] The array of Cartesian3 instances onto which to store results.
- * @returns {Cartesian3[]} The modified result parameter or a new array of Cartesian3 instances if none was provided.
+ * @param {Cartesian2[]} cartesians 要投影的点数组。
+ * @param {Cartesian3[]} [result] 存储结果的Cartesian3实例数组。
+ * @returns {Cartesian3[]} 修改后的结果参数，如果未提供则返回新的Cartesian3实例数组。
  */
 EllipsoidTangentPlane.prototype.projectPointsOntoEllipsoid = function (
   cartesians,

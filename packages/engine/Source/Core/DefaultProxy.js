@@ -1,12 +1,11 @@
 /**
- * A simple proxy that appends the desired resource as the sole query parameter
- * to the given proxy URL.
+ * 一个简单的代理，它将所需的资源作为唯一的查询参数附加到给定的代理URL。
  *
  * @alias DefaultProxy
  * @constructor
  * @extends {Proxy}
  *
- * @param {string} proxy The proxy URL that will be used to requests all resources.
+ * @param {string} proxy 用于请求所有资源的代理URL。
  */
 function DefaultProxy(proxy) {
   this.proxy = proxy;

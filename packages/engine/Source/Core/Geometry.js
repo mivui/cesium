@@ -15,22 +15,21 @@ import Rectangle from "./Rectangle.js";
 import Transforms from "./Transforms.js";
 
 /**
- * A geometry representation with attributes forming vertices and optional index data
- * defining primitives.  Geometries and an {@link Appearance}, which describes the shading,
- * can be assigned to a {@link Primitive} for visualization.  A <code>Primitive</code> can
- * be created from many heterogeneous - in many cases - geometries for performance.
+ * 由构成顶点的属性和定义图元的可选索引数据组成的几何表示。
+ * 几何体和描述着色的 {@link Appearance} 可以分配给 {@link Primitive} 进行可视化。
+ * 在许多情况下，一个 <code>Primitive</code> 可以由许多异构几何体创建，以提高性能。
  * <p>
- * Geometries can be transformed and optimized using functions in {@link GeometryPipeline}.
+ * 可以使用 {@link GeometryPipeline} 中的函数对几何体进行变换和优化。
  * </p>
  *
  * @alias Geometry
  * @constructor
  *
- * @param {object} options Object with the following properties:
- * @param {GeometryAttributes} options.attributes Attributes, which make up the geometry's vertices.
- * @param {PrimitiveType} [options.primitiveType=PrimitiveType.TRIANGLES] The type of primitives in the geometry.
- * @param {Uint16Array|Uint32Array} [options.indices] Optional index data that determines the primitives in the geometry.
- * @param {BoundingSphere} [options.boundingSphere] An optional bounding sphere that fully enclosed the geometry.
+ * @param {object} options 具有以下属性的对象：
+ * @param {GeometryAttributes} options.attributes 构成几何体顶点的属性。
+ * @param {PrimitiveType} [options.primitiveType=PrimitiveType.TRIANGLES] 几何体中图元的类型。
+ * @param {Uint16Array|Uint32Array} [options.indices] 定义几何体中图元的可选索引数据。
+ * @param {BoundingSphere} [options.boundingSphere] 完全包围几何体的可选边界球。
  *
  * @see PolygonGeometry
  * @see RectangleGeometry
@@ -41,10 +40,10 @@ import Transforms from "./Transforms.js";
  * @see BoxGeometry
  * @see EllipsoidGeometry
  *
- * @demo {@link https://sandcastle.cesium.com/index.html?id=geometry-and-appearances|Geometry and Appearances Demo}
+ * @demo {@link https://sandcastle.cesium.com/index.html?id=geometry-and-appearances|几何体和外观演示}
  *
  * @example
- * // Create geometry with a position attribute and indexed lines.
+ * // 创建一个带有位置属性和索引线的几何体。
  * const positions = new Float64Array([
  *   0.0, 0.0, 0.0,
  *   7500000.0, 0.0, 0.0,
@@ -72,33 +71,32 @@ function Geometry(options) {
   //>>includeEnd('debug');
 
   /**
-   * Attributes, which make up the geometry's vertices.  Each property in this object corresponds to a
-   * {@link GeometryAttribute} containing the attribute's data.
+   * 构成几何体顶点的属性。此对象中的每个属性对应于一个
+   * {@link GeometryAttribute}，包含该属性的数据。
    * <p>
-   * Attributes are always stored non-interleaved in a Geometry.
+   * 在几何体中，属性始终以非交错方式存储。
    * </p>
    * <p>
-   * There are reserved attribute names with well-known semantics.  The following attributes
-   * are created by a Geometry (depending on the provided {@link VertexFormat}.
+   * 有保留的属性名称具有众所周知的语义。根据提供的 {@link VertexFormat}，
+   * 几何体（取决于提供的 {@link VertexFormat}）会创建以下属性。
    * <ul>
-   *    <li><code>position</code> - 3D vertex position.  64-bit floating-point (for precision).  3 components per attribute.  See {@link VertexFormat#position}.</li>
-   *    <li><code>normal</code> - Normal (normalized), commonly used for lighting.  32-bit floating-point.  3 components per attribute.  See {@link VertexFormat#normal}.</li>
-   *    <li><code>st</code> - 2D texture coordinate.  32-bit floating-point.  2 components per attribute.  See {@link VertexFormat#st}.</li>
-   *    <li><code>bitangent</code> - Bitangent (normalized), used for tangent-space effects like bump mapping.  32-bit floating-point.  3 components per attribute.  See {@link VertexFormat#bitangent}.</li>
-   *    <li><code>tangent</code> - Tangent (normalized), used for tangent-space effects like bump mapping.  32-bit floating-point.  3 components per attribute.  See {@link VertexFormat#tangent}.</li>
+   *    <li><code>position</code> - 3D顶点位置。64位浮点数（用于精度）。每个属性3个分量。参见 {@link VertexFormat#position}。</li>
+   *    <li><code>normal</code> - 法线（归一化），通常用于光照。32位浮点数。每个属性3个分量。参见 {@link VertexFormat#normal}。</li>
+   *    <li><code>st</code> - 2D纹理坐标。32位浮点数。每个属性2个分量。参见 {@link VertexFormat#st}。</li>
+   *    <li><code>bitangent</code> - 副切线（归一化），用于切线空间效果，如凹凸贴图。32位浮点数。每个属性3个分量。参见 {@link VertexFormat#bitangent}。</li>
+   *    <li><code>tangent</code> - 切线（归一化），用于切线空间效果，如凹凸贴图。32位浮点数。每个属性3个分量。参见 {@link VertexFormat#tangent}。</li>
    * </ul>
    * </p>
    * <p>
-   * The following attribute names are generally not created by a Geometry, but are added
-   * to a Geometry by a {@link Primitive} or {@link GeometryPipeline} functions to prepare
-   * the geometry for rendering.
+   * 以下属性名称通常不是由几何体创建的，而是由 {@link Primitive} 或 {@link GeometryPipeline} 函数添加到几何体，
+   * 以准备渲染几何体。
    * <ul>
-   *    <li><code>position3DHigh</code> - High 32 bits for encoded 64-bit position computed with {@link GeometryPipeline.encodeAttribute}.  32-bit floating-point.  4 components per attribute.</li>
-   *    <li><code>position3DLow</code> - Low 32 bits for encoded 64-bit position computed with {@link GeometryPipeline.encodeAttribute}.  32-bit floating-point.  4 components per attribute.</li>
-   *    <li><code>position2DHigh</code> - High 32 bits for encoded 64-bit 2D (Columbus view) position computed with {@link GeometryPipeline.encodeAttribute}.  32-bit floating-point.  4 components per attribute.</li>
-   *    <li><code>position2DLow</code> - Low 32 bits for encoded 64-bit 2D (Columbus view) position computed with {@link GeometryPipeline.encodeAttribute}.  32-bit floating-point.  4 components per attribute.</li>
-   *    <li><code>color</code> - RGBA color (normalized) usually from {@link GeometryInstance#color}.  32-bit floating-point.  4 components per attribute.</li>
-   *    <li><code>pickColor</code> - RGBA color used for picking.  32-bit floating-point.  4 components per attribute.</li>
+   *    <li><code>position3DHigh</code> - 使用 {@link GeometryPipeline.encodeAttribute} 计算的编码64位位置的高32位。32位浮点数。每个属性4个分量。</li>
+   *    <li><code>position3DLow</code> - 使用 {@link GeometryPipeline.encodeAttribute} 计算的编码64位位置的低32位。32位浮点数。每个属性4个分量。</li>
+   *    <li><code>position2DHigh</code> - 使用 {@link GeometryPipeline.encodeAttribute} 计算的编码64位2D（哥伦布视图）位置的高32位。32位浮点数。每个属性4个分量。</li>
+   *    <li><code>position2DLow</code> - 使用 {@link GeometryPipeline.encodeAttribute} 计算的编码64位2D（哥伦布视图）位置的低32位。32位浮点数。每个属性4个分量。</li>
+   *    <li><code>color</code> - 通常来自 {@link GeometryInstance#color} 的RGBA颜色（归一化）。32位浮点数。每个属性4个分量。</li>
+   *    <li><code>pickColor</code> - 用于拾取的RGBA颜色。32位浮点数。每个属性4个分量。</li>
    * </ul>
    * </p>
    *
@@ -118,8 +116,8 @@ function Geometry(options) {
   this.attributes = options.attributes;
 
   /**
-   * Optional index data that - along with {@link Geometry#primitiveType} -
-   * determines the primitives in the geometry.
+   * 可选的索引数据，与 {@link Geometry#primitiveType} 一起
+   * 确定几何体中的图元。
    *
    * @type {Array|undefined}
    *
@@ -128,8 +126,8 @@ function Geometry(options) {
   this.indices = options.indices;
 
   /**
-   * The type of primitives in the geometry.  This is most often {@link PrimitiveType.TRIANGLES},
-   * but can varying based on the specific geometry.
+   * 几何体中图元的类型。这通常为 {@link PrimitiveType.TRIANGLES}，
+   * 但可以根据具体几何体而变化。
    *
    * @type {PrimitiveType|undefined}
    *
@@ -138,8 +136,7 @@ function Geometry(options) {
   this.primitiveType = options.primitiveType ?? PrimitiveType.TRIANGLES;
 
   /**
-   * An optional bounding sphere that fully encloses the geometry.  This is
-   * commonly used for culling.
+   * 完全包围几何体的可选边界球。这通常用于视锥剔除。
    *
    * @type {BoundingSphere|undefined}
    *
@@ -158,18 +155,18 @@ function Geometry(options) {
   this.boundingSphereCV = options.boundingSphereCV;
 
   /**
-   * Used for computing the bounding sphere for geometry using the applyOffset vertex attribute
+   * 用于使用applyOffset顶点属性计算几何体的边界球
    * @private
    */
   this.offsetAttribute = options.offsetAttribute;
 }
 
 /**
- * Computes the number of vertices in a geometry.  The runtime is linear with
- * respect to the number of attributes in a vertex, not the number of vertices.
+ * 计算几何体中的顶点数。运行时间与顶点中属性的数量成线性关系，
+ * 而不是与顶点数成线性关系。
  *
- * @param {Geometry} geometry The geometry.
- * @returns {number} The number of vertices in the geometry.
+ * @param {Geometry} geometry 几何体。
+ * @returns {number} 几何体中的顶点数。
  *
  * @example
  * const numVertices = Cesium.Geometry.computeNumberOfVertices(geometry);
@@ -222,27 +219,25 @@ const enuRotationMatrixScratch = new Matrix4();
 const rotation2DScratch = new Matrix2();
 
 /**
- * For remapping texture coordinates when rendering GroundPrimitives with materials.
- * GroundPrimitive texture coordinates are computed to align with the cartographic coordinate system on the globe.
- * However, EllipseGeometry, RectangleGeometry, and PolygonGeometry all bake rotations to per-vertex texture coordinates
- * using different strategies.
+ * 用于在使用材质渲染GroundPrimitives时重新映射纹理坐标。
+ * GroundPrimitive纹理坐标计算为与地球上的制图坐标系对齐。
+ * 然而，EllipseGeometry、RectangleGeometry和PolygonGeometry都使用不同的策略将旋转烘焙到逐顶点纹理坐标中。
  *
- * This method is used by EllipseGeometry and PolygonGeometry to approximate the same visual effect.
- * We encapsulate rotation and scale by computing a "transformed" texture coordinate system and computing
- * a set of reference points from which "cartographic" texture coordinates can be remapped to the "transformed"
- * system using distances to lines in 2D.
+ * 此方法是EllipseGeometry和PolygonGeometry用来近似相同视觉效果的。
+ * 我们通过计算"变换后的"纹理坐标系统和计算一组参考点来封装旋转和缩放，
+ * 从而可以使用2D中的距离将"制图"纹理坐标重新映射到"变换后"的系统。
  *
- * This approximation becomes less accurate as the covered area increases, especially for GroundPrimitives near the poles,
- * but is generally reasonable for polygons and ellipses around the size of USA states.
+ * 随着覆盖面积的增加，这种近似会变得不太准确，特别是对于靠近极地的GroundPrimitives，
+ * 但对于美国各州大小的多边形和椭圆来说通常是合理的。
  *
- * RectangleGeometry has its own version of this method that computes remapping coordinates using cartographic space
- * as an intermediary instead of local ENU, which is more accurate for large-area rectangles.
+ * RectangleGeometry有自己的此方法的版本，它使用制图空间作为中间媒介而不是局部ENU来计算重新映射坐标，
+ * 这对于大面积矩形更准确。
  *
- * @param {Cartesian3[]} positions Array of positions outlining the geometry
- * @param {number} stRotation Texture coordinate rotation.
- * @param {Ellipsoid} ellipsoid Ellipsoid for projecting and generating local vectors.
- * @param {Rectangle} boundingRectangle Bounding rectangle around the positions.
- * @returns {number[]} An array of 6 numbers specifying [minimum point, u extent, v extent] as points in the "cartographic" system.
+ * @param {Cartesian3[]} positions 勾勒几何体位置的数组
+ * @param {number} stRotation 纹理坐标旋转。
+ * @param {Ellipsoid} ellipsoid 用于投影和生成局部向量的椭球。
+ * @param {Rectangle} boundingRectangle 位置周围的边界矩形。
+ * @returns {number[]} 一个包含6个数字的数组，指定"制图"系统中的[最小点、u范围、v范围]作为点。
  * @private
  */
 Geometry._textureCoordinateRotationPoints = function (
@@ -253,10 +248,10 @@ Geometry._textureCoordinateRotationPoints = function (
 ) {
   let i;
 
-  // Create a local east-north-up coordinate system centered on the polygon's bounding rectangle.
-  // Project the southwest, northwest, and southeast corners of the bounding rectangle into the plane of ENU as 2D points.
-  // These are the equivalents of (0,0), (0,1), and (1,0) in the texture coordinate system computed in ShadowVolumeAppearanceFS,
-  // aka "ENU texture space."
+  // 创建一个以多边形边界矩形为中心的局部东-北-上坐标系。
+  // 将边界矩形的西南、西北和东南角投影到ENU平面中作为2D点。
+  // 这些等价于ShadowVolumeAppearanceFS中计算的纹理坐标系统中的(0,0)、(0,1)和(1,0)，
+  // 也称为"ENU纹理空间"。
   const rectangleCenter = Rectangle.center(
     boundingRectangle,
     rectangleCenterScratch,
@@ -297,9 +292,9 @@ Geometry._textureCoordinateRotationPoints = function (
     boundingPointsEnu[i].y = posEnu.y;
   }
 
-  // Rotate each point in the polygon around the up vector in the ENU by -stRotation and project into ENU as 2D.
-  // Compute the bounding box of these rotated points in the 2D ENU plane.
-  // Rotate the corners back by stRotation, then compute their equivalents in the ENU texture space using the corners computed earlier.
+  // 将多边形中的每个点绕ENU中的上向量旋转-stRotation并投影到ENU中作为2D。
+  // 计算这些旋转点在2D ENU平面中的边界框。
+  // 将角点旋转回stRotation，然后使用前面计算的角点计算它们在ENU纹理空间中的等效值。
   const rotation = Quaternion.fromAxisAngle(
     Cartesian3.UNIT_Z,
     -stRotation,

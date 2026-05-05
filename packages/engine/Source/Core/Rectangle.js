@@ -12,19 +12,19 @@ import Matrix4 from "./Matrix4.js";
 /** @import BoundingSphere from "./BoundingSphere.js"; */
 
 /**
- * A two dimensional region specified as longitude and latitude coordinates.
+ * 一个以经度和纬度坐标指定的二维区域。
  * @see Packable
  */
 class Rectangle {
   /**
-   * @param {number} [west=0.0] The westernmost longitude, in radians, in the range [-Pi, Pi].
-   * @param {number} [south=0.0] The southernmost latitude, in radians, in the range [-Pi/2, Pi/2].
-   * @param {number} [east=0.0] The easternmost longitude, in radians, in the range [-Pi, Pi].
-   * @param {number} [north=0.0] The northernmost latitude, in radians, in the range [-Pi/2, Pi/2].
+   * @param {number} [west=0.0] 最西端经度（弧度），范围 [-Pi, Pi]。
+   * @param {number} [south=0.0] 最南端纬度（弧度），范围 [-Pi/2, Pi/2]。
+   * @param {number} [east=0.0] 最东端经度（弧度），范围 [-Pi, Pi]。
+   * @param {number} [north=0.0] 最北端纬度（弧度），范围 [-Pi/2, Pi/2]。
    */
   constructor(west, south, east, north) {
     /**
-     * The westernmost longitude in radians in the range [-Pi, Pi].
+     * 最西端经度（弧度），范围 [-Pi, Pi]。
      *
      * @type {number}
      * @default 0.0
@@ -32,7 +32,7 @@ class Rectangle {
     this.west = west ?? 0.0;
 
     /**
-     * The southernmost latitude in radians in the range [-Pi/2, Pi/2].
+     * 最南端纬度（弧度），范围 [-Pi/2, Pi/2]。
      *
      * @type {number}
      * @default 0.0
@@ -40,7 +40,7 @@ class Rectangle {
     this.south = south ?? 0.0;
 
     /**
-     * The easternmost longitude in radians in the range [-Pi, Pi].
+     * 最东端经度（弧度），范围 [-Pi, Pi]。
      *
      * @type {number}
      * @default 0.0
@@ -48,7 +48,7 @@ class Rectangle {
     this.east = east ?? 0.0;
 
     /**
-     * The northernmost latitude in radians in the range [-Pi/2, Pi/2].
+     * 最北端纬度（弧度），范围 [-Pi/2, Pi/2]。
      *
      * @type {number}
      * @default 0.0
@@ -57,7 +57,7 @@ class Rectangle {
   }
 
   /**
-   * Gets the width of the rectangle in radians.
+   * 获取矩形的宽度（弧度）。
    * @type {number}
    * @readonly
    */
@@ -66,7 +66,7 @@ class Rectangle {
   }
 
   /**
-   * Gets the height of the rectangle in radians.
+   * 获取矩形的高度（弧度）。
    * @type {number}
    * @readonly
    */
@@ -75,13 +75,13 @@ class Rectangle {
   }
 
   /**
-   * Stores the provided instance into the provided array.
+   * 将提供的实例存储到提供的数组中。
    *
-   * @param {Rectangle} value The value to pack.
-   * @param {number[]} array The array to pack into.
-   * @param {number} [startingIndex=0] The index into the array at which to start packing the elements.
+   * @param {Rectangle} value 要打包的值。
+   * @param {number[]} array 要打包到的数组。
+   * @param {number} [startingIndex=0] 开始打包元素的数组索引。
    *
-   * @returns {number[]} The array that was packed into
+   * @returns {number[]} 被打包到的数组
    */
   static pack(value, array, startingIndex) {
     //>>includeStart('debug', pragmas.debug);
@@ -100,12 +100,12 @@ class Rectangle {
   }
 
   /**
-   * Retrieves an instance from a packed array.
+   * 从打包数组中检索实例。
    *
-   * @param {number[]} array The packed array.
-   * @param {number} [startingIndex=0] The starting index of the element to be unpacked.
-   * @param {Rectangle} [result] The object into which to store the result.
-   * @returns {Rectangle} The modified result parameter or a new Rectangle instance if one was not provided.
+   * @param {number[]} array 打包数组。
+   * @param {number} [startingIndex=0] 要解包元素的起始索引。
+   * @param {Rectangle} [result] 存储结果的对象。
+   * @returns {Rectangle} 修改后的结果参数，如果未提供则返回新的Rectangle实例。
    */
   static unpack(array, startingIndex, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -126,9 +126,9 @@ class Rectangle {
   }
 
   /**
-   * Computes the width of a rectangle in radians.
-   * @param {Rectangle} rectangle The rectangle to compute the width of.
-   * @returns {number} The width.
+   * 计算矩形的宽度（弧度）。
+   * @param {Rectangle} rectangle 要计算宽度的矩形。
+   * @returns {number} 宽度。
    */
   static computeWidth(rectangle) {
     //>>includeStart('debug', pragmas.debug);
@@ -143,9 +143,9 @@ class Rectangle {
   }
 
   /**
-   * Computes the height of a rectangle in radians.
-   * @param {Rectangle} rectangle The rectangle to compute the height of.
-   * @returns {number} The height.
+   * 计算矩形的高度（弧度）。
+   * @param {Rectangle} rectangle 要计算高度的矩形。
+   * @returns {number} 高度。
    */
   static computeHeight(rectangle) {
     //>>includeStart('debug', pragmas.debug);
@@ -155,14 +155,14 @@ class Rectangle {
   }
 
   /**
-   * Creates a rectangle given the boundary longitude and latitude in degrees.
+   * 根据以度为单位给定的边界经度和纬度创建矩形。
    *
-   * @param {number} [west=0.0] The westernmost longitude in degrees in the range [-180.0, 180.0].
-   * @param {number} [south=0.0] The southernmost latitude in degrees in the range [-90.0, 90.0].
-   * @param {number} [east=0.0] The easternmost longitude in degrees in the range [-180.0, 180.0].
-   * @param {number} [north=0.0] The northernmost latitude in degrees in the range [-90.0, 90.0].
-   * @param {Rectangle} [result] The object onto which to store the result, or undefined if a new instance should be created.
-   * @returns {Rectangle} The modified result parameter or a new Rectangle instance if none was provided.
+   * @param {number} [west=0.0] 最西端经度（度），范围 [-180.0, 180.0]。
+   * @param {number} [south=0.0] 最南端纬度（度），范围 [-90.0, 90.0]。
+   * @param {number} [east=0.0] 最东端经度（度），范围 [-180.0, 180.0]。
+   * @param {number} [north=0.0] 最北端纬度（度），范围 [-90.0, 90.0]。
+   * @param {Rectangle} [result] 存储结果的对象，如果应创建新实例则为undefined。
+   * @returns {Rectangle} 修改后的结果参数，如果未提供则返回新的Rectangle实例。
    *
    * @example
    * const rectangle = Cesium.Rectangle.fromDegrees(0.0, 20.0, 10.0, 30.0);
@@ -186,14 +186,14 @@ class Rectangle {
   }
 
   /**
-   * Creates a rectangle given the boundary longitude and latitude in radians.
+   * 根据以弧度为单位给定的边界经度和纬度创建矩形。
    *
-   * @param {number} [west=0.0] The westernmost longitude in radians in the range [-Math.PI, Math.PI].
-   * @param {number} [south=0.0] The southernmost latitude in radians in the range [-Math.PI/2, Math.PI/2].
-   * @param {number} [east=0.0] The easternmost longitude in radians in the range [-Math.PI, Math.PI].
-   * @param {number} [north=0.0] The northernmost latitude in radians in the range [-Math.PI/2, Math.PI/2].
-   * @param {Rectangle} [result] The object onto which to store the result, or undefined if a new instance should be created.
-   * @returns {Rectangle} The modified result parameter or a new Rectangle instance if none was provided.
+   * @param {number} [west=0.0] 最西端经度（弧度），范围 [-Math.PI, Math.PI]。
+   * @param {number} [south=0.0] 最南端纬度（弧度），范围 [-Math.PI/2, Math.PI/2]。
+   * @param {number} [east=0.0] 最东端经度（弧度），范围 [-Math.PI, Math.PI]。
+   * @param {number} [north=0.0] 最北端纬度（弧度），范围 [-Math.PI/2, Math.PI/2]。
+   * @param {Rectangle} [result] 存储结果的对象，如果应创建新实例则为undefined。
+   * @returns {Rectangle} 修改后的结果参数，如果未提供则返回新的Rectangle实例。
    *
    * @example
    * const rectangle = Cesium.Rectangle.fromRadians(0.0, Math.PI/4, Math.PI/8, 3*Math.PI/4);
@@ -212,11 +212,11 @@ class Rectangle {
   }
 
   /**
-   * Creates the smallest possible Rectangle that encloses all positions in the provided array.
+   * 创建能包围提供数组中所有位置的最小可能矩形。
    *
-   * @param {Cartographic[]} cartographics The list of Cartographic instances.
-   * @param {Rectangle} [result] The object onto which to store the result, or undefined if a new instance should be created.
-   * @returns {Rectangle} The modified result parameter or a new Rectangle instance if none was provided.
+   * @param {Cartographic[]} cartographics Cartographic实例列表。
+   * @param {Rectangle} [result] 存储结果的对象，如果应创建新实例则为undefined。
+   * @returns {Rectangle} 修改后的结果参数，如果未提供则返回新的Rectangle实例。
    */
   static fromCartographicArray(cartographics, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -269,12 +269,12 @@ class Rectangle {
   }
 
   /**
-   * Creates the smallest possible Rectangle that encloses all positions in the provided array.
+   * 创建能包围提供数组中所有位置的最小可能矩形。
    *
-   * @param {Cartesian3[]} cartesians The list of Cartesian instances.
-   * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] The ellipsoid the cartesians are on.
-   * @param {Rectangle} [result] The object onto which to store the result, or undefined if a new instance should be created.
-   * @returns {Rectangle} The modified result parameter or a new Rectangle instance if none was provided.
+   * @param {Cartesian3[]} cartesians Cartesian实例列表。
+   * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] 笛卡尔坐标所在的椭球。
+   * @param {Rectangle} [result] 存储结果的对象，如果应创建新实例则为undefined。
+   * @returns {Rectangle} 修改后的结果参数，如果未提供则返回新的Rectangle实例。
    */
   static fromCartesianArray(cartesians, ellipsoid, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -328,13 +328,13 @@ class Rectangle {
   }
 
   /**
-   * Create a rectangle from a bounding sphere, ignoring height.
+   * 从边界球创建矩形，忽略高度。
    *
    *
-   * @param {BoundingSphere} boundingSphere The bounding sphere.
-   * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] The ellipsoid.
-   * @param {Rectangle} [result] The object onto which to store the result, or undefined if a new instance should be created.
-   * @returns {Rectangle} The modified result parameter or a new Rectangle instance if none was provided.
+   * @param {BoundingSphere} boundingSphere 边界球。
+   * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] 椭球。
+   * @param {Rectangle} [result] 存储结果的对象，如果应创建新实例则为undefined。
+   * @returns {Rectangle} 修改后的结果参数，如果未提供则返回新的Rectangle实例。
    */
   static fromBoundingSphere(boundingSphere, ellipsoid, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -405,11 +405,11 @@ class Rectangle {
   }
 
   /**
-   * Duplicates a Rectangle.
+   * 复制矩形。
    *
-   * @param {Rectangle} rectangle The rectangle to clone.
-   * @param {Rectangle} [result] The object onto which to store the result, or undefined if a new instance should be created.
-   * @returns {Rectangle} The modified result parameter or a new Rectangle instance if none was provided. (Returns undefined if rectangle is undefined)
+   * @param {Rectangle} rectangle 要克隆的矩形。
+   * @param {Rectangle} [result] 存储结果的对象，如果应创建新实例则为undefined。
+   * @returns {Rectangle} 修改后的结果参数，如果未提供则返回新的Rectangle实例。（如果矩形未定义则返回undefined）
    */
   static clone(rectangle, result) {
     if (!defined(rectangle)) {
@@ -433,14 +433,13 @@ class Rectangle {
   }
 
   /**
-   * Compares the provided Rectangles componentwise and returns
-   * <code>true</code> if they pass an absolute or relative tolerance test,
-   * <code>false</code> otherwise.
+   * 逐分量比较两个提供的矩形，如果它们通过绝对或相对容差测试则返回
+   * <code>true</code>，否则返回<code>false</code>。
    *
-   * @param {Rectangle} [left] The first Rectangle.
-   * @param {Rectangle} [right] The second Rectangle.
-   * @param {number} [absoluteEpsilon=0] The absolute epsilon tolerance to use for equality testing.
-   * @returns {boolean} <code>true</code> if left and right are within the provided epsilon, <code>false</code> otherwise.
+   * @param {Rectangle} [left] 第一个矩形。
+   * @param {Rectangle} [right] 第二个矩形。
+   * @param {number} [absoluteEpsilon=0] 用于相等性测试的绝对epsilon容差。
+   * @returns {boolean} 如果left和right在提供的epsilon范围内则返回<code>true</code>，否则返回<code>false</code>。
    */
   static equalsEpsilon(left, right, absoluteEpsilon) {
     absoluteEpsilon = absoluteEpsilon ?? 0;
@@ -457,33 +456,33 @@ class Rectangle {
   }
 
   /**
-   * Duplicates this Rectangle.
+   * 复制此矩形。
    *
-   * @param {Rectangle} [result] The object onto which to store the result.
-   * @returns {Rectangle} The modified result parameter or a new Rectangle instance if none was provided.
+   * @param {Rectangle} [result] 存储结果的对象。
+   * @returns {Rectangle} 修改后的结果参数，如果未提供则返回新的Rectangle实例。
    */
   clone(result) {
     return Rectangle.clone(this, result);
   }
 
   /**
-   * Compares the provided Rectangle with this Rectangle componentwise and returns
-   * <code>true</code> if they are equal, <code>false</code> otherwise.
+   * 将此矩形与提供的矩形进行逐分量比较，如果相等则返回
+   * <code>true</code>，否则返回<code>false</code>。
    *
-   * @param {Rectangle} [other] The Rectangle to compare.
-   * @returns {boolean} <code>true</code> if the Rectangles are equal, <code>false</code> otherwise.
+   * @param {Rectangle} [other] 要比较的矩形。
+   * @returns {boolean} 如果矩形相等则返回<code>true</code>，否则返回<code>false</code>。
    */
   equals(other) {
     return Rectangle.equals(this, other);
   }
 
   /**
-   * Compares the provided rectangles and returns <code>true</code> if they are equal,
-   * <code>false</code> otherwise.
+   * 比较提供的矩形，如果相等则返回<code>true</code>，
+   * 否则返回<code>false</code>。
    *
-   * @param {Rectangle} [left] The first Rectangle.
-   * @param {Rectangle} [right] The second Rectangle.
-   * @returns {boolean} <code>true</code> if left and right are equal; otherwise <code>false</code>.
+   * @param {Rectangle} [left] 第一个矩形。
+   * @param {Rectangle} [right] 第二个矩形。
+   * @returns {boolean} 如果left和right相等则返回<code>true</code>；否则返回<code>false</code>。
    */
   static equals(left, right) {
     return (
@@ -498,27 +497,26 @@ class Rectangle {
   }
 
   /**
-   * Compares the provided Rectangle with this Rectangle componentwise and returns
-   * <code>true</code> if they are within the provided epsilon,
-   * <code>false</code> otherwise.
+   * 将此矩形与提供的矩形进行逐分量比较，如果在提供的epsilon范围内则返回
+   * <code>true</code>，否则返回<code>false</code>。
    *
-   * @param {Rectangle} [other] The Rectangle to compare.
-   * @param {number} [epsilon=0] The epsilon to use for equality testing.
-   * @returns {boolean} <code>true</code> if the Rectangles are within the provided epsilon, <code>false</code> otherwise.
+   * @param {Rectangle} [other] 要比较的矩形。
+   * @param {number} [epsilon=0] 用于相等性测试的epsilon。
+   * @returns {boolean} 如果矩形在提供的epsilon范围内则返回<code>true</code>，否则返回<code>false</code>。
    */
   equalsEpsilon(other, epsilon) {
     return Rectangle.equalsEpsilon(this, other, epsilon);
   }
 
   /**
-   * Checks a Rectangle's properties and throws if they are not in valid ranges.
+   * 检查矩形的属性，如果不在有效范围内则抛出异常。
    *
-   * @param {Rectangle} rectangle The rectangle to validate
+   * @param {Rectangle} rectangle 要验证的矩形
    *
-   * @exception {DeveloperError} <code>north</code> must be in the interval [<code>-Pi/2</code>, <code>Pi/2</code>].
-   * @exception {DeveloperError} <code>south</code> must be in the interval [<code>-Pi/2</code>, <code>Pi/2</code>].
-   * @exception {DeveloperError} <code>east</code> must be in the interval [<code>-Pi</code>, <code>Pi</code>].
-   * @exception {DeveloperError} <code>west</code> must be in the interval [<code>-Pi</code>, <code>Pi</code>].
+   * @exception {DeveloperError} <code>north</code> 必须在区间 [<code>-Pi/2</code>, <code>Pi/2</code>] 内。
+   * @exception {DeveloperError} <code>south</code> 必须在区间 [<code>-Pi/2</code>, <code>Pi/2</code>] 内。
+   * @exception {DeveloperError} <code>east</code> 必须在区间 [<code>-Pi</code>, <code>Pi</code>] 内。
+   * @exception {DeveloperError} <code>west</code> 必须在区间 [<code>-Pi</code>, <code>Pi</code>] 内。
    * @private
    */
   static _validate(rectangle) {
@@ -560,11 +558,11 @@ class Rectangle {
   }
 
   /**
-   * Computes the southwest corner of a rectangle.
+   * 计算矩形的西南角。
    *
-   * @param {Rectangle} rectangle The rectangle for which to find the corner
-   * @param {Cartographic} [result] The object onto which to store the result.
-   * @returns {Cartographic} The modified result parameter or a new Cartographic instance if none was provided.
+   * @param {Rectangle} rectangle 要查找角的矩形
+   * @param {Cartographic} [result] 存储结果的对象。
+   * @returns {Cartographic} 修改后的结果参数，如果未提供则返回新的Cartographic实例。
    */
   static southwest(rectangle, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -581,11 +579,11 @@ class Rectangle {
   }
 
   /**
-   * Computes the northwest corner of a rectangle.
+   * 计算矩形的西北角。
    *
-   * @param {Rectangle} rectangle The rectangle for which to find the corner
-   * @param {Cartographic} [result] The object onto which to store the result.
-   * @returns {Cartographic} The modified result parameter or a new Cartographic instance if none was provided.
+   * @param {Rectangle} rectangle 要查找角的矩形
+   * @param {Cartographic} [result] 存储结果的对象。
+   * @returns {Cartographic} 修改后的结果参数，如果未提供则返回新的Cartographic实例。
    */
   static northwest(rectangle, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -602,11 +600,11 @@ class Rectangle {
   }
 
   /**
-   * Computes the northeast corner of a rectangle.
+   * 计算矩形的东北角。
    *
-   * @param {Rectangle} rectangle The rectangle for which to find the corner
-   * @param {Cartographic} [result] The object onto which to store the result.
-   * @returns {Cartographic} The modified result parameter or a new Cartographic instance if none was provided.
+   * @param {Rectangle} rectangle 要查找角的矩形
+   * @param {Cartographic} [result] 存储结果的对象。
+   * @returns {Cartographic} 修改后的结果参数，如果未提供则返回新的Cartographic实例。
    */
   static northeast(rectangle, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -623,11 +621,11 @@ class Rectangle {
   }
 
   /**
-   * Computes the southeast corner of a rectangle.
+   * 计算矩形的东南角。
    *
-   * @param {Rectangle} rectangle The rectangle for which to find the corner
-   * @param {Cartographic} [result] The object onto which to store the result.
-   * @returns {Cartographic} The modified result parameter or a new Cartographic instance if none was provided.
+   * @param {Rectangle} rectangle 要查找角的矩形
+   * @param {Cartographic} [result] 存储结果的对象。
+   * @returns {Cartographic} 修改后的结果参数，如果未提供则返回新的Cartographic实例。
    */
   static southeast(rectangle, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -644,11 +642,11 @@ class Rectangle {
   }
 
   /**
-   * Computes the center of a rectangle.
+   * 计算矩形的中心。
    *
-   * @param {Rectangle} rectangle The rectangle for which to find the center
-   * @param {Cartographic} [result] The object onto which to store the result.
-   * @returns {Cartographic} The modified result parameter or a new Cartographic instance if none was provided.
+   * @param {Rectangle} rectangle 要查找中心的矩形
+   * @param {Cartographic} [result] 存储结果的对象。
+   * @returns {Cartographic} 修改后的结果参数，如果未提供则返回新的Cartographic实例。
    */
   static center(rectangle, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -676,16 +674,12 @@ class Rectangle {
   }
 
   /**
-   * Computes the intersection of two rectangles.  This function assumes that the rectangle's coordinates are
-   * latitude and longitude in radians and produces a correct intersection, taking into account the fact that
-   * the same angle can be represented with multiple values as well as the wrapping of longitude at the
-   * anti-meridian.  For a simple intersection that ignores these factors and can be used with projected
-   * coordinates, see {@link Rectangle.simpleIntersection}.
+   * 计算两个矩形的交集。此函数假设矩形的坐标是经度和纬度（弧度），并考虑同一角度可以用多个值表示以及经度在反子午线的环绕，从而生成正确的交集。对于忽略这些因素并可用于投影坐标的简单交集，请参见 {@link Rectangle.simpleIntersection}。
    *
-   * @param {Rectangle} rectangle On rectangle to find an intersection
-   * @param {Rectangle} otherRectangle Another rectangle to find an intersection
-   * @param {Rectangle} [result] The object onto which to store the result.
-   * @returns {Rectangle|undefined} The modified result parameter, a new Rectangle instance if none was provided or undefined if there is no intersection.
+   * @param {Rectangle} rectangle 要查找交集的矩形
+   * @param {Rectangle} otherRectangle 另一个要查找交集的矩形
+   * @param {Rectangle} [result] 存储结果的对象。
+   * @returns {Rectangle|undefined} 修改后的结果参数，如果未提供则返回新的Rectangle实例，如果没有交集则返回undefined。
    */
   static intersection(rectangle, otherRectangle, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -744,15 +738,12 @@ class Rectangle {
   }
 
   /**
-   * Computes a simple intersection of two rectangles.  Unlike {@link Rectangle.intersection}, this function
-   * does not attempt to put the angular coordinates into a consistent range or to account for crossing the
-   * anti-meridian.  As such, it can be used for rectangles where the coordinates are not simply latitude
-   * and longitude (i.e. projected coordinates).
+   * 计算两个矩形的简单交集。与 {@link Rectangle.intersection} 不同，此函数不尝试将角度坐标放入一致的范围或考虑跨越反子午线。因此，它可用于坐标不仅仅是经度和纬度的矩形（即投影坐标）。
    *
-   * @param {Rectangle} rectangle On rectangle to find an intersection
-   * @param {Rectangle} otherRectangle Another rectangle to find an intersection
-   * @param {Rectangle} [result] The object onto which to store the result.
-   * @returns {Rectangle|undefined} The modified result parameter, a new Rectangle instance if none was provided or undefined if there is no intersection.
+   * @param {Rectangle} rectangle 要查找交集的矩形
+   * @param {Rectangle} otherRectangle 另一个要查找交集的矩形
+   * @param {Rectangle} [result] 存储结果的对象。
+   * @returns {Rectangle|undefined} 修改后的结果参数，如果未提供则返回新的Rectangle实例，如果没有交集则返回undefined。
    */
   static simpleIntersection(rectangle, otherRectangle, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -781,12 +772,12 @@ class Rectangle {
   }
 
   /**
-   * Computes a rectangle that is the union of two rectangles.
+   * 计算两个矩形的并集。
    *
-   * @param {Rectangle} rectangle A rectangle to enclose in rectangle.
-   * @param {Rectangle} otherRectangle A rectangle to enclose in a rectangle.
-   * @param {Rectangle} [result] The object onto which to store the result.
-   * @returns {Rectangle} The modified result parameter or a new Rectangle instance if none was provided.
+   * @param {Rectangle} rectangle 要包含在矩形中的矩形。
+   * @param {Rectangle} otherRectangle 要包含在矩形中的另一个矩形。
+   * @param {Rectangle} [result] 存储结果的对象。
+   * @returns {Rectangle} 修改后的结果参数，如果未提供则返回新的Rectangle实例。
    */
   static union(rectangle, otherRectangle, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -832,12 +823,12 @@ class Rectangle {
   }
 
   /**
-   * Computes a rectangle by enlarging the provided rectangle until it contains the provided cartographic.
+   * 通过扩大提供的矩形直到包含提供的地理坐标来计算矩形。
    *
-   * @param {Rectangle} rectangle A rectangle to expand.
-   * @param {Cartographic} cartographic A cartographic to enclose in a rectangle.
-   * @param {Rectangle} [result] The object onto which to store the result.
-   * @returns {Rectangle} The modified result parameter or a new Rectangle instance if one was not provided.
+   * @param {Rectangle} rectangle 要扩展的矩形。
+   * @param {Cartographic} cartographic 要包含在矩形中的地理坐标。
+   * @param {Rectangle} [result] 存储结果的对象。
+   * @returns {Rectangle} 修改后的结果参数，如果未提供则返回新的Rectangle实例。
    */
   static expand(rectangle, cartographic, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -858,11 +849,11 @@ class Rectangle {
   }
 
   /**
-   * Returns true if the cartographic is on or inside the rectangle, false otherwise.
+   * 如果地理坐标在矩形上或矩形内则返回true，否则返回false。
    *
-   * @param {Rectangle} rectangle The rectangle
-   * @param {Cartographic} cartographic The cartographic to test.
-   * @returns {boolean} true if the provided cartographic is inside the rectangle, false otherwise.
+   * @param {Rectangle} rectangle 矩形
+   * @param {Cartographic} cartographic 要测试的地理坐标。
+   * @returns {boolean} 如果提供的地理坐标在矩形内则返回true，否则返回false。
    */
   static contains(rectangle, cartographic) {
     //>>includeStart('debug', pragmas.debug);
@@ -893,15 +884,13 @@ class Rectangle {
   }
 
   /**
-   * Samples a rectangle so that it includes a list of Cartesian points suitable for passing to
-   * {@link BoundingSphere#fromPoints}.  Sampling is necessary to account
-   * for rectangles that cover the poles or cross the equator.
+   * 对矩形进行采样，使其包含适用于传递给{@link BoundingSphere#fromPoints}的笛卡尔点列表。采样是必要的，以考虑覆盖两极或跨越赤道的矩形。
    *
-   * @param {Rectangle} rectangle The rectangle to subsample.
-   * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] The ellipsoid to use.
-   * @param {number} [surfaceHeight=0.0] The height of the rectangle above the ellipsoid.
-   * @param {Cartesian3[]} [result] The array of Cartesians onto which to store the result.
-   * @returns {Cartesian3[]} The modified result parameter or a new Array of Cartesians instances if none was provided.
+   * @param {Rectangle} rectangle 要子采样的矩形。
+   * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] 要使用的椭球。
+   * @param {number} [surfaceHeight=0.0] 矩形高于椭球的高度。
+   * @param {Cartesian3[]} [result] 存储结果的笛卡尔数组。
+   * @returns {Cartesian3[]} 修改后的结果参数，如果未提供则返回新的笛卡尔实例数组。
    */
   static subsample(rectangle, ellipsoid, surfaceHeight, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -970,15 +959,15 @@ class Rectangle {
   }
 
   /**
-   * Computes a subsection of a rectangle from normalized coordinates in the range [0.0, 1.0].
+   * 从范围[0.0, 1.0]内的归一化坐标计算矩形的子区域。
    *
-   * @param {Rectangle} rectangle The rectangle to subsection.
-   * @param {number} westLerp The west interpolation factor in the range [0.0, 1.0]. Must be less than or equal to eastLerp.
-   * @param {number} southLerp The south interpolation factor in the range [0.0, 1.0]. Must be less than or equal to northLerp.
-   * @param {number} eastLerp The east interpolation factor in the range [0.0, 1.0]. Must be greater than or equal to westLerp.
-   * @param {number} northLerp The north interpolation factor in the range [0.0, 1.0]. Must be greater than or equal to southLerp.
-   * @param {Rectangle} [result] The object onto which to store the result.
-   * @returns {Rectangle} The modified result parameter or a new Rectangle instance if none was provided.
+   * @param {Rectangle} rectangle 要划分子区域的矩形。
+   * @param {number} westLerp 西部插值因子，范围[0.0, 1.0]。必须小于或等于eastLerp。
+   * @param {number} southLerp 南部插值因子，范围[0.0, 1.0]。必须小于或等于northLerp。
+   * @param {number} eastLerp 东部插值因子，范围[0.0, 1.0]。必须大于或等于westLerp。
+   * @param {number} northLerp 北部插值因子，范围[0.0, 1.0]。必须大于或等于southLerp。
+   * @param {Rectangle} [result] 存储结果的对象。
+   * @returns {Rectangle} 修改后的结果参数，如果未提供则返回新的Rectangle实例。
    */
   static subsection(
     rectangle,
@@ -1046,7 +1035,7 @@ class Rectangle {
 }
 
 /**
- * The number of elements used to pack the object into an array.
+ * 用于将对象打包到数组中的元素数量。
  * @type {number}
  */
 Rectangle.packedLength = 4;
@@ -1064,7 +1053,7 @@ for (let n = 0; n < fromBoundingSpherePositionsScratch.length; ++n) {
 const subsampleLlaScratch = new Cartographic();
 
 /**
- * The largest possible rectangle.
+ * 可能的最大矩形。
  *
  * @type {Rectangle}
  * @constant

@@ -1,16 +1,13 @@
 // @ts-check
 
 /**
- * This enumerated type is used in determining to what extent an object, the occludee,
- * is visible during horizon culling. An occluder may fully block an occludee, in which case
- * it has no visibility, may partially block an occludee from view, or may not block it at all,
- * leading to full visibility.
+ * 此枚举类型用于确定在视地平线剔除过程中，被遮挡物（occludee）的可见程度。遮挡物可能完全遮挡被遮挡物（此时其不可见），也可能部分遮挡被遮挡物，或者完全不遮挡（使其完全可见）。
  *
  * @enum {number}
  */
 const Visibility = {
   /**
-   * Represents that no part of an object is visible.
+   * 表示对象的任何部分都不可见。
    *
    * @type {number}
    * @constant
@@ -18,7 +15,7 @@ const Visibility = {
   NONE: -1,
 
   /**
-   * Represents that part, but not all, of an object is visible
+   * 表示对象的部分（非全部）可见。
    *
    * @type {number}
    * @constant
@@ -26,7 +23,7 @@ const Visibility = {
   PARTIAL: 0,
 
   /**
-   * Represents that an object is visible in its entirety.
+   * 表示对象完全可见。
    *
    * @type {number}
    * @constant

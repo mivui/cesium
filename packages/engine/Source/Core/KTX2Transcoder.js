@@ -5,7 +5,7 @@ import RuntimeError from "./RuntimeError.js";
 import TaskProcessor from "./TaskProcessor.js";
 
 /**
- * Transcodes KTX2 textures using web workers.
+ * 使用Web Workers转码KTX2纹理。
  *
  * @private
  */

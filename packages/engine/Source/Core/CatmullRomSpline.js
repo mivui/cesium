@@ -104,28 +104,27 @@ const firstTangentScratch = new Cartesian3();
 const lastTangentScratch = new Cartesian3();
 
 /**
- * A Catmull-Rom spline is a cubic spline where the tangent at control points,
- * except the first and last, are computed using the previous and next control points.
- * Catmull-Rom splines are in the class C<sup>1</sup>.
+ * Catmull-Rom 样条是一种三次样条，其中控制点（第一个和最后一个除外）处的切线
+ * 使用前一个和后一个控制点计算。Catmull-Rom 样条属于 C<sup>1</sup> 类。
  *
  * @alias CatmullRomSpline
  * @constructor
  *
- * @param {object} options Object with the following properties:
- * @param {number[]} options.times An array of strictly increasing, unit-less, floating-point times at each point.
- *                The values are in no way connected to the clock time. They are the parameterization for the curve.
- * @param {Cartesian3[]} options.points The array of {@link Cartesian3} control points.
- * @param {Cartesian3} [options.firstTangent] The tangent of the curve at the first control point.
- *                     If the tangent is not given, it will be estimated.
- * @param {Cartesian3} [options.lastTangent] The tangent of the curve at the last control point.
- *                     If the tangent is not given, it will be estimated.
+ * @param {object} options 具有以下属性的对象：
+ * @param {number[]} options.times 每个点的严格递增、无单位浮点时间数组。
+ *                这些值与时钟时间无关，它们是曲线的参数化。
+ * @param {Cartesian3[]} options.points {@link Cartesian3} 控制点数组。
+ * @param {Cartesian3} [options.firstTangent] 第一个控制点处的曲线切线。
+ *                     如未提供切线，将自动估算。
+ * @param {Cartesian3} [options.lastTangent] 最后一个控制点处的曲线切线。
+ *                     如未提供切线，将自动估算。
  *
- * @exception {DeveloperError} points.length must be greater than or equal to 2.
- * @exception {DeveloperError} times.length must be equal to points.length.
+ * @exception {DeveloperError} points.length 必须大于或等于 2。
+ * @exception {DeveloperError} times.length 必须等于 points.length。
  *
  *
  * @example
- * // spline above the earth from Philadelphia to Los Angeles
+ * // 在地球上方从费城到洛杉矶的样条
  * const spline = new Cesium.CatmullRomSpline({
  *     times : [ 0.0, 1.5, 3.0, 4.5, 6.0 ],
  *     points : [
@@ -137,8 +136,8 @@ const lastTangentScratch = new Cartesian3();
  *     ]
  * });
  *
- * const p0 = spline.evaluate(times[i]);         // equal to positions[i]
- * const p1 = spline.evaluate(times[i] + delta); // interpolated value when delta < times[i + 1] - times[i]
+ * const p0 = spline.evaluate(times[i]);         // 等于 positions[i]
+ * const p1 = spline.evaluate(times[i] + delta); // 当 delta < times[i + 1] - times[i] 时的插值值
  *
  * @see ConstantSpline
  * @see SteppedSpline
@@ -197,7 +196,7 @@ function CatmullRomSpline(options) {
 
 Object.defineProperties(CatmullRomSpline.prototype, {
   /**
-   * An array of times for the control points.
+   * 控制点的时间数组。
    *
    * @memberof CatmullRomSpline.prototype
    *
@@ -211,7 +210,7 @@ Object.defineProperties(CatmullRomSpline.prototype, {
   },
 
   /**
-   * An array of {@link Cartesian3} control points.
+   * {@link Cartesian3} 控制点数组。
    *
    * @memberof CatmullRomSpline.prototype
    *
@@ -225,7 +224,7 @@ Object.defineProperties(CatmullRomSpline.prototype, {
   },
 
   /**
-   * The tangent at the first control point.
+   * 第一个控制点处的切线。
    *
    * @memberof CatmullRomSpline.prototype
    *
@@ -239,7 +238,7 @@ Object.defineProperties(CatmullRomSpline.prototype, {
   },
 
   /**
-   * The tangent at the last control point.
+   * 最后一个控制点处的切线。
    *
    * @memberof CatmullRomSpline.prototype
    *
@@ -276,47 +275,45 @@ CatmullRomSpline.catmullRomCoefficientMatrix = new Matrix4(
 );
 
 /**
- * Finds an index <code>i</code> in <code>times</code> such that the parameter
- * <code>time</code> is in the interval <code>[times[i], times[i + 1]]</code>.
+ * 在 <code>times</code> 中查找索引 <code>i</code>，使得参数
+ * <code>time</code> 位于区间 <code>[times[i], times[i + 1]]</code> 内。
  * @function
  *
- * @param {number} time The time.
- * @returns {number} The index for the element at the start of the interval.
+ * @param {number} time 时间。
+ * @returns {number} 区间起始元素的索引。
  *
- * @exception {DeveloperError} time must be in the range <code>[t<sub>0</sub>, t<sub>n</sub>]</code>, where <code>t<sub>0</sub></code>
- *                             is the first element in the array <code>times</code> and <code>t<sub>n</sub></code> is the last element
- *                             in the array <code>times</code>.
+ * @exception {DeveloperError} time 必须在范围 <code>[t<sub>0</sub>, t<sub>n</sub>]</code> 内，其中 <code>t<sub>0</sub></code>
+ *                             是数组 <code>times</code> 的第一个元素，<code>t<sub>n</sub></code> 是数组 <code>times</code> 的最后一个元素。
  */
 CatmullRomSpline.prototype.findTimeInterval = Spline.prototype.findTimeInterval;
 
 /**
- * Wraps the given time to the period covered by the spline.
+ * 将给定时间环绕到样条覆盖的周期内。
  * @function
  *
- * @param {number} time The time.
- * @return {number} The time, wrapped around to the updated animation.
+ * @param {number} time 时间。
+ * @return {number} 环绕更新后的动画时间。
  */
 CatmullRomSpline.prototype.wrapTime = Spline.prototype.wrapTime;
 
 /**
- * Clamps the given time to the period covered by the spline.
+ * 将给定时间钳制到样条覆盖的周期内。
  * @function
  *
- * @param {number} time The time.
- * @return {number} The time, clamped to the animation period.
+ * @param {number} time 时间。
+ * @return {number} 钳制到动画周期的时间。
  */
 CatmullRomSpline.prototype.clampTime = Spline.prototype.clampTime;
 
 /**
- * Evaluates the curve at a given time.
+ * 在给定时间评估曲线。
  *
- * @param {number} time The time at which to evaluate the curve.
- * @param {Cartesian3} [result] The object onto which to store the result.
- * @returns {Cartesian3} The modified result parameter or a new instance of the point on the curve at the given time.
+ * @param {number} time 评估曲线的时间。
+ * @param {Cartesian3} [result] 存储结果的对象。
+ * @returns {Cartesian3} 修改后的结果参数，或给定时间曲线上的新点实例。
  *
- * @exception {DeveloperError} time must be in the range <code>[t<sub>0</sub>, t<sub>n</sub>]</code>, where <code>t<sub>0</sub></code>
- *                             is the first element in the array <code>times</code> and <code>t<sub>n</sub></code> is the last element
- *                             in the array <code>times</code>.
+ * @exception {DeveloperError} time 必须在范围 <code>[t<sub>0</sub>, t<sub>n</sub>]</code> 内，其中 <code>t<sub>0</sub></code>
+ *                             是数组 <code>times</code> 的第一个元素，<code>t<sub>n</sub></code> 是数组 <code>times</code> 的最后一个元素。
  */
 CatmullRomSpline.prototype.evaluate = function (time, result) {
   return this._evaluateFunction(time, result);

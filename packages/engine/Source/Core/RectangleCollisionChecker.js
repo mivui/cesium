@@ -2,7 +2,7 @@ import RBush from "rbush";
 import Check from "./Check.js";
 
 /**
- * Wrapper around rbush for use with Rectangle types.
+ * 围绕 rbush 的封装，用于 Rectangle 类型。
  * @private
  */
 function RectangleCollisionChecker() {
@@ -27,10 +27,10 @@ RectangleWithId.fromRectangleAndId = function (id, rectangle, result) {
 };
 
 /**
- * Insert a rectangle into the collision checker.
+ * 将矩形插入碰撞检查器。
  *
- * @param {string} id Unique string ID for the rectangle being inserted.
- * @param {Rectangle} rectangle A Rectangle
+ * @param {string} id 被插入矩形的唯一字符串 ID。
+ * @param {Rectangle} rectangle 一个矩形。
  * @private
  */
 RectangleCollisionChecker.prototype.insert = function (id, rectangle) {
@@ -53,10 +53,10 @@ function idCompare(a, b) {
 
 const removalScratch = new RectangleWithId();
 /**
- * Remove a rectangle from the collision checker.
+ * 从碰撞检查器中移除矩形。
  *
- * @param {string} id Unique string ID for the rectangle being removed.
- * @param {Rectangle} rectangle A Rectangle
+ * @param {string} id 被移除矩形的唯一字符串 ID。
+ * @param {Rectangle} rectangle 一个矩形。
  * @private
  */
 RectangleCollisionChecker.prototype.remove = function (id, rectangle) {
@@ -75,10 +75,10 @@ RectangleCollisionChecker.prototype.remove = function (id, rectangle) {
 
 const collisionScratch = new RectangleWithId();
 /**
- * Checks if a given rectangle collides with any of the rectangles in the collection.
+ * 检查给定矩形是否与集合中的任何矩形发生碰撞。
  *
- * @param {Rectangle} rectangle A Rectangle that should be checked against the rectangles in the collision checker.
- * @returns {boolean} Whether the rectangle collides with any of the rectangles in the collision checker.
+ * @param {Rectangle} rectangle 应针对碰撞检查器中的矩形进行检查的矩形。
+ * @returns {boolean} 矩形是否与碰撞检查器中的任何矩形发生碰撞。
  */
 RectangleCollisionChecker.prototype.collides = function (rectangle) {
   //>>includeStart('debug', pragmas.debug);

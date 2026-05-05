@@ -3,12 +3,12 @@ import Check from "./Check.js";
 import defined from "./defined.js";
 
 /**
- * Represents a ray that extends infinitely from the provided origin in the provided direction.
+ * 表示一条从指定原点沿指定方向无限延伸的射线。
  */
 class Ray {
   /**
-   * @param {Cartesian3} [origin=Cartesian3.ZERO] The origin of the ray.
-   * @param {Cartesian3} [direction=Cartesian3.ZERO] The direction of the ray.
+   * @param {Cartesian3} [origin=Cartesian3.ZERO] 射线的原点。
+   * @param {Cartesian3} [direction=Cartesian3.ZERO] 射线的方向。
    */
   constructor(origin, direction) {
     direction = Cartesian3.clone(direction ?? Cartesian3.ZERO);
@@ -17,25 +17,25 @@ class Ray {
     }
 
     /**
-     * The origin of the ray.
+     * 射线的原点。
      * @type {Cartesian3}
      * @default {@link Cartesian3.ZERO}
      */
     this.origin = Cartesian3.clone(origin ?? Cartesian3.ZERO);
 
     /**
-     * The direction of the ray.
+     * 射线的方向。
      * @type {Cartesian3}
      */
     this.direction = direction;
   }
 
   /**
-   * Duplicates a Ray instance.
+   * 复制射线实例。
    *
-   * @param {Ray} ray The ray to duplicate.
-   * @param {Ray} [result] The object onto which to store the result.
-   * @returns {Ray} The modified result parameter or a new Ray instance if one was not provided. (Returns undefined if ray is undefined)
+   * @param {Ray} ray 要复制的射线。
+   * @param {Ray} [result] 存储结果的对象。
+   * @returns {Ray} 修改后的结果参数，如果未提供则返回新的射线实例。（如果射线未定义则返回undefined）
    */
   static clone(ray, result) {
     if (!defined(ray)) {
@@ -50,16 +50,16 @@ class Ray {
   }
 
   /**
-   * Computes the point along the ray given by r(t) = o + t*d,
-   * where o is the origin of the ray and d is the direction.
+   * 计算射线沿r(t) = o + t*d的点，
+   * 其中o是射线的原点，d是方向。
    *
-   * @param {Ray} ray The ray.
-   * @param {number} t A scalar value.
-   * @param {Cartesian3} [result] The object in which the result will be stored.
-   * @returns {Cartesian3} The modified result parameter, or a new instance if none was provided.
+   * @param {Ray} ray 射线。
+   * @param {number} t 标量值。
+   * @param {Cartesian3} [result] 存储结果的对象。
+   * @returns {Cartesian3} 修改后的结果参数，如果未提供则返回新实例。
    *
    * @example
-   * //Get the first intersection point of a ray and an ellipsoid.
+   * //获取射线与椭球的第一个交点。
    * const intersection = Cesium.IntersectionTests.rayEllipsoid(ray, ellipsoid);
    * const point = Cesium.Ray.getPoint(ray, intersection.start);
    */

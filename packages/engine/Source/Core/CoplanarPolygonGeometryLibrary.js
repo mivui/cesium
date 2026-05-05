@@ -33,14 +33,14 @@ CoplanarPolygonGeometryLibrary.validOutline = function (positions) {
   const yMag = Cartesian3.magnitude(yAxis);
   const zMag = Cartesian3.magnitude(zAxis);
 
-  // If all the points are on a line return undefined because we can't draw a polygon
+  // 如果所有点都在一条直线上，返回undefined，因为无法绘制多边形
   return !(
     (xMag === 0 && (yMag === 0 || zMag === 0)) ||
     (yMag === 0 && zMag === 0)
   );
 };
 
-// call after removeDuplicates
+// 在removeDuplicates之后调用
 CoplanarPolygonGeometryLibrary.computeProjectTo2DArguments = function (
   positions,
   centerResult,
@@ -68,7 +68,7 @@ CoplanarPolygonGeometryLibrary.computeProjectTo2DArguments = function (
   const zMag = Cartesian3.magnitude(zAxis);
   const min = Math.min(xMag, yMag, zMag);
 
-  // If all the points are on a line return undefined because we can't draw a polygon
+  // 如果所有点都在一条直线上，返回undefined，因为无法绘制多边形
   if (
     (xMag === 0 && (yMag === 0 || zMag === 0)) ||
     (yMag === 0 && zMag === 0)

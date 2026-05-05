@@ -4,8 +4,8 @@ import defined from "./defined.js";
 import DeveloperError from "./DeveloperError.js";
 
 /**
- * A collection of key-value pairs that is stored as a hash for easy
- * lookup but also provides an array for fast iteration.
+ * 一个键值对集合，存储为哈希表以便快速查找，
+ * 同时提供数组以支持快速迭代。
  *
  * @template T = unknown
  */
@@ -24,7 +24,7 @@ class AssociativeArray {
   }
 
   /**
-   * Gets the number of items in the collection.
+   * 获取集合中的项目数量。
    *
    * @type {number}
    */
@@ -33,9 +33,9 @@ class AssociativeArray {
   }
 
   /**
-   * Gets an unordered array of all values in the collection.
-   * This is a live array that will automatically reflect the values in the collection,
-   * it should not be modified directly.
+   * 获取集合中所有值的无序数组。
+   * 这是一个实时数组，会自动反映集合中的值，
+   * 不应直接修改。
    *
    * @type {Array<T>}
    */
@@ -44,10 +44,10 @@ class AssociativeArray {
   }
 
   /**
-   * Determines if the provided key is in the array.
+   * 从集合中移除键值对。
    *
-   * @param {string|number} key The key to check.
-   * @returns {boolean} <code>true</code> if the key is in the array, <code>false</code> otherwise.
+   * @param {string|number} key 要移除的键。
+   * @returns {boolean} 如果已移除则返回true，如果键不在集合中则返回false。
    */
   contains(key) {
     //>>includeStart('debug', pragmas.debug);
@@ -59,11 +59,11 @@ class AssociativeArray {
   }
 
   /**
-   * Associates the provided key with the provided value.  If the key already
-   * exists, it is overwritten with the new value.
+   * 将提供的键与提供的值关联。如果键已存在，
+   * 则使用新值覆盖。
    *
-   * @param {string|number} key A unique identifier.
-   * @param {T} value The value to associate with the provided key.
+   * @param {string|number} key 唯一标识符。
+   * @param {T} value 要与提供的键关联的值。
    */
   set(key, value) {
     //>>includeStart('debug', pragmas.debug);
@@ -81,10 +81,10 @@ class AssociativeArray {
   }
 
   /**
-   * Retrieves the value associated with the provided key.
+   * 检索与提供的键关联的值。
    *
-   * @param {string|number} key The key whose value is to be retrieved.
-   * @returns {T} The associated value, or undefined if the key does not exist in the collection.
+   * @param {string|number} key 要检索其值的键。
+   * @returns {T} 关联的值；如果键不存在于集合中则返回undefined。
    */
   get(key) {
     //>>includeStart('debug', pragmas.debug);
@@ -96,10 +96,10 @@ class AssociativeArray {
   }
 
   /**
-   * Removes a key-value pair from the collection.
+   * 确定提供的键是否存在于数组中。
    *
-   * @param {string|number} key The key to be removed.
-   * @returns {boolean} True if it was removed, false if the key was not in the collection.
+   * @param {string|number} key 要检查的键。
+   * @returns {boolean} 如果键存在于数组中则返回<code>true</code>，否则返回<code>false</code>。
    */
   remove(key) {
     //>>includeStart('debug', pragmas.debug);
@@ -119,7 +119,7 @@ class AssociativeArray {
   }
 
   /**
-   * Clears the collection.
+   * 清空集合。
    */
   removeAll() {
     const array = this._array;

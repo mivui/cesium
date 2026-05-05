@@ -8,19 +8,19 @@ import Rectangle from "./Rectangle.js";
 import Visibility from "./Visibility.js";
 
 /**
- * Creates an Occluder derived from an object's position and radius, as well as the camera position.
- * The occluder can be used to determine whether or not other objects are visible or hidden behind the
- * visible horizon defined by the occluder and camera position.
+ * 根据对象的位置和半径以及相机位置创建遮挡体。
+ * 遮挡体可用于确定其他对象是可见还是隐藏在
+ * 由遮挡体和相机位置定义的可见地平线之后。
  *
  * @alias Occluder
  *
- * @param {BoundingSphere} occluderBoundingSphere The bounding sphere surrounding the occluder.
- * @param {Cartesian3} cameraPosition The coordinate of the viewer/camera.
+ * @param {BoundingSphere} occluderBoundingSphere 包围遮挡体的包围球。
+ * @param {Cartesian3} cameraPosition 观察者/相机的坐标。
  *
  * @constructor
  *
  * @example
- * // Construct an occluder one unit away from the origin with a radius of one.
+ * // 在距离原点一个单位处构建半径为 1 的遮挡体。
  * const cameraPosition = Cesium.Cartesian3.ZERO;
  * const occluderBoundingSphere = new Cesium.BoundingSphere(new Cesium.Cartesian3(0, 0, -1), 1);
  * const occluder = new Cesium.Occluder(occluderBoundingSphere, cameraPosition);
@@ -51,7 +51,7 @@ const scratchCartesian3 = new Cartesian3();
 
 Object.defineProperties(Occluder.prototype, {
   /**
-   * The position of the occluder.
+   * 遮挡体的位置。
    * @memberof Occluder.prototype
    * @type {Cartesian3}
    */
@@ -62,7 +62,7 @@ Object.defineProperties(Occluder.prototype, {
   },
 
   /**
-   * The radius of the occluder.
+   * 遮挡体的半径。
    * @memberof Occluder.prototype
    * @type {number}
    */
@@ -73,7 +73,7 @@ Object.defineProperties(Occluder.prototype, {
   },
 
   /**
-   * The position of the camera.
+   * 相机的位置。
    * @memberof Occluder.prototype
    * @type {Cartesian3}
    */
@@ -134,12 +134,12 @@ Object.defineProperties(Occluder.prototype, {
 });
 
 /**
- * Creates an occluder from a bounding sphere and the camera position.
+ * 从包围球和相机位置创建遮挡体。
  *
- * @param {BoundingSphere} occluderBoundingSphere The bounding sphere surrounding the occluder.
- * @param {Cartesian3} cameraPosition The coordinate of the viewer/camera.
- * @param {Occluder} [result] The object onto which to store the result.
- * @returns {Occluder} The occluder derived from an object's position and radius, as well as the camera position.
+ * @param {BoundingSphere} occluderBoundingSphere 包围遮挡体的包围球。
+ * @param {Cartesian3} cameraPosition 观察者/相机的坐标。
+ * @param {Occluder} [result] 存储结果的对象。
+ * @returns {Occluder} 根据对象位置和半径以及相机位置导出的遮挡体。
  */
 Occluder.fromBoundingSphere = function (
   occluderBoundingSphere,
@@ -170,10 +170,10 @@ Occluder.fromBoundingSphere = function (
 const tempVecScratch = new Cartesian3();
 
 /**
- * Determines whether or not a point, the <code>occludee</code>, is hidden from view by the occluder.
+ * 确定某个点（<code>occludee</code>）是否被遮挡体遮挡。
  *
- * @param {Cartesian3} occludee The point surrounding the occludee object.
- * @returns {boolean} <code>true</code> if the occludee is visible; otherwise <code>false</code>.
+ * @param {Cartesian3} occludee 被遮挡对象周围的点。
+ * @returns {boolean} 如果被遮挡点可见则返回 <code>true</code>，否则返回 <code>false</code>。
  *
  *
  * @example
@@ -181,7 +181,7 @@ const tempVecScratch = new Cartesian3();
  * const littleSphere = new Cesium.BoundingSphere(new Cesium.Cartesian3(0, 0, -1), 0.25);
  * const occluder = new Cesium.Occluder(littleSphere, cameraPosition);
  * const point = new Cesium.Cartesian3(0, 0, -3);
- * occluder.isPointVisible(point); //returns true
+ * occluder.isPointVisible(point); // 返回 true
  *
  * @see Occluder#computeVisibility
  */
@@ -206,10 +206,10 @@ Occluder.prototype.isPointVisible = function (occludee) {
 const occludeePositionScratch = new Cartesian3();
 
 /**
- * Determines whether or not a sphere, the <code>occludee</code>, is hidden from view by the occluder.
+ * 确定某个球体（<code>occludee</code>）是否被遮挡体遮挡。
  *
- * @param {BoundingSphere} occludee The bounding sphere surrounding the occludee object.
- * @returns {boolean} <code>true</code> if the occludee is visible; otherwise <code>false</code>.
+ * @param {BoundingSphere} occludee 被遮挡对象周围的包围球。
+ * @returns {boolean} 如果被遮挡球体可见则返回 <code>true</code>，否则返回 <code>false</code>。
  *
  *
  * @example
@@ -217,7 +217,7 @@ const occludeePositionScratch = new Cartesian3();
  * const littleSphere = new Cesium.BoundingSphere(new Cesium.Cartesian3(0, 0, -1), 0.25);
  * const occluder = new Cesium.Occluder(littleSphere, cameraPosition);
  * const bigSphere = new Cesium.BoundingSphere(new Cesium.Cartesian3(0, 0, -3), 1);
- * occluder.isBoundingSphereVisible(bigSphere); //returns true
+ * occluder.isBoundingSphereVisible(bigSphere); // 返回 true
  *
  * @see Occluder#computeVisibility
  */
@@ -285,12 +285,12 @@ Occluder.prototype.isBoundingSphereVisible = function (occludee) {
 
 const tempScratch = new Cartesian3();
 /**
- * Determine to what extent an occludee is visible (not visible, partially visible,  or fully visible).
+ * 确定被遮挡体的可见程度（不可见、部分可见或完全可见）。
  *
- * @param {BoundingSphere} occludeeBS The bounding sphere of the occludee.
- * @returns {Visibility} Visibility.NONE if the occludee is not visible,
- *                       Visibility.PARTIAL if the occludee is partially visible, or
- *                       Visibility.FULL if the occludee is fully visible.
+ * @param {BoundingSphere} occludeeBS 被遮挡体的包围球。
+ * @returns {Visibility} 如果被遮挡体不可见返回 Visibility.NONE，
+ *                       如果部分可见返回 Visibility.PARTIAL，
+ *                       如果完全可见返回 Visibility.FULL。
  *
  *
  * @example
@@ -298,7 +298,7 @@ const tempScratch = new Cartesian3();
  * const sphere2 = new Cesium.BoundingSphere(new Cesium.Cartesian3(0, 0, -2.5), 0.5);
  * const cameraPosition = new Cesium.Cartesian3(0, 0, 0);
  * const occluder = new Cesium.Occluder(sphere1, cameraPosition);
- * occluder.computeVisibility(sphere2); //returns Visibility.NONE
+ * occluder.computeVisibility(sphere2); // 返回 Visibility.NONE
  */
 Occluder.prototype.computeVisibility = function (occludeeBS) {
   //>>includeStart('debug', pragmas.debug);
@@ -374,22 +374,21 @@ Occluder.prototype.computeVisibility = function (occludeeBS) {
 
 const occludeePointScratch = new Cartesian3();
 /**
- * Computes a point that can be used as the occludee position to the visibility functions.
- * Use a radius of zero for the occludee radius.  Typically, a user computes a bounding sphere around
- * an object that is used for visibility; however it is also possible to compute a point that if
- * seen/not seen would also indicate if an object is visible/not visible.  This function is better
- * called for objects that do not move relative to the occluder and is large, such as a chunk of
- * terrain.  You are better off not calling this and using the object's bounding sphere for objects
- * such as a satellite or ground vehicle.
+ * 计算一个可用作遮挡体位置的点，供可见性函数使用。
+ * 被遮挡体的半径使用零。通常，用户会计算
+ * 用于可见性的对象周围的包围球；但也可以计算一个点，其
+ * 可见/不可见也能指示对象是否可见/不可见。此函数更适合
+ * 用于相对于遮挡体不移动且较大的对象，例如地形块。
+ * 对于卫星或地面车辆等对象，最好不要调用此函数，而是使用对象的包围球。
  *
- * @param {BoundingSphere} occluderBoundingSphere The bounding sphere surrounding the occluder.
- * @param {Cartesian3} occludeePosition The point where the occludee (bounding sphere of radius 0) is located.
- * @param {Cartesian3[]} positions List of altitude points on the horizon near the surface of the occluder.
- * @returns {object} An object containing two attributes: <code>occludeePoint</code> and <code>valid</code>
- * which is a boolean value.
+ * @param {BoundingSphere} occluderBoundingSphere 包围遮挡体的包围球。
+ * @param {Cartesian3} occludeePosition 被遮挡体（半径为 0 的包围球）所在的点。
+ * @param {Cartesian3[]} positions 遮挡体表面附近地平线上的高度点列表。
+ * @returns {object} 包含两个属性的对象：<code>occludeePoint</code> 和 <code>valid</code>，
+ * 后者是一个布尔值。
  *
- * @exception {DeveloperError} <code>positions</code> must contain at least one element.
- * @exception {DeveloperError} <code>occludeePosition</code> must have a value other than <code>occluderBoundingSphere.center</code>.
+ * @exception {DeveloperError} <code>positions</code> 必须至少包含一个元素。
+ * @exception {DeveloperError} <code>occludeePosition</code> 必须具有不同于 <code>occluderBoundingSphere.center</code> 的值。
  *
  * @example
  * const cameraPosition = new Cesium.Cartesian3(0, 0, 0);
@@ -492,12 +491,12 @@ Occluder.computeOccludeePoint = function (
 
 const computeOccludeePointFromRectangleScratch = [];
 /**
- * Computes a point that can be used as the occludee position to the visibility functions from a rectangle.
+ * 从矩形计算一个可用作被遮挡体位置的点，供可见性函数使用。
  *
- * @param {Rectangle} rectangle The rectangle used to create a bounding sphere.
- * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] The ellipsoid used to determine positions of the rectangle.
- * @returns {object} An object containing two attributes: <code>occludeePoint</code> and <code>valid</code>
- * which is a boolean value.
+ * @param {Rectangle} rectangle 用于创建包围球的矩形。
+ * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] 用于确定矩形位置的椭球体。
+ * @returns {object} 包含两个属性的对象：<code>occludeePoint</code> 和 <code>valid</code>，
+ * 后者是一个布尔值。
  */
 Occluder.computeOccludeePointFromRectangle = function (rectangle, ellipsoid) {
   //>>includeStart('debug', pragmas.debug);

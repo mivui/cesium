@@ -52,7 +52,7 @@ function createGeometryFromPolygon(
   const positions = polygon.positions;
   let indices = PolygonPipeline.triangulate(polygon.positions2D, polygon.holes);
 
-  /* If polygon is completely unrenderable, just use the first three vertices */
+  /* 如果多边形完全无法渲染，则仅使用前三个顶点 */
   if (indices.length < 3) {
     indices = [0, 1, 2];
   }
@@ -222,17 +222,17 @@ function createGeometryFromPolygon(
 }
 
 /**
- * A description of a polygon composed of arbitrary coplanar positions.
+ * 由任意共面位置组成的多边形描述。
  *
  * @alias CoplanarPolygonGeometry
  * @constructor
  *
- * @param {object} options Object with the following properties:
- * @param {PolygonHierarchy} options.polygonHierarchy A polygon hierarchy that can include holes.
- * @param {number} [options.stRotation=0.0] The rotation of the texture coordinates, in radians. A positive rotation is counter-clockwise.
- * @param {VertexFormat} [options.vertexFormat=VertexFormat.DEFAULT] The vertex attributes to be computed.
- * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] The ellipsoid to be used as a reference.
- * @param {PolygonHierarchy} [options.textureCoordinates] Texture coordinates as a {@link PolygonHierarchy} of {@link Cartesian2} points.
+ * @param {object} options 包含以下属性的对象：
+ * @param {PolygonHierarchy} options.polygonHierarchy 可包含孔洞的多边形层次结构。
+ * @param {number} [options.stRotation=0.0] 纹理坐标的旋转角度（弧度）。正旋转为逆时针方向。
+ * @param {VertexFormat} [options.vertexFormat=VertexFormat.DEFAULT] 待计算的顶点属性。
+ * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] 用作参考的椭球体。
+ * @param {PolygonHierarchy} [options.textureCoordinates] 纹理坐标，为{@link Cartesian2}点的{@link PolygonHierarchy}。
  *
  * @example
  * const polygonGeometry = new Cesium.CoplanarPolygonGeometry({
@@ -263,7 +263,7 @@ function CoplanarPolygonGeometry(options) {
   this._textureCoordinates = textureCoordinates;
 
   /**
-   * The number of elements used to pack the object into an array.
+   * 用于将对象打包到数组中的元素数量。
    * @type {number}
    */
   this.packedLength =
@@ -283,14 +283,14 @@ function CoplanarPolygonGeometry(options) {
 }
 
 /**
- * A description of a coplanar polygon from an array of positions.
+ * 从位置数组定义的共面多边形描述。
  *
- * @param {object} options Object with the following properties:
- * @param {Cartesian3[]} options.positions An array of positions that defined the corner points of the polygon.
- * @param {VertexFormat} [options.vertexFormat=VertexFormat.DEFAULT] The vertex attributes to be computed.
- * @param {number} [options.stRotation=0.0] The rotation of the texture coordinates, in radians. A positive rotation is counter-clockwise.
- * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] The ellipsoid to be used as a reference.
- * @param {PolygonHierarchy} [options.textureCoordinates] Texture coordinates as a {@link PolygonHierarchy} of {@link Cartesian2} points.
+ * @param {object} options 包含以下属性的对象：
+ * @param {Cartesian3[]} options.positions 定义多边形角点的位置数组。
+ * @param {VertexFormat} [options.vertexFormat=VertexFormat.DEFAULT] 待计算的顶点属性。
+ * @param {number} [options.stRotation=0.0] 纹理坐标的旋转角度（弧度）。正旋转为逆时针方向。
+ * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] 用作参考的椭球体。
+ * @param {PolygonHierarchy} [options.textureCoordinates] 纹理坐标，为{@link Cartesian2}点的{@link PolygonHierarchy}。
  * @returns {CoplanarPolygonGeometry}
  *
  * @example
@@ -328,13 +328,13 @@ CoplanarPolygonGeometry.fromPositions = function (options) {
 };
 
 /**
- * Stores the provided instance into the provided array.
+ * 将提供的实例存储到提供的数组中。
  *
- * @param {CoplanarPolygonGeometry} value The value to pack.
- * @param {number[]} array The array to pack into.
- * @param {number} [startingIndex=0] The index into the array at which to start packing the elements.
+ * @param {CoplanarPolygonGeometry} value 要打包的值。
+ * @param {number[]} array 要打包到的数组。
+ * @param {number} [startingIndex=0] 数组中开始打包元素的索引。
  *
- * @returns {number[]} The array that was packed into
+ * @returns {number[]} 被打包到的数组
  */
 CoplanarPolygonGeometry.pack = function (value, array, startingIndex) {
   //>>includeStart('debug', pragmas.debug);
@@ -379,12 +379,12 @@ const scratchOptions = {
   polygonHierarchy: {},
 };
 /**
- * Retrieves an instance from a packed array.
+ * 从打包的数组中检索实例。
  *
- * @param {number[]} array The packed array.
- * @param {number} [startingIndex=0] The starting index of the element to be unpacked.
- * @param {CoplanarPolygonGeometry} [result] The object into which to store the result.
- * @returns {CoplanarPolygonGeometry} The modified result parameter or a new CoplanarPolygonGeometry instance if one was not provided.
+ * @param {number[]} array 打包数组。
+ * @param {number} [startingIndex=0] 要解包的元素起始索引。
+ * @param {CoplanarPolygonGeometry} [result] 存储结果的对象。
+ * @returns {CoplanarPolygonGeometry} 修改后的结果参数，若未提供则返回新的CoplanarPolygonGeometry实例。
  */
 CoplanarPolygonGeometry.unpack = function (array, startingIndex, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -443,10 +443,10 @@ CoplanarPolygonGeometry.unpack = function (array, startingIndex, result) {
 };
 
 /**
- * Computes the geometric representation of an arbitrary coplanar polygon, including its vertices, indices, and a bounding sphere.
+ * 计算任意共面多边形的几何表示，包括其顶点、索引和边界球。
  *
- * @param {CoplanarPolygonGeometry} polygonGeometry A description of the polygon.
- * @returns {Geometry|undefined} The computed vertices and indices.
+ * @param {CoplanarPolygonGeometry} polygonGeometry 多边形的描述。
+ * @returns {Geometry|undefined} 计算得到的顶点和索引。
  */
 CoplanarPolygonGeometry.createGeometry = function (polygonGeometry) {
   const vertexFormat = polygonGeometry._vertexFormat;

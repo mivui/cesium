@@ -28,13 +28,13 @@ const scratchCorners = [
 const scratchTileXY = new Cartesian2();
 
 /**
- * A collection of functions for approximating terrain height
+ * 用于近似地形高度的函数集合
  * @private
  */
 const ApproximateTerrainHeights = {};
 
 /**
- * Initializes the minimum and maximum terrain heights
+ * 初始化最小和最大地形高度
  * @return {Promise<void>}
  */
 ApproximateTerrainHeights.initialize = function () {
@@ -53,9 +53,9 @@ ApproximateTerrainHeights.initialize = function () {
 };
 
 /**
- * Computes the minimum and maximum terrain heights for a given rectangle
- * @param {Rectangle} rectangle The bounding rectangle
- * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] The ellipsoid
+ * 计算给定矩形的最小和最大地形高度
+ * @param {Rectangle} rectangle 边界矩形
+ * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] 椭球体
  * @return {{minimumTerrainHeight: number, maximumTerrainHeight: number}}
  */
 ApproximateTerrainHeights.getMinimumMaximumHeights = function (
@@ -127,10 +127,10 @@ ApproximateTerrainHeights.getMinimumMaximumHeights = function (
 };
 
 /**
- * Computes the bounding sphere based on the tile heights in the rectangle
- * @param {Rectangle} rectangle The bounding rectangle
- * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] The ellipsoid
- * @return {BoundingSphere} The result bounding sphere
+ * 根据矩形内的瓦片高度计算边界球体
+ * @param {Rectangle} rectangle 边界矩形
+ * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] 椭球体
+ * @return {BoundingSphere} 结果边界球体
  */
 ApproximateTerrainHeights.getBoundingSphere = function (rectangle, ellipsoid) {
   //>>includeStart('debug', pragmas.debug);
@@ -240,8 +240,8 @@ ApproximateTerrainHeights._initPromise = undefined;
 
 Object.defineProperties(ApproximateTerrainHeights, {
   /**
-   * Determines if the terrain heights are initialized and ready to use. To initialize the terrain heights,
-   * call {@link ApproximateTerrainHeights#initialize} and wait for the returned promise to resolve.
+   * 确定地形高度是否已初始化并准备好使用。要初始化地形高度，
+   * 请调用{@link ApproximateTerrainHeights#initialize}并等待返回的Promise解析。
    * @type {boolean}
    * @readonly
    * @memberof ApproximateTerrainHeights

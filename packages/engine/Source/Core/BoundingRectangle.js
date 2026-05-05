@@ -8,42 +8,42 @@ import Intersect from "./Intersect.js";
 import Rectangle from "./Rectangle.js";
 
 /**
- * A bounding rectangle given by a corner, width and height.
+ * 由角点、宽度和高度定义的边界矩形。
  * @alias BoundingRectangle
  * @constructor
  *
- * @param {number} [x=0.0] The x coordinate of the rectangle.
- * @param {number} [y=0.0] The y coordinate of the rectangle.
- * @param {number} [width=0.0] The width of the rectangle.
- * @param {number} [height=0.0] The height of the rectangle.
+ * @param {number} [x=0.0] 矩形的x坐标。
+ * @param {number} [y=0.0] 矩形的y坐标。
+ * @param {number} [width=0.0] 矩形的宽度。
+ * @param {number} [height=0.0] 矩形的高度。
  *
  * @see BoundingSphere
  * @see Packable
  */
 function BoundingRectangle(x, y, width, height) {
   /**
-   * The x coordinate of the rectangle.
+   * 矩形的x坐标。
    * @type {number}
    * @default 0.0
    */
   this.x = x ?? 0.0;
 
   /**
-   * The y coordinate of the rectangle.
+   * 矩形的y坐标。
    * @type {number}
    * @default 0.0
    */
   this.y = y ?? 0.0;
 
   /**
-   * The width of the rectangle.
+   * 矩形的宽度。
    * @type {number}
    * @default 0.0
    */
   this.width = width ?? 0.0;
 
   /**
-   * The height of the rectangle.
+   * 矩形的高度。
    * @type {number}
    * @default 0.0
    */
@@ -51,19 +51,19 @@ function BoundingRectangle(x, y, width, height) {
 }
 
 /**
- * The number of elements used to pack the object into an array.
+ * 用于将对象打包到数组中的元素数量。
  * @type {number}
  */
 BoundingRectangle.packedLength = 4;
 
 /**
- * Stores the provided instance into the provided array.
+ * 将提供的实例存储到提供的数组中。
  *
- * @param {BoundingRectangle} value The value to pack.
- * @param {number[]} array The array to pack into.
- * @param {number} [startingIndex=0] The index into the array at which to start packing the elements.
+ * @param {BoundingRectangle} value 要打包的值。
+ * @param {number[]} array 要打包到的数组。
+ * @param {number} [startingIndex=0] 开始打包元素的数组索引。
  *
- * @returns {number[]} The array that was packed into
+ * @returns {number[]} 已打包的数组
  */
 BoundingRectangle.pack = function (value, array, startingIndex) {
   //>>includeStart('debug', pragmas.debug);
@@ -82,12 +82,12 @@ BoundingRectangle.pack = function (value, array, startingIndex) {
 };
 
 /**
- * Retrieves an instance from a packed array.
+ * 从打包数组中检索实例。
  *
- * @param {number[]} array The packed array.
- * @param {number} [startingIndex=0] The starting index of the element to be unpacked.
- * @param {BoundingRectangle} [result] The object into which to store the result.
- * @returns {BoundingRectangle} The modified result parameter or a new BoundingRectangle instance if one was not provided.
+ * @param {number[]} array 打包数组。
+ * @param {number} [startingIndex=0] 要解包元素的起始索引。
+ * @param {BoundingRectangle} [result] 存储结果的对象。
+ * @returns {BoundingRectangle} 修改后的结果参数；如果未提供则返回新的BoundingRectangle实例。
  */
 BoundingRectangle.unpack = function (array, startingIndex, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -107,12 +107,12 @@ BoundingRectangle.unpack = function (array, startingIndex, result) {
 };
 
 /**
- * Computes a bounding rectangle enclosing the list of 2D points.
- * The rectangle is oriented with the corner at the bottom left.
+ * 计算包围2D点列表的边界矩形。
+ * 矩形的角点位于左下角。
  *
- * @param {Cartesian2[]} positions List of points that the bounding rectangle will enclose.  Each point must have <code>x</code> and <code>y</code> properties.
- * @param {BoundingRectangle} [result] The object onto which to store the result.
- * @returns {BoundingRectangle} The modified result parameter or a new BoundingRectangle instance if one was not provided.
+ * @param {Cartesian2[]} positions 边界矩形将包围的点列表。每个点必须具有<code>x</code>和<code>y</code>属性。
+ * @param {BoundingRectangle} [result] 存储结果的对象。
+ * @returns {BoundingRectangle} 修改后的结果参数；如果未提供则返回新的BoundingRectangle实例。
  */
 BoundingRectangle.fromPoints = function (positions, result) {
   if (!defined(result)) {
@@ -157,12 +157,12 @@ const defaultProjection = new GeographicProjection();
 const fromRectangleLowerLeft = new Cartographic();
 const fromRectangleUpperRight = new Cartographic();
 /**
- * Computes a bounding rectangle from a rectangle.
+ * 从矩形计算边界矩形。
  *
- * @param {Rectangle} rectangle The valid rectangle used to create a bounding rectangle.
- * @param {object} [projection=GeographicProjection] The projection used to project the rectangle into 2D.
- * @param {BoundingRectangle} [result] The object onto which to store the result.
- * @returns {BoundingRectangle} The modified result parameter or a new BoundingRectangle instance if one was not provided.
+ * @param {Rectangle} rectangle 用于创建边界矩形的有效矩形。
+ * @param {object} [projection=GeographicProjection] 用于将矩形投影到2D的投影。
+ * @param {BoundingRectangle} [result] 存储结果的对象。
+ * @returns {BoundingRectangle} 修改后的结果参数；如果未提供则返回新的BoundingRectangle实例。
  */
 BoundingRectangle.fromRectangle = function (rectangle, projection, result) {
   if (!defined(result)) {
@@ -197,11 +197,11 @@ BoundingRectangle.fromRectangle = function (rectangle, projection, result) {
 };
 
 /**
- * Duplicates a BoundingRectangle instance.
+ * 复制BoundingRectangle实例。
  *
- * @param {BoundingRectangle} rectangle The bounding rectangle to duplicate.
- * @param {BoundingRectangle} [result] The object onto which to store the result.
- * @returns {BoundingRectangle} The modified result parameter or a new BoundingRectangle instance if one was not provided. (Returns undefined if rectangle is undefined)
+ * @param {BoundingRectangle} rectangle 要复制的边界矩形。
+ * @param {BoundingRectangle} [result] 存储结果的对象。
+ * @returns {BoundingRectangle} 修改后的结果参数；如果未提供则返回新的BoundingRectangle实例。（如果rectangle未定义则返回undefined）
  */
 BoundingRectangle.clone = function (rectangle, result) {
   if (!defined(rectangle)) {
@@ -225,12 +225,12 @@ BoundingRectangle.clone = function (rectangle, result) {
 };
 
 /**
- * Computes a bounding rectangle that is the union of the left and right bounding rectangles.
+ * 计算左右边界矩形的并集边界矩形。
  *
- * @param {BoundingRectangle} left A rectangle to enclose in bounding rectangle.
- * @param {BoundingRectangle} right A rectangle to enclose in a bounding rectangle.
- * @param {BoundingRectangle} [result] The object onto which to store the result.
- * @returns {BoundingRectangle} The modified result parameter or a new BoundingRectangle instance if one was not provided.
+ * @param {BoundingRectangle} left 要包含在边界矩形中的矩形。
+ * @param {BoundingRectangle} right 要包含在边界矩形中的矩形。
+ * @param {BoundingRectangle} [result] 存储结果的对象。
+ * @returns {BoundingRectangle} 修改后的结果参数；如果未提供则返回新的BoundingRectangle实例。
  */
 BoundingRectangle.union = function (left, right, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -255,12 +255,12 @@ BoundingRectangle.union = function (left, right, result) {
 };
 
 /**
- * Computes a bounding rectangle by enlarging the provided rectangle until it contains the provided point.
+ * 通过扩大提供的矩形直到包含提供的点来计算边界矩形。
  *
- * @param {BoundingRectangle} rectangle A rectangle to expand.
- * @param {Cartesian2} point A point to enclose in a bounding rectangle.
- * @param {BoundingRectangle} [result] The object onto which to store the result.
- * @returns {BoundingRectangle} The modified result parameter or a new BoundingRectangle instance if one was not provided.
+ * @param {BoundingRectangle} rectangle 要扩展的矩形。
+ * @param {Cartesian2} point 要包含在边界矩形中的点。
+ * @param {BoundingRectangle} [result] 存储结果的对象。
+ * @returns {BoundingRectangle} 修改后的结果参数；如果未提供则返回新的BoundingRectangle实例。
  */
 BoundingRectangle.expand = function (rectangle, point, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -291,11 +291,11 @@ BoundingRectangle.expand = function (rectangle, point, result) {
 };
 
 /**
- * Determines if two rectangles intersect.
+ * 确定两个矩形是否相交。
  *
- * @param {BoundingRectangle} left A rectangle to check for intersection.
- * @param {BoundingRectangle} right The other rectangle to check for intersection.
- * @returns {Intersect} <code>Intersect.INTERSECTING</code> if the rectangles intersect, <code>Intersect.OUTSIDE</code> otherwise.
+ * @param {BoundingRectangle} left 要检查相交的矩形。
+ * @param {BoundingRectangle} right 另一个要检查相交的矩形。
+ * @returns {Intersect} 如果矩形相交则返回<code>Intersect.INTERSECTING</code>，否则返回<code>Intersect.OUTSIDE</code>。
  */
 BoundingRectangle.intersect = function (left, right) {
   //>>includeStart('debug', pragmas.debug);
@@ -322,12 +322,12 @@ BoundingRectangle.intersect = function (left, right) {
 };
 
 /**
- * Compares the provided BoundingRectangles componentwise and returns
- * <code>true</code> if they are equal, <code>false</code> otherwise.
+ * 逐组件比较提供的BoundingRectangle，如果相等则返回
+ * <code>true</code>，否则返回<code>false</code>。
  *
- * @param {BoundingRectangle} [left] The first BoundingRectangle.
- * @param {BoundingRectangle} [right] The second BoundingRectangle.
- * @returns {boolean} <code>true</code> if left and right are equal, <code>false</code> otherwise.
+ * @param {BoundingRectangle} [left] 第一个BoundingRectangle。
+ * @param {BoundingRectangle} [right] 第二个BoundingRectangle。
+ * @returns {boolean} 如果left和right相等则返回<code>true</code>，否则返回<code>false</code>。
  */
 BoundingRectangle.equals = function (left, right) {
   return (
@@ -342,31 +342,31 @@ BoundingRectangle.equals = function (left, right) {
 };
 
 /**
- * Duplicates this BoundingRectangle instance.
+ * 复制此BoundingRectangle实例。
  *
- * @param {BoundingRectangle} [result] The object onto which to store the result.
- * @returns {BoundingRectangle} The modified result parameter or a new BoundingRectangle instance if one was not provided.
+ * @param {BoundingRectangle} [result] 存储结果的对象。
+ * @returns {BoundingRectangle} 修改后的结果参数；如果未提供则返回新的BoundingRectangle实例。
  */
 BoundingRectangle.prototype.clone = function (result) {
   return BoundingRectangle.clone(this, result);
 };
 
 /**
- * Determines if this rectangle intersects with another.
+ * 确定此矩形是否与另一个矩形相交。
  *
- * @param {BoundingRectangle} right A rectangle to check for intersection.
- * @returns {Intersect} <code>Intersect.INTERSECTING</code> if the rectangles intersect, <code>Intersect.OUTSIDE</code> otherwise.
+ * @param {BoundingRectangle} right 要检查相交的矩形。
+ * @returns {Intersect} 如果矩形相交则返回<code>Intersect.INTERSECTING</code>，否则返回<code>Intersect.OUTSIDE</code>。
  */
 BoundingRectangle.prototype.intersect = function (right) {
   return BoundingRectangle.intersect(this, right);
 };
 
 /**
- * Compares this BoundingRectangle against the provided BoundingRectangle componentwise and returns
- * <code>true</code> if they are equal, <code>false</code> otherwise.
+ * 逐组件将此BoundingRectangle与提供的BoundingRectangle进行比较，如果相等则返回
+ * <code>true</code>，否则返回<code>false</code>。
  *
- * @param {BoundingRectangle} [right] The right hand side BoundingRectangle.
- * @returns {boolean} <code>true</code> if they are equal, <code>false</code> otherwise.
+ * @param {BoundingRectangle} [right] 右侧的BoundingRectangle。
+ * @returns {boolean} 如果相等则返回<code>true</code>，否则返回<code>false</code>。
  */
 BoundingRectangle.prototype.equals = function (right) {
   return BoundingRectangle.equals(this, right);

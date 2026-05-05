@@ -27,20 +27,20 @@ function createEvaluateFunction(spline) {
 }
 
 /**
- * A spline that uses spherical linear (slerp) interpolation to create a quaternion curve.
- * The generated curve is in the class C<sup>1</sup>.
+ * 使用球面线性（slerp）插值创建四元数曲线的样条。
+ * 生成的曲线属于 C<sup>1</sup> 类。
  *
  * @alias QuaternionSpline
  * @constructor
  *
- * @param {object} options Object with the following properties:
- * @param {number[]} options.times An array of strictly increasing, unit-less, floating-point times at each point.
- *                The values are in no way connected to the clock time. They are the parameterization for the curve.
- * @param {Quaternion[]} options.points The array of {@link Quaternion} control points.
+ * @param {object} options 具有以下属性的对象：
+ * @param {number[]} options.times 每个点的严格递增、无单位浮点时间数组。
+ *                这些值与时钟时间无关，它们是曲线的参数化。
+ * @param {Quaternion[]} options.points {@link Quaternion} 控制点数组。
  *
- * @exception {DeveloperError} points and times are required
- * @exception {DeveloperError} points.length must be greater than or equal to 2.
- * @exception {DeveloperError} times.length must be equal to points.length.
+ * @exception {DeveloperError} 必须提供 points 和 times。
+ * @exception {DeveloperError} points.length 必须大于或等于 2。
+ * @exception {DeveloperError} times.length 必须等于 points.length。
 
  * @see ConstantSpline
  * @see SteppedSpline
@@ -78,7 +78,7 @@ function QuaternionSpline(options) {
 
 Object.defineProperties(QuaternionSpline.prototype, {
   /**
-   * An array of times for the control points.
+   * 控制点的时间数组。
    *
    * @memberof QuaternionSpline.prototype
    *
@@ -92,7 +92,7 @@ Object.defineProperties(QuaternionSpline.prototype, {
   },
 
   /**
-   * An array of {@link Quaternion} control points.
+   * {@link Quaternion} 控制点数组。
    *
    * @memberof QuaternionSpline.prototype
    *
@@ -107,47 +107,45 @@ Object.defineProperties(QuaternionSpline.prototype, {
 });
 
 /**
- * Finds an index <code>i</code> in <code>times</code> such that the parameter
- * <code>time</code> is in the interval <code>[times[i], times[i + 1]]</code>.
+ * 在 <code>times</code> 中查找索引 <code>i</code>，使得参数
+ * <code>time</code> 位于区间 <code>[times[i], times[i + 1]]</code> 内。
  * @function
  *
- * @param {number} time The time.
- * @returns {number} The index for the element at the start of the interval.
+ * @param {number} time 时间。
+ * @returns {number} 区间起始元素的索引。
  *
- * @exception {DeveloperError} time must be in the range <code>[t<sub>0</sub>, t<sub>n</sub>]</code>, where <code>t<sub>0</sub></code>
- *                             is the first element in the array <code>times</code> and <code>t<sub>n</sub></code> is the last element
- *                             in the array <code>times</code>.
+ * @exception {DeveloperError} time 必须在范围 <code>[t<sub>0</sub>, t<sub>n</sub>]</code> 内，其中 <code>t<sub>0</sub></code>
+ *                             是数组 <code>times</code> 的第一个元素，<code>t<sub>n</sub></code> 是数组 <code>times</code> 的最后一个元素。
  */
 QuaternionSpline.prototype.findTimeInterval = Spline.prototype.findTimeInterval;
 
 /**
- * Wraps the given time to the period covered by the spline.
+ * 将给定时间环绕到样条覆盖的周期内。
  * @function
  *
- * @param {number} time The time.
- * @return {number} The time, wrapped around to the updated animation.
+ * @param {number} time 时间。
+ * @return {number} 环绕更新后的动画时间。
  */
 QuaternionSpline.prototype.wrapTime = Spline.prototype.wrapTime;
 
 /**
- * Clamps the given time to the period covered by the spline.
+ * 将给定时间钳制到样条覆盖的周期内。
  * @function
  *
- * @param {number} time The time.
- * @return {number} The time, clamped to the animation period.
+ * @param {number} time 时间。
+ * @return {number} 钳制到动画周期的时间。
  */
 QuaternionSpline.prototype.clampTime = Spline.prototype.clampTime;
 
 /**
- * Evaluates the curve at a given time.
+ * 在给定时间评估曲线。
  *
- * @param {number} time The time at which to evaluate the curve.
- * @param {Quaternion} [result] The object onto which to store the result.
- * @returns {Quaternion} The modified result parameter or a new instance of the point on the curve at the given time.
+ * @param {number} time 评估曲线的时间。
+ * @param {Quaternion} [result] 存储结果的对象。
+ * @returns {Quaternion} 修改后的结果参数，或给定时间曲线上的新点实例。
  *
- * @exception {DeveloperError} time must be in the range <code>[t<sub>0</sub>, t<sub>n</sub>]</code>, where <code>t<sub>0</sub></code>
- *                             is the first element in the array <code>times</code> and <code>t<sub>n</sub></code> is the last element
- *                             in the array <code>times</code>.
+ * @exception {DeveloperError} time 必须在范围 <code>[t<sub>0</sub>, t<sub>n</sub>]</code> 内，其中 <code>t<sub>0</sub></code>
+ *                             是数组 <code>times</code> 的第一个元素，<code>t<sub>n</sub></code> 是数组 <code>times</code> 的最后一个元素。
  */
 QuaternionSpline.prototype.evaluate = function (time, result) {
   return this._evaluateFunction(time, result);

@@ -19,7 +19,7 @@ import Quaternion from "./Quaternion.js";
 import TimeConstants from "./TimeConstants.js";
 
 /**
- * Contains functions for transforming positions to various reference frames.
+ * 包含用于将位置转换到各种参考系的函数。
  *
  * @namespace Transforms
  */
@@ -87,14 +87,13 @@ let scratchFirstCartesian = new Cartesian3();
 let scratchSecondCartesian = new Cartesian3();
 let scratchThirdCartesian = new Cartesian3();
 /**
- * Generates a function that computes a 4x4 transformation matrix from a reference frame
- * centered at the provided origin to the provided ellipsoid's fixed reference frame.
- * @param  {string} firstAxis  name of the first axis of the local reference frame. Must be
- *  'east', 'north', 'up', 'west', 'south' or 'down'.
- * @param  {string} secondAxis  name of the second axis of the local reference frame. Must be
- *  'east', 'north', 'up', 'west', 'south' or 'down'.
- * @return {Transforms.LocalFrameToFixedFrame} The function that will computes a
- * 4x4 transformation matrix from a reference frame, with first axis and second axis compliant with the parameters,
+ * 生成一个函数，该函数计算从以提供的原点为中心的参考系到提供的椭球体固定参考系的 4x4 变换矩阵。
+ * @param  {string} firstAxis  局部参考系的第一轴名称。必须是
+ *  'east'、'north'、'up'、'west'、'south' 或 'down'。
+ * @param  {string} secondAxis  局部参考系的第二轴名称。必须是
+ *  'east'、'north'、'up'、'west'、'south' 或 'down'。
+ * @return {Transforms.LocalFrameToFixedFrame} 将计算从参考系到固定参考系的 4x4 变换矩阵的函数，
+ * 第一轴和第二轴与参数一致，
  */
 Transforms.localFrameToFixedFrameGenerator = function (firstAxis, secondAxis) {
   if (
@@ -108,13 +107,12 @@ Transforms.localFrameToFixedFrameGenerator = function (firstAxis, secondAxis) {
   const thirdAxis = vectorProductLocalFrame[firstAxis][secondAxis];
 
   /**
-   * Computes a 4x4 transformation matrix from a reference frame
-   * centered at the provided origin to the provided ellipsoid's fixed reference frame.
+   * 计算从以提供的原点为中心的参考系到提供的椭球体固定参考系的 4x4 变换矩阵。
    * @callback Transforms.LocalFrameToFixedFrame
-   * @param {Cartesian3} origin The center point of the local reference frame.
-   * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] The ellipsoid whose fixed frame is used in the transformation.
-   * @param {Matrix4} [result] The object onto which to store the result.
-   * @returns {Matrix4} The modified result parameter or a new Matrix4 instance if none was provided.
+   * @param {Cartesian3} origin 局部参考系的中心点。
+   * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] 其固定参考系用于变换的椭球体。
+   * @param {Matrix4} [result] 用于存储结果的对象。
+   * @returns {Matrix4} 修改后的 result 参数，如果未提供，则为新的 Matrix4 实例。
    */
   let resultat;
   const hashAxis = firstAxis + secondAxis;
@@ -253,23 +251,22 @@ Transforms.localFrameToFixedFrameGenerator = function (firstAxis, secondAxis) {
 };
 
 /**
- * Computes a 4x4 transformation matrix from a reference frame with an east-north-up axes
- * centered at the provided origin to the provided ellipsoid's fixed reference frame.
- * The local axes are defined as:
+ * 计算从以提供的原点为中心的东-北-上轴参考系到提供的椭球体固定参考系的 4x4 变换矩阵。
+ * 局部轴定义如下：
  * <ul>
- * <li>The <code>x</code> axis points in the local east direction.</li>
- * <li>The <code>y</code> axis points in the local north direction.</li>
- * <li>The <code>z</code> axis points in the direction of the ellipsoid surface normal which passes through the position.</li>
+ * <li><code>x</code> 轴指向局部东方向。</li>
+ * <li><code>y</code> 轴指向局部北方向。</li>
+ * <li><code>z</code> 轴指向穿过位置的椭球体表面法线方向。</li>
  * </ul>
  *
  * @function
- * @param {Cartesian3} origin The center point of the local reference frame.
- * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] The ellipsoid whose fixed frame is used in the transformation.
- * @param {Matrix4} [result] The object onto which to store the result.
- * @returns {Matrix4} The modified result parameter or a new Matrix4 instance if none was provided.
+ * @param {Cartesian3} origin 局部参考系的中心点。
+ * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] 其固定参考系用于变换的椭球体。
+ * @param {Matrix4} [result] 用于存储结果的对象。
+ * @returns {Matrix4} 修改后的 result 参数，如果未提供，则为新的 Matrix4 实例。
  *
  * @example
- * // Get the transform from local east-north-up at cartographic (0.0, 0.0) to Earth's fixed frame.
+ * // 获取从测绘 (0.0, 0.0) 处的局部东-北-上到地球固定参考系的变换。
  * const center = Cesium.Cartesian3.fromDegrees(0.0, 0.0);
  * const transform = Cesium.Transforms.eastNorthUpToFixedFrame(center);
  */
@@ -279,23 +276,22 @@ Transforms.eastNorthUpToFixedFrame = Transforms.localFrameToFixedFrameGenerator(
 );
 
 /**
- * Computes a 4x4 transformation matrix from a reference frame with an north-east-down axes
- * centered at the provided origin to the provided ellipsoid's fixed reference frame.
- * The local axes are defined as:
+ * 计算从以提供的原点为中心的北-东-下轴参考系到提供的椭球体固定参考系的 4x4 变换矩阵。
+ * 局部轴定义如下：
  * <ul>
- * <li>The <code>x</code> axis points in the local north direction.</li>
- * <li>The <code>y</code> axis points in the local east direction.</li>
- * <li>The <code>z</code> axis points in the opposite direction of the ellipsoid surface normal which passes through the position.</li>
+ * <li><code>x</code> 轴指向局部北方向。</li>
+ * <li><code>y</code> 轴指向局部东方向。</li>
+ * <li><code>z</code> 轴指向与穿过位置的椭球体表面法线相反的方向。</li>
  * </ul>
  *
  * @function
- * @param {Cartesian3} origin The center point of the local reference frame.
- * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] The ellipsoid whose fixed frame is used in the transformation.
- * @param {Matrix4} [result] The object onto which to store the result.
- * @returns {Matrix4} The modified result parameter or a new Matrix4 instance if none was provided.
+ * @param {Cartesian3} origin 局部参考系的中心点。
+ * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] 其固定参考系用于变换的椭球体。
+ * @param {Matrix4} [result] 用于存储结果的对象。
+ * @returns {Matrix4} 修改后的 result 参数，如果未提供，则为新的 Matrix4 实例。
  *
  * @example
- * // Get the transform from local north-east-down at cartographic (0.0, 0.0) to Earth's fixed frame.
+ * // 获取从测绘 (0.0, 0.0) 处的局部北-东-下到地球固定参考系的变换。
  * const center = Cesium.Cartesian3.fromDegrees(0.0, 0.0);
  * const transform = Cesium.Transforms.northEastDownToFixedFrame(center);
  */
@@ -303,23 +299,22 @@ Transforms.northEastDownToFixedFrame =
   Transforms.localFrameToFixedFrameGenerator("north", "east");
 
 /**
- * Computes a 4x4 transformation matrix from a reference frame with an north-up-east axes
- * centered at the provided origin to the provided ellipsoid's fixed reference frame.
- * The local axes are defined as:
+ * 计算从以提供的原点为中心的北-上-东轴参考系到提供的椭球体固定参考系的 4x4 变换矩阵。
+ * 局部轴定义如下：
  * <ul>
- * <li>The <code>x</code> axis points in the local north direction.</li>
- * <li>The <code>y</code> axis points in the direction of the ellipsoid surface normal which passes through the position.</li>
- * <li>The <code>z</code> axis points in the local east direction.</li>
+ * <li><code>x</code> 轴指向局部北方向。</li>
+ * <li><code>y</code> 轴指向穿过位置的椭球体表面法线方向。</li>
+ * <li><code>z</code> 轴指向局部东方向。</li>
  * </ul>
  *
  * @function
- * @param {Cartesian3} origin The center point of the local reference frame.
- * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] The ellipsoid whose fixed frame is used in the transformation.
- * @param {Matrix4} [result] The object onto which to store the result.
- * @returns {Matrix4} The modified result parameter or a new Matrix4 instance if none was provided.
+ * @param {Cartesian3} origin 局部参考系的中心点。
+ * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] 其固定参考系用于变换的椭球体。
+ * @param {Matrix4} [result] 用于存储结果的对象。
+ * @returns {Matrix4} 修改后的 result 参数，如果未提供，则为新的 Matrix4 实例。
  *
  * @example
- * // Get the transform from local north-up-east at cartographic (0.0, 0.0) to Earth's fixed frame.
+ * // 获取从测绘 (0.0, 0.0) 处的局部北-上-东到地球固定参考系的变换。
  * const center = Cesium.Cartesian3.fromDegrees(0.0, 0.0);
  * const transform = Cesium.Transforms.northUpEastToFixedFrame(center);
  */
@@ -329,23 +324,22 @@ Transforms.northUpEastToFixedFrame = Transforms.localFrameToFixedFrameGenerator(
 );
 
 /**
- * Computes a 4x4 transformation matrix from a reference frame with an north-west-up axes
- * centered at the provided origin to the provided ellipsoid's fixed reference frame.
- * The local axes are defined as:
+ * 计算从以提供的原点为中心的北-西-上轴参考系到提供的椭球体固定参考系的 4x4 变换矩阵。
+ * 局部轴定义如下：
  * <ul>
- * <li>The <code>x</code> axis points in the local north direction.</li>
- * <li>The <code>y</code> axis points in the local west direction.</li>
- * <li>The <code>z</code> axis points in the direction of the ellipsoid surface normal which passes through the position.</li>
+ * <li><code>x</code> 轴指向局部北方向。</li>
+ * <li><code>y</code> 轴指向局部西方向。</li>
+ * <li><code>z</code> 轴指向穿过位置的椭球体表面法线方向。</li>
  * </ul>
  *
  * @function
- * @param {Cartesian3} origin The center point of the local reference frame.
- * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] The ellipsoid whose fixed frame is used in the transformation.
- * @param {Matrix4} [result] The object onto which to store the result.
- * @returns {Matrix4} The modified result parameter or a new Matrix4 instance if none was provided.
+ * @param {Cartesian3} origin 局部参考系的中心点。
+ * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] 其固定参考系用于变换的椭球体。
+ * @param {Matrix4} [result] 用于存储结果的对象。
+ * @returns {Matrix4} 修改后的 result 参数，如果未提供，则为新的 Matrix4 实例。
  *
  * @example
- * // Get the transform from local north-West-Up at cartographic (0.0, 0.0) to Earth's fixed frame.
+ * // 获取从测绘 (0.0, 0.0) 处的局部北-西-上到地球固定参考系的变换。
  * const center = Cesium.Cartesian3.fromDegrees(0.0, 0.0);
  * const transform = Cesium.Transforms.northWestUpToFixedFrame(center);
  */
@@ -359,21 +353,19 @@ const scratchScale = new Cartesian3(1.0, 1.0, 1.0);
 const scratchHPRMatrix4 = new Matrix4();
 
 /**
- * Computes a 4x4 transformation matrix from a reference frame with axes computed from the heading-pitch-roll angles
- * centered at the provided origin to the provided ellipsoid's fixed reference frame. Heading is the rotation from the local east
- * direction where a positive angle is increasing eastward. Pitch is the rotation from the local east-north plane. Positive pitch angles
- * are above the plane. Negative pitch angles are below the plane. Roll is the first rotation applied about the local east axis.
+ * 计算从由航向-俯仰-滚转角计算的轴参考系到提供的椭球体固定参考系的 4x4 变换矩阵，
+ * 该参考系以提供的原点为中心。航向是从局部东方向的旋转，正角度向东增加。俯仰是从局部东-北平面的旋转。正俯仰角
+ * 在平面上方。负俯仰角在平面下方。滚转是围绕局部东轴应用的第一个旋转。
  *
- * @param {Cartesian3} origin The center point of the local reference frame.
- * @param {HeadingPitchRoll} headingPitchRoll The heading, pitch, and roll.
- * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] The ellipsoid whose fixed frame is used in the transformation.
- * @param {Transforms.LocalFrameToFixedFrame} [fixedFrameTransform=Transforms.eastNorthUpToFixedFrame] A 4x4 transformation
- *  matrix from a reference frame to the provided ellipsoid's fixed reference frame
- * @param {Matrix4} [result] The object onto which to store the result.
- * @returns {Matrix4} The modified result parameter or a new Matrix4 instance if none was provided.
+ * @param {Cartesian3} origin 局部参考系的中心点。
+ * @param {HeadingPitchRoll} headingPitchRoll 航向、俯仰和滚转。
+ * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] 其固定参考系用于变换的椭球体。
+ * @param {Transforms.LocalFrameToFixedFrame} [fixedFrameTransform=Transforms.eastNorthUpToFixedFrame] 从参考系到提供的椭球体固定参考系的 4x4 变换矩阵
+ * @param {Matrix4} [result] 用于存储结果的对象。
+ * @returns {Matrix4} 修改后的 result 参数，如果未提供，则为新的 Matrix4 实例。
  *
  * @example
- * // Get the transform from local heading-pitch-roll at cartographic (0.0, 0.0) to Earth's fixed frame.
+ * // 获取从测绘 (0.0, 0.0) 处的局部航向-俯仰-滚转到地球固定参考系的变换。
  * const center = Cesium.Cartesian3.fromDegrees(0.0, 0.0);
  * const heading = -Cesium.Math.PI_OVER_TWO;
  * const pitch = Cesium.Math.PI_OVER_FOUR;
@@ -412,21 +404,18 @@ const scratchENUMatrix4 = new Matrix4();
 const scratchHPRMatrix3 = new Matrix3();
 
 /**
- * Computes a quaternion from a reference frame with axes computed from the heading-pitch-roll angles
- * centered at the provided origin. Heading is the rotation from the local east
- * direction where a positive angle is increasing eastward. Pitch is the rotation from the local east-north plane. Positive pitch angles
- * are above the plane. Negative pitch angles are below the plane. Roll is the first rotation applied about the local east axis.
+ * 计算以提供的原点为中心的由航向-俯仰-滚转角计算的轴参考系的四元数。航向是从局部东方向的旋转，
+ * 正角度向东增加。俯仰是从局部东-北平面的旋转。正俯仰角在平面上方。负俯仰角在平面下方。滚转是围绕局部东轴应用的第一个旋转。
  *
- * @param {Cartesian3} origin The center point of the local reference frame.
- * @param {HeadingPitchRoll} headingPitchRoll The heading, pitch, and roll.
- * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] The ellipsoid whose fixed frame is used in the transformation.
- * @param {Transforms.LocalFrameToFixedFrame} [fixedFrameTransform=Transforms.eastNorthUpToFixedFrame] A 4x4 transformation
- *  matrix from a reference frame to the provided ellipsoid's fixed reference frame
- * @param {Quaternion} [result] The object onto which to store the result.
- * @returns {Quaternion} The modified result parameter or a new Quaternion instance if none was provided.
+ * @param {Cartesian3} origin 局部参考系的中心点。
+ * @param {HeadingPitchRoll} headingPitchRoll 航向、俯仰和滚转。
+ * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] 其固定参考系用于变换的椭球体。
+ * @param {Transforms.LocalFrameToFixedFrame} [fixedFrameTransform=Transforms.eastNorthUpToFixedFrame] 从参考系到提供的椭球体固定参考系的 4x4 变换矩阵
+ * @param {Quaternion} [result] 用于存储结果的对象。
+ * @returns {Quaternion} 修改后的 result 参数，如果未提供，则为新的 Quaternion 实例。
  *
  * @example
- * // Get the quaternion from local heading-pitch-roll at cartographic (0.0, 0.0) to Earth's fixed frame.
+ * // 获取从测绘 (0.0, 0.0) 处的局部航向-俯仰-滚转到地球固定参考系的四元数。
  * const center = Cesium.Cartesian3.fromDegrees(0.0, 0.0);
  * const heading = -Cesium.Math.PI_OVER_TWO;
  * const pitch = Cesium.Math.PI_OVER_FOUR;
@@ -463,16 +452,14 @@ const hprTransformScratch = new Matrix4();
 const hprRotationScratch = new Matrix3();
 const hprQuaternionScratch = new Quaternion();
 /**
- * Computes heading-pitch-roll angles from a transform in a particular reference frame. Heading is the rotation from the local east
- * direction where a positive angle is increasing eastward. Pitch is the rotation from the local east-north plane. Positive pitch angles
- * are above the plane. Negative pitch angles are below the plane. Roll is the first rotation applied about the local east axis.
+ * 从特定参考系中的变换计算航向-俯仰-滚转角。航向是从局部东方向的旋转，
+ * 正角度向东增加。俯仰是从局部东-北平面的旋转。正俯仰角在平面上方。负俯仰角在平面下方。滚转是围绕局部东轴应用的第一个旋转。
  *
- * @param {Matrix4} transform The transform
- * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] The ellipsoid whose fixed frame is used in the transformation.
- * @param {Transforms.LocalFrameToFixedFrame} [fixedFrameTransform=Transforms.eastNorthUpToFixedFrame] A 4x4 transformation
- *  matrix from a reference frame to the provided ellipsoid's fixed reference frame
- * @param {HeadingPitchRoll} [result] The object onto which to store the result.
- * @returns {HeadingPitchRoll} The modified result parameter or a new HeadingPitchRoll instance if none was provided.
+ * @param {Matrix4} transform 变换。
+ * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] 其固定参考系用于变换的椭球体。
+ * @param {Transforms.LocalFrameToFixedFrame} [fixedFrameTransform=Transforms.eastNorthUpToFixedFrame] 从参考系到提供的椭球体固定参考系的 4x4 变换矩阵
+ * @param {HeadingPitchRoll} [result] 用于存储结果的对象。
+ * @returns {HeadingPitchRoll} 修改后的 result 参数，如果未提供，则为新的 HeadingPitchRoll 实例。
  */
 Transforms.fixedFrameToHeadingPitchRoll = function (
   transform,
@@ -532,19 +519,15 @@ const twoPiOverSecondsInDay = CesiumMath.TWO_PI / 86400.0;
 let dateInUtc = new JulianDate();
 
 /**
- * The default function to compute a rotation matrix to transform a point or vector from the International Celestial
- * Reference Frame (GCRF/ICRF) inertial frame axes to the central body, typically Earth, fixed frame axis at a given
- * time for use in lighting and transformation from inertial reference frames. This function may return undefined if
- * the data necessary to do the transformation is not yet loaded.
+ * 用于在给定时间计算将点或向量从国际天球参考系 (GCRF/ICRF) 惯性系轴转换到中心天体（通常为地球）固定系轴的旋转矩阵的默认函数，
+ * 用于光照和从惯性参考系进行变换。如果尚未加载进行变换所需的数据，此函数可能返回 undefined。
  *
- * @param {JulianDate} date The time at which to compute the rotation matrix.
- * @param {Matrix3} [result] The object onto which to store the result.  If this parameter is
- *                  not specified, a new instance is created and returned.
- * @returns {Matrix3|undefined} The rotation matrix, or undefined if the data necessary to do the
- *                   transformation is not yet loaded.
+ * @param {JulianDate} date 计算旋转矩阵的时间。
+ * @param {Matrix3} [result] 用于存储结果的对象。如果未指定此参数，则创建并返回新实例。
+ * @returns {Matrix3|undefined} 旋转矩阵，如果执行变换所需的数据尚未加载，则返回 undefined。
  *
  * @example
- * // Set the default ICRF to fixed transformation to that of the Moon.
+ * // 将默认的 ICRF 到固定变换设置为月球的变换。
  * Cesium.Transforms.computeIcrfToCentralBodyFixedMatrix = Cesium.Transforms.computeIcrfToMoonFixedMatrix;
  *
  * @see Transforms.computeIcrfToFixedMatrix
@@ -561,15 +544,14 @@ Transforms.computeIcrfToCentralBodyFixedMatrix = function (date, result) {
 };
 
 /**
- * Computes a rotation matrix to transform a point or vector from True Equator Mean Equinox (TEME) axes to the
- * pseudo-fixed axes at a given time.  This method treats the UT1 time standard as equivalent to UTC.
+ * 计算将点或向量从真赤道平春分点 (TEME) 轴转换到给定时间的伪固定轴的旋转矩阵。此方法将 UT1 时间标准视为等效于 UTC。
  *
- * @param {JulianDate} date The time at which to compute the rotation matrix.
- * @param {Matrix3} [result] The object onto which to store the result.
- * @returns {Matrix3} The modified result parameter or a new Matrix3 instance if none was provided.
+ * @param {JulianDate} date 计算旋转矩阵的时间。
+ * @param {Matrix3} [result] 用于存储结果的对象。
+ * @returns {Matrix3} 修改后的 result 参数，如果未提供，则为新的 Matrix3 实例。
  *
  * @example
- * //Set the view to the inertial frame.
+ * // 将视图设置为惯性系。
  * scene.postUpdate.addEventListener(function(scene, time) {
  *    const now = Cesium.JulianDate.now();
  *    const offset = Cesium.Matrix4.multiplyByPoint(camera.transform, camera.position, new Cesium.Cartesian3());
@@ -672,20 +654,18 @@ const ttMinusTai = 32.184;
 const j2000ttDays = 2451545.0;
 
 /**
- * Preloads the data necessary to transform between the ICRF and Fixed axes, in either
- * direction, over a given interval.  This function returns a promise that, when resolved,
- * indicates that the preload has completed.
+ * 预加载在给定时间区间内在 ICRF 和固定轴之间进行变换所需的数据。此函数返回一个 Promise，当预加载完成时，
+ * 该 Promise 将被解析。
  *
- * @param {TimeInterval} timeInterval The interval to preload.
- * @returns {Promise<void>} A promise that, when resolved, indicates that the preload has completed
- *          and evaluation of the transformation between the fixed and ICRF axes will
- *          no longer return undefined for a time inside the interval.
+ * @param {TimeInterval} timeInterval 要预加载的时间区间。
+ * @returns {Promise<void>} 当预加载完成时解析的 Promise，表明固定轴和 ICRF 轴之间的变换将
+ *          不再为区间内的时间返回 undefined。
  *
  *
  * @example
  * const interval = new Cesium.TimeInterval(...);
  * await Cesium.Transforms.preloadIcrfFixed(interval));
- * // the data is now loaded
+ * // 数据现已加载
  *
  * @see Transforms.computeIcrfToFixedMatrix
  * @see Transforms.computeFixedToIcrfMatrix
@@ -705,21 +685,17 @@ Transforms.preloadIcrfFixed = function (timeInterval) {
 };
 
 /**
- * Computes a rotation matrix to transform a point or vector from the International Celestial
- * Reference Frame (GCRF/ICRF) inertial frame axes to the Earth-Fixed frame axes (ITRF)
- * at a given time.  This function may return undefined if the data necessary to
- * do the transformation is not yet loaded.
+ * 计算将点或向量从国际天球参考系 (GCRF/ICRF) 惯性系轴转换到地球固定系轴 (ITRF) 的旋转矩阵。
+ * 如果尚未加载进行变换所需的数据，此函数可能返回 undefined。
  *
- * @param {JulianDate} date The time at which to compute the rotation matrix.
- * @param {Matrix3} [result] The object onto which to store the result.  If this parameter is
- *                  not specified, a new instance is created and returned.
- * @returns {Matrix3|undefined} The rotation matrix, or undefined if the data necessary to do the
- *                   transformation is not yet loaded.
+ * @param {JulianDate} date 计算旋转矩阵的时间。
+ * @param {Matrix3} [result] 用于存储结果的对象。如果未指定此参数，则创建并返回新实例。
+ * @returns {Matrix3|undefined} 旋转矩阵，如果执行变换所需的数据尚未加载，则返回 undefined。
  *
  *
  * @example
  * scene.postUpdate.addEventListener(function(scene, time) {
- *   // View in ICRF.
+ *   // 在 ICRF 中查看。
  *   const icrfToFixed = Cesium.Transforms.computeIcrfToFixedMatrix(time);
  *   if (Cesium.defined(icrfToFixed)) {
  *     const offset = Cesium.Cartesian3.clone(camera.position);
@@ -755,17 +731,14 @@ const scratchRotationMatrix = new Matrix3();
 const dateScratch = new JulianDate();
 
 /**
- * Computes a rotation matrix to transform a point or vector from the Moon-Fixed frame axes
- * to the International Celestial Reference Frame (GCRF/ICRF) inertial frame axes
- * at a given time.
+ * 计算将点或向量从月球固定系轴转换到国际天球参考系 (GCRF/ICRF) 惯性系轴的旋转矩阵。
  *
- * @param {JulianDate} date The time at which to compute the rotation matrix.
- * @param {Matrix3} [result] The object onto which to store the result.  If this parameter is
- *                  not specified, a new instance is created and returned.
- * @returns {Matrix3} The rotation matrix.
+ * @param {JulianDate} date 计算旋转矩阵的时间。
+ * @param {Matrix3} [result] 用于存储结果的对象。如果未指定此参数，则创建并返回新实例。
+ * @returns {Matrix3} 旋转矩阵。
  *
  * @example
- * // Transform a point from the Fixed axes to the ICRF axes.
+ * // 将点从固定轴变换到 ICRF 轴。
  * const now = Cesium.JulianDate.now();
  * const pointInFixed = Cesium.Cartesian3.fromDegrees(0.0, 0.0);
  * const fixedToIcrf = Cesium.Transforms.computeMoonFixedToIcrfMatrix(now);
@@ -823,17 +796,14 @@ Transforms.computeMoonFixedToIcrfMatrix = function (date, result) {
 };
 
 /**
- * Computes a rotation matrix to transform a point or vector from the International Celestial
- * Reference Frame (GCRF/ICRF) inertial frame axes to the Moon-Fixed frame axes
- * at a given time.
+ * 计算将点或向量从国际天球参考系 (GCRF/ICRF) 惯性系轴转换到月球固定系轴的旋转矩阵。
  *
- * @param {JulianDate} date The time at which to compute the rotation matrix.
- * @param {Matrix3} [result] The object onto which to store the result.  If this parameter is
- *                  not specified, a new instance is created and returned.
- * @returns {Matrix3} The rotation matrix.
+ * @param {JulianDate} date 计算旋转矩阵的时间。
+ * @param {Matrix3} [result] 用于存储结果的对象。如果未指定此参数，则创建并返回新实例。
+ * @returns {Matrix3} 旋转矩阵。
  *
  * @example
- * // Set the default ICRF to fixed transformation to that of the Moon.
+ * // 将默认的 ICRF 到固定变换设置为月球的变换。
  * Cesium.Transforms.computeIcrfToCentralBodyFixedMatrix = Cesium.Transforms.computeIcrfToMoonFixedMatrix;
  */
 Transforms.computeIcrfToMoonFixedMatrix = function (date, result) {
@@ -867,20 +837,16 @@ const rotation1Scratch = new Matrix3();
 const rotation2Scratch = new Matrix3();
 
 /**
- * Computes a rotation matrix to transform a point or vector from the Earth-Fixed frame axes (ITRF)
- * to the International Celestial Reference Frame (GCRF/ICRF) inertial frame axes
- * at a given time.  This function may return undefined if the data necessary to
- * do the transformation is not yet loaded.
+ * 计算将点或向量从地球固定系轴 (ITRF) 转换到国际天球参考系 (GCRF/ICRF) 惯性系轴的旋转矩阵。
+ * 如果尚未加载进行变换所需的数据，此函数可能返回 undefined。
  *
- * @param {JulianDate} date The time at which to compute the rotation matrix.
- * @param {Matrix3} [result] The object onto which to store the result.  If this parameter is
- *                  not specified, a new instance is created and returned.
- * @returns {Matrix3|undefined} The rotation matrix, or undefined if the data necessary to do the
- *                   transformation is not yet loaded.
+ * @param {JulianDate} date 计算旋转矩阵的时间。
+ * @param {Matrix3} [result] 用于存储结果的对象。如果未指定此参数，则创建并返回新实例。
+ * @returns {Matrix3|undefined} 旋转矩阵，如果执行变换所需的数据尚未加载，则返回 undefined。
  *
  *
  * @example
- * // Transform a point from the Fixed axes to the ICRF axes.
+ * // 将点从固定轴变换到 ICRF 轴。
  * const now = Cesium.JulianDate.now();
  * const pointInFixed = Cesium.Cartesian3.fromDegrees(0.0, 0.0);
  * const fixedToIcrf = Cesium.Transforms.computeFixedToIcrfMatrix(now);
@@ -1006,13 +972,13 @@ Transforms.computeFixedToIcrfMatrix = function (date, result) {
 const pointToWindowCoordinatesTemp = new Cartesian4();
 
 /**
- * Transform a point from model coordinates to window coordinates.
+ * 将点从模型坐标变换到窗口坐标。
  *
- * @param {Matrix4} modelViewProjectionMatrix The 4x4 model-view-projection matrix.
- * @param {Matrix4} viewportTransformation The 4x4 viewport transformation.
- * @param {Cartesian3} point The point to transform.
- * @param {Cartesian2} [result] The object onto which to store the result.
- * @returns {Cartesian2} The modified result parameter or a new Cartesian2 instance if none was provided.
+ * @param {Matrix4} modelViewProjectionMatrix 4x4 模型-视图-投影矩阵。
+ * @param {Matrix4} viewportTransformation 4x4 视口变换。
+ * @param {Cartesian3} point 要变换的点。
+ * @param {Cartesian2} [result] 用于存储结果的对象。
+ * @returns {Cartesian2} 修改后的 result 参数，如果未提供，则为新的 Cartesian2 实例。
  */
 Transforms.pointToWindowCoordinates = function (
   modelViewProjectionMatrix,
@@ -1074,13 +1040,13 @@ const rightScratch = new Cartesian3();
 const upScratch = new Cartesian3();
 
 /**
- * Transform a position and velocity to a rotation matrix.
+ * 将位置和速度变换为旋转矩阵。
  *
- * @param {Cartesian3} position The position to transform.
- * @param {Cartesian3} velocity The velocity vector to transform.
- * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] The ellipsoid whose fixed frame is used in the transformation.
- * @param {Matrix3} [result] The object onto which to store the result.
- * @returns {Matrix3} The modified result parameter or a new Matrix3 instance if none was provided.
+ * @param {Cartesian3} position 要变换的位置。
+ * @param {Cartesian3} velocity 要变换的速度向量。
+ * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] 其固定参考系用于变换的椭球体。
+ * @param {Matrix3} [result] 用于存储结果的对象。
+ * @returns {Matrix3} 修改后的 result 参数，如果未提供，则为新的 Matrix3 实例。
  */
 Transforms.rotationMatrixFromPositionVelocity = function (
   position,

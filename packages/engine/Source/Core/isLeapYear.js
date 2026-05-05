@@ -1,12 +1,12 @@
 import DeveloperError from "./DeveloperError.js";
 
 /**
- * Determines if a given date is a leap year.
+ * 判断给定年份是否为闰年。
  *
  * @function isLeapYear
  *
- * @param {number} year The year to be tested.
- * @returns {boolean} True if <code>year</code> is a leap year.
+ * @param {number} year 要测试的年份。
+ * @returns {boolean} 如果 <code>year</code> 是闰年则返回true。
  *
  * @example
  * const leapYear = Cesium.isLeapYear(2000); // true

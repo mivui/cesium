@@ -3,31 +3,29 @@ import DeveloperError from "./DeveloperError.js";
 import CesiumMath from "./Math.js";
 
 /**
- * A rotation expressed as a heading, pitch, and roll. Heading is the rotation about the
- * negative z axis. Pitch is the rotation about the negative y axis. Roll is the rotation about
- * the positive x axis.
+ * 以航向、俯仰和横滚表示的旋转。航向是绕负z轴的旋转。俯仰是绕负y轴的旋转。横滚是绕正x轴的旋转。
  * @alias HeadingPitchRoll
  * @constructor
  *
- * @param {number} [heading=0.0] The heading component in radians.
- * @param {number} [pitch=0.0] The pitch component in radians.
- * @param {number} [roll=0.0] The roll component in radians.
+ * @param {number} [heading=0.0] 航向分量，以弧度表示。
+ * @param {number} [pitch=0.0] 俯仰分量，以弧度表示。
+ * @param {number} [roll=0.0] 横滚分量，以弧度表示。
  */
 function HeadingPitchRoll(heading, pitch, roll) {
   /**
-   * Gets or sets the heading.
+   * 获取或设置航向。
    * @type {number}
    * @default 0.0
    */
   this.heading = heading ?? 0.0;
   /**
-   * Gets or sets the pitch.
+   * 获取或设置俯仰。
    * @type {number}
    * @default 0.0
    */
   this.pitch = pitch ?? 0.0;
   /**
-   * Gets or sets the roll.
+   * 获取或设置横滚。
    * @type {number}
    * @default 0.0
    */
@@ -35,11 +33,11 @@ function HeadingPitchRoll(heading, pitch, roll) {
 }
 
 /**
- * Computes the heading, pitch and roll from a quaternion (see http://en.wikipedia.org/wiki/Conversion_between_quaternions_and_Euler_angles )
+ * 从四元数计算航向、俯仰和横滚（参见 http://en.wikipedia.org/wiki/Conversion_between_quaternions_and_Euler_angles ）
  *
- * @param {Quaternion} quaternion The quaternion from which to retrieve heading, pitch, and roll, all expressed in radians.
- * @param {HeadingPitchRoll} [result] The object in which to store the result. If not provided, a new instance is created and returned.
- * @returns {HeadingPitchRoll} The modified result parameter or a new HeadingPitchRoll instance if one was not provided.
+ * @param {Quaternion} quaternion 用于获取航向、俯仰和横滚的四元数，均以弧度表示。
+ * @param {HeadingPitchRoll} [result] 存储结果的对象。如未提供，则创建并返回新实例。
+ * @returns {HeadingPitchRoll} 修改后的结果参数，如未提供则返回新的 HeadingPitchRoll 实例。
  */
 HeadingPitchRoll.fromQuaternion = function (quaternion, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -66,13 +64,13 @@ HeadingPitchRoll.fromQuaternion = function (quaternion, result) {
 };
 
 /**
- * Returns a new HeadingPitchRoll instance from angles given in degrees.
+ * 从以度为单位的角度返回新的 HeadingPitchRoll 实例。
  *
- * @param {number} heading the heading in degrees
- * @param {number} pitch the pitch in degrees
- * @param {number} roll the heading in degrees
- * @param {HeadingPitchRoll} [result] The object in which to store the result. If not provided, a new instance is created and returned.
- * @returns {HeadingPitchRoll} A new HeadingPitchRoll instance
+ * @param {number} heading 航向，以度为单位
+ * @param {number} pitch 俯仰，以度为单位
+ * @param {number} roll 横滚，以度为单位
+ * @param {HeadingPitchRoll} [result] 存储结果的对象。如未提供，则创建并返回新实例。
+ * @returns {HeadingPitchRoll} 新的 HeadingPitchRoll 实例
  */
 HeadingPitchRoll.fromDegrees = function (heading, pitch, roll, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -96,11 +94,11 @@ HeadingPitchRoll.fromDegrees = function (heading, pitch, roll, result) {
 };
 
 /**
- * Duplicates a HeadingPitchRoll instance.
+ * 复制一个 HeadingPitchRoll 实例。
  *
- * @param {HeadingPitchRoll} headingPitchRoll The HeadingPitchRoll to duplicate.
- * @param {HeadingPitchRoll} [result] The object onto which to store the result.
- * @returns {HeadingPitchRoll} The modified result parameter or a new HeadingPitchRoll instance if one was not provided. (Returns undefined if headingPitchRoll is undefined)
+ * @param {HeadingPitchRoll} headingPitchRoll 要复制的 HeadingPitchRoll。
+ * @param {HeadingPitchRoll} [result] 存储结果的对象。
+ * @returns {HeadingPitchRoll} 修改后的结果参数，如未提供则返回新的 HeadingPitchRoll 实例。（如果 headingPitchRoll 未定义则返回 undefined）
  */
 HeadingPitchRoll.clone = function (headingPitchRoll, result) {
   if (!defined(headingPitchRoll)) {
@@ -120,12 +118,12 @@ HeadingPitchRoll.clone = function (headingPitchRoll, result) {
 };
 
 /**
- * Compares the provided HeadingPitchRolls componentwise and returns
- * <code>true</code> if they are equal, <code>false</code> otherwise.
+ * 逐分量比较提供的 HeadingPitchRoll 值，如果相等则返回
+ * <code>true</code>，否则返回 <code>false</code>。
  *
- * @param {HeadingPitchRoll} [left] The first HeadingPitchRoll.
- * @param {HeadingPitchRoll} [right] The second HeadingPitchRoll.
- * @returns {boolean} <code>true</code> if left and right are equal, <code>false</code> otherwise.
+ * @param {HeadingPitchRoll} [left] 第一个 HeadingPitchRoll。
+ * @param {HeadingPitchRoll} [right] 第二个 HeadingPitchRoll。
+ * @returns {boolean} 如果左右相等则返回 <code>true</code>，否则返回 <code>false</code>。
  */
 HeadingPitchRoll.equals = function (left, right) {
   return (
@@ -139,15 +137,14 @@ HeadingPitchRoll.equals = function (left, right) {
 };
 
 /**
- * Compares the provided HeadingPitchRolls componentwise and returns
- * <code>true</code> if they pass an absolute or relative tolerance test,
- * <code>false</code> otherwise.
+ * 逐分量比较提供的 HeadingPitchRoll 值，如果通过绝对或相对容差测试则返回
+ * <code>true</code>，否则返回 <code>false</code>。
  *
- * @param {HeadingPitchRoll} [left] The first HeadingPitchRoll.
- * @param {HeadingPitchRoll} [right] The second HeadingPitchRoll.
- * @param {number} [relativeEpsilon=0] The relative epsilon tolerance to use for equality testing.
- * @param {number} [absoluteEpsilon=relativeEpsilon] The absolute epsilon tolerance to use for equality testing.
- * @returns {boolean} <code>true</code> if left and right are within the provided epsilon, <code>false</code> otherwise.
+ * @param {HeadingPitchRoll} [left] 第一个 HeadingPitchRoll。
+ * @param {HeadingPitchRoll} [right] 第二个 HeadingPitchRoll。
+ * @param {number} [relativeEpsilon=0] 用于相等性测试的相对 epsilon 容差。
+ * @param {number} [absoluteEpsilon=relativeEpsilon] 用于相等性测试的绝对 epsilon 容差。
+ * @returns {boolean} 如果左右值在提供的 epsilon 范围内则返回 <code>true</code>，否则返回 <code>false</code>。
  */
 HeadingPitchRoll.equalsEpsilon = function (
   left,

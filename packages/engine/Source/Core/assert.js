@@ -3,14 +3,12 @@
 import DeveloperError from "./DeveloperError.js";
 
 /**
- * Checks that a condition is truthy, throwing a specified message if condition
- * fails. The `asserts condition` return type allows TypeScript to narrow the
- * types of the condition and enforce stricter types without further if/else
- * checks or nullish coalescing.
+ * 检查条件是否为真值，如果条件不满足则抛出指定消息。
+ * `asserts condition` 返回类型允许 TypeScript 缩小条件类型，并在不进行进一步的 if/else 检查或空值合并的情况下强制执行更严格的类型。
  *
  * @example
  * assert(object.optionalProperty, 'Missing .optionalProperty');
- * object.optionalProperty.toString(); // safe; no type error.
+ * object.optionalProperty.toString(); // 安全；无类型错误。
  *
  * @function
  *

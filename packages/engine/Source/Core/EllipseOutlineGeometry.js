@@ -52,6 +52,24 @@ function computeEllipse(options) {
   });
 
   const length = positions.length / 3;
+
+  if (defined(options.offsetAttribute)) {
+    let offsetAttribute = new Uint8Array(length);
+    if (options.offsetAttribute === GeometryOffsetAttribute.TOP) {
+      offsetAttribute = offsetAttribute.fill(1, 0, length / 2);
+    } else {
+      const offsetValue =
+        options.offsetAttribute === GeometryOffsetAttribute.NONE ? 0 : 1;
+      offsetAttribute = offsetAttribute.fill(offsetValue);
+    }
+
+    attributes.applyOffset = new GeometryAttribute({
+      componentDatatype: ComponentDatatype.UNSIGNED_BYTE,
+      componentsPerAttribute: 1,
+      values: offsetAttribute,
+    });
+  }
+
   const indices = IndexDatatype.createTypedArray(length, length * 2);
   let index = 0;
   for (let i = 0; i < length; ++i) {
@@ -68,6 +86,7 @@ function computeEllipse(options) {
 
 const topBoundingSphere = new BoundingSphere();
 const bottomBoundingSphere = new BoundingSphere();
+
 function computeExtrudedEllipse(options) {
   const center = options.center;
   const ellipsoid = options.ellipsoid;
@@ -96,11 +115,12 @@ function computeExtrudedEllipse(options) {
   );
   bottomBoundingSphere.radius = semiMajorAxis;
 
-  let positions = EllipseGeometryLibrary.computeEllipsePositions(
+  const cep = EllipseGeometryLibrary.computeEllipsePositions(
     options,
     false,
     true,
-  ).outerPositions;
+  );
+  const positions = cep.outerPositions;
   const attributes = new GeometryAttributes({
     position: new GeometryAttribute({
       componentDatatype: ComponentDatatype.DOUBLE,
@@ -113,91 +133,70 @@ function computeExtrudedEllipse(options) {
     }),
   });
 
-  positions = attributes.position.values;
-  const boundingSphere = BoundingSphere.union(
-    topBoundingSphere,
-    bottomBoundingSphere,
-  );
-  let length = positions.length / 3;
+  const length = positions.length / 3;
 
   if (defined(options.offsetAttribute)) {
-    let applyOffset = new Uint8Array(length);
+    let offsetAttribute = new Uint8Array(length);
     if (options.offsetAttribute === GeometryOffsetAttribute.TOP) {
-      applyOffset = applyOffset.fill(1, 0, length / 2);
+      offsetAttribute = offsetAttribute.fill(1, 0, length / 2);
     } else {
       const offsetValue =
         options.offsetAttribute === GeometryOffsetAttribute.NONE ? 0 : 1;
-      applyOffset = applyOffset.fill(offsetValue);
+      offsetAttribute = offsetAttribute.fill(offsetValue);
     }
 
     attributes.applyOffset = new GeometryAttribute({
       componentDatatype: ComponentDatatype.UNSIGNED_BYTE,
       componentsPerAttribute: 1,
-      values: applyOffset,
+      values: offsetAttribute,
     });
   }
 
-  let numberOfVerticalLines = options.numberOfVerticalLines ?? 16;
-  numberOfVerticalLines = CesiumMath.clamp(
-    numberOfVerticalLines,
-    0,
-    length / 2,
-  );
-
-  const indices = IndexDatatype.createTypedArray(
-    length,
-    length * 2 + numberOfVerticalLines * 2,
-  );
-
-  length /= 2;
+  const indices = IndexDatatype.createTypedArray(length, length * 2);
   let index = 0;
-  let i;
-  for (i = 0; i < length; ++i) {
-    indices[index++] = i;
-    indices[index++] = (i + 1) % length;
-    indices[index++] = i + length;
-    indices[index++] = ((i + 1) % length) + length;
-  }
-
-  let numSide;
-  if (numberOfVerticalLines > 0) {
-    const numSideLines = Math.min(numberOfVerticalLines, length);
-    numSide = Math.round(length / numSideLines);
-
-    const maxI = Math.min(numSide * numberOfVerticalLines, length);
-    for (i = 0; i < maxI; i += numSide) {
-      indices[index++] = i;
-      indices[index++] = i + length;
-    }
+  for (let i = 0; i < length / 2; ++i) {
+    const UL = i;
+    const LL = i + length / 2;
+    const UR = (UL + 1) % (length / 2);
+    const LR = UR + length / 2;
+    indices[index++] = UL;
+    indices[index++] = LL;
+    indices[index++] = UR;
+    indices[index++] = UR;
+    indices[index++] = LL;
+    indices[index++] = LR;
   }
 
   return {
-    boundingSphere: boundingSphere,
+    boundingSphere: BoundingSphere.union(
+      topBoundingSphere,
+      bottomBoundingSphere,
+    ),
     attributes: attributes,
     indices: indices,
   };
 }
 
 /**
- * A description of the outline of an ellipse on an ellipsoid.
+ * 椭球上椭圆轮廓的描述。
  *
  * @alias EllipseOutlineGeometry
  * @constructor
  *
- * @param {object} options Object with the following properties:
- * @param {Cartesian3} options.center The ellipse's center point in the fixed frame.
- * @param {number} options.semiMajorAxis The length of the ellipse's semi-major axis in meters.
- * @param {number} options.semiMinorAxis The length of the ellipse's semi-minor axis in meters.
- * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] The ellipsoid the ellipse will be on.
- * @param {number} [options.height=0.0] The distance in meters between the ellipse and the ellipsoid surface.
- * @param {number} [options.extrudedHeight] The distance in meters between the ellipse's extruded face and the ellipsoid surface.
- * @param {number} [options.rotation=0.0] The angle from north (counter-clockwise) in radians.
- * @param {number} [options.granularity=0.02] The angular distance between points on the ellipse in radians.
- * @param {number} [options.numberOfVerticalLines=16] Number of lines to draw between the top and bottom surface of an extruded ellipse.
+ * @param {object} options 具有以下属性的对象：
+ * @param {Cartesian3} options.center 固定坐标系中的椭圆中心点。
+ * @param {number} options.semiMajorAxis 椭圆半长轴的长度（米）。
+ * @param {number} options.semiMinorAxis 椭圆半短轴的长度（米）。
+ * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] 椭圆所在的椭球体。
+ * @param {number} [options.height=0.0] 椭圆与椭球表面之间的距离（米）。
+ * @param {number} [options.extrudedHeight] 椭圆拉伸面与椭球表面之间的距离（米）。
+ * @param {number} [options.rotation=0.0] 从北向（逆时针）的旋转角度。
+ * @param {number} [options.granularity=0.02] 椭圆上点之间的角距离（弧度）。
+ * @param {number} [options.numberOfVerticalLines=16] 在拉伸椭圆顶部和底部表面之间绘制的线条数。
  *
- * @exception {DeveloperError} semiMajorAxis and semiMinorAxis must be greater than zero.
- * @exception {DeveloperError} semiMajorAxis must be greater than or equal to the semiMinorAxis.
- * @exception {DeveloperError} granularity must be greater than zero.
+ * @exception {DeveloperError} semiMajorAxis和semiMinorAxis必须大于零。
+ * @exception {DeveloperError} semiMajorAxis必须大于或等于semiMinorAxis。
+ * @exception {DeveloperError} granularity必须大于零。
  *
  * @see EllipseOutlineGeometry.createGeometry
  *
@@ -259,20 +258,20 @@ function EllipseOutlineGeometry(options) {
 }
 
 /**
- * The number of elements used to pack the object into an array.
+ * 用于将对象打包到数组中的元素数量。
  * @type {number}
  */
 EllipseOutlineGeometry.packedLength =
   Cartesian3.packedLength + Ellipsoid.packedLength + 8;
 
 /**
- * Stores the provided instance into the provided array.
+ * 将提供的实例存储到提供的数组中。
  *
- * @param {EllipseOutlineGeometry} value The value to pack.
- * @param {number[]} array The array to pack into.
- * @param {number} [startingIndex=0] The index into the array at which to start packing the elements.
+ * @param {EllipseOutlineGeometry} value 要打包的值。
+ * @param {number[]} array 要打包到的数组。
+ * @param {number} [startingIndex=0] 开始打包元素的数组索引。
  *
- * @returns {number[]} The array that was packed into
+ * @returns {number[]} 被打包到的数组
  */
 EllipseOutlineGeometry.pack = function (value, array, startingIndex) {
   //>>includeStart('debug', pragmas.debug);
@@ -320,12 +319,12 @@ const scratchOptions = {
 };
 
 /**
- * Retrieves an instance from a packed array.
+ * 从打包的数组中检索实例。
  *
- * @param {number[]} array The packed array.
- * @param {number} [startingIndex=0] The starting index of the element to be unpacked.
- * @param {EllipseOutlineGeometry} [result] The object into which to store the result.
- * @returns {EllipseOutlineGeometry} The modified result parameter or a new EllipseOutlineGeometry instance if one was not provided.
+ * @param {number[]} array 打包数组。
+ * @param {number} [startingIndex=0] 要解包的元素起始索引。
+ * @param {EllipseOutlineGeometry} [result] 存储结果的对象。
+ * @returns {EllipseOutlineGeometry} 修改后的结果参数，如果未提供则返回新的EllipseOutlineGeometry实例。
  */
 EllipseOutlineGeometry.unpack = function (array, startingIndex, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -381,10 +380,10 @@ EllipseOutlineGeometry.unpack = function (array, startingIndex, result) {
 };
 
 /**
- * Computes the geometric representation of an outline of an ellipse on an ellipsoid, including its vertices, indices, and a bounding sphere.
+ * 计算椭球上椭圆轮廓的几何表示，包括其顶点、索引和边界球。
  *
- * @param {EllipseOutlineGeometry} ellipseGeometry A description of the ellipse.
- * @returns {Geometry|undefined} The computed vertices and indices.
+ * @param {EllipseOutlineGeometry} ellipseGeometry 椭圆的描述。
+ * @returns {Geometry|undefined} 计算得到的顶点和索引。
  */
 EllipseOutlineGeometry.createGeometry = function (ellipseGeometry) {
   if (

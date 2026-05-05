@@ -4,13 +4,13 @@ import defined from "./defined.js";
 import Rectangle from "./Rectangle.js";
 
 /**
- * Reports the availability of tiles in a {@link TilingScheme}.
+ * 报告{@link TilingScheme}中瓦片的可用性。
  *
  * @alias TileAvailability
  * @constructor
  *
- * @param {TilingScheme} tilingScheme The tiling scheme in which to report availability.
- * @param {number} maximumLevel The maximum tile level that is potentially available.
+ * @param {TilingScheme} tilingScheme 要报告可用性的瓦片方案。
+ * @param {number} maximumLevel 可能可用的最大瓦片层级。
  */
 function TileAvailability(tilingScheme, maximumLevel) {
   this._tilingScheme = tilingScheme;
@@ -34,14 +34,14 @@ function findNode(level, x, y, nodes) {
 }
 
 /**
- * Marks a rectangular range of tiles in a particular level as being available.  For best performance,
- * add your ranges in order of increasing level.
+ * 将特定层级中的矩形瓦片范围标记为可用。为获得最佳性能，
+ * 请按层级递增的顺序添加范围。
  *
- * @param {number} level The level.
- * @param {number} startX The X coordinate of the first available tiles at the level.
- * @param {number} startY The Y coordinate of the first available tiles at the level.
- * @param {number} endX The X coordinate of the last available tiles at the level.
- * @param {number} endY The Y coordinate of the last available tiles at the level.
+ * @param {number} level 层级。
+ * @param {number} startX 该层级第一个可用瓦片的X坐标。
+ * @param {number} startY 该层级第一个可用瓦片的Y坐标。
+ * @param {number} endX 该层级最后一个可用瓦片的X坐标。
+ * @param {number} endY 该层级最后一个可用瓦片的Y坐标。
  */
 TileAvailability.prototype.addAvailableTileRange = function (
   level,
@@ -88,13 +88,13 @@ TileAvailability.prototype.addAvailableTileRange = function (
 };
 
 /**
- * Determines the level of the most detailed tile covering the position.  This function
- * usually completes in time logarithmic to the number of rectangles added with
- * {@link TileAvailability#addAvailableTileRange}.
+ * 确定覆盖该位置的最详细瓦片的层级。此函数
+ * 通常在对数时间内完成，与通过
+ * {@link TileAvailability#addAvailableTileRange}添加的矩形数量成正比。
  *
- * @param {Cartographic} position The position for which to determine the maximum available level.  The height component is ignored.
- * @return {number} The level of the most detailed tile covering the position.
- * @throws {DeveloperError} If position is outside any tile according to the tiling scheme.
+ * @param {Cartographic} position 要确定最大可用层级的位置。高度分量被忽略。
+ * @return {number} 覆盖该位置的最详细瓦片的层级。
+ * @throws {DeveloperError} 如果根据瓦片方案，位置在任何瓦片之外。
  */
 TileAvailability.prototype.computeMaximumLevelAtPosition = function (position) {
   // Find the root node that contains this position.
@@ -120,14 +120,14 @@ const westScratch = new Rectangle();
 const eastScratch = new Rectangle();
 
 /**
- * Finds the most detailed level that is available _everywhere_ within a given rectangle.  More detailed
- * tiles may be available in parts of the rectangle, but not the whole thing.  The return value of this
- * function may be safely passed to {@link sampleTerrain} for any position within the rectangle.  This function
- * usually completes in time logarithmic to the number of rectangles added with
- * {@link TileAvailability#addAvailableTileRange}.
+ * 查找给定矩形内_处处_可用的最详细层级。更详细的
+ * 瓦片可能在矩形的部分区域可用，但不是整个矩形。此函数的
+ * 返回值可以安全地传递给{@link sampleTerrain}，用于矩形内的任何位置。此函数
+ * 通常在对数时间内完成，与通过
+ * {@link TileAvailability#addAvailableTileRange}添加的矩形数量成正比。
  *
- * @param {Rectangle} rectangle The rectangle.
- * @return {number} The best available level for the entire rectangle.
+ * @param {Rectangle} rectangle 矩形。
+ * @return {number} 整个矩形的最佳可用层级。
  */
 TileAvailability.prototype.computeBestAvailableLevelOverRectangle = function (
   rectangle,
@@ -186,11 +186,11 @@ TileAvailability.prototype.computeBestAvailableLevelOverRectangle = function (
 const cartographicScratch = new Cartographic();
 
 /**
- * Determines if a particular tile is available.
- * @param {number} level The tile level to check.
- * @param {number} x The X coordinate of the tile to check.
- * @param {number} y The Y coordinate of the tile to check.
- * @return {boolean} True if the tile is available; otherwise, false.
+ * 确定特定瓦片是否可用。
+ * @param {number} level 要检查的瓦片层级。
+ * @param {number} x 要检查的瓦片的X坐标。
+ * @param {number} y 要检查的瓦片的Y坐标。
+ * @return {boolean} 如果瓦片可用则为true；否则为false。
  */
 TileAvailability.prototype.isTileAvailable = function (level, x, y) {
   // Get the center of the tile and find the maximum level at that position.
@@ -209,21 +209,21 @@ TileAvailability.prototype.isTileAvailable = function (level, x, y) {
 };
 
 /**
- * Computes a bit mask indicating which of a tile's four children exist.
- * If a child's bit is set, a tile is available for that child.  If it is cleared,
- * the tile is not available.  The bit values are as follows:
+ * 计算一个位掩码，指示瓦片的四个子瓦片中哪些存在。
+ * 如果设置了子瓦片的位，则该子瓦片可用。如果清除了该位，
+ * 则该瓦片不可用。位值如下：
  * <table>
- *     <tr><th>Bit Position</th><th>Bit Value</th><th>Child Tile</th></tr>
- *     <tr><td>0</td><td>1</td><td>Southwest</td></tr>
- *     <tr><td>1</td><td>2</td><td>Southeast</td></tr>
- *     <tr><td>2</td><td>4</td><td>Northwest</td></tr>
- *     <tr><td>3</td><td>8</td><td>Northeast</td></tr>
+ *     <tr><th>位位置</th><th>位值</th><th>子瓦片</th></tr>
+ *     <tr><td>0</td><td>1</td><td>西南</td></tr>
+ *     <tr><td>1</td><td>2</td><td>东南</td></tr>
+ *     <tr><td>2</td><td>4</td><td>西北</td></tr>
+ *     <tr><td>3</td><td>8</td><td>东北</td></tr>
  * </table>
  *
- * @param {number} level The level of the parent tile.
- * @param {number} x The X coordinate of the parent tile.
- * @param {number} y The Y coordinate of the parent tile.
- * @return {number} The bit mask indicating child availability.
+ * @param {number} level 父瓦片的层级。
+ * @param {number} x 父瓦片的X坐标。
+ * @param {number} y 父瓦片的Y坐标。
+ * @return {number} 指示子瓦片可用性的位掩码。
  */
 TileAvailability.prototype.computeChildMaskForTile = function (level, x, y) {
   const childLevel = level + 1;

@@ -53,7 +53,7 @@ const scratchCartesian2 = new Cartesian3();
 const scratchCartesian3 = new Cartesian3();
 const scratchNormal = new Cartesian3();
 /**
- * Returns the positions raised to the given heights
+ * 返回提升到给定高度的位置
  * @private
  */
 EllipseGeometryLibrary.raisePositionsToHeight = function (
@@ -107,7 +107,7 @@ const unitPosScratch = new Cartesian3();
 const eastVecScratch = new Cartesian3();
 const northVecScratch = new Cartesian3();
 /**
- * Returns an array of positions that make up the ellipse.
+ * 返回构成椭圆的位置数组。
  * @private
  */
 EllipseGeometryLibrary.computeEllipsePositions = function (

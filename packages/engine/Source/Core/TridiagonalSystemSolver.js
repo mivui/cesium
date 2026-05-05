@@ -3,42 +3,26 @@ import defined from "./defined.js";
 import DeveloperError from "./DeveloperError.js";
 
 /**
- * Uses the Tridiagonal Matrix Algorithm, also known as the Thomas Algorithm, to solve
- * a system of linear equations where the coefficient matrix is a tridiagonal matrix.
+ * 使用三对角矩阵算法（也称为 Thomas 算法）求解
+ * 系数矩阵为三对角矩阵的线性方程组。
  *
  * @namespace TridiagonalSystemSolver
  */
 const TridiagonalSystemSolver = {};
 
 /**
- * Solves a tridiagonal system of linear equations.
+ * 求解三对角线性方程组。
  *
- * @param {number[]} diagonal An array with length <code>n</code> that contains the diagonal of the coefficient matrix.
- * @param {number[]} lower An array with length <code>n - 1</code> that contains the lower diagonal of the coefficient matrix.
- * @param {number[]} upper An array with length <code>n - 1</code> that contains the upper diagonal of the coefficient matrix.
- * @param {Cartesian3[]} right An array of Cartesians with length <code>n</code> that is the right side of the system of equations.
+ * @param {number[]} diagonal 长度为 <code>n</code> 的数组，包含系数矩阵的对角线。
+ * @param {number[]} lower 长度为 <code>n - 1</code> 的数组，包含系数矩阵的下对角线。
+ * @param {number[]} upper 长度为 <code>n - 1</code> 的数组，包含系数矩阵的上对角线。
+ * @param {Cartesian3[]} right 长度为 <code>n</code> 的笛卡尔坐标数组，表示方程组的右侧。
  *
- * @exception {DeveloperError} diagonal and right must have the same lengths.
- * @exception {DeveloperError} lower and upper must have the same lengths.
- * @exception {DeveloperError} lower and upper must be one less than the length of diagonal.
+ * @exception {DeveloperError} diagonal 和 right 必须具有相同的长度。
+ * @exception {DeveloperError} lower 和 upper 必须具有相同的长度。
+ * @exception {DeveloperError} lower 和 upper 必须比 diagonal 的长度少 1。
  *
- * @performance Linear time.
- *
- * @example
- * const lowerDiagonal = [1.0, 1.0, 1.0, 1.0];
- * const diagonal = [2.0, 4.0, 4.0, 4.0, 2.0];
- * const upperDiagonal = [1.0, 1.0, 1.0, 1.0];
- * const rightHandSide = [
- *     new Cesium.Cartesian3(410757.0, -1595711.0, 1375302.0),
- *     new Cesium.Cartesian3(-5986705.0, -2190640.0, 1099600.0),
- *     new Cesium.Cartesian3(-12593180.0, 288588.0, -1755549.0),
- *     new Cesium.Cartesian3(-5349898.0, 2457005.0, -2685438.0),
- *     new Cesium.Cartesian3(845820.0, 1573488.0, -1205591.0)
- * ];
- *
- * const solution = Cesium.TridiagonalSystemSolver.solve(lowerDiagonal, diagonal, upperDiagonal, rightHandSide);
- *
- * @returns {Cartesian3[]} An array of Cartesians with length <code>n</code> that is the solution to the tridiagonal system of equations.
+ * @performance 线性时间复杂度。
  */
 TridiagonalSystemSolver.solve = function (lower, diagonal, upper, right) {
   //>>includeStart('debug', pragmas.debug);

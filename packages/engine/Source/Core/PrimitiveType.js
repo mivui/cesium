@@ -3,13 +3,13 @@
 import WebGLConstants from "./WebGLConstants.js";
 
 /**
- * The type of a geometric primitive, i.e., points, lines, and triangles.
+ * 几何图元的类型，即点、线和三角形。
  *
  * @enum {number}
  */
 const PrimitiveType = {
   /**
-   * Points primitive where each vertex (or index) is a separate point.
+   * 点图元，其中每个顶点（或索引）都是一个独立的点。
    *
    * @type {number}
    * @constant
@@ -17,7 +17,7 @@ const PrimitiveType = {
   POINTS: WebGLConstants.POINTS,
 
   /**
-   * Lines primitive where each two vertices (or indices) is a line segment.  Line segments are not necessarily connected.
+   * 线图元，每两个顶点（或索引）构成一条线段。线段之间不一定相连。
    *
    * @type {number}
    * @constant
@@ -25,8 +25,7 @@ const PrimitiveType = {
   LINES: WebGLConstants.LINES,
 
   /**
-   * Line loop primitive where each vertex (or index) after the first connects a line to
-   * the previous vertex, and the last vertex implicitly connects to the first.
+   * 线环图元，第一个顶点之后的每个顶点（或索引）都与前一个顶点连接成线，最后一个顶点隐式连接到第一个顶点。
    *
    * @type {number}
    * @constant
@@ -34,7 +33,7 @@ const PrimitiveType = {
   LINE_LOOP: WebGLConstants.LINE_LOOP,
 
   /**
-   * Line strip primitive where each vertex (or index) after the first connects a line to the previous vertex.
+   * 线带图元，第一个顶点之后的每个顶点（或索引）都与前一个顶点连接成线。
    *
    * @type {number}
    * @constant
@@ -42,7 +41,7 @@ const PrimitiveType = {
   LINE_STRIP: WebGLConstants.LINE_STRIP,
 
   /**
-   * Triangles primitive where each three vertices (or indices) is a triangle.  Triangles do not necessarily share edges.
+   * 三角形图元，每三个顶点（或索引）构成一个三角形。三角形之间不一定共享边。
    *
    * @type {number}
    * @constant
@@ -50,8 +49,7 @@ const PrimitiveType = {
   TRIANGLES: WebGLConstants.TRIANGLES,
 
   /**
-   * Triangle strip primitive where each vertex (or index) after the first two connect to
-   * the previous two vertices forming a triangle.  For example, this can be used to model a wall.
+   * 三角形带图元，前两个顶点之后的每个顶点（或索引）都与前两个顶点连接形成一个三角形。例如，这可用于建模墙体。
    *
    * @type {number}
    * @constant
@@ -59,9 +57,7 @@ const PrimitiveType = {
   TRIANGLE_STRIP: WebGLConstants.TRIANGLE_STRIP,
 
   /**
-   * Triangle fan primitive where each vertex (or index) after the first two connect to
-   * the previous vertex and the first vertex forming a triangle.  For example, this can be used
-   * to model a cone or circle.
+   * 三角形扇图元，前两个顶点之后的每个顶点（或索引）都与前一个顶点和第一个顶点连接形成一个三角形。例如，这可用于建模圆锥体或圆形。
    *
    * @type {number}
    * @constant

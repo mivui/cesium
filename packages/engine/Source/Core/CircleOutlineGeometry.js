@@ -6,28 +6,28 @@ import EllipseOutlineGeometry from "./EllipseOutlineGeometry.js";
 import Ellipsoid from "./Ellipsoid.js";
 
 /**
- * A description of the outline of a circle on the ellipsoid.
+ * 椭球上圆形轮廓的描述。
  *
  * @alias CircleOutlineGeometry
  * @constructor
  *
- * @param {object} options Object with the following properties:
- * @param {Cartesian3} options.center The circle's center point in the fixed frame.
- * @param {number} options.radius The radius in meters.
- * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] The ellipsoid the circle will be on.
- * @param {number} [options.height=0.0] The distance in meters between the circle and the ellipsoid surface.
- * @param {number} [options.granularity=0.02] The angular distance between points on the circle in radians.
- * @param {number} [options.extrudedHeight=0.0] The distance in meters between the circle's extruded face and the ellipsoid surface.
- * @param {number} [options.numberOfVerticalLines=16] Number of lines to draw between the top and bottom of an extruded circle.
+ * @param {object} options 具有以下属性的对象：
+ * @param {Cartesian3} options.center 固定坐标系中的圆心点。
+ * @param {number} options.radius 半径（米）。
+ * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] 圆形所在的椭球体。
+ * @param {number} [options.height=0.0] 圆形与椭球表面之间的距离（米）。
+ * @param {number} [options.granularity=0.02] 圆形上点之间的角距离（弧度）。
+ * @param {number} [options.extrudedHeight=0.0] 圆形拉伸面与椭球表面之间的距离（米）。
+ * @param {number} [options.numberOfVerticalLines=16] 在拉伸圆形顶部和底部之间绘制的线条数。
  *
- * @exception {DeveloperError} radius must be greater than zero.
- * @exception {DeveloperError} granularity must be greater than zero.
+ * @exception {DeveloperError} 半径必须大于零。
+ * @exception {DeveloperError} 粒度必须大于零。
  *
  * @see CircleOutlineGeometry.createGeometry
  * @see Packable
  *
  * @example
- * // Create a circle.
+ * // 创建一个圆形。
  * const circle = new Cesium.CircleOutlineGeometry({
  *   center : Cesium.Cartesian3.fromDegrees(-75.59777, 40.03883),
  *   radius : 100000.0
@@ -57,19 +57,19 @@ function CircleOutlineGeometry(options) {
 }
 
 /**
- * The number of elements used to pack the object into an array.
+ * 用于将对象打包到数组中的元素数量。
  * @type {number}
  */
 CircleOutlineGeometry.packedLength = EllipseOutlineGeometry.packedLength;
 
 /**
- * Stores the provided instance into the provided array.
+ * 将提供的实例存储到提供的数组中。
  *
- * @param {CircleOutlineGeometry} value The value to pack.
- * @param {number[]} array The array to pack into.
- * @param {number} [startingIndex=0] The index into the array at which to start packing the elements.
+ * @param {CircleOutlineGeometry} value 要打包的值。
+ * @param {number[]} array 要打包到的数组。
+ * @param {number} [startingIndex=0] 开始打包元素的数组索引。
  *
- * @returns {number[]} The array that was packed into
+ * @returns {number[]} 被打包到的数组
  */
 CircleOutlineGeometry.pack = function (value, array, startingIndex) {
   //>>includeStart('debug', pragmas.debug);
@@ -100,12 +100,12 @@ const scratchOptions = {
 };
 
 /**
- * Retrieves an instance from a packed array.
+ * 从打包的数组中检索实例。
  *
- * @param {number[]} array The packed array.
- * @param {number} [startingIndex=0] The starting index of the element to be unpacked.
- * @param {CircleOutlineGeometry} [result] The object into which to store the result.
- * @returns {CircleOutlineGeometry} The modified result parameter or a new CircleOutlineGeometry instance if one was not provided.
+ * @param {number[]} array 打包数组。
+ * @param {number} [startingIndex=0] 要解包的元素起始索引。
+ * @param {CircleOutlineGeometry} [result] 存储结果的对象。
+ * @returns {CircleOutlineGeometry} 修改后的结果参数，如果未提供则返回新的CircleOutlineGeometry实例。
  */
 CircleOutlineGeometry.unpack = function (array, startingIndex, result) {
   const ellipseGeometry = EllipseOutlineGeometry.unpack(
@@ -138,10 +138,10 @@ CircleOutlineGeometry.unpack = function (array, startingIndex, result) {
 };
 
 /**
- * Computes the geometric representation of an outline of a circle on an ellipsoid, including its vertices, indices, and a bounding sphere.
+ * 计算椭球上圆形轮廓的几何表示，包括其顶点、索引和边界球。
  *
- * @param {CircleOutlineGeometry} circleGeometry A description of the circle.
- * @returns {Geometry|undefined} The computed vertices and indices.
+ * @param {CircleOutlineGeometry} circleGeometry 圆形的描述。
+ * @returns {Geometry|undefined} 计算得到的顶点和索引。
  */
 CircleOutlineGeometry.createGeometry = function (circleGeometry) {
   return EllipseOutlineGeometry.createGeometry(circleGeometry._ellipseGeometry);

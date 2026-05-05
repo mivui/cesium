@@ -9,11 +9,10 @@ import DeveloperError from "./DeveloperError.js";
 /** @import Rectangle from "./Rectangle.js"; */
 
 /**
- * A tiling scheme for geometry or imagery on the surface of an ellipsoid.  At level-of-detail zero,
- * the coarsest, least-detailed level, the number of tiles is configurable.
- * At level of detail one, each of the level zero tiles has four children, two in each direction.
- * At level of detail two, each of the level one tiles has four children, two in each direction.
- * This continues for as many levels as are present in the geometry or imagery source.
+ * 椭球表面几何或影像的瓦片方案。在细节层级0（最粗糙、细节最少的层级），
+ * 瓦片数量是可配置的。在细节层级1，每个层级0的瓦片有四个子瓦片，每个方向两个。
+ * 在细节层级2，每个层级1的瓦片有四个子瓦片，每个方向两个。
+ * 这对于几何或影像源中存在的多个层级继续下去。
  *
  * @interface
  *
@@ -22,25 +21,25 @@ import DeveloperError from "./DeveloperError.js";
  */
 class TilingScheme {
   /**
-   * Gets the ellipsoid that is tiled by the tiling scheme.
+   * 获取被瓦片方案分割的椭球体。
    * @type {Ellipsoid}
    */
   ellipsoid;
 
   /**
-   * Gets the rectangle, in radians, covered by this tiling scheme.
+   * 获取此瓦片方案覆盖的矩形（以弧度表示）。
    * @type {Rectangle}
    */
   rectangle;
 
   /**
-   * Gets the map projection used by the tiling scheme.
+   * 获取瓦片方案使用的地图投影。
    * @type {MapProjection}
    */
   projection;
 
   /**
-   * @param {object} options
+   * @param {object} options 选项对象
    */
   constructor(options) {
     //>>includeStart('debug', pragmas.debug);
@@ -51,80 +50,69 @@ class TilingScheme {
   }
 
   /**
-   * Gets the total number of tiles in the X direction at a specified level-of-detail.
+   * 获取指定细节层级中X方向的瓦片总数。
    *
-   * @param {number} level The level-of-detail.
-   * @returns {number} The number of tiles in the X direction at the given level.
+   * @param {number} level 细节层级。
+   * @returns {number} 给定层级中X方向的瓦片数量。
    */
   getNumberOfXTilesAtLevel(level) {
     DeveloperError.throwInstantiationError();
   }
 
   /**
-   * Gets the total number of tiles in the Y direction at a specified level-of-detail.
+   * 获取指定细节层级中Y方向的瓦片总数。
    *
-   * @param {number} level The level-of-detail.
-   * @returns {number} The number of tiles in the Y direction at the given level.
+   * @param {number} level 细节层级。
+   * @returns {number} 给定层级中Y方向的瓦片数量。
    */
   getNumberOfYTilesAtLevel(level) {
     DeveloperError.throwInstantiationError();
   }
 
   /**
-   * Transforms a rectangle specified in geodetic radians to the native coordinate system
-   * of this tiling scheme.
+   * 将大地弧度指定的矩形转换为此瓦片方案的本地坐标系。
    *
-   * @param {Rectangle} rectangle The rectangle to transform.
-   * @param {Rectangle} [result] The instance to which to copy the result, or undefined if a new instance
-   *        should be created.
-   * @returns {Rectangle} The specified 'result', or a new object containing the native rectangle if 'result'
-   *          is undefined.
+   * @param {Rectangle} rectangle 要转换的矩形。
+   * @param {Rectangle} [result] 要将结果复制到的实例，如果应创建新实例则为undefined。
+   * @returns {Rectangle} 指定的'result'，如果'result'为undefined，则为包含本地矩形的新对象。
    */
   rectangleToNativeRectangle(rectangle, result) {
     DeveloperError.throwInstantiationError();
   }
 
   /**
-   * Converts tile x, y coordinates and level to a rectangle expressed in the native coordinates
-   * of the tiling scheme.
+   * 将瓦片x、y坐标和层级转换为以瓦片方案本地坐标表示的矩形。
    *
-   * @param {number} x The integer x coordinate of the tile.
-   * @param {number} y The integer y coordinate of the tile.
-   * @param {number} level The tile level-of-detail.  Zero is the least detailed.
-   * @param {Rectangle} [result] The instance to which to copy the result, or undefined if a new instance
-   *        should be created.
-   * @returns {Rectangle} The specified 'result', or a new object containing the rectangle
-   *          if 'result' is undefined.
+   * @param {number} x 瓦片的整数x坐标。
+   * @param {number} y 瓦片的整数y坐标。
+   * @param {number} level 瓦片的细节层级。0是最不详细的。
+   * @param {Rectangle} [result] 要将结果复制到的实例，如果应创建新实例则为undefined。
+   * @returns {Rectangle} 指定的'result'，如果'result'为undefined，则为包含矩形的新对象。
    */
   tileXYToNativeRectangle(x, y, level, result) {
     DeveloperError.throwInstantiationError();
   }
 
   /**
-   * Converts tile x, y coordinates and level to a cartographic rectangle in radians.
+   * 将瓦片x、y坐标和层级转换为弧度的大地测量矩形。
    *
-   * @param {number} x The integer x coordinate of the tile.
-   * @param {number} y The integer y coordinate of the tile.
-   * @param {number} level The tile level-of-detail.  Zero is the least detailed.
-   * @param {Rectangle} [result] The instance to which to copy the result, or undefined if a new instance
-   *        should be created.
-   * @returns {Rectangle} The specified 'result', or a new object containing the rectangle
-   *          if 'result' is undefined.
+   * @param {number} x 瓦片的整数x坐标。
+   * @param {number} y 瓦片的整数y坐标。
+   * @param {number} level 瓦片的细节层级。0是最不详细的。
+   * @param {Rectangle} [result] 要将结果复制到的实例，如果应创建新实例则为undefined。
+   * @returns {Rectangle} 指定的'result'，如果'result'为undefined，则为包含矩形的新对象。
    */
   tileXYToRectangle(x, y, level, result) {
     DeveloperError.throwInstantiationError();
   }
 
   /**
-   * Calculates the tile x, y coordinates of the tile containing
-   * a given cartographic position.
+   * 计算包含给定大地坐标位置的瓦片的瓦片x、y坐标。
    *
-   * @param {Cartographic} position The position.
-   * @param {number} level The tile level-of-detail.  Zero is the least detailed.
-   * @param {Cartesian2} [result] The instance to which to copy the result, or undefined if a new instance
-   *        should be created.
-   * @returns {Cartesian2} The specified 'result', or a new object containing the tile x, y coordinates
-   *          if 'result' is undefined.
+   * @param {Cartographic} position 位置。
+   * @param {number} level 瓦片的细节层级。0是最不详细的。
+   * @param {Cartesian2} [result] 要将结果复制到的实例，如果应创建新实例则为undefined。
+   * @returns {Cartesian2} 指定的'result'，如果'result'为undefined，则为包含瓦片x、y坐标的新对象。
    */
   positionToTileXY(position, level, result) {
     DeveloperError.throwInstantiationError();

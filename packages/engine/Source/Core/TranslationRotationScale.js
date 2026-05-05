@@ -7,31 +7,31 @@ const defaultTranslation = Cartesian3.ZERO;
 const defaultRotation = Quaternion.IDENTITY;
 
 /**
- * An affine transformation defined by a translation, rotation, and scale.
+ * 由平移、旋转和缩放定义的仿射变换。
  * @alias TranslationRotationScale
  * @constructor
  *
- * @param {Cartesian3} [translation=Cartesian3.ZERO] A {@link Cartesian3} specifying the (x, y, z) translation to apply to the node.
- * @param {Quaternion} [rotation=Quaternion.IDENTITY] A {@link Quaternion} specifying the (x, y, z, w) rotation to apply to the node.
- * @param {Cartesian3} [scale=new Cartesian3(1.0, 1.0, 1.0)] A {@link Cartesian3} specifying the (x, y, z) scaling to apply to the node.
+ * @param {Cartesian3} [translation=Cartesian3.ZERO] 指定应用于节点的 (x, y, z) 平移的 {@link Cartesian3}。
+ * @param {Quaternion} [rotation=Quaternion.IDENTITY] 指定应用于节点的 (x, y, z, w) 旋转的 {@link Quaternion}。
+ * @param {Cartesian3} [scale=new Cartesian3(1.0, 1.0, 1.0)] 指定应用于节点的 (x, y, z) 缩放的 {@link Cartesian3}。
  */
 function TranslationRotationScale(translation, rotation, scale) {
   /**
-   * Gets or sets the (x, y, z) translation to apply to the node.
+   * 获取或设置应用于节点的 (x, y, z) 平移。
    * @type {Cartesian3}
    * @default Cartesian3.ZERO
    */
   this.translation = Cartesian3.clone(translation ?? defaultTranslation);
 
   /**
-   * Gets or sets the (x, y, z, w) rotation to apply to the node.
+   * 获取或设置应用于节点的 (x, y, z, w) 旋转。
    * @type {Quaternion}
    * @default Quaternion.IDENTITY
    */
   this.rotation = Quaternion.clone(rotation ?? defaultRotation);
 
   /**
-   * Gets or sets the (x, y, z) scaling to apply to the node.
+   * 获取或设置应用于节点的 (x, y, z) 缩放。
    * @type {Cartesian3}
    * @default new Cartesian3(1.0, 1.0, 1.0)
    */
@@ -39,11 +39,11 @@ function TranslationRotationScale(translation, rotation, scale) {
 }
 
 /**
- * Compares this instance against the provided instance and returns
- * <code>true</code> if they are equal, <code>false</code> otherwise.
+ * 将此实例与提供的实例进行比较，如果相等则返回
+ * <code>true</code>，否则返回 <code>false</code>。
  *
- * @param {TranslationRotationScale} [right] The right hand side TranslationRotationScale.
- * @returns {boolean} <code>true</code> if they are equal, <code>false</code> otherwise.
+ * @param {TranslationRotationScale} [right] 右侧的 TranslationRotationScale。
+ * @returns {boolean} 如果相等则返回 <code>true</code>，否则返回 <code>false</code>。
  */
 TranslationRotationScale.prototype.equals = function (right) {
   return (
