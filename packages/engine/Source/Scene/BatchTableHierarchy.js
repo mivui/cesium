@@ -490,10 +490,10 @@ BatchTableHierarchy.prototype.isClass = function (batchId, className) {
 };
 
 /**
- * Get the name of the class a given feature belongs to
+ * 获取要素所属类的名称
  *
- * @param {number} batchId The batch ID of the feature
- * @return {string} The name of the class this feature belongs to
+ * @param {number} batchId 要素的批次 ID
+ * @return {string} 此要素所属类的名称
  */
 BatchTableHierarchy.prototype.getClassName = function (batchId) {
   const classId = this._classIds[batchId];

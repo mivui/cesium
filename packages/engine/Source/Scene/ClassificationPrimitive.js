@@ -24,45 +24,44 @@ import StencilFunction from "./StencilFunction.js";
 import StencilOperation from "./StencilOperation.js";
 
 /**
- * A classification primitive represents a volume enclosing geometry in the {@link Scene} to be highlighted.
+ * 分类图元表示 {@link Scene} 中要突出显示的包围几何体体积。
  * <p>
- * A primitive combines geometry instances with an {@link Appearance} that describes the full shading, including
- * {@link Material} and {@link RenderState}.  Roughly, the geometry instance defines the structure and placement,
- * and the appearance defines the visual characteristics.  Decoupling geometry and appearance allows us to mix
- * and match most of them and add a new geometry or appearance independently of each other.
- * Only {@link PerInstanceColorAppearance} with the same color across all instances is supported at this time when using
- * ClassificationPrimitive directly.
- * For full {@link Appearance} support when classifying terrain or 3D Tiles use {@link GroundPrimitive} instead.
+ * 图元将几何实例与 {@link Appearance} 结合，描述完整的着色，包括
+ * {@link Material} 和 {@link RenderState}。粗略地说，几何实例定义结构和位置，
+ * 而外观定义视觉特征。解耦几何和外观允许我们混合
+ * 搭配大多数它们，并独立添加新的几何或外观。
+ * 当直接使用 ClassificationPrimitive 时，目前仅支持在所有实例中具有相同颜色的 {@link PerInstanceColorAppearance}。
+ * 对地形或 3D Tiles 进行分类时，如需完整的 {@link Appearance} 支持，请改用 {@link GroundPrimitive}。
  * </p>
  * <p>
- * For correct rendering, this feature requires the EXT_frag_depth WebGL extension. For hardware that do not support this extension, there
- * will be rendering artifacts for some viewing angles.
+ * 为了正确渲染，此功能需要 EXT_frag_depth WebGL 扩展。对于不支持此扩展的硬件，
+ * 某些视角会出现渲染伪影。
  * </p>
  * <p>
- * Valid geometries are {@link BoxGeometry}, {@link CylinderGeometry}, {@link EllipsoidGeometry}, {@link PolylineVolumeGeometry}, and {@link SphereGeometry}.
+ * 有效的几何体包括 {@link BoxGeometry}、{@link CylinderGeometry}、{@link EllipsoidGeometry}、{@link PolylineVolumeGeometry} 和 {@link SphereGeometry}。
  * </p>
  * <p>
- * Geometries that follow the surface of the ellipsoid, such as {@link CircleGeometry}, {@link CorridorGeometry}, {@link EllipseGeometry}, {@link PolygonGeometry}, and {@link RectangleGeometry},
- * are also valid if they are extruded volumes; otherwise, they will not be rendered.
+ * 跟随椭球体表面的几何体（如 {@link CircleGeometry}、{@link CorridorGeometry}、{@link EllipseGeometry}、{@link PolygonGeometry} 和 {@link RectangleGeometry}）
+ * 在作为拉伸体时也有效；否则将不会被渲染。
  * </p>
  *
  * @alias ClassificationPrimitive
  * @constructor
  *
- * @param {object} [options] Object with the following properties:
- * @param {Array|GeometryInstance} [options.geometryInstances] The geometry instances to render. This can either be a single instance or an array of length one.
- * @param {Appearance} [options.appearance] The appearance used to render the primitive. Defaults to PerInstanceColorAppearance when GeometryInstances have a color attribute.
- * @param {boolean} [options.show=true] Determines if this primitive will be shown.
- * @param {boolean} [options.vertexCacheOptimize=false] When <code>true</code>, geometry vertices are optimized for the pre and post-vertex-shader caches.
- * @param {boolean} [options.interleave=false] When <code>true</code>, geometry vertex attributes are interleaved, which can slightly improve rendering performance but increases load time.
- * @param {boolean} [options.compressVertices=true] When <code>true</code>, the geometry vertices are compressed, which will save memory.
- * @param {boolean} [options.releaseGeometryInstances=true] When <code>true</code>, the primitive does not keep a reference to the input <code>geometryInstances</code> to save memory.
- * @param {boolean} [options.allowPicking=true] When <code>true</code>, each geometry instance will only be pickable with {@link Scene#pick}.  When <code>false</code>, GPU memory is saved.
- * @param {boolean} [options.asynchronous=true] Determines if the primitive will be created asynchronously or block until ready. If false initializeTerrainHeights() must be called first.
- * @param {ClassificationType} [options.classificationType=ClassificationType.BOTH] Determines whether terrain, 3D Tiles or both will be classified.
- * @param {boolean} [options.debugShowBoundingVolume=false] For debugging only. Determines if this primitive's commands' bounding spheres are shown.
- * @param {boolean} [options.debugShowShadowVolume=false] For debugging only. Determines if the shadow volume for each geometry in the primitive is drawn. Must be <code>true</code> on
- *                  creation for the volumes to be created before the geometry is released or options.releaseGeometryInstance must be <code>false</code>.
+ * @param {object} [options] 具有以下属性的对象：
+ * @param {Array|GeometryInstance} [options.geometryInstances] 要渲染的几何实例。可以是单个实例或长度为一的数组。
+ * @param {Appearance} [options.appearance] 用于渲染图元的外观。当几何实例具有颜色属性时，默认为 PerInstanceColorAppearance。
+ * @param {boolean} [options.show=true] 确定是否显示此图元。
+ * @param {boolean} [options.vertexCacheOptimize=false] 当为 <code>true</code> 时，几何顶点针对顶点着色器前后的缓存进行优化。
+ * @param {boolean} [options.interleave=false] 当为 <code>true</code> 时，几何顶点属性被交错，可以稍微提高渲染性能但会增加加载时间。
+ * @param {boolean} [options.compressVertices=true] 当为 <code>true</code> 时，几何顶点被压缩，将节省内存。
+ * @param {boolean} [options.releaseGeometryInstances=true] 当为 <code>true</code> 时，图元不保留对输入 <code>geometryInstances</code> 的引用以节省内存。
+ * @param {boolean} [options.allowPicking=true] 当为 <code>true</code> 时，每个几何实例只能通过 {@link Scene#pick} 进行拾取。当为 <code>false</code> 时，可节省 GPU 内存。
+ * @param {boolean} [options.asynchronous=true] 确定图元是异步创建还是阻塞直到就绪。如果为 false，必须先调用 initializeTerrainHeights()。
+ * @param {ClassificationType} [options.classificationType=ClassificationType.BOTH] 确定是对地形、3D Tiles 还是两者进行分类。
+ * @param {boolean} [options.debugShowBoundingVolume=false] 仅用于调试。确定是否显示此图元命令的包围球。
+ * @param {boolean} [options.debugShowShadowVolume=false] 仅用于调试。确定是否绘制图元中每个几何体的阴影体。必须在创建时设为 <code>true</code>，
+ *                  才能在几何体释放之前创建体积，或者 options.releaseGeometryInstance 必须为 <code>false</code>。
  *
  * @see Primitive
  * @see GroundPrimitive
@@ -74,16 +73,15 @@ function ClassificationPrimitive(options) {
   const geometryInstances = options.geometryInstances;
 
   /**
-   * The geometry instance rendered with this primitive.  This may
-   * be <code>undefined</code> if <code>options.releaseGeometryInstances</code>
-   * is <code>true</code> when the primitive is constructed.
+   * 使用此图元渲染的几何实例。这可能
+   * 为 <code>undefined</code>（如果在构建图元时
+   * <code>options.releaseGeometryInstances</code> 为 <code>true</code>）。
    * <p>
-   * Changing this property after the primitive is rendered has no effect.
+   * 在图元渲染后更改此属性无效。
    * </p>
    * <p>
-   * Because of the rendering technique used, all geometry instances must be the same color.
-   * If there is an instance with a differing color, a <code>DeveloperError</code> will be thrown
-   * on the first attempt to render.
+   * 由于使用的渲染技术，所有几何实例必须具有相同的颜色。
+   * 如果存在颜色不同的实例，在首次尝试渲染时将抛出 <code>DeveloperError</code>。
    * </p>
    *
    * @readonly
@@ -93,8 +91,7 @@ function ClassificationPrimitive(options) {
    */
   this.geometryInstances = geometryInstances;
   /**
-   * Determines if the primitive will be shown.  This affects all geometry
-   * instances in the primitive.
+   * 确定是否显示图元。这会影响图元中的所有几何实例。
    *
    * @type {boolean}
    *
@@ -102,7 +99,7 @@ function ClassificationPrimitive(options) {
    */
   this.show = options.show ?? true;
   /**
-   * Determines whether terrain, 3D Tiles or both will be classified.
+   * 确定是对地形、3D Tiles 还是两者进行分类。
    *
    * @type {ClassificationType}
    *
@@ -111,9 +108,9 @@ function ClassificationPrimitive(options) {
   this.classificationType =
     options.classificationType ?? ClassificationType.BOTH;
   /**
-   * This property is for debugging only; it is not for production use nor is it optimized.
+   * 此属性仅用于调试；不用于生产环境且未进行优化。
    * <p>
-   * Draws the bounding sphere for each draw command in the primitive.
+   * 绘制图元中每个绘制命令的包围球。
    * </p>
    *
    * @type {boolean}
@@ -122,9 +119,9 @@ function ClassificationPrimitive(options) {
    */
   this.debugShowBoundingVolume = options.debugShowBoundingVolume ?? false;
   /**
-   * This property is for debugging only; it is not for production use nor is it optimized.
+   * 此属性仅用于调试；不用于生产环境且未进行优化。
    * <p>
-   * Draws the shadow volume for each geometry in the primitive.
+   * 绘制图元中每个几何体的阴影体。
    * </p>
    *
    * @type {boolean}
@@ -190,7 +187,7 @@ function ClassificationPrimitive(options) {
 
 Object.defineProperties(ClassificationPrimitive.prototype, {
   /**
-   * When <code>true</code>, geometry vertices are optimized for the pre and post-vertex-shader caches.
+   * 当为 <code>true</code> 时，几何顶点针对顶点着色器前后的缓存进行优化。
    *
    * @memberof ClassificationPrimitive.prototype
    *
@@ -206,7 +203,7 @@ Object.defineProperties(ClassificationPrimitive.prototype, {
   },
 
   /**
-   * Determines if geometry vertex attributes are interleaved, which can slightly improve rendering performance.
+   * 确定几何顶点属性是否交错，可以稍微提高渲染性能。
    *
    * @memberof ClassificationPrimitive.prototype
    *
@@ -222,7 +219,7 @@ Object.defineProperties(ClassificationPrimitive.prototype, {
   },
 
   /**
-   * When <code>true</code>, the primitive does not keep a reference to the input <code>geometryInstances</code> to save memory.
+   * 当为 <code>true</code> 时，图元不保留对输入 <code>geometryInstances</code> 的引用以节省内存。
    *
    * @memberof ClassificationPrimitive.prototype
    *
@@ -238,7 +235,7 @@ Object.defineProperties(ClassificationPrimitive.prototype, {
   },
 
   /**
-   * When <code>true</code>, each geometry instance will only be pickable with {@link Scene#pick}.  When <code>false</code>, GPU memory is saved.
+   * 当为 <code>true</code> 时，每个几何实例只能通过 {@link Scene#pick} 进行拾取。当为 <code>false</code> 时，可节省 GPU 内存。
    *
    * @memberof ClassificationPrimitive.prototype
    *
@@ -254,7 +251,7 @@ Object.defineProperties(ClassificationPrimitive.prototype, {
   },
 
   /**
-   * Determines if the geometry instances will be created and batched on a web worker.
+   * 确定是否在工作线程上创建和批处理几何实例。
    *
    * @memberof ClassificationPrimitive.prototype
    *
@@ -270,7 +267,7 @@ Object.defineProperties(ClassificationPrimitive.prototype, {
   },
 
   /**
-   * When <code>true</code>, geometry vertices are compressed, which will save memory.
+   * 当为 <code>true</code> 时，几何顶点被压缩，将节省内存。
    *
    * @memberof ClassificationPrimitive.prototype
    *
@@ -286,9 +283,8 @@ Object.defineProperties(ClassificationPrimitive.prototype, {
   },
 
   /**
-   * Determines if the primitive is complete and ready to render.  If this property is
-   * true, the primitive will be rendered the next time that {@link ClassificationPrimitive#update}
-   * is called.
+   * 确定图元是否已完成并准备好渲染。如果此属性为
+   * true，则下次调用 {@link ClassificationPrimitive#update} 时将渲染图元。
    *
    * @memberof ClassificationPrimitive.prototype
    *
@@ -320,10 +316,10 @@ Object.defineProperties(ClassificationPrimitive.prototype, {
 });
 
 /**
- * Determines if ClassificationPrimitive rendering is supported.
+ * 确定是否支持 ClassificationPrimitive 渲染。
  *
- * @param {Scene} scene The scene.
- * @returns {boolean} <code>true</code> if ClassificationPrimitives are supported; otherwise, returns <code>false</code>
+ * @param {Scene} scene 场景。
+ * @returns {boolean} 如果支持 ClassificationPrimitives 则返回 <code>true</code>；否则返回 <code>false</code>
  */
 ClassificationPrimitive.isSupported = function (scene) {
   return scene.context.stencilBuffer;
@@ -1026,16 +1022,16 @@ function updateAndQueueCommands(
 }
 
 /**
- * Called when {@link Viewer} or {@link CesiumWidget} render the scene to
- * get the draw commands needed to render this primitive.
+ * 当 {@link Viewer} 或 {@link CesiumWidget} 渲染场景时调用，
+ * 以获取渲染此图元所需的绘制命令。
  * <p>
- * Do not call this function directly.  This is documented just to
- * list the exceptions that may be propagated when the scene is rendered:
+ * 不要直接调用此函数。此处文档仅用于
+ * 列出渲染场景时可能传播的异常：
  * </p>
  *
- * @exception {DeveloperError} All instance geometries must have the same primitiveType.
- * @exception {DeveloperError} Appearance and material have a uniform with the same name.
- * @exception {DeveloperError} Not all of the geometry instances have the same color attribute.
+ * @exception {DeveloperError} 所有实例几何体必须具有相同的 primitiveType。
+ * @exception {DeveloperError} 外观和材质具有相同名称的 uniform。
+ * @exception {DeveloperError} 并非所有几何实例都具有相同的颜色属性。
  */
 ClassificationPrimitive.prototype.update = function (frameState) {
   if (!defined(this._primitive) && !defined(this.geometryInstances)) {
@@ -1317,12 +1313,12 @@ ClassificationPrimitive.prototype.update = function (frameState) {
 };
 
 /**
- * Returns the modifiable per-instance attributes for a {@link GeometryInstance}.
+ * 返回 {@link GeometryInstance} 的可修改的每个实例属性。
  *
- * @param {*} id The id of the {@link GeometryInstance}.
- * @returns {object} The typed array in the attribute's format or undefined if the is no instance with id.
+ * @param {*} id {@link GeometryInstance} 的 id。
+ * @returns {object} 属性格式的类型的数组，如果没有具有该 id 的实例则返回 undefined。
  *
- * @exception {DeveloperError} must call update before calling getGeometryInstanceAttributes.
+ * @exception {DeveloperError} 必须在调用 getGeometryInstanceAttributes 之前调用 update。
  *
  * @example
  * const attributes = primitive.getGeometryInstanceAttributes('an id');
@@ -1343,13 +1339,13 @@ ClassificationPrimitive.prototype.getGeometryInstanceAttributes = function (
 };
 
 /**
- * Returns true if this object was destroyed; otherwise, false.
+ * 如果此对象已被销毁则返回 true；否则返回 false。
  * <p>
- * If this object was destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.
+ * 如果此对象已被销毁，则不应使用它；调用除
+ * <code>isDestroyed</code> 之外的任何函数都将导致 {@link DeveloperError} 异常。
  * </p>
  *
- * @returns {boolean} <code>true</code> if this object was destroyed; otherwise, <code>false</code>.
+ * @returns {boolean} 如果此对象已被销毁则返回 <code>true</code>；否则返回 <code>false</code>。
  *
  * @see ClassificationPrimitive#destroy
  */
@@ -1358,15 +1354,15 @@ ClassificationPrimitive.prototype.isDestroyed = function () {
 };
 
 /**
- * Destroys the WebGL resources held by this object.  Destroying an object allows for deterministic
- * release of WebGL resources, instead of relying on the garbage collector to destroy this object.
+ * 销毁此对象持有的 WebGL 资源。销毁对象允许确定性
+ * 释放 WebGL 资源，而不是依赖垃圾回收器来销毁此对象。
  * <p>
- * Once an object is destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.  Therefore,
- * assign the return value (<code>undefined</code>) to the object as done in the example.
+ * 对象销毁后不应再使用；调用除
+ * <code>isDestroyed</code> 之外的任何函数都将导致 {@link DeveloperError} 异常。因此，
+ * 如示例所示，将返回值（<code>undefined</code>）赋给该对象。
  * </p>
  *
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 此对象已被销毁，即调用了 destroy()。
  *
  * @example
  * e = e && e.destroy();

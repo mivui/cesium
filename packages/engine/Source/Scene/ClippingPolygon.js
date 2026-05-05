@@ -8,12 +8,12 @@ import PolygonGeometry from "../Core/PolygonGeometry.js";
 import Rectangle from "../Core/Rectangle.js";
 
 /**
- * A geodesic polygon to be used with {@link ClippingPlaneCollection} for selectively hiding regions in a model, a 3D tileset, or the globe.
+ * 测地多边形，用于与 {@link ClippingPlaneCollection} 配合，选择性地隐藏模型、3D tileset 或地球体中的区域。
  * @alias ClippingPolygon
  * @constructor
  *
- * @param {object} options Object with the following properties:
- * @param {Cartesian3[]} options.positions A list of three or more Cartesian coordinates defining the outer ring of the clipping polygon.
+ * @param {object} options 具有以下属性的对象：
+ * @param {Cartesian3[]} options.positions 定义裁剪多边形外环的三个或更多笛卡尔坐标列表。
  * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default]
  *
  * @example
@@ -75,15 +75,15 @@ function ClippingPolygon(options) {
 }
 
 /**
- * Returns a deep copy of the given array.
+ * 返回给定数组的深拷贝。
  *
- * If the input is undefined, then <code>undefined</code> is returned.
+ * 如果输入为 undefined，则返回 <code>undefined</code>。
  *
- * Otherwise, the result will be a copy of the given array, where
- * each element is copied with <code>Cartesian3.clone</code>.
+ * 否则，结果将是给定数组的副本，其中
+ * 每个元素都使用 <code>Cartesian3.clone</code> 复制。
  *
- * @param {Cartesian3[]|undefined} input The input array
- * @returns {Cartesian3[]|undefined} The copy
+ * @param {Cartesian3[]|undefined} input 输入数组
+ * @returns {Cartesian3[]|undefined} 副本
  */
 function copyArrayCartesian3(input) {
   if (!defined(input)) {
@@ -98,18 +98,18 @@ function copyArrayCartesian3(input) {
 }
 
 /**
- * Returns whether the given arrays are component-wise equal.
+ * 返回给定数组是否逐分量相等。
  *
- * When both arrays are undefined, then <code>true</code> is returned.
- * When only one array is defined, or they are both defined but have
- * different lengths, then <code>false</code> is returned.
+ * 当两个数组均为 undefined 时，返回 <code>true</code>。
+ * 当仅定义了一个数组，或它们都已定义但长度
+ * 不同时，返回 <code>false</code>。
  *
- * Otherwise, returns whether the corresponding elements of the arrays
- * are equal, as of <code>Cartesian3.equals</code>.
+ * 否则，返回数组的对应元素是否
+ * 相等（根据 <code>Cartesian3.equals</code>）。
  *
- * @param {Cartesian3[]|undefined} a The first array
- * @param {Cartesian3[]|undefined} b The second array
- * @returns {boolean} Whether the arrays are equal
+ * @param {Cartesian3[]|undefined} a 第一个数组
+ * @param {Cartesian3[]|undefined} b 第二个数组
+ * @returns {boolean} 数组是否相等
  */
 function equalsArrayCartesian3(a, b) {
   if (!defined(a) && !defined(b)) {
@@ -134,7 +134,7 @@ function equalsArrayCartesian3(a, b) {
 
 Object.defineProperties(ClippingPolygon.prototype, {
   /**
-   * Returns the total number of positions in the polygon, include any holes.
+   * 返回多边形中的位置总数，包括任何孔洞。
    *
    * @memberof ClippingPolygon.prototype
    * @type {number}
@@ -146,7 +146,7 @@ Object.defineProperties(ClippingPolygon.prototype, {
     },
   },
   /**
-   * Returns the outer ring of positions.
+   * 返回外环位置。
    *
    * @memberof ClippingPolygon.prototype
    * @type {Cartesian3[]}
@@ -158,7 +158,7 @@ Object.defineProperties(ClippingPolygon.prototype, {
     },
   },
   /**
-   * Returns the ellipsoid used to project the polygon onto surfaces when clipping.
+   * 返回用于在裁剪时将多边形投影到表面的椭球体。
    *
    * @memberof ClippingPolygon.prototype
    * @type {Ellipsoid}
@@ -172,10 +172,10 @@ Object.defineProperties(ClippingPolygon.prototype, {
 });
 
 /**
- * Clones the ClippingPolygon without setting its ownership.
- * @param {ClippingPolygon} polygon The ClippingPolygon to be cloned
- * @param {ClippingPolygon} [result] The object on which to store the cloned parameters.
- * @returns {ClippingPolygon} a clone of the input ClippingPolygon
+ * 克隆 ClippingPolygon 而不设置其所有权。
+ * @param {ClippingPolygon} polygon 要克隆的 ClippingPolygon
+ * @param {ClippingPolygon} [result] 用于存储克隆参数的对象。
+ * @returns {ClippingPolygon} 输入 ClippingPolygon 的克隆
  */
 ClippingPolygon.clone = function (polygon, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -196,12 +196,12 @@ ClippingPolygon.clone = function (polygon, result) {
 };
 
 /**
- * Compares the provided ClippingPolygons and returns
- * <code>true</code> if they are equal, <code>false</code> otherwise.
+ * 比较提供的 ClippingPolygon，如果
+ * 相等则返回 <code>true</code>，否则返回 <code>false</code>。
  *
- * @param {ClippingPolygon} left The first polygon.
- * @param {ClippingPolygon} right The second polygon.
- * @returns {boolean} <code>true</code> if left and right are equal, <code>false</code> otherwise.
+ * @param {ClippingPolygon} left 第一个多边形。
+ * @param {ClippingPolygon} right 第二个多边形。
+ * @returns {boolean} 如果 left 和 right 相等则返回 <code>true</code>，否则返回 <code>false</code>。
  */
 ClippingPolygon.equals = function (left, right) {
   //>>includeStart('debug', pragmas.debug);
@@ -215,10 +215,10 @@ ClippingPolygon.equals = function (left, right) {
 };
 
 /**
- * Computes a cartographic rectangle which encloses the polygon defined by the list of positions, including cases over the international date line and the poles.
+ * 计算包围位置列表定义的多边形的矩形，包括跨越国际日期变更线和极点的情况。
  *
- * @param {Rectangle} [result] An object in which to store the result.
- * @returns {Rectangle} The result rectangle
+ * @param {Rectangle} [result] 用于存储结果的对象。
+ * @returns {Rectangle} 结果矩形
  */
 ClippingPolygon.prototype.computeRectangle = function (result) {
   if (equalsArrayCartesian3(this._positions, this._cachedPositions)) {

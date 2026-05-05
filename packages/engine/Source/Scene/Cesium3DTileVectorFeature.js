@@ -30,26 +30,26 @@ const polylineMaterial = new BufferPolylineMaterial();
 const polygonMaterial = new BufferPolygonMaterial();
 
 /**
- * A vector feature of a {@link Cesium3DTileset}.
+ * {@link Cesium3DTileset} 的矢量要素。
  * <p>
- * Provides access to a feature's properties stored in the tile's batch table, as well
- * as the ability to show/hide and style the feature
+ * 提供对存储在瓦片批处理表中的要素属性的访问，以及
+ * 显示/隐藏和样式化要素的能力
  * </p>
  * <p>
- * Modifications to a <code>Cesium3DTileVectorFeature</code> object have the lifetime of the tile's
- * content.  If the tile's content is unloaded, e.g., due to it going out of view and needing
- * to free space in the cache for visible tiles, listen to the {@link Cesium3DTileset#tileUnload} event to save any
- * modifications. Also listen to the {@link Cesium3DTileset#tileVisible} event to reapply any modifications.
+ * 对 <code>Cesium3DTileVectorFeature</code> 对象的修改具有瓦片内容生命周期。
+ * 如果瓦片内容被卸载（例如，由于超出视野并需要为可见瓦片释放缓存空间），
+ * 请监听 {@link Cesium3DTileset#tileUnload} 事件以保存任何修改。
+ * 同时监听 {@link Cesium3DTileset#tileVisible} 事件以重新应用任何修改。
  * </p>
  * <p>
- * Do not construct this directly.  Access it through {@link Cesium3DTileContent#getFeature}
- * or picking using {@link Scene#pick} and {@link Scene#pickPosition}.
+ * 不要直接构造此对象。通过 {@link Cesium3DTileContent#getFeature}
+ * 或使用 {@link Scene#pick} 和 {@link Scene#pickPosition} 拾取来访问它。
  * </p>
  *
  * @experimental This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.
  *
  * @example
- * // On mouse over, display all the properties for a feature in the console log.
+ * // 鼠标悬停时，在控制台日志中显示要素的所有属性。
  * handler.setInputAction(function(movement) {
  *     const feature = scene.pick(movement.endPosition);
  *     if (feature instanceof Cesium.Cesium3DTileVectorFeature) {
@@ -287,7 +287,7 @@ class Cesium3DTileVectorFeature {
   }
 
   /**
-   * Gets the tileset containing the feature.
+   * 获取包含要素的瓦片集。
    *
    * @type {Cesium3DTileset}
    */
@@ -296,8 +296,8 @@ class Cesium3DTileVectorFeature {
   }
 
   /**
-   * All objects returned by {@link Scene#pick} have a <code>primitive</code> property. This returns
-   * the tileset containing the feature.
+   * 由 {@link Scene#pick} 返回的所有对象都有一个 <code>primitive</code> 属性。此属性返回
+   * 包含要素的瓦片集。
    *
    * @type {Cesium3DTileset}
    */
@@ -306,8 +306,8 @@ class Cesium3DTileVectorFeature {
   }
 
   /**
-   * Get the feature ID associated with this feature. Using EXT_mesh_features,
-   * this is the feature ID from the selected feature ID set.
+   * 获取与此要素关联的要素 ID。使用 EXT_mesh_features，
+   * 这是来自所选要素 ID 集的要素 ID。
    *
    * @type {number}
    *
@@ -338,13 +338,13 @@ class Cesium3DTileVectorFeature {
   }
 
   /**
-   * Returns whether the feature contains this property. This includes properties from this feature's
-   * class and inherited classes when using a batch table hierarchy.
+   * 返回要素是否包含此属性。这包括来自此要素的
+   * 类以及使用批处理表层次结构时的继承类的属性。
    *
    * @see {@link https://github.com/CesiumGS/3d-tiles/tree/main/extensions/3DTILES_batch_table_hierarchy}
    *
-   * @param {string} name The case-sensitive name of the property.
-   * @returns {boolean} Whether the feature contains this property.
+   * @param {string} name 属性的区分大小写名称。
+   * @returns {boolean} 要素是否包含此属性。
    */
   hasProperty(name) {
     if (!defined(this._batchTable)) {
@@ -354,13 +354,13 @@ class Cesium3DTileVectorFeature {
   }
 
   /**
-   * Returns an array of property IDs for the feature. This includes properties from this feature's
-   * class and inherited classes when using a batch table hierarchy.
+   * 返回要素的属性 ID 数组。这包括来自此要素的
+   * 类以及使用批处理表层次结构时的继承类的属性。
    *
    * @see {@link https://github.com/CesiumGS/3d-tiles/tree/main/extensions/3DTILES_batch_table_hierarchy}
    *
-   * @param {string[]} [results] An array into which to store the results.
-   * @returns {string[]} The IDs of the feature's properties.
+   * @param {string[]} [results] 用于存储结果的数组。
+   * @returns {string[]} 要素属性的 ID。
    */
   getPropertyIds(results) {
     if (!defined(this._batchTable)) {
@@ -370,16 +370,16 @@ class Cesium3DTileVectorFeature {
   }
 
   /**
-   * Returns a copy of the value of the feature's property with the given name. This includes properties from this feature's
-   * class and inherited classes when using a batch table hierarchy.
+   * 返回具有给定名称的要素属性值的副本。这包括来自此要素的
+   * 类以及使用批处理表层次结构时的继承类的属性。
    *
    * @see {@link https://github.com/CesiumGS/3d-tiles/tree/main/extensions/3DTILES_batch_table_hierarchy}
    *
-   * @param {string} name The case-sensitive name of the property.
-   * @returns {*} The value of the property or <code>undefined</code> if the feature does not have this property.
+   * @param {string} name 属性的区分大小写名称。
+   * @returns {*} 属性的值，如果要素没有此属性，则为 <code>undefined</code>。
    *
    * @example
-   * // Display all the properties for a feature in the console log.
+   * // 在控制台日志中显示要素的所有属性。
    * const propertyIds = feature.getPropertyIds();
    * const length = propertyIds.length;
    * for (let i = 0; i < length; ++i) {
@@ -421,18 +421,18 @@ class Cesium3DTileVectorFeature {
   }
 
   /**
-   * Sets the value of the feature's property with the given name.
+   * 设置具有给定名称的要素属性的值。
    * <p>
-   * If a property with the given name doesn't exist, it is created.
+   * 如果不存在具有给定名称的属性，则会创建该属性。
    * </p>
    *
-   * @param {string} name The case-sensitive name of the property.
-   * @param {*} value The value of the property that will be copied.
+   * @param {string} name 属性的区分大小写名称。
+   * @param {*} value 将被复制的属性值。
    *
-   * @exception {DeveloperError} Inherited batch table hierarchy property is read only.
+   * @exception {DeveloperError} 继承的批处理表层次结构属性为只读。
    *
    * @example
-   * const height = feature.getProperty('Height'); // e.g., the height of a building
+   * const height = feature.getProperty('Height'); // 例如，建筑物的高度
    *
    * @example
    * const name = 'clicked';

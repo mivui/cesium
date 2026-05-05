@@ -343,14 +343,14 @@ function listenMouseMove(aggregator, modifier) {
 }
 
 /**
- * Aggregates input events. For example, suppose the following inputs are received between frames:
- * left mouse button down, mouse move, mouse move, left mouse button up. These events will be aggregated into
- * one event with a start and end position of the mouse.
+ * 聚合输入事件。例如,假设在帧之间接收到以下输入:
+ * 鼠标左键按下、鼠标移动、鼠标移动、鼠标左键释放。这些事件将聚合为
+ * 一个具有鼠标起点和终点位置的事件。
  *
  * @alias CameraEventAggregator
  * @constructor
  *
- * @param {HTMLCanvasElement} [canvas=document] The element to handle events for.
+ * @param {HTMLCanvasElement} [canvas=document] 要处理事件的元素。
  *
  * @see ScreenSpaceEventHandler
  */
@@ -399,7 +399,7 @@ function CameraEventAggregator(canvas) {
 
 Object.defineProperties(CameraEventAggregator.prototype, {
   /**
-   * Gets the current mouse position.
+   * 获取当前鼠标位置。
    * @memberof CameraEventAggregator.prototype
    * @type {Cartesian2}
    */
@@ -410,7 +410,7 @@ Object.defineProperties(CameraEventAggregator.prototype, {
   },
 
   /**
-   * Gets whether any mouse button is down, a touch has started, or the wheel has been moved.
+   * 获取是否有任何鼠标按钮按下、触控开始或滚轮移动。
    * @memberof CameraEventAggregator.prototype
    * @type {boolean}
    */
@@ -431,11 +431,11 @@ Object.defineProperties(CameraEventAggregator.prototype, {
 });
 
 /**
- * Gets if a mouse button down or touch has started and has been moved.
+ * 获取鼠标按钮按下或触控开始并已移动。
  *
- * @param {CameraEventType} type The camera event type.
- * @param {KeyboardEventModifier} [modifier] The keyboard modifier.
- * @returns {boolean} Returns <code>true</code> if a mouse button down or touch has started and has been moved; otherwise, <code>false</code>
+ * @param {CameraEventType} type 相机事件类型。
+ * @param {KeyboardEventModifier} [modifier] 键盘修饰键。
+ * @returns {boolean} 如果鼠标按钮按下或触控开始并已移动,则返回 <code>true</code>;否则返回 <code>false</code>
  */
 CameraEventAggregator.prototype.isMoving = function (type, modifier) {
   //>>includeStart('debug', pragmas.debug);
@@ -449,11 +449,11 @@ CameraEventAggregator.prototype.isMoving = function (type, modifier) {
 };
 
 /**
- * Gets the aggregated start and end position of the current event.
+ * 获取当前事件的聚合起点和终点位置。
  *
- * @param {CameraEventType} type The camera event type.
- * @param {KeyboardEventModifier} [modifier] The keyboard modifier.
- * @returns {object} An object with two {@link Cartesian2} properties: <code>startPosition</code> and <code>endPosition</code>.
+ * @param {CameraEventType} type 相机事件类型。
+ * @param {KeyboardEventModifier} [modifier] 键盘修饰键。
+ * @returns {object} 具有两个 {@link Cartesian2} 属性的对象: <code>startPosition</code> 和 <code>endPosition</code>。
  */
 CameraEventAggregator.prototype.getMovement = function (type, modifier) {
   //>>includeStart('debug', pragmas.debug);
@@ -468,11 +468,11 @@ CameraEventAggregator.prototype.getMovement = function (type, modifier) {
 };
 
 /**
- * Gets the start and end position of the last move event (not the aggregated event).
+ * 获取最后一次移动事件的起点和终点位置(非聚合事件)。
  *
- * @param {CameraEventType} type The camera event type.
- * @param {KeyboardEventModifier} [modifier] The keyboard modifier.
- * @returns {object|undefined} An object with two {@link Cartesian2} properties: <code>startPosition</code> and <code>endPosition</code> or <code>undefined</code>.
+ * @param {CameraEventType} type 相机事件类型。
+ * @param {KeyboardEventModifier} [modifier] 键盘修饰键。
+ * @returns {object|undefined} 具有两个 {@link Cartesian2} 属性的对象: <code>startPosition</code> 和 <code>endPosition</code> 或 <code>undefined</code>。
  */
 CameraEventAggregator.prototype.getLastMovement = function (type, modifier) {
   //>>includeStart('debug', pragmas.debug);
@@ -491,11 +491,11 @@ CameraEventAggregator.prototype.getLastMovement = function (type, modifier) {
 };
 
 /**
- * Gets whether the mouse button is down or a touch has started.
+ * 获取鼠标按钮是否按下或触控是否已开始。
  *
- * @param {CameraEventType} type The camera event type.
- * @param {KeyboardEventModifier} [modifier] The keyboard modifier.
- * @returns {boolean} Whether the mouse button is down or a touch has started.
+ * @param {CameraEventType} type 相机事件类型。
+ * @param {KeyboardEventModifier} [modifier] 键盘修饰键。
+ * @returns {boolean} 鼠标按钮是否按下或触控是否已开始。
  */
 CameraEventAggregator.prototype.isButtonDown = function (type, modifier) {
   //>>includeStart('debug', pragmas.debug);
@@ -509,11 +509,11 @@ CameraEventAggregator.prototype.isButtonDown = function (type, modifier) {
 };
 
 /**
- * Gets the mouse position that started the aggregation.
+ * 获取开始聚合的鼠标位置。
  *
- * @param {CameraEventType} type The camera event type.
- * @param {KeyboardEventModifier} [modifier] The keyboard modifier.
- * @returns {Cartesian2} The mouse position.
+ * @param {CameraEventType} type 相机事件类型。
+ * @param {KeyboardEventModifier} [modifier] 键盘修饰键。
+ * @returns {Cartesian2} 鼠标位置。
  */
 CameraEventAggregator.prototype.getStartMousePosition = function (
   type,
@@ -534,11 +534,11 @@ CameraEventAggregator.prototype.getStartMousePosition = function (
 };
 
 /**
- * Gets the time the button was pressed or the touch was started.
+ * 获取按钮按下或触控开始的时间。
  *
- * @param {CameraEventType} type The camera event type.
- * @param {KeyboardEventModifier} [modifier] The keyboard modifier.
- * @returns {Date} The time the button was pressed or the touch was started.
+ * @param {CameraEventType} type 相机事件类型。
+ * @param {KeyboardEventModifier} [modifier] 键盘修饰键。
+ * @returns {Date} 按钮按下或触控开始的时间。
  */
 CameraEventAggregator.prototype.getButtonPressTime = function (type, modifier) {
   //>>includeStart('debug', pragmas.debug);
@@ -552,11 +552,11 @@ CameraEventAggregator.prototype.getButtonPressTime = function (type, modifier) {
 };
 
 /**
- * Gets the time the button was released or the touch was ended.
+ * 获取按钮释放或触控结束的时间。
  *
- * @param {CameraEventType} type The camera event type.
- * @param {KeyboardEventModifier} [modifier] The keyboard modifier.
- * @returns {Date} The time the button was released or the touch was ended.
+ * @param {CameraEventType} type 相机事件类型。
+ * @param {KeyboardEventModifier} [modifier] 键盘修饰键。
+ * @returns {Date} 按钮释放或触控结束的时间。
  */
 CameraEventAggregator.prototype.getButtonReleaseTime = function (
   type,
@@ -573,7 +573,7 @@ CameraEventAggregator.prototype.getButtonReleaseTime = function (
 };
 
 /**
- * Signals that all of the events have been handled and the aggregator should be reset to handle new events.
+ * 表示所有事件已处理完毕,聚合器应重置以处理新事件。
  */
 CameraEventAggregator.prototype.reset = function () {
   for (const name in this._update) {
@@ -584,12 +584,12 @@ CameraEventAggregator.prototype.reset = function () {
 };
 
 /**
- * Returns true if this object was destroyed; otherwise, false.
+ * 如果此对象已销毁,则返回 true;否则返回 false。
  * <br /><br />
- * If this object was destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.
+ * 如果此对象已销毁,则不应使用;调用除
+ * <code>isDestroyed</code> 之外的任何函数都将导致 {@link DeveloperError} 异常。
  *
- * @returns {boolean} <code>true</code> if this object was destroyed; otherwise, <code>false</code>.
+ * @returns {boolean} 如果此对象已销毁,则返回 <code>true</code>;否则返回 <code>false</code>。
  *
  * @see CameraEventAggregator#destroy
  */
@@ -598,13 +598,13 @@ CameraEventAggregator.prototype.isDestroyed = function () {
 };
 
 /**
- * Removes mouse listeners held by this object.
+ * 移除此对象持有的鼠标监听器。
  * <br /><br />
- * Once an object is destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.  Therefore,
- * assign the return value (<code>undefined</code>) to the object as done in the example.
+ * 对象销毁后,不应再使用;调用除
+ * <code>isDestroyed</code> 之外的任何函数都将导致 {@link DeveloperError} 异常。因此,
+ * 如示例所示,将返回值 (<code>undefined</code>) 赋给该对象。
  *
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 此对象已销毁,即调用了 destroy()。
  *
  *
  * @example

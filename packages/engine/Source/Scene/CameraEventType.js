@@ -1,13 +1,13 @@
 // @ts-check
 
 /**
- * Enumerates the available input for interacting with the camera.
+ * 枚举可用于与相机交互的输入。
  *
  * @enum {number}
  */
 const CameraEventType = {
   /**
-   * A left mouse button press followed by moving the mouse and releasing the button.
+   * 按下鼠标左键,移动鼠标,然后释放按钮。
    *
    * @type {number}
    * @constant
@@ -15,7 +15,7 @@ const CameraEventType = {
   LEFT_DRAG: 0,
 
   /**
-   *  A right mouse button press followed by moving the mouse and releasing the button.
+   * 按下鼠标右键,移动鼠标,然后释放按钮。
    *
    * @type {number}
    * @constant
@@ -23,7 +23,7 @@ const CameraEventType = {
   RIGHT_DRAG: 1,
 
   /**
-   *  A middle mouse button press followed by moving the mouse and releasing the button.
+   * 按下鼠标中键,移动鼠标,然后释放按钮。
    *
    * @type {number}
    * @constant
@@ -31,7 +31,7 @@ const CameraEventType = {
   MIDDLE_DRAG: 2,
 
   /**
-   * Scrolling the middle mouse button.
+   * 滚动鼠标中键。
    *
    * @type {number}
    * @constant
@@ -39,7 +39,7 @@ const CameraEventType = {
   WHEEL: 3,
 
   /**
-   * A two-finger touch on a touch surface.
+   * 在触控表面上的双指触控。
    *
    * @type {number}
    * @constant

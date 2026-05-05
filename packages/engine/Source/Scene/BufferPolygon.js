@@ -13,26 +13,23 @@ const { ERR_CAPACITY, ERR_RESIZE, ERR_OUT_OF_RANGE } =
   BufferPrimitiveCollection.Error;
 
 /**
- * View bound to the underlying buffer data of a {@link BufferPolygonCollection}.
+ * 绑定到 {@link BufferPolygonCollection} 底层缓冲数据的视图。
  *
- * <p>BufferPolygon instances are {@link https://en.wikipedia.org/wiki/Flyweight_pattern|flyweights}:
- * a single BufferPolygon instance can be temporarily bound to any conceptual
- * "polygon" in a BufferPolygonCollection, allowing very large collections to be
- * iterated and updated with a minimal memory footprint.</p>
+ * <p>BufferPolygon 实例是{@link https://en.wikipedia.org/wiki/Flyweight_pattern|享元}:
+ * 单个 BufferPolygon 实例可以临时绑定到 BufferPolygonCollection 中的任意概念
+ * "多边形",允许以最小的内存占用迭代和更新非常大的集合。</p>
  *
- * <p>Represented as one (1) external linear ring of three (3) or more positions.
- * May optionally define one or more internal linear rings ("holes") within the
- * polygon. Each hole is represented as a single index into the positions array,
- * where the vertex at that index is the start of an internal linear ring that
- * continues along the following vertices until reaching either the vertex
- * index of the next hole, or the end of the vertex list. Stores a precomputed
- * triangulation, represented as three vertex indices per triangle.</p>
+ * <p>由一个 (1) 外部线性环表示,包含三个 (3) 或更多位置。
+ * 可选择在多边形内定义一个或多个内部线性环("孔")。
+ * 每个孔表示为位置数组中的单个索引,该索引处的顶点是内部线性环的起点,
+ * 沿后续顶点继续,直到到达下一个孔的顶点索引或顶点列表的末尾。
+ * 存储预计算的三角剖分,表示为每个三角形三个顶点索引。</p>
  *
  * @see BufferPolygonCollection
  * @see BufferPolygonMaterial
  * @see BufferPrimitive
  * @extends BufferPrimitive
- * @experimental This feature is not final and is subject to change without Cesium's standard deprecation policy.
+ * @experimental 此功能尚未最终确定,可能会在不遵循 Cesium 标准弃用政策的情况下进行更改。
  */
 class BufferPolygon extends BufferPrimitive {
   /**
@@ -101,9 +98,9 @@ class BufferPolygon extends BufferPrimitive {
   // LIFECYCLE
 
   /**
-   * Copies data from source polygon to result. If the result polygon is not
-   * new (the last polygon in the collection) then source and result polygons
-   * must have the same vertex counts, hole counts, and triangle counts.
+   * 将源多边形的数据复制到结果。如果结果多边形不是新的
+   * (集合中的最后一个多边形),则源多边形和结果多边形
+   * 必须具有相同的顶点数、孔数和三角形数。
    *
    * @param {BufferPolygon} polygon
    * @param {BufferPolygon} result
@@ -134,8 +131,8 @@ class BufferPolygon extends BufferPrimitive {
   }
 
   /**
-   * Count of positions (vertices) in this polygon, including both outer ring and
-   * internal rings (holes), number of VEC3 elements.
+   * 此多边形中的位置(顶点)数量,包括外环和
+   * 内部环(孔),VEC3 元素数量。
    *
    * @type {number}
    * @readonly
@@ -145,10 +142,10 @@ class BufferPolygon extends BufferPrimitive {
   }
 
   /**
-   * Returns an array view of this polygon's vertex positions. If 'result'
-   * argument is given, vertex positions are written to that array and returned.
-   * Otherwise, returns an ArrayView on collection memory — changes to this array
-   * will not trigger render updates, which requires `.setPositions()`.
+   * 返回此多边形顶点位置的数组视图。如果给定 'result'
+   * 参数,顶点位置将写入该数组并返回。
+   * 否则,返回集合内存上的 ArrayView — 对此数组的更改
+   * 不会触发渲染更新,这需要 `.setPositions()`。
    *
    * @param {TypedArray} [result]
    * return {TypedArray}
@@ -185,8 +182,8 @@ class BufferPolygon extends BufferPrimitive {
   }
 
   /**
-   * Offset in collection position array to first vertex in polygon's outer
-   * linear ring, number of VEC3 elements.
+   * 多边形外线性环中第一个顶点在集合位置数组中的偏移量,
+   * VEC3 元素数量。
    *
    * @type {number}
    * @readonly
@@ -196,8 +193,8 @@ class BufferPolygon extends BufferPrimitive {
   }
 
   /**
-   * Count of positions (vertices) in this polygon's outer linear ring, number
-   * of VEC3 elements.
+   * 此多边形外线性环中的位置(顶点)数量,
+   * VEC3 元素数量。
    *
    * @type {number}
    * @readonly
@@ -210,11 +207,10 @@ class BufferPolygon extends BufferPrimitive {
   }
 
   /**
-   * Returns an array view of this polygon's outer linear ring vertex positions.
-   * If 'result' argument is given, vertex positions are written to that array
-   * and returned. Otherwise, returns an ArrayView on collection memory —
-   * changes to this array will not trigger render updates, which requires
-   * `.setPositions()`.
+   * 返回此多边形外线性环顶点位置的数组视图。
+   * 如果给定 'result' 参数,顶点位置将写入该数组并返回。
+   * 否则,返回集合内存上的 ArrayView — 对此数组的更改
+   * 不会触发渲染更新,这需要 `.setPositions()`。
    *
    * @param {TypedArray} [result]
    * @returns {TypedArray}
@@ -236,7 +232,7 @@ class BufferPolygon extends BufferPrimitive {
   }
 
   /**
-   * Count of holes (indices) in this polygon.
+   * 此多边形中的孔(索引)数量。
    *
    * @type {number}
    * @readonly
@@ -246,14 +242,14 @@ class BufferPolygon extends BufferPrimitive {
   }
 
   /**
-   * Gets this polygon's hole indices, with each hole represented as a single
-   * offset into this polygon's positions array. Each hole implicitly
-   * continues along an internal linear ring from that vertex offset until
-   * reaching either the end of the positions array, or the next hole offset.
+   * 获取此多边形的孔索引,每个孔表示为
+   * 此多边形位置数组中的单个偏移量。每个孔隐式地
+   * 从该顶点偏移量沿内部线性环继续,
+   * 直到到达位置数组的末尾或下一个孔偏移量。
    *
-   * If 'result' argument is given, hole indices are written to that array and
-   * returned. Otherwise, returns an ArrayView on collection memory — changes
-   * to this array will not trigger render updates, which requires `.setHoles()`.
+   * 如果给定 'result' 参数,孔索引将写入该数组并返回。
+   * 否则,返回集合内存上的 ArrayView — 对此数组的更改
+   * 不会触发渲染更新,这需要 `.setHoles()`。
    *
    * @param {TypedArray} [result]
    * @returns {TypedArray}
@@ -282,10 +278,10 @@ class BufferPolygon extends BufferPrimitive {
   }
 
   /**
-   * Sets this polygon's hole indices, with holes represented as a single
-   * offset into this polygon's positions array. Each hole implicitly
-   * continues along an internal linear ring from that vertex offset until
-   * reaching either the end of the positions array, or the next hole offset.
+   * 设置此多边形的孔索引,孔表示为此多边形
+   * 位置数组中的单个偏移量。每个孔隐式地
+   * 从该顶点偏移量沿内部线性环继续,
+   * 直到到达位置数组的末尾或下一个孔偏移量。
    *
    * @param {TypedArray} holes
    */
@@ -313,7 +309,7 @@ class BufferPolygon extends BufferPrimitive {
   }
 
   /**
-   * Returns the number of (VEC3) vertices in the specified hole.
+   * 返回指定孔中的 (VEC3) 顶点数。
    *
    * @param {number} holeIndex
    * @returns {number}
@@ -333,11 +329,10 @@ class BufferPolygon extends BufferPrimitive {
   }
 
   /**
-   * Returns an array view of the inner linear ring vertex positions for the
-   * specified hole. If 'result' argument is given, vertex positions are written
-   * to that array and returned. Otherwise, returns an ArrayView on collection
-   * memory — changes to this array will not trigger render updates, which
-   * requires `.setPositions()`.
+   * 返回指定孔的内部线性环顶点位置的数组视图。
+   * 如果给定 'result' 参数,顶点位置将写入该数组并返回。
+   * 否则,返回集合内存上的 ArrayView — 对此数组的更改
+   * 不会触发渲染更新,这需要 `.setPositions()`。
    *
    * @param {number} holeIndex
    * @param {TypedArray} [result]
@@ -416,7 +411,7 @@ class BufferPolygon extends BufferPrimitive {
   }
 
   /**
-   * Count of triangles in this polygon, number of VEC3 elements.
+   * 此多边形中的三角形数量,VEC3 元素数量。
    *
    * @type {number}
    * @readonly
@@ -426,13 +421,12 @@ class BufferPolygon extends BufferPrimitive {
   }
 
   /**
-   * Returns an array view of this polygon's triangle indices, represented as
-   * three vertex indices per triangle.
+   * 返回此多边形三角形索引的数组视图,表示为
+   * 每个三角形三个顶点索引。
    *
-   * If 'result' argument is given, triangle indices are written to that array
-   * and returned. Otherwise, returns an ArrayView on collection memory —
-   * changes to this array will not trigger render updates, which requires
-   * `.setTriangles()`.
+   * 如果给定 'result' 参数,三角形索引将写入该数组并返回。
+   * 否则,返回集合内存上的 ArrayView — 对此数组的更改
+   * 不会触发渲染更新,这需要 `.setTriangles()`。
    *
    * @param {TypedArray} [result]
    * @returns {TypedArray}
@@ -463,8 +457,8 @@ class BufferPolygon extends BufferPrimitive {
   }
 
   /**
-   * Sets this polygon's triangle indices, represented as three vertex indices
-   * per triangle.
+   * 设置此多边形的三角形索引,表示为
+   * 每个三角形三个顶点索引。
    *
    * @param {TypedArray} indices
    */
@@ -497,11 +491,10 @@ class BufferPolygon extends BufferPrimitive {
   // DEBUG
 
   /**
-   * Returns a JSON-serializable object representing the polygon. This encoding
-   * is not memory-efficient, and should generally be used for debugging and
-   * testing.
+   * 返回表示该多边形的可 JSON 序列化的对象。此编码
+   * 不具有内存效率,通常应用于调试和测试。
    *
-   * @returns {Object} JSON-serializable object.
+   * @returns {Object} 可 JSON 序列化的对象。
    * @override
    */
   toJSON() {

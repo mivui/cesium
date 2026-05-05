@@ -8,17 +8,17 @@ import Frozen from "../Core/Frozen.js";
 
 /**
  * @typedef {object} BufferPrimitiveMaterialOptions
- * @property {Color} [color=Color.WHITE] Color of fill.
- * @property {Color} [outlineColor=Color.WHITE] Color of outline.
- * @property {number} [outlineWidth=0.0] Width of outline, 0-255px.
+ * @property {Color} [color=Color.WHITE] 填充颜色。
+ * @property {Color} [outlineColor=Color.WHITE] 轮廓颜色。
+ * @property {number} [outlineWidth=0.0] 轮廓宽度,0-255px。
  */
 
 /**
- * Material description for a {@link BufferPrimitive}. Abstract.
+ * {@link BufferPrimitive} 的材质描述。抽象类。
  *
- * <p>BufferPrimitiveMaterial objects are {@link Packable|packable}, stored
- * when calling {@link BufferPrimitive#setMaterial}. Subsequent changes to the
- * material will not affect the primitive until setMaterial() is called again.</p>
+ * <p>BufferPrimitiveMaterial 对象是{@link Packable|可打包的},在调用
+ * {@link BufferPrimitive#setMaterial} 时存储。对材质的后续更改不会影响图元,
+ * 除非再次调用 setMaterial()。</p>
  *
  * @see BufferPointMaterial
  * @see BufferPolylineMaterial
@@ -26,7 +26,7 @@ import Frozen from "../Core/Frozen.js";
  * @see Packable
  *
  * @abstract
- * @experimental This feature is not final and is subject to change without Cesium's standard deprecation policy.
+ * @experimental 此功能尚未最终确定,可能会在不遵循 Cesium 标准弃用政策的情况下进行更改。
  */
 class BufferPrimitiveMaterial {
   /** @ignore */
@@ -48,19 +48,19 @@ class BufferPrimitiveMaterial {
    */
   constructor(options = Frozen.EMPTY_OBJECT) {
     /**
-     * Color of fill.
+     * 填充颜色。
      * @type {Color}
      */
     this.color = Color.clone(options.color ?? Color.WHITE);
 
     /**
-     * Color of outline.
+     * 轮廓颜色。
      * @type {Color}
      */
     this.outlineColor = Color.clone(options.outlineColor ?? Color.WHITE);
 
     /**
-     * Width of outline, 0-255px.
+     * 轮廓宽度,0-255px。
      * @type {number}
      */
     this.outlineWidth = options.outlineWidth ?? 0;
@@ -72,7 +72,7 @@ class BufferPrimitiveMaterial {
   }
 
   /**
-   * Stores the provided material into the provided array.
+   * 将提供的材质存储到提供的数组中。
    *
    * @param {BufferPrimitiveMaterial} material
    * @param {DataView} view
@@ -96,12 +96,12 @@ class BufferPrimitiveMaterial {
   }
 
   /**
-   * Retrieves a material from a packed array.
+   * 从打包数组中检索材质。
    *
-   * @param {DataView} view The packed array.
-   * @param {number} byteOffset Starting index of the element to be unpacked.
-   * @param {BufferPrimitiveMaterial} result Material into which results are unpacked.
-   * @returns {BufferPrimitiveMaterial} Modified result material, with results unpacked.
+   * @param {DataView} view 打包数组。
+   * @param {number} byteOffset 要解包的元素的起始索引。
+   * @param {BufferPrimitiveMaterial} result 解包结果存储到的材质。
+   * @returns {BufferPrimitiveMaterial} 修改后的结果材质,包含解包的结果。
    */
   static unpack(view, byteOffset, result) {
     Color.fromRgba(
@@ -122,11 +122,10 @@ class BufferPrimitiveMaterial {
   // DEBUG
 
   /**
-   * Returns a JSON-serializable object representing the material. This encoding
-   * is not memory-efficient, and should generally be used for debugging and
-   * testing.
+   * 返回表示该材质的可 JSON 序列化的对象。此编码
+   * 不具有内存效率,通常应用于调试和测试。
    *
-   * @returns {Object} JSON-serializable object.
+   * @returns {Object} 可 JSON 序列化的对象。
    */
   toJSON() {
     return {

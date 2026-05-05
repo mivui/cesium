@@ -1,56 +1,43 @@
-// @ts-check
-
-import WebGLConstants from "../Core/WebGLConstants.js";
-
 /**
- * Determines how two pixels' values are combined.
+ * 确定如何混合源颜色和目标颜色。
  *
  * @enum {number}
+ *
+ * @see DrawCommand.blending
  */
 const BlendEquation = {
   /**
-   * Pixel values are added componentwise.  This is used in additive blending for translucency.
-   *
+   * 源和目标分量相加。
    * @type {number}
    * @constant
    */
-  ADD: WebGLConstants.FUNC_ADD,
+  ADD: 0,
 
   /**
-   * Pixel values are subtracted componentwise (source - destination).  This is used in alpha blending for translucency.
-   *
+   * 从源分量中减去目标分量。
    * @type {number}
    * @constant
    */
-  SUBTRACT: WebGLConstants.FUNC_SUBTRACT,
+  SUBTRACT: 1,
 
   /**
-   * Pixel values are subtracted componentwise (destination - source).
-   *
+   * 从目标分量中减去源分量。
    * @type {number}
    * @constant
    */
-  REVERSE_SUBTRACT: WebGLConstants.FUNC_REVERSE_SUBTRACT,
+  REVERSE_SUBTRACT: 2,
+};
 
-  /**
-   * Pixel values are given to the minimum function (min(source, destination)).
-   *
-   * This equation operates on each pixel color component.
-   *
-   * @type {number}
-   * @constant
-   */
-  MIN: WebGLConstants.MIN,
-
-  /**
-   * Pixel values are given to the maximum function (max(source, destination)).
-   *
-   * This equation operates on each pixel color component.
-   *
-   * @type {number}
-   * @constant
-   */
-  MAX: WebGLConstants.MAX,
+/**
+ * 获取 WebGL 的 blendEquation 值。
+ *
+ * @param {BlendEquation} blendEquation 要获取对应 WebGL 值的混合方程。
+ * @returns {number} 对应的 WebGL 值。
+ *
+ * @private
+ */
+BlendEquation.toWebGLConstant = function (blendEquation) {
+  return blendEquation;
 };
 
 Object.freeze(BlendEquation);

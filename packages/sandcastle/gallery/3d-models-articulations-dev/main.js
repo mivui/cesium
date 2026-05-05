@@ -1,7 +1,7 @@
 import * as Cesium from "cesium";
 
 // this can be changed to any glTF model
-const modelUrl = "https://assets.agi.com/models/launchvehicle.glb";
+const modelUrl = "../../SampleData/models/launchvehicle.glb";
 
 const viewModel = {
   articulations: [],

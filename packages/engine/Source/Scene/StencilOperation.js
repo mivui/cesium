@@ -3,13 +3,13 @@
 import WebGLConstants from "../Core/WebGLConstants.js";
 
 /**
- * Determines the action taken based on the result of the stencil test.
+ * 确定基于模板测试结果采取的操作。
  *
  * @enum {number}
  */
 const StencilOperation = {
   /**
-   * Sets the stencil buffer value to zero.
+   * 将模板缓冲区值设置为零。
    *
    * @type {number}
    * @constant
@@ -17,7 +17,7 @@ const StencilOperation = {
   ZERO: WebGLConstants.ZERO,
 
   /**
-   * Does not change the stencil buffer.
+   * 不更改模板缓冲区。
    *
    * @type {number}
    * @constant
@@ -25,7 +25,7 @@ const StencilOperation = {
   KEEP: WebGLConstants.KEEP,
 
   /**
-   * Replaces the stencil buffer value with the reference value.
+   * 用参考值替换模板缓冲区值。
    *
    * @type {number}
    * @constant
@@ -33,7 +33,7 @@ const StencilOperation = {
   REPLACE: WebGLConstants.REPLACE,
 
   /**
-   * Increments the stencil buffer value, clamping to unsigned byte.
+   * 递增模板缓冲区值，钳位到无符号字节。
    *
    * @type {number}
    * @constant
@@ -41,7 +41,7 @@ const StencilOperation = {
   INCREMENT: WebGLConstants.INCR,
 
   /**
-   * Decrements the stencil buffer value, clamping to zero.
+   * 递减模板缓冲区值，钳位到零。
    *
    * @type {number}
    * @constant
@@ -49,7 +49,7 @@ const StencilOperation = {
   DECREMENT: WebGLConstants.DECR,
 
   /**
-   * Bitwise inverts the existing stencil buffer value.
+   * 按位反转现有的模板缓冲区值。
    *
    * @type {number}
    * @constant
@@ -57,7 +57,7 @@ const StencilOperation = {
   INVERT: WebGLConstants.INVERT,
 
   /**
-   * Increments the stencil buffer value, wrapping to zero when exceeding the unsigned byte range.
+   * 递增模板缓冲区值，当超过无符号字节范围时回绕到零。
    *
    * @type {number}
    * @constant
@@ -65,7 +65,7 @@ const StencilOperation = {
   INCREMENT_WRAP: WebGLConstants.INCR_WRAP,
 
   /**
-   * Decrements the stencil buffer value, wrapping to the maximum unsigned byte instead of going below zero.
+   * 递减模板缓冲区值，回绕到最大无符号字节而不是低于零。
    *
    * @type {number}
    * @constant

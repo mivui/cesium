@@ -48,13 +48,11 @@ Cesium3DTilesetStatistics.prototype.clear = function () {
 };
 
 /**
- * Increment the counters for the points, triangles, and features
- * that are currently selected for rendering.
+ * 递增当前选中用于渲染的点、三角形和要素的计数器。
  *
- * This will be called recursively for the given content and
- * all its inner contents
+ * 将对给定内容及其所有内部内容递归调用此方法
  *
- * @param {Cesium3DTileContent} content
+ * @param {Cesium3DTileContent} content 内容对象
  */
 Cesium3DTilesetStatistics.prototype.incrementSelectionCounts = function (
   content,
@@ -74,14 +72,12 @@ Cesium3DTilesetStatistics.prototype.incrementSelectionCounts = function (
 };
 
 /**
- * Increment the counters for the number of features and points that
- * are currently loaded, and the lengths (size in bytes) of the
- * occupied memory.
+ * 递增当前加载的要素和点的计数器，以及
+ * 占用内存的长度（字节大小）。
  *
- * This will be called recursively for the given content and
- * all its inner contents
+ * 将对给定内容及其所有内部内容递归调用此方法
  *
- * @param {Cesium3DTileContent} content
+ * @param {Cesium3DTileContent} content 内容对象
  */
 Cesium3DTilesetStatistics.prototype.incrementLoadCounts = function (content) {
   this.numberOfFeaturesLoaded += content.featuresLength;
@@ -120,14 +116,12 @@ Cesium3DTilesetStatistics.prototype.incrementLoadCounts = function (content) {
 };
 
 /**
- * Decrement the counters for the number of features and points that
- * are currently loaded, and the lengths (size in bytes) of the
- * occupied memory.
+ * 递减当前加载的要素和点的计数器，以及
+ * 占用内存的长度（字节大小）。
  *
- * This will be called recursively for the given content and
- * all its inner contents
+ * 将对给定内容及其所有内部内容递归调用此方法
  *
- * @param {Cesium3DTileContent} content
+ * @param {Cesium3DTileContent} content 内容对象
  */
 Cesium3DTilesetStatistics.prototype.decrementLoadCounts = function (content) {
   this.numberOfFeaturesLoaded -= content.featuresLength;

@@ -5,13 +5,13 @@ import CesiumMath from "../Core/Math.js";
 const defaultDimensions = new Cartesian3(1.0, 1.0, 1.0);
 
 /**
- * A ParticleEmitter that emits particles within a box.
- * Particles will be positioned randomly within the box and have initial velocities emanating from the center of the box.
+ * 一种粒子发射器,在盒体内发射粒子。
+ * 粒子将在盒体内随机定位,并具有从盒体中心发出的初始速度。
  *
  * @alias BoxEmitter
  * @constructor
  *
- * @param {Cartesian3} dimensions The width, height and depth dimensions of the box.
+ * @param {Cartesian3} dimensions 盒体的宽度、高度和深度尺寸。
  */
 function BoxEmitter(dimensions) {
   dimensions = dimensions ?? defaultDimensions;
@@ -28,7 +28,7 @@ function BoxEmitter(dimensions) {
 
 Object.defineProperties(BoxEmitter.prototype, {
   /**
-   * The width, height and depth dimensions of the box in meters.
+   * 盒体的宽度、高度和深度尺寸(米)。
    * @memberof BoxEmitter.prototype
    * @type {Cartesian3}
    * @default new Cartesian3(1.0, 1.0, 1.0)
@@ -52,10 +52,10 @@ Object.defineProperties(BoxEmitter.prototype, {
 const scratchHalfDim = new Cartesian3();
 
 /**
- * Initializes the given {Particle} by setting it's position and velocity.
+ * 初始化给定的 {@link Particle}，设置其位置和速度。
  *
  * @private
- * @param {Particle} particle The particle to initialize.
+ * @param {Particle} particle 要初始化的粒子
  */
 BoxEmitter.prototype.emit = function (particle) {
   const dim = this._dimensions;

@@ -16,16 +16,10 @@ const Cesium3DTileOptimizations = {};
 const scratchAxis = new Cartesian3();
 
 /**
- * Evaluates support for the childrenWithinParent optimization. This is used to more tightly cull tilesets if
- * children bounds are fully contained within the parent. Currently, support for the optimization only works for
- * oriented bounding boxes, so both the child and parent tile must be either a {@link TileOrientedBoundingBox} or
- * {@link TileBoundingRegion}. The purpose of this check is to prevent use of a culling optimization when the child
- * bounds exceed those of the parent. If the child bounds are greater, it is more likely that the optimization will
- * waste CPU cycles. Bounding spheres are not supported for the reason that the child bounds can very often be
- * partially outside of the parent bounds.
+ * 评估对 childrenWithinParent 优化的支持。此优化用于在子级边界完全包含在父级内时更紧密地裁剪瓦片集。目前，该优化仅适用于定向包围盒，因此子瓦片和父瓦片都必须是 {@link TileOrientedBoundingBox} 或 {@link TileBoundingRegion}。此检查的目的是防止在子级边界超出父级时使用裁剪优化。如果子级边界更大，则优化更可能浪费 CPU 周期。不支持包围球的原因是子级边界经常部分超出父级边界。
  *
- * @param {Cesium3DTile} tile The tile to check.
- * @returns {boolean} Whether the childrenWithinParent optimization is supported.
+ * @param {Cesium3DTile} tile 要检查的瓦片。
+ * @returns {boolean} childrenWithinParent 优化是否受支持。
  */
 Cesium3DTileOptimizations.checkChildrenWithinParent = function (tile) {
   //>>includeStart('debug', pragmas.debug);

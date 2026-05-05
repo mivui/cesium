@@ -1,11 +1,11 @@
 import CesiumMath from "../Core/Math.js";
 
 /**
- * Defines different modes for blending between a target color and a primitive's source color.
+ * 定义目标颜色与图元源颜色之间的不同混合模式。
  *
- * HIGHLIGHT multiplies the source color by the target color
- * REPLACE replaces the source color with the target color
- * MIX blends the source color and target color together
+ * HIGHLIGHT 将源颜色与目标颜色相乘
+ * REPLACE 用目标颜色替换源颜色
+ * MIX 将源颜色和目标颜色混合在一起
  *
  * @enum {number}
  *

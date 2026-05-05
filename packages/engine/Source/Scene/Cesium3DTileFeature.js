@@ -6,25 +6,24 @@ import defined from "../Core/defined.js";
 /** @import Cesium3DTileset from "./Cesium3DTileset.js"; */
 
 /**
- * A feature of a {@link Cesium3DTileset}.
+ * {@link Cesium3DTileset} 的一个要素。
  * <p>
- * Provides access to a feature's properties stored in the tile's batch table, as well
- * as the ability to show/hide a feature and change its highlight color via
- * {@link Cesium3DTileFeature#show} and {@link Cesium3DTileFeature#color}, respectively.
+ * 提供对存储在瓦片批处理表中的要素属性的访问，以及
+ * 通过 {@link Cesium3DTileFeature#show} 和 {@link Cesium3DTileFeature#color} 显示/隐藏要素和更改其高亮颜色的能力。
  * </p>
  * <p>
- * Modifications to a <code>Cesium3DTileFeature</code> object have the lifetime of the tile's
- * content.  If the tile's content is unloaded, e.g., due to it going out of view and needing
- * to free space in the cache for visible tiles, listen to the {@link Cesium3DTileset#tileUnload} event to save any
- * modifications. Also listen to the {@link Cesium3DTileset#tileVisible} event to reapply any modifications.
+ * 对 <code>Cesium3DTileFeature</code> 对象的修改具有瓦片内容生命周期。
+ * 如果瓦片内容被卸载（例如，由于超出视野并需要为可见瓦片释放缓存空间），
+ * 请监听 {@link Cesium3DTileset#tileUnload} 事件以保存任何修改。
+ * 同时监听 {@link Cesium3DTileset#tileVisible} 事件以重新应用任何修改。
  * </p>
  * <p>
- * Do not construct this directly.  Access it through {@link Cesium3DTileContent#getFeature}
- * or picking using {@link Scene#pick}.
+ * 不要直接构造此对象。通过 {@link Cesium3DTileContent#getFeature}
+ * 或使用 {@link Scene#pick} 拾取来访问它。
  * </p>
  *
  * @example
- * // On mouse over, display all the properties for a feature in the console log.
+ * // 鼠标悬停时，在控制台日志中显示要素的所有属性。
  * handler.setInputAction(function(movement) {
  *     const feature = scene.pick(movement.endPosition);
  *     if (feature instanceof Cesium.Cesium3DTileFeature) {
@@ -49,8 +48,7 @@ class Cesium3DTileFeature {
   }
 
   /**
-   * Gets or sets if the feature will be shown. This is set for all features
-   * when a style's show is evaluated.
+   * 获取或设置是否显示要素。当评估样式的 show 时，会为所有要素设置此值。
    *
    * @type {boolean}
    *
@@ -65,9 +63,8 @@ class Cesium3DTileFeature {
   }
 
   /**
-   * Gets or sets the highlight color multiplied with the feature's color.  When
-   * this is white, the feature's color is not changed. This is set for all features
-   * when a style's color is evaluated.
+   * 获取或设置与要素颜色相乘的高亮颜色。当
+   * 此值为白色时，要素的颜色不会更改。当评估样式的 color 时，会为所有要素设置此值。
    *
    * @type {Color}
    *
@@ -85,9 +82,9 @@ class Cesium3DTileFeature {
   }
 
   /**
-   * Gets a typed array containing the ECEF positions of the polyline.
-   * Returns undefined if {@link Cesium3DTileset#vectorKeepDecodedPositions} is false
-   * or the feature is not a polyline in a vector tile.
+   * 获取包含折线的 ECEF 位置的类型化数组。
+   * 如果 {@link Cesium3DTileset#vectorKeepDecodedPositions} 为 false
+   * 或要素不是矢量瓦片中的折线，则返回 undefined。
    *
    * @experimental This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.
    *
@@ -114,7 +111,7 @@ class Cesium3DTileFeature {
   }
 
   /**
-   * Gets the tileset containing the feature.
+   * 获取包含要素的瓦片集。
    *
    * @type {Cesium3DTileset}
    *
@@ -125,8 +122,8 @@ class Cesium3DTileFeature {
   }
 
   /**
-   * All objects returned by {@link Scene#pick} have a <code>primitive</code> property. This returns
-   * the tileset containing the feature.
+   * 由 {@link Scene#pick} 返回的所有对象都有一个 <code>primitive</code> 属性。此属性返回
+   * 包含要素的瓦片集。
    *
    * @type {Cesium3DTileset}
    *
@@ -137,9 +134,8 @@ class Cesium3DTileFeature {
   }
 
   /**
-   * Get the feature ID associated with this feature. For 3D Tiles 1.0, the
-   * batch ID is returned. For EXT_mesh_features, this is the feature ID from
-   * the selected feature ID set.
+   * 获取与此要素关联的要素 ID。对于 3D Tiles 1.0，返回
+   * 批处理 ID。对于 EXT_mesh_features，这是来自所选要素 ID 集的要素 ID。
    *
    * @type {number}
    *
@@ -158,42 +154,42 @@ class Cesium3DTileFeature {
   }
 
   /**
-   * Returns whether the feature contains this property. This includes properties from this feature's
-   * class and inherited classes when using a batch table hierarchy.
+   * 返回要素是否包含此属性。这包括来自此要素的
+   * 类以及使用批处理表层次结构时的继承类的属性。
    *
    * @see {@link https://github.com/CesiumGS/3d-tiles/tree/main/extensions/3DTILES_batch_table_hierarchy}
    *
-   * @param {string} name The case-sensitive name of the property.
-   * @returns {boolean} Whether the feature contains this property.
+   * @param {string} name 属性的区分大小写名称。
+   * @returns {boolean} 要素是否包含此属性。
    */
   hasProperty(name) {
     return this._content.batchTable.hasProperty(this._batchId, name);
   }
 
   /**
-   * Returns an array of property IDs for the feature. This includes properties from this feature's
-   * class and inherited classes when using a batch table hierarchy.
+   * 返回要素的属性 ID 数组。这包括来自此要素的
+   * 类以及使用批处理表层次结构时的继承类的属性。
    *
    * @see {@link https://github.com/CesiumGS/3d-tiles/tree/main/extensions/3DTILES_batch_table_hierarchy}
    *
-   * @param {string[]} [results] An array into which to store the results.
-   * @returns {string[]} The IDs of the feature's properties.
+   * @param {string[]} [results] 用于存储结果的数组。
+   * @returns {string[]} 要素属性的 ID。
    */
   getPropertyIds(results) {
     return this._content.batchTable.getPropertyIds(this._batchId, results);
   }
 
   /**
-   * Returns a copy of the value of the feature's property with the given name. This includes properties from this feature's
-   * class and inherited classes when using a batch table hierarchy.
+   * 返回具有给定名称的要素属性值的副本。这包括来自此要素的
+   * 类以及使用批处理表层次结构时的继承类的属性。
    *
    * @see {@link https://github.com/CesiumGS/3d-tiles/tree/main/extensions/3DTILES_batch_table_hierarchy}
    *
-   * @param {string} name The case-sensitive name of the property.
-   * @returns {*} The value of the property or <code>undefined</code> if the feature does not have this property.
+   * @param {string} name 属性的区分大小写名称。
+   * @returns {*} 属性的值，如果要素没有此属性，则为 <code>undefined</code>。
    *
    * @example
-   * // Display all the properties for a feature in the console log.
+   * // 在控制台日志中显示要素的所有属性。
    * const propertyIds = feature.getPropertyIds();
    * const length = propertyIds.length;
    * for (let i = 0; i < length; ++i) {
@@ -206,39 +202,41 @@ class Cesium3DTileFeature {
   }
 
   /**
-   * Returns a copy of the feature's property with the given name, examining all
-   * the metadata from 3D Tiles 1.0 formats, the EXT_structural_metadata and legacy
-   * EXT_feature_metadata glTF extensions, and the metadata present either in the
-   * tileset JSON (3D Tiles 1.1) or in the 3DTILES_metadata 3D Tiles extension.
-   * Metadata is checked against name from most specific to most general and the
-   * first match is returned. Metadata is checked in this order:
-   *
+   * 返回具有给定名称的要素属性值的副本。
+   * 如果要素位于具有元数据（3D Tiles 1.1）
+   * 或使用 <code>3DTILES_metadata</code> 扩展的瓦片集中，则会继承瓦片集、组和瓦片元数据。
+   * <p>
+   * 为了解决名称冲突，此方法按元数据粒度从最具体到
+   * 最不具体解析名称，顺序为：要素、瓦片、组、
+   * 瓦片集。在每个粒度内，先解析语义，然后解析其他
+   * 属性。
+   * </p>
    * <ol>
-   *   <li>Batch table (structural metadata) property by semantic</li>
-   *   <li>Batch table (structural metadata) property by property ID</li>
-   *   <li>Content metadata property by semantic</li>
-   *   <li>Content metadata property by property</li>
-   *   <li>Tile metadata property by semantic</li>
-   *   <li>Tile metadata property by property ID</li>
-   *   <li>Subtree metadata property by semantic</li>
-   *   <li>Subtree metadata property by property ID</li>
-   *   <li>Group metadata property by semantic</li>
-   *   <li>Group metadata property by property ID</li>
-   *   <li>Tileset metadata property by semantic</li>
-   *   <li>Tileset metadata property by property ID</li>
-   *   <li>Otherwise, return undefined</li>
+   *   <li>按语义的批处理表（结构化元数据）属性</li>
+   *   <li>按属性 ID 的批处理表（结构化元数据）属性</li>
+   *   <li>按语义的内容元数据属性</li>
+   *   <li>按属性 ID 的内容元数据属性</li>
+   *   <li>按语义的瓦片元数据属性</li>
+   *   <li>按属性 ID 的瓦片元数据属性</li>
+   *   <li>按语义的子树元数据属性</li>
+   *   <li>按属性 ID 的子树元数据属性</li>
+   *   <li>按语义的组元数据属性</li>
+   *   <li>按属性 ID 的组元数据属性</li>
+   *   <li>按语义的瓦片集元数据属性</li>
+   *   <li>按属性 ID 的瓦片集元数据属性</li>
+   *   <li>否则，返回 undefined</li>
    * </ol>
    * <p>
-   * For 3D Tiles Next details, see the {@link https://github.com/CesiumGS/3d-tiles/tree/main/extensions/3DTILES_metadata|3DTILES_metadata Extension}
-   * for 3D Tiles, as well as the {@link https://github.com/CesiumGS/glTF/tree/3d-tiles-next/extensions/2.0/Vendor/EXT_structural_metadata|EXT_structural_metadata Extension}
-   * for glTF. For the legacy glTF extension, see {@link https://github.com/CesiumGS/glTF/tree/3d-tiles-next/extensions/2.0/Vendor/EXT_feature_metadata|EXT_feature_metadata Extension}
+   * 有关 3D Tiles Next 的详细信息，请参阅 {@link https://github.com/CesiumGS/3d-tiles/tree/main/extensions/3DTILES_metadata|3DTILES_metadata Extension}
+   * 了解 3D Tiles，以及 {@link https://github.com/CesiumGS/glTF/tree/3d-tiles-next/extensions/2.0/Vendor/EXT_structural_metadata|EXT_structural_metadata Extension}
+   * 了解 glTF。对于传统 glTF 扩展，请参阅 {@link https://github.com/CesiumGS/glTF/tree/3d-tiles-next/extensions/2.0/Vendor/EXT_feature_metadata|EXT_feature_metadata Extension}
    * </p>
    *
-   * @param {Cesium3DTileContent} content The content for accessing the metadata
-   * @param {number} batchId The batch ID (or feature ID) of the feature to get a property for
-   * @param {string} name The semantic or property ID of the feature. Semantics are checked before property IDs in each granularity of metadata.
-   * @privateParam {Cesium3DTileBatchTable} [batchTable] Batch table in which to look up the feature property. If unspecified, `content.batchTable` is used.
-   * @return {*} The value of the property or <code>undefined</code> if the feature does not have this property.
+   * @param {Cesium3DTileContent} content 用于访问元数据的内容
+   * @param {number} batchId 要获取属性的要素的批处理 ID（或要素 ID）
+   * @param {string} name 要素的语义或属性 ID。在每个元数据粒度中，先检查语义，然后检查属性 ID。
+   * @privateParam {Cesium3DTileBatchTable} [batchTable] 用于查找要素属性的批处理表。如果未指定，则使用 `content.batchTable`。
+   * @return {*} 属性的值，如果要素没有此属性，则为 <code>undefined</code>。
    *
    * @experimental This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.
    */
@@ -347,18 +345,18 @@ class Cesium3DTileFeature {
   }
 
   /**
-   * Sets the value of the feature's property with the given name.
+   * 设置具有给定名称的要素属性的值。
    * <p>
-   * If a property with the given name doesn't exist, it is created.
+   * 如果不存在具有给定名称的属性，则会创建该属性。
    * </p>
    *
-   * @param {string} name The case-sensitive name of the property.
-   * @param {*} value The value of the property that will be copied.
+   * @param {string} name 属性的区分大小写名称。
+   * @param {*} value 将被复制的属性值。
    *
-   * @exception {DeveloperError} Inherited batch table hierarchy property is read only.
+   * @exception {DeveloperError} 继承的批处理表层次结构属性为只读。
    *
    * @example
-   * const height = feature.getProperty('Height'); // e.g., the height of a building
+   * const height = feature.getProperty('Height'); // 例如，建筑物的高度
    *
    * @example
    * const name = 'clicked';

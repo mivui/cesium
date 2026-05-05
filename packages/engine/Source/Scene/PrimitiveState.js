@@ -1,138 +1,106 @@
 // @ts-check
 
 /**
- * The states that describe the lifecycle of a <code>Primitive</code>, as
- * represented by the <code>primitive._state</code>.
+ * 描述 <code>Primitive</code> 生命周期的状态，
+ * 由 <code>primitive._state</code> 表示。
  *
- * The state transitions are triggered by calls to the <code>update</code>
- * function, but the actual state changes may happen asynchronously if the
- * <code>asynchronous</code> flag of the primitive was set to
- * <code>true</code>.
+ * 状态转换由 <code>update</code> 函数调用触发，
+ * 但如果图元的 <code>asynchronous</code> 标志设置为 <code>true</code>，
+ * 则实际的状态变化可能异步发生。
  *
  * @enum {number}
  * @private
  */
 const PrimitiveState = {
   /**
-   * The initial state of a primitive.
+   * 图元的初始状态。
    *
-   * Note that this does NOT mean that the primitive is "ready", as indicated
-   * by the <code>_ready</code> property. It means the opposite: Nothing was
-   * done with the primitive at all.
+   * 注意，这并不表示图元"准备好"了（由 <code>_ready</code> 属性指示）。
+   * 它意味着相反的情况：完全没有对图元进行任何操作。
    *
-   * For primitives that are created with the <code>asynchronous:true</code>
-   * setting and that are in this state, the <code>update</code> call starts
-   * the creation of the geometry using web workers, and the primitive goes
-   * into the <code>CREATING</code> state.
+   * 对于使用 <code>asynchronous:true</code> 设置创建且处于此状态的图元，
+   * <code>update</code> 调用将使用 web workers 开始创建几何体，
+   * 图元将进入 <code>CREATING</code> 状态。
    *
-   * For synchronously created primitives, this state never matters. They will
-   * go into the COMBINED (or FAILED) state directly due to a call to the
-   * <code>update</code> function, if they are not yet FAILED, COMBINED,
-   * or COMPLETE.
+   * 对于同步创建的图元，此状态永远无关紧要。它们将直接进入
+   * COMBINED（或 FAILED）状态，前提是它们尚未处于 FAILED、COMBINED 或 COMPLETE 状态。
    */
   READY: 0,
 
   /**
-   * The process of creating the primitive geometry is ongoing.
+   * 正在创建图元几何体的过程。
    *
-   * A primitive can only ever be in this state when it was created
-   * with the <code>asynchronous:true</code> setting.
+   * 图元只有在使用 <code>asynchronous:true</code> 设置创建时才可能处于此状态。
    *
-   * It means that web workers are currently creating the geometry
-   * of the primitive.
+   * 这意味着 web workers 正在创建图元的几何体。
    *
-   * When the geometry creation succeeds, then the primitive will go
-   * into the CREATED state. Otherwise, it will go into the FAILED
-   * state. Both will happen asynchronously.
+   * 当几何体创建成功时，图元将进入 CREATED 状态。否则，它将进入 FAILED 状态。
+   * 这两种情况都将异步发生。
    *
-   * The <code>update</code> function has to be called regularly
-   * until either of these states is reached.
+   * 必须定期调用 <code>update</code> 函数，直到达到其中一种状态。
    */
   CREATING: 1,
 
   /**
-   * The geometry for the primitive has been created.
+   * 图元的几何体已创建。
    *
-   * A primitive can only ever be in this state when it was created
-   * with the <code>asynchronous:true</code> setting.
+   * 图元只有在使用 <code>asynchronous:true</code> 设置创建时才可能处于此状态。
    *
-   * It means that web workers have (asynchronously) finished the
-   * creation of the geometry, but further (asynchronous) processing
-   * is necessary: If a primitive is determined to be in this state
-   * during a call to <code>update</code>, an asynchronous process
-   * is triggered to "combine" the geometry, meaning that the primitive
-   * will go into the COMBINING state.
+   * 这意味着 web workers 已（异步）完成了几何体的创建，但还需要进一步的（异步）处理：
+   * 如果在调用 <code>update</code> 期间确定图元处于此状态，
+   * 将触发一个异步进程来"组合"几何体，意味着图元将进入 COMBINING 状态。
    */
   CREATED: 2,
 
   /**
-   * The asynchronous creation of the geometry has been finished, but the
-   * asynchronous process of combining the geometry has not finished yet.
+   * 异步几何体创建已完成，但几何体组合的异步过程尚未完成。
    *
-   * A primitive can only ever be in this state when it was created
-   * with the <code>asynchronous:true</code> setting.
+   * 图元只有在使用 <code>asynchronous:true</code> 设置创建时才可能处于此状态。
    *
-   * It means that whatever is done with
-   * <code>PrimitivePipeline.packCombineGeometryParameters</code> has
-   * not finished yet. When combining the geometry succeeds, the
-   * primitive will go into the COMBINED state. Otherwise, it will
-   * go into the FAILED state.
+   * 这意味着使用 <code>PrimitivePipeline.packCombineGeometryParameters</code> 完成的操作
+   * 尚未完成。当组合几何体成功时，图元将进入 COMBINED 状态。否则，它将进入 FAILED 状态。
    */
   COMBINING: 3,
 
   /**
-   * The geometry data is in a form that can be uploaded to the GPU.
+   * 几何体数据处于可以上传到 GPU 的形式。
    *
-   * For <i>synchronous</i> primitives, this means that the geometry
-   * has been created (synchronously) due to the first call to the
-   * <code>update</code> function.
+   * 对于 <i>同步</i> 图元，这意味着由于首次调用 <code>update</code> 函数而（同步）创建了几何体。
    *
-   * For <i>asynchronous</i> primitives, this means that the asynchronous
-   * creation of the geometry and the asynchronous combination of the
-   * geometry have both finished.
+   * 对于 <i>异步</i> 图元，这意味着异步几何体创建和异步几何体组合都已完成。
    *
-   * The <code>update</code> function has to be called regularly until
-   * this state is reached. When it is reached, the <code>update</code>
-   * call will cause the transition into the COMPLETE state.
+   * 必须定期调用 <code>update</code> 函数，直到达到此状态。
+   * 达到此状态时，<code>update</code> 调用将导致过渡到 COMPLETE 状态。
    */
   COMBINED: 4,
 
   /**
-   * The geometry has been created and uploaded to the GPU.
+   * 几何体已创建并上传到 GPU。
    *
-   * When this state is reached, it eventually causes the <code>_ready</code>
-   * flag of the primitive to become <code>true</code>.
+   * 达到此状态时，最终会导致图元的 <code>_ready</code> 标志变为 <code>true</code>。
    *
-   * Note: Setting the <code>ready</code> flag does NOT happen in the
-   * <code>update</code> call: It only happens after rendering the next
-   * frame!
+   * 注意：设置 <code>ready</code> 标志不会发生在 <code>update</code> 调用中：
+   * 它只发生在渲染下一帧之后！
    *
-   * Note: This state does not mean that nothing has to be done
-   * anymore (so the work is not "complete"). When the primitive is in
-   * this state, the <code>update</code> function still has to be
-   * called regularly.
+   * 注意：此状态并不意味着不再需要完成任何工作（因此工作并非"完成"）。
+   * 当图元处于此状态时，仍然必须定期调用 <code>update</code> 函数。
    */
   COMPLETE: 5,
 
   /**
-   * The creation of the primitive failed.
+   * 图元创建失败。
    *
-   * When this state is reached, it eventually causes the <code>_ready</code>
-   * flag of the primitive to become <code>true</code>.
+   * 达到此状态时，最终会导致图元的 <code>_ready</code> 标志变为 <code>true</code>。
    *
-   * Note: Setting the <code>ready</code> flag does NOT happen in the
-   * <code>update</code> call: It only happens after rendering the next
-   * frame!
+   * 注意：设置 <code>ready</code> 标志不会发生在 <code>update</code> 调用中：
+   * 它只发生在渲染下一帧之后！
    *
-   * This state can be reached when the (synchronous or asynchronous)
-   * creation of the geometry, or the (asynchronous) combination of
-   * the geometry caused any form of error.
+   * 当（同步或异步）几何体创建或（异步）几何体组合导致任何形式的错误时，
+   * 可以达到此状态。
    *
-   * It may or may not imply the presence of the <code>_error</code> property.
-   * When the <code>_error</code> property is present on a FAILED primitive,
-   * this error will be thrown during the <code>update</code> call. When it
-   * is not present for a FAILED primitive, then the <code>update</code> call
-   * will do nothing.
+   * 它可能存在或不存在 <code>_error</code> 属性。
+   * 当 FAILED 图元上存在 <code>_error</code> 属性时，此错误将在 <code>update</code> 调用中抛出。
+   * 当 FAILED 图元不存在此属性时，<code>update</code> 调用将不执行任何操作。
    */
   FAILED: 6,
 };

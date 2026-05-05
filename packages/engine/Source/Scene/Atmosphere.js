@@ -3,132 +3,131 @@ import CesiumMath from "../Core/Math.js";
 import DynamicAtmosphereLightingType from "./DynamicAtmosphereLightingType.js";
 
 /**
- * Common atmosphere settings used by 3D Tiles and models for rendering sky atmosphere, ground atmosphere, and fog.
+ * 3D Tiles 和模型用于渲染天空大气、地面大气和雾的共同大气设置。
  *
  * <p>
- * This class is not to be confused with {@link SkyAtmosphere}, which is responsible for rendering the sky.
+ * 不要将此类与 {@link SkyAtmosphere} 混淆，后者负责渲染天空。
  * </p>
  * <p>
- * While the atmosphere settings affect the color of fog, see {@link Fog} to control how fog is rendered.
+ * 虽然大气设置会影响雾的颜色，但请参阅 {@link Fog} 以控制雾的渲染方式。
  * </p>
  *
  * @alias Atmosphere
  * @constructor
  *
  * @example
- * // Turn on dynamic atmosphere lighting using the sun direction
+ * // 使用太阳方向开启动态大气光照
  * scene.atmosphere.dynamicLighting = Cesium.DynamicAtmosphereLightingType.SUNLIGHT;
  *
  * @example
- * // Turn on dynamic lighting using whatever light source is in the scene
+ * // 使用场景中的任何光源开启动态光照
  * scene.light = new Cesium.DirectionalLight({
  *   direction: new Cesium.Cartesian3(1, 0, 0)
  * });
  * scene.atmosphere.dynamicLighting = Cesium.DynamicAtmosphereLightingType.SCENE_LIGHT;
  *
  * @example
- * // Adjust the color of the atmosphere effects.
- * scene.atmosphere.hueShift = 0.4; // Cycle 40% around the color wheel
- * scene.atmosphere.brightnessShift = 0.25; // Increase the brightness
- * scene.atmosphere.saturationShift = -0.1; // Desaturate the colors
+ * // 调整大气效果的颜色。
+ * scene.atmosphere.hueShift = 0.4; // 在色轮上循环 40%
+ * scene.atmosphere.brightnessShift = 0.25; // 增加亮度
+ * scene.atmosphere.saturationShift = -0.1; // 降低颜色饱和度
  *
  * @see SkyAtmosphere
  * @see Globe
  * @see Fog
  */
 function Atmosphere() {
-  /**
-   * The intensity of the light that is used for computing the ground atmosphere color.
-   *
-   * @type {number}
-   * @default 10.0
-   */
+   /**
+    * 用于计算地面大气颜色的光照强度。
+    *
+    * @type {number}
+    * @default 10.0
+    */
   this.lightIntensity = 10.0;
 
-  /**
-   * The Rayleigh scattering coefficient used in the atmospheric scattering equations for the ground atmosphere.
-   *
-   * @type {Cartesian3}
-   * @default Cartesian3(5.5e-6, 13.0e-6, 28.4e-6)
-   */
+   /**
+    * 用于地面大气大气散射方程中的瑞利散射系数。
+    *
+    * @type {Cartesian3}
+    * @default Cartesian3(5.5e-6, 13.0e-6, 28.4e-6)
+    */
   this.rayleighCoefficient = new Cartesian3(5.5e-6, 13.0e-6, 28.4e-6);
 
-  /**
-   * The Mie scattering coefficient used in the atmospheric scattering equations for the ground atmosphere.
-   *
-   * @type {Cartesian3}
-   * @default Cartesian3(21e-6, 21e-6, 21e-6)
-   */
+   /**
+    * 用于地面大气大气散射方程中的米氏散射系数。
+    *
+    * @type {Cartesian3}
+    * @default Cartesian3(21e-6, 21e-6, 21e-6)
+    */
   this.mieCoefficient = new Cartesian3(21e-6, 21e-6, 21e-6);
 
-  /**
-   * The Rayleigh scale height used in the atmospheric scattering equations for the ground atmosphere, in meters.
-   *
-   * @type {number}
-   * @default 10000.0
-   */
+   /**
+    * 用于地面大气大气散射方程中的瑞利标高，单位为米。
+    *
+    * @type {number}
+    * @default 10000.0
+    */
   this.rayleighScaleHeight = 10000.0;
 
-  /**
-   * The Mie scale height used in the atmospheric scattering equations for the ground atmosphere, in meters.
-   *
-   * @type {number}
-   * @default 3200.0
-   */
+   /**
+    * 用于地面大气大气散射方程中的米氏标高，单位为米。
+    *
+    * @type {number}
+    * @default 3200.0
+    */
   this.mieScaleHeight = 3200.0;
 
-  /**
-   * The anisotropy of the medium to consider for Mie scattering.
-   * <p>
-   * Valid values are between -1.0 and 1.0.
-   * </p>
-   *
-   * @type {number}
-   * @default 0.9
-   */
+   /**
+    * 用于米氏散射的介质各向异性。
+    * <p>
+    * 有效值介于 -1.0 和 1.0 之间。
+    * </p>
+    *
+    * @type {number}
+    * @default 0.9
+    */
   this.mieAnisotropy = 0.9;
 
-  /**
-   * The hue shift to apply to the atmosphere. Defaults to 0.0 (no shift).
-   * A hue shift of 1.0 indicates a complete rotation of the hues available.
-   *
-   * @type {number}
-   * @default 0.0
-   */
+   /**
+    * 应用于大气的色相偏移。默认为 0.0（无偏移）。
+    * 色相偏移 1.0 表示可用色相的完整旋转。
+    *
+    * @type {number}
+    * @default 0.0
+    */
   this.hueShift = 0.0;
 
-  /**
-   * The saturation shift to apply to the atmosphere. Defaults to 0.0 (no shift).
-   * A saturation shift of -1.0 is monochrome.
-   *
-   * @type {number}
-   * @default 0.0
-   */
+   /**
+    * 应用于大气的饱和度偏移。默认为 0.0（无偏移）。
+    * 饱和度偏移 -1.0 表示单色。
+    *
+    * @type {number}
+    * @default 0.0
+    */
   this.saturationShift = 0.0;
 
-  /**
-   * The brightness shift to apply to the atmosphere. Defaults to 0.0 (no shift).
-   * A brightness shift of -1.0 is complete darkness, which will let space show through.
-   *
-   * @type {number}
-   * @default 0.0
-   */
+   /**
+    * 应用于大气的亮度偏移。默认为 0.0（无偏移）。
+    * 亮度偏移 -1.0 表示完全黑暗，这将让太空显示出来。
+    *
+    * @type {number}
+    * @default 0.0
+    */
   this.brightnessShift = 0.0;
 
-  /**
-   * When not DynamicAtmosphereLightingType.NONE, the selected light source will
-   * be used for dynamically lighting all atmosphere-related rendering effects.
-   *
-   * @type {DynamicAtmosphereLightingType}
-   * @default DynamicAtmosphereLightingType.NONE
-   */
+   /**
+    * 当不为 DynamicAtmosphereLightingType.NONE 时，所选光源将用于动态照亮所有与大气相关的渲染效果。
+    *
+    * @type {DynamicAtmosphereLightingType}
+    * @default DynamicAtmosphereLightingType.NONE
+    */
   this.dynamicLighting = DynamicAtmosphereLightingType.NONE;
 }
 
 /**
- * Returns <code>true</code> if the atmosphere shader requires a color correct step.
- * @param {Atmosphere} atmosphere The atmosphere instance to check
- * @returns {boolean} true if the atmosphere shader requires a color correct step
+ * 如果大气着色器需要颜色校正步骤，则返回 <code>true</code>。
+ * @param {Atmosphere} atmosphere 要检查的大气实例
+ * @returns {boolean} 如果大气着色器需要颜色校正步骤则返回 true
  */
 Atmosphere.requiresColorCorrect = function (atmosphere) {
   return !(

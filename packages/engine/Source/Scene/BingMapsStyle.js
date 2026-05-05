@@ -1,95 +1,95 @@
 // @ts-check
 
 /**
- * The types of imagery provided by Bing Maps.
+ * Bing Maps 提供的影像类型。
  *
  * @enum {number}
  *
  * @see BingMapsImageryProvider
  */
 const BingMapsStyle = {
-  /**
-   * Aerial imagery.
-   *
-   * @type {string}
-   * @constant
-   */
+   /**
+    * 航空影像。
+    *
+    * @type {string}
+    * @constant
+    */
   AERIAL: "Aerial",
 
-  /**
-   * Aerial imagery with a road overlay.
-   *
-   * @type {string}
-   * @constant
-   * @deprecated See https://github.com/CesiumGS/cesium/issues/7128.
-   * Use `BingMapsStyle.AERIAL_WITH_LABELS_ON_DEMAND` instead
-   */
+   /**
+    * 带有道路覆盖层的航空影像。
+    *
+    * @type {string}
+    * @constant
+    * @deprecated 参见 https://github.com/CesiumGS/cesium/issues/7128。
+    * 请改用 `BingMapsStyle.AERIAL_WITH_LABELS_ON_DEMAND`
+    */
   AERIAL_WITH_LABELS: "AerialWithLabels",
 
-  /**
-   * Aerial imagery with a road overlay.
-   *
-   * @type {string}
-   * @constant
-   */
+   /**
+    * 带有道路覆盖层的航空影像。
+    *
+    * @type {string}
+    * @constant
+    */
   AERIAL_WITH_LABELS_ON_DEMAND: "AerialWithLabelsOnDemand",
 
-  /**
-   * Roads without additional imagery.
-   *
-   * @type {string}
-   * @constant
-   * @deprecated See https://github.com/CesiumGS/cesium/issues/7128.
-   * Use `BingMapsStyle.ROAD_ON_DEMAND` instead
-   */
+   /**
+    * 不带附加影像的道路。
+    *
+    * @type {string}
+    * @constant
+    * @deprecated 参见 https://github.com/CesiumGS/cesium/issues/7128。
+    * 请改用 `BingMapsStyle.ROAD_ON_DEMAND`
+    */
   ROAD: "Road",
 
-  /**
-   * Roads without additional imagery.
-   *
-   * @type {string}
-   * @constant
-   */
+   /**
+    * 不带附加影像的道路。
+    *
+    * @type {string}
+    * @constant
+    */
   ROAD_ON_DEMAND: "RoadOnDemand",
 
-  /**
-   * A dark version of the road maps.
-   *
-   * @type {string}
-   * @constant
-   */
+   /**
+    * 道路地图的深色版本。
+    *
+    * @type {string}
+    * @constant
+    */
   CANVAS_DARK: "CanvasDark",
 
-  /**
-   * A lighter version of the road maps.
-   *
-   * @type {string}
-   * @constant
-   */
+   /**
+    * 道路地图的浅色版本。
+    *
+    * @type {string}
+    * @constant
+    */
   CANVAS_LIGHT: "CanvasLight",
 
-  /**
-   * A grayscale version of the road maps.
-   *
-   * @type {string}
-   * @constant
-   */
+   /**
+    * 道路地图的灰度版本。
+    *
+    * @type {string}
+    * @constant
+    */
   CANVAS_GRAY: "CanvasGray",
 
-  /**
-   * Ordnance Survey imagery. This imagery is visible only for the London, UK area.
-   *
-   * @type {string}
-   * @constant
-   */
+   /**
+    * 英国地形测量局影像。此影像仅对英国伦敦地区可见。
+    *
+    * @type {string}
+    * @constant
+    */
   ORDNANCE_SURVEY: "OrdnanceSurvey",
 
-  /**
-   * Collins Bart imagery.
-   *
-   * @type {string}
-   * @constant
-   */
+   /**
+    * Collins Bart 影像。
+    *
+    * @type {string}
+    * @constant
+    */
   COLLINS_BART: "CollinsBart",
 };
 

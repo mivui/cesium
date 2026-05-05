@@ -3,18 +3,16 @@ import Check from "../Core/Check.js";
 import defined from "../Core/defined.js";
 
 /**
- * A Plane in Hessian Normal form to be used with {@link ClippingPlaneCollection}.
- * Compatible with mathematics functions in {@link Plane}
+ * 以 Hessian 法线形式表示的平面，用于与 {@link ClippingPlaneCollection} 配合使用。
+ * 与 {@link Plane} 中的数学函数兼容。
  *
  * @alias ClippingPlane
  * @constructor
  *
- * @param {Cartesian3} normal The plane's normal (normalized).
- * @param {number} distance The shortest distance from the origin to the plane.  The sign of
- * <code>distance</code> determines which side of the plane the origin
- * is on.  If <code>distance</code> is positive, the origin is in the half-space
- * in the direction of the normal; if negative, the origin is in the half-space
- * opposite to the normal; if zero, the plane passes through the origin.
+ * @param {Cartesian3} normal 平面的法线（已归一化）。
+ * @param {number} distance 从原点到平面的最短距离。<code>distance</code> 的符号决定
+ * 原点位于平面的哪一侧。如果 <code>distance</code> 为正，原点位于法线方向的半空间；
+ * 如果为负，原点位于法线相反方向的半空间；如果为零，平面穿过原点。
  */
 function ClippingPlane(normal, distance) {
   //>>includeStart('debug', pragmas.debug);
@@ -30,11 +28,9 @@ function ClippingPlane(normal, distance) {
 
 Object.defineProperties(ClippingPlane.prototype, {
   /**
-   * The shortest distance from the origin to the plane.  The sign of
-   * <code>distance</code> determines which side of the plane the origin
-   * is on.  If <code>distance</code> is positive, the origin is in the half-space
-   * in the direction of the normal; if negative, the origin is in the half-space
-   * opposite to the normal; if zero, the plane passes through the origin.
+   * 从原点到平面的最短距离。<code>distance</code> 的符号决定
+   * 原点位于平面的哪一侧。如果 <code>distance</code> 为正，原点位于法线方向的半空间；
+   * 如果为负，原点位于法线相反方向的半空间；如果为零，平面穿过原点。
    *
    * @type {number}
    * @memberof ClippingPlane.prototype
@@ -54,7 +50,7 @@ Object.defineProperties(ClippingPlane.prototype, {
     },
   },
   /**
-   * The plane's normal.
+   * 平面的法线。
    *
    * @type {Cartesian3}
    * @memberof ClippingPlane.prototype
@@ -80,11 +76,11 @@ Object.defineProperties(ClippingPlane.prototype, {
 });
 
 /**
- * Create a ClippingPlane from a Plane object.
+ * 从 Plane 对象创建 ClippingPlane。
  *
- * @param {Plane} plane The plane containing parameters to copy
- * @param {ClippingPlane} [result] The object on which to store the result
- * @returns {ClippingPlane} The ClippingPlane generated from the plane's parameters.
+ * @param {Plane} plane 包含要复制参数的平面
+ * @param {ClippingPlane} [result] 用于存储结果的对象
+ * @returns {ClippingPlane} 从平面参数生成的 ClippingPlane。
  */
 ClippingPlane.fromPlane = function (plane, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -101,10 +97,10 @@ ClippingPlane.fromPlane = function (plane, result) {
 };
 
 /**
- * Clones the ClippingPlane without setting its ownership.
- * @param {ClippingPlane} clippingPlane The ClippingPlane to be cloned
- * @param {ClippingPlane} [result] The object on which to store the cloned parameters.
- * @returns {ClippingPlane} a clone of the input ClippingPlane
+ * 克隆 ClippingPlane 而不设置其所有权。
+ * @param {ClippingPlane} clippingPlane 要克隆的 ClippingPlane
+ * @param {ClippingPlane} [result] 用于存储克隆参数的对象。
+ * @returns {ClippingPlane} 输入 ClippingPlane 的克隆
  */
 ClippingPlane.clone = function (clippingPlane, result) {
   if (!defined(result)) {

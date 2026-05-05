@@ -18,7 +18,7 @@ const { ERR_CAPACITY } = BufferPrimitiveCollection.Error;
 
 /**
  * @typedef {object} BufferPolygonOptions
- * @property {Matrix4} [modelMatrix=Matrix4.IDENTITY] Transforms geometry from model to world coordinates.
+ * @property {Matrix4} [modelMatrix=Matrix4.IDENTITY] 将几何体从模型坐标变换到世界坐标。
  * @property {boolean} [show=true]
  * @property {BufferPolygonMaterial} [material=BufferPolygonMaterial.DEFAULT_MATERIAL]
  * @property {number} [featureId]
@@ -26,15 +26,14 @@ const { ERR_CAPACITY } = BufferPrimitiveCollection.Error;
  * @property {TypedArray} [positions]
  * @property {TypedArray} [holes]
  * @property {TypedArray} [triangles]
- * @experimental This feature is not final and is subject to change without Cesium's standard deprecation policy.
+ * @experimental 此功能尚未最终确定,可能会在不遵循 Cesium 标准弃用政策的情况下进行更改。
  */
 
 /**
- * Collection of polygons held in ArrayBuffer storage for performance and memory optimization.
+ * 存储在 ArrayBuffer 中的多边形集合,用于性能和内存优化。
  *
- * <p>Default buffer memory allocation is arbitrary, and collections cannot be resized,
- * so specific per-buffer capacities should be provided in the collection
- * constructor when available.</p>
+ * <p>默认缓冲内存分配是任意的,且集合无法调整大小,
+ * 因此在可用时应在集合构造函数中提供特定的每缓冲容量。</p>
  *
  * @example
  * import earcut from "earcut";
@@ -51,7 +50,7 @@ const { ERR_CAPACITY } = BufferPrimitiveCollection.Error;
  * const holes = [ ... ];
  * const material = new BufferPolygonMaterial({color: Color.WHITE});
  *
- * // Create a new polygon, temporarily bound to 'polygon' local variable.
+ * // 创建新多边形,临时绑定到 'polygon' 局部变量。
  * collection.add({
  *   positions: new Float64Array(positions),
  *   holes: new Uint32Array(holes),
@@ -59,8 +58,8 @@ const { ERR_CAPACITY } = BufferPrimitiveCollection.Error;
  *   material
  * }, polygon);
  *
- * // Iterate over all polygons in collection, temporarily binding 'polygon'
- * // local variable to each, and updating polygon material.
+ * // 遍历集合中的所有多边形,将 'polygon' 局部变量临时绑定到每个多边形,
+ * // 并更新多边形材质。
  * for (let i = 0; i < collection.primitiveCount; i++) {
  *   collection.get(i, polygon);
  *   polygon.setMaterial(material);
@@ -70,7 +69,7 @@ const { ERR_CAPACITY } = BufferPrimitiveCollection.Error;
  * @see BufferPolygonMaterial
  * @see BufferPrimitiveCollection
  * @extends BufferPrimitiveCollection<BufferPolygon>
- * @experimental This feature is not final and is subject to change without Cesium's standard deprecation policy.
+ * @experimental 此功能尚未最终确定,可能会在不遵循 Cesium 标准弃用政策的情况下进行更改。
  */
 class BufferPolygonCollection extends BufferPrimitiveCollection {
   /**
@@ -81,7 +80,7 @@ class BufferPolygonCollection extends BufferPrimitiveCollection {
    * @param {number} [options.triangleCountMax=BufferPrimitiveCollection.DEFAULT_CAPACITY]
    * @param {ComponentDatatype} [options.positionDatatype=ComponentDatatype.DOUBLE]
    * @param {boolean} [options.show=true]
-   * @param {boolean} [options.allowPicking=true] When <code>true</code>, primitives are pickable with {@link Scene#pick}. When <code>false</code>, memory and initialization cost are lower.
+   * @param {boolean} [options.allowPicking=true] 当 <code>true</code> 时,图元可使用 {@link Scene#pick} 进行拾取。当 <code>false</code> 时,内存和初始化成本更低。
    * @param {boolean} [options.debugShowBoundingVolume=false]
    */
   constructor(options = Frozen.EMPTY_OBJECT) {
@@ -171,17 +170,16 @@ class BufferPolygonCollection extends BufferPrimitiveCollection {
   }
 
   /**
-   * Duplicates the contents of this collection into the result collection.
-   * Result collection is not resized, and must contain enough space for all
-   * primitives in the source collection. Existing polygons in the result
-   * collection will be overwritten.
+   * 将此集合的内容复制到结果集合。
+   * 结果集合不调整大小,必须包含足够的空间以容纳源集合中的所有图元。
+   * 结果集合中的现有多边形将被覆盖。
    *
-   * <p>Useful when allocating more space for a collection that has reached its
-   * capacity, and efficiently transferring polygons to the new collection.</p>
+   * <p>在为已达到容量的集合分配更多空间,
+   * 并将多边形高效转移到新集合时非常有用。</p>
    *
    * @example
-   * const result = new BufferPolygonCollection({ ... }); // allocate larger 'result' collection
-   * BufferPolygonCollection.clone(collection, result);   // copy polygons from 'collection' into 'result'
+   * const result = new BufferPolygonCollection({ ... }); // 分配更大的 'result' 集合
+   * BufferPolygonCollection.clone(collection, result);   // 将 'collection' 中的多边形复制到 'result'
    *
    * @param {BufferPolygonCollection} collection
    * @param {BufferPolygonCollection} result
@@ -244,11 +242,10 @@ class BufferPolygonCollection extends BufferPrimitiveCollection {
   // PRIMITIVE LIFECYCLE
 
   /**
-   * Adds a new polygon to the collection, with the specified options. A
-   * {@link BufferPolygon} instance is linked to the new polygon, using
-   * the 'result' argument if given, or a new instance if not. For repeated
-   * calls, prefer to reuse a single BufferPolygon instance rather than
-   * allocating a new instance on each call.
+   * 向集合添加新多边形,并指定选项。
+   * {@link BufferPolygon} 实例链接到新多边形,使用 'result' 参数(如果提供),
+   * 否则使用新实例。对于重复调用,建议重用单个 BufferPolygon 实例,
+   * 而不是在每次调用时分配新实例。
    *
    * @param {BufferPolygonOptions} options
    * @param {BufferPolygon} result
@@ -309,9 +306,8 @@ class BufferPolygonCollection extends BufferPrimitiveCollection {
   // ACCESSORS
 
   /**
-   * Total byte length of buffers owned by this collection. Includes any unused
-   * space allocated by {@link primitiveCountMax}, even if no polygons have
-   * yet been added in that space.
+   * 此集合拥有的缓冲区的总字节长度。包括由
+   * {@link primitiveCountMax} 分配的任何未使用空间,即使尚未在该空间中添加多边形。
    *
    * @type {number}
    * @readonly
@@ -326,7 +322,7 @@ class BufferPolygonCollection extends BufferPrimitiveCollection {
   }
 
   /**
-   * Number of holes in collection. Must be <= {@link holeCountMax}.
+   * 集合中的孔数。必须 <= {@link holeCountMax}。
    *
    * @type {number}
    * @readonly
@@ -336,7 +332,7 @@ class BufferPolygonCollection extends BufferPrimitiveCollection {
   }
 
   /**
-   * Maximum number of holes in collection. Must be >= {@link holeCount}.
+   * 集合中的最大孔数。必须 >= {@link holeCount}。
    *
    * @type {number}
    * @readonly
@@ -347,7 +343,7 @@ class BufferPolygonCollection extends BufferPrimitiveCollection {
   }
 
   /**
-   * Number of triangles in collection. Must be <= {@link triangleCountMax}.
+   * 集合中的三角形数。必须 <= {@link triangleCountMax}。
    *
    * @type {number}
    * @readonly
@@ -357,7 +353,7 @@ class BufferPolygonCollection extends BufferPrimitiveCollection {
   }
 
   /**
-   * Maximum number of triangles in collection. Must be >= {@link triangleCount}.
+   * 集合中的最大三角形数。必须 >= {@link triangleCount}。
    *
    * @type {number}
    * @readonly

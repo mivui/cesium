@@ -91,35 +91,35 @@ const requestRenderAfterFrame = function (scene) {
 };
 
 /**
- * The container for all 3D graphical objects and state in a Cesium virtual scene.  Generally,
- * a scene is not created directly; instead, it is implicitly created by {@link CesiumWidget}.
+ * Cesium 虚拟场景中所有 3D 图形对象和状态的容器。通常，
+ * 场景不会直接创建；相反，它由 {@link CesiumWidget} 隐式创建。
  *
  * @alias Scene
  * @constructor
  *
- * @param {object} options Object with the following properties:
- * @param {HTMLCanvasElement} options.canvas The HTML canvas element to create the scene for.
- * @param {ContextOptions} [options.contextOptions] Context and WebGL creation properties.
- * @param {Element} [options.creditContainer] The HTML element in which the credits will be displayed. If not specified, a credit container will be created and added as a sibling of the canvas.
- * @param {Element} [options.creditViewport] The HTML element in which to display the credit popup.  If not specified, the viewport will be added as a sibling of the canvas.
- * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] The default ellipsoid. If not specified, the default ellipsoid is used.
- * @param {MapProjection} [options.mapProjection=new GeographicProjection(options.ellipsoid)] The map projection to use in 2D and Columbus View modes.
- * @param {boolean} [options.orderIndependentTranslucency=true] If true and the configuration supports it, use order independent translucency.
- * @param {boolean} [options.scene3DOnly=false] If true, optimizes memory use and performance for 3D mode but disables the ability to use 2D or Columbus View.
- * @param {boolean} [options.shadows=false] Determines if shadows are cast by light sources.
- * @param {MapMode2D} [options.mapMode2D=MapMode2D.INFINITE_SCROLL] Determines if the 2D map is rotatable or can be scrolled infinitely in the horizontal direction.
- * @param {boolean} [options.requestRenderMode=false] If true, rendering a frame will only occur when needed as determined by changes within the scene. Enabling improves performance of the application, but requires using {@link Scene#requestRender} to render a new frame explicitly in this mode. This will be necessary in many cases after making changes to the scene in other parts of the API. See {@link https://cesium.com/blog/2018/01/24/cesium-scene-rendering-performance/|Improving Performance with Explicit Rendering}.
- * @param {number} [options.maximumRenderTimeChange=0.0] If requestRenderMode is true, this value defines the maximum change in simulation time allowed before a render is requested. See {@link https://cesium.com/blog/2018/01/24/cesium-scene-rendering-performance/|Improving Performance with Explicit Rendering}.
- * @param {number} [options.depthPlaneEllipsoidOffset=0.0] Adjust the DepthPlane to address rendering artefacts below ellipsoid zero elevation.
- * @param {number} [options.msaaSamples=4] If provided, this value controls the rate of multisample antialiasing. Typical multisampling rates are 2, 4, and sometimes 8 samples per pixel. Higher sampling rates of MSAA may impact performance in exchange for improved visual quality. This value only applies to WebGL2 contexts that support multisample render targets. Set to 1 to disable MSAA.
+ * @param {object} options 包含以下属性的对象:
+ * @param {HTMLCanvasElement} options.canvas 为其创建场景的 HTML canvas 元素。
+ * @param {ContextOptions} [options.contextOptions] 上下文和 WebGL 创建属性。
+ * @param {Element} [options.creditContainer] 显示版权信息的 HTML 元素。如果未指定，将创建版权容器并添加为 canvas 的兄弟元素。
+ * @param {Element} [options.creditViewport] 显示版权弹出窗口的 HTML 元素。如果未指定，视口将添加为 canvas 的兄弟元素。
+ * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] 默认椭球体。如果未指定，则使用默认椭球体。
+ * @param {MapProjection} [options.mapProjection=new GeographicProjection(options.ellipsoid)] 在 2D 和 Columbus 视图模式中使用的地图投影。
+ * @param {boolean} [options.orderIndependentTranslucency=true] 如果为 true 且配置支持，则使用顺序无关的半透明。
+ * @param {boolean} [options.scene3DOnly=false] 如果为 true，则优化 3D 模式的内存使用和性能，但禁用使用 2D 或 Columbus 视图的能力。
+ * @param {boolean} [options.shadows=false] 确定是否由光源投射阴影。
+ * @param {MapMode2D} [options.mapMode2D=MapMode2D.INFINITE_SCROLL] 确定 2D 地图是可旋转的还是在水平方向上可以无限滚动。
+ * @param {boolean} [options.requestRenderMode=false] 如果为 true，则仅在场景内部变化需要时渲染帧。启用此模式可提高应用程序性能，但在此模式下需要使用 {@link Scene#requestRender} 显式渲染新帧。在 API 的其他部分更改场景后，这在许多情况下是必要的。请参阅 {@link https://cesium.com/blog/2018/01/24/cesium-scene-rendering-performance/|Improving Performance with Explicit Rendering}。
+ * @param {number} [options.maximumRenderTimeChange=0.0] 如果 requestRenderMode 为 true，此值定义在请求渲染之前允许的模拟时间的最大变化。请参阅 {@link https://cesium.com/blog/2018/01/24/cesium-scene-rendering-performance/|Improving Performance with Explicit Rendering}。
+ * @param {number} [options.depthPlaneEllipsoidOffset=0.0] 调整 DepthPlane 以解决椭球体零海拔以下的渲染伪影。
+ * @param {number} [options.msaaSamples=4] 如果提供，此值控制多重采样抗锯齿的速率。典型的多重采样率为每像素 2、4，有时为 8 个样本。较高的 MSAA 采样率可能会影响性能以换取视觉质量的改善。此值仅适用于支持多重采样渲染目标的 WebGL2 上下文。设置为 1 以禁用 MSAA。
  *
  * @see CesiumWidget
  * @see {@link http://www.khronos.org/registry/webgl/specs/latest/#5.2|WebGLContextAttributes}
  *
- * @exception {DeveloperError} options and options.canvas are required.
+ * @exception {DeveloperError} options 和 options.canvas 是必需的。
  *
  * @example
- * // Create scene without anisotropic texture filtering
+ * // 创建没有各向异性纹理过滤的场景
  * const scene = new Cesium.Scene({
  *   canvas : canvas,
  *   contextOptions : {
@@ -135,7 +135,7 @@ function Scene(options) {
 
   //>>includeStart('debug', pragmas.debug);
   if (!defined(canvas)) {
-    throw new DeveloperError("options and options.canvas are required.");
+    throw new DeveloperError("需要 options 和 options.canvas。");
   }
   //>>includeEnd('debug');
 
@@ -202,9 +202,8 @@ function Scene(options) {
 
   this._useOIT = options.orderIndependentTranslucency ?? true;
   /**
-   * The function that will be used for executing translucent commands when
-   * useOIT is true. This is created once in
-   * obtainTranslucentCommandExecutionFunction, then cached here.
+   * 当 useOIT 为 true 时，用于执行半透明命令的函数。
+   * 这是在 obtainTranslucentCommandExecutionFunction 中创建的，然后在此处缓存。
    * @private
    */
   this._executeOITFunction = undefined;
@@ -247,10 +246,9 @@ function Scene(options) {
   this._msaaSamples = options.msaaSamples ?? 4;
 
   /**
-   * Exceptions occurring in <code>render</code> are always caught in order to raise the
-   * <code>renderError</code> event.  If this property is true, the error is rethrown
-   * after the event is raised.  If this property is false, the <code>render</code> function
-   * returns normally after raising the event.
+   * 在 <code>render</code> 中发生的异常总是被捕获以引发 <code>renderError</code> 事件。
+   * 如果此属性为 true，则在引发事件后重新抛出错误。
+   * 如果此属性为 false，则在引发事件后 <code>render</code> 函数正常返回。
    *
    * @type {boolean}
    * @default false
@@ -258,8 +256,7 @@ function Scene(options) {
   this.rethrowRenderErrors = false;
 
   /**
-   * Determines whether or not to instantly complete the
-   * scene transition animation on user input.
+   * 确定是否在用户输入时立即完成场景过渡动画。
    *
    * @type {boolean}
    * @default true
@@ -267,21 +264,21 @@ function Scene(options) {
   this.completeMorphOnUserInput = true;
 
   /**
-   * The event fired at the beginning of a scene transition.
+   * 在场景过渡开始时触发的事件。
    * @type {Event}
    * @default Event()
    */
   this.morphStart = new Event();
 
   /**
-   * The event fired at the completion of a scene transition.
+   * 在场景过渡完成时触发的事件。
    * @type {Event}
    * @default Event()
    */
   this.morphComplete = new Event();
 
   /**
-   * The {@link SkyBox} used to draw the stars.
+   * 用于绘制星星的 {@link SkyBox}。
    *
    * @type {SkyBox | undefined}
    * @default undefined
@@ -291,7 +288,7 @@ function Scene(options) {
   this.skyBox = undefined;
 
   /**
-   * The sky atmosphere drawn around the globe.
+   * 围绕地球绘制的天空大气层。
    *
    * @type {SkyAtmosphere | undefined}
    * @default undefined
@@ -299,7 +296,7 @@ function Scene(options) {
   this.skyAtmosphere = undefined;
 
   /**
-   * The {@link Sun}.
+   * {@link Sun}。
    *
    * @type {Sun | undefined}
    * @default undefined
@@ -307,7 +304,7 @@ function Scene(options) {
   this.sun = undefined;
 
   /**
-   * Uses a bloom filter on the sun when enabled.
+   * 启用时对太阳使用泛光滤镜。
    *
    * @type {boolean}
    * @default true
@@ -316,7 +313,7 @@ function Scene(options) {
   this._sunBloom = undefined;
 
   /**
-   * The {@link Moon}
+   * {@link Moon}。
    *
    * @type {Moon | undefined}
    * @default undefined
@@ -324,7 +321,7 @@ function Scene(options) {
   this.moon = undefined;
 
   /**
-   * The background color, which is only visible if there is no sky box, i.e., {@link Scene#skyBox} is <code>undefined</code>.
+   * 背景颜色，仅在没有天空盒（即 {@link Scene#skyBox} 为 <code>undefined</code>）时可见。
    *
    * @type {Color}
    * @default {@link Color.BLACK}
@@ -340,8 +337,8 @@ function Scene(options) {
     : new GeographicProjection(this._ellipsoid);
 
   /**
-   * The current morph transition time between 2D/Columbus View and 3D,
-   * with 0.0 being 2D or Columbus View and 1.0 being 3D.
+   * 2D/Columbus 视图和 3D 之间的当前过渡时间，
+   * 0.0 为 2D 或 Columbus 视图，1.0 为 3D。
    *
    * @type {number}
    * @default 1.0
@@ -349,11 +346,11 @@ function Scene(options) {
   this.morphTime = 1.0;
 
   /**
-   * The far-to-near ratio of the multi-frustum when using a normal depth buffer.
+   * 使用普通深度缓冲区时多视锥体的远近距离比。
    * <p>
-   * This value is used to create the near and far values for each frustum of the multi-frustum. It is only used
-   * when {@link Scene#logarithmicDepthBuffer} is <code>false</code>. When <code>logarithmicDepthBuffer</code> is
-   * <code>true</code>, use {@link Scene#logarithmicDepthFarToNearRatio}.
+   * 此值用于创建多视锥体每个视锥体的近和远值。仅当
+   * {@link Scene#logarithmicDepthBuffer} 为 <code>false</code> 时使用。当
+   * <code>logarithmicDepthBuffer</code> 为 <code>true</code> 时，使用 {@link Scene#logarithmicDepthFarToNearRatio}。
    * </p>
    *
    * @type {number}
@@ -362,11 +359,11 @@ function Scene(options) {
   this.farToNearRatio = 1000.0;
 
   /**
-   * The far-to-near ratio of the multi-frustum when using a logarithmic depth buffer.
+   * 使用对数深度缓冲区时多视锥体的远近距离比。
    * <p>
-   * This value is used to create the near and far values for each frustum of the multi-frustum. It is only used
-   * when {@link Scene#logarithmicDepthBuffer} is <code>true</code>. When <code>logarithmicDepthBuffer</code> is
-   * <code>false</code>, use {@link Scene#farToNearRatio}.
+   * 此值用于创建多视锥体每个视锥体的近和远值。仅当
+   * {@link Scene#logarithmicDepthBuffer} 为 <code>true</code> 时使用。当
+   * <code>logarithmicDepthBuffer</code> 为 <code>false</code> 时，使用 {@link Scene#farToNearRatio}。
    * </p>
    *
    * @type {number}
@@ -375,9 +372,9 @@ function Scene(options) {
   this.logarithmicDepthFarToNearRatio = 1e9;
 
   /**
-   * Determines the uniform depth size in meters of each frustum of the multifrustum in 2D. If a primitive or model close
-   * to the surface shows z-fighting, decreasing this will eliminate the artifact, but decrease performance. On the
-   * other hand, increasing this will increase performance but may cause z-fighting among primitives close to the surface.
+   * 确定 2D 中 multifrustum 每个视锥体的均匀深度大小（以米为单位）。
+   * 如果靠近表面的图元或模型出现 z-fighting，减小此值将消除伪影，但会降低性能。
+   * 另一方面，增加此值将提高性能，但可能导致靠近表面的图元之间出现 z-fighting。
    *
    * @type {number}
    * @default 1.75e6
@@ -385,8 +382,8 @@ function Scene(options) {
   this.nearToFarDistance2D = 1.75e6;
 
   /**
-   * The vertical exaggeration of the scene.
-   * When set to 1.0, no exaggeration is applied.
+   * 场景的垂直夸大系数。
+   * 设置为 1.0 时，不应用夸大。
    *
    * @type {number}
    * @default 1.0
@@ -394,8 +391,8 @@ function Scene(options) {
   this.verticalExaggeration = 1.0;
 
   /**
-   * The reference height for vertical exaggeration of the scene.
-   * When set to 0.0, the exaggeration is applied relative to the ellipsoid surface.
+   * 场景垂直夸大的参考高度。
+   * 设置为 0.0 时，夸大应用于相对于椭球体表面。
    *
    * @type {number}
    * @default 0.0
@@ -403,14 +400,13 @@ function Scene(options) {
   this.verticalExaggerationRelativeHeight = 0.0;
 
   /**
-   * This property is for debugging only; it is not for production use.
+   * 此属性仅用于调试；不用于生产环境。
    * <p>
-   * A function that determines what commands are executed.  As shown in the examples below,
-   * the function receives the command's <code>owner</code> as an argument, and returns a boolean indicating if the
-   * command should be executed.
+   * 确定执行哪些命令的函数。如下面的示例所示，
+   * 该函数接收命令的 <code>owner</code> 作为参数，并返回一个布尔值指示是否应执行该命令。
    * </p>
    * <p>
-   * The default is <code>undefined</code>, indicating that all commands are executed.
+   * 默认为 <code>undefined</code>，表示执行所有命令。
    * </p>
    *
    * @type {Function | undefined}
@@ -418,12 +414,12 @@ function Scene(options) {
    * @default undefined
    *
    * @example
-   * // Do not execute any commands.
+   * // 不执行任何命令。
    * scene.debugCommandFilter = function(command) {
    *     return false;
    * };
    *
-   * // Execute only the billboard's commands.  That is, only draw the billboard.
+   * // 仅执行广告牌的命令。即仅绘制广告牌。
    * const billboards = new Cesium.BillboardCollection();
    * scene.debugCommandFilter = function(command) {
    *     return command.owner === billboards;
@@ -432,11 +428,10 @@ function Scene(options) {
   this.debugCommandFilter = undefined;
 
   /**
-   * This property is for debugging only; it is not for production use.
+   * 此属性仅用于调试；不用于生产环境。
    * <p>
-   * When <code>true</code>, commands are randomly shaded.  This is useful
-   * for performance analysis to see what parts of a scene or model are
-   * command-dense and could benefit from batching.
+   * 当 <code>true</code> 时，命令被随机着色。这对于性能分析很有用，
+   * 可以查看场景或模型的哪些部分命令密集并可能受益于批处理。
    * </p>
    *
    * @type {boolean}
@@ -446,14 +441,12 @@ function Scene(options) {
   this.debugShowCommands = false;
 
   /**
-   * This property is for debugging only; it is not for production use.
+   * 此属性仅用于调试；不用于生产环境。
    * <p>
-   * When <code>true</code>, commands are shaded based on the frustums they
-   * overlap.  Commands in the closest frustum are tinted red, commands in
-   * the next closest are green, and commands in the farthest frustum are
-   * blue.  If a command overlaps more than one frustum, the color components
-   * are combined, e.g., a command overlapping the first two frustums is tinted
-   * yellow.
+   * 当 <code>true</code> 时，命令根据其重叠的视锥体进行着色。
+   * 最近视锥体中的命令着色为红色，次近视锥体中的命令为绿色，
+   * 最远视锥体中的命令为蓝色。如果命令重叠多个视锥体，则颜色分量
+   * 组合，例如，重叠前两个视锥体的命令着色为黄色。
    * </p>
    *
    * @type {boolean}
@@ -463,9 +456,9 @@ function Scene(options) {
   this.debugShowFrustums = false;
 
   /**
-   * This property is for debugging only; it is not for production use.
+   * 此属性仅用于调试；不用于生产环境。
    * <p>
-   * Displays frames per second and time between frames.
+   * 显示每秒帧数和帧间时间。
    * </p>
    *
    * @type {boolean}
@@ -475,9 +468,9 @@ function Scene(options) {
   this.debugShowFramesPerSecond = false;
 
   /**
-   * This property is for debugging only; it is not for production use.
+   * 此属性仅用于调试；不用于生产环境。
    * <p>
-   * Indicates which frustum will have depth information displayed.
+   * 指示哪个视锥体将显示深度信息。
    * </p>
    *
    * @type {number}
@@ -487,9 +480,9 @@ function Scene(options) {
   this.debugShowDepthFrustum = 1;
 
   /**
-   * This property is for debugging only; it is not for production use.
+   * 此属性仅用于调试；不用于生产环境。
    * <p>
-   * When <code>true</code>, draws outlines to show the boundaries of the camera frustums
+   * 当 <code>true</code> 时，绘制轮廓以显示相机视锥体的边界。
    * </p>
    *
    * @type {boolean}
@@ -501,7 +494,7 @@ function Scene(options) {
   this._debugFrustumPlanes = undefined;
 
   /**
-   * When <code>true</code>, enables picking using the depth buffer.
+   * 当 <code>true</code> 时，启用使用深度缓冲区的拾取。
    *
    * @type {boolean}
    * @default true
@@ -509,19 +502,19 @@ function Scene(options) {
   this.useDepthPicking = true;
 
   /**
-   * When <code>true</code>, enables picking translucent geometry using the depth buffer. Note that {@link Scene#useDepthPicking} must also be true for enabling this to work.
+   * 当 <code>true</code> 时，启用使用深度缓冲区拾取半透明几何体。
+   * 注意 {@link Scene#useDepthPicking} 也必须为 true 才能使此功能生效。
    *
    * <p>
-   * There is a decrease in performance when enabled. There are extra draw calls to write depth for
-   * translucent geometry.
+   * 启用时性能会下降。会有额外的绘制调用来为半透明几何体写入深度。
    * </p>
    *
    * @example
-   * // picking the position of a translucent primitive
+   * // 拾取半透明图元的位置
    * viewer.screenSpaceEventHandler.setInputAction(function onLeftClick(movement) {
    *      const pickedFeature = viewer.scene.pick(movement.position);
    *      if (!Cesium.defined(pickedFeature)) {
-   *          // nothing picked
+   *          // 未拾取到任何东西
    *          return;
    *      }
    *      const worldPosition = viewer.scene.pickPosition(movement.position);
@@ -533,7 +526,7 @@ function Scene(options) {
   this.pickTranslucentDepth = false;
 
   /**
-   * The time in milliseconds to wait before checking if the camera has not moved and fire the cameraMoveEnd event.
+   * 在检查相机是否未移动并触发 cameraMoveEnd 事件之前等待的时间（以毫秒为单位）。
    * @type {number}
    * @default 500.0
    * @private
@@ -541,18 +534,18 @@ function Scene(options) {
   this.cameraEventWaitTime = 500.0;
 
   /**
-   * Settings for atmosphere lighting effects affecting 3D Tiles and model rendering. This is not to be confused with
-   * {@link Scene#skyAtmosphere} which is responsible for rendering the sky.
+   * 影响 3D Tiles 和模型渲染的大气光照效果的设置。这与
+   * 负责渲染天空的 {@link Scene#skyAtmosphere} 不同。
    *
    * @type {Atmosphere}
    */
   this.atmosphere = new Atmosphere();
 
   /**
-   * Blends the atmosphere to geometry far from the camera for horizon views. Allows for additional
-   * performance improvements by rendering less geometry and dispatching less terrain requests.
+   * 将大气层与远离摄像机的几何体混合，用于地平线视图。
+   * 允许通过渲染更少的几何体和发送更少的地形请求来获得额外的性能提升。
    *
-   * Disbaled by default if an ellipsoid other than WGS84 is used.
+   * 如果使用 WGS84 以外的椭球体，则默认禁用。
    * @type {Fog}
    */
   this.fog = new Fog();
@@ -570,7 +563,7 @@ function Scene(options) {
   this._shadowMapCamera = new Camera(this);
 
   /**
-   * The shadow map for the scene's light source. When enabled, models, primitives, and the globe may cast and receive shadows.
+   * 场景光源的阴影图。启用时，模型、图元和地球可能会投射和接收阴影。
    * @type {ShadowMap}
    */
   this.shadowMap = new ShadowMap({
@@ -580,17 +573,17 @@ function Scene(options) {
   });
 
   /**
-   * When <code>false</code>, 3D Tiles will render normally. When <code>true</code>, classified 3D Tile geometry will render normally and
-   * unclassified 3D Tile geometry will render with the color multiplied by {@link Scene#invertClassificationColor}.
+   * 当 <code>false</code> 时，3D Tiles 将正常渲染。当 <code>true</code> 时，已分类的 3D Tile 几何体将正常渲染，
+   * 未分类的 3D Tile 几何体将以颜色乘以 {@link Scene#invertClassificationColor} 渲染。
    * @type {boolean}
    * @default false
    */
   this.invertClassification = false;
 
   /**
-   * The highlight color of unclassified 3D Tile geometry when {@link Scene#invertClassification} is <code>true</code>.
-   * <p>When the color's alpha is less than 1.0, the unclassified portions of the 3D Tiles will not blend correctly with the classified positions of the 3D Tiles.</p>
-   * <p>Also, when the color's alpha is less than 1.0, the WEBGL_depth_texture and EXT_frag_depth WebGL extensions must be supported.</p>
+   * 当 {@link Scene#invertClassification} 为 <code>true</code> 时，未分类的 3D Tile 几何体的高亮颜色。
+   * <p>当颜色的 alpha 小于 1.0 时，3D Tiles 的未分类部分将不会与 3D Tiles 的分类部分正确混合。</p>
+   * <p>此外，当颜色的 alpha 小于 1.0 时，必须支持 WEBGL_depth_texture 和 EXT_frag_depth WebGL 扩展。</p>
    * @type {Color}
    * @default Color.WHITE
    */

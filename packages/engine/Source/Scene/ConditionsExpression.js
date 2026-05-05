@@ -4,20 +4,19 @@ import defined from "../Core/defined.js";
 import Expression from "./Expression.js";
 
 /**
- * An expression for a style applied to a {@link Cesium3DTileset}.
+ * 应用于 {@link Cesium3DTileset} 的样式表达式。
  * <p>
- * Evaluates a conditions expression defined using the
- * {@link https://github.com/CesiumGS/3d-tiles/tree/main/specification/Styling|3D Tiles Styling language}.
+ * 使用 {@link https://github.com/CesiumGS/3d-tiles/tree/main/specification/Styling|3D Tiles 样式语言} 定义的条件表达式进行求值。
  * </p>
  * <p>
- * Implements the {@link StyleExpression} interface.
+ * 实现 {@link StyleExpression} 接口。
  * </p>
  *
  * @alias ConditionsExpression
  * @constructor
  *
- * @param {object} [conditionsExpression] The conditions expression defined using the 3D Tiles Styling language.
- * @param {object} [defines] Defines in the style.
+ * @param {object} [conditionsExpression] 使用 3D Tiles 样式语言定义的条件表达式。
+ * @param {object} [defines] 样式中的 define。
  *
  * @example
  * const expression = new Cesium.ConditionsExpression({
@@ -27,7 +26,7 @@ import Expression from "./Expression.js";
  *         ['true', 'color("#FFFFFF")']
  *     ]
  * });
- * expression.evaluateColor(feature, result); // returns a Cesium.Color object
+ * expression.evaluateColor(feature, result); // 返回 Cesium.Color 对象
  */
 function ConditionsExpression(conditionsExpression, defines) {
   this._conditionsExpression = clone(conditionsExpression, true);
@@ -39,7 +38,7 @@ function ConditionsExpression(conditionsExpression, defines) {
 
 Object.defineProperties(ConditionsExpression.prototype, {
   /**
-   * Gets the conditions expression defined in the 3D Tiles Styling language.
+   * 获取 3D Tiles 样式语言中定义的条件表达式。
    *
    * @memberof ConditionsExpression.prototype
    *
@@ -82,18 +81,17 @@ function setRuntime(expression, defines) {
 }
 
 /**
- * Evaluates the result of an expression, optionally using the provided feature's properties. If the result of
- * the expression in the
- * {@link https://github.com/CesiumGS/3d-tiles/tree/main/specification/Styling|3D Tiles Styling language}
- * is of type <code>Boolean</code>, <code>Number</code>, or <code>String</code>, the corresponding JavaScript
- * primitive type will be returned. If the result is a <code>RegExp</code>, a Javascript <code>RegExp</code>
- * object will be returned. If the result is a <code>Cartesian2</code>, <code>Cartesian3</code>, or <code>Cartesian4</code>,
- * a {@link Cartesian2}, {@link Cartesian3}, or {@link Cartesian4} object will be returned. If the <code>result</code> argument is
- * a {@link Color}, the {@link Cartesian4} value is converted to a {@link Color} and then returned.
+ * 对表达式的结果进行求值，可选地使用提供的 feature 的属性。如果
+ * {@link https://github.com/CesiumGS/3d-tiles/tree/main/specification/Styling|3D Tiles 样式语言} 中
+ * 表达式的结果为 <code>Boolean</code>、<code>Number</code> 或 <code>String</code> 类型，
+ * 将返回相应的 JavaScript 原始类型。如果结果为 <code>RegExp</code>，将返回 Javascript <code>RegExp</code>
+ * 对象。如果结果为 <code>Cartesian2</code>、<code>Cartesian3</code> 或 <code>Cartesian4</code>，
+ * 将返回 {@link Cartesian2}、{@link Cartesian3} 或 {@link Cartesian4} 对象。如果 <code>result</code> 参数是
+ * {@link Color}，则 {@link Cartesian4} 值将转换为 {@link Color} 后返回。
  *
- * @param {Cesium3DTileFeature} feature The feature whose properties may be used as variables in the expression.
- * @param {object} [result] The object onto which to store the result.
- * @returns {boolean|number|string|RegExp|Cartesian2|Cartesian3|Cartesian4|Color} The result of evaluating the expression.
+ * @param {Cesium3DTileFeature} feature 其属性可用作表达式中的变量的 feature。
+ * @param {object} [result] 用于存储结果的对象。
+ * @returns {boolean|number|string|RegExp|Cartesian2|Cartesian3|Cartesian4|Color} 表达式求值的结果。
  */
 ConditionsExpression.prototype.evaluate = function (feature, result) {
   const conditions = this._runtimeConditions;
@@ -110,13 +108,13 @@ ConditionsExpression.prototype.evaluate = function (feature, result) {
 };
 
 /**
- * Evaluates the result of a Color expression, using the values defined by a feature.
+ * 对 Color 表达式的结果进行求值，使用 feature 定义的值。
  * <p>
- * This is equivalent to {@link ConditionsExpression#evaluate} but always returns a {@link Color} object.
+ * 这等效于 {@link ConditionsExpression#evaluate}，但始终返回 {@link Color} 对象。
  * </p>
- * @param {Cesium3DTileFeature} feature The feature whose properties may be used as variables in the expression.
- * @param {Color} [result] The object in which to store the result
- * @returns {Color} The modified result parameter or a new Color instance if one was not provided.
+ * @param {Cesium3DTileFeature} feature 其属性可用作表达式中的变量的 feature。
+ * @param {Color} [result] 用于存储结果的对象
+ * @returns {Color} 修改后的 result 参数，或新的 Color 实例（如果未提供）。
  */
 ConditionsExpression.prototype.evaluateColor = function (feature, result) {
   const conditions = this._runtimeConditions;

@@ -6,20 +6,18 @@ import BlendingState from "./BlendingState.js";
 import CullFace from "./CullFace.js";
 
 /**
- * An appearance defines the full GLSL vertex and fragment shaders and the
- * render state used to draw a {@link Primitive}.  All appearances implement
- * this base <code>Appearance</code> interface.
+ * 外观（Appearance）定义了完整的 GLSL 顶点和片段着色器以及用于绘制 {@link Primitive} 的渲染状态。所有外观都实现此基础 <code>Appearance</code> 接口。
  *
  * @alias Appearance
  * @constructor
  *
- * @param {object} [options] Object with the following properties:
- * @param {boolean} [options.translucent=true] When <code>true</code>, the geometry is expected to appear translucent so {@link Appearance#renderState} has alpha blending enabled.
- * @param {boolean} [options.closed=false] When <code>true</code>, the geometry is expected to be closed so {@link Appearance#renderState} has backface culling enabled.
- * @param {Material} [options.material=Material.ColorType] The material used to determine the fragment color.
- * @param {string} [options.vertexShaderSource] Optional GLSL vertex shader source to override the default vertex shader.
- * @param {string} [options.fragmentShaderSource] Optional GLSL fragment shader source to override the default fragment shader.
- * @param {object} [options.renderState] Optional render state to override the default render state.
+ * @param {object} [options] 包含以下属性的对象：
+ * @param {boolean} [options.translucent=true] 当为 <code>true</code> 时，几何体预计表现为半透明，因此 {@link Appearance#renderState} 会启用 alpha 混合。
+ * @param {boolean} [options.closed=false] 当为 <code>true</code> 时，几何体预计是封闭的，因此 {@link Appearance#renderState} 会启用背面剔除。
+ * @param {Material} [options.material=Material.ColorType] 用于确定片段颜色的材质。
+ * @param {string} [options.vertexShaderSource] 可选的 GLSL 顶点着色器源代码，用于覆盖默认顶点着色器。
+ * @param {string} [options.fragmentShaderSource] 可选的 GLSL 片段着色器源代码，用于覆盖默认片段着色器。
+ * @param {object} [options.renderState] 可选的渲染状态，用于覆盖默认渲染状态。
  *
  * @see MaterialAppearance
  * @see EllipsoidSurfaceAppearance
@@ -33,23 +31,22 @@ import CullFace from "./CullFace.js";
 function Appearance(options) {
   options = options ?? Frozen.EMPTY_OBJECT;
 
-  /**
-   * The material used to determine the fragment color.  Unlike other {@link Appearance}
-   * properties, this is not read-only, so an appearance's material can change on the fly.
-   *
-   * @type Material
-   *
-   * @see {@link https://github.com/CesiumGS/cesium/wiki/Fabric|Fabric}
-   */
+   /**
+    * 用于确定片段颜色的材质。与其他 {@link Appearance} 属性不同，此属性不是只读的，因此外观的材质可以动态变化。
+    *
+    * @type Material
+    *
+    * @see {@link https://github.com/CesiumGS/cesium/wiki/Fabric|Fabric}
+    */
   this.material = options.material;
 
-  /**
-   * When <code>true</code>, the geometry is expected to appear translucent.
-   *
-   * @type {boolean}
-   *
-   * @default true
-   */
+   /**
+    * 当为 <code>true</code> 时，几何体预计表现为半透明。
+    *
+    * @type {boolean}
+    *
+    * @default true
+    */
   this.translucent = options.translucent ?? true;
 
   this._vertexShaderSource = options.vertexShaderSource;
@@ -60,7 +57,7 @@ function Appearance(options) {
 
 Object.defineProperties(Appearance.prototype, {
   /**
-   * The GLSL source code for the vertex shader.
+   * 顶点着色器的 GLSL 源代码。
    *
    * @memberof Appearance.prototype
    *
@@ -74,9 +71,7 @@ Object.defineProperties(Appearance.prototype, {
   },
 
   /**
-   * The GLSL source code for the fragment shader.  The full fragment shader
-   * source is built procedurally taking into account the {@link Appearance#material}.
-   * Use {@link Appearance#getFragmentShaderSource} to get the full source.
+   * 片段着色器的 GLSL 源代码。完整的片段着色器源代码是通过考虑 {@link Appearance#material} 以程序化方式构建的。使用 {@link Appearance#getFragmentShaderSource} 获取完整的源代码。
    *
    * @memberof Appearance.prototype
    *
@@ -90,7 +85,7 @@ Object.defineProperties(Appearance.prototype, {
   },
 
   /**
-   * The WebGL fixed-function state to use when rendering the geometry.
+   * 渲染几何体时使用的 WebGL 固定功能状态。
    *
    * @memberof Appearance.prototype
    *
@@ -104,7 +99,7 @@ Object.defineProperties(Appearance.prototype, {
   },
 
   /**
-   * When <code>true</code>, the geometry is expected to be closed.
+   * 当为 <code>true</code> 时，几何体预计是封闭的。
    *
    * @memberof Appearance.prototype
    *
@@ -121,10 +116,9 @@ Object.defineProperties(Appearance.prototype, {
 });
 
 /**
- * Procedurally creates the full GLSL fragment shader source for this appearance
- * taking into account {@link Appearance#fragmentShaderSource} and {@link Appearance#material}.
+ * 通过考虑 {@link Appearance#fragmentShaderSource} 和 {@link Appearance#material}，为此外观程序化地创建完整的 GLSL 片段着色器源代码。
  *
- * @returns {string} The full GLSL fragment shader source.
+ * @returns {string} 完整的 GLSL 片段着色器源代码。
  */
 Appearance.prototype.getFragmentShaderSource = function () {
   const parts = [];
@@ -143,9 +137,9 @@ Appearance.prototype.getFragmentShaderSource = function () {
 };
 
 /**
- * Determines if the geometry is translucent based on {@link Appearance#translucent} and {@link Material#isTranslucent}.
+ * 根据 {@link Appearance#translucent} 和 {@link Material#isTranslucent} 确定几何体是否半透明。
  *
- * @returns {boolean} <code>true</code> if the appearance is translucent.
+ * @returns {boolean} 如果外观是半透明的，则返回 <code>true</code>。
  */
 Appearance.prototype.isTranslucent = function () {
   return (
@@ -155,11 +149,9 @@ Appearance.prototype.isTranslucent = function () {
 };
 
 /**
- * Creates a render state.  This is not the final render state instance; instead,
- * it can contain a subset of render state properties identical to the render state
- * created in the context.
+ * 创建渲染状态。这不是最终的渲染状态实例；相反，它可以包含与在上下文中创建的渲染状态相同的渲染状态属性子集。
  *
- * @returns {object} The render state.
+ * @returns {object} 渲染状态。
  */
 Appearance.prototype.getRenderState = function () {
   const translucent = this.isTranslucent();

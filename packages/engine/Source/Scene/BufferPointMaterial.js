@@ -8,20 +8,20 @@ import BufferPrimitiveMaterial from "./BufferPrimitiveMaterial.js";
 
 /**
  * @typedef {object} BufferPointMaterialOptions
- * @property {Color} [color=Color.WHITE] Color of fill.
- * @property {Color} [outlineColor=Color.WHITE] Color of outline.
- * @property {number} [outlineWidth=0.0] Width of outline, 0-255px.
- * @property {number} [size=1.0] Size of point, 0-255px.
+ * @property {Color} [color=Color.WHITE] 填充颜色。
+ * @property {Color} [outlineColor=Color.WHITE] 轮廓颜色。
+ * @property {number} [outlineWidth=0.0] 轮廓宽度,0-255px。
+ * @property {number} [size=1.0] 点大小,0-255px。
  */
 
 /**
- * Material description for a {@link BufferPoint}.
+ * {@link BufferPoint} 的材质描述。
  *
- * <p>BufferPointMaterial objects are {@link Packable|packable}, stored
- * when calling {@link BufferPoint#setMaterial}. Subsequent changes to the
- * material will not affect the point until setMaterial() is called again.</p>
+ * <p>BufferPointMaterial 对象是{@link Packable|可打包的},在调用
+ * {@link BufferPoint#setMaterial} 时存储。对材质的后续更改不会影响点,
+ * 除非再次调用 setMaterial()。</p>
  *
- * @experimental This feature is not final and is subject to change without Cesium's standard deprecation policy.
+ * @experimental 此功能尚未最终确定,可能会在不遵循 Cesium 标准弃用政策的情况下进行更改。
  * @extends BufferPrimitiveMaterial
  */
 class BufferPointMaterial extends BufferPrimitiveMaterial {
@@ -45,7 +45,7 @@ class BufferPointMaterial extends BufferPrimitiveMaterial {
     super(options);
 
     /**
-     * Size of point, 0-255px.
+     * 点大小,0-255px。
      * @type {number}
      */
     this.size = options.size ?? 1;
@@ -81,11 +81,10 @@ class BufferPointMaterial extends BufferPrimitiveMaterial {
   // DEBUG
 
   /**
-   * Returns a JSON-serializable object representing the material. This encoding
-   * is not memory-efficient, and should generally be used for debugging and
-   * testing.
+   * 返回表示该材质的可 JSON 序列化的对象。此编码
+   * 不具有内存效率,通常应用于调试和测试。
    *
-   * @returns {Object} JSON-serializable object.
+   * @returns {Object} 可 JSON 序列化的对象。
    */
   toJSON() {
     return { ...super.toJSON(), size: this.size };

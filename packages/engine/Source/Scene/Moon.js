@@ -13,15 +13,15 @@ import EllipsoidPrimitive from "./EllipsoidPrimitive.js";
 import Material from "./Material.js";
 
 /**
- * Draws the Moon in 3D.
+ * 在 3D 中绘制月球。
  * @alias Moon
  * @constructor
  *
- * @param {object} [options] Object with the following properties:
- * @param {boolean} [options.show=true] Determines whether the moon will be rendered.
- * @param {string} [options.textureUrl=buildModuleUrl('Assets/Textures/moonSmall.jpg')] The moon texture.
- * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.MOON] The moon ellipsoid.
- * @param {boolean} [options.onlySunLighting=true] Use the sun as the only light source.
+ * @param {object} [options] 包含以下属性的对象:
+ * @param {boolean} [options.show=true] 确定是否渲染月球。
+ * @param {string} [options.textureUrl=buildModuleUrl('Assets/Textures/moonSmall.jpg')] 月球纹理。
+ * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.MOON] 月球椭球体。
+ * @param {boolean} [options.onlySunLighting=true] 使用太阳作为唯一光源。
  *
  *
  * @example
@@ -38,7 +38,7 @@ function Moon(options) {
   }
 
   /**
-   * Determines if the moon will be shown.
+   * 确定是否显示月球。
    *
    * @type {boolean}
    * @default true
@@ -46,7 +46,7 @@ function Moon(options) {
   this.show = options.show ?? true;
 
   /**
-   * The moon texture.
+   * 月球纹理。
    * @type {string}
    * @default buildModuleUrl('Assets/Textures/moonSmall.jpg')
    */
@@ -55,7 +55,7 @@ function Moon(options) {
   this._ellipsoid = options.ellipsoid ?? Ellipsoid.MOON;
 
   /**
-   * Use the sun as the only light source.
+   * 使用太阳作为唯一光源。
    * @type {boolean}
    * @default true
    */
@@ -74,7 +74,7 @@ function Moon(options) {
 
 Object.defineProperties(Moon.prototype, {
   /**
-   * Get the ellipsoid that defines the shape of the moon.
+   * 获取定义月球形状的椭球体。
    *
    * @memberof Moon.prototype
    *

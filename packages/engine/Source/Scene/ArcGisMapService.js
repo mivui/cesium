@@ -6,12 +6,12 @@ let defaultTokenCredit;
 const defaultAccessToken =
   "AAPTarorp_WgBbyDABMqDfNsSWg..ykf3buvvbFduVL73NrRrnqBR8lO4ndPrO94nF7-3rfUWF5n3sbUe2Xe0d4rhAGa-sOTDpE-AI5kom4O4ixK3QFkTnjaGpFtDOxyrPXZUj1vRmsZAaIMZlzC5TWfBDr-RYeD9NCRMq8JwaP2Fp9blpXTqYVCWpENJLiCJ3pUlQ7XSrnJYNlPwph4B3k1FAK_j3DTlLDd2xbHwcMRbVYq8iJqt7vGuWHw3otSkmltdnNAgMaVQ366Rf0YUAT1_Hbd2aXK9";
 /**
- * Default options for accessing the ArcGIS image tile service.
+ * 访问 ArcGIS 图像瓦片服务的默认选项。
  *
- * An ArcGIS access token is required to access ArcGIS image tile layers.
- * A default token is provided for evaluation purposes only.
- * To obtain an access token, go to {@link https://developers.arcgis.com} and create a free account.
- * More info can be found in the {@link https://developers.arcgis.com/documentation/mapping-apis-and-services/security/ | ArcGIS developer guide}.
+ * 访问 ArcGIS 图像瓦片图层需要 ArcGIS 访问令牌。
+ * 提供默认令牌仅用于评估目的。
+ * 要获取访问令牌，请访问 {@link https://developers.arcgis.com} 并创建免费帐户。
+ * 更多信息可在 {@link https://developers.arcgis.com/documentation/mapping-apis-and-services/security/ | ArcGIS 开发者指南} 中找到。
  *
  * @see ArcGisMapServerImageryProvider
  * @namespace ArcGisMapService
@@ -19,14 +19,14 @@ const defaultAccessToken =
 
 const ArcGisMapService = {};
 /**
- * Gets or sets the default ArcGIS access token.
+ * 获取或设置默认的 ArcGIS 访问令牌。
  *
  * @type {string}
  */
 ArcGisMapService.defaultAccessToken = defaultAccessToken;
 
 /**
- * Gets or sets the URL of the ArcGIS World Imagery tile service.
+ * 获取或设置 ArcGIS World Imagery 瓦片服务的 URL。
  *
  * @type {string|Resource}
  * @default https://ibasemaps-api.arcgis.com/arcgis/rest/services/World_Imagery/MapServer
@@ -36,7 +36,7 @@ ArcGisMapService.defaultWorldImageryServer = new Resource({
 });
 
 /**
- * Gets or sets the URL of the ArcGIS World Hillshade tile service.
+ * 获取或设置 ArcGIS World Hillshade 瓦片服务的 URL。
  *
  * @type {string|Resource}
  * @default https://ibasemaps-api.arcgis.com/arcgis/rest/services/Elevation/World_Hillshade/MapServer
@@ -46,7 +46,7 @@ ArcGisMapService.defaultWorldHillshadeServer = new Resource({
 });
 
 /**
- * Gets or sets the URL of the ArcGIS World Oceans tile service.
+ * 获取或设置 ArcGIS World Oceans 瓦片服务的 URL。
  *
  * @type {string|Resource}
  * @default https://ibasemaps-api.arcgis.com/arcgis/rest/services/Ocean/World_Ocean_Base/MapServer
@@ -56,9 +56,10 @@ ArcGisMapService.defaultWorldOceanServer = new Resource({
 });
 
 /**
+ * 获取默认的令牌署名（如果使用默认访问令牌）。
  *
- * @param {string} providedKey
- * @return {string|undefined}
+ * @param {string} providedKey 提供的访问令牌
+ * @return {Credit|undefined} 如果使用默认令牌则返回署名 Credit，否则返回 undefined
  */
 ArcGisMapService.getDefaultTokenCredit = function (providedKey) {
   if (providedKey !== defaultAccessToken) {

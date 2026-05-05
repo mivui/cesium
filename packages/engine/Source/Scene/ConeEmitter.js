@@ -5,13 +5,13 @@ import CesiumMath from "../Core/Math.js";
 const defaultAngle = CesiumMath.toRadians(30.0);
 
 /**
- * A ParticleEmitter that emits particles within a cone.
- * Particles will be positioned at the tip of the cone and have initial velocities going towards the base.
+ * 在圆锥体内发射粒子的 ParticleEmitter。
+ * 粒子将位于圆锥体的尖端，并具有朝向底部的初始速度。
  *
  * @alias ConeEmitter
  * @constructor
  *
- * @param {number} [angle=Cesium.Math.toRadians(30.0)] The angle of the cone in radians.
+ * @param {number} [angle=Cesium.Math.toRadians(30.0)] 圆锥体的角度（弧度）。
  */
 function ConeEmitter(angle) {
   this._angle = angle ?? defaultAngle;
@@ -19,7 +19,7 @@ function ConeEmitter(angle) {
 
 Object.defineProperties(ConeEmitter.prototype, {
   /**
-   * The angle of the cone in radians.
+   * 圆锥体的角度（弧度）。
    * @memberof CircleEmitter.prototype
    * @type {number}
    * @default Cesium.Math.toRadians(30.0)

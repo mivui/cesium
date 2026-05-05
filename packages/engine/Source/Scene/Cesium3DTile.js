@@ -45,18 +45,18 @@ import Pass from "../Renderer/Pass.js";
 import VerticalExaggeration from "../Core/VerticalExaggeration.js";
 
 /**
- * A tile in a {@link Cesium3DTileset}.  When a tile is first created, its content is not loaded;
- * the content is loaded on-demand when needed based on the view.
+ * {@link Cesium3DTileset} 中的一个图元。图元首次创建时,其内容未加载;
+ * 内容在需要时根据视图按需加载。
  * <p>
- * Do not construct this directly, instead access tiles through {@link Cesium3DTileset#tileVisible}.
+ * 不要直接构造此对象,而是通过 {@link Cesium3DTileset#tileVisible} 访问图元。
  * </p>
  *
  * @alias Cesium3DTile
  * @constructor
- * @param {Cesium3DTileset} tileset The tileset
- * @param {Resource} baseResource The base resource for the tileset
- * @param {object} header The JSON header for the tile
- * @param {Cesium3DTile} parent The parent tile of the new tile
+ * @param {Cesium3DTileset} tileset 图元集
+ * @param {Resource} baseResource 图元集的基础资源
+ * @param {object} header 图元的 JSON 头
+ * @param {Cesium3DTile} parent 新图元的父图元
  */
 function Cesium3DTile(tileset, baseResource, header, parent) {
   this._tileset = tileset;
@@ -76,7 +76,7 @@ function Cesium3DTile(tileset, baseResource, header, parent) {
   this._contentHeader = contentHeader;
 
   /**
-   * The local transform of this tile.
+   * 此图元的局部变换。
    * @type {Matrix4}
    */
   this.transform = defined(header.transform)
@@ -102,7 +102,7 @@ function Cesium3DTile(tileset, baseResource, header, parent) {
   );
 
   /**
-   * The final computed transform of this tile.
+   * 此图元的最终计算变换。
    * @type {Matrix4}
    * @readonly
    */
@@ -157,8 +157,8 @@ function Cesium3DTile(tileset, baseResource, header, parent) {
   this._viewerRequestVolume = viewerRequestVolume;
 
   /**
-   * The error, in meters, introduced if this tile is rendered and its children are not.
-   * This is used to compute screen space error, i.e., the error measured in pixels.
+   * 如果渲染此图元而不渲染其子图元引入的误差(米)。
+   * 这用于计算屏幕空间误差,即以像素为单位的误差。
    *
    * @type {number}
    * @readonly
@@ -209,7 +209,7 @@ function Cesium3DTile(tileset, baseResource, header, parent) {
   this.refine = refine;
 
   /**
-   * Gets the tile's children.
+   * 获取图元的子图元。
    *
    * @type {Cesium3DTile[]}
    * @readonly
@@ -217,11 +217,11 @@ function Cesium3DTile(tileset, baseResource, header, parent) {
   this.children = [];
 
   /**
-   * This tile's parent or <code>undefined</code> if this tile is the root.
+   * 此图元的父图元,如果此图元是根图元则为 <code>undefined</code>。
    * <p>
-   * When a tile's content points to an external tileset JSON file, the external tileset's
-   * root tile's parent is not <code>undefined</code>; instead, the parent references
-   * the tile (with its content pointing to an external tileset JSON file) as if the two tilesets were merged.
+   * 当图元的内容指向外部图元集 JSON 文件时,外部图元集的
+   * 根图元的父图元不是 <code>undefined</code>;相反,父引用
+   * 引用该图元(其内容指向外部图元集 JSON 文件),就好像两个图元集合并了一样。
    * </p>
    *
    * @type {Cesium3DTile}
@@ -387,14 +387,14 @@ function Cesium3DTile(tileset, baseResource, header, parent) {
   }
 
   /**
-   * The time in seconds after the tile's content is ready when the content expires and new content is requested.
+   * 图元内容准备就绪后内容过期并请求新内容的时间(秒)。
    *
    * @type {number}
    */
   this.expireDuration = expireDuration;
 
   /**
-   * The date when the content expires and new content is requested.
+   * 内容过期并请求新内容的日期。
    *
    * @type {JulianDate}
    */

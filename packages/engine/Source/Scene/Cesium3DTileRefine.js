@@ -1,10 +1,9 @@
 // @ts-check
 
 /**
- * The refinement approach for a tile.
+ * 瓦片的细化方法。
  * <p>
- * See the {@link https://github.com/CesiumGS/3d-tiles/tree/main/specification#refinement|Refinement}
- * in the 3D Tiles spec.
+ * 参见 3D Tiles 规范中的 {@link https://github.com/CesiumGS/3d-tiles/tree/main/specification#refinement|Refinement}。
  * </p>
  *
  * @enum {number}
@@ -13,7 +12,7 @@
  */
 const Cesium3DTileRefine = {
   /**
-   * Render this tile and, if it doesn't meet the screen space error, also refine to its children.
+   * 渲染此瓦片，并且如果未达到屏幕空间误差要求，则同时细化到其子瓦片。
    *
    * @type {number}
    * @constant
@@ -21,7 +20,7 @@ const Cesium3DTileRefine = {
   ADD: 0,
 
   /**
-   * Render this tile or, if it doesn't meet the screen space error, refine to its descendants instead.
+   * 渲染此瓦片，或者如果未达到屏幕空间误差要求，则细化到其后代瓦片代替。
    *
    * @type {number}
    * @constant

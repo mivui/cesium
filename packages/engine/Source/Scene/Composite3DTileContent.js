@@ -5,11 +5,11 @@ import getMagic from "../Core/getMagic.js";
 import RuntimeError from "../Core/RuntimeError.js";
 
 /**
- * Represents the contents of a
+ * 表示
  * {@link https://github.com/CesiumGS/3d-tiles/tree/main/specification/TileFormats/Composite|Composite}
- * tile in a {@link https://github.com/CesiumGS/3d-tiles/tree/main/specification|3D Tiles} tileset.
+ * {@link https://github.com/CesiumGS/3d-tiles/tree/main/specification|3D Tiles} tileset 中 tile 的内容。
  * <p>
- * Implements the {@link Cesium3DTileContent} interface.
+ * 实现 {@link Cesium3DTileContent} 接口。
  * </p>
  *
  * @alias Composite3DTileContent
@@ -55,8 +55,8 @@ Object.defineProperties(Composite3DTileContent.prototype, {
   },
 
   /**
-   * Part of the {@link Cesium3DTileContent} interface.  <code>Composite3DTileContent</code>
-   * always returns <code>0</code>.  Instead call <code>featuresLength</code> for a tile in the composite.
+   * {@link Cesium3DTileContent} 接口的一部分。<code>Composite3DTileContent</code>
+   * 始终返回 <code>0</code>。改为对 composite 中的 tile 调用 <code>featuresLength</code>。
    * @memberof Composite3DTileContent.prototype
    */
   featuresLength: {
@@ -66,8 +66,8 @@ Object.defineProperties(Composite3DTileContent.prototype, {
   },
 
   /**
-   * Part of the {@link Cesium3DTileContent} interface.  <code>Composite3DTileContent</code>
-   * always returns <code>0</code>.  Instead call <code>pointsLength</code> for a tile in the composite.
+   * {@link Cesium3DTileContent} 接口的一部分。<code>Composite3DTileContent</code>
+   * 始终返回 <code>0</code>。改为对 composite 中的 tile 调用 <code>pointsLength</code>。
    * @memberof Composite3DTileContent.prototype
    */
   pointsLength: {
@@ -77,8 +77,8 @@ Object.defineProperties(Composite3DTileContent.prototype, {
   },
 
   /**
-   * Part of the {@link Cesium3DTileContent} interface.  <code>Composite3DTileContent</code>
-   * always returns <code>0</code>.  Instead call <code>trianglesLength</code> for a tile in the composite.
+   * {@link Cesium3DTileContent} 接口的一部分。<code>Composite3DTileContent</code>
+   * 始终返回 <code>0</code>。改为对 composite 中的 tile 调用 <code>trianglesLength</code>。
    * @memberof Composite3DTileContent.prototype
    */
   trianglesLength: {
@@ -88,8 +88,8 @@ Object.defineProperties(Composite3DTileContent.prototype, {
   },
 
   /**
-   * Part of the {@link Cesium3DTileContent} interface.  <code>Composite3DTileContent</code>
-   * always returns <code>0</code>.  Instead call <code>geometryByteLength</code> for a tile in the composite.
+   * {@link Cesium3DTileContent} 接口的一部分。<code>Composite3DTileContent</code>
+   * 始终返回 <code>0</code>。改为对 composite 中的 tile 调用 <code>geometryByteLength</code>。
    * @memberof Composite3DTileContent.prototype
    */
   geometryByteLength: {
@@ -99,8 +99,8 @@ Object.defineProperties(Composite3DTileContent.prototype, {
   },
 
   /**
-   * Part of the {@link Cesium3DTileContent} interface.   <code>Composite3DTileContent</code>
-   * always returns <code>0</code>.  Instead call <code>texturesByteLength</code> for a tile in the composite.
+   * {@link Cesium3DTileContent} 接口的一部分。<code>Composite3DTileContent</code>
+   * 始终返回 <code>0</code>。改为对 composite 中的 tile 调用 <code>texturesByteLength</code>。
    * @memberof Composite3DTileContent.prototype
    */
   texturesByteLength: {
@@ -110,8 +110,8 @@ Object.defineProperties(Composite3DTileContent.prototype, {
   },
 
   /**
-   * Part of the {@link Cesium3DTileContent} interface.  <code>Composite3DTileContent</code>
-   * always returns <code>0</code>.  Instead call <code>batchTableByteLength</code> for a tile in the composite.
+   * {@link Cesium3DTileContent} 接口的一部分。<code>Composite3DTileContent</code>
+   * 始终返回 <code>0</code>。改为对 composite 中的 tile 调用 <code>batchTableByteLength</code>。
    * @memberof Composite3DTileContent.prototype
    */
   batchTableByteLength: {
@@ -127,7 +127,7 @@ Object.defineProperties(Composite3DTileContent.prototype, {
   },
 
   /**
-   * Returns true when the tile's content is ready to render; otherwise false
+   * 当 tile 的内容准备好渲染时返回 true；否则返回 false
    *
    * @memberof Composite3DTileContent.prototype
    *
@@ -160,11 +160,11 @@ Object.defineProperties(Composite3DTileContent.prototype, {
   },
 
   /**
-   * Part of the {@link Cesium3DTileContent} interface. <code>Composite3DTileContent</code>
-   * both stores the content metadata and propagates the content metadata to all of its children.
+   * {@link Cesium3DTileContent} 接口的一部分。<code>Composite3DTileContent</code>
+   * 存储内容元数据并将内容元数据传播到其所有子项。
    * @memberof Composite3DTileContent.prototype
    * @private
-   * @experimental This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.
+   * @experimental 此功能使用的 3D Tiles 规范部分尚未最终确定，可能会更改，且不遵循 Cesium 的标准弃用策略。
    */
   metadata: {
     get: function () {
@@ -181,8 +181,8 @@ Object.defineProperties(Composite3DTileContent.prototype, {
   },
 
   /**
-   * Part of the {@link Cesium3DTileContent} interface. <code>Composite3DTileContent</code>
-   * always returns <code>undefined</code>.  Instead call <code>batchTable</code> for a tile in the composite.
+   * {@link Cesium3DTileContent} 接口的一部分。<code>Composite3DTileContent</code>
+   * 始终返回 <code>undefined</code>。改为对 composite 中的 tile 调用 <code>batchTable</code>。
    * @memberof Composite3DTileContent.prototype
    */
   batchTable: {
@@ -192,11 +192,11 @@ Object.defineProperties(Composite3DTileContent.prototype, {
   },
 
   /**
-   * Part of the {@link Cesium3DTileContent} interface. <code>Composite3DTileContent</code>
-   * both stores the group metadata and propagates the group metadata to all of its children.
+   * {@link Cesium3DTileContent} 接口的一部分。<code>Composite3DTileContent</code>
+   * 存储组元数据并将组元数据传播到其所有子项。
    * @memberof Composite3DTileContent.prototype
    * @private
-   * @experimental This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.
+   * @experimental 此功能使用的 3D Tiles 规范部分尚未最终确定，可能会更改，且不遵循 Cesium 的标准弃用策略。
    */
   group: {
     get: function () {
@@ -299,16 +299,16 @@ Composite3DTileContent.fromTileType = async function (
 };
 
 /**
- * Part of the {@link Cesium3DTileContent} interface.  <code>Composite3DTileContent</code>
- * always returns <code>false</code>.  Instead call <code>hasProperty</code> for a tile in the composite.
+ * {@link Cesium3DTileContent} 接口的一部分。<code>Composite3DTileContent</code>
+ * 始终返回 <code>false</code>。改为对 composite 中的 tile 调用 <code>hasProperty</code>。
  */
 Composite3DTileContent.prototype.hasProperty = function (batchId, name) {
   return false;
 };
 
 /**
- * Part of the {@link Cesium3DTileContent} interface.  <code>Composite3DTileContent</code>
- * always returns <code>undefined</code>.  Instead call <code>getFeature</code> for a tile in the composite.
+ * {@link Cesium3DTileContent} 接口的一部分。<code>Composite3DTileContent</code>
+ * 始终返回 <code>undefined</code>。改为对 composite 中的 tile 调用 <code>getFeature</code>。
  */
 Composite3DTileContent.prototype.getFeature = function (batchId) {
   return undefined;
@@ -348,12 +348,12 @@ Composite3DTileContent.prototype.update = function (tileset, frameState) {
 };
 
 /**
- * Find an intersection between a ray and the tile content surface that was rendered. The ray must be given in world coordinates.
+ * 查找射线与已渲染的 tile 内容表面之间的交点。射线必须以世界坐标给出。
  *
- * @param {Ray} ray The ray to test for intersection.
- * @param {FrameState} frameState The frame state.
- * @param {Cartesian3|undefined} [result] The intersection or <code>undefined</code> if none was found.
- * @returns {Cartesian3|undefined} The intersection or <code>undefined</code> if none was found.
+ * @param {Ray} ray 用于测试交点的射线。
+ * @param {FrameState} frameState 帧状态。
+ * @param {Cartesian3|undefined} [result] 交点，如果未找到则返回 <code>undefined</code>。
+ * @returns {Cartesian3|undefined} 交点，如果未找到则返回 <code>undefined</code>。
  *
  * @private
  */

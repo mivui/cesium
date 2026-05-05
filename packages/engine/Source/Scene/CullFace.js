@@ -1,36 +1,43 @@
-// @ts-check
-
-import WebGLConstants from "../Core/WebGLConstants.js";
-
 /**
- * Determines which triangles, if any, are culled.
+ * 确定光栅化期间是剔除正面、背面还是都不剔除。
  *
  * @enum {number}
+ *
+ * @see DrawCommand.cull
  */
 const CullFace = {
   /**
-   * Front-facing triangles are culled.
-   *
+   * 剔除背面面片。
    * @type {number}
    * @constant
    */
-  FRONT: WebGLConstants.FRONT,
+  BACK: 0,
 
   /**
-   * Back-facing triangles are culled.
-   *
+   * 剔除正面面片。
    * @type {number}
    * @constant
    */
-  BACK: WebGLConstants.BACK,
+  FRONT: 1,
 
   /**
-   * Both front-facing and back-facing triangles are culled.
-   *
+   * 不剔除面片。
    * @type {number}
    * @constant
    */
-  FRONT_AND_BACK: WebGLConstants.FRONT_AND_BACK,
+  NONE: 2,
+};
+
+/**
+ * 获取 WebGL 的 cullFace 值。
+ *
+ * @param {CullFace} cullFace 要获取对应 WebGL 值的剔除面。
+ * @returns {number} 对应的 WebGL 值。
+ *
+ * @private
+ */
+CullFace.toWebGLConstant = function (cullFace) {
+  return cullFace;
 };
 
 Object.freeze(CullFace);

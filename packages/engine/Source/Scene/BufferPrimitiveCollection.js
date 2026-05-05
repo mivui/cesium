@@ -21,25 +21,25 @@ import oneTimeWarning from "../Core/oneTimeWarning.js";
 
 /**
  * @typedef {object} BufferPrimitiveOptions
- * @property {Matrix4} [modelMatrix=Matrix4.IDENTITY] Transforms geometry from model to world coordinates.
+ * @property {Matrix4} [modelMatrix=Matrix4.IDENTITY] 将几何体从模型坐标变换到世界坐标。
  * @property {boolean} [show=true]
  * @property {BufferPrimitiveMaterial} [material]
  * @property {number} [featureId]
  * @property {object} [pickObject]
- * @experimental This feature is not final and is subject to change without Cesium's standard deprecation policy.
+ * @experimental 此功能尚未最终确定,可能会在不遵循 Cesium 标准弃用政策的情况下进行更改。
  */
 
 /**
- * Collection of primitives held in ArrayBuffer storage for performance and memory optimization.
+ * 存储在 ArrayBuffer 中的图元集合,用于性能和内存优化。
  *
- * <p>To get the full performance benefit of using a BufferPrimitiveCollection containing "N" primitives,
- * be careful to avoid allocating "N" instances of any related JavaScript object. {@link BufferPrimitive},
- * {@link Color}, {@link Cartesian3}, and other objects can all be reused when working with large collections,
- * using the {@link https://en.wikipedia.org/wiki/Flyweight_pattern|flyweight pattern}.</p>
+ * <p>为了充分利用包含 "N" 个图元的 BufferPrimitiveCollection 的性能,
+ * 请注意避免分配 "N" 个任何相关 JavaScript 对象的实例。{@link BufferPrimitive}、
+ * {@link Color}、{@link Cartesian3} 等对象在使用大型集合时都可以重用,
+ * 使用{@link https://en.wikipedia.org/wiki/Flyweight_pattern|享元模式}。</p>
  *
  * @abstract
  * @template T extends BufferPrimitive
- * @experimental This feature is not final and is subject to change without Cesium's standard deprecation policy.
+ * @experimental 此功能尚未最终确定,可能会在不遵循 Cesium 标准弃用政策的情况下进行更改。
  *
  * @see BufferPrimitive
  * @see BufferPrimitiveMaterial
@@ -69,17 +69,17 @@ class BufferPrimitiveCollection {
 
   /**
    * @param {object} options
-   * @param {Matrix4} [options.modelMatrix=Matrix4.IDENTITY] Transforms geometry from model to world coordinates.
+   * @param {Matrix4} [options.modelMatrix=Matrix4.IDENTITY] 将几何体从模型坐标变换到世界坐标。
    * @param {number} [options.primitiveCountMax=BufferPrimitiveCollection.DEFAULT_CAPACITY]
    * @param {number} [options.vertexCountMax=BufferPrimitiveCollection.DEFAULT_CAPACITY]
    * @param {boolean} [options.show=true]
    * @param {ComponentDatatype} [options.positionDatatype=ComponentDatatype.DOUBLE]
-   * @param {boolean} [options.allowPicking=false] When <code>true</code>, primitives are pickable with {@link Scene#pick}. When <code>false</code>, memory and initialization cost are lower.
+   * @param {boolean} [options.allowPicking=false] 当 <code>true</code> 时,图元可使用 {@link Scene#pick} 进行拾取。当 <code>false</code> 时,内存和初始化成本更低。
    * @param {boolean} [options.debugShowBoundingVolume=false]
    */
   constructor(options = Frozen.EMPTY_OBJECT) {
     /**
-     * Determines if primitives in this collection will be shown.
+     * 确定此集合中的图元是否显示。
      * @type {boolean}
      * @default true
      */
@@ -108,8 +108,8 @@ class BufferPrimitiveCollection {
     this._boundingVolumeWC = new BoundingSphere();
 
     /**
-     * When <code>true</code>, primitives are pickable with {@link Scene#pick}.
-     * When <code>false</code>, memory and initialization cost are lower.
+     * 当 <code>true</code> 时,图元可使用 {@link Scene#pick} 进行拾取。
+     * 当 <code>false</code> 时,内存和初始化成本更低。
      * @type {boolean}
      * @readonly
      * @ignore
@@ -132,9 +132,9 @@ class BufferPrimitiveCollection {
     this._pickObjects = [];
 
     /**
-     * This property is for debugging only; it is not for production use nor is it optimized.
+     * 此属性仅用于调试;不用于生产环境,也未进行优化。
      * <p>
-     * Draws the bounding sphere for each draw command in the primitive.
+     * 绘制图元中每个绘制命令的包围球。
      * </p>
      *
      * @type {boolean}
@@ -291,15 +291,15 @@ class BufferPrimitiveCollection {
   }
 
   /**
-   * Returns true if this object was destroyed; otherwise, false.
+   * 返回此对象是否已销毁;如果未销毁,则返回 false。
    *
-   * @returns {boolean} True if this object was destroyed; otherwise, false.
+   * @returns {boolean} 如果此对象已销毁,则返回 true;否则返回 false。
    */
   isDestroyed() {
     return false;
   }
 
-  /** Destroys collection and its GPU resources. */
+  /** 销毁集合及其 GPU 资源。 */
   destroy() {
     this._pickObjects.length = 0;
 
@@ -318,16 +318,15 @@ class BufferPrimitiveCollection {
   }
 
   /**
-   * Sorts primitives of the collection.
+   * 对集合的图元进行排序。
    *
-   * Because sorting changes the indices (but not the feature IDs) of primitives
-   * in the collection, the function also returns an array mapping from previous
-   * index to new index. When sorting repeatedly, the array can be reused and
-   * passed as the 'result' argument for each call.
+   * 由于排序会更改图元的索引(但不更改特征 ID),
+   * 该函数还会返回一个数组,映射从先前索引到新索引。
+   * 当重复排序时,可以重用该数组并将其作为 'result' 参数传递给每次调用。
    *
    * @param {Function} sortFn
    * @param {Uint32Array} result
-   * @returns {Uint32Array} Mapping from previous index to new index.
+   * @returns {Uint32Array} 从先前索引到新索引的映射。
    */
   sort(sortFn, result = new Uint32Array(this.primitiveCount)) {
     const PrimitiveClass = this._getPrimitiveClass();
@@ -369,17 +368,16 @@ class BufferPrimitiveCollection {
   }
 
   /**
-   * Duplicates the contents of this collection into the result collection.
-   * Result collection is not resized, and must contain enough space for all
-   * primitives in the source collection. Existing primitives in the result
-   * collection will be overwritten.
+   * 将此集合的内容复制到结果集合。
+   * 结果集合不调整大小,必须包含足够的空间以容纳源集合中的所有图元。
+   * 结果集合中的现有图元将被覆盖。
    *
-   * <p>Useful when allocating more space for a collection that has reached its
-   * capacity, and efficiently transferring features to the new collection.</p>
+   * <p>在为已达到容量的集合分配更多空间,
+   * 并将图元高效转移到新集合时非常有用。</p>
    *
    * @example
-   * const result = new BufferPrimitiveCollection({ ... }); // allocate larger 'result' collection
-   * BufferPrimitiveCollection.clone(collection, result);   // copy primitives from 'collection' into 'result'
+   * const result = new BufferPrimitiveCollection({ ... }); // 分配更大的 'result' 集合
+   * BufferPrimitiveCollection.clone(collection, result);   // 将 'collection' 中的图元复制到 'result'
    *
    * @param {BufferPrimitiveCollection<T>} collection
    * @param {BufferPrimitiveCollection<T>} result
@@ -540,12 +538,10 @@ class BufferPrimitiveCollection {
   // PRIMITIVE LIFECYCLE
 
   /**
-   * Makes the given {@link BufferPrimitive} a view onto this collection's
-   * primitive at the given index, for use when reading/writing primitive
-   * properties. When iterating over a large collection, prefer to reuse
-   * the same BufferPrimitive instance throughout the loop — rebinding
-   * an existing instance to a different primitive is cheap, and avoids
-   * allocating in-memory objects for every object.
+   * 将给定的 {@link BufferPrimitive} 作为此集合中指定索引处图元的视图,
+   * 用于读/写图元属性。当遍历大型集合时,建议在循环中重用
+   * 同一个 BufferPrimitive 实例 — 将现有实例重新绑定到不同的图元很廉价,
+   * 并且避免了为每个对象分配内存中的对象。
    *
    * @example
    * const primitive = new BufferPrimitive();
@@ -556,8 +552,8 @@ class BufferPrimitiveCollection {
    *
    * @param {number} index
    * @param {BufferPrimitive} result
-   * @returns {BufferPrimitive} The BufferPrimitive instance passed as the
-   * 'result' argument, now bound to the specified primitive index.
+   * @returns {BufferPrimitive} 作为 'result' 参数传递的 BufferPrimitive 实例,
+   * 现在已绑定到指定的图元索引。
    */
   get(index, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -572,11 +568,10 @@ class BufferPrimitiveCollection {
   }
 
   /**
-   * Adds a new primitive to the collection, with the specified options. A
-   * {@link BufferPrimitive} instance is linked to the new primitive, using
-   * the 'result' argument if given, or a new instance if not. For repeated
-   * calls, prefer to reuse a single BufferPrimitive instance rather than
-   * allocating a new instance on each call.
+   * 向集合添加新图元,并指定选项。
+   * {@link BufferPrimitive} 实例链接到新图元,使用 'result' 参数(如果提供),
+   * 否则使用新实例。对于重复调用,建议重用单个 BufferPrimitive 实例,
+   * 而不是在每次调用时分配新实例。
    *
    * @param {BufferPrimitiveOptions} options
    * @param {BufferPrimitive} result
@@ -654,7 +649,7 @@ class BufferPrimitiveCollection {
   // ACCESSORS
 
   /**
-   * Number of primitives in collection. Must be <= {@link primitiveCountMax}.
+   * 集合中的图元数。必须 <= {@link primitiveCountMax}。
    *
    * @type {number}
    * @readonly
@@ -664,8 +659,8 @@ class BufferPrimitiveCollection {
   }
 
   /**
-   * Maximum number of primitives this collection can contain. Must be >=
-   * {@link primitiveCount}.
+   * 此集合可包含的最大图元数。必须 >=
+   * {@link primitiveCount}。
    *
    * @type {number}
    * @readonly
@@ -676,9 +671,8 @@ class BufferPrimitiveCollection {
   }
 
   /**
-   * Total byte length of buffers owned by this collection. Includes any unused
-   * space allocated by {@link primitiveCountMax}, even if no primitives have
-   * yet been added in that space.
+   * 此集合拥有的缓冲区的总字节长度。包括由
+   * {@link primitiveCountMax} 分配的任何未使用空间,即使尚未在该空间中添加图元。
    *
    * @type {number}
    * @readonly
@@ -692,7 +686,7 @@ class BufferPrimitiveCollection {
   }
 
   /**
-   * Number of vertices in collection. Must be <= {@link vertexCountMax}.
+   * 集合中的顶点数。必须 <= {@link vertexCountMax}。
    *
    * @type {number}
    * @readonly
@@ -702,8 +696,8 @@ class BufferPrimitiveCollection {
   }
 
   /**
-   * Maximum number of vertices this collection can contain. Must be >=
-   * {@link vertexCount}.
+   * 此集合可包含的最大顶点数。必须 >=
+   * {@link vertexCount}。
    *
    * @type {number}
    * @readonly
@@ -714,7 +708,7 @@ class BufferPrimitiveCollection {
   }
 
   /**
-   * Transforms geometry from model to world coordinates.
+   * 将几何体从模型坐标变换到世界坐标。
    * @type {Matrix4}
    * @default Matrix4.IDENTITY
    * @readonly
@@ -724,8 +718,8 @@ class BufferPrimitiveCollection {
   }
 
   /**
-   * Local bounding volume for all primitives in the collection, including both
-   * shown and hidden primitives.
+   * 集合中所有图元的局部包围体积,包括
+   * 显示和隐藏的图元。
    * @type {BoundingSphere}
    * @readonly
    */
@@ -734,8 +728,8 @@ class BufferPrimitiveCollection {
   }
 
   /**
-   * World bounding volume for all primitives in the collection, including both
-   * shown and hidden primitives.
+   * 集合中所有图元的世界包围体积,包括
+   * 显示和隐藏的图元。
    * @type {BoundingSphere}
    * @readonly
    */
@@ -779,15 +773,13 @@ class BufferPrimitiveCollection {
   // DEBUG
 
   /**
-   * Returns a JSON-serializable array representing the collection. This encoding
-   * is not memory-efficient, and should generally be used for debugging and
-   * testing.
+   * 返回表示该集合的可 JSON 序列化的数组。此编码
+   * 不具有内存效率,通常应用于调试和测试。
    *
    * @example
    * console.table(collection.toJSON());
    *
-   * @returns {Array<Object>} List of JSON-serializable objects, one for each
-   * primitive in the collection.
+   * @returns {Array<Object>} 可 JSON 序列化的对象列表,集合中每个图元一个。
    */
   toJSON() {
     const PrimitiveClass = this._getPrimitiveClass();
@@ -803,11 +795,10 @@ class BufferPrimitiveCollection {
 }
 
 /**
- * Default capacity of buffers on new collections. A quantity of elements:
- * number of vertices in the vertex buffer, primitives in the primitive
- * buffer, etc. This value is arbitrary, and collections cannot be resized,
- * so specific per-buffer capacities should be provided in the collection
- * constructor when available.
+ * 新集合上缓冲区的默认容量。元素数量:
+ * 顶点缓冲区中的顶点数,图元缓冲区中的图元数等。
+ * 此值是任意的,且集合无法调整大小,
+ * 因此在可用时应在集合构造函数中提供特定的每缓冲容量。
  *
  * @type {number}
  * @static

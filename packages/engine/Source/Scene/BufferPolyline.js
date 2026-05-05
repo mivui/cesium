@@ -11,20 +11,19 @@ import defined from "../Core/defined.js";
 const { ERR_RESIZE, ERR_CAPACITY } = BufferPrimitiveCollection.Error;
 
 /**
- * View bound to the underlying buffer data of a {@link BufferPolylineCollection}.
+ * 绑定到 {@link BufferPolylineCollection} 底层缓冲数据的视图。
  *
- * <p>BufferPolyline instances are {@link https://en.wikipedia.org/wiki/Flyweight_pattern|flyweights}:
- * a single BufferPolyline instance can be temporarily bound to any conceptual
- * "polyline" in a BufferPolylineCollection, allowing very large collections to be
- * iterated and updated with a minimal memory footprint.</p>
+ * <p>BufferPolyline 实例是{@link https://en.wikipedia.org/wiki/Flyweight_pattern|享元}:
+ * 单个 BufferPolyline 实例可以临时绑定到 BufferPolylineCollection 中的任意概念
+ * "折线",允许以最小的内存占用迭代和更新非常大的集合。</p>
  *
- * Represented as two (2) or more positions.
+ * 由两个 (2) 或更多位置表示。
  *
  * @see BufferPolylineCollection
  * @see BufferPolylineMaterial
  * @see BufferPrimitive
  * @extends BufferPrimitive
- * @experimental This feature is not final and is subject to change without Cesium's standard deprecation policy.
+ * @experimental 此功能尚未最终确定,可能会在不遵循 Cesium 标准弃用政策的情况下进行更改。
  */
 class BufferPolyline extends BufferPrimitive {
   /**
@@ -62,9 +61,9 @@ class BufferPolyline extends BufferPrimitive {
   // LIFECYCLE
 
   /**
-   * Copies data from source polyline to result. If the result polyline is not
-   * new (the last polyline in the collection) then source and result polylines
-   * must have the same vertex counts.
+   * 将源折线的数据复制到结果。如果结果折线不是新的
+   * (集合中的最后一条折线),则源折线和结果折线
+   * 必须具有相同的顶点数。
    *
    * @param {BufferPolyline} polyline
    * @param {BufferPolyline} result
@@ -93,7 +92,7 @@ class BufferPolyline extends BufferPrimitive {
   }
 
   /**
-   * Count of positions (vertices) in this polyline, number of VEC3 elements.
+   * 此折线中的位置(顶点)数量,VEC3 元素数量。
    *
    * @type {number}
    * @readonly
@@ -103,10 +102,10 @@ class BufferPolyline extends BufferPrimitive {
   }
 
   /**
-   * Returns an array view of this polyline's vertex positions. If 'result'
-   * argument is given, vertex positions are written to that array and returned.
-   * Otherwise, returns an ArrayView on collection memory — changes to this array
-   * will not trigger render updates, which requires `.setPositions()`.
+   * 返回此折线顶点位置的数组视图。如果给定 'result'
+   * 参数,顶点位置将写入该数组并返回。
+   * 否则,返回集合内存上的 ArrayView — 对此数组的更改
+   * 不会触发渲染更新,这需要 `.setPositions()`。
    *
    * @param {TypedArray} [result]
    * return {TypedArray}
@@ -168,11 +167,10 @@ class BufferPolyline extends BufferPrimitive {
   // DEBUG
 
   /**
-   * Returns a JSON-serializable object representing the polyline. This encoding
-   * is not memory-efficient, and should generally be used for debugging and
-   * testing.
+   * 返回表示该折线的可 JSON 序列化的对象。此编码
+   * 不具有内存效率,通常应用于调试和测试。
    *
-   * @returns {Object} JSON-serializable object.
+   * @returns {Object} 可 JSON 序列化的对象。
    * @override
    */
   toJSON() {

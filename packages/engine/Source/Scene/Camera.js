@@ -32,44 +32,44 @@ import SceneMode from "./SceneMode.js";
 /**
  * @typedef {object} DirectionUp
  *
- * An orientation given by a pair of unit vectors
+ * 由一对单位向量定义的朝向
  *
- * @property {Cartesian3} direction The unit "direction" vector
- * @property {Cartesian3} up The unit "up" vector
+ * @property {Cartesian3} direction 单位"朝向"向量
+ * @property {Cartesian3} up 单位"向上"向量
  **/
 /**
  * @typedef {object} HeadingPitchRollValues
  *
- * An orientation given by numeric heading, pitch, and roll
+ * 由数值航向角、俯仰角和翻滚角定义的朝向
  *
- * @property {number} [heading=0.0] The heading in radians
- * @property {number} [pitch=-CesiumMath.PI_OVER_TWO] The pitch in radians
- * @property {number} [roll=0.0] The roll in radians
+ * @property {number} [heading=0.0] 航向角(弧度)
+ * @property {number} [pitch=-CesiumMath.PI_OVER_TWO] 俯仰角(弧度)
+ * @property {number} [roll=0.0] 翻滚角(弧度)
  **/
 
 /**
- * The camera is defined by a position, orientation, and view frustum.
+ * 相机由位置、朝向和视锥体定义。
  * <br /><br />
- * The orientation forms an orthonormal basis with a view, up and right = view x up unit vectors.
+ * 朝向通过视图、向上和向右 = 视图 x 向上单位向量形成正交基。
  * <br /><br />
- * The viewing frustum is defined by 6 planes.
- * Each plane is represented by a {@link Cartesian4} object, where the x, y, and z components
- * define the unit vector normal to the plane, and the w component is the distance of the
- * plane from the origin/camera position.
+ * 视锥体由 6 个平面定义。
+ * 每个平面由一个 {@link Cartesian4} 对象表示,其中 x、y 和 z 分量
+ * 定义垂直于平面的单位向量,w 分量是
+ * 平面与原点/相机位置的距离。
  *
  * @alias Camera
  *
  * @constructor
  *
- * @param {Scene} scene The scene.
+ * @param {Scene} scene 场景。
  *
- * @demo {@link https://sandcastle.cesium.com/index.html?id=camera|Cesium Sandcastle Camera Demo}
- * @demo {@link https://sandcastle.cesium.com/index.html?id=camera-tutorial|Cesium Sandcastle Camera Tutorial Example}
- * @demo {@link https://cesium.com/learn/cesiumjs-learn/cesiumjs-camera|Camera Tutorial}
+ * @demo {@link https://sandcastle.cesium.com/index.html?id=camera|Cesium Sandcastle 相机演示}
+ * @demo {@link https://sandcastle.cesium.com/index.html?id=camera-tutorial|Cesium Sandcastle 相机教程示例}
+ * @demo {@link https://cesium.com/learn/cesiumjs-learn/cesiumjs-camera|相机教程}
  *
  * @example
- * // Create a camera looking down the negative z-axis, positioned at the origin,
- * // with a field of view of 60 degrees, and 1:1 aspect ratio.
+ * // 创建一个沿负 z 轴向下看,位于原点,
+ * // 视场角为 60 度,宽高比为 1:1 的相机。
  * const camera = new Cesium.Camera(scene);
  * camera.position = new Cesium.Cartesian3();
  * camera.direction = Cesium.Cartesian3.negate(Cesium.Cartesian3.UNIT_Z, new Cesium.Cartesian3());
@@ -93,7 +93,7 @@ function Camera(scene) {
   this._transformChanged = false;
 
   /**
-   * The position of the camera.
+   * 相机的位置。
    *
    * @type {Cartesian3}
    */
@@ -126,7 +126,7 @@ function Camera(scene) {
   this._lastMovedTimestamp = 0.0;
 
   /**
-   * The view direction of the camera.
+   * 相机的视图方向。
    *
    * @type {Cartesian3}
    */
@@ -135,7 +135,7 @@ function Camera(scene) {
   this._directionWC = new Cartesian3();
 
   /**
-   * The up direction of the camera.
+   * 相机的向上方向。
    *
    * @type {Cartesian3}
    */
@@ -144,7 +144,7 @@ function Camera(scene) {
   this._upWC = new Cartesian3();
 
   /**
-   * The right direction of the camera.
+   * 相机的向右方向。
    *
    * @type {Cartesian3}
    */
@@ -153,7 +153,7 @@ function Camera(scene) {
   this._rightWC = new Cartesian3();
 
   /**
-   * The region of space in view.
+   * 可见的空间区域。
    *
    * @type {PerspectiveFrustum|PerspectiveOffCenterFrustum|OrthographicFrustum}
    * @default PerspectiveFrustum()
@@ -168,42 +168,38 @@ function Camera(scene) {
   this.frustum.fov = CesiumMath.toRadians(60.0);
 
   /**
-   * The default amount to move the camera when an argument is not
-   * provided to the move methods.
+   * 未向移动方法提供参数时移动相机的默认量。
    * @type {number}
    * @default 100000.0;
    */
   this.defaultMoveAmount = 100000.0;
   /**
-   * The default amount to rotate the camera when an argument is not
-   * provided to the look methods.
+   * 未向观察方法提供参数时旋转相机的默认量。
    * @type {number}
    * @default Math.PI / 60.0
    */
   this.defaultLookAmount = Math.PI / 60.0;
   /**
-   * The default amount to rotate the camera when an argument is not
-   * provided to the rotate methods.
+   * 未向旋转方法提供参数时旋转相机的默认量。
    * @type {number}
    * @default Math.PI / 3600.0
    */
   this.defaultRotateAmount = Math.PI / 3600.0;
   /**
-   * The default amount to move the camera when an argument is not
-   * provided to the zoom methods.
+   * 未向缩放方法提供参数时移动相机的默认量。
    * @type {number}
    * @default 100000.0;
    */
   this.defaultZoomAmount = 100000.0;
   /**
-   * If set, the camera will not be able to rotate past this axis in either direction.
+   * 如果设置,相机将无法绕此轴旋转。
    * @type {Cartesian3 | undefined}
    * @default undefined
    */
   this.constrainedAxis = undefined;
   /**
-   * The factor multiplied by the the map size used to determine where to clamp the camera position
-   * when zooming out from the surface. The default is 1.5. Only valid for 2D and the map is rotatable.
+   * 用于确定缩放时在哪里限制相机位置的地图大小的系数。
+   * 默认值为 1.5。仅对 2D 有效且地图可旋转。
    * @type {number}
    * @default 1.5
    */
@@ -220,7 +216,7 @@ function Camera(scene) {
   this._changedRoll = undefined;
 
   /**
-   * The amount the camera has to change before the <code>changed</code> event is raised. The value is a percentage in the [0, 1] range.
+   * 触发 <code>changed</code> 事件前相机必须改变的量。该值是 [0, 1] 范围内的百分比。
    * @type {number}
    * @default 0.5
    */
@@ -284,7 +280,7 @@ Camera.TRANSFORM_2D_INVERSE = Matrix4.inverseTransformation(
 );
 
 /**
- * The default rectangle the camera will view on creation.
+ * 创建时相机默认查看的矩形。
  * @type Rectangle
  */
 Camera.DEFAULT_VIEW_RECTANGLE = Rectangle.fromDegrees(
@@ -295,15 +291,15 @@ Camera.DEFAULT_VIEW_RECTANGLE = Rectangle.fromDegrees(
 );
 
 /**
- * A scalar to multiply to the camera position and add it back after setting the camera to view the rectangle.
- * A value of zero means the camera will view the entire {@link Camera#DEFAULT_VIEW_RECTANGLE}, a value greater than zero
- * will move it further away from the extent, and a value less than zero will move it close to the extent.
+ * 乘以相机位置的标量,在设置相机查看矩形后加回。
+ * 值为零表示相机将查看整个 {@link Camera#DEFAULT_VIEW_RECTANGLE},大于零的值
+ * 将使其远离范围,小于零的值将使其靠近范围。
  * @type {number}
  */
 Camera.DEFAULT_VIEW_FACTOR = 0.5;
 
 /**
- * The default heading/pitch/range that is used when the camera flies to a location that contains a bounding sphere.
+ * 当相机飞到包含包围球的位置时使用的默认航向/俯仰/距离。
  * @type HeadingPitchRange
  */
 Camera.DEFAULT_OFFSET = new HeadingPitchRange(
@@ -848,7 +844,7 @@ const scratchHPRMatrix2 = new Matrix4();
 
 Object.defineProperties(Camera.prototype, {
   /**
-   * Gets the camera's reference frame. The inverse of this transformation is appended to the view matrix.
+   * 获取相机的参考帧。此变换的逆矩阵被附加到视图矩阵上。
    * @memberof Camera.prototype
    *
    * @type {Matrix4}
@@ -863,7 +859,7 @@ Object.defineProperties(Camera.prototype, {
   },
 
   /**
-   * Gets the inverse camera transform.
+   * 获取相机的逆变换。
    * @memberof Camera.prototype
    *
    * @type {Matrix4}
@@ -879,7 +875,7 @@ Object.defineProperties(Camera.prototype, {
   },
 
   /**
-   * Gets the view matrix.
+   * 获取视图矩阵。
    * @memberof Camera.prototype
    *
    * @type {Matrix4}
@@ -895,7 +891,7 @@ Object.defineProperties(Camera.prototype, {
   },
 
   /**
-   * Gets the inverse view matrix.
+   * 获取逆视图矩阵。
    * @memberof Camera.prototype
    *
    * @type {Matrix4}
@@ -911,10 +907,7 @@ Object.defineProperties(Camera.prototype, {
   },
 
   /**
-   * Gets the {@link Cartographic} position of the camera, with longitude and latitude
-   * expressed in radians and height in meters.  In 2D and Columbus View, it is possible
-   * for the returned longitude and latitude to be outside the range of valid longitudes
-   * and latitudes when the camera is outside the map.
+   * 获取相机的 {@link Cartographic} 位置,经度和纬度以弧度表示,高度以米表示。在 2D 和哥伦布视图中,当相机在地图外时,返回的经度和纬度可能超出有效范围。
    * @memberof Camera.prototype
    *
    * @type {Cartographic}
@@ -928,7 +921,7 @@ Object.defineProperties(Camera.prototype, {
   },
 
   /**
-   * Gets the position of the camera in world coordinates.
+   * 获取相机在世界坐标系中的位置。
    * @memberof Camera.prototype
    *
    * @type {Cartesian3}
@@ -942,7 +935,7 @@ Object.defineProperties(Camera.prototype, {
   },
 
   /**
-   * Gets the view direction of the camera in world coordinates.
+   * 获取相机在世界坐标系中的视图方向。
    * @memberof Camera.prototype
    *
    * @type {Cartesian3}
@@ -956,7 +949,7 @@ Object.defineProperties(Camera.prototype, {
   },
 
   /**
-   * Gets the up direction of the camera in world coordinates.
+   * 获取相机在世界坐标系中的向上方向。
    * @memberof Camera.prototype
    *
    * @type {Cartesian3}
@@ -970,7 +963,7 @@ Object.defineProperties(Camera.prototype, {
   },
 
   /**
-   * Gets the right direction of the camera in world coordinates.
+   * 获取相机的向右方向。
    * @memberof Camera.prototype
    *
    * @type {Cartesian3}
@@ -984,7 +977,7 @@ Object.defineProperties(Camera.prototype, {
   },
 
   /**
-   * Gets the camera heading in radians.
+   * 获取相机的航向角(弧度)。
    * @memberof Camera.prototype
    *
    * @type {number}
@@ -1015,7 +1008,7 @@ Object.defineProperties(Camera.prototype, {
   },
 
   /**
-   * Gets the camera pitch in radians.
+   * 获取相机的俯仰角(弧度)。
    * @memberof Camera.prototype
    *
    * @type {number}
@@ -1046,7 +1039,7 @@ Object.defineProperties(Camera.prototype, {
   },
 
   /**
-   * Gets the camera roll in radians.
+   * 获取相机的翻滚角(弧度)。
    * @memberof Camera.prototype
    *
    * @type {number}
@@ -1077,7 +1070,7 @@ Object.defineProperties(Camera.prototype, {
   },
 
   /**
-   * Gets the event that will be raised at when the camera starts to move.
+   * 获取相机开始移动时将触发的事件。
    * @memberof Camera.prototype
    * @type {Event}
    * @readonly
@@ -1089,7 +1082,7 @@ Object.defineProperties(Camera.prototype, {
   },
 
   /**
-   * Gets the event that will be raised when the camera has stopped moving.
+   * 获取相机停止移动时将触发的事件。
    * @memberof Camera.prototype
    * @type {Event}
    * @readonly
@@ -1101,7 +1094,7 @@ Object.defineProperties(Camera.prototype, {
   },
 
   /**
-   * Gets the event that will be raised when the camera has changed by <code>percentageChanged</code>.
+   * 获取相机改变量达到 <code>percentageChanged</code> 时将触发的事件。
    * @memberof Camera.prototype
    * @type {Event}
    * @readonly
@@ -1434,48 +1427,46 @@ const scratchSetViewOptions = {
 
 const scratchHpr = new HeadingPitchRoll();
 /**
- * Sets the camera position, orientation and transform.
+ * 设置相机的位置、朝向和变换。
  *
- * @param {object} options Object with the following properties:
- * @param {Cartesian3|Rectangle} [options.destination] The final position of the camera in world coordinates or a rectangle that would be visible from a top-down view.
- * @param {HeadingPitchRollValues|DirectionUp} [options.orientation] An object that contains either direction and up properties or heading, pitch and roll properties. By default, the direction will point
- * towards the center of the frame in 3D and in the negative z direction in Columbus view. The up direction will point towards local north in 3D and in the positive
- * y direction in Columbus view. Orientation is not used in 2D when in infinite scrolling mode.
- * @param {Matrix4} [options.endTransform] Transform matrix representing the reference frame of the camera.
- * @param {boolean} [options.convert] Whether to convert the destination from world coordinates to scene coordinates (only relevant when not using 3D). Defaults to <code>true</code>.
+ * @param {object} options 包含以下属性的对象:
+ * @param {Cartesian3|Rectangle} [options.destination] 相机在世界坐标系中的最终位置,或从俯视角度可见的矩形。
+ * @param {HeadingPitchRollValues|DirectionUp} [options.orientation] 一个对象,包含 direction 和 up 属性,或 heading、pitch 和 roll 属性。默认情况下,方向将指向 3D 中帧的中心,在哥伦布视图中指向负 z 方向。向上方向将指向 3D 中的局部北方,在哥伦布视图中指向正 y 方向。在无限滚动模式的 2D 中不使用朝向。
+ * @param {Matrix4} [options.endTransform] 变换矩阵,表示相机的参考帧。
+ * @param {boolean} [options.convert] 是否将目标从世界坐标系转换到场景坐标系(仅在不使用 3D 时相关)。默认为 <code>true</code>。
  *
  * @example
- * // 1. Set position with a top-down view
+ * // 1. 设置俯视位置
  * viewer.camera.setView({
  *     destination : Cesium.Cartesian3.fromDegrees(-117.16, 32.71, 15000.0)
  * });
  *
- * // 2 Set view with heading, pitch and roll
+ * // 2. 使用航向角、俯仰角和翻滚角设置视图
  * viewer.camera.setView({
  *     destination : cartesianPosition,
  *     orientation: {
- *         heading : Cesium.Math.toRadians(90.0), // east, default value is 0.0 (north)
- *         pitch : Cesium.Math.toRadians(-90),    // default value (looking down)
- *         roll : 0.0                             // default value
+ *         heading : Cesium.Math.toRadians(90.0), // 东,默认值为 0.0(北)
+ *         pitch : Cesium.Math.toRadians(-90),    // 默认值(向下看)
+ *         roll : 0.0                             // 默认值
  *     }
  * });
  *
- * // 3. Change heading, pitch and roll with the camera position remaining the same.
+ * // 3. 在相机位置不变的情况下更改航向角、俯仰角和翻滚角。
  * viewer.camera.setView({
  *     orientation: {
- *         heading : Cesium.Math.toRadians(90.0), // east, default value is 0.0 (north)
- *         pitch : Cesium.Math.toRadians(-90),    // default value (looking down)
- *         roll : 0.0                             // default value
+ *         heading : Cesium.Math.toRadians(90.0), // 东,默认值为 0.0(北)
+ *         pitch : Cesium.Math.toRadians(-90),    // 默认值(向下看)
+ *         roll : 0.0                             // 默认值
  *     }
  * });
  *
  *
- * // 4. View rectangle with a top-down view
+ * // 4. 俯视查看矩形
  * viewer.camera.setView({
  *     destination : Cesium.Rectangle.fromDegrees(west, south, east, north)
  * });
  *
- * // 5. Set position with an orientation using unit vectors.
+ * // 5. 使用单位向量设置位置和朝向。
  * viewer.camera.setView({
  *     destination : Cesium.Cartesian3.fromDegrees(-122.19, 46.25, 5000.0),
  *     orientation : {
@@ -1539,11 +1530,9 @@ Camera.prototype.setView = function (options) {
 
 const pitchScratch = new Cartesian3();
 /**
- * Fly the camera to the home view.  Use {@link Camera#.DEFAULT_VIEW_RECTANGLE} to set
- * the default view for the 3D scene.  The home view for 2D and columbus view shows the
- * entire map.
+ * 将相机飞到主视图。使用 {@link Camera#.DEFAULT_VIEW_RECTANGLE} 设置 3D 场景的默认视图。2D 和哥伦布视图的主视图显示整个地图。
  *
- * @param {number} [duration] The duration of the flight in seconds. If omitted, Cesium attempts to calculate an ideal duration based on the distance to be traveled by the flight. See {@link Camera#flyTo}
+ * @param {number} [duration] 飞行的持续时间(秒)。如果省略,Cesium 会尝试根据飞行距离计算理想的持续时间。请参阅 {@link Camera#flyTo}
  */
 Camera.prototype.flyHome = function (duration) {
   const mode = this._mode;
@@ -1596,11 +1585,11 @@ Camera.prototype.flyHome = function (duration) {
 };
 
 /**
- * Transform a vector or point from world coordinates to the camera's reference frame.
+ * 将向量或点从世界坐标系变换到相机的参考帧。
  *
- * @param {Cartesian4} cartesian The vector or point to transform.
- * @param {Cartesian4} [result] The object onto which to store the result.
- * @returns {Cartesian4} The transformed vector or point.
+ * @param {Cartesian4} cartesian 要变换的向量或点。
+ * @param {Cartesian4} [result] 存储结果的对象。
+ * @returns {Cartesian4} 变换后的向量或点。
  */
 Camera.prototype.worldToCameraCoordinates = function (cartesian, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -1617,11 +1606,11 @@ Camera.prototype.worldToCameraCoordinates = function (cartesian, result) {
 };
 
 /**
- * Transform a point from world coordinates to the camera's reference frame.
+ * 将点从世界坐标系变换到相机的参考帧。
  *
- * @param {Cartesian3} cartesian The point to transform.
- * @param {Cartesian3} [result] The object onto which to store the result.
- * @returns {Cartesian3} The transformed point.
+ * @param {Cartesian3} cartesian 要变换的点。
+ * @param {Cartesian3} [result] 存储结果的对象。
+ * @returns {Cartesian3} 变换后的点。
  */
 Camera.prototype.worldToCameraCoordinatesPoint = function (cartesian, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -1638,11 +1627,11 @@ Camera.prototype.worldToCameraCoordinatesPoint = function (cartesian, result) {
 };
 
 /**
- * Transform a vector from world coordinates to the camera's reference frame.
+ * 将向量从世界坐标系变换到相机的参考帧。
  *
- * @param {Cartesian3} cartesian The vector to transform.
- * @param {Cartesian3} [result] The object onto which to store the result.
- * @returns {Cartesian3} The transformed vector.
+ * @param {Cartesian3} cartesian 要变换的向量。
+ * @param {Cartesian3} [result] 存储结果的对象。
+ * @returns {Cartesian3} 变换后的向量。
  */
 Camera.prototype.worldToCameraCoordinatesVector = function (cartesian, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -1663,11 +1652,11 @@ Camera.prototype.worldToCameraCoordinatesVector = function (cartesian, result) {
 };
 
 /**
- * Transform a vector or point from the camera's reference frame to world coordinates.
+ * 将向量或点从相机的参考帧变换到世界坐标系。
  *
- * @param {Cartesian4} cartesian The vector or point to transform.
- * @param {Cartesian4} [result] The object onto which to store the result.
- * @returns {Cartesian4} The transformed vector or point.
+ * @param {Cartesian4} cartesian 要变换的向量或点。
+ * @param {Cartesian4} [result] 存储结果的对象。
+ * @returns {Cartesian4} 变换后的向量或点。
  */
 Camera.prototype.cameraToWorldCoordinates = function (cartesian, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -1684,11 +1673,11 @@ Camera.prototype.cameraToWorldCoordinates = function (cartesian, result) {
 };
 
 /**
- * Transform a point from the camera's reference frame to world coordinates.
+ * 将点从相机的参考帧变换到世界坐标系。
  *
- * @param {Cartesian3} cartesian The point to transform.
- * @param {Cartesian3} [result] The object onto which to store the result.
- * @returns {Cartesian3} The transformed point.
+ * @param {Cartesian3} cartesian 要变换的点。
+ * @param {Cartesian3} [result] 存储结果的对象。
+ * @returns {Cartesian3} 变换后的点。
  */
 Camera.prototype.cameraToWorldCoordinatesPoint = function (cartesian, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -1705,11 +1694,11 @@ Camera.prototype.cameraToWorldCoordinatesPoint = function (cartesian, result) {
 };
 
 /**
- * Transform a vector from the camera's reference frame to world coordinates.
+ * 将向量从相机的参考帧变换到世界坐标系。
  *
- * @param {Cartesian3} cartesian The vector to transform.
- * @param {Cartesian3} [result] The object onto which to store the result.
- * @returns {Cartesian3} The transformed vector.
+ * @param {Cartesian3} cartesian 要变换的向量。
+ * @param {Cartesian3} [result] 存储结果的对象。
+ * @returns {Cartesian3} 变换后的向量。
  */
 Camera.prototype.cameraToWorldCoordinatesVector = function (cartesian, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -1761,10 +1750,10 @@ function clampMove2D(camera, position) {
 
 const moveScratch = new Cartesian3();
 /**
- * Translates the camera's position by <code>amount</code> along <code>direction</code>.
+ * 沿 <code>direction</code> 方向将相机位置平移 <code>amount</code> 距离。
  *
- * @param {Cartesian3} direction The direction to move.
- * @param {number} [amount] The amount, in meters, to move. Defaults to <code>defaultMoveAmount</code>.
+ * @param {Cartesian3} direction 移动方向。
+ * @param {number} [amount] 移动量(米)。默认为 <code>defaultMoveAmount</code>。
  *
  * @see Camera#moveBackward
  * @see Camera#moveForward
@@ -1791,10 +1780,10 @@ Camera.prototype.move = function (direction, amount) {
 };
 
 /**
- * Translates the camera's position by <code>amount</code> along the camera's view vector.
- * When in 2D mode, this will zoom in the camera instead of translating the camera's position.
+ * 沿相机视图向量方向将相机位置平移 <code>amount</code> 距离。
+ * 在 2D 模式下,这将缩放相机而不是平移相机位置。
  *
- * @param {number} [amount] The amount, in meters, to move. Defaults to <code>defaultMoveAmount</code>.
+ * @param {number} [amount] 移动量(米)。默认为 <code>defaultMoveAmount</code>。
  *
  * @see Camera#moveBackward
  */
@@ -1811,11 +1800,10 @@ Camera.prototype.moveForward = function (amount) {
 };
 
 /**
- * Translates the camera's position by <code>amount</code> along the opposite direction
- * of the camera's view vector.
- * When in 2D mode, this will zoom out the camera instead of translating the camera's position.
+ * 沿相机视图向量反方向将相机位置平移 <code>amount</code> 距离。
+ * 在 2D 模式下,这将缩放相机而不是平移相机位置。
  *
- * @param {number} [amount] The amount, in meters, to move. Defaults to <code>defaultMoveAmount</code>.
+ * @param {number} [amount] 移动量(米)。默认为 <code>defaultMoveAmount</code>。
  *
  * @see Camera#moveForward
  */
@@ -1832,9 +1820,9 @@ Camera.prototype.moveBackward = function (amount) {
 };
 
 /**
- * Translates the camera's position by <code>amount</code> along the camera's up vector.
+ * 沿相机向上向量方向将相机位置平移 <code>amount</code> 距离。
  *
- * @param {number} [amount] The amount, in meters, to move. Defaults to <code>defaultMoveAmount</code>.
+ * @param {number} [amount] 移动量(米)。默认为 <code>defaultMoveAmount</code>。
  *
  * @see Camera#moveDown
  */
@@ -1844,10 +1832,9 @@ Camera.prototype.moveUp = function (amount) {
 };
 
 /**
- * Translates the camera's position by <code>amount</code> along the opposite direction
- * of the camera's up vector.
+ * 沿相机向上向量反方向将相机位置平移 <code>amount</code> 距离。
  *
- * @param {number} [amount] The amount, in meters, to move. Defaults to <code>defaultMoveAmount</code>.
+ * @param {number} [amount] 移动量(米)。默认为 <code>defaultMoveAmount</code>。
  *
  * @see Camera#moveUp
  */
@@ -1857,9 +1844,9 @@ Camera.prototype.moveDown = function (amount) {
 };
 
 /**
- * Translates the camera's position by <code>amount</code> along the camera's right vector.
+ * 沿相机向右向量方向将相机位置平移 <code>amount</code> 距离。
  *
- * @param {number} [amount] The amount, in meters, to move. Defaults to <code>defaultMoveAmount</code>.
+ * @param {number} [amount] 移动量(米)。默认为 <code>defaultMoveAmount</code>。
  *
  * @see Camera#moveLeft
  */
@@ -1869,10 +1856,9 @@ Camera.prototype.moveRight = function (amount) {
 };
 
 /**
- * Translates the camera's position by <code>amount</code> along the opposite direction
- * of the camera's right vector.
+ * 沿相机向右向量反方向将相机位置平移 <code>amount</code> 距离。
  *
- * @param {number} [amount] The amount, in meters, to move. Defaults to <code>defaultMoveAmount</code>.
+ * @param {number} [amount] 移动量(米)。默认为 <code>defaultMoveAmount</code>。
  *
  * @see Camera#moveRight
  */
@@ -1882,10 +1868,9 @@ Camera.prototype.moveLeft = function (amount) {
 };
 
 /**
- * Rotates the camera around its up vector by amount, in radians, in the opposite direction
- * of its right vector if not in 2D mode.
+ * 在非 2D 模式下,相机绕其向上向量旋转 amount 弧度,方向与其向右向量相反。
  *
- * @param {number} [amount] The amount, in radians, to rotate by. Defaults to <code>defaultLookAmount</code>.
+ * @param {number} [amount] 旋转量(弧度)。默认为 <code>defaultLookAmount</code>。
  *
  * @see Camera#lookRight
  */
@@ -1899,10 +1884,9 @@ Camera.prototype.lookLeft = function (amount) {
 };
 
 /**
- * Rotates the camera around its up vector by amount, in radians, in the direction
- * of its right vector if not in 2D mode.
+ * 在非 2D 模式下,相机绕其向上向量旋转 amount 弧度,方向与其向右向量相同。
  *
- * @param {number} [amount] The amount, in radians, to rotate by. Defaults to <code>defaultLookAmount</code>.
+ * @param {number} [amount] 旋转量(弧度)。默认为 <code>defaultLookAmount</code>。
  *
  * @see Camera#lookLeft
  */
@@ -1916,10 +1900,9 @@ Camera.prototype.lookRight = function (amount) {
 };
 
 /**
- * Rotates the camera around its right vector by amount, in radians, in the direction
- * of its up vector if not in 2D mode.
+ * 在非 2D 模式下,相机绕其向右向量旋转 amount 弧度,方向与其向上向量相同。
  *
- * @param {number} [amount] The amount, in radians, to rotate by. Defaults to <code>defaultLookAmount</code>.
+ * @param {number} [amount] 旋转量(弧度)。默认为 <code>defaultLookAmount</code>。
  *
  * @see Camera#lookDown
  */
@@ -1933,10 +1916,9 @@ Camera.prototype.lookUp = function (amount) {
 };
 
 /**
- * Rotates the camera around its right vector by amount, in radians, in the opposite direction
- * of its up vector if not in 2D mode.
+ * 在非 2D 模式下,相机绕其向右向量旋转 amount 弧度,方向与其向上向量相反。
  *
- * @param {number} [amount] The amount, in radians, to rotate by. Defaults to <code>defaultLookAmount</code>.
+ * @param {number} [amount] 旋转量(弧度)。默认为 <code>defaultLookAmount</code>。
  *
  * @see Camera#lookUp
  */
@@ -1952,10 +1934,10 @@ Camera.prototype.lookDown = function (amount) {
 const lookScratchQuaternion = new Quaternion();
 const lookScratchMatrix = new Matrix3();
 /**
- * Rotate each of the camera's orientation vectors around <code>axis</code> by <code>angle</code>
+ * 将相机的每个朝向向量绕 <code>axis</code> 轴旋转 <code>angle</code> 角度。
  *
- * @param {Cartesian3} axis The axis to rotate around.
- * @param {number} [angle] The angle, in radians, to rotate by. Defaults to <code>defaultLookAmount</code>.
+ * @param {Cartesian3} axis 要绕其旋转的轴。
+ * @param {number} [angle] 旋转角度(弧度)。默认为 <code>defaultLookAmount</code>。
  *
  * @see Camera#lookUp
  * @see Camera#lookDown
@@ -1987,9 +1969,9 @@ Camera.prototype.look = function (axis, angle) {
 };
 
 /**
- * Rotate the camera counter-clockwise around its direction vector by amount, in radians.
+ * 相机绕其方向向量逆时针旋转 amount 弧度。
  *
- * @param {number} [amount] The amount, in radians, to rotate by. Defaults to <code>defaultLookAmount</code>.
+ * @param {number} [amount] 旋转量(弧度)。默认为 <code>defaultLookAmount</code>。
  *
  * @see Camera#twistRight
  */
@@ -1999,9 +1981,9 @@ Camera.prototype.twistLeft = function (amount) {
 };
 
 /**
- * Rotate the camera clockwise around its direction vector by amount, in radians.
+ * 相机绕其方向向量顺时针旋转 amount 弧度。
  *
- * @param {number} [amount] The amount, in radians, to rotate by. Defaults to <code>defaultLookAmount</code>.
+ * @param {number} [amount] 旋转量(弧度)。默认为 <code>defaultLookAmount</code>。
  *
  * @see Camera#twistLeft
  */
@@ -2013,11 +1995,10 @@ Camera.prototype.twistRight = function (amount) {
 const rotateScratchQuaternion = new Quaternion();
 const rotateScratchMatrix = new Matrix3();
 /**
- * Rotates the camera around <code>axis</code> by <code>angle</code>. The distance
- * of the camera's position to the center of the camera's reference frame remains the same.
+ * 相机绕 <code>axis</code> 轴旋转 <code>angle</code> 角度。相机位置到相机参考帧中心的距离保持不变。
  *
- * @param {Cartesian3} axis The axis to rotate around given in world coordinates.
- * @param {number} [angle] The angle, in radians, to rotate by. Defaults to <code>defaultRotateAmount</code>.
+ * @param {Cartesian3} axis 要绕其旋转的轴(世界坐标)。
+ * @param {number} [angle] 旋转角度(弧度)。默认为 <code>defaultRotateAmount</code>。
  *
  * @see Camera#rotateUp
  * @see Camera#rotateDown
@@ -2048,9 +2029,9 @@ Camera.prototype.rotate = function (axis, angle) {
 };
 
 /**
- * Rotates the camera around the center of the camera's reference frame by angle downwards.
+ * 相机绕其参考帧中心向下旋转 angle 角度。
  *
- * @param {number} [angle] The angle, in radians, to rotate by. Defaults to <code>defaultRotateAmount</code>.
+ * @param {number} [angle] 旋转角度(弧度)。默认为 <code>defaultRotateAmount</code>。
  *
  * @see Camera#rotateUp
  * @see Camera#rotate
@@ -2061,9 +2042,9 @@ Camera.prototype.rotateDown = function (angle) {
 };
 
 /**
- * Rotates the camera around the center of the camera's reference frame by angle upwards.
+ * 相机绕其参考帧中心向上旋转 angle 角度。
  *
- * @param {number} [angle] The angle, in radians, to rotate by. Defaults to <code>defaultRotateAmount</code>.
+ * @param {number} [angle] 旋转角度(弧度)。默认为 <code>defaultRotateAmount</code>。
  *
  * @see Camera#rotateDown
  * @see Camera#rotate
@@ -2134,9 +2115,9 @@ function rotateVertical(camera, angle) {
 }
 
 /**
- * Rotates the camera around the center of the camera's reference frame by angle to the right.
+ * 相机绕其参考帧中心向右旋转 angle 角度。
  *
- * @param {number} [angle] The angle, in radians, to rotate by. Defaults to <code>defaultRotateAmount</code>.
+ * @param {number} [angle] 旋转角度(弧度)。默认为 <code>defaultRotateAmount</code>。
  *
  * @see Camera#rotateLeft
  * @see Camera#rotate
@@ -2147,9 +2128,9 @@ Camera.prototype.rotateRight = function (angle) {
 };
 
 /**
- * Rotates the camera around the center of the camera's reference frame by angle to the left.
+ * 相机绕其参考帧中心向左旋转 angle 角度。
  *
- * @param {number} [angle] The angle, in radians, to rotate by. Defaults to <code>defaultRotateAmount</code>.
+ * @param {number} [angle] 旋转角度(弧度)。默认为 <code>defaultRotateAmount</code>。
  *
  * @see Camera#rotateRight
  * @see Camera#rotate
@@ -2245,9 +2226,9 @@ function zoom3D(camera, amount) {
 }
 
 /**
- * Zooms <code>amount</code> along the camera's view vector.
+ * 沿相机视图向量方向缩放 <code>amount</code> 距离。
  *
- * @param {number} [amount] The amount to move. Defaults to <code>defaultZoomAmount</code>.
+ * @param {number} [amount] 移动量。默认为 <code>defaultZoomAmount</code>。
  *
  * @see Camera#zoomOut
  */
@@ -2261,10 +2242,9 @@ Camera.prototype.zoomIn = function (amount) {
 };
 
 /**
- * Zooms <code>amount</code> along the opposite direction of
- * the camera's view vector.
+ * 沿相机视图向量反方向缩放 <code>amount</code> 距离。
  *
- * @param {number} [amount] The amount to move. Defaults to <code>defaultZoomAmount</code>.
+ * @param {number} [amount] 移动量。默认为 <code>defaultZoomAmount</code>。
  *
  * @see Camera#zoomIn
  */
@@ -2278,10 +2258,9 @@ Camera.prototype.zoomOut = function (amount) {
 };
 
 /**
- * Gets the magnitude of the camera position. In 3D, this is the vector magnitude. In 2D and
- * Columbus view, this is the distance to the map.
+ * 获取相机位置的模长。在 3D 中,这是向量模长。在 2D 和哥伦布视图中,这是到地图的距离。
  *
- * @returns {number} The magnitude of the position.
+ * @returns {number} 位置的模长。
  */
 Camera.prototype.getMagnitude = function () {
   if (this._mode === SceneMode.SCENE3D) {
@@ -2299,28 +2278,23 @@ Camera.prototype.getMagnitude = function () {
 const scratchLookAtMatrix4 = new Matrix4();
 
 /**
- * Sets the camera position and orientation using a target and offset. The target must be given in
- * world coordinates. The offset can be either a cartesian or heading/pitch/range in the local east-north-up reference frame centered at the target.
- * If the offset is a cartesian, then it is an offset from the center of the reference frame defined by the transformation matrix. If the offset
- * is heading/pitch/range, then the heading and the pitch angles are defined in the reference frame defined by the transformation matrix.
- * The heading is the angle from y axis and increasing towards the x axis. Pitch is the rotation from the xy-plane. Positive pitch
- * angles are below the plane. Negative pitch angles are above the plane. The range is the distance from the center.
+ * 使用目标和偏移设置相机的位置和朝向。目标必须以世界坐标给出。偏移可以是笛卡尔坐标或目标处的局部东北天参考系中的航向/俯仰/距离。
+ * 如果偏移是笛卡尔坐标,则是从变换矩阵定义的参考系中心的偏移。如果偏移是航向/俯仰/距离,则航向和俯仰角在变换矩阵定义的参考系中定义。
+ * 航向是从 y 轴开始并向 x 轴方向增加的角度。俯仰是从 xy 平面的旋转。正俯仰角在平面下方。负俯仰角在平面上方。距离是到中心的距离。
  *
- * In 2D, there must be a top down view. The camera will be placed above the target looking down. The height above the
- * target will be the magnitude of the offset. The heading will be determined from the offset. If the heading cannot be
- * determined from the offset, the heading will be north.
+ * 在 2D 中,必须是俯视视角。相机将放置在目标上方俯视。目标上方的高度将是偏移的模长。航向将由偏移确定。如果无法从偏移确定航向,则航向将为北方。
  *
- * @param {Cartesian3} target The target position in world coordinates.
- * @param {Cartesian3|HeadingPitchRange} offset The offset from the target in the local east-north-up reference frame centered at the target.
+ * @param {Cartesian3} target 目标位置(世界坐标)。
+ * @param {Cartesian3|HeadingPitchRange} offset 目标处局部东北天参考系中的偏移。
  *
- * @exception {DeveloperError} lookAt is not supported while morphing.
+ * @exception {DeveloperError} 变形期间不支持 lookAt。
  *
  * @example
- * // 1. Using a cartesian offset
+ * // 1. 使用笛卡尔偏移
  * const center = Cesium.Cartesian3.fromDegrees(-98.0, 40.0);
  * viewer.camera.lookAt(center, new Cesium.Cartesian3(0.0, -4790000.0, 3930000.0));
  *
- * // 2. Using a HeadingPitchRange offset
+ * // 2. 使用航向/俯仰/距离偏移
  * const center = Cesium.Cartesian3.fromDegrees(-72.0, 40.0);
  * const heading = Cesium.Math.toRadians(50.0);
  * const pitch = Cesium.Math.toRadians(-20.0);
@@ -2391,27 +2365,23 @@ function offsetFromHeadingPitchRange(heading, pitch, range) {
 }
 
 /**
- * Sets the camera position and orientation using a target and transformation matrix. The offset can be either a cartesian or heading/pitch/range.
- * If the offset is a cartesian, then it is an offset from the center of the reference frame defined by the transformation matrix. If the offset
- * is heading/pitch/range, then the heading and the pitch angles are defined in the reference frame defined by the transformation matrix.
- * The heading is the angle from y axis and increasing towards the x axis. Pitch is the rotation from the xy-plane. Positive pitch
- * angles are below the plane. Negative pitch angles are above the plane. The range is the distance from the center.
+ * 使用目标位置和变换矩阵设置相机的位置和朝向。偏移可以是笛卡尔坐标或航向/俯仰/距离。
+ * 如果偏移是笛卡尔坐标,则是从变换矩阵定义的参考系中心的偏移。如果偏移是航向/俯仰/距离,则航向和俯仰角在变换矩阵定义的参考系中定义。
+ * 航向是从 y 轴开始并向 x 轴方向增加的角度。俯仰是从 xy 平面的旋转。正俯仰角在平面下方。负俯仰角在平面上方。距离是到中心的距离。
  *
- * In 2D, there must be a top down view. The camera will be placed above the center of the reference frame. The height above the
- * target will be the magnitude of the offset. The heading will be determined from the offset. If the heading cannot be
- * determined from the offset, the heading will be north.
+ * 在 2D 中,必须是俯视视角。相机将放置在参考帧中心上方。目标上方的高度将是偏移的模长。航向将由偏移确定。如果无法从偏移确定航向,则航向将为北方。
  *
- * @param {Matrix4} transform The transformation matrix defining the reference frame.
- * @param {Cartesian3|HeadingPitchRange} [offset] The offset from the target in a reference frame centered at the target.
+ * @param {Matrix4} transform 定义参考系的变换矩阵。
+ * @param {Cartesian3|HeadingPitchRange} [offset] 目标处局部参考系中的偏移。
  *
- * @exception {DeveloperError} lookAtTransform is not supported while morphing.
+ * @exception {DeveloperError} 变形期间不支持 lookAtTransform。
  *
  * @example
- * // 1. Using a cartesian offset
+ * // 1. 使用笛卡尔偏移
  * const transform = Cesium.Transforms.eastNorthUpToFixedFrame(Cesium.Cartesian3.fromDegrees(-98.0, 40.0));
  * viewer.camera.lookAtTransform(transform, new Cesium.Cartesian3(0.0, -4790000.0, 3930000.0));
  *
- * // 2. Using a HeadingPitchRange offset
+ * // 2. 使用航向/俯仰/距离偏移
  * const transform = Cesium.Transforms.eastNorthUpToFixedFrame(Cesium.Cartesian3.fromDegrees(-72.0, 40.0));
  * const heading = Cesium.Math.toRadians(50.0);
  * const pitch = Cesium.Math.toRadians(-20.0);
@@ -2805,11 +2775,11 @@ function rectangleCameraPosition2D(camera, rectangle, result) {
 }
 
 /**
- * Get the camera position needed to view a rectangle on an ellipsoid or map
+ * 获取查看椭球或地图上矩形所需的相机位置。
  *
- * @param {Rectangle} rectangle The rectangle to view.
- * @param {Cartesian3} [result] The camera position needed to view the rectangle
- * @returns {Cartesian3} The camera position needed to view the rectangle
+ * @param {Rectangle} rectangle 要查看的矩形。
+ * @param {Cartesian3} [result] 查看矩形所需的相机位置。
+ * @returns {Cartesian3} 查看矩形所需的相机位置。
  */
 Camera.prototype.getRectangleCameraCoordinates = function (rectangle, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -2885,14 +2855,12 @@ function pickMapColumbusView(camera, windowPosition, projection, result) {
 }
 
 /**
- * Pick an ellipsoid or map.
+ * 拾取椭球或地图。
  *
- * @param {Cartesian2} windowPosition The x and y coordinates of a pixel.
- * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] The ellipsoid to pick.
- * @param {Cartesian3} [result] The object onto which to store the result.
- * @returns {Cartesian3 | undefined} If the ellipsoid or map was picked,
- * returns the point on the surface of the ellipsoid or map in world
- * coordinates. If the ellipsoid or map was not picked, returns undefined.
+ * @param {Cartesian2} windowPosition 像素的 x 和 y 坐标。
+ * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] 要拾取的椭球。
+ * @param {Cartesian3} [result] 存储结果的对象。
+ * @returns {Cartesian3 | undefined} 如果拾取了椭球或地图,则返回世界坐标系中椭球或地图表面上的点。如果未拾取椭球或地图,则返回 undefined。
  *
  * @example
  * const canvas = viewer.scene.canvas;
@@ -3020,12 +2988,11 @@ function getPickRayOrthographic(camera, windowPosition, result) {
 }
 
 /**
- * Create a ray from the camera position through the pixel at <code>windowPosition</code>
- * in world coordinates.
+ * 从相机位置穿过 <code>windowPosition</code> 处的像素创建一条射线(世界坐标)。
  *
- * @param {Cartesian2} windowPosition The x and y coordinates of a pixel.
- * @param {Ray} [result] The object onto which to store the result.
- * @returns {Ray|undefined} Returns the {@link Cartesian3} position and direction of the ray, or undefined if the pick ray cannot be determined.
+ * @param {Cartesian2} windowPosition 像素的 x 和 y 坐标。
+ * @param {Ray} [result] 存储结果的对象。
+ * @returns {Ray|undefined} 返回射线的 {@link Cartesian3} 位置和方向,如果无法确定拾取射线则返回 undefined。
  */
 Camera.prototype.getPickRay = function (windowPosition, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -3059,10 +3026,10 @@ const scratchToCenter = new Cartesian3();
 const scratchProj = new Cartesian3();
 
 /**
- * Return the distance from the camera to the front of the bounding sphere.
+ * 返回相机到包围球前部的距离。
  *
- * @param {BoundingSphere} boundingSphere The bounding sphere in world coordinates.
- * @returns {number} The distance to the bounding sphere.
+ * @param {BoundingSphere} boundingSphere 世界坐标系中的包围球。
+ * @returns {number} 到包围球的距离。
  */
 Camera.prototype.distanceToBoundingSphere = function (boundingSphere) {
   //>>includeStart('debug', pragmas.debug);
@@ -3087,12 +3054,12 @@ Camera.prototype.distanceToBoundingSphere = function (boundingSphere) {
 const scratchPixelSize = new Cartesian2();
 
 /**
- * Return the pixel size in meters.
+ * 返回以米为单位的像素大小。
  *
- * @param {BoundingSphere} boundingSphere The bounding sphere in world coordinates.
- * @param {number} drawingBufferWidth The drawing buffer width.
- * @param {number} drawingBufferHeight The drawing buffer height.
- * @returns {number} The pixel size in meters.
+ * @param {BoundingSphere} boundingSphere 世界坐标系中的包围球。
+ * @param {number} drawingBufferWidth 绘图缓冲区宽度。
+ * @param {number} drawingBufferHeight 绘图缓冲区高度。
+ * @returns {number} 以米为单位的像素大小。
  */
 Camera.prototype.getPixelSize = function (
   boundingSphere,
@@ -3264,8 +3231,8 @@ const newOptions = {
 };
 
 /**
- * Cancels the current camera flight and leaves the camera at its current location.
- * If no flight is in progress, this function does nothing.
+ * 取消当前相机飞行并将相机留在其当前位置。
+ * 如果没有飞行正在进行,此函数不执行任何操作。
  */
 Camera.prototype.cancelFlight = function () {
   if (defined(this._currentFlight)) {
@@ -3275,8 +3242,8 @@ Camera.prototype.cancelFlight = function () {
 };
 
 /**
- * Completes the current camera flight and moves the camera immediately to its final destination.
- * If no flight is in progress, this function does nothing.
+ * 完成当前相机飞行并立即将相机移动到其最终目的地。
+ * 如果没有飞行正在进行,此函数不执行任何操作。
  */
 Camera.prototype.completeFlight = function () {
   if (defined(this._currentFlight)) {
@@ -3307,38 +3274,36 @@ Camera.prototype.completeFlight = function () {
 };
 
 /**
- * Flies the camera from its current position to a new position.
+ * 将相机从当前位置飞行到新位置。
  *
- * @param {object} options Object with the following properties:
- * @param {Cartesian3|Rectangle} options.destination The final position of the camera in world coordinates or a rectangle that would be visible from a top-down view.
- * @param {object} [options.orientation] An object that contains either direction and up properties or heading, pitch and roll properties. By default, the direction will point
- * towards the center of the frame in 3D and in the negative z direction in Columbus view. The up direction will point towards local north in 3D and in the positive
- * y direction in Columbus view.  Orientation is not used in 2D when in infinite scrolling mode.
- * @param {number} [options.duration] The duration of the flight in seconds. If omitted, Cesium attempts to calculate an ideal duration based on the distance to be traveled by the flight.
- * @param {Camera.FlightCompleteCallback} [options.complete] The function to execute when the flight is complete.
- * @param {Camera.FlightCancelledCallback} [options.cancel] The function to execute if the flight is cancelled.
- * @param {Matrix4} [options.endTransform] Transform matrix representing the reference frame the camera will be in when the flight is completed.
- * @param {number} [options.maximumHeight] The maximum height at the peak of the flight.
- * @param {number} [options.pitchAdjustHeight] If camera flyes higher than that value, adjust pitch duiring the flight to look down, and keep Earth in viewport.
- * @param {number} [options.flyOverLongitude] There are always two ways between 2 points on globe. This option force camera to choose fight direction to fly over that longitude.
- * @param {number} [options.flyOverLongitudeWeight] Fly over the lon specifyed via flyOverLongitude only if that way is not longer than short way times flyOverLongitudeWeight.
- * @param {boolean} [options.convert] Whether to convert the destination from world coordinates to scene coordinates (only relevant when not using 3D). Defaults to <code>true</code>.
- * @param {EasingFunction.Callback} [options.easingFunction] Controls how the time is interpolated over the duration of the flight.
+ * @param {object} options 包含以下属性的对象:
+ * @param {Cartesian3|Rectangle} options.destination 相机在世界坐标系中的最终位置,或从俯视角度可见的矩形。
+ * @param {object} [options.orientation] 一个对象,包含 direction 和 up 属性,或 heading、pitch 和 roll 属性。默认情况下,方向将指向 3D 中帧的中心,在哥伦布视图中指向负 z 方向。向上方向将指向 3D 中的局部北方,在哥伦布视图中指向正 y 方向。在无限滚动模式的 2D 中不使用朝向。
+ * @param {number} [options.duration] 飞行的持续时间(秒)。如果省略,Cesium 会尝试根据飞行距离计算理想的持续时间。
+ * @param {Camera.FlightCompleteCallback} [options.complete] 飞行完成时执行的函数。
+ * @param {Camera.FlightCancelledCallback} [options.cancel] 飞行取消时执行的函数。
+ * @param {Matrix4} [options.endTransform] 变换矩阵,表示飞行完成时相机所在的参考帧。
+ * @param {number} [options.maximumHeight] 飞行高峰时的最大高度。
+ * @param {number} [options.pitchAdjustHeight] 如果相机飞行高于此值,则在飞行期间调整俯仰角向下看,并保持地球在视口内。
+ * @param {number} [options.flyOverLongitude] 地球上两点之间总有两条路。此选项强制相机选择飞行方向飞越该经度。
+ * @param {number} [options.flyOverLongitudeWeight] 仅当通过 flyOverLongitude 指定的经度路径不长于短路径乘以 flyOverLongitudeWeight 时才飞越该经度。
+ * @param {boolean} [options.convert] 是否将目标从世界坐标系转换到场景坐标系(仅在不使用 3D 时相关)。默认为 <code>true</code>。
+ * @param {EasingFunction.Callback} [options.easingFunction] 控制飞行持续时间内时间的插值方式。
  *
- * @exception {DeveloperError} If either direction or up is given, then both are required.
+ * @exception {DeveloperError} 如果给出了 direction 或 up 中的任何一个,则两者都需要。
  *
  * @example
- * // 1. Fly to a position with a top-down view
+ * // 1. 俯视飞行到位置
  * viewer.camera.flyTo({
  *     destination : Cesium.Cartesian3.fromDegrees(-117.16, 32.71, 15000.0)
  * });
  *
- * // 2. Fly to a Rectangle with a top-down view
+ * // 2. 俯视飞行到矩形
  * viewer.camera.flyTo({
  *     destination : Cesium.Rectangle.fromDegrees(west, south, east, north)
  * });
  *
- * // 3. Fly to a position with an orientation using unit vectors.
+ * // 3. 使用单位向量朝向飞行到位置。
  * viewer.camera.flyTo({
  *     destination : Cesium.Cartesian3.fromDegrees(-122.19, 46.25, 5000.0),
  *     orientation : {
@@ -3347,7 +3312,7 @@ Camera.prototype.completeFlight = function () {
  *     }
  * });
  *
- * // 4. Fly to a position with an orientation using heading, pitch and roll.
+ * // 4. 使用航向角、俯仰角和翻滚角朝向飞行到位置。
  * viewer.camera.flyTo({
  *     destination : Cesium.Cartesian3.fromDegrees(-122.19, 46.25, 5000.0),
  *     orientation : {
@@ -3524,22 +3489,19 @@ function adjustBoundingSphereOffset(camera, boundingSphere, offset) {
 }
 
 /**
- * Sets the camera so that the current view contains the provided bounding sphere.
+ * 设置相机以使当前视图包含提供的包围球。
  *
- * <p>The offset is heading/pitch/range in the local east-north-up reference frame centered at the center of the bounding sphere.
- * The heading and the pitch angles are defined in the local east-north-up reference frame.
- * The heading is the angle from y axis and increasing towards the x axis. Pitch is the rotation from the xy-plane. Positive pitch
- * angles are below the plane. Negative pitch angles are above the plane. The range is the distance from the center. If the range is
- * zero, a range will be computed such that the whole bounding sphere is visible.</p>
+ * <p>偏移是目标处局部东北天参考系中的航向/俯仰/距离。
+ * 航向和俯仰角在局部东北天参考系中定义。
+ * 航向是从 y 轴开始并向 x 轴方向增加的角度。俯仰是从 xy 平面的旋转。正俯仰角在平面下方。负俯仰角在平面上方。距离是到中心的距离。如果距离为
+ * 零,则将计算一个距离以使整个包围球可见。</p>
  *
- * <p>In 2D, there must be a top down view. The camera will be placed above the target looking down. The height above the
- * target will be the range. The heading will be determined from the offset. If the heading cannot be
- * determined from the offset, the heading will be north.</p>
+ * <p>在 2D 中,必须是俯视视角。相机将放置在目标上方俯视。目标上方的高度将是距离。航向将由偏移确定。如果无法从偏移确定航向,则航向将为北方。</p>
  *
- * @param {BoundingSphere} boundingSphere The bounding sphere to view, in world coordinates.
- * @param {HeadingPitchRange} [offset] The offset from the target in the local east-north-up reference frame centered at the target.
+ * @param {BoundingSphere} boundingSphere 要查看的包围球(世界坐标)。
+ * @param {HeadingPitchRange} [offset] 目标处局部东北天参考系中的偏移。
  *
- * @exception {DeveloperError} viewBoundingSphere is not supported while morphing.
+ * @exception {DeveloperError} 变形期间不支持 viewBoundingSphere。
  */
 Camera.prototype.viewBoundingSphere = function (boundingSphere, offset) {
   //>>includeStart('debug', pragmas.debug);
@@ -3568,29 +3530,27 @@ const scratchFlyToBoundingSphereQuaternion = new Quaternion();
 const scratchFlyToBoundingSphereMatrix3 = new Matrix3();
 
 /**
- * Flies the camera to a location where the current view contains the provided bounding sphere.
+ * 将相机飞行到当前视图包含提供的包围球的位置。
  *
- * <p> The offset is heading/pitch/range in the local east-north-up reference frame centered at the center of the bounding sphere.
- * The heading and the pitch angles are defined in the local east-north-up reference frame.
- * The heading is the angle from y axis and increasing towards the x axis. Pitch is the rotation from the xy-plane. Positive pitch
- * angles are below the plane. Negative pitch angles are above the plane. The range is the distance from the center. If the range is
- * zero, a range will be computed such that the whole bounding sphere is visible.</p>
+ * <p>偏移是包围球中心处局部东北天参考系中的航向/俯仰/距离。
+ * 航向和俯仰角在局部东北天参考系中定义。
+ * 航向是从 y 轴开始并向 x 轴方向增加的角度。俯仰是从 xy 平面的旋转。正俯仰角在平面下方。负俯仰角在平面上方。距离是到中心的距离。如果距离为
+ * 零,则将计算一个距离以使整个包围球可见。</p>
  *
- * <p>In 2D and Columbus View, there must be a top down view. The camera will be placed above the target looking down. The height above the
- * target will be the range. The heading will be aligned to local north.</p>
+ * <p>在 2D 和哥伦布视图中,必须是俯视视角。相机将放置在目标上方俯视。目标上方的高度将是距离。航向将与局部北方对齐。</p>
  *
- * @param {BoundingSphere} boundingSphere The bounding sphere to view, in world coordinates.
- * @param {object} [options] Object with the following properties:
- * @param {number} [options.duration] The duration of the flight in seconds. If omitted, Cesium attempts to calculate an ideal duration based on the distance to be traveled by the flight.
- * @param {HeadingPitchRange} [options.offset] The offset from the target in the local east-north-up reference frame centered at the target.
- * @param {Camera.FlightCompleteCallback} [options.complete] The function to execute when the flight is complete.
- * @param {Camera.FlightCancelledCallback} [options.cancel] The function to execute if the flight is cancelled.
- * @param {Matrix4} [options.endTransform] Transform matrix representing the reference frame the camera will be in when the flight is completed.
- * @param {number} [options.maximumHeight] The maximum height at the peak of the flight.
- * @param {number} [options.pitchAdjustHeight] If camera flyes higher than that value, adjust pitch duiring the flight to look down, and keep Earth in viewport.
- * @param {number} [options.flyOverLongitude] There are always two ways between 2 points on globe. This option force camera to choose fight direction to fly over that longitude.
- * @param {number} [options.flyOverLongitudeWeight] Fly over the lon specifyed via flyOverLongitude only if that way is not longer than short way times flyOverLongitudeWeight.
- * @param {EasingFunction.Callback} [options.easingFunction] Controls how the time is interpolated over the duration of the flight.
+ * @param {BoundingSphere} boundingSphere 要查看的包围球(世界坐标)。
+ * @param {object} [options] 包含以下属性的对象:
+ * @param {number} [options.duration] 飞行的持续时间(秒)。如果省略,Cesium 会尝试根据飞行距离计算理想的持续时间。
+ * @param {HeadingPitchRange} [options.offset] 目标处局部东北天参考系中的偏移。
+ * @param {Camera.FlightCompleteCallback} [options.complete] 飞行完成时执行的函数。
+ * @param {Camera.FlightCancelledCallback} [options.cancel] 飞行取消时执行的函数。
+ * @param {Matrix4} [options.endTransform] 变换矩阵,表示飞行完成时相机所在的参考帧。
+ * @param {number} [options.maximumHeight] 飞行高峰时的最大高度。
+ * @param {number} [options.pitchAdjustHeight] 如果相机飞行高于此值,则在飞行期间调整俯仰角向下看,并保持地球在视口内。
+ * @param {number} [options.flyOverLongitude] 地球上两点之间总有两条路。此选项强制相机选择飞行方向飞越该经度。
+ * @param {number} [options.flyOverLongitudeWeight] 仅当通过 flyOverLongitude 指定的经度路径不长于短路径乘以 flyOverLongitudeWeight 时才飞越该经度。
+ * @param {EasingFunction.Callback} [options.easingFunction] 控制飞行持续时间内时间的插值方式。
  */
 Camera.prototype.flyToBoundingSphere = function (boundingSphere, options) {
   //>>includeStart('debug', pragmas.debug);
@@ -3807,12 +3767,12 @@ function addToResult(x, y, index, camera, ellipsoid, computedHorizonQuad) {
   return 0;
 }
 /**
- * Computes the approximate visible rectangle on the ellipsoid.
+ * 计算椭球上近似可见的矩形。
  *
- * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] The ellipsoid that you want to know the visible region.
- * @param {Rectangle} [result] The rectangle in which to store the result
+ * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] 要获取可见区域的椭球。
+ * @param {Rectangle} [result] 存储结果的矩形。
  *
- * @returns {Rectangle|undefined} The visible rectangle or undefined if the ellipsoid isn't visible at all.
+ * @returns {Rectangle|undefined} 可见矩形,如果椭球完全不可见则返回 undefined。
  */
 Camera.prototype.computeViewRectangle = function (ellipsoid, result) {
   ellipsoid = ellipsoid ?? Ellipsoid.default;
@@ -3915,9 +3875,9 @@ Camera.prototype.computeViewRectangle = function (ellipsoid, result) {
 };
 
 /**
- * Switches the frustum/projection to perspective.
+ * 将视锥/投影切换到透视。
  *
- * This function is a no-op in 2D which must always be orthographic.
+ * 此函数在 2D 中为无操作,2D 必须始终为正交。
  */
 Camera.prototype.switchToPerspectiveFrustum = function () {
   if (
@@ -3935,9 +3895,9 @@ Camera.prototype.switchToPerspectiveFrustum = function () {
 };
 
 /**
- * Switches the frustum/projection to orthographic.
+ * 将视锥/投影切换到正交。
  *
- * This function is a no-op in 2D which will always be orthographic.
+ * 此函数在 2D 中为无操作,2D 将始终为正交。
  */
 Camera.prototype.switchToOrthographicFrustum = function () {
   if (
@@ -3978,12 +3938,12 @@ Camera.clone = function (camera, result) {
 };
 
 /**
- * A function that will execute when a flight completes.
+ * 飞行完成时将执行的回调函数。
  * @callback Camera.FlightCompleteCallback
  */
 
 /**
- * A function that will execute when a flight is cancelled.
+ * 飞行取消时将执行的回调函数。
  * @callback Camera.FlightCancelledCallback
  */
 export default Camera;

@@ -135,57 +135,55 @@ function configureCameraFrustum(widget) {
 }
 
 /**
- * A widget containing a Cesium scene.
+ * 包含 Cesium 场景的部件。
  *
  * @alias CesiumWidget
  * @constructor
  *
- * @param {Element|string} container The DOM element or ID that will contain the widget.
- * @param {object} [options] Object with the following properties:
- * @param {Clock} [options.clock=new Clock()] The clock to use to control current time.
- * @param {boolean} [options.shouldAnimate=false] <code>true</code> if the clock should attempt to advance simulation time by default, <code>false</code> otherwise.
- * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] The default ellipsoid.
- * @param {ImageryLayer|false} [options.baseLayer=ImageryLayer.fromWorldImagery()] The bottommost imagery layer applied to the globe. If set to <code>false</code>, no imagery provider will be added.
- * @param {TerrainProvider} [options.terrainProvider=new EllipsoidTerrainProvider(options.ellipsoid)] The terrain provider.
- * @param {Terrain} [options.terrain] A terrain object which handles asynchronous terrain provider. Can only specify if options.terrainProvider is undefined.
- * @param {SkyBox| false} [options.skyBox] The skybox used to render the stars. When <code>undefined</code> and the WGS84 ellipsoid used, the default stars are used. If set to <code>false</code>, no skyBox, Sun, or Moon will be added.
- * @param {SkyAtmosphere | false} [options.skyAtmosphere] Blue sky, and the glow around the Earth's limb. Enabled when the default ellipsoid used. Set to <code>false</code> to turn it off.
- * @param {SceneMode} [options.sceneMode=SceneMode.SCENE3D] The initial scene mode.
- * @param {boolean} [options.scene3DOnly=false] When <code>true</code>, each geometry instance will only be rendered in 3D to save GPU memory.
- * @param {boolean} [options.orderIndependentTranslucency=true] If true and the configuration supports it, use order independent translucency.
- * @param {MapProjection} [options.mapProjection=new GeographicProjection(options.ellipsoid)] The map projection to use in 2D and Columbus View modes.
- * @param {Globe | false} [options.globe=new Globe(options.ellipsoid)] The globe to use in the scene.  If set to <code>false</code>, no globe will be added and the sky atmosphere will be hidden by default.
- * @param {boolean} [options.useDefaultRenderLoop=true] True if this widget should control the render loop, false otherwise.
- * @param {boolean} [options.useBrowserRecommendedResolution=true] If true, render at the browser's recommended resolution and ignore <code>window.devicePixelRatio</code>.
- * @param {number} [options.targetFrameRate] The target frame rate when using the default render loop.
- * @param {boolean} [options.showRenderLoopErrors=true] If true, this widget will automatically display an HTML panel to the user containing the error, if a render loop error occurs.
- * @param {boolean} [options.automaticallyTrackDataSourceClocks=true] If true, this widget will automatically track the clock settings of newly added DataSources, updating if the DataSource's clock changes.  Set this to false if you want to configure the clock independently.
- * @param {ContextOptions} [options.contextOptions] Context and WebGL creation properties passed to {@link Scene}.
- * @param {Element|string} [options.creditContainer] The DOM element or ID that will contain the {@link CreditDisplay}.  If not specified, the credits are added
- *        to the bottom of the widget itself.
- * @param {Element|string} [options.creditViewport] The DOM element or ID that will contain the credit pop up created by the {@link CreditDisplay}.  If not specified, it will appear over the widget itself.
- * @param {DataSourceCollection} [options.dataSources=new DataSourceCollection()] The collection of data sources visualized by the widget.  If this parameter is provided,
- *                               the instance is assumed to be owned by the caller and will not be destroyed when the widget is destroyed.
- * @param {boolean} [options.shadows=false] Determines if shadows are cast by light sources.
- * @param {ShadowMode} [options.terrainShadows=ShadowMode.RECEIVE_ONLY] Determines if the terrain casts or receives shadows from light sources.
- * @param {MapMode2D} [options.mapMode2D=MapMode2D.INFINITE_SCROLL] Determines if the 2D map is rotatable or can be scrolled infinitely in the horizontal direction.
- * @param {boolean} [options.blurActiveElementOnCanvasFocus=true] If true, the active element will blur when the widget's canvas is clicked. Setting this to false is useful for cases when the canvas is clicked only for retrieving position or an entity data without actually meaning to set the canvas to be the active element.
- * @param {boolean} [options.requestRenderMode=false] If true, rendering a frame will only occur when needed as determined by changes within the scene. Enabling improves performance of the application, but requires using {@link Scene#requestRender} to render a new frame explicitly in this mode. This will be necessary in many cases after making changes to the scene in other parts of the API. See {@link https://cesium.com/blog/2018/01/24/cesium-scene-rendering-performance/|Improving Performance with Explicit Rendering}.
- * @param {number} [options.maximumRenderTimeChange=0.0] If requestRenderMode is true, this value defines the maximum change in simulation time allowed before a render is requested. See {@link https://cesium.com/blog/2018/01/24/cesium-scene-rendering-performance/|Improving Performance with Explicit Rendering}.
- * @param {number} [options.msaaSamples=4] If provided, this value controls the rate of multisample antialiasing. Typical multisampling rates are 2, 4, and sometimes 8 samples per pixel. Higher sampling rates of MSAA may impact performance in exchange for improved visual quality. This value only applies to WebGL2 contexts that support multisample render targets. Set to 1 to disable MSAA.
+ * @param {Element|string} container 包含此部件的 DOM 元素或 ID。
+ * @param {object} [options] 具有以下属性的对象：
+ * @param {Clock} [options.clock=new Clock()] 用于控制当前时间的时钟。
+ * @param {boolean} [options.shouldAnimate=false] 如果为 <code>true</code>，时钟将默认尝试推进模拟时间，否则为 <code>false</code>。
+ * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] 默认椭球体。
+ * @param {ImageryLayer|false} [options.baseLayer=ImageryLayer.fromWorldImagery()] 应用于地球的最底层影像图层。如果设置为 <code>false</code>，则不添加影像提供者。
+ * @param {TerrainProvider} [options.terrainProvider=new EllipsoidTerrainProvider(options.ellipsoid)] 地形提供者。
+ * @param {Terrain} [options.terrain] 处理异步地形提供者的地形对象。仅当 options.terrainProvider 未定义时才能指定。
+ * @param {SkyBox| false} [options.skyBox] 用于渲染星星的天空盒。当 <code>undefined</code> 且使用 WGS84 椭球体时，使用默认星星。如果设置为 <code>false</code>，则不添加天空盒、太阳或月亮。
+ * @param {SkyAtmosphere | false} [options.skyAtmosphere] 蓝天和地球边缘的光晕。使用默认椭球体时启用。设置为 <code>false</code> 以关闭。
+ * @param {SceneMode} [options.sceneMode=SceneMode.SCENE3D] 初始场景模式。
+ * @param {boolean} [options.scene3DOnly=false] 当 <code>true</code> 时，每个几何实例将仅在 3D 中渲染以节省 GPU 内存。
+ * @param {boolean} [options.orderIndependentTranslucency=true] 如果为 true 且配置支持，则使用顺序无关透明度。
+ * @param {MapProjection} [options.mapProjection=new GeographicProjection(options.ellipsoid)] 在 2D 和哥伦布视图模式中使用的地图投影。
+ * @param {Globe | false} [options.globe=new Globe(options.ellipsoid)] 场景中使用的地球。如果设置为 <code>false</code>，则不添加地球，且天空大气默认隐藏。
+ * @param {boolean} [options.useDefaultRenderLoop=true] 如果为 true，此部件应控制渲染循环，否则为 false。
+ * @param {boolean} [options.useBrowserRecommendedResolution=true] 如果为 true，则以浏览器推荐的分辨率渲染并忽略 <code>window.devicePixelRatio</code>。
+ * @param {number} [options.targetFrameRate] 使用默认渲染循环时的目标帧率。
+ * @param {boolean} [options.showRenderLoopErrors=true] 如果为 true，当发生渲染循环错误时，此部件将自动向用户显示包含错误的 HTML 面板。
+ * @param {boolean} [options.automaticallyTrackDataSourceClocks=true] 如果为 true，此部件将自动跟踪新添加的 DataSource 的时钟设置，如果 DataSource 的时钟发生变化则更新。如果要独立配置时钟，请设置为 false。
+ * @param {ContextOptions} [options.contextOptions] 传递给 {@link Scene} 的上下文和 WebGL 创建属性。
+ * @param {Element|string} [options.creditContainer] 将包含 {@link CreditDisplay} 的 DOM 元素或 ID。如果未指定，则版权信息将添加到部件本身的底部。
+ * @param {Element|string} [options.creditViewport] 将包含由 {@link CreditDisplay} 创建的版权弹出窗口的 DOM 元素或 ID。如果未指定，它将出现在部件本身上方。
+ * @param {DataSourceCollection} [options.dataSources=new DataSourceCollection()] 由此部件可视化的数据源集合。如果提供此参数，则假定该实例由调用者拥有，并且在部件销毁时不会被销毁。
+ * @param {boolean} [options.shadows=false] 确定是否由光源投射阴影。
+ * @param {ShadowMode} [options.terrainShadows=ShadowMode.RECEIVE_ONLY] 确定地形是否从光源投射或接收阴影。
+ * @param {MapMode2D} [options.mapMode2D=MapMode2D.INFINITE_SCROLL] 确定 2D 地图是否可旋转或可以在水平方向上无限滚动。
+ * @param {boolean} [options.blurActiveElementOnCanvasFocus=true] 如果为 true，当单击部件的画布时，活动元素将失去焦点。当单击画布仅用于检索位置或实体数据而不实际意味着将画布设置为活动元素时，将此设置为 false 很有用。
+ * @param {boolean} [options.requestRenderMode=false] 如果为 true，则仅当场景中的更改确定需要时才会渲染帧。启用可提高应用程序性能，但需要使用 {@link Scene#requestRender} 在此模式下显式渲染新帧。在对 API 的其他部分中的场景进行更改后，在许多情况下这将是有必要的。参见 {@link https://cesium.com/blog/2018/01/24/cesium-scene-rendering-performance/|通过显式渲染提高性能}。
+ * @param {number} [options.maximumRenderTimeChange=0.0] 如果 requestRenderMode 为 true，则此值定义在请求渲染之前允许的最大模拟时间变化。参见 {@link https://cesium.com/blog/2018/01/24/cesium-scene-rendering-performance/|通过显式渲染提高性能}。
+ * @param {number} [options.msaaSamples=4] 如果提供，此值控制多重采样抗锯齿的速率。典型的多重采样率为每个像素 2、4，有时为 8 个样本。更高的 MSAA 采样率可能会影响性能，以换取改进的视觉质量。此值仅适用于支持多重采样渲染目标的 WebGL2 上下文。设置为 1 以禁用 MSAA。
  *
- * @exception {DeveloperError} Element with id "container" does not exist in the document.
+ * @exception {DeveloperError} 文档中不存在 ID 为 "container" 的元素。
  *
- * @demo {@link https://sandcastle.cesium.com/index.html?id=cesium-widget|Cesium Sandcastle Cesium Widget Demo}
+ * @demo {@link https://sandcastle.cesium.com/index.html?id=cesium-widget|Cesium Sandcastle Cesium Widget 演示}
  *
  * @example
- * // For each example, include a link to CesiumWidget.css stylesheet in HTML head,
- * // and in the body, include: <div id="cesiumContainer"></div>
+ * // 对于每个示例，在 HTML 头部包含 CesiumWidget.css 样式表的链接，
+ * // 并在正文中包含：<div id="cesiumContainer"></div>
  *
- * // Widget with no terrain and default Bing Maps imagery provider.
+ * // 没有地形和默认 Bing Maps 影像提供者的部件。
  * const widget = new Cesium.CesiumWidget("cesiumContainer");
  *
- * // Widget with ion imagery and Cesium World Terrain.
+ * // 使用 ion 影像和 Cesium World Terrain 的部件。
  * const widget2 = new Cesium.CesiumWidget("cesiumContainer", {
  *     baseLayer: Cesium.ImageryLayer.fromWorldTerrain(),
  *     terrain: Cesium.Terrain.fromWorldTerrain()
@@ -199,7 +197,7 @@ function configureCameraFrustum(widget) {
  *         negativeZ: "stars/TychoSkymapII.t3_08192x04096_80_mz.jpg"
  *       }
  *     }),
- *     // Show Columbus View map with Web Mercator projection
+ *     // 使用 Web Mercator 投影显示哥伦布视图地图
  *     sceneMode: Cesium.SceneMode.COLUMBUS_VIEW,
  *     mapProjection: new Cesium.WebMercatorProjection()
  * });
@@ -215,7 +213,7 @@ function CesiumWidget(container, options) {
 
   options = options ?? Frozen.EMPTY_OBJECT;
 
-  //Configure the widget DOM elements
+  //配置部件 DOM 元素
   const element = document.createElement("div");
   element.className = "cesium-widget";
   container.appendChild(element);
@@ -235,14 +233,14 @@ function CesiumWidget(container, options) {
     return false;
   };
 
-  // Interacting with a canvas does not automatically blur the previously focused element.
-  // This leads to unexpected interaction if the last element was an input field.
-  // For example, clicking the mouse wheel could lead to the value in  the field changing
-  // unexpectedly. The solution is to blur whatever has focus as soon as canvas interaction begins.
-  // Although in some cases the active element needs to stay active even after interacting with the canvas,
-  // for example when clicking on it only for getting the data of a clicked position or an entity.
-  // For this case, the `blurActiveElementOnCanvasFocus` can be passed with false to avoid blurring
-  // the active element after interacting with the canvas.
+  // 与画布交互不会自动使之前获得焦点的元素失去焦点。
+  // 如果最后一个元素是输入字段，这会导致意外的交互。
+  // 例如，单击鼠标滚轮可能导致字段中的值意外更改。
+  // 解决方案是在画布交互开始时立即让任何获得焦点的元素失去焦点。
+  // 尽管在某些情况下，活动元素即使在画布交互后也需要保持活动状态，
+  // 例如，单击画布仅用于获取单击位置或实体的数据。
+  // 对于这种情况，可以传递 `blurActiveElementOnCanvasFocus` 为 false，以避免
+  // 在与画布交互后使活动元素失去焦点。
   function blurActiveElement() {
     if (canvas !== canvas.ownerDocument.activeElement) {
       canvas.ownerDocument.activeElement.blur();
@@ -358,7 +356,7 @@ function CesiumWidget(container, options) {
       }
     }
 
-    // Blue sky, and the glow around the Earth's limb.
+    // 蓝天和地球边缘的光晕。
     let skyAtmosphere = options.skyAtmosphere;
     if (!defined(skyAtmosphere) && Ellipsoid.WGS84.equals(ellipsoid)) {
       skyAtmosphere = new SkyAtmosphere(ellipsoid);
@@ -368,7 +366,7 @@ function CesiumWidget(container, options) {
       scene.skyAtmosphere = skyAtmosphere;
     }
 
-    // Set the base imagery layer
+    // 设置基础影像图层
     let baseLayer = options.baseLayer;
     if (options.globe !== false && baseLayer !== false) {
       if (!defined(baseLayer)) {
@@ -377,7 +375,7 @@ function CesiumWidget(container, options) {
       scene.imageryLayers.add(baseLayer);
     }
 
-    // Set the terrain provider if one is provided.
+    // 如果提供了地形提供者，则设置它。
     if (defined(options.terrainProvider) && options.globe !== false) {
       scene.terrainProvider = options.terrainProvider;
     }
@@ -453,7 +451,7 @@ function CesiumWidget(container, options) {
       this,
     );
 
-    //Listen to data source events in order to track clock changes.
+    // 监听数据源事件以跟踪时钟变化。
     eventHelper.add(
       dataSourceCollection.dataSourceAdded,
       CesiumWidget.prototype._onDataSourceAdded,
@@ -467,16 +465,15 @@ function CesiumWidget(container, options) {
 
     eventHelper.add(scene.postRender, CesiumWidget.prototype._postRender, this);
 
-    // We need to subscribe to the data sources and collections so that we can clear the
-    // tracked object when it is removed from the scene.
-    // Subscribe to current data sources
+    // 我们需要订阅数据源和集合，以便在跟踪的对象从场景中移除时清除它。
+    // 订阅当前数据源
     const dataSourceLength = dataSourceCollection.length;
     for (let i = 0; i < dataSourceLength; i++) {
       this._dataSourceAdded(dataSourceCollection, dataSourceCollection.get(i));
     }
     this._dataSourceAdded(undefined, dataSourceDisplay.defaultDataSource);
 
-    // Hook up events so that we can subscribe to future sources.
+    // 挂钩事件以便我们可以订阅未来的数据源。
     eventHelper.add(
       dataSourceCollection.dataSourceAdded,
       CesiumWidget.prototype._dataSourceAdded,
@@ -500,7 +497,7 @@ function CesiumWidget(container, options) {
 
 Object.defineProperties(CesiumWidget.prototype, {
   /**
-   * Gets the parent container.
+   * 获取父容器。
    * @memberof CesiumWidget.prototype
    *
    * @type {Element}
@@ -513,7 +510,7 @@ Object.defineProperties(CesiumWidget.prototype, {
   },
 
   /**
-   * Gets the canvas.
+   * 获取画布。
    * @memberof CesiumWidget.prototype
    *
    * @type {HTMLCanvasElement}
@@ -526,7 +523,7 @@ Object.defineProperties(CesiumWidget.prototype, {
   },
 
   /**
-   * Gets the credit container.
+   * 获取版权容器。
    * @memberof CesiumWidget.prototype
    *
    * @type {Element}
@@ -539,7 +536,7 @@ Object.defineProperties(CesiumWidget.prototype, {
   },
 
   /**
-   * Gets the credit viewport
+   * 获取版权视口。
    * @memberof CesiumWidget.prototype
    *
    * @type {Element}
@@ -552,7 +549,7 @@ Object.defineProperties(CesiumWidget.prototype, {
   },
 
   /**
-   * Gets the scene.
+   * 获取场景。
    * @memberof CesiumWidget.prototype
    *
    * @type {Scene}
@@ -565,7 +562,7 @@ Object.defineProperties(CesiumWidget.prototype, {
   },
 
   /**
-   * Gets the collection of image layers that will be rendered on the globe.
+   * 获取将在地球上渲染的影像图层集合。
    * @memberof CesiumWidget.prototype
    *
    * @type {ImageryLayerCollection}
@@ -578,7 +575,7 @@ Object.defineProperties(CesiumWidget.prototype, {
   },
 
   /**
-   * The terrain provider providing surface geometry for the globe.
+   * 为地球提供表面几何的地形提供者。
    * @memberof CesiumWidget.prototype
    *
    * @type {TerrainProvider}
@@ -605,7 +602,7 @@ Object.defineProperties(CesiumWidget.prototype, {
   },
 
   /**
-   * Gets the display used for {@link DataSource} visualization.
+   * 获取用于 {@link DataSource} 可视化的显示。
    * @memberof CesiumWidget.prototype
    * @type {DataSourceDisplay}
    * @readonly
@@ -617,8 +614,8 @@ Object.defineProperties(CesiumWidget.prototype, {
   },
 
   /**
-   * Gets the collection of entities not tied to a particular data source.
-   * This is a shortcut to [dataSourceDisplay.defaultDataSource.entities]{@link CesiumWidget#dataSourceDisplay}.
+   * 获取未绑定到特定数据源的实体集合。
+   * 这是 [dataSourceDisplay.defaultDataSource.entities]{@link CesiumWidget#dataSourceDisplay} 的快捷方式。
    * @memberof CesiumWidget.prototype
    * @type {EntityCollection}
    * @readonly
@@ -630,7 +627,7 @@ Object.defineProperties(CesiumWidget.prototype, {
   },
 
   /**
-   * Gets the set of {@link DataSource} instances to be visualized.
+   * 获取要可视化的 {@link DataSource} 实例集合。
    * @memberof CesiumWidget.prototype
    * @type {DataSourceCollection}
    * @readonly
@@ -642,7 +639,7 @@ Object.defineProperties(CesiumWidget.prototype, {
   },
 
   /**
-   * Gets the camera.
+   * 获取相机。
    * @memberof CesiumWidget.prototype
    *
    * @type {Camera}
@@ -655,7 +652,7 @@ Object.defineProperties(CesiumWidget.prototype, {
   },
 
   /**
-   * Gets the default ellipsoid for the scene.
+   * 获取场景的默认椭球体。
    * @memberof CesiumWidget.prototype
    *
    * @type {Ellipsoid}
@@ -668,7 +665,7 @@ Object.defineProperties(CesiumWidget.prototype, {
   },
 
   /**
-   * Gets the clock.
+   * 获取时钟。
    * @memberof CesiumWidget.prototype
    *
    * @type {Clock}
@@ -681,7 +678,7 @@ Object.defineProperties(CesiumWidget.prototype, {
   },
 
   /**
-   * Gets the screen space event handler.
+   * 获取屏幕空间事件处理器。
    * @memberof CesiumWidget.prototype
    *
    * @type {ScreenSpaceEventHandler}
@@ -694,10 +691,9 @@ Object.defineProperties(CesiumWidget.prototype, {
   },
 
   /**
-   * Gets or sets the target frame rate of the widget when <code>useDefaultRenderLoop</code>
-   * is true. If undefined, the browser's requestAnimationFrame implementation
-   * determines the frame rate.  If defined, this value must be greater than 0.  A value higher
-   * than the underlying requestAnimationFrame implementation will have no effect.
+   * 获取或设置当 <code>useDefaultRenderLoop</code> 为 true 时部件的目标帧率。
+   * 如果未定义，则浏览器的 requestAnimationFrame 实现将决定帧率。
+   * 如果定义，此值必须大于 0。高于底层 requestAnimationFrame 实现的值将不起作用。
    * @memberof CesiumWidget.prototype
    *
    * @type {number}
@@ -719,15 +715,11 @@ Object.defineProperties(CesiumWidget.prototype, {
   },
 
   /**
-   * Gets or sets whether or not this widget should control the render loop.
-   * If true the widget will use requestAnimationFrame to
-   * perform rendering and resizing of the widget, as well as drive the
-   * simulation clock. If set to false, you must manually call the
-   * <code>resize</code>, <code>render</code> methods as part of a custom
-   * render loop.  If an error occurs during rendering, {@link Scene}'s
-   * <code>renderError</code> event will be raised and this property
-   * will be set to false.  It must be set back to true to continue rendering
-   * after the error.
+   * 获取或设置此部件是否应控制渲染循环。
+   * 如果为 true，部件将使用 requestAnimationFrame 来执行部件的渲染和调整大小，以及驱动模拟时钟。
+   * 如果设置为 false，您必须手动调用 <code>resize</code>、<code>render</code> 方法作为自定义渲染循环的一部分。
+   * 如果在渲染期间发生错误，{@link Scene} 的 <code>renderError</code> 事件将被引发，并且此属性将被设置为 false。
+   * 错误发生后，必须将其设置回 true 才能继续渲染。
    * @memberof CesiumWidget.prototype
    *
    * @type {boolean}
@@ -747,12 +739,10 @@ Object.defineProperties(CesiumWidget.prototype, {
   },
 
   /**
-   * Gets or sets a scaling factor for rendering resolution.  Values less than 1.0 can improve
-   * performance on less powerful devices while values greater than 1.0 will render at a higher
-   * resolution and then scale down, resulting in improved visual fidelity.
-   * For example, if the widget is laid out at a size of 640x480, setting this value to 0.5
-   * will cause the scene to be rendered at 320x240 and then scaled up while setting
-   * it to 2.0 will cause the scene to be rendered at 1280x960 and then scaled down.
+   * 获取或设置渲染分辨率的缩放因子。小于 1.0 的值可以在性能较弱的设备上提高性能，
+   * 而大于 1.0 的值将以更高的分辨率渲染然后缩小，从而提高视觉保真度。
+   * 例如，如果部件布局大小为 640x480，将此值设置为 0.5 将导致场景以 320x240 渲染然后放大，
+   * 而将其设置为 2.0 将导致场景以 1280x960 渲染然后缩小。
    * @memberof CesiumWidget.prototype
    *
    * @type {number}
@@ -776,12 +766,10 @@ Object.defineProperties(CesiumWidget.prototype, {
   },
 
   /**
-   * Boolean flag indicating if the browser's recommended resolution is used.
-   * If true, the browser's device pixel ratio is ignored and 1.0 is used instead,
-   * effectively rendering based on CSS pixels instead of device pixels. This can improve
-   * performance on less powerful devices that have high pixel density. When false, rendering
-   * will be in device pixels. {@link CesiumWidget#resolutionScale} will still take effect whether
-   * this flag is true or false.
+   * 布尔标志，指示是否使用浏览器推荐的分辨率。
+   * 如果为 true，则忽略浏览器的设备像素比并使用 1.0，实际上基于 CSS 像素而不是设备像素进行渲染。
+   * 这可以在具有高像素密度的性能较弱的设备上提高性能。当为 false 时，渲染将使用设备像素。
+   * 无论此标志是 true 还是 false，{@link CesiumWidget#resolutionScale} 仍将生效。
    * @memberof CesiumWidget.prototype
    *
    * @type {boolean}
@@ -800,10 +788,8 @@ Object.defineProperties(CesiumWidget.prototype, {
   },
 
   /**
-   * Gets or sets whether or not data sources can temporarily pause
-   * animation in order to avoid showing an incomplete picture to the user.
-   * For example, if asynchronous primitives are being processed in the
-   * background, the clock will not advance until the geometry is ready.
+   * 获取或设置数据源是否可以暂时暂停动画，以避免向用户显示不完整的画面。
+   * 例如，如果异步图元正在后台处理，时钟将不会前进，直到几何图形准备就绪。
    *
    * @memberof CesiumWidget.prototype
    *
@@ -819,7 +805,7 @@ Object.defineProperties(CesiumWidget.prototype, {
   },
 
   /**
-   * Gets or sets the Entity instance currently being tracked by the camera.
+   * 获取或设置当前被相机跟踪的实体实例。
    * @memberof CesiumWidget.prototype
    * @type {Entity | undefined}
    */
@@ -837,7 +823,7 @@ Object.defineProperties(CesiumWidget.prototype, {
         const scene = this.scene;
         const sceneMode = scene.mode;
 
-        //Stop tracking
+        //停止跟踪
         if (!defined(value) || !defined(value.position)) {
           this._needTrackedEntityUpdate = false;
           if (
@@ -857,8 +843,8 @@ Object.defineProperties(CesiumWidget.prototype, {
           this._entityView = undefined;
           this.camera.lookAtTransform(Matrix4.IDENTITY);
         } else {
-          //We can't start tracking immediately, so we set a flag and start tracking
-          //when the bounding sphere is ready (most likely next frame).
+          //我们无法立即开始跟踪，因此我们设置一个标志，并在边界球体准备就绪时开始跟踪
+          //（很可能是下一帧）。
           this._needTrackedEntityUpdate = true;
         }
 
@@ -869,7 +855,7 @@ Object.defineProperties(CesiumWidget.prototype, {
   },
 
   /**
-   * Gets the event that is raised when the tracked entity changes.
+   * 获取当被跟踪的实体更改时引发的事件。
    * @memberof CesiumWidget.prototype
    * @type {Event}
    * @readonly
@@ -881,7 +867,7 @@ Object.defineProperties(CesiumWidget.prototype, {
   },
 
   /**
-   * Gets or sets the data source to track with the widget's clock.
+   * 获取或设置要与部件的时钟一起跟踪的数据源。
    * @memberof CesiumWidget.prototype
    * @type {DataSource}
    */
@@ -899,14 +885,13 @@ Object.defineProperties(CesiumWidget.prototype, {
 });
 
 /**
- * Show an error panel to the user containing a title and a longer error message,
- * which can be dismissed using an OK button.  This panel is displayed automatically
- * when a render loop error occurs, if showRenderLoopErrors was not false when the
- * widget was constructed.
+ * 向用户显示一个错误面板，包含标题和更详细的错误消息，
+ * 可以使用"确定"按钮关闭。如果在构建部件时 showRenderLoopErrors 不为 false，
+ * 则当发生渲染循环错误时，此面板会自动显示。
  *
- * @param {string} title The title to be displayed on the error panel.  This string is interpreted as text.
- * @param {string} [message] A helpful, user-facing message to display prior to the detailed error information.  This string is interpreted as HTML.
- * @param {string} [error] The error to be displayed on the error panel.  This string is formatted using {@link formatError} and then displayed as text.
+ * @param {string} title 要在错误面板上显示的标题。此字符串被解释为文本。
+ * @param {string} [message] 在详细错误信息之前显示的面向用户的有用消息。此字符串被解释为 HTML。
+ * @param {string} [error] 要在错误面板上显示的错误。此字符串使用 {@link formatError} 格式化，然后作为文本显示。
  */
 CesiumWidget.prototype.showErrorPanel = function (title, message, error) {
   const element = this._element;
@@ -1008,18 +993,17 @@ CesiumWidget.prototype.showErrorPanel = function (title, message, error) {
 };
 
 /**
- * @returns {boolean} true if the object has been destroyed, false otherwise.
+ * @returns {boolean} 如果对象已被销毁则返回 true，否则返回 false。
  */
 CesiumWidget.prototype.isDestroyed = function () {
   return false;
 };
 
 /**
- * Destroys the widget.  Should be called if permanently
- * removing the widget from layout.
+ * 销毁部件。如果从布局中永久移除部件，应调用此方法。
  */
 CesiumWidget.prototype.destroy = function () {
-  // Unsubscribe from data sources
+  // 取消订阅数据源
   const dataSources = this.dataSources;
   const dataSourceLength = dataSources.length;
   for (let i = 0; i < dataSourceLength; i++) {
@@ -1046,9 +1030,8 @@ CesiumWidget.prototype.destroy = function () {
 };
 
 /**
- * Updates the canvas size, camera aspect ratio, and viewport size.
- * This function is called automatically as needed unless
- * <code>useDefaultRenderLoop</code> is set to false.
+ * 更新画布大小、相机纵横比和视口大小。
+ * 除非 <code>useDefaultRenderLoop</code> 设置为 false，否则会根据需要自动调用此函数。
  */
 CesiumWidget.prototype.resize = function () {
   const canvas = this._canvas;
@@ -1069,8 +1052,7 @@ CesiumWidget.prototype.resize = function () {
 };
 
 /**
- * Renders the scene.  This function is called automatically
- * unless <code>useDefaultRenderLoop</code> is set to false;
+ * 渲染场景。除非 <code>useDefaultRenderLoop</code> 设置为 false，否则会自动调用此函数；
  */
 CesiumWidget.prototype.render = function () {
   if (this._canRender) {
@@ -1228,23 +1210,22 @@ CesiumWidget.prototype._onDataSourceRemoved = function (
 };
 
 /**
- * Asynchronously sets the camera to view the provided entity, entities, or data source.
- * If the data source is still in the process of loading or the visualization is otherwise still loading,
- * this method waits for the data to be ready before performing the zoom.
+ * 异步设置相机以查看提供的实体、实体数组或数据源。
+ * 如果数据源仍在加载过程中或可视化仍在加载中，此方法会等待数据准备就绪后再执行缩放。
  *
- * <p>The offset is heading/pitch/range in the local east-north-up reference frame centered at the center of the bounding sphere.
- * The heading and the pitch angles are defined in the local east-north-up reference frame.
- * The heading is the angle from y axis and increasing towards the x axis. Pitch is the rotation from the xy-plane. Positive pitch
- * angles are above the plane. Negative pitch angles are below the plane. The range is the distance from the center. If the range is
- * zero, a range will be computed such that the whole bounding sphere is visible.</p>
+ * <p>偏移量是位于边界球体中心处的局部东-北-上参考系中的航向/俯仰/距离。
+ * 航向和俯仰角在局部东-北-上参考系中定义。
+ * 航向是从 y 轴开始的角度，并朝向 x 轴增加。俯仰是从 xy 平面开始的旋转。正俯仰角
+ * 在平面之上。负俯仰角在平面之下。距离是距中心的距离。如果距离为
+ * 零，将计算一个距离，使整个边界球体都可见。</p>
  *
- * <p>In 2D, there must be a top down view. The camera will be placed above the target looking down. The height above the
- * target will be the range. The heading will be determined from the offset. If the heading cannot be
- * determined from the offset, the heading will be north.</p>
+ * <p>在 2D 中，必须是俯视图。相机将放置在目标上方向下看。在目标上方的
+ * 高度将是距离。航向将根据偏移量确定。如果无法从偏移量
+ * 确定航向，则航向将为北。</p>
  *
- * @param {Entity|Entity[]|EntityCollection|DataSource|ImageryLayer|Cesium3DTileset|TimeDynamicPointCloud|Promise<Entity|Entity[]|EntityCollection|DataSource|ImageryLayer|Cesium3DTileset|TimeDynamicPointCloud|VoxelPrimitive|BufferPrimitiveCollection<BufferPrimitive>>} target The entity, array of entities, entity collection, data source, Cesium3DTileset, point cloud, or imagery layer to view. You can also pass a promise that resolves to one of the previously mentioned types.
- * @param {HeadingPitchRange} [offset] The offset from the center of the entity in the local east-north-up reference frame.
- * @returns {Promise<boolean>} A Promise that resolves to true if the zoom was successful or false if the target is not currently visualized in the scene or the zoom was cancelled.
+ * @param {Entity|Entity[]|EntityCollection|DataSource|ImageryLayer|Cesium3DTileset|TimeDynamicPointCloud|Promise<Entity|Entity[]|EntityCollection|DataSource|ImageryLayer|Cesium3DTileset|TimeDynamicPointCloud|VoxelPrimitive|BufferPrimitiveCollection<BufferPrimitive>>} target 要查看的实体、实体数组、实体集合、数据源、Cesium3DTileset、点云或影像图层。您也可以传递一个解析为上述类型之一的 Promise。
+ * @param {HeadingPitchRange} [offset] 在局部东-北-上参考系中距实体中心的偏移量。
+ * @returns {Promise<boolean>} 如果缩放成功则解析为 true 的 Promise，如果目标当前未在场景中可视化或缩放被取消则解析为 false。
  */
 CesiumWidget.prototype.zoomTo = function (target, offset) {
   const options = {
@@ -1254,26 +1235,25 @@ CesiumWidget.prototype.zoomTo = function (target, offset) {
 };
 
 /**
- * Flies the camera to the provided entity, entities, or data source.
- * If the data source is still in the process of loading or the visualization is otherwise still loading,
- * this method waits for the data to be ready before performing the flight.
+ * 飞行相机到提供的实体、实体数组或数据源。
+ * 如果数据源仍在加载过程中或可视化仍在加载中，此方法会等待数据准备就绪后再执行飞行。
  *
- * <p>The offset is heading/pitch/range in the local east-north-up reference frame centered at the center of the bounding sphere.
- * The heading and the pitch angles are defined in the local east-north-up reference frame.
- * The heading is the angle from y axis and increasing towards the x axis. Pitch is the rotation from the xy-plane. Positive pitch
- * angles are above the plane. Negative pitch angles are below the plane. The range is the distance from the center. If the range is
- * zero, a range will be computed such that the whole bounding sphere is visible.</p>
+ * <p>偏移量是位于边界球体中心处的局部东-北-上参考系中的航向/俯仰/距离。
+ * 航向和俯仰角在局部东-北-上参考系中定义。
+ * 航向是从 y 轴开始的角度，并朝向 x 轴增加。俯仰是从 xy 平面开始的旋转。正俯仰角
+ * 在平面之上。负俯仰角在平面之下。距离是距中心的距离。如果距离为
+ * 零，将计算一个距离，使整个边界球体都可见。</p>
  *
- * <p>In 2D, there must be a top down view. The camera will be placed above the target looking down. The height above the
- * target will be the range. The heading will be determined from the offset. If the heading cannot be
- * determined from the offset, the heading will be north.</p>
+ * <p>在 2D 中，必须是俯视图。相机将放置在目标上方向下看。在目标上方的
+ * 高度将是距离。航向将根据偏移量确定。如果无法从偏移量
+ * 确定航向，则航向将为北。</p>
  *
- * @param {Entity|Entity[]|EntityCollection|DataSource|ImageryLayer|Cesium3DTileset|TimeDynamicPointCloud|Promise<Entity|Entity[]|EntityCollection|DataSource|ImageryLayer|Cesium3DTileset|TimeDynamicPointCloud|VoxelPrimitive|BufferPrimitiveCollection<BufferPrimitive>>} target The entity, array of entities, entity collection, data source, Cesium3DTileset, point cloud, or imagery layer to view. You can also pass a promise that resolves to one of the previously mentioned types.
- * @param {object} [options] Object with the following properties:
- * @param {number} [options.duration=3.0] The duration of the flight in seconds.
- * @param {number} [options.maximumHeight] The maximum height at the peak of the flight.
- * @param {HeadingPitchRange} [options.offset] The offset from the target in the local east-north-up reference frame centered at the target.
- * @returns {Promise<boolean>} A Promise that resolves to true if the flight was successful or false if the target is not currently visualized in the scene or the flight was cancelled. //TODO: Cleanup entity mentions
+ * @param {Entity|Entity[]|EntityCollection|DataSource|ImageryLayer|Cesium3DTileset|TimeDynamicPointCloud|Promise<Entity|Entity[]|EntityCollection|DataSource|ImageryLayer|Cesium3DTileset|TimeDynamicPointCloud|VoxelPrimitive|BufferPrimitiveCollection<BufferPrimitive>>} target 要查看的实体、实体数组、实体集合、数据源、Cesium3DTileset、点云或影像图层。您也可以传递一个解析为上述类型之一的 Promise。
+ * @param {object} [options] 具有以下属性的对象：
+ * @param {number} [options.duration=3.0] 飞行持续时间（秒）。
+ * @param {number} [options.maximumHeight] 飞行峰值的最大高度。
+ * @param {HeadingPitchRange} [options.offset] 在以目标为中心的局部东-北-上参考系中距目标的偏移量。
+ * @returns {Promise<boolean>} 如果飞行成功则解析为 true 的 Promise，如果目标当前未在场景中可视化或飞行被取消则解析为 false。 //TODO: 清理实体提及
  */
 CesiumWidget.prototype.flyTo = function (target, options) {
   return zoomToOrFly(this, target, options, true);
@@ -1288,10 +1268,8 @@ function zoomToOrFly(that, zoomTarget, options, isFlight) {
 
   cancelZoom(that);
 
-  //We can't actually perform the zoom until all visualization is ready and
-  //bounding spheres have been computed.  Therefore we create and return
-  //a deferred which will be resolved as part of the post-render step in the
-  //frame that actually performs the zoom.
+  //在所有可视化准备就绪且边界球体计算完成之前，我们实际上无法执行缩放。
+  //因此，我们创建并返回一个延迟对象，它将在实际执行缩放的帧的后期渲染步骤中解析。
   const zoomPromise = new Promise((resolve) => {
     that._completeZoom = function (value) {
       resolve(value);
@@ -1302,12 +1280,12 @@ function zoomToOrFly(that, zoomTarget, options, isFlight) {
   that._zoomOptions = options;
 
   Promise.resolve(zoomTarget).then(function (zoomTarget) {
-    //Only perform the zoom if it wasn't cancelled before the promise resolved.
+    //仅在 Promise 解析之前未被取消的情况下执行缩放。
     if (that._zoomPromise !== zoomPromise) {
       return;
     }
 
-    //If the zoom target is a rectangular imagery in an ImageLayer
+    //如果缩放目标是 ImageLayer 中的矩形影像
     if (zoomTarget instanceof ImageryLayer) {
       let rectanglePromise;
 
@@ -1326,7 +1304,7 @@ function zoomToOrFly(that, zoomTarget, options, isFlight) {
           return computeFlyToLocationForRectangle(rectangle, that.scene);
         })
         .then(function (position) {
-          //Only perform the zoom if it wasn't cancelled before the promise was resolved
+          //仅在 Promise 解析之前未被取消的情况下执行缩放
           if (that._zoomPromise === zoomPromise) {
             that._zoomTarget = position;
           }
@@ -1344,12 +1322,12 @@ function zoomToOrFly(that, zoomTarget, options, isFlight) {
       return;
     }
 
-    //If the zoom target is a data source, and it's in the middle of loading, wait for it to finish loading.
+    //如果缩放目标是数据源，并且它正在加载中，则等待其加载完成。
     if (zoomTarget.isLoading && defined(zoomTarget.loadingEvent)) {
       const removeEvent = zoomTarget.loadingEvent.addEventListener(function () {
         removeEvent();
 
-        //Only perform the zoom if it wasn't cancelled before the data source finished.
+        //仅在数据源完成之前未被取消的情况下执行缩放。
         if (that._zoomPromise === zoomPromise) {
           that._zoomTarget = zoomTarget.entities.values.slice(0);
         }
@@ -1363,10 +1341,10 @@ function zoomToOrFly(that, zoomTarget, options, isFlight) {
       return;
     }
 
-    //If zoomTarget is an EntityCollection, this will retrieve the array
+    //如果 zoomTarget 是 EntityCollection，这将检索数组
     zoomTarget = zoomTarget.values ?? zoomTarget;
 
-    //If zoomTarget is a DataSource, this will retrieve the array.
+    //如果 zoomTarget 是 DataSource，这将检索数组。
     if (defined(zoomTarget.entities)) {
       zoomTarget = zoomTarget.entities.values;
     }
@@ -1375,7 +1353,7 @@ function zoomToOrFly(that, zoomTarget, options, isFlight) {
     if (Array.isArray(zoomTarget)) {
       that._zoomTarget = zoomTarget.slice(0);
     } else {
-      //Single entity
+      //单个实体
       that._zoomTarget = [zoomTarget];
     }
   });
@@ -1419,7 +1397,7 @@ function updateZoomTarget(widget) {
   const zoomOptions = widget._zoomOptions ?? {};
   let options;
   function zoomToBoundingSphere(boundingSphere) {
-    // If offset was originally undefined then give it base value instead of empty object
+    // 如果 offset 最初是 undefined，则给它基值而不是空对象
     if (!defined(zoomOptions.offset)) {
       zoomOptions.offset = new HeadingPitchRange(
         0.0,
@@ -1446,7 +1424,7 @@ function updateZoomTarget(widget) {
       camera.viewBoundingSphere(boundingSphere, zoomOptions.offset);
       camera.lookAtTransform(Matrix4.IDENTITY);
 
-      // Finish the promise
+      // 完成 Promise
       widget._completeZoom(true);
     }
 
@@ -1459,7 +1437,7 @@ function updateZoomTarget(widget) {
       return;
     }
 
-    // Otherwise, the first "frame" needs to have been rendered
+    // 否则，需要已经渲染了第一个"帧"
     const removeEventListener = target.frameChanged.addEventListener(
       function (timeDynamicPointCloud) {
         zoomToBoundingSphere(timeDynamicPointCloud.boundingSphere);
@@ -1479,7 +1457,7 @@ function updateZoomTarget(widget) {
     return;
   }
 
-  // If zoomTarget was an ImageryLayer
+  // 如果 zoomTarget 是 ImageryLayer
   if (target instanceof Cartographic) {
     options = {
       destination: scene.ellipsoid.cartographicToCartesian(target),
@@ -1527,7 +1505,7 @@ function updateZoomTarget(widget) {
     return;
   }
 
-  // Stop tracking the current entity.
+  // 停止跟踪当前实体。
   widget.trackedEntity = undefined;
 
   const boundingSphere = BoundingSphere.fromBoundingSpheres(boundingSpheres);

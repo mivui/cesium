@@ -1,132 +1,127 @@
-// @ts-check
-
-import WebGLConstants from "../Core/WebGLConstants.js";
-
 /**
- * Determines how blending factors are computed.
+ * 用于确定如何缩放源颜色或目标颜色的 RGB 或 Alpha 分量的混合函数。
  *
  * @enum {number}
+ *
+ * @see DrawCommand.blending
  */
 const BlendFunction = {
   /**
-   * The blend factor is zero.
-   *
+   * 每个颜色分量乘以零。
    * @type {number}
    * @constant
    */
-  ZERO: WebGLConstants.ZERO,
+  ZERO: 0,
 
   /**
-   * The blend factor is one.
-   *
+   * 每个颜色分量乘以一。
    * @type {number}
    * @constant
    */
-  ONE: WebGLConstants.ONE,
+  ONE: 1,
 
   /**
-   * The blend factor is the source color.
-   *
+   * 每个颜色分量乘以源颜色。
    * @type {number}
    * @constant
    */
-  SOURCE_COLOR: WebGLConstants.SRC_COLOR,
+  SOURCE_COLOR: 2,
 
   /**
-   * The blend factor is one minus the source color.
-   *
+   * 每个颜色分量乘以一减去源颜色。
    * @type {number}
    * @constant
    */
-  ONE_MINUS_SOURCE_COLOR: WebGLConstants.ONE_MINUS_SRC_COLOR,
+  ONE_MINUS_SOURCE_COLOR: 3,
 
   /**
-   * The blend factor is the destination color.
-   *
+   * 每个颜色分量乘以目标颜色。
    * @type {number}
    * @constant
    */
-  DESTINATION_COLOR: WebGLConstants.DST_COLOR,
+  DESTINATION_COLOR: 4,
 
   /**
-   * The blend factor is one minus the destination color.
-   *
+   * 每个颜色分量乘以一减去目标颜色。
    * @type {number}
    * @constant
    */
-  ONE_MINUS_DESTINATION_COLOR: WebGLConstants.ONE_MINUS_DST_COLOR,
+  ONE_MINUS_DESTINATION_COLOR: 5,
 
   /**
-   * The blend factor is the source alpha.
-   *
+   * 每个颜色分量乘以源 Alpha。
    * @type {number}
    * @constant
    */
-  SOURCE_ALPHA: WebGLConstants.SRC_ALPHA,
+  SOURCE_ALPHA: 6,
 
   /**
-   * The blend factor is one minus the source alpha.
-   *
+   * 每个颜色分量乘以一减去源 Alpha。
    * @type {number}
    * @constant
    */
-  ONE_MINUS_SOURCE_ALPHA: WebGLConstants.ONE_MINUS_SRC_ALPHA,
+  ONE_MINUS_SOURCE_ALPHA: 7,
 
   /**
-   * The blend factor is the destination alpha.
-   *
+   * 每个颜色分量乘以目标 Alpha。
    * @type {number}
    * @constant
    */
-  DESTINATION_ALPHA: WebGLConstants.DST_ALPHA,
+  DESTINATION_ALPHA: 8,
 
   /**
-   * The blend factor is one minus the destination alpha.
-   *
+   * 每个颜色分量乘以一减去目标 Alpha。
    * @type {number}
    * @constant
    */
-  ONE_MINUS_DESTINATION_ALPHA: WebGLConstants.ONE_MINUS_DST_ALPHA,
+  ONE_MINUS_DESTINATION_ALPHA: 9,
 
   /**
-   * The blend factor is the constant color.
-   *
+   * 每个颜色分量乘以常数颜色。
    * @type {number}
    * @constant
    */
-  CONSTANT_COLOR: WebGLConstants.CONSTANT_COLOR,
+  CONSTANT_COLOR: 10,
 
   /**
-   * The blend factor is one minus the constant color.
-   *
+   * 每个颜色分量乘以一减去常数颜色。
    * @type {number}
    * @constant
    */
-  ONE_MINUS_CONSTANT_COLOR: WebGLConstants.ONE_MINUS_CONSTANT_COLOR,
+  ONE_MINUS_CONSTANT_COLOR: 11,
 
   /**
-   * The blend factor is the constant alpha.
-   *
+   * 每个颜色分量乘以常数 Alpha。
    * @type {number}
    * @constant
    */
-  CONSTANT_ALPHA: WebGLConstants.CONSTANT_ALPHA,
+  CONSTANT_ALPHA: 12,
 
   /**
-   * The blend factor is one minus the constant alpha.
-   *
+   * 每个颜色分量乘以一减去常数 Alpha。
    * @type {number}
    * @constant
    */
-  ONE_MINUS_CONSTANT_ALPHA: WebGLConstants.ONE_MINUS_CONSTANT_ALPHA,
+  ONE_MINUS_CONSTANT_ALPHA: 13,
 
   /**
-   * The blend factor is the saturated source alpha.
-   *
+   * 每个颜色分量乘以最小化源 Alpha 或一减去目标 Alpha，以较小者为准。
    * @type {number}
    * @constant
    */
-  SOURCE_ALPHA_SATURATE: WebGLConstants.SRC_ALPHA_SATURATE,
+  SOURCE_ALPHA_SATURATE: 14,
+};
+
+/**
+ * 获取 WebGL 的 blendFunction 值。
+ *
+ * @param {BlendFunction} blendFunction 要获取对应 WebGL 值的混合函数。
+ * @returns {number} 对应的 WebGL 值。
+ *
+ * @private
+ */
+BlendFunction.toWebGLConstant = function (blendFunction) {
+  return blendFunction;
 };
 
 Object.freeze(BlendFunction);

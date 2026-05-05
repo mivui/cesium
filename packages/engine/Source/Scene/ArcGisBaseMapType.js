@@ -1,7 +1,7 @@
 // @ts-check
 
 /**
- * ArcGisBaseMapType enumerates the ArcGIS image tile layers that are supported by default.
+ * ArcGisBaseMapType 枚举默认支持的 ArcGIS 图像瓦片图层。
  *
  * @enum {number}
  * @see ArcGisMapServerImageryProvider

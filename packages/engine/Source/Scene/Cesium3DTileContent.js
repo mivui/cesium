@@ -1,13 +1,13 @@
 import DeveloperError from "../Core/DeveloperError.js";
 
 /**
- * The content of a tile in a {@link Cesium3DTileset}.
+ * {@link Cesium3DTileset} 中图元的内容。
  * <p>
- * Derived classes of this interface provide access to individual features in the tile.
- * Access derived objects through {@link Cesium3DTile#content}.
+ * 此接口的派生类提供对图元中各个特征的访问。
+ * 通过 {@link Cesium3DTile#content} 访问派生对象。
  * </p>
  * <p>
- * This type describes an interface and is not intended to be instantiated directly.
+ * 此类型描述一个接口,不打算直接实例化。
  * </p>
  *
  * @alias Cesium3DTileContent
@@ -31,7 +31,7 @@ function Cesium3DTileContent() {
 
 Object.defineProperties(Cesium3DTileContent.prototype, {
   /**
-   * Gets the number of features in the tile.
+   * 获取图元中的特征数。
    *
    * @memberof Cesium3DTileContent.prototype
    *
@@ -46,10 +46,10 @@ Object.defineProperties(Cesium3DTileContent.prototype, {
   },
 
   /**
-   * Gets the number of points in the tile.
+   * 获取图元中的点数。
    * <p>
-   * Only applicable for tiles with Point Cloud content. This is different than {@link Cesium3DTileContent#featuresLength} which
-   * equals the number of groups of points as distinguished by the <code>BATCH_ID</code> feature table semantic.
+   * 仅适用于具有点云内容的图元。这不同于 {@link Cesium3DTileContent#featuresLength},后者
+   * 等于由 <code>BATCH_ID</code> 特征表语义区分的点组的数量。
    * </p>
    *
    * @see {@link https://github.com/CesiumGS/3d-tiles/tree/main/specification/TileFormats/PointCloud#batched-points}
@@ -67,7 +67,7 @@ Object.defineProperties(Cesium3DTileContent.prototype, {
   },
 
   /**
-   * Gets the number of triangles in the tile.
+   * 获取图元中的三角形数。
    *
    * @memberof Cesium3DTileContent.prototype
    *
@@ -82,7 +82,7 @@ Object.defineProperties(Cesium3DTileContent.prototype, {
   },
 
   /**
-   * Gets the tile's geometry memory in bytes.
+   * 获取图元的几何内存(字节)。
    *
    * @memberof Cesium3DTileContent.prototype
    *
@@ -97,7 +97,7 @@ Object.defineProperties(Cesium3DTileContent.prototype, {
   },
 
   /**
-   * Gets the tile's texture memory in bytes.
+   * 获取图元的纹理内存(字节)。
    *
    * @memberof Cesium3DTileContent.prototype
    *
@@ -112,9 +112,9 @@ Object.defineProperties(Cesium3DTileContent.prototype, {
   },
 
   /**
-   * Gets the amount of memory used by the batch table textures and any binary
-   * metadata properties not accounted for in geometryByteLength or
-   * texturesByteLength
+   * 获取批处理表纹理和任何二进制
+   * 元数据属性(未在 geometryByteLength 或
+   * texturesByteLength 中计算)所使用的内存量
    *
    * @memberof Cesium3DTileContent.prototype
    *
@@ -129,7 +129,7 @@ Object.defineProperties(Cesium3DTileContent.prototype, {
   },
 
   /**
-   * Gets the array of {@link Cesium3DTileContent} objects for contents that contain other contents, such as composite tiles. The inner contents may in turn have inner contents, such as a composite tile that contains a composite tile.
+   * 获取包含其他内容的内容的 {@link Cesium3DTileContent} 对象数组,例如复合图元。内部内容可能依次包含内部内容,例如包含复合图元的复合图元。
    *
    * @see {@link https://github.com/CesiumGS/3d-tiles/tree/main/specification/TileFormats/Composite|Composite specification}
    *
@@ -146,7 +146,7 @@ Object.defineProperties(Cesium3DTileContent.prototype, {
   },
 
   /**
-   * Returns true when the tile's content is ready to render; otherwise false
+   * 当图元的内容准备好渲染时返回 true;否则返回 false
    *
    * @memberof Cesium3DTileContent.prototype
    *
@@ -161,7 +161,7 @@ Object.defineProperties(Cesium3DTileContent.prototype, {
   },
 
   /**
-   * Gets the tileset for this tile.
+   * 获取此图元的图元集。
    *
    * @memberof Cesium3DTileContent.prototype
    *
@@ -176,7 +176,7 @@ Object.defineProperties(Cesium3DTileContent.prototype, {
   },
 
   /**
-   * Gets the tile containing this content.
+   * 获取包含此内容的图元。
    *
    * @memberof Cesium3DTileContent.prototype
    *
@@ -191,7 +191,7 @@ Object.defineProperties(Cesium3DTileContent.prototype, {
   },
 
   /**
-   * Gets the url of the tile's content.
+   * 获取图元内容的 url。
    * @memberof Cesium3DTileContent.prototype
    *
    * @type {string}
@@ -272,30 +272,29 @@ Object.defineProperties(Cesium3DTileContent.prototype, {
 });
 
 /**
- * Returns whether the feature has this property.
+ * 返回特征是否具有此属性。
  *
- * @param {number} batchId The batchId for the feature.
- * @param {string} name The case-sensitive name of the property.
- * @returns {boolean} <code>true</code> if the feature has this property; otherwise, <code>false</code>.
+ * @param {number} batchId 特征的 batchId。
+ * @param {string} name 区分大小写的属性名称。
+ * @returns {boolean} 如果特征具有此属性,则返回 <code>true</code>;否则返回 <code>false</code>。
  */
 Cesium3DTileContent.prototype.hasProperty = function (batchId, name) {
   DeveloperError.throwInstantiationError();
 };
 
 /**
- * Returns the {@link Cesium3DTileFeature} object for the feature with the
- * given <code>batchId</code>.  This object is used to get and modify the
- * feature's properties.
+ * 返回具有给定 <code>batchId</code> 的特征的 {@link Cesium3DTileFeature} 对象。
+ * 此对象用于获取和修改特征的属性。
  * <p>
- * Features in a tile are ordered by <code>batchId</code>, an index used to retrieve their metadata from the batch table.
+ * 图元中的特征按 <code>batchId</code> 排序,该索引用于从批处理表中检索其元数据。
  * </p>
  *
  * @see {@link https://github.com/CesiumGS/3d-tiles/tree/main/specification/TileFormats/BatchTable}.
  *
- * @param {number} batchId The batchId for the feature.
- * @returns {Cesium3DTileFeature} The corresponding {@link Cesium3DTileFeature} object.
+ * @param {number} batchId 特征的 batchId。
+ * @returns {Cesium3DTileFeature} 对应的 {@link Cesium3DTileFeature} 对象。
  *
- * @exception {DeveloperError} batchId must be between zero and {@link Cesium3DTileContent#featuresLength} - 1.
+ * @exception {DeveloperError} batchId 必须介于零和 {@link Cesium3DTileContent#featuresLength} - 1 之间。
  */
 Cesium3DTileContent.prototype.getFeature = function (batchId) {
   DeveloperError.throwInstantiationError();

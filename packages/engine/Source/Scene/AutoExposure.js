@@ -37,7 +37,7 @@ function AutoExposure() {
   this._minMaxLuminance = new Cartesian2();
 
   /**
-   * Whether or not to execute this post-process stage when ready.
+   * 是否在准备好时执行此后处理阶段。
    *
    * @type {boolean}
    */
@@ -45,7 +45,7 @@ function AutoExposure() {
   this._enabled = true;
 
   /**
-   * The minimum value used to clamp the luminance.
+   * 用于钳制亮度的最小值。
    *
    * @type {number}
    * @default 0.1
@@ -53,7 +53,7 @@ function AutoExposure() {
   this.minimumLuminance = 0.1;
 
   /**
-   * The maximum value used to clamp the luminance.
+   * 用于钳制亮度的最大值。
    *
    * @type {number}
    * @default 10.0
@@ -63,9 +63,9 @@ function AutoExposure() {
 
 Object.defineProperties(AutoExposure.prototype, {
   /**
-   * Determines if this post-process stage is ready to be executed. A stage is only executed when both <code>ready</code>
-   * and {@link AutoExposure#enabled} are <code>true</code>. A stage will not be ready while it is waiting on textures
-   * to load.
+   * 确定此后处理阶段是否准备好执行。只有当 <code>ready</code>
+   * 和 {@link AutoExposure#enabled} 都为 <code>true</code> 时，阶段才会执行。阶段在等待纹理
+   * 加载时不会准备好。
    *
    * @memberof AutoExposure.prototype
    * @type {boolean}
@@ -77,7 +77,7 @@ Object.defineProperties(AutoExposure.prototype, {
     },
   },
   /**
-   * The unique name of this post-process stage for reference by other stages.
+   * 此后处理阶段的唯一名称，供其他阶段引用。
    *
    * @memberof AutoExposure.prototype
    * @type {string}

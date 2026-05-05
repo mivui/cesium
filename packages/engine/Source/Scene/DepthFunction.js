@@ -3,13 +3,13 @@
 import WebGLConstants from "../Core/WebGLConstants.js";
 
 /**
- * Determines the function used to compare two depths for the depth test.
+ * 确定用于比较两个深度以进行深度测试的函数。
  *
  * @enum {number}
  */
 const DepthFunction = {
   /**
-   * The depth test never passes.
+   * 深度测试永远不会通过。
    *
    * @type {number}
    * @constant
@@ -17,7 +17,7 @@ const DepthFunction = {
   NEVER: WebGLConstants.NEVER,
 
   /**
-   * The depth test passes if the incoming depth is less than the stored depth.
+   * 如果传入深度小于存储的深度，则深度测试通过。
    *
    * @type {number}
    * @constant
@@ -25,7 +25,7 @@ const DepthFunction = {
   LESS: WebGLConstants.LESS,
 
   /**
-   * The depth test passes if the incoming depth is equal to the stored depth.
+   * 如果传入深度等于存储的深度，则深度测试通过。
    *
    * @type {number}
    * @constant
@@ -33,7 +33,7 @@ const DepthFunction = {
   EQUAL: WebGLConstants.EQUAL,
 
   /**
-   * The depth test passes if the incoming depth is less than or equal to the stored depth.
+   * 如果传入深度小于或等于存储的深度，则深度测试通过。
    *
    * @type {number}
    * @constant
@@ -41,7 +41,7 @@ const DepthFunction = {
   LESS_OR_EQUAL: WebGLConstants.LEQUAL,
 
   /**
-   * The depth test passes if the incoming depth is greater than the stored depth.
+   * 如果传入深度大于存储的深度，则深度测试通过。
    *
    * @type {number}
    * @constant
@@ -49,7 +49,7 @@ const DepthFunction = {
   GREATER: WebGLConstants.GREATER,
 
   /**
-   * The depth test passes if the incoming depth is not equal to the stored depth.
+   * 如果传入深度不等于存储的深度，则深度测试通过。
    *
    * @type {number}
    * @constant
@@ -57,7 +57,7 @@ const DepthFunction = {
   NOT_EQUAL: WebGLConstants.NOTEQUAL,
 
   /**
-   * The depth test passes if the incoming depth is greater than or equal to the stored depth.
+   * 如果传入深度大于或等于存储的深度，则深度测试通过。
    *
    * @type {number}
    * @constant
@@ -65,7 +65,7 @@ const DepthFunction = {
   GREATER_OR_EQUAL: WebGLConstants.GEQUAL,
 
   /**
-   * The depth test always passes.
+   * 深度测试总是通过。
    *
    * @type {number}
    * @constant

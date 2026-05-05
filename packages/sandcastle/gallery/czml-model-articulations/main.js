@@ -20,7 +20,7 @@ const czml = [
       cartographicDegrees: [-77, 37, 10000],
     },
     model: {
-      gltf: "https://cesium.com/public/SandcastleSampleData/launchvehicle.glb",
+      gltf: "../../SampleData/models/launchvehicle.glb",
       scale: 2.0,
       minimumPixelSize: 128,
       runAnimations: false,

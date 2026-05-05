@@ -17,22 +17,15 @@ import ImageryProvider from "./ImageryProvider.js";
 /**
  * @typedef {object} BingMapsImageryProvider.ConstructorOptions
  *
- * Initialization options for the BingMapsImageryProvider constructor
+ * BingMapsImageryProvider 构造函数的初始化选项
  *
- * @property {string} [key] The Bing Maps key for your application, which can be
- *        created at {@link https://www.bingmapsportal.com/}.
- * @property {string} [tileProtocol] The protocol to use when loading tiles, e.g. 'http' or 'https'.
- *        By default, tiles are loaded using the same protocol as the page.
- * @property {BingMapsStyle} [mapStyle=BingMapsStyle.AERIAL] The type of Bing Maps imagery to load.
- * @property {string} [mapLayer] Additional display layer options as defined on {@link https://learn.microsoft.com/en-us/bingmaps/rest-services/imagery/get-imagery-metadata#template-parameters}
- * @property {string} [culture=''] The culture to use when requesting Bing Maps imagery. Not
- *        all cultures are supported. See {@link http://msdn.microsoft.com/en-us/library/hh441729.aspx}
- *        for information on the supported cultures.
- * @property {Ellipsoid} [ellipsoid=Ellipsoid.default] The ellipsoid.  If not specified, the default ellipsoid is used.
- * @property {TileDiscardPolicy} [tileDiscardPolicy] The policy that determines if a tile
- *        is invalid and should be discarded.  By default, a {@link DiscardEmptyTileImagePolicy}
- *        will be used, with the expectation that the Bing Maps server will send a zero-length response for missing tiles.
- *        To ensure that no tiles are discarded, construct and pass a {@link NeverTileDiscardPolicy} for this parameter.
+ * @property {string} [key] 应用程序的 Bing Maps 密钥，可在 {@link https://www.bingmapsportal.com/} 创建。
+ * @property {string} [tileProtocol] 加载瓦片时使用的协议，例如 'http' 或 'https'。默认情况下，瓦片使用与页面相同的协议加载。
+ * @property {BingMapsStyle} [mapStyle=BingMapsStyle.AERIAL] 要加载的 Bing Maps 影像类型。
+ * @property {string} [mapLayer] 如 {@link https://learn.microsoft.com/en-us/bingmaps/rest-services/imagery/get-imagery-metadata#template-parameters} 中定义的附加显示图层选项
+ * @property {string} [culture=''] 请求 Bing Maps 影像时使用的语言区域。并非所有语言区域都受支持。有关受支持语言区域的信息，请参阅 {@link http://msdn.microsoft.com/en-us/library/hh441729.aspx}。
+ * @property {Ellipsoid} [ellipsoid=Ellipsoid.default] 椭球体。如果未指定，则使用默认椭球体。
+ * @property {TileDiscardPolicy} [tileDiscardPolicy] 确定瓦片是否无效并应丢弃的策略。默认情况下，将使用 {@link DiscardEmptyTileImagePolicy}，期望 Bing Maps 服务器对缺失的瓦片发送零长度响应。要确保不丢弃任何瓦片，请为此参数构造并传递 {@link NeverTileDiscardPolicy}。
  */
 
 /**
@@ -174,15 +167,15 @@ async function requestMetadata(
 
 /**
  * <div class="notice">
- * To construct a BingMapsImageryProvider, call {@link BingMapsImageryProvider.fromUrl}. Do not call the constructor directly.
+ * 要构造 BingMapsImageryProvider，请调用 {@link BingMapsImageryProvider.fromUrl}。不要直接调用构造函数。
  * </div>
  *
- * Provides tiled imagery using the Bing Maps Imagery REST API.
+ * 使用 Bing Maps Imagery REST API 提供瓦片影像。
  *
  * @alias BingMapsImageryProvider
  * @constructor
  *
- * @param {BingMapsImageryProvider.ConstructorOptions} options Object describing initialization options
+ * @param {BingMapsImageryProvider.ConstructorOptions} options 描述初始化选项的对象
  *
  * @see BingMapsImageryProvider.fromUrl
  * @see ArcGisMapServerImageryProvider
@@ -251,7 +244,7 @@ function BingMapsImageryProvider(options) {
 
 Object.defineProperties(BingMapsImageryProvider.prototype, {
   /**
-   * Gets the name of the BingMaps server url hosting the imagery.
+   * 获取托管影像的 BingMaps 服务器 URL 的名称。
    * @memberof BingMapsImageryProvider.prototype
    * @type {string}
    * @readonly
@@ -263,7 +256,7 @@ Object.defineProperties(BingMapsImageryProvider.prototype, {
   },
 
   /**
-   * Gets the proxy used by this provider.
+   * 获取此提供程序使用的代理。
    * @memberof BingMapsImageryProvider.prototype
    * @type {Proxy}
    * @readonly
@@ -275,7 +268,7 @@ Object.defineProperties(BingMapsImageryProvider.prototype, {
   },
 
   /**
-   * Gets the Bing Maps key.
+   * 获取 Bing Maps 密钥。
    * @memberof BingMapsImageryProvider.prototype
    * @type {string}
    * @readonly
@@ -287,7 +280,7 @@ Object.defineProperties(BingMapsImageryProvider.prototype, {
   },
 
   /**
-   * Gets the type of Bing Maps imagery to load.
+   * 获取要加载的 Bing Maps 影像类型。
    * @memberof BingMapsImageryProvider.prototype
    * @type {BingMapsStyle}
    * @readonly
@@ -299,7 +292,7 @@ Object.defineProperties(BingMapsImageryProvider.prototype, {
   },
 
   /**
-   * Gets the additional map layer options as defined in {@link https://learn.microsoft.com/en-us/bingmaps/rest-services/imagery/get-imagery-metadata#template-parameters}/
+   * 获取 {@link https://learn.microsoft.com/en-us/bingmaps/rest-services/imagery/get-imagery-metadata#template-parameters}/ 中定义的附加地图图层选项。
    * @memberof BingMapsImageryProvider.prototype
    * @type {string}
    * @readonly
@@ -311,9 +304,7 @@ Object.defineProperties(BingMapsImageryProvider.prototype, {
   },
 
   /**
-   * The culture to use when requesting Bing Maps imagery. Not
-   * all cultures are supported. See {@link http://msdn.microsoft.com/en-us/library/hh441729.aspx}
-   * for information on the supported cultures.
+   * 请求 Bing Maps 影像时使用的语言区域。并非所有语言区域都受支持。有关受支持语言区域的信息，请参阅 {@link http://msdn.microsoft.com/en-us/library/hh441729.aspx}。
    * @memberof BingMapsImageryProvider.prototype
    * @type {string}
    * @readonly
@@ -325,7 +316,7 @@ Object.defineProperties(BingMapsImageryProvider.prototype, {
   },
 
   /**
-   * Gets the width of each tile, in pixels.
+   * 获取每个瓦片的宽度（像素）。
    * @memberof BingMapsImageryProvider.prototype
    * @type {number}
    * @readonly
@@ -337,7 +328,7 @@ Object.defineProperties(BingMapsImageryProvider.prototype, {
   },
 
   /**
-   * Gets the height of each tile, in pixels.
+   * 获取每个瓦片的高度（像素）。
    * @memberof BingMapsImageryProvider.prototype
    * @type {number}
    * @readonly
@@ -349,7 +340,7 @@ Object.defineProperties(BingMapsImageryProvider.prototype, {
   },
 
   /**
-   * Gets the maximum level-of-detail that can be requested.
+   * 获取可请求的最大细节级别。
    * @memberof BingMapsImageryProvider.prototype
    * @type {number|undefined}
    * @readonly
@@ -361,7 +352,7 @@ Object.defineProperties(BingMapsImageryProvider.prototype, {
   },
 
   /**
-   * Gets the minimum level-of-detail that can be requested.
+   * 获取可请求的最小细节级别。
    * @memberof BingMapsImageryProvider.prototype
    * @type {number}
    * @readonly
@@ -373,7 +364,7 @@ Object.defineProperties(BingMapsImageryProvider.prototype, {
   },
 
   /**
-   * Gets the tiling scheme used by this provider.
+   * 获取此提供程序使用的瓦片方案。
    * @memberof BingMapsImageryProvider.prototype
    * @type {TilingScheme}
    * @readonly
@@ -385,7 +376,7 @@ Object.defineProperties(BingMapsImageryProvider.prototype, {
   },
 
   /**
-   * Gets the rectangle, in radians, of the imagery provided by this instance.
+   * 获取此实例提供的影像的矩形（以弧度为单位）。
    * @memberof BingMapsImageryProvider.prototype
    * @type {Rectangle}
    * @readonly
@@ -397,9 +388,7 @@ Object.defineProperties(BingMapsImageryProvider.prototype, {
   },
 
   /**
-   * Gets the tile discard policy.  If not undefined, the discard policy is responsible
-   * for filtering out "missing" tiles via its shouldDiscardImage function.  If this function
-   * returns undefined, no tiles are filtered.
+   * 获取瓦片丢弃策略。如果未定义，丢弃策略负责通过其 shouldDiscardImage 函数过滤掉"缺失"的瓦片。如果此函数返回 undefined，则不过滤任何瓦片。
    * @memberof BingMapsImageryProvider.prototype
    * @type {TileDiscardPolicy}
    * @readonly
@@ -411,9 +400,7 @@ Object.defineProperties(BingMapsImageryProvider.prototype, {
   },
 
   /**
-   * Gets an event that is raised when the imagery provider encounters an asynchronous error.  By subscribing
-   * to the event, you will be notified of the error and can potentially recover from it.  Event listeners
-   * are passed an instance of {@link TileProviderError}.
+   * 获取一个事件，该事件在影像提供程序遇到异步错误时触发。通过订阅该事件，您将收到错误通知并可能从中恢复。事件监听器会接收到 {@link TileProviderError} 的实例。
    * @memberof BingMapsImageryProvider.prototype
    * @type {Event}
    * @readonly
@@ -425,8 +412,7 @@ Object.defineProperties(BingMapsImageryProvider.prototype, {
   },
 
   /**
-   * Gets the credit to display when this imagery provider is active.  Typically this is used to credit
-   * the source of the imagery.
+   * 获取在此影像提供程序处于活动状态时显示的署名。通常用于为影像来源署名。
    * @memberof BingMapsImageryProvider.prototype
    * @type {Credit}
    * @readonly
@@ -438,11 +424,7 @@ Object.defineProperties(BingMapsImageryProvider.prototype, {
   },
 
   /**
-   * Gets a value indicating whether or not the images provided by this imagery provider
-   * include an alpha channel.  If this property is false, an alpha channel, if present, will
-   * be ignored.  If this property is true, any images without an alpha channel will be treated
-   * as if their alpha is 1.0 everywhere.  Setting this property to false reduces memory usage
-   * and texture upload time.
+   * 获取一个值，指示此影像提供程序提供的图像是否包含 alpha 通道。如果此属性为 false，则将忽略 alpha 通道（如果存在）。如果此属性为 true，则任何没有 alpha 通道的图像将被视为其 alpha 值在所有位置均为 1.0。将此属性设置为 false 可减少内存使用和纹理上传时间。
    * @memberof BingMapsImageryProvider.prototype
    * @type {boolean}
    * @readonly
@@ -455,11 +437,11 @@ Object.defineProperties(BingMapsImageryProvider.prototype, {
 });
 
 /**
- * Creates an {@link ImageryProvider} which provides tiled imagery using the Bing Maps Imagery REST API.
+ * 创建一个 {@link ImageryProvider}，使用 Bing Maps Imagery REST API 提供瓦片影像。
  *
- * @param {Resource|string} url The url of the Bing Maps server hosting the imagery.
- * @param {BingMapsImageryProvider.ConstructorOptions} options Object describing initialization options
- * @returns {Promise<BingMapsImageryProvider>} A promise that resolves to the created BingMapsImageryProvider
+ * @param {Resource|string} url 托管影像的 Bing Maps 服务器的 URL。
+ * @param {BingMapsImageryProvider.ConstructorOptions} options 描述初始化选项的对象
+ * @returns {Promise<BingMapsImageryProvider>} 解析为创建的 BingMapsImageryProvider 的 Promise
  *
  * @example
  * const bing = await Cesium.BingMapsImageryProvider.fromUrl(
@@ -529,12 +511,12 @@ BingMapsImageryProvider.fromUrl = async function (url, options) {
 const rectangleScratch = new Rectangle();
 
 /**
- * Gets the credits to be displayed when a given tile is displayed.
+ * 获取在显示给定瓦片时要显示的署名。
  *
- * @param {number} x The tile X coordinate.
- * @param {number} y The tile Y coordinate.
- * @param {number} level The tile level;
- * @returns {Credit[]} The credits to be displayed when the tile is displayed.
+ * @param {number} x 瓦片 X 坐标。
+ * @param {number} y 瓦片 Y 坐标。
+ * @param {number} level 瓦片级别；
+ * @returns {Credit[]} 显示瓦片时要显示的署名。
  */
 BingMapsImageryProvider.prototype.getTileCredits = function (x, y, level) {
   const rectangle = this._tilingScheme.tileXYToRectangle(
@@ -553,14 +535,13 @@ BingMapsImageryProvider.prototype.getTileCredits = function (x, y, level) {
 };
 
 /**
- * Requests the image for a given tile.
+ * 请求给定瓦片的图像。
  *
- * @param {number} x The tile X coordinate.
- * @param {number} y The tile Y coordinate.
- * @param {number} level The tile level.
- * @param {Request} [request] The request object. Intended for internal use only.
- * @returns {Promise<ImageryTypes>|undefined} A promise for the image that will resolve when the image is available, or
- *          undefined if there are too many active requests to the server, and the request should be retried later.
+ * @param {number} x 瓦片 X 坐标。
+ * @param {number} y 瓦片 Y 坐标。
+ * @param {number} level 瓦片级别。
+ * @param {Request} [request] 请求对象。仅供内部使用。
+ * @returns {Promise<ImageryTypes>|undefined} 图像的 Promise，将在图像可用时解析，如果向服务器的活动请求过多，则返回 undefined，请求应稍后重试。
  */
 BingMapsImageryProvider.prototype.requestImage = function (
   x,
@@ -589,15 +570,14 @@ BingMapsImageryProvider.prototype.requestImage = function (
 };
 
 /**
- * Picking features is not currently supported by this imagery provider, so this function simply returns
- * undefined.
+ * 此影像提供程序当前不支持要素拾取，因此此函数仅返回 undefined。
  *
- * @param {number} x The tile X coordinate.
- * @param {number} y The tile Y coordinate.
- * @param {number} level The tile level.
- * @param {number} longitude The longitude at which to pick features.
- * @param {number} latitude  The latitude at which to pick features.
- * @return {undefined} Undefined since picking is not supported.
+ * @param {number} x 瓦片 X 坐标。
+ * @param {number} y 瓦片 Y 坐标。
+ * @param {number} level 瓦片级别。
+ * @param {number} longitude 拾取要素的经度。
+ * @param {number} latitude 拾取要素的纬度。
+ * @return {undefined} 由于不支持拾取，返回 undefined。
  */
 BingMapsImageryProvider.prototype.pickFeatures = function (
   x,
@@ -610,12 +590,11 @@ BingMapsImageryProvider.prototype.pickFeatures = function (
 };
 
 /**
- * Converts a tiles (x, y, level) position into a quadkey used to request an image
- * from a Bing Maps server.
+ * 将瓦片的 (x, y, level) 位置转换为用于从 Bing Maps 服务器请求图像的四叉键。
  *
- * @param {number} x The tile's x coordinate.
- * @param {number} y The tile's y coordinate.
- * @param {number} level The tile's zoom level.
+ * @param {number} x 瓦片的 x 坐标。
+ * @param {number} y 瓦片的 y 坐标。
+ * @param {number} level 瓦片的缩放级别。
  *
  * @see {@link http://msdn.microsoft.com/en-us/library/bb259689.aspx|Bing Maps Tile System}
  * @see BingMapsImageryProvider#quadKeyToTileXY
@@ -640,10 +619,9 @@ BingMapsImageryProvider.tileXYToQuadKey = function (x, y, level) {
 };
 
 /**
- * Converts a tile's quadkey used to request an image from a Bing Maps server into the
- * (x, y, level) position.
+ * 将用于从 Bing Maps 服务器请求图像的瓦片四叉键转换为 (x, y, level) 位置。
  *
- * @param {string} quadkey The tile's quad key
+ * @param {string} quadkey 瓦片的四叉键
  *
  * @see {@link http://msdn.microsoft.com/en-us/library/bb259689.aspx|Bing Maps Tile System}
  * @see BingMapsImageryProvider#tileXYToQuadKey
@@ -675,7 +653,7 @@ BingMapsImageryProvider._logoUrl = undefined;
 
 Object.defineProperties(BingMapsImageryProvider, {
   /**
-   * Gets or sets the URL to the Bing logo for display in the credit.
+   * 获取或设置要在署名中显示的 Bing 徽标的 URL。
    * @memberof BingMapsImageryProvider
    * @type {string}
    */

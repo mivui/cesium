@@ -3,27 +3,21 @@ import Check from "../Core/Check.js";
 import CesiumMath from "../Core/Math.js";
 
 /**
- * A ParticleEmitter that emits particles from a circle.
- * Particles will be positioned within a circle and have initial velocities going along the z vector.
+ * 在圆盘内发射粒子的 ParticleEmitter。
+ * 粒子将位于圆盘的中心，并具有朝向圆盘外部的初始速度。
  *
  * @alias CircleEmitter
  * @constructor
  *
- * @param {number} [radius=1.0] The radius of the circle in meters.
+ * @param {number} [radius=1.0] 圆盘的半径。
  */
 function CircleEmitter(radius) {
-  radius = radius ?? 1.0;
-
-  //>>includeStart('debug', pragmas.debug);
-  Check.typeOf.number.greaterThan("radius", radius, 0.0);
-  //>>includeEnd('debug');
-
   this._radius = radius ?? 1.0;
 }
 
 Object.defineProperties(CircleEmitter.prototype, {
   /**
-   * The radius of the circle in meters.
+   * 圆盘的半径。
    * @memberof CircleEmitter.prototype
    * @type {number}
    * @default 1.0
@@ -34,7 +28,7 @@ Object.defineProperties(CircleEmitter.prototype, {
     },
     set: function (value) {
       //>>includeStart('debug', pragmas.debug);
-      Check.typeOf.number.greaterThan("value", value, 0.0);
+      Check.typeOf.number("value", value);
       //>>includeEnd('debug');
       this._radius = value;
     },
@@ -42,10 +36,10 @@ Object.defineProperties(CircleEmitter.prototype, {
 });
 
 /**
- * Initializes the given {@link Particle} by setting it's position and velocity.
+ * Initializes the given {Particle} by setting it's position and velocity.
  *
  * @private
- * @param {Particle} particle The particle to initialize.
+ * @param {Particle} particle The particle to initialize
  */
 CircleEmitter.prototype.emit = function (particle) {
   const theta = CesiumMath.randomBetween(0.0, CesiumMath.TWO_PI);
@@ -53,9 +47,9 @@ CircleEmitter.prototype.emit = function (particle) {
 
   const x = rad * Math.cos(theta);
   const y = rad * Math.sin(theta);
-  const z = 0.0;
 
-  particle.position = Cartesian3.fromElements(x, y, z, particle.position);
-  particle.velocity = Cartesian3.clone(Cartesian3.UNIT_Z, particle.velocity);
+  particle.position = Cartesian3.fromElements(x, y, 0.0, particle.position);
+  particle.velocity = Cartesian3.fromElements(x, y, 0.0, particle.velocity);
+  Cartesian3.normalize(particle.velocity, particle.velocity);
 };
 export default CircleEmitter;

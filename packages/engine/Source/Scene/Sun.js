@@ -27,8 +27,8 @@ import SceneMode from "./SceneMode.js";
 import SceneTransforms from "./SceneTransforms.js";
 
 /**
- * Draws a sun billboard.
- * <p>This is only supported in 3D and Columbus view.</p>
+ * 绘制太阳广告牌。
+ * <p>仅支持 3D 和 Columbus 视图。</p>
  *
  * @alias Sun
  * @constructor
@@ -41,7 +41,7 @@ import SceneTransforms from "./SceneTransforms.js";
  */
 function Sun() {
   /**
-   * Determines if the sun will be shown.
+   * 确定是否显示太阳。
    *
    * @type {boolean}
    * @default true
@@ -84,9 +84,9 @@ function Sun() {
 
 Object.defineProperties(Sun.prototype, {
   /**
-   * Gets or sets a number that controls how "bright" the Sun's lens flare appears
-   * to be.  Zero shows just the Sun's disc without any flare.
-   * Use larger values for a more pronounced flare around the Sun.
+   * 获取或设置一个数字，用于控制太阳镜头光晕的"亮度"。
+   * 零值仅显示太阳圆盘，没有任何光晕。
+   * 使用较大的值可获得太阳周围更明显的光晕效果。
    *
    * @memberof Sun.prototype
    * @type {number}

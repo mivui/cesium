@@ -6,12 +6,12 @@ import assert from "../Core/assert.js";
 /** @import BufferPrimitiveMaterial from "./BufferPrimitiveMaterial.js"; */
 
 /**
- * View bound to the underlying buffer data of a {@link BufferPrimitiveCollection}. Abstract.
+ * 绑定到 {@link BufferPrimitiveCollection} 底层缓冲数据的视图。抽象类。
  *
- * <p>BufferPrimitive instances are intended to be reused when iterating over large collections,
- * and temporarily bound to a primitive index while performing read/write operations on that primitive,
- * before being rebound to the next primitive, using the
- * {@link https://en.wikipedia.org/wiki/Flyweight_pattern|flyweight pattern}.</p>
+ * <p>BufferPrimitive 实例旨在迭代大型集合时重用,
+ * 并在对该图元执行读/写操作时临时绑定到图元索引,
+ * 然后再重新绑定到下一个图元,使用
+ * {@link https://en.wikipedia.org/wiki/Flyweight_pattern|享元模式}。</p>
  *
  * @see BufferPrimitiveCollection
  * @see BufferPrimitiveMaterial
@@ -20,7 +20,7 @@ import assert from "../Core/assert.js";
  * @see BufferPolygon
  *
  * @abstract
- * @experimental This feature is not final and is subject to change without Cesium's standard deprecation policy.
+ * @experimental 此功能尚未最终确定,可能会在不遵循 Cesium 标准弃用政策的情况下进行更改。
  */
 class BufferPrimitive {
   /**
@@ -103,9 +103,9 @@ class BufferPrimitive {
   // LIFECYCLE
 
   /**
-   * Copies data from source primitive to result. If the result primitive is not
-   * new (the last primitive in the collection) then source and result primitives
-   * must have the same vertex counts.
+   * 将源图元的数据复制到结果。如果结果图元不是新的
+   * (集合中的最后一个图元),则源图元和结果图元
+   * 必须具有相同的顶点数。
    *
    * @param {BufferPrimitive} primitive
    * @param {BufferPrimitive} result
@@ -142,7 +142,7 @@ class BufferPrimitive {
   // ACCESSORS
 
   /**
-   * Feature ID associated with the primitive; not required to be unique.
+   * 与图元关联的特征 ID;不需要唯一。
    * @type {number}
    */
   get featureId() {
@@ -154,7 +154,7 @@ class BufferPrimitive {
   }
 
   /**
-   * Whether primitive is shown.
+   * 图元是否显示。
    * @type {boolean}
    */
   get show() {
@@ -325,11 +325,10 @@ class BufferPrimitive {
   // DEBUG
 
   /**
-   * Returns a JSON-serializable object representing the primitive. This encoding
-   * is not memory-efficient, and should generally be used for debugging and
-   * testing.
+   * 返回表示该图元的可 JSON 序列化的对象。此编码
+   * 不具有内存效率,通常应用于调试和测试。
    *
-   * @returns {Object} JSON-serializable object.
+   * @returns {Object} 可 JSON 序列化的对象。
    */
   toJSON() {
     const collection = this._collection;

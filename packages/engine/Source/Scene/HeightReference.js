@@ -1,55 +1,57 @@
 // @ts-check
 
 /**
- * Represents the position relative to the terrain.
+ * 表示相对于地形的位置。
  *
  * @enum {number}
  */
 const HeightReference = {
   /**
-   * The position is absolute.
+   * 位置是绝对的。
    * @type {number}
    * @constant
    */
   NONE: 0,
 
   /**
-   * The position is clamped to the terrain and 3D Tiles. When clamping to 3D Tilesets such as photorealistic 3D Tiles, ensure the tileset has {@link Cesium3DTileset#enableCollision} set to <code>true</code>. Otherwise, the entity may not be correctly clamped to the tileset surface.
+   * 位置贴附到地形和 3D Tiles。当贴附到 photorealistic 3D Tiles 等 3D 瓦片集时，
+   * 确保瓦片集的 {@link Cesium3DTileset#enableCollision} 设置为 <code>true</code>。
+   * 否则，实体可能无法正确贴附到瓦片集表面。
    * @type {number}
    * @constant
    */
   CLAMP_TO_GROUND: 1,
 
   /**
-   * The position height is the height above the terrain and 3D Tiles.
+   * 位置高度是相对于地形和 3D Tiles 的高度。
    * @type {number}
    * @constant
    */
   RELATIVE_TO_GROUND: 2,
 
   /**
-   * The position is clamped to terain.
+   * 位置贴附到地形。
    * @type {number}
    * @constant
    */
   CLAMP_TO_TERRAIN: 3,
 
   /**
-   * The position height is the height above terrain.
+   * 位置高度是相对于地形的高度。
    * @type {number}
    * @constant
    */
   RELATIVE_TO_TERRAIN: 4,
 
   /**
-   * The position is clamped to 3D Tiles.
+   * 位置贴附到 3D Tiles。
    * @type {number}
    * @constant
    */
   CLAMP_TO_3D_TILE: 5,
 
   /**
-   * The position height is the height above 3D Tiles.
+   * 位置高度是相对于 3D Tiles 的高度。
    * @type {number}
    * @constant
    */
@@ -61,9 +63,9 @@ Object.freeze(HeightReference);
 export default HeightReference;
 
 /**
- * Returns true if the height should be clamped to the surface
+ * 如果高度应贴附到表面则返回 true
  * @param {HeightReference} heightReference
- * @returns true if the height should be clamped to the surface
+ * @returns 如果高度应贴附到表面则返回 true
  * @private
  */
 export function isHeightReferenceClamp(heightReference) {
@@ -75,9 +77,9 @@ export function isHeightReferenceClamp(heightReference) {
 }
 
 /**
- * Returns true if the height should be offset relative to the surface
+ * 如果高度应相对于表面偏移则返回 true
  * @param {HeightReference} heightReference
- * @returns true if the height should be offset relative to the surface
+ * @returns 如果高度应相对于表面偏移则返回 true
  * @private
  */
 export function isHeightReferenceRelative(heightReference) {

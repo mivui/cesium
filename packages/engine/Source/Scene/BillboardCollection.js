@@ -77,36 +77,33 @@ const attributeLocations = {
 };
 
 /**
- * A renderable collection of billboards.  Billboards are viewport-aligned
- * images positioned in the 3D scene.
+ * 可渲染的广告牌集合。广告牌是定位在 3D 场景中且与视口对齐的
+ * 图像。
  * <br /><br />
  * <div align='center'>
  * <img src='Images/Billboard.png' width='400' height='300' /><br />
- * Example billboards
+ * 示例广告牌
  * </div>
  * <br /><br />
- * Billboards are added and removed from the collection using {@link BillboardCollection#add}
- * and {@link BillboardCollection#remove}.  Billboards in a collection automatically share textures
- * for images with the same identifier.
+ * 使用 {@link BillboardCollection#add}
+ * 和 {@link BillboardCollection#remove} 向集合中添加和移除广告牌。集合中的广告牌会自动为具有相同标识符的图像共享纹理。
  *
  * @alias BillboardCollection
  * @constructor
  *
- * @param {object} [options] Object with the following properties:
- * @param {Matrix4} [options.modelMatrix=Matrix4.IDENTITY] The 4x4 transformation matrix that transforms each billboard from model to world coordinates.
- * @param {boolean} [options.debugShowBoundingVolume=false] For debugging only. Determines if this primitive's commands' bounding spheres are shown.
- * @param {Scene} [options.scene] Must be passed in for billboards that use the height reference property or will be depth tested against the globe.
- * @param {BlendOption} [options.blendOption=BlendOption.OPAQUE_AND_TRANSLUCENT] The billboard blending option. The default
- * is used for rendering both opaque and translucent billboards. However, if either all of the billboards are completely opaque or all are completely translucent,
- * setting the technique to BlendOption.OPAQUE or BlendOption.TRANSLUCENT can improve performance by up to 2x.
- * @param {boolean} [options.show=true] Determines if the billboards in the collection will be shown.
- * @param {number} [options.coarseDepthTestDistance] The distance from the camera, beyond which, billboards are depth-tested against an approximation of the globe ellipsoid rather than against the full globe depth buffer. If unspecified, the default value is determined relative to the value of {@link Ellipsoid.default}.
- * @param {number} [options.threePointDepthTestDistance] The distance from the camera, within which, billboards with a {@link Billboard#heightReference} value of {@link HeightReference.CLAMP_TO_GROUND} or {@link HeightReference.CLAMP_TO_TERRAIN} are depth tested against three key points. This ensures that if any key point of the billboard is visible, the whole billboard will be visible. If unspecified, the default value is determined relative to the value of {@link Ellipsoid.default}.
- * @performance For best performance, prefer a few collections, each with many billboards, to
- * many collections with only a few billboards each.  Organize collections so that billboards
- * with the same update frequency are in the same collection, i.e., billboards that do not
- * change should be in one collection; billboards that change every frame should be in another
- * collection; and so on.
+ * @param {object} [options] 具有以下属性的对象：
+ * @param {Matrix4} [options.modelMatrix=Matrix4.IDENTITY] 将集合中的每个广告牌从模型坐标变换到世界坐标的 4x4 变换矩阵。
+ * @param {boolean} [options.debugShowBoundingVolume=false] 仅用于调试。确定是否显示此图元命令的包围球。
+ * @param {Scene} [options.scene] 对于使用高度参考属性或将针对地球进行深度测试的广告牌必须传入。
+ * @param {BlendOption} [options.blendOption=BlendOption.OPAQUE_AND_TRANSLUCENT] 广告牌混合选项。默认值用于渲染不透明和半透明广告牌。但是，如果所有广告牌都是完全不透明或完全半透明的，将技术设置为 BlendOption.OPAQUE 或 BlendOption.TRANSLUCENT 可以将性能提高多达 2 倍。
+ * @param {boolean} [options.show=true] 确定集合中的广告牌是否将显示。
+ * @param {number} [options.coarseDepthTestDistance] 从相机到此距离之外，广告牌将针对地球椭球体的近似值进行深度测试，而不是针对完整的地球深度缓冲区。如果未指定，则根据 {@link Ellipsoid.default} 的值确定默认值。
+ * @param {number} [options.threePointDepthTestDistance] 从相机到此距离之内，具有 {@link Billboard#heightReference} 值 {@link HeightReference.CLAMP_TO_GROUND} 或 {@link HeightReference.CLAMP_TO_TERRAIN} 的广告牌将针对三个关键点进行深度测试。这确保了如果广告牌的任何关键点可见，则整个广告牌都将可见。如果未指定，则根据 {@link Ellipsoid.default} 的值确定默认值。
+ * @performance 为了获得最佳性能，最好使用几个包含许多广告牌的集合，而不是
+ * 许多只包含几个广告牌的集合。组织集合，使具有相同
+ * 更新频率的广告牌在同一集合中，即不更改的
+ * 广告牌应在一个集合中；每帧更改的广告牌应在另一个
+ * 集合中；依此类推。
  *
  * @see BillboardCollection#add
  * @see BillboardCollection#remove
@@ -116,7 +113,7 @@ const attributeLocations = {
  * @demo {@link https://sandcastle.cesium.com/index.html?id=billboards|Cesium Sandcastle Billboard Demo}
  *
  * @example
- * // Create a billboard collection with two billboards
+ * // 创建一个包含两个广告牌的集合
  * const billboards = scene.primitives.add(new Cesium.BillboardCollection());
  * billboards.add({
  *   position : new Cesium.Cartesian3(1.0, 2.0, 3.0),
@@ -199,7 +196,7 @@ function BillboardCollection(options) {
   this._allBillboardsReady = false;
 
   /**
-   * Determines if billboards in this collection will be shown.
+   * 确定此集合中的广告牌是否将显示。
    *
    * @type {boolean}
    * @default true
@@ -207,10 +204,10 @@ function BillboardCollection(options) {
   this.show = options.show ?? true;
 
   /**
-   * The 4x4 transformation matrix that transforms each billboard in this collection from model to world coordinates.
-   * When this is the identity matrix, the billboards are drawn in world coordinates, i.e., Earth's WGS84 coordinates.
-   * Local reference frames can be used by providing a different transformation matrix, like that returned
-   * by {@link Transforms.eastNorthUpToFixedFrame}.
+   * 将集合中的每个广告牌从模型坐标变换到世界坐标的 4x4 变换矩阵。
+   * 当此矩阵为单位矩阵时，广告牌在世界坐标（即地球的 WGS84 坐标）中绘制。
+   * 可以通过提供不同的变换矩阵来使用局部参考系，例如由
+   * {@link Transforms.eastNorthUpToFixedFrame} 返回的矩阵。
    *
    * @type {Matrix4}
    * @default {@link Matrix4.IDENTITY}
@@ -221,19 +218,19 @@ function BillboardCollection(options) {
    * billboards.modelMatrix = Cesium.Transforms.eastNorthUpToFixedFrame(center);
    * billboards.add({
    *   image : 'url/to/image',
-   *   position : new Cesium.Cartesian3(0.0, 0.0, 0.0) // center
+   *   position : new Cesium.Cartesian3(0.0, 0.0, 0.0) // 中心
    * });
    * billboards.add({
    *   image : 'url/to/image',
-   *   position : new Cesium.Cartesian3(1000000.0, 0.0, 0.0) // east
+   *   position : new Cesium.Cartesian3(1000000.0, 0.0, 0.0) // 东
    * });
    * billboards.add({
    *   image : 'url/to/image',
-   *   position : new Cesium.Cartesian3(0.0, 1000000.0, 0.0) // north
+   *   position : new Cesium.Cartesian3(0.0, 1000000.0, 0.0) // 北
    * });
    * billboards.add({
    *   image : 'url/to/image',
-   *   position : new Cesium.Cartesian3(0.0, 0.0, 1000000.0) // up
+   *   position : new Cesium.Cartesian3(0.0, 0.0, 1000000.0) // 上
    * });
    *
    * @see Transforms.eastNorthUpToFixedFrame
@@ -242,9 +239,9 @@ function BillboardCollection(options) {
   this._modelMatrix = Matrix4.clone(Matrix4.IDENTITY);
 
   /**
-   * This property is for debugging only; it is not for production use nor is it optimized.
+   * 此属性仅用于调试；不用于生产环境且未进行优化。
    * <p>
-   * Draws the bounding sphere for each draw command in the primitive.
+   * 绘制图元中每个绘制命令的包围球。
    * </p>
    *
    * @type {boolean}
@@ -254,9 +251,9 @@ function BillboardCollection(options) {
   this.debugShowBoundingVolume = options.debugShowBoundingVolume ?? false;
 
   /**
-   * This property is for debugging only; it is not for production use nor is it optimized.
+   * 此属性仅用于调试；不用于生产环境且未进行优化。
    * <p>
-   * Draws the texture atlas for this BillboardCollection as a fullscreen quad.
+   * 将此 BillboardCollection 的纹理图集绘制为全屏四边形。
    * </p>
    *
    * @type {boolean}
@@ -266,10 +263,10 @@ function BillboardCollection(options) {
   this.debugShowTextureAtlas = options.debugShowTextureAtlas ?? false;
 
   /**
-   * The billboard blending option. The default is used for rendering both opaque and translucent billboards.
-   * However, if either all of the billboards are completely opaque or all are completely translucent,
-   * setting the technique to BlendOption.OPAQUE or BlendOption.TRANSLUCENT can improve
-   * performance by up to 2x.
+   * 广告牌混合选项。默认值用于渲染不透明和半透明广告牌。
+   * 但是，如果所有广告牌都是完全不透明或完全半透明的，
+   * 将技术设置为 BlendOption.OPAQUE 或 BlendOption.TRANSLUCENT 可以将
+   * 性能提高多达 2 倍。
    * @type {BlendOption}
    * @default BlendOption.OPAQUE_AND_TRANSLUCENT
    */

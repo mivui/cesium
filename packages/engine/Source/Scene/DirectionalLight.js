@@ -4,14 +4,14 @@ import Color from "../Core/Color.js";
 import DeveloperError from "../Core/DeveloperError.js";
 
 /**
- * A light that gets emitted in a single direction from infinitely far away.
+ * 从无限远处沿单一方向发射的光源。
  *
- * @param {object} options Object with the following properties:
- * @param {Cartesian3} options.direction The direction in which light gets emitted.
- * @param {Color} [options.color=Color.WHITE] The color of the light.
- * @param {number} [options.intensity=1.0] The intensity of the light.
+ * @param {object} options 包含以下属性的对象:
+ * @param {Cartesian3} options.direction 光线的发射方向。
+ * @param {Color} [options.color=Color.WHITE] 光线的颜色。
+ * @param {number} [options.intensity=1.0] 光线的强度。
  *
- * @exception {DeveloperError} options.direction cannot be zero-length
+ * @exception {DeveloperError} options.direction 不能为零长度向量
  *
  * @alias DirectionalLight
  * @constructor
@@ -21,25 +21,25 @@ function DirectionalLight(options) {
   Check.typeOf.object("options", options);
   Check.typeOf.object("options.direction", options.direction);
   if (Cartesian3.equals(options.direction, Cartesian3.ZERO)) {
-    throw new DeveloperError("options.direction cannot be zero-length");
+    throw new DeveloperError("options.direction 不能为零长度向量");
   }
   //>>includeEnd('debug');
 
   /**
-   * The direction in which light gets emitted.
+   * 光线的发射方向。
    * @type {Cartesian3}
    */
   this.direction = Cartesian3.clone(options.direction);
 
   /**
-   * The color of the light.
+   * 光线的颜色。
    * @type {Color}
    * @default Color.WHITE
    */
   this.color = Color.clone(options.color ?? Color.WHITE);
 
   /**
-   * The intensity of the light.
+   * 光线的强度。
    * @type {number}
    * @default 1.0
    */

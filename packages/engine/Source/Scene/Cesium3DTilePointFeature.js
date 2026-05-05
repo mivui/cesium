@@ -18,26 +18,26 @@ import createBillboardPointCallback from "./createBillboardPointCallback.js";
 const scratchCartographic = new Cartographic();
 
 /**
- * A point feature of a {@link Cesium3DTileset}.
+ * {@link Cesium3DTileset} 的点要素。
  * <p>
- * Provides access to a feature's properties stored in the tile's batch table, as well
- * as the ability to show/hide a feature and change its point properties
+ * 提供对存储在瓦片批处理表中的要素属性的访问，以及
+ * 显示/隐藏要素和更改其点属性的能力
  * </p>
  * <p>
- * Modifications to a <code>Cesium3DTilePointFeature</code> object have the lifetime of the tile's
- * content.  If the tile's content is unloaded, e.g., due to it going out of view and needing
- * to free space in the cache for visible tiles, listen to the {@link Cesium3DTileset#tileUnload} event to save any
- * modifications. Also listen to the {@link Cesium3DTileset#tileVisible} event to reapply any modifications.
+ * 对 <code>Cesium3DTilePointFeature</code> 对象的修改具有瓦片内容生命周期。
+ * 如果瓦片内容被卸载（例如，由于超出视野并需要为可见瓦片释放缓存空间），
+ * 请监听 {@link Cesium3DTileset#tileUnload} 事件以保存任何修改。
+ * 同时监听 {@link Cesium3DTileset#tileVisible} 事件以重新应用任何修改。
  * </p>
  * <p>
- * Do not construct this directly.  Access it through {@link Cesium3DTileContent#getFeature}
- * or picking using {@link Scene#pick} and {@link Scene#pickPosition}.
+ * 不要直接构造此对象。通过 {@link Cesium3DTileContent#getFeature}
+ * 或使用 {@link Scene#pick} 和 {@link Scene#pickPosition} 拾取来访问它。
  * </p>
  *
  * @experimental This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.
  *
  * @example
- * // On mouse over, display all the properties for a feature in the console log.
+ * // 鼠标悬停时，在控制台日志中显示要素的所有属性。
  * handler.setInputAction(function(movement) {
  *     const feature = scene.pick(movement.endPosition);
  *     if (feature instanceof Cesium.Cesium3DTilePointFeature) {
@@ -88,8 +88,7 @@ class Cesium3DTilePointFeature {
   }
 
   /**
-   * Gets or sets if the feature will be shown. This is set for all features
-   * when a style's show is evaluated.
+   * 获取或设置是否显示要素。当评估样式的 show 时，会为所有要素设置此值。
    *
    * @type {boolean}
    *
@@ -106,9 +105,9 @@ class Cesium3DTilePointFeature {
   }
 
   /**
-   * Gets or sets the color of the point of this feature.
+   * 获取或设置此要素点的颜色。
    * <p>
-   * Only applied when <code>image</code> is <code>undefined</code>.
+   * 仅在 <code>image</code> 为 <code>undefined</code> 时应用。
    * </p>
    *
    * @type {Color}
@@ -123,9 +122,9 @@ class Cesium3DTilePointFeature {
   }
 
   /**
-   * Gets or sets the point size of this feature.
+   * 获取或设置此要素的点大小。
    * <p>
-   * Only applied when <code>image</code> is <code>undefined</code>.
+   * 仅在 <code>image</code> 为 <code>undefined</code> 时应用。
    * </p>
    *
    * @type {number}
@@ -140,9 +139,9 @@ class Cesium3DTilePointFeature {
   }
 
   /**
-   * Gets or sets the point outline color of this feature.
+   * 获取或设置此要素的点轮廓颜色。
    * <p>
-   * Only applied when <code>image</code> is <code>undefined</code>.
+   * 仅在 <code>image</code> 为 <code>undefined</code> 时应用。
    * </p>
    *
    * @type {Color}
@@ -157,9 +156,9 @@ class Cesium3DTilePointFeature {
   }
 
   /**
-   * Gets or sets the point outline width in pixels of this feature.
+   * 获取或设置此要素的点轮廓宽度（以像素为单位）。
    * <p>
-   * Only applied when <code>image</code> is <code>undefined</code>.
+   * 仅在 <code>image</code> 为 <code>undefined</code> 时应用。
    * </p>
    *
    * @type {number}
@@ -174,9 +173,9 @@ class Cesium3DTilePointFeature {
   }
 
   /**
-   * Gets or sets the label color of this feature.
+   * 获取或设置此要素的标签颜色。
    * <p>
-   * The color will be applied to the label if <code>labelText</code> is defined.
+   * 如果定义了 <code>labelText</code>，则颜色将应用于标签。
    * </p>
    *
    * @type {Color}
@@ -191,9 +190,9 @@ class Cesium3DTilePointFeature {
   }
 
   /**
-   * Gets or sets the label outline color of this feature.
+   * 获取或设置此要素的标签轮廓颜色。
    * <p>
-   * The outline color will be applied to the label if <code>labelText</code> is defined.
+   * 如果定义了 <code>labelText</code>，则轮廓颜色将应用于标签。
    * </p>
    *
    * @type {Color}
@@ -207,9 +206,9 @@ class Cesium3DTilePointFeature {
   }
 
   /**
-   * Gets or sets the outline width in pixels of this feature.
+   * 获取或设置此要素的轮廓宽度（以像素为单位）。
    * <p>
-   * The outline width will be applied to the point if <code>labelText</code> is defined.
+   * 如果定义了 <code>labelText</code>，则轮廓宽度将应用于点。
    * </p>
    *
    * @type {number}
@@ -223,9 +222,9 @@ class Cesium3DTilePointFeature {
   }
 
   /**
-   * Gets or sets the font of this feature.
+   * 获取或设置此要素的字体。
    * <p>
-   * Only applied when the <code>labelText</code> is defined.
+   * 仅在定义了 <code>labelText</code> 时应用。
    * </p>
    *
    * @type {string}
@@ -239,9 +238,9 @@ class Cesium3DTilePointFeature {
   }
 
   /**
-   * Gets or sets the fill and outline style of this feature.
+   * 获取或设置此要素的填充和轮廓样式。
    * <p>
-   * Only applied when <code>labelText</code> is defined.
+   * 仅在定义了 <code>labelText</code> 时应用。
    * </p>
    *
    * @type {LabelStyle}
@@ -255,7 +254,7 @@ class Cesium3DTilePointFeature {
   }
 
   /**
-   * Gets or sets the text for this feature.
+   * 获取或设置此要素的文本。
    *
    * @type {string}
    */
@@ -271,9 +270,9 @@ class Cesium3DTilePointFeature {
   }
 
   /**
-   * Gets or sets the background color of the text for this feature.
+   * 获取或设置此要素文本的背景颜色。
    * <p>
-   * Only applied when <code>labelText</code> is defined.
+   * 仅在定义了 <code>labelText</code> 时应用。
    * </p>
    *
    * @type {Color}
@@ -287,9 +286,9 @@ class Cesium3DTilePointFeature {
   }
 
   /**
-   * Gets or sets the background padding of the text for this feature.
+   * 获取或设置此要素文本的背景内边距。
    * <p>
-   * Only applied when <code>labelText</code> is defined.
+   * 仅在定义了 <code>labelText</code> 时应用。
    * </p>
    *
    * @type {Cartesian2}
@@ -303,9 +302,9 @@ class Cesium3DTilePointFeature {
   }
 
   /**
-   * Gets or sets whether to display the background of the text for this feature.
+   * 获取或设置是否显示此要素文本的背景。
    * <p>
-   * Only applied when <code>labelText</code> is defined.
+   * 仅在定义了 <code>labelText</code> 时应用。
    * </p>
    *
    * @type {boolean}
@@ -319,7 +318,7 @@ class Cesium3DTilePointFeature {
   }
 
   /**
-   * Gets or sets the near and far scaling properties for this feature.
+   * 获取或设置此要素的近端和远端缩放属性。
    *
    * @type {NearFarScalar}
    */
@@ -333,7 +332,7 @@ class Cesium3DTilePointFeature {
   }
 
   /**
-   * Gets or sets the near and far translucency properties for this feature.
+   * 获取或设置此要素的近端和远端透明度属性。
    *
    * @type {NearFarScalar}
    */
@@ -347,7 +346,7 @@ class Cesium3DTilePointFeature {
   }
 
   /**
-   * Gets or sets the condition specifying at what distance from the camera that this feature will be displayed.
+   * 获取或设置指定从此要素的摄像机距离的条件，在该距离处将显示此要素。
    *
    * @type {DistanceDisplayCondition}
    */
@@ -362,7 +361,7 @@ class Cesium3DTilePointFeature {
   }
 
   /**
-   * Gets or sets the height offset in meters of this feature.
+   * 获取或设置此要素的高度偏移量（以米为单位）。
    *
    * @type {number}
    */
@@ -389,9 +388,9 @@ class Cesium3DTilePointFeature {
   }
 
   /**
-   * Gets or sets whether the anchor line is displayed.
+   * 获取或设置是否显示锚线。
    * <p>
-   * Only applied when <code>heightOffset</code> is defined.
+   * 仅在定义了 <code>heightOffset</code> 时应用。
    * </p>
    *
    * @type {boolean}
@@ -405,9 +404,9 @@ class Cesium3DTilePointFeature {
   }
 
   /**
-   * Gets or sets the color for the anchor line.
+   * 获取或设置锚线的颜色。
    * <p>
-   * Only applied when <code>heightOffset</code> is defined.
+   * 仅在定义了 <code>heightOffset</code> 时应用。
    * </p>
    *
    * @type {Color}
@@ -424,7 +423,7 @@ class Cesium3DTilePointFeature {
   }
 
   /**
-   * Gets or sets the image of this feature.
+   * 获取或设置此要素的图像。
    *
    * @type {string}
    */
@@ -441,7 +440,7 @@ class Cesium3DTilePointFeature {
   }
 
   /**
-   * Gets or sets the distance where depth testing will be disabled.
+   * 获取或设置将禁用深度测试的距离。
    *
    * @type {number}
    */
@@ -455,8 +454,7 @@ class Cesium3DTilePointFeature {
   }
 
   /**
-   * Gets or sets the horizontal origin of this point, which determines if the point is
-   * to the left, center, or right of its anchor position.
+   * 获取或设置此点的水平原点，它确定点位于其锚定位置的左侧、中心还是右侧。
    *
    * @type {HorizontalOrigin}
    */
@@ -469,8 +467,7 @@ class Cesium3DTilePointFeature {
   }
 
   /**
-   * Gets or sets the vertical origin of this point, which determines if the point is
-   * to the bottom, center, or top of its anchor position.
+   * 获取或设置此点的垂直原点，它确定点位于其锚定位置的底部、中心还是顶部。
    *
    * @type {VerticalOrigin}
    */
@@ -483,8 +480,7 @@ class Cesium3DTilePointFeature {
   }
 
   /**
-   * Gets or sets the horizontal origin of this point's text, which determines if the point's text is
-   * to the left, center, or right of its anchor position.
+   * 获取或设置此点文本的水平原点，它确定点文本位于其锚定位置的左侧、中心还是右侧。
    *
    * @type {HorizontalOrigin}
    */
@@ -497,8 +493,7 @@ class Cesium3DTilePointFeature {
   }
 
   /**
-   * Get or sets the vertical origin of this point's text, which determines if the point's text is
-   * to the bottom, center, top, or baseline of it's anchor point.
+   * 获取或设置此点文本的垂直原点，它确定点文本位于其锚定位置的底部、中心、顶部还是基线。
    *
    * @type {VerticalOrigin}
    */
@@ -523,7 +518,7 @@ class Cesium3DTilePointFeature {
   }
 
   /**
-   * Gets the tileset containing the feature.
+   * 获取包含要素的瓦片集。
    *
    * @type {Cesium3DTileset}
    *
@@ -534,8 +529,8 @@ class Cesium3DTilePointFeature {
   }
 
   /**
-   * All objects returned by {@link Scene#pick} have a <code>primitive</code> property. This returns
-   * the tileset containing the feature.
+   * 由 {@link Scene#pick} 返回的所有对象都有一个 <code>primitive</code> 属性。此属性返回
+   * 包含要素的瓦片集。
    *
    * @type {Cesium3DTileset}
    *
@@ -557,42 +552,42 @@ class Cesium3DTilePointFeature {
   }
 
   /**
-   * Returns whether the feature contains this property. This includes properties from this feature's
-   * class and inherited classes when using a batch table hierarchy.
+   * 返回要素是否包含此属性。这包括来自此要素的
+   * 类以及使用批处理表层次结构时的继承类的属性。
    *
    * @see {@link https://github.com/CesiumGS/3d-tiles/tree/main/extensions/3DTILES_batch_table_hierarchy}
    *
-   * @param {string} name The case-sensitive name of the property.
-   * @returns {boolean} Whether the feature contains this property.
+   * @param {string} name 属性的区分大小写名称。
+   * @returns {boolean} 要素是否包含此属性。
    */
   hasProperty(name) {
     return this._content.batchTable.hasProperty(this._batchId, name);
   }
 
   /**
-   * Returns an array of property IDs for the feature. This includes properties from this feature's
-   * class and inherited classes when using a batch table hierarchy.
+   * 返回要素的属性 ID 数组。这包括来自此要素的
+   * 类以及使用批处理表层次结构时的继承类的属性。
    *
    * @see {@link https://github.com/CesiumGS/3d-tiles/tree/main/extensions/3DTILES_batch_table_hierarchy}
    *
-   * @param {string[]} [results] An array into which to store the results.
-   * @returns {string[]} The IDs of the feature's properties.
+   * @param {string[]} [results] 用于存储结果的数组。
+   * @returns {string[]} 要素属性的 ID。
    */
   getPropertyIds(results) {
     return this._content.batchTable.getPropertyIds(this._batchId, results);
   }
 
   /**
-   * Returns a copy of the value of the feature's property with the given name. This includes properties from this feature's
-   * class and inherited classes when using a batch table hierarchy.
+   * 返回具有给定名称的要素属性值的副本。这包括来自此要素的
+   * 类以及使用批处理表层次结构时的继承类的属性。
    *
    * @see {@link https://github.com/CesiumGS/3d-tiles/tree/main/extensions/3DTILES_batch_table_hierarchy}
    *
-   * @param {string} name The case-sensitive name of the property.
-   * @returns {*} The value of the property or <code>undefined</code> if the feature does not have this property.
+   * @param {string} name 属性的区分大小写名称。
+   * @returns {*} 属性的值，如果要素没有此属性，则为 <code>undefined</code>。
    *
    * @example
-   * // Display all the properties for a feature in the console log.
+   * // 在控制台日志中显示要素的所有属性。
    * const propertyIds = feature.getPropertyIds();
    * const length = propertyIds.length;
    * for (let i = 0; i < length; ++i) {
@@ -629,18 +624,18 @@ class Cesium3DTilePointFeature {
   }
 
   /**
-   * Sets the value of the feature's property with the given name.
+   * 设置具有给定名称的要素属性的值。
    * <p>
-   * If a property with the given name doesn't exist, it is created.
+   * 如果不存在具有给定名称的属性，则会创建该属性。
    * </p>
    *
-   * @param {string} name The case-sensitive name of the property.
-   * @param {*} value The value of the property that will be copied.
+   * @param {string} name 属性的区分大小写名称。
+   * @param {*} value 将被复制的属性值。
    *
-   * @exception {DeveloperError} Inherited batch table hierarchy property is read only.
+   * @exception {DeveloperError} 继承的批处理表层次结构属性为只读。
    *
    * @example
-   * const height = feature.getProperty('Height'); // e.g., the height of a building
+   * const height = feature.getProperty('Height'); // 例如，建筑物的高度
    *
    * @example
    * const name = 'clicked';

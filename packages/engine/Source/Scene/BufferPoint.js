@@ -12,19 +12,18 @@ const { ERR_CAPACITY } = BufferPrimitiveCollection.Error;
 const scratchCartesian = new Cartesian3();
 
 /**
- * View bound to the underlying buffer data of a {@link BufferPointCollection}.
+ * 绑定到 {@link BufferPointCollection} 底层缓冲数据的视图。
  *
- * <p>BufferPoint instances are {@link https://en.wikipedia.org/wiki/Flyweight_pattern|flyweights}:
- * a single BufferPoint instance can be temporarily bound to any conceptual
- * "point" in a BufferPointCollection, allowing very large collections to be
- * iterated and updated with a minimal memory footprint.</p>
+ * <p>BufferPoint 实例是{@link https://en.wikipedia.org/wiki/Flyweight_pattern|享元}:
+ * 单个 BufferPoint 实例可以临时绑定到 BufferPointCollection 中的任意概念
+ * "点",允许以最小的内存占用迭代和更新非常大的集合。</p>
  *
- * Represented as one (1) position.
+ * 由一个 (1) 位置表示。
  *
  * @see BufferPointCollection
  * @see BufferPointMaterial
  * @see BufferPrimitive
- * @experimental This feature is not final and is subject to change without Cesium's standard deprecation policy.
+ * @experimental 此功能尚未最终确定,可能会在不遵循 Cesium 标准弃用政策的情况下进行更改。
  * @extends BufferPrimitive
  */
 class BufferPoint extends BufferPrimitive {
@@ -56,7 +55,7 @@ class BufferPoint extends BufferPrimitive {
   // LIFECYCLE
 
   /**
-   * Copies data from source point to result.
+   * 将源点的数据复制到结果。
    *
    * @param {BufferPoint} point
    * @param {BufferPoint} result
@@ -85,7 +84,7 @@ class BufferPoint extends BufferPrimitive {
   }
 
   /**
-   * Count of positions (vertices) in this primitive. Always 1.
+   * 此图元中的位置(顶点)数量。始终为 1。
    *
    * @type {number}
    * @readonly
@@ -95,7 +94,7 @@ class BufferPoint extends BufferPrimitive {
   }
 
   /**
-   * Gets the position of this point.
+   * 获取此点的位置。
    *
    * @param {Cartesian3} [result]
    * @returns {Cartesian3}
@@ -107,7 +106,7 @@ class BufferPoint extends BufferPrimitive {
   }
 
   /**
-   * Sets the position of this point.
+   * 设置此点的位置。
    *
    * @param {Cartesian3} position
    */
@@ -131,11 +130,10 @@ class BufferPoint extends BufferPrimitive {
   // DEBUG
 
   /**
-   * Returns a JSON-serializable object representing the point. This encoding
-   * is not memory-efficient, and should generally be used for debugging and
-   * testing.
+   * 返回表示该点的可 JSON 序列化的对象。此编码
+   * 不具有内存效率,通常应用于调试和测试。
    *
-   * @returns {Object} JSON-serializable object.
+   * @returns {Object} 可 JSON 序列化的对象。
    * @override
    */
   toJSON() {

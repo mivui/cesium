@@ -426,9 +426,9 @@ BatchTable.prototype.update = function (frameState) {
 };
 
 /**
- * Gets a function that will update a uniform map to contain values for looking up values in the batch table.
+ * 获取一个函数，该函数将更新 uniform map 以包含用于查找批处理表中值的值。
  *
- * @returns {BatchTable.updateUniformMapCallback} A callback for updating uniform maps.
+ * @returns {BatchTable.updateUniformMapCallback} 用于更新 uniform map 的回调函数。
  */
 BatchTable.prototype.getUniformMapCallback = function () {
   const that = this;
@@ -559,9 +559,9 @@ function getGlslAttributeFunction(batchTable, attributeIndex) {
 }
 
 /**
- * Gets a function that will update a vertex shader to contain functions for looking up values in the batch table.
+ * 获取一个函数，该函数将更新顶点着色器以包含用于查找批处理表中值的函数。
  *
- * @returns {BatchTable.updateVertexShaderSourceCallback} A callback for updating a vertex shader source.
+ * @returns {BatchTable.updateVertexShaderSourceCallback} 用于更新顶点着色器源代码的回调函数。
  */
 BatchTable.prototype.getVertexShaderCallback = function () {
   const attributes = this._attributes;

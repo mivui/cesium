@@ -27,39 +27,39 @@ import Quaternion from "../Core/Quaternion.js";
 /**
  * @typedef {object} Cesium3DTilesVoxelProvider.ConstructorOptions
  *
- * Initialization options for the Cesium3DTilesVoxelProvider constructor
+ * Cesium3DTilesVoxelProvider 构造函数的初始化选项
  *
- * @property {string} className The class in the tileset schema describing voxel metadata.
- * @property {string[]} names The metadata names.
- * @property {MetadataType[]} types The metadata types.
- * @property {MetadataComponentType[]} componentTypes The metadata component types.
- * @property {VoxelShapeType} shape The {@link VoxelShapeType}.
- * @property {Cartesian3} dimensions The number of voxels per dimension of a tile. This is the same for all tiles in the dataset.
- * @property {Cartesian3} [paddingBefore=Cartesian3.ZERO] The number of padding voxels before the tile. This improves rendering quality when sampling the edge of a tile, but it increases memory usage.
- * @property {Cartesian3} [paddingAfter=Cartesian3.ZERO] The number of padding voxels after the tile. This improves rendering quality when sampling the edge of a tile, but it increases memory usage.
- * @property {Matrix4} [globalTransform=Matrix4.IDENTITY] A transform from local space to global space.
- * @property {Matrix4} [shapeTransform=Matrix4.IDENTITY] A transform from shape space to local space.
- * @property {Cartesian3} [minBounds] The minimum bounds.
- * @property {Cartesian3} [maxBounds] The maximum bounds.
- * @property {number[][]} [minimumValues] The metadata minimum values.
- * @property {number[][]} [maximumValues] The metadata maximum values.
- * @property {number} [maximumTileCount] The maximum number of tiles that exist for this provider. This value is used as a hint to the voxel renderer to allocate an appropriate amount of GPU memory. If this value is not known it can be undefined.
+ * @property {string} className 描述体素元数据的瓦片集 schema 中的类。
+ * @property {string[]} names 元数据名称。
+ * @property {MetadataType[]} types 元数据类型。
+ * @property {MetadataComponentType[]} componentTypes 元数据组件类型。
+ * @property {VoxelShapeType} shape {@link VoxelShapeType}。
+ * @property {Cartesian3} dimensions 瓦片每个维度的体素数量。对于数据集中的所有瓦片都是相同的。
+ * @property {Cartesian3} [paddingBefore=Cartesian3.ZERO] 瓦片之前的填充体素数量。这提高了采样瓦片边缘时的渲染质量，但会增加内存使用量。
+ * @property {Cartesian3} [paddingAfter=Cartesian3.ZERO] 瓦片之后的填充体素数量。这提高了采样瓦片边缘时的渲染质量，但会增加内存使用量。
+ * @property {Matrix4} [globalTransform=Matrix4.IDENTITY] 从局部空间到全局空间的变换。
+ * @property {Matrix4} [shapeTransform=Matrix4.IDENTITY] 从形状空间到局部空间的变换。
+ * @property {Cartesian3} [minBounds] 最小边界。
+ * @property {Cartesian3} [maxBounds] 最大边界。
+ * @property {number[][]} [minimumValues] 元数据最小值。
+ * @property {number[][]} [maximumValues] 元数据最大值。
+ * @property {number} [maximumTileCount] 此提供程序存在的最大瓦片数量。该值用作体素渲染器分配适量 GPU 内存的提示。如果不知道此值，可以设为 undefined。
  */
 
 /**
- * A {@link VoxelProvider} that fetches voxel data from a 3D Tiles tileset.
+ * 从 3D Tiles 瓦片集获取体素数据的 {@link VoxelProvider}。
  * <p>
- * Implements the {@link VoxelProvider} interface.
+ * 实现 {@link VoxelProvider} 接口。
  * </p>
  * <div class="notice">
- * This object is normally not instantiated directly, use {@link Cesium3DTilesVoxelProvider.fromUrl}.
+ * 此对象通常不直接实例化，请使用 {@link Cesium3DTilesVoxelProvider.fromUrl}。
  * </div>
  *
  * @alias Cesium3DTilesVoxelProvider
  * @constructor
  * @augments VoxelProvider
  *
- * @param {Cesium3DTilesVoxelProvider.ConstructorOptions} options An object describing initialization options
+ * @param {Cesium3DTilesVoxelProvider.ConstructorOptions} options 描述初始化选项的对象
  *
  * @see Cesium3DTilesVoxelProvider.fromUrl
  * @see VoxelProvider
@@ -124,7 +124,7 @@ function Cesium3DTilesVoxelProvider(options) {
 
 Object.defineProperties(Cesium3DTilesVoxelProvider.prototype, {
   /**
-   * A transform from local space to global space.
+   * 从局部空间到全局空间的变换。
    *
    * @memberof Cesium3DTilesVoxelProvider.prototype
    * @type {Matrix4}
@@ -138,7 +138,7 @@ Object.defineProperties(Cesium3DTilesVoxelProvider.prototype, {
   },
 
   /**
-   * A transform from shape space to local space.
+   * 从形状空间到局部空间的变换。
    *
    * @memberof Cesium3DTilesVoxelProvider.prototype
    * @type {Matrix4}
@@ -152,7 +152,7 @@ Object.defineProperties(Cesium3DTilesVoxelProvider.prototype, {
   },
 
   /**
-   * Gets the {@link VoxelShapeType}
+   * 获取 {@link VoxelShapeType}
    *
    * @memberof Cesium3DTilesVoxelProvider.prototype
    * @type {VoxelShapeType}
@@ -165,8 +165,8 @@ Object.defineProperties(Cesium3DTilesVoxelProvider.prototype, {
   },
 
   /**
-   * Gets the minimum bounds.
-   * If undefined, the shape's default minimum bounds will be used instead.
+   * 获取最小边界。
+   * 如果为 undefined，将改用形状的默认最小边界。
    *
    * @memberof Cesium3DTilesVoxelProvider.prototype
    * @type {Cartesian3|undefined}
@@ -179,8 +179,8 @@ Object.defineProperties(Cesium3DTilesVoxelProvider.prototype, {
   },
 
   /**
-   * Gets the maximum bounds.
-   * If undefined, the shape's default maximum bounds will be used instead.
+   * 获取最大边界。
+   * 如果为 undefined，将改用形状的默认最大边界。
    *
    * @memberof Cesium3DTilesVoxelProvider.prototype
    * @type {Cartesian3|undefined}
@@ -193,7 +193,7 @@ Object.defineProperties(Cesium3DTilesVoxelProvider.prototype, {
   },
 
   /**
-   * Gets the number of voxels per dimension of a tile. This is the same for all tiles in the dataset.
+   * 获取瓦片每个维度的体素数量。对于数据集中的所有瓦片都是相同的。
    *
    * @memberof Cesium3DTilesVoxelProvider.prototype
    * @type {Cartesian3}
@@ -206,7 +206,7 @@ Object.defineProperties(Cesium3DTilesVoxelProvider.prototype, {
   },
 
   /**
-   * Gets the number of padding voxels before the tile. This improves rendering quality when sampling the edge of a tile, but it increases memory usage.
+   * 获取瓦片之前的填充体素数量。这提高了采样瓦片边缘时的渲染质量，但会增加内存使用量。
    *
    * @memberof Cesium3DTilesVoxelProvider.prototype
    * @type {Cartesian3}
@@ -220,7 +220,7 @@ Object.defineProperties(Cesium3DTilesVoxelProvider.prototype, {
   },
 
   /**
-   * Gets the number of padding voxels after the tile. This improves rendering quality when sampling the edge of a tile, but it increases memory usage.
+   * 获取瓦片之后的填充体素数量。这提高了采样瓦片边缘时的渲染质量，但会增加内存使用量。
    *
    * @memberof Cesium3DTilesVoxelProvider.prototype
    * @type {Cartesian3}
@@ -234,7 +234,7 @@ Object.defineProperties(Cesium3DTilesVoxelProvider.prototype, {
   },
 
   /**
-   * The metadata class for this tileset.
+   * 此瓦片集的元数据类。
    *
    * @memberof Cesium3DTilesVoxelProvider.prototype
    * @type {string}
@@ -247,7 +247,7 @@ Object.defineProperties(Cesium3DTilesVoxelProvider.prototype, {
   },
 
   /**
-   * Gets the metadata names.
+   * 获取元数据名称。
    *
    * @memberof Cesium3DTilesVoxelProvider.prototype
    * @type {string[]}
@@ -260,7 +260,7 @@ Object.defineProperties(Cesium3DTilesVoxelProvider.prototype, {
   },
 
   /**
-   * Gets the metadata types.
+   * 获取元数据类型。
    *
    * @memberof Cesium3DTilesVoxelProvider.prototype
    * @type {MetadataType[]}
@@ -273,7 +273,7 @@ Object.defineProperties(Cesium3DTilesVoxelProvider.prototype, {
   },
 
   /**
-   * Gets the metadata component types.
+   * 获取元数据组件类型。
    *
    * @memberof Cesium3DTilesVoxelProvider.prototype
    * @type {MetadataComponentType[]}
@@ -300,7 +300,7 @@ Object.defineProperties(Cesium3DTilesVoxelProvider.prototype, {
   },
 
   /**
-   * Gets the metadata minimum values.
+   * 获取元数据最小值。
    *
    * @memberof Cesium3DTilesVoxelProvider.prototype
    * @type {number[][]|undefined}
@@ -313,7 +313,7 @@ Object.defineProperties(Cesium3DTilesVoxelProvider.prototype, {
   },
 
   /**
-   * Gets the metadata maximum values.
+   * 获取元数据最大值。
    *
    * @memberof Cesium3DTilesVoxelProvider.prototype
    * @type {number[][]|undefined}
@@ -326,9 +326,9 @@ Object.defineProperties(Cesium3DTilesVoxelProvider.prototype, {
   },
 
   /**
-   * The maximum number of tiles that exist for this provider.
-   * This value is used as a hint to the voxel renderer to allocate an appropriate amount of GPU memory.
-   * If this value is not known it can be undefined.
+   * 此提供程序存在的最大瓦片数量。
+   * 该值用作体素渲染器分配适量 GPU 内存的提示。
+   * 如果不知道此值，可以设为 undefined。
    *
    * @memberof Cesium3DTilesVoxelProvider.prototype
    * @type {number|undefined}
@@ -341,7 +341,7 @@ Object.defineProperties(Cesium3DTilesVoxelProvider.prototype, {
   },
 
   /**
-   * The number of levels of detail containing available tiles in the tileset.
+   * 瓦片集中包含可用瓦片的细节级别数量。
    *
    * @memberof Cesium3DTilesVoxelProvider.prototype
    * @type {number|undefined}
@@ -355,16 +355,16 @@ Object.defineProperties(Cesium3DTilesVoxelProvider.prototype, {
 });
 
 /**
- * Creates a {@link Cesium3DTilesVoxelProvider} that fetches voxel data from a 3D Tiles tileset.
+ * 创建从 3D Tiles 瓦片集获取体素数据的 {@link Cesium3DTilesVoxelProvider}。
  *
- * @param {Resource|string} url The URL to a tileset JSON file
- * @returns {Promise<Cesium3DTilesVoxelProvider>} The created provider
+ * @param {Resource|string} url 瓦片集 JSON 文件的 URL
+ * @returns {Promise<Cesium3DTilesVoxelProvider>} 创建的提供程序
  *
- * @exception {RuntimeException} Root must have content
- * @exception {RuntimeException} Root tile content must have 3DTILES_content_voxels extension
- * @exception {RuntimeException} Root tile must have implicit tiling
- * @exception {RuntimeException} Tileset must have a metadata schema
- * @exception {RuntimeException} Only box, region and 3DTILES_bounding_volume_cylinder are supported in Cesium3DTilesVoxelProvider
+ * @exception {RuntimeException} 根节点必须包含内容
+ * @exception {RuntimeException} 根瓦片内容必须包含 3DTILES_content_voxels 扩展
+ * @exception {RuntimeException} 根瓦片必须包含隐式瓦片化
+ * @exception {RuntimeException} 瓦片集必须包含元数据 schema
+ * @exception {RuntimeException} Cesium3DTilesVoxelProvider 仅支持 box、region 和 3DTILES_bounding_volume_cylinder
  *
  * @example
  * try {

@@ -960,13 +960,13 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
   },
 
   /**
-   * Gets or sets the {@link StyleExpression} object used to evaluate the style's <code>anchorLineEnabled</code> property. Alternatively a string or object defining a boolean style can be used.
-   * The getter will return the internal {@link Expression} or {@link ConditionsExpression}, which may differ from the value provided to the setter.
+   * 获取或设置用于评估样式的 <code>anchorLineEnabled</code> 属性的 {@link StyleExpression} 对象。或者也可以使用字符串或定义 boolean 样式的对象。
+   * getter 将返回内部的 {@link Expression} 或 {@link ConditionsExpression}，这可能与提供给 setter 的值不同。
    * <p>
-   * The expression must return a <code>Boolean</code>.
+   * 该表达式必须返回 <code>Boolean</code>。
    * </p>
    * <p>
-   * This expression is only applicable to point features in a Vector tile.
+   * 此表达式仅适用于矢量瓦片中的点要素。
    * </p>
    *
    * @memberof Cesium3DTileStyle.prototype
@@ -977,12 +977,12 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
    *
    * @example
    * const style = new Cesium.Cesium3DTileStyle();
-   * // Override anchorLineEnabled expression with a string
+   * // 使用字符串覆盖 anchorLineEnabled 表达式
    * style.anchorLineEnabled = 'true';
    *
    * @example
    * const style = new Cesium.Cesium3DTileStyle();
-   * // Override anchorLineEnabled expression with a condition
+   * // 使用条件覆盖 anchorLineEnabled 表达式
    * style.anchorLineEnabled = {
    *     conditions : [
    *         ['${height} > 2', 'true'],
@@ -1003,13 +1003,13 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
   },
 
   /**
-   * Gets or sets the {@link StyleExpression} object used to evaluate the style's <code>anchorLineColor</code> property. Alternatively a string or object defining a color style can be used.
-   * The getter will return the internal {@link Expression} or {@link ConditionsExpression}, which may differ from the value provided to the setter.
+   * 获取或设置用于评估样式的 <code>anchorLineColor</code> 属性的 {@link StyleExpression} 对象。或者也可以使用字符串或定义 color 样式的对象。
+   * getter 将返回内部的 {@link Expression} 或 {@link ConditionsExpression}，这可能与提供给 setter 的值不同。
    * <p>
-   * The expression must return a <code>Color</code>.
+   * 该表达式必须返回 <code>Color</code>。
    * </p>
    * <p>
-   * This expression is only applicable to point features in a Vector tile.
+   * 此表达式仅适用于矢量瓦片中的点要素。
    * </p>
    *
    * @memberof Cesium3DTileStyle.prototype
@@ -1020,12 +1020,12 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
    *
    * @example
    * const style = new Cesium.Cesium3DTileStyle();
-   * // Override anchorLineColor expression with a string
+   * // 使用字符串覆盖 anchorLineColor 表达式
    * style.anchorLineColor = 'color("blue")';
    *
    * @example
    * const style = new Cesium.Cesium3DTileStyle();
-   * // Override anchorLineColor expression with a condition
+   * // 使用条件覆盖 anchorLineColor 表达式
    * style.anchorLineColor = {
    *     conditions : [
    *         ['${height} > 2', 'color("cyan")'],
@@ -1046,13 +1046,13 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
   },
 
   /**
-   * Gets or sets the {@link StyleExpression} object used to evaluate the style's <code>image</code> property. Alternatively a string or object defining a string style can be used.
-   * The getter will return the internal {@link Expression} or {@link ConditionsExpression}, which may differ from the value provided to the setter.
+   * 获取或设置用于评估样式的 <code>image</code> 属性的 {@link StyleExpression} 对象。或者也可以使用字符串或定义 string 样式的对象。
+   * getter 将返回内部的 {@link Expression} 或 {@link ConditionsExpression}，这可能与提供给 setter 的值不同。
    * <p>
-   * The expression must return a <code>String</code>.
+   * 该表达式必须返回 <code>String</code>。
    * </p>
    * <p>
-   * This expression is only applicable to point features in a Vector tile.
+   * 此表达式仅适用于矢量瓦片中的点要素。
    * </p>
    *
    * @memberof Cesium3DTileStyle.prototype
@@ -1065,11 +1065,11 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
    * const style = new Cesium3DTileStyle({
    *     image : '(${Temperature} > 90) ? "/url/to/image1" : "/url/to/image2"'
    * });
-   * style.image.evaluate(feature); // returns a String
+   * style.image.evaluate(feature); // 返回 String
    *
    * @example
    * const style = new Cesium.Cesium3DTileStyle();
-   * // Override image expression with a custom function
+   * // 使用自定义函数覆盖 image 表达式
    * style.image = {
    *     evaluate : function(feature) {
    *         return '/url/to/image';
@@ -1087,13 +1087,13 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
   },
 
   /**
-   * Gets or sets the {@link StyleExpression} object used to evaluate the style's <code>disableDepthTestDistance</code> property. Alternatively a string or object defining a number style can be used.
-   * The getter will return the internal {@link Expression} or {@link ConditionsExpression}, which may differ from the value provided to the setter.
+   * 获取或设置用于评估样式的 <code>disableDepthTestDistance</code> 属性的 {@link StyleExpression} 对象。或者也可以使用字符串或定义 number 样式的对象。
+   * getter 将返回内部的 {@link Expression} 或 {@link ConditionsExpression}，这可能与提供给 setter 的值不同。
    * <p>
-   * The expression must return a <code>Number</code>.
+   * 该表达式必须返回 <code>Number</code>。
    * </p>
    * <p>
-   * This expression is only applicable to point features in a Vector tile.
+   * 此表达式仅适用于矢量瓦片中的点要素。
    * </p>
    *
    * @memberof Cesium3DTileStyle.prototype
@@ -1104,9 +1104,9 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
    *
    * @example
    * const style = new Cesium.Cesium3DTileStyle();
-   * // Override disableDepthTestDistance expression with a string
+   * // 使用字符串覆盖 disableDepthTestDistance 表达式
    * style.disableDepthTestDistance = '1000.0';
-   * style.disableDepthTestDistance.evaluate(feature); // returns a Number
+   * style.disableDepthTestDistance.evaluate(feature); // 返回 Number
    */
   disableDepthTestDistance: {
     get: function () {
@@ -1121,13 +1121,13 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
   },
 
   /**
-   * Gets or sets the {@link StyleExpression} object used to evaluate the style's <code>horizontalOrigin</code> property. Alternatively a string or object defining a number style can be used.
-   * The getter will return the internal {@link Expression} or {@link ConditionsExpression}, which may differ from the value provided to the setter.
+   * 获取或设置用于评估样式的 <code>horizontalOrigin</code> 属性的 {@link StyleExpression} 对象。或者也可以使用字符串或定义 number 样式的对象。
+   * getter 将返回内部的 {@link Expression} 或 {@link ConditionsExpression}，这可能与提供给 setter 的值不同。
    * <p>
-   * The expression must return a <code>HorizontalOrigin</code>.
+   * 该表达式必须返回 <code>HorizontalOrigin</code>。
    * </p>
    * <p>
-   * This expression is only applicable to point features in a Vector tile.
+   * 此表达式仅适用于矢量瓦片中的点要素。
    * </p>
    *
    * @memberof Cesium3DTileStyle.prototype
@@ -1140,11 +1140,11 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
    * const style = new Cesium3DTileStyle({
    *     horizontalOrigin : HorizontalOrigin.LEFT
    * });
-   * style.horizontalOrigin.evaluate(feature); // returns a HorizontalOrigin
+   * style.horizontalOrigin.evaluate(feature); // 返回 HorizontalOrigin
    *
    * @example
    * const style = new Cesium.Cesium3DTileStyle();
-   * // Override horizontalOrigin expression with a custom function
+   * // 使用自定义函数覆盖 horizontalOrigin 表达式
    * style.horizontalOrigin = {
    *     evaluate : function(feature) {
    *         return HorizontalOrigin.CENTER;
@@ -1164,13 +1164,13 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
   },
 
   /**
-   * Gets or sets the {@link StyleExpression} object used to evaluate the style's <code>verticalOrigin</code> property. Alternatively a string or object defining a number style can be used.
-   * The getter will return the internal {@link Expression} or {@link ConditionsExpression}, which may differ from the value provided to the setter.
+   * 获取或设置用于评估样式的 <code>verticalOrigin</code> 属性的 {@link StyleExpression} 对象。或者也可以使用字符串或定义 number 样式的对象。
+   * getter 将返回内部的 {@link Expression} 或 {@link ConditionsExpression}，这可能与提供给 setter 的值不同。
    * <p>
-   * The expression must return a <code>VerticalOrigin</code>.
+   * 该表达式必须返回 <code>VerticalOrigin</code>。
    * </p>
    * <p>
-   * This expression is only applicable to point features in a Vector tile.
+   * 此表达式仅适用于矢量瓦片中的点要素。
    * </p>
    *
    * @memberof Cesium3DTileStyle.prototype
@@ -1183,11 +1183,11 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
    * const style = new Cesium3DTileStyle({
    *     verticalOrigin : VerticalOrigin.TOP
    * });
-   * style.verticalOrigin.evaluate(feature); // returns a VerticalOrigin
+   * style.verticalOrigin.evaluate(feature); // 返回 VerticalOrigin
    *
    * @example
    * const style = new Cesium.Cesium3DTileStyle();
-   * // Override verticalOrigin expression with a custom function
+   * // 使用自定义函数覆盖 verticalOrigin 表达式
    * style.verticalOrigin = {
    *     evaluate : function(feature) {
    *         return VerticalOrigin.CENTER;
@@ -1205,36 +1205,36 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
   },
 
   /**
-   Gets or sets the {@link StyleExpression} object used to evaluate the style's <code>labelHorizontalOrigin</code> property. Alternatively a string or object defining a number style can be used.
-    * The getter will return the internal {@link Expression} or {@link ConditionsExpression}, which may differ from the value provided to the setter.
-    * <p>
-    * The expression must return a <code>HorizontalOrigin</code>.
-    * </p>
-    * <p>
-    * This expression is only applicable to point features in a Vector tile.
-    * </p>
-    *
-    * @memberof Cesium3DTileStyle.prototype
-    *
-    * @type {StyleExpression}
-    *
-    * @experimental This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.
-    *
-    * @example
-    * const style = new Cesium3DTileStyle({
-    *     labelHorizontalOrigin : HorizontalOrigin.LEFT
-    * });
-    * style.labelHorizontalOrigin.evaluate(feature); // returns a HorizontalOrigin
-    *
-    * @example
-    * const style = new Cesium.Cesium3DTileStyle();
-    * // Override labelHorizontalOrigin expression with a custom function
-    * style.labelHorizontalOrigin = {
-    *     evaluate : function(feature) {
-    *         return HorizontalOrigin.CENTER;
-    *     }
-    * };
-    */
+   * 获取或设置用于评估样式的 <code>labelHorizontalOrigin</code> 属性的 {@link StyleExpression} 对象。或者也可以使用字符串或定义 number 样式的对象。
+   * getter 将返回内部的 {@link Expression} 或 {@link ConditionsExpression}，这可能与提供给 setter 的值不同。
+   * <p>
+   * 该表达式必须返回 <code>HorizontalOrigin</code>。
+   * </p>
+   * <p>
+   * 此表达式仅适用于矢量瓦片中的点要素。
+   * </p>
+   *
+   * @memberof Cesium3DTileStyle.prototype
+   *
+   * @type {StyleExpression}
+   *
+   * @experimental This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.
+   *
+   * @example
+   * const style = new Cesium3DTileStyle({
+   *     labelHorizontalOrigin : HorizontalOrigin.LEFT
+   * });
+   * style.labelHorizontalOrigin.evaluate(feature); // 返回 HorizontalOrigin
+   *
+   * @example
+   * const style = new Cesium.Cesium3DTileStyle();
+   * // 使用自定义函数覆盖 labelHorizontalOrigin 表达式
+   * style.labelHorizontalOrigin = {
+   *     evaluate : function(feature) {
+   *         return HorizontalOrigin.CENTER;
+   *     }
+   * };
+   */
   labelHorizontalOrigin: {
     get: function () {
       return this._labelHorizontalOrigin;
@@ -1248,13 +1248,13 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
   },
 
   /**
-   * Gets or sets the {@link StyleExpression} object used to evaluate the style's <code>labelVerticalOrigin</code> property. Alternatively a string or object defining a number style can be used.
-   * The getter will return the internal {@link Expression} or {@link ConditionsExpression}, which may differ from the value provided to the setter.
+   * 获取或设置用于评估样式的 <code>labelVerticalOrigin</code> 属性的 {@link StyleExpression} 对象。或者也可以使用字符串或定义 number 样式的对象。
+   * getter 将返回内部的 {@link Expression} 或 {@link ConditionsExpression}，这可能与提供给 setter 的值不同。
    * <p>
-   * The expression must return a <code>VerticalOrigin</code>.
+   * 该表达式必须返回 <code>VerticalOrigin</code>。
    * </p>
    * <p>
-   * This expression is only applicable to point features in a Vector tile.
+   * 此表达式仅适用于矢量瓦片中的点要素。
    * </p>
    *
    * @memberof Cesium3DTileStyle.prototype
@@ -1267,11 +1267,11 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
    * const style = new Cesium3DTileStyle({
    *     labelVerticalOrigin : VerticalOrigin.TOP
    * });
-   * style.labelVerticalOrigin.evaluate(feature); // returns a VerticalOrigin
+   * style.labelVerticalOrigin.evaluate(feature); // 返回 VerticalOrigin
    *
    * @example
    * const style = new Cesium.Cesium3DTileStyle();
-   * // Override labelVerticalOrigin expression with a custom function
+   * // 使用自定义函数覆盖 labelVerticalOrigin 表达式
    * style.labelVerticalOrigin = {
    *     evaluate : function(feature) {
    *         return VerticalOrigin.CENTER;
@@ -1307,8 +1307,7 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
   },
 
   /**
-   * Gets or sets the object containing application-specific expression that can be explicitly
-   * evaluated, e.g., for display in a UI.
+   * 获取或设置包含可显式求值的特定于应用程序的表达式的对象，例如用于在 UI 中显示。
    *
    * @memberof Cesium3DTileStyle.prototype
    *
@@ -1320,7 +1319,7 @@ Object.defineProperties(Cesium3DTileStyle.prototype, {
    *         description : '"Building id ${id} has height ${Height}."'
    *     }
    * });
-   * style.meta.description.evaluate(feature); // returns a String with the substituted variables
+   * style.meta.description.evaluate(feature); // 返回带有替换变量的 String
    */
   meta: {
     get: function () {

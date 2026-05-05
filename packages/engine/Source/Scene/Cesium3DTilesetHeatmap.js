@@ -48,11 +48,11 @@ function getHeatmapValue(tileValue, tilePropertyName) {
 }
 
 /**
- * Sets the reference minimum and maximum for the variable name. Converted to numbers before they are stored.
+ * 设置引用最小值和最大值（用于变量名）。在存储之前会转换为数字。
  *
- * @param {object} minimum The minimum reference value.
- * @param {object} maximum The maximum reference value.
- * @param {string} tilePropertyName The tile variable that will use these reference values when it is colorized.
+ * @param {object} minimum 最小引用值。
+ * @param {object} maximum 最大引用值。
+ * @param {string} tilePropertyName 在着色时将使用这些引用值的瓦片变量。
  */
 Cesium3DTilesetHeatmap.prototype.setReferenceMinimumMaximum = function (
   minimum,
@@ -95,10 +95,10 @@ const heatmapColors = [
   new Color(1.0, 0.843, 0.0, 1),
 ]; // Yellow
 /**
- * Colorize the tile in heat map style based on where it lies within the minimum maximum window.
- * Heatmap colors are black, blue, pink, red, orange, yellow. 'Cold' or low numbers will be black and blue, 'Hot' or high numbers will be orange and yellow,
- * @param {Cesium3DTile} tile The tile to colorize relative to last frame's minimum and maximum values of all visible tiles.
- * @param {FrameState} frameState The frame state.
+ * 根据瓦片在最小最大值窗口中的位置，以热力图样式对瓦片进行着色。
+ * 热力图颜色为黑色、蓝色、粉色、红色、橙色、黄色。"冷"或低值将为黑色和蓝色，"热"或高值将为橙色和黄色。
+ * @param {Cesium3DTile} tile 要相对于上一帧所有可见瓦片的最小值和最大值进行着色的瓦片。
+ * @param {FrameState} frameState 帧状态。
  */
 Cesium3DTilesetHeatmap.prototype.colorize = function (tile, frameState) {
   const tilePropertyName = this.tilePropertyName;
@@ -147,7 +147,7 @@ Cesium3DTilesetHeatmap.prototype.colorize = function (tile, frameState) {
 };
 
 /**
- * Resets the tracked minimum maximum values for heatmap colorization. Happens right before tileset traversal.
+ * 重置用于热力图着色的跟踪最小值最大值。发生在瓦片集遍历之前。
  */
 Cesium3DTilesetHeatmap.prototype.resetMinimumMaximum = function () {
   // For heat map colorization

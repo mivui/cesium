@@ -349,10 +349,10 @@ BillboardTexture.prototype.computeTextureCoordinates = function (result) {
 };
 
 /**
- * Clones an existing billboard texture, inlcuding any in-flight tracking, into the target billboard texture.
- * @param {BillboardTexture} billboardTexture
- * @param {BillboardTexture} target
- * @returns {BillboardTexture} target
+ * 将现有的广告牌纹理克隆到目标广告牌纹理中，包括任何进行中的加载跟踪。
+ * @param {BillboardTexture} billboardTexture 要克隆的广告牌纹理
+ * @param {BillboardTexture} target 目标广告牌纹理
+ * @returns {BillboardTexture} 目标广告牌纹理
  */
 BillboardTexture.clone = function (billboardTexture, target) {
   target._id = billboardTexture._id;
