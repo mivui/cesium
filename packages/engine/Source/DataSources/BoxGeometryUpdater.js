@@ -35,13 +35,13 @@ function BoxGeometryOptions(entity) {
 }
 
 /**
- * A {@link GeometryUpdater} for boxes.
- * Clients do not normally create this class directly, but instead rely on {@link DataSourceDisplay}.
+ * 用于箱体的 {@link GeometryUpdater}。
+ * 客户端通常不直接创建此类，而是依赖于 {@link DataSourceDisplay}。
  * @alias BoxGeometryUpdater
  * @constructor
  *
- * @param {Entity} entity The entity containing the geometry to be visualized.
- * @param {Scene} scene The scene where visualization is taking place.
+ * @param {Entity} entity 包含要可视化几何体的实体。
+ * @param {Scene} scene 进行可视化的场景。
  */
 function BoxGeometryUpdater(entity, scene) {
   GeometryUpdater.call(this, {
@@ -76,12 +76,12 @@ Object.defineProperties(BoxGeometryUpdater.prototype, {
 });
 
 /**
- * Creates the geometry instance which represents the fill of the geometry.
+ * 创建表示几何体填充部分的几何体实例。
  *
- * @param {JulianDate} time The time to use when retrieving initial attribute values.
- * @returns {GeometryInstance} The geometry instance representing the filled portion of the geometry.
+ * @param {JulianDate} time 用于获取初始属性值的时间。
+ * @returns {GeometryInstance} 表示几何体填充部分的几何体实例。
  *
- * @exception {DeveloperError} This instance does not represent a filled geometry.
+ * @exception {DeveloperError} 此实例不表示填充几何体。
  */
 BoxGeometryUpdater.prototype.createFillGeometryInstance = function (time) {
   //>>includeStart('debug', pragmas.debug);
@@ -154,12 +154,12 @@ BoxGeometryUpdater.prototype.createFillGeometryInstance = function (time) {
 };
 
 /**
- * Creates the geometry instance which represents the outline of the geometry.
+ * 创建表示几何体轮廓的几何体实例。
  *
- * @param {JulianDate} time The time to use when retrieving initial attribute values.
- * @returns {GeometryInstance} The geometry instance representing the outline portion of the geometry.
+ * @param {JulianDate} time 用于获取初始属性值的时间。
+ * @returns {GeometryInstance} 表示几何体轮廓部分的几何体实例。
  *
- * @exception {DeveloperError} This instance does not represent an outlined geometry.
+ * @exception {DeveloperError} 此实例不表示轮廓几何体。
  */
 BoxGeometryUpdater.prototype.createOutlineGeometryInstance = function (time) {
   //>>includeStart('debug', pragmas.debug);

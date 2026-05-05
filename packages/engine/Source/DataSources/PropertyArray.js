@@ -5,13 +5,12 @@ import JulianDate from "../Core/JulianDate.js";
 import Property from "./Property.js";
 
 /**
- * A {@link Property} whose value is an array whose items are the computed value
- * of other property instances.
+ * 一个 {@link Property}，其值是数组，数组项是其他属性实例的计算值。
  *
  * @alias PropertyArray
  * @constructor
  *
- * @param {Property[]} [value] An array of Property instances.
+ * @param {Property[]} [value] Property 实例数组。
  */
 function PropertyArray(value) {
   this._value = undefined;
@@ -22,8 +21,7 @@ function PropertyArray(value) {
 
 Object.defineProperties(PropertyArray.prototype, {
   /**
-   * Gets a value indicating if this property is constant.  This property
-   * is considered constant if all property items in the array are constant.
+   * 获取一个值，指示此属性是否为常量。如果数组中的所有属性项都是常量，则此属性被视为常量。
    * @memberof PropertyArray.prototype
    *
    * @type {boolean}
@@ -45,9 +43,8 @@ Object.defineProperties(PropertyArray.prototype, {
     },
   },
   /**
-   * Gets the event that is raised whenever the definition of this property changes.
-   * The definition is changed whenever setValue is called with data different
-   * than the current value or one of the properties in the array also changes.
+   * 获取当此属性的定义更改时引发的事件。
+   * 只要使用与当前值不同的数据调用 setValue，或者数组中的某个属性发生更改，定义就会更改。
    * @memberof PropertyArray.prototype
    *
    * @type {Event}
@@ -63,11 +60,11 @@ Object.defineProperties(PropertyArray.prototype, {
 const timeScratch = new JulianDate();
 
 /**
- * Gets the value of the property.
+ * 获取属性的值。
  *
- * @param {JulianDate} [time=JulianDate.now()] The time for which to retrieve the value. If omitted, the current system time is used.
- * @param {object[]} [result] The object to store the value into, if omitted, a new instance is created and returned.
- * @returns {object[]} The modified result parameter, which is an array of values produced by evaluating each of the contained properties at the given time or a new instance if the result parameter was not supplied.
+ * @param {JulianDate} [time=JulianDate.now()] 用于检索值的时间。如果省略，则使用当前系统时间。
+ * @param {object[]} [result] 用于存储值的对象，如果省略，则创建并返回新实例。
+ * @returns {object[]} 修改后的结果参数，即通过在给定时间评估每个包含的属性而产生的值数组；如果未提供结果参数，则返回新实例。
  */
 PropertyArray.prototype.getValue = function (time, result) {
   if (!defined(time)) {
@@ -99,9 +96,9 @@ PropertyArray.prototype.getValue = function (time, result) {
 };
 
 /**
- * Sets the value of the property.
+ * 设置属性的值。
  *
- * @param {Property[]} value An array of Property instances.
+ * @param {Property[]} value Property 实例数组。
  */
 PropertyArray.prototype.setValue = function (value) {
   const eventHelper = this._eventHelper;
@@ -127,11 +124,10 @@ PropertyArray.prototype.setValue = function (value) {
 };
 
 /**
- * Compares this property to the provided property and returns
- * <code>true</code> if they are equal, <code>false</code> otherwise.
+ * 将此属性与提供的属性进行比较，如果相等则返回 <code>true</code>，否则返回 <code>false</code>。
  *
- * @param {Property} [other] The other property.
- * @returns {boolean} <code>true</code> if left and right are equal, <code>false</code> otherwise.
+ * @param {Property} [other] 另一个属性。
+ * @returns {boolean} 如果左右相等则返回 <code>true</code>，否则返回 <code>false</code>。
  */
 PropertyArray.prototype.equals = function (other) {
   return (

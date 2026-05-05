@@ -12,15 +12,15 @@ const defaultDashLength = 16.0;
 const defaultDashPattern = 255.0;
 
 /**
- * A {@link MaterialProperty} that maps to polyline dash {@link Material} uniforms.
+ * 映射到折线虚线 {@link Material} 统一体的 {@link MaterialProperty}。
  * @alias PolylineDashMaterialProperty
  * @constructor
  *
- * @param {object} [options] Object with the following properties:
- * @param {Property|Color} [options.color=Color.WHITE] A Property specifying the {@link Color} of the line.
- * @param {Property|Color} [options.gapColor=Color.TRANSPARENT] A Property specifying the {@link Color} of the gaps in the line.
- * @param {Property|number} [options.dashLength=16.0] A numeric Property specifying the length of the dash pattern in pixels.
- * @param {Property|number} [options.dashPattern=255.0] A numeric Property specifying a 16 bit pattern for the dash
+ * @param {object} [options] 包含以下属性的对象：
+ * @param {Property|Color} [options.color=Color.WHITE] 指定线条 {@link Color} 的属性。
+ * @param {Property|Color} [options.gapColor=Color.TRANSPARENT] 指定线条间隙 {@link Color} 的属性。
+ * @param {Property|number} [options.dashLength=16.0] 指定虚线图案长度（像素）的数值属性。
+ * @param {Property|number} [options.dashPattern=255.0] 指定虚线16位图案的数值属性
  */
 function PolylineDashMaterialProperty(options) {
   options = options ?? Frozen.EMPTY_OBJECT;
@@ -43,8 +43,7 @@ function PolylineDashMaterialProperty(options) {
 
 Object.defineProperties(PolylineDashMaterialProperty.prototype, {
   /**
-   * Gets a value indicating if this property is constant.  A property is considered
-   * constant if getValue always returns the same result for the current definition.
+   * 获取指示此属性是否为常量的值。如果getValue对当前定义始终返回相同结果，则属性被视为常量。
    * @memberof PolylineDashMaterialProperty.prototype
    * @type {boolean}
    * @readonly
@@ -60,9 +59,8 @@ Object.defineProperties(PolylineDashMaterialProperty.prototype, {
     },
   },
   /**
-   * Gets the event that is raised whenever the definition of this property changes.
-   * The definition is considered to have changed if a call to getValue would return
-   * a different result for the same time.
+   * 获取每当此属性定义更改时引发的事件。
+   * 如果对getValue的调用对同一时间返回不同的结果，则定义被视为已更改。
    * @memberof PolylineDashMaterialProperty.prototype
    * @type {Event}
    * @readonly
@@ -73,28 +71,28 @@ Object.defineProperties(PolylineDashMaterialProperty.prototype, {
     },
   },
   /**
-   * Gets or sets the Property specifying the {@link Color} of the line.
+   * 获取或设置指定线条 {@link Color} 的属性。
    * @memberof PolylineDashMaterialProperty.prototype
    * @type {Property|undefined}
    */
   color: createPropertyDescriptor("color"),
 
   /**
-   * Gets or sets the Property specifying the {@link Color} of the gaps in the line.
+   * 获取或设置指定线条间隙 {@link Color} 的属性。
    * @memberof PolylineDashMaterialProperty.prototype
    * @type {Property|undefined}
    */
   gapColor: createPropertyDescriptor("gapColor"),
 
   /**
-   * Gets or sets the numeric Property specifying the length of a dash cycle
+   * 获取或设置指定虚线 cycle 长度的数值属性
    * @memberof PolylineDashMaterialProperty.prototype
    * @type {Property|undefined}
    */
   dashLength: createPropertyDescriptor("dashLength"),
 
   /**
-   * Gets or sets the numeric Property specifying a dash pattern
+   * 获取或设置指定虚线图案的数值属性
    * @memberof PolylineDashMaterialProperty.prototype
    * @type {Property|undefined}
    */
@@ -102,10 +100,10 @@ Object.defineProperties(PolylineDashMaterialProperty.prototype, {
 });
 
 /**
- * Gets the {@link Material} type at the provided time.
+ * 获取提供时间的 {@link Material} 类型。
  *
- * @param {JulianDate} time The time for which to retrieve the type.
- * @returns {string} The type of material.
+ * @param {JulianDate} time 检索类型的时间。
+ * @returns {string} 材质类型。
  */
 PolylineDashMaterialProperty.prototype.getType = function (time) {
   return "PolylineDash";
@@ -114,11 +112,11 @@ PolylineDashMaterialProperty.prototype.getType = function (time) {
 const timeScratch = new JulianDate();
 
 /**
- * Gets the value of the property at the provided time.
+ * 获取提供时间的属性值。
  *
- * @param {JulianDate} [time=JulianDate.now()] The time for which to retrieve the value. If omitted, the current system time is used.
- * @param {object} [result] The object to store the value into, if omitted, a new instance is created and returned.
- * @returns {object} The modified result parameter or a new instance if the result parameter was not supplied.
+ * @param {JulianDate} [time=JulianDate.now()] 检索值的时间。如果省略，则使用当前系统时间。
+ * @param {object} [result] 存储值的对象，如果省略，则创建并返回新实例。
+ * @returns {object} 修改后的结果参数，如果未提供结果参数则返回新实例。
  */
 PolylineDashMaterialProperty.prototype.getValue = function (time, result) {
   if (!defined(time)) {
@@ -155,11 +153,10 @@ PolylineDashMaterialProperty.prototype.getValue = function (time, result) {
 };
 
 /**
- * Compares this property to the provided property and returns
- * <code>true</code> if they are equal, <code>false</code> otherwise.
+ * 将此属性与提供的属性进行比较，如果相等则返回 <code>true</code>，否则返回 <code>false</code>。
  *
- * @param {Property} [other] The other property.
- * @returns {boolean} <code>true</code> if left and right are equal, <code>false</code> otherwise.
+ * @param {Property} [other] 另一个属性。
+ * @returns {boolean} 如果左右相等则返回 <code>true</code>，否则返回 <code>false</code>。
  */
 PolylineDashMaterialProperty.prototype.equals = function (other) {
   return (

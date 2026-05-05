@@ -3471,54 +3471,53 @@ function load(dataSource, entityCollection, data, options) {
 /**
  * @typedef {object} KmlDataSource.LoadOptions
  *
- * Initialization options for the `load` method.
+ * `load` 方法的初始化选项。
  *
- * @property {string} [sourceUri] Overrides the url to use for resolving relative links and other KML network features.
- * @property {boolean} [clampToGround=false] true if we want the geometry features (Polygons, LineStrings and LinearRings) clamped to the ground.
- * @property {Ellipsoid} [ellipsoid=Ellipsoid.default] The global ellipsoid used for geographical calculations.
- * @property {Element|string} [screenOverlayContainer] A container for ScreenOverlay images.
+ * @property {string} [sourceUri] 覆盖用于解析相对链接和其他 KML 网络功能的 url。
+ * @property {boolean} [clampToGround=false] 如果希望几何要素（多边形、线串和线性环）贴合到地面则为 true。
+ * @property {Ellipsoid} [ellipsoid=Ellipsoid.default] 用于地理计算的全局椭球体。
+ * @property {Element|string} [screenOverlayContainer] 用于 ScreenOverlay 图像的容器。
  */
 
 /**
  * @typedef {object} KmlDataSource.ConstructorOptions
  *
- * Options for constructing a new KmlDataSource, or calling the static `load` method.
+ * 用于构造新的 KmlDataSource 或调用静态 `load` 方法的选项。
  *
- * @property {Camera} [camera] The camera that is used for viewRefreshModes and sending camera properties to network links.
- * @property {HTMLCanvasElement} [canvas] The canvas that is used for sending viewer properties to network links.
- * @property {Credit|string} [credit] A credit for the data source, which is displayed on the canvas.
+ * @property {Camera} [camera] 用于 viewRefreshModes 并向网络链接发送相机属性的相机。
+ * @property {HTMLCanvasElement} [canvas] 用于向网络链接发送查看器属性的画布。
+ * @property {Credit|string} [credit] 数据源的版权信息，显示在画布上。
  *
- * @property {string} [sourceUri] Overrides the url to use for resolving relative links and other KML network features.
- * @property {boolean} [clampToGround=false] true if we want the geometry features (Polygons, LineStrings and LinearRings) clamped to the ground.
- * @property {Ellipsoid} [ellipsoid=Ellipsoid.default] The global ellipsoid used for geographical calculations.
- * @property {Element|string} [screenOverlayContainer] A container for ScreenOverlay images.
-
-*/
+ * @property {string} [sourceUri] 覆盖用于解析相对链接和其他 KML 网络功能的 url。
+ * @property {boolean} [clampToGround=false] 如果希望几何要素（多边形、线串和线性环）贴合到地面则为 true。
+ * @property {Ellipsoid} [ellipsoid=Ellipsoid.default] 用于地理计算的全局椭球体。
+ * @property {Element|string} [screenOverlayContainer] 用于 ScreenOverlay 图像的容器。
+ *
+ */
 
 /**
- * A {@link DataSource} which processes Keyhole Markup Language 2.2 (KML).
+ * 一个处理 Keyhole 标记语言 2.2 (KML) 的 {@link DataSource}。
  * <p>
- * KML support in Cesium is incomplete, but a large amount of the standard,
- * as well as Google's <code>gx</code> extension namespace, is supported. See Github issue
- * {@link https://github.com/CesiumGS/cesium/issues/873|#873} for a
- * detailed list of what is and isn't supported. Cesium will also write information to the
- * console when it encounters most unsupported features.
+ * Cesium 中的 KML 支持不完整，但标准的大部分内容，
+ * 以及 Google 的 <code>gx</code> 扩展命名空间都受支持。请参阅 Github 问题
+ * {@link https://github.com/CesiumGS/cesium/issues/873|#873} 以获取
+ * 关于支持和不支持内容的详细列表。Cesium 在遇到大多数不支持的功能时也会向控制台写入信息。
  * </p>
  * <p>
- * Non visual feature data, such as <code>atom:author</code> and <code>ExtendedData</code>
- * is exposed via an instance of {@link KmlFeatureData}, which is added to each {@link Entity}
- * under the <code>kml</code> property.
+ * 非视觉特征数据，如 <code>atom:author</code> 和 <code>ExtendedData</code>
+ * 通过添加到每个 {@link Entity} 下的 {@link KmlFeatureData} 实例公开，
+ * 属性为 <code>kml</code>。
  * </p>
  *
  * @alias KmlDataSource
  * @constructor
  *
- * @param {KmlDataSource.ConstructorOptions} [options] Object describing initialization options
+ * @param {KmlDataSource.ConstructorOptions} [options] 描述初始化选项的对象
  *
  * @see {@link http://www.opengeospatial.org/standards/kml/|Open Geospatial Consortium KML Standard}
  * @see {@link https://developers.google.com/kml/|Google KML Documentation}
  *
- * @demo {@link https://sandcastle.cesium.com/index.html?id=kml|Cesium Sandcastle KML Demo}
+ * @demo {@link https://sandcastle.cesium.com/index.html?id=kml|Cesium Sandcastle KML 演示}
  *
  * @example
  * const viewer = new Cesium.Viewer('cesiumContainer');
@@ -3549,18 +3548,17 @@ function KmlDataSource(options) {
   this._entityCluster = new EntityCluster();
 
   /**
-   * The current size of this Canvas will be used to populate the Link parameters
-   * for client height and width.
+   * 此画布的当前尺寸将用于填充链接参数
+   * 的客户端高度和宽度。
    *
    * @type {HTMLCanvasElement | undefined}
    */
   this.canvas = canvas;
 
   /**
-   * The position and orientation of this {@link Camera} will be used to
-   * populate various camera parameters when making network requests.
-   * Camera movement will determine when to trigger NetworkLink refresh if
-   * <code>viewRefreshMode</code> is <code>onStop</code>.
+   * 此 {@link Camera} 的位置和方向将用于
+   * 在进行网络请求时填充各种相机参数。
+   * 如果 <code>viewRefreshMode</code> 为 <code>onStop</code>，则相机移动将决定何时触发 NetworkLink 刷新。
    *
    * @type {Camera | undefined}
    */
@@ -3595,12 +3593,12 @@ function KmlDataSource(options) {
 }
 
 /**
- * Creates a Promise to a new instance loaded with the provided KML data.
+ * 异步加载提供的 KML 数据，替换任何现有数据。
  *
- * @param {Resource|string|Document|Blob} data A url, parsed KML document, or Blob containing binary KMZ data or a parsed KML document.
- * @param {KmlDataSource.ConstructorOptions} [options] An object specifying configuration options
+ * @param {Resource|string|Document|Blob} data 一个 url、已解析的 KML 文档或包含二进制 KMZ 数据的 Blob 或已解析的 KML 文档。
+ * @param {KmlDataSource.LoadOptions} [options] 指定配置选项的对象
  *
- * @returns {Promise<KmlDataSource>} A promise that will resolve to a new KmlDataSource instance once the KML is loaded.
+ * @returns {Promise<KmlDataSource>} 一旦 KML 加载完成，将解析到此实例的 promise。
  */
 KmlDataSource.load = function (data, options) {
   options = options ?? Frozen.EMPTY_OBJECT;
@@ -3610,8 +3608,8 @@ KmlDataSource.load = function (data, options) {
 
 Object.defineProperties(KmlDataSource.prototype, {
   /**
-   * Gets or sets a human-readable name for this instance.
-   * This will be automatically be set to the KML document name on load.
+   * 获取或设置此实例的可读名称。
+   * 加载时会自动设置为 KML 文档名称。
    * @memberof KmlDataSource.prototype
    * @type {string}
    */
@@ -3627,9 +3625,8 @@ Object.defineProperties(KmlDataSource.prototype, {
     },
   },
   /**
-   * Gets the clock settings defined by the loaded KML. This represents the total
-   * availability interval for all time-dynamic data. If the KML does not contain
-   * time-dynamic data, this value is undefined.
+   * 获取加载的 KML 定义的时钟设置。这表示所有时间动态数据的总可用时间间隔。
+   * 如果 KML 不包含时间动态数据，则此值为 undefined。
    * @memberof KmlDataSource.prototype
    * @type {DataSourceClock}
    */
@@ -3639,7 +3636,7 @@ Object.defineProperties(KmlDataSource.prototype, {
     },
   },
   /**
-   * Gets the collection of {@link Entity} instances.
+   * 获取 {@link Entity} 实例的集合。
    * @memberof KmlDataSource.prototype
    * @type {EntityCollection}
    */
@@ -3649,7 +3646,7 @@ Object.defineProperties(KmlDataSource.prototype, {
     },
   },
   /**
-   * Gets a value indicating if the data source is currently loading data.
+   * 获取一个值，指示数据源当前是否正在加载数据。
    * @memberof KmlDataSource.prototype
    * @type {boolean}
    */
@@ -3659,7 +3656,7 @@ Object.defineProperties(KmlDataSource.prototype, {
     },
   },
   /**
-   * Gets an event that will be raised when the underlying data changes.
+   * 获取当基础数据更改时将触发的事件。
    * @memberof KmlDataSource.prototype
    * @type {Event}
    */
@@ -3669,7 +3666,7 @@ Object.defineProperties(KmlDataSource.prototype, {
     },
   },
   /**
-   * Gets an event that will be raised if an error is encountered during processing.
+   * 获取当数据源遇到错误时将触发的事件。
    * @memberof KmlDataSource.prototype
    * @type {Event}
    */
@@ -3679,7 +3676,7 @@ Object.defineProperties(KmlDataSource.prototype, {
     },
   },
   /**
-   * Gets an event that will be raised when the data source either starts or stops loading.
+   * 获取当数据源开始或停止加载时将触发的事件。
    * @memberof KmlDataSource.prototype
    * @type {Event}
    */
@@ -3689,7 +3686,7 @@ Object.defineProperties(KmlDataSource.prototype, {
     },
   },
   /**
-   * Gets an event that will be raised when the data source refreshes a network link.
+   * 获取当数据源刷新网络链接时将触发的事件。
    * @memberof KmlDataSource.prototype
    * @type {Event}
    */
@@ -3699,7 +3696,7 @@ Object.defineProperties(KmlDataSource.prototype, {
     },
   },
   /**
-   * Gets an event that will be raised when the data source finds an unsupported node type.
+   * 获取当数据源发现不支持的节点类型时将触发的事件。
    * @memberof KmlDataSource.prototype
    * @type {Event}
    */
@@ -3709,7 +3706,7 @@ Object.defineProperties(KmlDataSource.prototype, {
     },
   },
   /**
-   * Gets whether or not this data source should be displayed.
+   * 获取或设置此数据源是否应被显示。
    * @memberof KmlDataSource.prototype
    * @type {boolean}
    */
@@ -3723,7 +3720,7 @@ Object.defineProperties(KmlDataSource.prototype, {
   },
 
   /**
-   * Gets or sets the clustering options for this data source. This object can be shared between multiple data sources.
+   * 获取或设置此数据源的聚合选项。此对象可以在多个数据源之间共享。
    *
    * @memberof KmlDataSource.prototype
    * @type {EntityCluster}
@@ -3742,7 +3739,7 @@ Object.defineProperties(KmlDataSource.prototype, {
     },
   },
   /**
-   * Gets the credit that will be displayed for the data source
+   * 获取将为数据源显示的版权信息
    * @memberof KmlDataSource.prototype
    * @type {Credit}
    */
@@ -3752,7 +3749,7 @@ Object.defineProperties(KmlDataSource.prototype, {
     },
   },
   /**
-   * Gets the KML Tours that are used to guide the camera to specified destinations on given time intervals.
+   * 获取用于在指定时间间隔内引导相机到指定目的地的 KML 游览。
    * @memberof KmlDataSource.prototype
    * @type {KmlTour[]}
    */
@@ -3764,12 +3761,12 @@ Object.defineProperties(KmlDataSource.prototype, {
 });
 
 /**
- * Asynchronously loads the provided KML data, replacing any existing data.
+ * 创建一个 Promise，用于加载提供的 KML 数据的新实例。
  *
- * @param {Resource|string|Document|Blob} data A url, parsed KML document, or Blob containing binary KMZ data or a parsed KML document.
- * @param {KmlDataSource.LoadOptions} [options] An object specifying configuration options
+ * @param {Resource|string|Document|Blob} data 一个 url、已解析的 KML 文档或包含二进制 KMZ 数据的 Blob 或已解析的 KML 文档。
+ * @param {KmlDataSource.ConstructorOptions} [options] 指定配置选项的对象
  *
- * @returns {Promise<KmlDataSource>} A promise that will resolve to this instances once the KML is loaded.
+ * @returns {Promise<KmlDataSource>} 一旦 KML 加载完成，将解析为新 KmlDataSource 实例的 promise。
  */
 KmlDataSource.prototype.load = function (data, options) {
   //>>includeStart('debug', pragmas.debug);
@@ -3854,7 +3851,7 @@ KmlDataSource.prototype.load = function (data, options) {
 };
 
 /**
- * Cleans up any non-entity elements created by the data source. Currently this only affects ScreenOverlay elements.
+ * 清理数据源创建的任何非实体元素。目前这仅影响 ScreenOverlay 元素。
  */
 KmlDataSource.prototype.destroy = function () {
   while (this._screenOverlays.length > 0) {

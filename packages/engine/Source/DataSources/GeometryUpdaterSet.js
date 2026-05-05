@@ -91,7 +91,7 @@ GeometryUpdaterSet.prototype.destroy = function () {
 };
 
 /**
- * Add the provided updater to the default list of updaters if not already included
+ * 如果提供的更新器尚未包含在默认更新器列表中，则将其添加到该列表中
  * @param {GeometryUpdater} updater
  */
 GeometryUpdaterSet.registerUpdater = function (updater) {
@@ -101,7 +101,7 @@ GeometryUpdaterSet.registerUpdater = function (updater) {
 };
 
 /**
- * Remove the provided updater from the default list of updaters if included
+ * 如果提供的更新器已包含在默认更新器列表中，则将其从列表中移除
  * @param {GeometryUpdater} updater
  */
 GeometryUpdaterSet.unregisterUpdater = function (updater) {

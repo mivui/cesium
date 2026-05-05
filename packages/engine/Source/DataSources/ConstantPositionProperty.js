@@ -7,14 +7,13 @@ import ReferenceFrame from "../Core/ReferenceFrame.js";
 import PositionProperty from "./PositionProperty.js";
 
 /**
- * A {@link PositionProperty} whose value does not change in respect to the
- * {@link ReferenceFrame} in which is it defined.
+ * 其值相对于定义它的 {@link ReferenceFrame} 不变的 {@link PositionProperty}。
  *
  * @alias ConstantPositionProperty
  * @constructor
  *
- * @param {Cartesian3} [value] The property value.
- * @param {ReferenceFrame} [referenceFrame=ReferenceFrame.FIXED] The reference frame in which the position is defined.
+ * @param {Cartesian3} [value] 属性值。
+ * @param {ReferenceFrame} [referenceFrame=ReferenceFrame.FIXED] 定义位置的参考系。
  */
 function ConstantPositionProperty(value, referenceFrame) {
   this._definitionChanged = new Event();
@@ -24,8 +23,7 @@ function ConstantPositionProperty(value, referenceFrame) {
 
 Object.defineProperties(ConstantPositionProperty.prototype, {
   /**
-   * Gets a value indicating if this property is constant.  A property is considered
-   * constant if getValue always returns the same result for the current definition.
+   * 获取指示此属性是否为常量的值。如果 getValue 始终对当前定义返回相同结果，则认为属性是常量。
    * @memberof ConstantPositionProperty.prototype
    *
    * @type {boolean}
@@ -39,9 +37,8 @@ Object.defineProperties(ConstantPositionProperty.prototype, {
     },
   },
   /**
-   * Gets the event that is raised whenever the definition of this property changes.
-   * The definition is considered to have changed if a call to getValue would return
-   * a different result for the same time.
+   * 获取每当此属性定义更改时触发的事件。
+   * 如果调用 getValue 对于相同时间返回不同结果，则认为定义已更改。
    * @memberof ConstantPositionProperty.prototype
    *
    * @type {Event}
@@ -53,7 +50,7 @@ Object.defineProperties(ConstantPositionProperty.prototype, {
     },
   },
   /**
-   * Gets the reference frame in which the position is defined.
+   * 获取定义位置的参考系。
    * @memberof ConstantPositionProperty.prototype
    * @type {ReferenceFrame}
    * @default ReferenceFrame.FIXED;
@@ -68,11 +65,11 @@ Object.defineProperties(ConstantPositionProperty.prototype, {
 const timeScratch = new JulianDate();
 
 /**
- * Gets the value of the property at the provided time in the fixed frame.
+ * 获取固定帧中给定时间处的属性值。
  *
- * @param {JulianDate} [time=JulianDate.now()] The time for which to retrieve the value. If omitted, the current system time is used.
- * @param {object} [result] The object to store the value into, if omitted, a new instance is created and returned.
- * @returns {object} The modified result parameter or a new instance if the result parameter was not supplied.
+ * @param {JulianDate} [time=JulianDate.now()] 要获取值的时间。如果省略，则使用当前系统时间。
+ * @param {object} [result] 存储值的对象，如果省略，则创建并返回新实例。
+ * @returns {object} 修改后的结果参数，如果未提供结果参数则为新实例。
  */
 ConstantPositionProperty.prototype.getValue = function (time, result) {
   if (!defined(time)) {
@@ -82,10 +79,10 @@ ConstantPositionProperty.prototype.getValue = function (time, result) {
 };
 
 /**
- * Sets the value of the property.
+ * 设置属性值。
  *
- * @param {Cartesian3} value The property value.
- * @param {ReferenceFrame} [referenceFrame=this.referenceFrame] The reference frame in which the position is defined.
+ * @param {Cartesian3} value 属性值。
+ * @param {ReferenceFrame} [referenceFrame=this.referenceFrame] 定义位置的参考系。
  */
 ConstantPositionProperty.prototype.setValue = function (value, referenceFrame) {
   let definitionChanged = false;
@@ -103,12 +100,12 @@ ConstantPositionProperty.prototype.setValue = function (value, referenceFrame) {
 };
 
 /**
- * Gets the value of the property at the provided time and in the provided reference frame.
+ * 获取给定时间和给定参考系中的属性值。
  *
- * @param {JulianDate} time The time for which to retrieve the value.
- * @param {ReferenceFrame} referenceFrame The desired referenceFrame of the result.
- * @param {Cartesian3} [result] The object to store the value into, if omitted, a new instance is created and returned.
- * @returns {Cartesian3} The modified result parameter or a new instance if the result parameter was not supplied.
+ * @param {JulianDate} time 要获取值的时间。
+ * @param {ReferenceFrame} referenceFrame 结果所需的参考系。
+ * @param {Cartesian3} [result] 存储值的对象，如果省略，则创建并返回新实例。
+ * @returns {Cartesian3} 修改后的结果参数，如果未提供结果参数则为新实例。
  */
 ConstantPositionProperty.prototype.getValueInReferenceFrame = function (
   time,
@@ -134,11 +131,10 @@ ConstantPositionProperty.prototype.getValueInReferenceFrame = function (
 };
 
 /**
- * Compares this property to the provided property and returns
- * <code>true</code> if they are equal, <code>false</code> otherwise.
+ * 将此属性与提供的属性进行比较，如果相等则返回 <code>true</code>，否则返回 <code>false</code>。
  *
- * @param {Property} [other] The other property.
- * @returns {boolean} <code>true</code> if left and right are equal, <code>false</code> otherwise.
+ * @param {Property} [other] 另一个属性。
+ * @returns {boolean} 如果左右相等则为 <code>true</code>，否则为 <code>false</code>。
  */
 ConstantPositionProperty.prototype.equals = function (other) {
   return (

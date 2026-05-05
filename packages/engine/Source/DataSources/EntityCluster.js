@@ -16,16 +16,16 @@ import SceneMode from "../Scene/SceneMode.js";
 import KDBush from "kdbush";
 
 /**
- * Defines how screen space objects (billboards, points, labels) are clustered.
+ * 定义屏幕空间对象（广告牌、点、标签）的聚合方式。
  *
- * @param {object} [options] An object with the following properties:
- * @param {boolean} [options.enabled=false] Whether or not to enable clustering.
- * @param {number} [options.pixelRange=80] The pixel range to extend the screen space bounding box.
- * @param {number} [options.minimumClusterSize=2] The minimum number of screen space objects that can be clustered.
- * @param {boolean} [options.clusterBillboards=true] Whether or not to cluster the billboards of an entity.
- * @param {boolean} [options.clusterLabels=true] Whether or not to cluster the labels of an entity.
- * @param {boolean} [options.clusterPoints=true] Whether or not to cluster the points of an entity.
- * @param {boolean} [options.show=true] Determines if the entities in the cluster will be shown.
+ * @param {object} [options] 包含以下属性的对象：
+ * @param {boolean} [options.enabled=false] 是否启用聚合。
+ * @param {number} [options.pixelRange=80] 扩展屏幕空间边界框的像素范围。
+ * @param {number} [options.minimumClusterSize=2] 可聚合的屏幕空间对象的最小数量。
+ * @param {boolean} [options.clusterBillboards=true] 是否聚合实体的广告牌。
+ * @param {boolean} [options.clusterLabels=true] 是否聚合实体的标签。
+ * @param {boolean} [options.clusterPoints=true] 是否聚合实体的点。
+ * @param {boolean} [options.show=true] 确定是否显示聚合中的实体。
  *
  * @alias EntityCluster
  * @constructor
@@ -68,7 +68,7 @@ function EntityCluster(options) {
   this._clusterEvent = new Event();
 
   /**
-   * Determines if entities in this collection will be shown.
+   * 获取或设置是否显示此集合中的实体。
    *
    * @type {boolean}
    * @default true
@@ -515,7 +515,7 @@ EntityCluster.prototype._initialize = function (scene) {
 
 Object.defineProperties(EntityCluster.prototype, {
   /**
-   * Gets or sets whether clustering is enabled.
+   * 获取或设置是否启用聚合。
    * @memberof EntityCluster.prototype
    * @type {boolean}
    */
@@ -529,7 +529,7 @@ Object.defineProperties(EntityCluster.prototype, {
     },
   },
   /**
-   * Gets or sets the pixel range to extend the screen space bounding box.
+   * 获取或设置扩展屏幕空间边界框的像素范围。
    * @memberof EntityCluster.prototype
    * @type {number}
    */
@@ -543,7 +543,7 @@ Object.defineProperties(EntityCluster.prototype, {
     },
   },
   /**
-   * Gets or sets the minimum number of screen space objects that can be clustered.
+   * 获取或设置可聚合的屏幕空间对象的最小数量。
    * @memberof EntityCluster.prototype
    * @type {number}
    */
@@ -558,7 +558,7 @@ Object.defineProperties(EntityCluster.prototype, {
     },
   },
   /**
-   * Gets the event that will be raised when a new cluster will be displayed. The signature of the event listener is {@link EntityCluster.newClusterCallback}.
+   * 获取当新聚合即将显示时将触发的事件。事件监听器的签名为 {@link EntityCluster.newClusterCallback}。
    * @memberof EntityCluster.prototype
    * @type {Event<EntityCluster.newClusterCallback>}
    */
@@ -568,7 +568,7 @@ Object.defineProperties(EntityCluster.prototype, {
     },
   },
   /**
-   * Gets or sets whether clustering billboard entities is enabled.
+   * 获取或设置是否启用广告牌实体聚合。
    * @memberof EntityCluster.prototype
    * @type {boolean}
    */
@@ -583,7 +583,7 @@ Object.defineProperties(EntityCluster.prototype, {
     },
   },
   /**
-   * Gets or sets whether clustering labels entities is enabled.
+   * 获取或设置是否启用标签实体聚合。
    * @memberof EntityCluster.prototype
    * @type {boolean}
    */
@@ -597,7 +597,7 @@ Object.defineProperties(EntityCluster.prototype, {
     },
   },
   /**
-   * Gets or sets whether clustering point entities is enabled.
+   * 获取或设置是否启用点实体聚合。
    * @memberof EntityCluster.prototype
    * @type {boolean}
    */
@@ -949,11 +949,11 @@ EntityCluster.prototype.update = function (frameState) {
 };
 
 /**
- * Destroys the WebGL resources held by this object.  Destroying an object allows for deterministic
- * release of WebGL resources, instead of relying on the garbage collector to destroy this object.
+ * 销毁此对象持有的 WebGL 资源。销毁对象可以确定性地
+ * 释放 WebGL 资源，而不是依赖垃圾回收器来销毁此对象。
  * <p>
- * Unlike other objects that use WebGL resources, this object can be reused. For example, if a data source is removed
- * from a data source collection and added to another.
+ * 与其他使用 WebGL 资源的对象不同，此对象可以重复使用。例如，如果数据源从
+ * 数据源集合中移除并添加到另一个集合中。
  * </p>
  */
 EntityCluster.prototype.destroy = function () {
@@ -1002,18 +1002,18 @@ EntityCluster.prototype.destroy = function () {
 };
 
 /**
- * A event listener function used to style clusters.
+ * 用于设置聚合样式的事件监听器函数。
  * @callback EntityCluster.newClusterCallback
  *
- * @param {Entity[]} clusteredEntities An array of the entities contained in the cluster.
- * @param {object} cluster An object containing the Billboard, Label, and Point
- * primitives that represent this cluster of entities.
+ * @param {Entity[]} clusteredEntities 聚合中包含的实体数组。
+ * @param {object} cluster 包含代表此实体聚合的 Billboard、Label 和 Point
+ * 基元的对象。
  * @param {Billboard} cluster.billboard
  * @param {Label} cluster.label
  * @param {PointPrimitive} cluster.point
  *
  * @example
- * // The default cluster values.
+ * // 默认聚合值。
  * dataSource.clustering.clusterEvent.addEventListener(function(entities, cluster) {
  *     cluster.label.show = true;
  *     cluster.label.text = entities.length.toLocaleString();

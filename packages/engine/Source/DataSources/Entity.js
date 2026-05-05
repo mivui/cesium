@@ -68,48 +68,48 @@ function createPropertyTypeDescriptor(name, Type) {
 /**
  * @typedef {object} Entity.ConstructorOptions
  *
- * Initialization options for the Entity constructor
+ * Entity 构造函数的初始化选项
  *
- * @property {string} [id] A unique identifier for this object. If none is provided, a GUID is generated.
- * @property {string} [name] A human readable name to display to users. It does not have to be unique.
- * @property {TimeIntervalCollection} [availability] The availability, if any, associated with this object.
- * @property {boolean} [show] A boolean value indicating if the entity and its children are displayed.
- * @property {TrackingReferenceFrame} [trackingReferenceFrame=TrackingReferenceFrame.AUTODETECT] The reference frame used when this entity is being tracked. <br/> If <code>undefined</code>, reference frame is determined based on entity velocity: near-surface slow moving entities are tracked using the local east-north-up reference frame, whereas fast moving entities such as satellites are tracked using VVLH (Vehicle Velocity, Local Horizontal).
- * @property {Property | string} [description] A string Property specifying an HTML description for this entity.
- * @property {PositionProperty | Cartesian3 | CallbackPositionProperty} [position] A Property specifying the entity position.
- * @property {Property | Quaternion} [orientation=Transforms.eastNorthUpToFixedFrame(position)] A Property specifying the entity orientation in respect to Earth-fixed-Earth-centered (ECEF). If undefined, east-north-up at entity position is used.
- * @property {Property | Cartesian3} [viewFrom] A suggested initial offset for viewing this object.
- * @property {Entity} [parent] A parent entity to associate with this entity.
- * @property {BillboardGraphics | BillboardGraphics.ConstructorOptions} [billboard] A billboard to associate with this entity.
- * @property {BoxGraphics | BoxGraphics.ConstructorOptions} [box] A box to associate with this entity.
- * @property {CorridorGraphics | CorridorGraphics.ConstructorOptions} [corridor] A corridor to associate with this entity.
- * @property {CylinderGraphics | CylinderGraphics.ConstructorOptions} [cylinder] A cylinder to associate with this entity.
- * @property {EllipseGraphics | EllipseGraphics.ConstructorOptions} [ellipse] A ellipse to associate with this entity.
- * @property {EllipsoidGraphics | EllipsoidGraphics.ConstructorOptions} [ellipsoid] A ellipsoid to associate with this entity.
- * @property {LabelGraphics | LabelGraphics.ConstructorOptions} [label] A options.label to associate with this entity.
- * @property {ModelGraphics | ModelGraphics.ConstructorOptions} [model] A model to associate with this entity.
- * @property {Cesium3DTilesetGraphics | Cesium3DTilesetGraphics.ConstructorOptions} [tileset] A 3D Tiles tileset to associate with this entity.
- * @property {PathGraphics | PathGraphics.ConstructorOptions} [path] A path to associate with this entity.
- * @property {PlaneGraphics | PlaneGraphics.ConstructorOptions} [plane] A plane to associate with this entity.
- * @property {PointGraphics | PointGraphics.ConstructorOptions} [point] A point to associate with this entity.
- * @property {PolygonGraphics | PolygonGraphics.ConstructorOptions} [polygon] A polygon to associate with this entity.
- * @property {PolylineGraphics | PolylineGraphics.ConstructorOptions} [polyline] A polyline to associate with this entity.
- * @property {PropertyBag | Object<string,*>} [properties] Arbitrary properties to associate with this entity.
- * @property {PolylineVolumeGraphics | PolylineVolumeGraphics.ConstructorOptions} [polylineVolume] A polylineVolume to associate with this entity.
- * @property {RectangleGraphics | RectangleGraphics.ConstructorOptions} [rectangle] A rectangle to associate with this entity.
- * @property {WallGraphics | WallGraphics.ConstructorOptions} [wall] A wall to associate with this entity.
+ * @property {string} [id] 此对象的唯一标识符。如果未提供，则生成 GUID。
+ * @property {string} [name] 显示给用户的可读名称。不需要唯一。
+ * @property {TimeIntervalCollection} [availability] 与对象关联的可用性（如果有）。
+ * @property {boolean} [show] 布尔值，指示是否显示实体及其子项。
+ * @property {TrackingReferenceFrame} [trackingReferenceFrame=TrackingReferenceFrame.AUTODETECT] 跟踪此实体时使用的参考帧。<br/>如果 <code>undefined</code>，参考帧根据实体速度确定：近地面慢速移动实体使用局部东-北-上参考帧跟踪，而快速移动实体（如卫星）使用 VVLH（车辆速度，局部水平）跟踪。
+ * @property {Property | string} [description] 字符串属性，指定此实体的 HTML 描述。
+ * @property {PositionProperty | Cartesian3 | CallbackPositionProperty} [position] 指定实体位置的属性。
+ * @property {Property | Quaternion} [orientation=Transforms.eastNorthUpToFixedFrame(position)] 指定实体相对于地固地球中心（ECF）方向的属性。如果未定义，则使用实体位置处的东-北-上方向。
+ * @property {Property | Cartesian3} [viewFrom] 建议的查看此对象的初始偏移量。
+ * @property {Entity} [parent] 与此实体关联的父实体。
+ * @property {BillboardGraphics | BillboardGraphics.ConstructorOptions} [billboard] 与此实体关联的广告牌。
+ * @property {BoxGraphics | BoxGraphics.ConstructorOptions} [box] 与此实体关联的盒子。
+ * @property {CorridorGraphics | CorridorGraphics.ConstructorOptions} [corridor] 与此实体关联的走廊。
+ * @property {CylinderGraphics | CylinderGraphics.ConstructorOptions} [cylinder] 与此实体关联的圆柱体。
+ * @property {EllipseGraphics | EllipseGraphics.ConstructorOptions} [ellipse] 与此实体关联的椭圆。
+ * @property {EllipsoidGraphics | EllipsoidGraphics.ConstructorOptions} [ellipsoid] 与此实体关联的椭球体。
+ * @property {LabelGraphics | LabelGraphics.ConstructorOptions} [label] 与此实体关联的标签。
+ * @property {ModelGraphics | ModelGraphics.ConstructorOptions} [model] 与此实体关联的模型。
+ * @property {Cesium3DTilesetGraphics | Cesium3DTilesetGraphics.ConstructorOptions} [tileset] 与此实体关联的 3D Tiles 瓦片集。
+ * @property {PathGraphics | PathGraphics.ConstructorOptions} [path] 与此实体关联的路径。
+ * @property {PlaneGraphics | PlaneGraphics.ConstructorOptions} [plane] 与此实体关联的平面。
+ * @property {PointGraphics | PointGraphics.ConstructorOptions} [point] 与此实体关联的点。
+ * @property {PolygonGraphics | PolygonGraphics.ConstructorOptions} [polygon] 与此实体关联的多边形。
+ * @property {PolylineGraphics | PolylineGraphics.ConstructorOptions} [polyline] 与此实体关联的折线。
+ * @property {PropertyBag | Object<string,*>} [properties] 与此实体关联的任意属性。
+ * @property {PolylineVolumeGraphics | PolylineVolumeGraphics.ConstructorOptions} [polylineVolume] 与此实体关联的折线体。
+ * @property {RectangleGraphics | RectangleGraphics.ConstructorOptions} [rectangle] 与此实体关联的矩形。
+ * @property {WallGraphics | WallGraphics.ConstructorOptions} [wall] 与此实体关联的墙。
  */
 
 /**
- * Entity instances aggregate multiple forms of visualization into a single high-level object.
- * They can be created manually and added to {@link Viewer#entities} or be produced by
- * data sources, such as {@link CzmlDataSource} and {@link GeoJsonDataSource}.
+ * Entity 实例将多种可视化形式聚合为单个高级对象。
+ * 它们可以手动创建并添加到 {@link Viewer#entities}，或由
+ * 数据源生成，例如 {@link CzmlDataSource} 和 {@link GeoJsonDataSource}。
  * @alias Entity
  * @constructor
  *
- * @param {Entity.ConstructorOptions} [options] Object describing initialization options
+ * @param {Entity.ConstructorOptions} [options] 描述初始化选项的对象
  *
- * @see {@link https://cesium.com/learn/cesiumjs-learn/cesiumjs-creating-entities/|Creating Entities}
+ * @see {@link https://cesium.com/learn/cesiumjs-learn/cesiumjs-creating-entities/|创建实体}
  */
 function Entity(options) {
   options = options ?? Frozen.EMPTY_OBJECT;
@@ -230,17 +230,17 @@ function updateShow(entity, children, isShowing) {
 
 Object.defineProperties(Entity.prototype, {
   /**
-   * The availability, if any, associated with this object.
-   * If availability is undefined, it is assumed that this object's
-   * other properties will return valid data for any provided time.
-   * If availability exists, the objects other properties will only
-   * provide valid data if queried within the given interval.
+   * 与对象关联的可用性（如果有）。
+   * 如果可用性未定义，则假定此对象的
+   * 其他属性将为任何提供的时间返回有效数据。
+   * 如果存在可用性，则对象的其他属性
+   * 仅在给定时间间隔内查询时提供有效数据。
    * @memberof Entity.prototype
    * @type {TimeIntervalCollection|undefined}
    */
   availability: createRawPropertyDescriptor("availability"),
   /**
-   * Gets the unique ID associated with this object.
+   * 获取与此对象关联的唯一 ID。
    * @memberof Entity.prototype
    * @type {string}
    */
@@ -250,7 +250,7 @@ Object.defineProperties(Entity.prototype, {
     },
   },
   /**
-   * Gets the event that is raised whenever a property or sub-property is changed or modified.
+   * 获取每当属性或子属性被更改或修改时引发的事件。
    * @memberof Entity.prototype
    *
    * @type {Event}
@@ -262,15 +262,15 @@ Object.defineProperties(Entity.prototype, {
     },
   },
   /**
-   * Gets or sets the name of the object.  The name is intended for end-user
-   * consumption and does not need to be unique.
+   * 获取或设置对象的名称。名称面向最终用户，
+   * 不需要唯一。
    * @memberof Entity.prototype
    * @type {string|undefined}
    */
   name: createRawPropertyDescriptor("name"),
   /**
-   * Gets or sets whether this entity should be displayed. When set to true,
-   * the entity is only displayed if the parent entity's show property is also true.
+   * 获取或设置是否应显示此实体。设置为 true 时，
+   * 仅当父实体的 show 属性也为 true 时，实体才会显示。
    * @memberof Entity.prototype
    * @type {boolean}
    */
@@ -301,16 +301,16 @@ Object.defineProperties(Entity.prototype, {
     },
   },
   /**
-   * Gets or sets the entity's tracking reference frame.
-   * @demo {@link https://sandcastle.cesium.com/index.html?id=entity-tracking|Cesium Sandcastle Entity tracking Demo}
+   * 获取或设置实体的跟踪参考帧。
+   * @demo {@link https://sandcastle.cesium.com/index.html?id=entity-tracking|Cesium Sandcastle 实体跟踪演示}
    *
    * @memberof Entity.prototype
    * @type {TrackingReferenceFrame}
    */
   trackingReferenceFrame: createRawPropertyDescriptor("trackingReferenceFrame"),
   /**
-   * Gets whether this entity is being displayed, taking into account
-   * the visibility of any ancestor entities.
+   * 获取是否显示此实体，同时考虑
+   * 任何祖先实体的可见性。
    * @memberof Entity.prototype
    * @type {boolean}
    */
@@ -370,104 +370,104 @@ Object.defineProperties(Entity.prototype, {
     },
   },
   /**
-   * Gets or sets the billboard.
+   * 获取或设置广告牌。
    * @memberof Entity.prototype
    * @type {BillboardGraphics|undefined}
    */
   billboard: createPropertyTypeDescriptor("billboard", BillboardGraphics),
   /**
-   * Gets or sets the box.
+   * 获取或设置盒子。
    * @memberof Entity.prototype
    * @type {BoxGraphics|undefined}
    */
   box: createPropertyTypeDescriptor("box", BoxGraphics),
   /**
-   * Gets or sets the corridor.
+   * 获取或设置走廊。
    * @memberof Entity.prototype
    * @type {CorridorGraphics|undefined}
    */
   corridor: createPropertyTypeDescriptor("corridor", CorridorGraphics),
   /**
-   * Gets or sets the cylinder.
+   * 获取或设置圆柱体。
    * @memberof Entity.prototype
    * @type {CylinderGraphics|undefined}
    */
   cylinder: createPropertyTypeDescriptor("cylinder", CylinderGraphics),
   /**
-   * Gets or sets the description.
+   * 获取或设置描述。
    * @memberof Entity.prototype
    * @type {Property|undefined}
    */
   description: createPropertyDescriptor("description"),
   /**
-   * Gets or sets the ellipse.
+   * 获取或设置椭圆。
    * @memberof Entity.prototype
    * @type {EllipseGraphics|undefined}
    */
   ellipse: createPropertyTypeDescriptor("ellipse", EllipseGraphics),
   /**
-   * Gets or sets the ellipsoid.
+   * 获取或设置椭球体。
    * @memberof Entity.prototype
    * @type {EllipsoidGraphics|undefined}
    */
   ellipsoid: createPropertyTypeDescriptor("ellipsoid", EllipsoidGraphics),
   /**
-   * Gets or sets the label.
+   * 获取或设置标签。
    * @memberof Entity.prototype
    * @type {LabelGraphics|undefined}
    */
   label: createPropertyTypeDescriptor("label", LabelGraphics),
   /**
-   * Gets or sets the model.
+   * 获取或设置模型。
    * @memberof Entity.prototype
    * @type {ModelGraphics|undefined}
    */
   model: createPropertyTypeDescriptor("model", ModelGraphics),
   /**
-   * Gets or sets the tileset.
+   * 获取或设置瓦片集。
    * @memberof Entity.prototype
    * @type {Cesium3DTilesetGraphics|undefined}
    */
   tileset: createPropertyTypeDescriptor("tileset", Cesium3DTilesetGraphics),
   /**
-   * Gets or sets the orientation in respect to Earth-fixed-Earth-centered (ECEF).
-   * Defaults to east-north-up at entity position.
+   * 获取或设置相对于地固地球中心（ECEF）的方向。
+   * 默认为实体位置处的东-北-上方向。
    * @memberof Entity.prototype
    * @type {Property|undefined}
    */
   orientation: createPropertyDescriptor("orientation"),
   /**
-   * Gets or sets the path.
+   * 获取或设置路径。
    * @memberof Entity.prototype
    * @type {PathGraphics|undefined}
    */
   path: createPropertyTypeDescriptor("path", PathGraphics),
   /**
-   * Gets or sets the plane.
+   * 获取或设置平面。
    * @memberof Entity.prototype
    * @type {PlaneGraphics|undefined}
    */
   plane: createPropertyTypeDescriptor("plane", PlaneGraphics),
   /**
-   * Gets or sets the point graphic.
+   * 获取或设置点图形。
    * @memberof Entity.prototype
    * @type {PointGraphics|undefined}
    */
   point: createPropertyTypeDescriptor("point", PointGraphics),
   /**
-   * Gets or sets the polygon.
+   * 获取或设置多边形。
    * @memberof Entity.prototype
    * @type {PolygonGraphics|undefined}
    */
   polygon: createPropertyTypeDescriptor("polygon", PolygonGraphics),
   /**
-   * Gets or sets the polyline.
+   * 获取或设置折线。
    * @memberof Entity.prototype
    * @type {PolylineGraphics|undefined}
    */
   polyline: createPropertyTypeDescriptor("polyline", PolylineGraphics),
   /**
-   * Gets or sets the polyline volume.
+   * 获取或设置折线体。
    * @memberof Entity.prototype
    * @type {PolylineVolumeGraphics|undefined}
    */
@@ -476,33 +476,33 @@ Object.defineProperties(Entity.prototype, {
     PolylineVolumeGraphics,
   ),
   /**
-   * Gets or sets the bag of arbitrary properties associated with this entity.
+   * 获取或设置与此实体关联的任意属性包。
    * @memberof Entity.prototype
    * @type {PropertyBag|undefined}
    */
   properties: createPropertyTypeDescriptor("properties", PropertyBag),
   /**
-   * Gets or sets the position.
+   * 获取或设置位置。
    * @memberof Entity.prototype
    * @type {PositionProperty|undefined}
    */
   position: createPositionPropertyDescriptor("position"),
   /**
-   * Gets or sets the rectangle.
+   * 获取或设置矩形。
    * @memberof Entity.prototype
    * @type {RectangleGraphics|undefined}
    */
   rectangle: createPropertyTypeDescriptor("rectangle", RectangleGraphics),
   /**
-   * Gets or sets the suggested initial offset when tracking this object.
-   * The offset is typically defined in the east-north-up reference frame,
-   * but may be another frame depending on the object's velocity.
+   * 获取或设置跟踪此对象时建议的初始偏移量。
+   * 偏移量通常在东-北-上参考帧中定义，
+   * 但也可能根据对象的速度使用其他帧。
    * @memberof Entity.prototype
    * @type {Property|undefined}
    */
   viewFrom: createPropertyDescriptor("viewFrom"),
   /**
-   * Gets or sets the wall.
+   * 获取或设置墙。
    * @memberof Entity.prototype
    * @type {WallGraphics|undefined}
    */
@@ -510,10 +510,10 @@ Object.defineProperties(Entity.prototype, {
 });
 
 /**
- * Add the specified type and construct the properties for it in the Entity class
+ * 添加指定类型并在 Entity 类中为其构造属性
  * @private
- * @param {string} propertyName name of the property that controls/accesses this entity type
- * @param {{ constructor: function }} Type The Graphics class to associate with this entity type
+ * @param {string} propertyName 控制/访问此实体类型的属性名称
+ * @param {{ constructor: function }} Type 与此实体类型关联的图形类
  */
 Entity.registerEntityType = function (propertyName, Type) {
   Object.defineProperties(Entity.prototype, {
@@ -525,10 +525,10 @@ Entity.registerEntityType = function (propertyName, Type) {
 };
 
 /**
- * Given a time, returns true if this object should have data during that time.
+ * 给定时间，如果此对象在该时间段内应有数据则返回 true。
  *
- * @param {JulianDate} time The time to check availability for.
- * @returns {boolean} true if the object should have data during the provided time, false otherwise.
+ * @param {JulianDate} time 要检查可用性的时间。
+ * @returns {boolean} 如果对象在提供的时间段内应有数据则返回 true，否则返回 false。
  */
 Entity.prototype.isAvailable = function (time) {
   //>>includeStart('debug', pragmas.debug);
@@ -542,14 +542,14 @@ Entity.prototype.isAvailable = function (time) {
 };
 
 /**
- * Adds a property to this object.  Once a property is added, it can be
- * observed with {@link Entity#definitionChanged} and composited
- * with {@link CompositeEntityCollection}
+ * 向此对象添加属性。添加后，属性可以被
+ * {@link Entity#definitionChanged} 观察并与
+ * {@link CompositeEntityCollection} 组合。
  *
- * @param {string} propertyName The name of the property to add.
+ * @param {string} propertyName 要添加的属性名称。
  *
- * @exception {DeveloperError} "propertyName" is a reserved property name.
- * @exception {DeveloperError} "propertyName" is already a registered property.
+ * @exception {DeveloperError} "propertyName" 是保留属性名称。
+ * @exception {DeveloperError} "propertyName" 已经是已注册属性。
  */
 Entity.prototype.addProperty = function (propertyName) {
   const propertyNames = this._propertyNames;
@@ -577,12 +577,12 @@ Entity.prototype.addProperty = function (propertyName) {
 };
 
 /**
- * Removed a property previously added with addProperty.
+ * 移除之前通过 addProperty 添加的属性。
  *
- * @param {string} propertyName The name of the property to remove.
+ * @param {string} propertyName 要移除的属性名称。
  *
- * @exception {DeveloperError} "propertyName" is a reserved property name.
- * @exception {DeveloperError} "propertyName" is not a registered property.
+ * @exception {DeveloperError} "propertyName" 是保留属性名称。
+ * @exception {DeveloperError} "propertyName" 不是已注册属性。
  */
 Entity.prototype.removeProperty = function (propertyName) {
   const propertyNames = this._propertyNames;
@@ -602,10 +602,10 @@ Entity.prototype.removeProperty = function (propertyName) {
 };
 
 /**
- * Assigns each unassigned property on this object to the value
- * of the same property on the provided source object.
+ * 将此对象上每个未赋值的属性分配给
+ * 提供的源对象上相同属性的值。
  *
- * @param {Entity} source The object to be merged into this object.
+ * @param {Entity} source 要合并到此对象中的对象。
  */
 Entity.prototype.merge = function (source) {
   //>>includeStart('debug', pragmas.debug);
@@ -670,12 +670,12 @@ const positionScratch = new Cartesian3();
 const orientationScratch = new Quaternion();
 
 /**
- * Computes the model matrix for the entity's transform at specified time. Returns undefined if position is undefined
+ * 计算指定时间的实体变换模型矩阵。如果位置未定义则返回 undefined
  *
- * @param {JulianDate} time The time to retrieve model matrix for.
- * @param {Matrix4} [result] The object onto which to store the result.
+ * @param {JulianDate} time 要检索模型矩阵的时间。
+ * @param {Matrix4} [result] 存储结果的对象。
  *
- * @returns {Matrix4} The modified result parameter or a new Matrix4 instance if one was not provided. Result is undefined if position is undefined.
+ * @returns {Matrix4} 修改后的结果参数，如果未提供则返回新 Matrix4 实例。如果位置未定义则结果为 undefined。
  */
 Entity.prototype.computeModelMatrix = function (time, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -764,24 +764,24 @@ Entity.prototype.computeModelMatrixForHeightReference = function (
 };
 
 /**
- * Checks if the given Scene supports materials besides Color on Entities draped on terrain or 3D Tiles.
- * If this feature is not supported, Entities with non-color materials but no `height` will
- * instead be rendered as if height is 0.
+ * 检查给定场景是否支持在贴地实体或 3D Tiles 上使用除颜色外的材质。
+ * 如果此功能不受支持，则具有非颜色材质但没有 `height` 的实体
+ * 将改为以高度为 0 的方式渲染。
  *
- * @param {Scene} scene The current scene.
- * @returns {boolean} Whether or not the current scene supports materials for entities on terrain.
+ * @param {Scene} scene 当前场景。
+ * @returns {boolean} 当前场景是否支持地形上的实体材质。
  */
 Entity.supportsMaterialsforEntitiesOnTerrain = function (scene) {
   return GroundPrimitive.supportsMaterials(scene);
 };
 
 /**
- * Checks if the given Scene supports polylines clamped to terrain or 3D Tiles.
- * If this feature is not supported, Entities with PolylineGraphics will be rendered with vertices at
- * the provided heights and using the `arcType` parameter instead of clamped to the ground.
+ * 检查给定场景是否支持贴地或 3D Tiles 的折线。
+ * 如果此功能不受支持，则具有 PolylineGraphics 的实体将以
+ * 提供的高度顶点和 `arcType` 参数渲染，而不是贴地。
  *
- * @param {Scene} scene The current scene.
- * @returns {boolean} Whether or not the current scene supports polylines on terrain or 3D TIles.
+ * @param {Scene} scene 当前场景。
+ * @returns {boolean} 当前场景是否支持地形或 3D Tiles 上的折线。
  */
 Entity.supportsPolylinesOnTerrain = function (scene) {
   return GroundPolylinePrimitive.isSupported(scene);

@@ -7,28 +7,28 @@ import createPropertyDescriptor from "./createPropertyDescriptor.js";
 /**
  * @typedef {object} PointGraphics.ConstructorOptions
  *
- * Initialization options for the PointGraphics constructor
+ * PointGraphics构造函数的初始化选项
  *
- * @property {Property | boolean} [show=true] A boolean Property specifying the visibility of the point.
- * @property {Property | number} [pixelSize=1] A numeric Property specifying the size in pixels.
- * @property {Property | HeightReference} [heightReference=HeightReference.NONE] A Property specifying what the height is relative to.
- * @property {Property | Color} [color=Color.WHITE] A Property specifying the {@link Color} of the point.
- * @property {Property | Color} [outlineColor=Color.BLACK] A Property specifying the {@link Color} of the outline.
- * @property {Property | number} [outlineWidth=0] A numeric Property specifying the the outline width in pixels.
- * @property {Property | NearFarScalar} [scaleByDistance] A {@link NearFarScalar} Property used to scale the point based on distance.
- * @property {Property | NearFarScalar} [translucencyByDistance] A {@link NearFarScalar} Property used to set translucency based on distance from the camera.
- * @property {Property | DistanceDisplayCondition} [distanceDisplayCondition] A Property specifying at what distance from the camera that this point will be displayed.
- * @property {Property | number} [disableDepthTestDistance] A Property specifying the distance from the camera at which to disable the depth test to.
- * @property {Property | SplitDirection} [splitDirection] A Property specifying the {@link SplitDirection} split to apply to this point.
+ * @property {Property | boolean} [show=true] 指定点可见性的布尔属性。
+ * @property {Property | number} [pixelSize=1] 指定大小（像素）的数值属性。
+ * @property {Property | HeightReference} [heightReference=HeightReference.NONE] 指定高度相对参照的属性。
+ * @property {Property | Color} [color=Color.WHITE] 指定点的 {@link Color} 的属性。
+ * @property {Property | Color} [outlineColor=Color.BLACK] 指定轮廓 {@link Color} 的属性。
+ * @property {Property | number} [outlineWidth=0] 指定轮廓宽度（像素）的数值属性。
+ * @property {Property | NearFarScalar} [scaleByDistance] 用于根据距离缩放点的 {@link NearFarScalar} 属性。
+ * @property {Property | NearFarScalar} [translucencyByDistance] 用于根据与相机距离设置透明度的 {@link NearFarScalar} 属性。
+ * @property {Property | DistanceDisplayCondition} [distanceDisplayCondition] 指定点在距离相机多远时显示的属性。
+ * @property {Property | number} [disableDepthTestDistance] 指定距离相机多远时禁用深度测试的属性。
+ * @property {Property | SplitDirection} [splitDirection] 指定应用于此点的 {@link SplitDirection} 分割的属性。
  */
 
 /**
- * Describes a graphical point located at the position of the containing {@link Entity}.
+ * 描述位于包含 {@link Entity} 位置处的图形点。
  *
  * @alias PointGraphics
  * @constructor
  *
- * @param {PointGraphics.ConstructorOptions} [options] Object describing initialization options
+ * @param {PointGraphics.ConstructorOptions} [options] 描述初始化选项的对象
  */
 function PointGraphics(options) {
   this._definitionChanged = new Event();
@@ -60,7 +60,7 @@ function PointGraphics(options) {
 
 Object.defineProperties(PointGraphics.prototype, {
   /**
-   * Gets the event that is raised whenever a property or sub-property is changed or modified.
+   * 获取每当属性或子属性更改或修改时引发的事件。
    * @memberof PointGraphics.prototype
    *
    * @type {Event}
@@ -73,7 +73,7 @@ Object.defineProperties(PointGraphics.prototype, {
   },
 
   /**
-   * Gets or sets the boolean Property specifying the visibility of the point.
+   * 获取或设置指定点可见性的布尔属性。
    * @memberof PointGraphics.prototype
    * @type {Property|undefined}
    * @default true
@@ -81,7 +81,7 @@ Object.defineProperties(PointGraphics.prototype, {
   show: createPropertyDescriptor("show"),
 
   /**
-   * Gets or sets the numeric Property specifying the size in pixels.
+   * 获取或设置指定大小（像素）的数值属性。
    * @memberof PointGraphics.prototype
    * @type {Property|undefined}
    * @default 1
@@ -89,7 +89,7 @@ Object.defineProperties(PointGraphics.prototype, {
   pixelSize: createPropertyDescriptor("pixelSize"),
 
   /**
-   * Gets or sets the Property specifying the {@link HeightReference}.
+   * 获取或设置指定 {@link HeightReference} 的属性。
    * @memberof PointGraphics.prototype
    * @type {Property|undefined}
    * @default HeightReference.NONE
@@ -97,7 +97,7 @@ Object.defineProperties(PointGraphics.prototype, {
   heightReference: createPropertyDescriptor("heightReference"),
 
   /**
-   * Gets or sets the Property specifying the {@link Color} of the point.
+   * 获取或设置指定点的 {@link Color} 的属性。
    * @memberof PointGraphics.prototype
    * @type {Property|undefined}
    * @default Color.WHITE
@@ -105,7 +105,7 @@ Object.defineProperties(PointGraphics.prototype, {
   color: createPropertyDescriptor("color"),
 
   /**
-   * Gets or sets the Property specifying the {@link Color} of the outline.
+   * 获取或设置指定轮廓 {@link Color} 的属性。
    * @memberof PointGraphics.prototype
    * @type {Property|undefined}
    * @default Color.BLACK
@@ -113,7 +113,7 @@ Object.defineProperties(PointGraphics.prototype, {
   outlineColor: createPropertyDescriptor("outlineColor"),
 
   /**
-   * Gets or sets the numeric Property specifying the the outline width in pixels.
+   * 获取或设置指定轮廓宽度（像素）的数值属性。
    * @memberof PointGraphics.prototype
    * @type {Property|undefined}
    * @default 0
@@ -121,26 +121,25 @@ Object.defineProperties(PointGraphics.prototype, {
   outlineWidth: createPropertyDescriptor("outlineWidth"),
 
   /**
-   * Gets or sets the {@link NearFarScalar} Property used to scale the point based on distance.
-   * If undefined, a constant size is used.
+   * 获取或设置用于根据距离缩放点的 {@link NearFarScalar} 属性。
+   * 如果未定义，则使用恒定大小。
    * @memberof PointGraphics.prototype
    * @type {Property|undefined}
    */
   scaleByDistance: createPropertyDescriptor("scaleByDistance"),
 
   /**
-   * Gets or sets {@link NearFarScalar} Property specifying the translucency of the point based on the distance from the camera.
-   * A point's translucency will interpolate between the {@link NearFarScalar#nearValue} and
-   * {@link NearFarScalar#farValue} while the camera distance falls within the lower and upper bounds
-   * of the specified {@link NearFarScalar#near} and {@link NearFarScalar#far}.
-   * Outside of these ranges the points's translucency remains clamped to the nearest bound.
+   * 获取或设置根据与相机距离指定点透明度的 {@link NearFarScalar} 属性。
+   * 当相机距离在指定的 {@link NearFarScalar#near} 和 {@link NearFarScalar#far} 的上下界内时，
+   * 点的透明度将在 {@link NearFarScalar#nearValue} 和 {@link NearFarScalar#farValue} 之间插值。
+   * 在这些范围之外，点的透明度保持钳位到最近的边界。
    * @memberof PointGraphics.prototype
    * @type {Property|undefined}
    */
   translucencyByDistance: createPropertyDescriptor("translucencyByDistance"),
 
   /**
-   * Gets or sets the {@link DistanceDisplayCondition} Property specifying at what distance from the camera that this point will be displayed.
+   * 获取或设置指定点在距离相机多远时显示的 {@link DistanceDisplayCondition} 属性。
    * @memberof PointGraphics.prototype
    * @type {Property|undefined}
    */
@@ -149,8 +148,8 @@ Object.defineProperties(PointGraphics.prototype, {
   ),
 
   /**
-   * Gets or sets the distance from the camera at which to disable the depth test to, for example, prevent clipping against terrain.
-   * When set to zero, the depth test is always applied. When set to Number.POSITIVE_INFINITY, the depth test is never applied.
+   * 获取或设置距离相机多远时禁用深度测试，例如防止与地形裁剪。
+   * 设置为零时始终应用深度测试。设置为Number.POSITIVE_INFINITY时从不应用深度测试。
    * @memberof PointGraphics.prototype
    * @type {Property|undefined}
    */
@@ -159,7 +158,7 @@ Object.defineProperties(PointGraphics.prototype, {
   ),
 
   /**
-   * Gets or sets the Property specifying the {@link SplitDirection} of this point.
+   * 获取或设置指定此点 {@link SplitDirection} 的属性。
    * @memberof PointGraphics.prototype
    * @type {Property|undefined}
    * @default SplitDirection.NONE
@@ -168,10 +167,10 @@ Object.defineProperties(PointGraphics.prototype, {
 });
 
 /**
- * Duplicates this instance.
+ * 复制此实例。
  *
- * @param {PointGraphics} [result] The object onto which to store the result.
- * @returns {PointGraphics} The modified result parameter or a new instance if one was not provided.
+ * @param {PointGraphics} [result] 存储结果的对象。
+ * @returns {PointGraphics} 修改后的结果参数，如果未提供则返回新实例。
  */
 PointGraphics.prototype.clone = function (result) {
   if (!defined(result)) {
@@ -192,10 +191,9 @@ PointGraphics.prototype.clone = function (result) {
 };
 
 /**
- * Assigns each unassigned property on this object to the value
- * of the same property on the provided source object.
+ * 将此对象上每个未赋值的属性分配给提供的源对象上相同属性的值。
  *
- * @param {PointGraphics} source The object to be merged into this object.
+ * @param {PointGraphics} source 要合并到此对象中的对象。
  */
 PointGraphics.prototype.merge = function (source) {
   //>>includeStart('debug', pragmas.debug);

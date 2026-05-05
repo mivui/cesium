@@ -68,14 +68,14 @@ function insertUpdaterIntoBatch(that, time, updater) {
 }
 
 /**
- * A visualizer for polylines represented by {@link Primitive} instances.
+ * 用于由 {@link Primitive} 实例表示的折线的可视化器。
  * @alias PolylineVisualizer
  * @constructor
  *
- * @param {Scene} scene The scene the primitives will be rendered in.
- * @param {EntityCollection} entityCollection The entityCollection to visualize.
- * @param {PrimitiveCollection} [primitives=scene.primitives] A collection to add primitives related to the entities
- * @param {PrimitiveCollection} [groundPrimitives=scene.groundPrimitives] A collection to add ground primitives related to the entities
+ * @param {Scene} scene 将渲染图元的场景。
+ * @param {EntityCollection} entityCollection 要可视化的实体集合。
+ * @param {PrimitiveCollection} [primitives=scene.primitives] 用于添加与实体相关的图元的集合
+ * @param {PrimitiveCollection} [groundPrimitives=scene.groundPrimitives] 用于添加与实体相关的地面图元的集合
  */
 function PolylineVisualizer(
   scene,
@@ -188,12 +188,11 @@ function PolylineVisualizer(
 }
 
 /**
- * Updates all of the primitives created by this visualizer to match their
- * Entity counterpart at the given time.
+ * 更新此可视化器创建的所有图元，使其与给定时间的对应实体匹配。
  *
- * @param {JulianDate} time The time to update to.
- * @returns {boolean} True if the visualizer successfully updated to the provided time,
- * false if the visualizer is waiting for asynchronous primitives to be created.
+ * @param {JulianDate} time 要更新到的时间。
+ * @returns {boolean} 如果可视化器成功更新到提供的时间则返回true，
+ * 如果可视化器正在等待异步图元创建则返回false。
  */
 PolylineVisualizer.prototype.update = function (time) {
   //>>includeStart('debug', pragmas.debug);
@@ -322,16 +321,16 @@ PolylineVisualizer.prototype.getBoundingSphere = function (entity, result) {
 };
 
 /**
- * Returns true if this object was destroyed; otherwise, false.
+ * 如果此对象已被销毁则返回true，否则返回false。
  *
- * @returns {boolean} True if this object was destroyed; otherwise, false.
+ * @returns {boolean} 如果此对象已被销毁则返回true，否则返回false。
  */
 PolylineVisualizer.prototype.isDestroyed = function () {
   return false;
 };
 
 /**
- * Removes and destroys all primitives created by this instance.
+ * 移除并销毁此实例创建的所有图元。
  */
 PolylineVisualizer.prototype.destroy = function () {
   this._entityCollection.collectionChanged.removeEventListener(

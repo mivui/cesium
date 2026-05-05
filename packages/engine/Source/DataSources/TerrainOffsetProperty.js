@@ -82,7 +82,7 @@ function TerrainOffsetProperty(
 
 Object.defineProperties(TerrainOffsetProperty.prototype, {
   /**
-   * Gets a value indicating if this property is constant.
+   * 获取一个值，指示此属性是否为常量。
    * @memberof TerrainOffsetProperty.prototype
    *
    * @type {boolean}
@@ -94,7 +94,7 @@ Object.defineProperties(TerrainOffsetProperty.prototype, {
     },
   },
   /**
-   * Gets the event that is raised whenever the definition of this property changes.
+   * 获取当此属性的定义发生更改时引发的事件。
    * @memberof TerrainOffsetProperty.prototype
    *
    * @type {Event}
@@ -150,11 +150,11 @@ TerrainOffsetProperty.prototype._updateClamping = function () {
 const timeScratch = new JulianDate();
 
 /**
- * Gets the height relative to the terrain based on the positions.
+ * 根据位置获取相对于地形的高度偏移。
  *
- * @param {JulianDate} [time=JulianDate.now()] The time for which to retrieve the value. If omitted, the current system time is used.
- * @param {object} [result] The object to store the value into, if omitted, a new instance is created and returned.
- * @returns {Cartesian3} The offset
+ * @param {JulianDate} [time=JulianDate.now()] 要获取值的时间。如果省略，则使用当前系统时间。
+ * @param {object} [result] 用于存储值的对象，如果省略，则创建并返回一个新实例。
+ * @returns {Cartesian3} 偏移量
  */
 TerrainOffsetProperty.prototype.getValue = function (time, result) {
   if (!defined(time)) {
@@ -234,10 +234,10 @@ TerrainOffsetProperty.prototype.destroy = function () {
 };
 
 /**
- * A function which creates one or more providers.
+ * 一个用于创建一或多个提供者的函数。
  * @callback TerrainOffsetProperty.PositionFunction
- * @param {JulianDate} time The clock time at which to retrieve the position
- * @param {Cartesian3} result The result position
- * @returns {Cartesian3} The position at which to do the terrain height check
+ * @param {JulianDate} time 用于获取位置的时钟时间
+ * @param {Cartesian3} result 结果位置
+ * @returns {Cartesian3} 用于进行地形高度检查的位置
  */
 export default TerrainOffsetProperty;

@@ -1,15 +1,15 @@
 import defined from "../Core/defined.js";
 import Event from "../Core/Event.js";
 /**
- * Describes a KmlTour, which uses KmlTourFlyTo, and KmlTourWait to
- * guide the camera to a specified destinations on given time intervals.
+ * 描述一个 KmlTour，它使用 KmlTourFlyTo 和 KmlTourWait 在指定时间间隔内
+ * 引导相机到指定目的地。
  *
  * @alias KmlTour
  * @constructor
  *
- * @param {string} name name parsed from KML
- * @param {string} id id parsed from KML
- * @param {Array} playlist array with KmlTourFlyTos and KmlTourWaits
+ * @param {string} name 从 KML 解析的名称
+ * @param {string} id 从 KML 解析的 id
+ * @param {Array} playlist 包含 KmlTourFlyTos 和 KmlTourWaits 的数组
  *
  * @see KmlTourFlyTo
  * @see KmlTourWait
@@ -18,53 +18,53 @@ import Event from "../Core/Event.js";
  */
 function KmlTour(name, id) {
   /**
-   * Id of kml gx:Tour entry
+   * KML gx:Tour 条目的 Id
    * @type {string}
    */
   this.id = id;
   /**
-   * Tour name
+   * 游览名称
    * @type {string}
    */
   this.name = name;
   /**
-   * Index of current entry from playlist
+   * 播放列表中当前条目的索引
    * @type {number}
    */
   this.playlistIndex = 0;
   /**
-   * Array of playlist entries
+   * 播放列表条目数组
    * @type {Array}
    */
   this.playlist = [];
   /**
-   * Event will be called when tour starts to play,
-   * before any playlist entry starts to play.
+   * 游览开始播放时调用的事件，
+   * 在任何播放列表条目开始播放之前。
    * @type Event
    */
   this.tourStart = new Event();
   /**
-   * Event will be called when all playlist entries are
-   * played, or tour playback being canceled.
+   * 当所有播放列表条目都已播放完毕，
+   * 或游览播放被取消时调用的事件。
    *
-   * If tour playback was terminated, event callback will
-   * be called with terminated=true parameter.
+   * 如果游览播放被终止，事件回调将
+   * 使用 terminated=true 参数调用。
    * @type Event
    */
   this.tourEnd = new Event();
   /**
-   * Event will be called when entry from playlist starts to play.
+   * 当播放列表中的条目开始播放时调用的事件。
    *
-   * Event callback will be called with curent entry as first parameter.
+   * 事件回调将使用当前条目作为第一个参数调用。
    * @type Event
    */
   this.entryStart = new Event();
   /**
-   * Event will be called when entry from playlist ends to play.
+   * 当播放列表中的条目结束播放时调用的事件。
    *
-   * Event callback will be called with following parameters:
-   * 1. entry - entry
-   * 2. terminated - true if playback was terminated by calling {@link KmlTour#stop}
+   * 事件回调将使用以下参数调用：
+   * 1. entry - 条目
+   * 2. terminated - 如果播放被 {@link KmlTour#stop} 终止则为 true
    * @type Event
    */
   this.entryEnd = new Event();
@@ -73,20 +73,20 @@ function KmlTour(name, id) {
 }
 
 /**
- * Add entry to this tour playlist.
+ * 向此游览播放列表添加条目。
  *
- * @param {KmlTourFlyTo|KmlTourWait} entry an entry to add to the playlist.
+ * @param {KmlTourFlyTo|KmlTourWait} entry 要添加到播放列表的条目。
  */
 KmlTour.prototype.addPlaylistEntry = function (entry) {
   this.playlist.push(entry);
 };
 
 /**
- * Play this tour.
+ * 播放此游览。
  *
- * @param {CesiumWidget} widget The widget.
- * @param {object} [cameraOptions] these options will be merged with {@link Camera#flyTo}
- * options for FlyTo playlist entries.
+ * @param {CesiumWidget} widget 小部件。
+ * @param {object} [cameraOptions] 这些选项将与 {@link Camera#flyTo} 的选项合并，
+ * 用于 FlyTo 播放列表条目。
  */
 KmlTour.prototype.play = function (widget, cameraOptions) {
   this.tourStart.raiseEvent();
@@ -103,7 +103,7 @@ KmlTour.prototype.play = function (widget, cameraOptions) {
 };
 
 /**
- * Stop curently playing tour.
+ * 停止当前正在播放的游览。
  */
 KmlTour.prototype.stop = function () {
   cancelAllEntries(this._activeEntries);

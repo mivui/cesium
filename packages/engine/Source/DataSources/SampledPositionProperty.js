@@ -10,13 +10,13 @@ import Property from "./Property.js";
 import SampledProperty from "./SampledProperty.js";
 
 /**
- * A {@link SampledProperty} which is also a {@link PositionProperty}.
+ * 一个 {@link SampledProperty}，同时也是 {@link PositionProperty}。
  *
  * @alias SampledPositionProperty
  * @constructor
  *
- * @param {ReferenceFrame} [referenceFrame=ReferenceFrame.FIXED] The reference frame in which the position is defined.
- * @param {number} [numberOfDerivatives=0] The number of derivatives that accompany each position; i.e. velocity, acceleration, etc...
+ * @param {ReferenceFrame} [referenceFrame=ReferenceFrame.FIXED] 定义位置的参考系。
+ * @param {number} [numberOfDerivatives=0] 每个位置伴随的导数数量；例如速度、加速度等。
  */
 function SampledPositionProperty(referenceFrame, numberOfDerivatives) {
   numberOfDerivatives = numberOfDerivatives ?? 0;
@@ -41,8 +41,7 @@ function SampledPositionProperty(referenceFrame, numberOfDerivatives) {
 
 Object.defineProperties(SampledPositionProperty.prototype, {
   /**
-   * Gets a value indicating if this property is constant.  A property is considered
-   * constant if getValue always returns the same result for the current definition.
+   * 获取一个值，指示此属性是否为常量。如果 getValue 对当前定义始终返回相同结果，则属性被视为常量。
    * @memberof SampledPositionProperty.prototype
    *
    * @type {boolean}
@@ -54,9 +53,7 @@ Object.defineProperties(SampledPositionProperty.prototype, {
     },
   },
   /**
-   * Gets the event that is raised whenever the definition of this property changes.
-   * The definition is considered to have changed if a call to getValue would return
-   * a different result for the same time.
+   * 获取当此属性的定义更改时引发的事件。如果对 getValue 的调用对相同时间返回不同结果，则认为定义已更改。
    * @memberof SampledPositionProperty.prototype
    *
    * @type {Event}
@@ -68,7 +65,7 @@ Object.defineProperties(SampledPositionProperty.prototype, {
     },
   },
   /**
-   * Gets the reference frame in which the position is defined.
+   * 获取定义位置的参考系。
    * @memberof SampledPositionProperty.prototype
    * @type {ReferenceFrame}
    * @default ReferenceFrame.FIXED;
@@ -79,7 +76,7 @@ Object.defineProperties(SampledPositionProperty.prototype, {
     },
   },
   /**
-   * Gets the degree of interpolation to perform when retrieving a value. Call <code>setInterpolationOptions</code> to set this.
+   * 获取检索值时执行的插值次数。调用 <code>setInterpolationOptions</code> 来设置此项。
    * @memberof SampledPositionProperty.prototype
    *
    * @type {number}
@@ -92,7 +89,7 @@ Object.defineProperties(SampledPositionProperty.prototype, {
     },
   },
   /**
-   * Gets the interpolation algorithm to use when retrieving a value. Call <code>setInterpolationOptions</code> to set this.
+   * 获取检索值时使用的插值算法。调用 <code>setInterpolationOptions</code> 来设置此项。
    * @memberof SampledPositionProperty.prototype
    *
    * @type {InterpolationAlgorithm}
@@ -105,7 +102,7 @@ Object.defineProperties(SampledPositionProperty.prototype, {
     },
   },
   /**
-   * The number of derivatives contained by this property; i.e. 0 for just position, 1 for velocity, etc.
+   * 此属性包含的导数数量；例如，0 表示仅位置，1 表示速度，等等。
    * @memberof SampledPositionProperty.prototype
    *
    * @type {number}
@@ -117,8 +114,7 @@ Object.defineProperties(SampledPositionProperty.prototype, {
     },
   },
   /**
-   * Gets or sets the type of extrapolation to perform when a value
-   * is requested at a time after any available samples.
+   * 获取或设置当在任何可用样本之后的时间请求值时执行的推断类型。
    * @memberof SampledPositionProperty.prototype
    * @type {ExtrapolationType}
    * @default ExtrapolationType.NONE
@@ -132,8 +128,7 @@ Object.defineProperties(SampledPositionProperty.prototype, {
     },
   },
   /**
-   * Gets or sets the amount of time to extrapolate forward before
-   * the property becomes undefined.  A value of 0 will extrapolate forever.
+   * 获取或设置在属性变为undefined之前向前推断的时间量。值为0将永远推断。
    * @memberof SampledPositionProperty.prototype
    * @type {number}
    * @default 0
@@ -147,8 +142,7 @@ Object.defineProperties(SampledPositionProperty.prototype, {
     },
   },
   /**
-   * Gets or sets the type of extrapolation to perform when a value
-   * is requested at a time before any available samples.
+   * 获取或设置当在任何可用样本之前的时间请求值时执行的推断类型。
    * @memberof SampledPositionProperty.prototype
    * @type {ExtrapolationType}
    * @default ExtrapolationType.NONE
@@ -162,8 +156,7 @@ Object.defineProperties(SampledPositionProperty.prototype, {
     },
   },
   /**
-   * Gets or sets the amount of time to extrapolate backward
-   * before the property becomes undefined.  A value of 0 will extrapolate forever.
+   * 获取或设置在属性变为undefined之前向后推断的时间量。值为0将永远推断。
    * @memberof SampledPositionProperty.prototype
    * @type {number}
    * @default 0
@@ -181,11 +174,11 @@ Object.defineProperties(SampledPositionProperty.prototype, {
 const timeScratch = new JulianDate();
 
 /**
- * Gets the position at the provided time.
+ * 获取指定时间的position。
  *
- * @param {JulianDate} [time=JulianDate.now()] The time for which to retrieve the value. If omitted, the current system time is used.
- * @param {Cartesian3} [result] The object to store the value into, if omitted, a new instance is created and returned.
- * @returns {Cartesian3 | undefined} The modified result parameter or a new instance if the result parameter was not supplied.
+ * @param {JulianDate} [time=JulianDate.now()] 用于检索值的时间。如果省略，则使用当前系统时间。
+ * @param {Cartesian3} [result] 用于存储值的对象，如果省略，则创建并返回新实例。
+ * @returns {Cartesian3 | undefined} 修改后的结果参数，如果未提供结果参数，则返回新实例。
  */
 SampledPositionProperty.prototype.getValue = function (time, result) {
   if (!defined(time)) {
@@ -195,12 +188,12 @@ SampledPositionProperty.prototype.getValue = function (time, result) {
 };
 
 /**
- * Gets the position at the provided time and in the provided reference frame.
+ * 获取指定时间和指定参考系中的position。
  *
- * @param {JulianDate} time The time for which to retrieve the value.
- * @param {ReferenceFrame} referenceFrame The desired referenceFrame of the result.
- * @param {Cartesian3} [result] The object to store the value into, if omitted, a new instance is created and returned.
- * @returns {Cartesian3 | undefined} The modified result parameter or a new instance if the result parameter was not supplied.
+ * @param {JulianDate} time 用于检索值的时间。
+ * @param {ReferenceFrame} referenceFrame 结果的所需参考系。
+ * @param {Cartesian3} [result] 用于存储值的对象，如果省略，则创建并返回新实例。
+ * @returns {Cartesian3 | undefined} 修改后的结果参数，如果未提供结果参数，则返回新实例。
  */
 SampledPositionProperty.prototype.getValueInReferenceFrame = function (
   time,
@@ -226,22 +219,22 @@ SampledPositionProperty.prototype.getValueInReferenceFrame = function (
 };
 
 /**
- * Sets the algorithm and degree to use when interpolating a position.
+ * 设置插值position时使用的算法和次数。
  *
- * @param {object} [options] Object with the following properties:
- * @param {InterpolationAlgorithm} [options.interpolationAlgorithm] The new interpolation algorithm.  If undefined, the existing property will be unchanged.
- * @param {number} [options.interpolationDegree] The new interpolation degree.  If undefined, the existing property will be unchanged.
+ * @param {object} [options] 包含以下属性的对象：
+ * @param {InterpolationAlgorithm} [options.interpolationAlgorithm] 新的插值算法。如果为undefined，则现有属性不变。
+ * @param {number} [options.interpolationDegree] 新的插值次数。如果为undefined，则现有属性不变。
  */
 SampledPositionProperty.prototype.setInterpolationOptions = function (options) {
   this._property.setInterpolationOptions(options);
 };
 
 /**
- * Adds a new sample.
+ * 添加新样本。
  *
- * @param {JulianDate} time The sample time.
- * @param {Cartesian3} position The position at the provided time.
- * @param {Cartesian3[]} [derivatives] The array of derivative values at the provided time.
+ * @param {JulianDate} time 样本时间。
+ * @param {Cartesian3} position 指定时间的position。
+ * @param {Cartesian3[]} [derivatives] 指定时间的导数值数组。
  */
 SampledPositionProperty.prototype.addSample = function (
   time,
@@ -263,13 +256,13 @@ SampledPositionProperty.prototype.addSample = function (
 };
 
 /**
- * Adds multiple samples via parallel arrays.
+ * 通过并行数组添加多个样本。
  *
- * @param {JulianDate[]} times An array of JulianDate instances where each index is a sample time.
- * @param {Cartesian3[]} positions An array of Cartesian3 position instances, where each value corresponds to the provided time index.
- * @param {Array[]} [derivatives] An array where each value is another array containing derivatives for the corresponding time index.
+ * @param {JulianDate[]} times JulianDate 实例数组，每个索引是一个样本时间。
+ * @param {Cartesian3[]} positions Cartesian3 position 实例数组，每个值对应提供的时间索引。
+ * @param {Array[]} [derivatives] 一个数组，其中每个值是包含对应时间索引的导数的数组。
  *
- * @exception {DeveloperError} All arrays must be the same length.
+ * @exception {DeveloperError} 所有数组的长度必须相同。
  */
 SampledPositionProperty.prototype.addSamples = function (
   times,
@@ -280,11 +273,11 @@ SampledPositionProperty.prototype.addSamples = function (
 };
 
 /**
- * Adds samples as a single packed array where each new sample is represented as a date,
- * followed by the packed representation of the corresponding value and derivatives.
+ * 以单个打包数组的形式添加样本，其中每个新样本表示为一个日期，
+ * 后跟相应值和导出的打包表示。
  *
- * @param {number[]} packedSamples The array of packed samples.
- * @param {JulianDate} [epoch] If any of the dates in packedSamples are numbers, they are considered an offset from this epoch, in seconds.
+ * @param {number[]} packedSamples 打包样本数组。
+ * @param {JulianDate} [epoch] 如果 packedSamples 中的任何日期是数字，则它们被视为从此纪元开始的偏移量（秒）。
  */
 SampledPositionProperty.prototype.addSamplesPackedArray = function (
   packedSamples,
@@ -294,30 +287,29 @@ SampledPositionProperty.prototype.addSamplesPackedArray = function (
 };
 
 /**
- * Removes a sample at the given time, if present.
+ * 移除给定时间的样本（如果存在）。
  *
- * @param {JulianDate} time The sample time.
- * @returns {boolean} <code>true</code> if a sample at time was removed, <code>false</code> otherwise.
+ * @param {JulianDate} time 样本时间。
+ * @returns {boolean} 如果移除了time的样本则返回 <code>true</code>，否则返回 <code>false</code>。
  */
 SampledPositionProperty.prototype.removeSample = function (time) {
   return this._property.removeSample(time);
 };
 
 /**
- * Removes all samples for the given time interval.
+ * 移除给定时间间隔内的所有样本。
  *
- * @param {TimeInterval} time The time interval for which to remove all samples.
+ * @param {TimeInterval} time 要移除所有样本的时间间隔。
  */
 SampledPositionProperty.prototype.removeSamples = function (timeInterval) {
   this._property.removeSamples(timeInterval);
 };
 
 /**
- * Compares this property to the provided property and returns
- * <code>true</code> if they are equal, <code>false</code> otherwise.
+ * 将此属性与提供的属性进行比较，如果相等则返回 <code>true</code>，否则返回 <code>false</code>。
  *
- * @param {Property} [other] The other property.
- * @returns {boolean} <code>true</code> if left and right are equal, <code>false</code> otherwise.
+ * @param {Property} [other] 另一个属性。
+ * @returns {boolean} 如果左右相等则返回 <code>true</code>，否则返回 <code>false</code>。
  */
 SampledPositionProperty.prototype.equals = function (other) {
   return (

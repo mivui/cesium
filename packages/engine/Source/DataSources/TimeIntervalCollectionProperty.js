@@ -5,15 +5,15 @@ import TimeIntervalCollection from "../Core/TimeIntervalCollection.js";
 import Property from "./Property.js";
 
 /**
- * A {@link Property} which is defined by a {@link TimeIntervalCollection}, where the
- * data property of each {@link TimeInterval} represents the value at time.
+ * 一个由 {@link TimeIntervalCollection} 定义的 {@link Property}，
+ * 其中每个 {@link TimeInterval} 的 data 属性表示时间对应的值。
  *
  * @alias TimeIntervalCollectionProperty
  * @constructor
  *
  * @example
- * //Create a Cartesian2 interval property which contains data on August 1st, 2012
- * //and uses a different value every 6 hours.
+ * //创建一个 Cartesian2 时间间隔属性，包含 2012年8月1日 的数据，
+ * //每 6 小时使用不同的值。
  * const composite = new Cesium.TimeIntervalCollectionProperty();
  * composite.intervals.addInterval(Cesium.TimeInterval.fromIso8601({
  *     iso8601 : '2012-08-01T00:00:00.00Z/2012-08-01T06:00:00.00Z',
@@ -51,8 +51,7 @@ function TimeIntervalCollectionProperty() {
 
 Object.defineProperties(TimeIntervalCollectionProperty.prototype, {
   /**
-   * Gets a value indicating if this property is constant.  A property is considered
-   * constant if getValue always returns the same result for the current definition.
+   * 获取一个值，指示此属性是否为常量。如果 getValue 对当前定义始终返回相同结果，则该属性被视为常量。
    * @memberof TimeIntervalCollectionProperty.prototype
    *
    * @type {boolean}
@@ -64,9 +63,8 @@ Object.defineProperties(TimeIntervalCollectionProperty.prototype, {
     },
   },
   /**
-   * Gets the event that is raised whenever the definition of this property changes.
-   * The definition is changed whenever setValue is called with data different
-   * than the current value.
+   * 获取当此属性的定义发生更改时引发的事件。
+   * 只要使用与当前值不同的数据调用 setValue，定义就会更改。
    * @memberof TimeIntervalCollectionProperty.prototype
    *
    * @type {Event}
@@ -78,7 +76,7 @@ Object.defineProperties(TimeIntervalCollectionProperty.prototype, {
     },
   },
   /**
-   * Gets the interval collection.
+   * 获取时间间隔集合。
    * @memberof TimeIntervalCollectionProperty.prototype
    *
    * @type {TimeIntervalCollection}
@@ -94,11 +92,11 @@ Object.defineProperties(TimeIntervalCollectionProperty.prototype, {
 const timeScratch = new JulianDate();
 
 /**
- * Gets the value of the property at the provided time.
+ * 获取属性在指定时间的值。
  *
- * @param {JulianDate} [time=JulianDate.now()] The time for which to retrieve the value. If omitted, the current system time is used.
- * @param {object} [result] The object to store the value into, if omitted, a new instance is created and returned.
- * @returns {object} The modified result parameter or a new instance if the result parameter was not supplied.
+ * @param {JulianDate} [time=JulianDate.now()] 要获取值的时间。如果省略，则使用当前系统时间。
+ * @param {object} [result] 用于存储值的对象，如果省略，则创建并返回一个新实例。
+ * @returns {object} 修改后的结果参数，如果未提供结果参数，则返回新实例。
  */
 TimeIntervalCollectionProperty.prototype.getValue = function (time, result) {
   if (!defined(time)) {
@@ -113,11 +111,11 @@ TimeIntervalCollectionProperty.prototype.getValue = function (time, result) {
 };
 
 /**
- * Compares this property to the provided property and returns
- * <code>true</code> if they are equal, <code>false</code> otherwise.
+ * 将此属性与提供的属性进行比较，如果相等则返回
+ * <code>true</code>，否则返回 <code>false</code>。
  *
- * @param {Property} [other] The other property.
- * @returns {boolean} <code>true</code> if left and right are equal, <code>false</code> otherwise.
+ * @param {Property} [other] 另一个属性。
+ * @returns {boolean} 如果相等则返回 <code>true</code>，否则返回 <code>false</code>。
  */
 TimeIntervalCollectionProperty.prototype.equals = function (other) {
   return (

@@ -44,12 +44,12 @@ function EntityData(entity) {
 }
 
 /**
- * A {@link Visualizer} which maps {@link Entity#billboard} to a {@link Billboard}.
+ * 将 {@link Entity#billboard} 映射到 {@link Billboard} 的 {@link Visualizer}。
  * @alias BillboardVisualizer
  * @constructor
  *
- * @param {EntityCluster} entityCluster The entity cluster to manage the collection of billboards and optionally cluster with other entities.
- * @param {EntityCollection} entityCollection The entityCollection to visualize.
+ * @param {EntityCluster} entityCluster 用于管理广告牌集合的实体集群，并可选择与其他实体聚类。
+ * @param {EntityCollection} entityCollection 要可视化的 entityCollection。
  */
 function BillboardVisualizer(entityCluster, entityCollection) {
   //>>includeStart('debug', pragmas.debug);
@@ -73,11 +73,10 @@ function BillboardVisualizer(entityCluster, entityCollection) {
 }
 
 /**
- * Updates the primitives created by this visualizer to match their
- * Entity counterpart at the given time.
+ * 在给定时间更新此可视化器创建的基元以匹配其对应的 Entity。
  *
- * @param {JulianDate} time The time to update to.
- * @returns {boolean} This function always returns true.
+ * @param {JulianDate} time 要更新到的时间。
+ * @returns {boolean} 此函数始终返回 true。
  */
 BillboardVisualizer.prototype.update = function (time) {
   //>>includeStart('debug', pragmas.debug);
@@ -282,16 +281,16 @@ BillboardVisualizer.prototype.getBoundingSphere = function (entity, result) {
 };
 
 /**
- * Returns true if this object was destroyed; otherwise, false.
+ * 如果此对象已被销毁则返回 true；否则返回 false。
  *
- * @returns {boolean} True if this object was destroyed; otherwise, false.
+ * @returns {boolean} 如果此对象已被销毁则为 true；否则为 false。
  */
 BillboardVisualizer.prototype.isDestroyed = function () {
   return false;
 };
 
 /**
- * Removes and destroys all primitives created by this instance.
+ * 移除并销毁此实例创建的所有基元。
  */
 BillboardVisualizer.prototype.destroy = function () {
   this._entityCollection.collectionChanged.removeEventListener(

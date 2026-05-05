@@ -21,9 +21,9 @@ function subscribeAll(property, eventHelper, definitionChanged, intervals) {
 }
 
 /**
- * A {@link Property} which is defined by a {@link TimeIntervalCollection}, where the
- * data property of each {@link TimeInterval} is another Property instance which is
- * evaluated at the provided time.
+ * 由 {@link TimeIntervalCollection} 定义的 {@link Property}，其中
+ * 每个 {@link TimeInterval} 的 data 属性是另一个 Property 实例，
+ * 在提供的时间进行评估。
  *
  * @alias CompositeProperty
  * @constructor
@@ -33,10 +33,10 @@ function subscribeAll(property, eventHelper, definitionChanged, intervals) {
  * const constantProperty = ...;
  * const sampledProperty = ...;
  *
- * //Create a composite property from two previously defined properties
- * //where the property is valid on August 1st, 2012 and uses a constant
- * //property for the first half of the day and a sampled property for the
- * //remaining half.
+ * //从两个先前定义的属性创建复合属性
+ * //其中属性在 2012 年 8 月 1 日有效，并使用常量
+ * //属性表示上半天，使用采样属性表示
+ * //剩余半天。
  * const composite = new Cesium.CompositeProperty();
  * composite.intervals.addInterval(Cesium.TimeInterval.fromIso8601({
  *     iso8601 : '2012-08-01T00:00:00.00Z/2012-08-01T12:00:00.00Z',
@@ -64,8 +64,7 @@ function CompositeProperty() {
 
 Object.defineProperties(CompositeProperty.prototype, {
   /**
-   * Gets a value indicating if this property is constant.  A property is considered
-   * constant if getValue always returns the same result for the current definition.
+   * 获取指示此属性是否为常量的值。如果 getValue 始终对当前定义返回相同结果，则认为属性是常量。
    * @memberof CompositeProperty.prototype
    *
    * @type {boolean}
@@ -77,9 +76,8 @@ Object.defineProperties(CompositeProperty.prototype, {
     },
   },
   /**
-   * Gets the event that is raised whenever the definition of this property changes.
-   * The definition is changed whenever setValue is called with data different
-   * than the current value.
+   * 获取每当此属性定义更改时触发的事件。
+   * 每当使用与当前值不同的数据调用 setValue 时定义都会更改。
    * @memberof CompositeProperty.prototype
    *
    * @type {Event}
@@ -91,7 +89,7 @@ Object.defineProperties(CompositeProperty.prototype, {
     },
   },
   /**
-   * Gets the interval collection.
+   * 获取间隔集合。
    * @memberof CompositeProperty.prototype
    *
    * @type {TimeIntervalCollection}
@@ -106,11 +104,11 @@ Object.defineProperties(CompositeProperty.prototype, {
 const timeScratch = new JulianDate();
 
 /**
- * Gets the value of the property at the provided time.
+ * 获取给定时间处的属性值。
  *
- * @param {JulianDate} [time=JulianDate.now()] The time for which to retrieve the value. If omitted, the current system time is used.
- * @param {object} [result] The object to store the value into, if omitted, a new instance is created and returned.
- * @returns {object} The modified result parameter or a new instance if the result parameter was not supplied.
+ * @param {JulianDate} [time=JulianDate.now()] 要获取值的时间。如果省略，则使用当前系统时间。
+ * @param {object} [result] 存储值的对象，如果省略，则创建并返回新实例。
+ * @returns {object} 修改后的结果参数，如果未提供结果参数则为新实例。
  */
 CompositeProperty.prototype.getValue = function (time, result) {
   if (!defined(time)) {
@@ -125,11 +123,10 @@ CompositeProperty.prototype.getValue = function (time, result) {
 };
 
 /**
- * Compares this property to the provided property and returns
- * <code>true</code> if they are equal, <code>false</code> otherwise.
+ * 将此属性与提供的属性进行比较，如果相等则返回 <code>true</code>，否则返回 <code>false</code>。
  *
- * @param {Property} [other] The other property.
- * @returns {boolean} <code>true</code> if left and right are equal, <code>false</code> otherwise.
+ * @param {Property} [other] 另一个属性。
+ * @returns {boolean} 如果左右相等则为 <code>true</code>，否则为 <code>false</code>。
  */
 CompositeProperty.prototype.equals = function (other) {
   return (

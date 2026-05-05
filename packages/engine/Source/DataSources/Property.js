@@ -2,8 +2,8 @@ import defined from "../Core/defined.js";
 import DeveloperError from "../Core/DeveloperError.js";
 
 /**
- * The interface for all properties, which represent a value that can optionally vary over time.
- * This type defines an interface and cannot be instantiated directly.
+ * 所有属性的接口，表示可以随时间可选变化的值。
+ * 此类型定义接口，无法直接实例化。
  *
  * @alias Property
  * @constructor
@@ -23,8 +23,7 @@ function Property() {
 
 Object.defineProperties(Property.prototype, {
   /**
-   * Gets a value indicating if this property is constant.  A property is considered
-   * constant if getValue always returns the same result for the current definition.
+   * 获取一个值，指示此属性是否为常量。如果 getValue 对当前定义始终返回相同结果，则属性被视为常量。
    * @memberof Property.prototype
    *
    * @type {boolean}
@@ -34,9 +33,7 @@ Object.defineProperties(Property.prototype, {
     get: DeveloperError.throwInstantiationError,
   },
   /**
-   * Gets the event that is raised whenever the definition of this property changes.
-   * The definition is considered to have changed if a call to getValue would return
-   * a different result for the same time.
+   * 获取当此属性的定义更改时引发的事件。如果对 getValue 的调用对相同时间返回不同结果，则认为定义已更改。
    * @memberof Property.prototype
    *
    * @type {Event}
@@ -48,22 +45,21 @@ Object.defineProperties(Property.prototype, {
 });
 
 /**
- * Gets the value of the property at the provided time.
+ * 获取属性在指定时间的值。
  * @function
  *
- * @param {JulianDate} [time=JulianDate.now()] The time for which to retrieve the value. If omitted, the current system time is used.
- * @param {object} [result] The object to store the value into, if omitted, a new instance is created and returned.
- * @returns {object} The modified result parameter or a new instance if the result parameter was not supplied.
+ * @param {JulianDate} [time=JulianDate.now()] 用于检索值的时间。如果省略，则使用当前系统时间。
+ * @param {object} [result] 用于存储值的对象，如果省略，则创建并返回新实例。
+ * @returns {object} 修改后的结果参数，如果未提供结果参数，则返回新实例。
  */
 Property.prototype.getValue = DeveloperError.throwInstantiationError;
 
 /**
- * Compares this property to the provided property and returns
- * <code>true</code> if they are equal, <code>false</code> otherwise.
+ * 将此属性与提供的属性进行比较，如果相等则返回 <code>true</code>，否则返回 <code>false</code>。
  * @function
  *
- * @param {Property} [other] The other property.
- * @returns {boolean} <code>true</code> if left and right are equal, <code>false</code> otherwise.
+ * @param {Property} [other] 另一个属性。
+ * @returns {boolean} 如果左右相等则返回 <code>true</code>，否则返回 <code>false</code>。
  */
 Property.prototype.equals = DeveloperError.throwInstantiationError;
 

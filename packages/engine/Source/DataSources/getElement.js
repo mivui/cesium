@@ -1,11 +1,11 @@
 import DeveloperError from "../Core/DeveloperError.js";
 
 /**
- * If element is a string, look up the element in the DOM by ID.  Otherwise return element.
+ * 如果 element 是字符串，则通过 ID 在 DOM 中查找元素。否则返回 element。
  *
  * @private
  *
- * @exception {DeveloperError} Element with id "id" does not exist in the document.
+ * @exception {DeveloperError} ID 为 "id" 的元素在文档中不存在。
  */
 function getElement(element) {
   if (typeof element === "string") {

@@ -2,12 +2,12 @@ import defined from "../Core/defined.js";
 import Event from "../Core/Event.js";
 
 /**
- * A {@link Property} whose value does not change with respect to simulation time.
+ * 其值不随模拟时间变化的 {@link Property}。
  *
  * @alias ConstantProperty
  * @constructor
  *
- * @param {*} [value] The property value.
+ * @param {*} [value] 属性值。
  *
  * @see ConstantPositionProperty
  */
@@ -21,8 +21,8 @@ function ConstantProperty(value) {
 
 Object.defineProperties(ConstantProperty.prototype, {
   /**
-   * Gets a value indicating if this property is constant.
-   * This property always returns <code>true</code>.
+   * 获取指示此属性是否为常量的值。
+   * 此属性始终返回 <code>true</code>。
    * @memberof ConstantProperty.prototype
    *
    * @type {boolean}
@@ -32,9 +32,8 @@ Object.defineProperties(ConstantProperty.prototype, {
     value: true,
   },
   /**
-   * Gets the event that is raised whenever the definition of this property changes.
-   * The definition is changed whenever setValue is called with data different
-   * than the current value.
+   * 获取每当此属性定义更改时触发的事件。
+   * 每当使用与当前值不同的数据调用 setValue 时定义都会更改。
    * @memberof ConstantProperty.prototype
    *
    * @type {Event}
@@ -48,20 +47,20 @@ Object.defineProperties(ConstantProperty.prototype, {
 });
 
 /**
- * Gets the value of the property.
+ * 获取属性的值。
  *
- * @param {JulianDate} [time] The time for which to retrieve the value.  This parameter is unused since the value does not change with respect to time.
- * @param {object} [result] The object to store the value into, if omitted, a new instance is created and returned.
- * @returns {object} The modified result parameter or a new instance if the result parameter was not supplied.
+ * @param {JulianDate} [time] 要获取值的时间。由于值不随时间变化，此参数未使用。
+ * @param {object} [result] 存储值的对象，如果省略，则创建并返回新实例。
+ * @returns {object} 修改后的结果参数，如果未提供结果参数则为新实例。
  */
 ConstantProperty.prototype.getValue = function (time, result) {
   return this._hasClone ? this._value.clone(result) : this._value;
 };
 
 /**
- * Sets the value of the property.
+ * 设置属性值。
  *
- * @param {*} value The property value.
+ * @param {*} value 属性值。
  */
 ConstantProperty.prototype.setValue = function (value) {
   const oldValue = this._value;
@@ -81,11 +80,10 @@ ConstantProperty.prototype.setValue = function (value) {
 };
 
 /**
- * Compares this property to the provided property and returns
- * <code>true</code> if they are equal, <code>false</code> otherwise.
+ * 将此属性与提供的属性进行比较，如果相等则返回 <code>true</code>，否则返回 <code>false</code>。
  *
- * @param {Property} [other] The other property.
- * @returns {boolean} <code>true</code> if left and right are equal, <code>false</code> otherwise.
+ * @param {Property} [other] 另一个属性。
+ * @returns {boolean} 如果左右相等则为 <code>true</code>，否则为 <code>false</code>。
  */
 ConstantProperty.prototype.equals = function (other) {
   return (
@@ -97,18 +95,18 @@ ConstantProperty.prototype.equals = function (other) {
 };
 
 /**
- * Gets this property's value.
+ * 获取此属性的值。
  *
- * @returns {*} This property's value.
+ * @returns {*} 此属性的值。
  */
 ConstantProperty.prototype.valueOf = function () {
   return this._value;
 };
 
 /**
- * Creates a string representing this property's value.
+ * 创建表示此属性值的字符串。
  *
- * @returns {string} A string representing the property's value.
+ * @returns {string} 表示属性值的字符串。
  */
 ConstantProperty.prototype.toString = function () {
   return String(this._value);

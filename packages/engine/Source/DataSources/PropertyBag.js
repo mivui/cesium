@@ -7,14 +7,14 @@ import createPropertyDescriptor from "./createPropertyDescriptor.js";
 import Property from "./Property.js";
 
 /**
- * A {@link Property} whose value is a key-value mapping of property names to the computed value of other properties.
+ * 一个 {@link Property}，其值是属性名称到其他属性计算值的键值映射。
  *
  * @alias PropertyBag
  * @implements Record<string, any>
  * @constructor
  *
- * @param {object} [value] An object, containing key-value mapping of property names to properties.
- * @param {Function} [createPropertyCallback] A function that will be called when the value of any of the properties in value are not a Property.
+ * @param {object} [value] 包含属性名称到属性的键值映射的对象。
+ * @param {Function} [createPropertyCallback] 当 value 中任何属性的值不是 Property 时调用的函数。
  */
 function PropertyBag(value, createPropertyCallback) {
   this._propertyNames = [];
@@ -27,7 +27,7 @@ function PropertyBag(value, createPropertyCallback) {
 
 Object.defineProperties(PropertyBag.prototype, {
   /**
-   * Gets the names of all properties registered on this instance.
+   * 获取此实例上注册的所有属性名称。
    * @memberof PropertyBag.prototype
    * @type {Array}
    */
@@ -37,8 +37,7 @@ Object.defineProperties(PropertyBag.prototype, {
     },
   },
   /**
-   * Gets a value indicating if this property is constant.  This property
-   * is considered constant if all property items in this object are constant.
+   * 获取一个值，指示此属性是否为常量。如果此对象中的所有属性项都是常量，则此属性被视为常量。
    * @memberof PropertyBag.prototype
    *
    * @type {boolean}
@@ -56,8 +55,7 @@ Object.defineProperties(PropertyBag.prototype, {
     },
   },
   /**
-   * Gets the event that is raised whenever the set of properties contained in this
-   * object changes, or one of the properties itself changes.
+   * 获取当此对象中包含的属性集发生更改，或其中某个属性本身发生更改时引发的事件。
    *
    * @memberof PropertyBag.prototype
    *
@@ -72,11 +70,11 @@ Object.defineProperties(PropertyBag.prototype, {
 });
 
 /**
- * Determines if this object has defined a property with the given name.
+ * 确定此对象是否已定义具有给定名称的属性。
  *
- * @param {string} propertyName The name of the property to check for.
+ * @param {string} propertyName 要检查的属性名称。
  *
- * @returns {boolean} True if this object has defined a property with the given name, false otherwise.
+ * @returns {boolean} 如果此对象已定义具有给定名称的属性则返回true，否则返回false。
  */
 PropertyBag.prototype.hasProperty = function (propertyName) {
   return this._propertyNames.indexOf(propertyName) !== -1;
@@ -87,13 +85,13 @@ function createConstantProperty(value) {
 }
 
 /**
- * Adds a property to this object.
+ * 向此对象添加属性。
  *
- * @param {string} propertyName The name of the property to add.
- * @param {*} [value] The value of the new property, if provided.
- * @param {Function} [createPropertyCallback] A function that will be called when the value of this new property is set to a value that is not a Property.
+ * @param {string} propertyName 要添加的属性名称。
+ * @param {*} [value] 新属性的值（如果提供）。
+ * @param {Function} [createPropertyCallback] 当此新属性的值设置为非 Property 值时调用的函数。
  *
- * @exception {DeveloperError} "propertyName" is already a registered property.
+ * @exception {DeveloperError} "propertyName" 已是已注册的属性。
  */
 PropertyBag.prototype.addProperty = function (
   propertyName,
@@ -132,11 +130,11 @@ PropertyBag.prototype.addProperty = function (
 };
 
 /**
- * Removed a property previously added with addProperty.
+ * 移除先前通过 addProperty 添加的属性。
  *
- * @param {string} propertyName The name of the property to remove.
+ * @param {string} propertyName 要移除的属性名称。
  *
- * @exception {DeveloperError} "propertyName" is not a registered property.
+ * @exception {DeveloperError} "propertyName" 不是已注册的属性。
  */
 PropertyBag.prototype.removeProperty = function (propertyName) {
   const propertyNames = this._propertyNames;
@@ -160,13 +158,12 @@ PropertyBag.prototype.removeProperty = function (propertyName) {
 const timeScratch = new JulianDate();
 
 /**
- * Gets the value of this property.  Each contained property will be evaluated at the given time, and the overall
- * result will be an object, mapping property names to those values.
+ * 获取此属性的值。每个包含的属性将在给定时间进行评估，整体结果将是一个对象，将属性名称映射到这些值。
  *
- * @param {JulianDate} [time=JulianDate.now()] The time for which to retrieve the value. If omitted, the current system time is used.
- * @param {object} [result] The object to store the value into, if omitted, a new instance is created and returned.
- * Note that any properties in result which are not part of this PropertyBag will be left as-is.
- * @returns {object} The modified result parameter or a new instance if the result parameter was not supplied.
+ * @param {JulianDate} [time=JulianDate.now()] 用于检索值的时间。如果省略，则使用当前系统时间。
+ * @param {object} [result] 用于存储值的对象，如果省略，则创建并返回新实例。
+ * 注意：result 中不属于此 PropertyBag 的任何属性将保持原样。
+ * @returns {object} 修改后的结果参数，如果未提供结果参数，则返回新实例。
  */
 PropertyBag.prototype.getValue = function (time, result) {
   if (!defined(time)) {
@@ -190,11 +187,10 @@ PropertyBag.prototype.getValue = function (time, result) {
 };
 
 /**
- * Assigns each unassigned property on this object to the value
- * of the same property on the provided source object.
+ * 将此对象上每个未赋值的属性设置为提供的源对象上相同属性的值。
  *
- * @param {object} source The object to be merged into this object.
- * @param {Function} [createPropertyCallback] A function that will be called when the value of any of the properties in value are not a Property.
+ * @param {object} source 要合并到此对象中的对象。
+ * @param {Function} [createPropertyCallback] 当 value 中任何属性的值不是 Property 时调用的函数。
  */
 PropertyBag.prototype.merge = function (source, createPropertyCallback) {
   //>>includeStart('debug', pragmas.debug);
@@ -259,11 +255,10 @@ function propertiesEqual(a, b) {
 }
 
 /**
- * Compares this property to the provided property and returns
- * <code>true</code> if they are equal, <code>false</code> otherwise.
+ * 将此属性与提供的属性进行比较，如果相等则返回 <code>true</code>，否则返回 <code>false</code>。
  *
- * @param {Property} [other] The other property.
- * @returns {boolean} <code>true</code> if left and right are equal, <code>false</code> otherwise.
+ * @param {Property} [other] 另一个属性。
+ * @returns {boolean} 如果左右相等则返回 <code>true</code>，否则返回 <code>false</code>。
  */
 PropertyBag.prototype.equals = function (other) {
   return (

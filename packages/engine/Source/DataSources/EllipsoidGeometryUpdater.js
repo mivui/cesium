@@ -50,13 +50,13 @@ function EllipsoidGeometryOptions(entity) {
 }
 
 /**
- * A {@link GeometryUpdater} for ellipsoids.
- * Clients do not normally create this class directly, but instead rely on {@link DataSourceDisplay}.
+ * 用于椭球体的 {@link GeometryUpdater}。
+ * 客户端通常不会直接创建此类，而是依赖 {@link DataSourceDisplay}。
  * @alias EllipsoidGeometryUpdater
  * @constructor
  *
- * @param {Entity} entity The entity containing the geometry to be visualized.
- * @param {Scene} scene The scene where visualization is taking place.
+ * @param {Entity} entity 包含要可视化的几何体的实体。
+ * @param {Scene} scene 进行可视化的场景。
  */
 function EllipsoidGeometryUpdater(entity, scene) {
   GeometryUpdater.call(this, {
@@ -101,14 +101,14 @@ Object.defineProperties(EllipsoidGeometryUpdater.prototype, {
 });
 
 /**
- * Creates the geometry instance which represents the fill of the geometry.
+ * 创建表示几何体填充部分的几何实例。
  *
- * @param {JulianDate} time The time to use when retrieving initial attribute values.
- * @param {boolean} [skipModelMatrix=false] Whether to compute a model matrix for the geometry instance
- * @param {Matrix4} [modelMatrixResult] Used to store the result of the model matrix calculation
- * @returns {GeometryInstance} The geometry instance representing the filled portion of the geometry.
+ * @param {JulianDate} time 检索初始属性值时使用的时间。
+ * @param {boolean} [skipModelMatrix=false] 是否为几何实例计算模型矩阵
+ * @param {Matrix4} [modelMatrixResult] 用于存储模型矩阵计算结果
+ * @returns {GeometryInstance} 表示几何体填充部分的几何实例。
  *
- * @exception {DeveloperError} This instance does not represent a filled geometry.
+ * @exception {DeveloperError} 此实例不代表填充几何体。
  */
 EllipsoidGeometryUpdater.prototype.createFillGeometryInstance = function (
   time,
@@ -185,14 +185,14 @@ EllipsoidGeometryUpdater.prototype.createFillGeometryInstance = function (
 };
 
 /**
- * Creates the geometry instance which represents the outline of the geometry.
+ * 创建表示几何体轮廓的几何实例。
  *
- * @param {JulianDate} time The time to use when retrieving initial attribute values.
- * @param {boolean} [skipModelMatrix=false] Whether to compute a model matrix for the geometry instance
- * @param {Matrix4} [modelMatrixResult] Used to store the result of the model matrix calculation
- * @returns {GeometryInstance} The geometry instance representing the outline portion of the geometry.
+ * @param {JulianDate} time 检索初始属性值时使用的时间。
+ * @param {boolean} [skipModelMatrix=false] 是否为几何实例计算模型矩阵
+ * @param {Matrix4} [modelMatrixResult] 用于存储模型矩阵计算结果
+ * @returns {GeometryInstance} 表示几何体轮廓部分的几何实例。
  *
- * @exception {DeveloperError} This instance does not represent an outlined geometry.
+ * @exception {DeveloperError} 此实例不代表轮廓几何体。
  */
 EllipsoidGeometryUpdater.prototype.createOutlineGeometryInstance = function (
   time,

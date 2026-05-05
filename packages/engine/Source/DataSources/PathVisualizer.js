@@ -37,16 +37,16 @@ const transformVvlhScratch = new Matrix4();
 const transformRotationScratch = new Matrix3();
 
 /**
- * Transforms a path entity's position into the local frame of the reference entity.
- * If the reference entity has an orientation, uses that orientation to define the local frame.
- * Otherwise, falls back to a VVLH (Vehicle Velocity Local Horizontal) frame derived from the reference entity's velocity.
+ * 将路径实体的位置转换到参考实体的局部坐标系中。
+ * 如果参考实体具有方向，则使用该方向定义局部坐标系。
+ * 否则，回退到从参考实体速度导出的VVLH（车辆速度局部水平）坐标系。
  *
- * @param {JulianDate} time The time at which to evaluate the orientation or VVLH frame.
- * @param {Cartesian3} pathEntityPos The position of the path entity in the FIXED reference frame.
- * @param {Cartesian3} refEntityPos The position of the reference entity in the FIXED reference frame.
- * @param {Entity} refEntity The reference entity whose frame to transform into.
- * @param {Cartesian3} result The object onto which to store the result.
- * @returns {Cartesian3 | undefined} The transformed position in the reference entity's local frame, or undefined if either input position is undefined.
+ * @param {JulianDate} time 评估方向或VVLH坐标系的时间。
+ * @param {Cartesian3} pathEntityPos 在FIXED参考系中路径实体的位置。
+ * @param {Cartesian3} refEntityPos 在FIXED参考系中参考实体的位置。
+ * @param {Entity} refEntity 要转换到的参考实体。
+ * @param {Cartesian3} result 存储结果的对象。
+ * @returns {Cartesian3 | undefined} 参考实体局部坐标系中的转换后位置，如果任一输入位置未定义则返回undefined。
  */
 function transformToEntityFrame(
   time,
@@ -91,16 +91,16 @@ function transformToEntityFrame(
 }
 
 /**
- * Compute the vehicle velocity, local horizontal (VVLH) transform for a position property at a given time.
- * The VVLH axes is defined based on the motion of the provided position point as follows:
- * - The X axis is directed toward the point's velocity vector, in the direction of motion.
- * - The Y axis is along the angular momentum vector.
- * - The Z axis is along the position vector.
+ * 计算给定时间位置属性的车辆速度、局部水平（VVLH）变换。
+ * VVLH坐标轴根据所提供位置点的运动定义如下：
+ * - X轴指向点的速度向量方向，即运动方向。
+ * - Y轴沿角动量向量方向。
+ * - Z轴沿位置向量方向。
  *
- * @param {JulianDate} time The time at which to compute the VVLH transform.
- * @param {PositionProperty} positionProperty The position to compute the VVLH frame for.
- * @param {Matrix4} result The object onto which to store the result.
- * @returns {Matrix4} The VVLH transform.
+ * @param {JulianDate} time 计算VVLH变换的时间。
+ * @param {PositionProperty} positionProperty 要计算VVLH坐标系的位置。
+ * @param {Matrix4} result 存储结果的对象。
+ * @returns {Matrix4} VVLH变换矩阵。
  */
 function computeVvlhTransform(time, positionProperty, result) {
   const cartesian = positionProperty.getValue(time, update3DCartesian3Scratch0);
@@ -922,12 +922,12 @@ PolylineUpdater.prototype.destroy = function () {
 };
 
 /**
- * A {@link Visualizer} which maps {@link Entity#path} to a {@link Polyline}.
+ * 将 {@link Entity#path} 映射到 {@link Polyline} 的 {@link Visualizer}。
  * @alias PathVisualizer
  * @constructor
  *
- * @param {Scene} scene The scene the primitives will be rendered in.
- * @param {EntityCollection} entityCollection The entityCollection to visualize.
+ * @param {Scene} scene 图元将在其中渲染的场景。
+ * @param {EntityCollection} entityCollection 要可视化的实体集合。
  */
 function PathVisualizer(scene, entityCollection) {
   //>>includeStart('debug', pragmas.debug);
@@ -953,11 +953,10 @@ function PathVisualizer(scene, entityCollection) {
 }
 
 /**
- * Updates all of the primitives created by this visualizer to match their
- * Entity counterpart at the given time.
+ * 更新此可视化器创建的所有图元以匹配给定时间的对应实体。
  *
- * @param {JulianDate} time The time to update to.
- * @returns {boolean} This function always returns true.
+ * @param {JulianDate} time 要更新到的时间。
+ * @returns {boolean} 此函数始终返回true。
  */
 PathVisualizer.prototype.update = function (time) {
   //>>includeStart('debug', pragmas.debug);
@@ -1054,16 +1053,16 @@ PathVisualizer.prototype.update = function (time) {
 };
 
 /**
- * Returns true if this object was destroyed; otherwise, false.
+ * 如果此对象已被销毁则返回true，否则返回false。
  *
- * @returns {boolean} True if this object was destroyed; otherwise, false.
+ * @returns {boolean} 如果此对象已被销毁则返回true，否则返回false。
  */
 PathVisualizer.prototype.isDestroyed = function () {
   return false;
 };
 
 /**
- * Removes and destroys all primitives created by this instance.
+ * 移除并销毁此实例创建的所有图元。
  */
 PathVisualizer.prototype.destroy = function () {
   this._entityCollection.collectionChanged.removeEventListener(

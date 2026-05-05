@@ -46,37 +46,37 @@ function resolve(that) {
 }
 
 /**
- * A {@link Property} which transparently links to another property on a provided object.
+ * 一个 {@link Property}，透明地链接到提供的对象上的另一个属性。
  *
  * @alias ReferenceProperty
  * @constructor
  *
- * @param {EntityCollection} targetCollection The entity collection which will be used to resolve the reference.
- * @param {string} targetId The id of the entity which is being referenced.
- * @param {string[]} targetPropertyNames The names of the property on the target entity which we will use.
+ * @param {EntityCollection} targetCollection 将用于解析引用的实体集合。
+ * @param {string} targetId 被引用实体的id。
+ * @param {string[]} targetPropertyNames 我们将使用的目标实体上的属性名称。
  *
  * @example
  * const collection = new Cesium.EntityCollection();
  *
- * //Create a new entity and assign a billboard scale.
+ * //创建一个新实体并分配广告牌缩放比例。
  * const object1 = new Cesium.Entity({id:'object1'});
  * object1.billboard = new Cesium.BillboardGraphics();
  * object1.billboard.scale = new Cesium.ConstantProperty(2.0);
  * collection.add(object1);
  *
- * //Create a second entity and reference the scale from the first one.
+ * //创建第二个实体并引用第一个实体的缩放比例。
  * const object2 = new Cesium.Entity({id:'object2'});
  * object2.model = new Cesium.ModelGraphics();
  * object2.model.scale = new Cesium.ReferenceProperty(collection, 'object1', ['billboard', 'scale']);
  * collection.add(object2);
  *
- * //Create a third object, but use the fromString helper function.
+ * //创建第三个对象，但使用fromString辅助函数。
  * const object3 = new Cesium.Entity({id:'object3'});
  * object3.billboard = new Cesium.BillboardGraphics();
  * object3.billboard.scale = Cesium.ReferenceProperty.fromString(collection, 'object1#billboard.scale');
  * collection.add(object3);
  *
- * //You can refer to an entity with a # or . in id and property names by escaping them.
+ * //你可以通过转义来引用id和属性名称中包含#或.的实体。
  * const object4 = new Cesium.Entity({id:'#object.4'});
  * object4.billboard = new Cesium.BillboardGraphics();
  * object4.billboard.scale = new Cesium.ConstantProperty(2.0);
@@ -121,7 +121,7 @@ function ReferenceProperty(targetCollection, targetId, targetPropertyNames) {
 
 Object.defineProperties(ReferenceProperty.prototype, {
   /**
-   * Gets a value indicating if this property is constant.
+   * 获取一个值，指示此属性是否为常量。
    * @memberof ReferenceProperty.prototype
    * @type {boolean}
    * @readonly
@@ -132,8 +132,8 @@ Object.defineProperties(ReferenceProperty.prototype, {
     },
   },
   /**
-   * Gets the event that is raised whenever the definition of this property changes.
-   * The definition is changed whenever the referenced property's definition is changed.
+   * 获取当此属性的定义更改时引发的事件。
+   * 只要被引用属性的定义发生更改，定义就会更改。
    * @memberof ReferenceProperty.prototype
    * @type {Event}
    * @readonly
@@ -144,8 +144,8 @@ Object.defineProperties(ReferenceProperty.prototype, {
     },
   },
   /**
-   * Gets the reference frame that the position is defined in.
-   * This property is only valid if the referenced property is a {@link PositionProperty}.
+   * 获取定义位置的参考系。
+   * 仅当被引用的属性是 {@link PositionProperty} 时，此属性才有效。
    * @memberof ReferenceProperty.prototype
    * @type {ReferenceFrame}
    * @readonly
@@ -157,7 +157,7 @@ Object.defineProperties(ReferenceProperty.prototype, {
     },
   },
   /**
-   * Gets the id of the entity being referenced.
+   * 获取被引用实体的id。
    * @memberof ReferenceProperty.prototype
    * @type {string}
    * @readonly
@@ -168,7 +168,7 @@ Object.defineProperties(ReferenceProperty.prototype, {
     },
   },
   /**
-   * Gets the collection containing the entity being referenced.
+   * 获取包含被引用实体的集合。
    * @memberof ReferenceProperty.prototype
    * @type {EntityCollection}
    * @readonly
@@ -179,7 +179,7 @@ Object.defineProperties(ReferenceProperty.prototype, {
     },
   },
   /**
-   * Gets the array of property names used to retrieve the referenced property.
+   * 获取用于检索被引用属性的属性名称数组。
    * @memberof ReferenceProperty.prototype
    * @type {}
    * @readonly
@@ -190,7 +190,7 @@ Object.defineProperties(ReferenceProperty.prototype, {
     },
   },
   /**
-   * Gets the resolved instance of the underlying referenced property.
+   * 获取底层被引用属性的已解析实例。
    * @memberof ReferenceProperty.prototype
    * @type {Property|undefined}
    * @readonly
@@ -203,17 +203,14 @@ Object.defineProperties(ReferenceProperty.prototype, {
 });
 
 /**
- * Creates a new instance given the entity collection that will
- * be used to resolve it and a string indicating the target entity id and property.
- * The format of the string is "objectId#foo.bar", where # separates the id from
- * property path and . separates sub-properties.  If the reference identifier or
- * or any sub-properties contains a # . or \ they must be escaped.
+ * 创建新实例，给定将用于解析它的实体集合和指示目标实体id及属性的字符串。
+ * 字符串格式为 "objectId#foo.bar"，其中 # 分隔id和属性路径，. 分隔子属性。如果引用标识符或任何子属性包含 # . 或 \，则必须对其进行转义。
  *
  * @param {EntityCollection} targetCollection
  * @param {string} referenceString
- * @returns {ReferenceProperty} A new instance of ReferenceProperty.
+ * @returns {ReferenceProperty} ReferenceProperty的新实例。
  *
- * @exception {DeveloperError} invalid referenceString.
+ * @exception {DeveloperError} 无效的referenceString。
  */
 ReferenceProperty.fromString = function (targetCollection, referenceString) {
   //>>includeStart('debug', pragmas.debug);
@@ -258,11 +255,11 @@ ReferenceProperty.fromString = function (targetCollection, referenceString) {
 const timeScratch = new JulianDate();
 
 /**
- * Gets the value of the property at the provided time.
+ * 获取属性在指定时间的值。
  *
- * @param {JulianDate} [time=JulianDate.now()] The time for which to retrieve the value. If omitted, the current system time is used.
- * @param {object} [result] The object to store the value into, if omitted, a new instance is created and returned.
- * @returns {object} The modified result parameter or a new instance if the result parameter was not supplied.
+ * @param {JulianDate} [time=JulianDate.now()] 用于检索值的时间。如果省略，则使用当前系统时间。
+ * @param {object} [result] 用于存储值的对象，如果省略，则创建并返回新实例。
+ * @returns {object} 修改后的结果参数，如果未提供结果参数，则返回新实例。
  */
 ReferenceProperty.prototype.getValue = function (time, result) {
   const target = resolve(this);
@@ -273,13 +270,13 @@ ReferenceProperty.prototype.getValue = function (time, result) {
 };
 
 /**
- * Gets the value of the property at the provided time and in the provided reference frame.
- * This method is only valid if the property being referenced is a {@link PositionProperty}.
+ * 获取属性在指定时间和指定参考系中的值。
+ * 仅当被引用的属性是 {@link PositionProperty} 时，此方法才有效。
  *
- * @param {JulianDate} time The time for which to retrieve the value.
- * @param {ReferenceFrame} referenceFrame The desired referenceFrame of the result.
- * @param {Cartesian3} [result] The object to store the value into, if omitted, a new instance is created and returned.
- * @returns {Cartesian3} The modified result parameter or a new instance if the result parameter was not supplied.
+ * @param {JulianDate} time 用于检索值的时间。
+ * @param {ReferenceFrame} referenceFrame 结果的所需参考系。
+ * @param {Cartesian3} [result] 用于存储值的对象，如果省略，则创建并返回新实例。
+ * @returns {Cartesian3} 修改后的结果参数，如果未提供结果参数，则返回新实例。
  */
 ReferenceProperty.prototype.getValueInReferenceFrame = function (
   time,
@@ -293,11 +290,11 @@ ReferenceProperty.prototype.getValueInReferenceFrame = function (
 };
 
 /**
- * Gets the {@link Material} type at the provided time.
- * This method is only valid if the property being referenced is a {@link MaterialProperty}.
+ * 获取指定时间的 {@link Material} 类型。
+ * 仅当被引用的属性是 {@link MaterialProperty} 时，此方法才有效。
  *
- * @param {JulianDate} time The time for which to retrieve the type.
- * @returns {string} The type of material.
+ * @param {JulianDate} time 用于检索类型的时间。
+ * @returns {string} 材质类型。
  */
 ReferenceProperty.prototype.getType = function (time) {
   const target = resolve(this);
@@ -305,11 +302,10 @@ ReferenceProperty.prototype.getType = function (time) {
 };
 
 /**
- * Compares this property to the provided property and returns
- * <code>true</code> if they are equal, <code>false</code> otherwise.
+ * 将此属性与提供的属性进行比较，如果相等则返回 <code>true</code>，否则返回 <code>false</code>。
  *
- * @param {Property} [other] The other property.
- * @returns {boolean} <code>true</code> if left and right are equal, <code>false</code> otherwise.
+ * @param {Property} [other] 另一个属性。
+ * @returns {boolean} 如果左右相等则返回 <code>true</code>，否则返回 <code>false</code>。
  */
 ReferenceProperty.prototype.equals = function (other) {
   if (this === other) {

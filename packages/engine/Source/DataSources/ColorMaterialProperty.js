@@ -6,9 +6,9 @@ import createPropertyDescriptor from "./createPropertyDescriptor.js";
 import Property from "./Property.js";
 
 /**
- * A {@link MaterialProperty} that maps to solid color {@link Material} uniforms.
+ * 映射到纯色 {@link Material} uniform 的 {@link MaterialProperty}。
  *
- * @param {Property|Color} [color=Color.WHITE] The {@link Color} Property to be used.
+ * @param {Property|Color} [color=Color.WHITE] 要使用的 {@link Color} 属性。
  *
  * @alias ColorMaterialProperty
  * @constructor
@@ -23,8 +23,7 @@ function ColorMaterialProperty(color) {
 
 Object.defineProperties(ColorMaterialProperty.prototype, {
   /**
-   * Gets a value indicating if this property is constant.  A property is considered
-   * constant if getValue always returns the same result for the current definition.
+   * 获取指示此属性是否为常量的值。如果 getValue 始终对当前定义返回相同结果，则认为属性是常量。
    * @memberof ColorMaterialProperty.prototype
    *
    * @type {boolean}
@@ -37,9 +36,8 @@ Object.defineProperties(ColorMaterialProperty.prototype, {
   },
 
   /**
-   * Gets the event that is raised whenever the definition of this property changes.
-   * The definition is considered to have changed if a call to getValue would return
-   * a different result for the same time.
+   * 获取每当此属性定义更改时触发的事件。
+   * 如果调用 getValue 对于相同时间返回不同结果，则认为定义已更改。
    * @memberof ColorMaterialProperty.prototype
    *
    * @type {Event}
@@ -52,7 +50,7 @@ Object.defineProperties(ColorMaterialProperty.prototype, {
   },
 
   /**
-   * Gets or sets the {@link Color} {@link Property}.
+   * 获取或设置 {@link Color} {@link Property}。
    * @memberof ColorMaterialProperty.prototype
    * @type {Property|undefined}
    * @default Color.WHITE
@@ -61,10 +59,10 @@ Object.defineProperties(ColorMaterialProperty.prototype, {
 });
 
 /**
- * Gets the {@link Material} type at the provided time.
+ * 获取给定时间处的 {@link Material} 类型。
  *
- * @param {JulianDate} time The time for which to retrieve the type.
- * @returns {string} The type of material.
+ * @param {JulianDate} time 要获取类型的时间。
+ * @returns {string} 材质类型。
  */
 ColorMaterialProperty.prototype.getType = function (time) {
   return "Color";
@@ -73,11 +71,11 @@ ColorMaterialProperty.prototype.getType = function (time) {
 const timeScratch = new JulianDate();
 
 /**
- * Gets the value of the property at the provided time.
+ * 获取给定时间处的属性值。
  *
- * @param {JulianDate} [time=JulianDate.now()] The time for which to retrieve the value. If omitted, the current system time is used.
- * @param {object} [result] The object to store the value into, if omitted, a new instance is created and returned.
- * @returns {object} The modified result parameter or a new instance if the result parameter was not supplied.
+ * @param {JulianDate} [time=JulianDate.now()] 要获取值的时间。如果省略，则使用当前系统时间。
+ * @param {object} [result] 存储值的对象，如果省略，则创建并返回新实例。
+ * @returns {object} 修改后的结果参数，如果未提供结果参数则为新实例。
  */
 ColorMaterialProperty.prototype.getValue = function (time, result) {
   if (!defined(time)) {
@@ -96,11 +94,10 @@ ColorMaterialProperty.prototype.getValue = function (time, result) {
 };
 
 /**
- * Compares this property to the provided property and returns
- * <code>true</code> if they are equal, <code>false</code> otherwise.
+ * 将此属性与提供的属性进行比较，如果相等则返回 <code>true</code>，否则返回 <code>false</code>。
  *
- * @param {Property} [other] The other property.
- * @returns {boolean} <code>true</code> if left and right are equal, <code>false</code> otherwise.
+ * @param {Property} [other] 另一个属性。
+ * @returns {boolean} 如果左右相等则为 <code>true</code>，否则为 <code>false</code>。
  */
 ColorMaterialProperty.prototype.equals = function (other) {
   return (

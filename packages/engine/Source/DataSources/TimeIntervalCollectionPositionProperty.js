@@ -8,12 +8,12 @@ import PositionProperty from "./PositionProperty.js";
 import Property from "./Property.js";
 
 /**
- * A {@link TimeIntervalCollectionProperty} which is also a {@link PositionProperty}.
+ * 一个同时也是 {@link PositionProperty} 的 {@link TimeIntervalCollectionProperty}。
  *
  * @alias TimeIntervalCollectionPositionProperty
  * @constructor
  *
- * @param {ReferenceFrame} [referenceFrame=ReferenceFrame.FIXED] The reference frame in which the position is defined.
+ * @param {ReferenceFrame} [referenceFrame=ReferenceFrame.FIXED] 定义位置的参考框架。
  */
 function TimeIntervalCollectionPositionProperty(referenceFrame) {
   this._definitionChanged = new Event();
@@ -27,8 +27,7 @@ function TimeIntervalCollectionPositionProperty(referenceFrame) {
 
 Object.defineProperties(TimeIntervalCollectionPositionProperty.prototype, {
   /**
-   * Gets a value indicating if this property is constant.  A property is considered
-   * constant if getValue always returns the same result for the current definition.
+   * 获取一个值，指示此属性是否为常量。如果 getValue 对当前定义始终返回相同结果，则该属性被视为常量。
    * @memberof TimeIntervalCollectionPositionProperty.prototype
    *
    * @type {boolean}
@@ -40,9 +39,8 @@ Object.defineProperties(TimeIntervalCollectionPositionProperty.prototype, {
     },
   },
   /**
-   * Gets the event that is raised whenever the definition of this property changes.
-   * The definition is considered to have changed if a call to getValue would return
-   * a different result for the same time.
+   * 获取当此属性的定义发生更改时引发的事件。
+   * 如果对同一时间调用 getValue 将返回不同结果，则认为定义已更改。
    * @memberof TimeIntervalCollectionPositionProperty.prototype
    *
    * @type {Event}
@@ -54,7 +52,7 @@ Object.defineProperties(TimeIntervalCollectionPositionProperty.prototype, {
     },
   },
   /**
-   * Gets the interval collection.
+   * 获取时间间隔集合。
    * @memberof TimeIntervalCollectionPositionProperty.prototype
    * @type {TimeIntervalCollection}
    * @readonly
@@ -65,7 +63,7 @@ Object.defineProperties(TimeIntervalCollectionPositionProperty.prototype, {
     },
   },
   /**
-   * Gets the reference frame in which the position is defined.
+   * 获取定义位置的参考框架。
    * @memberof TimeIntervalCollectionPositionProperty.prototype
    * @type {ReferenceFrame}
    * @readonly
@@ -81,11 +79,11 @@ Object.defineProperties(TimeIntervalCollectionPositionProperty.prototype, {
 const timeScratch = new JulianDate();
 
 /**
- * Gets the value of the property at the provided time in the fixed frame.
+ * 获取属性在固定参考框架中指定时间的值。
  *
- * @param {JulianDate} [time=JulianDate.now()] The time for which to retrieve the value. If omitted, the current system time is used.
- * @param {object} [result] The object to store the value into, if omitted, a new instance is created and returned.
- * @returns {Cartesian3 | undefined} The modified result parameter or a new instance if the result parameter was not supplied.
+ * @param {JulianDate} [time=JulianDate.now()] 要获取值的时间。如果省略，则使用当前系统时间。
+ * @param {object} [result] 用于存储值的对象，如果省略，则创建并返回一个新实例。
+ * @returns {Cartesian3 | undefined} 修改后的结果参数，如果未提供结果参数，则返回新实例。
  */
 TimeIntervalCollectionPositionProperty.prototype.getValue = function (
   time,
@@ -98,12 +96,12 @@ TimeIntervalCollectionPositionProperty.prototype.getValue = function (
 };
 
 /**
- * Gets the value of the property at the provided time and in the provided reference frame.
+ * 获取属性在指定时间和指定参考框架中的值。
  *
- * @param {JulianDate} time The time for which to retrieve the value.
- * @param {ReferenceFrame} referenceFrame The desired referenceFrame of the result.
- * @param {Cartesian3} [result] The object to store the value into, if omitted, a new instance is created and returned.
- * @returns {Cartesian3 | undefined} The modified result parameter or a new instance if the result parameter was not supplied.
+ * @param {JulianDate} time 要获取值的时间。
+ * @param {ReferenceFrame} referenceFrame 结果所需的参考框架。
+ * @param {Cartesian3} [result] 用于存储值的对象，如果省略，则创建并返回一个新实例。
+ * @returns {Cartesian3 | undefined} 修改后的结果参数，如果未提供结果参数，则返回新实例。
  */
 TimeIntervalCollectionPositionProperty.prototype.getValueInReferenceFrame =
   function (time, referenceFrame, result) {
@@ -130,11 +128,11 @@ TimeIntervalCollectionPositionProperty.prototype.getValueInReferenceFrame =
   };
 
 /**
- * Compares this property to the provided property and returns
- * <code>true</code> if they are equal, <code>false</code> otherwise.
+ * 将此属性与提供的属性进行比较，如果相等则返回
+ * <code>true</code>，否则返回 <code>false</code>。
  *
- * @param {Property} [other] The other property.
- * @returns {boolean} <code>true</code> if left and right are equal, <code>false</code> otherwise.
+ * @param {Property} [other] 另一个属性。
+ * @returns {boolean} 如果相等则返回 <code>true</code>，否则返回 <code>false</code>。
  */
 TimeIntervalCollectionPositionProperty.prototype.equals = function (other) {
   return (

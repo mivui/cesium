@@ -48,13 +48,12 @@ function EntityData(entity) {
 }
 
 /**
- * A {@link Visualizer} which maps the {@link LabelGraphics} instance
- * in {@link Entity#label} to a {@link Label}.
+ * 将 {@link Entity#label} 中的 {@link LabelGraphics} 实例映射到 {@link Label} 的 {@link Visualizer}。
  * @alias LabelVisualizer
  * @constructor
  *
- * @param {EntityCluster} entityCluster The entity cluster to manage the collection of billboards and optionally cluster with other entities.
- * @param {EntityCollection} entityCollection The entityCollection to visualize.
+ * @param {EntityCluster} entityCluster 管理广告牌集合并可选择与其他实体聚类的实体聚类。
+ * @param {EntityCollection} entityCollection 要可视化的实体集合。
  */
 function LabelVisualizer(entityCluster, entityCollection) {
   //>>includeStart('debug', pragmas.debug);
@@ -79,11 +78,10 @@ function LabelVisualizer(entityCluster, entityCollection) {
 }
 
 /**
- * Updates the primitives created by this visualizer to match their
- * Entity counterpart at the given time.
+ * 更新此可视化器创建的图元以匹配给定时间的对应实体。
  *
- * @param {JulianDate} time The time to update to.
- * @returns {boolean} This function always returns true.
+ * @param {JulianDate} time 要更新到的时间。
+ * @returns {boolean} 此函数始终返回true。
  */
 LabelVisualizer.prototype.update = function (time) {
   //>>includeStart('debug', pragmas.debug);
@@ -255,14 +253,14 @@ LabelVisualizer.prototype.update = function (time) {
 };
 
 /**
- * Computes a bounding sphere which encloses the visualization produced for the specified entity.
- * The bounding sphere is in the fixed frame of the scene's globe.
+ * 计算包围为指定实体生成的可视化的边界球。
+ * 边界球位于场景地球的固定框架中。
  *
- * @param {Entity} entity The entity whose bounding sphere to compute.
- * @param {BoundingSphere} result The bounding sphere onto which to store the result.
- * @returns {BoundingSphereState} BoundingSphereState.DONE if the result contains the bounding sphere,
- *                       BoundingSphereState.PENDING if the result is still being computed, or
- *                       BoundingSphereState.FAILED if the entity has no visualization in the current scene.
+ * @param {Entity} entity 要计算边界球的实体。
+ * @param {BoundingSphere} result 存储结果的边界球。
+ * @returns {BoundingSphereState} 如果结果包含边界球则为BoundingSphereState.DONE，
+ *                       如果结果仍在计算中则为BoundingSphereState.PENDING，
+ *                       如果实体在当前场景中没有可视化则为BoundingSphereState.FAILED。
  * @private
  */
 LabelVisualizer.prototype.getBoundingSphere = function (entity, result) {
@@ -290,16 +288,16 @@ LabelVisualizer.prototype.getBoundingSphere = function (entity, result) {
 };
 
 /**
- * Returns true if this object was destroyed; otherwise, false.
+ * 如果此对象已被销毁则返回true，否则返回false。
  *
- * @returns {boolean} True if this object was destroyed; otherwise, false.
+ * @returns {boolean} 如果此对象已被销毁则返回true，否则返回false。
  */
 LabelVisualizer.prototype.isDestroyed = function () {
   return false;
 };
 
 /**
- * Removes and destroys all primitives created by this instance.
+ * 移除并销毁此实例创建的所有图元。
  */
 LabelVisualizer.prototype.destroy = function () {
   this._entityCollection.collectionChanged.removeEventListener(

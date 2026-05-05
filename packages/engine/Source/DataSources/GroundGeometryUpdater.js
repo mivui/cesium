@@ -15,15 +15,15 @@ import TerrainOffsetProperty from "./TerrainOffsetProperty.js";
 const defaultZIndex = new ConstantProperty(0);
 
 /**
- * An abstract class for updating ground geometry entities.
+ * 用于更新地面几何实体的抽象类。
  * @constructor
  * @alias GroundGeometryUpdater
- * @param {object} options An object with the following properties:
- * @param {Entity} options.entity The entity containing the geometry to be visualized.
- * @param {Scene} options.scene The scene where visualization is taking place.
- * @param {object} options.geometryOptions Options for the geometry
- * @param {string} options.geometryPropertyName The geometry property name
- * @param {string[]} options.observedPropertyNames The entity properties this geometry cares about
+ * @param {object} options 包含以下属性的对象：
+ * @param {Entity} options.entity 包含要可视化的几何的实体。
+ * @param {Scene} options.scene 进行可视化的场景。
+ * @param {object} options.geometryOptions 几何选项。
+ * @param {string} options.geometryPropertyName 几何属性名称。
+ * @param {string[]} options.observedPropertyNames 此几何关注的实体属性。
  */
 function GroundGeometryUpdater(options) {
   GeometryUpdater.call(this, options);
@@ -39,7 +39,7 @@ if (defined(Object.create)) {
 
 Object.defineProperties(GroundGeometryUpdater.prototype, {
   /**
-   * Gets the zindex
+   * 获取 zIndex。
    * @type {number}
    * @memberof GroundGeometryUpdater.prototype
    * @readonly
@@ -51,7 +51,7 @@ Object.defineProperties(GroundGeometryUpdater.prototype, {
   },
 
   /**
-   * Gets the terrain offset property
+   * 获取地形偏移属性。
    * @type {TerrainOffsetProperty}
    * @memberof GroundGeometryUpdater.prototype
    * @readonly
@@ -138,9 +138,9 @@ GroundGeometryUpdater.prototype._onEntityPropertyChanged = function (
 };
 
 /**
- * Destroys and resources used by the object.  Once an object is destroyed, it should not be used.
+ * 销毁对象使用的资源。一旦对象被销毁，就不应再使用它。
  *
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 此对象已被销毁，即已调用 destroy()。
  */
 GroundGeometryUpdater.prototype.destroy = function () {
   if (defined(this._terrainOffsetProperty)) {

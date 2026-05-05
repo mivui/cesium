@@ -20,16 +20,16 @@ import PointVisualizer from "./PointVisualizer.js";
 import PolylineVisualizer from "./PolylineVisualizer.js";
 
 /**
- * Visualizes a collection of {@link DataSource} instances.
+ * 可视化 {@link DataSource} 实例的集合。
  * @alias DataSourceDisplay
  * @constructor
  *
- * @param {object} options Object with the following properties:
- * @param {Scene} options.scene The scene in which to display the data.
- * @param {DataSourceCollection} options.dataSourceCollection The data sources to display.
+ * @param {object} options 包含以下属性的对象：
+ * @param {Scene} options.scene 用于显示数据的场景。
+ * @param {DataSourceCollection} options.dataSourceCollection 要显示的数据源。
  * @param {DataSourceDisplay.VisualizersCallback} [options.visualizersCallback=DataSourceDisplay.defaultVisualizersCallback]
- *        A function which creates an array of visualizers used for visualization.
- *        If undefined, all standard visualizers are used.
+ *        用于创建可视化所用可视化器数组的函数。
+ *        如果未定义，则使用所有标准可视化器。
  */
 function DataSourceDisplay(options) {
   //>>includeStart('debug', pragmas.debug);
@@ -142,8 +142,8 @@ DataSourceDisplay.unregisterVisualizer = function (visualizer) {
 };
 
 /**
- * Gets or sets the default function which creates an array of visualizers used for visualization.
- * By default, this function uses all standard visualizers.
+ * 获取或设置用于创建可视化所用可视化器数组的默认函数。
+ * 默认情况下，此函数使用所有标准可视化器。
  *
  * @type {DataSourceDisplay.VisualizersCallback}
  */
@@ -180,7 +180,7 @@ DataSourceDisplay.defaultVisualizersCallback = function (
 
 Object.defineProperties(DataSourceDisplay.prototype, {
   /**
-   * Gets the scene associated with this display.
+   * 获取与此显示关联的场景。
    * @memberof DataSourceDisplay.prototype
    * @type {Scene}
    */
@@ -190,7 +190,7 @@ Object.defineProperties(DataSourceDisplay.prototype, {
     },
   },
   /**
-   * Gets the collection of data sources to display.
+   * 获取要显示的数据源集合。
    * @memberof DataSourceDisplay.prototype
    * @type {DataSourceCollection}
    */
@@ -200,10 +200,9 @@ Object.defineProperties(DataSourceDisplay.prototype, {
     },
   },
   /**
-   * Gets the default data source instance which can be used to
-   * manually create and visualize entities not tied to
-   * a specific data source. This instance is always available
-   * and does not appear in the list dataSources collection.
+   * 获取可用于手动创建和可视化
+   * 未绑定到特定数据源的实体的默认数据源实例。
+   * 此实例始终可用，并且不会出现在数据源集合列表中。
    * @memberof DataSourceDisplay.prototype
    * @type {CustomDataSource}
    */
@@ -214,7 +213,7 @@ Object.defineProperties(DataSourceDisplay.prototype, {
   },
 
   /**
-   * Gets a value indicating whether or not all entities in the data source are ready
+   * 获取一个值，指示数据源中的所有实体是否都已准备就绪
    * @memberof DataSourceDisplay.prototype
    * @type {boolean}
    * @readonly
@@ -227,12 +226,12 @@ Object.defineProperties(DataSourceDisplay.prototype, {
 });
 
 /**
- * Returns true if this object was destroyed; otherwise, false.
+ * 如果此对象已被销毁则返回 true，否则返回 false。
  * <br /><br />
- * If this object was destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.
+ * 如果此对象已被销毁，则不应使用它；调用除
+ * <code>isDestroyed</code> 以外的任何函数将导致 {@link DeveloperError} 异常。
  *
- * @returns {boolean} True if this object was destroyed; otherwise, false.
+ * @returns {boolean} 如果此对象已销毁则返回 true，否则返回 false。
  *
  * @see DataSourceDisplay#destroy
  */
@@ -241,14 +240,14 @@ DataSourceDisplay.prototype.isDestroyed = function () {
 };
 
 /**
- * Destroys the WebGL resources held by this object.  Destroying an object allows for deterministic
- * release of WebGL resources, instead of relying on the garbage collector to destroy this object.
+ * 销毁此对象持有的 WebGL 资源。销毁对象允许确定性地
+ * 释放 WebGL 资源，而不是依赖垃圾回收器来销毁此对象。
  * <br /><br />
- * Once an object is destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.  Therefore,
- * assign the return value (<code>undefined</code>) to the object as done in the example.
+ * 一旦对象被销毁，就不应使用它；调用除
+ * <code>isDestroyed</code> 以外的任何函数将导致 {@link DeveloperError} 异常。因此，
+ * 应将返回值（<code>undefined</code>）分配给对象，如示例所示。
  *
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 此对象已被销毁，即已调用 destroy()。
  *
  *
  * @example

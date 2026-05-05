@@ -4,13 +4,13 @@ import Event from "../Core/Event.js";
 import JulianDate from "../Core/JulianDate.js";
 
 /**
- * A {@link Property} whose value is lazily evaluated by a callback function.
+ * 其值由回调函数延迟计算的 {@link Property}。
  *
  * @alias CallbackProperty
  * @constructor
  *
- * @param {CallbackProperty.Callback} callback The function to be called when the property is evaluated.
- * @param {boolean} isConstant <code>true</code> when the callback function returns the same value every time, <code>false</code> if the value will change.
+ * @param {CallbackProperty.Callback} callback 评估属性时要调用的函数。
+ * @param {boolean} isConstant 回调函数每次都返回相同值时为 <code>true</code>，值将改变时为 <code>false</code>。
  */
 function CallbackProperty(callback, isConstant) {
   this._callback = undefined;
@@ -21,7 +21,7 @@ function CallbackProperty(callback, isConstant) {
 
 Object.defineProperties(CallbackProperty.prototype, {
   /**
-   * Gets a value indicating if this property is constant.
+   * 获取指示此属性是否为常量的值。
    * @memberof CallbackProperty.prototype
    *
    * @type {boolean}
@@ -33,8 +33,8 @@ Object.defineProperties(CallbackProperty.prototype, {
     },
   },
   /**
-   * Gets the event that is raised whenever the definition of this property changes.
-   * The definition is changed whenever setCallback is called.
+   * 获取每当此属性定义更改时触发的事件。
+   * 每当调用 setCallback 时定义都会更改。
    * @memberof CallbackProperty.prototype
    *
    * @type {Event}
@@ -50,11 +50,11 @@ Object.defineProperties(CallbackProperty.prototype, {
 const timeScratch = new JulianDate();
 
 /**
- * Gets the value of the property.
+ * 获取属性的值。
  *
- * @param {JulianDate} [time=JulianDate.now()] The time for which to retrieve the value. If omitted, the current system time is used.
- * @param {object} [result] The object to store the value into, if omitted, a new instance is created and returned.
- * @returns {object} The modified result parameter or a new instance if the result parameter was not supplied or is unsupported.
+ * @param {JulianDate} [time=JulianDate.now()] 要获取值的时间。如果省略，则使用当前系统时间。
+ * @param {object} [result] 存储值的对象，如果省略，则创建并返回新实例。
+ * @returns {object} 修改后的结果参数，如果未提供结果参数或不支持则为新实例。
  */
 CallbackProperty.prototype.getValue = function (time, result) {
   if (!defined(time)) {
@@ -64,10 +64,10 @@ CallbackProperty.prototype.getValue = function (time, result) {
 };
 
 /**
- * Sets the callback to be used.
+ * 设置要使用的回调。
  *
- * @param {CallbackProperty.Callback} callback The function to be called when the property is evaluated.
- * @param {boolean} isConstant <code>true</code> when the callback function returns the same value every time, <code>false</code> if the value will change.
+ * @param {CallbackProperty.Callback} callback 评估属性时要调用的函数。
+ * @param {boolean} isConstant 回调函数每次都返回相同值时为 <code>true</code>，值将改变时为 <code>false</code>。
  */
 CallbackProperty.prototype.setCallback = function (callback, isConstant) {
   //>>includeStart('debug', pragmas.debug);
@@ -91,11 +91,10 @@ CallbackProperty.prototype.setCallback = function (callback, isConstant) {
 };
 
 /**
- * Compares this property to the provided property and returns
- * <code>true</code> if they are equal, <code>false</code> otherwise.
+ * 将此属性与提供的属性进行比较，如果相等则返回 <code>true</code>，否则返回 <code>false</code>。
  *
- * @param {Property} [other] The other property.
- * @returns {boolean} <code>true</code> if left and right are equal, <code>false</code> otherwise.
+ * @param {Property} [other] 另一个属性。
+ * @returns {boolean} 如果左右相等则为 <code>true</code>，否则为 <code>false</code>。
  */
 CallbackProperty.prototype.equals = function (other) {
   return (
@@ -107,11 +106,11 @@ CallbackProperty.prototype.equals = function (other) {
 };
 
 /**
- * A function that returns the value of the property.
+ * 返回属性值的函数。
  * @callback CallbackProperty.Callback
  *
- * @param {JulianDate} [time=JulianDate.now()] The time for which to retrieve the value. If omitted, the current system time is used.
- * @param {object} [result] The object to store the value into. If omitted, the function must create and return a new instance.
- * @returns {object} The modified result parameter, or a new instance if the result parameter was not supplied or is unsupported.
+ * @param {JulianDate} [time=JulianDate.now()] 要获取值的时间。如果省略，则使用当前系统时间。
+ * @param {object} [result] 存储值的对象。如果省略，函数必须创建并返回新实例。
+ * @returns {object} 修改后的结果参数，如果未提供结果参数或不支持则为新实例。
  */
 export default CallbackProperty;
