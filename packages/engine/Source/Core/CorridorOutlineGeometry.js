@@ -42,11 +42,11 @@ function combine(computedPositions, cornerType) {
   let length;
   for (i = 0; i < positions.length; i += 2) {
     length = positions[i].length - 3;
-    leftCount += length; //subtracting 3 to account for duplicate points at corners
+    leftCount += length; // 减去3以考虑角落处的重复点
     indicesLength += (length / 3) * 4;
     rightCount += positions[i + 1].length - 3;
   }
-  leftCount += 3; //add back count for end positions
+  leftCount += 3; // 为末端位置加回计数
   rightCount += 3;
   for (i = 0; i < corners.length; i++) {
     corner = corners[i];
@@ -85,7 +85,7 @@ function combine(computedPositions, cornerType) {
   indices[index++] = front / 3;
   indices[index++] = (back - 2) / 3;
   if (addEndPositions) {
-    // add rounded end
+    // 添加起始圆滑末端
     wallIndices.push(front / 3);
     leftPos = cartesian1;
     rightPos = cartesian2;
@@ -124,7 +124,7 @@ function combine(computedPositions, cornerType) {
   }
 
   let posIndex = 0;
-  let rightEdge = positions[posIndex++]; //add first two edges
+  let rightEdge = positions[posIndex++]; // 添加前两条边
   let leftEdge = positions[posIndex++];
   finalPositions.set(rightEdge, front);
   finalPositions.set(leftEdge, back - leftEdge.length + 1);
@@ -196,7 +196,7 @@ function combine(computedPositions, cornerType) {
     }
     rightEdge = positions[posIndex++];
     leftEdge = positions[posIndex++];
-    rightEdge.splice(0, 3); //remove duplicate points added by corner
+    rightEdge.splice(0, 3); // 移除角落添加的重复点
     leftEdge.splice(leftEdge.length - 3, 3);
     finalPositions.set(rightEdge, front);
     finalPositions.set(leftEdge, back - leftEdge.length + 1);
@@ -220,7 +220,7 @@ function combine(computedPositions, cornerType) {
   }
 
   if (addEndPositions) {
-    // add rounded end
+    // 添加末端圆滑末端
     front += 3;
     back -= 3;
     leftPos = cartesian1;
@@ -330,7 +330,7 @@ function computePositionsExtruded(params) {
   newIndices.set(indices);
   let index = iLength;
   for (i = 0; i < iLength; i += 2) {
-    // bottom indices
+    // 底面索引
     const v0 = indices[i];
     const v1 = indices[i + 1];
     newIndices[index++] = v0 + length;
@@ -339,7 +339,7 @@ function computePositionsExtruded(params) {
 
   let UL, LL;
   for (i = 0; i < wallIndices.length; i++) {
-    //wall indices
+    // 墙壁索引
     UL = wallIndices[i];
     LL = UL + length;
     newIndices[index++] = UL;
@@ -399,7 +399,7 @@ function CorridorOutlineGeometry(options) {
   this._workerName = "createCorridorOutlineGeometry";
 
   /**
-   * The number of elements used to pack the object into an array.
+   * 用于将对象打包到数组中的元素数量。
    * @type {number}
    */
   this.packedLength =
@@ -407,13 +407,13 @@ function CorridorOutlineGeometry(options) {
 }
 
 /**
- * Stores the provided instance into the provided array.
+ * 将提供的实例存储到提供的数组中。
  *
- * @param {CorridorOutlineGeometry} value The value to pack.
- * @param {number[]} array The array to pack into.
- * @param {number} [startingIndex=0] The index into the array at which to start packing the elements.
+ * @param {CorridorOutlineGeometry} value 要打包的值。
+ * @param {number[]} array 要打包到的数组。
+ * @param {number} [startingIndex=0] 开始打包元素的数组索引。
  *
- * @returns {number[]} The array that was packed into
+ * @returns {number[]} 被打包到的数组
  */
 CorridorOutlineGeometry.pack = function (value, array, startingIndex) {
   //>>includeStart('debug', pragmas.debug);
@@ -457,12 +457,12 @@ const scratchOptions = {
 };
 
 /**
- * Retrieves an instance from a packed array.
+ * 从打包数组中检索实例。
  *
- * @param {number[]} array The packed array.
- * @param {number} [startingIndex=0] The starting index of the element to be unpacked.
- * @param {CorridorOutlineGeometry} [result] The object into which to store the result.
- * @returns {CorridorOutlineGeometry} The modified result parameter or a new CorridorOutlineGeometry instance if one was not provided.
+ * @param {number[]} array 打包的数组。
+ * @param {number} [startingIndex=0] 要解包的元素的起始索引。
+ * @param {CorridorOutlineGeometry} [result] 用于存储结果的对象。
+ * @returns {CorridorOutlineGeometry} 修改后的 result 参数，如果未提供，则为新的 CorridorOutlineGeometry 实例。
  */
 CorridorOutlineGeometry.unpack = function (array, startingIndex, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -514,10 +514,10 @@ CorridorOutlineGeometry.unpack = function (array, startingIndex, result) {
 };
 
 /**
- * Computes the geometric representation of a corridor, including its vertices, indices, and a bounding sphere.
+ * 计算走廊的几何表示，包括其顶点、索引和包围球。
  *
- * @param {CorridorOutlineGeometry} corridorOutlineGeometry A description of the corridor.
- * @returns {Geometry|undefined} The computed vertices and indices.
+ * @param {CorridorOutlineGeometry} corridorOutlineGeometry 走廊的描述。
+ * @returns {Geometry|undefined} 计算出的顶点和索引。
  */
 CorridorOutlineGeometry.createGeometry = function (corridorOutlineGeometry) {
   let positions = corridorOutlineGeometry._positions;

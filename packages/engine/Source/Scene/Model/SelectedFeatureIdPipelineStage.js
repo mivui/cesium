@@ -19,10 +19,10 @@ const SelectedFeatureIdPipelineStage = {
 };
 
 /**
- * Process a primitive. This modifies the following parts of the render resources:
+ * 处理图元。这会修改渲染资源的以下部分：
  * <ul>
- *  <li>sets the defines for the feature ID attribute to use for styling/picking</li>
- *  <li>adds fields to the SelectedFeature struct in the shader</li>
+ *  <li>设置用于样式化/拾取的特征ID属性定义</li>
+ *  <li>向着色器中的SelectedFeature结构体添加字段</li>
  * </ul>
  *
  * @param {PrimitiveRenderResources} renderResources The render resources for this primitive.

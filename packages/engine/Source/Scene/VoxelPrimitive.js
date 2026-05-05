@@ -30,24 +30,24 @@ import VoxelTraversal from "./VoxelTraversal.js";
 import VoxelMetadataOrder from "./VoxelMetadataOrder.js";
 
 /**
- * A primitive that renders voxel data from a {@link VoxelProvider}.
+ * 渲染来自 {@link VoxelProvider} 的体素数据的图元。
  *
  * @alias VoxelPrimitive
  * @constructor
  *
- * @param {object} [options] Object with the following properties:
- * @param {VoxelProvider} [options.provider] The voxel provider that supplies the primitive with tile data.
- * @param {Matrix4} [options.modelMatrix=Matrix4.IDENTITY] The model matrix used to transform the primitive.
- * @param {CustomShader} [options.customShader] The custom shader used to style the primitive.
- * @param {Clock} [options.clock] The clock used to control time dynamic behavior.
- * @param {boolean} [options.calculateStatistics] Generate statistics for performance profile.
+ * @param {object} [options] 包含以下属性的对象：
+ * @param {VoxelProvider} [options.provider] 为图元提供瓦片数据的体素提供者。
+ * @param {Matrix4} [options.modelMatrix=Matrix4.IDENTITY] 用于变换图元的模型矩阵。
+ * @param {CustomShader} [options.customShader] 用于样式化图元的自定义着色器。
+ * @param {Clock} [options.clock] 用于控制时间动态行为的时钟。
+ * @param {boolean} [options.calculateStatistics] 生成性能剖析的统计数据。
  *
  * @see VoxelProvider
  * @see Cesium3DTilesVoxelProvider
  * @see VoxelShapeType
  * @see {@link https://github.com/CesiumGS/cesium/tree/main/Documentation/CustomShaderGuide|Custom Shader Guide}
  *
- * @experimental This feature is not final and is subject to change without Cesium's standard deprecation policy.
+ * @experimental 此功能尚未最终确定，可能会在没有 Cesium 标准弃用政策的情况下进行更改。
  */
 function VoxelPrimitive(options) {
   options = options ?? Frozen.EMPTY_OBJECT;
@@ -450,11 +450,10 @@ function VoxelPrimitive(options) {
   }
 
   /**
-   * The event fired to indicate that a tile's content was loaded.
+   * 表示瓦片内容已加载时触发的事件。
    * <p>
-   * This event is fired during the tileset traversal while the frame is being rendered
-   * so that updates to the tile take effect in the same frame.  Do not create or modify
-   * Cesium entities or primitives during the event listener.
+   * 此事件在渲染帧期间的图元遍历过程中触发，以便瓦片的更新在同一帧中生效。在事件监听器中不要创建或修改
+   * Cesium 实体或图元。
    * </p>
    *
    * @type {Event}
@@ -467,9 +466,9 @@ function VoxelPrimitive(options) {
   this.tileLoad = new Event();
 
   /**
-   * This event fires once for each visible tile in a frame.
+   * 此事件在每一帧中为每个可见瓦片触发一次。
    * <p>
-   * This event is fired during the traversal while the frame is being rendered.
+   * 此事件在渲染帧期间的遍历过程中触发。
    *
    * @type {Event}
    *
@@ -482,7 +481,7 @@ function VoxelPrimitive(options) {
   this.tileVisible = new Event();
 
   /**
-   * The event fired to indicate that a tile's content failed to load.
+   * 表示瓦片内容加载失败时触发的事件。
    *
    * @type {Event}
    *
@@ -494,7 +493,7 @@ function VoxelPrimitive(options) {
   this.tileFailed = new Event();
 
   /**
-   * The event fired to indicate that a tile's content was unloaded.
+   * 表示瓦片内容已卸载时触发的事件。
    *
    * @type {Event}
    *
@@ -507,15 +506,13 @@ function VoxelPrimitive(options) {
   this.tileUnload = new Event();
 
   /**
-   * The event fired to indicate progress of loading new tiles. This event is fired when a new tile
-   * is requested, when a requested tile is finished downloading, and when a downloaded tile has been
-   * processed and is ready to render.
+   * 表示加载新瓦片进度的事件。此事件在请求新瓦片时、瓦片下载完成时以及瓦片已处理并准备渲染时触发。
    * <p>
-   * The number of pending tile requests, <code>numberOfPendingRequests</code>, and number of tiles
-   * processing, <code>numberOfTilesProcessing</code> are passed to the event listener.
+   * 待处理的瓦片请求数量 <code>numberOfPendingRequests</code> 和正在处理的瓦片数量
+   * <code>numberOfTilesProcessing</code> 会传递给事件监听器。
    * </p>
    * <p>
-   * This event is fired at the end of the frame after the scene is rendered.
+   * 此事件在场景渲染后的帧末尾触发。
    * </p>
    *
    * @type {Event}
@@ -533,10 +530,10 @@ function VoxelPrimitive(options) {
   this.loadProgress = new Event();
 
   /**
-   * The event fired to indicate that all tiles that meet the screen space error this frame are loaded. The voxel
-   * primitive is completely loaded for this view.
+   * 表示当前帧中所有满足屏幕空间误差要求的瓦片均已加载的事件。体素
+   * 图元已完全加载以适应该视图。
    * <p>
-   * This event is fired at the end of the frame after the scene is rendered.
+   * 此事件在场景渲染后的帧末尾触发。
    * </p>
    *
    * @type {Event}
@@ -549,10 +546,10 @@ function VoxelPrimitive(options) {
   this.allTilesLoaded = new Event();
 
   /**
-   * The event fired to indicate that all tiles that meet the screen space error this frame are loaded. This event
-   * is fired once when all tiles in the initial view are loaded.
+   * 表示当前帧中所有满足屏幕空间误差要求的瓦片均已加载的事件。此事件
+   * 在初始视图中的所有瓦片加载完成后触发一次。
    * <p>
-   * This event is fired at the end of the frame after the scene is rendered.
+   * 此事件在场景渲染后的帧末尾触发。
    * </p>
    *
    * @type {Event}
@@ -594,7 +591,7 @@ function initialize(primitive, provider) {
 
 Object.defineProperties(VoxelPrimitive.prototype, {
   /**
-   * Gets a value indicating whether or not the primitive is ready for use.
+   * 获取一个值，指示图元是否已准备就绪可以使用。
    *
    * @memberof VoxelPrimitive.prototype
    * @type {boolean}
@@ -607,7 +604,7 @@ Object.defineProperties(VoxelPrimitive.prototype, {
   },
 
   /**
-   * Gets the {@link VoxelProvider} associated with this primitive.
+   * 获取与此图元关联的 {@link VoxelProvider}。
    *
    * @memberof VoxelPrimitive.prototype
    * @type {VoxelProvider}
@@ -620,7 +617,7 @@ Object.defineProperties(VoxelPrimitive.prototype, {
   },
 
   /**
-   * Gets the bounding sphere.
+   * 获取边界球。
    *
    * @memberof VoxelPrimitive.prototype
    * @type {BoundingSphere}
@@ -633,7 +630,7 @@ Object.defineProperties(VoxelPrimitive.prototype, {
   },
 
   /**
-   * Gets the oriented bounding box.
+   * 获取有向包围盒。
    *
    * @memberof VoxelPrimitive.prototype
    * @type {OrientedBoundingBox}
@@ -646,7 +643,7 @@ Object.defineProperties(VoxelPrimitive.prototype, {
   },
 
   /**
-   * Gets the model matrix.
+   * 获取模型矩阵。
    *
    * @memberof VoxelPrimitive.prototype
    * @type {Matrix4}
@@ -666,7 +663,7 @@ Object.defineProperties(VoxelPrimitive.prototype, {
   },
 
   /**
-   * Gets the shape type.
+   * 获取形状类型。
    *
    * @memberof VoxelPrimitive.prototype
    * @type {VoxelShapeType}
@@ -679,8 +676,8 @@ Object.defineProperties(VoxelPrimitive.prototype, {
   },
 
   /**
-   * Gets the dimensions of each voxel tile, in z-up orientation.
-   * Does not include padding.
+   * 获取每个体素瓦片的尺寸，采用 z 轴朝上的方向。
+   * 不包含填充区域。
    *
    * @memberof VoxelPrimitive.prototype
    * @type {Cartesian3}
@@ -693,8 +690,8 @@ Object.defineProperties(VoxelPrimitive.prototype, {
   },
 
   /**
-   * Gets the dimensions of one tile of the input voxel data, in the input orientation.
-   * Includes padding.
+   * 获取输入体素数据中一个瓦片的尺寸，采用输入方向。
+   * 包含填充区域。
    * @memberof VoxelPrimitive.prototype
    * @type {Cartesian3}
    * @readonly
@@ -706,7 +703,7 @@ Object.defineProperties(VoxelPrimitive.prototype, {
   },
 
   /**
-   * Gets the padding before the voxel data.
+   * 获取体素数据前方的填充区域。
    *
    * @memberof VoxelPrimitive.prototype
    * @type {Cartesian3}
@@ -719,7 +716,7 @@ Object.defineProperties(VoxelPrimitive.prototype, {
   },
 
   /**
-   * Gets the padding after the voxel data.
+   * 获取体素数据后方的填充区域。
    *
    * @memberof VoxelPrimitive.prototype
    * @type {Cartesian3}
@@ -732,7 +729,7 @@ Object.defineProperties(VoxelPrimitive.prototype, {
   },
 
   /**
-   * Gets the minimum value per channel of the voxel data.
+   * 获取体素数据每个通道的最小值。
    *
    * @memberof VoxelPrimitive.prototype
    * @type {number[][]}
@@ -745,7 +742,7 @@ Object.defineProperties(VoxelPrimitive.prototype, {
   },
 
   /**
-   * Gets the maximum value per channel of the voxel data.
+   * 获取体素数据每个通道的最大值。
    *
    * @memberof VoxelPrimitive.prototype
    * @type {number[][]}
@@ -758,7 +755,7 @@ Object.defineProperties(VoxelPrimitive.prototype, {
   },
 
   /**
-   * Gets or sets whether or not this primitive should be displayed.
+   * 获取或设置是否显示此图元。
    *
    * @memberof VoxelPrimitive.prototype
    * @type {boolean}
@@ -777,7 +774,7 @@ Object.defineProperties(VoxelPrimitive.prototype, {
   },
 
   /**
-   * Gets or sets whether or not the primitive should update when the view changes.
+   * 获取或设置当视图变化时图元是否更新。
    *
    * @memberof VoxelPrimitive.prototype
    * @type {boolean}
@@ -796,7 +793,7 @@ Object.defineProperties(VoxelPrimitive.prototype, {
   },
 
   /**
-   * Gets or sets whether or not to render debug visualizations.
+   * 获取或设置是否渲染调试可视化内容。
    *
    * @memberof VoxelPrimitive.prototype
    * @type {boolean}
@@ -815,7 +812,7 @@ Object.defineProperties(VoxelPrimitive.prototype, {
   },
 
   /**
-   * Gets or sets whether or not to test against depth when rendering.
+   * 获取或设置渲染时是否进行深度测试。
    *
    * @memberof VoxelPrimitive.prototype
    * @type {boolean}
@@ -837,7 +834,7 @@ Object.defineProperties(VoxelPrimitive.prototype, {
   },
 
   /**
-   * Gets or sets the nearest sampling.
+   * 获取或设置最近采样模式。
    *
    * @memberof VoxelPrimitive.prototype
    * @type {boolean}
@@ -878,10 +875,10 @@ Object.defineProperties(VoxelPrimitive.prototype, {
   },
 
   /**
-   * Gets or sets the screen space error in pixels. If the screen space size
-   * of a voxel is greater than the screen space error, the tile is subdivided.
-   * Lower screen space error corresponds with higher detail rendering, but could
-   * result in worse performance and higher memory consumption.
+   * 获取或设置屏幕空间误差（以像素为单位）。如果体素的屏幕空间大小
+   * 大于屏幕空间误差，则对该瓦片进行细分。
+   * 较低的屏幕空间误差对应更高的细节渲染，但可能
+   * 导致更差的性能和更高的内存消耗。
    *
    * @memberof VoxelPrimitive.prototype
    * @type {number}
@@ -900,9 +897,9 @@ Object.defineProperties(VoxelPrimitive.prototype, {
   },
 
   /**
-   * Gets or sets the step size multiplier used during raymarching.
-   * The lower the value, the higher the rendering quality, but
-   * also the worse the performance.
+   * 获取或设置光线步进期间使用的步长乘数。
+   * 值越低，渲染质量越高，但
+   * 性能也越差。
    *
    * @memberof VoxelPrimitive.prototype
    * @type {number}
@@ -921,8 +918,8 @@ Object.defineProperties(VoxelPrimitive.prototype, {
   },
 
   /**
-   * Gets or sets the minimum bounds in the shape's local coordinate system.
-   * Voxel data is stretched or squashed to fit the bounds.
+   * 获取或设置形状局部坐标系中的最小边界。
+   * 体素数据会被拉伸或压缩以适应边界。
    *
    * @memberof VoxelPrimitive.prototype
    * @type {Cartesian3}
@@ -941,8 +938,8 @@ Object.defineProperties(VoxelPrimitive.prototype, {
   },
 
   /**
-   * Gets or sets the maximum bounds in the shape's local coordinate system.
-   * Voxel data is stretched or squashed to fit the bounds.
+   * 获取或设置形状局部坐标系中的最大边界。
+   * 体素数据会被拉伸或压缩以适应边界。
    *
    * @memberof VoxelPrimitive.prototype
    * @type {Cartesian3}
@@ -961,8 +958,8 @@ Object.defineProperties(VoxelPrimitive.prototype, {
   },
 
   /**
-   * Gets or sets the minimum clipping location in the shape's local coordinate system.
-   * Any voxel content outside the range is clipped.
+   * 获取或设置形状局部坐标系中的最小裁剪位置。
+   * 范围外的任何体素内容都会被裁剪。
    *
    * @memberof VoxelPrimitive.prototype
    * @type {Cartesian3}
@@ -984,8 +981,8 @@ Object.defineProperties(VoxelPrimitive.prototype, {
   },
 
   /**
-   * Gets or sets the maximum clipping location in the shape's local coordinate system.
-   * Any voxel content outside the range is clipped.
+   * 获取或设置形状局部坐标系中的最大裁剪位置。
+   * 范围外的任何体素内容都会被裁剪。
    *
    * @memberof VoxelPrimitive.prototype
    * @type {Cartesian3}
@@ -1007,7 +1004,7 @@ Object.defineProperties(VoxelPrimitive.prototype, {
   },
 
   /**
-   * The {@link ClippingPlaneCollection} used to selectively disable rendering the primitive.
+   * 用于选择性禁用图元渲染的 {@link ClippingPlaneCollection}。
    *
    * @memberof VoxelPrimitive.prototype
    * @type {ClippingPlaneCollection}
@@ -1023,7 +1020,7 @@ Object.defineProperties(VoxelPrimitive.prototype, {
   },
 
   /**
-   * Gets or sets the custom shader. If undefined, {@link VoxelPrimitive.DefaultCustomShader} is set.
+   * 获取或设置自定义着色器。如果未定义，则设置为 {@link VoxelPrimitive.DefaultCustomShader}。
    *
    * @memberof VoxelPrimitive.prototype
    * @type {CustomShader}
@@ -1060,7 +1057,7 @@ Object.defineProperties(VoxelPrimitive.prototype, {
   },
 
   /**
-   * Gets an event that is raised whenever a custom shader is compiled.
+   * 获取每次编译自定义着色器时触发的事件。
    *
    * @memberof VoxelPrimitive.prototype
    * @type {Event}
@@ -1819,12 +1816,12 @@ function updateClippingPlanes(primitive, frameState) {
 }
 
 /**
- * Returns true if this object was destroyed; otherwise, false.
+ * 返回此对象是否已被销毁；如果未被销毁，则返回 false。
  * <br /><br />
- * If this object was destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.
+ * 如果此对象已被销毁，则不应再使用；调用除
+ * <code>isDestroyed</code> 以外的任何函数都将导致 {@link DeveloperError} 异常。
  *
- * @returns {boolean} <code>true</code> if this object was destroyed; otherwise, <code>false</code>.
+ * @returns {boolean} 如果此对象已被销毁，则返回 <code>true</code>；否则返回 <code>false</code>。
  *
  * @see VoxelPrimitive#destroy
  */
@@ -1833,14 +1830,15 @@ VoxelPrimitive.prototype.isDestroyed = function () {
 };
 
 /**
- * Destroys the WebGL resources held by this object.  Destroying an object allows for deterministic
- * release of WebGL resources, instead of relying on the garbage collector to destroy this object.
+ * 销毁此对象持有的 WebGL 资源。销毁对象可以确定性
+ * 地释放 WebGL 资源，而不是依赖垃圾回收器来销毁此对象。
  * <br /><br />
- * Once an object is destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.  Therefore,
- * assign the return value (<code>undefined</code>) to the object as done in the example.
+ * 对象一旦销毁，就不应再使用；调用除
+
+ * <code>isDestroyed</code> 以外的任何函数都将导致 {@link DeveloperError} 异常。因此，
+ * 如示例所示，将返回值（<code>undefined</code>）赋给该对象。
  *
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 此对象已被销毁，即调用了 destroy()。
  *
  * @see VoxelPrimitive#isDestroyed
  *

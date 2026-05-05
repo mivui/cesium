@@ -26,7 +26,7 @@ import Matrix4 from "../Core/Matrix4.js";
 /** @import Buffer from "../Renderer/Buffer.js"; */
 
 /**
- * Components for building models.
+ * 用于构建模型的组件。
  *
  * @namespace ModelComponents
  *
@@ -35,7 +35,7 @@ import Matrix4 from "../Core/Matrix4.js";
 const ModelComponents = {};
 
 /**
- * Information about the quantized attribute.
+ * 关于量化属性的信息。
  *
  * @ignore
  */

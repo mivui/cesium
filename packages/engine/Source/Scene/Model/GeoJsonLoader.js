@@ -37,8 +37,8 @@ import addAllToArray from "../../Core/addAllToArray.js";
  */
 class GeoJsonLoader extends ResourceLoader {
   /**
-   * @param {object} options Object with the following properties:
-   * @param {object} options.geoJson The GeoJson object.
+   * @param {object} options 具有以下属性的对象：
+   * @param {object} options.geoJson GeoJson 对象。
    */
   constructor(options) {
     super();

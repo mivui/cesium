@@ -785,11 +785,11 @@ Quaternion.slerp = function (start, end, t, result) {
 };
 
 /**
- * The logarithmic quaternion function.
+ * 四元数对数函数。
  *
- * @param {Quaternion} quaternion The unit quaternion.
- * @param {Cartesian3} result The object onto which to store the result.
- * @returns {Cartesian3} The modified result parameter.
+ * @param {Quaternion} quaternion 单位四元数。
+ * @param {Cartesian3} result 存储结果的对象。
+ * @returns {Cartesian3} 修改后的结果参数。
  */
 Quaternion.log = function (quaternion, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -808,11 +808,11 @@ Quaternion.log = function (quaternion, result) {
 };
 
 /**
- * The exponential quaternion function.
+ * 四元数指数函数。
  *
- * @param {Cartesian3} cartesian The cartesian.
- * @param {Quaternion} result The object onto which to store the result.
- * @returns {Quaternion} The modified result parameter.
+ * @param {Cartesian3} cartesian 笛卡尔坐标。
+ * @param {Quaternion} result 存储结果的对象。
+ * @returns {Quaternion} 修改后的结果参数。
  */
 Quaternion.exp = function (cartesian, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -841,14 +841,14 @@ const squadScratchQuaternion0 = new Quaternion();
 const squadScratchQuaternion1 = new Quaternion();
 
 /**
- * Computes an inner quadrangle point.
- * <p>This will compute quaternions that ensure a squad curve is C<sup>1</sup>.</p>
+ * 计算内四边形点。
+ * <p>这将计算确保squad曲线为C<sup>1</sup>的四元数。</p>
  *
- * @param {Quaternion} q0 The first quaternion.
- * @param {Quaternion} q1 The second quaternion.
- * @param {Quaternion} q2 The third quaternion.
- * @param {Quaternion} result The object onto which to store the result.
- * @returns {Quaternion} The modified result parameter.
+ * @param {Quaternion} q0 第一个四元数。
+ * @param {Quaternion} q1 第二个四元数。
+ * @param {Quaternion} q2 第三个四元数。
+ * @param {Quaternion} result 存储结果的对象。
+ * @returns {Quaternion} 修改后的结果参数。
  *
  * @see Quaternion#squad
  */
@@ -876,24 +876,24 @@ Quaternion.computeInnerQuadrangle = function (q0, q1, q2, result) {
 };
 
 /**
- * Computes the spherical quadrangle interpolation between quaternions.
+ * 计算四元数之间的球面四边形插值。
  *
- * @param {Quaternion} q0 The first quaternion.
- * @param {Quaternion} q1 The second quaternion.
- * @param {Quaternion} s0 The first inner quadrangle.
- * @param {Quaternion} s1 The second inner quadrangle.
- * @param {number} t The time in [0,1] used to interpolate.
- * @param {Quaternion} result The object onto which to store the result.
- * @returns {Quaternion} The modified result parameter.
+ * @param {Quaternion} q0 第一个四元数。
+ * @param {Quaternion} q1 第二个四元数。
+ * @param {Quaternion} s0 第一个内四边形点。
+ * @param {Quaternion} s1 第二个内四边形点。
+ * @param {number} t 用于插值的[0,1]范围内的时间。
+ * @param {Quaternion} result 存储结果的对象。
+ * @returns {Quaternion} 修改后的结果参数。
  *
  *
  * @example
- * // 1. compute the squad interpolation between two quaternions on a curve
+ * // 1. 计算曲线上两个四元数之间的squad插值
  * const s0 = Cesium.Quaternion.computeInnerQuadrangle(quaternions[i - 1], quaternions[i], quaternions[i + 1], new Cesium.Quaternion());
  * const s1 = Cesium.Quaternion.computeInnerQuadrangle(quaternions[i], quaternions[i + 1], quaternions[i + 2], new Cesium.Quaternion());
  * const q = Cesium.Quaternion.squad(quaternions[i], quaternions[i + 1], s0, s1, t, new Cesium.Quaternion());
  *
- * // 2. compute the squad interpolation as above but where the first quaternion is a end point.
+ * // 2. 计算上述squad插值，但第一个四元数是端点。
  * const s1 = Cesium.Quaternion.computeInnerQuadrangle(quaternions[0], quaternions[1], quaternions[2], new Cesium.Quaternion());
  * const q = Cesium.Quaternion.squad(quaternions[0], quaternions[1], quaternions[0], s1, t, new Cesium.Quaternion());
  *
@@ -933,14 +933,14 @@ u[7] = opmu / (8.0 * 17.0);
 v[7] = (opmu * 8.0) / 17.0;
 
 /**
- * Computes the spherical linear interpolation or extrapolation at t using the provided quaternions.
- * This implementation is faster than {@link Quaternion#slerp}, but is only accurate up to 10<sup>-6</sup>.
+ * 使用提供的四元数计算t处的球面线性插值或外推。
+ * 此实现比{@link Quaternion#slerp}更快，但精度仅达到10<sup>-6</sup>。
  *
- * @param {Quaternion} start The value corresponding to t at 0.0.
- * @param {Quaternion} end The value corresponding to t at 1.0.
- * @param {number} t The point along t at which to interpolate.
- * @param {Quaternion} result The object onto which to store the result.
- * @returns {Quaternion} The modified result parameter.
+ * @param {Quaternion} start 对应t为0.0时的值。
+ * @param {Quaternion} end 对应t为1.0时的值。
+ * @param {number} t 要插值的t点。
+ * @param {Quaternion} result 存储结果的对象。
+ * @returns {Quaternion} 修改后的结果参数。
  *
  * @see Quaternion#slerp
  */
@@ -1010,16 +1010,16 @@ Quaternion.fastSlerp = function (start, end, t, result) {
 };
 
 /**
- * Computes the spherical quadrangle interpolation between quaternions.
- * An implementation that is faster than {@link Quaternion#squad}, but less accurate.
+ * 计算四元数之间的球面四边形插值。
+ * 此实现比{@link Quaternion#squad}更快，但精度较低。
  *
- * @param {Quaternion} q0 The first quaternion.
- * @param {Quaternion} q1 The second quaternion.
- * @param {Quaternion} s0 The first inner quadrangle.
- * @param {Quaternion} s1 The second inner quadrangle.
- * @param {number} t The time in [0,1] used to interpolate.
- * @param {Quaternion} result The object onto which to store the result.
- * @returns {Quaternion} The modified result parameter or a new instance if none was provided.
+ * @param {Quaternion} q0 第一个四元数。
+ * @param {Quaternion} q1 第二个四元数。
+ * @param {Quaternion} s0 第一个内四边形点。
+ * @param {Quaternion} s1 第二个内四边形点。
+ * @param {number} t 用于插值的[0,1]范围内的时间。
+ * @param {Quaternion} result 存储结果的对象。
+ * @returns {Quaternion} 修改后的结果参数，如果未提供则返回新实例。
  *
  * @see Quaternion#squad
  */
@@ -1039,12 +1039,12 @@ Quaternion.fastSquad = function (q0, q1, s0, s1, t, result) {
 };
 
 /**
- * Compares the provided quaternions componentwise and returns
- * <code>true</code> if they are equal, <code>false</code> otherwise.
+ * 逐分量比较提供的四元数，如果相等则返回
+ * <code>true</code>，否则返回<code>false</code>。
  *
- * @param {Quaternion} [left] The first quaternion.
- * @param {Quaternion} [right] The second quaternion.
- * @returns {boolean} <code>true</code> if left and right are equal, <code>false</code> otherwise.
+ * @param {Quaternion} [left] 第一个四元数。
+ * @param {Quaternion} [right] 第二个四元数。
+ * @returns {boolean} 如果left和right相等则返回<code>true</code>，否则返回<code>false</code>。
  */
 Quaternion.equals = function (left, right) {
   return (
@@ -1059,14 +1059,13 @@ Quaternion.equals = function (left, right) {
 };
 
 /**
- * Compares the provided quaternions componentwise and returns
- * <code>true</code> if they are within the provided epsilon,
- * <code>false</code> otherwise.
+ * 逐分量比较提供的四元数，如果它们在提供的epsilon范围内则返回
+ * <code>true</code>，否则返回<code>false</code>。
  *
- * @param {Quaternion} [left] The first quaternion.
- * @param {Quaternion} [right] The second quaternion.
- * @param {number} [epsilon=0] The epsilon to use for equality testing.
- * @returns {boolean} <code>true</code> if left and right are within the provided epsilon, <code>false</code> otherwise.
+ * @param {Quaternion} [left] 第一个四元数。
+ * @param {Quaternion} [right] 第二个四元数。
+ * @param {number} [epsilon=0] 用于相等性测试的epsilon。
+ * @returns {boolean} 如果left和right在提供的epsilon范围内则返回<code>true</code>，否则返回<code>false</code>。
  */
 Quaternion.equalsEpsilon = function (left, right, epsilon) {
   epsilon = epsilon ?? 0;
@@ -1098,45 +1097,44 @@ Quaternion.ZERO = Object.freeze(new Quaternion(0.0, 0.0, 0.0, 0.0));
  */
 Quaternion.IDENTITY = Object.freeze(new Quaternion(0.0, 0.0, 0.0, 1.0));
 
-/**
- * Duplicates this Quaternion instance.
- *
- * @param {Quaternion} [result] The object onto which to store the result.
- * @returns {Quaternion} The modified result parameter or a new Quaternion instance if one was not provided.
- */
+  /**
+   * 复制此四元数实例。
+   *
+   * @param {Quaternion} [result] 存储结果的对象。
+   * @returns {Quaternion} 修改后的结果参数，如果未提供则返回新的 Quaternion 实例。
+   */
 Quaternion.prototype.clone = function (result) {
   return Quaternion.clone(this, result);
 };
 
-/**
- * Compares this and the provided quaternion componentwise and returns
- * <code>true</code> if they are equal, <code>false</code> otherwise.
- *
- * @param {Quaternion} [right] The right hand side quaternion.
- * @returns {boolean} <code>true</code> if left and right are equal, <code>false</code> otherwise.
- */
+  /**
+   * 逐分量比较此四元数与提供的四元数，如果相等则返回
+   * <code>true</code>，否则返回<code>false</code>。
+   *
+   * @param {Quaternion} [right] 右侧四元数。
+   * @returns {boolean} 如果相等则返回<code>true</code>，否则返回<code>false</code>。
+   */
 Quaternion.prototype.equals = function (right) {
   return Quaternion.equals(this, right);
 };
 
-/**
- * Compares this and the provided quaternion componentwise and returns
- * <code>true</code> if they are within the provided epsilon,
- * <code>false</code> otherwise.
- *
- * @param {Quaternion} [right] The right hand side quaternion.
- * @param {number} [epsilon=0] The epsilon to use for equality testing.
- * @returns {boolean} <code>true</code> if left and right are within the provided epsilon, <code>false</code> otherwise.
- */
+  /**
+   * 逐分量比较此四元数与提供的四元数，如果它们在提供的epsilon范围内则返回
+   * <code>true</code>，否则返回<code>false</code>。
+   *
+   * @param {Quaternion} [right] 右侧四元数。
+   * @param {number} [epsilon=0] 用于相等性测试的epsilon。
+   * @returns {boolean} 如果它们在提供的epsilon范围内则返回<code>true</code>，否则返回<code>false</code>。
+   */
 Quaternion.prototype.equalsEpsilon = function (right, epsilon) {
   return Quaternion.equalsEpsilon(this, right, epsilon);
 };
 
-/**
- * Returns a string representing this quaternion in the format (x, y, z, w).
- *
- * @returns {string} A string representing this Quaternion.
- */
+  /**
+   * 返回表示此四元数的字符串，格式为(x, y, z, w)。
+   *
+   * @returns {string} 表示此 Quaternion 的字符串。
+   */
 Quaternion.prototype.toString = function () {
   return `(${this.x}, ${this.y}, ${this.z}, ${this.w})`;
 };

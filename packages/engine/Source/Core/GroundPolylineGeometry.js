@@ -30,33 +30,32 @@ const PROJECTION_COUNT = PROJECTIONS.length;
 const MITER_BREAK_SMALL = Math.cos(CesiumMath.toRadians(30.0));
 const MITER_BREAK_LARGE = Math.cos(CesiumMath.toRadians(150.0));
 
-// Initial heights for constructing the wall.
-// Keeping WALL_INITIAL_MIN_HEIGHT near the ellipsoid surface helps
-// prevent precision problems with planes in the shader.
-// Putting the start point of a plane at ApproximateTerrainHeights._defaultMinTerrainHeight,
-// which is a highly conservative bound, usually puts the plane origin several thousands
-// of meters away from the actual terrain, causing floating point problems when checking
-// fragments on terrain against the plane.
-// Ellipsoid height is generally much closer.
-// The initial max height is arbitrary.
-// Both heights are corrected using ApproximateTerrainHeights for computing the actual volume geometry.
+// 用于构建墙体的初始高度。
+// 将 WALL_INITIAL_MIN_HEIGHT 保持在椭球面附近有助于
+// 防止着色器中平面的精度问题。
+// 将平面的起点设置在 ApproximateTerrainHeights._defaultMinTerrainHeight，
+// 这是一个非常保守的边界，通常会使平面原点距离实际地形几千米远，
+// 导致在检查地形上的片段相对于平面时出现浮点问题。
+// 椭球高度通常要近得多。
+// 初始最大高度是任意的。
+// 这两个高度在计算实际体积几何时都会使用 ApproximateTerrainHeights 进行修正。
 const WALL_INITIAL_MIN_HEIGHT = 0.0;
 const WALL_INITIAL_MAX_HEIGHT = 1000.0;
 
 /**
- * A description of a polyline on terrain or 3D Tiles. Only to be used with {@link GroundPolylinePrimitive}.
+ * 描述位于地形或 3D Tiles 上的折线。仅与 {@link GroundPolylinePrimitive} 配合使用。
  *
  * @alias GroundPolylineGeometry
  * @constructor
  *
- * @param {object} options Options with the following properties:
- * @param {Cartesian3[]} options.positions An array of {@link Cartesian3} defining the polyline's points. Heights above the ellipsoid will be ignored.
- * @param {number} [options.width=1.0] The screen space width in pixels.
- * @param {number} [options.granularity=9999.0] The distance interval in meters used for interpolating options.points. Defaults to 9999.0 meters. Zero indicates no interpolation.
- * @param {boolean} [options.loop=false] Whether during geometry creation a line segment will be added between the last and first line positions to make this Polyline a loop.
- * @param {ArcType} [options.arcType=ArcType.GEODESIC] The type of line the polyline segments must follow. Valid options are {@link ArcType.GEODESIC} and {@link ArcType.RHUMB}.
+ * @param {object} options 包含以下属性的对象：
+ * @param {Cartesian3[]} options.positions 定义折线点的 {@link Cartesian3} 数组。高于椭球的高度将被忽略。
+ * @param {number} [options.width=1.0] 屏幕空间宽度（像素）。
+ * @param {number} [options.granularity=9999.0] 用于插值 options.points 的距离间隔（米）。默认为 9999.0 米。零表示不进行插值。
+ * @param {boolean} [options.loop=false] 在创建几何时，是否在最后一个和第一个位置之间添加线段以形成闭合折线。
+ * @param {ArcType} [options.arcType=ArcType.GEODESIC] 折线段必须遵循的线类型。有效选项为 {@link ArcType.GEODESIC} 和 {@link ArcType.RHUMB}。
  *
- * @exception {DeveloperError} At least two positions are required.
+ * @exception {DeveloperError} 至少需要两个位置。
  *
  * @see GroundPolylinePrimitive
  *

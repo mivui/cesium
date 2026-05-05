@@ -17,10 +17,10 @@ import CesiumMath from "./Math.js";
  */
 class Cartesian4 {
   /**
-   * @param {number} [x=0.0] The X component.
-   * @param {number} [y=0.0] The Y component.
-   * @param {number} [z=0.0] The Z component.
-   * @param {number} [w=0.0] The W component.
+   * @param {number} [x=0.0]  X 分量。
+   * @param {number} [y=0.0]  Y 分量。
+   * @param {number} [z=0.0]  Z 分量。
+   * @param {number} [w=0.0]  W 分量。
    */
   constructor(x, y, z, w) {
   /**

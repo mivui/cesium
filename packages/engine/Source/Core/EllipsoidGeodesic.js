@@ -400,13 +400,13 @@ EllipsoidGeodesic.prototype.setEndPoints = function (start, end) {
   computeProperties(this, start, end, this._ellipsoid);
 };
 
-/**
- * Provides the location of a point at the indicated portion along the geodesic.
- *
- * @param {number} fraction The portion of the distance between the initial and final points.
- * @param {Cartographic} [result] The object in which to store the result.
- * @returns {Cartographic} The location of the point along the geodesic.
- */
+  /**
+   * 提供沿测地线指示比例处的点位置。
+   *
+   * @param {number} fraction 初始点和最终点之间距离的比例部分。
+   * @param {Cartographic} [result] 存储结果的对象。
+   * @returns {Cartographic} 沿测地线的点位置。
+   */
 EllipsoidGeodesic.prototype.interpolateUsingFraction = function (
   fraction,
   result,
@@ -417,15 +417,15 @@ EllipsoidGeodesic.prototype.interpolateUsingFraction = function (
   );
 };
 
-/**
- * Provides the location of a point at the indicated distance along the geodesic.
- *
- * @param {number} distance The distance from the initial point to the point of interest along the geodesic
- * @param {Cartographic} [result] The object in which to store the result.
- * @returns {Cartographic} The location of the point along the geodesic.
- *
- * @exception {DeveloperError} start and end must be set before calling function interpolateUsingSurfaceDistance
- */
+  /**
+   * 提供沿测地线指示距离处的点位置。
+   *
+   * @param {number} distance 从初始点到沿测地线感兴趣点的距离。
+   * @param {Cartographic} [result] 存储结果的对象。
+   * @returns {Cartographic} 沿测地线的点位置。
+   *
+   * @exception {DeveloperError} 调用函数 interpolateUsingSurfaceDistance 之前必须设置 start 和 end。
+   */
 EllipsoidGeodesic.prototype.interpolateUsingSurfaceDistance = function (
   distance,
   result,

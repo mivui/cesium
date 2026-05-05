@@ -18,8 +18,8 @@ import CesiumMath from "./Math.js";
  */
 class Cartesian2 {
   /**
-   * @param {number} [x=0.0] The X component.
-   * @param {number} [y=0.0] The Y component.
+   * @param {number} [x=0.0] X分量。
+   * @param {number} [y=0.0] Y分量。
    */
   constructor(x, y) {
   /**

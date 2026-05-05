@@ -231,12 +231,11 @@ GltfMeshPrimitiveGpmLoader.prototype._loadTextures = function () {
 GltfMeshPrimitiveGpmLoader.ppeTexturesMetadataSchemaCache = new Map();
 
 /**
- * Create the JSON description of a metadata class that treats
- * the given PPE texture as a property texture property.
+ * 创建将给定 PPE 纹理视为属性纹理属性的元数据类的 JSON 描述。
  *
- * @param {PpeTexture} ppeTexture - The PPE texture
- * @param {number} index - The index of the texture in the extension
- * @returns The class JSON
+ * @param {PpeTexture} ppeTexture - PPE 纹理
+ * @param {number} index - 纹理在扩展中的索引
+ * @returns 类的 JSON 描述
  */
 GltfMeshPrimitiveGpmLoader._createPpeTextureClassJson = function (
   ppeTexture,
@@ -290,17 +289,15 @@ GltfMeshPrimitiveGpmLoader._createPpeTextureClassJson = function (
 };
 
 /**
- * Returns the `MetadataSchema` for the PPE textures in the given
- * `MeshPrimitiveGpmLocal` instance.
+ * 返回给定 `MeshPrimitiveGpmLocal` 实例中 PPE 纹理的 `MetadataSchema`。
  *
- * This method will return a (statically/globally) cached metadata
- * schema that reflects the structure of the PPE textures in the
- * given instance, creating and caching it if necessary.
+ * 此方法将返回一个（静态/全局）缓存的元数据模式，该模式反映给定实例中
+ * PPE 纹理的结构，必要时会创建并缓存它。
  *
- * For details on the cache key, see `_collectPpeTexturePropertyIdentifiers`
+ * 有关缓存键的详细信息，请参阅 `_collectPpeTexturePropertyIdentifiers`
  *
- * @param {MeshPrimitiveGpmLocal} meshPrimitiveGpmLocal The extension object
- * @returns The `MetadataSchema`
+ * @param {MeshPrimitiveGpmLocal} meshPrimitiveGpmLocal 扩展对象
+ * @returns `MetadataSchema`
  */
 GltfMeshPrimitiveGpmLoader._obtainPpeTexturesMetadataSchema = function (
   meshPrimitiveGpmLocal,
@@ -344,19 +341,17 @@ GltfMeshPrimitiveGpmLoader._obtainPpeTexturesMetadataSchema = function (
 };
 
 /**
- * Creates an array of strings that serve as identifiers for PPE textures.
+ * 创建用作 PPE 纹理标识符的字符串数组。
  *
- * Each glTF may define multiple `ppeTexture` objects within the
- * `NGA_gpm_local` extensions. Each of these textures corresponds
- * to one 'property texture property' in a metadata schema.
+ * 每个 glTF 可以在 `NGA_gpm_local` 扩展中定义多个 `ppeTexture` 对象。
+ * 每个纹理对应元数据模式中的一个"属性纹理属性"。
  *
- * This method will create an array where each element is a (JSON)
- * string representation of the parts of a GPM PPE texture definition
- * that are relevant for distinguishing two PPE textures in terms
- * of their structure within a `StructuralMetadata`.
+ * 此方法将创建一个数组，其中每个元素都是 GPM PPE 纹理定义部分的
+ * （JSON）字符串表示，这些部分用于区分两个 PPE 纹理在
+ * `StructuralMetadata` 中的结构。
  *
- * @param {MeshPrimitiveGpmLocal} meshPrimitiveGpmLocal The extension object
- * @returns The identifiers
+ * @param {MeshPrimitiveGpmLocal} meshPrimitiveGpmLocal 扩展对象
+ * @returns 标识符数组
  */
 GltfMeshPrimitiveGpmLoader._collectPpeTexturePropertyIdentifiers = function (
   meshPrimitiveGpmLocal,
@@ -380,16 +375,14 @@ GltfMeshPrimitiveGpmLoader._collectPpeTexturePropertyIdentifiers = function (
 };
 
 /**
- * Converts the given `MeshPrimitiveGpmLocal` object into a `StructuralMetadata`
- * object.
+ * 将给定的 `MeshPrimitiveGpmLocal` 对象转换为 `StructuralMetadata` 对象。
  *
- * This will translate the PPE textures from the given object into property
- * texture properties. The schema will be created based on the the structure
- * of the PPE textures.
+ * 这会将给定对象中的 PPE 纹理转换为属性纹理属性。
+ * 模式将根据 PPE 纹理的结构创建。
  *
- * @param {MeshPrimitiveGpmLocal} meshPrimitiveGpmLocal The extension object
- * @param {object} textures The mapping from texture ID to texture objects
- * @returns The `StructuralMetadata` object
+ * @param {MeshPrimitiveGpmLocal} meshPrimitiveGpmLocal 扩展对象
+ * @param {object} textures 从纹理 ID 到纹理对象的映射
+ * @returns `StructuralMetadata` 对象
  */
 GltfMeshPrimitiveGpmLoader._convertToStructuralMetadata = function (
   meshPrimitiveGpmLocal,

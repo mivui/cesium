@@ -15,9 +15,9 @@ import scaleToGeodeticSurface from "./scaleToGeodeticSurface.js";
  */
 class Cartographic {
   /**
-   * @param {number} [longitude=0.0] The longitude, in radians.
-   * @param {number} [latitude=0.0] The latitude, in radians.
-   * @param {number} [height=0.0] The height, in meters, above the ellipsoid.
+   * @param {number} [longitude=0.0] 经度，以弧度为单位。
+   * @param {number} [latitude=0.0] 纬度，以弧度为单位。
+   * @param {number} [height=0.0] 椭球上方的高度，以米为单位。
    */
   constructor(longitude, latitude, height) {
   /**

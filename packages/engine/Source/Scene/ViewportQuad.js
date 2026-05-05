@@ -11,13 +11,13 @@ import BlendingState from "./BlendingState.js";
 import Material from "./Material.js";
 
 /**
- * A viewport aligned quad.
+ * 一个视口对齐的四边形。
  *
  * @alias ViewportQuad
  * @constructor
  *
- * @param {BoundingRectangle} [rectangle] The {@link BoundingRectangle} defining the quad's position within the viewport.
- * @param {Material} [material] The {@link Material} defining the surface appearance of the viewport quad.
+ * @param {BoundingRectangle} [rectangle] 定义四边形在视口中位置的 {@link BoundingRectangle}。
+ * @param {Material} [material] 定义视口四边形表面外观的 {@link Material}。
  *
  * @example
  * const viewportQuad = new Cesium.ViewportQuad(new Cesium.BoundingRectangle(0, 0, 80, 40));
@@ -25,7 +25,7 @@ import Material from "./Material.js";
  */
 function ViewportQuad(rectangle, material) {
   /**
-   * Determines if the viewport quad primitive will be shown.
+   * 确定是否显示视口四边形图元。
    *
    * @type {boolean}
    * @default true
@@ -37,7 +37,7 @@ function ViewportQuad(rectangle, material) {
   }
 
   /**
-   * The BoundingRectangle defining the quad's position within the viewport.
+   * 定义四边形在视口中位置的 BoundingRectangle。
    *
    * @type {BoundingRectangle}
    *
@@ -53,19 +53,19 @@ function ViewportQuad(rectangle, material) {
   }
 
   /**
-   * The surface appearance of the viewport quad.  This can be one of several built-in {@link Material} objects or a custom material, scripted with
-   * {@link https://github.com/CesiumGS/cesium/wiki/Fabric|Fabric}.
+   * 视口四边形的表面外观。可以是多个内置 {@link Material} 对象之一，也可以是使用
+   * {@link https://github.com/CesiumGS/cesium/wiki/Fabric|Fabric} 编写的自定义材质。
    * <p>
-   * The default material is <code>Material.ColorType</code>.
+   * 默认材质为 <code>Material.ColorType</code>。
    * </p>
    *
    * @type Material
    *
    * @example
-   * // 1. Change the color of the default material to yellow
+   * // 1. 将默认材质的颜色更改为黄色
    * viewportQuad.material.uniforms.color = new Cesium.Color(1.0, 1.0, 0.0, 1.0);
    *
-   * // 2. Change material to horizontal stripes
+   * // 2. 将材质更改为水平条纹
    * viewportQuad.material = Cesium.Material.fromType(Cesium.Material.StripeType);
    *
    * @see {@link https://github.com/CesiumGS/cesium/wiki/Fabric|Fabric}
@@ -78,15 +78,15 @@ function ViewportQuad(rectangle, material) {
 }
 
 /**
- * Called when {@link Viewer} or {@link CesiumWidget} render the scene to
- * get the draw commands needed to render this primitive.
+ * 当 {@link Viewer} 或 {@link CesiumWidget} 渲染场景时调用，
+ * 以获取渲染此图元所需的绘制命令。
  * <p>
- * Do not call this function directly.  This is documented just to
- * list the exceptions that may be propagated when the scene is rendered:
+ * 不要直接调用此函数。此处仅文档化
+ * 列出渲染场景时可能传播的异常：
  * </p>
  *
- * @exception {DeveloperError} this.material must be defined.
- * @exception {DeveloperError} this.rectangle must be defined.
+ * @exception {DeveloperError} this.material 必须已定义。
+ * @exception {DeveloperError} this.rectangle 必须已定义。
  */
 ViewportQuad.prototype.update = function (frameState) {
   if (!this.show) {
@@ -142,12 +142,12 @@ ViewportQuad.prototype.update = function (frameState) {
 };
 
 /**
- * Returns true if this object was destroyed; otherwise, false.
+ * 如果此对象已被销毁则返回 true，否则返回 false。
  * <br /><br />
- * If this object was destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.
+ * 如果此对象已被销毁，则不应再使用它；调用除
+ * <code>isDestroyed</code> 之外的任何函数都将导致 {@link DeveloperError} 异常。
  *
- * @returns {boolean} True if this object was destroyed; otherwise, false.
+ * @returns {boolean} 如果此对象已被销毁则返回 true，否则返回 false。
  *
  * @see ViewportQuad#destroy
  */
@@ -156,14 +156,14 @@ ViewportQuad.prototype.isDestroyed = function () {
 };
 
 /**
- * Destroys the WebGL resources held by this object.  Destroying an object allows for deterministic
- * release of WebGL resources, instead of relying on the garbage collector to destroy this object.
+ * 销毁此对象持有的 WebGL 资源。销毁对象允许确定性地
+ * 释放 WebGL 资源，而不是依赖垃圾回收器来销毁此对象。
  * <br /><br />
- * Once an object is destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.  Therefore,
- * assign the return value (<code>undefined</code>) to the object as done in the example.
+ * 一旦对象被销毁，就不应再使用它；调用除
+ * <code>isDestroyed</code> 之外的任何函数都将导致 {@link DeveloperError} 异常。因此，
+ * 应将返回值（<code>undefined</code>）赋给对象，如示例所示。
  *
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 此对象已被销毁，即已调用 destroy()。
  *
  *
  * @example

@@ -14,30 +14,30 @@ const defaultCredit = new Credit(
 /**
  * @typedef {object} OpenStreetMapImageryProvider.ConstructorOptions
  *
- * Initialization options for the OpenStreetMapImageryProvider constructor
+ * OpenStreetMapImageryProvider 构造函数的初始化选项
  *
- * @property {string} [url='https://tile.openstreetmap.org'] The OpenStreetMap server url.
- * @property {string} [fileExtension='png'] The file extension for images on the server.
- * @property {boolean} [retinaTiles=false] When true, request tiles at the 2x resolution for retina displays.
- * @property {Rectangle} [rectangle=Rectangle.MAX_VALUE] The rectangle of the layer.
- * @property {number} [minimumLevel=0] The minimum level-of-detail supported by the imagery provider.
- * @property {number} [maximumLevel] The maximum level-of-detail supported by the imagery provider, or undefined if there is no limit.
- * @property {Ellipsoid} [ellipsoid] The ellipsoid.  If not specified, the WGS84 ellipsoid is used.
- * @property {Credit|string} [credit='MapQuest, Open Street Map and contributors, CC-BY-SA'] A credit for the data source, which is displayed on the canvas.
+ * @property {string} [url='https://tile.openstreetmap.org'] OpenStreetMap 服务器 URL。
+ * @property {string} [fileExtension='png'] 服务器上图像的文件扩展名。
+ * @property {boolean} [retinaTiles=false] 为 true 时，以 2 倍分辨率为视网膜显示屏请求瓦片。
+ * @property {Rectangle} [rectangle=Rectangle.MAX_VALUE] 图层范围。
+ * @property {number} [minimumLevel=0] 影像提供程序支持的最小细节级别。
+ * @property {number} [maximumLevel] 影像提供程序支持的最大细节级别，如果没有限制则为 undefined。
+ * @property {Ellipsoid} [ellipsoid] 椭球体。如果未指定，则使用 WGS84 椭球体。
+ * @property {Credit|string} [credit='MapQuest, Open Street Map and contributors, CC-BY-SA'] 数据源的版权信息，显示在画布上。
  */
 
 /**
- * An imagery provider that provides tiled imagery hosted by OpenStreetMap
- * or another provider of Slippy tiles.  The default url connects to OpenStreetMap's volunteer-run
- * servers, so you must conform to their
- * {@link http://wiki.openstreetmap.org/wiki/Tile_usage_policy|Tile Usage Policy}.
+ * 提供由 OpenStreetMap 托管的瓦片影像的影像提供程序，
+ * 或另一个 Slippy 瓦片提供程序。默认 URL 连接到 OpenStreetMap 的志愿者运行的
+ * 服务器，因此您必须遵守其
+ * {@link http://wiki.openstreetmap.org/wiki/Tile_usage_policy|瓦片使用政策}。
  *
  * @alias OpenStreetMapImageryProvider
  * @constructor
  * @extends UrlTemplateImageryProvider
  *
- * @param {OpenStreetMapImageryProvider.ConstructorOptions} options Object describing initialization options
- * @exception {DeveloperError} The rectangle and minimumLevel indicate that there are more than four tiles at the minimum level. Imagery providers with more than four tiles at the minimum level are not supported.
+ * @param {OpenStreetMapImageryProvider.ConstructorOptions} options 描述初始化选项的对象
+ * @exception {DeveloperError} 范围和最小级别表明最小级别有超过四个瓦片。不支持在最小级别有超过四个瓦片的影像提供程序。
  *
  * @see ArcGisMapServerImageryProvider
  * @see BingMapsImageryProvider
@@ -54,7 +54,7 @@ const defaultCredit = new Credit(
  * });
  *
  * @see {@link http://wiki.openstreetmap.org/wiki/Main_Page|OpenStreetMap Wiki}
- * @see {@link http://www.w3.org/TR/cors/|Cross-Origin Resource Sharing}
+ * @see {@link http://www.w3.org/TR/cors/|跨域资源共享}
  */
 function OpenStreetMapImageryProvider(options) {
   options = options ?? Frozen.EMPTY_OBJECT;

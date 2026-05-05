@@ -170,18 +170,18 @@ function computeAttributes(
 }
 
 /**
- * A description of a polyline with a volume (a 2D shape extruded along a polyline).
+ * 描述具有体积的多段线（沿多段线挤出的2D形状）。
  *
  * @alias PolylineVolumeGeometry
  * @constructor
  *
- * @param {object} options Object with the following properties:
- * @param {Cartesian3[]} options.polylinePositions An array of {@link Cartesian3} positions that define the center of the polyline volume.
- * @param {Cartesian2[]} options.shapePositions An array of {@link Cartesian2} positions that define the shape to be extruded along the polyline
- * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] The ellipsoid to be used as a reference.
- * @param {number} [options.granularity=CesiumMath.RADIANS_PER_DEGREE] The distance, in radians, between each latitude and longitude. Determines the number of positions in the buffer.
- * @param {VertexFormat} [options.vertexFormat=VertexFormat.DEFAULT] The vertex attributes to be computed.
- * @param {CornerType} [options.cornerType=CornerType.ROUNDED] Determines the style of the corners.
+ * @param {object} options 包含以下属性的对象：
+ * @param {Cartesian3[]} options.polylinePositions 定义多段线体积中心的 {@link Cartesian3} 位置数组。
+ * @param {Cartesian2[]} options.shapePositions 定义沿多段线挤出的形状的 {@link Cartesian2} 位置数组。
+ * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.default] 用作参考的椭球体。
+ * @param {number} [options.granularity=CesiumMath.RADIANS_PER_DEGREE] 每个纬度和经度之间的距离（以弧度为单位）。决定缓冲区中的位置数量。
+ * @param {VertexFormat} [options.vertexFormat=VertexFormat.DEFAULT] 要计算的顶点属性。
+ * @param {CornerType} [options.cornerType=CornerType.ROUNDED] 决定角落的样式。
  *
  * @see PolylineVolumeGeometry#createGeometry
  *
@@ -234,7 +234,7 @@ function PolylineVolumeGeometry(options) {
   numComponents += 1 + shape.length * Cartesian2.packedLength;
 
   /**
-   * The number of elements used to pack the object into an array.
+   * 用于将对象打包到数组中的元素数量。
    * @type {number}
    */
   this.packedLength =
@@ -242,13 +242,13 @@ function PolylineVolumeGeometry(options) {
 }
 
 /**
- * Stores the provided instance into the provided array.
+ * 将提供的实例存储到提供的数组中。
  *
- * @param {PolylineVolumeGeometry} value The value to pack.
- * @param {number[]} array The array to pack into.
- * @param {number} [startingIndex=0] The index into the array at which to start packing the elements.
+ * @param {PolylineVolumeGeometry} value 要打包的值。
+ * @param {number[]} array 要打包到的数组。
+ * @param {number} [startingIndex=0] 数组中开始打包元素的索引。
  *
- * @returns {number[]} The array that was packed into
+ * @returns {number[]} 被打包到的数组
  */
 PolylineVolumeGeometry.pack = function (value, array, startingIndex) {
   //>>includeStart('debug', pragmas.debug);
@@ -304,12 +304,12 @@ const scratchOptions = {
 };
 
 /**
- * Retrieves an instance from a packed array.
+ * 从打包的数组中检索实例。
  *
- * @param {number[]} array The packed array.
- * @param {number} [startingIndex=0] The starting index of the element to be unpacked.
- * @param {PolylineVolumeGeometry} [result] The object into which to store the result.
- * @returns {PolylineVolumeGeometry} The modified result parameter or a new PolylineVolumeGeometry instance if one was not provided.
+ * @param {number[]} array 打包的数组。
+ * @param {number} [startingIndex=0] 要解包的元素起始索引。
+ * @param {PolylineVolumeGeometry} [result] 存储结果的对象。
+ * @returns {PolylineVolumeGeometry} 修改后的结果参数，如果未提供则返回新的 PolylineVolumeGeometry 实例。
  */
 PolylineVolumeGeometry.unpack = function (array, startingIndex, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -369,12 +369,12 @@ PolylineVolumeGeometry.unpack = function (array, startingIndex, result) {
 
 const brScratch = new BoundingRectangle();
 
-/**
- * Computes the geometric representation of a polyline with a volume, including its vertices, indices, and a bounding sphere.
- *
- * @param {PolylineVolumeGeometry} polylineVolumeGeometry A description of the polyline volume.
- * @returns {Geometry|undefined} The computed vertices and indices.
- */
+  /**
+   * 计算具有体积的多段线的几何表示，包括其顶点、索引和包围球。
+   *
+   * @param {PolylineVolumeGeometry} polylineVolumeGeometry 多段线体积的描述。
+   * @returns {Geometry|undefined} 计算出的顶点和索引。
+   */
 PolylineVolumeGeometry.createGeometry = function (polylineVolumeGeometry) {
   const positions = polylineVolumeGeometry._positions;
   const cleanPositions = arrayRemoveDuplicates(

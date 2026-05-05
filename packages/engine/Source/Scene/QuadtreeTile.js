@@ -75,11 +75,11 @@ const MAX_CACHE_ENTRIES = 1000;
 class QuadtreeTile {
   /**
    * @param {object} options
-   * @param {number} options.level The level of the tile in the quadtree.
-   * @param {number} options.x The X coordinate of the tile in the quadtree.  0 is the westernmost tile.
-   * @param {number} options.y The Y coordinate of the tile in the quadtree.  0 is the northernmost tile.
-   * @param {TilingScheme} options.tilingScheme The tiling scheme in which this tile exists.
-   * @param {QuadtreeTile} [options.parent] This tile's parent, or undefined if this is a root tile.
+   * @param {number} options.level 四叉树中瓦片的层级。
+   * @param {number} options.x 四叉树中瓦片的 X 坐标。0 表示最西边的瓦片。
+   * @param {number} options.y 四叉树中瓦片的 Y 坐标。0 表示最北边的瓦片。
+   * @param {TilingScheme} options.tilingScheme 此瓦片所属的切片方案。
+   * @param {QuadtreeTile} [options.parent] 此瓦片的父瓦片，如果是根瓦片则为 undefined。
    */
   constructor(options) {
     //>>includeStart('debug', pragmas.debug);
@@ -148,32 +148,29 @@ class QuadtreeTile {
     this._positionCache = new LRUCache(MAX_CACHE_ENTRIES);
 
     /**
-     * Gets or sets the current state of the tile in the tile load pipeline.
+     * 获取或设置瓦片在瓦片加载管线中的当前状态。
      * @type {QuadtreeTileLoadState}
      * @default {@link QuadtreeTileLoadState.START}
      */
     this.state = QuadtreeTileLoadState.START;
 
     /**
-     * Gets or sets a value indicating whether or not the tile is currently renderable.
+     * 获取或设置一个值，指示瓦片当前是否可渲染。
      * @type {boolean}
      * @default false
      */
     this.renderable = false;
 
     /**
-     * Gets or set a value indicating whether or not the tile was entirely upsampled from its
-     * parent tile.  If all four children of a parent tile were upsampled from the parent,
-     * we will render the parent instead of the children even if the LOD indicates that
-     * the children would be preferable.
+     * 获取或设置一个值，指示此瓦片是否完全由其父瓦片上采样而来。如果父瓦片的所有四个子瓦片都是从父瓦片上采样的，
+     * 我们将渲染父瓦片而不是子瓦片，即使 LOD 表明子瓦片会更优。
      * @type {boolean}
      * @default false
      */
     this.upsampledFromParent = false;
 
     /**
-     * Gets or sets the additional data associated with this tile.  The exact content is specific to the
-     * {@link QuadtreeTileProvider}.
+     * 获取或设置与此瓦片关联的附加数据。具体内容取决于 {@link QuadtreeTileProvider}。
      * @type {object}
      * @default undefined
      */
@@ -181,12 +178,11 @@ class QuadtreeTile {
   }
 
   /**
-   * Creates a rectangular set of tiles for level of detail zero, the coarsest, least detailed level.
+   * 为零级细节（最粗糙、最不详细的级别）创建矩形瓦片集。
    *
-   *
-   * @param {TilingScheme} tilingScheme The tiling scheme for which the tiles are to be created.
-   * @returns {QuadtreeTile[]} An array containing the tiles at level of detail zero, starting with the
-   * tile in the northwest corner and followed by the tile (if any) to its east.
+   * @param {TilingScheme} tilingScheme 要为其创建瓦片的切片方案。
+   * @returns {QuadtreeTile[]} 包含零级细节瓦片的数组，从西北角的瓦片开始，
+   * 后跟其东边的瓦片（如果有）。
    */
   static createLevelZeroTiles(tilingScheme) {
     //>>includeStart('debug', pragmas.debug);
@@ -216,13 +212,12 @@ class QuadtreeTile {
   }
 
   /**
-   * Generates a unique cache key for a given cartographic position.
+   * 为给定的地图投影位置生成唯一的缓存键。
    *
-   * @param {Cartographic} cartographic The cartographic coordinates.
-   * @param {number} maximumScreenSpaceError The maximum screen-space error, in pixels, that is allowed.
-   *        A higher maximum error will render fewer tiles and improve performance, while a lower
-   *        value will improve visual quality.
-   * @returns {string} A string representing the spatial hash key.
+   * @param {Cartographic} cartographic 地图投影坐标。
+   * @param {number} maximumScreenSpaceError 允许的最大屏幕空间误差（以像素为单位）。
+   *        较高的最大误差将渲染更少的瓦片并提高性能，而较低的值将提高视觉质量。
+   * @returns {string} 表示空间哈希键的字符串。
    */
   _getCacheKey(cartographic, maximumScreenSpaceError) {
     return createSpatialHashKey(
@@ -234,14 +229,12 @@ class QuadtreeTile {
   }
 
   /**
-   * Retrieves a cached position for the specified cartographic position.
+   * 检索指定地图投影位置的缓存位置。
    *
-   *
-   * @param {Cartographic} cartographic - The cartographic coordinates.
-   * @param {number} maximumScreenSpaceError The maximum screen-space error, in pixels, that is allowed.
-   *        A higher maximum error will render fewer tiles and improve performance, while a lower
-   *        value will improve visual quality.
-   * @returns {object|undefined} The cached position data or undefined if not found.
+   * @param {Cartographic} cartographic - 地图投影坐标。
+   * @param {number} maximumScreenSpaceError 允许的最大屏幕空间误差（以像素为单位）。
+   *        较高的最大误差将渲染更少的瓦片并提高性能，而较低的值将提高视觉质量。
+   * @returns {object|undefined} 缓存的位置数据，如果未找到则返回 undefined。
    */
   getPositionCacheEntry(cartographic, maximumScreenSpaceError) {
     const result = this._positionCache.get(
@@ -251,14 +244,12 @@ class QuadtreeTile {
   }
 
   /**
-   * Sets a position on the cache for this tile.
+   * 为此瓦片设置缓存位置。
    *
-   *
-   * @param {Cartographic} cartographic - The cartographic coordinates.
-   * @param {number} maximumScreenSpaceError The maximum screen-space error, in pixels, that is allowed.
-   *        A higher maximum error will render fewer tiles and improve performance, while a lower
-   *        value will improve visual quality.
-   * @param {object} value - The object to be cached.
+   * @param {Cartographic} cartographic - 地图投影坐标。
+   * @param {number} maximumScreenSpaceError 允许的最大屏幕空间误差（以像素为单位）。
+   *        较高的最大误差将渲染更少的瓦片并提高性能，而较低的值将提高视觉质量。
+   * @param {object} value - 要缓存的对象。
    */
   setPositionCacheEntry(cartographic, maximumScreenSpaceError, value) {
     this._positionCache.set(
@@ -268,9 +259,8 @@ class QuadtreeTile {
   }
 
   /**
-   * Clears the position cache for this tile.
-   * This function removes all cached positions that were previously stored
-   * to optimize height computations.
+   * 清除此瓦片的位置缓存。
+   * 此函数移除之前存储的所有缓存位置，以优化高度计算。
    *
    */
   clearPositionCache() {
@@ -309,7 +299,7 @@ class QuadtreeTile {
   }
 
   /**
-   * Gets the tiling scheme used to tile the surface.
+   * 获取用于对表面进行切片的切片方案。
    * @type {TilingScheme}
    */
   get tilingScheme() {
@@ -317,7 +307,7 @@ class QuadtreeTile {
   }
 
   /**
-   * Gets the tile X coordinate.
+   * 获取瓦片的 X 坐标。
    * @type {number}
    */
   get x() {
@@ -325,7 +315,7 @@ class QuadtreeTile {
   }
 
   /**
-   * Gets the tile Y coordinate.
+   * 获取瓦片的 Y 坐标。
    * @type {number}
    */
   get y() {
@@ -333,7 +323,7 @@ class QuadtreeTile {
   }
 
   /**
-   * Gets the level-of-detail, where zero is the coarsest, least-detailed.
+   * 获取细节层级，零表示最粗糙、最不详细的级别。
    * @type {number}
    */
   get level() {
@@ -341,7 +331,7 @@ class QuadtreeTile {
   }
 
   /**
-   * Gets the parent tile of this tile.
+   * 获取此瓦片的父瓦片。
    * @type {QuadtreeTile}
    */
   get parent() {
@@ -349,8 +339,7 @@ class QuadtreeTile {
   }
 
   /**
-   * Gets the cartographic rectangle of the tile, with north, south, east and
-   * west properties in radians.
+   * 获取瓦片的地图投影矩形范围，包含以弧度为单位的北、南、东和西属性。
    * @type {Rectangle}
    */
   get rectangle() {
@@ -358,7 +347,7 @@ class QuadtreeTile {
   }
 
   /**
-   * An array of tiles that is at the next level of the tile tree.
+   * 位于瓦片树下一级的瓦片数组。
    * @type {QuadtreeTile[]}
    */
   get children() {
@@ -371,7 +360,7 @@ class QuadtreeTile {
   }
 
   /**
-   * Gets the southwest child tile.
+   * 获取西南子瓦片。
    * @type {QuadtreeTile}
    */
   get southwestChild() {
@@ -388,7 +377,7 @@ class QuadtreeTile {
   }
 
   /**
-   * Gets the southeast child tile.
+   * 获取东南子瓦片。
    * @type {QuadtreeTile}
    */
   get southeastChild() {
@@ -405,7 +394,7 @@ class QuadtreeTile {
   }
 
   /**
-   * Gets the northwest child tile.
+   * 获取西北子瓦片。
    * @type {QuadtreeTile}
    */
   get northwestChild() {
@@ -422,7 +411,7 @@ class QuadtreeTile {
   }
 
   /**
-   * Gets the northeast child tile.
+   * 获取东北子瓦片。
    * @type {QuadtreeTile}
    */
   get northeastChild() {
@@ -439,7 +428,7 @@ class QuadtreeTile {
   }
 
   /**
-   * A set of objects associated with this tile.
+   * 与此瓦片关联的对象集合。
    * @type {Set<*>}
    */
   get customData() {
@@ -447,9 +436,9 @@ class QuadtreeTile {
   }
 
   /**
-   * Gets a value indicating whether or not this tile needs further loading.
-   * This property will return true if the {@link QuadtreeTile#state} is
-   * <code>START</code> or <code>LOADING</code>.
+   * 获取一个值，指示此瓦片是否需要进一步加载。
+   * 如果 {@link QuadtreeTile#state} 为 <code>START</code> 或 <code>LOADING</code>，
+   * 此属性将返回 true。
    * @type {boolean}
    */
   get needsLoading() {
@@ -457,13 +446,11 @@ class QuadtreeTile {
   }
 
   /**
-   * Gets a value indicating whether or not this tile is eligible to be unloaded.
-   * Typically, a tile is ineligible to be unloaded while an asynchronous operation,
-   * such as a request for data, is in progress on it.  A tile will never be
-   * unloaded while it is needed for rendering, regardless of the value of this
-   * property.  If {@link QuadtreeTile#data} is defined and has an
-   * <code>eligibleForUnloading</code> property, the value of that property is returned.
-   * Otherwise, this property returns true.
+   * 获取一个值，指示此瓦片是否允许卸载。
+   * 通常，当瓦片上正在进行异步操作（例如数据请求）时，不允许卸载。
+   * 无论此属性的值如何，瓦片在需要渲染时都不会被卸载。
+   * 如果定义了 {@link QuadtreeTile#data} 且具有 <code>eligibleForUnloading</code> 属性，
+   * 则返回该属性的值。否则，此属性返回 true。
    * @type {boolean}
    */
   get eligibleForUnloading() {
@@ -603,9 +590,9 @@ class QuadtreeTile {
   }
 
   /**
-   * Frees the resources associated with this tile and returns it to the <code>START</code>
-   * {@link QuadtreeTileLoadState}.  If the {@link QuadtreeTile#data} property is defined and it
-   * has a <code>freeResources</code> method, the method will be invoked.
+   * 释放与此瓦片关联的资源，并将其返回到 <code>START</code>
+   * {@link QuadtreeTileLoadState}。如果定义了 {@link QuadtreeTile#data} 属性且具有
+   * <code>freeResources</code> 方法，则将调用该方法。
    *
    */
   freeResources() {
@@ -632,37 +619,37 @@ class QuadtreeTile {
 }
 
 /**
- * Creates a spatial hash key for the given longitude, latitude, and tile level.
- * The precision is adjusted based on the tile level and extent to achieve finer precision at higher levels.
+ * 为给定的经度、纬度和瓦片层级创建空间哈希键。
+ * 精度会根据瓦片层级和范围进行调整，以在较高层级实现更精细的精度。
  *
- * This function calculates the spatial hash key by first determining the precision at the given tile for the current maximum screenspace error (MAX_ERROR_PX),
- * and then rounding the longitude and latitude to that precision for consistency.
+ * 此函数通过首先确定当前最大屏幕空间误差（MAX_ERROR_PX）下给定瓦片的精度，
+ * 然后将经度和纬度舍入到该精度以保持一致性来计算空间哈希键。
  *
- * The steps for computing the level precision are as follows:
+ * 计算层级精度的步骤如下：
  *
- * 1. Compute the resolution (meters per pixel) at the given level:
+ * 1. 计算给定层级的分辨率（每像素米数）：
  *      level_resolution_m = (2 * PI * RADIUS) / (2^level * TILE_SIZE)
  *
- * 2. Compute the target precision in meters:
+ * 2. 计算目标精度（米）：
  *      level_precision_m = level_resolution_m * MAX_ERROR_PX
  *
- * 3. Compute the target precision to radians:
+ * 3. 计算目标精度（弧度）：
  *      level_precision_rad = level_precision_m / BODY_RADIUS
  *
- * This simplifies to:
+ * 简化为：
  *      level_precision_rad = (2 * PI * MAX_ERROR_PX) / (2^level * TILE_SIZE)
- * which can also be written as:
+ * 也可写为：
  *      level_precision_rad = (PI * MAX_ERROR_PX) / (2^(level-1) * TILE_SIZE)
  *
- * The computed level_precision_rad is then used to round the input longitude and latitude,
- * ensuring that positions that fall within the same spatial bin produce the same hash key.
+ * 计算出的 level_precision_rad 随后用于舍入输入的经度和纬度，
+ * 确保落在同一空间格网内的位置产生相同的哈希键。
  *
- * The constants below are computed once since they are fixed for the given configuration.
+ * 下面的常量是一次性计算得出的，因为对于给定配置它们是固定的。
  *
- * @param {number} longitude - The longitude in radians.
- * @param {number} latitude - The latitude in radians.
- * @param {Rectangle} rectangle - The quadtree tile extents.
- * @returns {string} A string representing the spatial hash key.
+ * @param {number} longitude - 以弧度为单位的经度。
+ * @param {number} latitude - 以弧度为单位的纬度。
+ * @param {Rectangle} rectangle - 四叉树瓦片范围。
+ * @returns {string} 表示空间哈希键的字符串。
  */
 const TILE_SIZE = 256;
 

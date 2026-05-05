@@ -573,44 +573,38 @@ function destroyLabel(labelCollection, label) {
 }
 
 /**
- * A renderable collection of labels.  Labels are viewport-aligned text positioned in the 3D scene.
- * Each label can have a different font, color, scale, etc.
+ * 可渲染的标签集合。标签是场景中视口对齐的文本。
+ * 每个标签可以有不同的字体、颜色、缩放等。
  * <br /><br />
  * <div align='center'>
  * <img src='Images/Label.png' width='400' height='300' /><br />
- * Example labels
+ * 标签示例
  * </div>
  * <br /><br />
- * Labels are added and removed from the collection using {@link LabelCollection#add}
- * and {@link LabelCollection#remove}.
+ * 使用 {@link LabelCollection#add} 和 {@link LabelCollection#remove} 来添加和移除标签。
  *
  * @alias LabelCollection
  * @constructor
  *
- * @param {object} [options] Object with the following properties:
- * @param {Matrix4} [options.modelMatrix=Matrix4.IDENTITY] The 4x4 transformation matrix that transforms each label from model to world coordinates.
- * @param {boolean} [options.debugShowBoundingVolume=false] For debugging only. Determines if this primitive's commands' bounding spheres are shown.
- * @param {Scene} [options.scene] Must be passed in for labels that use the height reference property or will be depth tested against the globe.
- * @param {BlendOption} [options.blendOption=BlendOption.OPAQUE_AND_TRANSLUCENT] The label blending option. The default
- * is used for rendering both opaque and translucent labels. However, if either all of the labels are completely opaque or all are completely translucent,
- * setting the technique to BlendOption.OPAQUE or BlendOption.TRANSLUCENT can improve performance by up to 2x.
- * @param {boolean} [options.show=true] Determines if the labels in the collection will be shown.
- * @param {number} [options.coarseDepthTestDistance] The distance from the camera, beyond which, labels are depth-tested against an approximation of the globe ellipsoid rather than against the full globe depth buffer. If unspecified, the default value is determined relative to the value of {@link Ellipsoid.default}.
- * @param {number} [options.threePointDepthTestDistance] The distance from the camera, within which, lables with a {@link Label#heightReference} value of {@link HeightReference.CLAMP_TO_GROUND} or {@link HeightReference.CLAMP_TO_TERRAIN} are depth tested against three key points. This ensures that if any key point of the label is visible, the whole label will be visible. If unspecified, the default value is determined relative to the value of {@link Ellipsoid.default}.
- * @performance For best performance, prefer a few collections, each with many labels, to
- * many collections with only a few labels each.  Avoid having collections where some
- * labels change every frame and others do not; instead, create one or more collections
- * for static labels, and one or more collections for dynamic labels.
+ * @param {object} [options] 包含以下属性的对象：
+ * @param {Matrix4} [options.modelMatrix=Matrix4.IDENTITY] 4x4 变换矩阵，将每个标签从模型坐标转换为世界坐标。
+ * @param {boolean} [options.debugShowBoundingVolume=false] 仅用于调试。确定是否显示此图元的命令边界球。
+ * @param {Scene} [options.scene] 对于使用高度参考属性或将与地球进行深度测试的标签，必须传入此参数。
+ * @param {BlendOption} [options.blendOption=BlendOption.OPAQUE_AND_TRANSLUCENT] 标签混合选项。默认值用于渲染不透明和半透明标签。但是，如果所有标签完全不透明或完全半透明，将技术设置为 BlendOption.OPAQUE 或 BlendOption.TRANSLUCENT 可以将性能提高多达 2 倍。
+ * @param {boolean} [options.show=true] 确定集合中的标签是否显示。
+ * @param {number} [options.coarseDepthTestDistance] 与相机的距离，超过此距离后，标签将针对地球椭球的近似值进行深度测试，而不是针对完整的地球深度缓冲区。如果未指定，默认值将相对于 {@link Ellipsoid.default} 的值确定。
+ * @param {number} [options.threePointDepthTestDistance] 与相机的距离，在此距离内，具有 {@link Label#heightReference} 值为 {@link HeightReference.CLAMP_TO_GROUND} 或 {@link HeightReference.CLAMP_TO_TERRAIN} 的标签将针对三个关键点进行深度测试。这确保如果标签的任何关键点可见，整个标签都将可见。如果未指定，默认值将相对于 {@link Ellipsoid.default} 的值确定。
+ * @performance 为了获得最佳性能，建议使用少量集合，每个集合包含多个标签，而不是多个集合，每个集合只有少量标签。避免集合中的某些标签每帧都更改而其他标签不更改；相反，为静态标签创建一个或多个集合，为动态标签创建一个或多个集合。
  *
  * @see LabelCollection#add
  * @see LabelCollection#remove
  * @see Label
  * @see BillboardCollection
  *
- * @demo {@link https://sandcastle.cesium.com/index.html?id=labels|Cesium Sandcastle Labels Demo}
+ * @demo {@link https://sandcastle.cesium.com/index.html?id=labels|Cesium Sandcastle 标签示例}
  *
  * @example
- * // Create a label collection with two labels
+ * // 创建包含两个标签的标签集合
  * const labels = scene.primitives.add(new Cesium.LabelCollection());
  * labels.add({
  *   position : new Cesium.Cartesian3(1.0, 2.0, 3.0),
@@ -665,10 +659,9 @@ function LabelCollection(options) {
   this.show = options.show ?? true;
 
   /**
-   * The 4x4 transformation matrix that transforms each label in this collection from model to world coordinates.
-   * When this is the identity matrix, the labels are drawn in world coordinates, i.e., Earth's WGS84 coordinates.
-   * Local reference frames can be used by providing a different transformation matrix, like that returned
-   * by {@link Transforms.eastNorthUpToFixedFrame}.
+   * 4x4 变换矩阵，用于将集合中的每个标签从模型坐标转换为世界坐标。
+   * 当此矩阵为单位矩阵时，标签将绘制在世界坐标中，即地球的 WGS84 坐标。
+   * 可以通过提供不同的变换矩阵来使用局部参考系，例如 {@link Transforms.eastNorthUpToFixedFrame} 返回的矩阵。
    *
    * @type Matrix4
    * @default {@link Matrix4.IDENTITY}
@@ -696,9 +689,9 @@ function LabelCollection(options) {
   this.modelMatrix = Matrix4.clone(options.modelMatrix ?? Matrix4.IDENTITY);
 
   /**
-   * This property is for debugging only; it is not for production use nor is it optimized.
+   * 此属性仅用于调试，不适用于生产环境，也未经过优化。
    * <p>
-   * Draws the bounding sphere for each draw command in the primitive.
+   * 为图元中的每个绘制命令绘制边界球。
    * </p>
    *
    * @type {boolean}
@@ -708,10 +701,8 @@ function LabelCollection(options) {
   this.debugShowBoundingVolume = options.debugShowBoundingVolume ?? false;
 
   /**
-   * The label blending option. The default is used for rendering both opaque and translucent labels.
-   * However, if either all of the labels are completely opaque or all are completely translucent,
-   * setting the technique to BlendOption.OPAQUE or BlendOption.TRANSLUCENT can improve
-   * performance by up to 2x.
+   * 标签混合选项。默认值用于渲染不透明和半透明标签。
+   * 但是，如果所有标签完全不透明或完全半透明，将技术设置为 BlendOption.OPAQUE 或 BlendOption.TRANSLUCENT 可以将性能提高多达 2 倍。
    * @type {BlendOption}
    * @default BlendOption.OPAQUE_AND_TRANSLUCENT
    */
@@ -720,9 +711,7 @@ function LabelCollection(options) {
 
 Object.defineProperties(LabelCollection.prototype, {
   /**
-   * Returns the number of labels in this collection.  This is commonly used with
-   * {@link LabelCollection#get} to iterate over all the labels
-   * in the collection.
+   * 返回集合中的标签数量。通常与 {@link LabelCollection#get} 配合使用以遍历集合中的所有标签。
    * @memberof LabelCollection.prototype
    * @type {number}
    * @readonly

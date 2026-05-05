@@ -42,8 +42,8 @@ function Tween(
   this._complete = complete;
 
   /**
-   * The callback to call if the tween is canceled either because {@link Tween#cancelTween}
-   * was called or because the tween was removed from the collection.
+   * 如果补间动画被取消（无论是由于调用了 {@link Tween#cancelTween}
+   * 还是因为补间动画从集合中移除）时调用的回调函数。
    *
    * @type {TweenCollection.TweenCancelledCallback}
    */
@@ -57,7 +57,7 @@ function Tween(
 
 Object.defineProperties(Tween.prototype, {
   /**
-   * An object with properties for initial values of the tween.  The properties of this object are changed during the tween's animation.
+   * 包含补间动画初始值属性的对象。该对象的属性会在补间动画过程中被修改。
    * @memberof Tween.prototype
    *
    * @type {object}
@@ -70,7 +70,7 @@ Object.defineProperties(Tween.prototype, {
   },
 
   /**
-   * An object with properties for the final values of the tween.
+   * 包含补间动画最终值属性的对象。
    * @memberof Tween.prototype
    *
    * @type {object}
@@ -83,7 +83,7 @@ Object.defineProperties(Tween.prototype, {
   },
 
   /**
-   * The duration, in seconds, for the tween.  The tween is automatically removed from the collection when it stops.
+   * 补间动画的持续时间（以秒为单位）。补间动画停止时会自动从集合中移除。
    * @memberof Tween.prototype
    *
    * @type {number}
@@ -96,7 +96,7 @@ Object.defineProperties(Tween.prototype, {
   },
 
   /**
-   * The delay, in seconds, before the tween starts animating.
+   * 补间动画开始前的延迟时间（以秒为单位）。
    * @memberof Tween.prototype
    *
    * @type {number}
@@ -109,7 +109,7 @@ Object.defineProperties(Tween.prototype, {
   },
 
   /**
-   * Determines the curve for animtion.
+   * 确定动画的曲线。
    * @memberof Tween.prototype
    *
    * @type {EasingFunction}
@@ -122,7 +122,7 @@ Object.defineProperties(Tween.prototype, {
   },
 
   /**
-   * The callback to call at each animation update (usually tied to the a rendered frame).
+   * 每次动画更新时调用的回调函数（通常与渲染帧绑定）。
    * @memberof Tween.prototype
    *
    * @type {TweenCollection.TweenUpdateCallback}
@@ -135,7 +135,7 @@ Object.defineProperties(Tween.prototype, {
   },
 
   /**
-   * The callback to call when the tween finishes animating.
+   * 补间动画完成时调用的回调函数。
    * @memberof Tween.prototype
    *
    * @type {TweenCollection.TweenCompleteCallback}
@@ -160,8 +160,8 @@ Object.defineProperties(Tween.prototype, {
 });
 
 /**
- * Cancels the tween calling the {@link Tween#cancel} callback if one exists.  This
- * has no effect if the tween finished or was already canceled.
+ * 取消补间动画，如果存在 {@link Tween#cancel} 回调函数则调用它。
+ * 如果补间动画已完成或已被取消，则此方法无效。
  */
 Tween.prototype.cancelTween = function () {
   this._tweens.remove(this);
@@ -181,7 +181,7 @@ function TweenCollection() {
 
 Object.defineProperties(TweenCollection.prototype, {
   /**
-   * The number of tweens in the collection.
+   * 集合中的补间动画数量。
    * @memberof TweenCollection.prototype
    *
    * @type {number}
@@ -195,21 +195,21 @@ Object.defineProperties(TweenCollection.prototype, {
 });
 
 /**
- * Creates a tween for animating between two sets of properties.  The tween starts animating at the next call to {@link TweenCollection#update}, which
- * is implicit when {@link Viewer} or {@link CesiumWidget} render the scene.
+ * 创建用于在两个属性集之间进行动画的补间动画。补间动画在下次调用 {@link TweenCollection#update} 时开始，
+ * 当 {@link Viewer} 或 {@link CesiumWidget} 渲染场景时会隐式调用。
  *
- * @param {object} [options] Object with the following properties:
- * @param {object} options.startObject An object with properties for initial values of the tween.  The properties of this object are changed during the tween's animation.
- * @param {object} options.stopObject An object with properties for the final values of the tween.
- * @param {number} options.duration The duration, in seconds, for the tween.  The tween is automatically removed from the collection when it stops.
- * @param {number} [options.delay=0.0] The delay, in seconds, before the tween starts animating.
- * @param {EasingFunction} [options.easingFunction=EasingFunction.LINEAR_NONE] Determines the curve for animtion.
- * @param {TweenCollection.TweenUpdateCallback} [options.update] The callback to call at each animation update (usually tied to the a rendered frame).
- * @param {TweenCollection.TweenCompleteCallback} [options.complete] The callback to call when the tween finishes animating.
- * @param {TweenCollection.TweenCancelledCallback} [options.cancel] The callback to call if the tween is canceled either because {@link Tween#cancelTween} was called or because the tween was removed from the collection.
- * @returns {Tween} The tween.
+ * @param {object} [options] 包含以下属性的对象：
+ * @param {object} options.startObject 包含补间动画初始值属性的对象。该对象的属性会在补间动画过程中被修改。
+ * @param {object} options.stopObject 包含补间动画最终值属性的对象。
+ * @param {number} options.duration 补间动画的持续时间（以秒为单位）。补间动画停止时会自动从集合中移除。
+ * @param {number} [options.delay=0.0] 补间动画开始前的延迟时间（以秒为单位）。
+ * @param {EasingFunction} [options.easingFunction=EasingFunction.LINEAR_NONE] 确定动画的曲线。
+ * @param {TweenCollection.TweenUpdateCallback} [options.update] 每次动画更新时调用的回调函数（通常与渲染帧绑定）。
+ * @param {TweenCollection.TweenCompleteCallback} [options.complete] 补间动画完成时调用的回调函数。
+ * @param {TweenCollection.TweenCancelledCallback} [options.cancel] 如果补间动画被取消（无论是由于调用了 {@link Tween#cancelTween} 还是因为补间动画从集合中移除）时调用的回调函数。
+ * @returns {Tween} 补间动画。
  *
- * @exception {DeveloperError} options.duration must be positive.
+ * @exception {DeveloperError} options.duration 必须为正数。
  */
 TweenCollection.prototype.add = function (options) {
   options = options ?? Frozen.EMPTY_OBJECT;
@@ -270,24 +270,24 @@ TweenCollection.prototype.add = function (options) {
 };
 
 /**
- * Creates a tween for animating a scalar property on the given object.  The tween starts animating at the next call to {@link TweenCollection#update}, which
- * is implicit when {@link Viewer} or {@link CesiumWidget} render the scene.
+ * 创建用于对给定对象上的标量属性进行动画的补间动画。补间动画在下次调用 {@link TweenCollection#update} 时开始，
+ * 当 {@link Viewer} 或 {@link CesiumWidget} 渲染场景时会隐式调用。
  *
- * @param {object} [options] Object with the following properties:
- * @param {object} options.object The object containing the property to animate.
- * @param {string} options.property The name of the property to animate.
- * @param {number} options.startValue The initial value.
- * @param {number} options.stopValue The final value.
- * @param {number} [options.duration=3.0] The duration, in seconds, for the tween.  The tween is automatically removed from the collection when it stops.
- * @param {number} [options.delay=0.0] The delay, in seconds, before the tween starts animating.
- * @param {EasingFunction} [options.easingFunction=EasingFunction.LINEAR_NONE] Determines the curve for animtion.
- * @param {TweenCollection.TweenUpdateCallback} [options.update] The callback to call at each animation update (usually tied to the a rendered frame).
- * @param {TweenCollection.TweenCompleteCallback} [options.complete] The callback to call when the tween finishes animating.
- * @param {TweenCollection.TweenCancelledCallback} [options.cancel] The callback to call if the tween is canceled either because {@link Tween#cancelTween} was called or because the tween was removed from the collection.
- * @returns {Tween} The tween.
+ * @param {object} [options] 包含以下属性的对象：
+ * @param {object} options.object 包含要动画的属性的对象。
+ * @param {string} options.property 要动画的属性名称。
+ * @param {number} options.startValue 初始值。
+ * @param {number} options.stopValue 最终值。
+ * @param {number} [options.duration=3.0] 补间动画的持续时间（以秒为单位）。补间动画停止时会自动从集合中移除。
+ * @param {number} [options.delay=0.0] 补间动画开始前的延迟时间（以秒为单位）。
+ * @param {EasingFunction} [options.easingFunction=EasingFunction.LINEAR_NONE] 确定动画的曲线。
+ * @param {TweenCollection.TweenUpdateCallback} [options.update] 每次动画更新时调用的回调函数（通常与渲染帧绑定）。
+ * @param {TweenCollection.TweenCompleteCallback} [options.complete] 补间动画完成时调用的回调函数。
+ * @param {TweenCollection.TweenCancelledCallback} [options.cancel] 如果补间动画被取消（无论是由于调用了 {@link Tween#cancelTween} 还是因为补间动画从集合中移除）时调用的回调函数。
+ * @returns {Tween} 补间动画。
  *
- * @exception {DeveloperError} options.object must have the specified property.
- * @exception {DeveloperError} options.duration must be positive.
+ * @exception {DeveloperError} options.object 必须具有指定的属性。
+ * @exception {DeveloperError} options.duration 必须为正数。
  */
 TweenCollection.prototype.addProperty = function (options) {
   options = options ?? Frozen.EMPTY_OBJECT;
@@ -337,23 +337,23 @@ TweenCollection.prototype.addProperty = function (options) {
 };
 
 /**
- * Creates a tween for animating the alpha of all color uniforms on a {@link Material}.  The tween starts animating at the next call to {@link TweenCollection#update}, which
- * is implicit when {@link Viewer} or {@link CesiumWidget} render the scene.
+ * 创建用于动画 {@link Material} 上所有颜色统一变量的 alpha 值的补间动画。补间动画在下次调用 {@link TweenCollection#update} 时开始，
+ * 当 {@link Viewer} 或 {@link CesiumWidget} 渲染场景时会隐式调用。
  *
- * @param {object} [options] Object with the following properties:
- * @param {Material} options.material The material to animate.
- * @param {number} [options.startValue=0.0] The initial alpha value.
- * @param {number} [options.stopValue=1.0] The final alpha value.
- * @param {number} [options.duration=3.0] The duration, in seconds, for the tween.  The tween is automatically removed from the collection when it stops.
- * @param {number} [options.delay=0.0] The delay, in seconds, before the tween starts animating.
- * @param {EasingFunction} [options.easingFunction=EasingFunction.LINEAR_NONE] Determines the curve for animtion.
- * @param {TweenCollection.TweenUpdateCallback} [options.update] The callback to call at each animation update (usually tied to the a rendered frame).
- * @param {TweenCollection.TweenCompleteCallback} [options.complete] The callback to call when the tween finishes animating.
- * @param {TweenCollection.TweenCancelledCallback} [options.cancel] The callback to call if the tween is canceled either because {@link Tween#cancelTween} was called or because the tween was removed from the collection.
- * @returns {Tween} The tween.
+ * @param {object} [options] 包含以下属性的对象：
+ * @param {Material} options.material 要动画的材质。
+ * @param {number} [options.startValue=0.0] 初始 alpha 值。
+ * @param {number} [options.stopValue=1.0] 最终 alpha 值。
+ * @param {number} [options.duration=3.0] 补间动画的持续时间（以秒为单位）。补间动画停止时会自动从集合中移除。
+ * @param {number} [options.delay=0.0] 补间动画开始前的延迟时间（以秒为单位）。
+ * @param {EasingFunction} [options.easingFunction=EasingFunction.LINEAR_NONE] 确定动画的曲线。
+ * @param {TweenCollection.TweenUpdateCallback} [options.update] 每次动画更新时调用的回调函数（通常与渲染帧绑定）。
+ * @param {TweenCollection.TweenCompleteCallback} [options.complete] 补间动画完成时调用的回调函数。
+ * @param {TweenCollection.TweenCancelledCallback} [options.cancel] 如果补间动画被取消（无论是由于调用了 {@link Tween#cancelTween} 还是因为补间动画从集合中移除）时调用的回调函数。
+ * @returns {Tween} 补间动画。
  *
- * @exception {DeveloperError} material has no properties with alpha components.
- * @exception {DeveloperError} options.duration must be positive.
+ * @exception {DeveloperError} 材质没有包含 alpha 分量的属性。
+ * @exception {DeveloperError} options.duration 必须为正数。
  */
 TweenCollection.prototype.addAlpha = function (options) {
   options = options ?? Frozen.EMPTY_OBJECT;
@@ -410,22 +410,22 @@ TweenCollection.prototype.addAlpha = function (options) {
 };
 
 /**
- * Creates a tween for animating the offset uniform of a {@link Material}.  The tween starts animating at the next call to {@link TweenCollection#update}, which
- * is implicit when {@link Viewer} or {@link CesiumWidget} render the scene.
+ * 创建用于动画 {@link Material} 的 offset 统一变量的补间动画。补间动画在下次调用 {@link TweenCollection#update} 时开始，
+ * 当 {@link Viewer} 或 {@link CesiumWidget} 渲染场景时会隐式调用。
  *
- * @param {object} [options] Object with the following properties:
- * @param {Material} options.material The material to animate.
- * @param {number} options.startValue The initial alpha value.
- * @param {number} options.stopValue The final alpha value.
- * @param {number} [options.duration=3.0] The duration, in seconds, for the tween.  The tween is automatically removed from the collection when it stops.
- * @param {number} [options.delay=0.0] The delay, in seconds, before the tween starts animating.
- * @param {EasingFunction} [options.easingFunction=EasingFunction.LINEAR_NONE] Determines the curve for animtion.
- * @param {TweenCollection.TweenUpdateCallback} [options.update] The callback to call at each animation update (usually tied to the a rendered frame).
- * @param {TweenCollection.TweenCancelledCallback} [options.cancel] The callback to call if the tween is canceled either because {@link Tween#cancelTween} was called or because the tween was removed from the collection.
- * @returns {Tween} The tween.
+ * @param {object} [options] 包含以下属性的对象：
+ * @param {Material} options.material 要动画的材质。
+ * @param {number} options.startValue 初始 alpha 值。
+ * @param {number} options.stopValue 最终 alpha 值。
+ * @param {number} [options.duration=3.0] 补间动画的持续时间（以秒为单位）。补间动画停止时会自动从集合中移除。
+ * @param {number} [options.delay=0.0] 补间动画开始前的延迟时间（以秒为单位）。
+ * @param {EasingFunction} [options.easingFunction=EasingFunction.LINEAR_NONE] 确定动画的曲线。
+ * @param {TweenCollection.TweenUpdateCallback} [options.update] 每次动画更新时调用的回调函数（通常与渲染帧绑定）。
+ * @param {TweenCollection.TweenCancelledCallback} [options.cancel] 如果补间动画被取消（无论是由于调用了 {@link Tween#cancelTween} 还是因为补间动画从集合中移除）时调用的回调函数。
+ * @returns {Tween} 补间动画。
  *
- * @exception {DeveloperError} material.uniforms must have an offset property.
- * @exception {DeveloperError} options.duration must be positive.
+ * @exception {DeveloperError} material.uniforms 必须具有 offset 属性。
+ * @exception {DeveloperError} options.duration 必须为正数。
  */
 TweenCollection.prototype.addOffsetIncrement = function (options) {
   options = options ?? Frozen.EMPTY_OBJECT;
@@ -457,13 +457,13 @@ TweenCollection.prototype.addOffsetIncrement = function (options) {
 };
 
 /**
- * Removes a tween from the collection.
+ * 从集合中移除一个补间动画。
  * <p>
- * This calls the {@link Tween#cancel} callback if the tween has one.
+ * 如果补间动画有取消回调函数，则会调用 {@link Tween#cancel}。
  * </p>
  *
- * @param {Tween} tween The tween to remove.
- * @returns {boolean} <code>true</code> if the tween was removed; <code>false</code> if the tween was not found in the collection.
+ * @param {Tween} tween 要移除的补间动画。
+ * @returns {boolean} 如果补间动画被移除则返回 <code>true</code>；如果在集合中未找到该补间动画则返回 <code>false</code>。
  */
 TweenCollection.prototype.remove = function (tween) {
   if (!defined(tween)) {
@@ -484,9 +484,9 @@ TweenCollection.prototype.remove = function (tween) {
 };
 
 /**
- * Removes all tweens from the collection.
+ * 从集合中移除所有补间动画。
  * <p>
- * This calls the {@link Tween#cancel} callback for each tween that has one.
+ * 对于每个有取消回调函数的补间动画，都会调用 {@link Tween#cancel}。
  * </p>
  */
 TweenCollection.prototype.removeAll = function () {
@@ -503,23 +503,22 @@ TweenCollection.prototype.removeAll = function () {
 };
 
 /**
- * Determines whether this collection contains a given tween.
+ * 确定此集合是否包含给定的补间动画。
  *
- * @param {Tween} tween The tween to check for.
- * @returns {boolean} <code>true</code> if this collection contains the tween, <code>false</code> otherwise.
+ * @param {Tween} tween 要检查的补间动画。
+ * @returns {boolean} 如果集合包含该补间动画则返回 <code>true</code>，否则返回 <code>false</code>。
  */
 TweenCollection.prototype.contains = function (tween) {
   return defined(tween) && this._tweens.indexOf(tween) !== -1;
 };
 
 /**
- * Returns the tween in the collection at the specified index.  Indices are zero-based
- * and increase as tweens are added.  Removing a tween shifts all tweens after
- * it to the left, changing their indices.  This function is commonly used to iterate over
- * all the tween in the collection.
+ * 返回集合中指定索引处的补间动画。索引从零开始，
+ * 并在添加补间动画时递增。移除补间动画会将其后的所有补间动画向左移动，从而改变它们的索引。
+ * 此函数通常用于遍历集合中的所有补间动画。
  *
- * @param {number} index The zero-based index of the tween.
- * @returns {Tween} The tween at the specified index.
+ * @param {number} index 补间动画的从零开始的索引。
+ * @returns {Tween} 指定索引处的补间动画。
  *
  * @example
  * // Output the duration of all the tweens in the collection.
@@ -540,10 +539,9 @@ TweenCollection.prototype.get = function (index) {
 };
 
 /**
- * Updates the tweens in the collection to be at the provide time.  When a tween finishes, it is removed
- * from the collection.
+ * 更新集合中的补间动画到指定的时间。当补间动画完成时，它会从集合中移除。
  *
- * @param {number} [time=getTimestamp()] The time in seconds.  By default tweens are synced to the system clock.
+ * @param {number} [time=getTimestamp()] 时间（以秒为单位）。默认情况下，补间动画与系统时钟同步。
  */
 TweenCollection.prototype.update = function (time) {
   const tweens = this._tweens;
@@ -576,17 +574,17 @@ TweenCollection.prototype.update = function (time) {
 };
 
 /**
- * A function that will execute when a tween completes.
+ * 补间动画完成时执行的函数。
  * @callback TweenCollection.TweenCompleteCallback
  */
 
 /**
- * A function that will execute when a tween updates.
+ * 补间动画更新时执行的函数。
  * @callback TweenCollection.TweenUpdateCallback
  */
 
 /**
- * A function that will execute when a tween is cancelled.
+ * 补间动画被取消时执行的函数。
  * @callback TweenCollection.TweenCancelledCallback
  */
 export default TweenCollection;

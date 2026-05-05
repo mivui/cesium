@@ -1,23 +1,21 @@
 /**
- * An enum describing how the {@link CustomShader} will be added to the
- * fragment shader. This determines how the shader interacts with the material.
+ * 描述 {@link CustomShader} 如何添加到片段着色器的枚举。
+ * 这决定了着色器如何与材质交互。
  *
  * @enum {string}
  *
- * @experimental This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.
+ * @experimental 此功能使用了 3D Tiles 规范中尚未最终确定的部分，可能会在没有 Cesium 标准弃用策略的情况下更改。
  */
 const CustomShaderMode = {
   /**
-   * The custom shader will be used to modify the results of the material stage
-   * before lighting is applied.
+   * 自定义着色器将用于在应用光照之前修改材质阶段的结果。
    *
    * @type {string}
    * @constant
    */
   MODIFY_MATERIAL: "MODIFY_MATERIAL",
   /**
-   * The custom shader will be used instead of the material stage. This is a hint
-   * to optimize out the material processing code.
+   * 自定义着色器将替代材质阶段使用。这是一个用于优化掉材质处理代码的提示。
    *
    * @type {string}
    * @constant

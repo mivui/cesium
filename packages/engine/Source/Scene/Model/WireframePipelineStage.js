@@ -20,11 +20,11 @@ const WireframePipelineStage = {
 };
 
 /**
- * Process a primitive. This modifies the render resources as follows:
+ * 处理图元。这会按如下方式修改渲染资源：
  * <ul>
- *   <li>Adds a define to the fragment shader to prevent extra shading of the lines.</li>
- *   <li>Adds a separate index buffer for wireframe indices</li>
- *   <li>Updates the primitive type and count for rendering with gl.LINES</li>
+ *   <li>向片段着色器添加定义以防止线条的额外着色。</li>
+ *   <li>为线框索引添加单独的索引缓冲区</li>
+ *   <li>更新图元类型和计数以使用gl.LINES进行渲染</li>
  * </ul>
  *
  * @param {PrimitiveRenderResources} renderResources The render resources for this node

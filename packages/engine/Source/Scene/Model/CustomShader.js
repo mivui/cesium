@@ -9,13 +9,13 @@ import TextureManager from "./TextureManager.js";
 import CustomShaderTranslucencyMode from "./CustomShaderTranslucencyMode.js";
 
 /**
- * An object describing a uniform, its type, and an initial value
+ * 描述统一变量、其类型和初始值的对象
  *
  * @typedef {object} UniformSpecifier
- * @property {UniformType} type The Glsl type of the uniform.
- * @property {boolean|number|Cartesian2|Cartesian3|Cartesian4|Matrix2|Matrix3|Matrix4|TextureUniform} value The initial value of the uniform
+ * @property {UniformType} type 统一变量的 GLSL 类型。
+ * @property {boolean|number|Cartesian2|Cartesian3|Cartesian4|Matrix2|Matrix3|Matrix4|TextureUniform} value 统一变量的初始值
  *
- * @experimental This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.
+ * @experimental 此功能使用了 3D Tiles 规范中尚未最终确定的部分，可能会在没有 Cesium 标准弃用策略的情况下更改。
  */
 
 /**
@@ -53,40 +53,37 @@ import CustomShaderTranslucencyMode from "./CustomShaderTranslucencyMode.js";
  */
 
 /**
- * A user defined GLSL shader used with {@link Model} as well
- * as {@link Cesium3DTileset}.
+ * 与 {@link Model} 和 {@link Cesium3DTileset} 一起使用的用户定义 GLSL 着色器。
  * <p>
- * If texture uniforms are used, additional resource management must be done:
+ * 如果使用纹理统一变量，必须进行额外的资源管理：
  * </p>
  * <ul>
  *   <li>
- *      The <code>update</code> function must be called each frame. When a
- *      custom shader is passed to a {@link Model} or a
- *      {@link Cesium3DTileset}, this step is handled automaticaly
+ *      <code>update</code> 函数必须在每一帧都被调用。当自定义着色器传递给
+ *      {@link Model} 或 {@link Cesium3DTileset} 时，此步骤会自动处理
  *   </li>
  *   <li>
- *      {@link CustomShader#destroy} must be called when the custom shader is
- *      no longer needed to clean up GPU resources properly. The application
- *      is responsible for calling this method.
+ *      不再需要自定义着色器时，必须调用 {@link CustomShader#destroy} 以正确清理 GPU 资源。
+ *      应用程序负责调用此方法。
  *   </li>
  * </ul>
  * <p>
- * See the {@link https://github.com/CesiumGS/cesium/tree/main/Documentation/CustomShaderGuide|Custom Shader Guide} for more detailed documentation.
+ * 有关更详细的文档，请参阅 {@link https://github.com/CesiumGS/cesium/tree/main/Documentation/CustomShaderGuide|自定义着色器指南}。
  * </p>
  *
- * @param {object} options An object with the following options
- * @param {CustomShaderMode} [options.mode=CustomShaderMode.MODIFY_MATERIAL] The custom shader mode, which determines how the custom shader code is inserted into the fragment shader.
- * @param {LightingModel} [options.lightingModel] The lighting model (e.g. PBR or unlit). If present, this overrides the default lighting for the model.
- * @param {CustomShaderTranslucencyMode} [options.translucencyMode=CustomShaderTranslucencyMode.INHERIT] The translucency mode, which determines how the custom shader will be applied. If the value is CustomShaderTransulcencyMode.OPAQUE or CustomShaderTransulcencyMode.TRANSLUCENT, the custom shader will override settings from the model's material. If the value is CustomShaderTransulcencyMode.INHERIT, the custom shader will render as either opaque or translucent depending on the primitive's material settings.
- * @param {Object<string, UniformSpecifier>} [options.uniforms] A dictionary for user-defined uniforms. The key is the uniform name that will appear in the GLSL code. The value is an object that describes the uniform type and initial value
- * @param {Object<string, VaryingType>} [options.varyings] A dictionary for declaring additional GLSL varyings used in the shader. The key is the varying name that will appear in the GLSL code. The value is the data type of the varying. For each varying, the declaration will be added to the top of the shader automatically. The caller is responsible for assigning a value in the vertex shader and using the value in the fragment shader.
- * @param {string} [options.vertexShaderText] The custom vertex shader as a string of GLSL code. It must include a GLSL function called vertexMain. See the example for the expected signature. If not specified, the custom vertex shader step will be skipped in the computed vertex shader.
- * @param {string} [options.fragmentShaderText] The custom fragment shader as a string of GLSL code. It must include a GLSL function called fragmentMain. See the example for the expected signature. If not specified, the custom fragment shader step will be skipped in the computed fragment shader.
+ * @param {object} options 具有以下选项的对象
+ * @param {CustomShaderMode} [options.mode=CustomShaderMode.MODIFY_MATERIAL] 自定义着色器模式，决定自定义着色器代码如何插入到片段着色器中。
+ * @param {LightingModel} [options.lightingModel] 光照模型（如 PBR 或无光照）。如果存在，将覆盖模型的默认光照。
+ * @param {CustomShaderTranslucencyMode} [options.translucencyMode=CustomShaderTranslucencyMode.INHERIT] 透明度模式，决定自定义着色器如何应用。如果值为 CustomShaderTransulcencyMode.OPAQUE 或 CustomShaderTransulcencyMode.TRANSLUCENT，自定义着色器将覆盖模型材质的设置。如果值为 CustomShaderTransulcencyMode.INHERIT，自定义着色器将根据图元材质设置渲染为不透明或半透明。
+ * @param {Object<string, UniformSpecifier>} [options.uniforms] 用户定义统一变量的字典。键是出现在 GLSL 代码中的统一变量名称。值是描述统一变量类型和初始值的对象
+ * @param {Object<string, VaryingType>} [options.varyings] 用于声明着色器中使用的额外 GLSL 变量的字典。键是将出现在 GLSL 代码中的变量名称。值是变量的数据类型。对于每个变量，声明将自动添加到着色器顶部。调用者负责在顶点着色器中赋值并在片段着色器中使用该值。
+ * @param {string} [options.vertexShaderText] 自定义顶点着色器，以 GLSL 代码字符串形式提供。必须包含一个名为 vertexMain 的 GLSL 函数。有关预期签名，请参阅示例。如果未指定，将在计算的顶点着色器中跳过自定义顶点着色器步骤。
+ * @param {string} [options.fragmentShaderText] 自定义片段着色器，以 GLSL 代码字符串形式提供。必须包含一个名为 fragmentMain 的 GLSL 函数。有关预期签名，请参阅示例。如果未指定，将在计算的片段着色器中跳过自定义片段着色器步骤。
  *
  * @alias CustomShader
  * @constructor
  *
- * @experimental This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.
+ * @experimental 此功能使用了 3D Tiles 规范中尚未最终确定的部分，可能会在没有 Cesium 标准弃用策略的情况下更改。
  *
  * @example
  * const customShader = new CustomShader({
@@ -123,45 +120,44 @@ function CustomShader(options) {
   options = options ?? Frozen.EMPTY_OBJECT;
 
   /**
-   * A value determining how the custom shader interacts with the overall
-   * fragment shader. This is used by {@link CustomShaderPipelineStage}
+   * 决定自定义着色器如何与整体片段着色器交互的值。由 {@link CustomShaderPipelineStage} 使用
    *
    * @type {CustomShaderMode}
    * @readonly
    */
   this.mode = options.mode ?? CustomShaderMode.MODIFY_MATERIAL;
   /**
-   * The lighting model to use when using the custom shader.
-   * This is used by {@link CustomShaderPipelineStage}
+   * 使用自定义着色器时的光照模型。
+   * 由 {@link CustomShaderPipelineStage} 使用
    *
    * @type {LightingModel}
    * @readonly
    */
   this.lightingModel = options.lightingModel;
   /**
-   * Additional uniforms as declared by the user.
+   * 用户声明的额外统一变量。
    *
    * @type {Object<string, UniformSpecifier>}
    * @readonly
    */
   this.uniforms = options.uniforms ?? Frozen.EMPTY_OBJECT;
   /**
-   * Additional varyings as declared by the user.
-   * This is used by {@link CustomShaderPipelineStage}
+   * 用户声明的额外 varyings。
+   * 由 {@link CustomShaderPipelineStage} 使用
    *
    * @type {Object<string, VaryingType>}
    * @readonly
    */
   this.varyings = options.varyings ?? Frozen.EMPTY_OBJECT;
   /**
-   * The user-defined GLSL code for the vertex shader
+   * 用户定义的顶点着色器 GLSL 代码
    *
    * @type {string}
    * @readonly
    */
   this.vertexShaderText = options.vertexShaderText;
   /**
-   * The user-defined GLSL code for the fragment shader
+   * 用户定义的片段着色器 GLSL 代码
    *
    * @type {string}
    * @readonly
@@ -169,10 +165,10 @@ function CustomShader(options) {
   this.fragmentShaderText = options.fragmentShaderText;
 
   /**
-   * The translucency mode, which determines how the custom shader will be applied. If the value is
-   * CustomShaderTransulcencyMode.OPAQUE or CustomShaderTransulcencyMode.TRANSLUCENT, the custom shader
-   * will override settings from the model's material. If the value isCustomShaderTransulcencyMode.INHERIT,
-   * the custom shader will render as either opaque or translucent depending on the primitive's material settings.
+   * 透明度模式，决定自定义着色器如何应用。如果值为
+   * CustomShaderTransulcencyMode.OPAQUE 或 CustomShaderTransulcencyMode.TRANSLUCENT，自定义着色器
+   * 将覆盖模型材质的设置。如果值为 CustomShaderTransulcencyMode.INHERIT，
+   * 自定义着色器将根据图元材质设置渲染为不透明或半透明。
    *
    * @type {CustomShaderTranslucencyMode}
    * @default CustomShaderTranslucencyMode.INHERIT
@@ -406,9 +402,9 @@ function validateBuiltinVariables(customShader) {
 }
 
 /**
- * Update the value of a uniform declared in the shader
- * @param {string} uniformName The GLSL name of the uniform. This must match one of the uniforms declared in the constructor
- * @param {boolean|number|Cartesian2|Cartesian3|Cartesian4|Matrix2|Matrix3|Matrix4|string|Resource|TextureUniform} value The new value of the uniform.
+ * 更新着色器中声明的统一变量的值
+ * @param {string} uniformName 统一变量的 GLSL 名称。必须与构造函数中声明的统一变量之一匹配
+ * @param {boolean|number|Cartesian2|Cartesian3|Cartesian4|Matrix2|Matrix3|Matrix4|string|Resource|TextureUniform} value 统一变量的新值
  */
 CustomShader.prototype.setUniform = function (uniformName, value) {
   //>>includeStart('debug', pragmas.debug);
@@ -438,12 +434,12 @@ CustomShader.prototype.update = function (frameState) {
 };
 
 /**
- * Returns true if this object was destroyed; otherwise, false.
+ * 如果此对象已被销毁则返回 true，否则返回 false。
  * <br /><br />
- * If this object was destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.
+ * 如果此对象已被销毁，则不应使用它；调用除
+ * <code>isDestroyed</code> 以外的任何函数将导致 {@link DeveloperError} 异常。
  *
- * @returns {boolean} True if this object was destroyed; otherwise, false.
+ * @returns {boolean} 如果此对象已被销毁则返回 true，否则返回 false。
  *
  * @see CustomShader#destroy
  */
@@ -452,14 +448,14 @@ CustomShader.prototype.isDestroyed = function () {
 };
 
 /**
- * Destroys the WebGL resources held by this object.  Destroying an object allows for deterministic
- * release of WebGL resources, instead of relying on the garbage collector to destroy this object.
+ * 销毁此对象持有的 WebGL 资源。销毁对象允许确定性地
+ * 释放 WebGL 资源，而不是依赖垃圾回收器来销毁此对象。
  * <br /><br />
- * Once an object is destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.  Therefore,
- * assign the return value (<code>undefined</code>) to the object as done in the example.
+ * 一旦对象被销毁，就不应使用它；调用除
+ * <code>isDestroyed</code> 以外的任何函数将导致 {@link DeveloperError} 异常。因此，
+ * 应像示例中那样将返回值（<code>undefined</code>）赋给对象。
  *
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 此对象已被销毁，即已调用 destroy()。
  *
  * @example
  * customShader = customShader && customShader.destroy();

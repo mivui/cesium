@@ -175,22 +175,19 @@ ModelStatistics.prototype.addTexture = function (texture) {
 };
 
 /**
- * Returns an array containing the `texture.id` values for all textures
- * that are part of the model.
+ * 返回一个数组，包含模型所有纹理的 `texture.id` 值。
  *
- * @returns {string[]} The texture IDs
+ * @returns {string[]} 纹理ID数组
  */
 ModelStatistics.prototype.getTextureIds = function () {
   return Object.keys(this._textureIdByteLengths);
 };
 
 /**
- * Returns the length, in bytes, of the texture data for the texture with
- * the given ID that is part of the model, or `undefined` if the model
- * does not contain the texture with the given ID.
+ * 返回模型中所给ID对应的纹理数据的字节长度，如果模型不包含该ID的纹理则返回`undefined`。
  *
- * @param {string} textureId The texture ID
- * @returns {number|undefined} The texture byte length
+ * @param {string} textureId 纹理ID
+ * @returns {number|undefined} 纹理字节长度
  */
 ModelStatistics.prototype.getTextureByteLengthById = function (textureId) {
   return this._textureIdByteLengths[textureId];

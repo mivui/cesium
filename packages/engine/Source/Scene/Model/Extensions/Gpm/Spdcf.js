@@ -3,31 +3,28 @@ import Check from "../../../../Core/Check.js";
 /**
  * @typedef {object} Spdcf.ConstructorOptions
  *
- * Initialization options for the Spdcf constructor
+ * Spdcf 构造函数的初始化选项
  *
- * @property {number} A The factor A, in (0, 1]
- * @property {number} alpha The alpha value, in [0, 1)
- * @property {number} beta The beta value, in [0, 10]
- * @property {number} T the tau value, in (0, +inf)
+ * @property {number} A 因子 A，范围 (0, 1]
+ * @property {number} alpha alpha 值，范围 [0, 1)
+ * @property {number} beta beta 值，范围 [0, 10]
+ * @property {number} T tau 值，范围 (0, +inf)
  */
 
 /**
- * Variables for a Strictly Positive-Definite Correlation Function.
+ * 严格正定相关函数的变量。
  *
- * This reflects the `spdcf` definition of the
- * {@link https://nsgreg.nga.mil/csmwg.jsp|NGA_gpm_local} glTF extension.
- * Instances of this type are stored as the parameters within a
- * `CorrelationGroup`.
+ * 这反映了 {@link https://nsgreg.nga.mil/csmwg.jsp|NGA_gpm_local} glTF 扩展中
+ * `spdcf` 的定义。此类型的实例存储为 `CorrelationGroup` 内的参数。
  *
- * Parameters (A, alpha, beta, T) describe the correlation decrease
- * between points as a function of delta time:
+ * 参数 (A, alpha, beta, T) 描述点之间的相关性随 delta 时间的变化而减小：
  * ```
  * spdcf(delta_t) = A_t * (alpha_t + ((1 - alpha_t)(1 + beta_t)) / (beta_t + e^(delta_t/T_t)))
  * ```
  *
  * @constructor
- * @param {Spdcf.ConstructorOptions} options An object describing initialization options
- * @experimental This feature is not final and is subject to change without Cesium's standard deprecation policy.
+ * @param {Spdcf.ConstructorOptions} options 描述初始化选项的对象
+ * @experimental 此功能尚未最终确定，可能会在不遵循 Cesium 标准弃用政策的情况下更改。
  */
 function Spdcf(options) {
   //>>includeStart('debug', pragmas.debug);
@@ -48,7 +45,7 @@ function Spdcf(options) {
 
 Object.defineProperties(Spdcf.prototype, {
   /**
-   * In (0, 1]
+   * 范围 (0, 1]
    *
    * @memberof Spdcf.prototype
    * @type {number}
@@ -61,7 +58,7 @@ Object.defineProperties(Spdcf.prototype, {
   },
 
   /**
-   * In [0, 1)
+   * 范围 [0, 1)
    *
    * @memberof Spdcf.prototype
    * @type {number}
@@ -74,7 +71,7 @@ Object.defineProperties(Spdcf.prototype, {
   },
 
   /**
-   * In [0, 10]
+   * 范围 [0, 10]
    *
    * @memberof Spdcf.prototype
    * @type {number}
@@ -87,7 +84,7 @@ Object.defineProperties(Spdcf.prototype, {
   },
 
   /**
-   * In (0, +inf)
+   * 范围 (0, +inf)
    *
    * @memberof Spdcf.prototype
    * @type {number}

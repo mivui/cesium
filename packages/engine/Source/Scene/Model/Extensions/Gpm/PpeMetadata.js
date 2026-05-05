@@ -3,21 +3,21 @@ import Check from "../../../../Core/Check.js";
 /**
  * @typedef {object} PpeMetadata.ConstructorOptions
  *
- * Initialization options for the PpeMetadata constructor
+ * PpeMetadata 构造函数的初始化选项
  *
- * @property {PpeSource} source The source of the error data
- * @property {number|undefined} [min] Minimum allowed value for the property.
- * @property {number|undefined} [max] Maximum allowed value for the property.
+ * @property {PpeSource} source 误差数据的来源
+ * @property {number|undefined} [min] 属性允许的最小值。
+ * @property {number|undefined} [max] 属性允许的最大值。
  */
 
 /**
- * Metadata related to the stored PPE (Per-Point Error) data.
+ * 与存储的 PPE（逐点误差）数据相关的元数据。
  *
- * This reflects the `ppeMetadata` definition of the
- * {@link https://nsgreg.nga.mil/csmwg.jsp|NGA_gpm_local} glTF extension.
+ * 这反映了 {@link https://nsgreg.nga.mil/csmwg.jsp|NGA_gpm_local} glTF 扩展中
+ * `ppeMetadata` 的定义。
  *
  * @constructor
- * @param {PpeMetadata.ConstructorOptions} options An object describing initialization options
+ * @param {PpeMetadata.ConstructorOptions} options 描述初始化选项的对象
  *
  * @private
  */
@@ -33,9 +33,8 @@ function PpeMetadata(options) {
 
 Object.defineProperties(PpeMetadata.prototype, {
   /**
-   * Minimum allowed value for the property. This is the minimum of all
-   * values after the transforms based on the offset and scale properties
-   * have been applied.
+   * 属性允许的最小值。这是应用基于 offset 和 scale 属性的转换后
+   * 所有值中的最小值。
    *
    * @memberof PpeMetadata.prototype
    * @type {number|undefined}
@@ -48,9 +47,8 @@ Object.defineProperties(PpeMetadata.prototype, {
   },
 
   /**
-   * Maximum allowed value for the property. This is the maximum of all
-   * values after the transforms based on the offset and scale properties
-   * have been applied.
+   * 属性允许的最大值。这是应用基于 offset 和 scale 属性的转换后
+   * 所有值中的最大值。
    *
    * @memberof PpeMetadata.prototype
    * @type {number|undefined}
@@ -63,7 +61,7 @@ Object.defineProperties(PpeMetadata.prototype, {
   },
 
   /**
-   * Possible error source contents
+   * 可能的误差来源内容
    *
    * @memberof PpeMetadata.prototype
    * @type {PpeSource}

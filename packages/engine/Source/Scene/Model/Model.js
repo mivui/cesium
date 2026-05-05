@@ -1063,9 +1063,8 @@ Object.defineProperties(Model.prototype, {
   },
 
   /**
-   * Gets the model's bounding sphere in world space. This does not take into account
-   * glTF animations, skins, or morph targets. It also does not account for
-   * {@link Model#minimumPixelSize}.
+    * 获取模型在世界空间中的包围球。这不考虑 glTF 动画、骨骼或变形目标，也不考虑
+    * {@link Model#minimumPixelSize}.
    *
    * @memberof Model.prototype
    *
@@ -3280,10 +3279,10 @@ function makeModelOptions(loader, modelType, options) {
 }
 
 /**
- * Interface for the function that is called with the loaded gltf object once loaded.
+ * 加载完成后使用加载的 gltf 对象调用的函数接口。
  * @callback Model.GltfCallback
  *
- * @param {object} gltf The gltf object
+ * @param {object} gltf gltf 对象
  */
 
 export default Model;

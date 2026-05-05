@@ -8,21 +8,21 @@ import CesiumMath from "./Math.js";
 import Matrix4 from "./Matrix4.js";
 
 /**
- * The viewing frustum is defined by 6 planes.
- * Each plane is represented by a {@link Cartesian4} object, where the x, y, and z components
- * define the unit vector normal to the plane, and the w component is the distance of the
- * plane from the origin/camera position.
+ * 视锥体由6个平面定义。
+ * 每个平面由 {@link Cartesian4} 对象表示，其中 x、y 和 z 分量
+ * 定义平面的单位法向量，w 分量是
+ * 平面到原点/相机位置的距离。
  *
  * @alias PerspectiveOffCenterFrustum
  * @constructor
  *
- * @param {object} [options] An object with the following properties:
- * @param {number} [options.left] The left clipping plane distance.
- * @param {number} [options.right] The right clipping plane distance.
- * @param {number} [options.top] The top clipping plane distance.
- * @param {number} [options.bottom] The bottom clipping plane distance.
- * @param {number} [options.near=1.0] The near clipping plane distance.
- * @param {number} [options.far=500000000.0] The far clipping plane distance.
+ * @param {object} [options] 包含以下属性的对象：
+ * @param {number} [options.left] 左裁剪平面距离。
+ * @param {number} [options.right] 右裁剪平面距离。
+ * @param {number} [options.top] 上裁剪平面距离。
+ * @param {number} [options.bottom] 下裁剪平面距离。
+ * @param {number} [options.near=1.0] 近裁剪平面距离。
+ * @param {number} [options.far=500000000.0] 远裁剪平面距离。
  *
  * @example
  * const frustum = new Cesium.PerspectiveOffCenterFrustum({
@@ -40,7 +40,7 @@ function PerspectiveOffCenterFrustum(options) {
   options = options ?? Frozen.EMPTY_OBJECT;
 
   /**
-   * Defines the left clipping plane.
+   * 定义左裁剪平面。
    * @type {number|undefined}
    * @default undefined
    */
@@ -48,7 +48,7 @@ function PerspectiveOffCenterFrustum(options) {
   this._left = undefined;
 
   /**
-   * Defines the right clipping plane.
+   * 定义右裁剪平面。
    * @type {number|undefined}
    * @default undefined
    */
@@ -56,7 +56,7 @@ function PerspectiveOffCenterFrustum(options) {
   this._right = undefined;
 
   /**
-   * Defines the top clipping plane.
+   * 定义上裁剪平面。
    * @type {number|undefined}
    * @default undefined
    */
@@ -64,7 +64,7 @@ function PerspectiveOffCenterFrustum(options) {
   this._top = undefined;
 
   /**
-   * Defines the bottom clipping plane.
+   * 定义下裁剪平面。
    * @type {number|undefined}
    * @default undefined
    */
@@ -72,7 +72,7 @@ function PerspectiveOffCenterFrustum(options) {
   this._bottom = undefined;
 
   /**
-   * The distance of the near plane.
+   * 近平面距离。
    * @type {number}
    * @default 1.0
    */
@@ -80,7 +80,7 @@ function PerspectiveOffCenterFrustum(options) {
   this._near = this.near;
 
   /**
-   * The distance of the far plane.
+   * 远平面距离。
    * @type {number}
    * @default 500000000.0
    */
@@ -156,8 +156,8 @@ function update(frustum) {
 
 Object.defineProperties(PerspectiveOffCenterFrustum.prototype, {
   /**
-   * Gets the perspective projection matrix computed from the view frustum.
-   * The projection matrix will be recomputed if any frustum parameters have changed.
+   * 获取从视锥体计算出的透视投影矩阵。
+   * 如果任何视锥体参数发生更改，投影矩阵将重新计算。
    *
    * @memberof PerspectiveOffCenterFrustum.prototype
    * @type {Matrix4}
@@ -173,7 +173,7 @@ Object.defineProperties(PerspectiveOffCenterFrustum.prototype, {
   },
 
   /**
-   * Gets the perspective projection matrix computed from the view frustum with an infinite far plane.
+   * 获取从带有无限远平面的视锥体计算出的透视投影矩阵。
    * @memberof PerspectiveOffCenterFrustum.prototype
    * @type {Matrix4}
    * @readonly

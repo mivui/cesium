@@ -2,11 +2,11 @@ import Color from "../Core/Color.js";
 import Frozen from "../Core/Frozen.js";
 
 /**
- * A directional light source that originates from the Sun.
+ * 源自太阳的定向光源。
  *
- * @param {object} [options] Object with the following properties:
- * @param {Color} [options.color=Color.WHITE] The light's color.
- * @param {number} [options.intensity=2.0] The light's intensity.
+ * @param {object} [options] 具有以下属性的对象：
+ * @param {Color} [options.color=Color.WHITE] 光源的颜色。
+ * @param {number} [options.intensity=2.0] 光源的强度。
  *
  * @alias SunLight
  * @constructor
@@ -14,14 +14,14 @@ import Frozen from "../Core/Frozen.js";
 function SunLight(options) {
   options = options ?? Frozen.EMPTY_OBJECT;
   /**
-   * The color of the light.
+   * 光源的颜色。
    * @type {Color}
    * @default Color.WHITE
    */
   this.color = Color.clone(options.color ?? Color.WHITE);
 
   /**
-   * The intensity of the light.
+   * 光源的强度。
    * @type {number}
    * @default 2.0
    */

@@ -5,9 +5,9 @@ import Resource from "./Resource.js";
 import RuntimeError from "./RuntimeError.js";
 
 /**
- * Default settings for accessing the iTwin platform.
+ * 用于访问 iTwin 平台的默认设置。
  *
- * @experimental This feature is not final and is subject to change without Cesium's standard deprecation policy.
+ * @experimental 此功能尚未最终确定，可能会在没有 Cesium 标准弃用策略的情况下进行更改。
  *
  * @see ITwinData
  * @namespace ITwinPlatform
@@ -15,8 +15,8 @@ import RuntimeError from "./RuntimeError.js";
 const ITwinPlatform = {};
 
 /**
- * Status states for a mesh-export export.
- * Valid values are: <code>NotStarted</code>, <code>InProgress</code>, <code>Complete</code>, <code>Invalid</code>
+ * 网格导出（mesh-export）的状态。
+ * 有效值为：<code>NotStarted</code>、<code>InProgress</code>、<code>Complete</code>、<code>Invalid</code>
  * @enum {string}
  */
 ITwinPlatform.ExportStatus = Object.freeze({
@@ -27,8 +27,8 @@ ITwinPlatform.ExportStatus = Object.freeze({
 });
 
 /**
- * Types of mesh-export exports. CesiumJS only supports loading <code>3DTILES</code> type exports.
- * Valid values are: <code>IMODEL</code>, <code>CESIUM</code>, <code>3DTILES</code>
+ * 网格导出（mesh-export）的类型。CesiumJS 仅支持加载 <code>3DTILES</code> 类型的导出。
+ * 有效值为：<code>IMODEL</code>、<code>CESIUM</code>、<code>3DTILES</code>
  * @enum {string}
  */
 ITwinPlatform.ExportType = Object.freeze({
@@ -38,7 +38,7 @@ ITwinPlatform.ExportType = Object.freeze({
 });
 
 /**
- * Types of Reality data. This is a partial list of types we know we can support
+ * 实景数据类型。这是我们知道可以支持的部分类型列表。
  *
  * @see https://developer.bentley.com/apis/reality-management/rm-rd-details/#types
  * @enum {string}
@@ -55,34 +55,33 @@ ITwinPlatform.RealityDataType = Object.freeze({
 });
 
 /**
- * Gets or sets the default iTwin access token. This token should have the <code>itwin-platform</code> scope.
+ * 获取或设置默认的 iTwin 访问令牌。此令牌应具有 <code>itwin-platform</code> 作用域。
  *
- * This value will be ignored if {@link ITwinPlatform.defaultShareKey} is defined.
+ * 如果定义了 {@link ITwinPlatform.defaultShareKey}，此值将被忽略。
  *
- * @experimental This feature is not final and is subject to change without Cesium's standard deprecation policy.
+ * @experimental 此功能尚未最终确定，可能会在没有 Cesium 标准弃用策略的情况下进行更改。
  *
  * @type {string|undefined}
  */
 ITwinPlatform.defaultAccessToken = undefined;
 
 /**
- * Gets or sets the default iTwin share key. If this value is provided it will override {@link ITwinPlatform.defaultAccessToken} in all requests.
+ * 获取或设置默认的 iTwin 共享密钥。如果提供此值，它将覆盖所有请求中的 {@link ITwinPlatform.defaultAccessToken}。
  *
- * Share keys can be generated using the iTwin Shares api
+ * 可以使用 iTwin Shares API 生成共享密钥：
  * https://developer.bentley.com/apis/access-control-v2/operations/create-itwin-share/
  *
- * @experimental This feature is not final and is subject to change without Cesium's standard deprecation policy.
+ * @experimental 此功能尚未最终确定，可能会在没有 Cesium 标准弃用策略的情况下进行更改。
  *
  * @type {string|undefined}
  */
 ITwinPlatform.defaultShareKey = undefined;
 
 /**
- * Create the necessary Authorization header based on which key/token is set.
- * If the {@link ITwinPlatform.defaultShareKey} is set it takes precedence and
- * will be used regardless if the {@link ITwinPlatform.defaultAccessToken} is set
+ * 根据设置的密钥/令牌创建必要的 Authorization 请求头。
+ * 如果设置了 {@link ITwinPlatform.defaultShareKey}，它将优先于 {@link ITwinPlatform.defaultAccessToken} 被使用。
  * @private
- * @returns {string} full auth header with basic/bearer method
+ * @returns {string} 包含 basic/bearer 方法的完整 auth 头
  */
 ITwinPlatform._getAuthorizationHeader = function () {
   //>>includeStart('debug', pragmas.debug);
@@ -103,9 +102,9 @@ ITwinPlatform._getAuthorizationHeader = function () {
 };
 
 /**
- * Gets or sets the default iTwin API endpoint.
+ * 获取或设置默认的 iTwin API 端点。
  *
- * @experimental This feature is not final and is subject to change without Cesium's standard deprecation policy.
+ * @experimental 此功能尚未最终确定，可能会在没有 Cesium 标准弃用策略的情况下进行更改。
  *
  * @type {string|Resource}
  * @default "https://api.bentley.com"
@@ -119,7 +118,7 @@ ITwinPlatform.apiEndpoint = new Resource({
  * @private
  * @property {string} iModelId
  * @property {string} changesetId
- * @property {ITwinPlatform.ExportType} exportType Type of the export. CesiumJS only supports the 3DTILES type
+ * @property {ITwinPlatform.ExportType} exportType 导出的类型。CesiumJS 仅支持 3DTILES 类型
  */
 
 /**
@@ -130,34 +129,34 @@ ITwinPlatform.apiEndpoint = new Resource({
 
 /**
  * @typedef {object} ExportRepresentation
- * The export objects from get-exports when using return=representation
+ * 使用 return=representation 时从 get-exports 获取的导出对象
  * @private
- * @property {string} id Export id
- * @property {string} displayName Name of the iModel
- * @property {ITwinPlatform.ExportStatus} status Status of this export
+ * @property {string} id 导出 id
+ * @property {string} displayName iModel 的名称
+ * @property {ITwinPlatform.ExportStatus} status 此导出的状态
  * @property {string} lastModified
- * @property {ExportRequest} request Object containing info about the export itself
- * @property {{mesh: Link}} _links Object containing relevant links. For Exports this includes the access url for the mesh itself
+ * @property {ExportRequest} request 包含导出本身信息的对象
+ * @property {{mesh: Link}} _links 包含相关链接的对象。对于导出，这包括网格本身的访问 URL
  */
 
 /**
  * @typedef {object} GetExportsResponse
  * @private
- * @property {ExportRepresentation[]} exports The list of exports for the current page
- * @property {{self: Link, next: Link | undefined, prev: Link | undefined}} _links Pagination links
+ * @property {ExportRepresentation[]} exports 当前页面的导出列表
+ * @property {{self: Link, next: Link | undefined, prev: Link | undefined}} _links 分页链接
  */
 
 /**
- * Get the list of exports for the specified iModel at it's most current version.
- * This will only return the top 5 exports with {@link ITwinPlatform.ExportType} of <code>3DTILES</code>.
+ * 获取指定 iModel 在其最新版本的导出列表。
+ * 这将仅返回最多 5 个 {@link ITwinPlatform.ExportType} 为 <code>3DTILES</code> 的导出。
  *
  * @private
  *
  * @param {string} iModelId iModel id
- * @param {string} [changesetId] The id of the changeset to filter results by. If not provided, exports from the latest available changesets will be returned.
+ * @param {string} [changesetId] 用于过滤结果的 changeset id。如果未提供，将返回最新可用 changeset 的导出。
  * @returns {Promise<GetExportsResponse>}
  *
- * @throws {RuntimeError} If the iTwin API request is not successful
+ * @throws {RuntimeError} 如果 iTwin API 请求不成功
  */
 ITwinPlatform.getExports = async function (iModelId, changesetId) {
   //>>includeStart('debug', pragmas.debug);
@@ -185,9 +184,9 @@ ITwinPlatform.getExports = async function (iModelId, changesetId) {
     queryParameters: {
       iModelId: iModelId,
       exportType: ITwinPlatform.ExportType["3DTILES"],
-      // With the export auto-generation it will auto-delete the 6th export so
-      // there should never be more than 5 results. Just request them all and parse
-      // for ones that are COMPLETE
+      // 由于导出自动生成功能会自动删除第 6 个导出，因此
+      // 结果永远不会超过 5 个。请求所有结果并解析
+      // 状态为 COMPLETE 的导出
       $top: "5",
       client: "CesiumJS",
     },
@@ -235,18 +234,18 @@ ITwinPlatform.getExports = async function (iModelId, changesetId) {
  * @typedef {object} RealityDataRepresentation
  * @private
  * @property {string} id "95d8dccd-d89e-4287-bb5f-3219acbc71ae",
- * @property {string} displayName "Name of reality data",
- * @property {string} dataset "Dataset",
+ * @property {string} displayName "实景数据名称",
+ * @property {string} dataset "数据集",
  * @property {string} group "73d09423-28c3-4fdb-ab4a-03a47a5b04f8",
- * @property {string} description "Description of reality data",
- * @property {string} rootDocument "Directory/SubDirectory/realityData.3mx",
+ * @property {string} description "实景数据描述",
+ * @property {string} rootDocument "目录/子目录/realityData.3mx",
  * @property {number} size 6521212,
- * @property {string} classification "Model",
+ * @property {string} classification "模型",
  * @property {ITwinPlatform.RealityDataType} type "3MX",
  * @property {{startDateTime: string, endDateTime: string, acquirer: string}} acquisition
  * @property {RealityDataExtent} extent
  * @property {boolean} authoring false,
- * @property {string} dataCenterLocation "North Europe",
+ * @property {string} dataCenterLocation "北欧",
  * @property {string} modifiedDateTime "2021-04-09T19:03:12Z",
  * @property {string} lastAccessedDateTime "2021-04-09T00:00:00Z",
  * @property {string} createdDateTime "2021-02-22T20:03:40Z",
@@ -254,12 +253,12 @@ ITwinPlatform.getExports = async function (iModelId, changesetId) {
  */
 
 /**
- * Load the full metadata for the given iTwin id and reality data id.
+ * 加载给定 iTwin id 和实景数据 id 的完整元数据。
  *
  * @private
  *
- * @param {string} iTwinId The id of the iTwin to load data from
- * @param {string} realityDataId The id of the reality data to load
+ * @param {string} iTwinId 要加载数据的 iTwin id
+ * @param {string} realityDataId 要加载的实景数据 id
  * @returns {Promise<RealityDataRepresentation>}
  */
 ITwinPlatform.getRealityDataMetadata = async function (iTwinId, realityDataId) {
@@ -314,15 +313,15 @@ ITwinPlatform.getRealityDataMetadata = async function (iTwinId, realityDataId) {
 };
 
 /**
- * Request the access url for the given iTwin id, reality data id and root document.
- * The root document can be requested from the list using <code>return=representation</code>
- * or the metadata route from {@link ITwinPlatform.getRealityDataMetadata}
+ * 请求给定 iTwin id、实景数据 id 和根文档的访问 URL。
+ * 可以使用 <code>return=representation</code> 从列表中请求根文档，
+ * 或通过 {@link ITwinPlatform.getRealityDataMetadata} 元数据路由获取。
  *
  * @private
  *
- * @param {string} iTwinId The id of the iTwin to load data from
- * @param {string} realityDataId The id of the reality data to load
- * @param {string} rootDocument The path of the root document for this reality data
+ * @param {string} iTwinId 要加载数据的 iTwin id
+ * @param {string} realityDataId 要加载的实景数据 id
+ * @param {string} rootDocument 此实景数据的根文档路径
  * @returns {Promise<string>}
  */
 ITwinPlatform.getRealityDataURL = async function (

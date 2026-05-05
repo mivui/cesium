@@ -18,12 +18,12 @@ const PickingPipelineStage = {
 };
 
 /**
- * Process a primitive. This modifies the following parts of the render resources:
+ * 处理图元。这会修改渲染资源的以下部分：
  * <ul>
- *  <li>adds attribute and varying declaration for the pick color vertex attribute in the vertex shader for instanced meshes</li>
- *  <li>adds declaration for the pick color uniform for non-instanced meshes</li>
- *  <li>adds defines in the shader for when picking is enabled</li>
- *  <li>creates the pick ID objects in the context</li>
+ *  <li>为实例化网格在顶点着色器中添加拾取颜色顶点属性的attribute和varying声明</li>
+ *  <li>为非实例化网格添加拾取颜色uniform的声明</li>
+ *  <li>在着色器中添加拾取启用时的定义</li>
+ *  <li>在上下文中创建拾取ID对象</li>
  * </ul>
  * @param {PrimitiveRenderResources} renderResources The render resources for this primitive.
  * @param {ModelComponents.Primitive} primitive The primitive.

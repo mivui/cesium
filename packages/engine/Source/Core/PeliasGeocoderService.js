@@ -6,21 +6,21 @@ import Rectangle from "./Rectangle.js";
 import Resource from "./Resource.js";
 
 /**
- * Provides geocoding via a {@link https://pelias.io/|Pelias} server.
+ * 通过 {@link https://pelias.io/|Pelias} 服务器提供地理编码服务。
  * @alias PeliasGeocoderService
  * @constructor
  *
- * @param {Resource|string} url The endpoint to the Pelias server.
+ * @param {Resource|string} url 指向 Pelias 服务器的端点。
  *
  * @example
- * // Configure a Viewer to use the Pelias server hosted by https://geocode.earth/
+ * // 配置 Viewer 使用由 https://geocode.earth/ 托管的 Pelias 服务器
  * const viewer = new Cesium.Viewer('cesiumContainer', {
  *   geocoder: new Cesium.PeliasGeocoderService(new Cesium.Resource({
  *     url: 'https://api.geocode.earth/v1/',
  *       queryParameters: {
  *         api_key: '<Your geocode.earth API key>'
- *     }
- *   }))
+ *       }
+ *     }))
  * });
  */
 function PeliasGeocoderService(url) {
@@ -34,7 +34,7 @@ function PeliasGeocoderService(url) {
 
 Object.defineProperties(PeliasGeocoderService.prototype, {
   /**
-   * The Resource used to access the Pelias endpoint.
+   * 用于访问 Pelias 端点的资源。
    * @type {Resource}
    * @memberof PeliasGeocoderService.prototype
    * @readonly
@@ -45,8 +45,7 @@ Object.defineProperties(PeliasGeocoderService.prototype, {
     },
   },
   /**
-   * Gets the credit to display after a geocode is performed. Typically this is used to credit
-   * the geocoder service.
+   * 获取执行地理编码后要显示的版权信息。通常用于注明地理编码服务的来源。
    * @memberof PeliasGeocoderService.prototype
    * @type {Credit|undefined}
    * @readonly
@@ -61,8 +60,8 @@ Object.defineProperties(PeliasGeocoderService.prototype, {
 /**
  * @function
  *
- * @param {string} query The query to be sent to the geocoder service
- * @param {GeocodeType} [type=GeocodeType.SEARCH] The type of geocode to perform.
+ * @param {string} query 要发送到地理编码服务的查询。
+ * @param {GeocodeType} [type=GeocodeType.SEARCH] 要执行的地理编码类型。
  * @returns {Promise<GeocoderService.Result[]>}
  */
 PeliasGeocoderService.prototype.geocode = async function (query, type) {

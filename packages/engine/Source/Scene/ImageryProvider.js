@@ -7,17 +7,17 @@ import Resource from "../Core/Resource.js";
 /**
  * @typedef {HTMLImageElement|HTMLCanvasElement|ImageBitmap|OffscreenCanvas} ImageryTypes
  *
- * The format in which {@link ImageryProvider} methods return an image may
- * vary by provider, configuration, or server settings.  Most common are
- * <code>HTMLImageElement</code>, <code>HTMLCanvasElement</code>, or on supported
- * browsers, <code>ImageBitmap</code>.
+ * {@link ImageryProvider} 方法返回图像时的格式可能
+ * 因提供程序、配置或服务器设置而异。最常见的是
+ * <code>HTMLImageElement</code>、<code>HTMLCanvasElement</code>，或在支持的
+ * 浏览器上返回 <code>ImageBitmap</code>。
  *
- * See the documentation for each ImageryProvider class for more information about how they return images.
+ * 有关各 ImageryProvider 类如何返回图像的更多信息，请参阅其文档。
  */
 
 /**
- * Provides imagery to be displayed on the surface of an ellipsoid.  This type describes an
- * interface and is not intended to be instantiated directly.
+ * 提供要在椭球体表面显示的影像。此类型描述了一个
+ * 接口，不打算直接实例化。
  *
  * @alias ImageryProvider
  * @constructor
@@ -39,8 +39,8 @@ import Resource from "../Core/Resource.js";
  * @see WebMapServiceImageryProvider
  * @see WebMapTileServiceImageryProvider
  *
- * @demo {@link https://sandcastle.cesium.com/index.html?id=imagery-layers|Cesium Sandcastle Imagery Layers Demo}
- * @demo {@link https://sandcastle.cesium.com/index.html?id=imagery-layers-manipulation|Cesium Sandcastle Imagery Manipulation Demo}
+ * @demo {@link https://sandcastle.cesium.com/index.html?id=imagery-layers|Cesium Sandcastle 影像图层演示}
+ * @demo {@link https://sandcastle.cesium.com/index.html?id=imagery-layers-manipulation|Cesium Sandcastle 影像操作演示}
  */
 function ImageryProvider() {
   DeveloperError.throwInstantiationError();
@@ -48,7 +48,7 @@ function ImageryProvider() {
 
 Object.defineProperties(ImageryProvider.prototype, {
   /**
-   * Gets the rectangle, in radians, of the imagery provided by the instance.
+   * 获取实例提供的影像范围（以弧度为单位）。
    * @memberof ImageryProvider.prototype
    * @type {Rectangle}
    * @readonly
@@ -58,7 +58,7 @@ Object.defineProperties(ImageryProvider.prototype, {
   },
 
   /**
-   * Gets the width of each tile, in pixels.
+   * 获取每个瓦片的宽度（以像素为单位）。
    * @memberof ImageryProvider.prototype
    * @type {number}
    * @readonly
@@ -68,7 +68,7 @@ Object.defineProperties(ImageryProvider.prototype, {
   },
 
   /**
-   * Gets the height of each tile, in pixels.
+   * 获取每个瓦片的高度（以像素为单位）。
    * @memberof ImageryProvider.prototype
    * @type {number}
    * @readonly
@@ -78,7 +78,7 @@ Object.defineProperties(ImageryProvider.prototype, {
   },
 
   /**
-   * Gets the maximum level-of-detail that can be requested.
+   * 获取可请求的最大细节级别。
    * @memberof ImageryProvider.prototype
    * @type {number|undefined}
    * @readonly
@@ -88,11 +88,9 @@ Object.defineProperties(ImageryProvider.prototype, {
   },
 
   /**
-   * Gets the minimum level-of-detail that can be requested.  Generally,
-   * a minimum level should only be used when the rectangle of the imagery is small
-   * enough that the number of tiles at the minimum level is small.  An imagery
-   * provider with more than a few tiles at the minimum level will lead to
-   * rendering problems.
+   * 获取可请求的最小细节级别。通常，
+   * 最小级别应仅在影像范围足够小，使得最小级别的瓦片数量较少时使用。
+   * 在最小级别有过多瓦片的影像提供程序将导致渲染问题。
    * @memberof ImageryProvider.prototype
    * @type {number}
    * @readonly
@@ -102,7 +100,7 @@ Object.defineProperties(ImageryProvider.prototype, {
   },
 
   /**
-   * Gets the tiling scheme used by the provider.
+   * 获取提供程序使用的瓦片方案。
    * @memberof ImageryProvider.prototype
    * @type {TilingScheme}
    * @readonly
@@ -112,9 +110,9 @@ Object.defineProperties(ImageryProvider.prototype, {
   },
 
   /**
-   * Gets the tile discard policy.  If not undefined, the discard policy is responsible
-   * for filtering out "missing" tiles via its shouldDiscardImage function.  If this function
-   * returns undefined, no tiles are filtered.
+   * 获取瓦片丢弃策略。如果未定义，则丢弃策略负责
+   * 通过其 shouldDiscardImage 函数过滤掉"缺失"的瓦片。如果该函数
+   * 返回 undefined，则不会过滤任何瓦片。
    * @memberof ImageryProvider.prototype
    * @type {TileDiscardPolicy}
    * @readonly
@@ -124,9 +122,9 @@ Object.defineProperties(ImageryProvider.prototype, {
   },
 
   /**
-   * Gets an event that is raised when the imagery provider encounters an asynchronous error.  By subscribing
-   * to the event, you will be notified of the error and can potentially recover from it.  Event listeners
-   * are passed an instance of {@link TileProviderError}.
+   * 获取当影像提供程序遇到异步错误时引发的事件。通过订阅
+   * 该事件，您将收到错误通知并可能从中恢复。事件监听器
+   * 会接收到 {@link TileProviderError} 的实例。
    * @memberof ImageryProvider.prototype
    * @type {Event}
    * @readonly
@@ -136,8 +134,8 @@ Object.defineProperties(ImageryProvider.prototype, {
   },
 
   /**
-   * Gets the credit to display when this imagery provider is active.  Typically this is used to credit
-   * the source of the imagery.
+   * 获取当此影像提供程序处于活动状态时要显示的版权信息。通常用于注明
+   * 影像的来源。
    * @memberof ImageryProvider.prototype
    * @type {Credit}
    * @readonly
@@ -147,7 +145,7 @@ Object.defineProperties(ImageryProvider.prototype, {
   },
 
   /**
-   * Gets the proxy used by this provider.
+   * 获取此提供程序使用的代理。
    * @memberof ImageryProvider.prototype
    * @type {Proxy}
    * @readonly
@@ -157,11 +155,11 @@ Object.defineProperties(ImageryProvider.prototype, {
   },
 
   /**
-   * Gets a value indicating whether or not the images provided by this imagery provider
-   * include an alpha channel.  If this property is false, an alpha channel, if present, will
-   * be ignored.  If this property is true, any images without an alpha channel will be treated
-   * as if their alpha is 1.0 everywhere.  When this property is false, memory usage
-   * and texture upload time are reduced.
+   * 获取一个值，指示此影像提供程序提供的图像
+   * 是否包含 Alpha 通道。如果此属性为 false，则 Alpha 通道（如果存在）将
+   * 被忽略。如果此属性为 true，则任何没有 Alpha 通道的图像将被视为
+   * 其 Alpha 值在所有地方都为 1.0。当此属性为 false 时，内存使用量
+   * 和纹理上传时间会减少。
    * @memberof ImageryProvider.prototype
    * @type {boolean}
    * @readonly
@@ -172,47 +170,46 @@ Object.defineProperties(ImageryProvider.prototype, {
 });
 
 /**
- * Gets the credits to be displayed when a given tile is displayed.
+ * 获取当显示给定瓦片时要显示的版权信息。
  *
- * @param {number} x The tile X coordinate.
- * @param {number} y The tile Y coordinate.
- * @param {number} level The tile level;
- * @returns {Credit[]} The credits to be displayed when the tile is displayed.
+ * @param {number} x 瓦片 X 坐标。
+ * @param {number} y 瓦片 Y 坐标。
+ * @param {number} level 瓦片级别；
+ * @returns {Credit[]} 显示瓦片时要显示的版权信息。
  */
 ImageryProvider.prototype.getTileCredits = function (x, y, level) {
   DeveloperError.throwInstantiationError();
 };
 
 /**
- * Requests the image for a given tile.
+ * 请求给定瓦片的图像。
  *
- * @param {number} x The tile X coordinate.
- * @param {number} y The tile Y coordinate.
- * @param {number} level The tile level.
- * @param {Request} [request] The request object. Intended for internal use only.
- * @returns {Promise<ImageryTypes>|undefined} Returns a promise for the image that will resolve when the image is available, or
- *          undefined if there are too many active requests to the server, and the request should be retried later.
+ * @param {number} x 瓦片 X 坐标。
+ * @param {number} y 瓦片 Y 坐标。
+ * @param {number} level 瓦片级别。
+ * @param {Request} [request] 请求对象。仅供内部使用。
+ * @returns {Promise<ImageryTypes>|undefined} 返回图像的承诺，当图像可用时解析，或者
+ *          如果服务器有太多活动请求而返回 undefined，则应稍后重试请求。
  */
 ImageryProvider.prototype.requestImage = function (x, y, level, request) {
   DeveloperError.throwInstantiationError();
 };
 
 /**
- * Asynchronously determines what features, if any, are located at a given longitude and latitude within
- * a tile.
- * This function is optional, so it may not exist on all ImageryProviders.
+ * 异步确定瓦片内给定经度和纬度位置存在哪些要素（如果有）。
+ * 此函数是可选的，因此并非所有 ImageryProvider 上都存在。
  *
  * @function
  *
- * @param {number} x The tile X coordinate.
- * @param {number} y The tile Y coordinate.
- * @param {number} level The tile level.
- * @param {number} longitude The longitude at which to pick features.
- * @param {number} latitude  The latitude at which to pick features.
- * @return {Promise<ImageryLayerFeatureInfo[]>|undefined} A promise for the picked features that will resolve when the asynchronous
- *                   picking completes.  The resolved value is an array of {@link ImageryLayerFeatureInfo}
- *                   instances.  The array may be empty if no features are found at the given location.
- *                   It may also be undefined if picking is not supported.
+ * @param {number} x 瓦片 X 坐标。
+ * @param {number} y 瓦片 Y 坐标。
+ * @param {number} level 瓦片级别。
+ * @param {number} longitude 拾取要素的经度。
+ * @param {number} latitude  拾取要素的纬度。
+ * @return {Promise<ImageryLayerFeatureInfo[]>|undefined} 拾取要素的承诺，当异步
+ *                   拾取完成时解析。解析值是一个 {@link ImageryLayerFeatureInfo}
+ *                   实例数组。如果在给定位置未找到要素，数组可能为空。
+ *                   如果不支持拾取，也可能返回 undefined。
  *
  */
 ImageryProvider.prototype.pickFeatures = function (
@@ -228,14 +225,14 @@ ImageryProvider.prototype.pickFeatures = function (
 const ktx2Regex = /\.ktx2$/i;
 
 /**
- * Loads an image from a given URL.  If the server referenced by the URL already has
- * too many requests pending, this function will instead return undefined, indicating
- * that the request should be retried later.
+ * 从给定的 URL 加载图像。如果 URL 引用的服务器已经
+ * 有太多待处理请求，此函数将返回 undefined，表示
+ * 应稍后重试请求。
  *
- * @param {ImageryProvider} imageryProvider The imagery provider for the URL.
- * @param {Resource|string} url The URL of the image.
- * @returns {Promise<ImageryTypes|CompressedTextureBuffer>|undefined} A promise for the image that will resolve when the image is available, or
- *          undefined if there are too many active requests to the server, and the request should be retried later.
+ * @param {ImageryProvider} imageryProvider 该 URL 的影像提供程序。
+ * @param {Resource|string} url 图像的 URL。
+ * @returns {Promise<ImageryTypes|CompressedTextureBuffer>|undefined} 图像的承诺，当图像可用时解析，或者
+ *          如果服务器有太多活动请求而返回 undefined，则应稍后重试请求。
  */
 ImageryProvider.loadImage = function (imageryProvider, url) {
   //>>includeStart('debug', pragmas.debug);

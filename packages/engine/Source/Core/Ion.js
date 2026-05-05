@@ -6,11 +6,11 @@ let defaultTokenCredit;
 const defaultAccessToken =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJmODUzYTQzYi1jMWM2LTQ2MTEtYWE4OS0wYzIwNTkyNjk1NDMiLCJpZCI6MjU5LCJpYXQiOjE3NzcwOTU1MzF9.pWL_6uenO0yB3nCXJNs8wWT9mic_UBo_d1CYDpwaXdQ";
 /**
- * Default settings for accessing the Cesium ion API.
+ * 用于访问 Cesium ion API 的默认设置。
  *
- * An ion access token is only required if you are using any ion related APIs.
- * A default access token is provided for evaluation purposes only.
- * Sign up for a free ion account and get your own access token at {@link https://cesium.com}
+ * 仅在使用任何与 ion 相关的 API 时才需要 ion 访问令牌。
+ * 提供的默认访问令牌仅用于评估目的。
+ * 请注册免费的 ion 账户并在 {@link https://cesium.com} 获取您自己的访问令牌。
  *
  * @see IonResource
  * @see IonImageryProvider
@@ -22,14 +22,14 @@ const defaultAccessToken =
 const Ion = {};
 
 /**
- * Gets or sets the default Cesium ion access token.
+ * 获取或设置默认的 Cesium ion 访问令牌。
  *
  * @type {string}
  */
 Ion.defaultAccessToken = defaultAccessToken;
 
 /**
- * Gets or sets the default Cesium ion server.
+ * 获取或设置默认的 Cesium ion 服务器。
  *
  * @type {string|Resource}
  * @default https://api.cesium.com

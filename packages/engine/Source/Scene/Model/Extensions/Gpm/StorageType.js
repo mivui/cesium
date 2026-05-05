@@ -1,17 +1,17 @@
 // @ts-check
 
 /**
- * An enum of storage types for covariance information.
+ * 协方差信息的存储类型枚举。
  *
- * This reflects the `gltfGpmLocal.storageType` definition of the
- * {@link https://nsgreg.nga.mil/csmwg.jsp|NGA_gpm_local} glTF extension.
+ * 这反映了 {@link https://nsgreg.nga.mil/csmwg.jsp|NGA_gpm_local} glTF 扩展中
+ * `gltfGpmLocal.storageType` 的定义。
  *
  * @enum {string}
- * @experimental This feature is not final and is subject to change without Cesium's standard deprecation policy.
+ * @experimental 此功能尚未最终确定，可能会在不遵循 Cesium 标准弃用政策的情况下更改。
  */
 const StorageType = {
   /**
-   * Store the full error covariance of the anchor points, to include the cross-covariance terms
+   * 存储锚点的完整误差协方差，包括交叉协方差项
    *
    * @type {string}
    * @constant
@@ -19,9 +19,8 @@ const StorageType = {
   Direct: "Direct",
 
   /**
-   * A full covariance matrix is stored for each of the anchor points. However, in this case the
-   * cross-covariance terms are not directly stored, but can be computed by a set of spatial
-   * correlation function parameters which are stored in the metadata.
+   * 为每个锚点存储完整的协方差矩阵。但在这种情况下，交叉协方差项不直接存储，
+   * 而是可以通过元数据中存储的一组空间相关函数参数来计算。
    *
    * @type {string}
    * @constant

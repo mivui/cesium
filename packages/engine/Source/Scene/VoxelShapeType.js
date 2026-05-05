@@ -4,11 +4,11 @@ import VoxelCylinderShape from "./VoxelCylinderShape.js";
 import VoxelEllipsoidShape from "./VoxelEllipsoidShape.js";
 
 /**
- * An enum of voxel shapes. The shape controls how the voxel grid is mapped to 3D space.
+ * 体素形状的枚举。形状控制体素网格如何映射到 3D 空间。
  *
  * @enum {string}
  *
- * @experimental This feature is not final and is subject to change without Cesium's standard deprecation policy.
+ * @experimental 此功能尚未最终确定，可能会在不遵循 Cesium 标准弃用政策的情况下进行更改。
  */
 const VoxelShapeType = {
   /**
@@ -38,9 +38,9 @@ const VoxelShapeType = {
 };
 
 /**
- * Gets the minimum bounds.
- * @param {VoxelShapeType} shapeType The voxel shape type.
- * @returns {Cartesian3} The minimum bounds.
+ * 获取最小边界。
+ * @param {VoxelShapeType} shapeType 体素形状类型。
+ * @returns {Cartesian3} 最小边界。
  */
 VoxelShapeType.getMinBounds = function (shapeType) {
   switch (shapeType) {
@@ -58,9 +58,9 @@ VoxelShapeType.getMinBounds = function (shapeType) {
 };
 
 /**
- * Gets the maximum bounds.
- * @param {VoxelShapeType} shapeType The voxel shape type.
- * @returns {Cartesian3} The maximum bounds.
+ * 获取最大边界。
+ * @param {VoxelShapeType} shapeType 体素形状类型。
+ * @returns {Cartesian3} 最大边界。
  */
 VoxelShapeType.getMaxBounds = function (shapeType) {
   switch (shapeType) {

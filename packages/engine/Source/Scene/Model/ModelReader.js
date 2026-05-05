@@ -46,20 +46,17 @@ import ModelUtility from "./ModelUtility.js";
  */
 class ModelReader {
   /**
-   * Reads the data of the given atttribute into a typed array.
+   * 将给定的属性数据读取到类型化数组中。
    *
-   * This will read the data into a compact, flat array with the data
-   * type corresponding to the data type of the attribute.
+   * 这将把数据读取到一个紧凑的扁平数组中，其数据类型与属性的数据类型相对应。
    *
-   * If the attribute is contained in an interleaved buffer, marked as
-   * 'normalized', quantized, or oct-encoded, then it will be deinterleaved,
-   * normalization will be applied, it will be dequantized and oct-decoded
-   * as necessary.
+   * 如果属性存储在交错缓冲区中，或者被标记为"归一化"、量化或八进制编码，
+   * 那么它将被去交错，应用归一化，并根据需要进行去量化和八进制解码。
    *
-   * The result will be THE actual attribute data.
+   * 结果将是实际的属性数据。
    *
-   * @param {Attribute} attribute The attribute
-   * @returns {TypedArray} The attribute data
+   * @param {Attribute} attribute 属性
+   * @returns {TypedArray} 属性数据
    */
   static readAttributeAsTypedArray(attribute) {
     //>>includeStart('debug', pragmas.debug);
@@ -112,15 +109,13 @@ class ModelReader {
   }
 
   /**
-   * Read the data of the given attribute into a compact typed array.
+   * 将给定属性的数据读取到紧凑的类型化数组中。
    *
-   * If the attribute is stored as interleaved data, then the result
-   * will be the deinterleaved data. If the data is quantized or
-   * normalized, then the resulting data will be the "raw" data,
-   * without applying normalization or dequantization.
+   * 如果属性存储为交错数据，则结果将是去交错后的数据。如果数据被量化或
+   * 归一化，则结果数据将是"原始"数据，不应用归一化或去量化。
    *
-   * @param {ModelComponents.Attribute} attribute The attribute
-   * @returns {TypedArray} The raw attribute data
+   * @param {ModelComponents.Attribute} attribute 属性
+   * @returns {TypedArray} 原始属性数据
    */
   static readAttributeAsRawCompactTypedArray(attribute) {
     //>>includeStart('debug', pragmas.debug);
@@ -214,21 +209,17 @@ class ModelReader {
   }
 
   /**
-   * Dequantize the data from the given input array, based on the given
-   * quantization information, and return the result.
+   * 根据给定的量化信息，对输入数组中的数据进行去量化，并返回结果。
    *
-   * This assumes that normalization has already been applied. This means that
-   * when the <code>quantization.normalized</code> flag is <code>true</code>,
-   * then the input is assumed to contain floating point values in the range
-   * [-1, 1].
+   * 这假设归一化已经应用。这意味着当 <code>quantization.normalized</code>
+   * 标志为 <code>true</code> 时，输入将被视为包含在 [-1, 1] 范围内的浮点值。
    *
-   * @param {TypedArray} quantizedTypedArray The quantized typed array
-   * @param {number} elementCount The number of elements
-   * @param {AttributeType} elementType The element type
-   * @param {ModelComponents.Quantization} quantization The quantization
-   * @returns {TypedArray} The result
-   * @throws DeveloperError When the element type is not SCALAR, VEC2,
-   * VEC3, or VEC4
+   * @param {TypedArray} quantizedTypedArray 量化后的类型化数组
+   * @param {number} elementCount 元素数量
+   * @param {AttributeType} elementType 元素类型
+   * @param {ModelComponents.Quantization} quantization 量化信息
+   * @returns {TypedArray} 结果
+   * @throws DeveloperError 当元素类型不是 SCALAR、VEC2、VEC3 或 VEC4 时
    */
   static dequantize(
     quantizedTypedArray,
@@ -305,18 +296,16 @@ class ModelReader {
   }
 
   /**
-   * Decode oct-encoded normals from the given input, and write the
-   * result into the given output, allocating and returning a new
-   * array if the result was undefined.
+   * 从给定输入中解码八进制编码的法线，并将结果写入给定输出，
+   * 如果结果为 undefined 则分配并返回一个新数组。
    *
-   * This will apply the <code>AttributeCompression.octDecodeInRange</code>
-   * function to each three components of the input.
+   * 这将对输入的三个分量分别应用 <code>AttributeCompression.octDecodeInRange</code> 函数。
    *
-   * @param {TypedArray} quantizedTypedArray The input
-   * @param {number} elementCount The number of elements
-   * @param {number} normalizationRange The normalization range
-   * @param {TypedArray} [dequantizedTypedArray] The result
-   * @returns {TypedArray} The result
+   * @param {TypedArray} quantizedTypedArray 输入
+   * @param {number} elementCount 元素数量
+   * @param {number} normalizationRange 归一化范围
+   * @param {TypedArray} [dequantizedTypedArray] 结果
+   * @returns {TypedArray} 结果
    */
   static octDecode(
     quantizedTypedArray,
@@ -347,15 +336,13 @@ class ModelReader {
   }
 
   /**
-   * Swizzle all three consecutive elements in the given input array
-   * from (z, x, y) to (x, y, z), and write the result into the
-   * given output array, creating a new array if the given output
-   * array was undefined.
+   * 将给定输入数组中的每三个连续元素从 (z, x, y) 转换为 (x, y, z)，
+   * 并将结果写入给定输出数组，如果输出数组为 undefined 则创建一个新数组。
    *
-   * @param {TypedArray} input The input
-   * @param {number} elementCount The number of elements
-   * @param {TypedArray} [output] The result
-   * @returns {TypedArray} The result
+   * @param {TypedArray} input 输入
+   * @param {number} elementCount 元素数量
+   * @param {TypedArray} [output] 结果
+   * @returns {TypedArray} 结果
    */
   static convertZxyToXyz(input, elementCount, output) {
     //>>includeStart('debug', pragmas.debug);
@@ -379,19 +366,18 @@ class ModelReader {
   }
 
   /**
-   * Dequantize the given quantized array, based on the given quantization
-   * information, and write the result into the given output array, creating
-   * the output array if it was undefined.
+   * 根据给定的量化信息对给定的量化数组进行去量化，并将结果写入给定的输出数组，
+   * 如果输出数组为 undefined 则创建它。
    *
-   * This will simply fill the output array with
+   * 这将简单地用以下方式填充输出数组：
    * <code>output[i] = input[i] * stepSize + offset</code>
    *
-   * @param {TypedArray} quantizedTypedArray The quantized array
-   * @param {number} elementCount The number of elements
-   * @param {number} stepSize The quantization step size
-   * @param {number} offset The quantization offset
-   * @param {TypedArray} [dequantizedTypedArray] The result
-   * @returns {TypedArray} The result
+   * @param {TypedArray} quantizedTypedArray 量化数组
+   * @param {number} elementCount 元素数量
+   * @param {number} stepSize 量化步长
+   * @param {number} offset 量化偏移
+   * @param {TypedArray} [dequantizedTypedArray] 结果
+   * @returns {TypedArray} 结果
    */
   static dequantize1D(
     quantizedTypedArray,
@@ -419,20 +405,18 @@ class ModelReader {
   }
 
   /**
-   * Dequantize the given quantized array, based on the given quantization
-   * information, and write the result into the given output array, creating
-   * the output array if it was undefined.
+   * 根据给定的量化信息对给定的量化数组进行去量化，并将结果写入给定的输出数组，
+   * 如果输出数组为 undefined 则创建它。
    *
-   * This will simply fill the output array with
+   * 当将输入和输出解释为 Cartesian2 数组时，这将简单地用以下方式填充输出数组：
    * <code>output[i] = input[i] * stepSize + offset</code>
-   * when interpreting the input and output as arrays of Cartesian2.
    *
-   * @param {TypedArray} quantizedTypedArray The quantized array
-   * @param {number} elementCount The number of elements
-   * @param {Cartesian2} stepSize The quantization step size
-   * @param {Cartesian2} offset The quantization offset
-   * @param {TypedArray} [dequantizedTypedArray] The result
-   * @returns {TypedArray} The result
+   * @param {TypedArray} quantizedTypedArray 量化数组
+   * @param {number} elementCount 元素数量
+   * @param {Cartesian2} stepSize 量化步长
+   * @param {Cartesian2} offset 量化偏移
+   * @param {TypedArray} [dequantizedTypedArray] 结果
+   * @returns {TypedArray} 结果
    */
   static dequantize2D(
     quantizedTypedArray,
@@ -462,20 +446,18 @@ class ModelReader {
   }
 
   /**
-   * Dequantize the given quantized array, based on the given quantization
-   * information, and write the result into the given output array, creating
-   * the output array if it was undefined.
+   * 根据给定的量化信息对给定的量化数组进行去量化，并将结果写入给定的输出数组，
+   * 如果输出数组为 undefined 则创建它。
    *
-   * This will simply fill the output array with
+   * 当将输入和输出解释为 Cartesian3 数组时，这将简单地用以下方式填充输出数组：
    * <code>output[i] = input[i] * stepSize + offset</code>
-   * when interpreting the input and output as arrays of Cartesian3.
    *
-   * @param {TypedArray} quantizedTypedArray The quantized array
-   * @param {number} elementCount The number of elements
-   * @param {Cartesian3} stepSize The quantization step size
-   * @param {Cartesian3} offset The quantization offset
-   * @param {TypedArray} [dequantizedTypedArray] The result
-   * @returns {TypedArray} The result
+   * @param {TypedArray} quantizedTypedArray 量化数组
+   * @param {number} elementCount 元素数量
+   * @param {Cartesian3} stepSize 量化步长
+   * @param {Cartesian3} offset 量化偏移
+   * @param {TypedArray} [dequantizedTypedArray] 结果
+   * @returns {TypedArray} 结果
    */
   static dequantize3D(
     quantizedTypedArray,
@@ -505,20 +487,18 @@ class ModelReader {
   }
 
   /**
-   * Dequantize the given quantized array, based on the given quantization
-   * information, and write the result into the given output array, creating
-   * the output array if it was undefined.
+   * 根据给定的量化信息对给定的量化数组进行去量化，并将结果写入给定的输出数组，
+   * 如果输出数组为 undefined 则创建它。
    *
-   * This will simply fill the output array with
+   * 当将输入和输出解释为 Cartesian4 数组时，这将简单地用以下方式填充输出数组：
    * <code>output[i] = input[i] * stepSize + offset</code>
-   * when interpreting the input and output as arrays of Cartesian4.
    *
-   * @param {TypedArray} quantizedTypedArray The quantized array
-   * @param {number} elementCount The number of elements
-   * @param {Cartesian4} stepSize The quantization step size
-   * @param {Cartesian4} offset The quantization offset
-   * @param {TypedArray} [dequantizedTypedArray] The result
-   * @returns {TypedArray} The result
+   * @param {TypedArray} quantizedTypedArray 量化数组
+   * @param {number} elementCount 元素数量
+   * @param {Cartesian4} stepSize 量化步长
+   * @param {Cartesian4} offset 量化偏移
+   * @param {TypedArray} [dequantizedTypedArray] 结果
+   * @returns {TypedArray} 结果
    */
   static dequantize4D(
     quantizedTypedArray,
@@ -548,23 +528,20 @@ class ModelReader {
   }
 
   /**
-   * Reads and returns a value with the given type
-   * at the given byte offset from the data view, in little-endian
-   * order
+   * 以 little-endian 顺序从数据视图的给定字节偏移处读取并返回具有给定类型的值
    * @callback ComponentsReaderCallback
-   * @param {DataView} dataView Typed data view into a binary buffer
-   * @param {number} byteOffset The offset, in bytes, from the start of the view to read the data from
-   * @param {number} numberOfComponents The number of components to read
-   * @param {number[]} result The array in which to read the result
+   * @param {DataView} dataView 二进制缓冲区的类型化数据视图
+   * @param {number} byteOffset 从视图起始位置开始读取数据的偏移量（以字节为单位）
+   * @param {number} numberOfComponents 要读取的分量数量
+   * @param {number[]} result 用于读取结果的数组
    */
 
   /**
-   * Creates a function that reads the specified number of components with
-   * the given type from the given data view, in little-endian
-   * order, and writes them into a given result array.
+   * 创建一个函数，以 little-endian 顺序从给定的数据视图中读取指定数量的
+   * 具有给定类型的分量，并将它们写入给定的结果数组。
    *
-   * @param {ComponentDatatype} componentType The component type
-   * @returns {ComponentsReaderCallback} The reader
+   * @param {ComponentDatatype} componentType 分量类型
+   * @returns {ComponentsReaderCallback} 读取器
    */
   static createComponentsReader(componentType) {
     const componentReader = ModelReader.createComponentReader(componentType);
@@ -579,21 +556,18 @@ class ModelReader {
   }
 
   /**
-   * Reads and returns a value with the given type
-   * at the given byte offset from the data view, in little-endian
-   * order
+   * 以 little-endian 顺序从数据视图的给定字节偏移处读取并返回具有给定类型的值
    * @callback ComponentReaderCallback
-   * @param {DataView} dataView Typed data view into a binary buffer
-   * @param {number} byteOffset The offset, in bytes, from the start of the view to read the data from
-   * @returns {number|BigInt} The value read from the dataView
+   * @param {DataView} dataView 二进制缓冲区的类型化数据视图
+   * @param {number} byteOffset 从视图起始位置开始读取数据的偏移量（以字节为单位）
+   * @returns {number|BigInt} 从 dataView 读取的值
    */
 
   /**
-   * Creates a function that reads and returns a value with the given type
-   * at the given byte offset from the data view, in little-endian
-   * order
-   * @param {ComponentDatatype} componentType The component type
-   * @returns {ComponentReaderCallback} The reader
+   * 创建一个函数，以 little-endian 顺序从数据视图的给定字节偏移处
+   * 读取并返回具有给定类型的值
+   * @param {ComponentDatatype} componentType 分量类型
+   * @returns {ComponentReaderCallback} 读取器
    */
   static createComponentReader(componentType) {
     switch (componentType) {
@@ -636,15 +610,14 @@ class ModelReader {
   }
 
   /**
-   * Transform the elements of the given array with the given 4x4 matrix,
-   * interpreting each 3 consecutive elements as a 3D point, and write
-   * the result into the given result array, creating the result array
-   * if it was undefined.
+   * 使用给定的 4x4 矩阵变换给定数组的元素，将每三个连续元素
+   * 解释为一个 3D 点，并将结果写入给定的结果数组，
+   * 如果结果数组为 undefined 则创建它。
    *
-   * @param {TypedArray} input The input array
-   * @param {Matrix4} matrix The matrix
-   * @param {TypedArray} [result] The result
-   * @returns {TypedArray} The result
+   * @param {TypedArray} input 输入数组
+   * @param {Matrix4} matrix 矩阵
+   * @param {TypedArray} [result] 结果
+   * @returns {TypedArray} 结果
    */
   static transform3D(input, matrix, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -666,16 +639,15 @@ class ModelReader {
   }
 
   /**
-   * Reads feature IDs from an implicit range feature ID set into a typed array.
+   * 从隐式范围要素 ID 集合中读取要素 ID 到类型化数组中。
    *
-   * Generates values using <code>offset + Math.floor(i / repeat)</code> for
-   * each vertex. If <code>repeat</code> is undefined, all values are set to
-   * <code>offset</code>.
+   * 为每个顶点使用 <code>offset + Math.floor(i / repeat)</code> 生成值。
+   * 如果 <code>repeat</code> 为 undefined，则所有值都设置为 <code>offset</code>。
    *
-   * @param {FeatureIdImplicitRange} featureIdSet The implicit range feature ID set.
-   * @param {object} attributeOwner An object with an <code>attributes</code> array
-   *   (a primitive or an instances object)
-   * @returns {Float32Array} The generated feature ID values.
+   * @param {FeatureIdImplicitRange} featureIdSet 隐式范围要素 ID 集合。
+   * @param {object} attributeOwner 具有 <code>attributes</code> 数组的对象
+   *   （图元或实例对象）
+   * @returns {Float32Array} 生成的要素 ID 值。
    */
   static readImplicitRangeAsTypedArray(featureIdSet, attributeOwner) {
     const count = attributeOwner.attributes[0]?.count ?? 0;
@@ -693,23 +665,20 @@ class ModelReader {
   }
 
   /**
-   * Read the indices values from the given primitive indices, and
-   * return them as a typed array.
+   * 从给定的图元索引中读取索引值，并以类型化数组形式返回。
    *
-   * If the given object already has a <code>typedArray/code> property, then it
-   * is assumed that this contains the proper indices, and they are returned.
+   * 如果给定对象已有 <code>typedArray</code> 属性，则假定其包含正确的索引，直接返回。
    *
-   * Otherwise, this reads the data from the <code>buffer</code> of the given
-   * primitive indices object, into a typed array with a type that matches the
-   * <code>indexDataType</code>, and returns it.
+   * 否则，将从给定图元索引对象的 <code>buffer</code> 中读取数据，
+   * 转换为与 <code>indexDataType</code> 匹配的类型化数组并返回。
    *
-   * Clients may not modify the returned typed array.
+   * 调用方不得修改返回的类型化数组。
    *
-   * @param {ModelComponents.Indices} primitiveIndices The primitive indices
-   * @returns {TypedArray} The indices values
-   * @throws {DeveloperError} If the <code>indexDataType</code> of the given
-   * object is neither <code>UNSIGNED_BYTE</code>, nor <code>UNSIGNED_SHORT</code>,
-   * nor <code>UNSIGNED_INT</code>
+   * @param {ModelComponents.Indices} primitiveIndices 图元索引
+   * @returns {TypedArray} 索引值
+   * @throws {DeveloperError} 如果给定对象的 <code>indexDataType</code>
+   * 既不是 <code>UNSIGNED_BYTE</code>、<code>UNSIGNED_SHORT</code>，
+   * 也不是 <code>UNSIGNED_INT</code>
    */
   static readIndicesAsTypedArray(primitiveIndices) {
     const existingIndices = primitiveIndices.typedArray;
@@ -728,29 +697,25 @@ class ModelReader {
   }
 
   /**
-   * Read the indices values from the given primitive indices object, and return
-   * them as a typed array of triangle vertex indices.
+   * 从给定的图元索引对象中读取索引值，并以三角形顶点索引的类型化数组形式返回。
    *
-   * If the given primitive type is <code>TRIANGLES</code>, then the indices
-   * values will be read from the given object, and returned.
+   * 如果给定的图元类型是 <code>TRIANGLES</code>，则索引值将从给定对象中读取并返回。
    *
-   * If the primitive type is <code>TRIANGLE_STRIP</code> or <code>TRIANGLE_FAN</code>,
-   * then the original indices values, will be read, converted into triangle indices
-   * (i.e. their equivalent <code>TRIANGLES</code> representation), and the result
-   * will be returned.
+   * 如果图元类型是 <code>TRIANGLE_STRIP</code> 或 <code>TRIANGLE_FAN</code>，
+   * 则原始索引值将被读取，转换为三角形索引（即其等效的 <code>TRIANGLES</code> 表示），
+   * 并返回结果。
    *
-   * The type of the returned array will match the <code>indexDataType</code>
-   * of the given object.
+   * 返回数组的类型将与给定对象的 <code>indexDataType</code> 匹配。
    *
-   * Clients may not modify the returned typed array.
+   * 调用方不得修改返回的类型化数组。
    *
-   * @param {ModelComponents.Indices} primitiveIndices The primitive indices
-   * @returns {TypedArray} The indices, converted to triangle indices if necessary
-   * @throws {DeveloperError} If the <code>indexDataType</code> of the given
-   * object is neither <code>UNSIGNED_BYTE</code>, nor <code>UNSIGNED_SHORT</code>,
-   * nor <code>UNSIGNED_INT</code>, or the given <code>primitiveType</code>
-   * is neither <code>TRIANGLES</code>, nor <code>TRIANGLE_STRIP</code>,
-   * nor <code>TRIANGLE_FAN</code>
+   * @param {ModelComponents.Indices} primitiveIndices 图元索引
+   * @returns {TypedArray} 索引，必要时转换为三角形索引
+   * @throws {DeveloperError} 如果给定对象的 <code>indexDataType</code>
+   * 既不是 <code>UNSIGNED_BYTE</code>、<code>UNSIGNED_SHORT</code>，
+   * 也不是 <code>UNSIGNED_INT</code>，或者给定的 <code>primitiveType</code>
+   * 既不是 <code>TRIANGLES</code>、<code>TRIANGLE_STRIP</code>，
+   * 也不是 <code>TRIANGLE_FAN</code>
    */
   static readIndicesAsTriangleIndicesTypedArray(
     primitiveIndices,
@@ -779,13 +744,13 @@ class ModelReader {
   }
 
   /**
-   * Converts the given indices from a <code>TRIANGLE_STRIP</code> representation
-   * into a <code>TRIANGLES</code> representation, and returns the result.
+   * 将给定索引从 <code>TRIANGLE_STRIP</code> 表示形式
+   * 转换为 <code>TRIANGLES</code> 表示形式，并返回结果。
    *
-   * The type of the result will be the same as the type of the input array.
+   * 结果类型将与输入数组的类型相同。
    *
-   * @param {TypedArray} indices The input indices
-   * @returns {TypedArray} The resulting triangle indices
+   * @param {TypedArray} indices 输入索引
+   * @returns {TypedArray} 结果三角形索引
    */
   static convertTriangleStripToTriangleIndices(indices) {
     const triangleIndices = indices.constructor((indices.length - 2) * 3);
@@ -804,13 +769,13 @@ class ModelReader {
   }
 
   /**
-   * Converts the given indices from a <code>TRIANGLE_FAN</code> representation
-   * into a <code>TRIANGLES</code> representation, and returns the result.
+   * 将给定索引从 <code>TRIANGLE_FAN</code> 表示形式
+   * 转换为 <code>TRIANGLES</code> 表示形式，并返回结果。
    *
-   * The type of the result will be the same as the type of the input array.
+   * 结果类型将与输入数组的类型相同。
    *
-   * @param {TypedArray} indices The input indices
-   * @returns {TypedArray} The resulting triangle indices
+   * @param {TypedArray} indices 输入索引
+   * @returns {TypedArray} 结果三角形索引
    */
   static convertTriangleFanToTriangleIndices(indices) {
     const triangleIndices = indices.constructor((indices.length - 2) * 3);
@@ -823,15 +788,14 @@ class ModelReader {
   }
 
   /**
-   * Create a typed array with a type that matches the given index data type,
-   * and the given size.
+   * 创建与给定索引数据类型和大小匹配的类型化数组。
    *
-   * @param {number} indexDatatype The <code>IndexDataType</code>
-   * @param {number} size The size of the array that will be created
-   * @returns {TypedArray} The typed array
-   * @throws {DeveloperError} If the <code>indexDataType</code> is neither
-   * <code>UNSIGNED_BYTE</code>, nor <code>UNSIGNED_SHORT</code>,
-   * nor <code>UNSIGNED_INT</code>, or the size is negative.
+   * @param {number} indexDatatype <code>IndexDataType</code>
+   * @param {number} size 要创建的数组的大小
+   * @returns {TypedArray} 类型化数组
+   * @throws {DeveloperError} 如果 <code>indexDataType</code> 既不是
+   * <code>UNSIGNED_BYTE</code>、<code>UNSIGNED_SHORT</code>，
+   * 也不是 <code>UNSIGNED_INT</code>，或者大小为负数。
    */
   static createIndexTypedArray(indexDatatype, size) {
     //>>includeStart('debug', pragmas.debug);
@@ -877,19 +841,17 @@ class ModelReader {
    */
 
   /**
-   * Iterates over every primitive in a model's scene graph, computing
-   * node transforms and instance transforms once per node and invoking
-   * a callback for each runtime primitive.
+   * 遍历模型场景图中的每个图元，为每个节点计算节点变换和实例变换，
+   * 并为每个运行时图元调用回调。
    * <p>
-   * When a map projection is provided, the computed model matrix is
-   * projected to 2D via {@link Transforms.basisTo2D}.
+   * 当提供地图投影时，计算出的模型矩阵将通过 {@link Transforms.basisTo2D} 投影到 2D。
    * </p>
    *
-   * @param {Model} model The model whose scene graph to traverse.
-   * @param {object} [options] Object with the following properties:
-   * @param {MapProjection} [options.mapProjection] The map projection for 2D mode. When defined, the computed model matrix is projected to 2D.
-   * @param {string} [options.instanceFeatureIdLabel] The label used to select which instance feature ID set to read. When defined, per-instance feature IDs are fetched. When undefined, feature IDs are not fetched.
-   * @param {ModelReader.ForEachPrimitiveCallback} callback The function invoked for each primitive.
+   * @param {Model} model 要遍历场景图的模型。
+   * @param {object} [options] 包含以下属性的对象：
+   * @param {MapProjection} [options.mapProjection] 2D 模式的地图投影。当定义时，计算出的模型矩阵将投影到 2D。
+   * @param {string} [options.instanceFeatureIdLabel] 用于选择要读取的实例要素 ID 集的标签。当定义时，将获取每个实例的要素 ID。当未定义时，不获取要素 ID。
+   * @param {ModelReader.ForEachPrimitiveCallback} callback 为每个图元调用的函数。
    */
   static forEachPrimitive(model, options, callback) {
     const mapProjection = options?.mapProjection;
@@ -966,14 +928,14 @@ class ModelReader {
   }
 
   /**
-   * Computes the model matrix for a runtime node, accounting for instancing
-   * and world-space transforms.
+   * 计算运行时节点的模型矩阵，考虑实例化
+   * 和世界空间变换。
    *
-   * @param {object} runtimeNode The runtime node.
-   * @param {ModelSceneGraph} sceneGraph The model scene graph.
-   * @param {Model} model The model.
-   * @param {object} result An object with scratch matrices: { nodeComputedTransform: Matrix4, modelMatrix: Matrix4, computedModelMatrix: Matrix4 }.
-   * @returns {object} The result parameter, populated with the computed transforms.
+   * @param {object} runtimeNode 运行时节点。
+   * @param {ModelSceneGraph} sceneGraph 模型场景图。
+   * @param {Model} model 模型。
+   * @param {object} result 包含临时矩阵的对象：{ nodeComputedTransform: Matrix4, modelMatrix: Matrix4, computedModelMatrix: Matrix4 }。
+   * @returns {object} 填充了计算出的变换的 result 参数。
    *
    */
   static computeNodeTransforms(runtimeNode, sceneGraph, model, result) {
@@ -1018,14 +980,14 @@ class ModelReader {
   }
 
   /**
-   * Builds an array of instance transforms for a node.
-   * If the node is not instanced, returns an array containing only the
-   * computedModelMatrix.
+   * 为节点构建实例变换数组。
+   * 如果节点未实例化，则返回仅包含
+   * computedModelMatrix 的数组。
    *
-   * @param {object} runtimeNode The runtime node.
-   * @param {Matrix4} computedModelMatrix The computed model matrix.
-   * @param {Matrix4} nodeComputedTransform The node computed transform.
-   * @param {Matrix4} modelMatrix The model matrix.
+   * @param {object} runtimeNode 运行时节点。
+   * @param {Matrix4} computedModelMatrix 计算出的模型矩阵。
+   * @param {Matrix4} nodeComputedTransform 节点计算出的变换。
+   * @param {Matrix4} modelMatrix 模型矩阵。
    * @returns {Matrix4[]}
    */
   static computeInstanceTransforms(
@@ -1098,13 +1060,13 @@ class ModelReader {
   }
 
   /**
-   * Builds an array of per-instance feature IDs for a node.
-   * If the node is not instanced or has no matching feature ID set,
-   * returns <code>undefined</code>.
+   * 为节点构建每个实例的要素 ID 数组。
+   * 如果节点未实例化或没有匹配的要素 ID 集，
+   * 则返回 <code>undefined</code>。
    *
-   * @param {object} runtimeNode The runtime node.
-   * @param {string} instanceFeatureIdLabel The label used to select the feature ID set.
-   * @returns {number[]|undefined} The per-instance feature IDs, or undefined.
+   * @param {object} runtimeNode 运行时节点。
+   * @param {string} instanceFeatureIdLabel 用于选择要素 ID 集的标签。
+   * @returns {number[]|undefined} 每个实例的要素 ID，或 undefined。
    */
   static computeInstanceFeatureIds(runtimeNode, instanceFeatureIdLabel) {
     const node = runtimeNode.node;
@@ -1157,12 +1119,12 @@ class ModelReader {
   }
 
   /**
-   * Builds instance transforms from a packed typed array where each instance
-   * is stored as 12 floats (3 rows of 4 columns, row-major).
+   * 从打包的类型化数组构建实例变换，其中每个实例
+   * 存储为 12 个浮点数（3 行 4 列，行主序）。
    *
-   * @param {TypedArray} transformsTypedArray The packed transforms array.
-   * @param {number} count The number of instances.
-   * @param {Matrix4[]} transforms The output array to push transforms into.
+   * @param {TypedArray} transformsTypedArray 打包的变换数组。
+   * @param {number} count 实例数量。
+   * @param {Matrix4[]} transforms 用于推入变换的输出数组。
    */
   static computeInstanceTransformsFromTypedArray(
     transformsTypedArray,
@@ -1197,12 +1159,12 @@ class ModelReader {
   }
 
   /**
-   * Builds instance transforms from individual TRANSLATION, ROTATION, and SCALE
-   * attributes when no packed transformsTypedArray is available.
+   * 当没有可用的打包 transformsTypedArray 时，
+   * 从单独的 TRANSLATION、ROTATION 和 SCALE 属性构建实例变换。
    *
-   * @param {object} instances The instances object.
-   * @param {number} count The number of instances.
-   * @param {Matrix4[]} transforms The output array to push transforms into.
+   * @param {object} instances 实例对象。
+   * @param {number} count 实例数量。
+   * @param {Matrix4[]} transforms 用于推入变换的输出数组。
    */
   static computeInstanceTransformsFromAttributes(instances, count, transforms) {
     const translationAttribute = ModelUtility.getAttributeBySemantic(

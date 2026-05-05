@@ -16,15 +16,15 @@ import RuntimeError from "./RuntimeError.js";
 
 /**
  * @typedef {object} Viewport
- * @property {number} [x]
- * @property {number} [y]
- * @property {number} [width]
- * @property {number} [height]
+ * @property {number} [x] x 坐标
+ * @property {number} [y] y 坐标
+ * @property {number} [width] 宽度
+ * @property {number} [height] 高度
  */
 
 /**
- * A 4x4 matrix, indexable as a column-major order array.
- * Constructor parameters are in row-major order for code readability.
+ * 4x4 矩阵，可按列主序数组进行索引。
+ * 构造函数参数采用行主序以便于代码阅读。
  *
  * @implements {ArrayLike<number>}
  *
@@ -52,22 +52,22 @@ import RuntimeError from "./RuntimeError.js";
 // @ts-expect-error TODO(tsd-jsdoc): Requires index signature support.
 class Matrix4 {
   /**
-   * @param {number} [column0Row0=0.0] The value for column 0, row 0.
-   * @param {number} [column1Row0=0.0] The value for column 1, row 0.
-   * @param {number} [column2Row0=0.0] The value for column 2, row 0.
-   * @param {number} [column3Row0=0.0] The value for column 3, row 0.
-   * @param {number} [column0Row1=0.0] The value for column 0, row 1.
-   * @param {number} [column1Row1=0.0] The value for column 1, row 1.
-   * @param {number} [column2Row1=0.0] The value for column 2, row 1.
-   * @param {number} [column3Row1=0.0] The value for column 3, row 1.
-   * @param {number} [column0Row2=0.0] The value for column 0, row 2.
-   * @param {number} [column1Row2=0.0] The value for column 1, row 2.
-   * @param {number} [column2Row2=0.0] The value for column 2, row 2.
-   * @param {number} [column3Row2=0.0] The value for column 3, row 2.
-   * @param {number} [column0Row3=0.0] The value for column 0, row 3.
-   * @param {number} [column1Row3=0.0] The value for column 1, row 3.
-   * @param {number} [column2Row3=0.0] The value for column 2, row 3.
-   * @param {number} [column3Row3=0.0] The value for column 3, row 3.
+   * @param {number} [column0Row0=0.0] 第 0 列第 0 行的值。
+   * @param {number} [column1Row0=0.0] 第 1 列第 0 行的值。
+   * @param {number} [column2Row0=0.0] 第 2 列第 0 行的值。
+   * @param {number} [column3Row0=0.0] 第 3 列第 0 行的值。
+   * @param {number} [column0Row1=0.0] 第 0 列第 1 行的值。
+   * @param {number} [column1Row1=0.0] 第 1 列第 1 行的值。
+   * @param {number} [column2Row1=0.0] 第 2 列第 1 行的值。
+   * @param {number} [column3Row1=0.0] 第 3 列第 1 行的值。
+   * @param {number} [column0Row2=0.0] 第 0 列第 2 行的值。
+   * @param {number} [column1Row2=0.0] 第 1 列第 2 行的值。
+   * @param {number} [column2Row2=0.0] 第 2 列第 2 行的值。
+   * @param {number} [column3Row2=0.0] 第 3 列第 2 行的值。
+   * @param {number} [column0Row3=0.0] 第 0 列第 3 行的值。
+   * @param {number} [column1Row3=0.0] 第 1 列第 3 行的值。
+   * @param {number} [column2Row3=0.0] 第 2 列第 3 行的值。
+   * @param {number} [column3Row3=0.0] 第 3 列第 3 行的值。
    */
   constructor(
     column0Row0,
@@ -106,13 +106,13 @@ class Matrix4 {
   }
 
   /**
-   * Stores the provided instance into the provided array.
+   * 将提供的实例存储到提供的数组中。
    *
-   * @param {Matrix4} value The value to pack.
-   * @param {number[]} array The array to pack into.
-   * @param {number} [startingIndex=0] The index into the array at which to start packing the elements.
+   * @param {Matrix4} value 要打包的值。
+   * @param {number[]} array 要打包到的数组。
+   * @param {number} [startingIndex=0] 开始打包元素的数组索引。
    *
-   * @returns {number[]} The array that was packed into
+   * @returns {number[]} 被打包到的数组
    */
   static pack(value, array, startingIndex) {
     //>>includeStart('debug', pragmas.debug);
@@ -143,12 +143,12 @@ class Matrix4 {
   }
 
   /**
-   * Retrieves an instance from a packed array.
+   * 从打包数组中检索实例。
    *
-   * @param {number[]} array The packed array.
-   * @param {number} [startingIndex=0] The starting index of the element to be unpacked.
-   * @param {Matrix4} [result] The object into which to store the result.
-   * @returns {Matrix4} The modified result parameter or a new Matrix4 instance if one was not provided.
+   * @param {number[]} array 打包的数组。
+   * @param {number} [startingIndex=0] 要解包元素的起始索引。
+   * @param {Matrix4} [result] 用于存储结果的对象。
+   * @returns {Matrix4} 修改后的结果参数，如果未提供则返回新的 Matrix4 实例。
    */
   static unpack(array, startingIndex, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -181,12 +181,12 @@ class Matrix4 {
   }
 
   /**
-   * Flattens an array of Matrix4s into an array of components. The components
-   * are stored in column-major order.
+   * 将 Matrix4 数组展平为组件数组。组件
+   * 按列主序存储。
    *
-   * @param {Matrix4[]} array The array of matrices to pack.
-   * @param {number[]} [result] The array onto which to store the result. If this is a typed array, it must have array.length * 16 components, else a {@link DeveloperError} will be thrown. If it is a regular array, it will be resized to have (array.length * 16) elements.
-   * @returns {number[]} The packed array.
+   * @param {Matrix4[]} array 要打包的矩阵数组。
+   * @param {number[]} [result] 用于存储结果的数组。如果是类型化数组，则必须有 array.length * 16 个组件，否则会抛出 {@link DeveloperError}。如果是普通数组，则会被调整为 (array.length * 16) 个元素。
+   * @returns {number[]} 打包后的数组。
    */
   static packArray(array, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -201,7 +201,7 @@ class Matrix4 {
     } else if (!Array.isArray(result) && result.length !== resultLength) {
       //>>includeStart('debug', pragmas.debug);
       throw new DeveloperError(
-        "If result is a typed array, it must have exactly array.length * 16 elements",
+        "如果 result 是类型化数组，则必须恰好有 array.length * 16 个元素",
       );
       //>>includeEnd('debug');
     } else if (result.length !== resultLength) {
@@ -216,18 +216,18 @@ class Matrix4 {
   }
 
   /**
-   * Unpacks an array of column-major matrix components into an array of Matrix4s.
+   * 将列主序矩阵组件数组解包为 Matrix4 数组。
    *
-   * @param {number[]} array The array of components to unpack.
-   * @param {Matrix4[]} [result] The array onto which to store the result.
-   * @returns {Matrix4[]} The unpacked array.
+   * @param {number[]} array 要解包的组件数组。
+   * @param {Matrix4[]} [result] 用于存储结果的数组。
+   * @returns {Matrix4[]} 解包后的数组。
    */
   static unpackArray(array, result) {
     //>>includeStart('debug', pragmas.debug);
     Check.defined("array", array);
     Check.typeOf.number.greaterThanOrEquals("array.length", array.length, 16);
     if (array.length % 16 !== 0) {
-      throw new DeveloperError("array length must be a multiple of 16.");
+      throw new DeveloperError("数组长度必须是 16 的倍数。");
     }
     //>>includeEnd('debug');
 
@@ -246,11 +246,11 @@ class Matrix4 {
   }
 
   /**
-   * Duplicates a Matrix4 instance.
+   * 复制 Matrix4 实例。
    *
-   * @param {Matrix4} matrix The matrix to duplicate.
-   * @param {Matrix4} [result] The object onto which to store the result.
-   * @returns {Matrix4} The modified result parameter or a new Matrix4 instance if one was not provided. (Returns undefined if matrix is undefined)
+   * @param {Matrix4} matrix 要复制的矩阵。
+   * @param {Matrix4} [result] 用于存储结果的对象。
+   * @returns {Matrix4} 修改后的结果参数，如果未提供则返回新的 Matrix4 实例。（如果 matrix 为 undefined 则返回 undefined）
    */
   static clone(matrix, result) {
     if (!defined(matrix)) {
@@ -296,11 +296,11 @@ class Matrix4 {
   }
 
   /**
-   * Computes a Matrix4 instance from a column-major order array.
+   * 从列主序数组计算 Matrix4 实例。
    *
-   * @param {number[]} values The column-major order array.
-   * @param {Matrix4} [result] The object in which the result will be stored, if undefined a new instance will be created.
-   * @returns {Matrix4} The modified result parameter, or a new Matrix4 instance if one was not provided.
+   * @param {number[]} values 列主序数组。
+   * @param {Matrix4} [result] 用于存储结果的对象，如果未定义则创建新实例。
+   * @returns {Matrix4} 修改后的结果参数，如果未提供则返回新的 Matrix4 实例。
    */
   static fromColumnMajorArray(values, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -312,12 +312,12 @@ class Matrix4 {
   }
 
   /**
-   * Computes a Matrix4 instance from a row-major order array.
-   * The resulting matrix will be in column-major order.
+   * 从行主序数组计算 Matrix4 实例。
+   * 结果矩阵将按列主序存储。
    *
-   * @param {number[]} values The row-major order array.
-   * @param {Matrix4} [result] The object in which the result will be stored, if undefined a new instance will be created.
-   * @returns {Matrix4} The modified result parameter, or a new Matrix4 instance if one was not provided.
+   * @param {number[]} values 行主序数组。
+   * @param {Matrix4} [result] 用于存储结果的对象，如果未定义则创建新实例。
+   * @returns {Matrix4} 修改后的结果参数，如果未提供则返回新的 Matrix4 实例。
    */
   static fromRowMajorArray(values, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -364,13 +364,12 @@ class Matrix4 {
   }
 
   /**
-   * Computes a Matrix4 instance from a Matrix3 representing the rotation
-   * and a Cartesian3 representing the translation.
+   * 从表示旋转的 Matrix3 实例和表示平移的 Cartesian3 实例计算 Matrix4 实例。
    *
-   * @param {Matrix3} rotation The upper left portion of the matrix representing the rotation.
-   * @param {Cartesian3} [translation=Cartesian3.ZERO] The upper right portion of the matrix representing the translation.
-   * @param {Matrix4} [result] The object in which the result will be stored, if undefined a new instance will be created.
-   * @returns {Matrix4} The modified result parameter, or a new Matrix4 instance if one was not provided.
+   * @param {Matrix3} rotation 矩阵的左上部分，表示旋转。
+   * @param {Cartesian3} [translation=Cartesian3.ZERO] 矩阵的右上部分，表示平移。
+   * @param {Matrix4} [result] 用于存储结果的对象，如果未定义则创建新实例。
+   * @returns {Matrix4} 修改后的结果参数，如果未提供则返回新的 Matrix4 实例。
    */
   static fromRotationTranslation(rotation, translation, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -420,20 +419,19 @@ class Matrix4 {
   }
 
   /**
-   * Computes a Matrix4 instance from a translation, rotation, and scale (TRS)
-   * representation with the rotation represented as a quaternion.
+   * 从平移、旋转和缩放（TRS）表示计算 Matrix4 实例，其中旋转用四元数表示。
    *
-   * @param {Cartesian3} translation The translation transformation.
-   * @param {Quaternion} rotation The rotation transformation.
-   * @param {Cartesian3} scale The non-uniform scale transformation.
-   * @param {Matrix4} [result] The object in which the result will be stored, if undefined a new instance will be created.
-   * @returns {Matrix4} The modified result parameter, or a new Matrix4 instance if one was not provided.
+   * @param {Cartesian3} translation 平移变换。
+   * @param {Quaternion} rotation 旋转变换。
+   * @param {Cartesian3} scale 非均匀缩放变换。
+   * @param {Matrix4} [result] 用于存储结果的对象，如果未定义则创建新实例。
+   * @returns {Matrix4} 修改后的结果参数，如果未提供则返回新的 Matrix4 实例。
    *
    * @example
    * const result = Cesium.Matrix4.fromTranslationQuaternionRotationScale(
-   *   new Cesium.Cartesian3(1.0, 2.0, 3.0), // translation
-   *   Cesium.Quaternion.IDENTITY,           // rotation
-   *   new Cesium.Cartesian3(7.0, 8.0, 9.0), // scale
+   *   new Cesium.Cartesian3(1.0, 2.0, 3.0), // 平移
+   *   Cesium.Quaternion.IDENTITY,           // 旋转
+   *   new Cesium.Cartesian3(7.0, 8.0, 9.0), // 缩放
    *   result);
    */
   static fromTranslationQuaternionRotationScale(
@@ -500,11 +498,11 @@ class Matrix4 {
   }
 
   /**
-   * Creates a Matrix4 instance from a {@link TranslationRotationScale} instance.
+   * 从 {@link TranslationRotationScale} 实例创建 Matrix4 实例。
    *
-   * @param {TranslationRotationScale} translationRotationScale The instance.
-   * @param {Matrix4} [result] The object in which the result will be stored, if undefined a new instance will be created.
-   * @returns {Matrix4} The modified result parameter, or a new Matrix4 instance if one was not provided.
+   * @param {TranslationRotationScale} translationRotationScale 该实例。
+   * @param {Matrix4} [result] 用于存储结果的对象，如果未定义则创建新实例。
+   * @returns {Matrix4} 修改后的结果参数，如果未提供则返回新的 Matrix4 实例。
    */
   static fromTranslationRotationScale(translationRotationScale, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -520,11 +518,11 @@ class Matrix4 {
   }
 
   /**
-   * Creates a Matrix4 instance from a Cartesian3 representing the translation.
+   * 从表示平移的 Cartesian3 创建 Matrix4 实例。
    *
-   * @param {Cartesian3} translation The upper right portion of the matrix representing the translation.
-   * @param {Matrix4} [result] The object in which the result will be stored, if undefined a new instance will be created.
-   * @returns {Matrix4} The modified result parameter, or a new Matrix4 instance if one was not provided.
+   * @param {Cartesian3} translation 矩阵的右上部分，表示平移。
+   * @param {Matrix4} [result] 用于存储结果的对象，如果未定义则创建新实例。
+   * @returns {Matrix4} 修改后的结果参数，如果未提供则返回新的 Matrix4 实例。
    *
    * @see Matrix4.multiplyByTranslation
    */
@@ -541,14 +539,14 @@ class Matrix4 {
   }
 
   /**
-   * Computes a Matrix4 instance representing a non-uniform scale.
+   * 计算表示非均匀缩放的 Matrix4 实例。
    *
-   * @param {Cartesian3} scale The x, y, and z scale factors.
-   * @param {Matrix4} [result] The object in which the result will be stored, if undefined a new instance will be created.
-   * @returns {Matrix4} The modified result parameter, or a new Matrix4 instance if one was not provided.
+   * @param {Cartesian3} scale x、y 和 z 缩放因子。
+   * @param {Matrix4} [result] 用于存储结果的对象，如果未定义则创建新实例。
+   * @returns {Matrix4} 修改后的结果参数，如果未提供则返回新的 Matrix4 实例。
    *
    * @example
-   * // Creates
+   * // 创建
    * //   [7.0, 0.0, 0.0, 0.0]
    * //   [0.0, 8.0, 0.0, 0.0]
    * //   [0.0, 0.0, 9.0, 0.0]
@@ -601,14 +599,14 @@ class Matrix4 {
   }
 
   /**
-   * Computes a Matrix4 instance representing a uniform scale.
+   * 计算表示均匀缩放的 Matrix4 实例。
    *
-   * @param {number} scale The uniform scale factor.
-   * @param {Matrix4} [result] The object in which the result will be stored, if undefined a new instance will be created.
-   * @returns {Matrix4} The modified result parameter, or a new Matrix4 instance if one was not provided.
+   * @param {number} scale 均匀缩放因子。
+   * @param {Matrix4} [result] 用于存储结果的对象，如果未定义则创建新实例。
+   * @returns {Matrix4} 修改后的结果参数，如果未提供则返回新的 Matrix4 实例。
    *
    * @example
-   * // Creates
+   * // 创建
    * //   [2.0, 0.0, 0.0, 0.0]
    * //   [0.0, 2.0, 0.0, 0.0]
    * //   [0.0, 0.0, 2.0, 0.0]
@@ -661,11 +659,11 @@ class Matrix4 {
   }
 
   /**
-   * Creates a rotation matrix.
+   * 创建旋转矩阵。
    *
-   * @param {Matrix3} rotation The rotation matrix.
-   * @param {Matrix4} [result] The object in which the result will be stored, if undefined a new instance will be created.
-   * @returns {Matrix4} The modified result parameter, or a new Matrix4 instance if one was not provided.
+   * @param {Matrix3} rotation 旋转矩阵。
+   * @param {Matrix4} [result] 用于存储结果的对象，如果未定义则创建新实例。
+   * @returns {Matrix4} 修改后的结果参数，如果未提供则返回新的 Matrix4 实例。
    */
   static fromRotation(rotation, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -699,11 +697,11 @@ class Matrix4 {
   }
 
   /**
-   * Computes a Matrix4 instance from a Camera.
+   * 从 Camera 计算 Matrix4 实例。
    *
-   * @param {Camera} camera The camera to use.
-   * @param {Matrix4} [result] The object in which the result will be stored, if undefined a new instance will be created.
-   * @returns {Matrix4} The modified result parameter, or a new Matrix4 instance if one was not provided.
+   * @param {Camera} camera 要使用的相机。
+   * @param {Matrix4} [result] 用于存储结果的对象，如果未定义则创建新实例。
+   * @returns {Matrix4} 修改后的结果参数，如果未提供则返回新的 Matrix4 实例。
    */
   static fromCamera(camera, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -746,10 +744,10 @@ class Matrix4 {
     const t1 = uX * -positionX + uY * -positionY + uZ * -positionZ;
     const t2 = fX * positionX + fY * positionY + fZ * positionZ;
 
-    // The code below this comment is an optimized
-    // version of the commented lines.
-    // Rather that create two matrices and then multiply,
-    // we just bake in the multiplcation as part of creation.
+    // 此注释下方的代码是优化版本
+    // 注释掉的行。
+    // 我们不是创建两个矩阵然后相乘，
+    // 而是在创建时直接将乘法嵌入。
     // const rotation = new Matrix4(
     //                 sX,  sY,  sZ, 0.0,
     //                 uX,  uY,  uZ, 0.0,
@@ -801,19 +799,19 @@ class Matrix4 {
   }
 
   /**
-   * Computes a Matrix4 instance representing a perspective transformation matrix.
+   * 计算表示透视变换矩阵的 Matrix4 实例。
    *
-   * @param {number} fovY The field of view along the Y axis in radians.
-   * @param {number} aspectRatio The aspect ratio.
-   * @param {number} near The distance to the near plane in meters.
-   * @param {number} far The distance to the far plane in meters.
-   * @param {Matrix4} result The object in which the result will be stored.
-   * @returns {Matrix4} The modified result parameter.
+   * @param {number} fovY 沿 Y 轴的视野（弧度）。
+   * @param {number} aspectRatio 宽高比。
+   * @param {number} near 到近平面的距离（米）。
+   * @param {number} far 到远平面的距离（米）。
+   * @param {Matrix4} result 用于存储结果的对象。
+   * @returns {Matrix4} 修改后的结果参数。
    *
-   * @exception {DeveloperError} fovY must be in (0, PI].
-   * @exception {DeveloperError} aspectRatio must be greater than zero.
-   * @exception {DeveloperError} near must be greater than zero.
-   * @exception {DeveloperError} far must be greater than zero.
+   * @exception {DeveloperError} fovY 必须在 (0, PI] 范围内。
+   * @exception {DeveloperError} aspectRatio 必须大于零。
+   * @exception {DeveloperError} near 必须大于零。
+   * @exception {DeveloperError} far 必须大于零。
    */
   static computePerspectiveFieldOfView(fovY, aspectRatio, near, far, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -851,16 +849,16 @@ class Matrix4 {
   }
 
   /**
-   * Computes a Matrix4 instance representing an orthographic transformation matrix.
+   * 计算表示正交变换矩阵的 Matrix4 实例。
    *
-   * @param {number} left The number of meters to the left of the camera that will be in view.
-   * @param {number} right The number of meters to the right of the camera that will be in view.
-   * @param {number} bottom The number of meters below of the camera that will be in view.
-   * @param {number} top The number of meters above of the camera that will be in view.
-   * @param {number} near The distance to the near plane in meters.
-   * @param {number} far The distance to the far plane in meters.
-   * @param {Matrix4} result The object in which the result will be stored.
-   * @returns {Matrix4} The modified result parameter.
+   * @param {number} left 相机左侧可见区域的米数。
+   * @param {number} right 相机右侧可见区域的米数。
+   * @param {number} bottom 相机下方可见区域的米数。
+   * @param {number} top 相机上方可见区域的米数。
+   * @param {number} near 到近平面的距离（米）。
+   * @param {number} far 到远平面的距离（米）。
+   * @param {Matrix4} result 用于存储结果的对象。
+   * @returns {Matrix4} 修改后的结果参数。
    */
   static computeOrthographicOffCenter(
     left,
@@ -912,16 +910,16 @@ class Matrix4 {
   }
 
   /**
-   * Computes a Matrix4 instance representing an off center perspective transformation.
+   * 计算表示偏移中心透视变换的 Matrix4 实例。
    *
-   * @param {number} left The number of meters to the left of the camera that will be in view.
-   * @param {number} right The number of meters to the right of the camera that will be in view.
-   * @param {number} bottom The number of meters below the camera that will be in view.
-   * @param {number} top The number of meters above the camera that will be in view.
-   * @param {number} near The distance to the near plane in meters.
-   * @param {number} far The distance to the far plane in meters.
-   * @param {Matrix4} result The object in which the result will be stored.
-   * @returns {Matrix4} The modified result parameter.
+   * @param {number} left 相机左侧可见区域的米数。
+   * @param {number} right 相机右侧可见区域的米数。
+   * @param {number} bottom 相机下方可见区域的米数。
+   * @param {number} top 相机上方可见区域的米数。
+   * @param {number} near 到近平面的距离（米）。
+   * @param {number} far 到远平面的距离（米）。
+   * @param {Matrix4} result 用于存储结果的对象。
+   * @returns {Matrix4} 修改后的结果参数。
    */
   static computePerspectiveOffCenter(
     left,
@@ -970,15 +968,15 @@ class Matrix4 {
   }
 
   /**
-   * Computes a Matrix4 instance representing an infinite off center perspective transformation.
+   * 计算表示无限偏移中心透视变换的 Matrix4 实例。
    *
-   * @param {number} left The number of meters to the left of the camera that will be in view.
-   * @param {number} right The number of meters to the right of the camera that will be in view.
-   * @param {number} bottom The number of meters below of the camera that will be in view.
-   * @param {number} top The number of meters above of the camera that will be in view.
-   * @param {number} near The distance to the near plane in meters.
-   * @param {Matrix4} result The object in which the result will be stored.
-   * @returns {Matrix4} The modified result parameter.
+   * @param {number} left 相机左侧可见区域的米数。
+   * @param {number} right 相机右侧可见区域的米数。
+   * @param {number} bottom 相机下方可见区域的米数。
+   * @param {number} top 相机上方可见区域的米数。
+   * @param {number} near 到近平面的距离（米）。
+   * @param {Matrix4} result 用于存储结果的对象。
+   * @returns {Matrix4} 修改后的结果参数。
    */
   static computeInfinitePerspectiveOffCenter(
     left,
@@ -1025,16 +1023,16 @@ class Matrix4 {
   }
 
   /**
-   * Computes a Matrix4 instance that transforms from normalized device coordinates to window coordinates.
+   * 计算从归一化设备坐标变换到窗口坐标的 Matrix4 实例。
    *
-   * @param {Viewport} [viewport = { x : 0.0, y : 0.0, width : 0.0, height : 0.0 }] The viewport's corners as shown in Example 1.
-   * @param {number} [nearDepthRange=0.0] The near plane distance in window coordinates.
-   * @param {number} [farDepthRange=1.0] The far plane distance in window coordinates.
-   * @param {Matrix4} [result] The object in which the result will be stored.
-   * @returns {Matrix4} The modified result parameter.
+   * @param {Viewport} [viewport = { x : 0.0, y : 0.0, width : 0.0, height : 0.0 }] 视口角点，如示例 1 所示。
+   * @param {number} [nearDepthRange=0.0] 窗口坐标中的近平面距离。
+   * @param {number} [farDepthRange=1.0] 窗口坐标中的远平面距离。
+   * @param {Matrix4} [result] 用于存储结果的对象。
+   * @returns {Matrix4} 修改后的结果参数。
    *
    * @example
-   * // Create viewport transformation using an explicit viewport and depth range.
+   * // 使用显式视口和深度范围创建视口变换。
    * const m = Cesium.Matrix4.computeViewportTransformation({
    *     x : 0.0,
    *     y : 0.0,
@@ -1093,14 +1091,14 @@ class Matrix4 {
   }
 
   /**
-   * Computes a Matrix4 instance that transforms from world space to view space.
+   * 计算从世界空间变换到视图空间的 Matrix4 实例。
    *
-   * @param {Cartesian3} position The position of the camera.
-   * @param {Cartesian3} direction The forward direction.
-   * @param {Cartesian3} up The up direction.
-   * @param {Cartesian3} right The right direction.
-   * @param {Matrix4} result The object in which the result will be stored.
-   * @returns {Matrix4} The modified result parameter.
+   * @param {Cartesian3} position 相机位置。
+   * @param {Cartesian3} direction 前方向。
+   * @param {Cartesian3} up 上方向。
+   * @param {Cartesian3} right 右方向。
+   * @param {Matrix4} result 用于存储结果的对象。
+   * @returns {Matrix4} 修改后的结果参数。
    */
   static computeView(position, direction, up, right, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -1131,23 +1129,23 @@ class Matrix4 {
   }
 
   /**
-   * Computes an Array from the provided Matrix4 instance.
-   * The array will be in column-major order.
+   * 从提供的 Matrix4 实例计算数组。
+   * 数组将按列主序排列。
    *
-   * @param {Matrix4} matrix The matrix to use..
-   * @param {number[]} [result] The Array onto which to store the result.
-   * @returns {number[]} The modified Array parameter or a new Array instance if one was not provided.
+   * @param {Matrix4} matrix 要使用的矩阵。
+   * @param {number[]} [result] 用于存储结果的数组。
+   * @returns {number[]} 修改后的数组参数，如果未提供则返回新数组实例。
    *
    * @example
-   * //create an array from an instance of Matrix4
+   * // 从 Matrix4 实例创建数组
    * // m = [10.0, 14.0, 18.0, 22.0]
    * //     [11.0, 15.0, 19.0, 23.0]
    * //     [12.0, 16.0, 20.0, 24.0]
    * //     [13.0, 17.0, 21.0, 25.0]
    * const a = Cesium.Matrix4.toArray(m);
    *
-   * // m remains the same
-   * //creates a = [10.0, 11.0, 12.0, 13.0, 14.0, 15.0, 16.0, 17.0, 18.0, 19.0, 20.0, 21.0, 22.0, 23.0, 24.0, 25.0]
+   * // m 保持不变
+   * // 创建 a = [10.0, 11.0, 12.0, 13.0, 14.0, 15.0, 16.0, 17.0, 18.0, 19.0, 20.0, 21.0, 22.0, 23.0, 24.0, 25.0]
    */
   static toArray(matrix, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -1194,14 +1192,14 @@ class Matrix4 {
   }
 
   /**
-   * Computes the array index of the element at the provided row and column.
+   * 计算提供的行和列处的数组索引。
    *
-   * @param {number} row The zero-based index of the row.
-   * @param {number} column The zero-based index of the column.
-   * @returns {number} The index of the element at the provided row and column.
+   * @param {number} row 行的从零开始索引。
+   * @param {number} column 列的从零开始索引。
+   * @returns {number} 提供的行和列处的元素索引。
    *
-   * @exception {DeveloperError} row must be 0, 1, 2, or 3.
-   * @exception {DeveloperError} column must be 0, 1, 2, or 3.
+   * @exception {DeveloperError} row 必须为 0、1、2 或 3。
+   * @exception {DeveloperError} column 必须为 0、1、2 或 3。
    *
    * @example
    * const myMatrix = new Cesium.Matrix4();
@@ -1222,27 +1220,27 @@ class Matrix4 {
   }
 
   /**
-   * Retrieves a copy of the matrix column at the provided index as a Cartesian4 instance.
+   * 以 Cartesian4 实例的形式检索提供的列的矩阵副本。
    *
-   * @param {Matrix4} matrix The matrix to use.
-   * @param {number} index The zero-based index of the column to retrieve.
-   * @param {Cartesian4} result The object onto which to store the result.
-   * @returns {Cartesian4} The modified result parameter.
+   * @param {Matrix4} matrix 要使用的矩阵。
+   * @param {number} index 要检索的列的从零开始索引。
+   * @param {Cartesian4} result 用于存储结果的对象。
+   * @returns {Cartesian4} 修改后的结果参数。
    *
-   * @exception {DeveloperError} index must be 0, 1, 2, or 3.
+   * @exception {DeveloperError} index 必须为 0、1、2 或 3。
    *
    * @example
-   * //returns a Cartesian4 instance with values from the specified column
+   * // 返回包含指定列值的 Cartesian4 实例
    * // m = [10.0, 11.0, 12.0, 13.0]
    * //     [14.0, 15.0, 16.0, 17.0]
    * //     [18.0, 19.0, 20.0, 21.0]
    * //     [22.0, 23.0, 24.0, 25.0]
    *
-   * //Example 1: Creates an instance of Cartesian
+   * // 示例 1: 创建 Cartesian 实例
    * const a = Cesium.Matrix4.getColumn(m, 2, new Cesium.Cartesian4());
    *
    * @example
-   * //Example 2: Sets values for Cartesian instance
+   * // 示例 2: 为 Cartesian 实例设置值
    * const a = new Cesium.Cartesian4();
    * Cesium.Matrix4.getColumn(m, 2, a);
    *
@@ -1276,18 +1274,18 @@ class Matrix4 {
   }
 
   /**
-   * Computes a new matrix that replaces the specified column in the provided matrix with the provided Cartesian4 instance.
+   * 计算新矩阵，将提供矩阵中的指定列替换为提供的 Cartesian4 实例。
    *
-   * @param {Matrix4} matrix The matrix to use.
-   * @param {number} index The zero-based index of the column to set.
-   * @param {Cartesian4} cartesian The Cartesian whose values will be assigned to the specified column.
-   * @param {Matrix4} result The object onto which to store the result.
-   * @returns {Matrix4} The modified result parameter.
+   * @param {Matrix4} matrix 要使用的矩阵。
+   * @param {number} index 要设置的列的从零开始索引。
+   * @param {Cartesian4} cartesian 其值将分配给指定列的 Cartesian。
+   * @param {Matrix4} result 用于存储结果的对象。
+   * @returns {Matrix4} 修改后的结果参数。
    *
-   * @exception {DeveloperError} index must be 0, 1, 2, or 3.
+   * @exception {DeveloperError} index 必须为 0、1、2 或 3。
    *
    * @example
-   * //creates a new Matrix4 instance with new column values from the Cartesian4 instance
+   * // 从 Cartesian4 实例创建具有新列值的新 Matrix4 实例
    * // m = [10.0, 11.0, 12.0, 13.0]
    * //     [14.0, 15.0, 16.0, 17.0]
    * //     [18.0, 19.0, 20.0, 21.0]
@@ -1295,7 +1293,7 @@ class Matrix4 {
    *
    * const a = Cesium.Matrix4.setColumn(m, 2, new Cesium.Cartesian4(99.0, 98.0, 97.0, 96.0), new Cesium.Matrix4());
    *
-   * // m remains the same
+   * // m 保持不变
    * // a = [10.0, 11.0, 99.0, 13.0]
    * //     [14.0, 15.0, 98.0, 17.0]
    * //     [18.0, 19.0, 97.0, 21.0]
@@ -1326,27 +1324,27 @@ class Matrix4 {
   }
 
   /**
-   * Retrieves a copy of the matrix row at the provided index as a Cartesian4 instance.
+   * 以 Cartesian4 实例的形式检索提供的行的矩阵副本。
    *
-   * @param {Matrix4} matrix The matrix to use.
-   * @param {number} index The zero-based index of the row to retrieve.
-   * @param {Cartesian4} result The object onto which to store the result.
-   * @returns {Cartesian4} The modified result parameter.
+   * @param {Matrix4} matrix 要使用的矩阵。
+   * @param {number} index 要检索的行的从零开始索引。
+   * @param {Cartesian4} result 用于存储结果的对象。
+   * @returns {Cartesian4} 修改后的结果参数。
    *
-   * @exception {DeveloperError} index must be 0, 1, 2, or 3.
+   * @exception {DeveloperError} index 必须为 0、1、2 或 3。
    *
    * @example
-   * //returns a Cartesian4 instance with values from the specified column
+   * // 返回包含指定行值的 Cartesian4 实例
    * // m = [10.0, 11.0, 12.0, 13.0]
    * //     [14.0, 15.0, 16.0, 17.0]
    * //     [18.0, 19.0, 20.0, 21.0]
    * //     [22.0, 23.0, 24.0, 25.0]
    *
-   * //Example 1: Returns an instance of Cartesian
+   * // 示例 1: 返回 Cartesian 实例
    * const a = Cesium.Matrix4.getRow(m, 2, new Cesium.Cartesian4());
    *
    * @example
-   * //Example 2: Sets values for a Cartesian instance
+   * // 示例 2: 为 Cartesian 实例设置值
    * const a = new Cesium.Cartesian4();
    * Cesium.Matrix4.getRow(m, 2, a);
    *
@@ -1379,18 +1377,18 @@ class Matrix4 {
   }
 
   /**
-   * Computes a new matrix that replaces the specified row in the provided matrix with the provided Cartesian4 instance.
+   * 计算新矩阵，将提供矩阵中的指定行替换为提供的 Cartesian4 实例。
    *
-   * @param {Matrix4} matrix The matrix to use.
-   * @param {number} index The zero-based index of the row to set.
-   * @param {Cartesian4} cartesian The Cartesian whose values will be assigned to the specified row.
-   * @param {Matrix4} result The object onto which to store the result.
-   * @returns {Matrix4} The modified result parameter.
+   * @param {Matrix4} matrix 要使用的矩阵。
+   * @param {number} index 要设置的行的从零开始索引。
+   * @param {Cartesian4} cartesian 其值将分配给指定行的 Cartesian。
+   * @param {Matrix4} result 用于存储结果的对象。
+   * @returns {Matrix4} 修改后的结果参数。
    *
-   * @exception {DeveloperError} index must be 0, 1, 2, or 3.
+   * @exception {DeveloperError} index 必须为 0、1、2 或 3。
    *
    * @example
-   * //create a new Matrix4 instance with new row values from the Cartesian4 instance
+   * // 从 Cartesian4 实例创建具有新行值的新 Matrix4 实例
    * // m = [10.0, 11.0, 12.0, 13.0]
    * //     [14.0, 15.0, 16.0, 17.0]
    * //     [18.0, 19.0, 20.0, 21.0]
@@ -1398,7 +1396,7 @@ class Matrix4 {
    *
    * const a = Cesium.Matrix4.setRow(m, 2, new Cesium.Cartesian4(99.0, 98.0, 97.0, 96.0), new Cesium.Matrix4());
    *
-   * // m remains the same
+   * // m 保持不变
    * // a = [10.0, 11.0, 12.0, 13.0]
    * //     [14.0, 15.0, 16.0, 17.0]
    * //     [99.0, 98.0, 97.0, 96.0]
@@ -1428,13 +1426,13 @@ class Matrix4 {
   }
 
   /**
-   * Computes a new matrix that replaces the translation in the rightmost column of the provided
-   * matrix with the provided translation. This assumes the matrix is an affine transformation.
+   * 计算新矩阵，将提供矩阵最右列中的平移替换为提供的平移。
+   * 此方法假设矩阵为仿射变换。
    *
-   * @param {Matrix4} matrix The matrix to use.
-   * @param {Cartesian3} translation The translation that replaces the translation of the provided matrix.
-   * @param {Matrix4} result The object onto which to store the result.
-   * @returns {Matrix4} The modified result parameter.
+   * @param {Matrix4} matrix 要使用的矩阵。
+   * @param {Cartesian3} translation 替换提供矩阵平移的平移。
+   * @param {Matrix4} result 用于存储结果的对象。
+   * @returns {Matrix4} 修改后的结果参数。
    */
   static setTranslation(matrix, translation, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -1467,13 +1465,13 @@ class Matrix4 {
   }
 
   /**
-   * Computes a new matrix that replaces the scale with the provided scale.
-   * This assumes the matrix is an affine transformation.
+   * 计算新矩阵，用提供的缩放替换缩放。
+   * 此方法假设矩阵为仿射变换。
    *
-   * @param {Matrix4} matrix The matrix to use.
-   * @param {Cartesian3} scale The scale that replaces the scale of the provided matrix.
-   * @param {Matrix4} result The object onto which to store the result.
-   * @returns {Matrix4} The modified result parameter.
+   * @param {Matrix4} matrix 要使用的矩阵。
+   * @param {Cartesian3} scale 替换提供矩阵缩放的缩放。
+   * @param {Matrix4} result 用于存储结果的对象。
+   * @returns {Matrix4} 修改后的结果参数。
    *
    * @see Matrix4.setUniformScale
    * @see Matrix4.fromScale
@@ -1518,13 +1516,13 @@ class Matrix4 {
   }
 
   /**
-   * Computes a new matrix that replaces the scale with the provided uniform scale.
-   * This assumes the matrix is an affine transformation.
+   * 计算新矩阵，用提供的均匀缩放替换缩放。
+   * 此方法假设矩阵为仿射变换。
    *
-   * @param {Matrix4} matrix The matrix to use.
-   * @param {number} scale The uniform scale that replaces the scale of the provided matrix.
-   * @param {Matrix4} result The object onto which to store the result.
-   * @returns {Matrix4} The modified result parameter.
+   * @param {Matrix4} matrix 要使用的矩阵。
+   * @param {number} scale 替换提供矩阵缩放的均匀缩放。
+   * @param {Matrix4} result 用于存储结果的对象。
+   * @returns {Matrix4} 修改后的结果参数。
    *
    * @see Matrix4.setScale
    * @see Matrix4.fromScale
@@ -1569,11 +1567,11 @@ class Matrix4 {
   }
 
   /**
-   * Extracts the non-uniform scale assuming the matrix is an affine transformation.
+   * 提取非均匀缩放，假设矩阵为仿射变换。
    *
-   * @param {Matrix4} matrix The matrix.
-   * @param {Cartesian3} result The object onto which to store the result.
-   * @returns {Cartesian3} The modified result parameter
+   * @param {Matrix4} matrix 矩阵。
+   * @param {Cartesian3} result 用于存储结果的对象。
+   * @returns {Cartesian3} 修改后的结果参数
    *
    * @see Matrix4.multiplyByScale
    * @see Matrix4.multiplyByUniformScale
@@ -1601,12 +1599,11 @@ class Matrix4 {
   }
 
   /**
-   * Computes the maximum scale assuming the matrix is an affine transformation.
-   * The maximum scale is the maximum length of the column vectors in the upper-left
-   * 3x3 matrix.
+   * 计算最大缩放，假设矩阵为仿射变换。
+   * 最大缩放是左上角 3x3 矩阵中列向量的最大长度。
    *
-   * @param {Matrix4} matrix The matrix.
-   * @returns {number} The maximum scale.
+   * @param {Matrix4} matrix 矩阵。
+   * @returns {number} 最大缩放。
    */
   static getMaximumScale(matrix) {
     Matrix4.getScale(matrix, scaleScratch3);
@@ -1614,12 +1611,12 @@ class Matrix4 {
   }
 
   /**
-   * Sets the rotation assuming the matrix is an affine transformation.
+   * 设置旋转，假设矩阵为仿射变换。
    *
-   * @param {Matrix4} matrix The matrix.
-   * @param {Matrix3} rotation The rotation matrix.
-   * @param {Matrix4} result The object onto which to store the result.
-   * @returns {Matrix4} The modified result parameter.
+   * @param {Matrix4} matrix 矩阵。
+   * @param {Matrix3} rotation 旋转矩阵。
+   * @param {Matrix4} result 用于存储结果的对象。
+   * @returns {Matrix4} 修改后的结果参数。
    *
    * @see Matrix4.fromRotation
    * @see Matrix4.getRotation
@@ -1656,11 +1653,11 @@ class Matrix4 {
   }
 
   /**
-   * Extracts the rotation matrix assuming the matrix is an affine transformation.
+   * 提取旋转矩阵，假设矩阵为仿射变换。
    *
-   * @param {Matrix4} matrix The matrix.
-   * @param {Matrix3} result The object onto which to store the result.
-   * @returns {Matrix3} The modified result parameter.
+   * @param {Matrix4} matrix 矩阵。
+   * @param {Matrix3} result 用于存储结果的对象。
+   * @returns {Matrix3} 修改后的结果参数。
    *
    * @see Matrix4.setRotation
    * @see Matrix4.fromRotation
@@ -1689,12 +1686,12 @@ class Matrix4 {
   }
 
   /**
-   * Computes the product of two matrices.
+   * 计算两个矩阵的乘积。
    *
-   * @param {Matrix4} left The first matrix.
-   * @param {Matrix4} right The second matrix.
-   * @param {Matrix4} result The object onto which to store the result.
-   * @returns {Matrix4} The modified result parameter.
+   * @param {Matrix4} left 第一个矩阵。
+   * @param {Matrix4} right 第二个矩阵。
+   * @param {Matrix4} result 用于存储结果的对象。
+   * @returns {Matrix4} 修改后的结果参数。
    */
   static multiply(left, right, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -1793,12 +1790,12 @@ class Matrix4 {
   }
 
   /**
-   * Computes the sum of two matrices.
+   * 计算两个矩阵的和。
    *
-   * @param {Matrix4} left The first matrix.
-   * @param {Matrix4} right The second matrix.
-   * @param {Matrix4} result The object onto which to store the result.
-   * @returns {Matrix4} The modified result parameter.
+   * @param {Matrix4} left 第一个矩阵。
+   * @param {Matrix4} right 第二个矩阵。
+   * @param {Matrix4} result 用于存储结果的对象。
+   * @returns {Matrix4} 修改后的结果参数。
    */
   static add(left, right, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -1827,12 +1824,12 @@ class Matrix4 {
   }
 
   /**
-   * Computes the difference of two matrices.
+   * 计算两个矩阵的差。
    *
-   * @param {Matrix4} left The first matrix.
-   * @param {Matrix4} right The second matrix.
-   * @param {Matrix4} result The object onto which to store the result.
-   * @returns {Matrix4} The modified result parameter.
+   * @param {Matrix4} left 第一个矩阵。
+   * @param {Matrix4} right 第二个矩阵。
+   * @param {Matrix4} result 用于存储结果的对象。
+   * @returns {Matrix4} 修改后的结果参数。
    */
   static subtract(left, right, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -1861,18 +1858,18 @@ class Matrix4 {
   }
 
   /**
-   * Computes the product of two matrices assuming the matrices are affine transformation matrices,
-   * where the upper left 3x3 elements are any matrix, and
-   * the upper three elements in the fourth column are the translation.
-   * The bottom row is assumed to be [0, 0, 0, 1].
-   * The matrix is not verified to be in the proper form.
-   * This method is faster than computing the product for general 4x4
-   * matrices using {@link Matrix4.multiply}.
+   * 计算两个矩阵的乘积，假设矩阵为仿射变换矩阵，
+   * 其中左上角 3x3 元素为任意矩阵，
+   * 第四列的前三个元素为平移。
+   * 底行假定为 [0, 0, 0, 1]。
+   * 不验证矩阵是否符合该形式。
+   * 此方法比使用 {@link Matrix4.multiply} 计算通用 4x4
+   * 矩阵的乘积更快。
    *
-   * @param {Matrix4} left The first matrix.
-   * @param {Matrix4} right The second matrix.
-   * @param {Matrix4} result The object onto which to store the result.
-   * @returns {Matrix4} The modified result parameter.
+   * @param {Matrix4} left 第一个矩阵。
+   * @param {Matrix4} right 第二个矩阵。
+   * @param {Matrix4} result 用于存储结果的对象。
+   * @returns {Matrix4} 修改后的结果参数。
    *
    * @example
    * const m1 = new Cesium.Matrix4(1.0, 6.0, 7.0, 0.0, 2.0, 5.0, 8.0, 0.0, 3.0, 4.0, 9.0, 0.0, 0.0, 0.0, 0.0, 1.0);
@@ -1951,17 +1948,17 @@ class Matrix4 {
   }
 
   /**
-   * Multiplies a transformation matrix (with a bottom row of <code>[0.0, 0.0, 0.0, 1.0]</code>)
-   * by a 3x3 rotation matrix.  This is an optimization
-   * for <code>Matrix4.multiply(m, Matrix4.fromRotationTranslation(rotation), m);</code> with less allocations and arithmetic operations.
+   * 将变换矩阵（底行为 <code>[0.0, 0.0, 0.0, 1.0]</code>）
+   * 与 3x3 旋转矩阵相乘。这是对
+   * <code>Matrix4.multiply(m, Matrix4.fromRotationTranslation(rotation), m);</code> 的优化，减少了分配和算术运算。
    *
-   * @param {Matrix4} matrix The matrix on the left-hand side.
-   * @param {Matrix3} rotation The 3x3 rotation matrix on the right-hand side.
-   * @param {Matrix4} result The object onto which to store the result.
-   * @returns {Matrix4} The modified result parameter.
+   * @param {Matrix4} matrix 左侧的矩阵。
+   * @param {Matrix3} rotation 右侧的 3x3 旋转矩阵。
+   * @param {Matrix4} result 用于存储结果的对象。
+   * @returns {Matrix4} 修改后的结果参数。
    *
    * @example
-   * // Instead of Cesium.Matrix4.multiply(m, Cesium.Matrix4.fromRotationTranslation(rotation), m);
+   * // 替代 Cesium.Matrix4.multiply(m, Cesium.Matrix4.fromRotationTranslation(rotation), m);
    * Cesium.Matrix4.multiplyByMatrix3(m, rotation, m);
    */
   static multiplyByMatrix3(matrix, rotation, result) {
@@ -2023,17 +2020,17 @@ class Matrix4 {
   }
 
   /**
-   * Multiplies a transformation matrix (with a bottom row of <code>[0.0, 0.0, 0.0, 1.0]</code>)
-   * by an implicit translation matrix defined by a {@link Cartesian3}.  This is an optimization
-   * for <code>Matrix4.multiply(m, Matrix4.fromTranslation(position), m);</code> with less allocations and arithmetic operations.
+   * 将变换矩阵（底行为 <code>[0.0, 0.0, 0.0, 1.0]</code>）
+   * 与由 {@link Cartesian3} 定义的隐式平移矩阵相乘。这是对
+   * <code>Matrix4.multiply(m, Matrix4.fromTranslation(position), m);</code> 的优化，减少了分配和算术运算。
    *
-   * @param {Matrix4} matrix The matrix on the left-hand side.
-   * @param {Cartesian3} translation The translation on the right-hand side.
-   * @param {Matrix4} result The object onto which to store the result.
-   * @returns {Matrix4} The modified result parameter.
+   * @param {Matrix4} matrix 左侧的矩阵。
+   * @param {Cartesian3} translation 右侧的平移。
+   * @param {Matrix4} result 用于存储结果的对象。
+   * @returns {Matrix4} 修改后的结果参数。
    *
    * @example
-   * // Instead of Cesium.Matrix4.multiply(m, Cesium.Matrix4.fromTranslation(position), m);
+   * // 替代 Cesium.Matrix4.multiply(m, Cesium.Matrix4.fromTranslation(position), m);
    * Cesium.Matrix4.multiplyByTranslation(m, position, m);
    */
   static multiplyByTranslation(matrix, translation, result) {
@@ -2071,20 +2068,20 @@ class Matrix4 {
   }
 
   /**
-   * Multiplies an affine transformation matrix (with a bottom row of <code>[0.0, 0.0, 0.0, 1.0]</code>)
-   * by an implicit non-uniform scale matrix. This is an optimization
-   * for <code>Matrix4.multiply(m, Matrix4.fromUniformScale(scale), m);</code>, where
-   * <code>m</code> must be an affine matrix.
-   * This function performs fewer allocations and arithmetic operations.
+   * 将仿射变换矩阵（底行为 <code>[0.0, 0.0, 0.0, 1.0]</code>）
+   * 与隐式非均匀缩放矩阵相乘。这是对
+   * <code>Matrix4.multiply(m, Matrix4.fromUniformScale(scale), m);</code> 的优化，其中
+   * <code>m</code> 必须是仿射矩阵。
+   * 此函数执行更少的分配和算术运算。
    *
-   * @param {Matrix4} matrix The affine matrix on the left-hand side.
-   * @param {Cartesian3} scale The non-uniform scale on the right-hand side.
-   * @param {Matrix4} result The object onto which to store the result.
-   * @returns {Matrix4} The modified result parameter.
+   * @param {Matrix4} matrix 左侧的仿射矩阵。
+   * @param {Cartesian3} scale 右侧的非均匀缩放。
+   * @param {Matrix4} result 用于存储结果的对象。
+   * @returns {Matrix4} 修改后的结果参数。
    *
    *
    * @example
-   * // Instead of Cesium.Matrix4.multiply(m, Cesium.Matrix4.fromScale(scale), m);
+   * // 替代 Cesium.Matrix4.multiply(m, Cesium.Matrix4.fromScale(scale), m);
    * Cesium.Matrix4.multiplyByScale(m, scale, m);
    *
    * @see Matrix4.multiplyByUniformScale
@@ -2105,7 +2102,7 @@ class Matrix4 {
     const scaleY = scale.y;
     const scaleZ = scale.z;
 
-    // Faster than Cartesian3.equals
+    // 比 Cartesian3.equals 更快
     if (scaleX === 1.0 && scaleY === 1.0 && scaleZ === 1.0) {
       return Matrix4.clone(matrix, result);
     }
@@ -2134,15 +2131,15 @@ class Matrix4 {
   }
 
   /**
-   * Computes the product of a matrix times a uniform scale, as if the scale were a scale matrix.
+   * 计算矩阵与均匀缩放的乘积，如同缩放是一个缩放矩阵。
    *
-   * @param {Matrix4} matrix The matrix on the left-hand side.
-   * @param {number} scale The uniform scale on the right-hand side.
-   * @param {Matrix4} result The object onto which to store the result.
-   * @returns {Matrix4} The modified result parameter.
+   * @param {Matrix4} matrix 左侧的矩阵。
+   * @param {number} scale 右侧的均匀缩放。
+   * @param {Matrix4} result 用于存储结果的对象。
+   * @returns {Matrix4} 修改后的结果参数。
    *
    * @example
-   * // Instead of Cesium.Matrix4.multiply(m, Cesium.Matrix4.fromUniformScale(scale), m);
+   * // 替代 Cesium.Matrix4.multiply(m, Cesium.Matrix4.fromUniformScale(scale), m);
    * Cesium.Matrix4.multiplyByUniformScale(m, scale, m);
    *
    * @see Matrix4.multiplyByScale
@@ -2183,12 +2180,12 @@ class Matrix4 {
   }
 
   /**
-   * Computes the product of a matrix and a column vector.
+   * 计算矩阵与列向量的乘积。
    *
-   * @param {Matrix4} matrix The matrix.
-   * @param {Cartesian4} cartesian The vector.
-   * @param {Cartesian4} result The object onto which to store the result.
-   * @returns {Cartesian4} The modified result parameter.
+   * @param {Matrix4} matrix 矩阵。
+   * @param {Cartesian4} cartesian 向量。
+   * @param {Cartesian4} result 用于存储结果的对象。
+   * @returns {Cartesian4} 修改后的结果参数。
    */
   static multiplyByVector(matrix, cartesian, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -2219,18 +2216,18 @@ class Matrix4 {
   }
 
   /**
-   * Computes the product of a matrix and a {@link Cartesian3}.  This is equivalent to calling {@link Matrix4.multiplyByVector}
-   * with a {@link Cartesian4} with a <code>w</code> component of zero.
+   * 计算矩阵与 {@link Cartesian3} 的乘积。这等价于调用 {@link Matrix4.multiplyByVector}，
+   * 其中 {@link Cartesian4} 的 <code>w</code> 分量为零。
    *
-   * @param {Matrix4} matrix The matrix.
-   * @param {Cartesian3} cartesian The point.
-   * @param {Cartesian3} result The object onto which to store the result.
-   * @returns {Cartesian3} The modified result parameter.
+   * @param {Matrix4} matrix 矩阵。
+   * @param {Cartesian3} cartesian 点。
+   * @param {Cartesian3} result 用于存储结果的对象。
+   * @returns {Cartesian3} 修改后的结果参数。
    *
    * @example
    * const p = new Cesium.Cartesian3(1.0, 2.0, 3.0);
    * const result = Cesium.Matrix4.multiplyByPointAsVector(matrix, p, new Cesium.Cartesian3());
-   * // A shortcut for
+   * // 等价于
    * //   Cartesian3 p = ...
    * //   Cesium.Matrix4.multiplyByVector(matrix, new Cesium.Cartesian4(p.x, p.y, p.z, 0.0), result);
    */
@@ -2256,13 +2253,13 @@ class Matrix4 {
   }
 
   /**
-   * Computes the product of a matrix and a {@link Cartesian3}. This is equivalent to calling {@link Matrix4.multiplyByVector}
-   * with a {@link Cartesian4} with a <code>w</code> component of 1, but returns a {@link Cartesian3} instead of a {@link Cartesian4}.
+   * 计算矩阵与 {@link Cartesian3} 的乘积。这等价于调用 {@link Matrix4.multiplyByVector}，
+   * 其中 {@link Cartesian4} 的 <code>w</code> 分量为 1，但返回 {@link Cartesian3} 而不是 {@link Cartesian4}。
    *
-   * @param {Matrix4} matrix The matrix.
-   * @param {Cartesian3} cartesian The point.
-   * @param {Cartesian3} result The object onto which to store the result.
-   * @returns {Cartesian3} The modified result parameter.
+   * @param {Matrix4} matrix 矩阵。
+   * @param {Cartesian3} cartesian 点。
+   * @param {Cartesian3} result 用于存储结果的对象。
+   * @returns {Cartesian3} 修改后的结果参数。
    *
    * @example
    * const p = new Cesium.Cartesian3(1.0, 2.0, 3.0);
@@ -2290,15 +2287,15 @@ class Matrix4 {
   }
 
   /**
-   * Computes the product of a matrix and a scalar.
+   * 计算矩阵与标量的乘积。
    *
-   * @param {Matrix4} matrix The matrix.
-   * @param {number} scalar The number to multiply by.
-   * @param {Matrix4} result The object onto which to store the result.
-   * @returns {Matrix4} The modified result parameter.
+   * @param {Matrix4} matrix 矩阵。
+   * @param {number} scalar 要乘的数。
+   * @param {Matrix4} result 用于存储结果的对象。
+   * @returns {Matrix4} 修改后的结果参数。
    *
    * @example
-   * //create a Matrix4 instance which is a scaled version of the supplied Matrix4
+   * // 创建 Matrix4 实例，它是提供的 Matrix4 的缩放版本
    * // m = [10.0, 11.0, 12.0, 13.0]
    * //     [14.0, 15.0, 16.0, 17.0]
    * //     [18.0, 19.0, 20.0, 21.0]
@@ -2306,7 +2303,7 @@ class Matrix4 {
    *
    * const a = Cesium.Matrix4.multiplyByScalar(m, -2, new Cesium.Matrix4());
    *
-   * // m remains the same
+   * // m 保持不变
    * // a = [-20.0, -22.0, -24.0, -26.0]
    * //     [-28.0, -30.0, -32.0, -34.0]
    * //     [-36.0, -38.0, -40.0, -42.0]
@@ -2339,14 +2336,14 @@ class Matrix4 {
   }
 
   /**
-   * Computes a negated copy of the provided matrix.
+   * 计算提供矩阵的取反副本。
    *
-   * @param {Matrix4} matrix The matrix to negate.
-   * @param {Matrix4} result The object onto which to store the result.
-   * @returns {Matrix4} The modified result parameter.
+   * @param {Matrix4} matrix 要取反的矩阵。
+   * @param {Matrix4} result 用于存储结果的对象。
+   * @returns {Matrix4} 修改后的结果参数。
    *
    * @example
-   * //create a new Matrix4 instance which is a negation of a Matrix4
+   * // 创建新的 Matrix4 实例，它是 Matrix4 的取反
    * // m = [10.0, 11.0, 12.0, 13.0]
    * //     [14.0, 15.0, 16.0, 17.0]
    * //     [18.0, 19.0, 20.0, 21.0]
@@ -2354,7 +2351,7 @@ class Matrix4 {
    *
    * const a = Cesium.Matrix4.negate(m, new Cesium.Matrix4());
    *
-   * // m remains the same
+   * // m 保持不变
    * // a = [-10.0, -11.0, -12.0, -13.0]
    * //     [-14.0, -15.0, -16.0, -17.0]
    * //     [-18.0, -19.0, -20.0, -21.0]
@@ -2386,14 +2383,14 @@ class Matrix4 {
   }
 
   /**
-   * Computes the transpose of the provided matrix.
+   * 计算提供矩阵的转置。
    *
-   * @param {Matrix4} matrix The matrix to transpose.
-   * @param {Matrix4} result The object onto which to store the result.
-   * @returns {Matrix4} The modified result parameter.
+   * @param {Matrix4} matrix 要转置的矩阵。
+   * @param {Matrix4} result 用于存储结果的对象。
+   * @returns {Matrix4} 修改后的结果参数。
    *
    * @example
-   * //returns transpose of a Matrix4
+   * // 返回 Matrix4 的转置
    * // m = [10.0, 11.0, 12.0, 13.0]
    * //     [14.0, 15.0, 16.0, 17.0]
    * //     [18.0, 19.0, 20.0, 21.0]
@@ -2401,7 +2398,7 @@ class Matrix4 {
    *
    * const a = Cesium.Matrix4.transpose(m, new Cesium.Matrix4());
    *
-   * // m remains the same
+   * // m 保持不变
    * // a = [10.0, 14.0, 18.0, 22.0]
    * //     [11.0, 15.0, 19.0, 23.0]
    * //     [12.0, 16.0, 20.0, 24.0]
@@ -2440,11 +2437,11 @@ class Matrix4 {
   }
 
   /**
-   * Computes a matrix, which contains the absolute (unsigned) values of the provided matrix's elements.
+   * 计算一个矩阵，其中包含提供矩阵元素的绝对（无符号）值。
    *
-   * @param {Matrix4} matrix The matrix with signed elements.
-   * @param {Matrix4} result The object onto which to store the result.
-   * @returns {Matrix4} The modified result parameter.
+   * @param {Matrix4} matrix 带有带符号元素的矩阵。
+   * @param {Matrix4} result 用于存储结果的对象。
+   * @returns {Matrix4} 修改后的结果参数。
    */
   static abs(matrix, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -2473,15 +2470,15 @@ class Matrix4 {
   }
 
   /**
-   * Compares the provided matrices componentwise and returns
-   * <code>true</code> if they are equal, <code>false</code> otherwise.
+   * 逐分量比较提供的矩阵，如果相等则返回
+   * <code>true</code>，否则返回 <code>false</code>。
    *
-   * @param {Matrix4} [left] The first matrix.
-   * @param {Matrix4} [right] The second matrix.
-   * @returns {boolean} <code>true</code> if left and right are equal, <code>false</code> otherwise.
+   * @param {Matrix4} [left] 第一个矩阵。
+   * @param {Matrix4} [right] 第二个矩阵。
+   * @returns {boolean} 如果 left 和 right 相等则为 <code>true</code>，否则为 <code>false</code>。
    *
    * @example
-   * //compares two Matrix4 instances
+   * // 比较两个 Matrix4 实例
    *
    * // a = [10.0, 14.0, 18.0, 22.0]
    * //     [11.0, 15.0, 19.0, 23.0]
@@ -2494,18 +2491,18 @@ class Matrix4 {
    * //     [13.0, 17.0, 21.0, 25.0]
    *
    * if(Cesium.Matrix4.equals(a,b)) {
-   *      console.log("Both matrices are equal");
+   *      console.log("两个矩阵相等");
    * } else {
-   *      console.log("They are not equal");
+   *      console.log("它们不相等");
    * }
    *
-   * //Prints "Both matrices are equal" on the console
+   * // 在控制台打印 "两个矩阵相等"
    */
   static equals(left, right) {
-    // Given that most matrices will be transformation matrices, the elements
-    // are tested in order such that the test is likely to fail as early
-    // as possible.  I _think_ this is just as friendly to the L1 cache
-    // as testing in index order.  It is certainty faster in practice.
+    // 鉴于大多数矩阵将是变换矩阵，元素
+    // 按顺序进行测试，以便测试很可能尽早失败。
+    // 我认为这对 L1 缓存的友好程度
+    // 与按索引顺序测试一样。在实践中它肯定更快。
     return (
       left === right ||
       (defined(left) &&
@@ -2533,17 +2530,16 @@ class Matrix4 {
   }
 
   /**
-   * Compares the provided matrices componentwise and returns
-   * <code>true</code> if they are within the provided epsilon,
-   * <code>false</code> otherwise.
+   * 逐分量比较提供的矩阵，如果它们在提供的 epsilon 范围内则返回
+   * <code>true</code>，否则返回 <code>false</code>。
    *
-   * @param {Matrix4} [left] The first matrix.
-   * @param {Matrix4} [right] The second matrix.
-   * @param {number} [epsilon=0] The epsilon to use for equality testing.
-   * @returns {boolean} <code>true</code> if left and right are within the provided epsilon, <code>false</code> otherwise.
+   * @param {Matrix4} [left] 第一个矩阵。
+   * @param {Matrix4} [right] 第二个矩阵。
+   * @param {number} [epsilon=0] 用于相等性测试的 epsilon。
+   * @returns {boolean} 如果 left 和 right 在提供的 epsilon 范围内则为 <code>true</code>，否则为 <code>false</code>。
    *
    * @example
-   * //compares two Matrix4 instances
+   * // 比较两个 Matrix4 实例
    *
    * // a = [10.5, 14.5, 18.5, 22.5]
    * //     [11.5, 15.5, 19.5, 23.5]
@@ -2556,12 +2552,12 @@ class Matrix4 {
    * //     [13.0, 17.0, 21.0, 25.0]
    *
    * if(Cesium.Matrix4.equalsEpsilon(a,b,0.1)){
-   *      console.log("Difference between both the matrices is less than 0.1");
+   *      console.log("两个矩阵之间的差值小于 0.1");
    * } else {
-   *      console.log("Difference between both the matrices is not less than 0.1");
+   *      console.log("两个矩阵之间的差值不小于 0.1");
    * }
    *
-   * //Prints "Difference between both the matrices is not less than 0.1" on the console
+   * // 在控制台打印 "两个矩阵之间的差值不小于 0.1"
    */
   static equalsEpsilon(left, right, epsilon) {
     epsilon = epsilon ?? 0;
@@ -2590,11 +2586,11 @@ class Matrix4 {
   }
 
   /**
-   * Gets the translation portion of the provided matrix, assuming the matrix is an affine transformation matrix.
+   * 获取提供矩阵的平移部分，假设矩阵为仿射变换矩阵。
    *
-   * @param {Matrix4} matrix The matrix to use.
-   * @param {Cartesian3} result The object onto which to store the result.
-   * @returns {Cartesian3} The modified result parameter.
+   * @param {Matrix4} matrix 要使用的矩阵。
+   * @param {Cartesian3} result 用于存储结果的对象。
+   * @returns {Cartesian3} 修改后的结果参数。
    */
   static getTranslation(matrix, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -2609,14 +2605,14 @@ class Matrix4 {
   }
 
   /**
-   * Gets the upper left 3x3 matrix of the provided matrix.
+   * 获取提供矩阵的左上角 3x3 矩阵。
    *
-   * @param {Matrix4} matrix The matrix to use.
-   * @param {Matrix3} result The object onto which to store the result.
-   * @returns {Matrix3} The modified result parameter.
+   * @param {Matrix4} matrix 要使用的矩阵。
+   * @param {Matrix3} result 用于存储结果的对象。
+   * @returns {Matrix3} 修改后的结果参数。
    *
    * @example
-   * // returns a Matrix3 instance from a Matrix4 instance
+   * // 从 Matrix4 实例返回 Matrix3 实例
    *
    * // m = [10.0, 14.0, 18.0, 22.0]
    * //     [11.0, 15.0, 19.0, 23.0]
@@ -2649,16 +2645,16 @@ class Matrix4 {
   }
 
   /**
-   * Computes the inverse of the provided matrix using Cramers Rule.
-   * If the determinant is zero, the matrix can not be inverted, and an exception is thrown.
-   * If the matrix is a proper rigid transformation, it is more efficient
-   * to invert it with {@link Matrix4.inverseTransformation}.
+   * 使用克莱姆法则计算提供矩阵的逆矩阵。
+   * 如果行列式为零，则矩阵不可逆，将抛出异常。
+   * 如果矩阵是proper rigid变换矩阵，则使用
+   * {@link Matrix4.inverseTransformation} 求逆更高效。
    *
-   * @param {Matrix4} matrix The matrix to invert.
-   * @param {Matrix4} result The object onto which to store the result.
-   * @returns {Matrix4} The modified result parameter.
+   * @param {Matrix4} matrix 要求逆的矩阵。
+   * @param {Matrix4} result 用于存储结果的对象。
+   * @returns {Matrix4} 修改后的结果参数。
    *
-   * @exception {RuntimeError} matrix is not invertible because its determinate is zero.
+   * @exception {RuntimeError} 矩阵不可逆，因为其行列式为零。
    */
   static inverse(matrix, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -2666,7 +2662,7 @@ class Matrix4 {
     Check.typeOf.object("result", result);
     //>>includeEnd('debug');
     //
-    // Ported from:
+    // 移植自:
     //   ftp://download.intel.com/design/PentiumIII/sml/24504301.pdf
     //
     const src0 = matrix[0];
@@ -2686,7 +2682,7 @@ class Matrix4 {
     const src14 = matrix[11];
     const src15 = matrix[15];
 
-    // calculate pairs for first 8 elements (cofactors)
+    // 计算前 8 个元素的配对（余子式）
     let tmp0 = src10 * src15;
     let tmp1 = src11 * src14;
     let tmp2 = src9 * src15;
@@ -2700,7 +2696,7 @@ class Matrix4 {
     let tmp10 = src8 * src13;
     let tmp11 = src9 * src12;
 
-    // calculate first 8 elements (cofactors)
+    // 计算前 8 个元素（余子式）
     const dst0 =
       tmp0 * src5 +
       tmp3 * src6 +
@@ -2742,7 +2738,7 @@ class Matrix4 {
       tmp10 * src2 -
       (tmp5 * src0 + tmp8 * src1 + tmp11 * src2);
 
-    // calculate pairs for second 8 elements (cofactors)
+    // 计算后 8 个元素的配对（余子式）
     tmp0 = src2 * src7;
     tmp1 = src3 * src6;
     tmp2 = src1 * src7;
@@ -2756,7 +2752,7 @@ class Matrix4 {
     tmp10 = src0 * src5;
     tmp11 = src1 * src4;
 
-    // calculate second 8 elements (cofactors)
+    // 计算后 8 个元素（余子式）
     const dst8 =
       tmp0 * src13 +
       tmp3 * src14 +
@@ -2798,12 +2794,12 @@ class Matrix4 {
       tmp9 * src9 -
       (tmp8 * src9 + tmp11 * src10 + tmp5 * src8);
 
-    // calculate determinant
+    // 计算行列式
     let det = src0 * dst0 + src1 * dst1 + src2 * dst2 + src3 * dst3;
 
     if (Math.abs(det) < CesiumMath.EPSILON21) {
-      // Special case for a zero scale matrix that can occur, for example,
-      // when a model's node has a [0, 0, 0] scale.
+      // 零缩放矩阵的特殊情况，可能发生，例如
+      // 当模型的节点具有 [0, 0, 0] 缩放时。
       if (
         Matrix3.equalsEpsilon(
           Matrix4.getMatrix3(matrix, scratchInverseRotation),
@@ -2835,11 +2831,11 @@ class Matrix4 {
       }
 
       throw new RuntimeError(
-        "matrix is not invertible because its determinate is zero.",
+        "矩阵不可逆，因为其行列式为零。",
       );
     }
 
-    // calculate matrix inverse
+    // 计算矩阵逆
     det = 1.0 / det;
 
     result[0] = dst0 * det;
@@ -2862,17 +2858,17 @@ class Matrix4 {
   }
 
   /**
-   * Computes the inverse of the provided matrix assuming it is a proper rigid matrix,
-   * where the upper left 3x3 elements are a rotation matrix,
-   * and the upper three elements in the fourth column are the translation.
-   * The bottom row is assumed to be [0, 0, 0, 1].
-   * The matrix is not verified to be in the proper form.
-   * This method is faster than computing the inverse for a general 4x4
-   * matrix using {@link Matrix4.inverse}.
+   * 计算提供矩阵的逆矩阵，假设它是proper rigid变换矩阵，
+   * 其中左上角 3x3 元素为旋转矩阵，
+   * 第四列的前三个元素为平移。
+   * 底行假定为 [0, 0, 0, 1]。
+   * 不验证矩阵是否符合该形式。
+   * 此方法比使用 {@link Matrix4.inverse} 计算通用 4x4
+   * 矩阵的逆更快。
    *
-   * @param {Matrix4} matrix The matrix to invert.
-   * @param {Matrix4} result The object onto which to store the result.
-   * @returns {Matrix4} The modified result parameter.
+   * @param {Matrix4} matrix 要求逆的矩阵。
+   * @param {Matrix4} result 用于存储结果的对象。
+   * @returns {Matrix4} 修改后的结果参数。
    */
   static inverseTransformation(matrix, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -2880,11 +2876,11 @@ class Matrix4 {
     Check.typeOf.object("result", result);
     //>>includeEnd('debug');
 
-    //This function is an optimized version of the below 4 lines.
-    //const rT = Matrix3.transpose(Matrix4.getMatrix3(matrix));
-    //const rTN = Matrix3.negate(rT);
-    //const rTT = Matrix3.multiplyByVector(rTN, Matrix4.getTranslation(matrix));
-    //return Matrix4.fromRotationTranslation(rT, rTT, result);
+    // 此函数是对以下 4 行的优化。
+    // const rT = Matrix3.transpose(Matrix4.getMatrix3(matrix));
+    // const rTN = Matrix3.negate(rT);
+    // const rTT = Matrix3.multiplyByVector(rTN, Matrix4.getTranslation(matrix));
+    // return Matrix4.fromRotationTranslation(rT, rTT, result);
 
     const matrix0 = matrix[0];
     const matrix1 = matrix[1];
@@ -2924,11 +2920,11 @@ class Matrix4 {
   }
 
   /**
-   * Computes the inverse transpose of a matrix.
+   * 计算矩阵的逆矩阵的转置。
    *
-   * @param {Matrix4} matrix The matrix to transpose and invert.
-   * @param {Matrix4} result The object onto which to store the result.
-   * @returns {Matrix4} The modified result parameter.
+   * @param {Matrix4} matrix 要转置并求逆的矩阵。
+   * @param {Matrix4} result 用于存储结果的对象。
+   * @returns {Matrix4} 修改后的结果参数。
    */
   static inverseTranspose(matrix, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -2943,7 +2939,7 @@ class Matrix4 {
   }
 
   /**
-   * Gets the number of items in the collection.
+   * 获取集合中的项目数量。
    *
    * @type {number}
    */
@@ -2952,28 +2948,28 @@ class Matrix4 {
   }
 
   /**
-   * Duplicates the provided Matrix4 instance.
+   * 复制提供的 Matrix4 实例。
    *
-   * @param {Matrix4} [result] The object onto which to store the result.
-   * @returns {Matrix4} The modified result parameter or a new Matrix4 instance if one was not provided.
+   * @param {Matrix4} [result] 用于存储结果的对象。
+   * @returns {Matrix4} 修改后的结果参数，如果未提供则返回新的 Matrix4 实例。
    */
   clone(result) {
     return Matrix4.clone(this, result);
   }
 
   /**
-   * Compares this matrix to the provided matrix componentwise and returns
-   * <code>true</code> if they are equal, <code>false</code> otherwise.
+   * 逐分量比较此矩阵与提供的矩阵，如果
+   * 相等则返回 <code>true</code>，否则返回 <code>false</code>。
    *
-   * @param {Matrix4} [right] The right hand side matrix.
-   * @returns {boolean} <code>true</code> if they are equal, <code>false</code> otherwise.
+   * @param {Matrix4} [right] 右侧矩阵。
+   * @returns {boolean} 如果相等则为 <code>true</code>，否则为 <code>false</code>。
    */
   equals(right) {
     return Matrix4.equals(this, right);
   }
 
   /**
-   * Compares provided matrix and array, starting from a given array offset.
+   * 比较提供的矩阵和数组，从给定的数组偏移量开始。
    *
    * @param {Matrix4} matrix
    * @param {number[]} array
@@ -3002,23 +2998,23 @@ class Matrix4 {
   }
 
   /**
-   * Compares this matrix to the provided matrix componentwise and returns
-   * <code>true</code> if they are within the provided epsilon,
-   * <code>false</code> otherwise.
+   * 逐分量比较此矩阵与提供的矩阵，如果
+   * 它们在提供的 epsilon 范围内则返回 <code>true</code>，
+   * 否则返回 <code>false</code>。
    *
-   * @param {Matrix4} [right] The right hand side matrix.
-   * @param {number} [epsilon=0] The epsilon to use for equality testing.
-   * @returns {boolean} <code>true</code> if they are within the provided epsilon, <code>false</code> otherwise.
+   * @param {Matrix4} [right] 右侧矩阵。
+   * @param {number} [epsilon=0] 用于相等性测试的 epsilon。
+   * @returns {boolean} 如果它们在提供的 epsilon 范围内则为 <code>true</code>，否则为 <code>false</code>。
    */
   equalsEpsilon(right, epsilon) {
     return Matrix4.equalsEpsilon(this, right, epsilon);
   }
 
   /**
-   * Computes a string representing this Matrix with each row being
-   * on a separate line and in the format '(column0, column1, column2, column3)'.
+   * 创建表示此矩阵的字符串，每行位于
+   * 单独的一行，格式为 '(column0, column1, column2, column3)'。
    *
-   * @returns {string} A string representing the provided Matrix with each row being on a separate line and in the format '(column0, column1, column2, column3)'.
+   * @returns {string} 表示此矩阵的字符串，每行位于单独的一行，格式为 '(column0, column1, column2, column3)'。
    */
   toString() {
     return (
@@ -3031,22 +3027,22 @@ class Matrix4 {
 }
 
 /**
- * The number of elements used to pack the object into an array.
+ * 将对象打包到数组中时使用的元素数量。
  * @type {number}
  */
 Matrix4.packedLength = 16;
 
 /**
- * Creates a Matrix4 from 16 consecutive elements in an array.
+ * 从数组中 16 个连续元素创建 Matrix4。
  * @function
  *
- * @param {number[]} array The array whose 16 consecutive elements correspond to the positions of the matrix.  Assumes column-major order.
- * @param {number} [startingIndex=0] The offset into the array of the first element, which corresponds to first column first row position in the matrix.
- * @param {Matrix4} [result] The object onto which to store the result.
- * @returns {Matrix4} The modified result parameter or a new Matrix4 instance if one was not provided.
+ * @param {number[]} array 数组，其 16 个连续元素对应矩阵的位置。假设为列主序。
+ * @param {number} [startingIndex=0] 数组中第一个元素的偏移量，对应矩阵的第一列第一行位置。
+ * @param {Matrix4} [result] 用于存储结果的对象。
+ * @returns {Matrix4} 修改后的结果参数，如果未提供则返回新的 Matrix4 实例。
  *
  * @example
- * // Create the Matrix4:
+ * // 创建 Matrix4:
  * // [1.0, 2.0, 3.0, 4.0]
  * // [1.0, 2.0, 3.0, 4.0]
  * // [1.0, 2.0, 3.0, 4.0]
@@ -3055,14 +3051,14 @@ Matrix4.packedLength = 16;
  * const v = [1.0, 1.0, 1.0, 1.0, 2.0, 2.0, 2.0, 2.0, 3.0, 3.0, 3.0, 3.0, 4.0, 4.0, 4.0, 4.0];
  * const m = Cesium.Matrix4.fromArray(v);
  *
- * // Create same Matrix4 with using an offset into an array
+ * // 使用数组中的偏移量创建相同的 Matrix4
  * const v2 = [0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 2.0, 2.0, 2.0, 2.0, 3.0, 3.0, 3.0, 3.0, 4.0, 4.0, 4.0, 4.0];
  * const m2 = Cesium.Matrix4.fromArray(v2, 2);
  */
 Matrix4.fromArray = Matrix4.unpack;
 
 /**
- * An immutable Matrix4 instance initialized to the identity matrix.
+ * 初始化为单位矩阵的不可变 Matrix4 实例。
  *
  * @type {Matrix4}
  * @constant
@@ -3089,7 +3085,7 @@ Matrix4.IDENTITY = Object.freeze(
 );
 
 /**
- * An immutable Matrix4 instance initialized to the zero matrix.
+ * 初始化为零矩阵的不可变 Matrix4 实例。
  *
  * @type {Matrix4}
  * @constant
@@ -3116,7 +3112,7 @@ Matrix4.ZERO = Object.freeze(
 );
 
 /**
- * The index into Matrix4 for column 0, row 0.
+ * Matrix4 中第 0 列第 0 行的索引。
  *
  * @type {number}
  * @constant
@@ -3124,7 +3120,7 @@ Matrix4.ZERO = Object.freeze(
 Matrix4.COLUMN0ROW0 = 0;
 
 /**
- * The index into Matrix4 for column 0, row 1.
+ * Matrix4 中第 0 列第 1 行的索引。
  *
  * @type {number}
  * @constant
@@ -3132,7 +3128,7 @@ Matrix4.COLUMN0ROW0 = 0;
 Matrix4.COLUMN0ROW1 = 1;
 
 /**
- * The index into Matrix4 for column 0, row 2.
+ * Matrix4 中第 0 列第 2 行的索引。
  *
  * @type {number}
  * @constant
@@ -3140,7 +3136,7 @@ Matrix4.COLUMN0ROW1 = 1;
 Matrix4.COLUMN0ROW2 = 2;
 
 /**
- * The index into Matrix4 for column 0, row 3.
+ * Matrix4 中第 0 列第 3 行的索引。
  *
  * @type {number}
  * @constant
@@ -3148,7 +3144,7 @@ Matrix4.COLUMN0ROW2 = 2;
 Matrix4.COLUMN0ROW3 = 3;
 
 /**
- * The index into Matrix4 for column 1, row 0.
+ * Matrix4 中第 1 列第 0 行的索引。
  *
  * @type {number}
  * @constant
@@ -3156,7 +3152,7 @@ Matrix4.COLUMN0ROW3 = 3;
 Matrix4.COLUMN1ROW0 = 4;
 
 /**
- * The index into Matrix4 for column 1, row 1.
+ * Matrix4 中第 1 列第 1 行的索引。
  *
  * @type {number}
  * @constant
@@ -3164,7 +3160,7 @@ Matrix4.COLUMN1ROW0 = 4;
 Matrix4.COLUMN1ROW1 = 5;
 
 /**
- * The index into Matrix4 for column 1, row 2.
+ * Matrix4 中第 1 列第 2 行的索引。
  *
  * @type {number}
  * @constant
@@ -3172,7 +3168,7 @@ Matrix4.COLUMN1ROW1 = 5;
 Matrix4.COLUMN1ROW2 = 6;
 
 /**
- * The index into Matrix4 for column 1, row 3.
+ * Matrix4 中第 1 列第 3 行的索引。
  *
  * @type {number}
  * @constant
@@ -3180,7 +3176,7 @@ Matrix4.COLUMN1ROW2 = 6;
 Matrix4.COLUMN1ROW3 = 7;
 
 /**
- * The index into Matrix4 for column 2, row 0.
+ * Matrix4 中第 2 列第 0 行的索引。
  *
  * @type {number}
  * @constant
@@ -3188,7 +3184,7 @@ Matrix4.COLUMN1ROW3 = 7;
 Matrix4.COLUMN2ROW0 = 8;
 
 /**
- * The index into Matrix4 for column 2, row 1.
+ * Matrix4 中第 2 列第 1 行的索引。
  *
  * @type {number}
  * @constant
@@ -3196,7 +3192,7 @@ Matrix4.COLUMN2ROW0 = 8;
 Matrix4.COLUMN2ROW1 = 9;
 
 /**
- * The index into Matrix4 for column 2, row 2.
+ * Matrix4 中第 2 列第 2 行的索引。
  *
  * @type {number}
  * @constant
@@ -3204,7 +3200,7 @@ Matrix4.COLUMN2ROW1 = 9;
 Matrix4.COLUMN2ROW2 = 10;
 
 /**
- * The index into Matrix4 for column 2, row 3.
+ * Matrix4 中第 2 列第 3 行的索引。
  *
  * @type {number}
  * @constant
@@ -3212,7 +3208,7 @@ Matrix4.COLUMN2ROW2 = 10;
 Matrix4.COLUMN2ROW3 = 11;
 
 /**
- * The index into Matrix4 for column 3, row 0.
+ * Matrix4 中第 3 列第 0 行的索引。
  *
  * @type {number}
  * @constant
@@ -3220,7 +3216,7 @@ Matrix4.COLUMN2ROW3 = 11;
 Matrix4.COLUMN3ROW0 = 12;
 
 /**
- * The index into Matrix4 for column 3, row 1.
+ * Matrix4 中第 3 列第 1 行的索引。
  *
  * @type {number}
  * @constant
@@ -3228,7 +3224,7 @@ Matrix4.COLUMN3ROW0 = 12;
 Matrix4.COLUMN3ROW1 = 13;
 
 /**
- * The index into Matrix4 for column 3, row 2.
+ * Matrix4 中第 3 列第 2 行的索引。
  *
  * @type {number}
  * @constant
@@ -3236,7 +3232,7 @@ Matrix4.COLUMN3ROW1 = 13;
 Matrix4.COLUMN3ROW2 = 14;
 
 /**
- * The index into Matrix4 for column 3, row 3.
+ * Matrix4 中第 3 列第 3 行的索引。
  *
  * @type {number}
  * @constant

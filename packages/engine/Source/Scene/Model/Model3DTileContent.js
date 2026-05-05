@@ -153,22 +153,20 @@ Object.defineProperties(Model3DTileContent.prototype, {
 });
 
 /**
- * Returns an array containing the `texture.id` values for all textures
- * that are part of this content.
+ * 返回包含此内容中所有纹理的 `texture.id` 值的数组。
  *
- * @returns {string[]} The texture IDs
+ * @returns {string[]} 纹理 ID
  */
 Model3DTileContent.prototype.getTextureIds = function () {
   return this._model.statistics.getTextureIds();
 };
 
 /**
- * Returns the length, in bytes, of the texture data for the texture with
- * the given ID that is part of this content, or `undefined` if this
- * content does not contain the texture with the given ID.
+ * 返回此内容中给定ID的纹理数据的字节长度，
+ * 如果此内容不包含给定ID的纹理，则返回 `undefined`。
  *
- * @param {string} textureId The texture ID
- * @returns {number|undefined} The texture byte length
+ * @param {string} textureId 纹理ID
+ * @returns {number|undefined} 纹理字节长度
  */
 Model3DTileContent.prototype.getTextureByteLengthById = function (textureId) {
   return this._model.statistics.getTextureByteLengthById(textureId);

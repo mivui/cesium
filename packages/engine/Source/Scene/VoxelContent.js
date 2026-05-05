@@ -9,21 +9,21 @@ import MetadataType from "./MetadataType.js";
 
 /**
  * <div class="notice">
- * To construct a VoxelContent, call {@link VoxelContent.fromMetadataArray} or {@link VoxelContent.fromGltf}. Do not call the constructor directly.
+ * 要构造 VoxelContent，请调用 {@link VoxelContent.fromMetadataArray} 或 {@link VoxelContent.fromGltf}。不要直接调用构造函数。
  * </div>
- * An object representing voxel content for a {@link Cesium3DTilesVoxelProvider}.
+ * 表示用于 {@link Cesium3DTilesVoxelProvider} 的体素内容的对象。
  *
  * @alias VoxelContent
  * @internalConstructor
  *
- * @privateParam {object} options An object with the following properties:
- * @privateParam {ResourceLoader} [options.loader] The loader used to load the voxel content.
- * @privateParam {Int8Array[]|Uint8Array[]|Int16Array[]|Uint16Array[]|Int32Array[]|Uint32Array[]|Float32Array[]|Float64Array[]} [options.metadata] The metadata for this voxel content.
+ * @privateParam {object} options 具有以下属性的对象：
+ * @privateParam {ResourceLoader} [options.loader] 用于加载体素内容的加载器。
+ * @privateParam {Int8Array[]|Uint8Array[]|Int16Array[]|Uint16Array[]|Int32Array[]|Uint32Array[]|Float32Array[]|Float64Array[]} [options.metadata] 此体素内容的元数据。
  *
- * @exception {DeveloperError} One of loader and metadata must be defined.
- * @exception {DeveloperError} metadata must be an array of TypedArrays.
+ * @exception {DeveloperError} 必须定义 loader 和 metadata 中的一个。
+ * @exception {DeveloperError} metadata 必须是 TypedArray 数组。
  *
- * @experimental This feature is not final and is subject to change without Cesium's standard deprecation policy.
+ * @experimental 此功能尚未最终确定，可能会在不遵循 Cesium 标准弃用政策的情况下进行更改。
  */
 function VoxelContent(options) {
   //>>includeStart('debug', pragmas.debug);
@@ -63,9 +63,9 @@ Object.defineProperties(VoxelContent.prototype, {
   },
 
   /**
-   * The metadata for this voxel content.
-   * The metadata is an array of typed arrays, one for each field.
-   * The data for one field is a flattened 3D array ordered by X, then Y, then Z.
+   * 此体素内容的元数据。
+   * 元数据是一个类型化数组的数组，每个字段一个。
+   * 一个字段的数据是按 X、然后 Y、然后 Z 顺序排列的扁平化 3D 数组。
    *
    * @memberof VoxelContent.prototype
    * @type {Int8Array[]|Uint8Array[]|Int16Array[]|Uint16Array[]|Int32Array[]|Uint32Array[]|Float32Array[]|Float64Array[]}
@@ -79,10 +79,10 @@ Object.defineProperties(VoxelContent.prototype, {
 });
 
 /**
- * Constructs a VoxelContent from an array of metadata.
+ * 从元数据数组构造 VoxelContent。
  *
- * @param {Int8Array[]|Uint8Array[]|Int16Array[]|Uint16Array[]|Int32Array[]|Uint32Array[]|Float32Array[]|Float64Array[]} metadata The metadata to use for this voxel content.
- * @returns {VoxelContent} A VoxelContent containing the specified metadata.
+ * @param {Int8Array[]|Uint8Array[]|Int16Array[]|Uint16Array[]|Int32Array[]|Uint32Array[]|Float32Array[]|Float64Array[]} metadata 用于此体素内容的元数据。
+ * @returns {VoxelContent} 包含指定元数据的 VoxelContent。
  */
 VoxelContent.fromMetadataArray = function (metadata) {
   //>>includeStart('debug', pragmas.debug);

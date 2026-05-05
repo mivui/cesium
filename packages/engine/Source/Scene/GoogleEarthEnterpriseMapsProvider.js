@@ -14,14 +14,14 @@ import ImageryProvider from "./ImageryProvider.js";
 /**
  * @typedef {object} GoogleEarthEnterpriseMapsProvider.ConstructorOptions
  *
- * Initialization options for the GoogleEarthEnterpriseMapsProvider constructor
+ * GoogleEarthEnterpriseMapsProvider 构造函数的初始化选项
  *
- * @property {number} channel The channel (id) to be used when requesting data from the server.
- *        The channel number can be found by looking at the json file located at:
- *        earth.localdomain/default_map/query?request=Json&vars=geeServerDefs The /default_map path may
- *        differ depending on your Google Earth Enterprise server configuration. Look for the "id" that
- *        is associated with a "ImageryMaps" requestType. There may be more than one id available.
- *        Example:
+ * @property {number} channel 从服务器请求数据时要使用的频道（id）。
+ *        频道编号可以通过查看位于以下位置的 json 文件找到：
+ *        earth.localdomain/default_map/query?request=Json&vars=geeServerDefs /default_map 路径可能
+ *        因您的 Google Earth Enterprise 服务器配置而异。查找与
+ *        "ImageryMaps" requestType 关联的 "id"。可能有多个可用的 id。
+ *        示例：
  *        {
  *          layers: [
  *            {
@@ -34,13 +34,13 @@ import ImageryProvider from "./ImageryProvider.js";
  *            }
  *          ]
  *        }
- * @property {string} [path="/default_map"] The path of the Google Earth server hosting the imagery.
- * @property {number} [maximumLevel] The maximum level-of-detail supported by the Google Earth
- *        Enterprise server, or undefined if there is no limit.
- * @property {TileDiscardPolicy} [tileDiscardPolicy] The policy that determines if a tile
- *        is invalid and should be discarded. To ensure that no tiles are discarded, construct and pass
- *        a {@link NeverTileDiscardPolicy} for this parameter.
- * @property {Ellipsoid} [ellipsoid=Ellipsoid.default] The ellipsoid.  If not specified, the default ellipsoid is used.
+ * @property {string} [path="/default_map"] 托管影像的 Google Earth 服务器的路径。
+ * @property {number} [maximumLevel] Google Earth
+ *        Enterprise 服务器支持的最大细节级别，如果没有限制则为 undefined。
+ * @property {TileDiscardPolicy} [tileDiscardPolicy] 确定瓦片是否
+ *        无效并应被丢弃的策略。为确保不丢弃任何瓦片，请构造并传递
+ *        {@link NeverTileDiscardPolicy} 作为此参数。
+ * @property {Ellipsoid} [ellipsoid=Ellipsoid.default] 椭球体。如果未指定，则使用默认椭球体。
  */
 
 /**
@@ -158,31 +158,31 @@ async function requestMetadata(
 
 /**
  * <div class="notice">
- * To construct a GoogleEarthEnterpriseMapsProvider, call {@link GoogleEarthEnterpriseImageryProvider.fromUrl}. Do not call the constructor directly.
+ * 要构造 GoogleEarthEnterpriseMapsProvider，请调用 {@link GoogleEarthEnterpriseImageryProvider.fromUrl}。不要直接调用构造函数。
  * </div>
  *
- * Provides tiled imagery using the Google Earth Imagery API.
+ * 使用 Google Earth 影像 API 提供瓦片影像。
  *
- * Notes: This imagery provider does not work with the public Google Earth servers. It works with the
- *        Google Earth Enterprise Server.
+ * 注意：此影像提供程序不适用于公共 Google Earth 服务器。它适用于
+ *        Google Earth Enterprise Server。
  *
- *        By default the Google Earth Enterprise server does not set the
- *        {@link http://www.w3.org/TR/cors/|Cross-Origin Resource Sharing} headers. You can either
- *        use a proxy server which adds these headers, or in the /opt/google/gehttpd/conf/gehttpd.conf
- *        and add the 'Header set Access-Control-Allow-Origin "*"' option to the '&lt;Directory /&gt;' and
- *        '&lt;Directory "/opt/google/gehttpd/htdocs"&gt;' directives.
+ *        默认情况下，Google Earth Enterprise 服务器不设置
+ *        {@link http://www.w3.org/TR/cors/|跨域资源共享} 标头。您可以
+ *        使用添加这些标头的代理服务器，或者在 /opt/google/gehttpd/conf/gehttpd.conf 中
+ *        将 'Header set Access-Control-Allow-Origin "*"' 选项添加到 '&lt;Directory /&gt;' 和
+ *        '&lt;Directory "/opt/google/gehttpd/htdocs"&gt;' 指令中。
  *
- *        This provider is for use with 2D Maps API as part of Google Earth Enterprise. For 3D Earth API uses, it
- *        is necessary to use {@link GoogleEarthEnterpriseImageryProvider}
+ *        此提供程序用于 Google Earth Enterprise 的 2D 地图 API。对于 3D Earth API 使用，
+ *        需要使用 {@link GoogleEarthEnterpriseImageryProvider}
  *
  * @alias GoogleEarthEnterpriseMapsProvider
  * @constructor
  *
- * @param {GoogleEarthEnterpriseMapsProvider.ConstructorOptions} options Object describing initialization options
+ * @param {GoogleEarthEnterpriseMapsProvider.ConstructorOptions} options 描述初始化选项的对象
  *
- * @exception {RuntimeError} Could not find layer with channel (id) of <code>options.channel</code>.
- * @exception {RuntimeError} Could not find a version in channel (id) <code>options.channel</code>.
- * @exception {RuntimeError} Unsupported projection <code>data.projection</code>.
+ * @exception {RuntimeError} 找不到频道（id）为 <code>options.channel</code> 的图层。
+ * @exception {RuntimeError} 在频道（id）<code>options.channel</code> 中找不到版本。
+ * @exception {RuntimeError} 不支持的投影 <code>data.projection</code>。
  *
  * @see ArcGisMapServerImageryProvider
  * @see BingMapsImageryProvider
@@ -197,7 +197,7 @@ async function requestMetadata(
  * @example
  * const google = await Cesium.GoogleEarthEnterpriseMapsProvider.fromUrl("https://earth.localdomain", 1008);
  *
- * @see {@link http://www.w3.org/TR/cors/|Cross-Origin Resource Sharing}
+ * @see {@link http://www.w3.org/TR/cors/|跨域资源共享}
  */
 function GoogleEarthEnterpriseMapsProvider(options) {
   options = options ?? {};
@@ -233,7 +233,7 @@ function GoogleEarthEnterpriseMapsProvider(options) {
 
 Object.defineProperties(GoogleEarthEnterpriseMapsProvider.prototype, {
   /**
-   * Gets the URL of the Google Earth MapServer.
+   * 获取 Google Earth MapServer 的 URL。
    * @memberof GoogleEarthEnterpriseMapsProvider.prototype
    * @type {string}
    * @readonly
@@ -245,7 +245,7 @@ Object.defineProperties(GoogleEarthEnterpriseMapsProvider.prototype, {
   },
 
   /**
-   * Gets the url path of the data on the Google Earth server.
+   * 获取 Google Earth 服务器上数据的 URL 路径。
    * @memberof GoogleEarthEnterpriseMapsProvider.prototype
    * @type {string}
    * @readonly
@@ -257,7 +257,7 @@ Object.defineProperties(GoogleEarthEnterpriseMapsProvider.prototype, {
   },
 
   /**
-   * Gets the proxy used by this provider.
+   * 获取此提供程序使用的代理。
    * @memberof GoogleEarthEnterpriseMapsProvider.prototype
    * @type {Proxy}
    * @readonly
@@ -269,7 +269,7 @@ Object.defineProperties(GoogleEarthEnterpriseMapsProvider.prototype, {
   },
 
   /**
-   * Gets the imagery channel (id) currently being used.
+   * 获取当前正在使用的影像频道（id）。
    * @memberof GoogleEarthEnterpriseMapsProvider.prototype
    * @type {number}
    * @readonly
@@ -281,7 +281,7 @@ Object.defineProperties(GoogleEarthEnterpriseMapsProvider.prototype, {
   },
 
   /**
-   * Gets the width of each tile, in pixels.
+   * 获取每个瓦片的宽度（以像素为单位）。
    * @memberof GoogleEarthEnterpriseMapsProvider.prototype
    * @type {number}
    * @readonly
@@ -293,7 +293,7 @@ Object.defineProperties(GoogleEarthEnterpriseMapsProvider.prototype, {
   },
 
   /**
-   * Gets the height of each tile, in pixels.
+   * 获取每个瓦片的高度（以像素为单位）。
    * @memberof GoogleEarthEnterpriseMapsProvider.prototype
    * @type {number}
    * @readonly
@@ -305,7 +305,7 @@ Object.defineProperties(GoogleEarthEnterpriseMapsProvider.prototype, {
   },
 
   /**
-   * Gets the maximum level-of-detail that can be requested.
+   * 获取可请求的最大细节级别。
    * @memberof GoogleEarthEnterpriseMapsProvider.prototype
    * @type {number|undefined}
    * @readonly
@@ -317,7 +317,7 @@ Object.defineProperties(GoogleEarthEnterpriseMapsProvider.prototype, {
   },
 
   /**
-   * Gets the minimum level-of-detail that can be requested.
+   * 获取可请求的最小细节级别。
    * @memberof GoogleEarthEnterpriseMapsProvider.prototype
    * @type {number}
    * @readonly
@@ -329,7 +329,7 @@ Object.defineProperties(GoogleEarthEnterpriseMapsProvider.prototype, {
   },
 
   /**
-   * Gets the tiling scheme used by this provider.
+   * 获取此提供程序使用的瓦片方案。
    * @memberof GoogleEarthEnterpriseMapsProvider.prototype
    * @type {TilingScheme}
    * @readonly
@@ -341,7 +341,7 @@ Object.defineProperties(GoogleEarthEnterpriseMapsProvider.prototype, {
   },
 
   /**
-   * Gets the version of the data used by this provider.
+   * 获取此提供程序使用的数据版本。
    * @memberof GoogleEarthEnterpriseMapsProvider.prototype
    * @type {number}
    * @readonly
@@ -353,7 +353,7 @@ Object.defineProperties(GoogleEarthEnterpriseMapsProvider.prototype, {
   },
 
   /**
-   * Gets the type of data that is being requested from the provider.
+   * 获取从提供程序请求的数据类型。
    * @memberof GoogleEarthEnterpriseMapsProvider.prototype
    * @type {string}
    * @readonly
@@ -364,7 +364,7 @@ Object.defineProperties(GoogleEarthEnterpriseMapsProvider.prototype, {
     },
   },
   /**
-   * Gets the rectangle, in radians, of the imagery provided by this instance.
+   * 获取此实例提供的影像范围（以弧度为单位）。
    * @memberof GoogleEarthEnterpriseMapsProvider.prototype
    * @type {Rectangle}
    * @readonly
@@ -376,9 +376,9 @@ Object.defineProperties(GoogleEarthEnterpriseMapsProvider.prototype, {
   },
 
   /**
-   * Gets the tile discard policy.  If not undefined, the discard policy is responsible
-   * for filtering out "missing" tiles via its shouldDiscardImage function.  If this function
-   * returns undefined, no tiles are filtered.
+   * 获取瓦片丢弃策略。如果未定义，则丢弃策略负责
+   * 通过其 shouldDiscardImage 函数过滤掉"缺失"的瓦片。如果该函数
+   * 返回 undefined，则不会过滤任何瓦片。
    * @memberof GoogleEarthEnterpriseMapsProvider.prototype
    * @type {TileDiscardPolicy}
    * @readonly
@@ -390,9 +390,9 @@ Object.defineProperties(GoogleEarthEnterpriseMapsProvider.prototype, {
   },
 
   /**
-   * Gets an event that is raised when the imagery provider encounters an asynchronous error.  By subscribing
-   * to the event, you will be notified of the error and can potentially recover from it.  Event listeners
-   * are passed an instance of {@link TileProviderError}.
+   * 获取当影像提供程序遇到异步错误时引发的事件。通过订阅
+   * 该事件，您将收到错误通知并可能从中恢复。事件监听器
+   * 会接收到 {@link TileProviderError} 的实例。
    * @memberof GoogleEarthEnterpriseMapsProvider.prototype
    * @type {Event}
    * @readonly
@@ -404,8 +404,8 @@ Object.defineProperties(GoogleEarthEnterpriseMapsProvider.prototype, {
   },
 
   /**
-   * Gets the credit to display when this imagery provider is active.  Typically this is used to credit
-   * the source of the imagery.
+   * 获取当此影像提供程序处于活动状态时要显示的版权信息。通常用于注明
+   * 影像的来源。
    * @memberof GoogleEarthEnterpriseMapsProvider.prototype
    * @type {Credit}
    * @readonly
@@ -417,11 +417,11 @@ Object.defineProperties(GoogleEarthEnterpriseMapsProvider.prototype, {
   },
 
   /**
-   * Gets a value indicating whether or not the images provided by this imagery provider
-   * include an alpha channel.  If this property is false, an alpha channel, if present, will
-   * be ignored.  If this property is true, any images without an alpha channel will be treated
-   * as if their alpha is 1.0 everywhere.  When this property is false, memory usage
-   * and texture upload time are reduced.
+   * 获取一个值，指示此影像提供程序提供的图像
+   * 是否包含 Alpha 通道。如果此属性为 false，则 Alpha 通道（如果存在）将
+   * 被忽略。如果此属性为 true，则任何没有 Alpha 通道的图像将被视为
+   * 其 Alpha 值在所有地方都为 1.0。当此属性为 false 时，内存使用量
+   * 和纹理上传时间会减少。
    * @memberof GoogleEarthEnterpriseMapsProvider.prototype
    * @type {boolean}
    * @readonly
@@ -434,15 +434,15 @@ Object.defineProperties(GoogleEarthEnterpriseMapsProvider.prototype, {
 });
 
 /**
- * Creates a tiled imagery provider using the Google Earth Imagery API.
+ * 使用 Google Earth 影像 API 创建瓦片影像提供程序。
  *
- * @param {Resource|string} url The url of the Google Earth server hosting the imagery.
- * @param {GoogleEarthEnterpriseMapsProvider.ConstructorOptions} [options] Object describing initialization options
- * @returns {Promise<GoogleEarthEnterpriseMapsProvider>} The created GoogleEarthEnterpriseMapsProvider.
+ * @param {Resource|string} url 托管影像的 Google Earth 服务器的 URL。
+ * @param {GoogleEarthEnterpriseMapsProvider.ConstructorOptions} [options] 描述初始化选项的对象
+ * @returns {Promise<GoogleEarthEnterpriseMapsProvider>} 已创建的 GoogleEarthEnterpriseMapsProvider。
  *
- * @exception {RuntimeError} Could not find layer with channel (id) of <code>options.channel</code>.
- * @exception {RuntimeError} Could not find a version in channel (id) <code>options.channel</code>.
- * @exception {RuntimeError} Unsupported projection <code>data.projection</code>.
+ * @exception {RuntimeError} 找不到频道（id）为 <code>options.channel</code> 的图层。
+ * @exception {RuntimeError} 在频道（id）<code>options.channel</code> 中找不到版本。
+ * @exception {RuntimeError} 不支持的投影 <code>data.projection</code>。
  *
  * @example
  * const google = await Cesium.GoogleEarthEnterpriseMapsProvider.fromUrl("https://earth.localdomain", 1008);
@@ -492,12 +492,12 @@ GoogleEarthEnterpriseMapsProvider.fromUrl = async function (
 };
 
 /**
- * Gets the credits to be displayed when a given tile is displayed.
+ * 获取当显示给定瓦片时要显示的版权信息。
  *
- * @param {number} x The tile X coordinate.
- * @param {number} y The tile Y coordinate.
- * @param {number} level The tile level;
- * @returns {Credit[]} The credits to be displayed when the tile is displayed.
+ * @param {number} x 瓦片 X 坐标。
+ * @param {number} y 瓦片 Y 坐标。
+ * @param {number} level 瓦片级别；
+ * @returns {Credit[]} 显示瓦片时要显示的版权信息。
  */
 GoogleEarthEnterpriseMapsProvider.prototype.getTileCredits = function (
   x,
@@ -508,14 +508,14 @@ GoogleEarthEnterpriseMapsProvider.prototype.getTileCredits = function (
 };
 
 /**
- * Requests the image for a given tile.
+ * 请求给定瓦片的图像。
  *
- * @param {number} x The tile X coordinate.
- * @param {number} y The tile Y coordinate.
- * @param {number} level The tile level.
- * @param {Request} [request] The request object. Intended for internal use only.
- * @returns {Promise<ImageryTypes>|undefined} A promise for the image that will resolve when the image is available, or
- *          undefined if there are too many active requests to the server, and the request should be retried later.
+ * @param {number} x 瓦片 X 坐标。
+ * @param {number} y 瓦片 Y 坐标。
+ * @param {number} level 瓦片级别。
+ * @param {Request} [request] 请求对象。仅供内部使用。
+ * @returns {Promise<ImageryTypes>|undefined} 图像的承诺，当图像可用时解析，或者
+ *          如果服务器有太多活动请求而返回 undefined，则应稍后重试请求。
  */
 GoogleEarthEnterpriseMapsProvider.prototype.requestImage = function (
   x,
@@ -540,15 +540,15 @@ GoogleEarthEnterpriseMapsProvider.prototype.requestImage = function (
 };
 
 /**
- * Picking features is not currently supported by this imagery provider, so this function simply returns
- * undefined.
+ * 此影像提供程序目前不支持拾取要素，因此此函数直接返回
+ * undefined。
  *
- * @param {number} x The tile X coordinate.
- * @param {number} y The tile Y coordinate.
- * @param {number} level The tile level.
- * @param {number} longitude The longitude at which to pick features.
- * @param {number} latitude  The latitude at which to pick features.
- * @return {undefined} Undefined since picking is not supported.
+ * @param {number} x 瓦片 X 坐标。
+ * @param {number} y 瓦片 Y 坐标。
+ * @param {number} level 瓦片级别。
+ * @param {number} longitude 拾取要素的经度。
+ * @param {number} latitude  拾取要素的纬度。
+ * @return {undefined} 由于不支持拾取，返回 undefined。
  */
 GoogleEarthEnterpriseMapsProvider.prototype.pickFeatures = function (
   x,
@@ -564,7 +564,7 @@ GoogleEarthEnterpriseMapsProvider._logoUrl = undefined;
 
 Object.defineProperties(GoogleEarthEnterpriseMapsProvider, {
   /**
-   * Gets or sets the URL to the Google Earth logo for display in the credit.
+   * 获取或设置用于显示在版权信息中的 Google Earth 徽标 URL。
    * @memberof GoogleEarthEnterpriseMapsProvider
    * @type {string}
    */

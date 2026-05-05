@@ -10,23 +10,22 @@ import TexturedMaterialAppearanceVS from "../Shaders/Appearances/TexturedMateria
 import Appearance from "./Appearance.js";
 import Material from "./Material.js";
 
-/**
-     * An appearance for arbitrary geometry (as opposed to {@link EllipsoidSurfaceAppearance}, for example)
-     * that supports shading with materials.
+    /**
+     * 一种用于任意几何体的外观（例如，与 {@link EllipsoidSurfaceAppearance} 不同），支持使用材质进行着色。
      *
      * @alias MaterialAppearance
      * @constructor
      *
-     * @param {object} [options] Object with the following properties:
-     * @param {boolean} [options.flat=false] When <code>true</code>, flat shading is used in the fragment shader, which means lighting is not taking into account.
-     * @param {boolean} [options.faceForward=!options.closed] When <code>true</code>, the fragment shader flips the surface normal as needed to ensure that the normal faces the viewer to avoid dark spots.  This is useful when both sides of a geometry should be shaded like {@link WallGeometry}.
-     * @param {boolean} [options.translucent=true] When <code>true</code>, the geometry is expected to appear translucent so {@link MaterialAppearance#renderState} has alpha blending enabled.
-     * @param {boolean} [options.closed=false] When <code>true</code>, the geometry is expected to be closed so {@link MaterialAppearance#renderState} has backface culling enabled.
-     * @param {MaterialAppearance.MaterialSupportType} [options.materialSupport=MaterialAppearance.MaterialSupport.TEXTURED] The type of materials that will be supported.
-     * @param {Material} [options.material=Material.ColorType] The material used to determine the fragment color.
-     * @param {string} [options.vertexShaderSource] Optional GLSL vertex shader source to override the default vertex shader.
-     * @param {string} [options.fragmentShaderSource] Optional GLSL fragment shader source to override the default fragment shader.
-     * @param {object} [options.renderState] Optional render state to override the default render state.
+     * @param {object} [options] 包含以下属性的对象：
+     * @param {boolean} [options.flat=false] 当 <code>true</code> 时，片段着色器使用平面着色，即不考虑光照。
+     * @param {boolean} [options.faceForward=!options.closed] 当 <code>true</code> 时，片段着色器会按需翻转表面法线，确保法线朝向观察者以避免暗斑。当几何体的两侧都需要着色（如 {@link WallGeometry}）时，此属性非常有用。
+     * @param {boolean} [options.translucent=true] 当 <code>true</code> 时，几何体预期为半透明，因此 {@link MaterialAppearance#renderState} 会启用 alpha 混合。
+     * @param {boolean} [options.closed=false] 当 <code>true</code> 时，几何体预期为闭合的，因此 {@link MaterialAppearance#renderState} 会启用背面剔除。
+     * @param {MaterialAppearance.MaterialSupportType} [options.materialSupport=MaterialAppearance.MaterialSupport.TEXTURED] 支持的材质类型。
+     * @param {Material} [options.material=Material.ColorType] 用于确定片段颜色的材质。
+     * @param {string} [options.vertexShaderSource] 可选的 GLSL 顶点着色器源码，用于覆盖默认顶点着色器。
+     * @param {string} [options.fragmentShaderSource] 可选的 GLSL 片段着色器源码，用于覆盖默认片段着色器。
+     * @param {object} [options.renderState] 可选的渲染状态，用于覆盖默认渲染状态。
      *
      * @see {@link https://github.com/CesiumGS/cesium/wiki/Fabric|Fabric}
      * @demo {@link https://sandcastle.cesium.com/index.html?id=materials|Cesium Sandcastle Material Appearance Demo}
@@ -35,7 +34,7 @@ import Material from "./Material.js";
      * const primitive = new Cesium.Primitive({
      *   geometryInstances : new Cesium.GeometryInstance({
      *     geometry : new Cesium.WallGeometry({
-            materialSupport :  Cesium.MaterialAppearance.MaterialSupport.BASIC.vertexFormat,
+             materialSupport :  Cesium.MaterialAppearance.MaterialSupport.BASIC.vertexFormat,
      *       // ...
      *     })
      *   }),
@@ -54,22 +53,21 @@ function MaterialAppearance(options) {
   const materialSupport =
     options.materialSupport ?? MaterialAppearance.MaterialSupport.TEXTURED;
 
-  /**
-   * The material used to determine the fragment color.  Unlike other {@link MaterialAppearance}
-   * properties, this is not read-only, so an appearance's material can change on the fly.
-   *
-   * @type Material
-   *
-   * @default {@link Material.ColorType}
-   *
-   * @see {@link https://github.com/CesiumGS/cesium/wiki/Fabric|Fabric}
-   */
+    /**
+     * 用于确定片段颜色的材质。与 {@link MaterialAppearance} 的其他属性不同，此属性不是只读的，因此外观的材质可以动态更改。
+     *
+     * @type Material
+     *
+     * @default {@link Material.ColorType}
+     *
+     * @see {@link https://github.com/CesiumGS/cesium/wiki/Fabric|Fabric}
+     */
   this.material = defined(options.material)
     ? options.material
     : Material.fromType(Material.ColorType);
 
   /**
-   * When <code>true</code>, the geometry is expected to appear translucent.
+   * 当 <code>true</code> 时，几何体预期为半透明。
    *
    * @type {boolean}
    *
@@ -98,7 +96,7 @@ function MaterialAppearance(options) {
 
 Object.defineProperties(MaterialAppearance.prototype, {
   /**
-   * The GLSL source code for the vertex shader.
+   * 顶点着色器的GLSL源代码。
    *
    * @memberof MaterialAppearance.prototype
    *
@@ -112,10 +110,9 @@ Object.defineProperties(MaterialAppearance.prototype, {
   },
 
   /**
-   * The GLSL source code for the fragment shader.  The full fragment shader
-   * source is built procedurally taking into account {@link MaterialAppearance#material},
-   * {@link MaterialAppearance#flat}, and {@link MaterialAppearance#faceForward}.
-   * Use {@link MaterialAppearance#getFragmentShaderSource} to get the full source.
+   * 片段着色器的GLSL源代码。完整的片段着色器源码是根据 {@link MaterialAppearance#material}、
+   * {@link MaterialAppearance#flat} 和 {@link MaterialAppearance#faceForward} 程序化构建的。
+   * 使用 {@link MaterialAppearance#getFragmentShaderSource} 获取完整源码。
    *
    * @memberof MaterialAppearance.prototype
    *
@@ -129,11 +126,10 @@ Object.defineProperties(MaterialAppearance.prototype, {
   },
 
   /**
-   * The WebGL fixed-function state to use when rendering the geometry.
+   * 渲染几何体时使用的WebGL固定功能状态。
    * <p>
-   * The render state can be explicitly defined when constructing a {@link MaterialAppearance}
-   * instance, or it is set implicitly via {@link MaterialAppearance#translucent}
-   * and {@link MaterialAppearance#closed}.
+   * 渲染状态可以在构造 {@link MaterialAppearance} 实例时显式定义，也可以通过
+   * {@link MaterialAppearance#translucent} 和 {@link MaterialAppearance#closed} 隐式设置。
    * </p>
    *
    * @memberof MaterialAppearance.prototype
@@ -148,9 +144,8 @@ Object.defineProperties(MaterialAppearance.prototype, {
   },
 
   /**
-   * When <code>true</code>, the geometry is expected to be closed so
-   * {@link MaterialAppearance#renderState} has backface culling enabled.
-   * If the viewer enters the geometry, it will not be visible.
+   * 当 <code>true</code> 时，几何体预期为闭合的，因此 {@link MaterialAppearance#renderState} 会启用背面剔除。
+   * 如果观察者进入几何体内部，将无法看到它。
    *
    * @memberof MaterialAppearance.prototype
    *
@@ -166,8 +161,7 @@ Object.defineProperties(MaterialAppearance.prototype, {
   },
 
   /**
-   * The type of materials supported by this instance.  This impacts the required
-   * {@link VertexFormat} and the complexity of the vertex and fragment shaders.
+   * 此实例支持的材质类型。这会影响所需的 {@link VertexFormat} 以及顶点和片段着色器的复杂度。
    *
    * @memberof MaterialAppearance.prototype
    *
@@ -183,9 +177,7 @@ Object.defineProperties(MaterialAppearance.prototype, {
   },
 
   /**
-   * The {@link VertexFormat} that this appearance instance is compatible with.
-   * A geometry can have more vertex attributes and still be compatible - at a
-   * potential performance cost - but it can't have less.
+   * 此外观实例兼容的 {@link VertexFormat}。几何体可以拥有更多顶点属性并仍然保持兼容（但可能会有性能损耗），但不能少于所需的属性。
    *
    * @memberof MaterialAppearance.prototype
    *
@@ -201,8 +193,7 @@ Object.defineProperties(MaterialAppearance.prototype, {
   },
 
   /**
-   * When <code>true</code>, flat shading is used in the fragment shader,
-   * which means lighting is not taking into account.
+   * 当 <code>true</code> 时，片段着色器使用平面着色，即不考虑光照。
    *
    * @memberof MaterialAppearance.prototype
    *
@@ -218,10 +209,8 @@ Object.defineProperties(MaterialAppearance.prototype, {
   },
 
   /**
-   * When <code>true</code>, the fragment shader flips the surface normal
-   * as needed to ensure that the normal faces the viewer to avoid
-   * dark spots.  This is useful when both sides of a geometry should be
-   * shaded like {@link WallGeometry}.
+   * 当 <code>true</code> 时，片段着色器会按需翻转表面法线，确保法线朝向观察者以避免暗斑。
+   * 当几何体的两侧都需要着色（如 {@link WallGeometry}）时，此属性非常有用。
    *
    * @memberof MaterialAppearance.prototype
    *
@@ -238,34 +227,32 @@ Object.defineProperties(MaterialAppearance.prototype, {
 });
 
 /**
- * Procedurally creates the full GLSL fragment shader source.  For {@link MaterialAppearance},
- * this is derived from {@link MaterialAppearance#fragmentShaderSource}, {@link MaterialAppearance#material},
- * {@link MaterialAppearance#flat}, and {@link MaterialAppearance#faceForward}.
+ * 程序化创建完整的GLSL片段着色器源码。对于 {@link MaterialAppearance}，
+ * 这是从 {@link MaterialAppearance#fragmentShaderSource}、{@link MaterialAppearance#material}、
+ * {@link MaterialAppearance#flat} 和 {@link MaterialAppearance#faceForward} 派生而来的。
  *
  * @function
  *
- * @returns {string} The full GLSL fragment shader source.
+ * @returns {string} 完整的GLSL片段着色器源码。
  */
 MaterialAppearance.prototype.getFragmentShaderSource =
   Appearance.prototype.getFragmentShaderSource;
 
 /**
- * Determines if the geometry is translucent based on {@link MaterialAppearance#translucent} and {@link Material#isTranslucent}.
+ * 根据 {@link MaterialAppearance#translucent} 和 {@link Material#isTranslucent} 判断几何体是否为半透明。
  *
  * @function
  *
- * @returns {boolean} <code>true</code> if the appearance is translucent.
+ * @returns {boolean} 如果外观是半透明的，则返回 <code>true</code>。
  */
 MaterialAppearance.prototype.isTranslucent = Appearance.prototype.isTranslucent;
 
 /**
- * Creates a render state.  This is not the final render state instance; instead,
- * it can contain a subset of render state properties identical to the render state
- * created in the context.
+ * 创建一个渲染状态。这不是最终的渲染状态实例，而是可以包含与上下文中创建的渲染状态相同的渲染状态属性的子集。
  *
  * @function
  *
- * @returns {object} The render state.
+ * @returns {object} 渲染状态。
  */
 MaterialAppearance.prototype.getRenderState =
   Appearance.prototype.getRenderState;
@@ -279,16 +266,12 @@ MaterialAppearance.prototype.getRenderState =
  */
 
 /**
- * Determines the type of {@link Material} that is supported by a
- * {@link MaterialAppearance} instance.  This is a trade-off between
- * flexibility (a wide array of materials) and memory/performance
- * (required vertex format and GLSL shader complexity.
+ * 确定 {@link MaterialAppearance} 实例支持的 {@link Material} 类型。这是在灵活性（广泛的材质选择）与内存/性能（所需的顶点格式和GLSL着色器复杂度）之间的权衡。
  * @namespace
  */
 MaterialAppearance.MaterialSupport = {
   /**
-   * Only basic materials, which require just <code>position</code> and
-   * <code>normal</code> vertex attributes, are supported.
+   * 仅支持基础材质，仅需 <code>position</code> 和 <code>normal</code> 顶点属性。
    *
    * @type {MaterialAppearance.MaterialSupportType}
    * @constant

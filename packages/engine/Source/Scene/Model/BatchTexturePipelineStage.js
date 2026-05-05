@@ -11,15 +11,15 @@ const BatchTexturePipelineStage = {
 };
 
 /**
- * Processes a primitive. This modifies the following parts of the render resources:
+ * 处理图元。这会修改渲染资源的以下部分：
  * <ul>
- *  <li>adds uniforms for the batch texture</li>
- *  <li>adds defines for multiline batch textures</li>
+ *  <li>为批量纹理添加统一变量</li>
+ *  <li>为多行批量纹理添加定义</li>
  * </ul>
  *
- * @param {PrimitiveRenderResources} renderResources The render resources for this primitive.
- * @param {ModelComponents.Primitive} primitive The primitive.
- * @param {FrameState} frameState The frame state.
+ * @param {PrimitiveRenderResources} renderResources 此图元的渲染资源。
+ * @param {ModelComponents.Primitive} primitive 图元。
+ * @param {FrameState} frameState 帧状态。
  */
 BatchTexturePipelineStage.process = function (
   renderResources,

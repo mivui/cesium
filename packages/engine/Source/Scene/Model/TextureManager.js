@@ -28,9 +28,9 @@ function TextureManager() {
 }
 
 /**
- * Get one of the loaded textures
- * @param {string} textureId The unique ID of the texture loaded by {@link TextureManager#loadTexture2D}
- * @return {Texture} The texture or <code>undefined</code> if no texture exists
+ * 获取已加载的纹理之一。
+ * @param {string} textureId 由 {@link TextureManager#loadTexture2D} 加载的纹理的唯一 ID。
+ * @return {Texture} 纹理，如果不存在纹理则返回 <code>undefined</code>。
  */
 TextureManager.prototype.getTexture = function (textureId) {
   return this._textures[textureId];

@@ -16,19 +16,19 @@ import Plane from "./Plane.js";
 import Rectangle from "./Rectangle.js";
 
 /**
- * Creates an instance of an OrientedBoundingBox.
- * An OrientedBoundingBox of some object is a closed and convex rectangular cuboid. It can provide a tighter bounding volume than {@link BoundingSphere} or {@link AxisAlignedBoundingBox} in many cases.
+ * 创建 OrientedBoundingBox 的实例。
+ * 某个对象的定向边界框是一个封闭的凸长方体。在许多情况下，它比 {@link BoundingSphere} 或 {@link AxisAlignedBoundingBox} 能提供更紧密的边界体积。
  * @alias OrientedBoundingBox
  * @constructor
  *
- * @param {Cartesian3} [center=Cartesian3.ZERO] The center of the box.
- * @param {Matrix3} [halfAxes=Matrix3.ZERO] The three orthogonal half-axes of the bounding box.
- *                                          Equivalently, the transformation matrix, to rotate and scale a 2x2x2
- *                                          cube centered at the origin.
+ * @param {Cartesian3} [center=Cartesian3.ZERO] 边界框的中心。
+ * @param {Matrix3} [halfAxes=Matrix3.ZERO] 边界框的三个正交半轴。
+ *                                          等效于用于旋转和缩放以原点为中心的 2x2x2
+ *                                          立方体的变换矩阵。
  *
  *
  * @example
- * // Create an OrientedBoundingBox using a transformation matrix, a position where the box will be translated, and a scale.
+ * // 使用变换矩阵、边界框的平移位置和缩放创建 OrientedBoundingBox。
  * const center = new Cesium.Cartesian3(1.0, 0.0, 0.0);
  * const halfAxes = Cesium.Matrix3.fromScale(new Cesium.Cartesian3(1.0, 3.0, 2.0), new Cesium.Matrix3());
  *
@@ -39,15 +39,14 @@ import Rectangle from "./Rectangle.js";
  */
 function OrientedBoundingBox(center, halfAxes) {
   /**
-   * The center of the box.
+   * 边界框的中心。
    * @type {Cartesian3}
    * @default {@link Cartesian3.ZERO}
    */
   this.center = Cartesian3.clone(center ?? Cartesian3.ZERO);
   /**
-   * The three orthogonal half-axes of the bounding box. Equivalently, the
-   * transformation matrix, to rotate and scale a 2x2x2 cube centered at the
-   * origin.
+   * 边界框的三个正交半轴。等效于用于旋转和缩放以原点为中心的
+   * 2x2x2 立方体的变换矩阵。
    * @type {Matrix3}
    * @default {@link Matrix3.ZERO}
    */
@@ -55,20 +54,20 @@ function OrientedBoundingBox(center, halfAxes) {
 }
 
 /**
- * The number of elements used to pack the object into an array.
+ * 用于将对象打包到数组中的元素数量。
  * @type {number}
  */
 OrientedBoundingBox.packedLength =
   Cartesian3.packedLength + Matrix3.packedLength;
 
 /**
- * Stores the provided instance into the provided array.
+ * 将提供的实例存储到提供的数组中。
  *
- * @param {OrientedBoundingBox} value The value to pack.
- * @param {number[]} array The array to pack into.
- * @param {number} [startingIndex=0] The index into the array at which to start packing the elements.
+ * @param {OrientedBoundingBox} value 要打包的值。
+ * @param {number[]} array 要打包到的数组。
+ * @param {number} [startingIndex=0] 数组中开始打包元素的索引。
  *
- * @returns {number[]} The array that was packed into
+ * @returns {number[]} 被打包到的数组
  */
 OrientedBoundingBox.pack = function (value, array, startingIndex) {
   //>>includeStart('debug', pragmas.debug);
@@ -85,12 +84,12 @@ OrientedBoundingBox.pack = function (value, array, startingIndex) {
 };
 
 /**
- * Retrieves an instance from a packed array.
+ * 从打包的数组中检索实例。
  *
- * @param {number[]} array The packed array.
- * @param {number} [startingIndex=0] The starting index of the element to be unpacked.
- * @param {OrientedBoundingBox} [result] The object into which to store the result.
- * @returns {OrientedBoundingBox} The modified result parameter or a new OrientedBoundingBox instance if one was not provided.
+ * @param {number[]} array 打包的数组。
+ * @param {number} [startingIndex=0] 要解包的元素起始索引。
+ * @param {OrientedBoundingBox} [result] 存储结果的对象。
+ * @returns {OrientedBoundingBox} 修改后的结果参数，如果未提供则返回新的 OrientedBoundingBox 实例。
  */
 OrientedBoundingBox.unpack = function (array, startingIndex, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -125,16 +124,16 @@ const scratchEigenResult = {
 };
 
 /**
- * Computes an instance of an OrientedBoundingBox of the given positions.
- * This is an implementation of Stefan Gottschalk's Collision Queries using Oriented Bounding Boxes solution (PHD thesis).
- * Reference: http://gamma.cs.unc.edu/users/gottschalk/main.pdf
+ * 计算给定位置的 OrientedBoundingBox 实例。
+ * 这是 Stefan Gottschalk 的《使用定向边界框的碰撞查询》解决方案（博士论文）的实现。
+ * 参考：http://gamma.cs.unc.edu/users/gottschalk/main.pdf
  *
- * @param {Cartesian3[]} [positions] List of {@link Cartesian3} points that the bounding box will enclose.
- * @param {OrientedBoundingBox} [result] The object onto which to store the result.
- * @returns {OrientedBoundingBox} The modified result parameter or a new OrientedBoundingBox instance if one was not provided.
+ * @param {Cartesian3[]} [positions] 边界框将包围的 {@link Cartesian3} 点列表。
+ * @param {OrientedBoundingBox} [result] 存储结果的对象。
+ * @returns {OrientedBoundingBox} 修改后的结果参数，如果未提供则返回新的 OrientedBoundingBox 实例。
  *
  * @example
- * // Compute an object oriented bounding box enclosing two points.
+ * // 计算包围两个点的定向边界框。
  * const box = Cesium.OrientedBoundingBox.fromPoints([new Cesium.Cartesian3(2, 0, 0), new Cesium.Cartesian3(-2, 0, 0)]);
  */
 OrientedBoundingBox.fromPoints = function (positions, result) {
@@ -325,19 +324,19 @@ const scratchZ = new Cartesian3();
 const scratchPlane = new Plane(Cartesian3.UNIT_X, 0.0);
 
 /**
- * Computes an OrientedBoundingBox that bounds a {@link Rectangle} on the surface of an {@link Ellipsoid}.
- * There are no guarantees about the orientation of the bounding box.
+ * 计算包围{@link Ellipsoid}表面{@link Rectangle}的OrientedBoundingBox。
+ * 不保证边界框的方向。
  *
- * @param {Rectangle} rectangle The cartographic rectangle on the surface of the ellipsoid.
- * @param {number} [minimumHeight=0.0] The minimum height (elevation) within the tile.
- * @param {number} [maximumHeight=0.0] The maximum height (elevation) within the tile.
- * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] The ellipsoid on which the rectangle is defined.
- * @param {OrientedBoundingBox} [result] The object onto which to store the result.
- * @returns {OrientedBoundingBox} The modified result parameter or a new OrientedBoundingBox instance if none was provided.
+ * @param {Rectangle} rectangle 椭球表面上的制图矩形。
+ * @param {number} [minimumHeight=0.0] 瓦片内的最小高度（海拔）。
+ * @param {number} [maximumHeight=0.0] 瓦片内的最大高度（海拔）。
+ * @param {Ellipsoid} [ellipsoid=Ellipsoid.default] 定义矩形的椭球。
+ * @param {OrientedBoundingBox} [result] 存储结果的对象。
+ * @returns {OrientedBoundingBox} 修改后的结果参数，如果未提供则返回新的OrientedBoundingBox实例。
  *
- * @exception {DeveloperError} rectangle.width must be between 0 and 2 * pi.
- * @exception {DeveloperError} rectangle.height must be between 0 and pi.
- * @exception {DeveloperError} ellipsoid must be an ellipsoid of revolution (<code>radii.x == radii.y</code>)
+ * @exception {DeveloperError} rectangle.width必须在0和2 * pi之间。
+ * @exception {DeveloperError} rectangle.height必须在0和pi之间。
+ * @exception {DeveloperError} 椭球必须是旋转椭球（<code>radii.x == radii.y</code>）
  */
 OrientedBoundingBox.fromRectangle = function (
   rectangle,
@@ -611,11 +610,11 @@ OrientedBoundingBox.fromRectangle = function (
 };
 
 /**
- * Computes an OrientedBoundingBox that bounds an affine transformation.
+ * 计算包围仿射变换的OrientedBoundingBox。
  *
- * @param {Matrix4} transformation The affine transformation.
- * @param {OrientedBoundingBox} [result] The object onto which to store the result.
- * @returns {OrientedBoundingBox} The modified result parameter or a new OrientedBoundingBox instance if none was provided.
+ * @param {Matrix4} transformation 仿射变换。
+ * @param {OrientedBoundingBox} [result] 存储结果的对象。
+ * @returns {OrientedBoundingBox} 修改后的结果参数，如果未提供则返回新的OrientedBoundingBox实例。
  */
 OrientedBoundingBox.fromTransformation = function (transformation, result) {
   //>>includeStart('debug', pragmas.debug);
@@ -637,11 +636,11 @@ OrientedBoundingBox.fromTransformation = function (transformation, result) {
 };
 
 /**
- * Duplicates a OrientedBoundingBox instance.
+ * 复制OrientedBoundingBox实例。
  *
- * @param {OrientedBoundingBox} box The bounding box to duplicate.
- * @param {OrientedBoundingBox} [result] The object onto which to store the result.
- * @returns {OrientedBoundingBox} The modified result parameter or a new OrientedBoundingBox instance if none was provided. (Returns undefined if box is undefined)
+ * @param {OrientedBoundingBox} box 要复制的边界框。
+ * @param {OrientedBoundingBox} [result] 存储结果的对象。
+ * @returns {OrientedBoundingBox} 修改后的结果参数，如果未提供则返回新的OrientedBoundingBox实例。（如果box未定义则返回undefined）
  */
 OrientedBoundingBox.clone = function (box, result) {
   if (!defined(box)) {

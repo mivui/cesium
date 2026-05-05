@@ -5,23 +5,23 @@ import MetadataType from "./MetadataType.js";
 import OrientedBoundingBox from "../Core/OrientedBoundingBox.js";
 
 /**
- * A cell from a {@link VoxelPrimitive}.
+ * 来自 {@link VoxelPrimitive} 的一个体素单元。
  * <p>
- * Provides access to properties associated with one cell of a voxel primitive.
+ * 提供对体素图元中单个单元相关属性的访问。
  * </p>
  * <p>
- * Do not construct this directly.  Access it through picking using {@link Scene#pickVoxel}.
+ * 不要直接构造此对象。通过使用 {@link Scene#pickVoxel} 进行拾取来访问它。
  * </p>
  *
  * @alias VoxelCell
  * @constructor
  *
- * @param {VoxelPrimitive} primitive The voxel primitive containing the cell
- * @param {number} tileIndex The index of the tile
- * @param {number} sampleIndex The index of the sample within the tile, containing metadata for this cell
+ * @param {VoxelPrimitive} primitive 包含该单元的体素图元
+ * @param {number} tileIndex 瓦片的索引
+ * @param {number} sampleIndex 瓦片内样本的索引，包含此单元的元数据
  *
  * @example
- * // On left click, display all the properties for a voxel cell in the console log.
+ * // 左键点击时，在控制台日志中显示体素单元的所有属性。
  * handler.setInputAction(function(movement) {
  *   const voxelCell = scene.pickVoxel(movement.position);
  *   if (voxelCell instanceof Cesium.VoxelCell) {
@@ -34,7 +34,7 @@ import OrientedBoundingBox from "../Core/OrientedBoundingBox.js";
  *   }
  * }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
  *
- * @experimental This feature is not final and is subject to change without Cesium's standard deprecation policy.
+ * @experimental 此功能尚未最终确定，可能会在不遵循 Cesium 标准弃用政策的情况下进行更改。
  */
 function VoxelCell(primitive, tileIndex, sampleIndex) {
   this._primitive = primitive;
@@ -173,8 +173,7 @@ Object.defineProperties(VoxelCell.prototype, {
   },
 
   /**
-   * All objects returned by {@link Scene#pick} have a <code>primitive</code> property. This returns
-   * the VoxelPrimitive containing the cell.
+   * {@link Scene#pick} 返回的所有对象都有一个 <code>primitive</code> 属性。此属性返回包含该单元的 VoxelPrimitive。
    *
    * @memberof VoxelCell.prototype
    *
@@ -189,7 +188,7 @@ Object.defineProperties(VoxelCell.prototype, {
   },
 
   /**
-   * Get the sample index of the cell.
+   * 获取单元的样本索引。
    *
    * @memberof VoxelCell.prototype
    *
@@ -204,7 +203,7 @@ Object.defineProperties(VoxelCell.prototype, {
   },
 
   /**
-   * Get the index of the tile containing the cell.
+   * 获取包含该单元的瓦片的索引。
    *
    * @memberof VoxelCell.prototype
    *
@@ -219,7 +218,7 @@ Object.defineProperties(VoxelCell.prototype, {
   },
 
   /**
-   * Get a copy of the oriented bounding box containing the cell.
+   * 获取包含该单元的有向包围盒的副本。
    *
    * @memberof VoxelCell.prototype
    *
@@ -235,32 +234,32 @@ Object.defineProperties(VoxelCell.prototype, {
 });
 
 /**
- * Returns <code>true</code> if the feature contains this property.
+ * 如果要素包含此属性，则返回 <code>true</code>。
  *
- * @param {string} name The case-sensitive name of the property.
- * @returns {boolean} Whether the feature contains this property.
+ * @param {string} name 属性的区分大小写的名称。
+ * @returns {boolean} 要素是否包含此属性。
  */
 VoxelCell.prototype.hasProperty = function (name) {
   return defined(this._metadata[name]);
 };
 
 /**
- * Returns an array of metadata property names for the feature.
+ * 返回要素的元数据属性名称数组。
  *
- * @returns {string[]} The IDs of the feature's properties.
+ * @returns {string[]} 要素属性的 ID。
  */
 VoxelCell.prototype.getNames = function () {
   return Object.keys(this._metadata);
 };
 
 /**
- * Returns a copy of the value of the metadata in the cell with the given name.
+ * 返回具有给定名称的单元中元数据值的副本。
  *
- * @param {string} name The case-sensitive name of the property.
- * @returns {*} The value of the property or <code>undefined</code> if the feature does not have this property.
+ * @param {string} name 属性的区分大小写的名称。
+ * @returns {*} 属性的值，如果要素没有此属性，则返回 <code>undefined</code>。
  *
  * @example
- * // Display all the properties for a voxel cell in the console log.
+ * // 在控制台日志中显示体素单元的所有属性。
  * const names = voxelCell.getNames();
  * for (let i = 0; i < names.length; ++i) {
  *   const name = names[i];

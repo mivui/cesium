@@ -555,10 +555,10 @@ function processPropertyAttributeProperty(renderResources, propertyInfo) {
 }
 
 /**
- * Add fields to the Metadata struct, and metadata value assignments to the
- * initializeMetadata function, for a PropertyAttributeProperty
- * @param {PrimitiveRenderResources} renderResources The render resources for the primitive
- * @param {object} propertyInfo Info about the PropertyAttributeProperty
+ * 为 PropertyAttributeProperty 向 Metadata 结构体添加字段，
+ * 并向 initializeMetadata 函数添加元数据值赋值
+ * @param {PrimitiveRenderResources} renderResources 图元的渲染资源
+ * @param {object} propertyInfo 关于 PropertyAttributeProperty 的信息
  * @private
  */
 function addPropertyAttributePropertyMetadata(renderResources, propertyInfo) {

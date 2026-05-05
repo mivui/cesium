@@ -1,13 +1,13 @@
 import DeveloperError from "../Core/DeveloperError.js";
 
 /**
- * An expression for a style applied to a {@link Cesium3DTileset}.
+ * 应用于 {@link Cesium3DTileset} 的样式表达式。
  * <p>
- * Derived classes of this interface evaluate expressions in the
- * {@link https://github.com/CesiumGS/3d-tiles/tree/main/specification/Styling|3D Tiles Styling language}.
+ * 此接口的派生类用于评估
+ * {@link https://github.com/CesiumGS/3d-tiles/tree/main/specification/Styling|3D Tiles 样式语言} 中的表达式。
  * </p>
  * <p>
- * This type describes an interface and is not intended to be instantiated directly.
+ * 此类型描述了一个接口，不应直接实例化。
  * </p>
  *
  * @alias StyleExpression
@@ -19,32 +19,31 @@ import DeveloperError from "../Core/DeveloperError.js";
 function StyleExpression() {}
 
 /**
- * Evaluates the result of an expression, optionally using the provided feature's properties. If the result of
- * the expression in the
- * {@link https://github.com/CesiumGS/3d-tiles/tree/main/specification/Styling|3D Tiles Styling language}
- * is of type <code>Boolean</code>, <code>Number</code>, or <code>String</code>, the corresponding JavaScript
- * primitive type will be returned. If the result is a <code>RegExp</code>, a Javascript <code>RegExp</code>
- * object will be returned. If the result is a <code>Cartesian2</code>, <code>Cartesian3</code>, or <code>Cartesian4</code>,
- * a {@link Cartesian2}, {@link Cartesian3}, or {@link Cartesian4} object will be returned. If the <code>result</code> argument is
- * a {@link Color}, the {@link Cartesian4} value is converted to a {@link Color} and then returned.
+ * 评估表达式的结果，可选择使用提供的要素属性。如果
+ * {@link https://github.com/CesiumGS/3d-tiles/tree/main/specification/Styling|3D Tiles 样式语言}
+ * 中表达式的结果为 <code>Boolean</code>、<code>Number</code> 或 <code>String</code> 类型，
+ * 将返回对应的 JavaScript 基本类型。如果结果为 <code>RegExp</code>，将返回 JavaScript <code>RegExp</code>
+ * 对象。如果结果为 <code>Cartesian2</code>、<code>Cartesian3</code> 或 <code>Cartesian4</code>，
+ * 将返回 {@link Cartesian2}、{@link Cartesian3} 或 {@link Cartesian4} 对象。如果 <code>result</code> 参数
+ * 为 {@link Color}，则将 {@link Cartesian4} 值转换为 {@link Color} 后返回。
  *
- * @param {Cesium3DTileFeature} feature The feature whose properties may be used as variables in the expression.
- * @param {object} [result] The object onto which to store the result.
- * @returns {boolean|number|string|RegExp|Cartesian2|Cartesian3|Cartesian4|Color} The result of evaluating the expression.
+ * @param {Cesium3DTileFeature} feature 其属性可用作表达式中变量的要素。
+ * @param {object} [result] 用于存储结果的对象。
+ * @returns {boolean|number|string|RegExp|Cartesian2|Cartesian3|Cartesian4|Color} 评估表达式的结果。
  */
 StyleExpression.prototype.evaluate = function (feature, result) {
   DeveloperError.throwInstantiationError();
 };
 
 /**
- * Evaluates the result of a Color expression, optionally using the provided feature's properties.
+ * 评估颜色表达式的结果，可选择使用提供的要素属性。
  * <p>
- * This is equivalent to {@link StyleExpression#evaluate} but always returns a {@link Color} object.
+ * 这等同于 {@link StyleExpression#evaluate}，但始终返回 {@link Color} 对象。
  * </p>
  *
- * @param {Cesium3DTileFeature} feature The feature whose properties may be used as variables in the expression.
- * @param {Color} [result] The object in which to store the result.
- * @returns {Color} The modified result parameter or a new Color instance if one was not provided.
+ * @param {Cesium3DTileFeature} feature 其属性可用作表达式中变量的要素。
+ * @param {Color} [result] 用于存储结果的对象。
+ * @returns {Color} 修改后的结果参数，或如果未提供则返回新的 Color 实例。
  */
 StyleExpression.prototype.evaluateColor = function (feature, result) {
   DeveloperError.throwInstantiationError();

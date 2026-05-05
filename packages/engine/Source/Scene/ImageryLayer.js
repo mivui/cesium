@@ -586,22 +586,20 @@ ImageryLayer.fromWorldImagery = function (options) {
 /**
  * 获取一个值，该值指示此图层是否为 {@link ImageryLayerCollection} 中的基础图层。
  * 基础图层是位于所有其他图层之下的图层。它很特殊，因为即使它实际上没有全局矩形，
- * 也会将其视为具有全局矩形，通过将边缘的纹理拉伸到整个矩形。
- * globe.
+ * 也会将其视为具有全局矩形，通过将边缘的纹理拉伸到整个地球。
  *
- * @returns {boolean} true if this is the base layer; otherwise, false.
+ * @returns {boolean} 如果是基础图层则返回 true，否则返回 false。
  */
 ImageryLayer.prototype.isBaseLayer = function () {
   return this._isBaseLayer;
 };
 
 /**
- * Returns true if this object was destroyed; otherwise, false.
+ * 如果此对象已被销毁则返回 true，否则返回 false。
  * <br /><br />
- * If this object was destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.
+ * 如果此对象已被销毁，则不应再使用它；调用除 <code>isDestroyed</code> 之外的任何函数都会导致 {@link DeveloperError} 异常。
  *
- * @returns {boolean} True if this object was destroyed; otherwise, false.
+ * @returns {boolean} 如果此对象已被销毁则返回 true，否则返回 false。
  *
  * @see ImageryLayer#destroy
  */
@@ -610,14 +608,12 @@ ImageryLayer.prototype.isDestroyed = function () {
 };
 
 /**
- * Destroys the WebGL resources held by this object.  Destroying an object allows for deterministic
- * release of WebGL resources, instead of relying on the garbage collector to destroy this object.
+ * 销毁此对象持有的 WebGL 资源。销毁对象允许确定性地释放 WebGL 资源，而不是依赖垃圾回收器来销毁此对象。
  * <br /><br />
- * Once an object is destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.  Therefore,
- * assign the return value (<code>undefined</code>) to the object as done in the example.
+ * 一旦对象被销毁，就不应再使用它；调用除 <code>isDestroyed</code> 之外的任何函数都会导致 {@link DeveloperError} 异常。因此，
+ * 应按照示例中的方式将返回值（<code>undefined</code>）赋给该对象。
  *
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 此对象已被销毁，即已调用 destroy()。
  *
  *
  * @example
@@ -635,13 +631,12 @@ const clippedRectangleScratch = new Rectangle();
 const terrainRectangleScratch = new Rectangle();
 
 /**
- * Computes the intersection of this layer's rectangle with the imagery provider's availability rectangle,
- * producing the overall bounds of imagery that can be produced by this layer.
+ * 计算此图层的矩形与影像提供者的可用矩形的交集，生成此图层可生成的影像的总体边界。
  *
- * @returns {Rectangle} A rectangle which defines the overall bounds of imagery that can be produced by this layer.
+ * @returns {Rectangle} 定义此图层可生成的影像的总体边界的矩形。
  *
  * @example
- * // Zoom to an imagery layer.
+ * // 缩放至影像图层。
  * const imageryRectangle = imageryLayer.getImageryRectangle();
  * scene.camera.flyTo({
  *     destination: rectangle
@@ -1653,12 +1648,12 @@ function reprojectToGeographic(command, context, texture, rectangle) {
 }
 
 /**
- * Gets the level with the specified world coordinate spacing between texels, or less.
+ * 获取纹素之间具有指定世界坐标间距或更小的层级。
  *
- * @param {ImageryLayer} layer The imagery layer to use.
- * @param {number} texelSpacing The texel spacing for which to find a corresponding level.
- * @param {number} latitudeClosestToEquator The latitude closest to the equator that we're concerned with.
- * @returns {number} The level with the specified texel spacing or less.
+ * @param {ImageryLayer} layer 要使用的影像图层。
+ * @param {number} texelSpacing 要查找对应层级的纹素间距。
+ * @param {number} latitudeClosestToEquator 我们关注的最接近赤道的纬度。
+ * @returns {number} 具有指定纹素间距或更小的层级。
  * @private
  */
 function getLevelWithMaximumTexelSpacing(
@@ -1713,17 +1708,17 @@ async function handlePromise(instance, promise) {
 export default ImageryLayer;
 
 /**
- * A function that is called when an error occurs.
+ * 发生错误时调用的函数。
  * @callback ImageryLayer.ErrorEventCallback
  *
  * @this ImageryLayer
- * @param {Error} err An object holding details about the error that occurred.
+ * @param {Error} err 包含所发生错误详细信息的对象。
  */
 
 /**
- * A function that is called when the provider has been created
+ * 影像提供者创建完成时调用的函数。
  * @callback ImageryLayer.ReadyEventCallback
  *
  * @this ImageryLayer
- * @param {ImageryProvider} provider The created imagery provider.
+ * @param {ImageryProvider} provider 已创建的影像提供者。
  */

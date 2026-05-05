@@ -1,8 +1,8 @@
 import DeveloperError from "../Core/DeveloperError.js";
 
 /**
- * Provides voxel data. Intended to be used with {@link VoxelPrimitive}.
- * This type describes an interface and is not intended to be instantiated directly.
+ * 提供体素数据。旨在与 {@link VoxelPrimitive} 一起使用。
+ * 此类型描述了一个接口，不应直接实例化。
  *
  * @alias VoxelProvider
  * @constructor
@@ -11,7 +11,7 @@ import DeveloperError from "../Core/DeveloperError.js";
  * @see VoxelPrimitive
  * @see VoxelShapeType
  *
- * @experimental This feature is not final and is subject to change without Cesium's standard deprecation policy.
+ * @experimental 此功能尚未最终确定，可能会在不遵循 Cesium 标准弃用政策的情况下进行更改。
  */
 function VoxelProvider() {
   DeveloperError.throwInstantiationError();
@@ -19,7 +19,7 @@ function VoxelProvider() {
 
 Object.defineProperties(VoxelProvider.prototype, {
   /**
-   * A transform from local space to global space.
+   * 从局部空间到全局空间的变换。
    *
    * @memberof VoxelProvider.prototype
    * @type {Matrix4}
@@ -31,7 +31,7 @@ Object.defineProperties(VoxelProvider.prototype, {
   },
 
   /**
-   * A transform from shape space to local space.
+   * 从形状空间到局部空间的变换。
    *
    * @memberof VoxelProvider.prototype
    * @type {Matrix4}
@@ -43,7 +43,7 @@ Object.defineProperties(VoxelProvider.prototype, {
   },
 
   /**
-   * Gets the {@link VoxelShapeType}
+   * 获取 {@link VoxelShapeType}
    *
    * @memberof VoxelProvider.prototype
    * @type {VoxelShapeType}
@@ -54,8 +54,8 @@ Object.defineProperties(VoxelProvider.prototype, {
   },
 
   /**
-   * Gets the minimum bounds.
-   * If undefined, the shape's default minimum bounds will be used instead.
+   * 获取最小边界。
+   * 如果未定义，将使用形状的默认最小边界。
    *
    * @memberof VoxelProvider.prototype
    * @type {Cartesian3|undefined}
@@ -66,8 +66,8 @@ Object.defineProperties(VoxelProvider.prototype, {
   },
 
   /**
-   * Gets the maximum bounds.
-   * If undefined, the shape's default maximum bounds will be used instead.
+   * 获取最大边界。
+   * 如果未定义，将使用形状的默认最大边界。
    *
    * @memberof VoxelProvider.prototype
    * @type {Cartesian3|undefined}
@@ -78,7 +78,7 @@ Object.defineProperties(VoxelProvider.prototype, {
   },
 
   /**
-   * Gets the number of voxels per dimension of a tile. This is the same for all tiles in the dataset.
+   * 获取图块每个维度的体素数量。这对于数据集中的所有图块都是相同的。
    *
    * @memberof VoxelProvider.prototype
    * @type {Cartesian3}
@@ -89,7 +89,7 @@ Object.defineProperties(VoxelProvider.prototype, {
   },
 
   /**
-   * Gets the number of padding voxels before the tile. This improves rendering quality when sampling the edge of a tile, but it increases memory usage.
+   * 获取图块之前的填充体素数量。这在采样图块边缘时提高了渲染质量，但会增加内存使用量。
    *
    * @memberof VoxelProvider.prototype
    * @type {Cartesian3}
@@ -101,7 +101,7 @@ Object.defineProperties(VoxelProvider.prototype, {
   },
 
   /**
-   * Gets the number of padding voxels after the tile. This improves rendering quality when sampling the edge of a tile, but it increases memory usage.
+   * 获取图块之后的填充体素数量。这在采样图块边缘时提高了渲染质量，但会增加内存使用量。
    *
    * @memberof VoxelProvider.prototype
    * @type {Cartesian3}
@@ -113,7 +113,7 @@ Object.defineProperties(VoxelProvider.prototype, {
   },
 
   /**
-   * Gets the metadata names.
+   * 获取元数据名称。
    *
    * @memberof VoxelProvider.prototype
    * @type {string[]}
@@ -124,7 +124,7 @@ Object.defineProperties(VoxelProvider.prototype, {
   },
 
   /**
-   * Gets the metadata types.
+   * 获取元数据类型。
    *
    * @memberof VoxelProvider.prototype
    * @type {MetadataType[]}
@@ -135,7 +135,7 @@ Object.defineProperties(VoxelProvider.prototype, {
   },
 
   /**
-   * Gets the metadata component types.
+   * 获取元数据分量类型。
    *
    * @memberof VoxelProvider.prototype
    * @type {MetadataComponentType[]}
@@ -146,7 +146,7 @@ Object.defineProperties(VoxelProvider.prototype, {
   },
 
   /**
-   * Gets the metadata minimum values.
+   * 获取元数据最小值。
    *
    * @memberof VoxelProvider.prototype
    * @type {number[][]|undefined}
@@ -157,7 +157,7 @@ Object.defineProperties(VoxelProvider.prototype, {
   },
 
   /**
-   * Gets the metadata maximum values.
+   * 获取元数据最大值。
    *
    * @memberof VoxelProvider.prototype
    * @type {number[][]|undefined}
@@ -168,9 +168,9 @@ Object.defineProperties(VoxelProvider.prototype, {
   },
 
   /**
-   * The maximum number of tiles that exist for this provider.
-   * This value is used as a hint to the voxel renderer to allocate an appropriate amount of GPU memory.
-   * If this value is not known it can be undefined.
+   * 此提供程序存在的最大图块数量。
+   * 此值用作体素渲染器分配适当 GPU 内存的提示。
+   * 如果此值未知，则可以为 undefined。
    *
    * @memberof VoxelProvider.prototype
    * @type {number|undefined}
@@ -181,7 +181,7 @@ Object.defineProperties(VoxelProvider.prototype, {
   },
 
   /**
-   * The number of levels of detail containing available tiles in the tileset.
+   * 图集中包含可用图块的细节级别数量。
    *
    * @memberof VoxelProvider.prototype
    * @type {number|undefined}
@@ -218,15 +218,15 @@ Object.defineProperties(VoxelProvider.prototype, {
 });
 
 /**
- * Requests the data for a given tile.
+ * 请求给定图块的数据。
  *
- * @param {object} [options] Object with the following properties:
- * @param {number} [options.tileLevel=0] The tile's level.
- * @param {number} [options.tileX=0] The tile's X coordinate.
- * @param {number} [options.tileY=0] The tile's Y coordinate.
- * @param {number} [options.tileZ=0] The tile's Z coordinate.
- * @privateparam {number} [options.keyframe=0] The requested keyframe.
- * @returns {Promise<VoxelContent>|undefined} A promise resolving to a VoxelContent containing the data for the tile, or undefined if the request could not be scheduled this frame.
+ * @param {object} [options] 具有以下属性的对象：
+ * @param {number} [options.tileLevel=0] 图块的级别。
+ * @param {number} [options.tileX=0] 图块的 X 坐标。
+ * @param {number} [options.tileY=0] 图块的 Y 坐标。
+ * @param {number} [options.tileZ=0] 图块的 Z 坐标。
+ * @privateparam {number} [options.keyframe=0] 请求的关键帧。
+ * @returns {Promise<VoxelContent>|undefined} 解析为包含图块数据的 VoxelContent 的 Promise，如果无法在此帧调度请求则返回 undefined。
  */
 VoxelProvider.prototype.requestData = function (options) {
   DeveloperError.throwInstantiationError();

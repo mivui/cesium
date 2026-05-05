@@ -238,10 +238,10 @@ const EasingFunction = {
 };
 
 /**
- * Function interface for implementing a custom easing function.
+ * 用于实现自定义缓动函数的函数接口。
  * @callback EasingFunction.Callback
- * @param {number} time The time in the range <code>[0, 1]</code>.
- * @returns {number} The value of the function at the given time.
+ * @param {number} time <code>[0, 1]</code> 范围内的时间。
+ * @returns {number} 给定时间的函数值。
  *
  * @example
  * function quadraticIn(time) {

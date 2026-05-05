@@ -178,35 +178,34 @@ HeadingPitchRoll.equalsEpsilon = function (
 };
 
 /**
- * Duplicates this HeadingPitchRoll instance.
+ * 复制此HeadingPitchRoll实例。
  *
- * @param {HeadingPitchRoll} [result] The object onto which to store the result.
- * @returns {HeadingPitchRoll} The modified result parameter or a new HeadingPitchRoll instance if one was not provided.
+ * @param {HeadingPitchRoll} [result] 存储结果的对象。
+ * @returns {HeadingPitchRoll} 修改后的结果参数，如果未提供则返回新的HeadingPitchRoll实例。
  */
 HeadingPitchRoll.prototype.clone = function (result) {
   return HeadingPitchRoll.clone(this, result);
 };
 
 /**
- * Compares this HeadingPitchRoll against the provided HeadingPitchRoll componentwise and returns
- * <code>true</code> if they are equal, <code>false</code> otherwise.
+ * 逐分量比较此HeadingPitchRoll与提供的HeadingPitchRoll，如果相等则返回
+ * <code>true</code>，否则返回<code>false</code>。
  *
- * @param {HeadingPitchRoll} [right] The right hand side HeadingPitchRoll.
- * @returns {boolean} <code>true</code> if they are equal, <code>false</code> otherwise.
+ * @param {HeadingPitchRoll} [right] 右侧的HeadingPitchRoll。
+ * @returns {boolean} 如果相等则返回<code>true</code>，否则返回<code>false</code>。
  */
 HeadingPitchRoll.prototype.equals = function (right) {
   return HeadingPitchRoll.equals(this, right);
 };
 
 /**
- * Compares this HeadingPitchRoll against the provided HeadingPitchRoll componentwise and returns
- * <code>true</code> if they pass an absolute or relative tolerance test,
- * <code>false</code> otherwise.
+ * 逐分量比较此HeadingPitchRoll与提供的HeadingPitchRoll，如果通过绝对或相对容差测试则返回
+ * <code>true</code>，否则返回<code>false</code>。
  *
- * @param {HeadingPitchRoll} [right] The right hand side HeadingPitchRoll.
- * @param {number} [relativeEpsilon=0] The relative epsilon tolerance to use for equality testing.
- * @param {number} [absoluteEpsilon=relativeEpsilon] The absolute epsilon tolerance to use for equality testing.
- * @returns {boolean} <code>true</code> if they are within the provided epsilon, <code>false</code> otherwise.
+ * @param {HeadingPitchRoll} [right] 右侧的HeadingPitchRoll。
+ * @param {number} [relativeEpsilon=0] 用于相等性测试的相对epsilon容差。
+ * @param {number} [absoluteEpsilon=relativeEpsilon] 用于相等性测试的绝对epsilon容差。
+ * @returns {boolean> 如果在提供的epsilon范围内则返回<code>true</code>，否则返回<code>false</code>。
  */
 HeadingPitchRoll.prototype.equalsEpsilon = function (
   right,
@@ -221,11 +220,11 @@ HeadingPitchRoll.prototype.equalsEpsilon = function (
   );
 };
 
-/**
- * Creates a string representing this HeadingPitchRoll in the format '(heading, pitch, roll)' in radians.
- *
- * @returns {string} A string representing the provided HeadingPitchRoll in the format '(heading, pitch, roll)'.
- */
+  /**
+   * 创建表示此 HeadingPitchRoll 的字符串，格式为'(航向, 俯仰, 横滚)'，以弧度为单位。
+   *
+   * @returns {string} 表示 HeadingPitchRoll 的字符串，格式为'(航向, 俯仰, 横滚)'。
+   */
 HeadingPitchRoll.prototype.toString = function () {
   return `(${this.heading}, ${this.pitch}, ${this.roll})`;
 };

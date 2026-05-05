@@ -8,21 +8,21 @@ import CesiumMath from "./Math.js";
 import Matrix4 from "./Matrix4.js";
 
 /**
- * The viewing frustum is defined by 6 planes.
- * Each plane is represented by a {@link Cartesian4} object, where the x, y, and z components
- * define the unit vector normal to the plane, and the w component is the distance of the
- * plane from the origin/camera position.
+ * 视锥体由6个平面定义。
+ * 每个平面由 {@link Cartesian4} 对象表示，其中 x、y 和 z 分量
+ * 定义平面的单位法向量，w 分量是
+ * 平面到原点/相机位置的距离。
  *
  * @alias OrthographicOffCenterFrustum
  * @constructor
  *
- * @param {object} [options] An object with the following properties:
- * @param {number} [options.left] The left clipping plane distance.
- * @param {number} [options.right] The right clipping plane distance.
- * @param {number} [options.top] The top clipping plane distance.
- * @param {number} [options.bottom] The bottom clipping plane distance.
- * @param {number} [options.near=1.0] The near clipping plane distance.
- * @param {number} [options.far=500000000.0] The far clipping plane distance.
+ * @param {object} [options] 包含以下属性的对象：
+ * @param {number} [options.left] 左裁剪平面距离。
+ * @param {number} [options.right] 右裁剪平面距离。
+ * @param {number} [options.top] 上裁剪平面距离。
+ * @param {number} [options.bottom] 下裁剪平面距离。
+ * @param {number} [options.near=1.0] 近裁剪平面距离。
+ * @param {number} [options.far=500000000.0] 远裁剪平面距离。
  *
  * @example
  * const maxRadii = ellipsoid.maximumRadius;
@@ -39,7 +39,7 @@ function OrthographicOffCenterFrustum(options) {
   options = options ?? Frozen.EMPTY_OBJECT;
 
   /**
-   * The left clipping plane.
+   * 左裁剪平面。
    * @type {number|undefined}
    * @default undefined
    */
@@ -47,7 +47,7 @@ function OrthographicOffCenterFrustum(options) {
   this._left = undefined;
 
   /**
-   * The right clipping plane.
+   * 右裁剪平面。
    * @type {number|undefined}
    * @default undefined
    */
@@ -55,7 +55,7 @@ function OrthographicOffCenterFrustum(options) {
   this._right = undefined;
 
   /**
-   * The top clipping plane.
+   * 上裁剪平面。
    * @type {number|undefined}
    * @default undefined
    */
@@ -63,7 +63,7 @@ function OrthographicOffCenterFrustum(options) {
   this._top = undefined;
 
   /**
-   * The bottom clipping plane.
+   * 下裁剪平面。
    * @type {number|undefined}
    * @default undefined
    */
@@ -71,7 +71,7 @@ function OrthographicOffCenterFrustum(options) {
   this._bottom = undefined;
 
   /**
-   * The distance of the near plane.
+   * 近平面距离。
    * @type {number}
    * @default 1.0
    */
@@ -79,7 +79,7 @@ function OrthographicOffCenterFrustum(options) {
   this._near = this.near;
 
   /**
-   * The distance of the far plane.
+   * 远平面距离。
    * @type {number}
    * @default 500000000.0;
    */
@@ -148,7 +148,7 @@ function update(frustum) {
 
 Object.defineProperties(OrthographicOffCenterFrustum.prototype, {
   /**
-   * Gets the orthographic projection matrix computed from the view frustum.
+   * 获取从视锥体计算出的正交投影矩阵。
    * @memberof OrthographicOffCenterFrustum.prototype
    * @type {Matrix4}
    * @readonly
@@ -167,15 +167,15 @@ const getPlanesPoint = new Cartesian3();
 const negateScratch = new Cartesian3();
 
 /**
- * Creates a culling volume for this frustum.
+ * 为此视锥体创建剔除体。
  *
- * @param {Cartesian3} position The eye position.
- * @param {Cartesian3} direction The view direction.
- * @param {Cartesian3} up The up direction.
- * @returns {CullingVolume} A culling volume at the given position and orientation.
+ * @param {Cartesian3} position 眼睛位置。
+ * @param {Cartesian3} direction 视图方向。
+ * @param {Cartesian3} up 上方向。
+ * @returns {CullingVolume} 在给定位置和方向的剔除体。
  *
  * @example
- * // Check if a bounding volume intersects the frustum.
+ * // 检查边界体是否与视锥体相交。
  * const cullingVolume = frustum.computeCullingVolume(cameraPosition, cameraDirection, cameraUp);
  * const intersect = cullingVolume.computeVisibility(boundingVolume);
  */

@@ -13,10 +13,10 @@ function Proxy() {
 }
 
 /**
- * Get the final URL to use to request a given resource.
+ * 获取用于请求给定资源的最终URL。
  *
- * @param {string} resource The resource to request.
- * @returns {string} proxied resource
+ * @param {string} resource 要请求的资源。
+ * @returns {string} 代理后的资源URL。
  * @function
  */
 Proxy.prototype.getURL = DeveloperError.throwInstantiationError;

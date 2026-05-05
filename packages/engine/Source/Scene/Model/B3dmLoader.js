@@ -37,22 +37,22 @@ const FeatureIdAttribute = ModelComponents.FeatureIdAttribute;
  */
 class B3dmLoader extends ResourceLoader {
   /**
-   * @param {object} options Object with the following properties:
-   * @param {Resource} options.b3dmResource The {@link Resource} containing the b3dm.
-   * @param {ArrayBuffer} options.arrayBuffer The array buffer of the b3dm contents.
-   * @param {number} [options.byteOffset] The byte offset to the beginning of the b3dm contents in the array buffer.
-   * @param {Resource} [options.baseResource] The {@link Resource} that paths in the glTF JSON are relative to.
-   * @param {boolean} [options.releaseGltfJson=false] When true, the glTF JSON is released once the glTF is loaded. This is especially useful for cases like 3D Tiles, where each .gltf model is unique and caching the glTF JSON is not effective.
-   * @param {boolean} [options.asynchronous=true] Determines if WebGL resource creation will be spread out over several frames or block until all WebGL resources are created.
-   * @param {boolean} [options.incrementallyLoadTextures=true] Determine if textures may continue to stream in after the glTF is loaded.
-   * @param {Axis} [options.upAxis=Axis.Y] The up-axis of the glTF model.
-   * @param {Axis} [options.forwardAxis=Axis.X] The forward-axis of the glTF model.
-   * @param {boolean} [options.loadAttributesAsTypedArray=false] If <code>true</code>, load all attributes as typed arrays instead of GPU buffers. If the attributes are interleaved in the glTF they will be de-interleaved in the typed array.
-   * @param {boolean} [options.loadAttributesFor2D=false] If <code>true</code>, load the positions buffer and any instanced attribute buffers as typed arrays for accurately projecting models to 2D.
-   * @param {boolean} [options.enablePick=false]  If <code>true</code>, load the positions buffer, any instanced attribute buffers, and index buffer as typed arrays for CPU-enabled picking in WebGL1.
-   * @param {boolean} [options.loadIndicesForWireframe=false] If <code>true</code>, load the index buffer as a typed array. This is useful for creating wireframe indices in WebGL1.
-   * @param {boolean} [options.loadPrimitiveOutline=true] If <code>true</code>, load outlines from the {@link https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/CESIUM_primitive_outline|CESIUM_primitive_outline} extension. This can be set false to avoid post-processing geometry at load time.
-   * @param {boolean} [options.loadForClassification=false] If <code>true</code> and if the model has feature IDs, load the feature IDs and indices as typed arrays. This is useful for batching features for classification.
+   * @param {object} options 包含以下属性的对象：
+   * @param {Resource} options.b3dmResource 包含 b3dm 的 {@link Resource}。
+   * @param {ArrayBuffer} options.arrayBuffer b3dm 内容的数组缓冲区。
+   * @param {number} [options.byteOffset] 数组缓冲区中 b3dm 内容起始处的字节偏移量。
+   * @param {Resource} [options.baseResource] glTF JSON 中的路径所相对的 {@link Resource}。
+   * @param {boolean} [options.releaseGltfJson=false] 如果为 true，glTF 加载完成后将释放 glTF JSON。这对于 3D Tiles 等情况特别有用，因为每个 .gltf 模型都是唯一的，缓存 glTF JSON 无效。
+   * @param {boolean} [options.asynchronous=true] 确定 WebGL 资源创建是分散在多个帧中进行，还是阻塞直到所有 WebGL 资源创建完成。
+   * @param {boolean} [options.incrementallyLoadTextures=true] 确定纹理是否可以在 glTF 加载后继续流式传输。
+   * @param {Axis} [options.upAxis=Axis.Y] glTF 模型的上轴。
+   * @param {Axis} [options.forwardAxis=Axis.X] glTF 模型的前轴。
+   * @param {boolean} [options.loadAttributesAsTypedArray=false] 如果为 <code>true</code>，则将所有属性作为类型化数组加载，而不是 GPU 缓冲区。如果属性在 glTF 中是交错的，它们将在类型化数组中被去交错。
+   * @param {boolean} [options.loadAttributesFor2D=false] 如果为 <code>true</code>，则将位置缓冲区和任何实例化属性缓冲区作为类型化数组加载，以便准确地将模型投影到 2D。
+   * @param {boolean} [options.enablePick=false] 如果为 <code>true</code>，则将位置缓冲区、任何实例化属性缓冲区和索引缓冲区作为类型化数组加载，以便在 WebGL1 中进行 CPU 拾取。
+   * @param {boolean} [options.loadIndicesForWireframe=false] 如果为 <code>true</code>，则将索引缓冲区作为类型化数组加载。这对于在 WebGL1 中创建线框索引很有用。
+   * @param {boolean} [options.loadPrimitiveOutline=true] 如果为 <code>true</code>，则从 {@link https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/CESIUM_primitive_outline|CESIUM_primitive_outline} 扩展加载轮廓线。可以设置为 false 以避免在加载时后处理几何图形。
+   * @param {boolean} [options.loadForClassification=false] 如果为 <code>true</code> 且模型具有要素 ID，则将要素 ID 和索引作为类型化数组加载。这对于批处理要素进行分类很有用。
    */
   constructor(options) {
     super();

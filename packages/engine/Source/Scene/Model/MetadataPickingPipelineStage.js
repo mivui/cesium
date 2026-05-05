@@ -27,14 +27,14 @@ const MetadataPickingPipelineStage = {
 };
 
 /**
- * Process a primitive. This modifies the following parts of the render resources:
+ * 处理一个图元。这将修改渲染资源的以下部分：
  * <ul>
- *  <li>adds the required defines and "metadataPickingStage" to function in the shader</li>
+ *  <li>向着色器添加所需的定义和"metadataPickingStage"函数</li>
  * </ul>
  *
- * @param {PrimitiveRenderResources} renderResources The render resources for this primitive.
- * @param {ModelComponents.Primitive} primitive The primitive.
- * @param {FrameState} frameState The frame state.
+ * @param {PrimitiveRenderResources} renderResources 该图元的渲染资源。
+ * @param {ModelComponents.Primitive} primitive 图元。
+ * @param {FrameState} frameState 帧状态。
  */
 MetadataPickingPipelineStage.process = function (
   renderResources,

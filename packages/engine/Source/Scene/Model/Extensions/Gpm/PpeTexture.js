@@ -3,28 +3,27 @@ import Check from "../../../../Core/Check.js";
 /**
  * @typedef {object} PpeTexture.ConstructorOptions
  *
- * Initialization options for the PpeTexture constructor
+ * PpeTexture 构造函数的初始化选项
  *
- * @property {PpeMetadata} traits The traits that indicate which data is stored in this texture
- * @property {number} index The index of the texture inside the glTF textures array
- * @property {number|undefined} [texCoord] The optional set index for the TEXCOORD attribute
- * @property {number|undefined} [noData] The value to represent missing data
- * @property {number|undefined} [offset] An offset to apply to property values.
- * @property {number|undefined} [scale] A scale to apply to property values.
+ * @property {PpeMetadata} traits 指示此纹理中存储哪些数据的特征
+ * @property {number} index glTF 纹理数组中纹理的索引
+ * @property {number|undefined} [texCoord] TEXCOORD 属性的可选集合索引
+ * @property {number|undefined} [noData] 表示缺失数据的值
+ * @property {number|undefined} [offset] 应用于属性值的偏移量。
+ * @property {number|undefined} [scale] 应用于属性值的缩放因子。
  */
 
 /**
- * PPE (Per-Point Error) texture in `NGA_gpm_local`.
+ * `NGA_gpm_local` 中的 PPE（逐点误差）纹理。
  *
- * This reflects the `ppeTexture` definition of the
- * {@link https://nsgreg.nga.mil/csmwg.jsp|NGA_gpm_local} glTF extension.
+ * 这反映了 {@link https://nsgreg.nga.mil/csmwg.jsp|NGA_gpm_local} glTF 扩展中
+ * `ppeTexture` 的定义。
  *
- * This is a valid glTF `TextureInfo` object (with a required `index`
- * and an optional `texCoord)`, with additional properties that
- * describe the structure of the metdata that is stored in the texture.
+ * 这是一个有效的 glTF `TextureInfo` 对象（包含必需的 `index`
+ * 和可选的 `texCoord`），带有描述存储在纹理中的元数据结构的附加属性。
  *
  * @constructor
- * @param {PpeTexture.ConstructorOptions} options An object describing initialization options
+ * @param {PpeTexture.ConstructorOptions} options 描述初始化选项的对象
  *
  * @private
  */
@@ -44,8 +43,7 @@ function PpeTexture(options) {
 
 Object.defineProperties(PpeTexture.prototype, {
   /**
-   * The data contained here applies to this node and corresponding
-   * texture.
+   * 此处包含的数据适用于此节点和相应的纹理。
    *
    * @memberof PpeTexture.prototype
    * @type {PpeMetadata}
@@ -58,8 +56,7 @@ Object.defineProperties(PpeTexture.prototype, {
   },
 
   /**
-   * A value to represent missing data - also known as a sentinel value -
-   * wherever it appears.
+   * 表示缺失数据的值（也称为哨兵值），出现在任何位置。
    *
    * @memberof PpeTexture.prototype
    * @type {number|undefined}
@@ -72,7 +69,7 @@ Object.defineProperties(PpeTexture.prototype, {
   },
 
   /**
-   * An offset to apply to property values.
+   * 应用于属性值的偏移量。
    *
    * @memberof PpeTexture.prototype
    * @type {number|undefined}
@@ -85,7 +82,7 @@ Object.defineProperties(PpeTexture.prototype, {
   },
 
   /**
-   * An scale to apply to property values.
+   * 应用于属性值的缩放因子。
    *
    * @memberof PpeTexture.prototype
    * @type {number|undefined}
@@ -98,7 +95,7 @@ Object.defineProperties(PpeTexture.prototype, {
   },
 
   /**
-   * The index of the texture
+   * 纹理的索引
    *
    * @memberof PpeTexture.prototype
    * @type {number}
@@ -111,7 +108,7 @@ Object.defineProperties(PpeTexture.prototype, {
   },
 
   /**
-   * The set index of texture's TEXCOORD attribute used for texture coordinate mapping.
+   * 用于纹理坐标映射的纹理 TEXCOORD 属性的集合索引。
    *
    * @memberof PpeTexture.prototype
    * @type {number|undefined}

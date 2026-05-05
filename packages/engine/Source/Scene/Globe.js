@@ -434,7 +434,7 @@ Object.defineProperties(Globe.prototype, {
     },
   },
   /**
-   * A property specifying a {@link ClippingPlaneCollection} used to selectively disable rendering on the outside of each plane.
+   * 指定用于在每个平面外部选择性禁用渲染的 {@link ClippingPlaneCollection} 属性。
    *
    * @memberof Globe.prototype
    * @type {ClippingPlaneCollection}
@@ -448,7 +448,7 @@ Object.defineProperties(Globe.prototype, {
     },
   },
   /**
-   * A property specifying a {@link ClippingPolygonCollection} used to selectively disable rendering inside or outside a list of polygons.
+   * 指定用于在多边形列表内部或外部选择性禁用渲染的 {@link ClippingPolygonCollection} 属性。
    *
    * @memberof Globe.prototype
    * @type {ClippingPolygonCollection}
@@ -462,8 +462,8 @@ Object.defineProperties(Globe.prototype, {
     },
   },
   /**
-   * A property specifying a {@link Rectangle} used to limit globe rendering to a cartographic area.
-   * Defaults to the maximum extent of cartographic coordinates.
+   * 指定用于将地球渲染限制在特定地图坐标区域的 {@link Rectangle} 属性。
+   * 默认为地图坐标的最大范围。
    *
    * @memberof Globe.prototype
    * @type {Rectangle}
@@ -481,8 +481,7 @@ Object.defineProperties(Globe.prototype, {
     },
   },
   /**
-   * The normal map to use for rendering waves in the ocean.  Setting this property will
-   * only have an effect if the configured terrain provider includes a water mask.
+   * 用于渲染海洋波浪的法线贴图。设置此属性仅在配置的地形提供程序包含水掩码时才有效。
    * @memberof Globe.prototype
    * @type {string}
    * @default buildModuleUrl('Assets/Textures/waterNormalsSmall.jpg')
@@ -497,7 +496,7 @@ Object.defineProperties(Globe.prototype, {
     },
   },
   /**
-   * The terrain provider providing surface geometry for this globe.
+   * 为此地球提供表面地形的地形提供程序。
    * @type {TerrainProvider}
    *
    * @memberof Globe.prototype
@@ -519,7 +518,7 @@ Object.defineProperties(Globe.prototype, {
     },
   },
   /**
-   * Gets an event that's raised when the terrain provider is changed
+   * 获取当地形提供程序更改时触发的事件。
    *
    * @memberof Globe.prototype
    * @type {Event}
@@ -531,8 +530,8 @@ Object.defineProperties(Globe.prototype, {
     },
   },
   /**
-   * Gets an event that's raised when the length of the tile load queue has changed since the last render frame.  When the load queue is empty,
-   * all terrain and imagery for the current view have been loaded.  The event passes the new length of the tile load queue.
+   * 获取自上一渲染帧以来瓦片加载队列长度发生变化时触发的事件。当加载队列为空时，
+   * 当前视图的所有地形和影像都已加载。该事件传递新的瓦片加载队列长度。
    *
    * @memberof Globe.prototype
    * @type {Event}
@@ -544,8 +543,8 @@ Object.defineProperties(Globe.prototype, {
   },
 
   /**
-   * Gets or sets the material appearance of the Globe.  This can be one of several built-in {@link Material} objects or a custom material, scripted with
-   * {@link https://github.com/CesiumGS/cesium/wiki/Fabric|Fabric}.
+   * 获取或设置地球的材质外观。这可以是几个内置的 {@link Material} 对象之一，也可以是使用
+   * {@link https://github.com/CesiumGS/cesium/wiki/Fabric|Fabric} 脚本编写的自定义材质。
    * @memberof Globe.prototype
    * @type {Material | undefined}
    */
@@ -562,10 +561,10 @@ Object.defineProperties(Globe.prototype, {
   },
 
   /**
-   * The color to render the back side of the globe when the camera is underground or the globe is translucent,
-   * blended with the globe color based on the camera's distance.
+   * 当摄像机位于地下或地球半透明时，用于渲染地球背面的颜色，
+   * 根据摄像机的距离与地球颜色进行混合。
    * <br /><br />
-   * To disable underground coloring, set <code>undergroundColor</code> to <code>undefined</code>.
+   * 要禁用地下颜色，请将 <code>undergroundColor</code> 设置为 <code>undefined</code>。
    *
    * @memberof Globe.prototype
    * @type {Color}
@@ -583,15 +582,13 @@ Object.defineProperties(Globe.prototype, {
   },
 
   /**
-   * Gets or sets the near and far distance for blending {@link Globe#undergroundColor} with the globe color.
-   * The alpha will interpolate between the {@link NearFarScalar#nearValue} and
-   * {@link NearFarScalar#farValue} while the camera distance falls within the lower and upper bounds
-   * of the specified {@link NearFarScalar#near} and {@link NearFarScalar#far}.
-   * Outside of these ranges the alpha remains clamped to the nearest bound. If undefined,
-   * the underground color will not be blended with the globe color.
+   * 获取或设置用于将 {@link Globe#undergroundColor} 与地球颜色混合的近距离和远距离。
+   * 当摄像机距离在指定的 {@link NearFarScalar#near} 和 {@link NearFarScalar#far} 的下限和上限范围内时，
+   * alpha 值将在 {@link NearFarScalar#nearValue} 和 {@link NearFarScalar#farValue} 之间插值。
+   * 在这些范围之外，alpha 值将保持在最近的边界。如果未定义，
+   * 地下颜色将不与地球颜色混合。
    * <br /> <br />
-   * When the camera is above the ellipsoid the distance is computed from the nearest
-   * point on the ellipsoid instead of the camera's position.
+   * 当摄像机位于椭球体上方时，距离是从椭球体上最近的点计算，而不是从摄像机的位置计算。
    *
    * @memberof Globe.prototype
    * @type {NearFarScalar}
@@ -619,7 +616,7 @@ Object.defineProperties(Globe.prototype, {
   },
 
   /**
-   * Properties for controlling globe translucency.
+   * 用于控制地球半透明性的属性。
    *
    * @memberof Globe.prototype
    * @type {GlobeTranslucency}
@@ -784,15 +781,15 @@ Globe.prototype.pickWorldCoordinates = function (
 
 const cartoScratch = new Cartographic();
 /**
- * Find an intersection between a ray and the globe surface that was rendered. The ray must be given in world coordinates.
+ * 查找射线与已渲染的地球表面之间的交点。射线必须使用世界坐标。
  *
- * @param {Ray} ray The ray to test for intersection.
- * @param {Scene} scene The scene.
- * @param {Cartesian3} [result] The object onto which to store the result.
- * @returns {Cartesian3|undefined} The intersection or <code>undefined</code> if none was found.
+ * @param {Ray} ray 用于测试交点的射线。
+ * @param {Scene} scene 场景。
+ * @param {Cartesian3} [result] 用于存储结果的对象。
+ * @returns {Cartesian3|undefined} 交点，如果未找到则返回 <code>undefined</code>。
  *
  * @example
- * // find intersection of ray through a pixel and the globe
+ * // 查找穿过像素的射线与地球的交点
  * const ray = viewer.camera.getPickRay(windowCoordinates);
  * const intersection = globe.pick(ray, scene);
  */
@@ -819,10 +816,10 @@ function tileIfContainsCartographic(tile, cartographic) {
 }
 
 /**
- * Get the height of the surface at a given cartographic.
+ * 获取给定地图坐标处的高度。
  *
- * @param {Cartographic} cartographic The cartographic for which to find the height.
- * @returns {number|undefined} The height of the cartographic or undefined if it could not be found.
+ * @param {Cartographic} cartographic 用于查找高度的地图坐标。
+ * @returns {number|undefined} 地图坐标处的高度，如果无法找到则返回 undefined。
  */
 Globe.prototype.getHeight = function (cartographic) {
   //>>includeStart('debug', pragmas.debug);
@@ -1085,12 +1082,12 @@ Globe.prototype.endFrame = function (frameState) {
 };
 
 /**
- * Returns true if this object was destroyed; otherwise, false.
+ * 如果此对象已被销毁则返回 true；否则返回 false。
  * <br /><br />
- * If this object was destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.
+ * 如果此对象已被销毁，则不应再使用；调用除
+ * <code>isDestroyed</code> 之外的任何函数都将导致 {@link DeveloperError} 异常。
  *
- * @returns {boolean} True if this object was destroyed; otherwise, false.
+ * @returns {boolean} 如果此对象已被销毁则为 true；否则为 false。
  *
  * @see Globe#destroy
  */
@@ -1099,14 +1096,14 @@ Globe.prototype.isDestroyed = function () {
 };
 
 /**
- * Destroys the WebGL resources held by this object.  Destroying an object allows for deterministic
- * release of WebGL resources, instead of relying on the garbage collector to destroy this object.
+ * 销毁此对象持有的 WebGL 资源。销毁对象允许确定性
+ * 地释放 WebGL 资源，而不是依赖垃圾回收器来销毁此对象。
  * <br /><br />
- * Once an object is destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.  Therefore,
- * assign the return value (<code>undefined</code>) to the object as done in the example.
+ * 对象销毁后，不应再使用；调用除
+ * <code>isDestroyed</code> 之外的任何函数都将导致 {@link DeveloperError} 异常。因此，
+ * 如示例所示，将返回值 (<code>undefined</code>) 赋给该对象。
  *
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 此对象已被销毁，即调用了 destroy()。
  *
  *
  * @example

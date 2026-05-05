@@ -3,26 +3,22 @@ import Check from "../../../../Core/Check.js";
 /**
  * @typedef {object} CorrelationGroup.ConstructorOptions
  *
- * Initialization options for the CorrelationGroup constructor
+ * CorrelationGroup 构造函数的初始化选项
  *
- * @property {boolean[]} groupFlags Array of 3 booleans indicating if
- * parameters delta-x delta-y delta-z used in the correlation group
- * @property {Cartesian3} rotationThetas Rotations in milliradians
- * about X, Y, Z axes, respectively
- * @property {Spdcf[]} params Array of `Spdcf` (Strictly Positive-Definite
- * Correlation Function) parameters, for the U, V, W directions, respectively
+ * @property {boolean[]} groupFlags 3 个布尔值数组，指示相关组中是否使用参数 delta-x、delta-y、delta-z
+ * @property {Cartesian3} rotationThetas 绕 X、Y、Z 轴的旋转（毫弧度）
+ * @property {Spdcf[]} params `Spdcf`（严格正定相关函数）参数数组，分别对应 U、V、W 方向
  */
 
 /**
- * Metadata identifying parameters using same correlation modeling and
- * associated correlation parameters.
+ * 标识使用相同相关建模的参数及关联相关参数的元数据。
  *
- * This reflects the `correlationGroup` definition of the
- * {@link https://nsgreg.nga.mil/csmwg.jsp|NGA_gpm_local} glTF extension.
+ * 这反映了 {@link https://nsgreg.nga.mil/csmwg.jsp|NGA_gpm_local} glTF 扩展中
+ * `correlationGroup` 的定义。
  *
  * @constructor
- * @param {CorrelationGroup.ConstructorOptions} options An object describing initialization options
- * @experimental This feature is not final and is subject to change without Cesium's standard deprecation policy.
+ * @param {CorrelationGroup.ConstructorOptions} options 描述初始化选项的对象
+ * @experimental 此功能尚未最终确定，可能会在不遵循 Cesium 标准弃用政策的情况下更改。
  */
 function CorrelationGroup(options) {
   //>>includeStart('debug', pragmas.debug);
@@ -38,8 +34,7 @@ function CorrelationGroup(options) {
 
 Object.defineProperties(CorrelationGroup.prototype, {
   /**
-   * Array of 3 booleans indicating if parameters delta-x delta-y delta-z
-   * used in the correlation group
+   * 包含 3 个布尔值的数组，指示相关组中是否使用参数 delta-x、delta-y、delta-z
    *
    * @memberof CorrelationGroup.prototype
    * @type {boolean[]}
@@ -52,7 +47,7 @@ Object.defineProperties(CorrelationGroup.prototype, {
   },
 
   /**
-   * Rotations in milliradians about X, Y, Z axes, respectively
+   * 绕 X、Y、Z 轴的旋转（毫弧度）
    *
    * @memberof CorrelationGroup.prototype
    * @type {Cartesian3}
@@ -65,7 +60,7 @@ Object.defineProperties(CorrelationGroup.prototype, {
   },
 
   /**
-   * Array of 3 sets of SPDCF parameters, for the U, V, W directions, respectively
+   * 3 组 SPDCF 参数数组，分别对应 U、V、W 方向
    *
    * @memberof CorrelationGroup.prototype
    * @type {Spdcf[]}

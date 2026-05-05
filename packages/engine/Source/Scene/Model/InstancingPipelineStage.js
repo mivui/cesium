@@ -40,23 +40,23 @@ const InstancingPipelineStage = {
 };
 
 /**
- * Process a node. This modifies the following parts of the render resources:
+ * 处理一个节点。这会修改渲染资源的以下部分：
  * <ul>
- *  <li> creates buffers for the typed arrays of each attribute, if they do not yet exist
- *  <li> adds attribute declarations for the instancing vertex attributes in the vertex shader</li>
- *  <li> sets the instancing translation min and max to compute an accurate bounding volume</li>
+ *  <li> 为每个属性的类型化数组创建缓冲区（如果尚不存在）
+ *  <li> 在顶点着色器中为实例化顶点属性添加属性声明</li>
+ *  <li> 设置实例化平移的最小值和最大值以计算准确的包围体</li>
  * </ul>
  *
- * If the scene is in either 2D or CV mode, this stage also:
+ * 如果场景处于 2D 或 CV 模式，此阶段还会：
  * <ul>
- *  <li> adds additional attributes for the transformation attributes projected to 2D
- *  <li> adds a flag to the shader to use the 2D instanced attributes
- *  <li> adds a uniform for the view model matrix in 2D
+ *  <li> 为投影到 2D 的变换属性添加额外的属性
+ *  <li> 向着色器添加一个标志以使用 2D 实例化属性
+ *  <li> 为 2D 中的视图模型矩阵添加一个 uniform</li>
  * </ul>
  *
- * @param {NodeRenderResources} renderResources The render resources for this node.
- * @param {ModelComponents.Node} node The node.
- * @param {FrameState} frameState The frame state.
+ * @param {NodeRenderResources} renderResources 此节点的渲染资源。
+ * @param {ModelComponents.Node} node 节点。
+ * @param {FrameState} frameState 帧状态。
  */
 InstancingPipelineStage.process = function (renderResources, node, frameState) {
   const instances = node.instances;

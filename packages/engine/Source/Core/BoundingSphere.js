@@ -28,8 +28,8 @@ import Rectangle from "./Rectangle.js";
  */
 class BoundingSphere {
   /**
-   * @param {Cartesian3} [center=Cartesian3.ZERO] The center of the bounding sphere.
-   * @param {number} [radius=0.0] The radius of the bounding sphere.
+   * @param {Cartesian3} [center=Cartesian3.ZERO] 边界球的中心点。
+   * @param {number} [radius=0.0] 边界球的半径。
    */
   constructor(center, radius) {
   /**
@@ -140,19 +140,19 @@ class BoundingSphere {
       diameter2 = zMax;
     }
 
-    // Calculate the center of the initial sphere found by Ritter's algorithm
+    // 计算由Ritter算法找到的初始球体的中心
     const ritterCenter = fromPointsRitterCenter;
     ritterCenter.x = (diameter1.x + diameter2.x) * 0.5;
     ritterCenter.y = (diameter1.y + diameter2.y) * 0.5;
     ritterCenter.z = (diameter1.z + diameter2.z) * 0.5;
 
-    // Calculate the radius of the initial sphere found by Ritter's algorithm
+    // 计算由Ritter算法找到的初始球体的半径
     let radiusSquared = Cartesian3.magnitudeSquared(
       Cartesian3.subtract(diameter2, ritterCenter, fromPointsScratch),
     );
     let ritterRadius = Math.sqrt(radiusSquared);
 
-    // Find the center of the sphere found using the Naive method.
+    // 使用朴素方法找到球体的中心。
     const minBoxPt = fromPointsMinBoxPt;
     minBoxPt.x = xMin.x;
     minBoxPt.y = yMin.y;
@@ -169,12 +169,12 @@ class BoundingSphere {
       fromPointsNaiveCenterScratch,
     );
 
-    // Begin 2nd pass to find naive radius and modify the ritter sphere.
+    // 开始第二次遍历以找到朴素半径并修改ritter球体。
     let naiveRadius = 0;
     for (i = 0; i < numPositions; i++) {
       Cartesian3.clone(positions[i], currentPos);
 
-      // Find the furthest point from the naive center to calculate the naive radius.
+      // 找到距离朴素中心最远的点来计算朴素半径。
       const r = Cartesian3.magnitude(
         Cartesian3.subtract(currentPos, naiveCenter, fromPointsScratch),
       );
@@ -182,16 +182,16 @@ class BoundingSphere {
         naiveRadius = r;
       }
 
-      // Make adjustments to the Ritter Sphere to include all points.
+      // 调整Ritter球体以包含所有点。
       const oldCenterToPointSquared = Cartesian3.magnitudeSquared(
         Cartesian3.subtract(currentPos, ritterCenter, fromPointsScratch),
       );
       if (oldCenterToPointSquared > radiusSquared) {
         const oldCenterToPoint = Math.sqrt(oldCenterToPointSquared);
-        // Calculate new radius to include the point that lies outside
+        // 计算新半径以包含位于外部的点。
         ritterRadius = (ritterRadius + oldCenterToPoint) * 0.5;
         radiusSquared = ritterRadius * ritterRadius;
-        // Calculate center of new Ritter sphere
+        // 计算新Ritter球体的中心。
         const oldToNew = oldCenterToPoint - ritterRadius;
         ritterCenter.x =
           (ritterRadius * ritterCenter.x + oldToNew * currentPos.x) /
@@ -452,19 +452,19 @@ class BoundingSphere {
       diameter2 = zMax;
     }
 
-    // Calculate the center of the initial sphere found by Ritter's algorithm
+    // 计算由Ritter算法找到的初始球体的中心
     const ritterCenter = fromPointsRitterCenter;
     ritterCenter.x = (diameter1.x + diameter2.x) * 0.5;
     ritterCenter.y = (diameter1.y + diameter2.y) * 0.5;
     ritterCenter.z = (diameter1.z + diameter2.z) * 0.5;
 
-    // Calculate the radius of the initial sphere found by Ritter's algorithm
+    // 计算由Ritter算法找到的初始球体的半径
     let radiusSquared = Cartesian3.magnitudeSquared(
       Cartesian3.subtract(diameter2, ritterCenter, fromPointsScratch),
     );
     let ritterRadius = Math.sqrt(radiusSquared);
 
-    // Find the center of the sphere found using the Naive method.
+    // 使用朴素方法找到球体的中心。
     const minBoxPt = fromPointsMinBoxPt;
     minBoxPt.x = xMin.x;
     minBoxPt.y = yMin.y;
@@ -481,14 +481,14 @@ class BoundingSphere {
       fromPointsNaiveCenterScratch,
     );
 
-    // Begin 2nd pass to find naive radius and modify the ritter sphere.
+    // 开始第二次遍历以找到朴素半径并修改ritter球体。
     let naiveRadius = 0;
     for (i = 0; i < numElements; i += stride) {
       currentPos.x = positions[i] + center.x;
       currentPos.y = positions[i + 1] + center.y;
       currentPos.z = positions[i + 2] + center.z;
 
-      // Find the furthest point from the naive center to calculate the naive radius.
+      // 找到距离朴素中心最远的点来计算朴素半径。
       const r = Cartesian3.magnitude(
         Cartesian3.subtract(currentPos, naiveCenter, fromPointsScratch),
       );
@@ -496,16 +496,16 @@ class BoundingSphere {
         naiveRadius = r;
       }
 
-      // Make adjustments to the Ritter Sphere to include all points.
+      // 调整Ritter球体以包含所有点。
       const oldCenterToPointSquared = Cartesian3.magnitudeSquared(
         Cartesian3.subtract(currentPos, ritterCenter, fromPointsScratch),
       );
       if (oldCenterToPointSquared > radiusSquared) {
         const oldCenterToPoint = Math.sqrt(oldCenterToPointSquared);
-        // Calculate new radius to include the point that lies outside
+        // 计算新半径以包含位于外部的点。
         ritterRadius = (ritterRadius + oldCenterToPoint) * 0.5;
         radiusSquared = ritterRadius * ritterRadius;
-        // Calculate center of new Ritter sphere
+        // 计算新Ritter球体的中心。
         const oldToNew = oldCenterToPoint - ritterRadius;
         ritterCenter.x =
           (ritterRadius * ritterCenter.x + oldToNew * currentPos.x) /
@@ -637,19 +637,19 @@ class BoundingSphere {
       diameter2 = zMax;
     }
 
-    // Calculate the center of the initial sphere found by Ritter's algorithm
+    // 计算由Ritter算法找到的初始球体的中心
     const ritterCenter = fromPointsRitterCenter;
     ritterCenter.x = (diameter1.x + diameter2.x) * 0.5;
     ritterCenter.y = (diameter1.y + diameter2.y) * 0.5;
     ritterCenter.z = (diameter1.z + diameter2.z) * 0.5;
 
-    // Calculate the radius of the initial sphere found by Ritter's algorithm
+    // 计算由Ritter算法找到的初始球体的半径
     let radiusSquared = Cartesian3.magnitudeSquared(
       Cartesian3.subtract(diameter2, ritterCenter, fromPointsScratch),
     );
     let ritterRadius = Math.sqrt(radiusSquared);
 
-    // Find the center of the sphere found using the Naive method.
+    // 使用朴素方法找到球体的中心。
     const minBoxPt = fromPointsMinBoxPt;
     minBoxPt.x = xMin.x;
     minBoxPt.y = yMin.y;
@@ -666,14 +666,14 @@ class BoundingSphere {
       fromPointsNaiveCenterScratch,
     );
 
-    // Begin 2nd pass to find naive radius and modify the ritter sphere.
+    // 开始第二次遍历以找到朴素半径并修改ritter球体。
     let naiveRadius = 0;
     for (i = 0; i < numElements; i += 3) {
       currentPos.x = positionsHigh[i] + positionsLow[i];
       currentPos.y = positionsHigh[i + 1] + positionsLow[i + 1];
       currentPos.z = positionsHigh[i + 2] + positionsLow[i + 2];
 
-      // Find the furthest point from the naive center to calculate the naive radius.
+      // 找到距离朴素中心最远的点来计算朴素半径。
       const r = Cartesian3.magnitude(
         Cartesian3.subtract(currentPos, naiveCenter, fromPointsScratch),
       );
@@ -681,16 +681,16 @@ class BoundingSphere {
         naiveRadius = r;
       }
 
-      // Make adjustments to the Ritter Sphere to include all points.
+      // 调整Ritter球体以包含所有点。
       const oldCenterToPointSquared = Cartesian3.magnitudeSquared(
         Cartesian3.subtract(currentPos, ritterCenter, fromPointsScratch),
       );
       if (oldCenterToPointSquared > radiusSquared) {
         const oldCenterToPoint = Math.sqrt(oldCenterToPointSquared);
-        // Calculate new radius to include the point that lies outside
+        // 计算新半径以包含位于外部的点。
         ritterRadius = (ritterRadius + oldCenterToPoint) * 0.5;
         radiusSquared = ritterRadius * ritterRadius;
-        // Calculate center of new Ritter sphere
+        // 计算新Ritter球体的中心。
         const oldToNew = oldCenterToPoint - ritterRadius;
         ritterCenter.x =
           (ritterRadius * ritterCenter.x + oldToNew * currentPos.x) /

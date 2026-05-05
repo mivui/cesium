@@ -122,12 +122,12 @@ Spherical.equals = function (left, right) {
 };
 
 /**
- * Returns true if the first spherical is within the provided epsilon of the second spherical, false otherwise.
+ * 如果第一个球坐标在提供的epsilon范围内等于第二个球坐标，则返回true，否则返回false。
  *
- * @param {Spherical} left The first Spherical to be compared.
- * @param {Spherical} right The second Spherical to be compared.
- * @param {number} [epsilon=0.0] The epsilon to compare against.
- * @returns {boolean} true if the first spherical is within the provided epsilon of the second spherical, false otherwise.
+ * @param {Spherical} left 第一个要比较的球坐标。
+ * @param {Spherical} right 第二个要比较的球坐标。
+ * @param {number} [epsilon=0.0] 用于比较的epsilon。
+ * @returns {boolean} 如果第一个球坐标在提供的epsilon范围内等于第二个球坐标，则返回true，否则返回false。
  */
 Spherical.equalsEpsilon = function (left, right, epsilon) {
   epsilon = epsilon ?? 0.0;
@@ -142,40 +142,40 @@ Spherical.equalsEpsilon = function (left, right, epsilon) {
 };
 
 /**
- * Returns true if this spherical is equal to the provided spherical, false otherwise.
+ * 如果此球坐标等于提供的球坐标，则返回true，否则返回false。
  *
- * @param {Spherical} [other] The Spherical to be compared.
- * @returns {boolean} true if this spherical is equal to the provided spherical, false otherwise.
+ * @param {Spherical} [other] 要比较的球坐标。
+ * @returns {boolean} 如果此球坐标等于提供的球坐标，则返回true，否则返回false。
  */
 Spherical.prototype.equals = function (other) {
   return Spherical.equals(this, other);
 };
 
 /**
- * Creates a duplicate of this Spherical.
+ * 创建此球坐标的副本。
  *
- * @param {Spherical} [result] The object to store the result into, if undefined a new instance will be created.
- * @returns {Spherical} The modified result parameter or a new instance if result was undefined.
+ * @param {Spherical} [result] 存储结果的对象，如果未定义则创建新实例。
+ * @returns {Spherical} 修改后的结果参数，如果结果为undefined则返回新实例。
  */
 Spherical.prototype.clone = function (result) {
   return Spherical.clone(this, result);
 };
 
 /**
- * Returns true if this spherical is within the provided epsilon of the provided spherical, false otherwise.
+ * 如果此球坐标在提供的epsilon范围内等于提供的球坐标，则返回true，否则返回false。
  *
- * @param {Spherical} other The Spherical to be compared.
- * @param {number} epsilon The epsilon to compare against.
- * @returns {boolean} true if this spherical is within the provided epsilon of the provided spherical, false otherwise.
+ * @param {Spherical} other 要比较的球坐标。
+ * @param {number} epsilon 用于比较的epsilon。
+ * @returns {boolean} 如果此球坐标在提供的epsilon范围内等于提供的球坐标，则返回true，否则返回false。
  */
 Spherical.prototype.equalsEpsilon = function (other, epsilon) {
   return Spherical.equalsEpsilon(this, other, epsilon);
 };
 
 /**
- * Returns a string representing this instance in the format (clock, cone, magnitude).
+ * 返回表示此实例的字符串，格式为(clock, cone, magnitude)。
  *
- * @returns {string} A string representing this instance.
+ * @returns {string} 表示此实例的字符串。
  */
 Spherical.prototype.toString = function () {
   return `(${this.clock}, ${this.cone}, ${this.magnitude})`;

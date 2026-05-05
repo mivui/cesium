@@ -12,7 +12,7 @@ function MeshPrimitiveGpmLocal(ppeTextures) {
 
 Object.defineProperties(MeshPrimitiveGpmLocal.prototype, {
   /**
-   * An array of ppe textures.
+   * PPE 纹理数组。
    *
    * @memberof MeshPrimitiveGpmLocal.prototype
    * @type {PpeTexture[]|undefined}

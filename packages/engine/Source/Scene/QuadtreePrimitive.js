@@ -101,32 +101,29 @@ function QuadtreePrimitive(options) {
   this._cameraReferenceFrameOriginCartographic = undefined;
 
   /**
-   * Gets or sets the maximum screen-space error, in pixels, that is allowed.
-   * A higher maximum error will render fewer tiles and improve performance, while a lower
-   * value will improve visual quality.
+   * 获取或设置允许的最大屏幕空间误差（以像素为单位）。
+   * 较高的误差值会渲染更少的瓦片从而提升性能，而较低的值会提升视觉质量。
    * @type {number}
    * @default 2
    */
   this.maximumScreenSpaceError = options.maximumScreenSpaceError ?? 2;
 
   /**
-   * Gets or sets the maximum number of tiles that will be retained in the tile cache.
-   * Note that tiles will never be unloaded if they were used for rendering the last
-   * frame, so the actual number of resident tiles may be higher.  The value of
-   * this property will not affect visual quality.
+   * 获取或设置将保留在瓦片缓存中的最大瓦片数量。
+   * 注意，如果瓦片在上一次渲染中被使用过，则永远不会被卸载，
+   * 因此实际驻留的瓦片数量可能会更高。此属性的值不会影响视觉质量。
    * @type {number}
    * @default 100
    */
   this.tileCacheSize = options.tileCacheSize ?? 100;
 
   /**
-   * Gets or sets the number of loading descendant tiles that is considered "too many".
-   * If a tile has too many loading descendants, that tile will be loaded and rendered before any of
-   * its descendants are loaded and rendered. This means more feedback for the user that something
-   * is happening at the cost of a longer overall load time. Setting this to 0 will cause each
-   * tile level to be loaded successively, significantly increasing load time. Setting it to a large
-   * number (e.g. 1000) will minimize the number of tiles that are loaded but tend to make
-   * detail appear all at once after a long wait.
+   * 获取或设置被视为"过多"的正在加载的子瓦片数量。
+   * 如果一个瓦片有过多正在加载的子瓦片，该瓦片将在其任何子瓦片加载和渲染之前
+   * 被加载和渲染。这意味着用户会获得更多反馈，表明正在发生某些操作，但代价是
+   * 整体加载时间更长。将此值设置为 0 将导致每个瓦片级别依次加载，显著增加加载时间。
+   * 将其设置为较大的数字（例如 1000）将最小化加载的瓦片数量，但往往会导致
+   * 在长时间等待后细节一次性出现。
    * @type {number}
    * @default 20
    */

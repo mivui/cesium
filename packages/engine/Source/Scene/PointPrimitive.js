@@ -15,23 +15,17 @@ import SplitDirection from "./SplitDirection.js";
 
 /**
  * <div class="notice">
- * A point is created and its initial properties are set by calling {@link PointPrimitiveCollection#add}. Do not call the constructor directly.
+ * 通过点调用 {@link PointPrimitiveCollection#add} 创建点并设置其初始属性，请勿直接调用构造函数。
  * </div>
- * A graphical point positioned in the 3D scene, that is created
- * and rendered using a {@link PointPrimitiveCollection}.
+ * 3D 场景中渲染的图形点，由 {@link PointPrimitiveCollection} 创建并渲染。
  *
  * @alias PointPrimitive
  *
- * @performance Reading a property, e.g., {@link PointPrimitive#show}, is constant time.
- * Assigning to a property is constant time but results in
- * CPU to GPU traffic when {@link PointPrimitiveCollection#update} is called.  The per-pointPrimitive traffic is
- * the same regardless of how many properties were updated.  If most pointPrimitives in a collection need to be
- * updated, it may be more efficient to clear the collection with {@link PointPrimitiveCollection#removeAll}
- * and add new pointPrimitives instead of modifying each one.
+ * @performance 读取属性（例如 {@link PointPrimitive#show}）的时间复杂度为常数。赋值属性同样为常数时间，但在调用 {@link PointPrimitiveCollection#update} 时会产生 CPU 到 GPU 的流量。无论更新多少属性，每个点的流量相同。如果集合中大多数点需要更新，使用 {@link PointPrimitiveCollection#removeAll} 清空集合并添加新点，而非逐个修改，可能更高效。
  *
- * @exception {DeveloperError} scaleByDistance.far must be greater than scaleByDistance.near
- * @exception {DeveloperError} translucencyByDistance.far must be greater than translucencyByDistance.near
- * @exception {DeveloperError} distanceDisplayCondition.far must be greater than distanceDisplayCondition.near
+ * @exception {DeveloperError} scaleByDistance.far 必须大于 scaleByDistance.near
+ * @exception {DeveloperError} translucencyByDistance.far 必须大于 translucencyByDistance.near
+ * @exception {DeveloperError} distanceDisplayCondition.far 必须大于 distanceDisplayCondition.near
  *
  * @see PointPrimitiveCollection
  * @see PointPrimitiveCollection#add
@@ -144,8 +138,7 @@ function makeDirty(pointPrimitive, propertyChanged) {
 
 Object.defineProperties(PointPrimitive.prototype, {
   /**
-   * Determines if this point will be shown.  Use this to hide or show a point, instead
-   * of removing it and re-adding it to the collection.
+   * 确定是否显示此点。可用于隐藏或显示点，而无需从集合中移除再重新添加。
    * @memberof PointPrimitive.prototype
    * @type {boolean}
    */
@@ -168,7 +161,7 @@ Object.defineProperties(PointPrimitive.prototype, {
   },
 
   /**
-   * Gets or sets the Cartesian position of this point.
+   * 获取或设置此点的笛卡尔坐标位置。
    * @memberof PointPrimitive.prototype
    * @type {Cartesian3}
    */
@@ -194,26 +187,20 @@ Object.defineProperties(PointPrimitive.prototype, {
   },
 
   /**
-   * Gets or sets near and far scaling properties of a point based on the point's distance from the camera.
-   * A point's scale will interpolate between the {@link NearFarScalar#nearValue} and
-   * {@link NearFarScalar#farValue} while the camera distance falls within the lower and upper bounds
-   * of the specified {@link NearFarScalar#near} and {@link NearFarScalar#far}.
-   * Outside of these ranges the point's scale remains clamped to the nearest bound.  This scale
-   * multiplies the pixelSize and outlineWidth to affect the total size of the point.  If undefined,
-   * scaleByDistance will be disabled.
+   * 获取或设置基于点到相机距离远近缩放属性。
+   * 当相机距离在指定的 {@link NearFarScalar#near} 和 {@link NearFarScalar#far} 范围内时，点的缩放将在 {@link NearFarScalar#nearValue} 和 {@link NearFarScalar#farValue} 之间插值。
+   * 超出这些范围时，点的缩放将保持在最近的边界值。此缩放值乘以 pixelSize 和 outlineWidth 以影响点的总大小。如果未定义，则禁用 scaleByDistance。
    * @memberof PointPrimitive.prototype
    * @type {NearFarScalar}
    *
    * @example
-   * // Example 1.
-   * // Set a pointPrimitive's scaleByDistance to scale to 15 when the
-   * // camera is 1500 meters from the pointPrimitive and disappear as
-   * // the camera distance approaches 8.0e6 meters.
+   * // 示例 1.
+   * // 设置点的 scaleByDistance，当相机距离点 1500 米时缩放到 15，当距离接近 8.0e6 米时消失。
    * p.scaleByDistance = new Cesium.NearFarScalar(1.5e2, 15, 8.0e6, 0.0);
    *
    * @example
-   * // Example 2.
-   * // disable scaling by distance
+   * // 示例 2.
+   * // 禁用距离缩放
    * p.scaleByDistance = undefined;
    */
   scaleByDistance: {
@@ -238,25 +225,20 @@ Object.defineProperties(PointPrimitive.prototype, {
   },
 
   /**
-   * Gets or sets near and far translucency properties of a point based on the point's distance from the camera.
-   * A point's translucency will interpolate between the {@link NearFarScalar#nearValue} and
-   * {@link NearFarScalar#farValue} while the camera distance falls within the lower and upper bounds
-   * of the specified {@link NearFarScalar#near} and {@link NearFarScalar#far}.
-   * Outside of these ranges the point's translucency remains clamped to the nearest bound.  If undefined,
-   * translucencyByDistance will be disabled.
+   * 获取或设置基于点到相机距离远近的透明度属性。
+   * 当相机距离在指定的 {@link NearFarScalar#near} 和 {@link NearFarScalar#far} 范围内时，点的透明度将在 {@link NearFarScalar#nearValue} 和 {@link NearFarScalar#farValue} 之间插值。
+   * 超出这些范围时，点的透明度将保持在最近的边界值。如果未定义，则禁用 translucencyByDistance。
    * @memberof PointPrimitive.prototype
    * @type {NearFarScalar}
    *
    * @example
-   * // Example 1.
-   * // Set a point's translucency to 1.0 when the
-   * // camera is 1500 meters from the point and disappear as
-   * // the camera distance approaches 8.0e6 meters.
+   * // 示例 1.
+   * // 设置点的透明度，当相机距离点 1500 米时为 1.0，当距离接近 8.0e6 米时消失。
    * p.translucencyByDistance = new Cesium.NearFarScalar(1.5e2, 1.0, 8.0e6, 0.0);
    *
    * @example
-   * // Example 2.
-   * // disable translucency by distance
+   * // 示例 2.
+   * // 禁用距离透明度
    * p.translucencyByDistance = undefined;
    */
   translucencyByDistance: {
@@ -284,7 +266,7 @@ Object.defineProperties(PointPrimitive.prototype, {
   },
 
   /**
-   * Gets or sets the inner size of the point in pixels.
+   * 获取或设置点的内部像素大小。
    * @memberof PointPrimitive.prototype
    * @type {number}
    */
@@ -307,19 +289,17 @@ Object.defineProperties(PointPrimitive.prototype, {
   },
 
   /**
-   * Gets or sets the inner color of the point.
-   * The red, green, blue, and alpha values are indicated by <code>value</code>'s <code>red</code>, <code>green</code>,
-   * <code>blue</code>, and <code>alpha</code> properties as shown in Example 1.  These components range from <code>0.0</code>
-   * (no intensity) to <code>1.0</code> (full intensity).
+   * 获取或设置点的内部颜色。
+   * 红、绿、蓝和 alpha 值由 <code>value</code> 的 <code>red</code>、<code>green</code>、<code>blue</code> 和 <code>alpha</code> 属性表示，如示例 1 所示。这些分量范围从 <code>0.0</code>（无强度）到 <code>1.0</code>（全强度）。
    * @memberof PointPrimitive.prototype
    * @type {Color}
    *
    * @example
-   * // Example 1. Assign yellow.
+   * // 示例 1. 设置为黄色。
    * p.color = Cesium.Color.YELLOW;
    *
    * @example
-   * // Example 2. Make a pointPrimitive 50% translucent.
+   * // 示例 2. 使点 50% 透明。
    * p.color = new Cesium.Color(1.0, 1.0, 1.0, 0.5);
    */
   color: {
@@ -342,7 +322,7 @@ Object.defineProperties(PointPrimitive.prototype, {
   },
 
   /**
-   * Gets or sets the outline color of the point.
+   * 获取或设置点的轮廓颜色。
    * @memberof PointPrimitive.prototype
    * @type {Color}
    */
@@ -366,8 +346,7 @@ Object.defineProperties(PointPrimitive.prototype, {
   },
 
   /**
-   * Gets or sets the outline width in pixels.  This width adds to pixelSize,
-   * increasing the total size of the point.
+   * 获取或设置点的轮廓宽度（像素）。此宽度会加到 pixelSize 上，增加点的总大小。
    * @memberof PointPrimitive.prototype
    * @type {number}
    */
@@ -390,7 +369,7 @@ Object.defineProperties(PointPrimitive.prototype, {
   },
 
   /**
-   * Gets or sets the condition specifying at what distance from the camera that this point will be displayed.
+   * 获取或设置指定点显示距离的条件，即距离相机多远时显示此点。
    * @memberof PointPrimitive.prototype
    * @type {DistanceDisplayCondition}
    * @default undefined
@@ -418,8 +397,7 @@ Object.defineProperties(PointPrimitive.prototype, {
   },
 
   /**
-   * Gets or sets the distance from the camera at which to disable the depth test to, for example, prevent clipping against terrain.
-   * When set to zero, the depth test is always applied. When set to Number.POSITIVE_INFINITY, the depth test is never applied.
+   * 获取或设置禁用深度测试的相机距离，例如用于防止与地形裁剪。当设置为 0 时，始终应用深度测试；当设置为 Number.POSITIVE_INFINITY 时，从不应用深度测试。
    * @memberof PointPrimitive.prototype
    * @type {number}
    * @default 0.0
@@ -444,7 +422,7 @@ Object.defineProperties(PointPrimitive.prototype, {
   },
 
   /**
-   * Gets or sets the user-defined value returned when the point is picked.
+   * 获取或设置点被拾取时返回的用户定义值。
    * @memberof PointPrimitive.prototype
    * @type {*}
    */
@@ -488,7 +466,7 @@ Object.defineProperties(PointPrimitive.prototype, {
   },
 
   /**
-   * The {@link SplitDirection} to apply to this point.
+   * 应用于此点的 {@link SplitDirection}。
    * @memberof PointPrimitive.prototype
    * @type {SplitDirection}
    * @default {@link SplitDirection.NONE}
@@ -574,15 +552,14 @@ PointPrimitive._computeScreenSpacePosition = function (
 };
 
 /**
- * Computes the screen-space position of the point's origin.
- * The screen space origin is the top, left corner of the canvas; <code>x</code> increases from
- * left to right, and <code>y</code> increases from top to bottom.
+ * 计算点原点的屏幕空间位置。
+ * 屏幕空间原点为画布的左上角；<code>x</code> 从左向右增加，<code>y</code> 从上向下增加。
  *
- * @param {Scene} scene The scene.
- * @param {Cartesian2} [result] The object onto which to store the result.
- * @returns {Cartesian2} The screen-space position of the point.
+ * @param {Scene} scene 场景。
+ * @param {Cartesian2} [result] 用于存储结果的对象。
+ * @returns {Cartesian2} 点的屏幕空间位置。
  *
- * @exception {DeveloperError} PointPrimitive must be in a collection.
+ * @exception {DeveloperError} 点必须在集合中。
  *
  * @example
  * console.log(p.computeScreenSpacePosition(scene).toString());
@@ -652,11 +629,10 @@ PointPrimitive.getScreenSpaceBoundingBox = function (
 };
 
 /**
- * Determines if this point equals another point.  Points are equal if all their properties
- * are equal.  Points in different collections can be equal.
+ * 确定此点是否与另一个点相等。当所有属性都相等时，两个点相等。不同集合中的点也可以相等。
  *
- * @param {PointPrimitive} [other] The point to compare for equality.
- * @returns {boolean} <code>true</code> if the points are equal; otherwise, <code>false</code>.
+ * @param {PointPrimitive} [other] 用于比较相等的点。
+ * @returns {boolean} 如果点相等则返回 <code>true</code>，否则返回 <code>false</code>。
  */
 PointPrimitive.prototype.equals = function (other) {
   return (

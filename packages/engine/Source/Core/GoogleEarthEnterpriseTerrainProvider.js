@@ -470,25 +470,25 @@ GoogleEarthEnterpriseTerrainProvider.prototype.requestTileGeometry = function (
     });
 };
 
-/**
- * Gets the maximum geometric error allowed in a tile at a given level.
- *
- * @param {number} level The tile level for which to get the maximum geometric error.
- * @returns {number} The maximum geometric error.
- */
+  /**
+   * 获取给定层级瓦片允许的最大几何误差。
+   *
+   * @param {number} level 要获取最大几何误差的瓦片层级。
+   * @returns {number} 最大几何误差。
+   */
 GoogleEarthEnterpriseTerrainProvider.prototype.getLevelMaximumGeometricError =
   function (level) {
     return this._levelZeroMaximumGeometricError / (1 << level);
   };
 
-/**
- * Determines whether data for a tile is available to be loaded.
- *
- * @param {number} x The X coordinate of the tile for which to request geometry.
- * @param {number} y The Y coordinate of the tile for which to request geometry.
- * @param {number} level The level of the tile for which to request geometry.
- * @returns {boolean|undefined} Undefined if not supported, otherwise true or false.
- */
+  /**
+   * 确定瓦片的数据是否可用以进行加载。
+   *
+   * @param {number} x 要请求几何数据的瓦片X坐标。
+   * @param {number} y 要请求几何数据的瓦片Y坐标。
+   * @param {number} level 要请求几何数据的瓦片层级。
+   * @returns {boolean|undefined} 如果不支持则返回undefined，否则返回true或false。
+   */
 GoogleEarthEnterpriseTerrainProvider.prototype.getTileDataAvailable = function (
   x,
   y,
@@ -539,11 +539,11 @@ GoogleEarthEnterpriseTerrainProvider.prototype.getTileDataAvailable = function (
 };
 
 /**
- * Makes sure we load availability data for a tile
+ * 确保我们为瓦片加载可用性数据。
  *
- * @param {number} x The X coordinate of the tile for which to request geometry.
- * @param {number} y The Y coordinate of the tile for which to request geometry.
- * @param {number} level The level of the tile for which to request geometry.
+ * @param {number} x 要请求几何数据的瓦片X坐标。
+ * @param {number} y 要请求几何数据的瓦片Y坐标。
+ * @param {number} level 要请求几何数据的瓦片层级。
  * @returns {undefined}
  */
 GoogleEarthEnterpriseTerrainProvider.prototype.loadTileDataAvailability =

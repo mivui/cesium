@@ -779,8 +779,8 @@ function collectVertexColors(runtimePrimitive) {
 
 /**
  * @typedef {object} VertexColorInfo
- * @property {Float32Array} colors The packed per-vertex colors.
- * @property {number} count The number of vertices.
+ * @property {Float32Array} colors 打包的每顶点颜色。
+ * @property {number} count 顶点数量。
  */
 
 /**

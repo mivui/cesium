@@ -310,23 +310,22 @@ ModelUtility.getCullFace = function (modelMatrix, primitiveType) {
 };
 
 /**
- * Sanitize the identifier to be used in a GLSL shader. The identifier
- * is sanitized as follows:
- * - Replace all sequences of non-alphanumeric characters with a single `_`.
- * - If the gl_ prefix is present, remove it. The prefix is reserved in GLSL.
- * - If the identifier starts with a digit, prefix it with an underscore.
+ * 清理标识符以在GLSL着色器中使用。标识符的清理规则如下：
+ * - 将所有非字母数字字符序列替换为单个 `_`。
+ * - 如果存在 gl_ 前缀，则移除它。该前缀在GLSL中为保留字。
+ * - 如果标识符以数字开头，则为其添加下划线前缀。
  *
  * @example
- * // Returns "customProperty"
+ * // 返回 "customProperty"
  * ModelUtility.sanitizeGlslIdentifier("gl_customProperty");
  *
  * @example
- * // Returns "_1234"
+ * // 返回 "_1234"
  * ModelUtility.sanitizeGlslIdentifier("1234");
  *
- * @param {string} identifier The original identifier.
+ * @param {string} identifier 原始标识符。
  *
- * @returns {string} The sanitized version of the identifier.
+ * @returns {string} 清理后的标识符。
  */
 ModelUtility.sanitizeGlslIdentifier = function (identifier) {
   // Remove non-alphanumeric characters and replace with a single underscore.
@@ -376,13 +375,12 @@ ModelUtility.supportedExtensions = {
 };
 
 /**
- * Checks whether or not the extensions required by the glTF are
- * supported. If an unsupported extension is found, this throws
- * a {@link RuntimeError} with the extension name.
+ * 检查glTF所需的扩展是否受支持。如果发现不支持的扩展，将抛出
+ * 包含扩展名的{@link RuntimeError}。
  *
- * @param {string[]} extensionsRequired The extensionsRequired array in the glTF.
+ * @param {string[]} extensionsRequired glTF中的extensionsRequired数组。
  *
- * @exception {RuntimeError} Unsupported glTF Extension
+ * @exception {RuntimeError} 不支持的glTF扩展
  */
 ModelUtility.checkSupportedExtensions = function (extensionsRequired) {
   const length = extensionsRequired.length;

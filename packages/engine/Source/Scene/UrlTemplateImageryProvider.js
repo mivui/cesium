@@ -51,113 +51,111 @@ const pickFeaturesTags = combine(tags, {
 /**
  * @typedef {object} UrlTemplateImageryProvider.ConstructorOptions
  *
- * Initialization options for the UrlTemplateImageryProvider constructor
+ * UrlTemplateImageryProvider 构造函数的初始化选项
  *
- * @property {Resource|string} url  The URL template to use to request tiles.  It has the following keywords:
+ * @property {Resource|string} url 用于请求瓦片的 URL 模板。它包含以下关键字：
  * <ul>
- *     <li><code>{z}</code>: The level of the tile in the tiling scheme.  Level zero is the root of the quadtree pyramid.</li>
- *     <li><code>{x}</code>: The tile X coordinate in the tiling scheme, where 0 is the Westernmost tile.</li>
- *     <li><code>{y}</code>: The tile Y coordinate in the tiling scheme, where 0 is the Northernmost tile.</li>
- *     <li><code>{s}</code>: One of the available subdomains, used to overcome browser limits on the number of simultaneous requests per host.</li>
- *     <li><code>{reverseX}</code>: The tile X coordinate in the tiling scheme, where 0 is the Easternmost tile.</li>
- *     <li><code>{reverseY}</code>: The tile Y coordinate in the tiling scheme, where 0 is the Southernmost tile.</li>
- *     <li><code>{reverseZ}</code>: The level of the tile in the tiling scheme, where level zero is the maximum level of the quadtree pyramid.  In order to use reverseZ, maximumLevel must be defined.</li>
- *     <li><code>{westDegrees}</code>: The Western edge of the tile in geodetic degrees.</li>
- *     <li><code>{southDegrees}</code>: The Southern edge of the tile in geodetic degrees.</li>
- *     <li><code>{eastDegrees}</code>: The Eastern edge of the tile in geodetic degrees.</li>
- *     <li><code>{northDegrees}</code>: The Northern edge of the tile in geodetic degrees.</li>
- *     <li><code>{westProjected}</code>: The Western edge of the tile in projected coordinates of the tiling scheme.</li>
- *     <li><code>{southProjected}</code>: The Southern edge of the tile in projected coordinates of the tiling scheme.</li>
- *     <li><code>{eastProjected}</code>: The Eastern edge of the tile in projected coordinates of the tiling scheme.</li>
- *     <li><code>{northProjected}</code>: The Northern edge of the tile in projected coordinates of the tiling scheme.</li>
- *     <li><code>{width}</code>: The width of each tile in pixels.</li>
- *     <li><code>{height}</code>: The height of each tile in pixels.</li>
+ *     <li><code>{z}</code>：瓦片在平铺方案中的层级。层级零是四叉树金字塔的根节点。</li>
+ *     <li><code>{x}</code>：瓦片在平铺方案中的 X 坐标，其中 0 是最西边的瓦片。</li>
+ *     <li><code>{y}</code>：瓦片在平铺方案中的 Y 坐标，其中 0 是最北边的瓦片。</li>
+ *     <li><code>{s}</code>：可用子域名之一，用于克服浏览器对每个主机同时请求数量的限制。</li>
+ *     <li><code>{reverseX}</code>：瓦片在平铺方案中的 X 坐标，其中 0 是最东边的瓦片。</li>
+ *     <li><code>{reverseY}</code>：瓦片在平铺方案中的 Y 坐标，其中 0 是最南边的瓦片。</li>
+ *     <li><code>{reverseZ}</code>：瓦片在平铺方案中的层级，其中层级零是四叉树金字塔的最大层级。要使用 reverseZ，必须定义 maximumLevel。</li>
+ *     <li><code>{westDegrees}</code>：瓦片的西边界，单位为大地度数。</li>
+ *     <li><code>{southDegrees}</code>：瓦片的南边界，单位为大地度数。</li>
+ *     <li><code>{eastDegrees}</code>：瓦片的东边界，单位为大地度数。</li>
+ *     <li><code>{northDegrees}</code>：瓦片的北边界，单位为大地度数。</li>
+ *     <li><code>{westProjected}</code>：瓦片的西边界，使用平铺方案的投影坐标。</li>
+ *     <li><code>{southProjected}</code>：瓦片的南边界，使用平铺方案的投影坐标。</li>
+ *     <li><code>{eastProjected}</code>：瓦片的东边界，使用平铺方案的投影坐标。</li>
+ *     <li><code>{northProjected}</code>：瓦片的北边界，使用平铺方案的投影坐标。</li>
+ *     <li><code>{width}</code>：每个瓦片的宽度，单位为像素。</li>
+ *     <li><code>{height}</code>：每个瓦片的高度，单位为像素。</li>
  * </ul>
- * @property {Resource|string} [pickFeaturesUrl] The URL template to use to pick features.  If this property is not specified,
- *                 {@link UrlTemplateImageryProvider#pickFeatures} will immediately returned undefined, indicating no
- *                 features picked.  The URL template supports all of the keywords supported by the <code>url</code>
- *                 parameter, plus the following:
+ * @property {Resource|string} [pickFeaturesUrl] 用于拾取要素的 URL 模板。如果未指定此属性，
+ *                 {@link UrlTemplateImageryProvider#pickFeatures} 将立即返回 undefined，表示
+ *                 没有拾取到要素。该 URL 模板支持 <code>url</code> 参数的所有关键字，
+ *                 以及以下关键字：
  * <ul>
- *     <li><code>{i}</code>: The pixel column (horizontal coordinate) of the picked position, where the Westernmost pixel is 0.</li>
- *     <li><code>{j}</code>: The pixel row (vertical coordinate) of the picked position, where the Northernmost pixel is 0.</li>
- *     <li><code>{reverseI}</code>: The pixel column (horizontal coordinate) of the picked position, where the Easternmost pixel is 0.</li>
- *     <li><code>{reverseJ}</code>: The pixel row (vertical coordinate) of the picked position, where the Southernmost pixel is 0.</li>
- *     <li><code>{longitudeDegrees}</code>: The longitude of the picked position in degrees.</li>
- *     <li><code>{latitudeDegrees}</code>: The latitude of the picked position in degrees.</li>
- *     <li><code>{longitudeProjected}</code>: The longitude of the picked position in the projected coordinates of the tiling scheme.</li>
- *     <li><code>{latitudeProjected}</code>: The latitude of the picked position in the projected coordinates of the tiling scheme.</li>
- *     <li><code>{format}</code>: The format in which to get feature information, as specified in the {@link GetFeatureInfoFormat}.</li>
+ *     <li><code>{i}</code>：拾取位置的像素列（水平坐标），其中最西边的像素为 0。</li>
+ *     <li><code>{j}</code>：拾取位置的像素行（垂直坐标），其中最北边的像素为 0。</li>
+ *     <li><code>{reverseI}</code>：拾取位置的像素列（水平坐标），其中最东边的像素为 0。</li>
+ *     <li><code>{reverseJ}</code>：拾取位置的像素行（垂直坐标），其中最南边的像素为 0。</li>
+ *     <li><code>{longitudeDegrees}</code>：拾取位置的经度，单位为度。</li>
+ *     <li><code>{latitudeDegrees}</code>：拾取位置的纬度，单位为度。</li>
+ *     <li><code>{longitudeProjected}</code>：拾取位置的经度，使用平铺方案的投影坐标。</li>
+ *     <li><code>{latitudeProjected}</code>：拾取位置的纬度，使用平铺方案的投影坐标。</li>
+ *     <li><code>{format}</code>：获取要素信息的格式，如 {@link GetFeatureInfoFormat} 中所指定。</li>
  * </ul>
- * @property {object} [urlSchemeZeroPadding] Gets the URL scheme zero padding for each tile coordinate. The format is '000' where
- * each coordinate will be padded on the left with zeros to match the width of the passed string of zeros. e.g. Setting:
+ * @property {object} [urlSchemeZeroPadding] 获取每个瓦片坐标的 URL 方案零填充。格式为 '000'，其中
+ * 每个坐标将在左侧填充零以匹配传入的零字符串的宽度。例如，设置：
  * urlSchemeZeroPadding : { '{x}' : '0000'}
- * will cause an 'x' value of 12 to return the string '0012' for {x} in the generated URL.
- * It the passed object has the following keywords:
+ * 将使 x 值 12 在生成的 URL 中返回字符串 '0012'。
+ * 它包含以下关键字：
  * <ul>
- *  <li> <code>{z}</code>: The zero padding for the level of the tile in the tiling scheme.</li>
- *  <li> <code>{x}</code>: The zero padding for the tile X coordinate in the tiling scheme.</li>
- *  <li> <code>{y}</code>: The zero padding for the the tile Y coordinate in the tiling scheme.</li>
- *  <li> <code>{reverseX}</code>: The zero padding for the tile reverseX coordinate in the tiling scheme.</li>
- *  <li> <code>{reverseY}</code>: The zero padding for the tile reverseY coordinate in the tiling scheme.</li>
- *  <li> <code>{reverseZ}</code>: The zero padding for the reverseZ coordinate of the tile in the tiling scheme.</li>
+ *  <li> <code>{z}</code>：瓦片在平铺方案中层级的零填充。</li>
+ *  <li> <code>{x}</code>：瓦片在平铺方案中 X 坐标的零填充。</li>
+ *  <li> <code>{y}</code>：瓦片在平铺方案中 Y 坐标的零填充。</li>
+ *  <li> <code>{reverseX}</code>：瓦片在平铺方案中 reverseX 坐标的零填充。</li>
+ *  <li> <code>{reverseY}</code>：瓦片在平铺方案中 reverseY 坐标的零填充。</li>
+ *  <li> <code>{reverseZ}</code>：瓦片在平铺方案中 reverseZ 坐标的零填充。</li>
  * </ul>
- * @property {string|string[]} [subdomains='abc'] The subdomains to use for the <code>{s}</code> placeholder in the URL template.
- *                          If this parameter is a single string, each character in the string is a subdomain.  If it is
- *                          an array, each element in the array is a subdomain.
- * @property {Credit|string} [credit=''] A credit for the data source, which is displayed on the canvas.
- * @property {number} [minimumLevel=0] The minimum level-of-detail supported by the imagery provider.  Take care when specifying
- *                 this that the number of tiles at the minimum level is small, such as four or less.  A larger number is likely
- *                 to result in rendering problems.
- * @property {number} [maximumLevel] The maximum level-of-detail supported by the imagery provider, or undefined if there is no limit.
- * @property {Rectangle} [rectangle=Rectangle.MAX_VALUE] The rectangle, in radians, covered by the image.
- * @property {TilingScheme} [tilingScheme=WebMercatorTilingScheme] The tiling scheme specifying how the ellipsoidal
- * surface is broken into tiles.  If this parameter is not provided, a {@link WebMercatorTilingScheme}
- * is used.
- * @property {Ellipsoid} [ellipsoid] The ellipsoid.  If the tilingScheme is specified,
- *                    this parameter is ignored and the tiling scheme's ellipsoid is used instead. If neither
- *                    parameter is specified, the WGS84 ellipsoid is used.
- * @property {number} [tileWidth=256] Pixel width of image tiles.
- * @property {number} [tileHeight=256] Pixel height of image tiles.
- * @property {boolean} [hasAlphaChannel=true] true if the images provided by this imagery provider
- *                  include an alpha channel; otherwise, false.  If this property is false, an alpha channel, if
- *                  present, will be ignored.  If this property is true, any images without an alpha channel will
- *                  be treated as if their alpha is 1.0 everywhere.  When this property is false, memory usage
- *                  and texture upload time are potentially reduced.
- * @property {GetFeatureInfoFormat[]} [getFeatureInfoFormats] The formats in which to get feature information at a
- *                                 specific location when {@link UrlTemplateImageryProvider#pickFeatures} is invoked.  If this
- *                                 parameter is not specified, feature picking is disabled.
- * @property {boolean} [enablePickFeatures=true] If true, {@link UrlTemplateImageryProvider#pickFeatures} will
- *        request the <code>pickFeaturesUrl</code> and attempt to interpret the features included in the response.  If false,
- *        {@link UrlTemplateImageryProvider#pickFeatures} will immediately return undefined (indicating no pickable
- *        features) without communicating with the server.  Set this property to false if you know your data
- *        source does not support picking features or if you don't want this provider's features to be pickable. Note
- *        that this can be dynamically overridden by modifying the {@link UriTemplateImageryProvider#enablePickFeatures}
- *        property.
- * @property {TileDiscardPolicy} [tileDiscardPolicy] A policy for discarding tile images according to some criteria
- * @property {object} [customTags] Allow to replace custom keywords in the URL template. The object must have strings as keys and functions as values.
+ * @property {string|string[]} [subdomains='abc'] 用于 URL 模板中 <code>{s}</code> 占位符的子域名。
+ *                          如果此参数是单个字符串，则字符串中的每个字符都是一个子域名。如果是
+ *                          数组，则数组中的每个元素都是一个子域名。
+ * @property {Credit|string} [credit=''] 数据源的版权信息，显示在画布上。
+ * @property {number} [minimumLevel=0] 影像提供者支持的最小细节层级。指定时需确保
+ *                 最小层级的瓦片数量较少，如四个或更少。较大的数字很可能
+ *                 导致渲染问题。
+ * @property {number} [maximumLevel] 影像提供者支持的最大细节层级，如果没有限制则为 undefined。
+ * @property {Rectangle} [rectangle=Rectangle.MAX_VALUE] 图像覆盖的矩形区域，单位为弧度。
+ * @property {TilingScheme} [tilingScheme=WebMercatorTilingScheme] 指定如何将椭球面
+ * 分割为瓦片的平铺方案。如果未提供此参数，则使用 {@link WebMercatorTilingScheme}。
+ * @property {Ellipsoid} [ellipsoid] 椭球体。如果指定了 tilingScheme，
+ *                    则忽略此参数，改用平铺方案的椭球体。如果两个
+ *                    参数都未指定，则使用 WGS84 椭球体。
+ * @property {number} [tileWidth=256] 图像瓦片的像素宽度。
+ * @property {number} [tileHeight=256] 图像瓦片的像素高度。
+ * @property {boolean} [hasAlphaChannel=true] 如果此影像提供者提供的图像
+ *                  包含 alpha 通道，则为 true；否则为 false。如果此属性为 false，
+ *                  alpha 通道（如果存在）将被忽略。如果此属性为 true，任何没有 alpha 通道的图像
+ *                  将被视为其 alpha 值处处为 1.0。当此属性为 false 时，内存使用
+ *                  和纹理上传时间可能会减少。
+ * @property {GetFeatureInfoFormat[]} [getFeatureInfoFormats] 当调用 {@link UrlTemplateImageryProvider#pickFeatures} 时，
+ *                                 用于在特定位置获取要素信息的格式。如果未指定此
+ *                                 参数，则禁用要素拾取。
+ * @property {boolean} [enablePickFeatures=true] 如果为 true，{@link UrlTemplateImageryProvider#pickFeatures} 将
+ *        请求 <code>pickFeaturesUrl</code> 并尝试解释响应中包含的要素。如果为 false，
+ *        {@link UrlTemplateImageryProvider#pickFeatures} 将立即返回 undefined（表示没有可拾取的
+ *        要素）而不与服务器通信。如果您知道数据源不支持拾取要素或不想
+ *        让此提供者的要素可拾取，请将此属性设置为 false。注意，
+ *        这可以通过修改 {@link UriTemplateImageryProvider#enablePickFeatures} 属性来动态覆盖。
+ * @property {TileDiscardPolicy} [tileDiscardPolicy] 根据某些条件丢弃瓦片图像的策略
+ * @property {object} [customTags] 允许替换 URL 模板中的自定义关键字。该对象必须以字符串作为键，函数作为值。
  */
 
 /**
- * Provides imagery by requesting tiles using a specified URL template.
+ * 通过使用指定的 URL 模板请求瓦片来提供影像。
  *
  * @alias UrlTemplateImageryProvider
  * @constructor
  *
- * @param {UrlTemplateImageryProvider.ConstructorOptions} options Object describing initialization options
+ * @param {UrlTemplateImageryProvider.ConstructorOptions} options 描述初始化选项的对象
  *
  * @example
- * // Access Natural Earth II imagery, which uses a TMS tiling scheme and Geographic (EPSG:4326) project
+ * // 访问使用 TMS 平铺方案和地理 (EPSG:4326) 投影的自然地球 II 影像
  * const tms = new Cesium.UrlTemplateImageryProvider({
  *     url : Cesium.buildModuleUrl('Assets/Textures/NaturalEarthII') + '/{z}/{x}/{reverseY}.jpg',
  *     tilingScheme : new Cesium.GeographicTilingScheme(),
  *     maximumLevel : 5
  * });
- * // Access the CartoDB Positron basemap, which uses an OpenStreetMap-like tiling scheme.
+ * // 访问使用类似 OpenStreetMap 平铺方案的 CartoDB Positron 底图。
  * const positron = new Cesium.UrlTemplateImageryProvider({
  *     url : 'http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',
  *     credit : 'Map tiles by CartoDB, under CC BY 3.0. Data by OpenStreetMap, under ODbL.'
  * });
- * // Access a Web Map Service (WMS) server.
+ * // 访问 Web 地图服务 (WMS) 服务器。
  * const wms = new Cesium.UrlTemplateImageryProvider({
  *    url : 'https://services.ga.gov.au/gis/services/NM_Hydrology_and_Marine_Points/MapServer/WMSServer?' +
  *          'tiled=true&transparent=true&format=image%2Fpng&exceptions=application%2Fvnd.ogc.se_xml&' +
@@ -165,9 +163,9 @@ const pickFeaturesTags = combine(tags, {
  *          'layers=Bores&crs=EPSG%3A3857&' +
  *          'bbox={westProjected}%2C{southProjected}%2C{eastProjected}%2C{northProjected}&' +
  *          'width=256&height=256',
- *    rectangle : Cesium.Rectangle.fromDegrees(95.0, -55.0, 170.0, -1.0)  // From GetCapabilities EX_GeographicBoundingBox
+ *    rectangle : Cesium.Rectangle.fromDegrees(95.0, -55.0, 170.0, -1.0)  // 来自 GetCapabilities EX_GeographicBoundingBox
  * });
- * // Using custom tags in your template url.
+ * // 在模板 URL 中使用自定义标签。
  * const custom = new Cesium.UrlTemplateImageryProvider({
  *    url : 'https://yoururl/{Time}/{z}/{y}/{x}.png',
  *    customTags : {
@@ -254,11 +252,11 @@ function UrlTemplateImageryProvider(options) {
   this._defaultMagnificationFilter = undefined;
 
   /**
-   * Gets or sets a value indicating whether feature picking is enabled.  If true, {@link UrlTemplateImageryProvider#pickFeatures} will
-   * request the <code>options.pickFeaturesUrl</code> and attempt to interpret the features included in the response.  If false,
-   * {@link UrlTemplateImageryProvider#pickFeatures} will immediately return undefined (indicating no pickable
-   * features) without communicating with the server.  Set this property to false if you know your data
-   * source does not support picking features or if you don't want this provider's features to be pickable.
+   * 获取或设置一个值，该值指示是否启用要素拾取。如果为 true，{@link UrlTemplateImageryProvider#pickFeatures} 将
+   * 请求 <code>options.pickFeaturesUrl</code> 并尝试解释响应中包含的要素。如果为 false，
+   * {@link UrlTemplateImageryProvider#pickFeatures} 将立即返回 undefined（表示没有可拾取的
+   * 要素）而不与服务器通信。如果您知道数据源不支持拾取要素或不想
+   * 让此提供者的要素可拾取，请将此属性设置为 false。
    * @type {boolean}
    * @default true
    */
@@ -267,25 +265,25 @@ function UrlTemplateImageryProvider(options) {
 
 Object.defineProperties(UrlTemplateImageryProvider.prototype, {
   /**
-   * Gets the URL template to use to request tiles.  It has the following keywords:
+   * 获取用于请求瓦片的 URL 模板。它包含以下关键字：
    * <ul>
-   *  <li> <code>{z}</code>: The level of the tile in the tiling scheme.  Level zero is the root of the quadtree pyramid.</li>
-   *  <li> <code>{x}</code>: The tile X coordinate in the tiling scheme, where 0 is the Westernmost tile.</li>
-   *  <li> <code>{y}</code>: The tile Y coordinate in the tiling scheme, where 0 is the Northernmost tile.</li>
-   *  <li> <code>{s}</code>: One of the available subdomains, used to overcome browser limits on the number of simultaneous requests per host.</li>
-   *  <li> <code>{reverseX}</code>: The tile X coordinate in the tiling scheme, where 0 is the Easternmost tile.</li>
-   *  <li> <code>{reverseY}</code>: The tile Y coordinate in the tiling scheme, where 0 is the Southernmost tile.</li>
-   *  <li> <code>{reverseZ}</code>: The level of the tile in the tiling scheme, where level zero is the maximum level of the quadtree pyramid.  In order to use reverseZ, maximumLevel must be defined.</li>
-   *  <li> <code>{westDegrees}</code>: The Western edge of the tile in geodetic degrees.</li>
-   *  <li> <code>{southDegrees}</code>: The Southern edge of the tile in geodetic degrees.</li>
-   *  <li> <code>{eastDegrees}</code>: The Eastern edge of the tile in geodetic degrees.</li>
-   *  <li> <code>{northDegrees}</code>: The Northern edge of the tile in geodetic degrees.</li>
-   *  <li> <code>{westProjected}</code>: The Western edge of the tile in projected coordinates of the tiling scheme.</li>
-   *  <li> <code>{southProjected}</code>: The Southern edge of the tile in projected coordinates of the tiling scheme.</li>
-   *  <li> <code>{eastProjected}</code>: The Eastern edge of the tile in projected coordinates of the tiling scheme.</li>
-   *  <li> <code>{northProjected}</code>: The Northern edge of the tile in projected coordinates of the tiling scheme.</li>
-   *  <li> <code>{width}</code>: The width of each tile in pixels.</li>
-   *  <li> <code>{height}</code>: The height of each tile in pixels.</li>
+   *  <li> <code>{z}</code>：瓦片在平铺方案中的层级。层级零是四叉树金字塔的根节点。</li>
+   *  <li> <code>{x}</code>：瓦片在平铺方案中的 X 坐标，其中 0 是最西边的瓦片。</li>
+   *  <li> <code>{y}</code>：瓦片在平铺方案中的 Y 坐标，其中 0 是最北边的瓦片。</li>
+   *  <li> <code>{s}</code>：可用子域名之一，用于克服浏览器对每个主机同时请求数量的限制。</li>
+   *  <li> <code>{reverseX}</code>：瓦片在平铺方案中的 X 坐标，其中 0 是最东边的瓦片。</li>
+   *  <li> <code>{reverseY}</code>：瓦片在平铺方案中的 Y 坐标，其中 0 是最南边的瓦片。</li>
+   *  <li> <code>{reverseZ}</code>：瓦片在平铺方案中的层级，其中层级零是四叉树金字塔的最大层级。要使用 reverseZ，必须定义 maximumLevel。</li>
+   *  <li> <code>{westDegrees}</code>：瓦片的西边界，单位为大地度数。</li>
+   *  <li> <code>{southDegrees}</code>：瓦片的南边界，单位为大地度数。</li>
+   *  <li> <code>{eastDegrees}</code>：瓦片的东边界，单位为大地度数。</li>
+   *  <li> <code>{northDegrees}</code>：瓦片的北边界，单位为大地度数。</li>
+   *  <li> <code>{westProjected}</code>：瓦片的西边界，使用平铺方案的投影坐标。</li>
+   *  <li> <code>{southProjected}</code>：瓦片的南边界，使用平铺方案的投影坐标。</li>
+   *  <li> <code>{eastProjected}</code>：瓦片的东边界，使用平铺方案的投影坐标。</li>
+   *  <li> <code>{northProjected}</code>：瓦片的北边界，使用平铺方案的投影坐标。</li>
+   *  <li> <code>{width}</code>：每个瓦片的宽度，单位为像素。</li>
+   *  <li> <code>{height}</code>：每个瓦片的高度，单位为像素。</li>
    * </ul>
    * @memberof UrlTemplateImageryProvider.prototype
    * @type {string}
@@ -298,18 +296,18 @@ Object.defineProperties(UrlTemplateImageryProvider.prototype, {
   },
 
   /**
-   * Gets the URL scheme zero padding for each tile coordinate. The format is '000' where each coordinate will be padded on
-   * the left with zeros to match the width of the passed string of zeros. e.g. Setting:
+   * 获取每个瓦片坐标的 URL 方案零填充。格式为 '000'，其中每个坐标将在左侧
+   * 填充零以匹配传入的零字符串的宽度。例如，设置：
    * urlSchemeZeroPadding : { '{x}' : '0000'}
-   * will cause an 'x' value of 12 to return the string '0012' for {x} in the generated URL.
-   * It has the following keywords:
+   * 将使 x 值 12 在生成的 URL 中返回字符串 '0012'。
+   * 它包含以下关键字：
    * <ul>
-   *  <li> <code>{z}</code>: The zero padding for the level of the tile in the tiling scheme.</li>
-   *  <li> <code>{x}</code>: The zero padding for the tile X coordinate in the tiling scheme.</li>
-   *  <li> <code>{y}</code>: The zero padding for the the tile Y coordinate in the tiling scheme.</li>
-   *  <li> <code>{reverseX}</code>: The zero padding for the tile reverseX coordinate in the tiling scheme.</li>
-   *  <li> <code>{reverseY}</code>: The zero padding for the tile reverseY coordinate in the tiling scheme.</li>
-   *  <li> <code>{reverseZ}</code>: The zero padding for the reverseZ coordinate of the tile in the tiling scheme.</li>
+   *  <li> <code>{z}</code>：瓦片在平铺方案中层级的零填充。</li>
+   *  <li> <code>{x}</code>：瓦片在平铺方案中 X 坐标的零填充。</li>
+   *  <li> <code>{y}</code>：瓦片在平铺方案中 Y 坐标的零填充。</li>
+   *  <li> <code>{reverseX}</code>：瓦片在平铺方案中 reverseX 坐标的零填充。</li>
+   *  <li> <code>{reverseY}</code>：瓦片在平铺方案中 reverseY 坐标的零填充。</li>
+   *  <li> <code>{reverseZ}</code>：瓦片在平铺方案中 reverseZ 坐标的零填充。</li>
    * </ul>
    * @memberof UrlTemplateImageryProvider.prototype
    * @type {object}
@@ -322,20 +320,20 @@ Object.defineProperties(UrlTemplateImageryProvider.prototype, {
   },
 
   /**
-   * Gets the URL template to use to use to pick features.  If this property is not specified,
-   * {@link UrlTemplateImageryProvider#pickFeatures} will immediately return undefined, indicating no
-   * features picked.  The URL template supports all of the keywords supported by the
-   * {@link UrlTemplateImageryProvider#url} property, plus the following:
+   * 获取用于拾取要素的 URL 模板。如果未指定此属性，
+   * {@link UrlTemplateImageryProvider#pickFeatures} 将立即返回 undefined，表示没有
+   * 拾取到要素。该 URL 模板支持 {@link UrlTemplateImageryProvider#url} 属性支持的
+   * 所有关键字，以及以下关键字：
    * <ul>
-   *     <li><code>{i}</code>: The pixel column (horizontal coordinate) of the picked position, where the Westernmost pixel is 0.</li>
-   *     <li><code>{j}</code>: The pixel row (vertical coordinate) of the picked position, where the Northernmost pixel is 0.</li>
-   *     <li><code>{reverseI}</code>: The pixel column (horizontal coordinate) of the picked position, where the Easternmost pixel is 0.</li>
-   *     <li><code>{reverseJ}</code>: The pixel row (vertical coordinate) of the picked position, where the Southernmost pixel is 0.</li>
-   *     <li><code>{longitudeDegrees}</code>: The longitude of the picked position in degrees.</li>
-   *     <li><code>{latitudeDegrees}</code>: The latitude of the picked position in degrees.</li>
-   *     <li><code>{longitudeProjected}</code>: The longitude of the picked position in the projected coordinates of the tiling scheme.</li>
-   *     <li><code>{latitudeProjected}</code>: The latitude of the picked position in the projected coordinates of the tiling scheme.</li>
-   *     <li><code>{format}</code>: The format in which to get feature information, as specified in the {@link GetFeatureInfoFormat}.</li>
+   *     <li><code>{i}</code>：拾取位置的像素列（水平坐标），其中最西边的像素为 0。</li>
+   *     <li><code>{j}</code>：拾取位置的像素行（垂直坐标），其中最北边的像素为 0。</li>
+   *     <li><code>{reverseI}</code>：拾取位置的像素列（水平坐标），其中最东边的像素为 0。</li>
+   *     <li><code>{reverseJ}</code>：拾取位置的像素行（垂直坐标），其中最南边的像素为 0。</li>
+   *     <li><code>{longitudeDegrees}</code>：拾取位置的经度，单位为度。</li>
+   *     <li><code>{latitudeDegrees}</code>：拾取位置的纬度，单位为度。</li>
+   *     <li><code>{longitudeProjected}</code>：拾取位置的经度，使用平铺方案的投影坐标。</li>
+   *     <li><code>{latitudeProjected}</code>：拾取位置的纬度，使用平铺方案的投影坐标。</li>
+   *     <li><code>{format}</code>：获取要素信息的格式，如 {@link GetFeatureInfoFormat} 中所指定。</li>
    * </ul>
    * @memberof UrlTemplateImageryProvider.prototype
    * @type {string}
@@ -348,7 +346,7 @@ Object.defineProperties(UrlTemplateImageryProvider.prototype, {
   },
 
   /**
-   * Gets the proxy used by this provider.
+   * 获取此提供者使用的代理。
    * @memberof UrlTemplateImageryProvider.prototype
    * @type {Proxy}
    * @readonly
@@ -361,7 +359,7 @@ Object.defineProperties(UrlTemplateImageryProvider.prototype, {
   },
 
   /**
-   * Gets the width of each tile, in pixels.
+   * 获取每个瓦片的宽度，单位为像素。
    * @memberof UrlTemplateImageryProvider.prototype
    * @type {number}
    * @readonly
@@ -374,7 +372,7 @@ Object.defineProperties(UrlTemplateImageryProvider.prototype, {
   },
 
   /**
-   * Gets the height of each tile, in pixels.
+   * 获取每个瓦片的高度，单位为像素。
    * @memberof UrlTemplateImageryProvider.prototype
    * @type {number}
    * @readonly
@@ -387,7 +385,7 @@ Object.defineProperties(UrlTemplateImageryProvider.prototype, {
   },
 
   /**
-   * Gets the maximum level-of-detail that can be requested, or undefined if there is no limit.
+   * 获取可以请求的最大细节层级，如果没有限制则为 undefined。
    * @memberof UrlTemplateImageryProvider.prototype
    * @type {number|undefined}
    * @readonly
@@ -400,7 +398,7 @@ Object.defineProperties(UrlTemplateImageryProvider.prototype, {
   },
 
   /**
-   * Gets the minimum level-of-detail that can be requested.
+   * 获取可以请求的最小细节层级。
    * @memberof UrlTemplateImageryProvider.prototype
    * @type {number}
    * @readonly
@@ -413,7 +411,7 @@ Object.defineProperties(UrlTemplateImageryProvider.prototype, {
   },
 
   /**
-   * Gets the tiling scheme used by this provider.
+   * 获取此提供者使用的平铺方案。
    * @memberof UrlTemplateImageryProvider.prototype
    * @type {TilingScheme}
    * @readonly
@@ -426,7 +424,7 @@ Object.defineProperties(UrlTemplateImageryProvider.prototype, {
   },
 
   /**
-   * Gets the rectangle, in radians, of the imagery provided by this instance.
+   * 获取此实例提供的影像的矩形区域，单位为弧度。
    * @memberof UrlTemplateImageryProvider.prototype
    * @type {Rectangle}
    * @readonly
@@ -439,9 +437,9 @@ Object.defineProperties(UrlTemplateImageryProvider.prototype, {
   },
 
   /**
-   * Gets the tile discard policy.  If not undefined, the discard policy is responsible
-   * for filtering out "missing" tiles via its shouldDiscardImage function.  If this function
-   * returns undefined, no tiles are filtered.
+   * 获取瓦片丢弃策略。如果未定义，丢弃策略负责
+   * 通过其 shouldDiscardImage 函数过滤掉"缺失"的瓦片。如果此函数
+   * 返回 undefined，则不过滤任何瓦片。
    * @memberof UrlTemplateImageryProvider.prototype
    * @type {TileDiscardPolicy}
    * @readonly
@@ -454,9 +452,9 @@ Object.defineProperties(UrlTemplateImageryProvider.prototype, {
   },
 
   /**
-   * Gets an event that is raised when the imagery provider encounters an asynchronous error.  By subscribing
-   * to the event, you will be notified of the error and can potentially recover from it.  Event listeners
-   * are passed an instance of {@link TileProviderError}.
+   * 获取当影像提供者遇到异步错误时引发的事件。通过订阅
+   * 该事件，您将收到错误通知并可能从中恢复。事件监听器
+   * 将接收一个 {@link TileProviderError} 实例。
    * @memberof UrlTemplateImageryProvider.prototype
    * @type {Event}
    * @readonly
@@ -468,8 +466,8 @@ Object.defineProperties(UrlTemplateImageryProvider.prototype, {
   },
 
   /**
-   * Gets the credit to display when this imagery provider is active.  Typically this is used to credit
-   * the source of the imagery.
+   * 获取当此影像提供者激活时显示的版权信息。通常用于注明
+   * 影像的来源。
    * @memberof UrlTemplateImageryProvider.prototype
    * @type {Credit}
    * @readonly
@@ -482,11 +480,11 @@ Object.defineProperties(UrlTemplateImageryProvider.prototype, {
   },
 
   /**
-   * Gets a value indicating whether or not the images provided by this imagery provider
-   * include an alpha channel.  If this property is false, an alpha channel, if present, will
-   * be ignored.  If this property is true, any images without an alpha channel will be treated
-   * as if their alpha is 1.0 everywhere.  When this property is false, memory usage
-   * and texture upload time are reduced.
+   * 获取一个值，该值指示此影像提供者提供的图像是否
+   * 包含 alpha 通道。如果此属性为 false，alpha 通道（如果存在）将被
+   * 忽略。如果此属性为 true，任何没有 alpha 通道的图像将被视为
+   * 其 alpha 值处处为 1.0。当此属性为 false 时，内存使用
+   * 和纹理上传时间会减少。
    * @memberof UrlTemplateImageryProvider.prototype
    * @type {boolean}
    * @readonly
@@ -500,24 +498,24 @@ Object.defineProperties(UrlTemplateImageryProvider.prototype, {
 });
 
 /**
- * Gets the credits to be displayed when a given tile is displayed.
+ * 获取显示给定瓦片时要显示的版权信息。
  *
- * @param {number} x The tile X coordinate.
- * @param {number} y The tile Y coordinate.
- * @param {number} level The tile level;
- * @returns {Credit[]} The credits to be displayed when the tile is displayed.
+ * @param {number} x 瓦片的 X 坐标。
+ * @param {number} y 瓦片的 Y 坐标。
+ * @param {number} level 瓦片的层级。
+ * @returns {Credit[]} 显示瓦片时要显示的版权信息。
  */
 UrlTemplateImageryProvider.prototype.getTileCredits = function (x, y, level) {
   return undefined;
 };
 
 /**
- * @param {number} x The tile X coordinate.
- * @param {number} y The tile Y coordinate.
- * @param {number} level The tile level.
- * @param {Request} [request] The request object. Intended for internal use only.
- * @returns {Promise<ImageryTypes>|undefined} A promise for the image that will resolve when the image is available, or
- *          undefined if there are too many active requests to the server, and the request should be retried later.
+ * @param {number} x 瓦片的 X 坐标。
+ * @param {number} y 瓦片的 Y 坐标。
+ * @param {number} level 瓦片的层级。
+ * @param {Request} [request] 请求对象。仅供内部使用。
+ * @returns {Promise<ImageryTypes>|undefined} 瓦片图像的承诺，将在图像可用时解析，或者
+ *          如果向服务器的活动请求过多，则返回 undefined，请求应稍后重试。
  */
 UrlTemplateImageryProvider.prototype.requestImage = function (
   x,
@@ -532,18 +530,17 @@ UrlTemplateImageryProvider.prototype.requestImage = function (
 };
 
 /**
- * Asynchronously determines what features, if any, are located at a given longitude and latitude within
- * a tile.
+ * 异步确定在瓦片内给定经度和纬度处存在哪些要素（如果有）。
  *
- * @param {number} x The tile X coordinate.
- * @param {number} y The tile Y coordinate.
- * @param {number} level The tile level.
- * @param {number} longitude The longitude at which to pick features.
- * @param {number} latitude  The latitude at which to pick features.
- * @return {Promise<ImageryLayerFeatureInfo[]>|undefined} A promise for the picked features that will resolve when the asynchronous
- *                   picking completes.  The resolved value is an array of {@link ImageryLayerFeatureInfo}
- *                   instances.  The array may be empty if no features are found at the given location.
- *                   It may also be undefined if picking is not supported.
+ * @param {number} x 瓦片的 X 坐标。
+ * @param {number} y 瓦片的 Y 坐标。
+ * @param {number} level 瓦片的层级。
+ * @param {number} longitude 用于拾取要素的经度。
+ * @param {number} latitude 用于拾取要素的纬度。
+ * @return {Promise<ImageryLayerFeatureInfo[]>|undefined} 拾取要素的承诺，将在异步
+ *                   拾取完成时解析。解析的值是 {@link ImageryLayerFeatureInfo}
+ *                   实例的数组。如果在给定位置未找到要素，数组可能为空。
+ *                   如果不支持拾取，也可能为 undefined。
  */
 UrlTemplateImageryProvider.prototype.pickFeatures = function (
   x,

@@ -71,11 +71,11 @@ function combine(computedPositions, vertexFormat, ellipsoid) {
   let length;
   for (i = 0; i < positions.length; i += 2) {
     length = positions[i].length - 3;
-    leftCount += length; //subtracting 3 to account for duplicate points at corners
+    leftCount += length; // 减去3以考虑角落处的重复点
     indicesLength += length * 2;
     rightCount += positions[i + 1].length - 3;
   }
-  leftCount += 3; //add back count for end positions
+  leftCount += 3; // 为末端位置加回计数
   rightCount += 3;
   for (i = 0; i < corners.length; i++) {
     corner = corners[i];
@@ -123,7 +123,7 @@ function combine(computedPositions, vertexFormat, ellipsoid) {
   const indices = IndexDatatype.createTypedArray(size / 3, indicesLength);
   let index = 0;
   if (addEndPositions) {
-    // add rounded end
+    // 添加起始圆滑末端
     leftPos = cartesian3;
     rightPos = cartesian4;
     const firstEndPositions = endPositions[0];
@@ -167,7 +167,7 @@ function combine(computedPositions, vertexFormat, ellipsoid) {
 
   let posIndex = 0;
   let compIndex = 0;
-  let rightEdge = positions[posIndex++]; //add first two edges
+  let rightEdge = positions[posIndex++]; // 添加前两条边
   let leftEdge = positions[posIndex++];
   finalPositions.set(rightEdge, front);
   finalPositions.set(leftEdge, back - leftEdge.length + 1);
@@ -336,7 +336,7 @@ function combine(computedPositions, vertexFormat, ellipsoid) {
     }
     rightEdge = positions[posIndex++];
     leftEdge = positions[posIndex++];
-    rightEdge.splice(0, 3); //remove duplicate points added by corner
+    rightEdge.splice(0, 3); // 移除角落添加的重复点
     leftEdge.splice(leftEdge.length - 3, 3);
     finalPositions.set(rightEdge, front);
     finalPositions.set(leftEdge, back - leftEdge.length + 1);
@@ -384,7 +384,7 @@ function combine(computedPositions, vertexFormat, ellipsoid) {
   addNormals(attr, normal, left, front, back, vertexFormat);
 
   if (addEndPositions) {
-    // add rounded end
+    // 添加末端圆滑末端
     front += 3;
     back -= 3;
     leftPos = cartesian3;
@@ -442,35 +442,35 @@ function combine(computedPositions, vertexFormat, ellipsoid) {
       let a;
       const halfEndPos = endPositionLength / 2;
       for (i = halfEndPos + 1; i < endPositionLength + 1; i++) {
-        // lower left rounded end
+        // 左下圆滑末端
         a = CesiumMath.PI_OVER_TWO + theta * i;
         st[stIndex++] = rightSt * (1 + Math.cos(a));
         st[stIndex++] = 0.5 * (1 + Math.sin(a));
       }
       for (i = 1; i < rightCount - endPositionLength + 1; i++) {
-        // bottom edge
+        // 底部边
         st[stIndex++] = i * rightSt;
         st[stIndex++] = 0;
       }
       for (i = endPositionLength; i > halfEndPos; i--) {
-        // lower right rounded end
+        // 右下圆滑末端
         a = CesiumMath.PI_OVER_TWO - i * theta;
         st[stIndex++] = 1 - rightSt * (1 + Math.cos(a));
         st[stIndex++] = 0.5 * (1 + Math.sin(a));
       }
       for (i = halfEndPos; i > 0; i--) {
-        // upper right rounded end
+        // 右上圆滑末端
         a = CesiumMath.PI_OVER_TWO - theta * i;
         st[stIndex++] = 1 - leftSt * (1 + Math.cos(a));
         st[stIndex++] = 0.5 * (1 + Math.sin(a));
       }
       for (i = leftCount - endPositionLength; i > 0; i--) {
-        // top edge
+        // 顶部边
         st[stIndex++] = i * leftSt;
         st[stIndex++] = 1;
       }
       for (i = 1; i < halfEndPos + 1; i++) {
-        // upper left rounded end
+        // 左上圆滑末端
         a = CesiumMath.PI_OVER_TWO + theta * i;
         st[stIndex++] = leftSt * (1 + Math.cos(a));
         st[stIndex++] = 0.5 * (1 + Math.sin(a));
@@ -481,12 +481,12 @@ function combine(computedPositions, vertexFormat, ellipsoid) {
       leftSt = 1 / (leftCount - 1);
       rightSt = 1 / (rightCount - 1);
       for (i = 0; i < rightCount; i++) {
-        // bottom edge
+        // 底部边
         st[stIndex++] = i * rightSt;
         st[stIndex++] = 0;
       }
       for (i = leftCount; i > 0; i--) {
-        // top edge
+        // 顶部边
         st[stIndex++] = (i - 1) * leftSt;
         st[stIndex++] = 1;
       }
@@ -656,9 +656,9 @@ function extrudedAttributes(attributes, vertexFormat) {
     }
 
     if (vertexFormat.normal) {
-      normals.set(topNormals); //top
+      normals.set(topNormals); // 顶面
       for (i = 0; i < threeSize; i += 3) {
-        //bottom normals
+        // 底面法线
         normals[i + threeSize] = -topNormals[i];
         normals[i + threeSize + 1] = -topNormals[i + 1];
         normals[i + threeSize + 2] = -topNormals[i + 2];
@@ -669,8 +669,8 @@ function extrudedAttributes(attributes, vertexFormat) {
     }
 
     if (vertexFormat.bitangent) {
-      bitangents.set(topBitangents); //top
-      bitangents.set(topBitangents, threeSize); //bottom
+      bitangents.set(topBitangents); // 顶面
+      bitangents.set(topBitangents, threeSize); // 底面
       attributes.bitangent.values = bitangents;
     } else {
       attributes.bitangent = undefined;
@@ -678,16 +678,16 @@ function extrudedAttributes(attributes, vertexFormat) {
 
     if (vertexFormat.tangent) {
       const topTangents = attributes.tangent.values;
-      tangents.set(topTangents); //top
-      tangents.set(topTangents, threeSize); //bottom
+      tangents.set(topTangents); // 顶面
+      tangents.set(topTangents, threeSize); // 底面
       attributes.tangent.values = tangents;
     }
   }
   if (vertexFormat.st) {
     const topSt = attributes.st.values;
     const st = new Float32Array(twoSize * 6);
-    st.set(topSt); //top
-    st.set(topSt, twoSize); //bottom
+    st.set(topSt); // 顶面
+    st.set(topSt, twoSize); // 底面
     let index = twoSize * 2;
 
     for (let j = 0; j < 2; j++) {
@@ -787,9 +787,9 @@ function computePositionsExtruded(params, vertexFormat) {
     for (i = 0; i < length; i++) {
       topNormals[i] = -topNormals[i];
     }
-    //only get normals for bottom layer that's going to be pushed down
-    extrudeNormals.set(topNormals, length); //bottom face
-    extrudeNormals = addWallPositions(topNormals, length * 4, extrudeNormals); //bottom wall
+    // 仅获取将要向下推的底层法线
+    extrudeNormals.set(topNormals, length); // 底面
+    extrudeNormals = addWallPositions(topNormals, length * 4, extrudeNormals); // 底面墙壁
     attributes.extrudeDirection = new GeometryAttribute({
       componentDatatype: ComponentDatatype.FLOAT,
       componentsPerAttribute: 3,
@@ -803,8 +803,8 @@ function computePositionsExtruded(params, vertexFormat) {
     let applyOffset = new Uint8Array(size * 6);
     if (params.offsetAttribute === GeometryOffsetAttribute.TOP) {
       applyOffset = applyOffset
-        .fill(1, 0, size) // top face
-        .fill(1, size * 2, size * 4); // top wall
+        .fill(1, 0, size) // 顶面
+        .fill(1, size * 2, size * 4); // 顶面墙壁
     } else {
       const applyOffsetValue =
         params.offsetAttribute === GeometryOffsetAttribute.NONE ? 0 : 1;
@@ -826,7 +826,7 @@ function computePositionsExtruded(params, vertexFormat) {
   newIndices.set(indices);
   let index = iLength;
   for (i = 0; i < iLength; i += 3) {
-    // bottom indices
+    // 底面索引
     const v0 = indices[i];
     const v1 = indices[i + 1];
     const v2 = indices[i + 2];
@@ -838,7 +838,7 @@ function computePositionsExtruded(params, vertexFormat) {
   let UL, LL, UR, LR;
 
   for (i = 0; i < twoSize; i += 2) {
-    //wall indices
+    // 墙壁索引
     UL = i + twoSize;
     LL = UL + twoSize;
     UR = UL + 1;
@@ -869,7 +869,7 @@ function computeOffsetPoints(
   min,
   max,
 ) {
-  // Compute direction of offset the point
+  // 计算偏移点的方向
   const direction = Cartesian3.subtract(
     position2,
     position1,
@@ -889,7 +889,7 @@ function computeOffsetPoints(
   let maxLat = max.latitude;
   let maxLon = max.longitude;
 
-  // Compute 2 offset points
+  // 计算两个偏移点
   Cartesian3.add(position1, offsetDirection, scratchCartesian2);
   ellipsoid.cartesianToCartographic(scratchCartesian2, scratchCartographic);
 
@@ -940,7 +940,7 @@ function computeRectangle(positions, ellipsoid, width, cornerType, result) {
 
   let lat, lon;
   if (cornerType === CornerType.ROUNDED) {
-    // Compute start cap
+    // 计算起始端盖
     const first = cleanPositions[0];
     Cartesian3.subtract(first, cleanPositions[1], scratchCartesianOffset);
     Cartesian3.normalize(scratchCartesianOffset, scratchCartesianOffset);
@@ -975,7 +975,7 @@ function computeRectangle(positions, ellipsoid, width, cornerType, result) {
     );
   }
 
-  // Compute the rest
+  // 计算其余部分
   for (let i = 0; i < length - 1; ++i) {
     computeOffsetPoints(
       cleanPositions[i],

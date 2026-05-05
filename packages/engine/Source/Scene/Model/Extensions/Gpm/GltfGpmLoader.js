@@ -10,26 +10,24 @@ import Spdcf from "./Spdcf.js";
 import StorageType from "./StorageType.js";
 
 /**
- * Loads glTF NGA_gpm_local from the root of a glTF object
+ * 从 glTF 对象的根加载 glTF NGA_gpm_local
  *
  * @alias GltfGpmLoader
  * @constructor
  *
- * @param {object} options Object with the following properties:
- * @param {object} options.gltf The glTF JSON.
- * @param {string} [options.extension] The <code>NGA_gpm_local</code> extension object.
+ * @param {object} options 包含以下属性的对象：
+ * @param {object} options.gltf glTF JSON。
+ * @param {string} [options.extension] <code>NGA_gpm_local</code> 扩展对象。
  *
  * @private
  */
 function GltfGpmLoader() {}
 
 /**
- * Creates a Matrix3 that describes a covariance matrix (which is
- * symmetric) from the array containing the upper triangle, in
- * column-major order.
+ * 从包含上三角部分的数组（按列主序）创建描述协方差矩阵（对称）的 Matrix3。
  *
- * @param {number[]} array The input array
- * @returns {Matrix3} The Matrix3
+ * @param {number[]} array 输入数组
+ * @returns {Matrix3} Matrix3 对象
  */
 function createCovarianceMatrixFromUpperTriangle(array) {
   const covarianceMatrix = new Matrix3(
@@ -47,10 +45,10 @@ function createCovarianceMatrixFromUpperTriangle(array) {
 }
 
 /**
- * Creates an `AnchorPointDirect` from the given JSON representation
+ * 从给定的 JSON 表示创建 `AnchorPointDirect`。
  *
- * @param {object} anchorPointDirectJson The input JSON
- * @returns {AnchorPointDirect} The direct anchor point
+ * @param {object} anchorPointDirectJson 输入 JSON
+ * @returns {AnchorPointDirect} 直接锚点
  */
 function createAnchorPointDirect(anchorPointDirectJson) {
   const position = Cartesian3.fromArray(
@@ -71,10 +69,10 @@ function createAnchorPointDirect(anchorPointDirectJson) {
 }
 
 /**
- * Creates an `AnchorPointIndirect` from the given JSON representation
+ * 从给定的 JSON 表示创建 `AnchorPointIndirect`。
  *
- * @param {object} anchorPointIndirectJson The input JSON
- * @returns {AnchorPointIndirect} The indirect anchor point
+ * @param {object} anchorPointIndirectJson 输入 JSON
+ * @returns {AnchorPointIndirect} 间接锚点
  */
 function createAnchorPointIndirect(anchorPointIndirectJson) {
   const position = Cartesian3.fromArray(
@@ -99,10 +97,10 @@ function createAnchorPointIndirect(anchorPointIndirectJson) {
 }
 
 /**
- * Creates a `CorrelationGroup` from the given JSON representation
+ * 从给定的 JSON 表示创建 `CorrelationGroup`。
  *
- * @param {object} correlationGroupJson The input JSON
- * @returns {CorrelationGroup} The correlation group
+ * @param {object} correlationGroupJson 输入 JSON
+ * @returns {CorrelationGroup} 相关组
  */
 function createCorrelationGroup(correlationGroupJson) {
   const groupFlags = correlationGroupJson.groupFlags;
@@ -130,12 +128,11 @@ function createCorrelationGroup(correlationGroupJson) {
 }
 
 /**
- * Loads the GPM data from the given JSON that was found as the
- * `NGA_gpm_local` extension object in the root of the glTF.
+ * 从作为 glTF 根中的 `NGA_gpm_local` 扩展对象找到的给定 JSON 加载 GPM 数据。
  *
- * @param {object} gltfGpmLocalJson The extension object
- * @returns {GltfGpmLocal} The parsed object
- * @throws RuntimeError When the given object contains invalid storage types.
+ * @param {object} gltfGpmLocalJson 扩展对象
+ * @returns {GltfGpmLocal} 解析后的对象
+ * @throws RuntimeError 当给定对象包含无效存储类型时。
  * @private
  */
 GltfGpmLoader.load = function (gltfGpmLocalJson) {
@@ -156,13 +153,11 @@ GltfGpmLoader.load = function (gltfGpmLocalJson) {
 };
 
 /**
- * Loads the GPM data from the given JSON that was found as the
- * `NGA_gpm_local` extension object in the root of the glTF,
- * assuming that the `storageType` of the given object is
- * `StorageType.Direct`.
+ * 从作为 glTF 根中的 `NGA_gpm_local` 扩展对象找到的给定 JSON 加载 GPM 数据，
+ * 假设给定对象的 `storageType` 为 `StorageType.Direct`。
  *
- * @param {object} gltfGpmLocalJson The extension object
- * @returns {GltfGpmLocal} The parsed object
+ * @param {object} gltfGpmLocalJson 扩展对象
+ * @returns {GltfGpmLocal} 解析后的对象
  * @private
  */
 GltfGpmLoader.loadDirect = function (gltfGpmLocalJson) {
@@ -197,13 +192,11 @@ GltfGpmLoader.loadDirect = function (gltfGpmLocalJson) {
 };
 
 /**
- * Loads the GPM data from the given JSON that was found as the
- * `NGA_gpm_local` extension object in the root of the glTF,
- * assuming that the `storageType` of the given object is
- * `StorageType.Indirect`.
+ * 从作为 glTF 根中的 `NGA_gpm_local` 扩展对象找到的给定 JSON 加载 GPM 数据，
+ * 假设给定对象的 `storageType` 为 `StorageType.Indirect`。
  *
- * @param {object} gltfGpmLocalJson The extension object
- * @returns {GltfGpmLocal} The parsed object
+ * @param {object} gltfGpmLocalJson 扩展对象
+ * @returns {GltfGpmLocal} 解析后的对象
  * @private
  */
 GltfGpmLoader.loadIndirect = function (gltfGpmLocalJson) {

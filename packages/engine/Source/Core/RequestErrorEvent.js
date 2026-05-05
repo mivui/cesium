@@ -43,10 +43,10 @@ function RequestErrorEvent(statusCode, response, responseHeaders) {
 }
 
 /**
- * Creates a string representing this RequestErrorEvent.
+ * 创建表示此RequestErrorEvent的字符串。
  * @memberof RequestErrorEvent
  *
- * @returns {string} A string representing the provided RequestErrorEvent.
+ * @returns {string} 表示提供的RequestErrorEvent的字符串。
  */
 RequestErrorEvent.prototype.toString = function () {
   let str = "Request has failed.";

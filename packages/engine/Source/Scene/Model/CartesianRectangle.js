@@ -5,12 +5,12 @@
  */
 class CartesianRectangle {
   /**
-   * Creates a new instance
+   * 创建一个新实例
    *
-   * @param {number} [minX=0] The minimum x-coordinate
-   * @param {number} [minY=0] The minimum y-coordinate
-   * @param {number} [maxX=0] The maximum x-coordinate
-   * @param {number} [maxY=0] The maximum y-coordinate
+   * @param {number} [minX=0] 最小x坐标
+   * @param {number} [minY=0] 最小y坐标
+   * @param {number} [maxX=0] 最大x坐标
+   * @param {number} [maxY=0] 最大y坐标
    */
   constructor(minX, minY, maxX, maxY) {
     this._minX = minX ?? 0.0;
@@ -20,9 +20,9 @@ class CartesianRectangle {
   }
 
   /**
-   * Returns the minimum x-coordinate
+   * 返回最小x坐标
    *
-   * @returns {number} The coordinate
+   * @returns {number} 坐标值
    */
   get minX() {
     return this._minX;
@@ -32,9 +32,9 @@ class CartesianRectangle {
   }
 
   /**
-   * Returns the minimum y-coordinate
+   * 返回最小y坐标
    *
-   * @returns {number} The coordinate
+   * @returns {number} 坐标值
    */
   get minY() {
     return this._minY;
@@ -44,9 +44,9 @@ class CartesianRectangle {
   }
 
   /**
-   * Returns the maximum x-coordinate
+   * 返回最大x坐标
    *
-   * @returns {number} The coordinate
+   * @returns {number} 坐标值
    */
   get maxX() {
     return this._maxX;
@@ -56,9 +56,9 @@ class CartesianRectangle {
   }
 
   /**
-   * Returns the maximum y-coordinate
+   * 返回最大y坐标
    *
-   * @returns {number} The coordinate
+   * @returns {number} 坐标值
    */
   get maxY() {
     return this._maxY;
@@ -68,37 +68,37 @@ class CartesianRectangle {
   }
 
   /**
-   * Returns whether this rectangle contains the given coordinates,
-   * using the default containment check, which includes the
-   * minimum point, but excludes the maximum point
+   * 返回此矩形是否包含给定坐标，
+   * 使用默认的包含检查，包含最小点，
+   * 但不包含最大点
    *
-   * @param {number} x The x-coordinate
-   * @param {number} y The y-coordinate
-   * @returns {boolean} The result
+   * @param {number} x x坐标
+   * @param {number} y y坐标
+   * @returns {boolean} 结果
    */
   contains(x, y) {
     return x >= this.minX && x < this.maxX && y >= this.minY && y < this.maxY;
   }
 
   /**
-   * Returns whether this rectangle contains the given coordinates,
-   * excluding the border
+   * 返回此矩形是否包含给定坐标，
+   * 不包含边界
    *
-   * @param {number} x The x-coordinate
-   * @param {number} y The y-coordinate
-   * @returns {boolean} The result
+   * @param {number} x x坐标
+   * @param {number} y y坐标
+   * @returns {boolean} 结果
    */
   containsExclusive(x, y) {
     return x > this.minX && x < this.maxX && y > this.minY && y < this.maxY;
   }
 
   /**
-   * Returns whether this rectangle contains the given coordinates,
-   * including the border
+   * 返回此矩形是否包含给定坐标，
+   * 包含边界
    *
-   * @param {number} x The x-coordinate
-   * @param {number} y The y-coordinate
-   * @returns {boolean} The result
+   * @param {number} x x坐标
+   * @param {number} y y坐标
+   * @returns {boolean} 结果
    */
   containsInclusive(x, y) {
     return x >= this.minX && x <= this.maxX && y >= this.minY && y <= this.maxY;

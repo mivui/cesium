@@ -52,27 +52,20 @@ const attributeLocations = {
 };
 
 /**
- * A renderable collection of points.
+ * 可渲染的点集合。
  * <br /><br />
- * Points are added and removed from the collection using {@link PointPrimitiveCollection#add}
- * and {@link PointPrimitiveCollection#remove}.
+ * 使用 {@link PointPrimitiveCollection#add} 和 {@link PointPrimitiveCollection#remove} 向集合中添加或移除点。
  *
  * @alias PointPrimitiveCollection
  * @constructor
  *
- * @param {object} [options] Object with the following properties:
- * @param {Matrix4} [options.modelMatrix=Matrix4.IDENTITY] The 4x4 transformation matrix that transforms each point from model to world coordinates.
- * @param {boolean} [options.debugShowBoundingVolume=false] For debugging only. Determines if this primitive's commands' bounding spheres are shown.
- * @param {BlendOption} [options.blendOption=BlendOption.OPAQUE_AND_TRANSLUCENT] The point blending option. The default
- * is used for rendering both opaque and translucent points. However, if either all of the points are completely opaque or all are completely translucent,
- * setting the technique to BlendOption.OPAQUE or BlendOption.TRANSLUCENT can improve performance by up to 2x.
- * @param {boolean} [options.show=true] Determines if the primitives in the collection will be shown.
+ * @param {object} [options] 包含以下属性的对象：
+ * @param {Matrix4} [options.modelMatrix=Matrix4.IDENTITY] 将每个点从模型坐标转换为世界坐标的4x4变换矩阵。
+ * @param {boolean} [options.debugShowBoundingVolume=false] 仅用于调试。决定是否显示该图元的命令的包围球。
+ * @param {BlendOption} [options.blendOption=BlendOption.OPAQUE_AND_TRANSLUCENT] 点混合选项。默认值用于渲染不透明和半透明点。但如果所有点完全不透明或完全半透明，将混合模式设置为 BlendOption.OPAQUE 或 BlendOption.TRANSLUCENT 可将性能提升高达2倍。
+ * @param {boolean} [options.show=true] 决定是否显示集合中的图元。
  *
- * @performance For best performance, prefer a few collections, each with many points, to
- * many collections with only a few points each.  Organize collections so that points
- * with the same update frequency are in the same collection, i.e., points that do not
- * change should be in one collection; points that change every frame should be in another
- * collection; and so on.
+ * @performance 为获得最佳性能，建议使用少量集合（每个集合包含大量点），而非大量仅包含少量点的集合。请按更新频率组织集合：即不变化的点放在一个集合，每帧变化的点放在另一个集合，以此类推。
  *
  *
  * @example
@@ -131,7 +124,7 @@ function PointPrimitiveCollection(options) {
   this._colorCommands = [];
 
   /**
-   * Determines if primitives in this collection will be shown.
+   * 决定是否显示该集合中的图元。
    *
    * @type {boolean}
    * @default true
@@ -139,10 +132,9 @@ function PointPrimitiveCollection(options) {
   this.show = options.show ?? true;
 
   /**
-   * The 4x4 transformation matrix that transforms each point in this collection from model to world coordinates.
-   * When this is the identity matrix, the pointPrimitives are drawn in world coordinates, i.e., Earth's WGS84 coordinates.
-   * Local reference frames can be used by providing a different transformation matrix, like that returned
-   * by {@link Transforms.eastNorthUpToFixedFrame}.
+   * 将集合中每个点从模型坐标转换为世界坐标的4x4变换矩阵。
+   * 当使用单位矩阵时，点图元将在世界坐标（即地球WGS84坐标）中绘制。
+   * 通过提供不同的变换矩阵（例如{@link Transforms.eastNorthUpToFixedFrame}返回的矩阵）可以使用局部参考系。
    *
    * @type {Matrix4}
    * @default {@link Matrix4.IDENTITY}
@@ -174,9 +166,9 @@ function PointPrimitiveCollection(options) {
   this._modelMatrix = Matrix4.clone(Matrix4.IDENTITY);
 
   /**
-   * This property is for debugging only; it is not for production use nor is it optimized.
+   * 该属性仅用于调试，不适用于生产环境，也未经过优化。
    * <p>
-   * Draws the bounding sphere for each draw command in the primitive.
+   * 绘制该图元中每个绘制命令的包围球。
    * </p>
    *
    * @type {boolean}
@@ -186,10 +178,9 @@ function PointPrimitiveCollection(options) {
   this.debugShowBoundingVolume = options.debugShowBoundingVolume ?? false;
 
   /**
-   * The point blending option. The default is used for rendering both opaque and translucent points.
-   * However, if either all of the points are completely opaque or all are completely translucent,
-   * setting the technique to BlendOption.OPAQUE or BlendOption.TRANSLUCENT can improve
-   * performance by up to 2x.
+   * 点混合选项。默认值用于渲染不透明和半透明点。
+   * 但如果所有点完全不透明或完全半透明，将混合模式设置为 BlendOption.OPAQUE 或 BlendOption.TRANSLUCENT
+   * 可将性能提升高达2倍。
    * @type {BlendOption}
    * @default BlendOption.OPAQUE_AND_TRANSLUCENT
    */
@@ -222,9 +213,7 @@ function PointPrimitiveCollection(options) {
 
 Object.defineProperties(PointPrimitiveCollection.prototype, {
   /**
-   * Returns the number of points in this collection.  This is commonly used with
-   * {@link PointPrimitiveCollection#get} to iterate over all the points
-   * in the collection.
+   * 返回该集合中的点的数量。通常与{@link PointPrimitiveCollection#get}配合使用，用于遍历集合中的所有点。
    * @memberof PointPrimitiveCollection.prototype
    * @type {number}
    */
@@ -246,21 +235,19 @@ function destroyPointPrimitives(pointPrimitives) {
 }
 
 /**
- * Creates and adds a point with the specified initial properties to the collection.
- * The added point is returned so it can be modified or removed from the collection later.
+ * 创建并添加一个具有指定初始属性的点到集合中。
+ * 返回添加的点，以便后续修改或从集合中移除。
  *
- * @param {object}[options] A template describing the point's properties as shown in Example 1.
- * @returns {PointPrimitive} The point that was added to the collection.
+ * @param {object}[options] 描述点属性的模板，如示例1所示。
+ * @returns {PointPrimitive} 添加到集合中的点。
  *
- * @performance Calling <code>add</code> is expected constant time.  However, the collection's vertex buffer
- * is rewritten - an <code>O(n)</code> operation that also incurs CPU to GPU overhead.  For
- * best performance, add as many pointPrimitives as possible before calling <code>update</code>.
+ * @performance 调用<code>add</code>的时间复杂度为常数级。但集合的顶点缓冲区会被重写——这是一个<code>O(n)</code>操作，同时会产生CPU到GPU的开销。为获得最佳性能，请在调用<code>update</code>之前尽可能添加多个点。
  *
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 此对象已被销毁，即已调用destroy()。
  *
  *
  * @example
- * // Example 1:  Add a point, specifying all the default values.
+ * // 示例1：添加一个点，指定所有默认值。
  * const p = pointPrimitives.add({
  *   show : true,
  *   position : Cesium.Cartesian3.ZERO,
@@ -272,7 +259,7 @@ function destroyPointPrimitives(pointPrimitives) {
  * });
  *
  * @example
- * // Example 2:  Specify only the point's cartographic position.
+ * // 示例2：仅指定点的地理坐标位置。
  * const p = pointPrimitives.add({
  *   position : Cesium.Cartesian3.fromDegrees(longitude, latitude, height)
  * });
@@ -291,18 +278,15 @@ PointPrimitiveCollection.prototype.add = function (options) {
 };
 
 /**
- * Removes a point from the collection.
+ * 从集合中移除一个点。
  *
- * @param {PointPrimitive} pointPrimitive The point to remove.
- * @returns {boolean} <code>true</code> if the point was removed; <code>false</code> if the point was not found in the collection.
+ * @param {PointPrimitive} pointPrimitive 要移除的点。
+ * @returns {boolean} 如果点被移除则返回<code>true</code>；如果未在集合中找到该点则返回<code>false</code>。
  *
- * @performance Calling <code>remove</code> is expected constant time.  However, the collection's vertex buffer
- * is rewritten - an <code>O(n)</code> operation that also incurs CPU to GPU overhead.  For
- * best performance, remove as many points as possible before calling <code>update</code>.
- * If you intend to temporarily hide a point, it is usually more efficient to call
- * {@link PointPrimitive#show} instead of removing and re-adding the point.
+ * @performance 调用<code>remove</code>的时间复杂度为常数级。但集合的顶点缓冲区会被重写——这是一个<code>O(n)</code>操作，同时会产生CPU到GPU的开销。为获得最佳性能，请在调用<code>update</code>之前尽可能移除多个点。
+ * 如果目的是临时隐藏一个点，通常调用{@link PointPrimitive#show}比移除再重新添加点更高效。
  *
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 此对象已被销毁，即已调用destroy()。
  *
  *
  * @example
@@ -326,12 +310,11 @@ PointPrimitiveCollection.prototype.remove = function (pointPrimitive) {
 };
 
 /**
- * Removes all points from the collection.
+ * 移除集合中的所有点。
  *
- * @performance <code>O(n)</code>.  It is more efficient to remove all the points
- * from a collection and then add new ones than to create a new collection entirely.
+ * @performance <code>O(n)</code>。从集合中移除所有点再添加新点，比完全创建新集合更高效。
  *
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 此对象已被销毁，即已调用destroy()。
  *
  *
  * @example
@@ -384,10 +367,10 @@ PointPrimitiveCollection.prototype._updatePointPrimitive = function (
 };
 
 /**
- * Check whether this collection contains a given point.
+ * 检查该集合是否包含指定的点。
  *
- * @param {PointPrimitive} [pointPrimitive] The point to check for.
- * @returns {boolean} true if this collection contains the point, false otherwise.
+ * @param {PointPrimitive} [pointPrimitive] 要检查的点。
+ * @returns {boolean} 如果集合包含该点则返回true，否则返回false。
  *
  * @see PointPrimitiveCollection#get
  */
@@ -398,24 +381,20 @@ PointPrimitiveCollection.prototype.contains = function (pointPrimitive) {
 };
 
 /**
- * Returns the point in the collection at the specified index.  Indices are zero-based
- * and increase as points are added.  Removing a point shifts all points after
- * it to the left, changing their indices.  This function is commonly used with
- * {@link PointPrimitiveCollection#length} to iterate over all the points
- * in the collection.
+ * 返回集合中指定索引处的点。索引从零开始，并随点的添加而增加。
+ * 移除一个点会将其后的所有点向左移动，从而改变它们的索引。
+ * 此函数通常与{@link PointPrimitiveCollection#length}配合使用，用于遍历集合中的所有点。
  *
- * @param {number} index The zero-based index of the point.
- * @returns {PointPrimitive} The point at the specified index.
+ * @param {number} index 点的从零开始的索引。
+ * @returns {PointPrimitive} 指定索引处的点。
  *
- * @performance Expected constant time.  If points were removed from the collection and
- * {@link PointPrimitiveCollection#update} was not called, an implicit <code>O(n)</code>
- * operation is performed.
+ * @performance 预期为常数时间。如果从集合中移除了点且未调用{@link PointPrimitiveCollection#update}，则会执行一个隐式的<code>O(n)</code>操作。
  *
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 此对象已被销毁，即已调用destroy()。
  *
  *
  * @example
- * // Toggle the show property of every point in the collection
+ * // 切换集合中每个点的show属性
  * const len = pointPrimitives.length;
  * for (let i = 0; i < len; ++i) {
  *   const p = pointPrimitives.get(i);
@@ -1174,12 +1153,11 @@ PointPrimitiveCollection.prototype.update = function (frameState) {
 };
 
 /**
- * Returns true if this object was destroyed; otherwise, false.
+ * 如果此对象已被销毁则返回true，否则返回false。
  * <br /><br />
- * If this object was destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.
+ * 如果对象已被销毁，则不应再使用；调用除<code>isDestroyed</code>之外的任何函数都会导致{@link DeveloperError}异常。
  *
- * @returns {boolean} <code>true</code> if this object was destroyed; otherwise, <code>false</code>.
+ * @returns {boolean} 如果此对象已被销毁则返回<code>true</code>，否则返回<code>false</code>。
  *
  * @see PointPrimitiveCollection#destroy
  */
@@ -1188,14 +1166,11 @@ PointPrimitiveCollection.prototype.isDestroyed = function () {
 };
 
 /**
- * Destroys the WebGL resources held by this object.  Destroying an object allows for deterministic
- * release of WebGL resources, instead of relying on the garbage collector to destroy this object.
+ * 销毁此对象持有的WebGL资源。销毁对象可以确定性地释放WebGL资源，而非依赖垃圾回收器来销毁该对象。
  * <br /><br />
- * Once an object is destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.  Therefore,
- * assign the return value (<code>undefined</code>) to the object as done in the example.
+ * 对象一旦被销毁，就不应再使用；调用除<code>isDestroyed</code>之外的任何函数都会导致{@link DeveloperError}异常。因此，应像示例中那样将返回值（<code>undefined</code>）赋给该对象。
  *
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 此对象已被销毁，即已调用destroy()。
  *
  *
  * @example

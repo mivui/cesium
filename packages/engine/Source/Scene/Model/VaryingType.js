@@ -1,8 +1,7 @@
 // @ts-check
 
 /**
- * An enum for the GLSL varying types. These can be used for declaring varyings
- * in {@link CustomShader}
+ * GLSL varying 类型的枚举。这些可用于在 {@link CustomShader} 中声明 varying 变量
  *
  * @enum {string}
  *
@@ -10,49 +9,49 @@
  */
 const VaryingType = {
   /**
-   * A single floating point value.
+   * 单个浮点数值。
    *
    * @type {string}
    * @constant
    */
   FLOAT: "float",
   /**
-   * A vector of 2 floating point values.
+   * 包含2个浮点值的向量。
    *
    * @type {string}
    * @constant
    */
   VEC2: "vec2",
   /**
-   * A vector of 3 floating point values.
+   * 包含3个浮点值的向量。
    *
    * @type {string}
    * @constant
    */
   VEC3: "vec3",
   /**
-   * A vector of 4 floating point values.
+   * 包含4个浮点值的向量。
    *
    * @type {string}
    * @constant
    */
   VEC4: "vec4",
   /**
-   * A 2x2 matrix of floating point values.
+   * 2x2 浮点值矩阵。
    *
    * @type {string}
    * @constant
    */
   MAT2: "mat2",
   /**
-   * A 3x3 matrix of floating point values.
+   * 3x3 浮点值矩阵。
    *
    * @type {string}
    * @constant
    */
   MAT3: "mat3",
   /**
-   * A 4x4 matrix of floating point values.
+   * 4x4 浮点值矩阵。
    *
    * @type {string}
    * @constant

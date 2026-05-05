@@ -72,9 +72,9 @@ class Cesium3DTileVectorFeature {
   _outlineColor = new Color();
 
   /**
-   * @param {VectorGltf3DTileContent} content
-   * @param {number} batchId
-   * @param {number} [batchTableId=0]
+   * @param {VectorGltf3DTileContent} content 瓦片内容
+   * @param {number} batchId 批次ID
+   * @param {number} [batchTableId=0] 批处理表ID，默认为0
    */
   constructor(content, batchId, batchTableId = 0) {
     this._content = content;
@@ -91,8 +91,8 @@ class Cesium3DTileVectorFeature {
   }
 
   /**
-   * @param {number} collectionIndex
-   * @param {number} primitiveIndex
+   * @param {number} collectionIndex 集合索引
+   * @param {number} primitiveIndex 图元索引
    */
   addPrimitiveByCollection(collectionIndex, primitiveIndex) {
     let primitiveIndices = this._primitivesByCollection.get(collectionIndex);
@@ -104,6 +104,7 @@ class Cesium3DTileVectorFeature {
   }
 
   /**
+   * 获取或设置是否显示此要素。
    * @type {boolean}
    * @default true
    */
@@ -276,7 +277,7 @@ class Cesium3DTileVectorFeature {
   }
 
   /**
-   * Gets the content of the tile containing the feature.
+   * 获取包含此要素的瓦片内容。
    *
    * @type {VectorGltf3DTileContent}
    *
@@ -408,7 +409,7 @@ class Cesium3DTileVectorFeature {
    * @param {string} name The case-sensitive name of the property.
    * @returns {*} The value of the property or <code>undefined</code> if the feature does not have this property.
    * @private
-   * @experimental This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.
+ * @experimental 该功能使用了 3D Tiles 规范中尚未最终确定的部分，可能会在不遵循 Cesium 标准弃用策略的情况下发生变更。
    */
   getPropertyInherited(name) {
     return Cesium3DTileFeature.getPropertyInherited(

@@ -23,16 +23,16 @@ import CullFace from "./CullFace.js";
 import SceneMode from "./SceneMode.js";
 
 /**
- * An atmosphere drawn around the limb of the provided ellipsoid. Based on
- * {@link http://nishitalab.org/user/nis/cdrom/sig93_nis.pdf|Display of The Earth Taking Into Account Atmospheric Scattering}.
+ * 绘制在指定椭球体边缘的大气层。基于
+ * {@link http://nishitalab.org/user/nis/cdrom/sig93_nis.pdf|考虑大气散射的地球显示}。
  * <p>
- * This is only supported in 3D. Atmosphere is faded out when morphing to 2D or Columbus view.
+ * 该功能仅支持3D模式。当切换到2D或哥伦布视图时，大气层会逐渐淡出。
  * </p>
  *
  * @alias SkyAtmosphere
  * @constructor
  *
- * @param {Ellipsoid} [ellipsoid=Ellipsoid.WGS84] The ellipsoid that the atmosphere is drawn around.
+ * @param {Ellipsoid} [ellipsoid=Ellipsoid.WGS84] 大气层所围绕的椭球体。
  *
  * @example
  * scene.skyAtmosphere = new Cesium.SkyAtmosphere();
@@ -43,7 +43,7 @@ function SkyAtmosphere(ellipsoid) {
   ellipsoid = ellipsoid ?? Ellipsoid.WGS84;
 
   /**
-   * Determines if the atmosphere is shown.
+   * 确定是否显示大气层。
    *
    * @type {boolean}
    * @default true
@@ -51,8 +51,8 @@ function SkyAtmosphere(ellipsoid) {
   this.show = true;
 
   /**
-   * Compute atmosphere per-fragment instead of per-vertex.
-   * This produces better looking atmosphere with a slight performance penalty.
+   * 逐片段而非逐顶点计算大气层。
+   * 这样渲染的大气层效果更好，但会有轻微的性能损耗。
    *
    * @type {boolean}
    * @default false
@@ -80,7 +80,7 @@ function SkyAtmosphere(ellipsoid) {
   this._flags = undefined;
 
   /**
-   * The intensity of the light that is used for computing the sky atmosphere color.
+   * 用于计算天空大气层颜色的光照强度。
    *
    * @type {number}
    * @default 50.0
@@ -88,7 +88,7 @@ function SkyAtmosphere(ellipsoid) {
   this.atmosphereLightIntensity = 50.0;
 
   /**
-   * The Rayleigh scattering coefficient used in the atmospheric scattering equations for the sky atmosphere.
+   * 用于天空大气层大气散射方程的瑞利散射系数。
    *
    * @type {Cartesian3}
    * @default Cartesian3(5.5e-6, 13.0e-6, 28.4e-6)
@@ -96,7 +96,7 @@ function SkyAtmosphere(ellipsoid) {
   this.atmosphereRayleighCoefficient = new Cartesian3(5.5e-6, 13.0e-6, 28.4e-6);
 
   /**
-   * The Mie scattering coefficient used in the atmospheric scattering equations for the sky atmosphere.
+   * 用于天空大气层大气散射方程的米氏散射系数。
    *
    * @type {Cartesian3}
    * @default Cartesian3(21e-6, 21e-6, 21e-6)
@@ -104,7 +104,7 @@ function SkyAtmosphere(ellipsoid) {
   this.atmosphereMieCoefficient = new Cartesian3(21e-6, 21e-6, 21e-6);
 
   /**
-   * The Rayleigh scale height used in the atmospheric scattering equations for the sky atmosphere, in meters.
+   * 用于天空大气层大气散射方程的瑞利尺度高度，单位为米。
    *
    * @type {number}
    * @default 10000.0
@@ -112,7 +112,7 @@ function SkyAtmosphere(ellipsoid) {
   this.atmosphereRayleighScaleHeight = 10000.0;
 
   /**
-   * The Mie scale height used in the atmospheric scattering equations for the sky atmosphere, in meters.
+   * 用于天空大气层大气散射方程的米氏尺度高度，单位为米。
    *
    * @type {number}
    * @default 3200.0
@@ -120,9 +120,9 @@ function SkyAtmosphere(ellipsoid) {
   this.atmosphereMieScaleHeight = 3200.0;
 
   /**
-   * The anisotropy of the medium to consider for Mie scattering.
+   * 米氏散射所考虑介质的各向异性。
    * <p>
-   * Valid values are between -1.0 and 1.0.
+   * 有效值范围为-1.0到1.0之间。
    * </p>
    * @type {number}
    * @default 0.9
@@ -130,24 +130,24 @@ function SkyAtmosphere(ellipsoid) {
   this.atmosphereMieAnisotropy = 0.9;
 
   /**
-   * The hue shift to apply to the atmosphere. Defaults to 0.0 (no shift).
-   * A hue shift of 1.0 indicates a complete rotation of the hues available.
+   * 应用于大气层的色相偏移。默认值为0.0（无偏移）。
+   * 色相偏移为1.0表示完成所有可用色相的循环。
    * @type {number}
    * @default 0.0
    */
   this.hueShift = 0.0;
 
   /**
-   * The saturation shift to apply to the atmosphere. Defaults to 0.0 (no shift).
-   * A saturation shift of -1.0 is monochrome.
+   * 应用于大气层的饱和度偏移。默认值为0.0（无偏移）。
+   * 饱和度偏移为-1.0时为单色。
    * @type {number}
    * @default 0.0
    */
   this.saturationShift = 0.0;
 
   /**
-   * The brightness shift to apply to the atmosphere. Defaults to 0.0 (no shift).
-   * A brightness shift of -1.0 is complete darkness, which will let space show through.
+   * 应用于大气层的亮度偏移。默认值为0.0（无偏移）。
+   * 亮度偏移为-1.0时为完全黑暗，会透出背景太空。
    * @type {number}
    * @default 0.0
    */
@@ -202,7 +202,7 @@ function SkyAtmosphere(ellipsoid) {
 
 Object.defineProperties(SkyAtmosphere.prototype, {
   /**
-   * Gets the ellipsoid the atmosphere is drawn around.
+   * 获取大气层所围绕的椭球体。
    * @memberof SkyAtmosphere.prototype
    *
    * @type {Ellipsoid}
@@ -361,12 +361,11 @@ function hasColorCorrection(skyAtmosphere) {
 }
 
 /**
- * Returns true if this object was destroyed; otherwise, false.
+ * 如果此对象已被销毁则返回true，否则返回false。
  * <br /><br />
- * If this object was destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.
+ * 如果对象已销毁，则不应再使用；调用除<code>isDestroyed</code>之外的任何函数都会导致{@link DeveloperError}异常。
  *
- * @returns {boolean} <code>true</code> if this object was destroyed; otherwise, <code>false</code>.
+ * @returns {boolean} 如果此对象已销毁则返回<code>true</code>，否则返回<code>false</code>。
  *
  * @see SkyAtmosphere#destroy
  */
@@ -375,14 +374,12 @@ SkyAtmosphere.prototype.isDestroyed = function () {
 };
 
 /**
- * Destroys the WebGL resources held by this object.  Destroying an object allows for deterministic
- * release of WebGL resources, instead of relying on the garbage collector to destroy this object.
+ * 销毁此对象持有的WebGL资源。销毁对象可以确定性地释放WebGL资源，而非依赖垃圾回收器自动销毁该对象。
  * <br /><br />
- * Once an object is destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.  Therefore,
- * assign the return value (<code>undefined</code>) to the object as done in the example.
+ * 对象销毁后不应再使用；调用除<code>isDestroyed</code>之外的任何函数都会导致{@link DeveloperError}异常。因此，
+ * 请像示例中那样将返回值（<code>undefined</code>）赋给该对象。
  *
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 此对象已被销毁，即已调用destroy()。
  *
  *
  * @example

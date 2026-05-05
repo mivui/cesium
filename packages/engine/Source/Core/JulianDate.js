@@ -190,27 +190,26 @@ const matchHoursMinutesSeconds =
 const iso8601ErrorMessage = "Invalid ISO 8601 date.";
 
 /**
- * Represents an astronomical Julian date, which is the number of days since noon on January 1, -4712 (4713 BC).
- * For increased precision, this class stores the whole number part of the date and the seconds
- * part of the date in separate components.  In order to be safe for arithmetic and represent
- * leap seconds, the date is always stored in the International Atomic Time standard
- * {@link TimeStandard.TAI}.
+ * 表示天文儒略日期，即从公元前4713年1月1日正午起算的天数。
+ * 为了提高精度，此类将日期的整数部分和秒数部分分开存储。
+ * 为了安全进行算术运算并表示闰秒，日期始终以国际原子时标准
+ * {@link TimeStandard.TAI} 存储。
  */
 class JulianDate {
   /**
-   * @param {number} [julianDayNumber=0.0] The Julian Day Number representing the number of whole days.  Fractional days will also be handled correctly.
-   * @param {number} [secondsOfDay=0.0] The number of seconds into the current Julian Day Number.  Fractional seconds, negative seconds and seconds greater than a day will be handled correctly.
-   * @param {TimeStandard} [timeStandard=TimeStandard.UTC] The time standard in which the first two parameters are defined.
+   * @param {number} [julianDayNumber=0.0] 儒略日编号，表示整天数。小数天数也会被正确处理。
+   * @param {number} [secondsOfDay=0.0] 当前儒略日编号中的秒数。小数秒、负秒和超过一天的秒数都会被正确处理。
+   * @param {TimeStandard} [timeStandard=TimeStandard.UTC] 定义前两个参数的时间标准。
    */
   constructor(julianDayNumber, secondsOfDay, timeStandard) {
     /**
-     * Gets or sets the number of whole days.
+     * 获取或设置整天数。
      * @type {number}
      */
     this.dayNumber = undefined;
 
     /**
-     * Gets or sets the number of seconds into the current day.
+     * 获取或设置当前日期中的秒数。
      * @type {number}
      */
     this.secondsOfDay = undefined;
@@ -233,13 +232,13 @@ class JulianDate {
   }
 
   /**
-   * Creates a new instance from a GregorianDate.
+   * 从公历日期创建新实例。
    *
-   * @param {GregorianDate} date A GregorianDate.
-   * @param {JulianDate} [result] An existing instance to use for the result.
-   * @returns {JulianDate} The modified result parameter or a new instance if none was provided.
+   * @param {GregorianDate} date 公历日期。
+   * @param {JulianDate} [result] 用于存储结果的现有实例。
+   * @returns {JulianDate} 修改后的结果参数，如果未提供则返回新实例。
    *
-   * @exception {DeveloperError} date must be a valid GregorianDate.
+   * @exception {DeveloperError} date必须是有效的GregorianDate。
    */
   static fromGregorianDate(date, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -266,13 +265,13 @@ class JulianDate {
   }
 
   /**
-   * Creates a new instance from a JavaScript Date.
+   * 从JavaScript Date创建新实例。
    *
-   * @param {Date} date A JavaScript Date.
-   * @param {JulianDate} [result] An existing instance to use for the result.
-   * @returns {JulianDate} The modified result parameter or a new instance if none was provided.
+   * @param {Date} date JavaScript Date对象。
+   * @param {JulianDate} [result] 用于存储结果的现有实例。
+   * @returns {JulianDate} 修改后的结果参数，如果未提供则返回新实例。
    *
-   * @exception {DeveloperError} date must be a valid JavaScript Date.
+   * @exception {DeveloperError} date必须是有效的JavaScript Date。
    */
   static fromDate(date, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -299,15 +298,15 @@ class JulianDate {
   }
 
   /**
-   * Creates a new instance from a from an {@link http://en.wikipedia.org/wiki/ISO_8601|ISO 8601} date.
-   * This method is superior to <code>Date.parse</code> because it will handle all valid formats defined by the ISO 8601
-   * specification, including leap seconds and sub-millisecond times, which discarded by most JavaScript implementations.
+   * 从{@link http://en.wikipedia.org/wiki/ISO_8601|ISO 8601}日期创建新实例。
+   * 此方法优于<code>Date.parse</code>，因为它能处理ISO 8601规范定义的所有有效格式，
+   * 包括闰秒和亚毫秒时间，而这些通常被大多数JavaScript实现丢弃。
    *
-   * @param {string} iso8601String An ISO 8601 date.
-   * @param {JulianDate} [result] An existing instance to use for the result.
-   * @returns {JulianDate} The modified result parameter or a new instance if none was provided.
+   * @param {string} iso8601String ISO 8601日期字符串。
+   * @param {JulianDate} [result] 用于存储结果的现有实例。
+   * @returns {JulianDate} 修改后的结果参数，如果未提供则返回新实例。
    *
-   * @exception {DeveloperError} Invalid ISO 8601 date.
+   * @exception {DeveloperError} 无效的ISO 8601日期。
    */
   static fromIso8601(iso8601String, result) {
     //>>includeStart('debug', pragmas.debug);

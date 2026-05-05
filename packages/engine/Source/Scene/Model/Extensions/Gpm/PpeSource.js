@@ -11,8 +11,7 @@
  */
 const PpeSource = {
   /**
-   * The PPE standard deviation of error in the x dimension of the MCS (sigma x). Value will be squared
-   * and used to populate the (1,1) element in the PPE covariance matrix.
+   * MCS x 维度的 PPE 误差标准差 (sigma x)。该值将被平方并用于填充 PPE 协方差矩阵的 (1,1) 元素。
    *
    * @type {string}
    * @constant
@@ -20,8 +19,7 @@ const PpeSource = {
   SIGX: "SIGX",
 
   /**
-   * The PPE standard deviation of error in the y dimension of the MCS (sigma y). Value will be squared
-   * and used to populate the (2,2) element in the PPE covariance matrix.
+   * MCS y 维度的 PPE 误差标准差 (sigma y)。该值将被平方并用于填充 PPE 协方差矩阵的 (2,2) 元素。
    *
    * @type {string}
    * @constant
@@ -29,8 +27,7 @@ const PpeSource = {
   SIGY: "SIGY",
 
   /**
-   * The PPE standard deviation of error in the z dimension of the MCS (sigma z). Value will be squared
-   * and used to populate the (3,3) element in the PPE covariance matrix.
+   * MCS z 维度的 PPE 误差标准差 (sigma z)。该值将被平方并用于填充 PPE 协方差矩阵的 (3,3) 元素。
    *
    * @type {string}
    * @constant
@@ -38,8 +35,7 @@ const PpeSource = {
   SIGZ: "SIGZ",
 
   /**
-   * The PPE variance of error in the x dimension of the MCS (sigma x2). Value will be used to populate
-   * the (1,1) element in the PPE covariance matrix.
+   * MCS x 维度的 PPE 误差方差 (sigma x2)。该值将用于填充 PPE 协方差矩阵的 (1,1) 元素。
    *
    * @type {string}
    * @constant
@@ -47,8 +43,7 @@ const PpeSource = {
   VARX: "VARX",
 
   /**
-   * The PPE variance of error in the y dimension of the MCS (sigma y2). Value will be used to populate
-   * the (2,2) element in the PPE covariance matrix.
+   * MCS y 维度的 PPE 误差方差 (sigma y2)。该值将用于填充 PPE 协方差矩阵的 (2,2) 元素。
    *
    * @type {string}
    * @constant
@@ -56,8 +51,7 @@ const PpeSource = {
   VARY: "VARY",
 
   /**
-   * The PPE variance of error in the z dimension of the MCS (sigma z2). Value will be used to populate
-   * the (3,3) element in the PPE covariance matrix.
+   * MCS z 维度的 PPE 误差方差 (sigma z2)。该值将用于填充 PPE 协方差矩阵的 (3,3) 元素。
    *
    * @type {string}
    * @constant
@@ -65,8 +59,7 @@ const PpeSource = {
   VARZ: "VARZ",
 
   /**
-   * The PPE radial error in the horizontal dimension (x-y) of the MCS (sigma radial) . Value will be squared
-   * and used to populate the (1,1) and (2,2) element in the PPE covariance matrix.
+   * MCS 水平维度 (x-y) 的 PPE 径向误差 (sigma radial)。该值将被平方并用于填充 PPE 协方差矩阵的 (1,1) 和 (2,2) 元素。
    *
    * @type {string}
    * @constant

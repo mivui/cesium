@@ -50,9 +50,9 @@ function EllipsoidPrimitive(options) {
   options = options ?? Frozen.EMPTY_OBJECT;
 
   /**
-   * The center of the ellipsoid in the ellipsoid's model coordinates.
+   * 椭球体在其模型坐标系中的中心。
    * <p>
-   * The default is {@link Cartesian3.ZERO}.
+   * 默认值为 {@link Cartesian3.ZERO}。
    * </p>
    *
    * @type {Cartesian3}
@@ -64,10 +64,10 @@ function EllipsoidPrimitive(options) {
   this._center = new Cartesian3();
 
   /**
-   * The radius of the ellipsoid along the <code>x</code>, <code>y</code>, and <code>z</code> axes in the ellipsoid's model coordinates.
-   * When these are the same, the ellipsoid is a sphere.
+   * 椭球体在其模型坐标系中沿 <code>x</code>、<code>y</code> 和 <code>z</code> 轴的半径。
+   * 当这三个值相同时，椭球体即为球体。
    * <p>
-   * The default is <code>undefined</code>.  The ellipsoid is not drawn until a radii is provided.
+   * 默认值为 <code>undefined</code>。在提供半径之前，椭球体不会被绘制。
    * </p>
    *
    * @type {Cartesian3}
@@ -75,7 +75,7 @@ function EllipsoidPrimitive(options) {
    *
    *
    * @example
-   * // A sphere with a radius of 2.0
+   * // 半径为 2.0 的球体
    * e.radii = new Cesium.Cartesian3(2.0, 2.0, 2.0);
    *
    * @see EllipsoidPrimitive#modelMatrix
@@ -87,10 +87,9 @@ function EllipsoidPrimitive(options) {
   this._boundingSphere = new BoundingSphere();
 
   /**
-   * The 4x4 transformation matrix that transforms the ellipsoid from model to world coordinates.
-   * When this is the identity matrix, the ellipsoid is drawn in world coordinates, i.e., Earth's WGS84 coordinates.
-   * Local reference frames can be used by providing a different transformation matrix, like that returned
-   * by {@link Transforms.eastNorthUpToFixedFrame}.
+   * 将椭球体从模型坐标转换为世界坐标的 4x4 变换矩阵。
+   * 当此矩阵为单位矩阵时，椭球体将在世界坐标（即地球 WGS84 坐标）中绘制。
+   * 通过提供不同的变换矩阵（例如 {@link Transforms.eastNorthUpToFixedFrame} 返回的矩阵），可以使用局部参考系。
    *
    * @type {Matrix4}
    * @default {@link Matrix4.IDENTITY}
@@ -104,7 +103,7 @@ function EllipsoidPrimitive(options) {
   this._computedModelMatrix = new Matrix4();
 
   /**
-   * Determines if the ellipsoid primitive will be shown.
+   * 确定椭球体图元是否显示。
    *
    * @type {boolean}
    * @default true
@@ -112,10 +111,9 @@ function EllipsoidPrimitive(options) {
   this.show = options.show ?? true;
 
   /**
-   * The surface appearance of the ellipsoid.  This can be one of several built-in {@link Material} objects or a custom material, scripted with
-   * {@link https://github.com/CesiumGS/cesium/wiki/Fabric|Fabric}.
+   * 椭球体的表面外观。可以是多个内置 {@link Material} 对象之一，或使用 {@link https://github.com/CesiumGS/cesium/wiki/Fabric|Fabric} 编写的自定义材质。
    * <p>
-   * The default material is <code>Material.ColorType</code>.
+   * 默认材质为 <code>Material.ColorType</code>。
    * </p>
    *
    * @type {Material}
@@ -123,10 +121,10 @@ function EllipsoidPrimitive(options) {
    *
    *
    * @example
-   * // 1. Change the color of the default material to yellow
+   * // 1. 将默认材质的颜色改为黄色
    * e.material.uniforms.color = new Cesium.Color(1.0, 1.0, 0.0, 1.0);
    *
-   * // 2. Change material to horizontal stripes
+   * // 2. 将材质改为水平条纹
    * e.material = Cesium.Material.fromType(Cesium.Material.StripeType);
    *
    * @see {@link https://github.com/CesiumGS/cesium/wiki/Fabric|Fabric}
@@ -136,7 +134,7 @@ function EllipsoidPrimitive(options) {
   this._translucent = undefined;
 
   /**
-   * User-defined object returned when the ellipsoid is picked.
+   * 拾取椭球体时返回的用户定义对象。
    *
    * @type {object}
    *
@@ -148,9 +146,9 @@ function EllipsoidPrimitive(options) {
   this._id = undefined;
 
   /**
-   * This property is for debugging only; it is not for production use nor is it optimized.
+   * 此属性仅用于调试，不用于生产环境，也未经过优化。
    * <p>
-   * Draws the bounding sphere for each draw command in the primitive.
+   * 绘制该图元中每个绘制命令的包围球。
    * </p>
    *
    * @type {boolean}
@@ -231,14 +229,12 @@ function getVertexArray(context) {
 }
 
 /**
- * Called when {@link Viewer} or {@link CesiumWidget} render the scene to
- * get the draw commands needed to render this primitive.
+ * 当 {@link Viewer} 或 {@link CesiumWidget} 渲染场景时调用，以获取渲染此图元所需的绘制命令。
  * <p>
- * Do not call this function directly.  This is documented just to
- * list the exceptions that may be propagated when the scene is rendered:
+ * 请勿直接调用此函数。此处仅为了记录场景渲染时可能抛出的异常：
  * </p>
  *
- * @exception {DeveloperError} this.material must be defined.
+ * @exception {DeveloperError} this.material 必须已定义。
  */
 EllipsoidPrimitive.prototype.update = function (frameState) {
   if (
@@ -458,12 +454,11 @@ EllipsoidPrimitive.prototype.update = function (frameState) {
 };
 
 /**
- * Returns true if this object was destroyed; otherwise, false.
+ * 如果此对象已被销毁则返回 true，否则返回 false。
  * <br /><br />
- * If this object was destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.
+ * 如果此对象已被销毁，则不应再使用；调用除 <code>isDestroyed</code> 之外的任何函数都会导致 {@link DeveloperError} 异常。
  *
- * @returns {boolean} <code>true</code> if this object was destroyed; otherwise, <code>false</code>.
+ * @returns {boolean} 如果此对象已被销毁则返回 <code>true</code>，否则返回 <code>false</code>。
  *
  * @see EllipsoidPrimitive#destroy
  */
@@ -471,22 +466,20 @@ EllipsoidPrimitive.prototype.isDestroyed = function () {
   return false;
 };
 
-/**
- * Destroys the WebGL resources held by this object.  Destroying an object allows for deterministic
- * release of WebGL resources, instead of relying on the garbage collector to destroy this object.
- * <br /><br />
- * Once an object is destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.  Therefore,
- * assign the return value (<code>undefined</code>) to the object as done in the example.
- *
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
- *
- *
- * @example
- * e = e && e.destroy();
- *
- * @see EllipsoidPrimitive#isDestroyed
- */
+  /**
+   * 销毁此对象持有的 WebGL 资源。销毁对象可以确定性地释放 WebGL 资源，而不是依赖垃圾回收器来销毁该对象。
+   * <br /><br />
+   * 一旦对象被销毁，就不应再使用；调用除 <code>isDestroyed</code> 之外的任何函数都会导致 {@link DeveloperError} 异常。因此，
+   * 请像示例中那样将返回值（<code>undefined</code>）赋给该对象。
+   *
+   * @exception {DeveloperError} 此对象已被销毁，即已调用 destroy()。
+   *
+   *
+   * @example
+   * e = e && e.destroy();
+   *
+   * @see EllipsoidPrimitive#isDestroyed
+   */
 EllipsoidPrimitive.prototype.destroy = function () {
   this._sp = this._sp && this._sp.destroy();
   this._pickSP = this._pickSP && this._pickSP.destroy();

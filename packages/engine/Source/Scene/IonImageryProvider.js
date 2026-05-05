@@ -10,23 +10,23 @@ import IonImageryProviderFactory from "./IonImageryProviderFactory.js";
 /**
  * @typedef {object} IonImageryProvider.ConstructorOptions
  *
- * Initialization options for the TileMapServiceImageryProvider constructor
+ * TileMapServiceImageryProvider 构造函数的初始化选项
  *
- * @property {string} [accessToken=Ion.defaultAccessToken] The access token to use.
- * @property {string|Resource} [server=Ion.defaultServer] The resource to the Cesium ion API server.
+ * @property {string} [accessToken=Ion.defaultAccessToken] 要使用的访问令牌。
+ * @property {string|Resource} [server=Ion.defaultServer] Cesium ion API 服务器的资源。
  */
 
 /**
  * <div class="notice">
- * To construct a IonImageryProvider, call {@link IonImageryProvider.fromAssetId}. Do not call the constructor directly.
+ * 要构造 IonImageryProvider，请调用 {@link IonImageryProvider.fromAssetId}。不要直接调用构造函数。
  * </div>
  *
- * Provides tiled imagery using the Cesium ion REST API.
+ * 使用 Cesium ion REST API 提供瓦片影像。
  *
  * @alias IonImageryProvider
  * @constructor
  *
- * @param {IonImageryProvider.ConstructorOptions} [options] Object describing initialization options
+ * @param {IonImageryProvider.ConstructorOptions} [options] 描述初始化选项的对象
  *
  * @example
  * const imageryLayer = Cesium.ImageryLayer.fromProviderAsync(Cesium.IonImageryProvider.fromAssetId(3812));
@@ -54,7 +54,7 @@ function IonImageryProvider(options) {
 
 Object.defineProperties(IonImageryProvider.prototype, {
   /**
-   * Gets the rectangle, in radians, of the imagery provided by the instance.
+   * 获取实例提供的影像范围（以弧度为单位）。
    * @memberof IonImageryProvider.prototype
    * @type {Rectangle}
    * @readonly
@@ -66,7 +66,7 @@ Object.defineProperties(IonImageryProvider.prototype, {
   },
 
   /**
-   * Gets the width of each tile, in pixels.
+   * 获取每个瓦片的宽度（以像素为单位）。
    * @memberof IonImageryProvider.prototype
    * @type {number}
    * @readonly
@@ -78,7 +78,7 @@ Object.defineProperties(IonImageryProvider.prototype, {
   },
 
   /**
-   * Gets the height of each tile, in pixels.
+   * 获取每个瓦片的高度（以像素为单位）。
    * @memberof IonImageryProvider.prototype
    * @type {number}
    * @readonly
@@ -90,7 +90,7 @@ Object.defineProperties(IonImageryProvider.prototype, {
   },
 
   /**
-   * Gets the maximum level-of-detail that can be requested.
+   * 获取可请求的最大细节级别。
    * @memberof IonImageryProvider.prototype
    * @type {number|undefined}
    * @readonly
@@ -102,11 +102,9 @@ Object.defineProperties(IonImageryProvider.prototype, {
   },
 
   /**
-   * Gets the minimum level-of-detail that can be requested. Generally,
-   * a minimum level should only be used when the rectangle of the imagery is small
-   * enough that the number of tiles at the minimum level is small.  An imagery
-   * provider with more than a few tiles at the minimum level will lead to
-   * rendering problems.
+   * 获取可请求的最小细节级别。通常，
+   * 最小级别应仅在影像范围足够小，使得最小级别的瓦片数量较少时使用。
+   * 在最小级别有过多瓦片的影像提供程序将导致渲染问题。
    * @memberof IonImageryProvider.prototype
    * @type {number}
    * @readonly
@@ -118,7 +116,7 @@ Object.defineProperties(IonImageryProvider.prototype, {
   },
 
   /**
-   * Gets the tiling scheme used by the provider.
+   * 获取提供程序使用的瓦片方案。
    * @memberof IonImageryProvider.prototype
    * @type {TilingScheme}
    * @readonly
@@ -130,9 +128,9 @@ Object.defineProperties(IonImageryProvider.prototype, {
   },
 
   /**
-   * Gets the tile discard policy.  If not undefined, the discard policy is responsible
-   * for filtering out "missing" tiles via its shouldDiscardImage function.  If this function
-   * returns undefined, no tiles are filtered.
+   * 获取瓦片丢弃策略。如果未定义，则丢弃策略负责
+   * 通过其 shouldDiscardImage 函数过滤掉"缺失"的瓦片。如果该函数
+   * 返回 undefined，则不会过滤任何瓦片。
    * @memberof IonImageryProvider.prototype
    * @type {TileDiscardPolicy}
    * @readonly
@@ -144,9 +142,9 @@ Object.defineProperties(IonImageryProvider.prototype, {
   },
 
   /**
-   * Gets an event that is raised when the imagery provider encounters an asynchronous error.  By subscribing
-   * to the event, you will be notified of the error and can potentially recover from it.  Event listeners
-   * are passed an instance of {@link TileProviderError}.
+   * 获取当影像提供程序遇到异步错误时引发的事件。通过订阅
+   * 该事件，您将收到错误通知并可能从中恢复。事件监听器
+   * 会接收到 {@link TileProviderError} 的实例。
    * @memberof IonImageryProvider.prototype
    * @type {Event}
    * @readonly
@@ -158,8 +156,8 @@ Object.defineProperties(IonImageryProvider.prototype, {
   },
 
   /**
-   * Gets the credit to display when this imagery provider is active.  Typically this is used to credit
-   * the source of the imagery.
+   * 获取当此影像提供程序处于活动状态时要显示的版权信息。通常用于注明
+   * 影像的来源。
    * @memberof IonImageryProvider.prototype
    * @type {Credit}
    * @readonly
@@ -171,11 +169,11 @@ Object.defineProperties(IonImageryProvider.prototype, {
   },
 
   /**
-   * Gets a value indicating whether or not the images provided by this imagery provider
-   * include an alpha channel.  If this property is false, an alpha channel, if present, will
-   * be ignored.  If this property is true, any images without an alpha channel will be treated
-   * as if their alpha is 1.0 everywhere.  When this property is false, memory usage
-   * and texture upload time are reduced.
+   * 获取一个值，指示此影像提供程序提供的图像
+   * 是否包含 Alpha 通道。如果此属性为 false，则 Alpha 通道（如果存在）将
+   * 被忽略。如果此属性为 true，则任何没有 Alpha 通道的图像将被视为
+   * 其 Alpha 值在所有地方都为 1.0。当此属性为 false 时，内存使用量
+   * 和纹理上传时间会减少。
    * @memberof IonImageryProvider.prototype
    * @type {boolean}
    * @readonly
@@ -187,7 +185,7 @@ Object.defineProperties(IonImageryProvider.prototype, {
   },
 
   /**
-   * Gets the proxy used by this provider.
+   * 获取此提供程序使用的代理。
    * @memberof IonImageryProvider.prototype
    * @type {Proxy}
    * @readonly
@@ -201,18 +199,18 @@ Object.defineProperties(IonImageryProvider.prototype, {
 });
 
 /**
- * Creates a provider for tiled imagery using the Cesium ion REST API.
+ * 使用 Cesium ion REST API 创建瓦片影像提供程序。
  *
- * @param {number} assetId  An ion imagery asset ID.
- * @param {IonImageryProvider.ConstructorOptions} [options] Object describing initialization options.
- * @returns {Promise<IonImageryProvider>} A promise which resolves to the created IonImageryProvider.
+ * @param {number} assetId  ion 影像资产 ID。
+ * @param {IonImageryProvider.ConstructorOptions} [options] 描述初始化选项的对象。
+ * @returns {Promise<IonImageryProvider>} 一个解析为已创建的 IonImageryProvider 的承诺。
  *
  * @example
  * const imageryLayer = Cesium.ImageryLayer.fromProviderAsync(Cesium.IonImageryProvider.fromAssetId(3812));
  * viewer.imageryLayers.add(imageryLayer);
  *
- * @exception {RuntimeError} Cesium ion assetId is not an imagery asset
- * @exception {RuntimeError} Unrecognized Cesium ion imagery type
+ * @exception {RuntimeError} Cesium ion assetId 不是影像资产
+ * @exception {RuntimeError} 无法识别的 Cesium ion 影像类型
  */
 IonImageryProvider.fromAssetId = async function (assetId, options) {
   //>>includeStart('debug', pragmas.debug);
@@ -283,13 +281,13 @@ IonImageryProvider.fromAssetId = async function (assetId, options) {
 };
 
 /**
- * Gets the credits to be displayed when a given tile is displayed.
+ * 获取当显示给定瓦片时要显示的版权信息。
  * @function
  *
- * @param {number} x The tile X coordinate.
- * @param {number} y The tile Y coordinate.
- * @param {number} level The tile level;
- * @returns {Credit[]} The credits to be displayed when the tile is displayed.
+ * @param {number} x 瓦片 X 坐标。
+ * @param {number} y 瓦片 Y 坐标。
+ * @param {number} level 瓦片级别；
+ * @returns {Credit[]} 显示瓦片时要显示的版权信息。
  */
 IonImageryProvider.prototype.getTileCredits = function (x, y, level) {
   const innerCredits = this._imageryProvider.getTileCredits(x, y, level);
@@ -301,35 +299,35 @@ IonImageryProvider.prototype.getTileCredits = function (x, y, level) {
 };
 
 /**
- * Requests the image for a given tile.
+ * 请求给定瓦片的图像。
  * @function
  *
- * @param {number} x The tile X coordinate.
- * @param {number} y The tile Y coordinate.
- * @param {number} level The tile level.
- * @param {Request} [request] The request object. Intended for internal use only.
- * @returns {Promise<ImageryTypes>|undefined} A promise for the image that will resolve when the image is available, or
- *          undefined if there are too many active requests to the server, and the request should be retried later.
+ * @param {number} x 瓦片 X 坐标。
+ * @param {number} y 瓦片 Y 坐标。
+ * @param {number} level 瓦片级别。
+ * @param {Request} [request] 请求对象。仅供内部使用。
+ * @returns {Promise<ImageryTypes>|undefined} 图像的承诺，当图像可用时解析，或者
+ *          如果服务器有太多活动请求而返回 undefined，则应稍后重试请求。
  */
 IonImageryProvider.prototype.requestImage = function (x, y, level, request) {
   return this._imageryProvider.requestImage(x, y, level, request);
 };
 
 /**
- * Asynchronously determines what features, if any, are located at a given longitude and latitude within
- * a tile. This function is optional, so it may not exist on all ImageryProviders.
+ * 异步确定瓦片内给定经度和纬度位置存在哪些要素（如果有）。
+ * 此函数是可选的，因此并非所有 ImageryProvider 上都存在。
  *
  * @function
  *
- * @param {number} x The tile X coordinate.
- * @param {number} y The tile Y coordinate.
- * @param {number} level The tile level.
- * @param {number} longitude The longitude at which to pick features.
- * @param {number} latitude  The latitude at which to pick features.
- * @return {Promise<ImageryLayerFeatureInfo[]>|undefined} A promise for the picked features that will resolve when the asynchronous
- *                   picking completes.  The resolved value is an array of {@link ImageryLayerFeatureInfo}
- *                   instances.  The array may be empty if no features are found at the given location.
- *                   It may also be undefined if picking is not supported.
+ * @param {number} x 瓦片 X 坐标。
+ * @param {number} y 瓦片 Y 坐标。
+ * @param {number} level 瓦片级别。
+ * @param {number} longitude 拾取要素的经度。
+ * @param {number} latitude  拾取要素的纬度。
+ * @return {Promise<ImageryLayerFeatureInfo[]>|undefined} 拾取要素的承诺，当异步
+ *                   拾取完成时解析。解析值是一个 {@link ImageryLayerFeatureInfo}
+ *                   实例数组。如果在给定位置未找到要素，数组可能为空。
+ *                   如果不支持拾取，也可能返回 undefined。
  */
 IonImageryProvider.prototype.pickFeatures = function (
   x,

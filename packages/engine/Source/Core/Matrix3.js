@@ -11,13 +11,13 @@ import CesiumMath from "./Math.js";
 
 /**
  * @typedef {object} EigenDecompositionResult
- * @property {Matrix3} [unitary]
- * @property {Matrix3} [diagonal]
+ * @property {Matrix3} [unitary] 酉矩阵
+ * @property {Matrix3} [diagonal] 对角矩阵
  */
 
 /**
- * A 3x3 matrix, indexable as a column-major order array.
- * Constructor parameters are in row-major order for code readability.
+ * 3x3 矩阵，可按列主序数组进行索引。
+ * 构造函数参数采用行主序以便于代码阅读。
  *
  * @implements {ArrayLike<number>}
  *
@@ -38,15 +38,15 @@ import CesiumMath from "./Math.js";
 // @ts-expect-error TODO(tsd-jsdoc): Requires index signature support.
 class Matrix3 {
   /**
-   * @param {number} [column0Row0=0.0] The value for column 0, row 0.
-   * @param {number} [column1Row0=0.0] The value for column 1, row 0.
-   * @param {number} [column2Row0=0.0] The value for column 2, row 0.
-   * @param {number} [column0Row1=0.0] The value for column 0, row 1.
-   * @param {number} [column1Row1=0.0] The value for column 1, row 1.
-   * @param {number} [column2Row1=0.0] The value for column 2, row 1.
-   * @param {number} [column0Row2=0.0] The value for column 0, row 2.
-   * @param {number} [column1Row2=0.0] The value for column 1, row 2.
-   * @param {number} [column2Row2=0.0] The value for column 2, row 2.
+   * @param {number} [column0Row0=0.0] 第 0 列第 0 行的值。
+   * @param {number} [column1Row0=0.0] 第 1 列第 0 行的值。
+   * @param {number} [column2Row0=0.0] 第 2 列第 0 行的值。
+   * @param {number} [column0Row1=0.0] 第 0 列第 1 行的值。
+   * @param {number} [column1Row1=0.0] 第 1 列第 1 行的值。
+   * @param {number} [column2Row1=0.0] 第 2 列第 1 行的值。
+   * @param {number} [column0Row2=0.0] 第 0 列第 2 行的值。
+   * @param {number} [column1Row2=0.0] 第 1 列第 2 行的值。
+   * @param {number} [column2Row2=0.0] 第 2 列第 2 行的值。
    */
   constructor(
     column0Row0,
@@ -71,13 +71,13 @@ class Matrix3 {
   }
 
   /**
-   * Stores the provided instance into the provided array.
+   * 将提供的实例存储到提供的数组中。
    *
-   * @param {Matrix3} value The value to pack.
-   * @param {number[]} array The array to pack into.
-   * @param {number} [startingIndex=0] The index into the array at which to start packing the elements.
+   * @param {Matrix3} value 要打包的值。
+   * @param {number[]} array 要打包到的数组。
+   * @param {number} [startingIndex=0] 开始打包元素的数组索引。
    *
-   * @returns {number[]} The array that was packed into
+   * @returns {number[]} 被打包到的数组
    */
   static pack(value, array, startingIndex) {
     //>>includeStart('debug', pragmas.debug);
@@ -101,12 +101,12 @@ class Matrix3 {
   }
 
   /**
-   * Retrieves an instance from a packed array.
+   * 从打包数组中检索实例。
    *
-   * @param {number[]} array The packed array.
-   * @param {number} [startingIndex=0] The starting index of the element to be unpacked.
-   * @param {Matrix3} [result] The object into which to store the result.
-   * @returns {Matrix3} The modified result parameter or a new Matrix3 instance if one was not provided.
+   * @param {number[]} array 打包的数组。
+   * @param {number} [startingIndex=0] 要解包元素的起始索引。
+   * @param {Matrix3} [result] 用于存储结果的对象。
+   * @returns {Matrix3} 修改后的结果参数，如果未提供则返回新的 Matrix3 实例。
    */
   static unpack(array, startingIndex, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -132,12 +132,12 @@ class Matrix3 {
   }
 
   /**
-   * Flattens an array of Matrix3s into an array of components. The components
-   * are stored in column-major order.
+   * 将 Matrix3 数组展平为组件数组。组件
+   * 按列主序存储。
    *
-   * @param {Matrix3[]} array The array of matrices to pack.
-   * @param {number[]} [result] The array onto which to store the result. If this is a typed array, it must have array.length * 9 components, else a {@link DeveloperError} will be thrown. If it is a regular array, it will be resized to have (array.length * 9) elements.
-   * @returns {number[]} The packed array.
+   * @param {Matrix3[]} array 要打包的矩阵数组。
+   * @param {number[]} [result] 用于存储结果的数组。如果是类型化数组，则必须有 array.length * 9 个组件，否则会抛出 {@link DeveloperError}。如果是普通数组，则会被调整为 (array.length * 9) 个元素。
+   * @returns {number[]} 打包后的数组。
    */
   static packArray(array, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -152,7 +152,7 @@ class Matrix3 {
     } else if (!Array.isArray(result) && result.length !== resultLength) {
       //>>includeStart('debug', pragmas.debug);
       throw new DeveloperError(
-        "If result is a typed array, it must have exactly array.length * 9 elements",
+        "如果 result 是类型化数组，则必须恰好有 array.length * 9 个元素",
       );
       //>>includeEnd('debug');
     } else if (result.length !== resultLength) {
@@ -167,18 +167,18 @@ class Matrix3 {
   }
 
   /**
-   * Unpacks an array of column-major matrix components into an array of Matrix3s.
+   * 将列主序矩阵组件数组解包为 Matrix3 数组。
    *
-   * @param {number[]} array The array of components to unpack.
-   * @param {Matrix3[]} [result] The array onto which to store the result.
-   * @returns {Matrix3[]} The unpacked array.
+   * @param {number[]} array 要解包的组件数组。
+   * @param {Matrix3[]} [result] 用于存储结果的数组。
+   * @returns {Matrix3[]} 解包后的数组。
    */
   static unpackArray(array, result) {
     //>>includeStart('debug', pragmas.debug);
     Check.defined("array", array);
     Check.typeOf.number.greaterThanOrEquals("array.length", array.length, 9);
     if (array.length % 9 !== 0) {
-      throw new DeveloperError("array length must be a multiple of 9.");
+      throw new DeveloperError("数组长度必须是 9 的倍数。");
     }
     //>>includeEnd('debug');
 
@@ -197,11 +197,11 @@ class Matrix3 {
   }
 
   /**
-   * Duplicates a Matrix3 instance.
+   * 复制 Matrix3 实例。
    *
-   * @param {Matrix3} matrix The matrix to duplicate.
-   * @param {Matrix3} [result] The object onto which to store the result.
-   * @returns {Matrix3} The modified result parameter or a new Matrix3 instance if one was not provided. (Returns undefined if matrix is undefined)
+   * @param {Matrix3} matrix 要复制的矩阵。
+   * @param {Matrix3} [result] 用于存储结果的对象。
+   * @returns {Matrix3} 修改后的结果参数，如果未提供则返回新的 Matrix3 实例。（如果 matrix 为 undefined 则返回 undefined）
    */
   static clone(matrix, result) {
     if (!defined(matrix)) {
@@ -233,11 +233,11 @@ class Matrix3 {
   }
 
   /**
-   * Creates a Matrix3 instance from a column-major order array.
+   * 从列主序数组创建 Matrix3 实例。
    *
-   * @param {number[]} values The column-major order array.
-   * @param {Matrix3} [result] The object in which the result will be stored, if undefined a new instance will be created.
-   * @returns {Matrix3} The modified result parameter, or a new Matrix3 instance if one was not provided.
+   * @param {number[]} values 列主序数组。
+   * @param {Matrix3} [result] 用于存储结果的对象，如果未定义则创建新实例。
+   * @returns {Matrix3} 修改后的结果参数，如果未提供则返回新的 Matrix3 实例。
    */
   static fromColumnMajorArray(values, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -249,12 +249,12 @@ class Matrix3 {
   }
 
   /**
-   * Creates a Matrix3 instance from a row-major order array.
-   * The resulting matrix will be in column-major order.
+   * 从行主序数组创建 Matrix3 实例。
+   * 结果矩阵将按列主序存储。
    *
-   * @param {number[]} values The row-major order array.
-   * @param {Matrix3} [result] The object in which the result will be stored, if undefined a new instance will be created.
-   * @returns {Matrix3} The modified result parameter, or a new Matrix3 instance if one was not provided.
+   * @param {number[]} values 行主序数组。
+   * @param {Matrix3} [result] 用于存储结果的对象，如果未定义则创建新实例。
+   * @returns {Matrix3} 修改后的结果参数，如果未提供则返回新的 Matrix3 实例。
    */
   static fromRowMajorArray(values, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -287,11 +287,11 @@ class Matrix3 {
   }
 
   /**
-   * Computes a 3x3 rotation matrix from the provided quaternion.
+   * 从提供的四元数计算 3x3 旋转矩阵。
    *
-   * @param {Quaternion} quaternion the quaternion to use.
-   * @param {Matrix3} [result] The object in which the result will be stored, if undefined a new instance will be created.
-   * @returns {Matrix3} The 3x3 rotation matrix from this quaternion.
+   * @param {Quaternion} quaternion 要使用的四元数。
+   * @param {Matrix3} [result] 用于存储结果的对象，如果未定义则创建新实例。
+   * @returns {Matrix3} 此四元数对应的 3x3 旋转矩阵。
    */
   static fromQuaternion(quaternion, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -337,11 +337,11 @@ class Matrix3 {
   }
 
   /**
-   * Computes a 3x3 rotation matrix from the provided headingPitchRoll. (see http://en.wikipedia.org/wiki/Conversion_between_quaternions_and_Euler_angles )
+   * 从提供的 headingPitchRoll 计算 3x3 旋转矩阵。（参见 http://en.wikipedia.org/wiki/Conversion_between_quaternions_and_Euler_angles ）
    *
-   * @param {HeadingPitchRoll} headingPitchRoll the headingPitchRoll to use.
-   * @param {Matrix3} [result] The object in which the result will be stored, if undefined a new instance will be created.
-   * @returns {Matrix3} The 3x3 rotation matrix from this headingPitchRoll.
+   * @param {HeadingPitchRoll} headingPitchRoll 要使用的 headingPitchRoll。
+   * @param {Matrix3} [result] 用于存储结果的对象，如果未定义则创建新实例。
+   * @returns {Matrix3} 此 headingPitchRoll 对应的 3x3 旋转矩阵。
    */
   static fromHeadingPitchRoll(headingPitchRoll, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -383,14 +383,14 @@ class Matrix3 {
   }
 
   /**
-   * Computes a Matrix3 instance representing a non-uniform scale.
+   * 计算表示非均匀缩放的 Matrix3 实例。
    *
-   * @param {Cartesian3} scale The x, y, and z scale factors.
-   * @param {Matrix3} [result] The object in which the result will be stored, if undefined a new instance will be created.
-   * @returns {Matrix3} The modified result parameter, or a new Matrix3 instance if one was not provided.
+   * @param {Cartesian3} scale x、y 和 z 缩放因子。
+   * @param {Matrix3} [result] 用于存储结果的对象，如果未定义则创建新实例。
+   * @returns {Matrix3} 修改后的结果参数，如果未提供则返回新的 Matrix3 实例。
    *
    * @example
-   * // Creates
+   * // 创建
    * //   [7.0, 0.0, 0.0]
    * //   [0.0, 8.0, 0.0]
    * //   [0.0, 0.0, 9.0]
@@ -428,14 +428,14 @@ class Matrix3 {
   }
 
   /**
-   * Computes a Matrix3 instance representing a uniform scale.
+   * 计算表示均匀缩放的 Matrix3 实例。
    *
-   * @param {number} scale The uniform scale factor.
-   * @param {Matrix3} [result] The object in which the result will be stored, if undefined a new instance will be created.
-   * @returns {Matrix3} The modified result parameter, or a new Matrix3 instance if one was not provided.
+   * @param {number} scale 均匀缩放因子。
+   * @param {Matrix3} [result] 用于存储结果的对象，如果未定义则创建新实例。
+   * @returns {Matrix3} 修改后的结果参数，如果未提供则返回新的 Matrix3 实例。
    *
    * @example
-   * // Creates
+   * // 创建
    * //   [2.0, 0.0, 0.0]
    * //   [0.0, 2.0, 0.0]
    * //   [0.0, 0.0, 2.0]
@@ -463,14 +463,14 @@ class Matrix3 {
   }
 
   /**
-   * Computes a Matrix3 instance representing the cross product equivalent matrix of a Cartesian3 vector.
+   * 计算表示 Cartesian3 向量叉积等效矩阵的 Matrix3 实例。
    *
-   * @param {Cartesian3} vector the vector on the left hand side of the cross product operation.
-   * @param {Matrix3} [result] The object in which the result will be stored, if undefined a new instance will be created.
-   * @returns {Matrix3} The modified result parameter, or a new Matrix3 instance if one was not provided.
+   * @param {Cartesian3} vector 叉积运算左侧的向量。
+   * @param {Matrix3} [result] 用于存储结果的对象，如果未定义则创建新实例。
+   * @returns {Matrix3} 修改后的结果参数，如果未提供则返回新的 Matrix3 实例。
    *
    * @example
-   * // Creates
+   * // 创建
    * //   [0.0, -9.0,  8.0]
    * //   [9.0,  0.0, -7.0]
    * //   [-8.0, 7.0,  0.0]
@@ -508,14 +508,14 @@ class Matrix3 {
   }
 
   /**
-   * Creates a rotation matrix around the x-axis.
+   * 创建绕 x 轴的旋转矩阵。
    *
-   * @param {number} angle The angle, in radians, of the rotation.  Positive angles are counterclockwise.
-   * @param {Matrix3} [result] The object in which the result will be stored, if undefined a new instance will be created.
-   * @returns {Matrix3} The modified result parameter, or a new Matrix3 instance if one was not provided.
+   * @param {number} angle 旋转角度（弧度）。正角度为逆时针方向。
+   * @param {Matrix3} [result] 用于存储结果的对象，如果未定义则创建新实例。
+   * @returns {Matrix3} 修改后的结果参数，如果未提供则返回新的 Matrix3 实例。
    *
    * @example
-   * // Rotate a point 45 degrees counterclockwise around the x-axis.
+   * // 将点绕 x 轴逆时针旋转 45 度。
    * const p = new Cesium.Cartesian3(5, 6, 7);
    * const m = Cesium.Matrix3.fromRotationX(Cesium.Math.toRadians(45.0));
    * const rotated = Cesium.Matrix3.multiplyByVector(m, p, new Cesium.Cartesian3());
@@ -556,14 +556,14 @@ class Matrix3 {
   }
 
   /**
-   * Creates a rotation matrix around the y-axis.
+   * 创建绕 y 轴的旋转矩阵。
    *
-   * @param {number} angle The angle, in radians, of the rotation.  Positive angles are counterclockwise.
-   * @param {Matrix3} [result] The object in which the result will be stored, if undefined a new instance will be created.
-   * @returns {Matrix3} The modified result parameter, or a new Matrix3 instance if one was not provided.
+   * @param {number} angle 旋转角度（弧度）。正角度为逆时针方向。
+   * @param {Matrix3} [result] 用于存储结果的对象，如果未定义则创建新实例。
+   * @returns {Matrix3} 修改后的结果参数，如果未提供则返回新的 Matrix3 实例。
    *
    * @example
-   * // Rotate a point 45 degrees counterclockwise around the y-axis.
+   * // 将点绕 y 轴逆时针旋转 45 度。
    * const p = new Cesium.Cartesian3(5, 6, 7);
    * const m = Cesium.Matrix3.fromRotationY(Cesium.Math.toRadians(45.0));
    * const rotated = Cesium.Matrix3.multiplyByVector(m, p, new Cesium.Cartesian3());
@@ -604,14 +604,14 @@ class Matrix3 {
   }
 
   /**
-   * Creates a rotation matrix around the z-axis.
+   * 创建绕 z 轴的旋转矩阵。
    *
-   * @param {number} angle The angle, in radians, of the rotation.  Positive angles are counterclockwise.
-   * @param {Matrix3} [result] The object in which the result will be stored, if undefined a new instance will be created.
-   * @returns {Matrix3} The modified result parameter, or a new Matrix3 instance if one was not provided.
+   * @param {number} angle 旋转角度（弧度）。正角度为逆时针方向。
+   * @param {Matrix3} [result] 用于存储结果的对象，如果未定义则创建新实例。
+   * @returns {Matrix3} 修改后的结果参数，如果未提供则返回新的 Matrix3 实例。
    *
    * @example
-   * // Rotate a point 45 degrees counterclockwise around the z-axis.
+   * // 将点绕 z 轴逆时针旋转 45 度。
    * const p = new Cesium.Cartesian3(5, 6, 7);
    * const m = Cesium.Matrix3.fromRotationZ(Cesium.Math.toRadians(45.0));
    * const rotated = Cesium.Matrix3.multiplyByVector(m, p, new Cesium.Cartesian3());
@@ -652,12 +652,12 @@ class Matrix3 {
   }
 
   /**
-   * Creates an Array from the provided Matrix3 instance.
-   * The array will be in column-major order.
+   * 从提供的 Matrix3 实例创建数组。
+   * 数组将按列主序排列。
    *
-   * @param {Matrix3} matrix The matrix to use..
-   * @param {number[]} [result] The Array onto which to store the result.
-   * @returns {number[]} The modified Array parameter or a new Array instance if one was not provided.
+   * @param {Matrix3} matrix 要使用的矩阵。
+   * @param {number[]} [result] 用于存储结果的数组。
+   * @returns {number[]} 修改后的数组参数，如果未提供则返回新数组实例。
    */
   static toArray(matrix, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -690,14 +690,14 @@ class Matrix3 {
   }
 
   /**
-   * Computes the array index of the element at the provided row and column.
+   * 计算提供的行和列处的数组索引。
    *
-   * @param {number} column The zero-based index of the column.
-   * @param {number} row The zero-based index of the row.
-   * @returns {number} The index of the element at the provided row and column.
+   * @param {number} column 列的从零开始索引。
+   * @param {number} row 行的从零开始索引。
+   * @returns {number} 提供的行和列处的元素索引。
    *
-   * @exception {DeveloperError} row must be 0, 1, or 2.
-   * @exception {DeveloperError} column must be 0, 1, or 2.
+   * @exception {DeveloperError} row 必须为 0、1 或 2。
+   * @exception {DeveloperError} column 必须为 0、1 或 2。
    *
    * @example
    * const myMatrix = new Cesium.Matrix3();
@@ -717,14 +717,14 @@ class Matrix3 {
   }
 
   /**
-   * Retrieves a copy of the matrix column at the provided index as a Cartesian3 instance.
+   * 以 Cartesian3 实例的形式检索提供的列的矩阵副本。
    *
-   * @param {Matrix3} matrix The matrix to use.
-   * @param {number} index The zero-based index of the column to retrieve.
-   * @param {Cartesian3} result The object onto which to store the result.
-   * @returns {Cartesian3} The modified result parameter.
+   * @param {Matrix3} matrix 要使用的矩阵。
+   * @param {number} index 要检索的列的从零开始索引。
+   * @param {Cartesian3} result 用于存储结果的对象。
+   * @returns {Cartesian3} 修改后的结果参数。
    *
-   * @exception {DeveloperError} index must be 0, 1, or 2.
+   * @exception {DeveloperError} index 必须为 0、1 或 2。
    */
   static getColumn(matrix, index, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -750,15 +750,15 @@ class Matrix3 {
   }
 
   /**
-   * Computes a new matrix that replaces the specified column in the provided matrix with the provided Cartesian3 instance.
+   * 计算新矩阵，将提供矩阵中的指定列替换为提供的 Cartesian3 实例。
    *
-   * @param {Matrix3} matrix The matrix to use.
-   * @param {number} index The zero-based index of the column to set.
-   * @param {Cartesian3} cartesian The Cartesian whose values will be assigned to the specified column.
-   * @param {Matrix3} result The object onto which to store the result.
-   * @returns {Matrix3} The modified result parameter.
+   * @param {Matrix3} matrix 要使用的矩阵。
+   * @param {number} index 要设置的列的从零开始索引。
+   * @param {Cartesian3} cartesian 其值将分配给指定列的 Cartesian。
+   * @param {Matrix3} result 用于存储结果的对象。
+   * @returns {Matrix3} 修改后的结果参数。
    *
-   * @exception {DeveloperError} index must be 0, 1, or 2.
+   * @exception {DeveloperError} index 必须为 0、1 或 2。
    */
   static setColumn(matrix, index, cartesian, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -783,14 +783,14 @@ class Matrix3 {
   }
 
   /**
-   * Retrieves a copy of the matrix row at the provided index as a Cartesian3 instance.
+   * 以 Cartesian3 实例的形式检索提供的行的矩阵副本。
    *
-   * @param {Matrix3} matrix The matrix to use.
-   * @param {number} index The zero-based index of the row to retrieve.
-   * @param {Cartesian3} result The object onto which to store the result.
-   * @returns {Cartesian3} The modified result parameter.
+   * @param {Matrix3} matrix 要使用的矩阵。
+   * @param {number} index 要检索的行的从零开始索引。
+   * @param {Cartesian3} result 用于存储结果的对象。
+   * @returns {Cartesian3} 修改后的结果参数。
    *
-   * @exception {DeveloperError} index must be 0, 1, or 2.
+   * @exception {DeveloperError} index 必须为 0、1 或 2。
    */
   static getRow(matrix, index, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -814,15 +814,15 @@ class Matrix3 {
   }
 
   /**
-   * Computes a new matrix that replaces the specified row in the provided matrix with the provided Cartesian3 instance.
+   * 计算新矩阵，将提供矩阵中的指定行替换为提供的 Cartesian3 实例。
    *
-   * @param {Matrix3} matrix The matrix to use.
-   * @param {number} index The zero-based index of the row to set.
-   * @param {Cartesian3} cartesian The Cartesian whose values will be assigned to the specified row.
-   * @param {Matrix3} result The object onto which to store the result.
-   * @returns {Matrix3} The modified result parameter.
+   * @param {Matrix3} matrix 要使用的矩阵。
+   * @param {number} index 要设置的行的从零开始索引。
+   * @param {Cartesian3} cartesian 其值将分配给指定行的 Cartesian。
+   * @param {Matrix3} result 用于存储结果的对象。
+   * @returns {Matrix3} 修改后的结果参数。
    *
-   * @exception {DeveloperError} index must be 0, 1, or 2.
+   * @exception {DeveloperError} index 必须为 0、1 或 2。
    */
   static setRow(matrix, index, cartesian, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -846,13 +846,13 @@ class Matrix3 {
   }
 
   /**
-   * Computes a new matrix that replaces the scale with the provided scale.
-   * This assumes the matrix is an affine transformation.
+   * 计算新矩阵，用提供的缩放替换缩放。
+   * 此方法假设矩阵为仿射变换。
    *
-   * @param {Matrix3} matrix The matrix to use.
-   * @param {Cartesian3} scale The scale that replaces the scale of the provided matrix.
-   * @param {Matrix3} result The object onto which to store the result.
-   * @returns {Matrix3} The modified result parameter.
+   * @param {Matrix3} matrix 要使用的矩阵。
+   * @param {Cartesian3} scale 替换提供矩阵缩放的缩放。
+   * @param {Matrix3} result 用于存储结果的对象。
+   * @returns {Matrix3} 修改后的结果参数。
    *
    * @see Matrix3.setUniformScale
    * @see Matrix3.fromScale
@@ -887,13 +887,13 @@ class Matrix3 {
   }
 
   /**
-   * Computes a new matrix that replaces the scale with the provided uniform scale.
-   * This assumes the matrix is an affine transformation.
+   * 计算新矩阵，用提供的均匀缩放替换缩放。
+   * 此方法假设矩阵为仿射变换。
    *
-   * @param {Matrix3} matrix The matrix to use.
-   * @param {number} scale The uniform scale that replaces the scale of the provided matrix.
-   * @param {Matrix3} result The object onto which to store the result.
-   * @returns {Matrix3} The modified result parameter.
+   * @param {Matrix3} matrix 要使用的矩阵。
+   * @param {number} scale 替换提供矩阵缩放的均匀缩放。
+   * @param {Matrix3} result 用于存储结果的对象。
+   * @returns {Matrix3} 修改后的结果参数。
    *
    * @see Matrix3.setScale
    * @see Matrix3.fromScale
@@ -928,11 +928,11 @@ class Matrix3 {
   }
 
   /**
-   * Extracts the non-uniform scale assuming the matrix is an affine transformation.
+   * 提取非均匀缩放，假设矩阵为仿射变换。
    *
-   * @param {Matrix3} matrix The matrix.
-   * @param {Cartesian3} result The object onto which to store the result.
-   * @returns {Cartesian3} The modified result parameter.
+   * @param {Matrix3} matrix 矩阵。
+   * @param {Cartesian3} result 用于存储结果的对象。
+   * @returns {Cartesian3} 修改后的结果参数。
    *
    * @see Matrix3.multiplyByScale
    * @see Matrix3.multiplyByUniformScale
@@ -960,11 +960,11 @@ class Matrix3 {
   }
 
   /**
-   * Computes the maximum scale assuming the matrix is an affine transformation.
-   * The maximum scale is the maximum length of the column vectors.
+   * 计算最大缩放，假设矩阵为仿射变换。
+   * 最大缩放是列向量的最大长度。
    *
-   * @param {Matrix3} matrix The matrix.
-   * @returns {number} The maximum scale.
+   * @param {Matrix3} matrix 矩阵。
+   * @returns {number} 最大缩放。
    */
   static getMaximumScale(matrix) {
     Matrix3.getScale(matrix, scaleScratch3);
@@ -972,12 +972,12 @@ class Matrix3 {
   }
 
   /**
-   * Sets the rotation assuming the matrix is an affine transformation.
+   * 设置旋转，假设矩阵为仿射变换。
    *
-   * @param {Matrix3} matrix The matrix.
-   * @param {Matrix3} rotation The rotation matrix.
-   * @param {Matrix3} result The object onto which to store the result.
-   * @returns {Matrix3} The modified result parameter.
+   * @param {Matrix3} matrix 矩阵。
+   * @param {Matrix3} rotation 旋转矩阵。
+   * @param {Matrix3} result 用于存储结果的对象。
+   * @returns {Matrix3} 修改后的结果参数。
    *
    * @see Matrix3.getRotation
    */
@@ -1003,11 +1003,11 @@ class Matrix3 {
   }
 
   /**
-   * Extracts the rotation matrix assuming the matrix is an affine transformation.
+   * 提取旋转矩阵，假设矩阵为仿射变换。
    *
-   * @param {Matrix3} matrix The matrix.
-   * @param {Matrix3} result The object onto which to store the result.
-   * @returns {Matrix3} The modified result parameter.
+   * @param {Matrix3} matrix 矩阵。
+   * @param {Matrix3} result 用于存储结果的对象。
+   * @returns {Matrix3} 修改后的结果参数。
    *
    * @see Matrix3.setRotation
    */
@@ -1033,12 +1033,12 @@ class Matrix3 {
   }
 
   /**
-   * Computes the product of two matrices.
+   * 计算两个矩阵的乘积。
    *
-   * @param {Matrix3} left The first matrix.
-   * @param {Matrix3} right The second matrix.
-   * @param {Matrix3} result The object onto which to store the result.
-   * @returns {Matrix3} The modified result parameter.
+   * @param {Matrix3} left 第一个矩阵。
+   * @param {Matrix3} right 第二个矩阵。
+   * @param {Matrix3} result 用于存储结果的对象。
+   * @returns {Matrix3} 修改后的结果参数。
    */
   static multiply(left, right, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -1081,12 +1081,12 @@ class Matrix3 {
   }
 
   /**
-   * Computes the sum of two matrices.
+   * 计算两个矩阵的和。
    *
-   * @param {Matrix3} left The first matrix.
-   * @param {Matrix3} right The second matrix.
-   * @param {Matrix3} result The object onto which to store the result.
-   * @returns {Matrix3} The modified result parameter.
+   * @param {Matrix3} left 第一个矩阵。
+   * @param {Matrix3} right 第二个矩阵。
+   * @param {Matrix3} result 用于存储结果的对象。
+   * @returns {Matrix3} 修改后的结果参数。
    */
   static add(left, right, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -1108,12 +1108,12 @@ class Matrix3 {
   }
 
   /**
-   * Computes the difference of two matrices.
+   * 计算两个矩阵的差。
    *
-   * @param {Matrix3} left The first matrix.
-   * @param {Matrix3} right The second matrix.
-   * @param {Matrix3} result The object onto which to store the result.
-   * @returns {Matrix3} The modified result parameter.
+   * @param {Matrix3} left 第一个矩阵。
+   * @param {Matrix3} right 第二个矩阵。
+   * @param {Matrix3} result 用于存储结果的对象。
+   * @returns {Matrix3} 修改后的结果参数。
    */
   static subtract(left, right, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -1135,12 +1135,12 @@ class Matrix3 {
   }
 
   /**
-   * Computes the product of a matrix and a column vector.
+   * 计算矩阵与列向量的乘积。
    *
-   * @param {Matrix3} matrix The matrix.
-   * @param {Cartesian3} cartesian The column.
-   * @param {Cartesian3} result The object onto which to store the result.
-   * @returns {Cartesian3} The modified result parameter.
+   * @param {Matrix3} matrix 矩阵。
+   * @param {Cartesian3} cartesian 列向量。
+   * @param {Cartesian3} result 用于存储结果的对象。
+   * @returns {Cartesian3} 修改后的结果参数。
    */
   static multiplyByVector(matrix, cartesian, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -1164,12 +1164,12 @@ class Matrix3 {
   }
 
   /**
-   * Computes the product of a matrix and a scalar.
+   * 计算矩阵与标量的乘积。
    *
-   * @param {Matrix3} matrix The matrix.
-   * @param {number} scalar The number to multiply by.
-   * @param {Matrix3} result The object onto which to store the result.
-   * @returns {Matrix3} The modified result parameter.
+   * @param {Matrix3} matrix 矩阵。
+   * @param {number} scalar 要乘的数。
+   * @param {Matrix3} result 用于存储结果的对象。
+   * @returns {Matrix3} 修改后的结果参数。
    */
   static multiplyByScalar(matrix, scalar, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -1191,16 +1191,16 @@ class Matrix3 {
   }
 
   /**
-   * Computes the product of a matrix times a (non-uniform) scale, as if the scale were a scale matrix.
+   * 计算矩阵与（非均匀）缩放的乘积，如同缩放是一个缩放矩阵。
    *
-   * @param {Matrix3} matrix The matrix on the left-hand side.
-   * @param {Cartesian3} scale The non-uniform scale on the right-hand side.
-   * @param {Matrix3} result The object onto which to store the result.
-   * @returns {Matrix3} The modified result parameter.
+   * @param {Matrix3} matrix 左侧的矩阵。
+   * @param {Cartesian3} scale 右侧的非均匀缩放。
+   * @param {Matrix3} result 用于存储结果的对象。
+   * @returns {Matrix3} 修改后的结果参数。
    *
    *
    * @example
-   * // Instead of Cesium.Matrix3.multiply(m, Cesium.Matrix3.fromScale(scale), m);
+   * // 替代 Cesium.Matrix3.multiply(m, Cesium.Matrix3.fromScale(scale), m);
    * Cesium.Matrix3.multiplyByScale(m, scale, m);
    *
    * @see Matrix3.multiplyByUniformScale
@@ -1231,15 +1231,15 @@ class Matrix3 {
   }
 
   /**
-   * Computes the product of a matrix times a uniform scale, as if the scale were a scale matrix.
+   * 计算矩阵与均匀缩放的乘积，如同缩放是一个缩放矩阵。
    *
-   * @param {Matrix3} matrix The matrix on the left-hand side.
-   * @param {number} scale The uniform scale on the right-hand side.
-   * @param {Matrix3} result The object onto which to store the result.
-   * @returns {Matrix3} The modified result parameter.
+   * @param {Matrix3} matrix 左侧的矩阵。
+   * @param {number} scale 右侧的均匀缩放。
+   * @param {Matrix3} result 用于存储结果的对象。
+   * @returns {Matrix3} 修改后的结果参数。
    *
    * @example
-   * // Instead of Cesium.Matrix3.multiply(m, Cesium.Matrix3.fromUniformScale(scale), m);
+   * // 替代 Cesium.Matrix3.multiply(m, Cesium.Matrix3.fromUniformScale(scale), m);
    * Cesium.Matrix3.multiplyByUniformScale(m, scale, m);
    *
    * @see Matrix3.multiplyByScale
@@ -1270,11 +1270,11 @@ class Matrix3 {
   }
 
   /**
-   * Creates a negated copy of the provided matrix.
+   * 创建提供矩阵的取反副本。
    *
-   * @param {Matrix3} matrix The matrix to negate.
-   * @param {Matrix3} result The object onto which to store the result.
-   * @returns {Matrix3} The modified result parameter.
+   * @param {Matrix3} matrix 要取反的矩阵。
+   * @param {Matrix3} result 用于存储结果的对象。
+   * @returns {Matrix3} 修改后的结果参数。
    */
   static negate(matrix, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -1295,11 +1295,11 @@ class Matrix3 {
   }
 
   /**
-   * Computes the transpose of the provided matrix.
+   * 计算提供矩阵的转置。
    *
-   * @param {Matrix3} matrix The matrix to transpose.
-   * @param {Matrix3} result The object onto which to store the result.
-   * @returns {Matrix3} The modified result parameter.
+   * @param {Matrix3} matrix 要转置的矩阵。
+   * @param {Matrix3} result 用于存储结果的对象。
+   * @returns {Matrix3} 修改后的结果参数。
    */
   static transpose(matrix, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -1330,22 +1330,21 @@ class Matrix3 {
   }
 
   /**
-   * Computes the eigenvectors and eigenvalues of a symmetric matrix.
+   * 计算对称矩阵的特征向量和特征值。
    * <p>
-   * Returns a diagonal matrix and unitary matrix such that:
-   * <code>matrix = unitary matrix * diagonal matrix * transpose(unitary matrix)</code>
+   * 返回对角矩阵和酉矩阵，使得：
+   * <code>matrix = 酉矩阵 * 对角矩阵 * transpose(酉矩阵)</code>
    * </p>
    * <p>
-   * The values along the diagonal of the diagonal matrix are the eigenvalues. The columns
-   * of the unitary matrix are the corresponding eigenvectors.
+   * 对角矩阵对角线上的值是特征值。酉矩阵的列是对应的特征向量。
    * </p>
    *
-   * @param {Matrix3} matrix The matrix to decompose into diagonal and unitary matrix. Expected to be symmetric.
-   * @param {EigenDecompositionResult} [result] An object with unitary and diagonal properties which are matrices onto which to store the result.
-   * @returns {EigenDecompositionResult} An object with unitary and diagonal properties which are the unitary and diagonal matrices, respectively.
+   * @param {Matrix3} matrix 要分解为对角矩阵和酉矩阵的矩阵。期望是对称矩阵。
+   * @param {EigenDecompositionResult} [result] 具有 unitary 和 diagonal 属性的对象，分别是用于存储结果的矩阵。
+   * @returns {EigenDecompositionResult} 具有 unitary 和 diagonal 属性的对象，分别是酉矩阵和对角矩阵。
    *
    * @example
-   * const a = //... symetric matrix
+   * const a = //... 对称矩阵
    * const result = {
    *     unitary : new Cesium.Matrix3(),
    *     diagonal : new Cesium.Matrix3()
@@ -1354,19 +1353,19 @@ class Matrix3 {
    *
    * const unitaryTranspose = Cesium.Matrix3.transpose(result.unitary, new Cesium.Matrix3());
    * const b = Cesium.Matrix3.multiply(result.unitary, result.diagonal, new Cesium.Matrix3());
-   * Cesium.Matrix3.multiply(b, unitaryTranspose, b); // b is now equal to a
+   * Cesium.Matrix3.multiply(b, unitaryTranspose, b); // b 现在等于 a
    *
-   * const lambda = Cesium.Matrix3.getColumn(result.diagonal, 0, new Cesium.Cartesian3()).x;  // first eigenvalue
-   * const v = Cesium.Matrix3.getColumn(result.unitary, 0, new Cesium.Cartesian3());          // first eigenvector
-   * const c = Cesium.Cartesian3.multiplyByScalar(v, lambda, new Cesium.Cartesian3());        // equal to Cesium.Matrix3.multiplyByVector(a, v)
+   * const lambda = Cesium.Matrix3.getColumn(result.diagonal, 0, new Cesium.Cartesian3()).x;  // 第一个特征值
+   * const v = Cesium.Matrix3.getColumn(result.unitary, 0, new Cesium.Cartesian3());          // 第一个特征向量
+   * const c = Cesium.Cartesian3.multiplyByScalar(v, lambda, new Cesium.Cartesian3());        // 等于 Cesium.Matrix3.multiplyByVector(a, v)
    */
   static computeEigenDecomposition(matrix, result) {
     //>>includeStart('debug', pragmas.debug);
     Check.typeOf.object("matrix", matrix);
     //>>includeEnd('debug');
 
-    // This routine was created based upon Matrix Computations, 3rd ed., by Golub and Van Loan,
-    // section 8.4.3 The Classical Jacobi Algorithm
+    // 此例程基于 Golub 和 Van Loan 的《矩阵计算》第 3 版，
+    // 第 8.4.3 节 经典雅可比算法（The Classical Jacobi Algorithm）
 
     const tolerance = CesiumMath.EPSILON20;
     const maxSweeps = 10;
@@ -1409,11 +1408,11 @@ class Matrix3 {
   }
 
   /**
-   * Computes a matrix, which contains the absolute (unsigned) values of the provided matrix's elements.
+   * 计算一个矩阵，其中包含提供矩阵元素的绝对（无符号）值。
    *
-   * @param {Matrix3} matrix The matrix with signed elements.
-   * @param {Matrix3} result The object onto which to store the result.
-   * @returns {Matrix3} The modified result parameter.
+   * @param {Matrix3} matrix 带有带符号元素的矩阵。
+   * @param {Matrix3} result 用于存储结果的对象。
+   * @returns {Matrix3} 修改后的结果参数。
    */
   static abs(matrix, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -1435,10 +1434,10 @@ class Matrix3 {
   }
 
   /**
-   * Computes the determinant of the provided matrix.
+   * 计算提供矩阵的行列式。
    *
-   * @param {Matrix3} matrix The matrix to use.
-   * @returns {number} The value of the determinant of the matrix.
+   * @param {Matrix3} matrix 要使用的矩阵。
+   * @returns {number} 矩阵行列式的值。
    */
   static determinant(matrix) {
     //>>includeStart('debug', pragmas.debug);
@@ -1463,13 +1462,13 @@ class Matrix3 {
   }
 
   /**
-   * Computes the inverse of the provided matrix.
+   * 计算提供矩阵的逆矩阵。
    *
-   * @param {Matrix3} matrix The matrix to invert.
-   * @param {Matrix3} result The object onto which to store the result.
-   * @returns {Matrix3} The modified result parameter.
+   * @param {Matrix3} matrix 要求逆的矩阵。
+   * @param {Matrix3} result 用于存储结果的对象。
+   * @returns {Matrix3} 修改后的结果参数。
    *
-   * @exception {DeveloperError} matrix is not invertible.
+   * @exception {DeveloperError} 矩阵不可逆。
    */
   static inverse(matrix, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -1491,7 +1490,7 @@ class Matrix3 {
 
     //>>includeStart('debug', pragmas.debug);
     if (Math.abs(determinant) <= CesiumMath.EPSILON15) {
-      throw new DeveloperError("matrix is not invertible");
+      throw new DeveloperError("矩阵不可逆");
     }
     //>>includeEnd('debug');
 
@@ -1510,11 +1509,11 @@ class Matrix3 {
   }
 
   /**
-   * Computes the inverse transpose of a matrix.
+   * 计算矩阵的逆矩阵的转置。
    *
-   * @param {Matrix3} matrix The matrix to transpose and invert.
-   * @param {Matrix3} result The object onto which to store the result.
-   * @returns {Matrix3} The modified result parameter.
+   * @param {Matrix3} matrix 要转置并求逆的矩阵。
+   * @param {Matrix3} result 用于存储结果的对象。
+   * @returns {Matrix3} 修改后的结果参数。
    */
   static inverseTranspose(matrix, result) {
     //>>includeStart('debug', pragmas.debug);
@@ -1529,12 +1528,12 @@ class Matrix3 {
   }
 
   /**
-   * Compares the provided matrices componentwise and returns
-   * <code>true</code> if they are equal, <code>false</code> otherwise.
+   * 逐分量比较提供的矩阵，如果相等则返回
+   * <code>true</code>，否则返回 <code>false</code>。
    *
-   * @param {Matrix3} [left] The first matrix.
-   * @param {Matrix3} [right] The second matrix.
-   * @returns {boolean} <code>true</code> if left and right are equal, <code>false</code> otherwise.
+   * @param {Matrix3} [left] 第一个矩阵。
+   * @param {Matrix3} [right] 第二个矩阵。
+   * @returns {boolean} 如果 left 和 right 相等则为 <code>true</code>，否则为 <code>false</code>。
    */
   static equals(left, right) {
     return (
@@ -1554,14 +1553,13 @@ class Matrix3 {
   }
 
   /**
-   * Compares the provided matrices componentwise and returns
-   * <code>true</code> if they are within the provided epsilon,
-   * <code>false</code> otherwise.
+   * 逐分量比较提供的矩阵，如果它们在提供的 epsilon 范围内则返回
+   * <code>true</code>，否则返回 <code>false</code>。
    *
-   * @param {Matrix3} [left] The first matrix.
-   * @param {Matrix3} [right] The second matrix.
-   * @param {number} [epsilon=0] The epsilon to use for equality testing.
-   * @returns {boolean} <code>true</code> if left and right are within the provided epsilon, <code>false</code> otherwise.
+   * @param {Matrix3} [left] 第一个矩阵。
+   * @param {Matrix3} [right] 第二个矩阵。
+   * @param {number} [epsilon=0] 用于相等性测试的 epsilon。
+   * @returns {boolean} 如果 left 和 right 在提供的 epsilon 范围内则为 <code>true</code>，否则为 <code>false</code>。
    */
   static equalsEpsilon(left, right, epsilon) {
     epsilon = epsilon ?? 0;
@@ -1583,7 +1581,7 @@ class Matrix3 {
   }
 
   /**
-   * Gets the number of items in the collection.
+   * 获取集合中的项目数量。
    *
    * @type {number}
    */
@@ -1592,28 +1590,28 @@ class Matrix3 {
   }
 
   /**
-   * Duplicates the provided Matrix3 instance.
+   * 复制提供的 Matrix3 实例。
    *
-   * @param {Matrix3} [result] The object onto which to store the result.
-   * @returns {Matrix3} The modified result parameter or a new Matrix3 instance if one was not provided.
+   * @param {Matrix3} [result] 用于存储结果的对象。
+   * @returns {Matrix3} 修改后的结果参数，如果未提供则返回新的 Matrix3 实例。
    */
   clone(result) {
     return Matrix3.clone(this, result);
   }
 
   /**
-   * Compares this matrix to the provided matrix componentwise and returns
-   * <code>true</code> if they are equal, <code>false</code> otherwise.
+   * 逐分量比较此矩阵与提供的矩阵，如果
+   * 相等则返回 <code>true</code>，否则返回 <code>false</code>。
    *
-   * @param {Matrix3} [right] The right hand side matrix.
-   * @returns {boolean} <code>true</code> if they are equal, <code>false</code> otherwise.
+   * @param {Matrix3} [right] 右侧矩阵。
+   * @returns {boolean} 如果相等则为 <code>true</code>，否则为 <code>false</code>。
    */
   equals(right) {
     return Matrix3.equals(this, right);
   }
 
   /**
-   * Compares provided matrix and array, starting from a given array offset.
+   * 比较提供的矩阵和数组，从给定的数组偏移量开始。
    *
    * @param {Matrix3} matrix
    * @param {number[]} array
@@ -1635,23 +1633,23 @@ class Matrix3 {
   }
 
   /**
-   * Compares this matrix to the provided matrix componentwise and returns
-   * <code>true</code> if they are within the provided epsilon,
-   * <code>false</code> otherwise.
+   * 逐分量比较此矩阵与提供的矩阵，如果
+   * 它们在提供的 epsilon 范围内则返回 <code>true</code>，
+   * 否则返回 <code>false</code>。
    *
-   * @param {Matrix3} [right] The right hand side matrix.
-   * @param {number} [epsilon=0] The epsilon to use for equality testing.
-   * @returns {boolean} <code>true</code> if they are within the provided epsilon, <code>false</code> otherwise.
+   * @param {Matrix3} [right] 右侧矩阵。
+   * @param {number} [epsilon=0] 用于相等性测试的 epsilon。
+   * @returns {boolean} 如果它们在提供的 epsilon 范围内则为 <code>true</code>，否则为 <code>false</code>。
    */
   equalsEpsilon(right, epsilon) {
     return Matrix3.equalsEpsilon(this, right, epsilon);
   }
 
   /**
-   * Creates a string representing this Matrix with each row being
-   * on a separate line and in the format '(column0, column1, column2)'.
+   * 创建表示此矩阵的字符串，每行位于
+   * 单独的一行，格式为 '(column0, column1, column2)'。
    *
-   * @returns {string} A string representing the provided Matrix with each row being on a separate line and in the format '(column0, column1, column2)'.
+   * @returns {string} 表示此矩阵的字符串，每行位于单独的一行，格式为 '(column0, column1, column2)'。
    */
   toString() {
     return (
@@ -1663,22 +1661,22 @@ class Matrix3 {
 }
 
 /**
- * The number of elements used to pack the object into an array.
+ * 将对象打包到数组中时使用的元素数量。
  * @type {number}
  */
 Matrix3.packedLength = 9;
 
 /**
- * Creates a Matrix3 from 9 consecutive elements in an array.
+ * 从数组中 9 个连续元素创建 Matrix3。
  *
  * @function
- * @param {number[]} array The array whose 9 consecutive elements correspond to the positions of the matrix.  Assumes column-major order.
- * @param {number} [startingIndex=0] The offset into the array of the first element, which corresponds to first column first row position in the matrix.
- * @param {Matrix3} [result] The object onto which to store the result.
- * @returns {Matrix3} The modified result parameter or a new Matrix3 instance if one was not provided.
+ * @param {number[]} array 数组，其 9 个连续元素对应矩阵的位置。假设为列主序。
+ * @param {number} [startingIndex=0] 数组中第一个元素的偏移量，对应矩阵的第一列第一行位置。
+ * @param {Matrix3} [result] 用于存储结果的对象。
+ * @returns {Matrix3} 修改后的结果参数，如果未提供则返回新的 Matrix3 实例。
  *
  * @example
- * // Create the Matrix3:
+ * // 创建 Matrix3:
  * // [1.0, 2.0, 3.0]
  * // [1.0, 2.0, 3.0]
  * // [1.0, 2.0, 3.0]
@@ -1686,14 +1684,14 @@ Matrix3.packedLength = 9;
  * const v = [1.0, 1.0, 1.0, 2.0, 2.0, 2.0, 3.0, 3.0, 3.0];
  * const m = Cesium.Matrix3.fromArray(v);
  *
- * // Create same Matrix3 with using an offset into an array
+ * // 使用数组中的偏移量创建相同的 Matrix3
  * const v2 = [0.0, 0.0, 1.0, 1.0, 1.0, 2.0, 2.0, 2.0, 3.0, 3.0, 3.0];
  * const m2 = Cesium.Matrix3.fromArray(v2, 2);
  */
 Matrix3.fromArray = Matrix3.unpack;
 
 /**
- * An immutable Matrix3 instance initialized to the identity matrix.
+ * 初始化为单位矩阵的不可变 Matrix3 实例。
  *
  * @type {Matrix3}
  * @constant
@@ -1703,7 +1701,7 @@ Matrix3.IDENTITY = Object.freeze(
 );
 
 /**
- * An immutable Matrix3 instance initialized to the zero matrix.
+ * 初始化为零矩阵的不可变 Matrix3 实例。
  *
  * @type {Matrix3}
  * @constant
@@ -1713,7 +1711,7 @@ Matrix3.ZERO = Object.freeze(
 );
 
 /**
- * The index into Matrix3 for column 0, row 0.
+ * Matrix3 中第 0 列第 0 行的索引。
  *
  * @type {number}
  * @constant
@@ -1721,7 +1719,7 @@ Matrix3.ZERO = Object.freeze(
 Matrix3.COLUMN0ROW0 = 0;
 
 /**
- * The index into Matrix3 for column 0, row 1.
+ * Matrix3 中第 0 列第 1 行的索引。
  *
  * @type {number}
  * @constant
@@ -1729,7 +1727,7 @@ Matrix3.COLUMN0ROW0 = 0;
 Matrix3.COLUMN0ROW1 = 1;
 
 /**
- * The index into Matrix3 for column 0, row 2.
+ * Matrix3 中第 0 列第 2 行的索引。
  *
  * @type {number}
  * @constant
@@ -1737,7 +1735,7 @@ Matrix3.COLUMN0ROW1 = 1;
 Matrix3.COLUMN0ROW2 = 2;
 
 /**
- * The index into Matrix3 for column 1, row 0.
+ * Matrix3 中第 1 列第 0 行的索引。
  *
  * @type {number}
  * @constant
@@ -1745,7 +1743,7 @@ Matrix3.COLUMN0ROW2 = 2;
 Matrix3.COLUMN1ROW0 = 3;
 
 /**
- * The index into Matrix3 for column 1, row 1.
+ * Matrix3 中第 1 列第 1 行的索引。
  *
  * @type {number}
  * @constant
@@ -1753,7 +1751,7 @@ Matrix3.COLUMN1ROW0 = 3;
 Matrix3.COLUMN1ROW1 = 4;
 
 /**
- * The index into Matrix3 for column 1, row 2.
+ * Matrix3 中第 1 列第 2 行的索引。
  *
  * @type {number}
  * @constant
@@ -1761,7 +1759,7 @@ Matrix3.COLUMN1ROW1 = 4;
 Matrix3.COLUMN1ROW2 = 5;
 
 /**
- * The index into Matrix3 for column 2, row 0.
+ * Matrix3 中第 2 列第 0 行的索引。
  *
  * @type {number}
  * @constant
@@ -1769,7 +1767,7 @@ Matrix3.COLUMN1ROW2 = 5;
 Matrix3.COLUMN2ROW0 = 6;
 
 /**
- * The index into Matrix3 for column 2, row 1.
+ * Matrix3 中第 2 列第 1 行的索引。
  *
  * @type {number}
  * @constant
@@ -1777,7 +1775,7 @@ Matrix3.COLUMN2ROW0 = 6;
 Matrix3.COLUMN2ROW1 = 7;
 
 /**
- * The index into Matrix3 for column 2, row 2.
+ * Matrix3 中第 2 列第 2 行的索引。
  *
  * @type {number}
  * @constant
@@ -1818,8 +1816,8 @@ const colVal = [2, 2, 1];
  * @ignore
  */
 function offDiagonalFrobeniusNorm(matrix) {
-  // Computes the "off-diagonal" Frobenius norm.
-  // Assumes matrix is symmetric.
+  // 计算"非对角线"弗罗贝尼乌斯范数。
+  // 假设矩阵是对称的。
 
   let norm = 0.0;
   for (let i = 0; i < 3; ++i) {
@@ -1832,12 +1830,12 @@ function offDiagonalFrobeniusNorm(matrix) {
 }
 
 /**
- * This routine was created based upon Matrix Computations, 3rd ed., by Golub and Van Loan,
- * section 8.4.2 The 2by2 Symmetric Schur Decomposition.
+ * 此例程基于 Golub 和 Van Loan 的《矩阵计算》第 3 版，
+ * 第 8.4.2 节 2x2 对称舒尔分解（The 2by2 Symmetric Schur Decomposition）。
  *
- * The routine takes a matrix, which is assumed to be symmetric, and
- * finds the largest off-diagonal term, and then creates
- * a matrix (result) which can be used to help reduce it
+ * 该例程接受一个假设为对称的矩阵，
+ * 找到最大的非对角线项，然后创建
+ * 一个可用于帮助缩减它的矩阵（result）
  *
  * @param {Matrix3} matrix
  * @param {Matrix3} result
@@ -1849,7 +1847,7 @@ function shurDecomposition(matrix, result) {
   let maxDiagonal = 0.0;
   let rotAxis = 1;
 
-  // find pivot (rotAxis) based on max diagonal of matrix
+  // 基于矩阵的最大对角线查找主元（rotAxis）
   for (let i = 0; i < 3; ++i) {
     const temp = Math.abs(
       // @ts-expect-error TODO(tsd-jsdoc): Requires index signature support.

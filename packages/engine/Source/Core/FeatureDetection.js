@@ -377,10 +377,10 @@ FeatureDetection.supportsWebAssembly = function () {
 };
 
 /**
- * Detects whether the current browser supports a WebGL2 rendering context for the specified scene.
+ * 检测当前浏览器是否支持指定场景的 WebGL2 渲染上下文。
  *
- * @param {Scene} scene the Cesium scene specifying the rendering context
- * @returns {boolean} true if the browser supports a WebGL2 rendering context, false if not.
+ * @param {Scene} scene 指定渲染上下文的 Cesium 场景。
+ * @returns {boolean} 如果浏览器支持 WebGL2 渲染上下文则返回 true，否则返回 false。
  *
  * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/WebGL2RenderingContext|WebGL2RenderingContext}
  */
@@ -393,8 +393,8 @@ FeatureDetection.supportsWebgl2 = function (scene) {
 };
 
 /**
- * Detects whether the current browser supports ECMAScript modules in web workers.
- * @returns {boolean} true if the browser supports ECMAScript modules in web workers.
+ * 检测当前浏览器是否支持 Web Workers 中的 ECMAScript 模块。
+ * @returns {boolean} 如果浏览器支持 Web Workers 中的 ECMAScript 模块则返回 true。
  * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/Worker|Worker}
  */
 FeatureDetection.supportsEsmWebWorkers = function () {

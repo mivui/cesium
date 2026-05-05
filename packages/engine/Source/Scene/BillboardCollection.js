@@ -337,9 +337,8 @@ function BillboardCollection(options) {
 
 Object.defineProperties(BillboardCollection.prototype, {
   /**
-   * Returns the number of billboards in this collection.  This is commonly used with
-   * {@link BillboardCollection#get} to iterate over all the billboards
-   * in the collection.
+   * 返回此集合中广告牌的数量。通常与
+   * {@link BillboardCollection#get} 配合使用以遍历集合中的所有广告牌。
    * @memberof BillboardCollection.prototype
    * @type {number}
    * @readonly
@@ -447,14 +446,14 @@ Object.defineProperties(BillboardCollection.prototype, {
   },
 
   /**
-   * The distance from the camera, beyond which, billboards are depth-tested against an approximation of
-   * the globe ellipsoid rather than against the full globe depth buffer. When set to <code>0</code>, the
-   * approximate depth test is always applied. When set to <code>Number.POSITIVE_INFINITY</code>, the
-   * approximate depth test is never applied.
+   * 从相机到此距离之外，广告牌将针对地球椭球体的近似值进行深度测试，
+   * 而不是针对完整的地球深度缓冲区。当设置为 <code>0</code> 时，
+   * 始终应用近似深度测试。当设置为 <code>Number.POSITIVE_INFINITY</code> 时，
+   * 从不应用近似深度测试。
    * <br/><br/>
-   * This setting only applies when a billboard's {@link Billboard#disableDepthTestDistance} value would
-   * otherwise allow depth testing—i.e., distance from the camera to the billboard is less than a
-   * billboard's {@link Billboard#disableDepthTestDistance} value.
+   * 此设置仅当广告牌的 {@link Billboard#disableDepthTestDistance} 值
+   * 允许深度测试时才适用——即从相机到广告牌的距离小于
+   * 广告牌的 {@link Billboard#disableDepthTestDistance} 值。
    * @memberof BillboardCollection.prototype
    * @type {number}
    */
@@ -471,15 +470,15 @@ Object.defineProperties(BillboardCollection.prototype, {
   },
 
   /**
-   * The distance from the camera, within which, billboards with a {@link Billboard#heightReference} value
-   * of {@link HeightReference.CLAMP_TO_GROUND} or {@link HeightReference.CLAMP_TO_TERRAIN} are depth tested
-   * against three key points. This ensures that if any key point of the billboard is visible, the whole
-   * billboard will be visible. When set to <code>0</code>, this feature is disabled and portions of a
-   * billboards behind terrain be clipped.
+   * 从相机到此距离之内，具有 {@link Billboard#heightReference} 值
+   * {@link HeightReference.CLAMP_TO_GROUND} 或 {@link HeightReference.CLAMP_TO_TERRAIN} 的
+   * 广告牌将针对三个关键点进行深度测试。这确保了如果广告牌的任何关键点可见，
+   * 则整个广告牌都将可见。当设置为 <code>0</code> 时，此功能被禁用，
+   * 地形后方的广告牌部分将被裁剪。
    * <br/><br/>
-   * This setting only applies when a billboard's {@link Billboard#disableDepthTestDistance} value would
-   * otherwise allow depth testing—i.e., distance from the camera to the billboard is less than a
-   * billboard's {@link Billboard#disableDepthTestDistance} value.
+   * 此设置仅当广告牌的 {@link Billboard#disableDepthTestDistance} 值
+   * 允许深度测试时才适用——即从相机到广告牌的距离小于
+   * 广告牌的 {@link Billboard#disableDepthTestDistance} 值。
    * @see {@link https://cesium.com/blog/2018/07/30/billboards-on-terrain-improvements/|Billboards and Labels on Terrain Improvements}
    * @memberof BillboardCollection.prototype
    * @type {number}
@@ -507,21 +506,21 @@ function destroyBillboards(billboards) {
 }
 
 /**
- * Creates and adds a billboard with the specified initial properties to the collection.
- * The added billboard is returned so it can be modified or removed from the collection later.
+ * 创建并向集合中添加具有指定初始属性的广告牌。
+ * 返回添加的广告牌，以便稍后可以修改或从集合中移除。
  *
- * @param {Billboard.ConstructorOptions}[options] A template describing the billboard's properties as shown in Example 1.
- * @returns {Billboard} The billboard that was added to the collection.
+ * @param {Billboard.ConstructorOptions}[options] 描述广告牌属性的模板，如示例 1 所示。
+ * @returns {Billboard} 添加到集合的广告牌。
  *
- * @performance Calling <code>add</code> is expected constant time.  However, the collection's vertex buffer
- * is rewritten - an <code>O(n)</code> operation that also incurs CPU to GPU overhead.  For
- * best performance, add as many billboards as possible before calling <code>update</code>.
+ * @performance 调用 <code>add</code> 预期为常数时间。但是，集合的顶点缓冲区
+ * 会被重写——这是一个 <code>O(n)</code> 操作，也会产生 CPU 到 GPU 的开销。为了
+ * 获得最佳性能，请在调用 <code>update</code> 之前尽可能多地添加广告牌。
  *
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 此对象已被销毁，即调用了 destroy()。
  *
  *
  * @example
- * // Example 1:  Add a billboard, specifying all the default values.
+ * // 示例 1：添加广告牌，指定所有默认值。
  * const b = billboards.add({
  *   show : true,
  *   position : Cesium.Cartesian3.ZERO,
@@ -547,7 +546,7 @@ function destroyBillboards(billboards) {
  * });
  *
  * @example
- * // Example 2:  Specify only the billboard's cartographic position.
+ * // 示例 2：仅指定广告牌的笛卡尔坐标位置。
  * const b = billboards.add({
  *   position : Cesium.Cartesian3.fromDegrees(longitude, latitude, height)
  * });
@@ -566,23 +565,23 @@ BillboardCollection.prototype.add = function (options) {
 };
 
 /**
- * Removes a billboard from the collection.
+ * 从集合中移除一个广告牌。
  *
- * @param {Billboard} billboard The billboard to remove.
- * @returns {boolean} <code>true</code> if the billboard was removed; <code>false</code> if the billboard was not found in the collection.
+ * @param {Billboard} billboard 要移除的广告牌。
+ * @returns {boolean} 如果广告牌被移除则返回 <code>true</code>；如果在集合中未找到广告牌则返回 <code>false</code>。
  *
- * @performance Calling <code>remove</code> is expected constant time.  However, the collection's vertex buffer
- * is rewritten - an <code>O(n)</code> operation that also incurs CPU to GPU overhead.  For
- * best performance, remove as many billboards as possible before calling <code>update</code>.
- * If you intend to temporarily hide a billboard, it is usually more efficient to call
- * {@link Billboard#show} instead of removing and re-adding the billboard.
+ * @performance 调用 <code>remove</code> 预期为常数时间。但是，集合的顶点缓冲区
+ * 会被重写——这是一个 <code>O(n)</code> 操作，也会产生 CPU 到 GPU 的开销。为了
+ * 获得最佳性能，请在调用 <code>update</code> 之前尽可能多地移除广告牌。
+ * 如果打算临时隐藏广告牌，通常调用
+ * {@link Billboard#show} 比移除并重新添加广告牌更高效。
  *
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 此对象已被销毁，即调用了 destroy()。
  *
  *
  * @example
  * const b = billboards.add(...);
- * billboards.remove(b);  // Returns true
+ * billboards.remove(b);  // 返回 true
  *
  * @see BillboardCollection#add
  * @see BillboardCollection#removeAll
@@ -601,12 +600,12 @@ BillboardCollection.prototype.remove = function (billboard) {
 };
 
 /**
- * Removes all billboards from the collection.
+ * 从集合中移除所有广告牌。
  *
- * @performance <code>O(n)</code>.  It is more efficient to remove all the billboards
- * from a collection and then add new ones than to create a new collection entirely.
+ * @performance <code>O(n)</code>。从集合中移除所有广告牌
+ * 然后添加新的广告牌，比完全创建一个新集合更高效。
  *
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 此对象已被销毁，即调用了 destroy()。
  *
  *
  * @example
@@ -658,10 +657,10 @@ BillboardCollection.prototype._updateBillboard = function (
 };
 
 /**
- * Check whether this collection contains a given billboard.
+ * 检查此集合是否包含给定的广告牌。
  *
- * @param {Billboard} [billboard] The billboard to check for.
- * @returns {boolean} true if this collection contains the billboard, false otherwise.
+ * @param {Billboard} [billboard] 要检查的广告牌。
+ * @returns {boolean} 如果此集合包含该广告牌则返回 true，否则返回 false。
  *
  * @see BillboardCollection#get
  */
@@ -670,24 +669,23 @@ BillboardCollection.prototype.contains = function (billboard) {
 };
 
 /**
- * Returns the billboard in the collection at the specified index.  Indices are zero-based
- * and increase as billboards are added.  Removing a billboard shifts all billboards after
- * it to the left, changing their indices.  This function is commonly used with
- * {@link BillboardCollection#length} to iterate over all the billboards
- * in the collection.
+ * 返回集合中指定索引处的广告牌。索引从零开始
+ * 并随着广告牌的添加而增加。移除广告牌会将其后的所有广告牌
+ * 向左移动，从而改变它们的索引。此函数通常与
+ * {@link BillboardCollection#length} 配合使用以遍历集合中的所有广告牌。
  *
- * @param {number} index The zero-based index of the billboard.
- * @returns {Billboard} The billboard at the specified index.
+ * @param {number} index 广告牌的从零开始的索引。
+ * @returns {Billboard} 指定索引处的广告牌。
  *
- * @performance Expected constant time.  If billboards were removed from the collection and
- * {@link BillboardCollection#update} was not called, an implicit <code>O(n)</code>
- * operation is performed.
+ * @performance 预期为常数时间。如果从集合中移除了广告牌且
+ * 未调用 {@link BillboardCollection#update}，则会执行隐式的 <code>O(n)</code>
+ * 操作。
  *
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 此对象已被销毁，即调用了 destroy()。
  *
  *
  * @example
- * // Toggle the show property of every billboard in the collection
+ * // 切换集合中每个广告牌的 show 属性
  * const len = billboards.length;
  * for (let i = 0; i < len; ++i) {
  *   const b = billboards.get(i);
@@ -1548,14 +1546,14 @@ function createDebugCommand(billboardCollection, context) {
 const scratchWriterArray = [];
 
 /**
- * Called when {@link Viewer} or {@link CesiumWidget} render the scene to
- * get the draw commands needed to render this primitive.
+ * 当 {@link Viewer} 或 {@link CesiumWidget} 渲染场景以
+ * 获取渲染此图元所需的绘制命令时调用。
  * <p>
- * Do not call this function directly.  This is documented just to
- * list the exceptions that may be propagated when the scene is rendered:
+ * 请勿直接调用此函数。此处记录仅用于
+ * 列出渲染场景时可能传播的异常：
  * </p>
  *
- * @exception {RuntimeError} image with id must be in the atlas.
+ * @exception {RuntimeError} 具有 id 的图像必须在图集中。
  */
 BillboardCollection.prototype.update = function (frameState) {
   removeBillboards(this);
@@ -2098,12 +2096,12 @@ BillboardCollection.prototype.update = function (frameState) {
 };
 
 /**
- * Returns true if this object was destroyed; otherwise, false.
+ * 如果此对象已被销毁则返回 true；否则返回 false。
  * <br /><br />
- * If this object was destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.
+ * 如果此对象已被销毁，则不应使用；调用除
+ * <code>isDestroyed</code> 之外的任何函数都将导致 {@link DeveloperError} 异常。
  *
- * @returns {boolean} <code>true</code> if this object was destroyed; otherwise, <code>false</code>.
+ * @returns {boolean} 如果此对象已被销毁则返回 <code>true</code>；否则返回 <code>false</code>。
  *
  * @see BillboardCollection#destroy
  */
@@ -2112,14 +2110,14 @@ BillboardCollection.prototype.isDestroyed = function () {
 };
 
 /**
- * Destroys the WebGL resources held by this object.  Destroying an object allows for deterministic
- * release of WebGL resources, instead of relying on the garbage collector to destroy this object.
+ * 销毁此对象持有的 WebGL 资源。销毁对象可以确定性地
+ * 释放 WebGL 资源，而不是依赖垃圾回收器来销毁此对象。
  * <br /><br />
- * Once an object is destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.  Therefore,
- * assign the return value (<code>undefined</code>) to the object as done in the example.
+ * 对象销毁后，不应再使用；调用除
+ * <code>isDestroyed</code> 之外的任何函数都将导致 {@link DeveloperError} 异常。因此，
+ * 如示例所示，将返回值（<code>undefined</code>）赋给该对象。
  *
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 此对象已被销毁，即调用了 destroy()。
  *
  *
  * @example

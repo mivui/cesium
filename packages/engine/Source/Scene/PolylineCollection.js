@@ -63,29 +63,24 @@ const attributeLocations = {
 };
 
 /**
- * A renderable collection of polylines.
+ * 可渲染的折线集合。
  * <br /><br />
  * <div align="center">
  * <img src="Images/Polyline.png" width="400" height="300" /><br />
- * Example polylines
+ * 折线示例
  * </div>
  * <br /><br />
- * Polylines are added and removed from the collection using {@link PolylineCollection#add}
- * and {@link PolylineCollection#remove}.
+ * 使用 {@link PolylineCollection#add} 和 {@link PolylineCollection#remove} 向集合中添加或移除折线。
  *
  * @alias PolylineCollection
  * @constructor
  *
- * @param {object} [options] Object with the following properties:
- * @param {Matrix4} [options.modelMatrix=Matrix4.IDENTITY] The 4x4 transformation matrix that transforms each polyline from model to world coordinates.
- * @param {boolean} [options.debugShowBoundingVolume=false] For debugging only. Determines if this primitive's commands' bounding spheres are shown.
- * @param {boolean} [options.show=true] Determines if the polylines in the collection will be shown.
+ * @param {object} [options] 包含以下属性的对象：
+ * @param {Matrix4} [options.modelMatrix=Matrix4.IDENTITY] 将每条折线从模型坐标转换为世界坐标的 4x4 变换矩阵。
+ * @param {boolean} [options.debugShowBoundingVolume=false] 仅用于调试。确定是否显示此图元的命令的包围球。
+ * @param {boolean} [options.show=true] 确定是否显示集合中的折线。
  *
- * @performance For best performance, prefer a few collections, each with many polylines, to
- * many collections with only a few polylines each.  Organize collections so that polylines
- * with the same update frequency are in the same collection, i.e., polylines that do not
- * change should be in one collection; polylines that change every frame should be in another
- * collection; and so on.
+ * @performance 为获得最佳性能，建议使用少量集合，每个集合包含多条折线，而非多个集合各包含少量折线。请将更新频率相同的折线组织在同一个集合中，即不变化的折线应放在一个集合中；每帧都变化的折线应放在另一个集合中；以此类推。
  *
  * @see PolylineCollection#add
  * @see PolylineCollection#remove
@@ -93,7 +88,7 @@ const attributeLocations = {
  * @see LabelCollection
  *
  * @example
- * // Create a polyline collection with two polylines
+ * // 创建包含两条折线的折线集合
  * const polylines = new Cesium.PolylineCollection();
  * polylines.add({
  *   positions : Cesium.Cartesian3.fromDegreesArray([
@@ -117,7 +112,7 @@ function PolylineCollection(options) {
   options = options ?? Frozen.EMPTY_OBJECT;
 
   /**
-   * Determines if polylines in this collection will be shown.
+   * 确定是否显示此集合中的折线。
    *
    * @type {boolean}
    * @default true
@@ -125,10 +120,9 @@ function PolylineCollection(options) {
   this.show = options.show ?? true;
 
   /**
-   * The 4x4 transformation matrix that transforms each polyline in this collection from model to world coordinates.
-   * When this is the identity matrix, the polylines are drawn in world coordinates, i.e., Earth's WGS84 coordinates.
-   * Local reference frames can be used by providing a different transformation matrix, like that returned
-   * by {@link Transforms.eastNorthUpToFixedFrame}.
+   * 将集合中每条折线从模型坐标转换为世界坐标的 4x4 变换矩阵。
+   * 当此矩阵为单位矩阵时，折线将绘制在世界坐标中，即地球的 WGS84 坐标。
+   * 可以通过提供不同的变换矩阵来使用局部参考系，例如 {@link Transforms.eastNorthUpToFixedFrame} 返回的矩阵。
    *
    * @type {Matrix4}
    * @default {@link Matrix4.IDENTITY}
@@ -137,9 +131,9 @@ function PolylineCollection(options) {
   this._modelMatrix = Matrix4.clone(Matrix4.IDENTITY);
 
   /**
-   * This property is for debugging only; it is not for production use nor is it optimized.
+   * 此属性仅用于调试，不适用于生产环境，也未经过优化。
    * <p>
-   * Draws the bounding sphere for each draw command in the primitive.
+   * 绘制图元中每个绘制命令的包围球。
    * </p>
    *
    * @type {boolean}
@@ -190,9 +184,7 @@ function PolylineCollection(options) {
 
 Object.defineProperties(PolylineCollection.prototype, {
   /**
-   * Returns the number of polylines in this collection.  This is commonly used with
-   * {@link PolylineCollection#get} to iterate over all the polylines
-   * in the collection.
+   * 返回此集合中的折线数量。通常与 {@link PolylineCollection#get} 配合使用，以遍历集合中的所有折线。
    * @memberof PolylineCollection.prototype
    * @type {number}
    */
@@ -205,26 +197,26 @@ Object.defineProperties(PolylineCollection.prototype, {
 });
 
 /**
-     * Creates and adds a polyline with the specified initial properties to the collection.
-     * The added polyline is returned so it can be modified or removed from the collection later.
+     * 创建并将具有指定初始属性的折线添加到集合中。
+     * 返回添加的折线，以便稍后修改或从集合中移除。
      *
-     * @param {object}[options] A template describing the polyline's properties as shown in Example 1.
-     * @returns {Polyline} The polyline that was added to the collection.
+     * @param {object}[options] 描述折线属性的模板，如示例1所示。
+     * @returns {Polyline} 添加到集合中的折线。
      *
-     * @performance After calling <code>add</code>, {@link PolylineCollection#update} is called and
-     * the collection's vertex buffer is rewritten - an <code>O(n)</code> operation that also incurs CPU to GPU overhead.
-     * For best performance, add as many polylines as possible before calling <code>update</code>.
+     * @performance 调用 <code>add</code> 后，会调用 {@link PolylineCollection#update} 并
+     * 重写集合的顶点缓冲区——这是一个 <code>O(n)</code> 操作，还会产生 CPU 到 GPU 的开销。
+     * 为获得最佳性能，请在调用 <code>update</code> 之前尽可能多地添加折线。
      *
-     * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+     * @exception {DeveloperError} 此对象已被销毁，即已调用 destroy()。
      *
      *
      * @example
-     * // Example 1:  Add a polyline, specifying all the default values.
+     * // 示例1：添加一条折线，指定所有默认值。
      * const p = polylines.add({
      *   show : true,
      *   positions : ellipsoid.cartographicArrayToCartesianArray([
-           Cesium.Cartographic.fromDegrees(-75.10, 39.57),
-           Cesium.Cartographic.fromDegrees(-77.02, 38.53)]),
+            Cesium.Cartographic.fromDegrees(-75.10, 39.57),
+            Cesium.Cartographic.fromDegrees(-77.02, 38.53)]),
      *   width : 1
      * });
      *
@@ -242,23 +234,23 @@ PolylineCollection.prototype.add = function (options) {
 };
 
 /**
- * Removes a polyline from the collection.
+ * 从集合中移除一条折线。
  *
- * @param {Polyline} polyline The polyline to remove.
- * @returns {boolean} <code>true</code> if the polyline was removed; <code>false</code> if the polyline was not found in the collection.
+ * @param {Polyline} polyline 要移除的折线。
+ * @returns {boolean} 如果折线已被移除则返回 <code>true</code>；如果未在集合中找到折线则返回 <code>false</code>。
  *
- * @performance After calling <code>remove</code>, {@link PolylineCollection#update} is called and
- * the collection's vertex buffer is rewritten - an <code>O(n)</code> operation that also incurs CPU to GPU overhead.
- * For best performance, remove as many polylines as possible before calling <code>update</code>.
- * If you intend to temporarily hide a polyline, it is usually more efficient to call
- * {@link Polyline#show} instead of removing and re-adding the polyline.
+ * @performance 调用 <code>remove</code> 后，会调用 {@link PolylineCollection#update} 并
+ * 重写集合的顶点缓冲区——这是一个 <code>O(n)</code> 操作，还会产生 CPU 到 GPU 的开销。
+ * 为获得最佳性能，请在调用 <code>update</code> 之前尽可能多地移除折线。
+ * 如果打算临时隐藏一条折线，通常更高效的方法是调用
+ * {@link Polyline#show}，而不是移除后重新添加折线。
  *
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 此对象已被销毁，即已调用 destroy()。
  *
  *
  * @example
  * const p = polylines.add(...);
- * polylines.remove(p);  // Returns true
+ * polylines.remove(p);  // 返回 true
  *
  * @see PolylineCollection#add
  * @see PolylineCollection#removeAll
@@ -283,12 +275,12 @@ PolylineCollection.prototype.remove = function (polyline) {
 };
 
 /**
- * Removes all polylines from the collection.
+ * 从集合中移除所有折线。
  *
- * @performance <code>O(n)</code>.  It is more efficient to remove all the polylines
- * from a collection and then add new ones than to create a new collection entirely.
+ * @performance <code>O(n)</code>。从集合中移除所有折线后再添加新折线，
+ * 比完全创建新集合更高效。
  *
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 此对象已被销毁，即已调用 destroy()。
  *
  *
  * @example
@@ -311,10 +303,10 @@ PolylineCollection.prototype.removeAll = function () {
 };
 
 /**
- * Determines if this collection contains the specified polyline.
+ * 确定此集合是否包含指定的折线。
  *
- * @param {Polyline} polyline The polyline to check for.
- * @returns {boolean} true if this collection contains the polyline, false otherwise.
+ * @param {Polyline} polyline 要检查的折线。
+ * @returns {boolean} 如果此集合包含该折线则返回 true，否则返回 false。
  *
  * @see PolylineCollection#get
  */
@@ -323,23 +315,20 @@ PolylineCollection.prototype.contains = function (polyline) {
 };
 
 /**
- * Returns the polyline in the collection at the specified index.  Indices are zero-based
- * and increase as polylines are added.  Removing a polyline shifts all polylines after
- * it to the left, changing their indices.  This function is commonly used with
- * {@link PolylineCollection#length} to iterate over all the polylines
- * in the collection.
+ * 返回集合中指定索引处的折线。索引从零开始，
+ * 并随着折线的添加而增加。移除折线会将其后的所有折线向左移动，改变它们的索引。
+ * 此函数通常与 {@link PolylineCollection#length} 配合使用，以遍历集合中的所有折线。
  *
- * @param {number} index The zero-based index of the polyline.
- * @returns {Polyline} The polyline at the specified index.
+ * @param {number} index 折线的从零开始的索引。
+ * @returns {Polyline} 指定索引处的折线。
  *
- * @performance If polylines were removed from the collection and
- * {@link PolylineCollection#update} was not called, an implicit <code>O(n)</code>
- * operation is performed.
+ * @performance 如果从集合中移除了折线且未调用
+ * {@link PolylineCollection#update}，则会执行一个隐式的 <code>O(n)</code> 操作。
  *
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 此对象已被销毁，即已调用 destroy()。
  *
  * @example
- * // Toggle the show property of every polyline in the collection
+ * // 切换集合中每条折线的 show 属性
  * const len = polylines.length;
  * for (let i = 0; i < len; ++i) {
  *   const p = polylines.get(i);
@@ -405,14 +394,14 @@ const scratchUpdatePolylineCartesian4 = new Cartesian4();
 const scratchNearFarCartesian2 = new Cartesian2();
 
 /**
- * Called when {@link Viewer} or {@link CesiumWidget} render the scene to
- * get the draw commands needed to render this primitive.
+ * 当 {@link Viewer} 或 {@link CesiumWidget} 渲染场景时调用，
+ * 以获取渲染此图元所需的绘制命令。
  * <p>
- * Do not call this function directly.  This is documented just to
- * list the exceptions that may be propagated when the scene is rendered:
+ * 请勿直接调用此函数。此处记录仅为列出
+ * 渲染场景时可能传播的异常：
  * </p>
  *
- * @exception {RuntimeError} Vertex texture fetch support is required to render primitives with per-instance attributes. The maximum number of vertex texture image units must be greater than zero.
+ * @exception {RuntimeError} 渲染具有每实例属性的图元需要顶点纹理获取支持。顶点纹理图像单元的最大数量必须大于零。
  */
 PolylineCollection.prototype.update = function (frameState) {
   removePolylines(this);
@@ -775,12 +764,12 @@ function createCommandLists(
 }
 
 /**
- * Returns true if this object was destroyed; otherwise, false.
+ * 如果此对象已被销毁则返回 true，否则返回 false。
  * <br /><br />
- * If this object was destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.
+ * 如果此对象已被销毁，则不应使用它；调用除
+ * <code>isDestroyed</code> 之外的任何函数都会导致 {@link DeveloperError} 异常。
  *
- * @returns {boolean} <code>true</code> if this object was destroyed; otherwise, <code>false</code>.
+ * @returns {boolean} 如果此对象已被销毁则返回 <code>true</code>，否则返回 <code>false</code>。
  *
  * @see PolylineCollection#destroy
  */
@@ -789,14 +778,14 @@ PolylineCollection.prototype.isDestroyed = function () {
 };
 
 /**
- * Destroys the WebGL resources held by this object.  Destroying an object allows for deterministic
- * release of WebGL resources, instead of relying on the garbage collector to destroy this object.
+ * 销毁此对象持有的 WebGL 资源。销毁对象可以确定性地
+ * 释放 WebGL 资源，而不是依赖垃圾回收器来销毁此对象。
  * <br /><br />
- * Once an object is destroyed, it should not be used; calling any function other than
- * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.  Therefore,
- * assign the return value (<code>undefined</code>) to the object as done in the example.
+ * 一旦对象被销毁，就不应使用它；调用除
+ * <code>isDestroyed</code> 之外的任何函数都会导致 {@link DeveloperError} 异常。因此，
+ * 应像示例中那样将返回值（<code>undefined</code>）赋给对象。
  *
- * @exception {DeveloperError} This object was destroyed, i.e., destroy() was called.
+ * @exception {DeveloperError} 此对象已被销毁，即已调用 destroy()。
  *
  *
  * @example
