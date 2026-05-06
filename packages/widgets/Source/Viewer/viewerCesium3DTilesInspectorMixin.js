@@ -2,12 +2,11 @@ import { Check } from "@cesium/engine";
 import Cesium3DTilesInspector from "../Cesium3DTilesInspector/Cesium3DTilesInspector.js";
 
 /**
- * A mixin which adds the {@link Cesium3DTilesInspector} widget to the {@link Viewer} widget.
- * Rather than being called directly, this function is normally passed as
- * a parameter to {@link Viewer#extend}, as shown in the example below.
+ * 一个将 {@link Cesium3DTilesInspector} 小部件添加到 {@link Viewer} 小部件的 mixin。
+ * 此函数通常不直接调用，而是作为参数传递给 {@link Viewer#extend}，如下面的示例所示。
  * @function
  *
- * @param {Viewer} viewer The viewer instance.
+ * @param {Viewer} viewer 查看器实例。
  *
  * @example
  * const viewer = new Cesium.Viewer('cesiumContainer');

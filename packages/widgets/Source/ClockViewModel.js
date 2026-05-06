@@ -8,11 +8,11 @@ import {
 import knockout from "./ThirdParty/knockout.js";
 
 /**
- * A view model which exposes a {@link Clock} for user interfaces.
+ * 暴露 {@link Clock} 以供用户界面使用的视图模型。
  * @alias ClockViewModel
  * @constructor
  *
- * @param {Clock} [clock] The clock object wrapped by this view model, if undefined a new instance will be created.
+ * @param {Clock} [clock] 此视图模型包装的时钟对象，如果未定义将创建新实例。
  *
  * @see Clock
  */
@@ -26,17 +26,17 @@ function ClockViewModel(clock) {
   this._eventHelper.add(clock.onTick, this.synchronize, this);
 
   /**
-   * Gets the current system time.
-   * This property is observable.
+   * 获取当前系统时间。
+   * 此属性可被观察。
    * @type {JulianDate}
    */
   this.systemTime = knockout.observable(JulianDate.now());
   this.systemTime.equalityComparer = JulianDate.equals;
 
   /**
-   * Gets or sets the start time of the clock.
-   * See {@link Clock#startTime}.
-   * This property is observable.
+   * 获取或设置时钟的起始时间。
+   * 见 {@link Clock#startTime}。
+   * 此属性可被观察。
    * @type {JulianDate}
    */
   this.startTime = knockout.observable(clock.startTime);
@@ -47,9 +47,9 @@ function ClockViewModel(clock) {
   }, this);
 
   /**
-   * Gets or sets the stop time of the clock.
-   * See {@link Clock#stopTime}.
-   * This property is observable.
+   * 获取或设置时钟的停止时间。
+   * 见 {@link Clock#stopTime}。
+   * 此属性可被观察。
    * @type {JulianDate}
    */
   this.stopTime = knockout.observable(clock.stopTime);
@@ -60,9 +60,9 @@ function ClockViewModel(clock) {
   }, this);
 
   /**
-   * Gets or sets the current time.
-   * See {@link Clock#currentTime}.
-   * This property is observable.
+   * 获取或设置当前时间。
+   * 见 {@link Clock#currentTime}。
+   * 此属性可被观察。
    * @type {JulianDate}
    */
   this.currentTime = knockout.observable(clock.currentTime);
@@ -73,9 +73,9 @@ function ClockViewModel(clock) {
   }, this);
 
   /**
-   * Gets or sets the clock multiplier.
-   * See {@link Clock#multiplier}.
-   * This property is observable.
+   * 获取或设置时钟的倍率。
+   * 见 {@link Clock#multiplier}。
+   * 此属性可被观察。
    * @type {number}
    */
   this.multiplier = knockout.observable(clock.multiplier);
@@ -85,9 +85,9 @@ function ClockViewModel(clock) {
   }, this);
 
   /**
-   * Gets or sets the clock step setting.
-   * See {@link Clock#clockStep}.
-   * This property is observable.
+   * 获取或设置时钟步进设置。
+   * 见 {@link Clock#clockStep}。
+   * 此属性可被观察。
    * @type {ClockStep}
    */
   this.clockStep = knockout.observable(clock.clockStep);
@@ -97,9 +97,9 @@ function ClockViewModel(clock) {
   }, this);
 
   /**
-   * Gets or sets the clock range setting.
-   * See {@link Clock#clockRange}.
-   * This property is observable.
+   * 获取或设置时钟范围设置。
+   * 见 {@link Clock#clockRange}。
+   * 此属性可被观察。
    * @type {ClockRange}
    */
   this.clockRange = knockout.observable(clock.clockRange);
@@ -109,9 +109,9 @@ function ClockViewModel(clock) {
   }, this);
 
   /**
-   * Gets or sets whether the clock can animate.
-   * See {@link Clock#canAnimate}.
-   * This property is observable.
+   * 获取或设置时钟是否可以动画。
+   * 见 {@link Clock#canAnimate}。
+   * 此属性可被观察。
    * @type {boolean}
    */
   this.canAnimate = knockout.observable(clock.canAnimate);
@@ -121,9 +121,9 @@ function ClockViewModel(clock) {
   }, this);
 
   /**
-   * Gets or sets whether the clock should animate.
-   * See {@link Clock#shouldAnimate}.
-   * This property is observable.
+   * 获取或设置时钟是否应该动画。
+   * 见 {@link Clock#shouldAnimate}。
+   * 此属性可被观察。
    * @type {boolean}
    */
   this.shouldAnimate = knockout.observable(clock.shouldAnimate);
@@ -147,7 +147,7 @@ function ClockViewModel(clock) {
 
 Object.defineProperties(ClockViewModel.prototype, {
   /**
-   * Gets the underlying Clock.
+   * 获取底层的 Clock 对象。
    * @memberof ClockViewModel.prototype
    * @type {Clock}
    */
@@ -159,9 +159,8 @@ Object.defineProperties(ClockViewModel.prototype, {
 });
 
 /**
- * Updates the view model with the contents of the underlying clock.
- * Can be called to force an update of the viewModel if the underlying
- * clock has changed and <code>Clock.tick</code> has not yet been called.
+ * 使用底层时钟的内容更新视图模型。
+ * 可以调用此方法来强制更新视图模型，如果底层时钟已更改且尚未调用 <code>Clock.tick</code>。
  */
 ClockViewModel.prototype.synchronize = function () {
   const clock = this._clock;
@@ -178,15 +177,14 @@ ClockViewModel.prototype.synchronize = function () {
 };
 
 /**
- * @returns {boolean} true if the object has been destroyed, false otherwise.
+ * @returns {boolean} 如果对象已被销毁则返回 true，否则返回 false。
  */
 ClockViewModel.prototype.isDestroyed = function () {
   return false;
 };
 
 /**
- * Destroys the view model.  Should be called to
- * properly clean up the view model when it is no longer needed.
+ * 销毁视图模型。当不再需要视图模型时应调用此方法以正确清理。
  */
 ClockViewModel.prototype.destroy = function () {
   this._eventHelper.removeAll();

@@ -395,14 +395,12 @@ function getComponentCount(classProperty) {
 }
 
 /**
- * Returns a shader statement that applies the inverse of the
- * value transform to the given value, based on the given offset
- * and scale.
+ * 返回一个着色器语句，根据给定的偏移量和缩放比例，将值变换的逆运算应用于给定值。
  *
- * @param {string} input The input value
- * @param {string} offset The offset
- * @param {string} scale The scale
- * @returns {string} The statement
+ * @param {string} input 输入值
+ * @param {string} offset 偏移量
+ * @param {string} scale 缩放比例
+ * @returns {string} 语句
  */
 function unapplyValueTransform(input, offset, scale) {
   return `((${input} - float(${offset})) / float(${scale}))`;

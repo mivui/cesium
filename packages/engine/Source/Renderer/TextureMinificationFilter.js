@@ -1,7 +1,7 @@
 import WebGLConstants from "../Core/WebGLConstants.js";
 
 /**
- * Enumerates all possible filters used when minifying WebGL textures.
+ * 枚举了在缩小 WebGL 纹理时使用的所有可能滤镜。
  *
  * @enum {number}
  *
@@ -9,23 +9,23 @@ import WebGLConstants from "../Core/WebGLConstants.js";
  */
 const TextureMinificationFilter = {
   /**
-   * Samples the texture by returning the closest pixel.
+   * 通过返回最接近的像素来对纹理进行采样。
    *
    * @type {number}
    * @constant
    */
   NEAREST: WebGLConstants.NEAREST,
   /**
-   * Samples the texture through bi-linear interpolation of the four nearest pixels. This produces smoother results than <code>NEAREST</code> filtering.
+   * 通过对最接近的四个像素进行双线性插值来对纹理进行采样。这会产生比 <code>NEAREST</code> 滤镜更平滑的结果。
    *
    * @type {number}
    * @constant
    */
   LINEAR: WebGLConstants.LINEAR,
   /**
-   * Selects the nearest mip level and applies nearest sampling within that level.
+   * 选择最近的 mipmap 级别并在该级别内应用最近采样。
    * <p>
-   * Requires that the texture has a mipmap. The mip level is chosen by the view angle and screen-space size of the texture.
+   * 要求纹理具有 mipmap。mip 级别由视角和纹理的屏幕空间大小选择。
    * </p>
    *
    * @type {number}
@@ -33,9 +33,9 @@ const TextureMinificationFilter = {
    */
   NEAREST_MIPMAP_NEAREST: WebGLConstants.NEAREST_MIPMAP_NEAREST,
   /**
-   * Selects the nearest mip level and applies linear sampling within that level.
+   * 选择最近的 mipmap 级别并在该级别内应用线性采样。
    * <p>
-   * Requires that the texture has a mipmap. The mip level is chosen by the view angle and screen-space size of the texture.
+   * 要求纹理具有 mipmap。mip 级别由视角和纹理的屏幕空间大小选择。
    * </p>
    *
    * @type {number}
@@ -43,12 +43,12 @@ const TextureMinificationFilter = {
    */
   LINEAR_MIPMAP_NEAREST: WebGLConstants.LINEAR_MIPMAP_NEAREST,
   /**
-   * Read texture values with nearest sampling from two adjacent mip levels and linearly interpolate the results.
+   * 从两个相邻的 mipmap 级别使用最近采样读取纹理值，并对结果进行线性插值。
    * <p>
-   * This option provides a good balance of visual quality and speed when sampling from a mipmapped texture.
+   * 此选项在对 mipmap 纹理进行采样时，提供了视觉质量和速度的良好平衡。
    * </p>
    * <p>
-   * Requires that the texture has a mipmap. The mip level is chosen by the view angle and screen-space size of the texture.
+   * 要求纹理具有 mipmap。mip 级别由视角和纹理的屏幕空间大小选择。
    * </p>
    *
    * @type {number}
@@ -56,12 +56,12 @@ const TextureMinificationFilter = {
    */
   NEAREST_MIPMAP_LINEAR: WebGLConstants.NEAREST_MIPMAP_LINEAR,
   /**
-   * Read texture values with linear sampling from two adjacent mip levels and linearly interpolate the results.
+   * 从两个相邻的 mipmap 级别使用线性采样读取纹理值，并对结果进行线性插值。
    * <p>
-   * This option provides a good balance of visual quality and speed when sampling from a mipmapped texture.
+   * 此选项在对 mipmap 纹理进行采样时，提供了视觉质量和速度的良好平衡。
    * </p>
    * <p>
-   * Requires that the texture has a mipmap. The mip level is chosen by the view angle and screen-space size of the texture.
+   * 要求纹理具有 mipmap。mip 级别由视角和纹理的屏幕空间大小选择。
    * </p>
    * @type {number}
    * @constant

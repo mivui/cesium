@@ -4,13 +4,13 @@ import InspectorShared from "../InspectorShared.js";
 import Cesium3DTilesInspectorViewModel from "./Cesium3DTilesInspectorViewModel.js";
 
 /**
- * Inspector widget to aid in debugging 3D Tiles
+ * 用于辅助调试 3D Tiles 的检查器控件
  *
  * @alias Cesium3DTilesInspector
  * @constructor
  *
- * @param {Element|string} container The DOM element or ID that will contain the widget.
- * @param {Scene} scene the Scene instance to use.
+ * @param {Element|string} container 将包含此控件的 DOM 元素或 ID。
+ * @param {Scene} scene 要使用的 Scene 实例。
  */
 function Cesium3DTilesInspector(container, scene) {
   //>>includeStart('debug', pragmas.debug);
@@ -341,7 +341,7 @@ function Cesium3DTilesInspector(container, scene) {
 
 Object.defineProperties(Cesium3DTilesInspector.prototype, {
   /**
-   * Gets the parent container.
+   * 获取父容器。
    * @memberof Cesium3DTilesInspector.prototype
    *
    * @type {Element}
@@ -353,7 +353,7 @@ Object.defineProperties(Cesium3DTilesInspector.prototype, {
   },
 
   /**
-   * Gets the view model.
+   * 获取视图模型。
    * @memberof Cesium3DTilesInspector.prototype
    *
    * @type {Cesium3DTilesInspectorViewModel}
@@ -366,15 +366,14 @@ Object.defineProperties(Cesium3DTilesInspector.prototype, {
 });
 
 /**
- * @returns {boolean} true if the object has been destroyed, false otherwise.
+ * @returns {boolean} 如果对象已被销毁则为 true，否则为 false。
  */
 Cesium3DTilesInspector.prototype.isDestroyed = function () {
   return false;
 };
 
 /**
- * Destroys the widget.  Should be called if permanently
- * removing the widget from layout.
+ * 销毁控件。如果从布局中永久移除控件，应调用此方法。
  */
 Cesium3DTilesInspector.prototype.destroy = function () {
   knockout.cleanNode(this._element);

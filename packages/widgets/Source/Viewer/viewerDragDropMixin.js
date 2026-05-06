@@ -11,31 +11,30 @@ import {
   wrapFunction,
 } from "@cesium/engine";
 /**
- * A mixin which adds default drag and drop support for CZML files to the Viewer widget.
- * Rather than being called directly, this function is normally passed as
- * a parameter to {@link Viewer#extend}, as shown in the example below.
+ * 为 Viewer 控件添加默认的 CZML 文件拖放支持的 mixin。
+ * 此函数通常不直接调用，而是作为参数传递给 {@link Viewer#extend}，如下面的示例所示。
  * @function viewerDragDropMixin
 
- * @param {Viewer} viewer The viewer instance.
- * @param {object} [options] Object with the following properties:
- * @param {Element|string} [options.dropTarget=viewer.container] The DOM element which will serve as the drop target.
- * @param {boolean} [options.clearOnDrop=true] When true, dropping files will clear all existing data sources first, when false, new data sources will be loaded after the existing ones.
- * @param {boolean} [options.flyToOnDrop=true] When true, dropping files will fly to the data source once it is loaded.
- * @param {boolean} [options.clampToGround=true] When true, datasources are clamped to the ground.
- * @param {Proxy} [options.proxy] The proxy to be used for KML network links.
+ * @param {Viewer} viewer Viewer 实例。
+ * @param {object} [options] 具有以下属性的对象：
+ * @param {Element|string} [options.dropTarget=viewer.container] 将作为放置目标的 DOM 元素。
+ * @param {boolean} [options.clearOnDrop=true] 当为 true 时，放置文件将先清除所有现有数据源；当为 false 时，新数据源将加载到现有数据源之后。
+ * @param {boolean} [options.flyToOnDrop=true] 当为 true 时，放置文件将在数据源加载后飞行到该数据源。
+ * @param {boolean} [options.clampToGround=true] 当为 true 时，数据源将贴地显示。
+ * @param {Proxy} [options.proxy] 用于 KML 网络链接的代理。
  *
- * @exception {DeveloperError} Element with id <options.dropTarget> does not exist in the document.
- * @exception {DeveloperError} dropTarget is already defined by another mixin.
- * @exception {DeveloperError} dropEnabled is already defined by another mixin.
- * @exception {DeveloperError} dropError is already defined by another mixin.
- * @exception {DeveloperError} clearOnDrop is already defined by another mixin.
+ * @exception {DeveloperError} 文档中不存在 id 为 <options.dropTarget> 的元素。
+ * @exception {DeveloperError} dropTarget 已被其他 mixin 定义。
+ * @exception {DeveloperError} dropEnabled 已被其他 mixin 定义。
+ * @exception {DeveloperError} dropError 已被其他 mixin 定义。
+ * @exception {DeveloperError} clearOnDrop 已被其他 mixin 定义。
  *
  * @example
- * // Add basic drag and drop support and pop up an alert window on error.
+ * // 添加基本的拖放支持并在遇到错误时弹出警告窗口。
  * const viewer = new Cesium.Viewer('cesiumContainer');
  * viewer.extend(Cesium.viewerDragDropMixin);
  * viewer.dropError.addEventListener(function(viewerArg, source, error) {
- *     window.alert('Error processing ' + source + ':' + error);
+ *     window.alert('处理 ' + source + ' 时出错: ' + error);
  * });
  */
 function viewerDragDropMixin(viewer, options) {
@@ -81,7 +80,7 @@ function viewerDragDropMixin(viewer, options) {
 
   Object.defineProperties(viewer, {
     /**
-     * Gets or sets the element to serve as the drop target.
+     * 获取或设置作为放置目标的元素。
      * @memberof viewerDragDropMixin.prototype
      * @type {Element}
      */
@@ -104,7 +103,7 @@ function viewerDragDropMixin(viewer, options) {
     },
 
     /**
-     * Gets or sets a value indicating if drag and drop support is enabled.
+     * 获取或设置一个值，指示是否启用拖放支持。
      * @memberof viewerDragDropMixin.prototype
      * @type {Element}
      */
@@ -125,7 +124,7 @@ function viewerDragDropMixin(viewer, options) {
     },
 
     /**
-     * Gets the event that will be raised when an error is encountered during drop processing.
+     * 获取在放置处理过程中遇到错误时触发的事件。
      * @memberof viewerDragDropMixin.prototype
      * @type {Event}
      */
@@ -136,7 +135,7 @@ function viewerDragDropMixin(viewer, options) {
     },
 
     /**
-     * Gets or sets a value indicating if existing data sources should be cleared before adding the newly dropped sources.
+     * 获取或设置一个值，指示在添加新放置的数据源之前是否应清除现有数据源。
      * @memberof viewerDragDropMixin.prototype
      * @type {boolean}
      */
@@ -150,7 +149,7 @@ function viewerDragDropMixin(viewer, options) {
     },
 
     /**
-     * Gets or sets a value indicating if the camera should fly to the data source after it is loaded.
+     * 获取或设置一个值，指示加载数据源后相机是否应飞行到该数据源。
      * @memberof viewerDragDropMixin.prototype
      * @type {boolean}
      */
@@ -164,7 +163,7 @@ function viewerDragDropMixin(viewer, options) {
     },
 
     /**
-     * Gets or sets the proxy to be used for KML.
+     * 获取或设置用于 KML 的代理。
      * @memberof viewerDragDropMixin.prototype
      * @type {Proxy}
      */
@@ -178,7 +177,7 @@ function viewerDragDropMixin(viewer, options) {
     },
 
     /**
-     * Gets or sets a value indicating if the datasources should be clamped to the ground
+     * 获取或设置一个值，指示数据源是否应贴地显示。
      * @memberof viewerDragDropMixin.prototype
      * @type {boolean}
      */

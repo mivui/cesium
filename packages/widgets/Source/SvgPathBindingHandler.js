@@ -2,30 +2,30 @@ const svgNS = "http://www.w3.org/2000/svg";
 const svgClassName = "cesium-svgPath-svg";
 
 /**
- * A Knockout binding handler that creates a DOM element for a single SVG path.
- * This binding handler will be registered as cesiumSvgPath.
+ * 创建用于单个 SVG 路径 DOM 元素的 Knockout 绑定处理器。
+ * 此绑定处理器将注册为 cesiumSvgPath。
  *
  * <p>
- * The parameter to this binding is an object with the following properties:
+ * 此绑定的参数是一个具有以下属性的对象：
  * </p>
  *
  * <ul>
- * <li>path: The SVG path as a string.</li>
- * <li>width: The width of the SVG path with no transformations applied.</li>
- * <li>height: The height of the SVG path with no transformations applied.</li>
- * <li>css: Optional. A string containing additional CSS classes to apply to the SVG. 'cesium-svgPath-svg' is always applied.</li>
+ * <li>path: SVG 路径字符串。</li>
+ * <li>width: 未应用变换时 SVG 路径的宽度。</li>
+ * <li>height: 未应用变换时 SVG 路径的高度。</li>
+ * <li>css: 可选。包含要应用于 SVG 的额外 CSS 类的字符串。始终会应用 'cesium-svgPath-svg'。</li>
  * </ul>
  *
  * @namespace SvgPathBindingHandler
  *
  * @example
- * // Create an SVG as a child of a div
+ * // 在 div 内创建 SVG
  * <div data-bind="cesiumSvgPath: { path: 'M 100 100 L 300 100 L 200 300 z', width: 28, height: 28 }"></div>
  *
- * // parameters can be observable from the view model
+ * // 参数可以来自视图模型的 observable
  * <div data-bind="cesiumSvgPath: { path: currentPath, width: currentWidth, height: currentHeight }"></div>
  *
- * // or the whole object can be observable from the view model
+ * // 或整个对象可以来自视图模型的 observable
  * <div data-bind="cesiumSvgPath: svgPathOptions"></div>
  */
 const SvgPathBindingHandler = {

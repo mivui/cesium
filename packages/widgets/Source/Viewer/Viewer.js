@@ -279,72 +279,71 @@ function enableVRUI(viewer, enabled) {
 /**
  * @typedef {object} Viewer.ConstructorOptions
  *
- * Initialization options for the Viewer constructor
+ * Viewer 构造函数的初始化选项
  *
- * @property {boolean} [animation=true] If set to false, the Animation widget will not be created.
- * @property {boolean} [baseLayerPicker=true] If set to false, the BaseLayerPicker widget will not be created.
- * @property {boolean} [fullscreenButton=true] If set to false, the FullscreenButton widget will not be created.
- * @property {boolean} [vrButton=false] If set to true, the VRButton widget will be created.
- * @property {boolean|IonGeocodeProviderType|GeocoderService[]} [geocoder=IonGeocodeProviderType.DEFAULT] The geocoding service or services to use when searching with the Geocoder widget. If set to false, the Geocoder widget will not be created.
- * @property {boolean} [homeButton=true] If set to false, the HomeButton widget will not be created.
- * @property {boolean} [infoBox=true] If set to false, the InfoBox widget will not be created.
- * @property {boolean} [sceneModePicker=true] If set to false, the SceneModePicker widget will not be created.
- * @property {boolean} [selectionIndicator=true] If set to false, the SelectionIndicator widget will not be created.
- * @property {boolean} [timeline=true] If set to false, the Timeline widget will not be created.
- * @property {boolean} [navigationHelpButton=true] If set to false, the navigation help button will not be created.
- * @property {boolean} [navigationInstructionsInitiallyVisible=true] True if the navigation instructions should initially be visible, or false if the should not be shown until the user explicitly clicks the button.
- * @property {boolean} [scene3DOnly=false] When <code>true</code>, each geometry instance will only be rendered in 3D to save GPU memory.
- * @property {boolean} [shouldAnimate=false] <code>true</code> if the clock should attempt to advance simulation time by default, <code>false</code> otherwise.  This option takes precedence over setting {@link Viewer#clockViewModel}.
- * @property {ClockViewModel} [clockViewModel=new ClockViewModel(clock)] The clock view model to use to control current time.
- * @property {ProviderViewModel} [selectedImageryProviderViewModel] The view model for the current base imagery layer, if not supplied the first available base layer is used.  This value is only valid if `baseLayerPicker` is set to true.
- * @property {ProviderViewModel[]} [imageryProviderViewModels=createDefaultImageryProviderViewModels()] The array of ProviderViewModels to be selectable from the BaseLayerPicker.  This value is only valid if `baseLayerPicker` is set to true.
- * @property {ProviderViewModel} [selectedTerrainProviderViewModel] The view model for the current base terrain layer, if not supplied the first available base layer is used.  This value is only valid if `baseLayerPicker` is set to true.
- * @property {ProviderViewModel[]} [terrainProviderViewModels=createDefaultTerrainProviderViewModels()] The array of ProviderViewModels to be selectable from the BaseLayerPicker.  This value is only valid if `baseLayerPicker` is set to true.
- * @property {ImageryLayer|false} [baseLayer=ImageryLayer.fromWorldImagery()] The bottommost imagery layer applied to the globe. If set to <code>false</code>, no imagery provider will be added. This value is only valid if `baseLayerPicker` is set to false. Cannot be used when `globe` is set to false.
- * @property {Ellipsoid} [ellipsoid = Ellipsoid.default] The default ellipsoid.
- * @property {TerrainProvider} [terrainProvider=new EllipsoidTerrainProvider()] The terrain provider to use
- * @property {Terrain} [terrain] A terrain object which handles asynchronous terrain provider. Can only specify if options.terrainProvider is undefined.
- * @property {SkyBox|false} [skyBox] The skybox used to render the stars. When <code>undefined</code> and the WGS84 ellipsoid used, the default stars are used. If set to <code>false</code>, no skyBox, Sun, or Moon will be added.
- * @property {SkyAtmosphere|false} [skyAtmosphere] Blue sky, and the glow around the Earth's limb. Enabled when the WGS84 ellipsoid used. Set to <code>false</code> to turn it off.
- * @property {Element|string} [fullscreenElement=document.body] The element or id to be placed into fullscreen mode when the full screen button is pressed.
- * @property {boolean} [useDefaultRenderLoop=true] True if this widget should control the render loop, false otherwise.
- * @property {number} [targetFrameRate] The target frame rate when using the default render loop.
- * @property {boolean} [showRenderLoopErrors=true] If true, this widget will automatically display an HTML panel to the user containing the error, if a render loop error occurs.
- * @property {boolean} [useBrowserRecommendedResolution=true] If true, render at the browser's recommended resolution and ignore <code>window.devicePixelRatio</code>.
- * @property {boolean} [automaticallyTrackDataSourceClocks=true] If true, this widget will automatically track the clock settings of newly added DataSources, updating if the DataSource's clock changes.  Set this to false if you want to configure the clock independently.
- * @property {ContextOptions} [contextOptions] Context and WebGL creation properties passed to {@link Scene}.
- * @property {SceneMode} [sceneMode=SceneMode.SCENE3D] The initial scene mode.
- * @property {MapProjection} [mapProjection=new GeographicProjection(options.ellipsoid)] The map projection to use in 2D and Columbus View modes.
- * @property {Globe|false} [globe=new Globe(options.ellipsoid)] The globe to use in the scene.  If set to <code>false</code>, no globe will be added and the sky atmosphere will be hidden by default.
- * @property {boolean} [orderIndependentTranslucency=true] If true and the configuration supports it, use order independent translucency.
- * @property {Element|string} [creditContainer] The DOM element or ID that will contain the {@link CreditDisplay}.  If not specified, the credits are added to the bottom of the widget itself.
- * @property {Element|string} [creditViewport] The DOM element or ID that will contain the credit pop up created by the {@link CreditDisplay}.  If not specified, it will appear over the widget itself.
- * @property {DataSourceCollection} [dataSources=new DataSourceCollection()] The collection of data sources visualized by the widget.  If this parameter is provided,
- *                               the instance is assumed to be owned by the caller and will not be destroyed when the viewer is destroyed.
- * @property {boolean} [shadows=false] Determines if shadows are cast by light sources.
- * @property {ShadowMode} [terrainShadows=ShadowMode.RECEIVE_ONLY] Determines if the terrain casts or receives shadows from light sources.
- * @property {MapMode2D} [mapMode2D=MapMode2D.INFINITE_SCROLL] Determines if the 2D map is rotatable or can be scrolled infinitely in the horizontal direction.
- * @property {boolean} [projectionPicker=false] If set to true, the ProjectionPicker widget will be created.
- * @property {boolean} [blurActiveElementOnCanvasFocus=true] If true, the active element will blur when the viewer's canvas is clicked. Setting this to false is useful for cases when the canvas is clicked only for retrieving position or an entity data without actually meaning to set the canvas to be the active element.
- * @property {boolean} [requestRenderMode=false] If true, rendering a frame will only occur when needed as determined by changes within the scene. Enabling reduces the CPU/GPU usage of your application and uses less battery on mobile, but requires using {@link Scene#requestRender} to render a new frame explicitly in this mode. This will be necessary in many cases after making changes to the scene in other parts of the API. See {@link https://cesium.com/blog/2018/01/24/cesium-scene-rendering-performance/|Improving Performance with Explicit Rendering}.
- * @property {number} [maximumRenderTimeChange=0.0] If requestRenderMode is true, this value defines the maximum change in simulation time allowed before a render is requested. See {@link https://cesium.com/blog/2018/01/24/cesium-scene-rendering-performance/|Improving Performance with Explicit Rendering}.
- * @property {number} [depthPlaneEllipsoidOffset=0.0] Adjust the DepthPlane to address rendering artefacts below ellipsoid zero elevation.
- * @property {number} [msaaSamples=4] If provided, this value controls the rate of multisample antialiasing. Typical multisampling rates are 2, 4, and sometimes 8 samples per pixel. Higher sampling rates of MSAA may impact performance in exchange for improved visual quality. This value only applies to WebGL2 contexts that support multisample render targets. Set to 1 to disable MSAA.
+ * @property {boolean} [animation=true] 如果设置为 false，将不会创建 Animation 控件。
+ * @property {boolean} [baseLayerPicker=true] 如果设置为 false，将不会创建 BaseLayerPicker 控件。
+ * @property {boolean} [fullscreenButton=true] 如果设置为 false，将不会创建 FullscreenButton 控件。
+ * @property {boolean} [vrButton=false] 如果设置为 true，将创建 VRButton 控件。
+ * @property {boolean|IonGeocodeProviderType|GeocoderService[]} [geocoder=IonGeocodeProviderType.DEFAULT] 搜索 Geocoder 控件时使用的地理编码服务。如果设置为 false，将不会创建 Geocoder 控件。
+ * @property {boolean} [homeButton=true] 如果设置为 false，将不会创建 HomeButton 控件。
+ * @property {boolean} [infoBox=true] 如果设置为 false，将不会创建 InfoBox 控件。
+ * @property {boolean} [sceneModePicker=true] 如果设置为 false，将不会创建 SceneModePicker 控件。
+ * @property {boolean} [selectionIndicator=true] 如果设置为 false，将不会创建 SelectionIndicator 控件。
+ * @property {boolean} [timeline=true] 如果设置为 false，将不会创建 Timeline 控件。
+ * @property {boolean} [navigationHelpButton=true] 如果设置为 false，将不会创建导航帮助按钮。
+ * @property {boolean} [navigationInstructionsInitiallyVisible=true] 如果为 true，导航说明初始可见；如果为 false，则在用户显式单击按钮之前不会显示。
+ * @property {boolean} [scene3DOnly=false] 当为 <code>true</code> 时，每个几何实例将仅在 3D 中渲染以节省 GPU 内存。
+ * @property {boolean} [shouldAnimate=false] 如果为 <code>true</code>，时钟默认会尝试推进模拟时间，否则为 <code>false</code>。此选项优先于设置 {@link Viewer#clockViewModel}。
+ * @property {ClockViewModel} [clockViewModel=new ClockViewModel(clock)] 用于控制当前时间的时钟视图模型。
+ * @property {ProviderViewModel} [selectedImageryProviderViewModel] 当前基础影像图层的视图模型，如果未提供则使用第一个可用的基础图层。此值仅在 `baseLayerPicker` 设置为 true 时有效。
+ * @property {ProviderViewModel[]} [imageryProviderViewModels=createDefaultImageryProviderViewModels()] 可在 BaseLayerPicker 中选择的 ProviderViewModel 数组。此值仅在 `baseLayerPicker` 设置为 true 时有效。
+ * @property {ProviderViewModel} [selectedTerrainProviderViewModel] 当前基础地形图层的视图模型，如果未提供则使用第一个可用的基础图层。此值仅在 `baseLayerPicker` 设置为 true 时有效。
+ * @property {ProviderViewModel[]} [terrainProviderViewModels=createDefaultTerrainProviderViewModels()] 可在 BaseLayerPicker 中选择的 ProviderViewModel 数组。此值仅在 `baseLayerPicker` 设置为 true 时有效。
+ * @property {ImageryLayer|false} [baseLayer=ImageryLayer.fromWorldImagery()] 应用于 globe 的最底层影像图层。如果设置为 <code>false</code>，则不会添加影像提供器。此值仅在 `baseLayerPicker` 设置为 false 时有效。当 `globe` 设置为 false 时不能使用。
+ * @property {Ellipsoid} [ellipsoid = Ellipsoid.default] 默认椭球体。
+ * @property {TerrainProvider} [terrainProvider=new EllipsoidTerrainProvider()] 要使用的地形提供器。
+ * @property {Terrain} [terrain] 处理异步地形提供器的地形对象。仅在 options.terrainProvider 未定义时可以指定。
+ * @property {SkyBox|false} [skyBox] 用于渲染星空的天穹。当 <code>undefined</code> 且使用 WGS84 椭球体时，使用默认星空。如果设置为 <code>false</code>，则不会添加天穹、太阳或月亮。
+ * @property {SkyAtmosphere|false} [skyAtmosphere] 蓝天和地球边缘的光晕。使用 WGS84 椭球体时启用。设置为 <code>false</code> 可关闭。
+ * @property {Element|string} [fullscreenElement=document.body] 按下全屏按钮时进入全屏模式的元素或 id。
+ * @property {boolean} [useDefaultRenderLoop=true] 如果为 true，此控件将控制渲染循环，否则为 false。
+ * @property {number} [targetFrameRate] 使用默认渲染循环时的目标帧率。
+ * @property {boolean} [showRenderLoopErrors=true] 如果为 true，此控件将在发生渲染循环错误时自动向用户显示包含错误的 HTML 面板。
+ * @property {boolean} [useBrowserRecommendedResolution=true] 如果为 true，使用浏览器推荐的分辨率并忽略 <code>window.devicePixelRatio</code>。
+ * @property {boolean} [automaticallyTrackDataSourceClocks=true] 如果为 true，此控件将自动跟踪新添加的 DataSources 的时钟设置，在 DataSource 的时钟更改时更新。如果要独立配置时钟，请将其设置为 false。
+ * @property {ContextOptions} [contextOptions] 传递给 {@link Scene} 的上下文和 WebGL 创建属性。
+ * @property {SceneMode} [sceneMode=SceneMode.SCENE3D] 初始场景模式。
+ * @property {MapProjection} [mapProjection=new GeographicProjection(options.ellipsoid)] 在 2D 和哥伦布视图模式下使用的地图投影。
+ * @property {Globe|false} [globe=new Globe(options.ellipsoid)] 场景中使用的 globe。如果设置为 <code>false</code>，则不会添加 globe，且默认隐藏大气层。
+ * @property {boolean} [orderIndependentTranslucency=true] 如果为 true 且配置支持，使用顺序无关的半透明。
+ * @property {Element|string} [creditContainer] 包含 {@link CreditDisplay} 的 DOM 元素或 id。如果未指定，则添加到控件本身的底部。
+ * @property {Element|string} [creditViewport] 包含 {@link CreditDisplay} 创建的信用弹出窗口的 DOM 元素或 id。如果未指定，它将出现在控件本身上方。
+ * @property {DataSourceCollection} [dataSources=new DataSourceCollection()] 控件可视化的数据源集合。如果提供了此参数，则假定该实例由调用者拥有，且在销毁 viewer 时不会被销毁。
+ * @property {boolean} [shadows=false] 确定光源是否投射阴影。
+ * @property {ShadowMode} [terrainShadows=ShadowMode.RECEIVE_ONLY] 确定地形是否从光源投射或接收阴影。
+ * @property {MapMode2D} [mapMode2D=MapMode2D.INFINITE_SCROLL] 确定 2D 地图是否可旋转或是否可在水平方向无限滚动。
+ * @property {boolean} [projectionPicker=false] 如果设置为 true，将创建 ProjectionPicker 控件。
+ * @property {boolean} [blurActiveElementOnCanvasFocus=true] 如果为 true，单击 viewer 画布时活动元素将失焦。将此设置为 false 适用于单击画布仅用于获取位置或实体数据而不意味着将画布设置为活动元素的情况。
+ * @property {boolean} [requestRenderMode=false] 如果为 true，仅在场景变化需要时渲染帧。启用可减少应用程序的 CPU/GPU 使用率并节省移动设备电量，但在此模式下需要使用 {@link Scene#requestRender} 显式渲染新帧。这在 API 其他部分修改场景后通常是必要的。参见 {@link https://cesium.com/blog/2018/01/24/cesium-scene-rendering-performance/|Improving Performance with Explicit Rendering}。
+ * @property {number} [maximumRenderTimeChange=0.0] 如果 requestRenderMode 为 true，此值定义触发渲染请求的最大模拟时间变化。参见 {@link https://cesium.com/blog/2018/01/24/cesium-scene-rendering-performance/|Improving Performance with Explicit Rendering}。
+ * @property {number} [depthPlaneEllipsoidOffset=0.0] 调整 DepthPlane 以解决椭球零高程以下的渲染问题。
+ * @property {number} [msaaSamples=4] 如果提供，此值控制多采样抗锯齿的速率。典型的多采样率为每像素 2、4，有时为 8 个样本。较高的 MSAA 采样率可能影响性能以换取改进的视觉质量。此值仅适用于支持多采样渲染目标的 WebGL2 上下文。设置为 1 禁用 MSAA。
  */
 
 /**
- * A base widget for building applications.  It composites all of the standard Cesium widgets into one reusable package.
- * The widget can always be extended by using mixins, which add functionality useful for a variety of applications.
+ * 用于构建应用程序的基础控件。它将所有标准 Cesium 控件组合成一个可重用的包。
+ * 该控件始终可以通过使用 mixin 进行扩展，mixin 为各种应用程序添加有用的功能。
  *
  * @alias Viewer
  * @constructor
  *
- * @param {Element|string} container The DOM element or ID that will contain the widget.
- * @param {Viewer.ConstructorOptions} [options] Object describing initialization options
+ * @param {Element|string} container 包含此控件的 DOM 元素或 id。
+ * @param {Viewer.ConstructorOptions} [options] 描述初始化选项的对象
  *
- * @exception {DeveloperError} Element with id "container" does not exist in the document.
- * @exception {DeveloperError} options.selectedImageryProviderViewModel is not available when not using the BaseLayerPicker widget, specify options.baseLayer instead.
- * @exception {DeveloperError} options.selectedTerrainProviderViewModel is not available when not using the BaseLayerPicker widget, specify options.terrainProvider instead.
+ * @exception {DeveloperError} 文档中不存在 id 为 "container" 的元素。
+ * @exception {DeveloperError} 不使用 BaseLayerPicker 控件时，options.selectedImageryProviderViewModel 不可用，请改为指定 options.baseLayer。
+ * @exception {DeveloperError} 不使用 BaseLayerPicker 控件时，options.selectedTerrainProviderViewModel 不可用，请改为指定 options.terrainProvider。
  *
  * @see Animation
  * @see BaseLayerPicker
@@ -358,16 +357,16 @@ function enableVRUI(viewer, enabled) {
  * @demo {@link https://sandcastle.cesium.com/index.html?id=hello-world|Cesium Sandcastle Hello World Demo}
  *
  * @example
- * // Initialize the viewer widget with several custom options and mixins.
+ * // 使用多个自定义选项和 mixin 初始化 viewer 控件。
  * try {
  *   const viewer = new Cesium.Viewer("cesiumContainer", {
- *     // Start in Columbus Viewer
+ *     // 在哥伦布视图中启动
  *     sceneMode: Cesium.SceneMode.COLUMBUS_VIEW,
- *     // Use Cesium World Terrain
+ *     // 使用 Cesium World Terrain
  *     terrain: Cesium.Terrain.fromWorldTerrain(),
- *     // Hide the base layer picker
+ *     // 隐藏基础图层选择器
  *     baseLayerPicker: false,
- *     // Use OpenStreetMaps
+ *     // 使用 OpenStreetMaps
  *     baseLayer: new Cesium.ImageryLayer(new Cesium.OpenStreetMapImageryProvider({
  *       url: "https://tile.openstreetmap.org/"
  *     })),
@@ -381,17 +380,17 @@ function enableVRUI(viewer, enabled) {
  *         negativeZ: "stars/TychoSkymapII.t3_08192x04096_80_mz.jpg"
  *       }
  *     }),
- *     // Show Columbus View map with Web Mercator projection
+ *     // 使用 Web Mercator 投影显示哥伦布视图地图
  *     mapProjection: new Cesium.WebMercatorProjection()
  *   });
  * } catch (error) {
  *   console.log(error);
  * }
  *
- * // Add basic drag and drop functionality
+ * // 添加基本的拖放功能
  * viewer.extend(Cesium.viewerDragDropMixin);
  *
- * // Show a pop-up alert if we encounter an error when processing a dropped file
+ * // 处理拖放文件时如果遇到错误显示弹出警告
  * viewer.dropError.addEventListener(function(dropHandler, name, error) {
  *   console.log(error);
  *   window.alert(error);
@@ -935,7 +934,7 @@ Either specify options.terrainProvider instead or set options.baseLayerPicker to
 
 Object.defineProperties(Viewer.prototype, {
   /**
-   * Gets the parent container.
+   * 获取父容器。
    * @memberof Viewer.prototype
    * @type {Element}
    * @readonly
@@ -947,7 +946,7 @@ Object.defineProperties(Viewer.prototype, {
   },
 
   /**
-   * Manages the list of credits to display on screen and in the lightbox.
+   * 管理要在屏幕和灯箱中显示的信用列表。
    * @memberof Viewer.prototype
    *
    * @type {CreditDisplay}
@@ -959,8 +958,8 @@ Object.defineProperties(Viewer.prototype, {
   },
 
   /**
-   * Gets the DOM element for the area at the bottom of the window containing the
-   * {@link CreditDisplay} and potentially other things.
+   * 获取窗口底部区域的 DOM 元素，包含
+   * {@link CreditDisplay} 和可能的其他内容。
    * @memberof Viewer.prototype
    * @type {Element}
    * @readonly
@@ -972,7 +971,7 @@ Object.defineProperties(Viewer.prototype, {
   },
 
   /**
-   * Gets the CesiumWidget.
+   * 获取 CesiumWidget。
    * @memberof Viewer.prototype
    * @type {CesiumWidget}
    * @readonly
@@ -984,7 +983,7 @@ Object.defineProperties(Viewer.prototype, {
   },
 
   /**
-   * Gets the selection indicator.
+   * 获取选择指示器。
    * @memberof Viewer.prototype
    * @type {SelectionIndicator}
    * @readonly
@@ -996,7 +995,7 @@ Object.defineProperties(Viewer.prototype, {
   },
 
   /**
-   * Gets the info box.
+   * 获取信息框。
    * @memberof Viewer.prototype
    * @type {InfoBox}
    * @readonly
@@ -1008,7 +1007,7 @@ Object.defineProperties(Viewer.prototype, {
   },
 
   /**
-   * Gets the Geocoder.
+   * 获取 Geocoder。
    * @memberof Viewer.prototype
    * @type {Geocoder}
    * @readonly
@@ -1020,7 +1019,7 @@ Object.defineProperties(Viewer.prototype, {
   },
 
   /**
-   * Gets the HomeButton.
+   * 获取 HomeButton。
    * @memberof Viewer.prototype
    * @type {HomeButton}
    * @readonly
@@ -1032,7 +1031,7 @@ Object.defineProperties(Viewer.prototype, {
   },
 
   /**
-   * Gets the SceneModePicker.
+   * 获取 SceneModePicker。
    * @memberof Viewer.prototype
    * @type {SceneModePicker}
    * @readonly
@@ -1044,7 +1043,7 @@ Object.defineProperties(Viewer.prototype, {
   },
 
   /**
-   * Gets the ProjectionPicker.
+   * 获取 ProjectionPicker。
    * @memberof Viewer.prototype
    * @type {ProjectionPicker}
    * @readonly
@@ -1056,7 +1055,7 @@ Object.defineProperties(Viewer.prototype, {
   },
 
   /**
-   * Gets the BaseLayerPicker.
+   * 获取 BaseLayerPicker。
    * @memberof Viewer.prototype
    * @type {BaseLayerPicker}
    * @readonly
@@ -1068,7 +1067,7 @@ Object.defineProperties(Viewer.prototype, {
   },
 
   /**
-   * Gets the NavigationHelpButton.
+   * 获取 NavigationHelpButton。
    * @memberof Viewer.prototype
    * @type {NavigationHelpButton}
    * @readonly
@@ -1080,7 +1079,7 @@ Object.defineProperties(Viewer.prototype, {
   },
 
   /**
-   * Gets the Animation widget.
+   * 获取 Animation 控件。
    * @memberof Viewer.prototype
    * @type {Animation}
    * @readonly
@@ -1092,7 +1091,7 @@ Object.defineProperties(Viewer.prototype, {
   },
 
   /**
-   * Gets the Timeline widget.
+   * 获取 Timeline 控件。
    * @memberof Viewer.prototype
    * @type {Timeline}
    * @readonly
@@ -1104,7 +1103,7 @@ Object.defineProperties(Viewer.prototype, {
   },
 
   /**
-   * Gets the FullscreenButton.
+   * 获取 FullscreenButton。
    * @memberof Viewer.prototype
    * @type {FullscreenButton}
    * @readonly
@@ -1116,7 +1115,7 @@ Object.defineProperties(Viewer.prototype, {
   },
 
   /**
-   * Gets the VRButton.
+   * 获取 VRButton。
    * @memberof Viewer.prototype
    * @type {VRButton}
    * @readonly
@@ -1128,7 +1127,7 @@ Object.defineProperties(Viewer.prototype, {
   },
 
   /**
-   * Gets the display used for {@link DataSource} visualization.
+   * 获取用于可视化 {@link DataSource} 的显示。
    * @memberof Viewer.prototype
    * @type {DataSourceDisplay}
    * @readonly
@@ -1140,8 +1139,8 @@ Object.defineProperties(Viewer.prototype, {
   },
 
   /**
-   * Gets the collection of entities not tied to a particular data source.
-   * This is a shortcut to [dataSourceDisplay.defaultDataSource.entities]{@link Viewer#dataSourceDisplay}.
+   * 获取不绑定到特定数据源的实体集合。
+   * 这是 [dataSourceDisplay.defaultDataSource.entities]{@link Viewer#dataSourceDisplay} 的快捷方式。
    * @memberof Viewer.prototype
    * @type {EntityCollection}
    * @readonly
@@ -1153,7 +1152,7 @@ Object.defineProperties(Viewer.prototype, {
   },
 
   /**
-   * Gets the set of {@link DataSource} instances to be visualized.
+   * 获取要可视化的 {@link DataSource} 实例集合。
    * @memberof Viewer.prototype
    * @type {DataSourceCollection}
    * @readonly
@@ -1165,7 +1164,7 @@ Object.defineProperties(Viewer.prototype, {
   },
 
   /**
-   * Gets the canvas.
+   * 获取画布。
    * @memberof Viewer.prototype
    * @type {HTMLCanvasElement}
    * @readonly
@@ -1177,7 +1176,7 @@ Object.defineProperties(Viewer.prototype, {
   },
 
   /**
-   * Gets the scene.
+   * 获取场景。
    * @memberof Viewer.prototype
    * @type {Scene}
    * @readonly
@@ -1189,7 +1188,7 @@ Object.defineProperties(Viewer.prototype, {
   },
 
   /**
-   * Determines if shadows are cast by light sources.
+   * 确定光源是否投射阴影。
    * @memberof Viewer.prototype
    * @type {boolean}
    */
@@ -1203,7 +1202,7 @@ Object.defineProperties(Viewer.prototype, {
   },
 
   /**
-   * Determines if the terrain casts or shadows from light sources.
+   * 确定地形是否投射或接收来自光源的阴影。
    * @memberof Viewer.prototype
    * @type {ShadowMode}
    */
@@ -1217,7 +1216,7 @@ Object.defineProperties(Viewer.prototype, {
   },
 
   /**
-   * Get the scene's shadow map
+   * 获取场景的阴影映射。
    * @memberof Viewer.prototype
    * @type {ShadowMap}
    * @readonly
@@ -1229,7 +1228,7 @@ Object.defineProperties(Viewer.prototype, {
   },
 
   /**
-   * Gets the collection of image layers that will be rendered on the globe.
+   * 获取将在 globe 上渲染的影像图层集合。
    * @memberof Viewer.prototype
    *
    * @type {ImageryLayerCollection}
@@ -1242,7 +1241,7 @@ Object.defineProperties(Viewer.prototype, {
   },
 
   /**
-   * The terrain provider providing surface geometry for the globe.
+   * 为 globe 提供表面地形的地形提供器。
    * @memberof Viewer.prototype
    *
    * @type {TerrainProvider}
@@ -1257,7 +1256,7 @@ Object.defineProperties(Viewer.prototype, {
   },
 
   /**
-   * Gets the camera.
+   * 获取相机。
    * @memberof Viewer.prototype
    *
    * @type {Camera}
@@ -1270,7 +1269,7 @@ Object.defineProperties(Viewer.prototype, {
   },
 
   /**
-   * Gets the default ellipsoid for the scene.
+   * 获取场景的默认椭球体。
    * @memberof Viewer.prototype
    *
    * @type {Ellipsoid}
@@ -1284,7 +1283,7 @@ Object.defineProperties(Viewer.prototype, {
   },
 
   /**
-   * Gets the post-process stages.
+   * 获取后处理阶段。
    * @memberof Viewer.prototype
    *
    * @type {PostProcessStageCollection}
@@ -1297,7 +1296,7 @@ Object.defineProperties(Viewer.prototype, {
   },
 
   /**
-   * Gets the clock.
+   * 获取时钟。
    * @memberof Viewer.prototype
    * @type {Clock}
    * @readonly
@@ -1309,7 +1308,7 @@ Object.defineProperties(Viewer.prototype, {
   },
 
   /**
-   * Gets the clock view model.
+   * 获取时钟视图模型。
    * @memberof Viewer.prototype
    * @type {ClockViewModel}
    * @readonly
@@ -1321,7 +1320,7 @@ Object.defineProperties(Viewer.prototype, {
   },
 
   /**
-   * Gets the screen space event handler.
+   * 获取屏幕空间事件处理器。
    * @memberof Viewer.prototype
    * @type {ScreenSpaceEventHandler}
    * @readonly
@@ -1333,10 +1332,9 @@ Object.defineProperties(Viewer.prototype, {
   },
 
   /**
-   * Gets or sets the target frame rate of the widget when <code>useDefaultRenderLoop</code>
-   * is true. If undefined, the browser's requestAnimationFrame implementation
-   * determines the frame rate.  If defined, this value must be greater than 0.  A value higher
-   * than the underlying requestAnimationFrame implementation will have no effect.
+   * 获取或设置当 <code>useDefaultRenderLoop</code> 为 true 时控件的目标帧率。
+   * 如果未定义，由浏览器的 requestAnimationFrame 实现确定帧率。如果已定义，此值必须大于 0。
+   * 高于底层 requestAnimationFrame 实现的值将无效。
    * @memberof Viewer.prototype
    *
    * @type {number}
@@ -1351,15 +1349,11 @@ Object.defineProperties(Viewer.prototype, {
   },
 
   /**
-   * Gets or sets whether or not this widget should control the render loop.
-   * If true the widget will use requestAnimationFrame to
-   * perform rendering and resizing of the widget, as well as drive the
-   * simulation clock. If set to false, you must manually call the
-   * <code>resize</code>, <code>render</code> methods
-   * as part of a custom render loop.  If an error occurs during rendering, {@link Scene}'s
-   * <code>renderError</code> event will be raised and this property
-   * will be set to false.  It must be set back to true to continue rendering
-   * after the error.
+   * 获取或设置此控件是否应该控制渲染循环。
+   * 如果为 true，控件将使用 requestAnimationFrame 执行渲染和控件大小调整，以及驱动模拟时钟。
+   * 如果设置为 false，必须在自定义渲染循环中手动调用 <code>resize</code>、<code>render</code> 方法。
+   * 如果渲染时发生错误，将触发 {@link Scene} 的 <code>renderError</code> 事件，且此属性将设置为 false。
+   * 必须在错误后重新设置为 true 才能继续渲染。
    * @memberof Viewer.prototype
    *
    * @type {boolean}
@@ -1374,12 +1368,10 @@ Object.defineProperties(Viewer.prototype, {
   },
 
   /**
-   * Gets or sets a scaling factor for rendering resolution.  Values less than 1.0 can improve
-   * performance on less powerful devices while values greater than 1.0 will render at a higher
-   * resolution and then scale down, resulting in improved visual fidelity.
-   * For example, if the widget is laid out at a size of 640x480, setting this value to 0.5
-   * will cause the scene to be rendered at 320x240 and then scaled up while setting
-   * it to 2.0 will cause the scene to be rendered at 1280x960 and then scaled down.
+   * 获取或设置渲染分辨率的缩放因子。小于 1.0 的值可以提高性能较弱设备的性能，
+   * 而大于 1.0 的值将以更高分辨率渲染然后缩小，从而改善视觉效果。
+   * 例如，如果控件布局大小为 640x480，将此值设置为 0.5 将导致场景以 320x240 渲染然后放大，
+   * 而设置为 2.0 将导致场景以 1280x960 渲染然后缩小。
    * @memberof Viewer.prototype
    *
    * @type {number}
@@ -1395,12 +1387,10 @@ Object.defineProperties(Viewer.prototype, {
   },
 
   /**
-   * Boolean flag indicating if the browser's recommended resolution is used.
-   * If true, the browser's device pixel ratio is ignored and 1.0 is used instead,
-   * effectively rendering based on CSS pixels instead of device pixels. This can improve
-   * performance on less powerful devices that have high pixel density. When false, rendering
-   * will be in device pixels. {@link Viewer#resolutionScale} will still take effect whether
-   * this flag is true or false.
+   * 布尔标志，指示是否使用浏览器的推荐分辨率。
+   * 如果为 true，则忽略浏览器的设备像素比并使用 1.0，有效地基于 CSS 像素而不是设备像素进行渲染。
+   * 这可以在高像素密度的性能较弱设备上改善性能。当为 false 时，将以设备像素渲染。
+   * 无论此标志是 true 还是 false，{@link Viewer#resolutionScale} 都将生效。
    * @memberof Viewer.prototype
    *
    * @type {boolean}
@@ -1416,10 +1406,8 @@ Object.defineProperties(Viewer.prototype, {
   },
 
   /**
-   * Gets or sets whether or not data sources can temporarily pause
-   * animation in order to avoid showing an incomplete picture to the user.
-   * For example, if asynchronous primitives are being processed in the
-   * background, the clock will not advance until the geometry is ready.
+   * 获取或设置数据源是否可以暂时暂停动画以避免向用户显示不完整的画面。
+   * 例如，如果异步图元正在后台处理，时钟在几何体准备好之前不会推进。
    *
    * @memberof Viewer.prototype
    *
@@ -1435,7 +1423,7 @@ Object.defineProperties(Viewer.prototype, {
   },
 
   /**
-   * Gets or sets the Entity instance currently being tracked by the camera.
+   * 获取或设置相机当前跟踪的 Entity 实例。
    * @memberof Viewer.prototype
    * @type {Entity | undefined}
    */
@@ -1448,11 +1436,10 @@ Object.defineProperties(Viewer.prototype, {
     },
   },
   /**
-   * Gets or sets the object instance for which to display a selection indicator.
+   * 获取或设置要显示选择指示的对象实例。
    *
-   * If a user interactively picks a Cesium3DTilesFeature instance, then this property
-   * will contain a transient Entity instance with a property named "feature" that is
-   * the instance that was picked.
+   * 如果用户交互地选择了 Cesium3DTilesFeature 实例，则此属性将包含一个瞬态 Entity 实例，
+   * 该实例具有名为 "feature" 的属性，即被选择的实例。
    * @memberof Viewer.prototype
    * @type {Entity | undefined}
    */
@@ -1479,7 +1466,7 @@ Object.defineProperties(Viewer.prototype, {
     },
   },
   /**
-   * Gets the event that is raised when the selected entity changes.
+   * 获取所选实体更改时触发的事件。
    * @memberof Viewer.prototype
    * @type {Event}
    * @readonly
@@ -1490,7 +1477,7 @@ Object.defineProperties(Viewer.prototype, {
     },
   },
   /**
-   * Gets the event that is raised when the tracked entity changes.
+   * 获取跟踪实体更改时触发的事件。
    * @memberof Viewer.prototype
    * @type {Event}
    * @readonly
@@ -1501,7 +1488,7 @@ Object.defineProperties(Viewer.prototype, {
     },
   },
   /**
-   * Gets or sets the data source to track with the viewer's clock.
+   * 获取或设置与 viewer 时钟跟踪的数据源。
    * @memberof Viewer.prototype
    * @type {DataSource}
    */
@@ -1519,12 +1506,11 @@ Object.defineProperties(Viewer.prototype, {
 });
 
 /**
- * Extends the base viewer functionality with the provided mixin.
- * A mixin may add additional properties, functions, or other behavior
- * to the provided viewer instance.
+ * 使用提供的 mixin 扩展基础 viewer 功能。
+ * mixin 可以为 viewer 实例添加额外的属性、函数或其他功能。
  *
- * @param {Viewer.ViewerMixin} mixin The Viewer mixin to add to this instance.
- * @param {object} [options] The options object to be passed to the mixin function.
+ * @param {Viewer.ViewerMixin} mixin 要添加到此实例的 Viewer mixin。
+ * @param {object} [options] 要传递给 mixin 函数的选项对象。
  *
  * @see viewerDragDropMixin
  */
@@ -1539,9 +1525,8 @@ Viewer.prototype.extend = function (mixin, options) {
 };
 
 /**
- * Resizes the widget to match the container size.
- * This function is called automatically as needed unless
- * <code>useDefaultRenderLoop</code> is set to false.
+ * 调整控件大小以匹配容器大小。
+ * 除非 <code>useDefaultRenderLoop</code> 设置为 false，否则此函数会自动调用。
  */
 Viewer.prototype.resize = function () {
   const cesiumWidget = this._cesiumWidget;
@@ -1649,8 +1634,7 @@ Viewer.prototype.resize = function () {
 };
 
 /**
- * This forces the widget to re-think its layout, including
- * widget sizes and credit placement.
+ * 强制控件重新考虑其布局，包括控件大小和信用显示位置。
  */
 Viewer.prototype.forceResize = function () {
   this._lastWidth = 0;
@@ -1658,23 +1642,21 @@ Viewer.prototype.forceResize = function () {
 };
 
 /**
- * Renders the scene.  This function is called automatically
- * unless <code>useDefaultRenderLoop</code> is set to false;
+ * 渲染场景。除非 <code>useDefaultRenderLoop</code> 设置为 false，否则会自动调用此函数。
  */
 Viewer.prototype.render = function () {
   this._cesiumWidget.render();
 };
 
 /**
- * @returns {boolean} true if the object has been destroyed, false otherwise.
+ * @returns {boolean} 如果对象已被销毁则返回 true，否则返回 false。
  */
 Viewer.prototype.isDestroyed = function () {
   return false;
 };
 
 /**
- * Destroys the widget.  Should be called if permanently
- * removing the widget from layout.
+ * 销毁控件。如果从布局中永久移除控件，应调用此方法。
  */
 Viewer.prototype.destroy = function () {
   if (
@@ -1974,59 +1956,53 @@ Viewer.prototype._onDataSourceRemoved = function (
 };
 
 /**
- * Asynchronously sets the camera to view the provided entity, entities, or data source.
- * If the data source is still in the process of loading or the visualization is otherwise still loading,
- * this method waits for the data to be ready before performing the zoom.
+ * 异步设置相机以查看提供的实体、实体数组或数据源。
+ * 如果数据源仍在加载过程中或可视化仍在加载，此方法将等待数据准备好后再执行缩放。
  *
- * <p>The offset is heading/pitch/range in the local east-north-up reference frame centered at the center of the bounding sphere.
- * The heading and the pitch angles are defined in the local east-north-up reference frame.
- * The heading is the angle from y axis and increasing towards the x axis. Pitch is the rotation from the xy-plane. Positive pitch
- * angles are above the plane. Negative pitch angles are below the plane. The range is the distance from the center. If the range is
- * zero, a range will be computed such that the whole bounding sphere is visible.</p>
+ * <p>偏移量是局部东北天参考帧中的航向/俯仰/范围，以边界球体的中心为中心。
+ * 航向和俯仰角在局部东北天参考帧中定义。
+ * 航向是从 y 轴开始并向 x 轴增加的角度。俯仰是从 xy 平面的旋转。正俯仰角在平面上方。
+ * 负俯仰角在平面下方。范围是到中心的距离。如果范围为零，将计算一个范围以使整个边界球体可见。</p>
  *
- * <p>In 2D, there must be a top down view. The camera will be placed above the target looking down. The height above the
- * target will be the range. The heading will be determined from the offset. If the heading cannot be
- * determined from the offset, the heading will be north.</p>
+ * <p>在 2D 中，必须是自上而下的视图。相机将放置在目标上方俯视。
+ * 目标上方的高度为范围。航向将由偏移量确定。如果无法从偏移量确定航向，则航向为北。</p>
  *
- * @param {Entity|Entity[]|EntityCollection|DataSource|ImageryLayer|Cesium3DTileset|TimeDynamicPointCloud|Promise<Entity|Entity[]|EntityCollection|DataSource|ImageryLayer|Cesium3DTileset|TimeDynamicPointCloud|VoxelPrimitive|BufferPrimitiveCollection<BufferPrimitive>>} target The entity, array of entities, entity collection, data source, Cesium3DTileset, point cloud, or imagery layer to view. You can also pass a promise that resolves to one of the previously mentioned types.
- * @param {HeadingPitchRange} [offset] The offset from the center of the entity in the local east-north-up reference frame.
- * @returns {Promise<boolean>} A Promise that resolves to true if the zoom was successful or false if the target is not currently visualized in the scene or the zoom was cancelled.
+ * @param {Entity|Entity[]|EntityCollection|DataSource|ImageryLayer|Cesium3DTileset|TimeDynamicPointCloud|Promise<Entity|Entity[]|EntityCollection|DataSource|ImageryLayer|Cesium3DTileset|TimeDynamicPointCloud|VoxelPrimitive|BufferPrimitiveCollection<BufferPrimitive>>} target 要查看的实体、实体数组、实体集合、数据源、Cesium3DTileset、点云或影像图层。也可以传递解析为上述类型之一的 promise。
+ * @param {HeadingPitchRange} [offset] 局部东北天参考帧中相对于实体中心的偏移。
+ * @returns {Promise<boolean>} 解析为 true 表示缩放成功，或 false 表示目标当前未在场景中可视化或缩放被取消的 Promise。
  */
 Viewer.prototype.zoomTo = function (target, offset) {
   return this._cesiumWidget.zoomTo(target, offset);
 };
 
 /**
- * Flies the camera to the provided entity, entities, or data source.
- * If the data source is still in the process of loading or the visualization is otherwise still loading,
- * this method waits for the data to be ready before performing the flight.
+ * 飞行相机到提供的实体、实体数组或数据源。
+ * 如果数据源仍在加载过程中或可视化仍在加载，此方法将等待数据准备好后再执行飞行。
  *
- * <p>The offset is heading/pitch/range in the local east-north-up reference frame centered at the center of the bounding sphere.
- * The heading and the pitch angles are defined in the local east-north-up reference frame.
- * The heading is the angle from y axis and increasing towards the x axis. Pitch is the rotation from the xy-plane. Positive pitch
- * angles are above the plane. Negative pitch angles are below the plane. The range is the distance from the center. If the range is
- * zero, a range will be computed such that the whole bounding sphere is visible.</p>
+ * <p>偏移量是局部东北天参考帧中的航向/俯仰/范围，以边界球体的中心为中心。
+ * 航向和俯仰角在局部东北天参考帧中定义。
+ * 航向是从 y 轴开始并向 x 轴增加的角度。俯仰是从 xy 平面的旋转。正俯仰角在平面上方。
+ * 负俯仰角在平面下方。范围是到中心的距离。如果范围为零，将计算一个范围以使整个边界球体可见。</p>
  *
- * <p>In 2D, there must be a top down view. The camera will be placed above the target looking down. The height above the
- * target will be the range. The heading will be determined from the offset. If the heading cannot be
- * determined from the offset, the heading will be north.</p>
+ * <p>在 2D 中，必须是自上而下的视图。相机将放置在目标上方俯视。
+ * 目标上方的高度为范围。航向将由偏移量确定。如果无法从偏移量确定航向，则航向为北。</p>
  *
- * @param {Entity|Entity[]|EntityCollection|DataSource|ImageryLayer|Cesium3DTileset|TimeDynamicPointCloud|Promise<Entity|Entity[]|EntityCollection|DataSource|ImageryLayer|Cesium3DTileset|TimeDynamicPointCloud|VoxelPrimitive|BufferPrimitiveCollection<BufferPrimitive>>} target The entity, array of entities, entity collection, data source, Cesium3DTileset, point cloud, or imagery layer to view. You can also pass a promise that resolves to one of the previously mentioned types.
- * @param {object} [options] Object with the following properties:
- * @param {number} [options.duration=3.0] The duration of the flight in seconds.
- * @param {number} [options.maximumHeight] The maximum height at the peak of the flight.
- * @param {HeadingPitchRange} [options.offset] The offset from the target in the local east-north-up reference frame centered at the target.
- * @returns {Promise<boolean>} A Promise that resolves to true if the flight was successful or false if the target is not currently visualized in the scene or the flight was cancelled. //TODO: Cleanup entity mentions
+ * @param {Entity|Entity[]|EntityCollection|DataSource|ImageryLayer|Cesium3DTileset|TimeDynamicPointCloud|Promise<Entity|Entity[]|EntityCollection|DataSource|ImageryLayer|Cesium3DTileset|TimeDynamicPointCloud|VoxelPrimitive|BufferPrimitiveCollection<BufferPrimitive>>} target 要查看的实体、实体数组、实体集合、数据源、Cesium3DTileset、点云或影像图层。也可以传递解析为上述类型之一的 promise。
+ * @param {object} [options] 具有以下属性的对象：
+ * @param {number} [options.duration=3.0] 飞行持续时间（秒）。
+ * @param {number} [options.maximumHeight] 飞行最高点的最大高度。
+ * @param {HeadingPitchRange} [options.offset] 局部东北天参考帧中相对于目标的偏移。
+ * @returns {Promise<boolean>} 解析为 true 表示飞行成功，或 false 表示目标当前未在场景中可视化或飞行被取消的 Promise。
  */
 Viewer.prototype.flyTo = function (target, options) {
   return this._cesiumWidget.flyTo(target, options);
 };
 
 /**
- * A function that augments a Viewer instance with additional functionality.
+ * 为 Viewer 实例添加额外功能的函数。
  * @callback Viewer.ViewerMixin
- * @param {Viewer} viewer The viewer instance.
- * @param {object} options Options object to be passed to the mixin function.
+ * @param {Viewer} Viewer 实例。
+ * @param {object} options 要传递给 mixin 函数的选项对象。
  *
  * @see Viewer#extend
  */

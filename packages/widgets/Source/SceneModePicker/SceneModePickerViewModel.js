@@ -9,12 +9,12 @@ import knockout from "../ThirdParty/knockout.js";
 import createCommand from "../createCommand.js";
 
 /**
- * The view model for {@link SceneModePicker}.
+ * {@link SceneModePicker} 的视图模型。
  * @alias SceneModePickerViewModel
  * @constructor
  *
- * @param {Scene} scene The Scene to morph
- * @param {number} [duration=2.0] The duration of scene morph animations, in seconds
+ * @param {Scene} scene 要进行变形的 Scene
+ * @param {number} [duration=2.0] 场景变形动画的持续时间（秒）
  */
 function SceneModePickerViewModel(scene, duration) {
   //>>includeStart('debug', pragmas.debug);
@@ -38,34 +38,34 @@ function SceneModePickerViewModel(scene, duration) {
   this._duration = duration ?? 2.0;
 
   /**
-   * Gets or sets the current SceneMode.  This property is observable.
+   * 获取或设置当前的 SceneMode。此属性是可观察的。
    * @type {SceneMode}
    */
   this.sceneMode = scene.mode;
 
   /**
-   * Gets or sets whether the button drop-down is currently visible.  This property is observable.
+   * 获取或设置按钮下拉菜单当前是否可见。此属性是可观察的。
    * @type {boolean}
    * @default false
    */
   this.dropDownVisible = false;
 
   /**
-   * Gets or sets the 2D tooltip.  This property is observable.
+   * 获取或设置 2D 提示。此属性是可观察的。
    * @type {string}
    * @default '2D'
    */
   this.tooltip2D = "2D";
 
   /**
-   * Gets or sets the 3D tooltip.  This property is observable.
+   * 获取或设置 3D 提示。此属性是可观察的。
    * @type {string}
    * @default '3D'
    */
   this.tooltip3D = "3D";
 
   /**
-   * Gets or sets the Columbus View tooltip.  This property is observable.
+   * 获取或设置 Columbus View 提示。此属性是可观察的。
    * @type {string}
    * @default 'Columbus View'
    */
@@ -80,7 +80,7 @@ function SceneModePickerViewModel(scene, duration) {
   ]);
 
   /**
-   * Gets the currently active tooltip.  This property is observable.
+   * 获取当前激活的提示。此属性是可观察的。
    * @type {string}
    */
   this.selectedTooltip = undefined;
@@ -117,7 +117,7 @@ function SceneModePickerViewModel(scene, duration) {
 
 Object.defineProperties(SceneModePickerViewModel.prototype, {
   /**
-   * Gets the scene
+   * 获取场景
    * @memberof SceneModePickerViewModel.prototype
    * @type {Scene}
    */
@@ -128,8 +128,8 @@ Object.defineProperties(SceneModePickerViewModel.prototype, {
   },
 
   /**
-   * Gets or sets the the duration of scene mode transition animations in seconds.
-   * A value of zero causes the scene to instantly change modes.
+   * 获取或设置场景模式转换动画的持续时间（秒）。
+   * 值为零会导致场景立即切换模式。
    * @memberof SceneModePickerViewModel.prototype
    * @type {number}
    */
@@ -149,7 +149,7 @@ Object.defineProperties(SceneModePickerViewModel.prototype, {
   },
 
   /**
-   * Gets the command to toggle the drop down box.
+   * 获取用于切换下拉框的命令。
    * @memberof SceneModePickerViewModel.prototype
    *
    * @type {Command}
@@ -161,7 +161,7 @@ Object.defineProperties(SceneModePickerViewModel.prototype, {
   },
 
   /**
-   * Gets the command to morph to 2D.
+   * 获取变形到 2D 的命令。
    * @memberof SceneModePickerViewModel.prototype
    *
    * @type {Command}
@@ -173,7 +173,7 @@ Object.defineProperties(SceneModePickerViewModel.prototype, {
   },
 
   /**
-   * Gets the command to morph to 3D.
+   * 获取变形到 3D 的命令。
    * @memberof SceneModePickerViewModel.prototype
    *
    * @type {Command}
@@ -185,7 +185,7 @@ Object.defineProperties(SceneModePickerViewModel.prototype, {
   },
 
   /**
-   * Gets the command to morph to Columbus View.
+   * 获取变形到 Columbus View 的命令。
    * @memberof SceneModePickerViewModel.prototype
    *
    * @type {Command}
@@ -198,14 +198,14 @@ Object.defineProperties(SceneModePickerViewModel.prototype, {
 });
 
 /**
- * @returns {boolean} true if the object has been destroyed, false otherwise.
+ * @returns {boolean} 如果对象已被销毁则为 true，否则为 false。
  */
 SceneModePickerViewModel.prototype.isDestroyed = function () {
   return false;
 };
 
 /**
- * Destroys the view model.
+ * 销毁视图模型。
  */
 SceneModePickerViewModel.prototype.destroy = function () {
   this._eventHelper.removeAll();

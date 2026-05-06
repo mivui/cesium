@@ -382,37 +382,37 @@ SvgButton.prototype.setTooltip = function (tooltip) {
 /**
  * <span style="display: block; text-align: center;">
  * <img src="Images/AnimationWidget.png" width="211" height="142" alt="" />
- * <br />Animation widget
+ * <br />Animation 控件
  * </span>
  * <br /><br />
- * The Animation widget provides buttons for play, pause, and reverse, along with the
- * current time and date, surrounded by a "shuttle ring" for controlling the speed of animation.
+ * Animation 控件提供用于播放、暂停和反转的按钮，以及
+ * 当前时间和日期，周围环绕着用于控制动画速度的“shuttle ring”。
  * <br /><br />
- * The "shuttle ring" concept is borrowed from video editing, where typically a
- * "jog wheel" can be rotated to move past individual animation frames very slowly, and
- * a surrounding shuttle ring can be twisted to control direction and speed of fast playback.
- * Cesium typically treats time as continuous (not broken into pre-defined animation frames),
- * so this widget offers no jog wheel.  Instead, the shuttle ring is capable of both fast and
- * very slow playback.  Click and drag the shuttle ring pointer itself (shown above in green),
- * or click in the rest of the ring area to nudge the pointer to the next preset speed in that direction.
+ * “shuttle ring”概念源自视频编辑，通常
+ * “jog wheel”可以旋转以逐个帧缓慢移动动画，而
+ * 周围的 shuttle ring 可以旋转以控制快播的方向和速度。
+ * Cesium 通常将时间视为连续的（不分解为预定义的动画帧），
+ * 因此此控件不提供 jog wheel。相反，shuttle ring 能够实现快速和
+ * 非常慢的播放。点击并拖动 shuttle ring 指针本身（上图中以绿色显示），
+ * 或在环区域的其余部分点击以将指针推动到该方向的下一个预设速度。
  * <br /><br />
- * The Animation widget also provides a "realtime" button (in the upper-left) that keeps
- * animation time in sync with the end user's system clock, typically displaying
- * "today" or "right now."  This mode is not available in {@link ClockRange.CLAMPED} or
- * {@link ClockRange.LOOP_STOP} mode if the current time is outside of {@link Clock}'s startTime and endTime.
+ * Animation 控件还提供“realtime”按钮（位于左上角），使
+ * 动画时间与最终用户的系统时钟保持同步，通常显示
+ * “今天”或“现在”。此模式在 {@link ClockRange.CLAMPED} 或
+ * {@link ClockRange.LOOP_STOP} 模式下不可用，如果当前时间在 {@link Clock} 的 startTime 和 endTime 之外。
  *
  * @alias Animation
  * @constructor
  *
- * @param {Element|string} container The DOM element or ID that will contain the widget.
- * @param {AnimationViewModel} viewModel The view model used by this widget.
+ * @param {Element|string} container 将包含此控件的 DOM 元素或 ID。
+ * @param {AnimationViewModel} viewModel 此控件使用的视图模型。
  *
- * @exception {DeveloperError} Element with id "container" does not exist in the document.
+ * @exception {DeveloperError} 文档中不存在 id 为 "container" 的元素。
  *
  *
  * @example
- * // In HTML head, include a link to Animation.css stylesheet,
- * // and in the body, include: <div id="animationContainer"></div>
+ * // 在 HTML head 中，包含指向 Animation.css 样式表的链接，
+ * // 并在 body 中包含：<div id="animationContainer"></div>
  *
  * const clock = new Cesium.Clock();
  * const clockViewModel = new Cesium.ClockViewModel(clock);
@@ -704,7 +704,7 @@ function Animation(container, viewModel) {
 
 Object.defineProperties(Animation.prototype, {
   /**
-   * Gets the parent container.
+   * 获取父容器。
    *
    * @memberof Animation.prototype
    * @type {Element}
@@ -717,7 +717,7 @@ Object.defineProperties(Animation.prototype, {
   },
 
   /**
-   * Gets the view model.
+   * 获取视图模型。
    *
    * @memberof Animation.prototype
    * @type {AnimationViewModel}
@@ -731,15 +731,14 @@ Object.defineProperties(Animation.prototype, {
 });
 
 /**
- * @returns {boolean} true if the object has been destroyed, false otherwise.
+ * @returns {boolean} 如果对象已被销毁则为 true，否则为 false。
  */
 Animation.prototype.isDestroyed = function () {
   return false;
 };
 
 /**
- * Destroys the animation widget.  Should be called if permanently
- * removing the widget from layout.
+ * 销毁动画控件。如果从布局中永久移除控件，应调用此方法。
  */
 Animation.prototype.destroy = function () {
   if (defined(this._observer)) {
@@ -804,8 +803,8 @@ Animation.prototype.destroy = function () {
 };
 
 /**
- * Resizes the widget to match the container size.
- * This function should be called whenever the container size is changed.
+ * 调整控件大小以匹配容器尺寸。
+ * 当容器大小改变时应调用此函数。
  */
 Animation.prototype.resize = function () {
   const parentWidth = this._container.clientWidth;
@@ -852,10 +851,10 @@ Animation.prototype.resize = function () {
 };
 
 /**
- * Updates the widget to reflect any modified CSS rules for theming.
+ * 更新控件以反映任何修改后的 CSS 主题规则。
  *
  * @example
- * //Switch to the cesium-lighter theme.
+ * // 切换到 cesium-lighter 主题。
  * document.body.className = 'cesium-lighter';
  * animation.applyThemeChanges();
  */

@@ -35,32 +35,32 @@ function TerrainPicker(vertices, indices, encoding) {
   //>>includeEnd('debug');
 
   /**
-   * The terrain mesh's vertex buffer.
+   * 地形网格的顶点缓冲区。
    * @type {Float64Array}
    */
   this._vertices = vertices;
   /**
-   * The terrain mesh's index buffer.
+   * 地形网格的索引缓冲区。
    * @type {Uint32Array}
    */
   this._indices = indices;
   /**
-   * The terrain mesh's vertex encoding.
+   * 地形网格的顶点编码。
    * @type {TerrainEncoding}
    */
   this._encoding = encoding;
   /**
-   * The inverse of the terrain mesh tile's transform from world space to local space.
+   * 地形网格瓦片从世界空间到局部空间的变换的逆矩阵。
    * @type {Matrix4}
    */
   this._inverseTransform = new Matrix4(); // Compute as-needed on rebuild
   /**
-   * Whether or not to reset this terrain mesh's picker on the next ray intersection.
+   * 是否在下次射线相交时重置此地形网格的拾取器。
    * @type {Boolean}
    */
   this._needsRebuild = true;
   /**
-   * The root node of the terrain picker's quadtree.
+   * 地形拾取器四叉树的根节点。
    * @type {TerrainPickerNode}
    */
   this._rootNode = new TerrainPickerNode();
@@ -72,7 +72,7 @@ const incrementallyBuildTerrainPickerTaskProcessor = new TaskProcessor(
 
 Object.defineProperties(TerrainPicker.prototype, {
   /**
-   * Indicates whether the terrain picker needs to be rebuilt due to changes in the underlying terrain mesh's vertices or indices.
+   * 指示由于底层地形网格的顶点或索引发生变化，地形拾取器是否需要重建。
    * @memberof TerrainPicker.prototype
    * @type {boolean}
    */

@@ -1,29 +1,25 @@
 /**
- * Atmosphere lighting effects (sky atmosphere, ground atmosphere, fog) can be
- * further modified with dynamic lighting from the sun or other light source
- * that changes over time. This enum determines which light source to use.
+ * 大气照明效果（天空大气、地面大气、雾）可以通过来自太阳或其他随时间变化的光源的动态照明进一步修改。此枚举确定使用哪种光源。
  *
  * @enum {number}
  */
 const DynamicAtmosphereLightingType = {
   /**
-   * Do not use dynamic atmosphere lighting. Atmosphere lighting effects will
-   * be lit from directly above rather than using the scene's light source.
+   * 不使用动态大气照明。大气照明效果将从正上方照明，而不是使用场景的光源。
    *
    * @type {number}
    * @constant
    */
   NONE: 0,
   /**
-   * Use the scene's current light source for dynamic atmosphere lighting.
+   * 使用场景的当前光源进行动态大气照明。
    *
    * @type {number}
    * @constant
    */
   SCENE_LIGHT: 1,
   /**
-   * Force the dynamic atmosphere lighting to always use the sunlight direction,
-   * even if the scene uses a different light source.
+   * 强制动态大气照明始终使用日光方向，即使场景使用不同的光源。
    *
    * @type {number}
    * @constant

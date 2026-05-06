@@ -8,98 +8,97 @@ import Matrix3 from "../Core/Matrix3.js";
 import Matrix4 from "../Core/Matrix4.js";
 
 /**
- * An instance of a metadata value.<br>
+ * 元数据值的一个实例。<br>
  * <br>
- * This can be one of the following types:
+ * 这可以是以下类型之一：
  * <ul>
- *   <li><code>number</code> for type <code>SCALAR</code> and numeric component types except for <code>INT64</code> or <code>UINT64</code></li>
- *   <li><code>bigint</code> for type <code>SCALAR</code> and component type <code>INT64</code> or <code>UINT64</code></li>
- *   <li><code>string</code> for type <code>STRING</code> or <code>ENUM</code></li>
- *   <li><code>boolean</code> for type <code>BOOLEAN</code></li>
- *   <li><code>Cartesian2</code> for type <code>VEC2</code></li>
- *   <li><code>Cartesian3</code> for type <code>VEC3</code></li>
- *   <li><code>Cartesian4</code> for type <code>VEC4</code></li>
- *   <li><code>Matrix2</code> for type <code>MAT2</code></li>
- *   <li><code>Matrix3</code> for type <code>MAT3</code></li>
- *   <li><code>Matrix4</code> for type <code>MAT4</code></li>
- *   <li>Arrays of these types when the metadata value is an array</li>
+ *   <li><code>number</code> 用于类型 <code>SCALAR</code> 和非 <code>INT64</code> 或 <code>UINT64</code> 的数值组件类型</li>
+ *   <li><code>bigint</code> 用于类型 <code>SCALAR</code> 和组件类型 <code>INT64</code> 或 <code>UINT64</code></li>
+ *   <li><code>string</code> 用于类型 <code>STRING</code> 或 <code>ENUM</code></li>
+ *   <li><code>boolean</code> 用于类型 <code>BOOLEAN</code></li>
+ *   <li><code>Cartesian2</code> 用于类型 <code>VEC2</code></li>
+ *   <li><code>Cartesian3</code> 用于类型 <code>VEC3</code></li>
+ *   <li><code>Cartesian4</code> 用于类型 <code>VEC4</code></li>
+ *   <li><code>Matrix2</code> 用于类型 <code>MAT2</code></li>
+ *   <li><code>Matrix3</code> 用于类型 <code>MAT3</code></li>
+ *   <li><code>Matrix4</code> 用于类型 <code>MAT4</code></li>
+ *   <li>当元数据值是数组时，这些类型的数组</li>
  * </ul>
  * @typedef {(number|bigint|string|boolean|Cartesian2|Cartesian3|Cartesian4|Matrix2|Matrix3|Matrix4|number[]|bigint[]|string[]|boolean[]|Cartesian2[]|Cartesian3[]|Cartesian4[]|Matrix2[]|Matrix3[]|Matrix4[])} MetadataValue
  */
 
 /**
- * An enum of metadata types. These metadata types are containers containing
- * one or more components of type {@link MetadataComponentType}
+ * 元数据类型的枚举。这些元数据类型是容器，包含一个或多个 {@link MetadataComponentType} 类型的组件
  *
  * @enum {string}
  * @experimental This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.
  */
 const MetadataType = {
   /**
-   * A single component
+   * 单个组件
    *
    * @type {string}
    * @constant
    */
   SCALAR: "SCALAR",
   /**
-   * A vector with two components
+   * 包含两个分量的向量
    *
    * @type {string}
    * @constant
    */
   VEC2: "VEC2",
   /**
-   * A vector with three components
+   * 包含三个分量的向量
    *
    * @type {string}
    * @constant
    */
   VEC3: "VEC3",
   /**
-   * A vector with four components
+   * 包含四个分量的向量
    *
    * @type {string}
    * @constant
    */
   VEC4: "VEC4",
   /**
-   * A 2x2 matrix, stored in column-major format.
+   * 2x2 矩阵，以列主序格式存储。
    *
    * @type {string}
    * @constant
    */
   MAT2: "MAT2",
   /**
-   * A 3x3 matrix, stored in column-major format.
+   * 3x3 矩阵，以列主序格式存储。
    *
    * @type {string}
    * @constant
    */
   MAT3: "MAT3",
   /**
-   * A 4x4 matrix, stored in column-major format.
+   * 4x4 矩阵，以列主序格式存储。
    *
    * @type {string}
    * @constant
    */
   MAT4: "MAT4",
   /**
-   * A boolean (true/false) value
+   * 布尔值 (true/false)
    *
    * @type {string}
    * @constant
    */
   BOOLEAN: "BOOLEAN",
   /**
-   * A UTF-8 encoded string value
+   * UTF-8 编码的字符串值
    *
    * @type {string}
    * @constant
    */
   STRING: "STRING",
   /**
-   * An enumerated value. This type is used in conjunction with a {@link MetadataEnum} to describe the valid values.
+   * 枚举值。此类型与 {@link MetadataEnum} 结合使用以描述有效值。
    *
    * @see MetadataEnum
    *

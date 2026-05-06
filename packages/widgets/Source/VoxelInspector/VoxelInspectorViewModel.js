@@ -46,11 +46,11 @@ function formatShaderString(str) {
 }
 
 /**
- * The view model for {@link VoxelInspector}.
+ * {@link VoxelInspector} 的视图模型。
  * @alias VoxelInspectorViewModel
  * @constructor
  *
- * @param {Scene} scene The scene instance to use.
+ * @param {Scene} scene 要使用的 Scene 实例。
  */
 function VoxelInspectorViewModel(scene) {
   //>>includeStart('debug', pragmas.debug);
@@ -793,7 +793,7 @@ function setModelMatrix(viewModel) {
 
 Object.defineProperties(VoxelInspectorViewModel.prototype, {
   /**
-   * Gets the scene
+   * 获取场景。
    * @memberof VoxelInspectorViewModel.prototype
    * @type {Scene}
    * @readonly
@@ -805,7 +805,7 @@ Object.defineProperties(VoxelInspectorViewModel.prototype, {
   },
 
   /**
-   * Gets or sets the primitive of the view model.
+   * 获取或设置视图模型的体素图元。
    * @memberof VoxelInspectorViewModel.prototype
    * @type {VoxelPrimitive}
    */
@@ -852,49 +852,49 @@ Object.defineProperties(VoxelInspectorViewModel.prototype, {
 });
 
 /**
- * Toggles the inspector visibility
+ * 切换检查器可见性。
  */
 VoxelInspectorViewModel.prototype.toggleInspector = function () {
   this.inspectorVisible = !this.inspectorVisible;
 };
 
 /**
- * Toggles the visibility of the display section
+ * 切换显示部分的可见性。
  */
 VoxelInspectorViewModel.prototype.toggleDisplay = function () {
   this.displayVisible = !this.displayVisible;
 };
 
 /**
- * Toggles the visibility of the transform section
+ * 切换变换部分的可见性。
  */
 VoxelInspectorViewModel.prototype.toggleTransform = function () {
   this.transformVisible = !this.transformVisible;
 };
 
 /**
- * Toggles the visibility of the bounds section
+ * 切换边界部分的可见性。
  */
 VoxelInspectorViewModel.prototype.toggleBounds = function () {
   this.boundsVisible = !this.boundsVisible;
 };
 
 /**
- * Toggles the visibility of the clipping section
+ * 切换裁剪部分的可见性。
  */
 VoxelInspectorViewModel.prototype.toggleClipping = function () {
   this.clippingVisible = !this.clippingVisible;
 };
 
 /**
- * Toggles the visibility of the shader section
+ * 切换着色器部分的可见性。
  */
 VoxelInspectorViewModel.prototype.toggleShader = function () {
   this.shaderVisible = !this.shaderVisible;
 };
 
 /**
- * Compiles the shader in the shader editor.
+ * 编译着色器编辑器中的着色器。
  */
 VoxelInspectorViewModel.prototype.compileShader = function () {
   if (defined(this._voxelPrimitive)) {
@@ -907,7 +907,7 @@ VoxelInspectorViewModel.prototype.compileShader = function () {
 };
 
 /**
- * Handles key press events on the shader editor.
+ * 处理着色器编辑器上的按键事件。
  */
 VoxelInspectorViewModel.prototype.shaderEditorKeyPress = function (
   sender,
@@ -955,15 +955,14 @@ VoxelInspectorViewModel.prototype.shaderEditorKeyPress = function (
 };
 
 /**
- * @returns {boolean} true if the object has been destroyed, false otherwise.
+ * @returns {boolean} 如果对象已被销毁则返回 true，否则返回 false。
  */
 VoxelInspectorViewModel.prototype.isDestroyed = function () {
   return false;
 };
 
 /**
- * Destroys the widget.  Should be called if permanently
- * removing the widget from layout.
+ * 销毁控件。如果从布局中永久移除控件，应调用此方法。
  */
 VoxelInspectorViewModel.prototype.destroy = function () {
   const that = this;

@@ -160,12 +160,12 @@ const scratchColor = new Color();
 const oldColor = new Color();
 
 /**
- * The view model for {@link Cesium3DTilesInspector}.
+ * {@link Cesium3DTilesInspector} 的视图模型。
  * @alias Cesium3DTilesInspectorViewModel
  * @constructor
  *
- * @param {Scene} scene The scene instance to use.
- * @param {HTMLElement} performanceContainer The container for the performance display
+ * @param {Scene} scene 要使用的 Scene 实例。
+ * @param {HTMLElement} performanceContainer 性能显示容器
  */
 function Cesium3DTilesInspectorViewModel(scene, performanceContainer) {
   //>>includeStart('debug', pragmas.debug);
@@ -190,7 +190,7 @@ function Cesium3DTilesInspectorViewModel(scene, performanceContainer) {
   this._editorError = "";
 
   /**
-   * Gets or sets the flag to enable performance display.  This property is observable.
+   * 获取或设置启用性能显示的标志。此属性是可观察的。
    *
    * @type {boolean}
    * @default false
@@ -198,7 +198,7 @@ function Cesium3DTilesInspectorViewModel(scene, performanceContainer) {
   this.performance = false;
 
   /**
-   * Gets or sets the flag to show statistics.  This property is observable.
+   * 获取或设置显示统计信息的标志。此属性是可观察的。
    *
    * @type {boolean}
    * @default true
@@ -206,7 +206,7 @@ function Cesium3DTilesInspectorViewModel(scene, performanceContainer) {
   this.showStatistics = true;
 
   /**
-   * Gets or sets the flag to show pick statistics.  This property is observable.
+   * 获取或设置显示拾取统计信息的标志。此属性是可观察的。
    *
    * @type {boolean}
    * @default true
@@ -214,8 +214,7 @@ function Cesium3DTilesInspectorViewModel(scene, performanceContainer) {
   this.showPickStatistics = true;
 
   /**
-   * Gets or sets the flag to show resource cache statistics. This property is
-   * observable.
+   * 获取或设置显示资源缓存统计信息的标志。此属性是可观察的。
    *
    * @type {boolean}
    * @default false
@@ -223,7 +222,7 @@ function Cesium3DTilesInspectorViewModel(scene, performanceContainer) {
   this.showResourceCacheStatistics = false;
 
   /**
-   * Gets or sets the flag to show the inspector.  This property is observable.
+   * 获取或设置显示检查器的标志。此属性是可观察的。
    *
    * @type {boolean}
    * @default true
@@ -231,7 +230,7 @@ function Cesium3DTilesInspectorViewModel(scene, performanceContainer) {
   this.inspectorVisible = true;
 
   /**
-   * Gets or sets the flag to show the tileset section.  This property is observable.
+   * 获取或设置显示 tileset 部分的标志。此属性是可观察的。
    *
    * @type {boolean}
    * @default false
@@ -239,7 +238,7 @@ function Cesium3DTilesInspectorViewModel(scene, performanceContainer) {
   this.tilesetVisible = false;
 
   /**
-   * Gets or sets the flag to show the display section.  This property is observable.
+   * 获取或设置显示显示部分的标志。此属性是可观察的。
    *
    * @type {boolean}
    * @default false
@@ -247,7 +246,7 @@ function Cesium3DTilesInspectorViewModel(scene, performanceContainer) {
   this.displayVisible = false;
 
   /**
-   * Gets or sets the flag to show the update section.  This property is observable.
+   * 获取或设置显示更新部分的标志。此属性是可观察的。
    *
    * @type {boolean}
    * @default false
@@ -255,7 +254,7 @@ function Cesium3DTilesInspectorViewModel(scene, performanceContainer) {
   this.updateVisible = false;
 
   /**
-   * Gets or sets the flag to show the logging section.  This property is observable.
+   * 获取或设置显示日志部分的标志。此属性是可观察的。
    *
    * @type {boolean}
    * @default false
@@ -263,7 +262,7 @@ function Cesium3DTilesInspectorViewModel(scene, performanceContainer) {
   this.loggingVisible = false;
 
   /**
-   * Gets or sets the flag to show the style section.  This property is observable.
+   * 获取或设置显示样式部分的标志。此属性是可观察的。
    *
    * @type {boolean}
    * @default false
@@ -271,7 +270,7 @@ function Cesium3DTilesInspectorViewModel(scene, performanceContainer) {
   this.styleVisible = false;
 
   /**
-   * Gets or sets the flag to show the tile info section.  This property is observable.
+   * 获取或设置显示瓦片信息部分的标志。此属性是可观察的。
    *
    * @type {boolean}
    * @default false
@@ -279,7 +278,7 @@ function Cesium3DTilesInspectorViewModel(scene, performanceContainer) {
   this.tileDebugLabelsVisible = false;
 
   /**
-   * Gets or sets the flag to show the optimization info section. This property is observable.
+   * 获取或设置显示优化信息部分的标志。此属性是可观察的。
    *
    * @type {boolean}
    * @default false;
@@ -287,7 +286,7 @@ function Cesium3DTilesInspectorViewModel(scene, performanceContainer) {
   this.optimizationVisible = false;
 
   /**
-   * Gets or sets the JSON for the tileset style.  This property is observable.
+   * 获取或设置 tileset 样式的 JSON。此属性是可观察的。
    *
    * @type {string}
    * @default '{}'
@@ -295,7 +294,7 @@ function Cesium3DTilesInspectorViewModel(scene, performanceContainer) {
   this.styleString = "{}";
 
   /**
-   * Gets or sets the JSON for the tileset enableDebugWireframe attribute.  This property is observable.
+   * 获取或设置 tileset enableDebugWireframe 属性的 JSON。此属性是可观察的。
    *
    * @type {boolean}
    * @default false

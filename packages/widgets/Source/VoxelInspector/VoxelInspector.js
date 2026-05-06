@@ -9,13 +9,13 @@ import InspectorShared from "../InspectorShared.js";
 import VoxelInspectorViewModel from "./VoxelInspectorViewModel.js";
 
 /**
- * Inspector widget to aid in debugging voxels
+ * 用于辅助调试体素的 Inspector 控件。
  *
  * @alias VoxelInspector
  * @constructor
  *
- * @param {Element|string} container The DOM element or ID that will contain the widget.
- * @param {Scene} scene the Scene instance to use.
+ * @param {Element|string} container 包含此控件的 DOM 元素或 id。
+ * @param {Scene} scene 要使用的 Scene 实例。
  */
 function VoxelInspector(container, scene) {
   //>>includeStart('debug', pragmas.debug);
@@ -213,7 +213,7 @@ function VoxelInspector(container, scene) {
 
 Object.defineProperties(VoxelInspector.prototype, {
   /**
-   * Gets the parent container.
+   * 获取父容器。
    * @memberof VoxelInspector.prototype
    *
    * @type {Element}
@@ -225,7 +225,7 @@ Object.defineProperties(VoxelInspector.prototype, {
   },
 
   /**
-   * Gets the view model.
+   * 获取视图模型。
    * @memberof VoxelInspector.prototype
    *
    * @type {VoxelInspectorViewModel}
@@ -238,15 +238,14 @@ Object.defineProperties(VoxelInspector.prototype, {
 });
 
 /**
- * @returns {boolean} true if the object has been destroyed, false otherwise.
+ * @returns {boolean} 如果对象已被销毁则返回 true，否则返回 false。
  */
 VoxelInspector.prototype.isDestroyed = function () {
   return false;
 };
 
 /**
- * Destroys the widget.  Should be called if permanently
- * removing the widget from layout.
+ * 销毁控件。如果从布局中永久移除控件，应调用此方法。
  */
 VoxelInspector.prototype.destroy = function () {
   knockout.cleanNode(this._element);

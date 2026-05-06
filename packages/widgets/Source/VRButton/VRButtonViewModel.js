@@ -71,12 +71,12 @@ function toggleVR(viewModel, scene, isVRMode, isOrthographic) {
 }
 
 /**
- * The view model for {@link VRButton}.
+ * {@link VRButton} 的视图模型。
  * @alias VRButtonViewModel
  * @constructor
  *
- * @param {Scene} scene The scene.
- * @param {Element|string} [vrElement=document.body] The element or id to be placed into VR mode.
+ * @param {Scene} scene 场景实例。
+ * @param {Element|string} [vrElement=document.body] 进入 VR 模式的元素或 id。
  */
 function VRButtonViewModel(scene, vrElement) {
   //>>includeStart('debug', pragmas.debug);
@@ -91,7 +91,7 @@ function VRButtonViewModel(scene, vrElement) {
   const isVRMode = knockout.observable(false);
 
   /**
-   * Gets whether or not VR mode is active.
+   * 获取 VR 模式是否处于活动状态。
    *
    * @type {boolean}
    */
@@ -103,7 +103,7 @@ function VRButtonViewModel(scene, vrElement) {
   });
 
   /**
-   * Gets or sets whether or not VR functionality should be enabled.
+   * 获取或设置是否启用 VR 功能。
    *
    * @type {boolean}
    * @see Fullscreen.enabled
@@ -119,16 +119,16 @@ function VRButtonViewModel(scene, vrElement) {
   });
 
   /**
-   * Gets the tooltip.  This property is observable.
+   * 获取工具提示。此属性可被观察。
    *
    * @type {string}
    */
   this.tooltip = undefined;
   knockout.defineProperty(this, "tooltip", function () {
     if (!isEnabled()) {
-      return "VR mode is unavailable";
+      return "VR 模式不可用";
     }
-    return isVRMode() ? "Exit VR mode" : "Enter VR mode";
+    return isVRMode() ? "退出 VR 模式" : "进入 VR 模式";
   });
 
   const isOrthographic = knockout.observable(false);
@@ -173,8 +173,7 @@ function VRButtonViewModel(scene, vrElement) {
 
 Object.defineProperties(VRButtonViewModel.prototype, {
   /**
-   * Gets or sets the HTML element to place into VR mode when the
-   * corresponding button is pressed.
+   * 获取或设置在按下相应按钮时进入 VR 模式的 HTML 元素。
    * @memberof VRButtonViewModel.prototype
    *
    * @type {Element}
@@ -196,7 +195,7 @@ Object.defineProperties(VRButtonViewModel.prototype, {
   },
 
   /**
-   * Gets the Command to toggle VR mode.
+   * 获取用于切换 VR 模式的 Command。
    * @memberof VRButtonViewModel.prototype
    *
    * @type {Command}
@@ -209,15 +208,14 @@ Object.defineProperties(VRButtonViewModel.prototype, {
 });
 
 /**
- * @returns {boolean} true if the object has been destroyed, false otherwise.
+ * @returns {boolean} 如果对象已被销毁则返回 true，否则返回 false。
  */
 VRButtonViewModel.prototype.isDestroyed = function () {
   return false;
 };
 
 /**
- * Destroys the view model.  Should be called to
- * properly clean up the view model when it is no longer needed.
+ * 销毁视图模型。当不再需要视图模型时应调用此方法以正确清理。
  */
 VRButtonViewModel.prototype.destroy = function () {
   this._eventHelper.removeAll();

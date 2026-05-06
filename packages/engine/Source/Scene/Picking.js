@@ -236,17 +236,14 @@ const scratchPosition = new Cartesian2();
 const scratchColorZero = new Color(0.0, 0.0, 0.0, 0.0);
 
 /**
- * Compute the rectangle that describes the part of the drawing buffer
- * that is relevant for picking.
+ * 计算用于拾取的部分绘制缓冲区所描述的矩形。
  *
- * @param {number} drawingBufferHeight The height of the drawing buffer
- * @param {Cartesian2} position The position inside the drawing buffer
- * @param {number|undefined} width The width of the rectangle, assumed to
- * be an odd integer number, default : 3.0
- * @param {number|undefined} height The height of the rectangle. If unspecified,
- * height will default to the value of <code>width</code>
- * @param {BoundingRectangle} result The result rectangle
- * @returns {BoundingRectangle} The result rectangle
+ * @param {number} drawingBufferHeight 绘制缓冲区的高度
+ * @param {Cartesian2} position 绘制缓冲区内的位置
+ * @param {number|undefined} width 矩形的宽度，假定为奇数整数，默认值：3.0
+ * @param {number|undefined} height 矩形的高度。如果未指定，height 将默认取 <code>width</code> 的值
+ * @param {BoundingRectangle} result 结果矩形
+ * @returns {BoundingRectangle} 结果矩形
  */
 function computePickingDrawingBufferRectangle(
   drawingBufferHeight,
@@ -263,13 +260,13 @@ function computePickingDrawingBufferRectangle(
 }
 
 /**
- * Setup needed before picking.
+ * 拾取前所需的设置。
  *
  * @param {Scene} scene
- * @param {Cartesian2} windowPosition Window coordinates to perform picking on.
- * @param {BoundingRectangle} drawingBufferRectangle The output drawing buffer recangle.
- * @param {number} [width=3] Width of the pick rectangle.
- * @param {number} [height=3] Height of the pick rectangle.
+ * @param {Cartesian2} windowPosition 用于执行拾取的窗口坐标。
+ * @param {BoundingRectangle} drawingBufferRectangle 输出的绘制缓冲区矩形。
+ * @param {number} [width=3] 拾取矩形的宽度。
+ * @param {number} [height=3] 拾取矩形的高度。
  */
 function pickBegin(
   scene,
@@ -329,7 +326,7 @@ function pickBegin(
 }
 
 /**
- * Teardown needed after picking.
+ * 拾取后所需的清理。
  *
  * @param {Scene} scene
  */
@@ -339,19 +336,19 @@ function pickEnd(scene) {
 }
 
 /**
- * Same operation as {@link Picking#pick}, but returns a Promise that resolves asynchronously without blocking the main render thread.
- * Requires WebGL2 else using synchronous fallback.
+ * 与 {@link Picking#pick} 操作相同，但返回一个 Promise，可异步解析而不阻塞主渲染线程。
+ * 需要 WebGL2，否则使用同步回退方案。
  *
  * @see Picking#pick
  *
  * @param {Scene} scene
- * @param {Cartesian2} windowPosition Window coordinates to perform picking on.
- * @param {number} [width=3] Width of the pick rectangle.
- * @param {number} [height=3] Height of the pick rectangle.
- * @param {number} [limit=1] If supplied, stop iterating after collecting this many objects.
- * @returns {Promise<object[]>} List of objects containing the picked primitives.
+ * @param {Cartesian2} windowPosition 用于执行拾取的窗口坐标。
+ * @param {number} [width=3] 拾取矩形的宽度。
+ * @param {number} [height=3] 拾取矩形的高度。
+ * @param {number} [limit=1] 如果提供，在收集到该数量的对象后停止迭代。
+ * @returns {Promise<object[]>} 包含拾取到的图元的对象列表。
  *
- * @exception {RuntimeError} Async Picking Request Timeout.
+ * @exception {RuntimeError} 异步拾取请求超时。
  */
 Picking.prototype.pickAsync = async function (
   scene,
@@ -388,18 +385,17 @@ Picking.prototype.pickAsync = async function (
 };
 
 /**
- * Returns a list of objects with a <code>primitive</code> property that contains the first (top) primitives
- * in the scene at a particular window coordinate. Other properties may potentially be set depending on the
- * type of primitive and may be used to further identify the picked object.
+ * 返回一个对象列表，其中包含 <code>primitive</code> 属性，该属性包含场景中特定窗口坐标处最靠前（最上层）的图元。
+ * 其他属性可能会根据图元类型进行设置，可用于进一步识别拾取的对象。
  * <p>
- * When a feature of a 3D Tiles tileset is picked, <code>pick</code> returns a {@link Cesium3DTileFeature} object.
+ * 当拾取 3D Tiles 瓦片集要素时，<code>pick</code> 返回一个 {@link Cesium3DTileFeature} 对象。
  * </p>
  * @param {Scene} scene
- * @param {Cartesian2} windowPosition Window coordinates to perform picking on.
- * @param {number} [width=3] Width of the pick rectangle.
- * @param {number} [height=3] Height of the pick rectangle.
- * @param {number} [limit=1] If supplied, stop iterating after collecting this many objects.
- * @returns {object[]} List of objects containing the picked primitives.
+ * @param {Cartesian2} windowPosition 用于执行拾取的窗口坐标。
+ * @param {number} [width=3] 拾取矩形的宽度。
+ * @param {number} [height=3] 拾取矩形的高度。
+ * @param {number} [limit=1] 如果提供，在收集到该数量的对象后停止迭代。
+ * @returns {object[]} 包含拾取到的图元的对象列表。
  *
  */
 Picking.prototype.pick = function (
@@ -423,15 +419,13 @@ Picking.prototype.pick = function (
 };
 
 /**
- * Returns an object with information about the voxel sample rendered at
- * a particular window coordinate. Returns <code>undefined</code> if there is no
- * voxel at that position.
+ * 返回一个对象，包含在特定窗口坐标处渲染的体素样本的信息。如果该位置没有体素，则返回 <code>undefined</code>。
  *
  * @param {Scene} scene
- * @param {Cartesian2} windowPosition Window coordinates to perform picking on.
- * @param {number} [width=3] Width of the pick rectangle.
- * @param {number} [height=3] Height of the pick rectangle.
- * @returns {object|undefined} Object containing the picked primitive.
+ * @param {Cartesian2} windowPosition 用于执行拾取的窗口坐标。
+ * @param {number} [width=3] 拾取矩形的宽度。
+ * @param {number} [height=3] 拾取矩形的高度。
+ * @returns {object|undefined} 包含拾取到的图元的对象。
  */
 Picking.prototype.pickVoxelCoordinate = function (
   scene,
@@ -620,12 +614,12 @@ Picking.prototype.pickMetadata = function (
 /**
  * @typedef {object} PickedMetadataInfo
  *
- * Information about metadata that is supposed to be picked
+ * 待拾取元数据的信息
  *
- * @property {string|undefined} schemaId The optional ID of the metadata schema
- * @property {string} className The name of the metadata class
- * @property {string} propertyName The name of the metadata property
- * @property {MetadataClassProperty} classProperty The metadata class property
+ * @property {string|undefined} schemaId 元数据 schema 的可选 ID
+ * @property {string} className 元数据类的名称
+ * @property {string} propertyName 元数据属性的名称
+ * @property {MetadataClassProperty} classProperty 元数据类属性
  */
 
 function renderTranslucentDepthForPick(scene, drawingBufferPosition) {
@@ -801,13 +795,13 @@ Picking.prototype.pickPosition = function (scene, windowPosition, result) {
 };
 
 /**
- * @param {object[]} pickedResults the results from the pickCallback
- * @param {number} limit If supplied, stop drilling after collecting this many picks.
+ * @param {object[]} pickedResults pickCallback 返回的结果
+ * @param {number} limit 如果提供，在收集到该数量的拾取结果后停止钻取。
  * @param {object[]} results
  * @param {object[]} pickedPrimitives
  * @param {object[]} pickedAttributes
  * @param {object[]} pickedFeatures
- * @returns {boolean} whether picking should end
+ * @returns {boolean} 是否应该结束拾取
  */
 function addDrillPickedResults(
   pickedResults,
@@ -871,10 +865,10 @@ function addDrillPickedResults(
 }
 
 /**
- * Drill pick by repeatedly calling a given `pickCallback`, each time stripping away the previously picked objects.
- * @param {function(number): object[]} pickCallback Pick callback to execute each iteration
- * @param {number} [limit=Number.MAX_VALUE] If supplied, stop drilling after collecting this many picks
- * @returns {object[]} List of picked results
+ * 通过重复调用给定的 `pickCallback` 进行钻取拾取，每次剥离之前已拾取的对象。
+ * @param {function(number): object[]} pickCallback 每次迭代执行的拾取回调函数
+ * @param {number} [limit=Number.MAX_VALUE] 如果提供，在收集到该数量的拾取结果后停止钻取。
+ * @returns {object[]} 拾取结果列表
  */
 function drillPick(pickCallback, limit) {
   // PERFORMANCE_IDEA: This function calls each primitive's update for each pass. Instead

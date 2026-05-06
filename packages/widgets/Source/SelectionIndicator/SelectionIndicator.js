@@ -8,15 +8,15 @@ import knockout from "../ThirdParty/knockout.js";
 import SelectionIndicatorViewModel from "./SelectionIndicatorViewModel.js";
 
 /**
- * A widget for displaying an indicator on a selected object.
+ * 用于在选中对象上显示指示器的控件。
  *
  * @alias SelectionIndicator
  * @constructor
  *
- * @param {Element|string} container The DOM element or ID that will contain the widget.
- * @param {Scene} scene The Scene instance to use.
+ * @param {Element|string} container 将包含此控件的 DOM 元素或 ID。
+ * @param {Scene} scene 要使用的 Scene 实例。
  *
- * @exception {DeveloperError} Element with id "container" does not exist in the document.
+ * @exception {DeveloperError} 文档中不存在 id 为 "container" 的元素。
  */
 function SelectionIndicator(container, scene) {
   //>>includeStart('debug', pragmas.debug);
@@ -72,7 +72,7 @@ css: { "cesium-selection-wrapper-visible" : isVisible }',
 
 Object.defineProperties(SelectionIndicator.prototype, {
   /**
-   * Gets the parent container.
+   * 获取父容器。
    * @memberof SelectionIndicator.prototype
    *
    * @type {Element}
@@ -84,7 +84,7 @@ Object.defineProperties(SelectionIndicator.prototype, {
   },
 
   /**
-   * Gets the view model.
+   * 获取视图模型。
    * @memberof SelectionIndicator.prototype
    *
    * @type {SelectionIndicatorViewModel}
@@ -97,15 +97,14 @@ Object.defineProperties(SelectionIndicator.prototype, {
 });
 
 /**
- * @returns {boolean} true if the object has been destroyed, false otherwise.
+ * @returns {boolean} 如果对象已被销毁则为 true，否则为 false。
  */
 SelectionIndicator.prototype.isDestroyed = function () {
   return false;
 };
 
 /**
- * Destroys the widget.  Should be called if permanently
- * removing the widget from layout.
+ * 销毁控件。如果从布局中永久移除控件，应调用此方法。
  */
 SelectionIndicator.prototype.destroy = function () {
   const container = this._container;

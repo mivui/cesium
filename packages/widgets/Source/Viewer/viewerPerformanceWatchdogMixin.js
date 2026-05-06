@@ -2,18 +2,15 @@ import { Frozen, defined, DeveloperError } from "@cesium/engine";
 import PerformanceWatchdog from "../PerformanceWatchdog/PerformanceWatchdog.js";
 
 /**
- * A mixin which adds the {@link PerformanceWatchdog} widget to the {@link Viewer} widget.
- * Rather than being called directly, this function is normally passed as
- * a parameter to {@link Viewer#extend}, as shown in the example below.
+ * 添加 {@link PerformanceWatchdog} 控件到 {@link Viewer} 控件的 mixin。
+ * 此函数通常不直接调用，而是作为参数传递给 {@link Viewer#extend}，如下面的示例所示。
  * @function
  *
- * @param {Viewer} viewer The viewer instance.
- * @param {object} [options] An object with properties.
- * @param {string} [options.lowFrameRateMessage='This application appears to be performing poorly on your system.  Please try using a different web browser or updating your video drivers.'] The
- *        message to display when a low frame rate is detected.  The message is interpeted as HTML, so make sure
- *        it comes from a trusted source so that your application is not vulnerable to cross-site scripting attacks.
+ * @param {Viewer} viewer Viewer 实例。
+ * @param {object} [options] 具有属性的对象。
+ * @param {string} [options.lowFrameRateMessage='This application appears to be performing poorly on your system.  Please try using a different web browser or updating your video drivers.'] 检测到低帧率时显示的消息。该消息被解释为 HTML，因此请确保它来自可信来源，以免应用程序受到跨站脚本攻击。
  *
- * @exception {DeveloperError} viewer is required.
+ * @exception {DeveloperError} viewer 是必需的。
  *
  * @example
  * const viewer = new Cesium.Viewer('cesiumContainer');

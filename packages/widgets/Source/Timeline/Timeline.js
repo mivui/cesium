@@ -93,12 +93,12 @@ const timelineMonthNames = [
 ];
 
 /**
- * The Timeline is a widget for displaying and controlling the current scene time.
+ * Timeline 是一个用于显示和控制当前场景时间的控件。
  * @alias Timeline
  * @constructor
  *
- * @param {Element} container The parent HTML container node for this widget.
- * @param {Clock} clock The clock to use.
+ * @param {Element} container 此控件的父 HTML 容器节点。
+ * @param {Clock} clock 要使用的时钟。
  */
 function Timeline(container, clock) {
   //>>includeStart('debug', pragmas.debug);
@@ -115,7 +115,7 @@ function Timeline(container, clock) {
   const ownerDocument = container.ownerDocument;
 
   /**
-   * Gets the parent container.
+   * 获取父容器。
    * @type {Element}
    */
   this.container = container;
@@ -204,15 +204,14 @@ Timeline.prototype.removeEventListener = function (type, listener, useCapture) {
 };
 
 /**
- * @returns {boolean} true if the object has been destroyed, false otherwise.
+ * @returns {boolean} 如果对象已被销毁则返回 true，否则返回 false。
  */
 Timeline.prototype.isDestroyed = function () {
   return false;
 };
 
 /**
- * Destroys the widget.  Should be called if permanently
- * removing the widget from layout.
+ * 销毁控件。如果从布局中永久移除控件，应调用此方法。
  */
 Timeline.prototype.destroy = function () {
   this._clock.onTick.removeEventListener(this.updateFromClock, this);
@@ -265,10 +264,10 @@ Timeline.prototype.addTrack = function (
 };
 
 /**
- * Sets the view to the provided times.
+ * 将视图设置为提供的时间范围。
  *
- * @param {JulianDate} startTime The start time.
- * @param {JulianDate} stopTime The stop time.
+ * @param {JulianDate} startTime 起始时间。
+ * @param {JulianDate} stopTime 结束时间。
  */
 Timeline.prototype.zoomTo = function (startTime, stopTime) {
   //>>includeStart('debug', pragmas.debug);
@@ -984,7 +983,7 @@ function createTouchMoveCallback(timeline) {
 }
 
 /**
- * Resizes the widget to match the container size.
+ * 调整控件大小以匹配容器大小。
  */
 Timeline.prototype.resize = function () {
   const width = this.container.clientWidth;
