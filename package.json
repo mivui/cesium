@@ -121,7 +121,7 @@
     "build-third-party": "gulp buildThirdParty",
     "build-apps": "gulp -f gulpfile.apps.js buildApps",
     "build-cesium-viewer": "gulp -f gulpfile.apps.js buildCesiumViewer",
-    "build-sandcastle": "gulp -f gulpfile.apps.js buildSandcastle",
+    "build-sandcastle": "set SANDCASTLE_ORIGIN=http://localhost:8000&& gulp -f gulpfile.apps.js buildSandcastle",
     "clean": "gulp clean",
     "cloc": "gulp cloc",
     "create-demo": "npm run create-demo --workspace=packages/sandcastle",
