@@ -110,7 +110,7 @@
     "yargs": "^18.0.0"
   },
   "scripts": {
-    "docs": "npm run build && npm run build-ts && npm run build-docs && npm run build-sandcastle",
+    "docs": "npm run build && npm run build-ts && npm run build-docs",
     "prepare": "gulp prepare && husky && node scripts/isCI.js || playwright install --with-deps",
     "start": "node server.js",
     "start-public": "node server.js --public",
