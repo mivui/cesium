@@ -4684,49 +4684,6 @@ Scene.prototype.pick = function (windowPosition, width, height) {
 };
 
 /**
- * 快照操作的结果。参见 {@link Scene#snap}。
- *
- * @typedef {object} SceneSnapResult
- * @property {object} object 快照的基本体或要素。
- * @property {Cartesian3} position 快照点的世界空间位置，从快照帧缓冲的视点空间深度反投影得到。
- * @property {Cartesian2} screenPosition 快照点的窗口坐标。
- * @property {boolean} isEdge <code>true</code> 如果快照点位于边缘；<code>false</code> 如果位于表面。
- *
- * @experimental 此功能尚未最终确定，可能在不遵循 Cesium 标准弃用策略的情况下发生变化。
- */
-
-/**
- * 返回 <code>windowPosition</code> 周围屏幕空间区域内的最佳吸附目标。
- * 边比表面优先；在同类命中中，离光标最近的获胜。如果区域内没有可吸附的几何体，则返回 <code>undefined</code>。
- * <p>
- * 只有通过 Model 管道渲染的原语（例如 3D Tiles 和 glTF 模型）可以吸附。吸附需要浮点颜色附件（WebGL2 使用 <code>EXT_color_buffer_float</code>）；如果不支持，该函数返回 <code>undefined</code>。
- * </p>
- *
- * @param {Cartesian2} windowPosition 搜索区域中心的窗口坐标。
- * @param {object} [options] 具有以下属性的对象：
- * @param {number} [options.width=25] 搜索区域的宽度（以像素为单位）。
- * @param {number} [options.height=options.width] 搜索区域的高度（以像素为单位）。
- * @returns {SceneSnapResult | undefined} 区域内的最佳捕捉目标，如果没有则返回 <code>undefined</code>。
- *
- * @experimental 该功能尚未最终定版，可能会发生变化，且不遵循 Cesium 的标准废弃政策。
- */
-Scene.prototype.snap = function (windowPosition, options) {
-  return Snapping.snap(this, windowPosition, options);
-};
-
-/**
- * The result of a snap operation. See {@link Scene#snap}.
- *
- * @typedef {object} SceneSnapResult
- * @property {object} object The snapped primitive or feature.
- * @property {Cartesian3} position The world-space position of the snap point, un-projected from the snap framebuffer's eye-space depth.
- * @property {Cartesian2} screenPosition The window coordinates of the snap point.
- * @property {boolean} isEdge <code>true</code> if the snap point lies on an edge; <code>false</code> if it lies on a surface.
- *
- * @experimental This feature is not final and is subject to change without Cesium's standard deprecation policy.
- */
-
-/**
  * 返回 <code>windowPosition</code> 周围屏幕空间区域内的最佳吸附目标。
  * 边比表面优先；在同类命中中，离光标最近的获胜。如果区域内没有可吸附的几何体，则返回 <code>undefined</code>。
  * <p>
