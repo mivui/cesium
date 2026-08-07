@@ -4684,17 +4684,29 @@ Scene.prototype.pick = function (windowPosition, width, height) {
 };
 
 /**
- * 返回 <code>windowPosition</code> 周围屏幕空间区域内的最佳吸附目标。
- * 边比表面优先；在同类命中中，离光标最近的获胜。如果区域内没有可吸附的几何体，则返回 <code>undefined</code>。
- * <p>
- * 只有通过 Model 管道渲染的原语（例如 3D Tiles 和 glTF 模型）可以吸附。吸附需要浮点颜色附件（WebGL2 使用 <code>EXT_color_buffer_float</code>）；如果不支持，该函数返回 <code>undefined</code>。
- * </p>
+ * 拍照操作的结果。参见 {@link Scene#snap}。
  *
- * @param {Cartesian2} windowPosition 搜索区域中心的窗口坐标。
- * @param {object} [options] 具有以下属性的对象：
- * @param {number} [options.width=25] 搜索区域的宽度（以像素为单位）。
- * @param {number} [options.height=options.width] 搜索区域的高度（以像素为单位）。
- * @returns {SceneSnapResult | undefined} 区域内的最佳捕捉目标，如果没有则返回 <code>undefined</code>。
+ * @typedef {object} SceneSnapResult
+ * @property {object} object 被捕捉的基本体或要素。
+ * @property {Cartesian3} position 捕捉点的世界空间位置，从捕捉帧缓冲区的眼睛空间深度反投影得到。
+ * @property {Cartesian2} screenPosition 捕捉点的窗口坐标。
+ * @property {boolean} isEdge 如果捕捉点在边缘上，则为 <code>true</code>；如果在表面上，则为 <code>false</code>。
+ *
+ * @experimental 此功能尚未最终确定，可能会在不遵循 Cesium 标准弃用策略的情况下发生变化。
+ */
+
+/**
+* 返回 <code>windowPosition</code> 周围屏幕空间区域内的最佳吸附目标。
+* 边比表面优先；在同类命中中，离光标最近的获胜。如果区域内没有可吸附的几何体，则返回 <code>undefined</code>。
+* <p>
+* 只有通过 Model 管道渲染的原语（例如 3D Tiles 和 glTF 模型）可以吸附。吸附需要浮点颜色附件（WebGL2 使用 <code>EXT_color_buffer_float</code>）；如果不支持，该函数返回 <code>undefined</code>。
+* </p>
+*
+* @param {Cartesian2} windowPosition 搜索区域中心的窗口坐标。
+* @param {object} [options] 具有以下属性的对象：
+* @param {number} [options.width=25] 搜索区域的宽度（以像素为单位）。
+* @param {number} [options.height=options.width] 搜索区域的高度（以像素为单位）。
+* @returns {SceneSnapResult | undefined} 区域内的最佳捕捉目标，如果没有则返回 <code>undefined</code>。
  *
  * @experimental 该功能尚未最终定版，可能会发生变化，且不遵循 Cesium 的标准废弃政策。
  */
