@@ -9,6 +9,8 @@ import IndexDatatype from "../Core/IndexDatatype.js";
 import renderPolygons from "./renderBufferPolygonCollection.js";
 import BufferPolygonMaterial from "./BufferPolygonMaterial.js";
 
+/** @import BlendOption from "./BlendOption.js"; */
+/** @import BoundingSphere from "../Core/BoundingSphere.js"; */
 /** @import { TypedArray } from "../Core/globalTypes.js"; */
 /** @import Matrix4 from "../Core/Matrix4.js"; */
 /** @import FrameState from "./FrameState.js" */
@@ -79,9 +81,12 @@ class BufferPolygonCollection extends BufferPrimitiveCollection {
    * @param {number} [options.holeCountMax=BufferPrimitiveCollection.DEFAULT_CAPACITY]
    * @param {number} [options.triangleCountMax=BufferPrimitiveCollection.DEFAULT_CAPACITY]
    * @param {ComponentDatatype} [options.positionDatatype=ComponentDatatype.DOUBLE]
+   * @param {boolean} [options.positionNormalized=false]
    * @param {boolean} [options.show=true]
-   * @param {boolean} [options.allowPicking=true] 当 <code>true</code> 时,图元可使用 {@link Scene#pick} 进行拾取。当 <code>false</code> 时,内存和初始化成本更低。
+   * @param {boolean} [options.allowPicking=true] 当 <code>true</code> 时，原语可以通过 {@link Scene#pick} 被选取。当 <code>false</code> 时，内存和初始化成本较低。
+   * @param {BoundingSphere} [options.boundingVolume] 在世界空间中，该集合的边界体积。当未指定时，边界体积会自动计算，并在原始位置变化时更新。当指定时，用户需要根据需要更新边界体积。手动预先计算边界体积，并仅在需要时更新，将提高较大动态集合的性能。
    * @param {boolean} [options.debugShowBoundingVolume=false]
+   * @param {BlendOption} [options.blendOption=BlendOption.TRANSLUCENT]
    */
   constructor(options = Frozen.EMPTY_OBJECT) {
     super(options);
@@ -223,6 +228,8 @@ class BufferPolygonCollection extends BufferPrimitiveCollection {
       vertexCountMax: collection.vertexCountMax,
       holeCountMax: collection.holeCountMax,
       triangleCountMax: collection.triangleCountMax,
+      positionDatatype: collection.positionDatatype,
+      positionNormalized: collection.positionNormalized,
     });
   }
 

@@ -20,6 +20,7 @@ import ClippingPlaneCollection from "../ClippingPlaneCollection.js";
 import ClippingPolygonCollection from "../ClippingPolygonCollection.js";
 import DynamicEnvironmentMapManager from "../DynamicEnvironmentMapManager.js";
 import ColorBlendMode from "../ColorBlendMode.js";
+import EdgeDisplayMode from "../EdgeDisplayMode.js";
 import GltfLoader from "../GltfLoader.js";
 import HeightReference, {
   isHeightReferenceRelative,
@@ -72,7 +73,12 @@ import ModelImagery from "./ModelImagery.js";
  *  {@link https://github.com/KhronosGroup/glTF/tree/main/extensions/2.0/Vendor/EXT_mesh_gpu_instancing|EXT_mesh_gpu_instancing}
  *  </li>
  *  <li>
- *  {@link https://github.com/KhronosGroup/glTF/pull/2514|EXT_mesh_primitive_restart}
+ *  {@link https://github.com/KhronosGroup/glTF/tree/main/extensions/2.0/Vendor/EXT_mesh_primitive_restart|EXT_mesh_primitive_restart}
+ *  </li>
+ *  <li>
+ *  {@link https://github.com/KhronosGroup/glTF/pull/2479|EXT_mesh_primitive_edge_visibility}
+ *  (edges are hidden by default; set {@link EdgeDisplayMode} via
+ *  {@link Model#edgeDisplayMode} or {@link Cesium3DTileset#edgeDisplayMode} to display them)
  *  </li>
  *  <li>
  *  {@link https://github.com/KhronosGroup/glTF/tree/main/extensions/2.0/Vendor/EXT_meshopt_compression|EXT_meshopt_compression}
@@ -99,7 +105,14 @@ import ModelImagery from "./ModelImagery.js";
  *  {@link https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_materials_unlit/README.md|KHR_materials_unlit}
  *  </li>
  *  <li>
+ *  {@link https://github.com/KhronosGroup/glTF/pull/2569|KHR_mesh_primitive_restart}
+ *  (requires a WebGL 2 context; behavior on WebGL 1 is undefined)
+ *  </li>
+ *  <li>
  *  {@link https://github.com/KhronosGroup/glTF/tree/main/extensions/2.0/Khronos/KHR_mesh_quantization|KHR_mesh_quantization}
+ *  </li>
+ *  <li>
+ *  {@link https://github.com/KhronosGroup/glTF/tree/main/extensions/2.0/Khronos/KHR_meshopt_compression|KHR_meshopt_compression}
  *  </li>
  *  <li>
  *  {@link https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Khronos/KHR_texture_basisu|KHR_texture_basisu}
@@ -121,6 +134,56 @@ import ModelImagery from "./ModelImagery.js";
  *
  * @alias Model
  * @internalConstructor
+ *
+ * @privateParam {object} options Object with the following properties:
+ * @privateParam {ResourceLoader} options.loader The loader used to load resources for this model.
+ * @privateParam {ModelType} options.type Type of this model, to distinguish individual glTF files from 3D Tiles internally.
+ * @privateParam {Resource} options.resource The Resource to the 3D model.
+ * @privateParam {boolean} [options.show=true] Whether or not to render the model.
+ * @privateParam {Matrix4} [options.modelMatrix=Matrix4.IDENTITY]  The 4x4 transformation matrix that transforms the model from model to world coordinates.
+ * @privateParam {number} [options.scale=1.0] A uniform scale applied to this model.
+ * @privateParam {boolean} [options.enableVerticalExaggeration=true] If <code>true</code>, the model is exaggerated along the ellipsoid normal when {@link Scene.verticalExaggeration} is set to a value other than <code>1.0</code>.
+ * @privateParam {number} [options.minimumPixelSize=0.0] The approximate minimum pixel size of the model regardless of zoom.
+ * @privateParam {number} [options.maximumScale] The maximum scale size of a model. An upper limit for minimumPixelSize.
+ * @privateParam {object} [options.id] A user-defined object to return when the model is picked with {@link Scene#pick}.
+ * @privateParam {boolean} [options.allowPicking=true] When <code>true</code>, each primitive is pickable with {@link Scene#pick}.
+ * @privateParam {boolean} [options.clampAnimations=true] Determines if the model's animations should hold a pose over frames where no keyframes are specified.
+ * @privateParam {ShadowMode} [options.shadows=ShadowMode.ENABLED] Determines whether the model casts or receives shadows from light sources.
+ * @privateParam {boolean} [options.debugShowBoundingVolume=false] For debugging only. Draws the bounding sphere for each draw command in the model.
+ * @privateParam {boolean} [options.enableDebugWireframe=false] For debugging only. This must be set to true for debugWireframe to work in WebGL1. This cannot be set after the model has loaded.
+ * @privateParam {boolean} [options.debugWireframe=false] For debugging only. Draws the model in wireframe. Will only work for WebGL1 if enableDebugWireframe is set to true.
+ * @privateParam {boolean} [options.cull=true]  Whether or not to cull the model using frustum/horizon culling. If the model is part of a 3D Tiles tileset, this property will always be false, since the 3D Tiles culling system is used.
+ * @privateParam {boolean} [options.opaquePass=Pass.OPAQUE] The pass to use in the {@link DrawCommand} for the opaque portions of the model.
+ * @privateParam {CustomShader} [options.customShader] A custom shader. This will add user-defined GLSL code to the vertex and fragment shaders. Using custom shaders with a {@link Cesium3DTileStyle} may lead to undefined behavior.
+ * @privateParam {Cesium3DTileContent} [options.content] The tile content this model belongs to. This property will be undefined if model is not loaded as part of a tileset.
+ * @privateParam {HeightReference} [options.heightReference=HeightReference.NONE] Determines how the model is drawn relative to terrain.
+ * @privateParam {Scene} [options.scene] Must be passed in for models that use the height reference property.
+ * @privateParam {DistanceDisplayCondition} [options.distanceDisplayCondition] The condition specifying at what distance from the camera that this model will be displayed.
+ * @privateParam {Color} [options.color] A color that blends with the model's rendered color.
+ * @privateParam {ColorBlendMode} [options.colorBlendMode=ColorBlendMode.HIGHLIGHT] Defines how the color blends with the model.
+ * @privateParam {number} [options.colorBlendAmount=0.5] Value used to determine the color strength when the <code>colorBlendMode</code> is <code>MIX</code>. A value of 0.0 results in the model's rendered color while a value of 1.0 results in a solid color, with any value in-between resulting in a mix of the two.
+ * @privateParam {EdgeDisplayMode} [options.edgeDisplayMode=EdgeDisplayMode.SURFACES_ONLY] Controls how edges from the {@link https://github.com/KhronosGroup/glTF/pull/2479|EXT_mesh_primitive_edge_visibility} extension are rendered relative to surface geometry.
+ * @privateParam {Color} [options.silhouetteColor=Color.RED] The silhouette color. If more than 256 models have silhouettes enabled, there is a small chance that overlapping models will have minor artifacts.
+ * @privateParam {number} [options.silhouetteSize=0.0] The size of the silhouette in pixels.
+ * @privateParam {boolean} [options.enableShowOutline=true] Whether to enable outlines for models using the {@link https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/CESIUM_primitive_outline|CESIUM_primitive_outline} extension. This can be set to false to avoid the additional processing of geometry at load time. When false, the showOutlines and outlineColor options are ignored.
+ * @privateParam {boolean} [options.showOutline=true] Whether to display the outline for models using the {@link https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/CESIUM_primitive_outline|CESIUM_primitive_outline} extension. When true, outlines are displayed. When false, outlines are not displayed.
+ * @privateParam {Color} [options.outlineColor=Color.BLACK] The color to use when rendering outlines.
+ * @privateParam {ClippingPlaneCollection} [options.clippingPlanes] The {@link ClippingPlaneCollection} used to selectively disable rendering the model.
+ * @privateParam {ClippingPolygonCollection} [options.clippingPolygons] The {@link ClippingPolygonCollection} used to selectively disable rendering the model.
+ * @privateParam {Cartesian3} [options.lightColor] The light color when shading the model. When <code>undefined</code> the scene's light color is used instead.
+ * @privateParam {ImageBasedLighting} [options.imageBasedLighting] The properties for managing image-based lighting on this model.
+ * @privateParam {DynamicEnvironmentMapManager.ConstructorOptions} [options.environmentMapOptions] The properties for managing dynamic environment maps on this model. Affects lighting.
+ * @privateParam {boolean} [options.backFaceCulling=true] Whether to cull back-facing geometry. When true, back face culling is determined by the material's doubleSided property; when false, back face culling is disabled. Back faces are not culled if the model's color is translucent.
+ * @privateParam {Credit|string} [options.credit] A credit for the data source, which is displayed on the canvas.
+ * @privateParam {boolean} [options.showCreditsOnScreen=false] Whether to display the credits of this model on screen.
+ * @privateParam {SplitDirection} [options.splitDirection=SplitDirection.NONE] The {@link SplitDirection} split to apply to this model.
+ * @privateParam {boolean} [options.projectTo2D=false] Whether to accurately project the model's positions in 2D. If this is true, the model will be projected accurately to 2D, but it will use more memory to do so. If this is false, the model will use less memory and will still render in 2D / CV mode, but its positions may be inaccurate. This disables minimumPixelSize and prevents future modification to the model matrix. This also cannot be set after the model has loaded.
+ * @privateParam {boolean} [options.enablePick=false] Whether to allow CPU picking with <code>pick</code> when not using WebGL 2 or above. If using WebGL 2 or above, this option will be ignored. If using WebGL 1 and this is true, the <code>pick</code> operation will work correctly, but it will use more memory to do so. If running with WebGL 1 and this is false, the model will use less memory, but <code>pick</code> will always return <code>undefined</code>. This cannot be set after the model has loaded.
+ * @privateParam {string|number} [options.featureIdLabel="featureId_0"] Label of the feature ID set to use for picking and styling. For EXT_mesh_features, this is the feature ID's label property, or "featureId_N" (where N is the index in the featureIds array) when not specified. EXT_feature_metadata did not have a label field, so such feature ID sets are always labeled "featureId_N" where N is the index in the list of all feature Ids, where feature ID attributes are listed before feature ID textures. If featureIdLabel is an integer N, it is converted to the string "featureId_N" automatically. If both per-primitive and per-instance feature IDs are present, the instance feature IDs take priority.
+ * @privateParam {string|number} [options.instanceFeatureIdLabel="instanceFeatureId_0"] Label of the instance feature ID set used for picking and styling. If instanceFeatureIdLabel is set to an integer N, it is converted to the string "instanceFeatureId_N" automatically. If both per-primitive and per-instance feature IDs are present, the instance feature IDs take priority.
+ * @privateParam {object} [options.pointCloudShading] Options for constructing a {@link PointCloudShading} object to control point attenuation based on geometric error and lighting.
+ * @privateParam {ClassificationType} [options.classificationType] Determines whether terrain, 3D Tiles or both will be classified by this model. This cannot be set after the model has loaded.
+ *
  *
  * @see Model.fromGltfAsync
  *
@@ -208,6 +271,7 @@ function Model(options) {
    */
   this.referenceMatrix = undefined;
   this._iblReferenceFrameMatrix = Matrix3.clone(Matrix3.IDENTITY); // Derived from reference matrix and the current view matrix
+  this._clippingPlanesMatrix = Matrix4.clone(Matrix4.IDENTITY); // Derived from the reference matrix and the clipping planes' own model matrix
 
   this._resourcesLoaded = false;
   this._drawCommandsBuilt = false;
@@ -319,7 +383,6 @@ function Model(options) {
     this._clippingPlanes = clippingPlanes;
   }
   this._clippingPlanesState = 0; // If this value changes, the shaders need to be regenerated.
-  this._clippingPlanesMatrix = Matrix4.clone(Matrix4.IDENTITY); // Derived from reference matrix and the current view matrix
 
   // If the given clipping polygons don't have an owner, make this model its owner.
   // Otherwise, the clipping polygons are passed down from a tileset.
@@ -366,6 +429,8 @@ function Model(options) {
   this._enableDebugWireframe = options.enableDebugWireframe ?? false;
   this._enableShowOutline = options.enableShowOutline ?? true;
   this._debugWireframe = options.debugWireframe ?? false;
+  this._edgeDisplayMode =
+    options.edgeDisplayMode ?? EdgeDisplayMode.SURFACES_ONLY;
 
   // Warning for improper setup of debug wireframe
   if (
@@ -2380,16 +2445,10 @@ function updateReferenceMatrices(model, frameState) {
   );
 
   if (model.isClippingEnabled()) {
-    let clippingPlanesMatrix = scratchClippingPlanesMatrix;
-    clippingPlanesMatrix = Matrix4.multiply(
-      context.uniformState.view3D,
+    const clippingPlanesMatrix = Matrix4.multiply(
       referenceMatrix,
-      clippingPlanesMatrix,
-    );
-    clippingPlanesMatrix = Matrix4.multiply(
-      clippingPlanesMatrix,
       model._clippingPlanes.modelMatrix,
-      clippingPlanesMatrix,
+      scratchClippingPlanesMatrix,
     );
     model._clippingPlanesMatrix = Matrix4.inverseTranspose(
       clippingPlanesMatrix,
@@ -2859,57 +2918,58 @@ Model.prototype.destroyModelResources = function () {
  * 该模型可以是具有 .gltf 扩展名的传统 glTF 资产，也可以是使用 .glb 扩展名的二进制 glTF。
  *
  * @param {object} options 具有以下属性的对象：
- * @param {string|Resource} options.url .gltf 或 .glb 文件的 url。
- * @param {string|Resource} [options.basePath=''] glTF JSON 中路径的相对基础路径。
+ * @param {string|Resource} options.url .gltf 或 .glb 文件的 URL。
+ * @param {string|Resource} [options.basePath=''] glTF JSON 中路径相对于的基础路径。
  * @param {boolean} [options.show=true] 是否渲染模型。
- * @param {Matrix4} [options.modelMatrix=Matrix4.IDENTITY] 将模型从模型坐标变换到世界坐标的 4x4 变换矩阵。
- * @param {number} [options.scale=1.0] 应用于此模型的统一缩放比例。
- * @param {boolean} [options.enableVerticalExaggeration=true] 如果为 <code>true</code>，当 {@link Scene.verticalExaggeration} 设置为 <code>1.0</code> 以外的值时，模型会沿椭球法线方向夸张。
- * @param {number} [options.minimumPixelSize=0.0] 无论缩放级别如何，模型的近似最小像素大小。
- * @param {number} [options.maximumScale] 模型的最大缩放尺寸。minimumPixelSize 的上限。
- * @param {object} [options.id] 使用 {@link Scene#pick} 拾取模型时返回的用户定义对象。
- * @param {boolean} [options.allowPicking=true] 当为 <code>true</code> 时，每个图元都可使用 {@link Scene#pick} 拾取。
- * @param {boolean} [options.incrementallyLoadTextures=true] 确定模型加载后纹理是否可以继续流式传输。
- * @param {boolean} [options.asynchronous=true] 确定模型 WebGL 资源创建是分散在几帧内还是阻塞直到所有 glTF 文件加载完成后完成。
- * @param {boolean} [options.clampAnimations=true] 确定模型的动画是否应在未指定关键帧的帧上保持姿势。
- * @param {ShadowMode} [options.shadows=ShadowMode.ENABLED] 确定模型是投射阴影还是从光源接收阴影。
- * @param {boolean} [options.releaseGltfJson=false] 当为 true 时，加载 glTF 后会释放 glTF JSON。这对于 3D Tiles 等情况特别有用，因为每个 .gltf 模型都是唯一的，缓存 glTF JSON 无效。
+ * @param {Matrix4} [options.modelMatrix=Matrix4.IDENTITY] 将模型从模型坐标转换到世界坐标的 4x4 变换矩阵。
+ * @param {number} [options.scale=1.0] 应用于此模型的统一缩放。
+ * @param {boolean} [options.enableVerticalExaggeration=true] 如果 <code>true</code>，当 {@link Scene.verticalExaggeration} 被设置为非 <code>1.0</code> 的值时，模型沿椭球法线被夸大。
+ * @param {number} [options.minimumPixelSize=0.0] 模型的近似最小像素大小，无论缩放比例如何。
+ * @param {number} [options.maximumScale] 模型的最大缩放比例。minimumPixelSize 的上限。
+ * @param {object} [options.id] 用户定义的对象，在使用 {@link Scene#pick} 选取模型时返回。
+ * @param {boolean} [options.allowPicking=true] 当 <code>true</code> 时，每个图元都可以通过 {@link Scene#pick} 进行选取。
+ * @param {boolean} [options.incrementallyLoadTextures=true] 决定在模型加载后纹理是否可以继续流式加载。
+ * @param {boolean} [options.asynchronous=true] 决定模型的 WebGL 资源创建是否会分散在多个帧上，还是在加载所有 glTF 文件后阻塞直到完成。
+ * @param {boolean} [options.clampAnimations=true] 决定模型的动画在没有指定关键帧的帧上是否保持姿势。
+ * @param {ShadowMode} [options.shadows=ShadowMode.ENABLED] 决定模型是否投射或接收来自光源的阴影。
+ * @param {boolean} [options.releaseGltfJson=false] 当为 true 时，glTF JSON 会在 glTF 加载后释放。这在类似 3D Tiles 的情况下尤其有用，因为每个 .gltf 模型都是唯一的，缓存 glTF JSON 无效。
  * @param {boolean} [options.debugShowBoundingVolume=false] 仅用于调试。绘制模型中每个绘制命令的包围球。
- * @param {boolean} [options.enableDebugWireframe=false] 仅用于调试。必须设置为 true 才能使 debugWireframe 在 WebGL1 中工作。这不能在模型加载后设置。
- * @param {boolean} [options.debugWireframe=false] 仅用于调试。以线框模式绘制模型。仅当 enableDebugWireframe 设置为 true 时才在 WebGL1 中工作。
- * @param {boolean} [options.cull=true]  是否使用视锥/地平线裁剪来裁剪模型。如果模型是 3D Tiles 瓦片集的一部分，则此属性始终为 false，因为使用的是 3D Tiles 裁剪系统。
- * @param {boolean} [options.opaquePass=Pass.OPAQUE] 在 {@link DrawCommand} 中用于模型不透明部分的通道。
- * @param {Axis} [options.upAxis=Axis.Y] glTF 模型的向上轴。
- * @param {Axis} [options.forwardAxis=Axis.Z] glTF 模型的前向轴。
- * @param {CustomShader} [options.customShader] 自定义着色器。这会将用户定义的 GLSL 代码添加到顶点和片段着色器中。将自定义着色器与 {@link Cesium3DTileStyle} 一起使用可能会导致未定义的行为。
- * @param {Cesium3DTileContent} [options.content] 模型所属的瓦片内容。如果模型不是作为瓦片集的一部分加载的，则此属性将为 undefined。
- * @param {HeightReference} [options.heightReference=HeightReference.NONE] 确定模型相对于地形的绘制方式。
- * @param {Scene} [options.scene] 对于使用高度参考属性的模型必须传入。
- * @param {DistanceDisplayCondition} [options.distanceDisplayCondition] 指定在距离相机多远距离显示此模型的条件。
+ * @param {boolean} [options.enableDebugWireframe=false] 仅用于调试。必须将其设置为 true，debugWireframe 才能在 WebGL1 中工作。模型加载后无法设置此选项。
+ * @param {boolean} [options.debugWireframe=false] 仅用于调试。以线框模式绘制模型。仅在 enableDebugWireframe 设置为 true 时，在 WebGL1 中有效。
+ * @param {boolean} [options.cull=true] 是否使用视锥/地平线裁剪模型。如果模型是 3D Tiles 瓦片集的一部分，此属性始终为 false，因为使用 3D Tiles 裁剪系统。
+ * @param {boolean} [options.opaquePass=Pass.OPAQUE] 用于模型不透明部分的 {@link DrawCommand} 的通道。
+ * @param {Axis} [options.upAxis=Axis.Y] glTF 模型的上轴。
+ * @param {Axis} [options.forwardAxis=Axis.Z] glTF 模型的前轴。
+ * @param {CustomShader} [options.customShader] 自定义着色器。这将向顶点和片段着色器添加用户定义的 GLSL 代码。将自定义着色器与 {@link Cesium3DTileStyle} 一起使用可能导致未定义行为。
+ * @param {Cesium3DTileContent} [options.content] 此模型所属的瓦片内容。如果模型不是作为瓦片集的一部分加载，此属性将未定义。
+ * @param {HeightReference} [options.heightReference=HeightReference.NONE] 决定模型相对于地形的绘制方式。
+ * @param {Scene} [options.scene] 对于使用高度参考属性的模型，必须传入。
+ * @param {DistanceDisplayCondition} [options.distanceDisplayCondition] 指定在距离相机多远时显示此模型的条件。
  * @param {Color} [options.color] 与模型渲染颜色混合的颜色。
  * @param {ColorBlendMode} [options.colorBlendMode=ColorBlendMode.HIGHLIGHT] 定义颜色如何与模型混合。
- * @param {number} [options.colorBlendAmount=0.5] 当 <code>colorBlendMode</code> 为 <code>MIX</code> 时用于确定颜色强度的值。值为 0.0 时结果为模型的渲染颜色，值为 1.0 时结果为纯色，中间的任何值则为两者的混合。
- * @param {Color} [options.silhouetteColor=Color.RED] 轮廓颜色。如果超过 256 个模型启用了轮廓，则重叠的模型有极小的几率出现轻微瑕疵。
- * @param {number} [options.silhouetteSize=0.0] 轮廓大小（以像素为单位）。
- * @param {boolean} [options.enableShowOutline=true] 是否对使用 {@link https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/CESIUM_primitive_outline|CESIUM_primitive_outline} 扩展的模型启用轮廓。可以设置为 false 以避免在加载时进行几何体的后处理。当为 false 时，showOutlines 和 outlineColor 选项将被忽略。
- * @param {boolean} [options.showOutline=true] 是否显示使用 {@link https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/CESIUM_primitive_outline|CESIUM_primitive_outline} 扩展的模型的轮廓。为 true 时，显示轮廓。为 false 时，不显示轮廓。
+ * @param {number} [options.colorBlendAmount=0.5] 当 <code>colorBlendMode</code> 为 <code>MIX</code> 时用来决定颜色强度的值。值为 0.0 时为模型渲染颜色，值为 1.0 时为纯色，介于两者之间的值为混合效果。
+ * @param {EdgeDisplayMode} [options.edgeDisplayMode=EdgeDisplayMode.SURFACES_ONLY] 控制 {@link https://github.com/KhronosGroup/glTF/pull/2479|EXT_mesh_primitive_edge_visibility} 扩展的边缘相对于表面几何的渲染方式。
+ * @param {Color} [options.silhouetteColor=Color.RED] 轮廓颜色。如果启用了轮廓的模型超过 256 个，则重叠模型可能会出现轻微的瑕疵。
+ * @param {number} [options.silhouetteSize=0.0] 轮廓的像素大小。
+ * @param {boolean} [options.enableShowOutline=true] 是否为使用 {@link https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/CESIUM_primitive_outline|CESIUM_primitive_outline} 扩展的模型启用轮廓。这可以设置为 false，以避免在加载时进行几何后处理。当为 false 时，showOutlines 和 outlineColor 选项将被忽略。
+ * @param {boolean} [options.showOutline=true] 是否显示使用 {@link https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Vendor/CESIUM_primitive_outline|CESIUM_primitive_outline} 扩展的模型的轮廓。当为 true 时，显示轮廓；当为 false 时，不显示轮廓。
  * @param {Color} [options.outlineColor=Color.BLACK] 渲染轮廓时使用的颜色。
- * @param {ClippingPlaneCollection} [options.clippingPlanes] 用于选择性地禁用模型渲染的 {@link ClippingPlaneCollection}。
- * @param {ClippingPolygonCollection} [options.clippingPolygons] 用于选择性地禁用模型渲染的 {@link ClippingPolygonCollection}。
- * @param {Cartesian3} [options.lightColor] 为模型着色时的光照颜色。当为 <code>undefined</code> 时，将使用场景的光照颜色。
- * @param {ImageBasedLighting} [options.imageBasedLighting] 用于管理此模型基于图像的光照的属性。
- * @param {DynamicEnvironmentMapManager.ConstructorOptions} [options.environmentMapOptions] 用于管理此模型动态环境贴图的属性。
- * @param {boolean} [options.backFaceCulling=true] 是否剔除背面几何体。当为 true 时，背面剔除由材质的 doubleSided 属性决定；当为 false 时，背面剔除被禁用。如果模型的颜色是半透明的，则背面不会被剔除。
- * @param {Credit|string} [options.credit] 数据源的署名，将显示在画布上。
- * @param {boolean} [options.showCreditsOnScreen=false] 是否在屏幕上显示此模型的署名。
- * @param {SplitDirection} [options.splitDirection=SplitDirection.NONE] 应用于此模型的 {@link SplitDirection} 分割。
- * @param {boolean} [options.projectTo2D=false] 是否准确地在 2D 中投影模型的位置。如果为 true，模型将准确地投影到 2D，但会使用更多内存。如果为 false，模型将使用更少的内存并仍将在 2D / CV 模式下渲染，但其位置可能不准确。这会禁用 minimumPixelSize 并防止将来修改模型矩阵。这也不能在模型加载后设置。
- * @param {boolean} [options.enablePick=false] 在不使用 WebGL 2 或更高版本时，是否允许使用 <code>pick</code> 进行 CPU 拾取。如果使用 WebGL 2 或更高版本，此选项将被忽略。如果使用 WebGL 1 且此为 true，<code>pick</code> 操作将正常工作，但会使用更多内存。如果在 WebGL 1 下运行且此为 false，模型将使用更少的内存，但 <code>pick</code> 将始终返回 <code>undefined</code>。这不能在模型加载后设置。
- * @param {string|number} [options.featureIdLabel="featureId_0"] 用于拾取和样式的特征 ID 集的标签。对于 EXT_mesh_features，这是特征 ID 的 label 属性，如果未指定，则为 "featureId_N"（其中 N 是 featureIds 数组中的索引）。EXT_feature_metadata 没有 label 字段，因此此类特征 ID 集始终标记为 "featureId_N"，其中 N 是所有特征 ID 列表中的索引，特征 ID 属性列在特征 ID 纹理之前。如果 featureIdLabel 是整数 N，它将自动转换为字符串 "featureId_N"。如果同时存在每个图元和每个实例的特征 ID，则实例特征 ID 优先。
- * @param {string|number} [options.instanceFeatureIdLabel="instanceFeatureId_0"] 用于拾取和样式的实例特征 ID 集的标签。如果 instanceFeatureIdLabel 设置为整数 N，它将自动转换为字符串 "instanceFeatureId_N"。如果同时存在每个图元和每个实例的特征 ID，则实例特征 ID 优先。
- * @param {object} [options.pointCloudShading] 用于构造 {@link PointCloudShading} 对象的选项，以基于几何误差和光照控制点衰减。
- * @param {ClassificationType} [options.classificationType] 确定地形、3D Tiles 或两者中哪些将被此模型分类。这不能在模型加载后设置。
- * @param {Model.GltfCallback} [options.gltfCallback] 加载完成后使用加载的 gltf 对象调用的函数。
+ * @param {ClippingPlaneCollection} [options.clippingPlanes] 用于有选择性地禁用模型渲染的 {@link ClippingPlaneCollection}。
+ * @param {ClippingPolygonCollection} [options.clippingPolygons] 用于有选择性地禁用模型渲染的 {@link ClippingPolygonCollection}。
+ * @param {Cartesian3} [options.lightColor] 给模型着色时的光颜色。当 <code>undefined</code> 时，将使用场景的光颜色。
+ * @param {ImageBasedLighting} [options.imageBasedLighting] 管理此模型基于图像光照的属性。
+ * @param {DynamicEnvironmentMapManager.ConstructorOptions} [options.environmentMapOptions] 管理此模型动态环境贴图的属性。
+ * @param {boolean} [options.backFaceCulling=true] 是否剔除背面几何体。当为 true 时，背面剔除由材质的 doubleSided 属性决定；当为 false 时，禁用背面剔除。如果模型的颜色是半透明的，则不会剔除背面。
+ * @param {Credit|string} [options.credit] 数据来源的注明，会显示在画布上。
+ * @param {boolean} [options.showCreditsOnScreen=false] 是否在屏幕上显示此模型的出处。
+ * @param {SplitDirection} [options.splitDirection=SplitDirection.NONE] 要应用于此模型的 {@link SplitDirection} 分割方式。
+ * @param {boolean} [options.projectTo2D=false] 是否精确地将模型的位置投影到二维。如果为 true，模型将被精确投影到二维，但会占用更多内存。如果为 false，模型将占用较少内存，并且仍将在二维 / CV 模式下渲染，但其位置可能不准确。这会禁用 minimumPixelSize 并阻止对模型矩阵的未来修改。模型加载后无法设置此选项。
+ * @param {boolean} [options.enablePick=false] 是否在不使用 WebGL 2 或更高版本时允许使用 CPU 进行 <code>pick</code> 操作。如果使用 WebGL 2 或更高版本，此选项将被忽略。如果使用 WebGL 1 且为 true，<code>pick</code> 操作将正常工作，但会占用更多内存。如果在 WebGL 1 下为 false，模型将占用较少内存，但 <code>pick</code> 将始终返回 <code>undefined</code>。模型加载后无法设置此选项。
+ * @param {string|number} [options.featureIdLabel="featureId_0"] 要用于选择和样式的特征 ID 集的标签。对于 EXT_mesh_features，这是特征 ID 的 label 属性，或者在未指定时为 "featureId_N"（其中 N 是 featureIds 数组中的索引）。EXT_feature_metadata 没有 label 字段，因此此类特征 ID 集总是标记为 "featureId_N"，其中 N 是所有特征 ID 列表中的索引，特征 ID 属性在特征 ID 纹理之前列出。如果 featureIdLabel 是整数 N，它会自动转换为字符串 "featureId_N"。如果同时存在每个原语和每个实例的特征 ID，则实例特征 ID 优先。
+ * @param {string|number} [options.instanceFeatureIdLabel="instanceFeatureId_0"] 用于选择和样式化的实例特征 ID 集的标签。如果 instanceFeatureIdLabel 设置为整数 N，它会自动转换为字符串 "instanceFeatureId_N"。如果同时存在按原语和按实例的特征 ID，则实例特征 ID 优先。
+ * @param {object} [options.pointCloudShading] 用于构建 {@link PointCloudShading} 对象的选项，以控制点的衰减和光照。
+ * @param {ClassificationType} [options.classificationType] 决定此模型将对地形、3D 瓦片或两者进行分类。模型加载后无法设置此选项。
+ * @param {Model.GltfCallback} [options.gltfCallback] 一旦加载完成，调用该函数并传入加载的 gltf 对象。
  *
  * @returns {Promise<Model>} 当模型准备好渲染时 resolves 到所创建模型的 promise。
  *
@@ -3255,6 +3315,7 @@ function makeModelOptions(loader, modelType, options) {
     color: options.color,
     colorBlendAmount: options.colorBlendAmount,
     colorBlendMode: options.colorBlendMode,
+    edgeDisplayMode: options.edgeDisplayMode,
     silhouetteColor: options.silhouetteColor,
     silhouetteSize: options.silhouetteSize,
     enableShowOutline: options.enableShowOutline,

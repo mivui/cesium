@@ -81,6 +81,8 @@ class BufferPolylineCollection extends BufferPrimitiveCollection {
     return new BufferPolylineCollection({
       primitiveCountMax: collection.primitiveCountMax,
       vertexCountMax: collection.vertexCountMax,
+      positionDatatype: collection.positionDatatype,
+      positionNormalized: collection.positionNormalized,
     });
   }
 

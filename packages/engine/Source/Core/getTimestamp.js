@@ -1,11 +1,12 @@
+// @ts-check
+
 /**
- * 获取可用于测量事件之间时间的时间戳。时间戳以毫秒表示，
- * 但未指定毫秒的测量起点。如果可用，此函数使用 performance.now()，
- * 否则使用 Date.now()。
- *
+ * 获取一个时间戳，可用于测量事件之间的时间。时间戳
+ * 以毫秒表示，但未指定这些毫秒是从何时起算的。
+ * 如果可用，该函数使用 performance.now()，否则使用 Date.now()。
+ * @type {Function}
  * @function getTimestamp
- *
- * @returns {number} 自某个未指定参考时间以来的时间戳（以毫秒为单位）。
+ * @returns {number} 自某个未指定的参考时间以来的毫秒时间戳。
  */
 let getTimestamp;
 
@@ -22,4 +23,5 @@ if (
     return Date.now();
   };
 }
+
 export default getTimestamp;

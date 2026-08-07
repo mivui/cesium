@@ -10,14 +10,15 @@ import createPropertyDescriptor from "./createPropertyDescriptor.js";
  *
  * PathGraphics构造函数的初始化选项
  *
- * @property {Property | boolean} [show=true] 指定路径可见性的布尔属性。
- * @property {Property | number} [leadTime] 指定对象前方显示秒数的属性。
- * @property {Property | number} [trailTime] 指定对象后方显示秒数的属性。
- * @property {Property | number} [width=1.0] 指定宽度（像素）的数值属性。
- * @property {Property | number} [resolution=60] 指定采样位置时的最大步长（秒）的数值属性。
- * @property {MaterialProperty | Color} [material=Color.WHITE] 指定用于绘制路径的材质的属性。
- * @property {Property | DistanceDisplayCondition} [distanceDisplayCondition] 指定路径在距离相机多远时显示的属性。
- * @property {Property | string} [relativeTo] 指定可视化路径的参考系的属性。使用另一个实体的id来可视化相对于该实体的路径，或使用字符串值"FIXED"或"INERTIAL"在这些参考系中可视化路径。
+ * @property {Property | boolean} [show=true] 一个布尔属性，指定路径的可见性。
+ * @property {Property | number} [leadTime] 一个属性，指定在对象前方显示的秒数。
+ * @property {Property | number} [trailTime] 一个属性，指定在对象后方显示的秒数。
+ * @property {Property | number} [width=1.0] 一个数值属性，指定宽度（以像素为单位）。
+ * @property {Property | number} [resolution=60] 一个数值属性，指定采样位置时的最大秒数步长。允许使用分数正值；在 PORTIONS materialMode 下，非正值会回退到默认的 60 秒分辨率。
+ * @property {MaterialProperty | Color} [material=Color.WHITE] 一个属性，指定用于绘制路径的材质。
+ * @property {Property | DistanceDisplayCondition} [distanceDisplayCondition] 一个属性，用于指定从摄像机的多远处显示此路径。
+ * @property {Property | string} [relativeTo] 一个属性，用于指定可视化路径的参考框架。使用其他实体的 id 以相对于该实体可视化路径，或使用字符串值 "FIXED" 或 "INERTIAL" 在这些参考框架中可视化路径。
+ * @property {Property | PathMode} [materialMode] 一个属性，用于指定沿路径应用材质属性的方式。
  */
 
 /**
@@ -46,6 +47,8 @@ function PathGraphics(options) {
   this._distanceDisplayConditionSubscription = undefined;
   this._relativeTo = undefined;
   this._relativeToSubscription = undefined;
+  this._materialMode = undefined;
+  this._materialModeSubscription = undefined;
 
   this.merge(options ?? Frozen.EMPTY_OBJECT);
 }
@@ -94,7 +97,8 @@ Object.defineProperties(PathGraphics.prototype, {
   width: createPropertyDescriptor("width"),
 
   /**
-   * 获取或设置指定采样位置时的最大步长（秒）的属性。
+   * 获取或设置属性，指定采样位置时跨步的最大秒数。
+   * 允许使用正的分数值；在 PORTIONS materialMode 中，非正值会回退到默认的 60 秒分辨率。
    * @memberof PathGraphics.prototype
    * @type {Property|undefined}
    * @default 60
@@ -125,6 +129,7 @@ Object.defineProperties(PathGraphics.prototype, {
    * @experimental 此功能尚未最终确定，可能会在不遵循Cesium标准弃用政策的情况下更改。
    */
   relativeTo: createPropertyDescriptor("relativeTo"),
+  materialMode: createPropertyDescriptor("materialMode"),
 });
 
 /**
@@ -145,6 +150,7 @@ PathGraphics.prototype.clone = function (result) {
   result.material = this.material;
   result.distanceDisplayCondition = this.distanceDisplayCondition;
   result.relativeTo = this.relativeTo;
+  result.materialMode = this.materialMode;
   return result;
 };
 
@@ -169,5 +175,6 @@ PathGraphics.prototype.merge = function (source) {
   this.distanceDisplayCondition =
     this.distanceDisplayCondition ?? source.distanceDisplayCondition;
   this.relativeTo = this.relativeTo ?? source.relativeTo;
+  this.materialMode = this.materialMode ?? source.materialMode;
 };
 export default PathGraphics;

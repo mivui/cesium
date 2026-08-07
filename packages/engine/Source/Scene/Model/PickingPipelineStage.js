@@ -18,7 +18,7 @@ const PickingPipelineStage = {
 };
 
 /**
- * 处理图元。这会修改渲染资源的以下部分：
+ * Process a primitive. This modifies the following parts of the render resources:
  * <ul>
  *  <li>为实例化网格在顶点着色器中添加拾取颜色顶点属性的attribute和varying声明</li>
  *  <li>为非实例化网格添加拾取颜色uniform的声明</li>
@@ -65,6 +65,7 @@ PickingPipelineStage.process = function (
     };
 
     renderResources.pickId = "czm_pickColor";
+    renderResources.snapId = snapIdFromPickId(renderResources.pickId);
   }
 };
 
@@ -157,6 +158,7 @@ function processPickTexture(renderResources, primitive, instances) {
   // The feature ID is ignored if it is greater than the number of features.
   renderResources.pickId =
     "((selectedFeature.id < int(model_featuresLength)) ? texture(model_pickTexture, selectedFeature.st) : vec4(0.0))";
+  renderResources.snapId = snapIdFromPickId(renderResources.pickId);
 }
 
 function processInstancedPickIds(renderResources, context) {
@@ -213,6 +215,7 @@ function processInstancedPickIds(renderResources, context) {
   shaderBuilder.addAttribute("vec4", "a_pickColor");
   shaderBuilder.addVarying("vec4", "v_pickColor");
   renderResources.pickId = "v_pickColor";
+  renderResources.snapId = snapIdFromPickId(renderResources.pickId);
 }
 
 export default PickingPipelineStage;

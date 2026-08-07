@@ -303,11 +303,6 @@ function ArcGisMapServerImageryProvider(options) {
   this._credit = options.credit;
   this._tileCredits = undefined;
 
-  let credit = options.credit;
-  if (typeof credit === "string") {
-    credit = new Credit(credit);
-  }
-
    /**
     * 获取或设置一个值，该值指示是否启用要素拾取。如果为 true，{@link ArcGisMapServerImageryProvider#pickFeatures} 将在 ArcGIS 服务器上调用 "identify" 操作并返回响应中包含的要素。如果为 false，{@link ArcGisMapServerImageryProvider#pickFeatures} 将立即返回 undefined（表示没有可拾取的要素）而不与服务器通信。
     * @type {boolean}

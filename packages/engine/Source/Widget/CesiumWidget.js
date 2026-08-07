@@ -1210,18 +1210,16 @@ CesiumWidget.prototype._onDataSourceRemoved = function (
 };
 
 /**
- * 异步设置相机以查看提供的实体、实体数组或数据源。
- * 如果数据源仍在加载过程中或可视化仍在加载中，此方法会等待数据准备就绪后再执行缩放。
+ * 异步设置摄像机以查看提供的实体、实体集合或数据源。
+ * 如果数据源仍在加载过程中或可视化仍在加载中，
+ * 此方法会在数据准备好后再执行缩放。
  *
- * <p>偏移量是位于边界球体中心处的局部东-北-上参考系中的航向/俯仰/距离。
- * 航向和俯仰角在局部东-北-上参考系中定义。
- * 航向是从 y 轴开始的角度，并朝向 x 轴增加。俯仰是从 xy 平面开始的旋转。正俯仰角
- * 在平面之上。负俯仰角在平面之下。距离是距中心的距离。如果距离为
- * 零，将计算一个距离，使整个边界球体都可见。</p>
+ * <p>偏移量是在以包围球中心为中心的本地东-北-上参考系中的航向/俯仰/距离。
+ * 航向和俯仰角是在本地东-北-上参考系中定义的。
+ * 航向是从 y 轴起始，沿 x 轴方向增加的角度。俯仰是从 xy 平面开始的旋转。正俯仰角位于平面上方，负俯仰角位于平面下方。距离是从中心到摄像机的位置。如果距离为零，将计算一个距离，使整个包围球可见。</p>
  *
- * <p>在 2D 中，必须是俯视图。相机将放置在目标上方向下看。在目标上方的
- * 高度将是距离。航向将根据偏移量确定。如果无法从偏移量
- * 确定航向，则航向将为北。</p>
+ * <p>在二维中，必须有俯视图。摄像机会放置在目标上方向下看。高度为
+ * 目标将是距离。航向将根据偏移量确定。如果不能根据偏移量确定航向，航向将为北。
  *
  * @param {Entity|Entity[]|EntityCollection|DataSource|ImageryLayer|Cesium3DTileset|TimeDynamicPointCloud|Promise<Entity|Entity[]|EntityCollection|DataSource|ImageryLayer|Cesium3DTileset|TimeDynamicPointCloud|VoxelPrimitive|BufferPrimitiveCollection<BufferPrimitive>>} target 要查看的实体、实体数组、实体集合、数据源、Cesium3DTileset、点云或影像图层。您也可以传递一个解析为上述类型之一的 Promise。
  * @param {HeadingPitchRange} [offset] 在局部东-北-上参考系中距实体中心的偏移量。

@@ -28,6 +28,7 @@ import QuadtreePrimitive from "./QuadtreePrimitive.js";
 import SceneMode from "./SceneMode.js";
 import ShadowMode from "./ShadowMode.js";
 import CesiumMath from "../Core/Math.js";
+import VectorProvider from "../Core/VectorProvider.js";
 
 /**
  * 在场景中渲染的地球，包括其地形（{@link Globe#terrainProvider}）
@@ -45,6 +46,9 @@ function Globe(ellipsoid) {
     ellipsoid: ellipsoid,
   });
   const imageryLayerCollection = new ImageryLayerCollection();
+  const vectorProvider = new VectorProvider({
+    tilingScheme: terrainProvider.tilingScheme,
+  });
 
   this._ellipsoid = ellipsoid;
   this._imageryLayerCollection = imageryLayerCollection;
@@ -57,11 +61,14 @@ function Globe(ellipsoid) {
       terrainProvider: terrainProvider,
       imageryLayers: imageryLayerCollection,
       surfaceShaderSet: this._surfaceShaderSet,
+      vectorProvider,
     }),
   });
 
   this._terrainProvider = terrainProvider;
   this._terrainProviderChanged = new Event();
+
+  this._vectorProvider = vectorProvider;
 
   this._undergroundColor = Color.clone(Color.BLACK);
   this._undergroundColorAlphaByDistance = new NearFarScalar(
@@ -510,6 +517,9 @@ Object.defineProperties(Globe.prototype, {
     set: function (value) {
       if (value !== this._terrainProvider) {
         this._terrainProvider = value;
+        if (defined(value)) {
+          this._vectorProvider.tilingScheme = value.tilingScheme;
+        }
         this._terrainProviderChanged.raiseEvent(value);
         if (defined(this._material)) {
           makeShadersDirty(this);
@@ -530,8 +540,18 @@ Object.defineProperties(Globe.prototype, {
     },
   },
   /**
-   * 获取自上一渲染帧以来瓦片加载队列长度发生变化时触发的事件。当加载队列为空时，
-   * 当前视图的所有地形和影像都已加载。该事件传递新的瓦片加载队列长度。
+   * @memberof Globe.prototype
+   * @type {VectorProvider}
+   * @ignore
+   */
+  vectorProvider: {
+    get: function () {
+      return this._vectorProvider;
+    },
+  },
+  /**
+   * 获取自上一个渲染帧以来瓦片加载队列长度发生变化时触发的事件。当加载队列为空时，
+   * 当前视图的所有地形和影像已加载。该事件传递了瓦片加载队列的新长度。
    *
    * @memberof Globe.prototype
    * @type {Event}

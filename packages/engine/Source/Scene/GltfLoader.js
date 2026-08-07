@@ -61,9 +61,11 @@ const {
   Specular,
   Anisotropy,
   Clearcoat,
+  PlanarFill,
   LineStyle,
   Material,
   Vector,
+  Polygon,
 } = ModelComponents;
 
 /**
@@ -533,6 +535,7 @@ class GltfLoader extends ResourceLoader {
 
 /**
  * Loads the gltf object
+ * @ignore
  */
 async function loadGltfJson(loader) {
   loader._state = GltfLoaderState.LOADING;
@@ -897,6 +900,38 @@ function loadAccessor(loader, accessor, useQuaternion) {
   }
 
   return loadDefaultAccessorValues(accessor, values);
+}
+
+function loadAccessorTypedArray(loader, accessor) {
+  const values = ComponentDatatype.createTypedArray(
+    accessor.componentType,
+    accessor.count * AttributeType.getNumberOfComponents(accessor.type),
+  );
+
+  if (!defined(accessor.bufferView)) {
+    return values;
+  }
+
+  const bufferViewLoader = getBufferViewLoader(loader, accessor.bufferView);
+
+  // Save a link to the gltfJson, which is removed after bufferViewLoader.load()
+  const { gltfJson } = loader;
+
+  const promise = bufferViewLoader.load().then(() => {
+    if (loader.isDestroyed()) {
+      return;
+    }
+    const result = getPackedTypedArray(
+      gltfJson,
+      accessor,
+      bufferViewLoader.typedArray,
+    );
+    values.set(result);
+  });
+
+  loader._loaderPromises.push(promise);
+
+  return values;
 }
 
 function fromArray(MathType, values) {
@@ -1753,6 +1788,23 @@ function loadClearcoat(loader, clearcoatInfo, frameState) {
   return clearcoat;
 }
 
+/**
+ * Load properties for the BENTLEY_materials_planar_fill extension.
+ *
+ * Note: The wireframeFill property is loaded but is currently a NO-OP in the
+ * rendering pipeline. CesiumJS does not yet have a proper wireframe rendering
+ * mode, so this value is stored for completeness but has no effect on rendering.
+ * See https://github.com/CesiumGS/cesium/issues/13620 and
+ * MaterialPipelineStage.js for more details.
+ *
+ * @param {object} planarFillInfo The contents of the BENTLEY_materials_planar_fill extension in the parsed glTF JSON
+ * @returns {ModelComponents.PlanarFill}
+ * @private
+ */
+function loadPlanarFill(planarFillInfo) {
+  return new PlanarFill(planarFillInfo);
+}
+
 function loadLineStyle(lineStyleInfo) {
   if (!defined(lineStyleInfo)) {
     return undefined;
@@ -1799,6 +1851,7 @@ function loadMaterial(loader, gltfMaterial, frameState) {
   const pbrAnisotropy = extensions.KHR_materials_anisotropy;
   const pbrClearcoat = extensions.KHR_materials_clearcoat;
   const pbrMetallicRoughness = gltfMaterial.pbrMetallicRoughness;
+  const planarFill = extensions.BENTLEY_materials_planar_fill;
 
   material.unlit = defined(extensions.KHR_materials_unlit);
 
@@ -1854,6 +1907,11 @@ function loadMaterial(loader, gltfMaterial, frameState) {
   material.alphaMode = gltfMaterial.alphaMode;
   material.alphaCutoff = gltfMaterial.alphaCutoff;
   material.doubleSided = gltfMaterial.doubleSided;
+
+  // BENTLEY_materials_planar_fill extension
+  if (defined(planarFill)) {
+    material.planarFill = loadPlanarFill(planarFill);
+  }
 
   // BENTLEY_materials_point_style extension
   const pointStyleExtension = extensions.BENTLEY_materials_point_style;
@@ -2122,7 +2180,7 @@ function loadEdgeVisibilityLineStrings(
       throw new RuntimeError("Edge visibility line string accessor not found!");
     }
 
-    const indices = loadAccessor(loader, accessor);
+    const indices = loadAccessorTypedArray(loader, accessor);
     const restartIndex = getLineStringPrimitiveRestartValue(
       accessor.componentType,
     );
@@ -2154,7 +2212,10 @@ function loadEdgeVisibility(loader, edgeVisibilityExtension) {
     if (!defined(visibilityAccessor)) {
       throw new RuntimeError("Edge visibility accessor not found!");
     }
-    edgeVisibility.visibility = loadAccessor(loader, visibilityAccessor);
+    edgeVisibility.visibility = loadAccessorTypedArray(
+      loader,
+      visibilityAccessor,
+    );
   }
 
   edgeVisibility.materialColor = getEdgeVisibilityMaterialColor(
@@ -2166,7 +2227,9 @@ function loadEdgeVisibility(loader, edgeVisibilityExtension) {
     const silhouetteNormalsAccessor =
       loader.gltfJson.accessors[edgeVisibilityExtension.silhouetteNormals];
     if (defined(silhouetteNormalsAccessor)) {
-      edgeVisibility.silhouetteNormals = loadAccessor(
+      // Packed typed array (x0,y0,z0, x1,y1,z1, ...), not an array of
+      // Cartesian3s. Avoids a large JS heap cost for edge-heavy tiles.
+      edgeVisibility.silhouetteNormals = loadAccessorTypedArray(
         loader,
         silhouetteNormalsAccessor,
       );
@@ -2208,6 +2271,17 @@ function loadPrimitive(loader, gltfPrimitive, hasInstances, frameState) {
   }
 
   const extensions = gltfPrimitive.extensions ?? Frozen.EMPTY_OBJECT;
+
+  const polygonExtension = extensions.EXT_mesh_polygon;
+  if (defined(polygonExtension)) {
+    primitive.polygon = loadMeshPolygonExtension(
+      loader,
+      gltfPrimitive,
+      polygonExtension,
+    );
+  }
+
+  // @deprecated CESIUM_mesh_vector to be removed after v1.142 release.
   const meshVectorExtension = extensions.CESIUM_mesh_vector;
   if (defined(meshVectorExtension)) {
     primitive.vector = loadMeshVectorExtension(loader, meshVectorExtension);
@@ -2366,11 +2440,76 @@ function loadPrimitiveOutline(loader, outlineExtension) {
 }
 
 /**
+ * @typedef {object} EXTMeshPolygonExtension
+ * @property {number} count
+ * @property {number} indicesOffsets
+ * @property {number} [loopIndices]
+ * @property {number} [loopIndicesOffsets]
+ * @property {number} [triangleIndices]
+ * @property {number} [triangleIndicesOffsets]
+ */
+
+/**
+ * Load EXT_mesh_polygon.
+ * @param {GltfLoader} loader
+ * @param {object} gltfPrimitive
+ * @param {EXTMeshPolygonExtension} polygonExtension
+ * @returns {ModelComponents.Polygon}
+ * @ignore
+ */
+function loadMeshPolygonExtension(loader, gltfPrimitive, polygonExtension) {
+  const result = new Polygon();
+  const accessors = loader.gltfJson.accessors;
+
+  result.count = polygonExtension.count;
+
+  // See ModelComponents.Polygon definition.
+  if (gltfPrimitive.mode === PrimitiveType.LINE_LOOP) {
+    result.loopIndices = loadAccessorTypedArray(
+      loader,
+      accessors[gltfPrimitive.indices],
+    );
+    result.loopIndicesOffsets = loadAccessorTypedArray(
+      loader,
+      accessors[polygonExtension.indicesOffsets],
+    );
+    result.triangleIndices = loadAccessorTypedArray(
+      loader,
+      accessors[polygonExtension.triangleIndices],
+    );
+    result.triangleIndicesOffsets = loadAccessorTypedArray(
+      loader,
+      accessors[polygonExtension.triangleIndicesOffsets],
+    );
+  } else if (gltfPrimitive.mode === PrimitiveType.TRIANGLES) {
+    result.loopIndices = loadAccessorTypedArray(
+      loader,
+      accessors[polygonExtension.loopIndices],
+    );
+    result.loopIndicesOffsets = loadAccessorTypedArray(
+      loader,
+      accessors[polygonExtension.loopIndicesOffsets],
+    );
+    result.triangleIndices = loadAccessorTypedArray(
+      loader,
+      accessors[gltfPrimitive.indices],
+    );
+    result.triangleIndicesOffsets = loadAccessorTypedArray(
+      loader,
+      accessors[polygonExtension.indicesOffsets],
+    );
+  }
+
+  return result;
+}
+
+/**
  * Load CESIUM_mesh_vector.
  * @param {GltfLoader} loader
  * @param {*} meshVectorExtension
  * @returns {ModelComponents.Vector}
  * @ignore
+ * @deprecated
  */
 function loadMeshVectorExtension(loader, meshVectorExtension) {
   if (!defined(meshVectorExtension)) {

@@ -667,8 +667,9 @@ Object.defineProperties(Billboard.prototype, {
   },
 
   /**
-   * 获取或设置世界空间中的对齐轴。对齐轴是广告牌向上向量指向的单位向量。
-   * 默认是零向量，这意味着广告牌与屏幕向上向量对齐。
+   * 对齐轴是广告牌上方向向量指向的方向向量。
+   * 默认值是零向量，这意味着广告牌与屏幕上方向对齐。
+   * 注意，只有零向量 (0,0,0) 会将对齐重置为屏幕上方向。
    * @memberof Billboard.prototype
    * @type {Cartesian3}
    * @example

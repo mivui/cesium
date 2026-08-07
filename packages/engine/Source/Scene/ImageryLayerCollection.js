@@ -1,10 +1,14 @@
 import defined from "../Core/defined.js";
+import Cartesian2 from "../Core/Cartesian2.js";
+import Cartographic from "../Core/Cartographic.js";
 import destroyObject from "../Core/destroyObject.js";
 import DeveloperError from "../Core/DeveloperError.js";
 import Event from "../Core/Event.js";
+import GeographicProjection from "../Core/GeographicProjection.js";
 import CesiumMath from "../Core/Math.js";
 import Rectangle from "../Core/Rectangle.js";
 import ImageryLayer from "./ImageryLayer.js";
+import ImageryState from "./ImageryState.js";
 
 /**
  * 用于在 {@link Globe} 或 {@link Cesium3DTileset} 上渲染栅格影像的有序影像图层集合。
@@ -450,18 +454,160 @@ ImageryLayerCollection.prototype.pickImageryLayers = function (ray, scene) {
   return imageryLayers;
 };
 
+const nativeBoundingRectangleScratch = new Rectangle();
+const nativeApplicableRectangleScratch = new Rectangle();
+const southwestNativeScratch = new Cartesian2();
+const northeastNativeScratch = new Cartesian2();
+const southwestCartographicScratch = new Cartographic();
+const northeastCartographicScratch = new Cartographic();
+
 /**
- * 异步确定与拾取射线相交的影像图层要素。通过为拾取射线相交的
- * 每个影像图层瓦片调用 {@link ImageryProvider#pickFeatures} 来查找相交的影像图层要素。
- * 要从屏幕上的位置计算拾取射线，请使用 {@link Camera.getPickRay}。
+ * Maps a texture coordinate rectangle (UV space on the primitive) back to a
+ * geographic rectangle, using the primitive cartographic bounds and the
+ * imagery tiling scheme's native coordinates.
+ *
+ * @private
+ */
+
+function computeApplicableGeographicRectangle(
+  cartographicBoundingRectangle,
+  textureCoordinateRectangle,
+  imageryLayer,
+  result,
+) {
+  const tilingScheme = imageryLayer.imageryProvider.tilingScheme;
+  const nativeBoundingRectangle = tilingScheme.rectangleToNativeRectangle(
+    cartographicBoundingRectangle,
+    nativeBoundingRectangleScratch,
+  );
+
+  const epsilon = 1 / 1024; // 1/4 of a pixel in a typical 256x256 tile.
+  const applicableNative = nativeApplicableRectangleScratch;
+  applicableNative.west = CesiumMath.lerp(
+    nativeBoundingRectangle.west,
+    nativeBoundingRectangle.east,
+    textureCoordinateRectangle.minX - epsilon,
+  );
+  applicableNative.east = CesiumMath.lerp(
+    nativeBoundingRectangle.west,
+    nativeBoundingRectangle.east,
+    textureCoordinateRectangle.maxX + epsilon,
+  );
+  applicableNative.south = CesiumMath.lerp(
+    nativeBoundingRectangle.south,
+    nativeBoundingRectangle.north,
+    textureCoordinateRectangle.minY - epsilon,
+  );
+  applicableNative.north = CesiumMath.lerp(
+    nativeBoundingRectangle.south,
+    nativeBoundingRectangle.north,
+    textureCoordinateRectangle.maxY + epsilon,
+  );
+
+  if (!defined(result)) {
+    result = new Rectangle();
+  }
+
+  const projection = tilingScheme.projection;
+  if (projection instanceof GeographicProjection) {
+    result.west = CesiumMath.toRadians(applicableNative.west);
+    result.south = CesiumMath.toRadians(applicableNative.south);
+    result.east = CesiumMath.toRadians(applicableNative.east);
+    result.north = CesiumMath.toRadians(applicableNative.north);
+    return result;
+  }
+
+  southwestNativeScratch.x = applicableNative.west;
+  southwestNativeScratch.y = applicableNative.south;
+  northeastNativeScratch.x = applicableNative.east;
+  northeastNativeScratch.y = applicableNative.north;
+
+  const southwest = projection.unproject(
+    southwestNativeScratch,
+    southwestCartographicScratch,
+  );
+  const northeast = projection.unproject(
+    northeastNativeScratch,
+    northeastCartographicScratch,
+  );
+  result.west = southwest.longitude;
+  result.south = southwest.latitude;
+  result.east = northeast.longitude;
+  result.north = northeast.latitude;
+  return result;
+}
+
+function pickModelFeatures(model, pickedLocation, callback) {
+  const modelImagery = model._modelImagery;
+
+  if (!defined(modelImagery)) {
+    return;
+  }
+
+  const modelPrimitiveImageries = modelImagery._modelPrimitiveImageries;
+
+  if (!defined(modelPrimitiveImageries)) {
+    return;
+  }
+
+  for (let j = 0; j < modelPrimitiveImageries.length; j++) {
+    const modelPrimitiveImagery = modelPrimitiveImageries[j];
+    const coveragesPerLayer = modelPrimitiveImagery._coveragesPerLayer;
+    if (!defined(coveragesPerLayer)) {
+      continue;
+    }
+
+    for (let k = coveragesPerLayer.length - 1; k >= 0; --k) {
+      const coverages = coveragesPerLayer[k];
+
+      for (let l = 0; l < coverages.length; l++) {
+        const coverage = coverages[l];
+        const imagery = coverage.imagery;
+        const imageryLayer = imagery.imageryLayer;
+        const provider = imageryLayer.imageryProvider;
+
+        if (!defined(provider.pickFeatures)) {
+          continue;
+        }
+
+        if (!defined(imagery) || imagery.state !== ImageryState.READY) {
+          continue;
+        }
+
+        if (!Rectangle.contains(imagery.rectangle, pickedLocation)) {
+          continue;
+        }
+
+        const mappedPositions =
+          modelPrimitiveImagery.mappedPositionsForImageryLayer(imageryLayer);
+        const cartographicBoundingRectangle =
+          mappedPositions.cartographicBoundingRectangle;
+
+        const applicableRectangle = computeApplicableGeographicRectangle(
+          cartographicBoundingRectangle,
+          coverage.textureCoordinateRectangle,
+          imageryLayer,
+          applicableRectangleScratch,
+        );
+
+        if (!Rectangle.contains(applicableRectangle, pickedLocation)) {
+          continue;
+        }
+
+        callback(imagery);
+      }
+    }
+  }
+}
+
+/**
+ * 异步确定被拾取射线相交的影像图层特征。通过调用 {@link ImageryProvider#pickFeatures} 来查找每个被拾取射线相交的影像图层瓦片的相交特征。
+ * 要从屏幕上的某个位置计算拾取射线，请使用 {@link Camera.getPickRay}。
  *
  * @param {Ray} ray 要测试相交的射线。
  * @param {Scene} scene 场景。
- * @return {Promise<ImageryLayerFeatureInfo[]>|undefined} 解析为拾取射线相交的要素数组的 Promise。
- *                                             如果可以快速确定没有要素相交（例如，
- *                                             因为没有活动的影像提供者支持 {@link ImageryProvider#pickFeatures}
- *                                             或因为拾取射线不与表面相交），此函数将
- *                                             返回 undefined。
+ * @return {Promise<ImageryLayerFeatureInfo[]>|undefined} 一个解析为被拾取射线相交特征数组的 Promise。如果能够快速确定没有特征被相交（例如，因为没有活动的影像提供者支持 {@link ImageryProvider#pickFeatures} 或者拾取射线没有与表面相交），该函数将
+ *                                             返回未定义。
  *
  * @example
  * const pickRay = viewer.camera.getPickRay(windowPosition);
@@ -482,10 +628,31 @@ ImageryLayerCollection.prototype.pickImageryLayerFeatures = function (
   ray,
   scene,
 ) {
-  // 在地球上查找拾取的位置。
-  const pickedPosition = scene.globe.pick(ray, scene);
+  // Find the picked location on the globe.
+  let pickedPosition;
+
+  if (defined(scene.globe)) {
+    pickedPosition = scene.globe.pick(ray, scene);
+  }
+
+  let pickedModel;
+
   if (!defined(pickedPosition)) {
-    return;
+    const result = scene.pickFromRay(ray);
+
+    if (!defined(result)) {
+      return undefined;
+    }
+
+    pickedPosition = result.position;
+
+    if (!defined(pickedPosition)) {
+      return undefined;
+    }
+
+    if (defined(result.object) && defined(result.object.detail)) {
+      pickedModel = result.object.detail.model;
+    }
   }
 
   const pickedLocation =
@@ -494,7 +661,7 @@ ImageryLayerCollection.prototype.pickImageryLayerFeatures = function (
   const promises = [];
   const imageryLayers = [];
 
-  pickImageryHelper(scene, pickedLocation, true, function (imagery) {
+  function queuePickFeatures(imagery) {
     if (!imagery.imageryLayer.ready) {
       return undefined;
     }
@@ -510,11 +677,24 @@ ImageryLayerCollection.prototype.pickImageryLayerFeatures = function (
       promises.push(promise);
       imageryLayers.push(imagery.imageryLayer);
     }
-  });
+  }
+
+  if (defined(scene.globe)) {
+    pickImageryHelper(scene, pickedLocation, true, function (imagery) {
+      queuePickFeatures(imagery);
+    });
+  }
+
+  if (defined(pickedModel)) {
+    pickModelFeatures(pickedModel, pickedLocation, function (imagery) {
+      queuePickFeatures(imagery);
+    });
+  }
 
   if (promises.length === 0) {
     return undefined;
   }
+
   return Promise.all(promises).then(function (results) {
     const features = [];
     for (let resultIndex = 0; resultIndex < results.length; ++resultIndex) {
@@ -543,7 +723,7 @@ ImageryLayerCollection.prototype.pickImageryLayerFeatures = function (
 /**
  * 更新帧状态以执行任何排队的纹理重新投影。
  *
- * @private
+ * @ignore
  *
  * @param {FrameState} frameState 帧状态。
  */
@@ -559,7 +739,7 @@ ImageryLayerCollection.prototype.queueReprojectionCommands = function (
 /**
  * 取消为下一帧排队的重新投影命令。
  *
- * @private
+ * @ignore
  */
 ImageryLayerCollection.prototype.cancelReprojections = function () {
   const layers = this._layers;

@@ -184,12 +184,13 @@ function FrameState(context, creditDisplay, jobScheduler) {
   /**
    * @typedef FrameState.Passes
    * @type {object}
-   * @property {boolean} render 如果图元应在渲染通道中更新则为 <code>true</code>，否则为 <code>false</code>。
-   * @property {boolean} pick 如果图元应在拾取通道中更新则为 <code>true</code>，否则为 <code>false</code>。
-   * @property {boolean} pickVoxel 如果图元应在体素拾取通道中更新则为 <code>true</code>，否则为 <code>false</code>。
-   * @property {boolean} depth 如果图元应在仅深度通道中更新则为 <code>true</code>，否则为 <code>false</code>。
-   * @property {boolean} postProcess 如果图元应在逐要素后处理通道中更新则为 <code>true</code>，否则为 <code>false</code>。
-   * @property {boolean} offscreen 如果图元应在离屏通道中更新则为 <code>true</code>，否则为 <code>false</code>。
+   * @property {boolean} render <code>true</code> 如果该原语应在渲染阶段更新，<code>false</code> 否则。
+   * @property {boolean} pick <code>true</code> 如果该原语应在拾取阶段更新，<code>false</code> 否则。
+   * @property {boolean} pickVoxel <code>true</code> 如果该原语应在体素拾取阶段更新，<code>false</code> 否则。
+   * @property {boolean} snap <code>true</code> 如果当前拾取阶段是一个捕捉阶段（参见 {@link Scene#snap}），<code>false</code> 否则。仅在 <code>pick</code> 也为 <code>true</code> 时才为 <code>true</code>。
+   * @property {boolean} depth <code>true</code> 如果该原语应在仅深度阶段更新，<code>false</code> 否则。
+   * @property {boolean} postProcess <code>true</code> 如果该原语应在每特性后处理阶段更新，<code>false</code> 否则。
+   * @property {boolean} offscreen <code>true</code> 如果该原语应为离屏通道更新，否则为 <code>false</code>。
    */
 
   /**
@@ -208,6 +209,10 @@ function FrameState(context, creditDisplay, jobScheduler) {
      * @default false
      */
     pickVoxel: false,
+    /**
+     * @default false
+     */
+    snap: false,
     /**
      * @default false
      */
@@ -463,7 +468,7 @@ function FrameState(context, creditDisplay, jobScheduler) {
 }
 
 /**
- * 在帧结束时调用的函数。
+ * 将在帧结束时调用的函数。
  *
  * @callback FrameState.AfterRenderCallback
  * @returns {boolean} 如果在请求渲染模式下应请求另一次渲染则为 true

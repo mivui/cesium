@@ -45,6 +45,7 @@ import BrdfLutGenerator from "./BrdfLutGenerator.js";
 import Camera from "./Camera.js";
 import Cesium3DTilePass from "./Cesium3DTilePass.js";
 import Cesium3DTilePassState from "./Cesium3DTilePassState.js";
+import ControllerHost from "./Controllers/ControllerHost.js";
 import CreditDisplay from "./CreditDisplay.js";
 import DebugCameraPrimitive from "./DebugCameraPrimitive.js";
 import DepthPlane from "./DepthPlane.js";
@@ -69,6 +70,7 @@ import SceneTransitioner from "./SceneTransitioner.js";
 import ScreenSpaceCameraController from "./ScreenSpaceCameraController.js";
 import ShadowMap from "./ShadowMap.js";
 import SharedContext from "../Renderer/SharedContext.js";
+import Snapping from "./Snapping.js";
 import SpecularEnvironmentCubeMap from "./SpecularEnvironmentCubeMap.js";
 import StencilConstants from "./StencilConstants.js";
 import SunLight from "./SunLight.js";
@@ -239,6 +241,8 @@ function Scene(options) {
   this._renderError = new Event();
   this._preRender = new Event();
   this._postRender = new Event();
+
+  this._controllerHost = new ControllerHost();
 
   this._minimumDisableDepthTestDistance = 0.0;
   this._debugInspector = new DebugInspector();
@@ -759,6 +763,15 @@ function Scene(options) {
    */
   this._enableEdgeVisibility = false;
 
+  /**
+   * Whether or not to enable the planar fill feature-ID pre-pass.
+   * Updated each frame from FrameState.planarFillRequested.
+   * @type {boolean}
+   * @default false
+   * @private
+   */
+  this._enablePlanarFillId = false;
+
   // Give frameState, camera, and screen space camera controller initial state before rendering
   updateFrameNumber(this, 0.0, JulianDate.now());
   this.updateFrameState();
@@ -1069,7 +1082,7 @@ Object.defineProperties(Scene.prototype, {
   },
 
   /**
-   * 获取用于处理相机输入的控制器。
+   * 获取用于相机输入处理的控制器。
    * @memberof Scene.prototype
    *
    * @type {ScreenSpaceCameraController}
@@ -1216,8 +1229,19 @@ Object.defineProperties(Scene.prototype, {
   },
 
   /**
-   * 获取在场景更新或渲染之前触发的事件。事件的订阅者
-   * 接收 Scene 实例作为第一个参数，当前时间作为第二个参数。
+   * @memberof Scene.prototype
+   * @type {VectorProvider}
+   * @ignore
+   */
+  vectorProvider: {
+    get: function () {
+      return this.globe?.vectorProvider;
+    },
+  },
+
+  /**
+   * 获取在场景更新或渲染之前将触发的事件。订阅该事件的对象
+   * 将 Scene 实例作为第一个参数，并将当前时间作为第二个参数接收。
    * @memberof Scene.prototype
    *
    * @see {@link https://cesium.com/blog/2018/01/24/cesium-scene-rendering-performance/|Improving Performance with Explicit Rendering}
@@ -1755,6 +1779,16 @@ function updateDerivedCommands(scene, command, shadowsDirty) {
       derivedCommands.picking,
     );
   }
+  // Snap derived commands are only created on demand, during a snapping pass,
+  // so applications that never call Scene.snap pay no shader-derivation cost.
+  if (defined(command.snapId) && frameState.passes.snap) {
+    derivedCommands.snapping = DerivedCommand.createSnapDerivedCommand(
+      scene,
+      command,
+      context,
+      derivedCommands.snapping,
+    );
+  }
   if (frameState.pickingMetadata && command.pickMetadataAllowed) {
     command.pickedMetadataInfo = frameState.pickedMetadataInfo;
     if (defined(command.pickedMetadataInfo)) {
@@ -1852,12 +1886,17 @@ Scene.prototype.updateDerivedCommands = function (command) {
   const needsUpdateForMetadataPicking =
     frameState.pickingMetadata &&
     pickedMetadataInfoChanged(command, frameState);
+  const needsUpdateForSnap =
+    frameState.passes.snap &&
+    defined(command.snapId) &&
+    !defined(derivedCommands.snapping);
   command.dirty =
     command.dirty ||
     needsLogDepthDerivedCommands ||
     needsHdrCommands ||
     needsDerivedCommands ||
-    needsUpdateForMetadataPicking;
+    needsUpdateForMetadataPicking ||
+    needsUpdateForSnap;
 
   if (!command.dirty) {
     return;
@@ -1945,6 +1984,7 @@ Scene.prototype.clearPasses = function (passes) {
   passes.render = false;
   passes.pick = false;
   passes.pickVoxel = false;
+  passes.snap = false;
   passes.depth = false;
   passes.postProcess = false;
   passes.offscreen = false;
@@ -2230,6 +2270,21 @@ function executeCommand(command, scene, passState, debugFramebuffer) {
 
   if (passes.pick || passes.depth) {
     if (passes.pick && !passes.depth) {
+      if (frameState.passes.snap) {
+        // Snapping pass: only commands with a snap variant write the float
+        // snap payload. Commands without one (no snapId, e.g. globe/terrain)
+        // execute depth-only so they still occlude snappable geometry behind
+        // them without polluting the RGBA32F snap framebuffer with RGBA8
+        // pick colors.
+        if (defined(command.derivedCommands.snapping)) {
+          command = command.derivedCommands.snapping.snapCommand;
+          command.execute(context, passState);
+        } else if (defined(command.derivedCommands.depth)) {
+          command = command.derivedCommands.depth.depthOnlyCommand;
+          command.execute(context, passState);
+        }
+        return;
+      }
       if (
         frameState.pickingMetadata &&
         defined(command.derivedCommands.pickingMetadata)
@@ -2451,6 +2506,7 @@ function createWorkingFrustum(camera) {
  *
  * @param {Scene} scene The scene.
  * @returns {Function} A function to execute translucent commands.
+ * @ignore
  */
 function obtainTranslucentCommandExecutionFunction(scene) {
   if (scene._environmentState.useOIT) {
@@ -2604,6 +2660,77 @@ function performCesium3DTileEdgesPass(scene, passState, frustumCommands) {
 }
 
 /**
+ * Execute the planar fill feature-ID pre-pass.
+ *
+ * Non-behind planar fill geometry writes its per-fragment feature ID into the
+ * planar fill ID framebuffer. This allows behind fills in the main 3D tile
+ * pass to check whether the existing pixel belongs to the same logical object.
+ *
+ * @param {Scene} scene
+ * @param {PassState} passState
+ * @param {FrustumCommands} frustumCommands
+ * @private
+ */
+function performPlanarFillIdPass(scene, passState, frustumCommands) {
+  const { context } = scene;
+  const { uniformState } = context;
+
+  uniformState.updatePass(Pass.CESIUM_3D_TILE_PLANAR_FILL_ID);
+
+  // Default to a blank texture so shaders always have something to sample.
+  uniformState.planarFillIdTexture = context.defaultTexture;
+
+  const view = scene._view;
+  const fb = view && view.planarFillIdFramebuffer;
+
+  const commands = frustumCommands.commands[Pass.CESIUM_3D_TILE_PLANAR_FILL_ID];
+  const commandCount =
+    frustumCommands.indices[Pass.CESIUM_3D_TILE_PLANAR_FILL_ID];
+
+  if (commandCount === 0) {
+    return;
+  }
+
+  if (scene._enablePlanarFillId && defined(fb) && defined(fb.framebuffer)) {
+    const originalFramebuffer = passState.framebuffer;
+    passState.framebuffer = fb.framebuffer;
+
+    // Clear to (0,0,0,0) — feature ID 0 means "no planar fill here".
+    const clearCommand = fb.getClearCommand(new Color(0.0, 0.0, 0.0, 0.0));
+    clearCommand.execute(context, passState);
+
+    for (let j = 0; j < commandCount; ++j) {
+      executeCommand(commands[j], scene, passState);
+    }
+
+    passState.framebuffer = originalFramebuffer;
+  }
+}
+
+/**
+ * Execute edge commands that should render directly to the main framebuffer
+ * (EDGES_ONLY mode). These edges bypass the MRT edge framebuffer and render
+ * on top of surface geometry.
+ *
+ * @param {Scene} scene
+ * @param {PassState} passState
+ * @param {FrustumCommands} frustumCommands
+ *
+ * @private
+ */
+function performCesium3DTileEdgesDirectPass(scene, passState, frustumCommands) {
+  scene.context.uniformState.updatePass(Pass.CESIUM_3D_TILE_EDGES_DIRECT);
+
+  const commands = frustumCommands.commands[Pass.CESIUM_3D_TILE_EDGES_DIRECT];
+  const commandCount =
+    frustumCommands.indices[Pass.CESIUM_3D_TILE_EDGES_DIRECT];
+
+  for (let j = 0; j < commandCount; ++j) {
+    executeCommand(commands[j], scene, passState);
+  }
+}
+
+/**
  * Execute the draw commands for all the render passes.
  *
  * @param {Scene} scene
@@ -2616,6 +2743,10 @@ function executeCommands(scene, passState) {
   const { uniformState } = context;
 
   uniformState.updateCamera(camera);
+
+  // Ensure planar fill ID texture is always available (even during edge pass)
+  // so that shaders referencing czm_planarFillIdTexture never see undefined.
+  uniformState.planarFillIdTexture = context.defaultTexture;
 
   const frustum = createWorkingFrustum(camera);
   frustum.near = camera.frustum.near;
@@ -2787,6 +2918,23 @@ function executeCommands(scene, passState) {
         scene.context.defaultTexture;
     }
 
+    // Planar fill feature-ID pre-pass: write feature IDs from non-behind
+    // planar fill geometry so that behind fills can test same-object.
+    performPlanarFillIdPass(scene, passState, frustumCommands);
+
+    if (
+      scene._enablePlanarFillId &&
+      defined(scene._view) &&
+      defined(scene._view.planarFillIdFramebuffer)
+    ) {
+      const pfIdTexture = scene._view.planarFillIdFramebuffer.idTexture;
+      uniformState.planarFillIdTexture = defined(pfIdTexture)
+        ? pfIdTexture
+        : context.defaultTexture;
+    } else {
+      uniformState.planarFillIdTexture = context.defaultTexture;
+    }
+
     if (!useInvertClassification || picking || renderTranslucentDepthForPick) {
       // Common/fastest path. Draw 3D Tiles and classification normally.
 
@@ -2850,7 +2998,7 @@ function executeCommands(scene, passState) {
       passState.framebuffer = scene._invertClassification._fbo.framebuffer;
 
       // Draw normally
-      commandCount = performPass(frustumCommands, Pass.CESIUM_3D_TILE);
+      performPass(frustumCommands, Pass.CESIUM_3D_TILE);
 
       if (useGlobeDepthFramebuffer) {
         scene._invertClassification.prepareTextures(context);
@@ -2895,6 +3043,9 @@ function executeCommands(scene, passState) {
     performVoxelsPass(scene, passState, frustumCommands);
 
     performPass(frustumCommands, Pass.OPAQUE);
+
+    // Draw direct edges (EDGES_ONLY mode) after opaque surfaces
+    performCesium3DTileEdgesDirectPass(scene, passState, frustumCommands);
 
     performGaussianSplatPass(scene, passState, frustumCommands);
 
@@ -3594,10 +3745,11 @@ Scene.prototype.updateEnvironment = function () {
   );
 
   const envMaps = this.specularEnvironmentMaps;
-  let specularEnvironmentCubeMap = this._specularEnvironmentCubeMap;
+  const specularEnvironmentCubeMap = this._specularEnvironmentCubeMap;
   if (defined(envMaps) && specularEnvironmentCubeMap?.url !== envMaps) {
-    specularEnvironmentCubeMap =
-      specularEnvironmentCubeMap && specularEnvironmentCubeMap.destroy();
+    if (defined(specularEnvironmentCubeMap)) {
+      specularEnvironmentCubeMap.destroy();
+    }
     this._specularEnvironmentCubeMap = new SpecularEnvironmentCubeMap(envMaps);
   } else if (!defined(envMaps) && defined(specularEnvironmentCubeMap)) {
     specularEnvironmentCubeMap.destroy();
@@ -3687,6 +3839,7 @@ function updateAndRenderPrimitives(scene) {
 
   // Reset per-frame edge visibility request flag before primitives update
   frameState.edgeVisibilityRequested = false;
+  frameState.planarFillRequested = false;
 
   scene._groundPrimitives.update(frameState);
   scene._primitives.update(frameState);
@@ -3698,6 +3851,10 @@ function updateAndRenderPrimitives(scene) {
   ) {
     scene._enableEdgeVisibility = true;
   }
+
+  // True only while at least one planar fill primitive is rendering;
+  // the request flag is renewed each frame by ModelSceneGraph.
+  scene._enablePlanarFillId = frameState.planarFillRequested;
 
   updateDebugFrustumPlanes(scene);
   updateShadowMaps(scene);
@@ -3717,6 +3874,7 @@ function updateAndClearFramebuffers(scene, passState, clearColor) {
   const picking = passes.pick || passes.pickVoxel;
   if (defined(view.globeDepth)) {
     view.globeDepth.picking = picking;
+    view.globeDepth.snapping = passes.snap;
   }
   const useWebVR = environmentState.useWebVR;
 
@@ -3820,6 +3978,15 @@ function updateAndClearFramebuffers(scene, passState, clearColor) {
   const useEdgeFramebuffer = !picking && scene._enableEdgeVisibility;
   if (useEdgeFramebuffer) {
     view.edgeFramebuffer.update(context, view.viewport, scene._hdr);
+  }
+
+  // Update planar fill ID framebuffer
+  const usePlanarFillIdFramebuffer = !picking && scene._enablePlanarFillId;
+  if (usePlanarFillIdFramebuffer) {
+    view.planarFillIdFramebuffer.update(context, view.viewport, scene._hdr);
+  } else if (!picking) {
+    // Release GPU resources while unused; recreated on demand by update().
+    view.planarFillIdFramebuffer.releaseResources();
   }
 
   if (useInvertClassification) {
@@ -4378,6 +4545,8 @@ Scene.prototype.render = function (time) {
     time = JulianDate.now();
   }
 
+  this._controllerHost.update(this, time);
+
   const cameraChanged = this._view.checkForCameraUpdates(this);
   if (cameraChanged) {
     this._globeHeightDirty = true;
@@ -4512,6 +4681,68 @@ Scene.prototype.clampLineWidth = function (width) {
 Scene.prototype.pick = function (windowPosition, width, height) {
   // Picking one object, result is either [object] or []
   return this._picking.pick(this, windowPosition, width, height, 1)[0];
+};
+
+/**
+ * 快照操作的结果。参见 {@link Scene#snap}。
+ *
+ * @typedef {object} SceneSnapResult
+ * @property {object} object 快照的基本体或要素。
+ * @property {Cartesian3} position 快照点的世界空间位置，从快照帧缓冲的视点空间深度反投影得到。
+ * @property {Cartesian2} screenPosition 快照点的窗口坐标。
+ * @property {boolean} isEdge <code>true</code> 如果快照点位于边缘；<code>false</code> 如果位于表面。
+ *
+ * @experimental 此功能尚未最终确定，可能在不遵循 Cesium 标准弃用策略的情况下发生变化。
+ */
+
+/**
+ * 返回 <code>windowPosition</code> 周围屏幕空间区域内的最佳吸附目标。
+ * 边比表面优先；在同类命中中，离光标最近的获胜。如果区域内没有可吸附的几何体，则返回 <code>undefined</code>。
+ * <p>
+ * 只有通过 Model 管道渲染的原语（例如 3D Tiles 和 glTF 模型）可以吸附。吸附需要浮点颜色附件（WebGL2 使用 <code>EXT_color_buffer_float</code>）；如果不支持，该函数返回 <code>undefined</code>。
+ * </p>
+ *
+ * @param {Cartesian2} windowPosition 搜索区域中心的窗口坐标。
+ * @param {object} [options] 具有以下属性的对象：
+ * @param {number} [options.width=25] 搜索区域的宽度（以像素为单位）。
+ * @param {number} [options.height=options.width] 搜索区域的高度（以像素为单位）。
+ * @returns {SceneSnapResult | undefined} 区域内的最佳捕捉目标，如果没有则返回 <code>undefined</code>。
+ *
+ * @experimental 该功能尚未最终定版，可能会发生变化，且不遵循 Cesium 的标准废弃政策。
+ */
+Scene.prototype.snap = function (windowPosition, options) {
+  return Snapping.snap(this, windowPosition, options);
+};
+
+/**
+ * The result of a snap operation. See {@link Scene#snap}.
+ *
+ * @typedef {object} SceneSnapResult
+ * @property {object} object The snapped primitive or feature.
+ * @property {Cartesian3} position The world-space position of the snap point, un-projected from the snap framebuffer's eye-space depth.
+ * @property {Cartesian2} screenPosition The window coordinates of the snap point.
+ * @property {boolean} isEdge <code>true</code> if the snap point lies on an edge; <code>false</code> if it lies on a surface.
+ *
+ * @experimental This feature is not final and is subject to change without Cesium's standard deprecation policy.
+ */
+
+/**
+ * 返回 <code>windowPosition</code> 周围屏幕空间区域内的最佳吸附目标。
+ * 边比表面优先；在同类命中中，离光标最近的获胜。如果区域内没有可吸附的几何体，则返回 <code>undefined</code>。
+ * <p>
+ * 只有通过 Model 管道渲染的原语（例如 3D Tiles 和 glTF 模型）可以吸附。吸附需要浮点颜色附件（WebGL2 使用 <code>EXT_color_buffer_float</code>）；如果不支持，该函数返回 <code>undefined</code>。
+ * </p>
+ *
+ * @param {Cartesian2} windowPosition 搜索区域中心的窗口坐标。
+ * @param {object} [options] 具有以下属性的对象：
+ * @param {number} [options.width=25] 搜索区域的宽度（以像素为单位）。
+ * @param {number} [options.height=options.width] 搜索区域的高度（以像素为单位）。
+ * @returns {SceneSnapResult | undefined} 区域内的最佳捕捉目标，如果没有则返回 <code>undefined</code>。
+ *
+ * @experimental 该功能尚未最终定版，可能会发生变化，且不遵循 Cesium 的标准废弃政策。
+ */
+Scene.prototype.snap = function (windowPosition, options) {
+  return Snapping.snap(this, windowPosition, options);
 };
 
 /**

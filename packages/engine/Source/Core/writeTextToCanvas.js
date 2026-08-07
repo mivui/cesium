@@ -6,8 +6,8 @@ import DeveloperError from "./DeveloperError.js";
 /**
  * 根据当前画布状态计算文本的尺寸。
  *
- * 将指标（不包括宽度）四舍五入为整像素。这纯粹是为了最小化
- * 迁移到浏览器内 measureText() 时的渲染差异，未来可能会修订。参见：github.com/CesiumGS/cesium/pull/13081
+ * 将指标（不包括宽度）四舍五入到整数像素。这纯粹是为了在迁移到浏览器内的 measureText() 时最小化渲染差异，并可能在将来进行修改。参见：github.com/CesiumGS/cesium/pull/13081
+ * @ignore
  */
 function measureText(context2D, textString) {
   const metrics = context2D.measureText(textString);

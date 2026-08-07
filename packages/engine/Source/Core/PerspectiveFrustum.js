@@ -280,7 +280,7 @@ Object.defineProperties(PerspectiveFrustum.prototype, {
   },
 
   /**
-   * 获取根据视锥体计算的正交投影矩阵。
+   * 获取底层的 {@link PerspectiveOffCenterFrustum}。
    * @memberof PerspectiveFrustum.prototype
    * @type {PerspectiveOffCenterFrustum}
    * @readonly

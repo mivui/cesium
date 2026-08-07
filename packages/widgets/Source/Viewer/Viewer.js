@@ -5,6 +5,7 @@ import {
   CesiumWidget,
   Cesium3DTileFeature,
   Cesium3DTileVectorFeature,
+  Cesium3DTileset,
   Clock,
   ConstantPositionProperty,
   Frozen,
@@ -123,9 +124,7 @@ function pickEntity(viewer, e) {
   }
 
   // No regular entity picked.  Try picking features from imagery layers.
-  if (defined(viewer.scene.globe)) {
-    return pickImageryLayerFeature(viewer, e.position);
-  }
+  return pickImageryLayerFeature(viewer, e.position);
 }
 
 const scratchStopTime = new JulianDate();
@@ -153,11 +152,39 @@ function linkTimelineToDataSourceClock(timeline, dataSource) {
 
 const cartesian3Scratch = new Cartesian3();
 
+function findFirstTileset(primitives) {
+  const length = primitives.length;
+  for (let i = 0; i < length; ++i) {
+    const primitive = primitives.get(i);
+    if (primitive instanceof Cesium3DTileset) {
+      return primitive;
+    }
+  }
+  return undefined;
+}
+
 function pickImageryLayerFeature(viewer, windowPosition) {
   const scene = viewer.scene;
   const pickRay = scene.camera.getPickRay(windowPosition);
-  const imageryLayerFeaturePromise =
-    scene.imageryLayers.pickImageryLayerFeatures(pickRay, scene);
+  if (!defined(pickRay)) {
+    return;
+  }
+
+  // When globe is disabled, scene.imageryLayers is undefined. Fall back to the
+  // first Cesium3DTileset's imagery layers (e.g. draped imagery on 3D Tiles).
+  let imageryLayers = scene.imageryLayers;
+  if (!defined(imageryLayers)) {
+    const tileset = findFirstTileset(scene.primitives);
+    if (!defined(tileset)) {
+      return;
+    }
+    imageryLayers = tileset.imageryLayers;
+  }
+
+  const imageryLayerFeaturePromise = imageryLayers.pickImageryLayerFeatures(
+    pickRay,
+    scene,
+  );
   if (!defined(imageryLayerFeaturePromise)) {
     return;
   }
@@ -1956,16 +1983,12 @@ Viewer.prototype._onDataSourceRemoved = function (
 };
 
 /**
- * 异步设置相机以查看提供的实体、实体数组或数据源。
- * 如果数据源仍在加载过程中或可视化仍在加载，此方法将等待数据准备好后再执行缩放。
+ * 异步设置摄像机以查看提供的实体、实体集合或数据源。
+ * 如果数据源仍在加载过程中或可视化仍在加载中，
+ * 此方法会在数据准备好后再执行缩放。
  *
- * <p>偏移量是局部东北天参考帧中的航向/俯仰/范围，以边界球体的中心为中心。
- * 航向和俯仰角在局部东北天参考帧中定义。
- * 航向是从 y 轴开始并向 x 轴增加的角度。俯仰是从 xy 平面的旋转。正俯仰角在平面上方。
- * 负俯仰角在平面下方。范围是到中心的距离。如果范围为零，将计算一个范围以使整个边界球体可见。</p>
- *
- * <p>在 2D 中，必须是自上而下的视图。相机将放置在目标上方俯视。
- * 目标上方的高度为范围。航向将由偏移量确定。如果无法从偏移量确定航向，则航向为北。</p>
+ * <p>偏移量是在以包围球中心为中心的本地东-北-上参考系中的航向/俯仰/距离。<br> * 航向角和俯仰角在本地东-北-上参考系中定义。<br> * 航向是从y轴开始向x轴增加的角度。俯仰是相对于xy平面的旋转。正的俯仰角位于平面之上，负的俯仰角位于平面之下。距离是到中心的距离。如果距离为零，将计算出一个距离，使整个包围球可见。</p>
+ * <p>在2D中，必须是俯视图。相机会放置在目标上方向下看。目标上方的高度就是距离。航向将根据偏移量确定。如果无法从偏移量确定航向，航向将为北。</p>
  *
  * @param {Entity|Entity[]|EntityCollection|DataSource|ImageryLayer|Cesium3DTileset|TimeDynamicPointCloud|Promise<Entity|Entity[]|EntityCollection|DataSource|ImageryLayer|Cesium3DTileset|TimeDynamicPointCloud|VoxelPrimitive|BufferPrimitiveCollection<BufferPrimitive>>} target 要查看的实体、实体数组、实体集合、数据源、Cesium3DTileset、点云或影像图层。也可以传递解析为上述类型之一的 promise。
  * @param {HeadingPitchRange} [offset] 局部东北天参考帧中相对于实体中心的偏移。

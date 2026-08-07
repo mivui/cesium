@@ -27,7 +27,8 @@ function GltfGpmLoader() {}
  * 从包含上三角部分的数组（按列主序）创建描述协方差矩阵（对称）的 Matrix3。
  *
  * @param {number[]} array 输入数组
- * @returns {Matrix3} Matrix3 对象
+ * @returns {Matrix3}  Matrix3
+ * @ignore
  */
 function createCovarianceMatrixFromUpperTriangle(array) {
   const covarianceMatrix = new Matrix3(
@@ -47,8 +48,9 @@ function createCovarianceMatrixFromUpperTriangle(array) {
 /**
  * 从给定的 JSON 表示创建 `AnchorPointDirect`。
  *
- * @param {object} anchorPointDirectJson 输入 JSON
+ * @param {object} anchorPointDirectJson 输入的 JSON
  * @returns {AnchorPointDirect} 直接锚点
+ * @ignore
  */
 function createAnchorPointDirect(anchorPointDirectJson) {
   const position = Cartesian3.fromArray(
@@ -71,8 +73,9 @@ function createAnchorPointDirect(anchorPointDirectJson) {
 /**
  * 从给定的 JSON 表示创建 `AnchorPointIndirect`。
  *
- * @param {object} anchorPointIndirectJson 输入 JSON
+ * @param {object} anchorPointIndirectJson 输入的 JSON
  * @returns {AnchorPointIndirect} 间接锚点
+ * @ignore
  */
 function createAnchorPointIndirect(anchorPointIndirectJson) {
   const position = Cartesian3.fromArray(
@@ -99,8 +102,9 @@ function createAnchorPointIndirect(anchorPointIndirectJson) {
 /**
  * 从给定的 JSON 表示创建 `CorrelationGroup`。
  *
- * @param {object} correlationGroupJson 输入 JSON
+ * @param {object} correlationGroupJson 输入的 JSON
  * @returns {CorrelationGroup} 相关组
+ * @ignore
  */
 function createCorrelationGroup(correlationGroupJson) {
   const groupFlags = correlationGroupJson.groupFlags;

@@ -7,6 +7,8 @@ import Frozen from "../Core/Frozen.js";
 import renderPoints from "./renderBufferPointCollection.js";
 import BufferPointMaterial from "./BufferPointMaterial.js";
 
+/** @import BlendOption from "./BlendOption.js"; */
+/** @import BoundingSphere from "../Core/BoundingSphere.js"; */
 /** @import ComponentDatatype from "../Core/ComponentDatatype.js"; */
 /** @import Matrix4 from "../Core/Matrix4.js"; */
 /** @import FrameState from "./FrameState.js"; */
@@ -57,10 +59,13 @@ class BufferPointCollection extends BufferPrimitiveCollection {
    * @param {object} options
    * @param {Matrix4} [options.modelMatrix=Matrix4.IDENTITY] 将几何体从模型坐标变换到世界坐标。
    * @param {number} [options.primitiveCountMax=BufferPrimitiveCollection.DEFAULT_CAPACITY]
-   * @param {boolean} [options.show=true]
    * @param {ComponentDatatype} [options.positionDatatype=ComponentDatatype.DOUBLE]
-   * @param {boolean} [options.allowPicking=false] 当 <code>true</code> 时,图元可使用 {@link Scene#pick} 进行拾取。当 <code>false</code> 时,内存和初始化成本更低。
+   * @param {boolean} [options.positionNormalized=false]
+   * @param {boolean} [options.show=true]
+   * @param {boolean} [options.allowPicking=false] 当 <code>true</code> 时，原语可以通过 {@link Scene#pick} 被选取。当 <code>false</code> 时，内存和初始化成本较低。
+   * @param {BoundingSphere} [options.boundingVolume] 在世界空间中，该集合的边界体积。当未指定时，边界体积会自动计算，并在原始位置变化时更新。当指定时，用户需要根据需要更新边界体积。手动预先计算边界体积，并仅在需要时更新，将提高较大动态集合的性能。
    * @param {boolean} [options.debugShowBoundingVolume=false]
+   * @param {BlendOption} [options.blendOption=BlendOption.TRANSLUCENT]
    */
   constructor(options = Frozen.EMPTY_OBJECT) {
     super({ ...options, vertexCountMax: options.primitiveCountMax });
@@ -90,6 +95,8 @@ class BufferPointCollection extends BufferPrimitiveCollection {
   static _cloneEmpty(collection) {
     return new BufferPointCollection({
       primitiveCountMax: collection.primitiveCountMax,
+      positionDatatype: collection.positionDatatype,
+      positionNormalized: collection.positionNormalized,
     });
   }
 

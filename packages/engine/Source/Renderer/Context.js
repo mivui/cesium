@@ -1007,20 +1007,26 @@ Object.defineProperties(Context.prototype, {
   },
 
   /**
-   * 初始化为 [255, 255, 255, 255] 的 1x1 RGBA 纹理。这可以
-   * 用作其他纹理下载时的占位纹理。
+   * 一个 1x1 的 RGBA 纹理，初始化为 {@link Texture.defaultColor} 定义的颜色。
+   * 当其他纹理正在下载时，可以将其用作占位纹理。
    * @memberof Context.prototype
    * @type {Texture}
    */
   defaultTexture: {
     get: function () {
       if (this._defaultTexture === undefined) {
+        const color = Texture.defaultColor;
         this._defaultTexture = new Texture({
           context: this,
           source: {
             width: 1,
             height: 1,
-            arrayBufferView: new Uint8Array([255, 255, 255, 255]),
+            arrayBufferView: new Uint8Array([
+              color.red * 255,
+              color.green * 255,
+              color.blue * 255,
+              color.alpha * 255,
+            ]),
           },
           flipY: false,
         });

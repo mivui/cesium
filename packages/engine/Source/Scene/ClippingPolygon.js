@@ -84,6 +84,7 @@ function ClippingPolygon(options) {
  *
  * @param {Cartesian3[]|undefined} input 输入数组
  * @returns {Cartesian3[]|undefined} 副本
+ * @ignore
  */
 function copyArrayCartesian3(input) {
   if (!defined(input)) {
@@ -110,6 +111,7 @@ function copyArrayCartesian3(input) {
  * @param {Cartesian3[]|undefined} a 第一个数组
  * @param {Cartesian3[]|undefined} b 第二个数组
  * @returns {boolean} 数组是否相等
+ * @ignore
  */
 function equalsArrayCartesian3(a, b) {
   if (!defined(a) && !defined(b)) {

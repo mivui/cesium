@@ -1094,8 +1094,9 @@ function createCubeMapUpdateFunction(uniformId) {
  * 加载立方体贴图均匀变量的图像（如果自上次调用以来已更改）。
  *
  * @param {Material} material 要加载立方体贴图图像的材质。
- * @param {string} uniformId 对应于立方体贴图图像的均匀变量 ID。
- * @returns 当图像加载完成时解析的 promise，如果不需要加载图像则返回已解析的 promise。
+ * @param {string} uniformId 对应立方体贴图图像的 uniform 的 ID。
+ * @returns 当图像加载完成时解析的 promise，或者如果不需要加载图像则立即解析的 promise。
+ * @ignore
  */
 function loadCubeMapImagesForUniform(material, uniformId) {
   const uniforms = material.uniforms;

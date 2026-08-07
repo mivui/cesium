@@ -55,7 +55,7 @@ class Matrix2 {
     array[startingIndex++] = value[0];
     array[startingIndex++] = value[1];
     array[startingIndex++] = value[2];
-    array[startingIndex++] = value[3];
+    array[startingIndex] = value[3];
 
     return array;
   }
@@ -82,7 +82,7 @@ class Matrix2 {
     result[0] = array[startingIndex++];
     result[1] = array[startingIndex++];
     result[2] = array[startingIndex++];
-    result[3] = array[startingIndex++];
+    result[3] = array[startingIndex];
     return result;
   }
 
@@ -911,10 +911,10 @@ class Matrix2 {
   /**
    * 从给定数组偏移量开始比较提供的矩阵和数组。
    *
-   * @param {Matrix2} matrix 矩阵
-   * @param {number[]} array 数组
-   * @param {number} offset 偏移量
-   * @private
+   * @param {Matrix2} matrix
+   * @param {number[]} array
+   * @param {number} offset
+   * @ignore
    */
   static equalsArray(matrix, array, offset) {
     return (

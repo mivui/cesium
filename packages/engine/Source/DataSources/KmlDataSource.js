@@ -191,133 +191,131 @@ const featureTypes = {
   Tour: processTour,
 };
 
-function DeferredLoading(dataSource) {
-  this._dataSource = dataSource;
-  this._deferred = defer();
-  this._stack = [];
-  this._promises = [];
-  this._timeoutSet = false;
-  this._used = false;
+class DeferredLoading {
+  constructor(dataSource) {
+    this._dataSource = dataSource;
+    this._deferred = defer();
+    this._stack = [];
+    this._promises = [];
+    this._timeoutSet = false;
+    this._used = false;
 
-  this._started = 0;
-  this._timeThreshold = 1000; // Initial load is 1 second
-}
-
-Object.defineProperties(DeferredLoading.prototype, {
-  dataSource: {
-    get: function () {
-      return this._dataSource;
-    },
-  },
-});
-
-DeferredLoading.prototype.addNodes = function (nodes, processingData) {
-  this._stack.push({
-    nodes: nodes,
-    index: 0,
-    processingData: processingData,
-  });
-  this._used = true;
-};
-
-DeferredLoading.prototype.addPromise = function (promise) {
-  this._promises.push(promise);
-};
-
-DeferredLoading.prototype.wait = function () {
-  // Case where we had a non-document/folder as the root
-  const deferred = this._deferred;
-  if (!this._used) {
-    deferred.resolve();
+    this._started = 0;
+    this._timeThreshold = 1000; // Initial load is 1 second
   }
 
-  return Promise.all([deferred.promise, Promise.all(this._promises)]);
-};
-
-DeferredLoading.prototype.process = function () {
-  const isFirstCall = this._stack.length === 1;
-  if (isFirstCall) {
-    this._started = KmlDataSource._getTimestamp();
+  get dataSource() {
+    return this._dataSource;
   }
 
-  return this._process(isFirstCall);
-};
-
-DeferredLoading.prototype._giveUpTime = function () {
-  if (this._timeoutSet) {
-    // Timeout was already set so just return
-    return;
+  addNodes(nodes, processingData) {
+    this._stack.push({
+      nodes: nodes,
+      index: 0,
+      processingData: processingData,
+    });
+    this._used = true;
   }
 
-  this._timeoutSet = true;
-  this._timeThreshold = 50; // After the first load lower threshold to 0.5 seconds
-  const that = this;
-  setTimeout(function () {
-    that._timeoutSet = false;
-    that._started = KmlDataSource._getTimestamp();
-    that._process(true);
-  }, 0);
-};
-
-DeferredLoading.prototype._nextNode = function () {
-  const stack = this._stack;
-  const top = stack[stack.length - 1];
-  const index = top.index;
-  const nodes = top.nodes;
-  if (index === nodes.length) {
-    return;
-  }
-  ++top.index;
-
-  return nodes[index];
-};
-
-DeferredLoading.prototype._pop = function () {
-  const stack = this._stack;
-  stack.pop();
-
-  // Return false if we are done
-  if (stack.length === 0) {
-    this._deferred.resolve();
-    return false;
+  addPromise(promise) {
+    this._promises.push(promise);
   }
 
-  return true;
-};
-
-DeferredLoading.prototype._process = function (isFirstCall) {
-  const dataSource = this.dataSource;
-  const processingData = this._stack[this._stack.length - 1].processingData;
-
-  let child = this._nextNode();
-  while (defined(child)) {
-    const featureProcessor = featureTypes[child.localName];
-    if (
-      defined(featureProcessor) &&
-      (namespaces.kml.indexOf(child.namespaceURI) !== -1 ||
-        namespaces.gx.indexOf(child.namespaceURI) !== -1)
-    ) {
-      featureProcessor(dataSource, child, processingData, this);
-
-      // Give up time and continue loading later
-      if (
-        this._timeoutSet ||
-        KmlDataSource._getTimestamp() > this._started + this._timeThreshold
-      ) {
-        this._giveUpTime();
-        return;
-      }
+  wait() {
+    // Case where we had a non-document/folder as the root
+    const deferred = this._deferred;
+    if (!this._used) {
+      deferred.resolve();
     }
 
-    child = this._nextNode();
+    return Promise.all([deferred.promise, Promise.all(this._promises)]);
   }
 
-  // If we are a recursive call from a subfolder, just return so the parent folder can continue processing
-  // If we aren't then make another call to processNodes because there is stuff still left in the queue
-  if (this._pop() && isFirstCall) {
-    this._process(true);
+  process() {
+    const isFirstCall = this._stack.length === 1;
+    if (isFirstCall) {
+      this._started = KmlDataSource._getTimestamp();
+    }
+
+    return this._process(isFirstCall);
   }
-};
+
+  _giveUpTime() {
+    if (this._timeoutSet) {
+      // Timeout was already set so just return
+      return;
+    }
+
+    this._timeoutSet = true;
+    this._timeThreshold = 50; // After the first load lower threshold to 0.5 seconds
+    const that = this;
+    setTimeout(function () {
+      that._timeoutSet = false;
+      that._started = KmlDataSource._getTimestamp();
+      that._process(true);
+    }, 0);
+  }
+
+  _nextNode() {
+    const stack = this._stack;
+    const top = stack[stack.length - 1];
+    const index = top.index;
+    const nodes = top.nodes;
+    if (index === nodes.length) {
+      return;
+    }
+    ++top.index;
+
+    return nodes[index];
+  }
+
+  _pop() {
+    const stack = this._stack;
+    stack.pop();
+
+    // Return false if we are done
+    if (stack.length === 0) {
+      this._deferred.resolve();
+      return false;
+    }
+
+    return true;
+  }
+
+  _process(isFirstCall) {
+    const dataSource = this.dataSource;
+    const processingData = this._stack[this._stack.length - 1].processingData;
+
+    let child = this._nextNode();
+    while (defined(child)) {
+      const featureProcessor = featureTypes[child.localName];
+      if (
+        defined(featureProcessor) &&
+        (namespaces.kml.indexOf(child.namespaceURI) !== -1 ||
+          namespaces.gx.indexOf(child.namespaceURI) !== -1)
+      ) {
+        featureProcessor(dataSource, child, processingData, this);
+
+        // Give up time and continue loading later
+        if (
+          this._timeoutSet ||
+          KmlDataSource._getTimestamp() > this._started + this._timeThreshold
+        ) {
+          this._giveUpTime();
+          return;
+        }
+      }
+
+      child = this._nextNode();
+    }
+
+    // If we are a recursive call from a subfolder, just return so the parent folder can continue processing
+    // If we aren't then make another call to processNodes because there is stuff still left in the queue
+    if (this._pop() && isFirstCall) {
+      this._process(true);
+    }
+  }
+}
 
 function isZipFile(blob) {
   const magicBlob = blob.slice(0, Math.min(4, blob.size));
@@ -1497,9 +1495,8 @@ function processPositionGraphics(
     billboard.image = undefined;
   }
 
-  let scale = 1.0;
   if (defined(billboard.scale)) {
-    scale = billboard.scale.getValue();
+    const scale = billboard.scale.getValue();
     if (scale !== 0) {
       label.pixelOffset = new Cartesian2(scale * 16 + 1, 0);
     } else {
@@ -3509,11 +3506,6 @@ function load(dataSource, entityCollection, data, options) {
  * 属性为 <code>kml</code>。
  * </p>
  *
- * @alias KmlDataSource
- * @constructor
- *
- * @param {KmlDataSource.ConstructorOptions} [options] 描述初始化选项的对象
- *
  * @see {@link http://www.opengeospatial.org/standards/kml/|Open Geospatial Consortium KML Standard}
  * @see {@link https://developers.google.com/kml/|Google KML Documentation}
  *
@@ -3528,337 +3520,452 @@ function load(dataSource, entityCollection, data, options) {
  *      })
  * );
  */
-function KmlDataSource(options) {
-  options = options ?? Frozen.EMPTY_OBJECT;
-  const camera = options.camera;
-  const canvas = options.canvas;
-
-  this._changed = new Event();
-  this._error = new Event();
-  this._loading = new Event();
-  this._refresh = new Event();
-  this._unsupportedNode = new Event();
-
-  this._clock = undefined;
-  this._entityCollection = new EntityCollection(this);
-  this._name = undefined;
-  this._isLoading = false;
-  this._pinBuilder = new PinBuilder();
-  this._networkLinks = new AssociativeArray();
-  this._entityCluster = new EntityCluster();
-
+class KmlDataSource {
   /**
-   * 此画布的当前尺寸将用于填充链接参数
-   * 的客户端高度和宽度。
-   *
-   * @type {HTMLCanvasElement | undefined}
+   * @param {KmlDataSource.ConstructorOptions} [options] Object describing initialization options
    */
-  this.canvas = canvas;
+  constructor(options) {
+    options = options ?? Frozen.EMPTY_OBJECT;
+    const camera = options.camera;
+    const canvas = options.canvas;
 
-  /**
-   * 此 {@link Camera} 的位置和方向将用于
-   * 在进行网络请求时填充各种相机参数。
-   * 如果 <code>viewRefreshMode</code> 为 <code>onStop</code>，则相机移动将决定何时触发 NetworkLink 刷新。
-   *
-   * @type {Camera | undefined}
-   */
-  this.camera = camera;
+    this._changed = new Event();
+    this._error = new Event();
+    this._loading = new Event();
+    this._refresh = new Event();
+    this._unsupportedNode = new Event();
 
-  this._lastCameraView = {
-    position: defined(camera) ? Cartesian3.clone(camera.positionWC) : undefined,
-    direction: defined(camera)
-      ? Cartesian3.clone(camera.directionWC)
-      : undefined,
-    up: defined(camera) ? Cartesian3.clone(camera.upWC) : undefined,
-    bbox: defined(camera)
-      ? camera.computeViewRectangle()
-      : Rectangle.clone(Rectangle.MAX_VALUE),
-  };
+    this._clock = undefined;
+    this._entityCollection = new EntityCollection(this);
+    this._name = undefined;
+    this._isLoading = false;
+    this._pinBuilder = new PinBuilder();
+    this._networkLinks = new AssociativeArray();
+    this._entityCluster = new EntityCluster();
 
-  this._ellipsoid = options.ellipsoid ?? Ellipsoid.default;
+    /**
+     * 此画布的当前大小将用于填充链接参数
+     * 用于客户端的高度和宽度。
+     *
+     * @type {HTMLCanvasElement | undefined}
+     */
+    this.canvas = canvas;
 
-  // User specified credit
-  let credit = options.credit;
-  if (typeof credit === "string") {
-    credit = new Credit(credit);
+    /**
+     * 当进行网络请求时，将使用此 {@link Camera} 的位置和方向来
+     * 填充各种相机参数。
+     * 如果 <code>viewRefreshMode</code> 设置为 <code>onStop</code>，相机移动将决定何时触发 NetworkLink 刷新。
+     *
+     * @type {Camera | undefined}
+     */
+    this.camera = camera;
+
+    this._lastCameraView = {
+      position: defined(camera)
+        ? Cartesian3.clone(camera.positionWC)
+        : undefined,
+      direction: defined(camera)
+        ? Cartesian3.clone(camera.directionWC)
+        : undefined,
+      up: defined(camera) ? Cartesian3.clone(camera.upWC) : undefined,
+      bbox: defined(camera)
+        ? camera.computeViewRectangle()
+        : Rectangle.clone(Rectangle.MAX_VALUE),
+    };
+
+    this._ellipsoid = options.ellipsoid ?? Ellipsoid.default;
+
+    // User specified credit
+    let credit = options.credit;
+    if (typeof credit === "string") {
+      credit = new Credit(credit);
+    }
+    this._credit = credit;
+
+    // Create a list of Credit's from the resource that the user can't remove
+    this._resourceCredits = [];
+
+    this._kmlTours = [];
+
+    this._screenOverlays = [];
   }
-  this._credit = credit;
 
-  // Create a list of Credit's from the resource that the user can't remove
-  this._resourceCredits = [];
-
-  this._kmlTours = [];
-
-  this._screenOverlays = [];
-}
-
-/**
- * 异步加载提供的 KML 数据，替换任何现有数据。
- *
- * @param {Resource|string|Document|Blob} data 一个 url、已解析的 KML 文档或包含二进制 KMZ 数据的 Blob 或已解析的 KML 文档。
- * @param {KmlDataSource.LoadOptions} [options] 指定配置选项的对象
- *
- * @returns {Promise<KmlDataSource>} 一旦 KML 加载完成，将解析到此实例的 promise。
- */
-KmlDataSource.load = function (data, options) {
-  options = options ?? Frozen.EMPTY_OBJECT;
-  const dataSource = new KmlDataSource(options);
-  return dataSource.load(data, options);
-};
-
-Object.defineProperties(KmlDataSource.prototype, {
   /**
-   * 获取或设置此实例的可读名称。
-   * 加载时会自动设置为 KML 文档名称。
-   * @memberof KmlDataSource.prototype
+   * 创建一个 Promise，用于返回一个加载了提供的 KML 数据的新实例。
+   *
+   * @param {Resource|string|Document|Blob} data 一个 URL、解析后的 KML 文档，或包含二进制 KMZ 数据的 Blob，或解析后的 KML 文档。
+   * @param {KmlDataSource.ConstructorOptions} [options] 一个指定配置选项的对象
+   *
+   * @returns {Promise<KmlDataSource>} 一个 Promise，一旦 KML 加载完成，将解析为一个新的 KmlDataSource 实例。
+   */
+  static load(data, options) {
+    options = options ?? Frozen.EMPTY_OBJECT;
+    const dataSource = new KmlDataSource(options);
+    return dataSource.load(data, options);
+  }
+
+  /**
+   * 获取或设置此实例的人类可读名称。
+   * 加载时，这将自动设置为 KML 文档名称。
    * @type {string}
    */
-  name: {
-    get: function () {
-      return this._name;
-    },
-    set: function (value) {
-      if (this._name !== value) {
-        this._name = value;
-        this._changed.raiseEvent(this);
-      }
-    },
-  },
+  get name() {
+    return this._name;
+  }
+
+  set name(value) {
+    if (this._name !== value) {
+      this._name = value;
+      this._changed.raiseEvent(this);
+    }
+  }
+
   /**
-   * 获取加载的 KML 定义的时钟设置。这表示所有时间动态数据的总可用时间间隔。
-   * 如果 KML 不包含时间动态数据，则此值为 undefined。
-   * @memberof KmlDataSource.prototype
+   * 获取已加载 KML 定义的时钟设置。这表示所有时间动态数据的总可用时间间隔。如果 KML 不包含时间动态数据，则该值未定义。
    * @type {DataSourceClock}
    */
-  clock: {
-    get: function () {
-      return this._clock;
-    },
-  },
+  get clock() {
+    return this._clock;
+  }
+
   /**
    * 获取 {@link Entity} 实例的集合。
-   * @memberof KmlDataSource.prototype
    * @type {EntityCollection}
    */
-  entities: {
-    get: function () {
-      return this._entityCollection;
-    },
-  },
+  get entities() {
+    return this._entityCollection;
+  }
+
   /**
    * 获取一个值，指示数据源当前是否正在加载数据。
-   * @memberof KmlDataSource.prototype
    * @type {boolean}
    */
-  isLoading: {
-    get: function () {
-      return this._isLoading;
-    },
-  },
+  get isLoading() {
+    return this._isLoading;
+  }
+
   /**
-   * 获取当基础数据更改时将触发的事件。
-   * @memberof KmlDataSource.prototype
+   * 获取在基础数据发生变化时触发的事件。
    * @type {Event}
    */
-  changedEvent: {
-    get: function () {
-      return this._changed;
-    },
-  },
+  get changedEvent() {
+    return this._changed;
+  }
+
   /**
-   * 获取当数据源遇到错误时将触发的事件。
-   * @memberof KmlDataSource.prototype
+   * 获取在处理过程中遇到错误时将触发的事件。
    * @type {Event}
    */
-  errorEvent: {
-    get: function () {
-      return this._error;
-    },
-  },
+  get errorEvent() {
+    return this._error;
+  }
+
   /**
-   * 获取当数据源开始或停止加载时将触发的事件。
-   * @memberof KmlDataSource.prototype
+   * 获取在数据源开始或停止加载时将引发的事件。
    * @type {Event}
    */
-  loadingEvent: {
-    get: function () {
-      return this._loading;
-    },
-  },
+  get loadingEvent() {
+    return this._loading;
+  }
+
   /**
-   * 获取当数据源刷新网络链接时将触发的事件。
-   * @memberof KmlDataSource.prototype
+   * 获取在数据源刷新网络链接时将触发的事件。
    * @type {Event}
    */
-  refreshEvent: {
-    get: function () {
-      return this._refresh;
-    },
-  },
+  get refreshEvent() {
+    return this._refresh;
+  }
+
   /**
-   * 获取当数据源发现不支持的节点类型时将触发的事件。
-   * @memberof KmlDataSource.prototype
+   * 获取当数据源发现不支持的节点类型时将引发的事件。
    * @type {Event}
    */
-  unsupportedNodeEvent: {
-    get: function () {
-      return this._unsupportedNode;
-    },
-  },
+  get unsupportedNodeEvent() {
+    return this._unsupportedNode;
+  }
+
   /**
-   * 获取或设置此数据源是否应被显示。
-   * @memberof KmlDataSource.prototype
+   * 获取是否应显示此数据源。
    * @type {boolean}
    */
-  show: {
-    get: function () {
-      return this._entityCollection.show;
-    },
-    set: function (value) {
-      this._entityCollection.show = value;
-    },
-  },
+  get show() {
+    return this._entityCollection.show;
+  }
+
+  set show(value) {
+    this._entityCollection.show = value;
+  }
 
   /**
    * 获取或设置此数据源的聚合选项。此对象可以在多个数据源之间共享。
    *
-   * @memberof KmlDataSource.prototype
    * @type {EntityCluster}
    */
-  clustering: {
-    get: function () {
-      return this._entityCluster;
-    },
-    set: function (value) {
-      //>>includeStart('debug', pragmas.debug);
-      if (!defined(value)) {
-        throw new DeveloperError("value must be defined.");
-      }
-      //>>includeEnd('debug');
-      this._entityCluster = value;
-    },
-  },
+  get clustering() {
+    return this._entityCluster;
+  }
+
+  set clustering(value) {
+    //>>includeStart('debug', pragmas.debug);
+    if (!defined(value)) {
+      throw new DeveloperError("value must be defined.");
+    }
+    //>>includeEnd('debug');
+    this._entityCluster = value;
+  }
+
   /**
-   * 获取将为数据源显示的版权信息
-   * @memberof KmlDataSource.prototype
+   * 获取将用于显示数据源的版权信息
    * @type {Credit}
    */
-  credit: {
-    get: function () {
-      return this._credit;
-    },
-  },
+  get credit() {
+    return this._credit;
+  }
+
   /**
-   * 获取用于在指定时间间隔内引导相机到指定目的地的 KML 游览。
-   * @memberof KmlDataSource.prototype
+   * 获取用于在指定时间间隔将摄像机引导到指定目的地的 KML 导览。
    * @type {KmlTour[]}
    */
-  kmlTours: {
-    get: function () {
-      return this._kmlTours;
-    },
-  },
-});
-
-/**
- * 创建一个 Promise，用于加载提供的 KML 数据的新实例。
- *
- * @param {Resource|string|Document|Blob} data 一个 url、已解析的 KML 文档或包含二进制 KMZ 数据的 Blob 或已解析的 KML 文档。
- * @param {KmlDataSource.ConstructorOptions} [options] 指定配置选项的对象
- *
- * @returns {Promise<KmlDataSource>} 一旦 KML 加载完成，将解析为新 KmlDataSource 实例的 promise。
- */
-KmlDataSource.prototype.load = function (data, options) {
-  //>>includeStart('debug', pragmas.debug);
-  if (!defined(data)) {
-    throw new DeveloperError("data is required.");
+  get kmlTours() {
+    return this._kmlTours;
   }
-  //>>includeEnd('debug');
 
-  options = options ?? Frozen.EMPTY_OBJECT;
-  DataSource.setLoading(this, true);
+  /**
+   * 异步加载提供的 KML 数据，替换任何现有的数据。
+   *
+   * @param {Resource|string|Document|Blob} data 一个 URL、已解析的 KML 文档，或包含二进制 KMZ 数据的 Blob，或一个已解析的 KML 文档。
+   * @param {KmlDataSource.LoadOptions} [options] 一个指定配置选项的对象
+   *
+   * @returns {Promise<KmlDataSource>} 一个将在 KML 加载后解析为该实例的 Promise。
+   */
+  load(data, options) {
+    //>>includeStart('debug', pragmas.debug);
+    if (!defined(data)) {
+      throw new DeveloperError("data is required.");
+    }
+    //>>includeEnd('debug');
 
-  const oldName = this._name;
-  this._name = undefined;
-  this._clampToGround = options.clampToGround ?? false;
+    options = options ?? Frozen.EMPTY_OBJECT;
+    DataSource.setLoading(this, true);
 
-  const that = this;
-  return load(this, this._entityCollection, data, options)
-    .then(function () {
-      let clock;
+    const oldName = this._name;
+    this._name = undefined;
+    this._clampToGround = options.clampToGround ?? false;
 
-      const availability = that._entityCollection.computeAvailability();
+    const that = this;
+    return load(this, this._entityCollection, data, options)
+      .then(function () {
+        let clock;
 
-      let start = availability.start;
-      let stop = availability.stop;
-      const isMinStart = JulianDate.equals(start, Iso8601.MINIMUM_VALUE);
-      const isMaxStop = JulianDate.equals(stop, Iso8601.MAXIMUM_VALUE);
-      if (!isMinStart || !isMaxStop) {
-        let date;
+        const availability = that._entityCollection.computeAvailability();
 
-        //If start is min time just start at midnight this morning, local time
-        if (isMinStart) {
-          date = new Date();
-          date.setHours(0, 0, 0, 0);
-          start = JulianDate.fromDate(date);
+        let start = availability.start;
+        let stop = availability.stop;
+        const isMinStart = JulianDate.equals(start, Iso8601.MINIMUM_VALUE);
+        const isMaxStop = JulianDate.equals(stop, Iso8601.MAXIMUM_VALUE);
+        if (!isMinStart || !isMaxStop) {
+          let date;
+
+          //If start is min time just start at midnight this morning, local time
+          if (isMinStart) {
+            date = new Date();
+            date.setHours(0, 0, 0, 0);
+            start = JulianDate.fromDate(date);
+          }
+
+          //If stop is max value just stop at midnight tonight, local time
+          if (isMaxStop) {
+            date = new Date();
+            date.setHours(24, 0, 0, 0);
+            stop = JulianDate.fromDate(date);
+          }
+
+          clock = new DataSourceClock();
+          clock.startTime = start;
+          clock.stopTime = stop;
+          clock.currentTime = JulianDate.clone(start);
+          clock.clockRange = ClockRange.LOOP_STOP;
+          clock.clockStep = ClockStep.SYSTEM_CLOCK_MULTIPLIER;
+          clock.multiplier = Math.round(
+            Math.min(
+              Math.max(JulianDate.secondsDifference(stop, start) / 60, 1),
+              3.15569e7,
+            ),
+          );
         }
 
-        //If stop is max value just stop at midnight tonight, local time
-        if (isMaxStop) {
-          date = new Date();
-          date.setHours(24, 0, 0, 0);
-          stop = JulianDate.fromDate(date);
+        let changed = false;
+        if (clock !== that._clock) {
+          that._clock = clock;
+          changed = true;
         }
 
-        clock = new DataSourceClock();
-        clock.startTime = start;
-        clock.stopTime = stop;
-        clock.currentTime = JulianDate.clone(start);
-        clock.clockRange = ClockRange.LOOP_STOP;
-        clock.clockStep = ClockStep.SYSTEM_CLOCK_MULTIPLIER;
-        clock.multiplier = Math.round(
-          Math.min(
-            Math.max(JulianDate.secondsDifference(stop, start) / 60, 1),
-            3.15569e7,
-          ),
-        );
+        if (oldName !== that._name) {
+          changed = true;
+        }
+
+        if (changed) {
+          that._changed.raiseEvent(that);
+        }
+
+        DataSource.setLoading(that, false);
+
+        return that;
+      })
+      .catch(function (error) {
+        DataSource.setLoading(that, false);
+        that._error.raiseEvent(that, error);
+        console.log(error);
+        return Promise.reject(error);
+      });
+  }
+
+  /**
+   *清理由数据源创建的任何非实体元素。目前这仅影响屏幕覆盖元素。
+   */
+  destroy() {
+    while (this._screenOverlays.length > 0) {
+      const elem = this._screenOverlays.pop();
+      elem.remove();
+    }
+  }
+
+  /**
+   * 更新任何需要更新的 NetworkLink。
+   *
+   * @param {JulianDate} time 模拟时间。
+   * @returns {boolean} 如果此数据源可以在提供的时间显示，则返回 true，否则返回 false。
+   */
+  update(time) {
+    const networkLinks = this._networkLinks;
+    if (networkLinks.length === 0) {
+      return true;
+    }
+
+    const now = JulianDate.now();
+    const that = this;
+
+    entitiesToIgnore.removeAll();
+
+    function recurseIgnoreEntities(entity) {
+      const children = entity._children;
+      const count = children.length;
+      for (let i = 0; i < count; ++i) {
+        const child = children[i];
+        entitiesToIgnore.set(child.id, child);
+        recurseIgnoreEntities(child);
+      }
+    }
+
+    let cameraViewUpdate = false;
+    const lastCameraView = this._lastCameraView;
+    const camera = this.camera;
+    if (
+      defined(camera) &&
+      !(
+        camera.positionWC.equalsEpsilon(
+          lastCameraView.position,
+          CesiumMath.EPSILON7,
+        ) &&
+        camera.directionWC.equalsEpsilon(
+          lastCameraView.direction,
+          CesiumMath.EPSILON7,
+        ) &&
+        camera.upWC.equalsEpsilon(lastCameraView.up, CesiumMath.EPSILON7)
+      )
+    ) {
+      // Camera has changed so update the last view
+      lastCameraView.position = Cartesian3.clone(camera.positionWC);
+      lastCameraView.direction = Cartesian3.clone(camera.directionWC);
+      lastCameraView.up = Cartesian3.clone(camera.upWC);
+      lastCameraView.bbox = camera.computeViewRectangle();
+      cameraViewUpdate = true;
+    }
+
+    const newNetworkLinks = new AssociativeArray();
+    let changed = false;
+    networkLinks.values.forEach(function (networkLink) {
+      const entity = networkLink.entity;
+      if (entitiesToIgnore.contains(entity.id)) {
+        return;
       }
 
-      let changed = false;
-      if (clock !== that._clock) {
-        that._clock = clock;
-        changed = true;
+      if (!networkLink.updating) {
+        let doUpdate = false;
+        if (networkLink.refreshMode === RefreshMode.INTERVAL) {
+          if (
+            JulianDate.secondsDifference(now, networkLink.lastUpdated) >
+            networkLink.time
+          ) {
+            doUpdate = true;
+          }
+        } else if (networkLink.refreshMode === RefreshMode.EXPIRE) {
+          if (JulianDate.greaterThan(now, networkLink.time)) {
+            doUpdate = true;
+          }
+        } else if (networkLink.refreshMode === RefreshMode.STOP) {
+          if (cameraViewUpdate) {
+            networkLink.needsUpdate = true;
+            networkLink.cameraUpdateTime = now;
+          }
+
+          if (
+            networkLink.needsUpdate &&
+            JulianDate.secondsDifference(now, networkLink.cameraUpdateTime) >=
+              networkLink.time
+          ) {
+            doUpdate = true;
+          }
+        }
+
+        if (doUpdate) {
+          recurseIgnoreEntities(entity);
+          networkLink.updating = true;
+          const newEntityCollection = new EntityCollection();
+          const href = networkLink.href.clone();
+
+          href.setQueryParameters(networkLink.cookie);
+          const ellipsoid = that._ellipsoid ?? Ellipsoid.default;
+          processNetworkLinkQueryString(
+            href,
+            that.camera,
+            that.canvas,
+            networkLink.viewBoundScale,
+            lastCameraView.bbox,
+            ellipsoid,
+          );
+
+          load(that, newEntityCollection, href, {
+            context: entity.id,
+          })
+            .then(
+              getNetworkLinkUpdateCallback(
+                that,
+                networkLink,
+                newEntityCollection,
+                newNetworkLinks,
+                href,
+              ),
+            )
+            .catch(function (error) {
+              const msg = `NetworkLink ${networkLink.href} refresh failed: ${error}`;
+              console.log(msg);
+              that._error.raiseEvent(that, msg);
+            });
+          changed = true;
+        }
       }
-
-      if (oldName !== that._name) {
-        changed = true;
-      }
-
-      if (changed) {
-        that._changed.raiseEvent(that);
-      }
-
-      DataSource.setLoading(that, false);
-
-      return that;
-    })
-    .catch(function (error) {
-      DataSource.setLoading(that, false);
-      that._error.raiseEvent(that, error);
-      console.log(error);
-      return Promise.reject(error);
+      newNetworkLinks.set(networkLink.id, networkLink);
     });
-};
 
-/**
- * 清理数据源创建的任何非实体元素。目前这仅影响 ScreenOverlay 元素。
- */
-KmlDataSource.prototype.destroy = function () {
-  while (this._screenOverlays.length > 0) {
-    const elem = this._screenOverlays.pop();
-    elem.remove();
+    if (changed) {
+      this._networkLinks = newNetworkLinks;
+      this._changed.raiseEvent(this);
+    }
+
+    return true;
   }
-};
+}
 
 function mergeAvailabilityWithParent(child) {
   const parent = child.parent;
@@ -4032,211 +4139,75 @@ function getNetworkLinkUpdateCallback(
 const entitiesToIgnore = new AssociativeArray();
 
 /**
- * Updates any NetworkLink that require updating.
- *
- * @param {JulianDate} time The simulation time.
- * @returns {boolean} True if this data source is ready to be displayed at the provided time, false otherwise.
+ * @typedef KmlFeatureData.Author
+ * @type {object}
+ * @property {string} name Gets the name.
+ * @property {string} uri Gets the URI.
+ * @property {number} age Gets the email.
  */
-KmlDataSource.prototype.update = function (time) {
-  const networkLinks = this._networkLinks;
-  if (networkLinks.length === 0) {
-    return true;
-  }
-
-  const now = JulianDate.now();
-  const that = this;
-
-  entitiesToIgnore.removeAll();
-
-  function recurseIgnoreEntities(entity) {
-    const children = entity._children;
-    const count = children.length;
-    for (let i = 0; i < count; ++i) {
-      const child = children[i];
-      entitiesToIgnore.set(child.id, child);
-      recurseIgnoreEntities(child);
-    }
-  }
-
-  let cameraViewUpdate = false;
-  const lastCameraView = this._lastCameraView;
-  const camera = this.camera;
-  if (
-    defined(camera) &&
-    !(
-      camera.positionWC.equalsEpsilon(
-        lastCameraView.position,
-        CesiumMath.EPSILON7,
-      ) &&
-      camera.directionWC.equalsEpsilon(
-        lastCameraView.direction,
-        CesiumMath.EPSILON7,
-      ) &&
-      camera.upWC.equalsEpsilon(lastCameraView.up, CesiumMath.EPSILON7)
-    )
-  ) {
-    // Camera has changed so update the last view
-    lastCameraView.position = Cartesian3.clone(camera.positionWC);
-    lastCameraView.direction = Cartesian3.clone(camera.directionWC);
-    lastCameraView.up = Cartesian3.clone(camera.upWC);
-    lastCameraView.bbox = camera.computeViewRectangle();
-    cameraViewUpdate = true;
-  }
-
-  const newNetworkLinks = new AssociativeArray();
-  let changed = false;
-  networkLinks.values.forEach(function (networkLink) {
-    const entity = networkLink.entity;
-    if (entitiesToIgnore.contains(entity.id)) {
-      return;
-    }
-
-    if (!networkLink.updating) {
-      let doUpdate = false;
-      if (networkLink.refreshMode === RefreshMode.INTERVAL) {
-        if (
-          JulianDate.secondsDifference(now, networkLink.lastUpdated) >
-          networkLink.time
-        ) {
-          doUpdate = true;
-        }
-      } else if (networkLink.refreshMode === RefreshMode.EXPIRE) {
-        if (JulianDate.greaterThan(now, networkLink.time)) {
-          doUpdate = true;
-        }
-      } else if (networkLink.refreshMode === RefreshMode.STOP) {
-        if (cameraViewUpdate) {
-          networkLink.needsUpdate = true;
-          networkLink.cameraUpdateTime = now;
-        }
-
-        if (
-          networkLink.needsUpdate &&
-          JulianDate.secondsDifference(now, networkLink.cameraUpdateTime) >=
-            networkLink.time
-        ) {
-          doUpdate = true;
-        }
-      }
-
-      if (doUpdate) {
-        recurseIgnoreEntities(entity);
-        networkLink.updating = true;
-        const newEntityCollection = new EntityCollection();
-        const href = networkLink.href.clone();
-
-        href.setQueryParameters(networkLink.cookie);
-        const ellipsoid = that._ellipsoid ?? Ellipsoid.default;
-        processNetworkLinkQueryString(
-          href,
-          that.camera,
-          that.canvas,
-          networkLink.viewBoundScale,
-          lastCameraView.bbox,
-          ellipsoid,
-        );
-
-        load(that, newEntityCollection, href, {
-          context: entity.id,
-        })
-          .then(
-            getNetworkLinkUpdateCallback(
-              that,
-              networkLink,
-              newEntityCollection,
-              newNetworkLinks,
-              href,
-            ),
-          )
-          .catch(function (error) {
-            const msg = `NetworkLink ${networkLink.href} refresh failed: ${error}`;
-            console.log(msg);
-            that._error.raiseEvent(that, msg);
-          });
-        changed = true;
-      }
-    }
-    newNetworkLinks.set(networkLink.id, networkLink);
-  });
-
-  if (changed) {
-    this._networkLinks = newNetworkLinks;
-    this._changed.raiseEvent(this);
-  }
-
-  return true;
-};
 
 /**
  * Contains KML Feature data loaded into the <code>Entity.kml</code> property by {@link KmlDataSource}.
- * @alias KmlFeatureData
- * @constructor
  */
-function KmlFeatureData() {
-  /**
-   * @typedef KmlFeatureData.Author
-   * @type {object}
-   * @property {string} name Gets the name.
-   * @property {string} uri Gets the URI.
-   * @property {number} age Gets the email.
-   */
+class KmlFeatureData {
+  constructor() {
+    /**
+     * Gets the atom syndication format author field.
+     * @type {KmlFeatureData.Author}
+     */
+    this.author = {
+      name: undefined,
+      uri: undefined,
+      email: undefined,
+    };
 
-  /**
-   * Gets the atom syndication format author field.
-   * @type {KmlFeatureData.Author}
-   */
-  this.author = {
-    name: undefined,
-    uri: undefined,
-    email: undefined,
-  };
+    /**
+     * @typedef KmlFeatureData.Link
+     * @type {object}
+     * @property {string} href Gets the href.
+     * @property {string} hreflang Gets the language of the linked resource.
+     * @property {string} rel Gets the link relation.
+     * @property {string} type Gets the link type.
+     * @property {string} title Gets the link title.
+     * @property {string} length Gets the link length.
+     */
 
-  /**
-   * @typedef KmlFeatureData.Link
-   * @type {object}
-   * @property {string} href Gets the href.
-   * @property {string} hreflang Gets the language of the linked resource.
-   * @property {string} rel Gets the link relation.
-   * @property {string} type Gets the link type.
-   * @property {string} title Gets the link title.
-   * @property {string} length Gets the link length.
-   */
+    /**
+     * Gets the link.
+     * @type {KmlFeatureData.Link}
+     */
+    this.link = {
+      href: undefined,
+      hreflang: undefined,
+      rel: undefined,
+      type: undefined,
+      title: undefined,
+      length: undefined,
+    };
 
-  /**
-   * Gets the link.
-   * @type {KmlFeatureData.Link}
-   */
-  this.link = {
-    href: undefined,
-    hreflang: undefined,
-    rel: undefined,
-    type: undefined,
-    title: undefined,
-    length: undefined,
-  };
-
-  /**
-   * Gets the unstructured address field.
-   * @type {string}
-   */
-  this.address = undefined;
-  /**
-   * Gets the phone number.
-   * @type {string}
-   */
-  this.phoneNumber = undefined;
-  /**
-   * Gets the snippet.
-   * @type {string}
-   */
-  this.snippet = undefined;
-  /**
-   * Gets the extended data, parsed into a JSON object.
-   * Currently only the <code>Data</code> property is supported.
-   * <code>SchemaData</code> and custom data are ignored.
-   * @type {string}
-   */
-  this.extendedData = undefined;
+    /**
+     * Gets the unstructured address field.
+     * @type {string}
+     */
+    this.address = undefined;
+    /**
+     * Gets the phone number.
+     * @type {string}
+     */
+    this.phoneNumber = undefined;
+    /**
+     * Gets the snippet.
+     * @type {string}
+     */
+    this.snippet = undefined;
+    /**
+     * Gets the extended data, parsed into a JSON object.
+     * Currently only the <code>Data</code> property is supported.
+     * <code>SchemaData</code> and custom data are ignored.
+     * @type {string}
+     */
+    this.extendedData = undefined;
+  }
 }
 
 // For testing

@@ -173,7 +173,7 @@ function defaultClone(value, defaultValue) {
  *
  * @returns {Resource} 如果resource是字符串，则返回用URL和选项构造的Resource。否则返回resource参数。
  *
- * @private
+ * @ignore
  */
 Resource.createIfNeeded = function (resource) {
   if (resource instanceof Resource) {

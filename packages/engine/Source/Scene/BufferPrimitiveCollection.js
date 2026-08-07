@@ -9,8 +9,11 @@ import assert from "../Core/assert.js";
 import ComponentDatatype from "../Core/ComponentDatatype.js";
 import defined from "../Core/defined.js";
 import Check from "../Core/Check.js";
+import AttributeCompression from "../Core/AttributeCompression.js";
 import SceneMode from "./SceneMode.js";
+import AttributeType from "./AttributeType.js";
 import oneTimeWarning from "../Core/oneTimeWarning.js";
+import BlendOption from "../Scene/BlendOption.js";
 
 /** @import { Destroyable, TypedArray, TypedArrayConstructor } from "../Core/globalTypes.js"; */
 /** @import Context from "../Renderer/Context.js"; */
@@ -74,8 +77,11 @@ class BufferPrimitiveCollection {
    * @param {number} [options.vertexCountMax=BufferPrimitiveCollection.DEFAULT_CAPACITY]
    * @param {boolean} [options.show=true]
    * @param {ComponentDatatype} [options.positionDatatype=ComponentDatatype.DOUBLE]
-   * @param {boolean} [options.allowPicking=false] 当 <code>true</code> 时,图元可使用 {@link Scene#pick} 进行拾取。当 <code>false</code> 时,内存和初始化成本更低。
+   * @param {boolean} [options.positionNormalized=false] 当 <code>true</code> 时，整数位置值被视为归一化，其中完整的整数范围映射到 [-1, 1]（有符号）或 [0, 1]（无符号）。仅与整数位置数据类型（BYTE、UNSIGNED_BYTE、SHORT、UNSIGNED_SHORT）相关。
+   * @param {boolean} [options.allowPicking=false] When <code>true</code>, primitives are pickable with {@link Scene#pick}. When <code>false</code>, memory and initialization cost are lower.
+   * @param {BoundingSphere} [options.boundingVolume] 在世界空间中，该集合的边界体积。当未指定时，边界体积会自动计算，并在原始位置变化时更新。当指定时，用户需要根据需要更新边界体积。手动预先计算边界体积，并仅在需要时更新，将提高较大动态集合的性能。
    * @param {boolean} [options.debugShowBoundingVolume=false]
+   * @param {BlendOption} [options.blendOption=BlendOption.TRANSLUCENT]
    */
   constructor(options = Frozen.EMPTY_OBJECT) {
     /**
@@ -86,6 +92,15 @@ class BufferPrimitiveCollection {
     this.show = options.show ?? true;
 
     /**
+     * Collection blend option; must be OPAQUE or TRANSLUCENT.
+     * @type {BlendOption}
+     * @readonly
+     * @ignore
+     */
+    this._blendOption = options.blendOption ?? BlendOption.TRANSLUCENT;
+
+    /**
+     * Transforms geometry from model to world coordinates.
      * @type {Matrix4}
      * @default Matrix4.IDENTITY
      * @readonly
@@ -98,14 +113,17 @@ class BufferPrimitiveCollection {
      * @readonly
      * @protected
      */
-    this._boundingVolume = new BoundingSphere();
+    this._boundingVolume = BoundingSphere.clone(
+      options.boundingVolume ?? new BoundingSphere(),
+      new BoundingSphere(),
+    );
 
     /**
-     * @type {BoundingSphere}
+     * @type {boolean}
      * @readonly
      * @protected
      */
-    this._boundingVolumeWC = new BoundingSphere();
+    this._boundingVolumeAutoUpdate = !defined(options.boundingVolume);
 
     /**
      * 当 <code>true</code> 时,图元可使用 {@link Scene#pick} 进行拾取。
@@ -171,7 +189,6 @@ class BufferPrimitiveCollection {
 
     /**
      * @type {number}
-     * @protected
      * @ignore
      */
     this._positionCountMax =
@@ -182,6 +199,21 @@ class BufferPrimitiveCollection {
      * @ignore
      */
     this._positionView = null;
+
+    /**
+     * @type {ComponentDatatype}
+     * @ignore
+     */
+    this._positionDatatype =
+      options.positionDatatype ?? ComponentDatatype.DOUBLE;
+
+    /**
+     * When <code>true</code>, integer position values represent normalized floats
+     * in [-1, 1] (signed) or [0, 1] (unsigned). Only applicable to integer datatypes.
+     * @type {boolean}
+     * @ignore
+     */
+    this._positionNormalized = options.positionNormalized ?? false;
 
     /**
      * @type {DataView<ArrayBuffer>}
@@ -211,10 +243,15 @@ class BufferPrimitiveCollection {
      */
     this._dirtyBoundingVolume = false;
 
+    /**
+     * Monotonically increasing counter, bumped each time collection is marked "clean".
+     * @type {number}
+     * @ignore
+     */
+    this._version = 0;
+
     this._allocatePrimitiveBuffer();
-    this._allocatePositionBuffer(
-      options.positionDatatype ?? ComponentDatatype.DOUBLE,
-    );
+    this._allocatePositionBuffer();
     this._allocateMaterialBuffer();
   }
 
@@ -267,14 +304,13 @@ class BufferPrimitiveCollection {
   }
 
   /**
-   * @param {ComponentDatatype} datatype
    * @private
    * @ignore
    */
-  _allocatePositionBuffer(datatype) {
-    // @ts-expect-error Requires https://github.com/CesiumGS/cesium/pull/13203.
+  _allocatePositionBuffer() {
+    // @ts-expect-error https://github.com/CesiumGS/cesium/issues/13420
     this._positionView = ComponentDatatype.createTypedArray(
-      datatype,
+      this._positionDatatype,
       this._positionCountMax * 3,
     );
   }
@@ -469,28 +505,32 @@ class BufferPrimitiveCollection {
    * @ignore
    */
   _updateBoundingVolume() {
-    const TypedArray = /** @type {TypedArrayConstructor} */ (
-      this._positionView.constructor
-    );
-
     // Exclude unused space in the position buffer.
-    const vertices = new TypedArray(
-      /** @type {ArrayBuffer} */ (this._positionView.buffer),
-      this._positionView.byteOffset,
-      this._positionCount * 3,
-    );
+    let vertices = this._positionView.subarray(0, this._positionCount * 3);
+
+    if (this._positionNormalized) {
+      vertices = AttributeCompression.dequantize(
+        /** @type {Int8Array|Uint8Array|Int16Array|Uint16Array|Int32Array|Uint32Array} */ (
+          vertices
+        ),
+        this._positionDatatype,
+        AttributeType.VEC3,
+        this._positionCount,
+      );
+    }
 
     BoundingSphere.fromVertices(
       vertices,
       Cartesian3.ZERO,
       3,
-      this.boundingVolume,
+      this._boundingVolume,
     );
     BoundingSphere.transform(
-      this.boundingVolume,
-      this.modelMatrix,
-      this.boundingVolumeWC,
+      this._boundingVolume,
+      this._modelMatrix,
+      this._boundingVolume,
     );
+
     this._dirtyBoundingVolume = false;
   }
 
@@ -618,11 +658,26 @@ class BufferPrimitiveCollection {
   }
 
   /**
-   * Marks collection bounding volume as 'dirty', to be updated on next render.
+   * Marks all primitives 'clean', and updates version counter.
+   * @ignore
+   */
+  _makeClean() {
+    if (this._dirtyCount > 0) {
+      this._dirtyCount = 0;
+      this._dirtyOffset = 0;
+      this._version++;
+    }
+  }
+
+  /**
+   * Marks collection bounding volume as 'dirty', to be updated on next render,
+   * if automatic bounding volume updates are enabled.
    * @ignore
    */
   _makeDirtyBoundingVolume() {
-    this._dirtyBoundingVolume = true;
+    if (this._boundingVolumeAutoUpdate) {
+      this._dirtyBoundingVolume = true;
+    }
   }
 
   /////////////////////////////////////////////////////////////////////////////
@@ -718,23 +773,35 @@ class BufferPrimitiveCollection {
   }
 
   /**
-   * 集合中所有图元的局部包围体积,包括
-   * 显示和隐藏的图元。
+   * 集合中所有原语的世界空间边界体积，包括
+   * 显示和隐藏的原语。
    * @type {BoundingSphere}
    * @readonly
    */
   get boundingVolume() {
+    if (this._dirtyBoundingVolume) {
+      this._updateBoundingVolume();
+    }
     return this._boundingVolume;
   }
 
   /**
-   * 集合中所有图元的世界包围体积,包括
-   * 显示和隐藏的图元。
-   * @type {BoundingSphere}
+   * 用于存储位置值的组件数据类型。
+   * @type {ComponentDatatype}
    * @readonly
    */
-  get boundingVolumeWC() {
-    return this._boundingVolumeWC;
+  get positionDatatype() {
+    return this._positionDatatype;
+  }
+
+  /**
+   * 当 <code>true</code> 时，整数位置值被视为归一化值，其中整个整数范围映射到 [-1, 1]（有符号）或 [0, 1]
+   * (无符号).
+   * @type {boolean}
+   * @readonly
+   */
+  get positionNormalized() {
+    return this._positionNormalized;
   }
 
   /////////////////////////////////////////////////////////////////////////////

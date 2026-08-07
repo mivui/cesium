@@ -238,12 +238,14 @@ const scratchColorZero = new Color(0.0, 0.0, 0.0, 0.0);
 /**
  * 计算用于拾取的部分绘制缓冲区所描述的矩形。
  *
- * @param {number} drawingBufferHeight 绘制缓冲区的高度
- * @param {Cartesian2} position 绘制缓冲区内的位置
- * @param {number|undefined} width 矩形的宽度，假定为奇数整数，默认值：3.0
- * @param {number|undefined} height 矩形的高度。如果未指定，height 将默认取 <code>width</code> 的值
- * @param {BoundingRectangle} result 结果矩形
- * @returns {BoundingRectangle} 结果矩形
+ * @param {number} drawingBufferHeight 绘图缓冲区的高度
+ * @param {Cartesian2} position 绘图缓冲区内的位置
+ * @param {number|undefined} width 矩形的宽度，假定为奇整数，默认值: 3.0
+ * @param {number|undefined} height 矩形的高度。如果未指定，
+ * height 将默认为 <code>width</code> 的值
+ * @param {BoundingRectangle} result 返回的矩形
+ * @returns {BoundingRectangle} 返回的矩形
+ * @ignore
  */
 function computePickingDrawingBufferRectangle(
   drawingBufferHeight,
@@ -260,23 +262,33 @@ function computePickingDrawingBufferRectangle(
 }
 
 /**
- * 拾取前所需的设置。
+ * 在选择之前需要设置。
+ *
+ * 导出供 Snapping 使用，它执行相同的离屏选择渲染，
+ * 但目标是快照帧缓冲，并将该通道标记为快照通道。
  *
  * @param {Scene} scene
- * @param {Cartesian2} windowPosition 用于执行拾取的窗口坐标。
- * @param {BoundingRectangle} drawingBufferRectangle 输出的绘制缓冲区矩形。
+ * @param {Cartesian2} windowPosition 在该窗口坐标上执行拾取操作。
+ * @param {BoundingRectangle} drawingBufferRectangle 输出绘图缓冲区矩形。
  * @param {number} [width=3] 拾取矩形的宽度。
  * @param {number} [height=3] 拾取矩形的高度。
+ * @param {object} [options] 包含以下属性的对象：
+ * @param {PickFramebuffer|SnapFramebuffer} [options.framebuffer] 用于渲染的帧缓冲区。默认为视图的拾取帧缓冲区。
+ * @param {boolean} [options.snap=false] 如果 <code>true</code>，标记该过程为捕捉过程（设置 <code>frameState.passes.snap</code>）。
+ *
+ * @private
  */
-function pickBegin(
+export function pickBegin(
   scene,
   windowPosition,
   drawingBufferRectangle,
   width,
   height,
+  options,
 ) {
   const { context, frameState, defaultView } = scene;
   const { viewport, pickFramebuffer } = defaultView;
+  const framebuffer = options?.framebuffer ?? pickFramebuffer;
 
   scene.view = defaultView;
 
@@ -313,13 +325,14 @@ function pickBegin(
   );
   frameState.invertClassification = false;
   frameState.passes.pick = true;
+  frameState.passes.snap = options?.snap ?? false;
   frameState.tilesetPassState = pickTilesetPassState;
 
   context.uniformState.update(frameState);
 
   scene.updateEnvironment();
 
-  passState = pickFramebuffer.begin(drawingBufferRectangle, viewport);
+  passState = framebuffer.begin(drawingBufferRectangle, viewport);
 
   scene.updateAndExecuteCommands(passState, scratchColorZero);
   scene.resolveFramebuffers(passState);
@@ -329,8 +342,10 @@ function pickBegin(
  * 拾取后所需的清理。
  *
  * @param {Scene} scene
+ *
+ * @private
  */
-function pickEnd(scene) {
+export function pickEnd(scene) {
   const { context } = scene;
   context.endFrame();
 }
@@ -801,7 +816,8 @@ Picking.prototype.pickPosition = function (scene, windowPosition, result) {
  * @param {object[]} pickedPrimitives
  * @param {object[]} pickedAttributes
  * @param {object[]} pickedFeatures
- * @returns {boolean} 是否应该结束拾取
+ * @returns {boolean} whether picking should end
+ * @ignore
  */
 function addDrillPickedResults(
   pickedResults,
@@ -865,10 +881,11 @@ function addDrillPickedResults(
 }
 
 /**
- * 通过重复调用给定的 `pickCallback` 进行钻取拾取，每次剥离之前已拾取的对象。
- * @param {function(number): object[]} pickCallback 每次迭代执行的拾取回调函数
- * @param {number} [limit=Number.MAX_VALUE] 如果提供，在收集到该数量的拾取结果后停止钻取。
- * @returns {object[]} 拾取结果列表
+ * Drill pick by repeatedly calling a given `pickCallback`, each time stripping away the previously picked objects.
+ * @param {function(number): object[]} pickCallback Pick callback to execute each iteration
+ * @param {number} [limit=Number.MAX_VALUE] If supplied, stop drilling after collecting this many picks
+ * @returns {object[]} List of picked results
+ * @ignore
  */
 function drillPick(pickCallback, limit) {
   // PERFORMANCE_IDEA: This function calls each primitive's update for each pass. Instead
